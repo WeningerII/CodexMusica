@@ -1,0 +1,150 @@
+{
+  "id": "hands_up",
+  "name": "Hands Up",
+  "family": "electronic",
+  "lineage": "A German and Dutch commercial rave style codified 2003-2010 through labels like Zoo Digital, Aqualoop and Andorfine and acts such as Cascada, Manian, Rocco and Italobrothers — 140-160 BPM four-on-the-floor with an offbeat detuned supersaw bass, sugary major-key trance-derived leads, pitch-shifted or heavily processed female vocal hooks, and euphoric build-breakdown-drop structures descended from happy hardcore and eurodance.",
+  "recipe": "classic mid-2000s hands up, electronic Dance, eurodance branch, trance electronic dance, europop functional song chasidic pop muzică etno. thick, chest mix belt, wide pitch sway, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, singing lead digital subtractive, singing lead wavetable singing lead analog poly synth, polychordal major seven nine eleven stack mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 700,
+  "score": 237.77,
+  "config": {
+    "traditions": [
+      "hands_up",
+      "chasidic_pop",
+      "muzica_etno"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_clap",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 3.25,
+          "drum_machine_909_context": 2.3850000000000002,
+          "tr909_production_origin": 1.195
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 10.754999999999999,
+          "va_archetypes": 2.9899999999999998,
+          "digital_subtractive_context": 19.759999999999998
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": 10.754999999999999,
+          "wt_position": 4.615,
+          "wt_family": 1.2999999999999998,
+          "wt_polyphony": 0.24
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_formant_shifted_double_stereo"
+        },
+        "scores": {
+          "voice_register": 13.294999999999993,
+          "voice_quality": 10.769999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2899999999999998,
+          "voice_articulation": 19.759999999999998,
+          "voice_microtone": 21.709999999999994,
+          "voice_tradition": 13.605,
+          "voice_mechanism_compound": 3.6,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 24.96,
+          "voice_ensemble_config": 23.334999999999994,
+          "voice_ornament_system": 0.7749999999999999,
+          "voice_pitch_organization": 4.320000000000001,
+          "voice_processing_chain": 11.174999999999999,
+          "voice_multitrack_stack": 2.59
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_polychordal_7_9_11",
+          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 2.04,
+          "multitrack_stack_era_aesthetic": 4.195,
+          "multitrack_stack_processing": 5.75
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 10.754999999999999,
+          "poly_archetypes": 0.915,
+          "poly_voices": 0.915,
+          "poly_maker_lineage": -1.765
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

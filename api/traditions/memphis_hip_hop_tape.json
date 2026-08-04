@@ -3,14 +3,14 @@
   "name": "Memphis hip-hop (Bluff City tape scene)",
   "family": "hip_hop",
   "lineage": "Formed in Memphis, Tennessee between 1988 and 1995 around DJ Spanish Fly, DJ Squeeky, Tommy Wright III, Kingpin Skinny Pimp and the early Three 6 Mafia collective, who dubbed 60-90 BPM half-time tracks straight to cassette from four-track and Ensoniq/808 setups — hard TR-808 kick-and-cowbell patterns, triplet hi-hats, doubled minor-key horror-film and Isaac Hayes samples pitched down, and chanted call-and-response hooks delivered in a flat, menacing double-time cadence.",
-  "recipe": "classic Asian late-1980s memphis hip-hop, mc Rhythm, southern branch, us hip hop gangsta, experimental MC rhythm rage. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, sampled chopped turntable, low sub bass analog poly synth, octuple plus dense stack multi track instrument late 1980s reverb saturated bus stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 608,
-  "score": 307.003,
+  "recipe": "classic Asian late-1980s memphis hip-hop, mc Rhythm, southern branch, us hip hop gangsta, experimental MC rhythm nerdcore. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, sampled chopped turntable, low sub bass analog poly synth, octuple plus dense stack multi track instrument late 1980s reverb saturated bus stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 612,
+  "score": 331.226,
   "config": {
     "traditions": [
       "memphis_hip_hop_tape",
       "gangsta_rap",
-      "rage_rap"
+      "nerdcore"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.49,
-          "voice_quality": 24.234,
+          "voice_register": 1.5274999999999999,
+          "voice_quality": 28.351999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.4525,
-          "voice_articulation": 21.124999999999996,
-          "voice_microtone": 25.60999999999999,
-          "voice_tradition": 12.306,
-          "voice_mechanism_compound": 3.6405000000000007,
-          "voice_estill_quality": 1.9164999999999999,
-          "voice_speech_song": 22.4395,
-          "voice_ensemble_config": 21.64499999999999,
-          "voice_ornament_system": 6.630000000000003,
-          "voice_pitch_organization": 3.346,
-          "voice_processing_chain": 15.3315,
-          "voice_multitrack_stack": 4.9725
+          "voice_vibrato": 4.0625,
+          "voice_articulation": 20.799999999999997,
+          "voice_microtone": 25.28499999999999,
+          "voice_tradition": 13.359999999999998,
+          "voice_mechanism_compound": 3.9650000000000007,
+          "voice_estill_quality": 2.6650000000000005,
+          "voice_speech_song": 25.866999999999997,
+          "voice_ensemble_config": 21.31999999999999,
+          "voice_ornament_system": 7.540000000000003,
+          "voice_pitch_organization": 3.085000000000001,
+          "voice_processing_chain": 17.119999999999997,
+          "voice_multitrack_stack": 4.42
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 11.598499999999998,
-          "drum_machine_808_context": 4.030000000000001,
-          "tr808_production_origin": 2.08
+          "tr808_voice": 12.209999999999999,
+          "drum_machine_808_context": 2.7950000000000004,
+          "tr808_production_origin": 2.2359999999999998
         }
       },
       {
@@ -70,16 +70,16 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "emu_sp1200",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 9.267999999999997,
-          "sampler_archetypes": 16.444999999999997,
-          "sampler_bit_depth": 1.56,
-          "sampler_workflow": 11.668,
-          "sampler_classic_context": 31.818999999999996
+          "electronic_technique": 11.319999999999999,
+          "sampler_archetypes": 19.955,
+          "sampler_bit_depth": 1.8199999999999998,
+          "sampler_workflow": 13.402,
+          "sampler_classic_context": 34.2225
         }
       },
       {
@@ -89,8 +89,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 9.267999999999997,
-          "turntable_technique": 10.499999999999998
+          "electronic_technique": 11.319999999999999,
+          "turntable_technique": 12.57
         }
       },
       {
@@ -98,14 +98,14 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 15.348499999999998,
-          "poly_archetypes": 0.45499999999999996,
+          "electronic_technique": 13.779999999999998,
+          "poly_archetypes": 0.105,
           "poly_voices": 0.195,
-          "poly_maker_lineage": 0.12999999999999998
+          "poly_maker_lineage": 0.78
         }
       },
       {
@@ -116,9 +116,9 @@
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 1.334,
-          "multitrack_stack_era_aesthetic": 3.9,
-          "multitrack_stack_processing": 2.3905000000000003
+          "multitrack_stack_density": 2.47,
+          "multitrack_stack_era_aesthetic": 3.25,
+          "multitrack_stack_processing": 2.539
         }
       }
     ],

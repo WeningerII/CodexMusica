@@ -1,0 +1,206 @@
+{
+  "id": "steampunk",
+  "name": "Steampunk",
+  "family": "rock",
+  "lineage": "A retrofuturist neo-Victorian music scene formed in the US Pacific Northwest and California circa 2005-2012 around Abney Park, Vernian Process and Steam Powered Giraffe, growing out of convention culture rather than a geographic club scene — cabaret and sea-shanty song forms in 6/8 or brisk 2/4, accordion, fiddle and pump organ layered over rock rhythm section and industrial or orchestral samples, theatrical narrative vocals in character, produced entirely in the box in home project studios.",
+  "recipe": "classic mid-2000s steampunk, distorted Rock, art rock branch, retro aesthetic experimental electric, gothic rock distorted rock deathrock. thick, breath veiled tone, straight note core, interlocked note trading. castagnari Italian premium folk music accordion, double stops fiddle, upright bass, pre muffled edge muffled sticks backbeat drum kit, cedar phosphor bronze modern martin dreadnought acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, pump organ harmonium. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 752,
+  "score": 294.91,
+  "config": {
+    "traditions": [
+      "steampunk",
+      "deathrock",
+      "goth"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 2.4400000000000004,
+          "accordion_reed_material": 1.175,
+          "musette_offset": 1.54,
+          "reed_config": 1.045,
+          "bellows": 0.3,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 2.4699999999999998
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 3.0500000000000007,
+          "fiddle_strings": 0.105,
+          "fiddle_bow": 0.045,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.8450000000000001
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "upright_strings": 0.105,
+          "upright_play": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 31.025000000000006,
+          "drumhead": 2.2399999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood": "cedar",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 2.9000000000000004,
+          "string_tuning": 0.04999999999999999,
+          "top_wood": 1.235,
+          "back_sides": 0.21,
+          "string_acoustic": 1.235
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 6.074999999999999,
+          "amp_make": 19.71,
+          "body_wood": 1.235,
+          "neck_wood": 1.1300000000000001,
+          "fretboard": 1.08,
+          "pickup_magnet": 1.1949999999999998,
+          "pickup_winding": 0.195,
+          "string_material": 0.255,
+          "bridge": 1.1300000000000001,
+          "scale_length": 1.235,
+          "string_gauge": 1.4300000000000002,
+          "finish": 0.5,
+          "string_tuning": 14.315000000000001
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 34.01000000000002,
+          "voice_quality": 12.284999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.435,
+          "voice_articulation": 19.759999999999998,
+          "voice_microtone": 32.53000000000001,
+          "voice_tradition": 6.825,
+          "voice_mechanism_compound": 4.835000000000001,
+          "voice_estill_quality": 0.9999999999999998,
+          "voice_speech_song": 21.709999999999994,
+          "voice_ensemble_config": 19.434999999999995,
+          "voice_ornament_system": 2.45,
+          "voice_pitch_organization": 2.600000000000001,
+          "voice_processing_chain": 5.720000000000001,
+          "voice_multitrack_stack": 2.0149999999999997
+        }
+      },
+      {
+        "id": "pump_organ_harmonium",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "pump_organ_construction": "pump_organ_late_19th_revival",
+          "pump_organ_stops": "pump_organ_bourdon_stop"
+        },
+        "scores": {
+          "keyboard_technique": 1.6999999999999997,
+          "pump_organ_construction": 19.11,
+          "pump_organ_stops": 0.195
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

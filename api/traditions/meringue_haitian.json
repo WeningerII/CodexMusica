@@ -1,0 +1,204 @@
+{
+  "id": "meringue_haitian",
+  "name": "Méringue (Haitian salon and carnival)",
+  "family": "global",
+  "lineage": "Haiti's 19th-century national dance, formed in Port-au-Prince salons from contredanse and Afro-Haitian rhythm and elevated by Occide Jeanty, Ludovic Lamothe and later Issa el Saieh's big bands — a moderate 2/4 with a distinctive quintolet-inflected bass-drum figure, played by piano or wind band in its lente salon form and by carnival brass in the street.",
+  "recipe": "classic Caribbean mid-1970s méringue, functional Song, tropical song branch, Caribbean carnival processional, western common practice art music italian baroque french baroque. thick, breath veiled tone, slow rate, interlocked note trading. 17 ply hard rock maple European spruce norway spruce European tradition grand piano, grenadilla African blackwood traditional continuous-airflow legato clarinet, rose brass darker warmer continuous-airflow legato saxophone, tanbou dejanbe, venice catlin high twist renaissance bass norway spruce European alpine double bass, yellow brass canonical 70 30 bach stradivarius continuous-airflow legato heavy one piece matched to monette horn trumpet. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+  "recipe_chars": 900,
+  "score": 208.92,
+  "config": {
+    "traditions": [
+      "meringue_haitian",
+      "italian_baroque",
+      "french_baroque"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 0.7,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 3.4,
+          "piano_rim": 3.835,
+          "piano_soundboard": 3.385,
+          "piano_pinblock": 2.495,
+          "piano_plate": 3.185,
+          "piano_pitch_standard": 8.945
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 3.185,
+          "clarinet_body": 3.7700000000000005,
+          "clarinet_size": 1,
+          "clarinet_reed": 0.7,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "baritone_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 3.185,
+          "sax_size": 0.39,
+          "sax_reed": 0.7,
+          "sax_body_alloy": 4.88,
+          "sax_mouthpiece": 0.5,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0
+        }
+      },
+      {
+        "id": "tanbou_dejanbe",
+        "slots": {
+          "tanbou_dejanbe_rite": "tanbou_dejanbe_kongo",
+          "tanbou_dejanbe_head": "tanbou_dejanbe_goat",
+          "tanbou_dejanbe_shell": "tanbou_dejanbe_mahogany"
+        },
+        "scores": {
+          "tanbou_dejanbe_rite": 0.195,
+          "tanbou_dejanbe_head": 0.15,
+          "tanbou_dejanbe_shell": 0.65
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "cremonese_pre_1750_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "bass_size": 0,
+          "bass_strings": 2.6650000000000005,
+          "bass_top_wood": 4.3,
+          "bass_back_wood": 5.645,
+          "bass_varnish": 3.205,
+          "bass_setup_period": 3.545,
+          "bass_play": 1,
+          "bass_rosin": 4.5,
+          "bass_bow_stick": 2.4000000000000004
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 3.185,
+          "brass_size": 0.15,
+          "trumpet_mouthpiece": 4.9399999999999995,
+          "brass_mute": 2.5,
+          "trumpet_technique": 2.5,
+          "trumpet_bell_metal": 1.69,
+          "trumpet_maker_school": 0.69
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.045,
+          "voice_quality": 6.110000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.02,
+          "voice_articulation": 16.964999999999993,
+          "voice_microtone": 17.22499999999999,
+          "voice_tradition": 5.655000000000001,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 7.089999999999999,
+          "voice_speech_song": 21.254999999999992,
+          "voice_ensemble_config": 17.354999999999993,
+          "voice_ornament_system": 5.175000000000001,
+          "voice_pitch_organization": 2.49,
+          "voice_processing_chain": 6.044999999999999,
+          "voice_multitrack_stack": 2.0799999999999996
+        }
+      }
+    ],
+    "room": "port_au_prince_haitian_kompa_studio",
+    "archetype": "arch_antilles_creole_analog",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "haitian_kompa_meringue",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "haitian_kompa_meringue",
+    "room": "port_au_prince_haitian_kompa_studio",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

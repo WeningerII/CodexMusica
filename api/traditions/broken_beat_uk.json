@@ -5,7 +5,7 @@
   "lineage": "Early-2000s UK electronic subgenre developed in West London through producers IG Culture, Bugz in the Attic, and 4hero. Characterized by complex broken-rhythm percussion (often 6/4 or 9/8 polymetric framework), jazz-and-soul-vocal integration, deep-house-and-techno harmonic vocabulary, and the canonical 4-and-7-Records label. Distinguished from drum-and-bass by broken beat's slower tempo and explicit jazz-house-fusion orientation.",
   "recipe": "classic British broken beat, bass System, bass descendants branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 595,
-  "score": 355.982,
+  "score": 357.939,
   "config": {
     "traditions": [
       "broken_beat_uk",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 32.876500000000014,
+          "voice_register": 33.04000000000001,
           "voice_quality": 7.215000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 28.473,
+          "voice_vibrato": 28.724999999999998,
           "voice_articulation": 19.24,
-          "voice_microtone": 27.354999999999997,
-          "voice_tradition": 33.494,
+          "voice_microtone": 27.504999999999995,
+          "voice_tradition": 35.75,
           "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 7.57525,
+          "voice_estill_quality": 7.58875,
           "voice_speech_song": 19.694999999999997,
           "voice_ensemble_config": 20.019999999999996,
-          "voice_ornament_system": 1.95,
-          "voice_pitch_organization": 4.875000000000001,
-          "voice_processing_chain": 13.499999999999996,
-          "voice_multitrack_stack": 7.8745
+          "voice_ornament_system": 1.5,
+          "voice_pitch_organization": 4.578750000000001,
+          "voice_processing_chain": 13.589999999999996,
+          "voice_multitrack_stack": 7.75
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 6.8575,
-          "drum_machine_808_context": 8.305999999999997,
-          "tr808_production_origin": 1.6
+          "tr808_voice": 6.19,
+          "drum_machine_808_context": 7.909999999999998,
+          "tr808_production_origin": 1.69
         }
       },
       {
@@ -72,35 +72,35 @@
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "gated_env",
-          "modulation": "lfo_pitch"
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 6.727500000000001,
-          "oscillator": 5.59,
-          "filter_topology": 5.59,
+          "electronic_technique": 6.090000000000001,
+          "oscillator": 5.215,
+          "filter_topology": 5.41,
           "envelope": 1.69,
-          "modulation": 0
+          "modulation": 0.585
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 22.15825,
-          "body_wood": 0.9360000000000002,
-          "pickup_config": 0.3,
-          "string_type": 33.299,
-          "scale_length_b": 0.5445,
-          "fretted_or_not": 0,
-          "bass_technique": 27.5
+          "amp_make": 21.426249999999996,
+          "body_wood": 0.39,
+          "pickup_config": 0.44999999999999996,
+          "string_type": 35.75,
+          "scale_length_b": 0.44999999999999996,
+          "fretted_or_not": 0.21,
+          "bass_technique": 27.545
         }
       }
     ],

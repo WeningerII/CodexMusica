@@ -1,0 +1,211 @@
+{
+  "id": "british_invasion",
+  "name": "British Invasion",
+  "family": "pop_rock",
+  "lineage": "British beat-group wave that broke in the United States in 1964 following The Beatles' Ed Sullivan appearance, produced largely at EMI Abbey Road, Decca and IBC on four-track — Liverpool and London bands recasting American R&B, Chuck Berry and Brill Building songwriting as compact two-to-three-minute guitar-bass-drums records at 120-150 BPM with tight two- and three-part harmony, tambourine backbeat and heavily limited mono mixes.",
+  "recipe": "classic British mid-1960s british invasion, functional Song, pop rock branch, pop rock girl group, classic distorted rock yé-yé 1960s girl group. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall plexi amp British rock amp soft down tuning clean strummed single coil electric strummed open chord ringing overtones dreadnought acoustic guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch, pearwood marine band tradition brass traditional harmonica, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 869,
+  "score": 412.2,
+  "config": {
+    "traditions": [
+      "british_invasion",
+      "ye_ye",
+      "girl_group_60s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 32.144999999999996,
+          "voice_quality": 15.665000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.54,
+          "voice_articulation": 22.814999999999998,
+          "voice_microtone": 29.674999999999997,
+          "voice_tradition": 18.629999999999995,
+          "voice_mechanism_compound": 4.355,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 28.145000000000003,
+          "voice_ensemble_config": 24.569999999999997,
+          "voice_ornament_system": 1.4299999999999995,
+          "voice_pitch_organization": 2.3800000000000003,
+          "voice_processing_chain": 6.499999999999999,
+          "voice_multitrack_stack": 6.89
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 18.794999999999998,
+          "amp_make": 10.27,
+          "body_wood": 0.69,
+          "neck_wood": 0.69,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 0.69,
+          "bridge": 0,
+          "scale_length": 1.3800000000000001,
+          "finish": 0.435,
+          "string_tuning": 7.475000000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 10.27,
+          "body_wood": 1.3800000000000001,
+          "pickup_config": 0,
+          "string_type": 16.4125,
+          "scale_length_b": 0.69,
+          "fretted_or_not": 0.195,
+          "bass_technique": 12.905000000000001
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 21.644999999999996,
+          "drumhead": 17.289999999999996,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.57,
+          "tambourine_orch_context": 0.12999999999999998
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "bass_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_folk_first_position",
+          "harmonica_maker_school": "harmonica_hering_brazilian",
+          "harmonica_tuning": "harmonica_minor_key"
+        },
+        "scores": {
+          "harmonica_type": 0.195,
+          "harmonica_comb": 1.4949999999999999,
+          "harmonica_reed": 1.1049999999999998,
+          "harmonica_technique": 0.8125,
+          "harmonica_maker_school": 0.44999999999999996,
+          "harmonica_tuning": 0.7349999999999999
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_vox_ac"
+        },
+        "scores": {
+          "keyboard_technique": 17.804999999999996,
+          "combo_organ_model": 17.58,
+          "combo_organ_voicing": 18.029999999999998,
+          "combo_organ_context": 7.605,
+          "amp_make": 7.99
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "eb_standard",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 17.529999999999994,
+          "string_tuning": 0.5199999999999999,
+          "top_wood": 0.69,
+          "back_sides": 0.195,
+          "string_acoustic": 0.135
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_uk_small_commercial",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_emi_redd",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_emi_redd"
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "id": "modern_funk",
+  "name": "Modern Funk",
+  "family": "electronic",
+  "lineage": "A Los Angeles-centred 2008-onward revival of early-1980s boogie and synth-funk led by Dâm-Funk, XL Middleton, Zackey Force Funk, Moniquea and the MoFunk and Peanut Butter Wolf label circles — programmed LinnDrum and 808 patterns at 98-112 BPM, Moog and Juno synth basslines in place of electric bass, glassy poly-synth chords, talkbox and vocoder leads, and hazy, deliberately lo-fi analogue mixes produced largely by one person in a home studio.",
+  "recipe": "classic modern modern funk, functional Song, soul R&B branch, funk percussive groove percussion, lofi house house boogie brit funk. thick, breath veiled tone, straight onset, interlocked note trading. linn electronics lm 2 linndrum canonical 1982 1984 8 bit sample rom linndrum, behringer rd 8 modern clone analog circuit reproduction TR-808, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, low sub bass monosynth acid bass, talkbox, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 658,
+  "score": 215.519,
+  "config": {
+    "traditions": [
+      "modern_funk",
+      "boogie_post_disco",
+      "brit_funk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 13.264999999999999,
+          "voice_quality": 7.215,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.335,
+          "voice_articulation": 21.774999999999995,
+          "voice_microtone": 21.384999999999994,
+          "voice_tradition": 7.720000000000001,
+          "voice_mechanism_compound": 3.0549999999999997,
+          "voice_estill_quality": 6.640000000000001,
+          "voice_speech_song": 24.83,
+          "voice_ensemble_config": 22.81499999999999,
+          "voice_ornament_system": 0.45500000000000007,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 29.139999999999997,
+          "voice_multitrack_stack": 8.125000000000002
+        }
+      },
+      {
+        "id": "linndrum",
+        "slots": {
+          "linndrum_voice": "linndrum_hat_perc",
+          "linndrum_context": "linndrum_rb",
+          "linndrum_production_origin": "linndrum_lm_2_canonical"
+        },
+        "scores": {
+          "linndrum_voice": 2.875,
+          "linndrum_context": 5.2,
+          "linndrum_production_origin": 1.3649999999999998
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 3.1200000000000006,
+          "drum_machine_808_context": 5.07,
+          "tr808_production_origin": 1.8850000000000002
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 3.380000000000001,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": 3.82125
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 3.380000000000001,
+          "wave_acid": 0.65,
+          "filter_acid": 0.195,
+          "accent_acid": 0.4875
+        }
+      },
+      {
+        "id": "talkbox",
+        "slots": {
+          "talkbox_use": "talkbox_funk",
+          "talkbox_construction": "talkbox_tube"
+        },
+        "scores": {
+          "talkbox_use": 0,
+          "talkbox_construction": 1.345
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_many_bands",
+          "voc_carrier": "voc_noise_carrier",
+          "voc_modulator": "voc_drum_mod"
+        },
+        "scores": {
+          "voc_band_count": 1.3900000000000001,
+          "voc_carrier": 0.9950000000000001,
+          "voc_modulator": 0.43500000000000005
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

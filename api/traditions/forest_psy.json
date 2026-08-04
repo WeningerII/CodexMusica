@@ -1,0 +1,119 @@
+{
+  "id": "forest_psy",
+  "name": "Forest psy",
+  "family": "electronic",
+  "lineage": "Night-forest offshoot of psytrance formed in Finland, Russia and Denmark from the late 1990s around Parvati Records, Insomnia and the Fungus Funk / Psykovsky / Ka-Sol axis — 145-165 BPM with a tight short kick and continuous rolling 16th-note offbeat bass, FM and ring-modulated squelch leads that gurgle and pitch-bend organically rather than sing, no chord movement and only fragmentary minor motifs, dense stacking of ten or more short modulated layers, and outdoor woodland night-floor mixing that keeps the low mids scooped for open-air rigs.",
+  "recipe": "classic 1997-1999 forest psy, electronic Dance, trance branch, idm glitch experimental electric, techno electronic dance, industrial noise experimental electric breakcore drill'n'bass. low sub bass analog mono yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm synth, low sub bass digital subtractive, glitched textural sampler, glitched textural eurorack modular. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 540,
+  "score": 118.408,
+  "config": {
+    "traditions": [
+      "forest_psy",
+      "breakcore",
+      "drill_n_bass"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 4.16,
+          "mono_oscillator": 0.105,
+          "mono_filter": 2.0789999999999997,
+          "mono_archetypes": 2.379,
+          "mono_maker_lineage": 0.26
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_tx81z"
+        },
+        "scores": {
+          "electronic_technique": 4.16,
+          "fm_algorithm": 0.39,
+          "fm_modulator_ratio": 1,
+          "fm_polyphony": 0.3,
+          "fm_model_lineage": 3.3149999999999995
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 4.16,
+          "va_archetypes": 2.0700000000000003,
+          "digital_subtractive_context": 20.215000000000003
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 14.569999999999999,
+          "sampler_archetypes": 0.6150000000000001,
+          "sampler_bit_depth": 1.3,
+          "sampler_workflow": 14.554999999999998,
+          "sampler_classic_context": 20.54
+        }
+      },
+      {
+        "id": "eurorack_modular",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "eurorack_focus": "eurorack_west_coast",
+          "eurorack_modular_context": "eurorack_modular_studio"
+        },
+        "scores": {
+          "electronic_technique": 14.569999999999999,
+          "eurorack_focus": 3.77,
+          "eurorack_modular_context": 3.77
+        }
+      }
+    ],
+    "room": "forest_clearing",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "forest_clearing",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "id": "vaporhop",
+  "name": "Vaporhop",
+  "family": "electronic",
+  "lineage": "Online-scene fusion of vaporwave sampling with boom-bap hip-hop production, circulating from roughly 2012 onward on Bandcamp and Tumblr — 80-95 BPM swung breakbeats, dusty filtered loops taken from 1980s Japanese city pop, muzak and corporate video libraries, MPC-style chopping with audible sample truncation, and instrumental-first tracks where any vocal is a looped, unintelligible fragment rather than a rapped verse.",
+  "recipe": "classic mid-1980s vaporhop, experimental Elec, retro aesthetic branch, lofi experimental electric, us hip hop east coast mafioso rap new york city rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, TR-808, low sub bass analog poly synth, pocket ostinato electric piano tine. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 443,
+  "score": 246.682,
+  "config": {
+    "traditions": [
+      "vaporhop",
+      "mafioso_rap",
+      "nyc_rap"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 9.094999999999999,
+          "sampler_archetypes": 12.474285714285713,
+          "sampler_bit_depth": 3.9000000000000004,
+          "sampler_workflow": 12.104999999999999,
+          "sampler_classic_context": 27.982499999999998
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 9.094999999999999,
+          "turntable_technique": 11.118214285714284
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 8.959999999999999,
+          "drum_machine_808_context": 4.485,
+          "tr808_production_origin": 0.105
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 8.569999999999999,
+          "voice_quality": 16.50892857142857,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 15.989999999999997,
+          "voice_microtone": 15.794999999999993,
+          "voice_tradition": 11.094642857142855,
+          "voice_mechanism_compound": 5.329999999999999,
+          "voice_estill_quality": 5.135,
+          "voice_speech_song": 17.38785714285714,
+          "voice_ensemble_config": 15.664999999999996,
+          "voice_ornament_system": 3.542500000000001,
+          "voice_pitch_organization": 1.755,
+          "voice_processing_chain": 13.673214285714284,
+          "voice_multitrack_stack": 4.225
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 9.249999999999998,
+          "poly_archetypes": 0.75,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "tine_voicing": "aggressive_tine",
+          "tine_effect": "dry_tine"
+        },
+        "scores": {
+          "keyboard_technique": 4.5,
+          "tine_voicing": 0.105,
+          "tine_effect": 0.39
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "carpeted_bedroom",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

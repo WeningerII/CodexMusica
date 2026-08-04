@@ -1,0 +1,159 @@
+{
+  "id": "sefardi_romancero",
+  "name": "Sefardi Song (Judeo-Spanish Romancero)",
+  "family": "global",
+  "lineage": "Judeo-Spanish repertoire carried out of Iberia after 1492 and preserved in the Ottoman Balkans, Salonica, Izmir, Istanbul and Morocco, documented by Manuel Manrique de Lara and later Samuel Armistead — strophic ballads (romansas), lifecycle songs and koplas sung in Ladino, unaccompanied or with oud and frame drum, in Ottoman makam or Moroccan Andalusi modes with free-ish declamation and heavy melodic ornament.",
+  "recipe": "classic Middle Eastern early-1490s sefardi song, ballad Poetry, Mediterranean ballad branch, Jewish ritual devotional, middle eastern classical art music khaleeji-iraqi song tajik traditional music. extended whistle, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean oud, kanun tortoiseshell traditional kanun, riq, cedar phosphor bronze bronze parlor acoustic guitar, def turkish. mediterranean sephardi synagogue. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 565,
+  "score": 231.245,
+  "config": {
+    "traditions": [
+      "sefardi_romancero",
+      "khaleeji_iraqi",
+      "tajik_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.0724999999999998,
+          "voice_quality": 10.204999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 10.3675,
+          "voice_articulation": 18.654999999999994,
+          "voice_microtone": 26.227499999999996,
+          "voice_tradition": 17.095,
+          "voice_mechanism_compound": 13.54,
+          "voice_estill_quality": 9.334999999999999,
+          "voice_speech_song": 24.83,
+          "voice_ensemble_config": 20.019999999999992,
+          "voice_ornament_system": 13.825,
+          "voice_pitch_organization": 14.065,
+          "voice_processing_chain": 3.3150000000000004,
+          "voice_multitrack_stack": 2.0799999999999996
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_turkish",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_rosewood_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 8.219999999999999,
+          "oud_school": 1.495,
+          "oud_strings": 3.7049999999999996,
+          "oud_pick": 1.105,
+          "oud_body_wood": 1.7949999999999997,
+          "oud_soundboard_wood": 5.955,
+          "oud_string_material": 0.45499999999999996
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "kanun_school": "kanun_turkish",
+          "kanun_articulation": "kanun_tortoiseshell_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": 8.219999999999999,
+          "kanun_school": 3.35,
+          "kanun_articulation": 1.0399999999999998
+        }
+      },
+      {
+        "id": "riq",
+        "slots": {
+          "riq_size": "riq_medium",
+          "riq_context": "riq_sufi",
+          "riq_shell_wood": "riq_walnut_premium",
+          "riq_head_material": "riq_fish_skin_canonical",
+          "riq_jingles": "riq_brass_jingles"
+        },
+        "scores": {
+          "riq_size": 3.7049999999999996,
+          "riq_context": 1.3649999999999998,
+          "riq_shell_wood": 0.3,
+          "riq_head_material": 0.195,
+          "riq_jingles": 0.045
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "rosewood_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 2.5749999999999997,
+          "string_tuning": 0,
+          "top_wood_parlor": 1.105,
+          "back_sides_parlor": 0.5199999999999999,
+          "string_acoustic_parlor": 1.045
+        }
+      },
+      {
+        "id": "def_turkish",
+        "slots": {
+          "def_jingles": "def_jingled",
+          "def_technique": "def_sufi"
+        },
+        "scores": {
+          "def_jingles": 0,
+          "def_technique": 2.405
+        }
+      }
+    ],
+    "room": "mediterranean_sephardi_synagogue",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "sephardi_chassidic_jewish_modal_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "sephardi_chassidic_jewish_modal_modes",
+    "room": "mediterranean_sephardi_synagogue",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

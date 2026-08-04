@@ -1,0 +1,125 @@
+{
+  "id": "sound_art",
+  "name": "Sound Art",
+  "family": "electronic",
+  "lineage": "Gallery-and-installation practice consolidated in New York and Europe from the late 1970s through Max Neuhaus, Bill Fontana, Alvin Lucier and Christina Kubisch, using site-specific field recording, resonating architecture, feedback, long-duration drones and electromagnetic induction rather than metered composition, presented as spatial installation without stage, beat or vocal line.",
+  "recipe": "classic 1977-1979 sound art, experimental Elec, musique concrete branch, ambient experimental electric, industrial noise experimental electric, western modern art music dark ambient isolationism. ritual bronze rods canonical aquasonic waterphone, gong tamtam, glitched textural granular glitched textural modular synth, moog music etherwave canonical modern reissue 1996 present theremin, prepared piano. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 484,
+  "score": 72.999,
+  "config": {
+    "traditions": [
+      "sound_art",
+      "dark_ambient",
+      "isolationism"
+    ],
+    "instruments": [
+      {
+        "id": "waterphone",
+        "slots": {
+          "waterphone_model": "waterphone_megabass",
+          "waterphone_excitation": "waterphone_bowed_rods",
+          "waterphone_context": "waterphone_dark_ambient_ritual",
+          "waterphone_construction": "waterphone_bronze_stainless"
+        },
+        "scores": {
+          "waterphone_model": 3.5244999999999997,
+          "waterphone_excitation": 0.195,
+          "waterphone_context": 4.339499999999999,
+          "waterphone_construction": 1.1700000000000002
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_chau",
+          "gong_striker": "gong_hard_beater"
+        },
+        "scores": {
+          "gong_type": 0.65,
+          "gong_striker": 0.7
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 13.815000000000001,
+          "granular_use": 0.39,
+          "granular_synth_source": 9.1
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 13.815000000000001,
+          "mod_voltage_source": 0.09,
+          "mod_patch_density": 5.915,
+          "mod_lineage": 0.39
+        }
+      },
+      {
+        "id": "theremin",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "theremin_model": "theremin_etherwave",
+          "theremin_technique": "theremin_drone",
+          "theremin_lineage": "theremin_moog_etherwave"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "theremin_model": 2.2749999999999995,
+          "theremin_technique": 6.76,
+          "theremin_lineage": 3.6399999999999997
+        }
+      },
+      {
+        "id": "prepared_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "prepared_piano_object": "prepared_piano_bolts",
+          "prepared_piano_zone": "prepared_piano_bass",
+          "prepared_piano_instrument": "prepared_piano_grand"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "prepared_piano_object": 0.585,
+          "prepared_piano_zone": 0.65,
+          "prepared_piano_instrument": 3.77
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "field_recording",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

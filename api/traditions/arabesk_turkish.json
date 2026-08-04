@@ -5,7 +5,7 @@
   "lineage": "Turkish urban-melancholic Egyptian-music-influenced crossover-pop tradition that dominated Turkish mass culture from the 1970s through the 1990s — codified through Orhan Gencebay (the founder, 1968 onward), Müslüm Gürses, İbrahim Tatlıses (the 80s-90s voice), Ferdi Tayfur, Bülent Ersoy; thematically anchored in the urban-rural migration anxiety of Turkish working-class internal-migrant audiences, with characteristic minor-key Egyptian-inspired string arrangements over Turkish-language vocals",
   "recipe": "classic Middle Eastern mid-1970s arabesk, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. extended whistle, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish la bella Turkish school canon oud, metal finger picks maple body Turkish school qanun, mahogany rosewood clean strummed single coil electric guitar, alder electric bass, pre muffled edge muffled brushes-and-sticks drum kit, kanun tortoiseshell traditional kanun. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 797,
-  "score": 250.8,
+  "score": 258.785,
   "config": {
     "traditions": [
       "arabesk_turkish",
@@ -26,30 +26,30 @@
           "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 8.68325,
+          "voice_register": 7.43,
           "voice_quality": 9.100000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.2875,
           "voice_articulation": 3.2500000000000004,
-          "voice_microtone": 34.804125,
+          "voice_microtone": 38.2525,
           "voice_tradition": 16.055,
-          "voice_mechanism_compound": 11.7765,
-          "voice_estill_quality": 7.359125000000001,
-          "voice_speech_song": 5.200000000000001,
+          "voice_mechanism_compound": 11.745000000000001,
+          "voice_estill_quality": 7.73,
+          "voice_speech_song": 5.585000000000001,
           "voice_ensemble_config": 4.485000000000001,
-          "voice_ornament_system": 13.135125,
-          "voice_pitch_organization": 16.895,
-          "voice_processing_chain": 3.4132500000000006,
-          "voice_multitrack_stack": 3.569000000000001
+          "voice_ornament_system": 14.175,
+          "voice_pitch_organization": 18.29,
+          "voice_processing_chain": 3.1950000000000003,
+          "voice_multitrack_stack": 3.335000000000001
         }
       },
       {
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_la_bella_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 4.875,
+          "plucked_traditional_technique": 4.965,
           "oud_school": 4.095,
           "oud_strings": 2.535,
           "oud_pick": 1.95,
-          "oud_body_wood": 8.469999999999999,
+          "oud_body_wood": 9.099999999999998,
           "oud_soundboard_wood": 0.65,
-          "oud_string_material": 7.258749999999999
+          "oud_string_material": 7.569999999999999
         }
       },
       {
@@ -85,11 +85,11 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 4.875,
+          "plucked_traditional_technique": 4.965,
           "qanun_strings": 2.535,
-          "qanun_levers": -1.215375,
+          "qanun_levers": -1.26,
           "qanun_pick": 2.535,
-          "qanun_body_wood": 7.9087499999999995,
+          "qanun_body_wood": 8.219999999999999,
           "qanun_bridge_skin": 0.65,
           "qanun_string_material": 0
         }
@@ -102,7 +102,7 @@
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
           "bridge": "hardtail",
@@ -116,10 +116,10 @@
           "body_wood": 1.95,
           "neck_wood": 1.95,
           "fretboard": 1.885,
-          "pickup_magnet": 0.045,
-          "string_material": 0.045,
+          "pickup_magnet": 0.15,
+          "string_material": 0.15,
           "string_gauge": 1.95,
-          "bridge": 0,
+          "bridge": 0.24,
           "scale_length": 1.95,
           "finish": 0.65,
           "string_tuning": 2.34
@@ -130,19 +130,19 @@
         "slots": {
           "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "humbucker_mm",
           "string_type": "half_round",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
           "amp_make": 1.6899999999999997,
           "body_wood": 1.95,
-          "pickup_config": 0,
+          "pickup_config": 0.09,
           "string_type": 1.95,
           "scale_length_b": 1.95,
-          "fretted_or_not": 0.045,
+          "fretted_or_not": 0.24,
           "bass_technique": -0.035
         }
       },
@@ -155,7 +155,7 @@
         },
         "scores": {
           "drum_technique": 3.3150000000000004,
-          "drumhead": 7.1899999999999995,
+          "drumhead": 7.475,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -167,8 +167,8 @@
           "kanun_articulation": "kanun_tortoiseshell_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 4.875,
-          "kanun_school": 16.445,
+          "plucked_traditional_technique": 4.965,
+          "kanun_school": 17.03,
           "kanun_articulation": 1.885
         }
       }

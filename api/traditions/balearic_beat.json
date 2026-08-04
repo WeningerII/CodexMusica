@@ -1,0 +1,182 @@
+{
+  "id": "balearic_beat",
+  "name": "Balearic Beat",
+  "family": "electronic",
+  "lineage": "Ibiza, mid-1980s, codified by DJ Alfredo Fiorito's open-air sets at Amnesia and carried to Britain in 1987 by Paul Oakenfold and Danny Rampling — a 100-120 BPM eclectic mode joining dub-delayed guitar, nylon-string and slide figures, warm analogue pads and loose live-feel drum machine programming, with long unhurried arrangements and sun-facing major-key harmony.",
+  "recipe": "classic 1984-1986 balearic beat, electronic Dance, continental branch, deep house house, ambient experimental electric, europop functional song hauntology. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly synth, TR-909, cedar nylon strummed open chord ringing overtones classical nylon-string guitar, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, glitched textural sampler, hohner melodica canonical 1959 dub roots tradition melodica. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 749,
+  "score": 264.475,
+  "config": {
+    "traditions": [
+      "balearic_beat",
+      "deep_house_soulful",
+      "hauntology_aesthetic"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 4.58,
+          "poly_archetypes": 0.78,
+          "poly_voices": 0.65,
+          "poly_maker_lineage": 0.12999999999999998
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 13.32,
+          "drum_machine_909_context": 1.2349999999999999,
+          "tr909_production_origin": 0.585
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 3.3850000000000007,
+          "string_tuning": 0,
+          "top_wood_classical": 6.640000000000001,
+          "bracing_classical": 0.195,
+          "string_classical": 3.975,
+          "attack_technique_cl": 2.8600000000000003
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 3.625,
+          "body_wood": 2.8600000000000003,
+          "pickup_config": 0.195,
+          "string_type": 5.769999999999999,
+          "scale_length_b": 3.725,
+          "fretted_or_not": 0,
+          "bass_technique": 3.2499999999999996
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 11.604999999999999,
+          "voice_quality": 5.655000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.720000000000001,
+          "voice_articulation": 17.939999999999998,
+          "voice_microtone": 20.084999999999997,
+          "voice_tradition": 7.377500000000001,
+          "voice_mechanism_compound": 2.9249999999999994,
+          "voice_estill_quality": 5.220000000000001,
+          "voice_speech_song": 21.45,
+          "voice_ensemble_config": 18.46,
+          "voice_ornament_system": 0.45500000000000007,
+          "voice_pitch_organization": 3.4450000000000003,
+          "voice_processing_chain": 17.025,
+          "voice_multitrack_stack": 6.110000000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 6.490000000000001,
+          "sampler_archetypes": 1.4,
+          "sampler_bit_depth": 3.335000000000001,
+          "sampler_workflow": 6.250000000000001,
+          "sampler_classic_context": 36.9525
+        }
+      },
+      {
+        "id": "melodica",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "melodica_use": "melodica_dub",
+          "melodica_pitch": "melodica_alto",
+          "melodica_maker_school": "melodica_hohner_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 1.785,
+          "melodica_use": 3.4,
+          "melodica_pitch": 0.78,
+          "melodica_maker_school": 1.6250000000000002
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_nyc_disco_twelve_inch",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_british_inline_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

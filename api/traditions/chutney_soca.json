@@ -1,0 +1,194 @@
+{
+  "id": "chutney_soca",
+  "name": "Chutney Soca",
+  "family": "global",
+  "lineage": "Trinidadian hybrid launched by Drupatee Ramgoonai's 1987 recordings and formalized by the Chutney Soca Monarch competition from 1996 — chutney's dholak and dhantal layered onto a 4/4 soca rhythm section of programmed kick, electric bass, brass stabs and synth, at carnival tempo around 130-150 BPM with English-Bhojpuri call-and-response hooks.",
+  "recipe": "classic North American late-1980s chutney soca, functional Song, tropical song branch, south Asian pop functional song, Caribbean carnival processional, Caribbean groove percussion gujarati pop punjabi pop. extended whistle, breath veiled tone, straight onset, interlocked note trading. goat skin syahi rope laced steel ring dholak, vocal female harmonium indian, pyramid pure nickel bass British mid 60s era electric bass, TR-808, singing lead analog poly synth, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, red brass 90 10 darkest schilke chicago lead bright heavy one piece matched to monette horn trumpet. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 885,
+  "score": 222.313,
+  "config": {
+    "traditions": [
+      "chutney_soca",
+      "gujarati_pop",
+      "punjabi_pop"
+    ],
+    "instruments": [
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 0.39,
+          "dholak_construction": 1.2149999999999999,
+          "dholak_head": 1.1249999999999998,
+          "dholak_tensioning": 1.1249999999999998
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_foot_pump",
+          "harmonium_voicing": "harmonium_female",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 1.885,
+          "harmonium_action": 0.845,
+          "harmonium_voicing": 1.69,
+          "harmonium_use": 0.845
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 1.145,
+          "body_wood": 0.6000000000000001,
+          "pickup_config": 0.345,
+          "string_type": 1.8199999999999998,
+          "scale_length_b": 0.345,
+          "fretted_or_not": 0.195,
+          "bass_technique": 0.95
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 0.995,
+          "drum_machine_808_context": 2.6,
+          "tr808_production_origin": 0.345
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 11.514999999999999,
+          "poly_archetypes": 0.24,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 14.722499999999998,
+          "voice_quality": 11.569999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.9099999999999999,
+          "voice_articulation": 17.094999999999995,
+          "voice_microtone": 16.70499999999999,
+          "voice_tradition": 14.722499999999998,
+          "voice_mechanism_compound": 5.46,
+          "voice_estill_quality": 5.525000000000001,
+          "voice_speech_song": 24.049999999999997,
+          "voice_ensemble_config": 16.834999999999994,
+          "voice_ornament_system": 5.3675,
+          "voice_pitch_organization": 4.172499999999999,
+          "voice_processing_chain": 5.719999999999999,
+          "voice_multitrack_stack": 5.655000000000001
+        }
+      },
+      {
+        "id": "tassa_drum",
+        "slots": {
+          "tassa_skin": "tassa_goatskin",
+          "tassa_shell": "tassa_metal",
+          "tassa_lineage": "tassa_modern_carnival"
+        },
+        "scores": {
+          "tassa_skin": 19.175,
+          "tassa_shell": 4.2175,
+          "tassa_lineage": 5.135
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 0.8499999999999999,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 1.8199999999999996,
+          "brass_mute": 0.045,
+          "trumpet_technique": 0.8499999999999999,
+          "trumpet_bell_metal": 2.02,
+          "trumpet_maker_school": 1.04
+        }
+      }
+    ],
+    "room": "port_of_spain_community_studio",
+    "archetype": "arch_trinidad_carnival_soca",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "trinidad_calypso_soca_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "trinidad_calypso_soca_2_4",
+    "room": "port_of_spain_community_studio",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "id": "progressive_house",
+  "name": "Progressive House",
+  "family": "electronic",
+  "lineage": "British style crystallising around 1992 in the Guerilla and Junior Boy's Own catalogues with Leftfield, Sasha, John Digweed and Fluke, running 126-132 BPM with long evolving filter and reverb automation, rolling sixteenth-note bass, dub-inflected delay throws, tribal tom and shaker layers, and sparse wordless vocal pads, later re-formed in a 2008-2013 festival variant around Deadmau5 and Eric Prydz built on sustained sidechained supersaw chords.",
+  "recipe": "classic Central European mid-2010s progressive house, electronic Dance, house branch, techno electronic dance, trance electronic dance, deep house house float house proto-techno. vocal fry, breath veiled tone, straight note core, interlocked note trading. analog poly modular synth, roland tr 8s modern aira digital recreation TR-909, digital subtractive, congas. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 589,
+  "score": 199.166,
+  "config": {
+    "traditions": [
+      "progressive_house",
+      "float_house",
+      "proto_techno"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 2.61375,
+          "poly_archetypes": 1.78875,
+          "poly_voices": 1.78875,
+          "poly_maker_lineage": -0.28
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 19.865,
+          "drum_machine_909_context": 2.1125,
+          "tr909_production_origin": 1.7974999999999999
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 2.61375,
+          "va_archetypes": 1.5412499999999998,
+          "digital_subtractive_context": 18.589999999999996
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 5.450000000000001,
+          "mod_voltage_source": 1.2349999999999999,
+          "mod_patch_density": 1.5,
+          "mod_lineage": 0.195
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.34,
+          "voice_quality": 9.555000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9250000000000007,
+          "voice_articulation": 19.889999999999993,
+          "voice_microtone": 18.19999999999999,
+          "voice_tradition": 4.615,
+          "voice_mechanism_compound": 5.59,
+          "voice_estill_quality": 5.3950000000000005,
+          "voice_speech_song": 18.589999999999993,
+          "voice_ensemble_config": 19.75999999999999,
+          "voice_ornament_system": 0.9099999999999997,
+          "voice_pitch_organization": 0.845,
+          "voice_processing_chain": 20.245,
+          "voice_multitrack_stack": 3.769999999999999
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "tumba",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 0.06499999999999999,
+          "conga_set": 2.425,
+          "conga_skin": 0.78,
+          "conga_shell_wood": 0.78
+        }
+      }
+    ],
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "berlin_techno_kreuzberg_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

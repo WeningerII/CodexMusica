@@ -3,14 +3,14 @@
   "name": "Bouyon",
   "family": "global",
   "lineage": "Dominica electronic-hybrid Caribbean dance music codified through WCK and the late-1980s Dominica recording scene — characterized by cadence-lypso roots merged with zouk and dancehall programming, French Creole vocals, and the 100-120 BPM rhythmic foundation distinctive to the genre",
-  "recipe": "classic Caribbean 1987-1989 bouyon, groove Percussion, Caribbean branch, Afro-diasporic electric groove percussion afrofuturismo brasileiro kizomba. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, la bella flats Detroit soul bass canon thumb muted electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth. live tracking. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
-  "recipe_chars": 698,
-  "score": 118.874,
+  "recipe": "classic Caribbean 1987-1989 bouyon, groove Percussion, Caribbean branch, Afro-diasporic electric groove percussion afrofuturismo brasileiro funk bh. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, alder pyramid pure nickel bass British mid 60s era electric bass, analog poly synth. live tracking. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
+  "recipe_chars": 526,
+  "score": 128.002,
   "config": {
     "traditions": [
       "bouyon",
       "afrofuturismo_brasileiro",
-      "kizomba"
+      "funk_bh"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 0.195,
-          "voice_quality": 12.089999999999998,
+          "voice_register": 0.845,
+          "voice_quality": 10.985,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6458749999999998,
-          "voice_articulation": 11.699999999999996,
-          "voice_microtone": 11.699999999999992,
-          "voice_tradition": 6.240000000000001,
-          "voice_mechanism_compound": 3.7700000000000005,
-          "voice_estill_quality": 3.575000000000001,
-          "voice_speech_song": 13.519999999999992,
-          "voice_ensemble_config": 11.634999999999994,
+          "voice_vibrato": 1.56,
+          "voice_articulation": 13.389999999999993,
+          "voice_microtone": 13.194999999999991,
+          "voice_tradition": 6.695000000000002,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 14.299999999999994,
+          "voice_ensemble_config": 13.324999999999992,
           "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 1.965,
-          "voice_processing_chain": 8.937375,
-          "voice_multitrack_stack": 5.141500000000001
+          "voice_pitch_organization": 1.605,
+          "voice_processing_chain": 10.27,
+          "voice_multitrack_stack": 5.670000000000001
         }
       },
       {
@@ -61,29 +61,29 @@
         },
         "scores": {
           "tr808_voice": 1.8200000000000003,
-          "drum_machine_808_context": 9.061,
-          "tr808_production_origin": 1.4299999999999997
+          "drum_machine_808_context": 7.609999999999999,
+          "tr808_production_origin": 0.585
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "thumb_muted"
+          "bass_technique": "slap_pop"
         },
         "scores": {
           "amp_make": 0.975,
-          "body_wood": 0.25425,
-          "pickup_config": 0.195,
-          "string_type": 1.105,
-          "scale_length_b": 0.3086249999999999,
-          "fretted_or_not": 0.0765,
-          "bass_technique": 2.4015
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0.845,
+          "string_type": 1.7550000000000001,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.65,
+          "bass_technique": 4.239999999999999
         }
       },
       {
@@ -96,9 +96,9 @@
         },
         "scores": {
           "electronic_technique": 1.69,
-          "poly_archetypes": 0.39,
-          "poly_voices": 0.39,
-          "poly_maker_lineage": 2.0799999999999996
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": 0.585
         }
       }
     ],

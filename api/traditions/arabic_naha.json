@@ -3,14 +3,14 @@
   "name": "Arabic nāḥa (نائحة, women's mourning-song)",
   "family": "global",
   "lineage": "Pan-Arab mourning-song tradition continuous from pre-Islamic jāhiliyya rithā' (elegy) practice through medieval-Islamic-period continuous performance by nā'iḥa (Arabic professional mourning-women) across Egypt, Levant, Maghreb, and Gulf into 20th-century field-documentation",
-  "recipe": "classic North African modern arabic nāḥa, funeral Lament, middle eastern branch, islamic ritual devotional, vocal drone modal, med east poetic ballad poetry silbo gomero whistled language armenian duduk-accompanied chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 388,
-  "score": 240.515,
+  "recipe": "classic North African modern arabic nāḥa, funeral Lament, middle eastern branch, islamic ritual devotional, vocal drone modal, med east poetic ballad poetry naturjodel karelian folk music. vocal fry, breath veiled tone, straight note core, interlocked note trading. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 355,
+  "score": 154.09,
   "config": {
     "traditions": [
       "arabic_naha",
-      "silbo_gomero",
-      "armenian_duduk_chant"
+      "naturjodel",
+      "karelian_folk_music"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "arabic_maqam_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.71,
-          "voice_quality": 26.585000000000004,
+          "voice_register": 4.0649999999999995,
+          "voice_quality": 7.475000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.4,
-          "voice_articulation": 18.005000000000003,
-          "voice_microtone": 45.260000000000005,
-          "voice_tradition": 26.0325,
-          "voice_mechanism_compound": 9.879999999999999,
-          "voice_estill_quality": 8.045,
-          "voice_speech_song": 23.66,
-          "voice_ensemble_config": 18.98,
-          "voice_ornament_system": 16.779999999999998,
-          "voice_pitch_organization": 18.619999999999997,
-          "voice_processing_chain": 7.735,
-          "voice_multitrack_stack": 9.36
+          "voice_vibrato": 4.735,
+          "voice_articulation": 10.724999999999994,
+          "voice_microtone": 32.04499999999999,
+          "voice_tradition": 17.634999999999998,
+          "voice_mechanism_compound": 6.695,
+          "voice_estill_quality": 3.5900000000000003,
+          "voice_speech_song": 15.989999999999997,
+          "voice_ensemble_config": 10.399999999999997,
+          "voice_ornament_system": 14.414999999999997,
+          "voice_pitch_organization": 14.999999999999998,
+          "voice_processing_chain": 6.954999999999999,
+          "voice_multitrack_stack": 6.890000000000001
         }
       }
     ],

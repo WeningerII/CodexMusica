@@ -1,0 +1,181 @@
+{
+  "id": "cumbia_boliviana",
+  "name": "Cumbia boliviana",
+  "family": "global",
+  "lineage": "Bolivian cumbia of Cochabamba, Santa Cruz and La Paz from the late 1970s, codified by Maroyu, Grupo Néctar's Bolivian antecedents and Los Ronisch — minor-key 90–100 BPM cumbia with charango and zampoña or synth-panpipe leads, huayno-derived melodic cells and a plaintive high male vocal.",
+  "recipe": "classic Andean 1977-1979 cumbia boliviana, groove Percussion, Latin am branch, andean field work, andean carnival processional huayno peruano folclore jujeño. sygyt, forward-resonance, straight note core, interlocked note trading. naranjillo andean premium wood cedar andean andean classical charango, andean tradition paired rows interlocking siku panpipes, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, la bella flats Detroit soul bass canon electric bass, guiro, open slap hand drum timbales, bombo andino. andean altiplano outdoor. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 717,
+  "score": 217.03,
+  "config": {
+    "traditions": [
+      "cumbia_boliviana",
+      "huayno_peruano",
+      "folclore_jujeno"
+    ],
+    "instruments": [
+      {
+        "id": "charango",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "charango_back": "charango_naranjillo",
+          "charango_top_wood": "charango_cedar_top",
+          "charango_strings": "charango_5_double",
+          "charango_string_material": "charango_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.7149999999999999,
+          "charango_back": 6.76,
+          "charango_top_wood": 6.76,
+          "charango_strings": 6.76,
+          "charango_string_material": 4.745
+        }
+      },
+      {
+        "id": "siku_panpipes",
+        "slots": {
+          "siku_construction": "siku_ira_arca_paired",
+          "siku_size": "siku_malta"
+        },
+        "scores": {
+          "siku_construction": 6.955000000000001,
+          "siku_size": 0.39
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 1.17,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0,
+          "poly_maker_lineage": 1.2349999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 2.2749999999999995,
+          "body_wood": 0.65,
+          "pickup_config": 1.3,
+          "string_type": 1.17,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.44999999999999996,
+          "bass_technique": 2.2099999999999995
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_comb"
+        },
+        "scores": {
+          "guiro_origin": 0.195,
+          "guiro_striker": 0.345
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_steel",
+          "timbales_context": "timbales_son"
+        },
+        "scores": {
+          "percussion_technique": 5.465000000000001,
+          "timbales_shell": 0.03712499999999999,
+          "timbales_context": 0.39
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "twang_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 2.1449999999999996,
+          "voice_quality": 18.849999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 18.719999999999995,
+          "voice_microtone": 17.939999999999994,
+          "voice_tradition": 24.115000000000002,
+          "voice_mechanism_compound": 4.42,
+          "voice_estill_quality": 15.60375,
+          "voice_speech_song": 18.069999999999997,
+          "voice_ensemble_config": 17.614999999999995,
+          "voice_ornament_system": 18.330000000000002,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 3.6399999999999997,
+          "voice_multitrack_stack": 4.863750000000001
+        }
+      },
+      {
+        "id": "bombo_andino",
+        "slots": {
+          "bombo_andino_construction": "bombo_andino_leguero",
+          "bombo_andino_skin": "bombo_andino_llama",
+          "bombo_andino_shell_wood": "bombo_andino_ceibo"
+        },
+        "scores": {
+          "bombo_andino_construction": 1.04,
+          "bombo_andino_skin": 0.39,
+          "bombo_andino_shell_wood": 0.845
+        }
+      }
+    ],
+    "room": "andean_altiplano_outdoor",
+    "archetype": "arch_lima_chicha",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "huayno_2_4_andean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "huayno_2_4_andean",
+    "room": "andean_altiplano_outdoor",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_british_inline_80s"
+  }
+}

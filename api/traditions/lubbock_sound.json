@@ -1,0 +1,174 @@
+{
+  "id": "lubbock_sound",
+  "name": "Lubbock Sound",
+  "family": "country",
+  "lineage": "West Texas songwriter school formed in Lubbock in the early 1970s around the Flatlanders (Joe Ely, Butch Hancock, Jimmie Dale Gilmore) and visual-artist-songwriter Terry Allen, extending Buddy Holly's local legacy — flatpicked acoustic guitar, musical saw or dobro drones, honky-tonk piano and fiddle under conversational nasal high-plains vocals at moderate 2/4 and waltz tempos, with literary, place-fixed lyrics.",
+  "recipe": "classic North American 1970-1973 lubbock sound, functional Song, outlaw branch, americana country, anglo singer song country folk story, nashville country gulf and western nashville sound. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar steel silk travis picked dreadnought acoustic brass body warmer than steel national style heavy gauge dobro canon resonator guitar, steel double stops fiddle, upright piano, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 773,
+  "score": 388.447,
+  "config": {
+    "traditions": [
+      "lubbock_sound",
+      "gulf_and_western",
+      "nashville_sound"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 39.36500000000002,
+          "voice_quality": 9.75,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 27.674999999999997,
+          "voice_articulation": 14.754999999999992,
+          "voice_microtone": 14.75499999999999,
+          "voice_tradition": 7.1175,
+          "voice_mechanism_compound": 2.795,
+          "voice_estill_quality": 30.854999999999997,
+          "voice_speech_song": 23.334999999999994,
+          "voice_ensemble_config": 14.68999999999999,
+          "voice_ornament_system": 0.8529999999999998,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 4.925000000000001,
+          "voice_multitrack_stack": 5.790000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 30.49,
+          "string_tuning": 0,
+          "top_wood": 1.04,
+          "back_sides": 0.045,
+          "string_acoustic": 2.0799999999999996
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 29.974999999999998,
+          "fiddle_strings": 1.885,
+          "fiddle_bow": 0.045,
+          "fiddle_mute": 0.65,
+          "fiddle_articulation": 0.3315
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_honky_tonk",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 28.974999999999998,
+          "upright_use": 1.04,
+          "upright_piano_size": 0.845
+        }
+      },
+      {
+        "id": "resonator_guitar",
+        "slots": {
+          "resonator_body": "resonator_national_brass_body",
+          "resonator_strings": "gibson_dobro_set",
+          "resonator_technique": "resonator_bottleneck_slide_fingerpicked"
+        },
+        "scores": {
+          "resonator_body": 2.925,
+          "resonator_strings": 1.3,
+          "resonator_technique": 0.81
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 27.599999999999994,
+          "body_wood": 1.04,
+          "pickup_config": 0.045,
+          "string_type": 5.85,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0,
+          "bass_technique": 27.084999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 15.209999999999994,
+          "drumhead": 5.364999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_mci_jh636",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "americana_train_beat_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "americana_train_beat_4_4",
+    "room": "studio_early_tape_us_small",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_mci_jh636"
+  }
+}

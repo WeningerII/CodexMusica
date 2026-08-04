@@ -1,0 +1,174 @@
+{
+  "id": "pop_sunda",
+  "name": "Pop Sunda",
+  "family": "global",
+  "lineage": "West Javanese popular song formalised in Bandung from the late 1970s by Nano Suratno and the Detty Kurnia and Nining Meida recordings, and mass-marketed on cassette through the 1980s-90s — Sundanese-language verse over kacapi zither and suling flute lines in pelog degung, kendang drumming articulating the phrase endings, with electric bass, drum machine or kit and sheet synth pads, sung in a high, fluid, sliding female register carried straight over from tembang Sunda.",
+  "recipe": "classic Southeast Asian 1977-1979 pop sunda, functional Song, east Asian pop branch, tropical song functional song, southeast Asian art music indonesian keroncong thai traditional. thick, breath veiled tone, slow rate, interlocked note trading. flat bodied kacapi, bamboo rattan band fipple canonical javanese balinese melodic suling, gamelan balinese paired male female teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian, singing lead analog poly synth, mahogany pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 806,
+  "score": 250.765,
+  "config": {
+    "traditions": [
+      "pop_sunda",
+      "indonesian_keroncong",
+      "thai_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 13.194999999999991,
+          "voice_quality": 13.649999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.59,
+          "voice_articulation": 19.044999999999995,
+          "voice_microtone": 17.80999999999999,
+          "voice_tradition": 11.159999999999998,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.8350000000000004,
+          "voice_speech_song": 24.764999999999997,
+          "voice_ensemble_config": 23.009999999999994,
+          "voice_ornament_system": 3.335,
+          "voice_pitch_organization": 14.144999999999998,
+          "voice_processing_chain": 7.735,
+          "voice_multitrack_stack": 5.85
+        }
+      },
+      {
+        "id": "kacapi",
+        "slots": {
+          "kacapi_form": "kacapi_siter",
+          "kacapi_repertoire": "kacapi_kacapi_suling",
+          "kacapi_laras": "kacapi_salendro",
+          "kacapi_construction": "kacapi_sawo_brass"
+        },
+        "scores": {
+          "kacapi_form": 6.445,
+          "kacapi_repertoire": 5.950000000000001,
+          "kacapi_laras": 0.6950000000000001,
+          "kacapi_construction": 0.3
+        }
+      },
+      {
+        "id": "suling",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "suling_use": "suling_sundanese",
+          "suling_tuning": "suling_pelog",
+          "suling_body_material": "suling_bamboo_canonical"
+        },
+        "scores": {
+          "wind_articulation": 4.194999999999999,
+          "suling_use": 2.275,
+          "suling_tuning": 2.2,
+          "suling_body_material": 1.885
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_ketipung",
+          "kendang_context": "kendang_balinese",
+          "kendang_shell_wood": "kendang_teak",
+          "kendang_head": "kendang_buffalo_hide_canonical"
+        },
+        "scores": {
+          "kendang_size": 0.78,
+          "kendang_context": 2.9899999999999993,
+          "kendang_shell_wood": 1.95,
+          "kendang_head": 1.885
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 10.165,
+          "poly_archetypes": 0.845,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 2.925,
+          "body_wood": 1.6899999999999997,
+          "pickup_config": 0.345,
+          "string_type": 5.135,
+          "scale_length_b": 1.6899999999999997,
+          "fretted_or_not": 1,
+          "bass_technique": 0.8999999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 17.874999999999996,
+          "drumhead": 8.75,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "gamelan_pelog",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "gamelan_pelog",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_british_inline_80s"
+  }
+}

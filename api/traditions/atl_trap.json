@@ -1,0 +1,174 @@
+{
+  "id": "atl_trap",
+  "name": "ATL trap (Atlanta canon)",
+  "family": "hip_hop",
+  "lineage": "Codified in Atlanta between 2003 and 2012 by T.I., Young Jeezy and Gucci Mane with producers Shawty Redd, Zaytoven, Drumma Boy, Lex Luger and Metro Boomin, defined by 130-150 BPM half-time feel, long-decay tuned 808 kick-bass, machine-rolled 32nd and triplet hi-hats, tightly gated layered claps and snares, minor-key orchestral or Zaytoven organ/piano loops, and drawled ad-lib-saturated first-person street narrative.",
+  "recipe": "classic Southern American early-2000s atl trap, mc Rhythm, southern branch, us hip hop modern, drill MC rhythm türkçe drill detroit trap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, low sub bass analog poly synth, hand clap, 2010s melodyne microtuned stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 712,
+  "score": 284.578,
+  "config": {
+    "traditions": [
+      "atl_trap",
+      "turkce_drill",
+      "detroit_trap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.8000000000000003,
+          "voice_quality": 18.2975,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4049999999999994,
+          "voice_articulation": 22.164999999999992,
+          "voice_microtone": 33.442499999999995,
+          "voice_tradition": 9.002499999999998,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 22.619999999999994,
+          "voice_ensemble_config": 21.44999999999999,
+          "voice_ornament_system": 8.385000000000002,
+          "voice_pitch_organization": 5.7475000000000005,
+          "voice_processing_chain": 8.085,
+          "voice_multitrack_stack": 7.084999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 8.095,
+          "drum_machine_808_context": 5.135,
+          "tr808_production_origin": 2.34
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 7.550000000000001,
+          "sample_bitdepth": 3.3799999999999994,
+          "sample_swing": 10.790000000000001,
+          "sample_processing": 2.795
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 1.7249999999999996,
+          "grand_piano_size": 1.105,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 7.9625,
+          "piano_rim": 6.32,
+          "piano_soundboard": 6.215,
+          "piano_pinblock": 4.749999999999999,
+          "piano_plate": 6.175,
+          "piano_pitch_standard": 14.3
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 13.34,
+          "poly_archetypes": 0.54,
+          "poly_voices": 0.54,
+          "poly_maker_lineage": -2.005
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 0.65,
+          "clap_capture": 0.845
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.845,
+          "multitrack_stack_era_aesthetic": 1.5899999999999999,
+          "multitrack_stack_processing": 2.86
+        }
+      }
+    ],
+    "room": "studio_atlanta_trap_commercial",
+    "archetype": "arch_atlanta_trap_2010s",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_atlanta_trap_commercial",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "2010s indie rock continuation of the broader 2000s blogosphere indie wave, characterized by mid-fi production, broad-melodic guitar-and-vocal arrangements, and explicit-festival-targeting commercial visibility. Tame Impala's 2010-onward Australian psych-rock-pop hybrid, Vampire Weekend's Afro-influenced indie, the War on Drugs, Real Estate, and the broader Domino Records and Secretly Canadian label rosters anchor the canonical 2010s indie rock roster.",
   "recipe": "classic modern modern indie rock, distorted Rock, alternative branch, experimental distorted rock post-rock krautrock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 620,
-  "score": 378.315,
+  "score": 382.165,
   "config": {
     "traditions": [
       "modern_indie_rock_2010s",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 35.491000000000014,
+          "voice_register": 35.64100000000001,
           "voice_quality": 11.829999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.569,
+          "voice_vibrato": 4.521,
           "voice_articulation": 13.194999999999997,
-          "voice_microtone": 35.03,
-          "voice_tradition": 10.566999999999998,
+          "voice_microtone": 35.135000000000005,
+          "voice_tradition": 11.927499999999998,
           "voice_mechanism_compound": 4.615000000000001,
           "voice_estill_quality": 5.4925,
           "voice_speech_song": 15.112499999999995,
           "voice_ensemble_config": 12.934999999999995,
-          "voice_ornament_system": 3.42,
-          "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 9.9105,
-          "voice_multitrack_stack": 16.484999999999996
+          "voice_ornament_system": 3.72,
+          "voice_pitch_organization": 3.371,
+          "voice_processing_chain": 10.355,
+          "voice_multitrack_stack": 16.820999999999998
         }
       },
       {
@@ -66,22 +66,22 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_11_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 17.467999999999996,
+          "electric_technique": 17.512999999999998,
           "amp_make": 14.592499999999998,
           "body_wood": 6.825,
-          "neck_wood": 1.6045,
-          "fretboard": 1.5545,
-          "pickup_magnet": 1.455,
-          "pickup_winding": 1.455,
+          "neck_wood": 1.558,
+          "fretboard": 1.508,
+          "pickup_magnet": 1.56,
+          "pickup_winding": 1.56,
           "string_material": 1.04,
-          "bridge": 1.6045,
+          "bridge": 1.558,
           "scale_length": 6.175,
-          "string_gauge": 1.6045,
-          "finish": 0,
+          "string_gauge": 1.558,
+          "finish": 0.195,
           "string_tuning": 18.915
         }
       },
@@ -99,9 +99,9 @@
         "scores": {
           "amp_make": 14.235,
           "body_wood": 1.69,
-          "pickup_config": 3.223,
-          "string_type": 32.8385,
-          "scale_length_b": 1.7280000000000002,
+          "pickup_config": 3.1915,
+          "string_type": 33.804500000000004,
+          "scale_length_b": 1.7400000000000002,
           "fretted_or_not": 0,
           "bass_technique": 27.875
         }

@@ -3,14 +3,14 @@
   "name": "Umbanda ceremonial",
   "family": "global",
   "lineage": "Rio and São Paulo 1908-onward syncretic Afro-Catholic-spiritualist liturgical tradition founded by Zélio Fernandino de Moraes (1908 first session) — fusing Catholic saints, candomblé orixás, Kardecist spiritualism, and Indigenous Brazilian ancestor cults; characterized by the gira ceremonial circle, pontos-cantados invocation songs, atabaque drum accompaniment, and the caboclo / preto-velho / criança guide-spirit roles",
-  "recipe": "classic Southern American modern umbanda ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode velha guarda. thick, breath veiled tone, straight onset, interlocked note trading. atabaque, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 479,
-  "score": 127.96,
+  "recipe": "classic Southern American modern umbanda ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode samba de roda. thick, breath veiled tone, straight onset, interlocked note trading. atabaque, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 480,
+  "score": 130.55,
   "config": {
     "traditions": [
       "umbanda_brazilian",
       "pagode",
-      "velha_guarda"
+      "samba_de_roda"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.0999999999999996,
-          "voice_quality": 22.39249999999999,
+          "voice_quality": 19.012499999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 15.209999999999994,
-          "voice_microtone": 14.624999999999991,
+          "voice_vibrato": 0.78,
+          "voice_articulation": 16.769999999999996,
+          "voice_microtone": 16.184999999999995,
           "voice_tradition": 6.045,
           "voice_mechanism_compound": 3.3149999999999995,
           "voice_estill_quality": 3.1200000000000006,
-          "voice_speech_song": 16.834999999999994,
-          "voice_ensemble_config": 15.794999999999993,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 0.585,
-          "voice_processing_chain": 5.2,
-          "voice_multitrack_stack": 8.125
+          "voice_speech_song": 17.939999999999998,
+          "voice_ensemble_config": 16.705,
+          "voice_ornament_system": 4.525,
+          "voice_pitch_organization": 0.5449999999999999,
+          "voice_processing_chain": 4.81,
+          "voice_multitrack_stack": 8.385
         }
       },
       {
@@ -57,12 +57,12 @@
         "slots": {
           "atabaque_role": "atabaque_rum",
           "atabaque_skin": "atabaque_cowhide",
-          "atabaque_shell_wood": "atabaque_oak_staved"
+          "atabaque_shell_wood": "atabaque_jacaranda"
         },
         "scores": {
           "atabaque_role": 0.39,
           "atabaque_skin": 0.195,
-          "atabaque_shell_wood": 0.195
+          "atabaque_shell_wood": 0.78
         }
       },
       {
@@ -74,10 +74,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 6.044999999999999,
-          "choir_polyphonic_configuration": 1.885,
-          "choir_regional_canonical_configuration": 2.6650000000000005,
-          "choir_ensemble_repertoire": 3.9
+          "choir_size": 5.85,
+          "choir_polyphonic_configuration": 2.275,
+          "choir_regional_canonical_configuration": 2.8600000000000003,
+          "choir_ensemble_repertoire": 3.25
         }
       }
     ],

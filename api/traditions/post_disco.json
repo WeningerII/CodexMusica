@@ -1,0 +1,178 @@
+{
+  "id": "post_disco",
+  "name": "Post-Disco",
+  "family": "electronic",
+  "lineage": "New York and Chicago black dance music of 1980-1985 made after the disco backlash, codified by producers such as Kashif, Leon Sylvers III and the Prelude and West End labels, running 100-118 BPM with a slapped or synth-doubled electric bassline, LinnDrum and TR-808 programming, brittle syncopated electric-piano and clavinet comping and conversational soul lead vocals with group answer parts.",
+  "recipe": "classic North American mid-1980s post-disco, functional Song, soul R&B branch, garage house u s house, continental electronic dance diva house. thick, blues-shouter, straight note core, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, linn lm 1 1980 1982 earliest sample based drum machine 5000 production only linndrum, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, lead plus third fifth 3 part stack late 1980s reverb saturated bus stack multitrack vocal stack, tenor ensemble honking attack saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 922,
+  "score": 277.431,
+  "config": {
+    "traditions": [
+      "post_disco",
+      "diva_house",
+      "us_garage"
+    ],
+    "instruments": [
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 12.821249999999997,
+          "body_wood": 2.025,
+          "pickup_config": 0.65,
+          "string_type": 12.009999999999998,
+          "scale_length_b": 1.95,
+          "fretted_or_not": 0.195,
+          "bass_technique": 8.62
+        }
+      },
+      {
+        "id": "linndrum",
+        "slots": {
+          "linndrum_voice": "linndrum_hat_perc",
+          "linndrum_context": "linndrum_rb",
+          "linndrum_production_origin": "linndrum_lm_1_earlier"
+        },
+        "scores": {
+          "linndrum_voice": 1.625,
+          "linndrum_context": 4.095,
+          "linndrum_production_origin": 3.25
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 2.4699999999999998,
+          "drum_machine_808_context": 3.6075,
+          "tr808_production_origin": 1.8199999999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 2.6650000000000005,
+          "poly_archetypes": 1.3,
+          "poly_voices": 0.43499999999999994,
+          "poly_maker_lineage": 2.275
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 13.870624999999997,
+          "voice_quality": 12.444999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.7137499999999999,
+          "voice_articulation": 20.669999999999995,
+          "voice_microtone": 20.47499999999999,
+          "voice_tradition": 16.530624999999997,
+          "voice_mechanism_compound": 5.784999999999999,
+          "voice_estill_quality": 13.474999999999998,
+          "voice_speech_song": 23.659999999999993,
+          "voice_ensemble_config": 23.72499999999999,
+          "voice_ornament_system": 0.8449999999999995,
+          "voice_pitch_organization": 1.1699999999999995,
+          "voice_processing_chain": 17.8975,
+          "voice_multitrack_stack": 10.549374999999998
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+        },
+        "scores": {
+          "multitrack_stack_density": 2.795,
+          "multitrack_stack_era_aesthetic": 2.9575000000000005,
+          "multitrack_stack_processing": 0.845
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 8.209999999999999,
+          "sax_size": 7.975625,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 0.325,
+          "sax_mouthpiece": 0.24,
+          "sax_technique": 7.7749999999999995,
+          "sax_maker_school": 0
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_nyc_disco_twelve_inch",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "studio_late70s_nyc_commercial",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

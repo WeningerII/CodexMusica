@@ -1,0 +1,218 @@
+{
+  "id": "totalism",
+  "name": "Totalism",
+  "family": "classical",
+  "lineage": "New York downtown movement of the late 1980s and 1990s — Michael Gordon, Julia Wolfe and David Lang with Bang on a Can, plus Mikel Rouse, Rhys Chatham and critic Kyle Gann — steady fast pulse with conflicting tempo layers stacked as 3:4 or 5:7 rhythmic dissonance over it, harmony richer and more dissonant than minimalism, amplified mixed ensembles of electric guitar, bass, drums, piano and winds played at rock volume but with through-composed formal scale.",
+  "recipe": "classic 1987-1989 totalism, art Music, western modern branch, classic distorted rock ostrock deutschrock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, grenadilla African blackwood traditional clarinet, synthetic engelmann spruce hard rock maple oil varnish amber tinted cello, marimba sitka spruce hard rock maple acer saccharum oil varnish amber tinted violin orchestral, doepfer eurorack canonical 1995 present small format standardization modular synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 821,
+  "score": 330.652,
+  "config": {
+    "traditions": [
+      "totalism",
+      "ostrock",
+      "deutschrock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 3.640000000000001,
+          "amp_make": 13.714999999999996,
+          "body_wood": 3.6399999999999997,
+          "neck_wood": 1.6899999999999997,
+          "fretboard": 1.6249999999999998,
+          "pickup_magnet": 2.5,
+          "pickup_winding": 3.25,
+          "string_material": 0.65,
+          "bridge": 1.6899999999999997,
+          "scale_length": 2.6,
+          "string_gauge": 1.6899999999999997,
+          "finish": 0.435,
+          "string_tuning": 15.73
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 13.259999999999998,
+          "body_wood": 2.9899999999999998,
+          "pickup_config": 1.545,
+          "string_type": 27.4625,
+          "scale_length_b": 1.6899999999999997,
+          "fretted_or_not": 0,
+          "bass_technique": 22.51
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 2.545,
+          "grand_piano_size": 1.6899999999999997,
+          "grand_piano_brand": 1.6899999999999997,
+          "piano_hammer": 20.605,
+          "piano_rim": 20.605,
+          "piano_soundboard": 6.4,
+          "piano_pinblock": 7.25,
+          "piano_plate": 6.82,
+          "piano_pitch_standard": 8.290000000000001
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "doina_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 2.5,
+          "clarinet_body": 6.3500000000000005,
+          "clarinet_size": 1.24,
+          "clarinet_reed": 0.65,
+          "clarinet_articulation": 0.15
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "liebenzeller_metal_rosin_cello",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 2.59,
+          "cello_strings": 1.545,
+          "cello_top_wood": 3.75,
+          "cello_back_wood": 17.355,
+          "cello_varnish": 6.25,
+          "cello_setup_period": 7.79,
+          "cello_bow_grip": 1.24,
+          "cello_rosin": 6.7,
+          "cello_bow_stick": 6.890000000000001
+        }
+      },
+      {
+        "id": "marimba_orchestral",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "marimba_size": "marimba_4_octave",
+          "marimba_orchestral_bar": "marimba_orchestral_padauk"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "marimba_size": 1.24,
+          "marimba_orchestral_bar": 0.65
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "rectified_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.59,
+          "orch_strings": 0.75,
+          "orch_top_wood": 5.67,
+          "orch_back_wood": 19.89,
+          "orch_varnish": 6.25,
+          "orch_setup_period": 7.79,
+          "orch_bow": 0.045,
+          "orch_bow_stick": 6.890000000000001,
+          "orch_articulation": 0.3,
+          "orch_rosin": 6.7
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 1.0899999999999999,
+          "mod_voltage_source": 4.55,
+          "mod_patch_density": 0.135,
+          "mod_lineage": 1.6049999999999995
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "treated_studio",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

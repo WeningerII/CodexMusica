@@ -5,7 +5,7 @@
   "lineage": "Late-19th-century African-American close-harmony sacred quartet tradition originating from the Fisk Jubilee Singers (Fisk University Nashville, founded 1871 to raise funds for the historically Black university through their groundbreaking 1871-onward concert tours of spirituals) — established the male-quartet template that became foundational for both Black gospel quartet tradition and the secular-derivative doo-wop tradition. Notable groups include the Hampton Institute Quartet, Tuskegee Institute Singers, the Fisk Jubilee Quartet recordings 1909-onward",
   "recipe": "classic Southern American modern jubilee quartet, ritual Devotional, jubilee quartet branch, christian gospel spirituals, christian gospel black gospel, soul R&B doowop african-american spirituals gospel quartet. thick, declaimed, wide pitch sway, leader call answered. choir doo wop group, four voice polyphonic regional andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble. southern black church gospel choir. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 521,
-  "score": 286.204,
+  "score": 289.039,
   "config": {
     "traditions": [
       "jubilee_quartet",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 39.57625000000001,
-          "voice_quality": 41.66000000000001,
+          "voice_register": 39.56500000000001,
+          "voice_quality": 41.88000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2487500000000002,
-          "voice_articulation": 30.161875,
+          "voice_articulation": 30.34,
           "voice_microtone": 11.244999999999994,
-          "voice_tradition": 40.784375000000004,
+          "voice_tradition": 42.28125,
           "voice_mechanism_compound": 3.25,
-          "voice_estill_quality": 32.1075,
+          "voice_estill_quality": 32.49,
           "voice_speech_song": 14.039999999999996,
-          "voice_ensemble_config": 30.319375,
+          "voice_ensemble_config": 30.54625,
           "voice_ornament_system": 13.525000000000002,
-          "voice_pitch_organization": 0.9324999999999999,
+          "voice_pitch_organization": 1.2025,
           "voice_processing_chain": 4.745,
           "voice_multitrack_stack": 6.37
         }
@@ -59,7 +59,7 @@
           "arrangement": "doo_wop_with_band"
         },
         "scores": {
-          "voices": 1.308125,
+          "voices": 1.34375,
           "arrangement": 3.4287500000000004
         }
       },
@@ -72,7 +72,7 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 3.4418750000000005,
+          "choir_size": 3.4775000000000005,
           "choir_polyphonic_configuration": 3.3149999999999995,
           "choir_regional_canonical_configuration": 2.5999999999999996,
           "choir_ensemble_repertoire": 3.7700000000000005

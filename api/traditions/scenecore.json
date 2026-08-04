@@ -3,14 +3,14 @@
   "name": "Scenecore",
   "family": "rock_punk",
   "lineage": "American MySpace-era post-hardcore hybrid of roughly 2006-2011 centred on Ohio, Arizona and Florida bands like Attack Attack!, blessthefall and Brokencyde — down-tuned seven-string breakdowns at half-time against 170-200 BPM double-kick verses, alternating unclean screams and Auto-Tuned clean choruses, trance-derived supersaw and arpeggiated synth layers sitting on top of the guitars, and fully grid-edited digital tracking with replaced drum samples.",
-  "recipe": "classic mid-2000s scenecore, distorted Rock, emo branch, metal distorted rock, pop punk distorted rock, pop experimental experimental electric etherpop post-metal. thick, breath veiled tone, pure, interlocked note trading. low b chord melody seven string electric, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural wavetable yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, field textural sampler, polychordal major seven nine eleven stack 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 830,
-  "score": 357.533,
+  "recipe": "classic mid-2000s scenecore, distorted Rock, emo branch, metal distorted rock, pop punk distorted rock, pop experimental experimental electric post-metal viking metal. thick, breath veiled tone, pure, interlocked note trading. low b chord melody seven string electric, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, glitched textural wavetable yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, field textural sampler, unison double single performer stack mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 833,
+  "score": 353.689,
   "config": {
     "traditions": [
       "scenecore",
-      "etherpop",
-      "post_metal"
+      "post_metal",
+      "viking_metal"
     ],
     "instruments": [
       {
@@ -28,27 +28,27 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_pelog_7",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 27.386249999999993,
-          "voice_quality": 6.955000000000001,
+          "voice_register": 28.152499999999996,
+          "voice_quality": 7.150000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.145,
-          "voice_articulation": 20.084999999999994,
-          "voice_microtone": 25.174999999999997,
-          "voice_tradition": 11.55375,
-          "voice_mechanism_compound": 24.17475,
-          "voice_estill_quality": 2.990000000000001,
-          "voice_speech_song": 20.019999999999992,
-          "voice_ensemble_config": 17.289999999999992,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 1.8849999999999996,
-          "voice_processing_chain": 9.685,
+          "voice_vibrato": 2.84,
+          "voice_articulation": 20.539999999999996,
+          "voice_microtone": 25.299999999999997,
+          "voice_tradition": 6.4399999999999995,
+          "voice_mechanism_compound": 34.67725,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 20.019999999999996,
+          "voice_ensemble_config": 19.174999999999997,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 2.5350000000000006,
+          "voice_processing_chain": 8.45,
           "voice_multitrack_stack": 6.305000000000001
         }
       },
@@ -59,15 +59,15 @@
           "seven_string_technique": "seven_string_jazz_chord_melody"
         },
         "scores": {
-          "seven_string_tuning": 2.8600000000000003,
-          "seven_string_technique": 1.04
+          "seven_string_tuning": 3.5100000000000002,
+          "seven_string_technique": 2.535
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -75,25 +75,25 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 9.75,
-          "body_wood": 3.565249999999999,
-          "pickup_config": 2.24,
-          "string_type": 20.9625,
-          "scale_length_b": 1.8519999999999999,
+          "amp_make": 10.595,
+          "body_wood": 3.9,
+          "pickup_config": 2.6,
+          "string_type": 27.227125,
+          "scale_length_b": 1.3,
           "fretted_or_not": 0.09,
-          "bass_technique": 18.31
+          "bass_technique": 22.535
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "brushes_and_sticks",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.914999999999996,
-          "drumhead": 11.695,
+          "drum_technique": 20.5,
+          "drumhead": 5.6450000000000005,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -103,13 +103,13 @@
           "electronic_technique": "electronic_glitch_textural",
           "wt_position": "wt_morphing",
           "wt_family": "wt_vocal",
-          "wt_polyphony": "wt_mono"
+          "wt_polyphony": "wt_poly"
         },
         "scores": {
-          "electronic_technique": 10.670000000000002,
-          "wt_position": 1.615,
-          "wt_family": 1.1625,
-          "wt_polyphony": 0.74
+          "electronic_technique": 5.17,
+          "wt_position": 0.39,
+          "wt_family": 1,
+          "wt_polyphony": 0.195
         }
       },
       {
@@ -118,15 +118,15 @@
           "electronic_technique": "electronic_lead_line",
           "fm_algorithm": "fm_classic",
           "fm_modulator_ratio": "fm_harmonic",
-          "fm_polyphony": "fm_mono",
+          "fm_polyphony": "fm_poly",
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 10.394999999999998,
-          "fm_algorithm": 5.040000000000001,
-          "fm_modulator_ratio": 0.845,
-          "fm_polyphony": 0.74,
-          "fm_model_lineage": 2.405
+          "electronic_technique": 5.0475,
+          "fm_algorithm": 5.540000000000001,
+          "fm_modulator_ratio": 0.195,
+          "fm_polyphony": 0.195,
+          "fm_model_lineage": 1.2349999999999999
         }
       },
       {
@@ -139,24 +139,24 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 10.670000000000002,
+          "electronic_technique": 5.17,
           "sampler_archetypes": 1.4949999999999999,
           "sampler_bit_depth": 1.6899999999999997,
-          "sampler_workflow": 10.26,
-          "sampler_classic_context": 19.662499999999998
+          "sampler_workflow": 4.46,
+          "sampler_classic_context": 18.915
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_polychordal_7_9_11",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_density": "multitrack_density_unison_double",
+          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 1.51375,
-          "multitrack_stack_era_aesthetic": 2.174375,
-          "multitrack_stack_processing": 7.475
+          "multitrack_stack_density": 2.145,
+          "multitrack_stack_era_aesthetic": 4.615000000000001,
+          "multitrack_stack_processing": 7.279999999999999
         }
       }
     ],

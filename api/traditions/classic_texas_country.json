@@ -3,14 +3,14 @@
   "name": "Classic Texas Country",
   "family": "country",
   "lineage": "Texas country took shape in the beer-hall circuit between Fort Worth and San Antonio from the late 1930s through the 1960s, codified by Ernest Tubb, Lefty Frizzell, Ray Price and Willie Nelson — 110–140 BPM shuffles and 2/4 dance beats with a walking upright or electric bass, twin-fiddle harmony, pedal steel and single-coil electric lead over acoustic rhythm guitar, brushed or lightly-swung snare, and a plainspoken slurred baritone vocal built to carry across a wooden dance floor.",
-  "recipe": "classic Southern American 1937-1939 classic texas country, functional Song, neo trad branch, honky tonk era country, western swing country, outlaw country redneck rock classic oklahoma country. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany nickel plated steel single coil electric spruce steel silk travis picked dreadnought acoustic guitar, treble-extended sustaining steel upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, upright piano. honky tonk dance hall. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 808,
-  "score": 691.749,
+  "recipe": "classic Southern American 1937-1939 classic texas country, functional Song, neo trad branch, honky tonk era country, western swing country, outlaw country classic oklahoma country. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric spruce steel silk travis picked dreadnought acoustic guitar, sustaining steel upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, upright piano. honky tonk dance hall. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 777,
+  "score": 661.4,
   "config": {
     "traditions": [
       "classic_texas_country",
-      "redneck_rock",
-      "classic_oklahoma_country"
+      "classic_oklahoma_country",
+      "western_music"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 44.070000000000014,
-          "voice_quality": 13.389999999999992,
+          "voice_register": 33.39500000000001,
+          "voice_quality": 14.624999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 33.767500000000005,
-          "voice_articulation": 20.149999999999995,
-          "voice_microtone": 19.694999999999993,
-          "voice_tradition": 10.399999999999997,
-          "voice_mechanism_compound": 2.9899999999999998,
-          "voice_estill_quality": 36.428000000000004,
-          "voice_speech_song": 27.689999999999998,
-          "voice_ensemble_config": 19.369999999999994,
-          "voice_ornament_system": 1.1049999999999995,
-          "voice_pitch_organization": 0.13000000000000003,
-          "voice_processing_chain": 4.595,
-          "voice_multitrack_stack": 5.655000000000001
+          "voice_vibrato": 30.734999999999996,
+          "voice_articulation": 20.929999999999996,
+          "voice_microtone": 21.57999999999999,
+          "voice_tradition": 8.840000000000002,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 34.883125,
+          "voice_speech_song": 29.379999999999995,
+          "voice_ensemble_config": 22.09999999999999,
+          "voice_ornament_system": 1.7549999999999994,
+          "voice_pitch_organization": 0.16874999999999998,
+          "voice_processing_chain": 4.398125,
+          "voice_multitrack_stack": 6.5649999999999995
         }
       },
       {
@@ -62,11 +62,11 @@
           "fiddle_articulation": "sul_tasto"
         },
         "scores": {
-          "bowed_technique": 43.099999999999994,
-          "fiddle_strings": 5.329999999999999,
-          "fiddle_bow": 0.195,
+          "bowed_technique": 42.275,
+          "fiddle_strings": 5.9799999999999995,
+          "fiddle_bow": 0,
           "fiddle_mute": 0.65,
-          "fiddle_articulation": 0.15
+          "fiddle_articulation": 0.35062499999999996
         }
       },
       {
@@ -82,45 +82,45 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 40.701499999999996,
-          "amp_make": 34.470000000000006,
-          "pickup_steel": 0.735,
-          "string_setup": 19.174999999999997,
-          "bar_material": 3.965,
-          "pedal_steel_brand": 37.535,
-          "pedal_steel_neck_config": 40.547,
-          "pedal_steel_strings": 34.945
+          "electric_technique": 37.588750000000005,
+          "amp_make": 33.364374999999995,
+          "pickup_steel": 0.65,
+          "string_setup": 17.939999999999998,
+          "bar_material": 4.16,
+          "pedal_steel_brand": 35.185625,
+          "pedal_steel_neck_config": 38.85375,
+          "pedal_steel_strings": 32.245625
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_country_chicken_pickin",
+          "electric_technique": "electric_fingerstyle_country",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "pau_ferro_fb",
-          "pickup_magnet": "ceramic",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 33.67,
-          "amp_make": 34.470000000000006,
-          "body_wood": 1.035,
-          "neck_wood": 1.035,
-          "fretboard": 0.195,
-          "pickup_magnet": 0.195,
-          "string_material": 3.965,
-          "string_gauge": 0.735,
-          "bridge": 0.15,
-          "scale_length": 1.7699999999999996,
+          "electric_technique": 30.799999999999997,
+          "amp_make": 33.364374999999995,
+          "body_wood": 0.65,
+          "neck_wood": 0.65,
+          "fretboard": 0.585,
+          "pickup_magnet": 0.35062499999999996,
+          "string_material": 4.16,
+          "string_gauge": 0.65,
+          "bridge": 0.35062499999999996,
+          "scale_length": 0.65,
           "finish": 0.045,
-          "string_tuning": 5.9799999999999995
+          "string_tuning": 1.69
         }
       },
       {
@@ -129,15 +129,15 @@
           "acoustic_technique": "acoustic_travis_picking",
           "string_tuning": "eb_standard",
           "top_wood": "adirondack",
-          "back_sides": "maple_bs",
+          "back_sides": "mahogany_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 32.975,
-          "string_tuning": 0.26,
-          "top_wood": 1.2599999999999998,
-          "back_sides": 0.195,
-          "string_acoustic": 4.159999999999999
+          "acoustic_technique": 30.794999999999995,
+          "string_tuning": 0.9099999999999999,
+          "top_wood": 1.728125,
+          "back_sides": 0,
+          "string_acoustic": 4.55
         }
       },
       {
@@ -147,7 +147,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 3.965,
+          "upright_strings": 4.16,
           "upright_play": 2.5
         }
       },
@@ -159,7 +159,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.564999999999998,
+          "drum_technique": 20.799999999999997,
           "drumhead": 3.835,
           "drum_kit_kick_pedal": 0
         }
@@ -169,12 +169,12 @@
         "slots": {
           "keyboard_technique": "keyboard_honky_tonk",
           "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_concert"
+          "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 36.099999999999994,
-          "upright_use": 0.735,
-          "upright_piano_size": 0.195
+          "keyboard_technique": 33.5,
+          "upright_use": 0.65,
+          "upright_piano_size": 0.5
         }
       }
     ],

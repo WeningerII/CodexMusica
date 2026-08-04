@@ -1,0 +1,203 @@
+{
+  "id": "dechovka",
+  "name": "Dechovka",
+  "family": "global",
+  "lineage": "Czech brass band music consolidated in Bohemia in the second half of the 19th century out of military bands and the polka craze, with František Kmoch of Kolín as its 1880s codifier and Václav Bláha and Ladislav Kubeš carrying it through the state-label era — E-flat and B-flat clarinets and flugelhorns in thirds, tenor horn counter-melody, tuba and off-beat horns under polkas at 110-125 BPM, plus waltzes and marches, commonly with a sung couplet verse.",
+  "recipe": "classic Central European mid-1880s dechovka, drinking Song, European branch, European carnival processional, European wedding pasodoble brass band. balanced, breath veiled tone, slow rate, interlocked note trading. brass yellow brass flugelhorn, grenadilla African blackwood traditional clarinet, yellow brass canonical 70 30 bach stradivarius heavy one piece matched to monette horn ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor extra large cup tenor bottom heavy trombone, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, brass yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, bass drum. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 943,
+  "score": 249.725,
+  "config": {
+    "traditions": [
+      "dechovka",
+      "pasodoble",
+      "brass_band"
+    ],
+    "instruments": [
+      {
+        "id": "flugelhorn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flugel_use": "flugel_brass_band",
+          "flugelhorn_pitch": "flugelhorn_bb",
+          "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+          "flugelhorn_maker_school": "flugelhorn_kanstul"
+        },
+        "scores": {
+          "wind_articulation": 1.56,
+          "flugel_use": 5.005000000000001,
+          "flugelhorn_pitch": 0,
+          "flugelhorn_bell_metal": 3.7700000000000005,
+          "flugelhorn_maker_school": 0.195
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 1.56,
+          "clarinet_body": 1.2999999999999998,
+          "clarinet_size": 0.845,
+          "clarinet_reed": 0.65,
+          "clarinet_articulation": 0.15
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.5350000000000006,
+          "brass_size": 0.65,
+          "trumpet_mouthpiece": 4.16,
+          "brass_mute": 1.49,
+          "trumpet_technique": 2.5350000000000006,
+          "trumpet_bell_metal": 3.7700000000000005,
+          "trumpet_maker_school": 0.195
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_4g",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.5350000000000006,
+          "trombone_type": 0,
+          "trombone_mouthpiece": 3.59,
+          "trombone_mute": 0.845,
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 3.7700000000000005,
+          "trombone_maker_school": 2.73
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 1.56,
+          "tuba_pitch": 4.27,
+          "tuba_context": 6.11,
+          "tuba_bell_metal": 3.7700000000000005,
+          "tuba_valve_system": 0.32999999999999996,
+          "tuba_maker_school": 6.875
+        }
+      },
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "euph_use": "euph_brass_band",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_yellow_brass",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": 1.56,
+          "euph_use": 4.01,
+          "euphonium_pitch": 6.59,
+          "euphonium_bell_metal": 7.085,
+          "euphonium_maker_school": 6.875
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.49499999999999994,
+          "bass_drum_beater": 0.845
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "mix_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 0.65,
+          "voice_quality": 13.129999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.925,
+          "voice_articulation": 25.805,
+          "voice_microtone": 31.2,
+          "voice_tradition": 9.262499999999998,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 5.4275,
+          "voice_speech_song": 29.315,
+          "voice_ensemble_config": 25.740000000000002,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 5.265000000000001,
+          "voice_processing_chain": 2.92,
+          "voice_multitrack_stack": 1.8849999999999996
+        }
+      }
+    ],
+    "room": "prague_supraphon_studio",
+    "archetype": "arch_comecon_state_label",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "prague_supraphon_studio",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Venetian Carnevale tradition documented from medieval-Venetian Carnival celebration (the documented Venetian-Carnevale lineage extends to 11th-12th-century with the canonical post-1268 Doge-mandated Giovedi Grasso celebration) through 18th-century peak-Carnevale era through 1797-Napoleonic suppression through 1979 modern-revival into modern Venice Carnevale continuous practice",
   "recipe": "classic Southern European late-1260s venetian carnevale, carnival Processional, European branch, American south carnival processional, European wedding, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony new orleans brass band second-line. thick, breath veiled tone, straight onset, interlocked note trading. cedar concert modern carbon fiber classical nylon-string guitar, synthetic magic rosin modern acrylic base drone like fiddle, grenadilla African blackwood modern premium continuous-airflow legato recorder. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 626,
-  "score": 211.633,
+  "score": 207.755,
   "config": {
     "traditions": [
       "venice_carnevale",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.9200000000000002,
+          "voice_register": 2.0250000000000004,
           "voice_quality": 19.239999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.434999999999999,
+          "voice_vibrato": 7.9399999999999995,
           "voice_articulation": 17.485,
           "voice_microtone": 18.589999999999996,
-          "voice_tradition": 20.2475,
+          "voice_tradition": 18.845,
           "voice_mechanism_compound": 7.41,
           "voice_estill_quality": 5.915000000000001,
           "voice_speech_song": 16.2825,
           "voice_ensemble_config": 20.215,
-          "voice_ornament_system": 4.119999999999999,
-          "voice_pitch_organization": 7.265000000000001,
+          "voice_ornament_system": 3.8199999999999994,
+          "voice_pitch_organization": 7.5200000000000005,
           "voice_processing_chain": 7.735000000000001,
           "voice_multitrack_stack": 5.655000000000001
         }
@@ -63,12 +63,12 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 2.5749999999999997,
+          "acoustic_technique": 2.6199999999999997,
           "string_tuning": 0,
           "top_wood_classical": 1.69,
-          "bracing_classical": 4.18,
-          "string_classical": 4.965,
-          "attack_technique_cl": 1.67
+          "bracing_classical": 3.9699999999999998,
+          "string_classical": 4.529999999999999,
+          "attack_technique_cl": 1.625
         }
       },
       {
@@ -77,15 +77,15 @@
           "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
-          "fiddle_mute": "rubber_mute",
+          "fiddle_mute": "practice_mute",
           "fiddle_articulation": "sul_pont"
         },
         "scores": {
-          "bowed_technique": 5.165000000000001,
-          "fiddle_strings": 4.18,
-          "fiddle_bow": 9.054999999999998,
-          "fiddle_mute": 0.24,
-          "fiddle_articulation": 0.59
+          "bowed_technique": 4.955000000000001,
+          "fiddle_strings": 3.8799999999999994,
+          "fiddle_bow": 8.754999999999999,
+          "fiddle_mute": 0.105,
+          "fiddle_articulation": 0.5
         }
       },
       {
@@ -93,14 +93,14 @@
         "slots": {
           "wind_articulation": "wind_continuous_legato",
           "recorder_size": "alto_recorder",
-          "recorder_context": "recorder_school",
+          "recorder_context": "recorder_baroque_solo",
           "recorder_body_wood": "recorder_grenadilla"
         },
         "scores": {
           "wind_articulation": 7.345000000000001,
-          "recorder_size": 1.5850000000000002,
-          "recorder_context": 4.18,
-          "recorder_body_wood": 5.46
+          "recorder_size": 1.4500000000000002,
+          "recorder_context": 4.03,
+          "recorder_body_wood": 5.385
         }
       }
     ],

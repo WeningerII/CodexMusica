@@ -3,14 +3,14 @@
   "name": "Plunderphonics",
   "family": "global",
   "lineage": "1980s-onward sample-collage composition tradition coined by John Oswald (Plunderphonics 1989) — characterized by appropriated-pop-recording manipulation as compositional material; the Negativland (Christianity Is Stupid 1987), the Tape-beatles, People Like Us / Vicki Bennett lineage, and the broader fair-use-and-copyright contested terrain",
-  "recipe": "classic Asian mid-1980s plunderphonics, experimental Elec, musique concrete branch, us hip hop MC rhythm conscious hip-hop gangsta rap. chopped sampler, sampled chopped sampler drum machine, modular granular synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 364,
-  "score": 105.167,
+  "recipe": "classic Asian mid-1980s plunderphonics, experimental Elec, musique concrete branch, us hip hop MC rhythm gangsta rap houston chopped and screwed. chopped sampler, sampled chopped sampler drum machine, modular granular synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 374,
+  "score": 97.377,
   "config": {
     "traditions": [
       "plunderphonics",
-      "conscious_hip_hop",
-      "gangsta_rap"
+      "gangsta_rap",
+      "houston_chopped_screwed"
     ],
     "instruments": [
       {
@@ -18,16 +18,16 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 14.059999999999999,
-          "sampler_archetypes": 15.469999999999999,
-          "sampler_bit_depth": 0.9099999999999999,
-          "sampler_workflow": 9.614999999999998,
-          "sampler_classic_context": 27.6575
+          "electronic_technique": 14.159999999999998,
+          "sampler_archetypes": 13.389999999999999,
+          "sampler_bit_depth": 1.23,
+          "sampler_workflow": 9.29,
+          "sampler_classic_context": 22.002499999999998
         }
       },
       {
@@ -39,10 +39,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 14.059999999999999,
-          "sample_bitdepth": 0.65,
-          "sample_swing": 15.469999999999999,
-          "sample_processing": 1.04
+          "electronic_technique": 14.159999999999998,
+          "sample_bitdepth": 0.8999999999999999,
+          "sample_swing": 13.389999999999999,
+          "sample_processing": 0.845
         }
       },
       {
@@ -53,9 +53,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 3.7,
-          "granular_use": 0.24,
-          "granular_synth_source": 3.145
+          "electronic_technique": 4.575,
+          "granular_use": 1.5399999999999998,
+          "granular_synth_source": 3.4949999999999997
         }
       }
     ],

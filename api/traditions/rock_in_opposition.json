@@ -1,0 +1,234 @@
+{
+  "id": "rock_in_opposition",
+  "name": "Rock in Opposition",
+  "family": "rock_punk",
+  "lineage": "A movement declared at Henry Cow's March 1978 London festival, when Fred Frith and Chris Cutler allied Univers Zéro, Stormy Six, Samla Mammas Manna and Etron Fou Leloublan against the record industry, producing a through-composed chamber-rock of shifting odd meters, dissonant reed-and-string writing, Bartók- and Weill-derived harmony, notated scores fused with free-improvisation blocks, and pointedly leftist texts sung in several European languages.",
+  "recipe": "classic British late-1970s rock in opposition, distorted Rock, experimental branch, progressive rock distorted rock, western modern art music zeuhl space rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, fiberskyn synthetic calf sticks backbeat drum kit, glotin var French cane bassoon, thermoset resin multiphonic clarinet, steel sitka spruce hard rock maple acer saccharum French Polish violin orchestral, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 885,
+  "score": 463.842,
+  "config": {
+    "traditions": [
+      "rock_in_opposition",
+      "zeuhl",
+      "space_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_4_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 7.565,
+          "amp_make": 16.574999999999996,
+          "body_wood": 0.7958333333333333,
+          "neck_wood": 2.34,
+          "fretboard": 2.34,
+          "pickup_magnet": 0.43166666666666664,
+          "pickup_winding": 0.5366666666666666,
+          "string_material": 2.34,
+          "bridge": 0,
+          "scale_length": 2.145,
+          "string_gauge": 1.0691666666666666,
+          "finish": 0,
+          "string_tuning": 19.89
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 17.484999999999996,
+          "body_wood": 0.43166666666666664,
+          "pickup_config": 0,
+          "string_type": 37.086666666666666,
+          "scale_length_b": 0.047499999999999994,
+          "fretted_or_not": 0,
+          "bass_technique": 32.075
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "fiberskyn_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 32.125,
+          "drumhead": 4.2975,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "bassoon",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "bassoon_school": "bassoon_heckel",
+          "bassoon_body_wood": "bassoon_maple_canonical",
+          "bassoon_reed": "bassoon_glotin_cane",
+          "bassoon_context": "bassoon_concerto"
+        },
+        "scores": {
+          "wind_articulation": 0.925,
+          "bassoon_school": 0.6375,
+          "bassoon_body_wood": 0.845,
+          "bassoon_reed": 1.04,
+          "bassoon_context": 1.69
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "clarinet_body": "hanson_btr_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "doina_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 3.0749999999999997,
+          "clarinet_body": 1.7499999999999998,
+          "clarinet_size": 2.34,
+          "clarinet_reed": 2.34,
+          "clarinet_articulation": 0.65
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_sul_ponticello",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.6249999999999998,
+          "orch_strings": 2.34,
+          "orch_top_wood": 2.2749999999999995,
+          "orch_back_wood": 21.46,
+          "orch_varnish": 2.4699999999999998,
+          "orch_setup_period": 1.1049999999999998,
+          "orch_bow": 0.845,
+          "orch_bow_stick": 2.1449999999999996,
+          "orch_articulation": 0.195,
+          "orch_rosin": 1.8849999999999996
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 36.92500000000001,
+          "voice_quality": 5.915000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9899999999999998,
+          "voice_articulation": 17.679999999999993,
+          "voice_microtone": 37.91166666666667,
+          "voice_tradition": 9.189166666666667,
+          "voice_mechanism_compound": 6.175000000000001,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 19.369999999999994,
+          "voice_ensemble_config": 17.809999999999995,
+          "voice_ornament_system": 2.1449999999999996,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 3.44,
+          "voice_multitrack_stack": 4.452500000000001
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 7.125,
+          "grand_piano_size": 0.9833333333333333,
+          "grand_piano_brand": 2.34,
+          "piano_hammer": 18.914999999999996,
+          "piano_rim": 18.914999999999996,
+          "piano_soundboard": 1.8799999999999997,
+          "piano_pinblock": 1.7949999999999997,
+          "piano_plate": 1.905833333333333,
+          "piano_pitch_standard": 8.024999999999999
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_british_class_a_commercial",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "id": "hardstep",
+  "name": "Hardstep",
+  "family": "electronic",
+  "lineage": "London, 1995-1997, defined on dubplate by Ed Rush, Trace, Lemon D, Dillinja and Nico as jungle stripped of its ragga chatter — roughly 170 BPM two-step drum patterns using tight programmed kicks and snares rather than rolling Amen loops, hard filtered sub and reese bass, dark minimal stabs, and a percussive, mechanical feel aimed at big-room systems.",
+  "recipe": "classic British 1995-1997 hardstep, bass System, bass descendants branch, uk soundsystem bass system, techno electronic dance, dub descendants bass system ambient dub. chopped sampler, sub bass monosynth acid bass, TR-909, sub bass analog poly synth, turntable. concrete basement. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 383,
+  "score": 55.352,
+  "config": {
+    "traditions": [
+      "hardstep",
+      "dub_techno",
+      "ambient_dub"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 0.825,
+          "sampler_archetypes": 0.42,
+          "sampler_bit_depth": 0.26,
+          "sampler_workflow": 3.783214285714286,
+          "sampler_classic_context": 17.419999999999998
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 12.934999999999997,
+          "wave_acid": 0.345,
+          "filter_acid": 1.8839285714285712,
+          "accent_acid": 1.3482142857142856
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0.375,
+          "drum_machine_909_context": 3.2399999999999998,
+          "tr909_production_origin": 0.5
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 12.934999999999997,
+          "poly_archetypes": 0.9107142857142857,
+          "poly_voices": 0.9107142857142857,
+          "poly_maker_lineage": -1.225
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "turntable_technique": 1
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_uk_jungle_dubplate",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dub_plate_cut"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "medium_dub_plate_cut",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "id": "singeli",
+  "name": "Singeli",
+  "family": "electronic",
+  "lineage": "Dar es Salaam street-studio dance music formed in the Tandale and Manzese quarters in the late 2000s and pushed abroad from 2016 by Sisso Studios and Nyege Nyege — 180-300 BPM loops of sped-up taarab, mchiriku and Bongo Flava samples over a hammering kick, rapid-fire Swahili MCing recorded live in one take, and abrupt tempo escalations designed for street bashment sound systems.",
+  "recipe": "classic 2007-2009 singeli, electronic Dance, African dance branch, Afro-diasporic MC rhythm, lofi experimental electric skweee anime lo-fi. thick, breath veiled tone, straight onset, interlocked note trading. sampler drum machine, TR-808, glitched textural wavetable synth, live ambient room natural hand clap. tin roofed shack. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 427,
+  "score": 150.925,
+  "config": {
+    "traditions": [
+      "singeli",
+      "skweee",
+      "anime_lofi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 2.6900000000000013,
+          "voice_quality": 6.565000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.22,
+          "voice_articulation": 18.525,
+          "voice_microtone": 18.134999999999994,
+          "voice_tradition": 9.175,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 19.759999999999998,
+          "voice_ensemble_config": 18.069999999999997,
+          "voice_ornament_system": 0.9749999999999994,
+          "voice_pitch_organization": 2.6,
+          "voice_processing_chain": 12.88,
+          "voice_multitrack_stack": 4.290000000000001
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.7875,
+          "sample_bitdepth": 1.2349999999999999,
+          "sample_swing": 10.875,
+          "sample_processing": 0.4649999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 1.8525,
+          "drum_machine_808_context": 1.2,
+          "tr808_production_origin": 0.15
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 9,
+          "wt_position": 4.739999999999999,
+          "wt_family": 0.39,
+          "wt_polyphony": 0.39
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.65,
+          "clap_capture": 2.22
+        }
+      }
+    ],
+    "room": "tin_roofed_shack",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tin_roofed_shack",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

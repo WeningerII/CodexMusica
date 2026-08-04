@@ -1,0 +1,168 @@
+{
+  "id": "trecento",
+  "name": "Italian Trecento Polyphony",
+  "family": "classical",
+  "lineage": "Fourteenth-century Italian secular polyphony centred on Florence, Bologna and Padua and codified by Jacopo da Bologna, Francesco Landini, Gherardello and Niccolò da Perugia in the Squarcialupi Codex — two- and three-voice madrigals, cacce and ballate in Italian mensural notation with divisiones, long florid melismatic upper-voice openings and closes, cantabile stepwise motion, canonic hunting cacce, and the under-third Landini cadence.",
+  "recipe": "classic European early-1950s italian trecento polyphony, art Music, western early branch, western common practice art music, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony salon music. thick, breath veiled tone, slow rate, interlocked note trading. gut bourdon drone legato vielle medieval, high treble single line block chord portative organ, ayre and lieder yew ribs Italian brescian alpine spruce Italian pistoy bass gut lute renaissance, medieval psaltery, boxwood canonical renaissance Baroque continuous-airflow legato recorder, harpa. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 658,
+  "score": 314.897,
+  "config": {
+    "traditions": [
+      "trecento",
+      "croatian_klapa_dalmatian",
+      "salon_music"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "operatic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.92375,
+          "voice_quality": 18.069999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.182499999999999,
+          "voice_articulation": 29.119999999999997,
+          "voice_microtone": 29.512499999999996,
+          "voice_tradition": 16.686249999999998,
+          "voice_mechanism_compound": 7.433750000000001,
+          "voice_estill_quality": 14.084999999999999,
+          "voice_speech_song": 26.455000000000002,
+          "voice_ensemble_config": 35.364999999999995,
+          "voice_ornament_system": 13.575,
+          "voice_pitch_organization": 5.2749999999999995,
+          "voice_processing_chain": 5.654999999999999,
+          "voice_multitrack_stack": 3.7700000000000005
+        }
+      },
+      {
+        "id": "vielle_medieval",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "vielle_medieval_form": "vielle_medieval_oval_five_string",
+          "vielle_medieval_repertoire": "vielle_medieval_polyphony_doubling",
+          "vielle_medieval_stringing": "vielle_medieval_bourdon_gut"
+        },
+        "scores": {
+          "bowed_technique": 5.375,
+          "vielle_medieval_form": 0.99875,
+          "vielle_medieval_repertoire": 1.3900000000000001,
+          "vielle_medieval_stringing": 3.3400000000000003
+        }
+      },
+      {
+        "id": "portative_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "portative_organ_form": "portative_organ_form_landini_organetto",
+          "portative_organ_repertoire": "portative_organ_repertoire_trecento_secular",
+          "portative_organ_pipework": "portative_organ_pipework_metal"
+        },
+        "scores": {
+          "keyboard_technique": 3.4075,
+          "portative_organ_form": 7.145,
+          "portative_organ_repertoire": 5.745,
+          "portative_organ_pipework": 0.4
+        }
+      },
+      {
+        "id": "lute_renaissance",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "lute_courses": "lute_10_courses",
+          "lute_renaissance_context": "lute_renaissance_song",
+          "lute_renaissance_ribs": "lute_yew_ribs",
+          "lute_renaissance_soundboard": "lute_alpine_spruce",
+          "lute_renaissance_strings": "lute_pistoy_bass_gut"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.375,
+          "lute_courses": 2.085,
+          "lute_renaissance_context": 24.960000000000004,
+          "lute_renaissance_ribs": 5.339999999999999,
+          "lute_renaissance_soundboard": 5.339999999999999,
+          "lute_renaissance_strings": 3.985
+        }
+      },
+      {
+        "id": "medieval_psaltery",
+        "slots": {
+          "medieval_psaltery_form": "medieval_psaltery_form_canale",
+          "medieval_psaltery_playing": "medieval_psaltery_playing_single_plectrum",
+          "medieval_psaltery_stringing": "medieval_psaltery_stringing_brass_wire"
+        },
+        "scores": {
+          "medieval_psaltery_form": -0.035,
+          "medieval_psaltery_playing": 0.945,
+          "medieval_psaltery_stringing": -0.035
+        }
+      },
+      {
+        "id": "recorder",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "recorder_size": "alto_recorder",
+          "recorder_context": "recorder_baroque_solo",
+          "recorder_body_wood": "recorder_boxwood_canonical"
+        },
+        "scores": {
+          "wind_articulation": 5.5649999999999995,
+          "recorder_size": 4.095,
+          "recorder_context": 11.05,
+          "recorder_body_wood": 2.145
+        }
+      },
+      {
+        "id": "harpa",
+        "slots": {
+          "harpa_size": "harpa_floor",
+          "harpa_strings": "harpa_brass_wire"
+        },
+        "scores": {
+          "harpa_size": 0.59,
+          "harpa_strings": 1.345
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pythagorean",
+    "room": "stone_parish_church",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

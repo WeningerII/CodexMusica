@@ -5,7 +5,7 @@
   "lineage": "Internet-native reggaeton offshoot that coalesced around 2016 through SoundCloud and Instagram networks linking Santiago, Mexico City, Madrid and Los Angeles, named and organized largely by Tomasa del Real and Ms Nina with DJ Florentino and Chico Sonido supplying beats — 90-100 BPM dembow retained but stripped to a thin skeletal kick-snare, sub-heavy and dry, topped with deliberately deadpan or breathy female vocals, heavy autotune, and lo-fi digital synth stabs replacing the maximal 2000s reggaeton horn hooks.",
   "recipe": "classic mid-2000s neoperreo, mc Rhythm, reggaeton branch, Latin electric electronic dance, pop experimental experimental electric cumbia 420 indietronica. thick, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampler drum machine, low sub bass analog poly synth, low sub bass monosynth acid bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 475,
-  "score": 187.58,
+  "score": 186.98,
   "config": {
     "traditions": [
       "neoperreo",
@@ -41,14 +41,14 @@
           "voice_vibrato": 1.4299999999999997,
           "voice_articulation": 22.165,
           "voice_microtone": 22.36,
-          "voice_tradition": 8.71,
+          "voice_tradition": 8.26,
           "voice_mechanism_compound": 5.329999999999999,
           "voice_estill_quality": 5.135,
           "voice_speech_song": 22.944999999999997,
           "voice_ensemble_config": 21.84,
           "voice_ornament_system": 2.600000000000001,
           "voice_pitch_organization": 2.535,
-          "voice_processing_chain": 11.545,
+          "voice_processing_chain": 11.455,
           "voice_multitrack_stack": 5.069999999999999
         }
       },
@@ -76,7 +76,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 2.145,
-          "sample_swing": 8.625,
+          "sample_swing": 8.67,
           "sample_processing": 1.2349999999999999
         }
       },
@@ -90,7 +90,7 @@
         },
         "scores": {
           "electronic_technique": 7.8975,
-          "poly_archetypes": 0.45499999999999996,
+          "poly_archetypes": 0.35,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
@@ -105,9 +105,9 @@
         },
         "scores": {
           "electronic_technique": 7.8975,
-          "wave_acid": 0.09,
+          "wave_acid": 0.045,
           "filter_acid": 2.535,
-          "accent_acid": 0.345
+          "accent_acid": 0.39
         }
       }
     ],

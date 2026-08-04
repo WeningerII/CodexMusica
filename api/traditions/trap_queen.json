@@ -3,14 +3,14 @@
   "name": "Trap queen (woman-led Southern trap)",
   "family": "hip_hop",
   "lineage": "Woman-led Southern trap consolidated in Atlanta, Houston and Miami between 2016 and 2020 through Cardi B, Megan Thee Stallion, City Girls, Latto and producers Metro Boomin, Juicy J and LilJuMadeDaBeat — 130-145 BPM half-time grids, long-decay 808 slides, 32nd-note hi-hat rolls and a hard-consonant, largely unsung declamatory flow foregrounding sexual authorship and money, cut in commercial Atlanta rooms with heavy vocal doubling.",
-  "recipe": "classic Southern American mid-2010s trap queen, mc Rhythm, southern branch, us hip hop modern, drill MC rhythm german drill scam rap. vocal fry, rap, straight note core, interlocked note trading. 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack, roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass wavetable native instruments fm8 modern software 8 operator sub bass fm synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe": "classic Southern American mid-2010s trap queen, mc Rhythm, southern branch, us hip hop modern, drill MC rhythm detroit trap german drill. vocal fry, rap, straight onset, interlocked note trading. 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack, roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass wavetable native instruments fm8 modern software 8 operator sub bass fm synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 660,
-  "score": 238.175,
+  "score": 247.91,
   "config": {
     "traditions": [
       "trap_queen",
-      "german_drill",
-      "scam_rap"
+      "detroit_trap",
+      "german_drill"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.4949999999999999,
-          "voice_quality": 17.810000000000002,
+          "voice_quality": 18.265,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6650000000000005,
-          "voice_articulation": 20.539999999999996,
-          "voice_microtone": 27.559999999999995,
-          "voice_tradition": 8.515,
-          "voice_mechanism_compound": 2.34,
-          "voice_estill_quality": 2.1449999999999996,
-          "voice_speech_song": 19.434999999999995,
-          "voice_ensemble_config": 18.719999999999995,
+          "voice_vibrato": 2.7950000000000004,
+          "voice_articulation": 22.034999999999993,
+          "voice_microtone": 27.754999999999992,
+          "voice_tradition": 8.59,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 20.929999999999993,
+          "voice_ensemble_config": 19.759999999999994,
           "voice_ornament_system": 10.334999999999997,
-          "voice_pitch_organization": 2.4700000000000006,
-          "voice_processing_chain": 7.985,
-          "voice_multitrack_stack": 4.192500000000001
+          "voice_pitch_organization": 1.6224999999999998,
+          "voice_processing_chain": 7.6850000000000005,
+          "voice_multitrack_stack": 4.485000000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 0.345,
-          "multitrack_stack_era_aesthetic": 1.3225,
-          "multitrack_stack_processing": 5.114999999999999
+          "multitrack_stack_density": 0.9950000000000001,
+          "multitrack_stack_era_aesthetic": 1.7425,
+          "multitrack_stack_processing": 5.009999999999999
         }
       },
       {
@@ -73,8 +73,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.83,
-          "drum_machine_808_context": 3.6399999999999997,
+          "tr808_voice": 8.445,
+          "drum_machine_808_context": 3.8349999999999995,
           "tr808_production_origin": 2.34
         }
       },
@@ -84,13 +84,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "twenty_four_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 6.295,
-          "sample_bitdepth": 2.535,
-          "sample_swing": 10.4,
-          "sample_processing": 0.585
+          "electronic_technique": 6.825000000000001,
+          "sample_bitdepth": 3.185,
+          "sample_swing": 10.790000000000001,
+          "sample_processing": 1.04
         }
       },
       {
@@ -102,7 +102,7 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 18.58,
+          "electronic_technique": 19.465,
           "wt_position": 2.34,
           "wt_family": 2.34,
           "wt_polyphony": 0
@@ -118,9 +118,9 @@
           "fm_model_lineage": "fm_native_instruments_fm8"
         },
         "scores": {
-          "electronic_technique": 18.58,
+          "electronic_technique": 19.465,
           "fm_algorithm": 0.585,
-          "fm_modulator_ratio": 0.645,
+          "fm_modulator_ratio": 0.195,
           "fm_polyphony": 0,
           "fm_model_lineage": 2.34
         }

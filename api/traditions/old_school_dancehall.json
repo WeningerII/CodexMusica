@@ -1,0 +1,191 @@
+{
+  "id": "old_school_dancehall",
+  "name": "Old School Dancehall (early-1980s Kingston)",
+  "family": "global",
+  "lineage": "Jamaican style that emerged in Kingston dancehalls around 1979-1984 as roots reggae receded, built by producers Henry Junjo Lawes and Linval Thompson with the Roots Radics at Channel One and Volcano, slowing the tempo to a stark 'rockers-to-rub-a-dub' 70-90 BPM with a dry gated kit, an enormous minimal bass line, sparse skank guitar and deejays like Yellowman toasting and singers chanting over recycled Studio One riddims.",
+  "recipe": "classic Caribbean old school dancehall, bass System, Jamaican branch, dub descendants bass system, Afro-diasporic MC rhythm trip hop dubtronica. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit, roasted maple maple clean strummed single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica, turntable. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 783,
+  "score": 256.725,
+  "config": {
+    "traditions": [
+      "old_school_dancehall",
+      "trip_hop",
+      "dubtronica"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 1.4300000000000002,
+          "voice_quality": 11.309999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 18.589999999999996,
+          "voice_microtone": 19.889999999999993,
+          "voice_tradition": 7.995000000000001,
+          "voice_mechanism_compound": 4.029999999999999,
+          "voice_estill_quality": 4.485,
+          "voice_speech_song": 18.784999999999997,
+          "voice_ensemble_config": 19.304999999999993,
+          "voice_ornament_system": 6.565000000000001,
+          "voice_pitch_organization": 2.5350000000000006,
+          "voice_processing_chain": 8.875,
+          "voice_multitrack_stack": 8.945
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 10.27,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0.845,
+          "string_type": 10.399999999999999,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0,
+          "bass_technique": 17.65
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "kevlar_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.654999999999998,
+          "drumhead": 1.295,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_champ",
+          "body_wood": "mahogany",
+          "neck_wood": "roasted_maple",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_baritone",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 3.144999999999999,
+          "amp_make": 1.2399999999999998,
+          "body_wood": 0.65,
+          "neck_wood": 1.345,
+          "fretboard": 0.845,
+          "pickup_magnet": 0.045,
+          "string_material": 0.3,
+          "string_gauge": 2.08,
+          "bridge": 0.045,
+          "scale_length": 0.845,
+          "finish": 0,
+          "string_tuning": 0.65
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "slow_chorale",
+          "percussion_setting": "percussion_off",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 0.52,
+          "drawbar_setting": 0.78,
+          "rotary_speed": 0.45499999999999996,
+          "percussion_setting": 0.845,
+          "tonewheel_model": 11.959999999999999,
+          "leslie_cabinet_model": 0
+        }
+      },
+      {
+        "id": "melodica",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "melodica_use": "melodica_dub",
+          "melodica_pitch": "melodica_alto",
+          "melodica_maker_school": "melodica_hohner_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 0.52,
+          "melodica_use": 13.275,
+          "melodica_pitch": 0.195,
+          "melodica_maker_school": 18.994999999999997
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 2.535,
+          "turntable_technique": 1.68
+        }
+      }
+    ],
+    "room": "kingston_channel_one_maxfield_avenue",
+    "archetype": "arch_kingston_dub_console",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "kingston_channel_one_maxfield_avenue",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

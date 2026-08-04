@@ -1,0 +1,190 @@
+{
+  "id": "t_pop",
+  "name": "T-Pop",
+  "family": "pop",
+  "lineage": "Thai idol-and-boyband pop industry consolidated in Bangkok from the late 2010s onward — building on GMM Grammy's 1990s-2000s string-pop lineage and codified by 4EVE, BUS, PROXIE and above all BAMBAM and the group 4MIX, plus the breakout of Milli and F.HERO into rap-pop crossover — defined by 100-128 BPM programmed four-on-the-floor or half-time trap hybrids, sidechained synth-and-808 beds, English-Thai code-switching hooks, choreographed multi-member vocal splits with heavy pitch-correction and stacked doubles, and K-pop-derived A&R structure (title track, dance break, rap verse) applied to Thai tonal-language prosody.",
+  "recipe": "classic Southeast Asian 2017-2019 t-pop, functional Song, east Asian pop branch, intl hip hop MC rhythm, pop rock synthpop new romanticism wonky pop. thick, rap, straight onset, interlocked note trading. octuple plus dense stack multi track instrument 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack, TR-808, singing lead analog poly synth, sampler drum machine, ampeg svt amp rock bass amp ernie ball slinky electric bass, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 809,
+  "score": 391.002,
+  "config": {
+    "traditions": [
+      "t_pop",
+      "new_romantic",
+      "wonky_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 44.99500000000003,
+          "voice_quality": 9.165,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.6049999999999995,
+          "voice_articulation": 21.97,
+          "voice_microtone": 43.30000000000001,
+          "voice_tradition": 38.160000000000004,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 3.4450000000000003,
+          "voice_speech_song": 29.770000000000003,
+          "voice_ensemble_config": 26.39,
+          "voice_ornament_system": 2.5400000000000005,
+          "voice_pitch_organization": 15.404999999999998,
+          "voice_processing_chain": 7.195,
+          "voice_multitrack_stack": 10.464999999999996
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 3.445,
+          "multitrack_stack_era_aesthetic": 3.185,
+          "multitrack_stack_processing": 2.7300000000000004
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.9049999999999994,
+          "drum_machine_808_context": 2.4699999999999998,
+          "tr808_production_origin": 0.255
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 35.97500000000001,
+          "poly_archetypes": 3.75,
+          "poly_voices": 0.435,
+          "poly_maker_lineage": -0.28
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.9999999999999998,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 1.8199999999999998,
+          "sample_processing": 0.345
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 5.25,
+          "body_wood": 0.15,
+          "pickup_config": 0.645,
+          "string_type": 8.125,
+          "scale_length_b": 0.255,
+          "fretted_or_not": 0,
+          "bass_technique": 8.695
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "pine",
+          "neck_wood": "maple",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 37.5,
+          "amp_make": 5.275,
+          "body_wood": 0.21,
+          "neck_wood": 0.345,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 0.21,
+          "bridge": 0.255,
+          "scale_length": 0.15,
+          "finish": 0.195,
+          "string_tuning": 4.225
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_seoul_kpop_idol",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

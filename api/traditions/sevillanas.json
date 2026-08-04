@@ -1,0 +1,145 @@
+{
+  "id": "sevillanas",
+  "name": "Sevillanas",
+  "family": "global",
+  "lineage": "Andalusian dance-song derived from the Castilian seguidilla and fixed in its modern four-copla form in nineteenth-century Seville, becoming the mass repertoire of the Feria de Abril and the El Rocío pilgrimage — a bright 3/4 at about 120-140 beats per minute in four short linked coplas each danced as a separate figure, with strummed nylon-string guitar rasgueado, palmas, castanets and paired male-female or group vocals in parallel thirds.",
+  "recipe": "classic Iberian early-1950s sevillanas, functional Song, iberian branch, European wedding, European carnival processional trikiti cologne karneval. thick, breath veiled tone, straight onset, interlocked note trading. cedar concert modern carbon fiber fan strum classical nylon-string cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, snappy to palm hand clap, traditional iberian pomegranate wood castanets, open back Afro peruvian tradition festejo tradition cajon peruano. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 674,
+  "score": 149.74,
+  "config": {
+    "traditions": [
+      "sevillanas",
+      "trikiti",
+      "cologne_karneval"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "rasgueado_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.975,
+          "string_tuning": 0,
+          "top_wood_classical": 10.009999999999998,
+          "bracing_classical": 1.2349999999999997,
+          "string_classical": 1.2349999999999997,
+          "attack_technique_cl": 1.5
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "flamenco_jondo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 2.7249999999999996,
+          "voice_quality": 11.764999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.1049999999999995,
+          "voice_articulation": 15.925,
+          "voice_microtone": 14.819999999999999,
+          "voice_tradition": 8.215,
+          "voice_mechanism_compound": 4.3549999999999995,
+          "voice_estill_quality": 6.175,
+          "voice_speech_song": 20.085,
+          "voice_ensemble_config": 17.16,
+          "voice_ornament_system": 6.17,
+          "voice_pitch_organization": 8.425,
+          "voice_processing_chain": 3.41,
+          "voice_multitrack_stack": 2.8300000000000005
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 2.08,
+          "clap_capture": 0
+        }
+      },
+      {
+        "id": "castanets",
+        "slots": {
+          "castanets_material": "castanets_pomegranate",
+          "castanets_mounting": "castanets_palillos"
+        },
+        "scores": {
+          "castanets_material": 2.1950000000000003,
+          "castanets_mounting": 2.74
+        }
+      },
+      {
+        "id": "flamenco_guitar",
+        "slots": {
+          "flamenco_body": "flamenco_blanca_cypress",
+          "flamenco_features": "flamenco_low_action_golpe_plate",
+          "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
+        },
+        "scores": {
+          "flamenco_body": 2.47,
+          "flamenco_features": 0.195,
+          "flamenco_technique": 2.91
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_open_back",
+          "cajon_peruano_role": "cajon_peruano_festejo"
+        },
+        "scores": {
+          "cajon_peruano_construction": 1.04,
+          "cajon_peruano_role": 1.69
+        }
+      }
+    ],
+    "room": "andalusian_tablao_seville_madrid",
+    "archetype": "arch_madrid_flamenco_tape",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "andalusian_tablao_seville_madrid",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_medium": "digital_std",
+    "chain_console": "colored"
+  }
+}

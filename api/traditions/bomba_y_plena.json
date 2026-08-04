@@ -1,0 +1,168 @@
+{
+  "id": "bomba_y_plena",
+  "name": "Bomba y Plena",
+  "family": "global",
+  "lineage": "The paired-repertoire ensemble practice that fused Puerto Rico's two Afro-descendant folk forms into a single performance and recording format from the 1950s onward, driven by Rafael Cortijo y su Combo with Ismael Rivera bringing barril and pandereta patterns into a horn-and-conga dance band — sets alternate sicá-based bomba numbers with duple plena refrains, joined by shared call-and-response chorus practice and the same barrio lyric register.",
+  "recipe": "classic Caribbean mid-1950s bomba y plena, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional merengue típico kaseko. thick, breath veiled tone, slow rate, interlocked note trading. interlocking buleador and subidor paired set barril de bomba, pandereta puertorriquena, guiro, mahogany puerto rican traditional strummed cuatro pr, cowhide mid tier open slap hand drum congas, rose brass darker warmer ensemble saxophone. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+  "recipe_chars": 626,
+  "score": 218.862,
+  "config": {
+    "traditions": [
+      "bomba_y_plena",
+      "tipico",
+      "kaseko"
+    ],
+    "instruments": [
+      {
+        "id": "barril_de_bomba",
+        "slots": {
+          "barril_de_bomba_form": "barril_de_bomba_cuerda",
+          "barril_de_bomba_repertoire": "barril_de_bomba_piquetes",
+          "barril_de_bomba_shell": "barril_de_bomba_stave_tunable"
+        },
+        "scores": {
+          "barril_de_bomba_form": 27.689999999999998,
+          "barril_de_bomba_repertoire": 30.029999999999998,
+          "barril_de_bomba_shell": 0.975
+        }
+      },
+      {
+        "id": "pandereta_puertorriquena",
+        "slots": {
+          "pandereta_size": "pandereta_segundo",
+          "pandereta_head": "pandereta_synthetic"
+        },
+        "scores": {
+          "pandereta_size": 1.04,
+          "pandereta_head": 0.045
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_puerto_rican",
+          "guiro_striker": "guiro_wood"
+        },
+        "scores": {
+          "guiro_origin": 7.249999999999999,
+          "guiro_striker": 0.78
+        }
+      },
+      {
+        "id": "cuatro_pr",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cuatro_pr_config": "cuatro_pr_five_double",
+          "cuatro_pr_context": "cuatro_pr_jibaro",
+          "cuatro_pr_body_wood": "cuatro_pr_mahogany",
+          "cuatro_pr_string_material": "cuatro_pr_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.59,
+          "cuatro_pr_config": -0.905,
+          "cuatro_pr_context": 0.845,
+          "cuatro_pr_body_wood": 2.08,
+          "cuatro_pr_string_material": -1.155
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 3.2699999999999996,
+          "voice_quality": 13.714999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 17.549999999999997,
+          "voice_microtone": 17.54999999999999,
+          "voice_tradition": 10.790000000000001,
+          "voice_mechanism_compound": 5.719999999999999,
+          "voice_estill_quality": 6.175,
+          "voice_speech_song": 23.919999999999995,
+          "voice_ensemble_config": 17.09499999999999,
+          "voice_ornament_system": 0.26,
+          "voice_pitch_organization": 0.8499999999999999,
+          "voice_processing_chain": 5.675,
+          "voice_multitrack_stack": 3.6725000000000003
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 6.199374999999999,
+          "conga_set": 0.845,
+          "conga_skin": 1.04,
+          "conga_shell_wood": 0.8249999999999998
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 4.1606250000000005,
+          "sax_size": 1.235,
+          "sax_reed": 0.435,
+          "sax_body_alloy": 1.2,
+          "sax_mouthpiece": 0.435,
+          "sax_technique": 0.585,
+          "sax_maker_school": 0.65
+        }
+      }
+    ],
+    "room": "san_juan_puerto_rican_bomba_plena_yard",
+    "archetype": "arch_antilles_creole_analog",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "son_clave_2_3",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "son_clave_2_3",
+    "room": "san_juan_puerto_rican_bomba_plena_yard",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

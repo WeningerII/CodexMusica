@@ -3,29 +3,29 @@
   "name": "Anglican choral evensong",
   "family": "global",
   "lineage": "English Anglican choral evensong service-music tradition codified in the Book of Common Prayer (1549, 1662) with characteristic Magnificat and Nunc Dimittis canticle settings — sung daily across the cathedral foundations of the Church of England with characteristic boy-treble-and-adult-male-alto-tenor-bass voicing, Anglican-chant psalmody, and an unbroken liturgical-music transmission from the Reformation through the present including settings by Tallis, Gibbons, Stanford, Howells, and Britten",
-  "recipe": "classic European late-1540s anglican choral evensong, ritual Devotional, anglican choral branch, western early art music burgundian school renaissance madrigal. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, choir cathedral satb. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 768,
-  "score": 188.542,
+  "recipe": "classic European late-1540s anglican choral evensong, ritual Devotional, anglican choral branch, western early art music cantata burgundian school. thick, breath veiled tone, straight note core, interlocked note trading. mixed satb canonical 4 part western parallel fourth fifth octave organum kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ, choir cathedral satb. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 752,
+  "score": 202.188,
   "config": {
     "traditions": [
       "anglican_choral_evensong",
-      "burgundian_school",
-      "renaissance_madrigal"
+      "cantata",
+      "burgundian_school"
     ],
     "instruments": [
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_organum_4_5_8",
           "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
-          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 3.7049999999999996,
-          "choir_polyphonic_configuration": 4.615,
-          "choir_regional_canonical_configuration": 6.175,
-          "choir_ensemble_repertoire": 3.8349999999999995
+          "choir_size": 5.3950000000000005,
+          "choir_polyphonic_configuration": 2.2949999999999995,
+          "choir_regional_canonical_configuration": 6.629999999999999,
+          "choir_ensemble_repertoire": 3.38
         }
       },
       {
@@ -38,33 +38,33 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "operatic_tradition",
+          "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 6.8050000000000015,
-          "voice_quality": 16.119999999999997,
+          "voice_register": 7.305000000000001,
+          "voice_quality": 17.095,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.550000000000001,
-          "voice_articulation": 15.274999999999993,
-          "voice_microtone": 15.079999999999991,
-          "voice_tradition": 7.475,
-          "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 11.6675,
-          "voice_speech_song": 15.274999999999993,
-          "voice_ensemble_config": 18.849999999999994,
-          "voice_ornament_system": 7.375,
-          "voice_pitch_organization": 7.02,
-          "voice_processing_chain": 7.215000000000001,
-          "voice_multitrack_stack": 1.755
+          "voice_vibrato": 6.727500000000001,
+          "voice_articulation": 21.06,
+          "voice_microtone": 18.069999999999997,
+          "voice_tradition": 6.275,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 5.300000000000002,
+          "voice_speech_song": 19.6625,
+          "voice_ensemble_config": 22.489999999999995,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 6.0125,
+          "voice_processing_chain": 9.360000000000003,
+          "voice_multitrack_stack": 2.3900000000000006
         }
       },
       {
@@ -76,16 +76,16 @@
           "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
           "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
           "pipe_organ_temperament": "pipe_organ_meantone_quarter",
-          "pipe_organ_action": "pipe_organ_mechanical_tracker"
+          "pipe_organ_action": "pipe_organ_pneumatic"
         },
         "scores": {
           "keyboard_technique": 2.8,
-          "pipe_organ_class": 0.845,
-          "pipe_organ_context": 10.01,
-          "pipe_organ_voicing_school": 5.3950000000000005,
-          "pipe_organ_pipe_alloy": 1.69,
-          "pipe_organ_temperament": 4.55,
-          "pipe_organ_action": 2.535
+          "pipe_organ_class": 0.65,
+          "pipe_organ_context": 10.92,
+          "pipe_organ_voicing_school": 6.5,
+          "pipe_organ_pipe_alloy": 1.4949999999999999,
+          "pipe_organ_temperament": 4.16,
+          "pipe_organ_action": 1.4949999999999999
         }
       },
       {
@@ -95,7 +95,7 @@
           "repertoire": "baroque_choral"
         },
         "scores": {
-          "voicing": 5.715,
+          "voicing": 6.0649999999999995,
           "repertoire": 0.39
         }
       }

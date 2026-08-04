@@ -1,0 +1,199 @@
+{
+  "id": "experimental_rock",
+  "name": "Experimental Rock",
+  "family": "rock",
+  "lineage": "Emerged internationally 1967-1980 through Captain Beefheart, Faust, This Heat, Frank Zappa and later Sonic Youth and Swans, using the rock band as raw material rather than form — polymetric interlocking parts, altered and prepared guitars, tape splicing and musique concrete inserts, non-functional harmony, extended or absent song structure, and vocals treated as timbre, usually self-produced in converted non-studio spaces on multitrack tape.",
+  "recipe": "classic mid-1970s experimental rock, distorted Rock, experimental branch, noise rock distorted rock, musique concrete experimental electric jazzcore. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, prepared piano, emu modular 1971 1978 analog studio grade east coast precision textural modular synth, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 819,
+  "score": 441.543,
+  "config": {
+    "traditions": [
+      "experimental_rock",
+      "noise_rock",
+      "jazzcore"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 12.629999999999999,
+          "amp_make": 19.52,
+          "body_wood": 1.4300000000000002,
+          "neck_wood": 1.54,
+          "fretboard": 1.69,
+          "pickup_magnet": 0.40499999999999997,
+          "pickup_winding": 0.39,
+          "string_material": 1.69,
+          "bridge": 1.04,
+          "scale_length": 2.08,
+          "string_gauge": 1.04,
+          "finish": 1.09,
+          "string_tuning": 18.485
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 16.714999999999996,
+          "body_wood": 1.04,
+          "pickup_config": 0.525,
+          "string_type": 36.685,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0.65,
+          "bass_technique": 35.445
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 33.25,
+          "drumhead": 3.7849999999999993,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 36.25892857142859,
+          "voice_quality": 6.175000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.944999999999999,
+          "voice_articulation": 18.459999999999994,
+          "voice_microtone": 36.510000000000005,
+          "voice_tradition": 16.59107142857143,
+          "voice_mechanism_compound": 15.9375,
+          "voice_estill_quality": 1.4299999999999997,
+          "voice_speech_song": 20.34499999999999,
+          "voice_ensemble_config": 18.394999999999992,
+          "voice_ornament_system": 1.24,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 6.76,
+          "voice_multitrack_stack": 5.965000000000001
+        }
+      },
+      {
+        "id": "prepared_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "prepared_piano_object": "prepared_piano_paper",
+          "prepared_piano_zone": "prepared_piano_middle",
+          "prepared_piano_instrument": "prepared_piano_upright"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "prepared_piano_object": 1,
+          "prepared_piano_zone": 1,
+          "prepared_piano_instrument": 0.045
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_emu_modular"
+        },
+        "scores": {
+          "electronic_technique": 13.08,
+          "mod_voltage_source": 0.39,
+          "mod_patch_density": 2.305714285714286,
+          "mod_lineage": 2.405
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_multiphonic_avant",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 14.45,
+          "sax_size": 2.275,
+          "sax_reed": 1.54,
+          "sax_body_alloy": 3.2499999999999996,
+          "sax_mouthpiece": 1.7349999999999999,
+          "sax_technique": 13.25,
+          "sax_maker_school": 1.5599999999999994
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_adr_compex",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_adr_compex",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "id": "chinese_minyao",
+  "name": "Chinese Minyao (Mainland Indie Folk)",
+  "family": "pop_rock",
+  "lineage": "Mainland Chinese indie-folk current formed in Beijing bar circuits (D-22, School, Jianghu) from the late 1990s through the 2010s around Zhou Yunpeng, Wan Xiaoli, Li Zhi, Song Dongye and Zhao Lei, built on fingerpicked or lightly strummed steel-string guitar at 70-110 BPM, plain-spoken narrative Mandarin diction close to the microphone, sparse upright bass, cello or accordion colour, and city-name lyric geographies rather than rural folk-song sources.",
+  "recipe": "classic 1997-1999 chinese minyao, ballad Poetry, indie folk branch, east Asian pop functional song enka j-acoustic. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked acoustic guitar, sustaining steel upright bass, venice catlin high twist renaissance bass hard rock maple Baroque setup cello, melodic straight piano accordion, pre muffled edge muffled brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 627,
+  "score": 324.589,
+  "config": {
+    "traditions": [
+      "chinese_minyao",
+      "enka",
+      "j_acoustic"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 32.12499999999999,
+          "voice_quality": 14.559999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.7050000000000005,
+          "voice_articulation": 19.370000000000005,
+          "voice_microtone": 20.02,
+          "voice_tradition": 44.7885,
+          "voice_mechanism_compound": 1.8199999999999998,
+          "voice_estill_quality": 4.4895000000000005,
+          "voice_speech_song": 31.395000000000003,
+          "voice_ensemble_config": 19.890000000000004,
+          "voice_ornament_system": 5.4655000000000005,
+          "voice_pitch_organization": 3.770000000000001,
+          "voice_processing_chain": 3.9545000000000003,
+          "voice_multitrack_stack": 7.345000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "open_d",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "silk_steel_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0.8999999999999999,
+          "top_wood": 0.845,
+          "back_sides": 0.845,
+          "string_acoustic": 2.714,
+          "acoustic_om_technique": 21.799999999999997
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "upright_strings": 1.9994999999999998,
+          "upright_play": 0.195
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_sul_tasto",
+          "cello_strings": "venice_catlin_cello",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_setup_period": "baroque_setup_cello",
+          "cello_bow_grip": "german_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "snakewood_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 0.585,
+          "cello_strings": 2.2749999999999995,
+          "cello_top_wood": -0.035,
+          "cello_back_wood": 1.4299999999999997,
+          "cello_varnish": 0.5199999999999999,
+          "cello_setup_period": 5.8950000000000005,
+          "cello_bow_grip": 0.9500000000000001,
+          "cello_rosin": 1.44,
+          "cello_bow_stick": 2.45
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 18.234999999999996,
+          "pa_size": 6.925,
+          "pa_use": 7.555
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 19.987500000000004,
+          "drumhead": 13.054999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

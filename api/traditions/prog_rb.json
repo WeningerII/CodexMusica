@@ -5,7 +5,7 @@
   "lineage": "2010s and 2020s R&B subgenre characterized by virtuoso-instrumental playing (especially electric bass), jazz-and-fusion harmonic complexity, lo-fi-and-experimental production aesthetic, and explicit Los-Angeles-Brainfeeder-scene cultural affiliation. Thundercat (Stephen Bruner, born 1984) anchored the canonical sound through Drunk (2017); Steve Lacy (The Internet), Hiatus Kaiyote (Australian, parallel scene), and the broader Brainfeeder, Stones Throw, and Anticon label rosters extended the genre.",
   "recipe": "classic progressive r&b, functional Song, soul R&B branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 632,
-  "score": 422.334,
+  "score": 432.632,
   "config": {
     "traditions": [
       "prog_rb",
@@ -34,43 +34,43 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 35.30250000000001,
+          "voice_register": 35.34000000000001,
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 27.618000000000002,
+          "voice_vibrato": 27.975,
           "voice_articulation": 17.549999999999997,
-          "voice_microtone": 29.155,
-          "voice_tradition": 32.375,
+          "voice_microtone": 29.305,
+          "voice_tradition": 34.775,
           "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 9.294999999999998,
+          "voice_estill_quality": 9.339999999999998,
           "voice_speech_song": 19.954999999999995,
           "voice_ensemble_config": 18.329999999999995,
-          "voice_ornament_system": 2.19,
+          "voice_ornament_system": 2.34,
           "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 6.786,
-          "voice_multitrack_stack": 10.634499999999997
+          "voice_processing_chain": 6.539999999999999,
+          "voice_multitrack_stack": 10.659999999999997
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 16.914,
-          "body_wood": 0.7889999999999999,
+          "amp_make": 18.869999999999997,
+          "body_wood": 0.39,
           "pickup_config": 1.69,
-          "string_type": 32.18,
-          "scale_length_b": 0.51,
-          "fretted_or_not": 0.0315,
-          "bass_technique": 26.75
+          "string_type": 34.775,
+          "scale_length_b": 0.44999999999999996,
+          "fretted_or_not": 0.21,
+          "bass_technique": 26.795
         }
       },
       {
@@ -82,7 +82,7 @@
         },
         "scores": {
           "drum_technique": 50.44,
-          "drumhead": 32.23500000000001,
+          "drumhead": 34.71,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -100,12 +100,12 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 6.7145,
-          "grand_piano_size": 0.39449999999999996,
-          "grand_piano_brand": 2.3400000000000003,
+          "keyboard_technique": 6.2,
+          "grand_piano_size": 0.195,
+          "grand_piano_brand": 2.535,
           "piano_hammer": 4.485,
           "piano_rim": 4.485,
-          "piano_soundboard": 2.45,
+          "piano_soundboard": 2.555,
           "piano_pinblock": -0.05,
           "piano_plate": 3.2500000000000004,
           "piano_pitch_standard": 0.7149999999999999
@@ -114,18 +114,18 @@
       {
         "id": "analog_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "oscillator": "triangle_osc",
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "saw_single",
           "filter_topology": "transistor_ladder",
           "envelope": "gated_env",
-          "modulation": "lfo_pitch"
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 2.5130000000000003,
-          "oscillator": 2.4315,
+          "electronic_technique": 2.827500000000001,
+          "oscillator": 2.535,
           "filter_topology": 1.69,
           "envelope": 1.69,
-          "modulation": 0
+          "modulation": 0.585
         }
       }
     ],

@@ -1,0 +1,163 @@
+{
+  "id": "hyphy",
+  "name": "Hyphy",
+  "family": "hip_hop",
+  "lineage": "San Francisco Bay Area rap movement consolidated 2002-2007 by Keak da Sneak, E-40, Mac Dre, Traxamillion and Rick Rock, running fast 100-115 BPM beats with springy synth-bass slides, hard 808 kicks, ratcheting hi-hats and hand-clap backbeats under shouted, high-energy, ad-lib-saturated vocals tied to sideshow car culture and the thizz dance vocabulary.",
+  "recipe": "classic mid-2000s hyphy, mc Rhythm, west coast branch, us hip hop southern, continental electronic dance atlanta trap modern drift phonk. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sub bass analog mono synth, sub bass digital subtractive, chopped sampler, ampeg svt amp rock bass amp mahogany la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 603,
+  "score": 240.338,
+  "config": {
+    "traditions": [
+      "hyphy",
+      "atlanta_trap_modern",
+      "drift_phonk_modern"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.7700000000000014,
+          "voice_quality": 15.935,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4049999999999994,
+          "voice_articulation": 11.894999999999996,
+          "voice_microtone": 11.309999999999992,
+          "voice_tradition": 9.510000000000002,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.5750000000000006,
+          "voice_speech_song": 15.254999999999999,
+          "voice_ensemble_config": 12.674999999999995,
+          "voice_ornament_system": 4.420000000000002,
+          "voice_pitch_organization": 1.8849999999999996,
+          "voice_processing_chain": 9.795,
+          "voice_multitrack_stack": 8.71
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 8.110000000000001,
+          "drum_machine_808_context": 3.3799999999999994,
+          "tr808_production_origin": 1.6899999999999997
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 13.13,
+          "mono_oscillator": 1.6899999999999997,
+          "mono_filter": 0.9750000000000001,
+          "mono_archetypes": 1.24,
+          "mono_maker_lineage": -0.5250000000000001
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 13.13,
+          "va_archetypes": 1,
+          "digital_subtractive_context": 11.699999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 7.275000000000001,
+          "sampler_archetypes": 9.620000000000001,
+          "sampler_bit_depth": 1.6899999999999997,
+          "sampler_workflow": 6.925000000000001,
+          "sampler_classic_context": 22.099999999999994
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 4.225,
+          "body_wood": 1.5600000000000003,
+          "pickup_config": 2.9899999999999998,
+          "string_type": 2.7625,
+          "scale_length_b": 1.6899999999999997,
+          "fretted_or_not": 0.845,
+          "bass_technique": 3.45
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

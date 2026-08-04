@@ -1,0 +1,141 @@
+{
+  "id": "funk_capixaba",
+  "name": "Funk Capixaba",
+  "family": "electronic",
+  "lineage": "Espírito Santo regional funk from Vitória and Serra, taking shape from about 2018 through DJ Deivinho ES and local Vila Velha producers — mid-130s BPM tracks over a dry, heavily gated kick-clap pattern with rimshot-driven off-beats, low-passed sub, sparse pitched sirens and looped erotic or provocative MC hooks, often released as long DJ-mixed 'set' files rather than discrete singles.",
+  "recipe": "classic Southern American late-2010s funk capixaba, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm funk consciente merengue de calle. vocal fry, rap, slow rate, interlocked note trading. TR-808, melodic orchestral imitation pitched sampler, low sub bass analog poly synth, low sub bass monosynth acid bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 452,
+  "score": 154.937,
+  "config": {
+    "traditions": [
+      "funk_capixaba",
+      "funk_consciente",
+      "merengue_de_calle"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.8439999999999999,
+          "voice_quality": 9.555,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.255,
+          "voice_articulation": 15.664999999999996,
+          "voice_microtone": 15.274999999999993,
+          "voice_tradition": 3.835,
+          "voice_mechanism_compound": 4.8100000000000005,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 16.574999999999996,
+          "voice_ensemble_config": 15.404999999999994,
+          "voice_ornament_system": 3.575000000000001,
+          "voice_pitch_organization": 1.4665000000000001,
+          "voice_processing_chain": 9.931499999999996,
+          "voice_multitrack_stack": 2.0799999999999996
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 4.3549999999999995,
+          "drum_machine_808_context": 3.3799999999999994,
+          "tr808_production_origin": 0.381
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.405,
+          "sampler_archetypes": 1.17,
+          "sampler_bit_depth": 2.03,
+          "sampler_workflow": 2.7245,
+          "sampler_classic_context": 19.304999999999993
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 5.645,
+          "poly_archetypes": 0.063,
+          "poly_voices": 0,
+          "poly_maker_lineage": -1.9134999999999998
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 5.645,
+          "wave_acid": 0,
+          "filter_acid": 2.7065,
+          "accent_acid": 0.9890000000000001
+        }
+      }
+    ],
+    "room": "rio_favela_home_baile_funk",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "rio_favela_home_baile_funk",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

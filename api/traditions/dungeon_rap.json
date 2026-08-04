@@ -1,0 +1,141 @@
+{
+  "id": "dungeon_rap",
+  "name": "Dungeon Rap",
+  "family": "hip_hop",
+  "lineage": "Underground internet rap style of the 2010s-2020s associated with Ghost, Kill Bill: The Rapper, Vio the Villain and the Dungeon Family Records/SoundCloud circuit, using tape-degraded loops of horror soundtracks and medieval or dungeon-synth textures under muffled murky 808s at 60-80 BPM half-time, with a low, half-mumbled and heavily reverbed rap delivery.",
+  "recipe": "classic mid-2010s dungeon rap, mc Rhythm, experimental branch, us hip hop southern, us hip hop east coast mafioso rap new jersey rap. thick, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, fast decay focused low sub bass analog modular granular synth. concrete basement. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 444,
+  "score": 256.855,
+  "config": {
+    "traditions": [
+      "dungeon_rap",
+      "mafioso_rap",
+      "new_jersey_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.245,
+          "voice_quality": 26.785000000000004,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.835,
+          "voice_articulation": 15.924999999999995,
+          "voice_microtone": 18.32999999999999,
+          "voice_tradition": 9.11,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 5.135,
+          "voice_speech_song": 26.404999999999998,
+          "voice_ensemble_config": 15.599999999999994,
+          "voice_ornament_system": 6.890000000000001,
+          "voice_pitch_organization": 2.8750000000000004,
+          "voice_processing_chain": 18.895,
+          "voice_multitrack_stack": 6.110000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 7.56,
+          "drum_machine_808_context": 2.925,
+          "tr808_production_origin": 1.3
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 7.075,
+          "sampler_archetypes": 10.594999999999999,
+          "sampler_bit_depth": 2.34,
+          "sampler_workflow": 8.649999999999999,
+          "sampler_classic_context": 26.649999999999995
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 9.754999999999999,
+          "oscillator": 0.585,
+          "filter_topology": 2.6650000000000005,
+          "envelope": 1.645,
+          "modulation": 0.3
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 3.7,
+          "granular_use": 0.825,
+          "granular_synth_source": 1.605
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "broken",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "concrete_basement",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

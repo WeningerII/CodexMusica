@@ -1,0 +1,142 @@
+{
+  "id": "drift_phonk",
+  "name": "Drift Phonk",
+  "family": "electronic",
+  "lineage": "Russian- and Ukrainian-led mutation of phonk that crystallized 2019-2021 through Kordhell, Kaito Shoma, PlayaPhonk and the Memphis-Phonk VK/YouTube scene, defined by a screaming detuned cowbell-and-808 lead, aggressive sidechain pumping at 150-160 BPM, minimal or shouted vocal chops, and its function as soundtrack to Japanese car-drifting edits.",
+  "recipe": "classic 2019-2021 drift phonk, electronic Dance, continental branch, hardstyle electronic dance, us hip hop southern miami electro atlanta bass. vocal fry, rap, slow rate, interlocked note trading. TR-808, fast decay focused low sub bass analog synth, pitched chopped sampler, low sub bass digital subtractive. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 418,
+  "score": 224.032,
+  "config": {
+    "traditions": [
+      "drift_phonk",
+      "miami_electro",
+      "atlanta_bass"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 9.5795,
+          "drum_machine_808_context": 5.329999999999999,
+          "tr808_production_origin": 0.635
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 10.7495,
+          "oscillator": 5.329999999999999,
+          "filter_topology": 8.775,
+          "envelope": 1.6900000000000002,
+          "modulation": 0.21
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.5950000000000006,
+          "sampler_archetypes": 4.11,
+          "sampler_bit_depth": 3.1200000000000006,
+          "sampler_workflow": 4.485,
+          "sampler_classic_context": 21.254999999999995
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.145,
+          "voice_quality": 8.21,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.21,
+          "voice_articulation": 17.029999999999998,
+          "voice_microtone": 16.834999999999994,
+          "voice_tradition": 5.85,
+          "voice_mechanism_compound": 2.9249999999999994,
+          "voice_estill_quality": 2.99,
+          "voice_speech_song": 17.224999999999994,
+          "voice_ensemble_config": 16.769999999999996,
+          "voice_ornament_system": 2.850000000000001,
+          "voice_pitch_organization": 1.04,
+          "voice_processing_chain": 12.784500000000001,
+          "voice_multitrack_stack": 5.135000000000002
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 10.7495,
+          "va_archetypes": 1.7945000000000002,
+          "digital_subtractive_context": 18.525
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

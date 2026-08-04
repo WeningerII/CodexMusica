@@ -1,0 +1,163 @@
+{
+  "id": "low_bap",
+  "name": "Low Bap",
+  "family": "hip_hop",
+  "lineage": "Greek hip hop philosophy and style named and codified in Athens from 1992 onward by B.D. Foxmoor of Active Member, running deliberately slow 70-85 BPM beats under Greek-language political verse, with loops built from rebetiko and laiko records, live bouzouki and clarinet overdubs, dromos-modal minor melodies and a low, declamatory unhurried delivery.",
+  "recipe": "classic Southern European early-1990s low bap, mc Rhythm, intl hip hop branch, chanson fado Greek entechno, European protest song éntekhno greek éntechno. vocal fry, rap, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko bouzouki, pitched chopped sampler, sampled chopped turntable, grenadilla African blackwood traditional clarinet, ampeg b15 amp American 60s bass amp flip top character mahogany sub heavy electric bass. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 634,
+  "score": 241.787,
+  "config": {
+    "traditions": [
+      "low_bap",
+      "entehno",
+      "greek_entechno"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.1399999999999997,
+          "voice_quality": 7.395,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.774999999999999,
+          "voice_articulation": 15.014999999999997,
+          "voice_microtone": 20.897499999999994,
+          "voice_tradition": 30.959999999999994,
+          "voice_mechanism_compound": 5.784999999999999,
+          "voice_estill_quality": 7.889999999999999,
+          "voice_speech_song": 22.9125,
+          "voice_ensemble_config": 15.339999999999996,
+          "voice_ornament_system": 2.5999999999999996,
+          "voice_pitch_organization": 2.5999999999999996,
+          "voice_processing_chain": 5.6499999999999995,
+          "voice_multitrack_stack": 1.0399999999999998
+        }
+      },
+      {
+        "id": "bouzouki",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "bouzouki_courses": "trichordo",
+          "bouzouki_pick": "bouzouki_thin",
+          "bouzouki_body_wood": "bouzouki_walnut_bowl",
+          "bouzouki_strings": "bouzouki_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.8600000000000003,
+          "bouzouki_courses": 6.834999999999999,
+          "bouzouki_pick": 1.2349999999999999,
+          "bouzouki_body_wood": 11.199999999999998,
+          "bouzouki_strings": 3.42
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 4.449999999999999,
+          "sampler_archetypes": 5.6,
+          "sampler_bit_depth": 2.2749999999999995,
+          "sampler_workflow": 4.8149999999999995,
+          "sampler_classic_context": 21.97
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 4.449999999999999,
+          "turntable_technique": 4.199999999999999
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 2.6975,
+          "clarinet_body": 4.994999999999999,
+          "clarinet_size": 2.5999999999999996,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.105
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "half_round",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 3.21,
+          "body_wood": 2.8999999999999995,
+          "pickup_config": 0,
+          "string_type": 2.7499999999999996,
+          "scale_length_b": 2.7499999999999996,
+          "fretted_or_not": 0.045,
+          "bass_technique": 1.625
+        }
+      }
+    ],
+    "room": "athens_minos_studios_60s_70s",
+    "archetype": "arch_greek_columbia_rizoupoli",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "room": "athens_minos_studios_60s_70s",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

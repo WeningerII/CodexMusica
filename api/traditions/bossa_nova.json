@@ -3,14 +3,14 @@
   "name": "Bossa nova",
   "family": "global",
   "lineage": "Rio de Janeiro 1958-1965 chamber-samba intimate-vocal tradition — codified through João Gilberto’s Chega de Saudade (1959) defining the genre’s syncopated guitar batida, Antônio Carlos Jobim’s compositions, Vinícius de Moraes’s lyrics, and the Stan Getz / João Gilberto Getz/Gilberto (1964) international crossover; characterized by close-miked whispered-vocal aesthetic, jazz-chord harmonic vocabulary, and Zona Sul apartment-recording origin",
-  "recipe": "classic mid-1960s bossa nova, functional Song, Brazilian song branch, Latin am troubadour ballad poetry milonga tango. thick, breath veiled tone, straight onset, interlocked note trading. cedar fingerpicked classical nylon-string guitar, no chemical hardener t rivet oversize maple tension resonator European spruce grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit, growly gut upright bass. parlor. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-  "recipe_chars": 556,
-  "score": 189.875,
+  "recipe": "classic mid-1960s bossa nova, functional Song, Brazilian song branch, Latin am troubadour ballad poetry milonga folklore surero. thick, breath veiled tone, straight onset, interlocked note trading. cedar fingerpicked classical nylon-string guitar, no chemical hardener t rivet oversize maple tension resonator European spruce grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit, growly gut upright bass. parlor. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 566,
+  "score": 211,
   "config": {
     "traditions": [
       "bossa_nova",
       "milonga",
-      "tango"
+      "folklore_surero"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 8.515,
-          "voice_quality": 30.81,
+          "voice_register": 8.815,
+          "voice_quality": 33.8,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6500000000000004,
-          "voice_articulation": 13.259999999999994,
-          "voice_microtone": 13.844999999999992,
-          "voice_tradition": 9.2625,
-          "voice_mechanism_compound": 3.6399999999999997,
-          "voice_estill_quality": 3.835,
-          "voice_speech_song": 19.95499999999999,
-          "voice_ensemble_config": 12.544999999999993,
-          "voice_ornament_system": 1.6249999999999998,
-          "voice_pitch_organization": 1.7349999999999999,
-          "voice_processing_chain": 5.375,
-          "voice_multitrack_stack": 3.965
+          "voice_vibrato": 4.15,
+          "voice_articulation": 15.404999999999992,
+          "voice_microtone": 16.184999999999988,
+          "voice_tradition": 10.3675,
+          "voice_mechanism_compound": 4.095,
+          "voice_estill_quality": 3.9000000000000004,
+          "voice_speech_song": 22.749999999999996,
+          "voice_ensemble_config": 15.274999999999991,
+          "voice_ornament_system": 1.8849999999999996,
+          "voice_pitch_organization": 1.435,
+          "voice_processing_chain": 5.135,
+          "voice_multitrack_stack": 3.575
         }
       },
       {
@@ -63,11 +63,11 @@
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 6.220000000000001,
+          "acoustic_technique": 7.2700000000000005,
           "string_tuning": 0,
-          "top_wood_classical": 1.2349999999999999,
+          "top_wood_classical": 4.029999999999999,
           "bracing_classical": 0.585,
-          "string_classical": 0.325,
+          "string_classical": 0.975,
           "attack_technique_cl": 4.75
         }
       },
@@ -81,19 +81,19 @@
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 1.2,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.78,
-          "piano_hammer": 2.5025,
-          "piano_rim": 3.8024999999999998,
+          "keyboard_technique": 1.7,
+          "grand_piano_size": 1.04,
+          "grand_piano_brand": 1.4300000000000002,
+          "piano_hammer": 1.4625,
+          "piano_rim": 3.4125,
           "piano_soundboard": 3.4125,
           "piano_pinblock": 0.7149999999999999,
-          "piano_plate": 0.325,
-          "piano_pitch_standard": 0.6824999999999999
+          "piano_plate": 0.75,
+          "piano_pitch_standard": 1.96
         }
       },
       {
@@ -104,8 +104,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.949999999999996,
-          "drumhead": 5.545000000000001,
+          "drum_technique": 17.289999999999992,
+          "drumhead": 5.045,
           "drum_kit_kick_pedal": 0
         }
       },

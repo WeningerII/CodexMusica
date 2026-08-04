@@ -3,14 +3,14 @@
   "name": "Arrochadeira",
   "family": "global",
   "lineage": "Bahian dance style consolidated in Salvador and the Reconcavo from the mid-2010s as arrocha's romantic keyboard-bolero was accelerated over baile-funk percussion — roughly 130 BPM with a driving four-on-the-floor kick under tamborzao-style timbal fills, glossy sawtooth and accordion-preset synth leads, slap-toned electric bass, and paired male vocals alternating pleading verses with shouted party refrains",
-  "recipe": "classic South American 2014-2016 arrochadeira, functional Song, Brazilian song branch, Brazilian groove percussion, intl hip hop MC rhythm pagode rap marseillais. thick, breath veiled tone, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, low sub bass analog poly synth, sampled chopped sampler drum machine, mahogany pyramid pure nickel bass British mid 60s era fingerstyle electric bass, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo. recife brazilian northeast forro house. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 665,
-  "score": 190.108,
+  "recipe": "classic South American 2014-2016 arrochadeira, functional Song, Brazilian song branch, Brazilian groove percussion, intl hip hop MC rhythm pagode samba rock. thick, breath veiled tone, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, low sub bass analog poly synth, sampler drum machine, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo. recife brazilian northeast forro house. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 657,
+  "score": 194.702,
   "config": {
     "traditions": [
       "arrochadeira",
       "pagode",
-      "rap_marseille"
+      "samba_rock"
     ],
     "instruments": [
       {
@@ -29,48 +29,48 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.8150000000000013,
-          "voice_quality": 19.62999999999999,
+          "voice_register": 5.450000000000002,
+          "voice_quality": 25.219999999999988,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8274999999999997,
-          "voice_articulation": 17.029999999999994,
-          "voice_microtone": 17.51749999999999,
-          "voice_tradition": 8.9375,
-          "voice_mechanism_compound": 5.46,
-          "voice_estill_quality": 5.460000000000001,
-          "voice_speech_song": 21.352499999999996,
-          "voice_ensemble_config": 17.159999999999993,
-          "voice_ornament_system": 2.600000000000002,
-          "voice_pitch_organization": 1.9499999999999997,
-          "voice_processing_chain": 7.9,
-          "voice_multitrack_stack": 9.3275
+          "voice_vibrato": 2.99625,
+          "voice_articulation": 18.524999999999995,
+          "voice_microtone": 16.639999999999993,
+          "voice_tradition": 7.15,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 22.944999999999993,
+          "voice_ensemble_config": 18.654999999999994,
+          "voice_ornament_system": 1.3649999999999998,
+          "voice_pitch_organization": 1.4299999999999997,
+          "voice_processing_chain": 9.05,
+          "voice_multitrack_stack": 8.97
         }
       },
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_chordal_chugging",
+          "free_reed_technique": "free_reed_orchestral_ensemble",
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "german_tuning",
-          "reed_config": "lmmm",
+          "reed_config": "lm_only",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 2.795000000000001,
-          "accordion_reed_material": 1.95,
+          "free_reed_technique": 1.7225000000000001,
+          "accordion_reed_material": 2.113125,
           "musette_offset": 0.5399999999999999,
-          "reed_config": 0.65,
+          "reed_config": 0.195,
           "bellows": 0.195,
           "voicing_chamber": 0.195,
-          "accordion_maker_school": 2.0149999999999997
+          "accordion_maker_school": 1.3
         }
       },
       {
@@ -82,46 +82,46 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 5.825,
-          "poly_archetypes": 0.585,
+          "electronic_technique": 3.4699999999999998,
+          "poly_archetypes": 1.8200000000000003,
           "poly_voices": 0.3,
-          "poly_maker_lineage": -1.12
+          "poly_maker_lineage": -0.875
         }
       },
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twelve_bit",
+          "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 3.6250000000000004,
-          "sample_bitdepth": 0.9750000000000001,
-          "sample_swing": 6.37,
-          "sample_processing": 1.8131249999999999
+          "electronic_technique": 0.9999999999999998,
+          "sample_bitdepth": 0.195,
+          "sample_swing": 1.8199999999999998,
+          "sample_processing": 1.9631249999999998
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "pyramid_pure_nickel",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 2.34,
-          "body_wood": 1.95,
-          "pickup_config": 0.195,
-          "string_type": 2.9531250000000004,
-          "scale_length_b": 1.8581249999999998,
-          "fretted_or_not": 0.15,
-          "bass_technique": 4.625625
+          "amp_make": 4.695625,
+          "body_wood": 2.145,
+          "pickup_config": 0.5456249999999999,
+          "string_type": 4.3875,
+          "scale_length_b": 2.0081249999999997,
+          "fretted_or_not": 1.15,
+          "bass_technique": 6.650625000000001
         }
       },
       {
@@ -146,8 +146,8 @@
         },
         "scores": {
           "surdo_size": 1,
-          "surdo_skin": 1.4300000000000002,
-          "surdo_shell": 1.4300000000000002
+          "surdo_skin": 2.73,
+          "surdo_shell": 1.8850000000000002
         }
       }
     ],

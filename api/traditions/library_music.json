@@ -1,0 +1,184 @@
+{
+  "id": "library_music",
+  "name": "Library Music (Production Music)",
+  "family": "pop_rock",
+  "lineage": "European production-music industry of 1959-1980 centred on KPM, De Wolfe, Bruton and Italy's Cometa, where staff composers (Keith Mansfield, Alan Hawkshaw, Brian Bennett, Piero Umiliani, Janko Nilović) cut short cue-length instrumentals to brief — brisk funk drum-kit breaks, fuzz and wah guitar, Hammond and early synthesizer leads, flute and string sweeteners — recorded fast in London and Rome sessions and pressed to catalogue LPs for broadcast licensing.",
+  "recipe": "classic British mid-1970s library music, functional Song, pop rock branch, American jazz fusion, retro aesthetic experimental electric, us hip hop east coast jazztronica jazz-funk. vintage ambassador asymmetric brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, Fender blackface amp American 60s amp spring reverb bright ebony chicken-scratch single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched ostinato fast tremolo tonewheel organ, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca short envelope analog poly synth, vibraphone, powell boston canonical American orchestral flute, string quartet inst. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 990,
+  "score": 256.58,
+  "config": {
+    "traditions": [
+      "library_music",
+      "jazztronica",
+      "jazz_funk"
+    ],
+    "instruments": [
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 36.595,
+          "drumhead": 19.759999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 7.475,
+          "body_wood": 1.9900000000000002,
+          "pickup_config": 1.495,
+          "string_type": 19.824999999999996,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0.45499999999999996,
+          "bass_technique": 15.294999999999998
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 7.699999999999999,
+          "amp_make": 13.754999999999999,
+          "body_wood": 0.39,
+          "neck_wood": 0.45499999999999996,
+          "fretboard": 2.0549999999999997,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 0.39,
+          "bridge": 1.495,
+          "scale_length": 0.39,
+          "finish": 0,
+          "string_tuning": 3.38
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 7.749999999999999,
+          "drawbar_setting": 15.744999999999997,
+          "rotary_speed": 6.32,
+          "percussion_setting": 15.249999999999998,
+          "tonewheel_model": 20.929999999999996,
+          "leslie_cabinet_model": 1.2349999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 5,
+          "poly_archetypes": 2.535,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": 2.535
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_fast",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "vibe_motor": 15.249999999999998,
+          "vibe_mallets": 15.249999999999998
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "flute_size": "piccolo_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": 0.06499999999999999,
+          "flute_size": 0.195,
+          "flute_material": 0,
+          "flute_technique": 0,
+          "flute_maker_school": 3.3149999999999995
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_modern",
+          "string_quartet_inst_era": "string_quartet_inst_contemporary"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "quartet_school": 1.5599999999999996,
+          "string_quartet_inst_era": 1.5599999999999996
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_helios_uk_70s",
+      "console": "console_helios_uk_70s",
+      "comp": "comp_adr_compex",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_helios_uk_70s",
+    "chain_comp": "comp_adr_compex",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_helios_uk_70s"
+  }
+}

@@ -3,29 +3,29 @@
   "name": "Acid house",
   "family": "electronic",
   "lineage": "Late-1980s Chicago and UK club-music genre built on the squelchy resonant filter sweep of the Roland TB-303 bass-synth (originally a 1981 commercial failure rediscovered by DJ Pierre and Phuture) — codified through Phuture (Acid Tracks 1987), Sleezy D (I've Lost Control 1986), the UK Second Summer of Love rave-scene breakthrough (1988-1989), 808 State, A Guy Called Gerald (Voodoo Ray 1988)",
-  "recipe": "classic Asian 1988-1989 acid house, electronic Dance, chicago house branch, idm glitch experimental electric breakcore idm and experimental electronic. drum machine analog, squelching classic acid monosynth acid bass. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 367,
-  "score": 33.987,
+  "recipe": "classic Asian 1988-1989 acid house, electronic Dance, chicago house branch, idm glitch experimental electric live coding breakcore. drum machine analog, squelching classic acid monosynth acid bass. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 347,
+  "score": 32.807,
   "config": {
     "traditions": [
       "acid_house",
-      "breakcore",
-      "idm"
+      "live_coding",
+      "breakcore"
     ],
     "instruments": [
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "sine_burst_kick",
+          "kick_voice": "fm_pair_kick",
           "snare_voice": "two_oscillator_snare",
-          "hat_voice": "noise_hat",
+          "hat_voice": "square_summed_hat",
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.0045,
-          "snare_voice": 0,
-          "hat_voice": 0.03525,
-          "shuffle_quantize": 3.76125
+          "kick_voice": 0.45499999999999996,
+          "snare_voice": 0.45499999999999996,
+          "hat_voice": 0,
+          "shuffle_quantize": 2.5
         }
       },
       {
@@ -37,10 +37,10 @@
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 12.674999999999997,
-          "wave_acid": 0.03899999999999999,
-          "filter_acid": 4.190874999999999,
-          "accent_acid": 11.493999999999998
+          "electronic_technique": 11.924999999999997,
+          "wave_acid": 0,
+          "filter_acid": 3.649999999999999,
+          "accent_acid": 10.084999999999999
         }
       }
     ],

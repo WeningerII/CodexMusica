@@ -3,14 +3,14 @@
   "name": "Shinto norito prayer recitation",
   "family": "global",
   "lineage": "Norito are the formal ritual prayers of Japanese Shinto, addressed by a kannushi (priest) to the kami during matsuri and purification rites, with a textual core reaching back to the Engishiki (compiled 927 CE), which preserves the oldest liturgical norito including the Ōharae no kotoba (Great Purification formula). Delivery is a slow, sustained, near-monotone intonation in archaic classical Japanese, projected with deliberate solemnity before the sanctuary. The recitation is unaccompanied and ametrical, its authority resting on precise archaic wording and priestly transmission through shrine lineages and the Jinja Honcho institutional tradition. It remains a living practice performed daily at shrines throughout Japan.",
-  "recipe": "classic Southeast Asian modern shinto norito prayer recitation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs sufi inshad. balanced, breath veiled tone, slow rate, interlocked note trading. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 299,
-  "score": 216.173,
+  "recipe": "classic Southeast Asian modern shinto norito prayer recitation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. balanced, breath veiled tone, slow rate, interlocked note trading. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 320,
+  "score": 216.776,
   "config": {
     "traditions": [
       "shinto_norito",
       "shipibo_icaros",
-      "sufi_inshad_egyptian"
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "qawwali_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.69,
-          "voice_quality": 36.33500000000001,
+          "voice_quality": 41.990000000000045,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.169500000000001,
-          "voice_articulation": 19.369999999999997,
-          "voice_microtone": 32.467499999999994,
-          "voice_tradition": 16.575,
-          "voice_mechanism_compound": 10.0365,
-          "voice_estill_quality": 13.422499999999996,
-          "voice_speech_song": 21.06,
-          "voice_ensemble_config": 19.955,
-          "voice_ornament_system": 16.700000000000003,
-          "voice_pitch_organization": 9.230000000000002,
-          "voice_processing_chain": 11.7,
-          "voice_multitrack_stack": 3.575000000000001
+          "voice_vibrato": 5.544500000000001,
+          "voice_articulation": 19.694999999999997,
+          "voice_microtone": 20.994999999999994,
+          "voice_tradition": 25.089999999999996,
+          "voice_mechanism_compound": 13.1615,
+          "voice_estill_quality": 13.454999999999997,
+          "voice_speech_song": 21.189999999999998,
+          "voice_ensemble_config": 20.279999999999998,
+          "voice_ornament_system": 10.900000000000002,
+          "voice_pitch_organization": 4.095000000000001,
+          "voice_processing_chain": 13.844999999999999,
+          "voice_multitrack_stack": 5.720000000000001
         }
       }
     ],

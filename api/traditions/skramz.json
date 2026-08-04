@@ -1,0 +1,178 @@
+{
+  "id": "skramz",
+  "name": "Skramz",
+  "family": "rock_punk",
+  "lineage": "North American and European term-of-record for 1990s emotional hardcore as practiced by Orchid, Pg. 99 and Jeromes Dream, played in basements and DIY spaces at 160-250 BPM with trebly overdriven guitars, blast-and-stop drumming, dissonant open-string chords, sub-two-minute songs and a wholly shrieked vocal, self-released on 7-inches recorded live to cheap digital or eight-track.",
+  "recipe": "classic North American mid-1990s skramz, distorted Rock, emo branch, punk distorted rock, noise rock distorted rock spazzcore crack rock steady. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 674,
+  "score": 344.865,
+  "config": {
+    "traditions": [
+      "skramz",
+      "spazzcore",
+      "crack_rock_steady"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 17.739999999999995,
+          "voice_quality": 4.485000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 17.939999999999998,
+          "voice_microtone": 18.32999999999999,
+          "voice_tradition": 7.475000000000001,
+          "voice_mechanism_compound": 19.959999999999997,
+          "voice_estill_quality": 4.815,
+          "voice_speech_song": 19.044999999999995,
+          "voice_ensemble_config": 18.719999999999995,
+          "voice_ornament_system": 1.9399999999999997,
+          "voice_pitch_organization": 1.5949999999999998,
+          "voice_processing_chain": 3.835,
+          "voice_multitrack_stack": 3.250000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 11.147499999999999,
+          "amp_make": 24.0175,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4299999999999997,
+          "pickup_magnet": 0.59,
+          "string_material": 0.59,
+          "string_gauge": 1.4949999999999999,
+          "bridge": 1.04,
+          "scale_length": 1.4949999999999999,
+          "finish": 0.3,
+          "string_tuning": 10.010000000000002
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 11.147499999999999,
+          "amp_make": 24.0175,
+          "body_wood": 2.9899999999999998,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4299999999999997,
+          "pickup_magnet": 1.04,
+          "pickup_winding": 0.21,
+          "string_material": 0.59,
+          "bridge": 1.4949999999999999,
+          "scale_length": 1.4949999999999999,
+          "string_gauge": 1.4949999999999999,
+          "finish": 0.3,
+          "string_tuning": 10.855000000000002
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 11.05,
+          "body_wood": 2.535,
+          "pickup_config": 1.04,
+          "string_type": 23.025,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0.345,
+          "bass_technique": 24.42
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18,
+          "drumhead": 1.4949999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "broken"
+  }
+}

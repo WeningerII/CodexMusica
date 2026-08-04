@@ -3,27 +3,27 @@
   "name": "Electro house",
   "family": "electronic",
   "lineage": "Mid-to-late-2000s house subgenre characterized by aggressive distorted-synth-lead production, heavy compression, four-on-the-floor beat with prominent off-beat bass, and explicit big-room festival-targeting. Justice's Cross (2007), Daft Punk's Discovery-influenced production legacy, and the broader French house lineage anchored the canonical aesthetic. The genre spawned the broader EDM-festival era of 2008-2012.",
-  "recipe": "classic 2008-2012 electro house, electronic Dance, house branch, thrash metal, industrial noise experimental electric djent. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, plucked short envelope analog synth. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 463,
-  "score": 32.069,
+  "recipe": "classic 2008-2012 electro house, electronic Dance, house branch, thrash metal, industrial noise experimental electric dark electro / aggrotech. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, plucked short envelope analog synth. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 482,
+  "score": 34.542,
   "config": {
     "traditions": [
       "electro_house_2000s",
-      "djent",
-      "ebm_european_body"
+      "ebm_european_body",
+      "dark_electro_aggrotech"
     ],
     "instruments": [
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_rb",
+          "drum_machine_808_context": "drum_machine_808_miami",
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 2.47,
-          "drum_machine_808_context": 4.004,
-          "tr808_production_origin": 1.7550000000000003
+          "tr808_voice": 3.18,
+          "drum_machine_808_context": 4.6475,
+          "tr808_production_origin": 2.7300000000000004
         }
       },
       {
@@ -36,11 +36,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 3.2,
-          "oscillator": 2.535,
+          "electronic_technique": 3.35,
+          "oscillator": 3.38,
           "filter_topology": 4.42,
-          "envelope": 0.845,
-          "modulation": 0.09
+          "envelope": 0.6749999999999999,
+          "modulation": 0.135
         }
       }
     ],

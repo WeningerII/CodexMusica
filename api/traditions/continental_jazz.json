@@ -1,0 +1,163 @@
+{
+  "id": "continental_jazz",
+  "name": "Continental Jazz",
+  "family": "jazz",
+  "lineage": "Continental European jazz of 1930-1960, centred on the Hot Club de France in Paris with Django Reinhardt and Stephane Grappelli and extending to Scandinavian and Italian radio orchestras — swing at 140-260 BPM carried by la pompe rhythm guitar rather than drums, Selmer-guitar and violin leads, minor-key Romani and musette melodic inflection, and accordion-and-clarinet colours absent from American swing.",
+  "recipe": "classic Western European early-1930s continental jazz, improv On Frame, early branch, American jazz bop, europop functional song neo-bop modal jazz. flatwound thomastik drone like acoustic guitar, carpathian spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, venice catlin high twist renaissance bass carpathian spruce European maple double bass, softer tone ebonite hard rubber klezmer tradition clarinet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, piano accordion. intimate paris small studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 660,
+  "score": 196.225,
+  "config": {
+    "traditions": [
+      "continental_jazz",
+      "neo_bop",
+      "modal_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "thomastik_flat_om",
+          "acoustic_om_technique": "om_drop_d_drone"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0.525,
+          "back_sides": 0.48,
+          "string_acoustic": 14.17,
+          "acoustic_om_technique": 2.6650000000000005
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.12999999999999998,
+          "orch_strings": 0.325,
+          "orch_top_wood": 1.97,
+          "orch_back_wood": 6.4350000000000005,
+          "orch_varnish": -0.035,
+          "orch_setup_period": 1.95,
+          "orch_bow": 0.345,
+          "orch_bow_stick": 0.325,
+          "orch_articulation": 1.4349999999999998,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.12999999999999998,
+          "bass_size": 0.195,
+          "bass_strings": 1.365,
+          "bass_top_wood": 1.97,
+          "bass_back_wood": 1.92,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 1.3,
+          "bass_play": 27.4,
+          "bass_rosin": 32.43,
+          "bass_bow_stick": -9.714451465470119e-18
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "doina_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 3.6250000000000004,
+          "clarinet_body": 1.3649999999999998,
+          "clarinet_size": 0.195,
+          "clarinet_reed": 0.195,
+          "clarinet_articulation": 0.585
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 3.6250000000000004,
+          "sax_size": 4.2700000000000005,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 27.295,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 27.295,
+          "sax_maker_school": 31.79
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "pa_size": "pa_120_bass",
+          "pa_use": "pa_french_chanson"
+        },
+        "scores": {
+          "free_reed_technique": 1.4349999999999998,
+          "pa_size": 0,
+          "pa_use": 0.39
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "jazz_swing_eighth_4_4",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "clean"
+  }
+}

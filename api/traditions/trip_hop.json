@@ -1,0 +1,178 @@
+{
+  "id": "trip_hop",
+  "name": "Trip hop",
+  "family": "electronic",
+  "lineage": "Bristol, England, 1991-1998, growing out of the Wild Bunch sound-system and codified by Massive Attack, Portishead, Tricky and producers Nellee Hooper and Geoff Barrow — 70-100 BPM sampled or replayed hip-hop breakbeats slowed and swung, dub-derived deep bass with long tape-style delay throws, minor-key Rhodes, film-library strings and Mellotron pads, deliberate vinyl surface noise and turntable scratching, and a torch-singer or half-spoken vocal delivered close to the mic.",
+  "recipe": "classic British mid-1990s trip hop, bass System, dub descendants branch, intl hip hop MC rhythm, ambient experimental electric, uk soundsystem bass system motswako hamburg hip hop. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, chopped sampler, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, vintage ambassador asymmetric brushes-and-sticks drum kit, string machine. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 811,
+  "score": 359.539,
+  "config": {
+    "traditions": [
+      "trip_hop",
+      "motswako",
+      "hamburg_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 8.037500000000001,
+          "turntable_technique": 7.775
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 8.037500000000001,
+          "sampler_archetypes": 13.39,
+          "sampler_bit_depth": 1.7249999999999999,
+          "sampler_workflow": 8.66875,
+          "sampler_classic_context": 36.385000000000005
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 9.61375,
+          "body_wood": 2.30625,
+          "pickup_config": 1.3,
+          "string_type": 10.322500000000002,
+          "scale_length_b": 1.50625,
+          "fretted_or_not": 0,
+          "bass_technique": 7.699999999999999
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 3.25,
+          "rhodes_model": 2.63125,
+          "rhodes_use": 2.73,
+          "rhodes_tine_material": 0.3,
+          "rhodes_hammer_tip": 1.4300000000000002,
+          "rhodes_pickup_position": 2.795
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 27.88500000000001,
+          "drumhead": 1.5750000000000002,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_violins"
+        },
+        "scores": {
+          "electronic_technique": 1.7449999999999997,
+          "sm_voice_count": 1.6687500000000002,
+          "sm_chorus": 0.3,
+          "sm_voicing": 0.65
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.0200000000000005,
+          "voice_quality": 19.896250000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8862500000000002,
+          "voice_articulation": 26.97500000000001,
+          "voice_microtone": 29.770000000000007,
+          "voice_tradition": 8.51875,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.61,
+          "voice_speech_song": 28.470000000000006,
+          "voice_ensemble_config": 29.51000000000001,
+          "voice_ornament_system": 4.0625,
+          "voice_pitch_organization": 2.5350000000000006,
+          "voice_processing_chain": 12.145,
+          "voice_multitrack_stack": 4.095000000000001
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_1176_fet",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_british_class_a_commercial",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

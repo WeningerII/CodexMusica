@@ -1,0 +1,162 @@
+{
+  "id": "balafon_mande",
+  "name": "Balafon Music (Mande and Voltaic)",
+  "family": "global",
+  "lineage": "Gourd-resonated wooden xylophone tradition of the Mande, Sambla, Senufo and Bwa peoples of Mali, Guinea and Burkina Faso, whose Sosso-Bala at Niagassola is tied by oral history to the thirteenth-century Sunjata epic and whose modern voices include Kélétigui Diabaté, Neba Solo and Balla Kouyaté — heptatonic or pentatonic keys over calabash resonators fitted with buzzing spider-egg membranes, played with rubber-headed mallets in fast interlocking two- and three-player parts at 120-160 BPM against djembe and dunun.",
+  "recipe": "classic West African modern balafon music, groove Percussion, west African branch, west African griot ballad poetry ngoni music musique soninke. thick, declaimed, straight onset, interlocked note trading. buzzy natural material resonance calabash gourd balafon, synthetic djembe, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, foundational gourd bass rhythm calabash shekere, calabash nylon fishing line cowhide mande traditional kora, griot voice. bamako griot jeli compound. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 576,
+  "score": 315.287,
+  "config": {
+    "traditions": [
+      "balafon_mande",
+      "ngoni_jeli",
+      "soninke_music"
+    ],
+    "instruments": [
+      {
+        "id": "balafon",
+        "slots": {
+          "balafon_tuning": "balafon_mandinka",
+          "balafon_resonator": "balafon_gourd"
+        },
+        "scores": {
+          "balafon_tuning": 8.12,
+          "balafon_resonator": 4.880000000000001
+        }
+      },
+      {
+        "id": "djembe",
+        "slots": {
+          "djembe_wood": "djembe_mahogany",
+          "djembe_skin": "djembe_synthetic",
+          "djembe_play": "djembe_traditional_3"
+        },
+        "scores": {
+          "djembe_wood": 0.195,
+          "djembe_skin": 1.95,
+          "djembe_play": 0.045
+        }
+      },
+      {
+        "id": "dunun",
+        "slots": {
+          "dunun_size": "kenkeni",
+          "dunun_bell": "dunun_single_bell",
+          "dunun_shell_wood": "dunun_iroko",
+          "dunun_head": "dunun_cowhide_canonical"
+        },
+        "scores": {
+          "dunun_size": 0.9750000000000001,
+          "dunun_bell": 9.495,
+          "dunun_shell_wood": 11.765,
+          "dunun_head": 3.8349999999999995
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.8249999999999993,
+          "voice_quality": 15.399999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 23.66,
+          "voice_microtone": 21.58,
+          "voice_tradition": 46.05250000000001,
+          "voice_mechanism_compound": 5.719999999999999,
+          "voice_estill_quality": 7.41,
+          "voice_speech_song": 24.83,
+          "voice_ensemble_config": 23.139999999999997,
+          "voice_ornament_system": 8.68,
+          "voice_pitch_organization": 2.7300000000000004,
+          "voice_processing_chain": 10.757499999999999,
+          "voice_multitrack_stack": 4.907500000000001
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_large",
+          "shekere_beads": "shekere_seed"
+        },
+        "scores": {
+          "shekere_size": 4.380000000000001,
+          "shekere_beads": 7.215000000000001
+        }
+      },
+      {
+        "id": "kora",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "kora_strings": "kora_21_traditional",
+          "kora_resonator": "kora_calabash_med",
+          "kora_strings_mat": "kora_fishing_line",
+          "kora_top_skin": "kora_cowhide_canonical",
+          "kora_neck_wood": "kora_hardwood_local",
+          "kora_lineage": "kora_diabate_lineage"
+        },
+        "scores": {
+          "plucked_traditional_technique": 37.57,
+          "kora_strings": 3.7049999999999996,
+          "kora_resonator": 6.359999999999999,
+          "kora_strings_mat": 1.95,
+          "kora_top_skin": 3.8349999999999995,
+          "kora_neck_wood": 3.7749999999999995,
+          "kora_lineage": 3.445
+        }
+      },
+      {
+        "id": "griot_voice",
+        "slots": {
+          "griot_origin": "griot_wolof",
+          "griot_voice_context": "griot_voice_praise"
+        },
+        "scores": {
+          "griot_origin": 2.535,
+          "griot_voice_context": 2.6
+        }
+      }
+    ],
+    "room": "bamako_griot_jeli_compound",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "equal_heptatonic_west_african",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_west_african",
+    "room": "bamako_griot_jeli_compound",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

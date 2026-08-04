@@ -3,9 +3,9 @@
   "name": "Happy hardcore (UK 90s)",
   "family": "electronic",
   "lineage": "Mid-1990s UK electronic subgenre developed from hardcore breakbeat through faster-tempo (160-180 BPM) characterized by uplifting-and-bright synth-melodic-lead designs, sped-up female-vocal-sample hooks, and explicit rave-functional dance-floor-targeting. Slipmatt, Hixxy, Sharkey, Force & Styles, and the broader Bonkers compilation series anchor the canonical roster.",
-  "recipe": "classic British 1994-1996 happy hardcore, electronic Dance, hardstyle branch, eurodance electronic dance freestyle music. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, singing lead analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 459,
-  "score": 125.509,
+  "recipe": "classic British 1994-1996 happy hardcore, electronic Dance, hardstyle branch, eurodance electronic dance freestyle music. extended whistle, chest mix belt, straight note core, interlocked note trading. TR-808, singing lead analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 455,
+  "score": 125.575,
   "config": {
     "traditions": [
       "happy_hardcore",
@@ -17,7 +17,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "chest_mix_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
@@ -29,26 +29,26 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 5.0375,
-          "voice_quality": 7.8,
+          "voice_quality": 7.8500000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2175000000000007,
           "voice_articulation": 11.439999999999994,
           "voice_microtone": 11.04999999999999,
           "voice_tradition": 4.842499999999999,
-          "voice_mechanism_compound": 6.1674999999999995,
-          "voice_estill_quality": 1.8775,
+          "voice_mechanism_compound": 5.739999999999999,
+          "voice_estill_quality": 1.885,
           "voice_speech_song": 11.829999999999993,
           "voice_ensemble_config": 12.219999999999994,
           "voice_ornament_system": 1.15,
-          "voice_pitch_organization": 1.8849999999999996,
-          "voice_processing_chain": 18.325,
+          "voice_pitch_organization": 1.9174999999999995,
+          "voice_processing_chain": 18.52,
           "voice_multitrack_stack": 7.279999999999999
         }
       },
@@ -71,11 +71,11 @@
           "electronic_technique": "electronic_lead_line",
           "oscillator": "saw_single",
           "filter_topology": "transistor_ladder",
-          "envelope": "pluck_env",
+          "envelope": "pad_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 6.7265,
+          "electronic_technique": 6.9350000000000005,
           "oscillator": 3.12,
           "filter_topology": 3.9650000000000003,
           "envelope": 0.195,

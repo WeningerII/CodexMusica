@@ -1,0 +1,139 @@
+{
+  "id": "musica_criolla_peru",
+  "name": "Música criolla peruana",
+  "family": "global",
+  "lineage": "Coastal Peruvian urban song tradition formed in Lima's callejones between roughly 1890 and 1930 and codified by Felipe Pinglo Alva in the 1920s-30s and later by Chabuca Granda and Óscar Avilés, whose core genres are the vals criollo — a Peruvian recasting of the Viennese waltz in 3/4 with syncopated guitar bordoneo and a persistent hemiola — and the marinera limeña and polca, scored for one or two voices in thirds, two guitars, cajón and palmas.",
+  "recipe": "classic North American mid-1920s música criolla peruana, ballad Poetry, Latin am troubadour branch, tropical song functional song, Latin am groove percussion chacarera bachata dominicana. kargyraa, breath veiled tone, straight note core, interlocked note trading. low mid rich spectrum broken in fast cedar classical nylon-string parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, hand clap. parlor. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 534,
+  "score": 164.792,
+  "config": {
+    "traditions": [
+      "musica_criolla_peru",
+      "chacarera_doble",
+      "bachata_dominicana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 2.0000000000000004,
+          "voice_quality": 12.674999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.4549999999999998,
+          "voice_articulation": 22.1,
+          "voice_microtone": 21.19,
+          "voice_tradition": 10.529999999999994,
+          "voice_mechanism_compound": 4.42,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 27.365000000000002,
+          "voice_ensemble_config": 18.85,
+          "voice_ornament_system": 2.1149999999999998,
+          "voice_pitch_organization": 2.7300000000000004,
+          "voice_processing_chain": 5.463928571428571,
+          "voice_multitrack_stack": 4.2250000000000005
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 2.575,
+          "string_tuning": 0,
+          "top_wood_classical": 9.294999999999998,
+          "bracing_classical": 0.78,
+          "string_classical": 0.585,
+          "attack_technique_cl": 0.69
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_open_back",
+          "cajon_peruano_role": "cajon_peruano_festejo"
+        },
+        "scores": {
+          "cajon_peruano_construction": 5.2,
+          "cajon_peruano_role": 3.085
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 0.7432142857142857,
+          "clap_capture": 0.3
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 2.575,
+          "string_tuning": 0.45500000000000007,
+          "top_wood_parlor": 0.69,
+          "back_sides_parlor": 0.35,
+          "string_acoustic_parlor": 0.69
+        }
+      }
+    ],
+    "room": "parlor",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "room": "parlor",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

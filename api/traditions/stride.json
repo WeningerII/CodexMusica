@@ -1,0 +1,79 @@
+{
+  "id": "stride",
+  "name": "Stride",
+  "family": "jazz",
+  "lineage": "Harlem solo-piano idiom of the 1920s-40s that turned ragtime's written left hand into a virtuoso improvised engine — James P. Johnson's Carolina Shout (1921) as its founding text, extended by Willie The Lion Smith, Fats Waller and Art Tatum — with the left hand leaping a tenth or more between low bass note on beats 1 and 3 and mid-register chord on 2 and 4 at 200-280 BPM, the right hand running broken-octave and arpeggio figures over 32-bar AABB and popular-song forms, and rent-party cutting contests as the training ground.",
+  "recipe": "classic mid-1920s stride, improv On Frame, stride piano branch, American jazz pre jazz ragtime, American jazz boogie woogie, American jazz early boogie-woogie. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright piano. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 399,
+  "score": 61.277,
+  "config": {
+    "traditions": [
+      "stride",
+      "boogie_woogie",
+      "ragtime"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 12.464999999999998,
+          "grand_piano_size": 2.63,
+          "grand_piano_brand": 2.63,
+          "piano_hammer": 10.9525,
+          "piano_rim": 13.617500000000001,
+          "piano_soundboard": 2.5024999999999995,
+          "piano_pinblock": 1.6574999999999995,
+          "piano_plate": 0.995,
+          "piano_pitch_standard": 4.387499999999999
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 12.464999999999998,
+          "upright_use": 2.63,
+          "upright_piano_size": 0.195
+        }
+      }
+    ],
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_electrical_era_office",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

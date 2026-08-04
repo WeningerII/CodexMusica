@@ -5,7 +5,7 @@
   "lineage": "Bedroom R&B took shape on SoundCloud and Bandcamp from roughly 2013 through Steve Lacy, Sza's early tapes, Yellow Days, Mahalia demos and the Internet's side projects — slow 65-85 BPM swung drum programming, detuned Rhodes and nylon-guitar loops, close-miked untreated-room lead vocals with audible sibilance and noise floor, tape-saturated stacked harmony and short through-written forms tracked entirely on laptop interfaces.",
   "recipe": "classic early-2010s bedroom r&b, functional Song, soul R&B branch, lofi experimental electric, anglo singer song bedroom singer song hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. lead plus third fifth 3 part stack 2010s melodyne microtuned stack chorus detuned thickener across stack multitrack vocal stack, close pickup gap more bark dirt block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampler drum machine. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 749,
-  "score": 201.682,
+  "score": 201.532,
   "config": {
     "traditions": [
       "bedroom_rnb",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 17.868749999999995,
+          "voice_register": 17.744999999999997,
           "voice_quality": 9.425000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.405,
           "voice_articulation": 13.519999999999992,
           "voice_microtone": 13.97499999999999,
-          "voice_tradition": 13.24875,
+          "voice_tradition": 13.17,
           "voice_mechanism_compound": 3.1849999999999996,
           "voice_estill_quality": 3.5500000000000003,
           "voice_speech_song": 19.564999999999994,
           "voice_ensemble_config": 13.454999999999993,
           "voice_ornament_system": 2.2099999999999995,
-          "voice_pitch_organization": 2.02,
+          "voice_pitch_organization": 2.0799999999999996,
           "voice_processing_chain": 4.42,
           "voice_multitrack_stack": 11.504999999999999
         }
@@ -60,8 +60,8 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 1.532125,
-          "multitrack_stack_era_aesthetic": 4.542125,
+          "multitrack_stack_density": 1.54,
+          "multitrack_stack_era_aesthetic": 4.505,
           "multitrack_stack_processing": 1.63
         }
       },
@@ -81,7 +81,7 @@
           "rhodes_use": 1.8199999999999998,
           "rhodes_tine_material": 0.195,
           "rhodes_hammer_tip": -0.035,
-          "rhodes_pickup_position": 1.81375
+          "rhodes_pickup_position": 1.69
         }
       },
       {
@@ -102,16 +102,16 @@
         },
         "scores": {
           "electric_technique": 10.95,
-          "amp_make": 4.9121250000000005,
+          "amp_make": 4.875000000000001,
           "body_wood": 0.585,
           "neck_wood": 0.585,
           "fretboard": 0.5199999999999999,
           "pickup_magnet": 0.39,
           "string_material": 0.39,
-          "string_gauge": 1.7349999999999999,
+          "string_gauge": 1.885,
           "bridge": 0.585,
-          "scale_length": 0.735,
-          "finish": 0,
+          "scale_length": 0.78,
+          "finish": 0.15,
           "string_tuning": 2.08
         }
       },
@@ -127,10 +127,10 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 5.322125,
+          "amp_make": 5.285,
           "body_wood": 0.585,
           "pickup_config": 2.9899999999999998,
-          "string_type": 4.56775,
+          "string_type": 4.390000000000001,
           "scale_length_b": 0.975,
           "fretted_or_not": 0,
           "bass_technique": 3.695
@@ -147,7 +147,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 2.9899999999999998,
-          "sample_swing": 1.762125,
+          "sample_swing": 1.815,
           "sample_processing": 0.585
         }
       }

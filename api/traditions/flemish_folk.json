@@ -1,0 +1,197 @@
+{
+  "id": "flemish_folk",
+  "name": "Flemish Folk",
+  "family": "vernacular",
+  "lineage": "Dutch-language folk tradition of northern Belgium, largely reconstructed during the 1960s-70s Vlaamse folkrevival by Wannes Van de Velde, Rum and Kadril from 18th-19th-century songbooks and surviving dance repertoire, featuring moderate-tempo strophic ballads and hoppe/schottische dance tunes carried by diatonic accordion, hurdy-gurdy, fiddle and doedelzak bagpipe over strummed guitar, with plain unornamented conversational singing in Antwerp dialect.",
+  "recipe": "classic Eastern European mid-1960s flemish folk, drinking Song, European branch, Celtic balladic ballad poetry, wind pipe drone modal newfoundland outport balladry newfoundland traditional song and dance music. thick, breath veiled tone, straight note core, interlocked note trading. steel modern bal folk French bal folk pignol tritonik hurdy gurdy, Celtic straight melodeon diatonic, double stops fiddle, cedar fingerpicked classical nylon-string guitar, castagnari Italian premium folk music straight accordion, lyon twisted plain plywood laminate European maple double bass. irish pub. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 712,
+  "score": 264.337,
+  "config": {
+    "traditions": [
+      "flemish_folk",
+      "newfoundland_outport",
+      "newfoundland_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 12.62,
+          "voice_quality": 9.75,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.86,
+          "voice_articulation": 17.68,
+          "voice_microtone": 18.394999999999996,
+          "voice_tradition": 22.977499999999996,
+          "voice_mechanism_compound": 3.9,
+          "voice_estill_quality": 6.82,
+          "voice_speech_song": 22.815,
+          "voice_ensemble_config": 18.395,
+          "voice_ornament_system": 15.324999999999996,
+          "voice_pitch_organization": 1.8199999999999996,
+          "voice_processing_chain": 4.68,
+          "voice_multitrack_stack": 3.3600000000000003
+        }
+      },
+      {
+        "id": "hurdy_gurdy",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "hurdy_strings": "hurdy_4_string",
+          "hurdy_buzz": "chien_off",
+          "hurdy_wheel_rosin": "hurdy_traditional_pine_rosin",
+          "hurdy_string_material": "hurdy_steel_modern",
+          "hurdy_tradition": "hurdy_french_bal_folk"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "hurdy_strings": 5.329999999999999,
+          "hurdy_buzz": 1.15,
+          "hurdy_wheel_rosin": 0.65,
+          "hurdy_string_material": 3.119999999999999,
+          "hurdy_tradition": 4.874999999999999
+        }
+      },
+      {
+        "id": "melodeon_diatonic",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "melodeon_rows": "melodeon_2_row",
+          "melodeon_diatonic_context": "melodeon_diatonic_celtic"
+        },
+        "scores": {
+          "free_reed_technique": 11.465,
+          "melodeon_rows": 5.265,
+          "melodeon_diatonic_context": 3.3149999999999995
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "plain_lamb_gut_fiddle",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 9.019999999999998,
+          "fiddle_strings": 0.95,
+          "fiddle_bow": 0.6500000000000002,
+          "fiddle_mute": 0.7,
+          "fiddle_articulation": 0.845
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "plain_sheep_gut_classical_guitar",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 15.509999999999998,
+          "string_tuning": 0,
+          "top_wood_classical": 4.225,
+          "bracing_classical": 2.6,
+          "string_classical": 0.995,
+          "attack_technique_cl": 0.135
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "machine_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 11.465,
+          "accordion_reed_material": 1,
+          "musette_offset": 0.74,
+          "reed_config": 0.89,
+          "bellows": 0.65,
+          "voicing_chamber": 0.7,
+          "accordion_maker_school": 4.81
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "lyon_gut_bass",
+          "bass_top_wood": "plywood_bass_top",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_slap",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "bass_size": 0.195,
+          "bass_strings": 1.5999999999999999,
+          "bass_top_wood": 2,
+          "bass_back_wood": 4.1000000000000005,
+          "bass_varnish": 2,
+          "bass_setup_period": 0.5850000000000002,
+          "bass_play": 0.045,
+          "bass_rosin": 2.7350000000000003,
+          "bass_bow_stick": 2
+        }
+      }
+    ],
+    "room": "irish_pub",
+    "archetype": "arch_comecon_state_label",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "irish_pub",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

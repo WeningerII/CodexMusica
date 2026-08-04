@@ -5,7 +5,7 @@
   "lineage": "1980s and 1990s ambient subgenre developed through industrial-music adjacent scene, characterized by drone-and-texture-based composition emphasizing menacing, dark, foreboding atmospheric content. Lustmord (Brian Williams), Coil, Nurse With Wound, and the broader Cold Spring Records and Side Effects label rosters anchor the canonical sound. Distinguished from broader ambient by dark ambient's explicit horror-cinematic-and-occult thematic orientation.",
   "recipe": "classic dark ambient, experimental Elec, ambient branch, industrial noise experimental electric dark electro / aggrotech. pad like pad analog synth, field textural sampler, ritual bronze rods canonical aquasonic waterphone. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 374,
-  "score": 109.407,
+  "score": 107.28,
   "config": {
     "traditions": [
       "dark_ambient_industrial",
@@ -23,27 +23,27 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 16.194499999999998,
+          "electronic_technique": 16.04,
           "oscillator": 1.69,
           "filter_topology": 1.69,
-          "envelope": 8.319999999999999,
-          "modulation": 0.1215
+          "envelope": 6.805,
+          "modulation": 0.28500000000000003
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 9.368,
-          "sampler_archetypes": 0.4094999999999999,
-          "sampler_bit_depth": 0.43949999999999995,
-          "sampler_workflow": 11.517,
+          "electronic_technique": 9.200000000000001,
+          "sampler_archetypes": 0.24,
+          "sampler_bit_depth": 1.0950000000000002,
+          "sampler_workflow": 11.07,
           "sampler_classic_context": 30.875
         }
       },
@@ -57,9 +57,9 @@
         },
         "scores": {
           "waterphone_model": 12.125,
-          "waterphone_excitation": 0.1815,
-          "waterphone_context": 12.2405,
-          "waterphone_construction": 2.535
+          "waterphone_excitation": 0.195,
+          "waterphone_context": 12.125,
+          "waterphone_construction": 2.145
         }
       }
     ],

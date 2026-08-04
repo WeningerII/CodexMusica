@@ -3,14 +3,14 @@
   "name": "Pakistani Pop",
   "family": "pop_rock",
   "lineage": "Urdu-language guitar-and-synth pop that began with Nazia and Zoheb Hassan's Biddu-produced Disco Deewane (1980) and was codified by Vital Signs' Dil Dil Pakistan (1987) and Junoon's Sufi rock of the 1990s, recorded at EMI Pakistan Karachi and Lahore: 100-130 BPM backbeat kits, chorused clean guitar and Juno-class pads, tabla or dholak doubling the snare, and Urdu vocals that sit between ghazal phrasing and Western pop melody.",
-  "recipe": "classic mid-1990s pakistani pop, functional Song, south Asian pop branch, indian subcontinent praise song sikh shabad kirtan hindu stuti and bhajan. thick, declaimed, slow rate, interlocked note trading. soldano slo amp boutique high gain clean strummed single coil electric guitar, rock canon ernie ball slinky electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, pitched indian rosewood rosewood tabla, synthetic remo modern stable bolt tuned modern concert stable dholak, harmonium indian, mid 1960s double tracking era 2 to 4 track hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
-  "recipe_chars": 789,
-  "score": 239.443,
+  "recipe": "classic mid-1990s pakistani pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. thick, declaimed, straight note core, interlocked note trading. clean strummed single coil electric guitar, rock canon ernie ball slinky electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, ringing pitched indian rosewood rosewood tabla, dholak, harmonium indian, late 1970s thirds fifths octaves 16 24 track multitrack vocal stack. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 642,
+  "score": 250.001,
   "config": {
     "traditions": [
       "pakistani_pop",
-      "sikh_shabad_kirtan",
-      "hindu_stuti_bhajan"
+      "mappila_paattu",
+      "naat_south_asian"
     ],
     "instruments": [
       {
@@ -20,67 +20,67 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 20.136499999999995,
-          "voice_quality": 18.535499999999995,
+          "voice_register": 17.488999999999994,
+          "voice_quality": 13.131499999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.2749999999999995,
-          "voice_articulation": 19.695000000000004,
-          "voice_microtone": 20.816874999999996,
-          "voice_tradition": 19.190875,
-          "voice_mechanism_compound": 2.4699999999999998,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 27.885000000000005,
-          "voice_ensemble_config": 17.225,
-          "voice_ornament_system": 5.6499999999999995,
-          "voice_pitch_organization": 4.371125,
-          "voice_processing_chain": 2.5595000000000003,
-          "voice_multitrack_stack": 2.99
+          "voice_vibrato": 1.9499999999999997,
+          "voice_articulation": 26.065,
+          "voice_microtone": 30.355,
+          "voice_tradition": 15.465374999999998,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 31.720000000000002,
+          "voice_ensemble_config": 23.855,
+          "voice_ornament_system": 7.45,
+          "voice_pitch_organization": 4.488625,
+          "voice_processing_chain": 4.225,
+          "voice_multitrack_stack": 3.97425
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_soldano_slo100",
-          "body_wood": "mahogany",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "hard_ash",
           "neck_wood": "mahogany_neck",
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
-          "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_12",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 13.999999999999998,
-          "amp_make": 3.1115,
-          "body_wood": 0.1185,
-          "neck_wood": 0.1185,
+          "electric_technique": 14.799999999999999,
+          "amp_make": 1.605,
+          "body_wood": 0.195,
+          "neck_wood": 0.13599999999999998,
           "fretboard": 0.045,
           "pickup_magnet": 0.045,
-          "string_material": 0.1365,
-          "string_gauge": 0.1185,
-          "bridge": 1.69,
-          "scale_length": 0.237,
+          "string_material": 0,
+          "string_gauge": 0.286,
+          "bridge": 0.7665,
+          "scale_length": 0.27199999999999996,
           "finish": 0,
-          "string_tuning": 2.275
+          "string_tuning": 1.6900000000000002
         }
       },
       {
@@ -95,13 +95,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 1.8465,
-          "body_wood": 0.237,
-          "pickup_config": 1.69,
-          "string_type": 4.105,
-          "scale_length_b": 1.69,
-          "fretted_or_not": 0.39,
-          "bass_technique": 3.95
+          "amp_make": 1.605,
+          "body_wood": 0.27199999999999996,
+          "pickup_config": 0.7215,
+          "string_type": 4,
+          "scale_length_b": 0.9352500000000001,
+          "fretted_or_not": 0.65,
+          "bass_technique": 3.9890000000000003
         }
       },
       {
@@ -113,10 +113,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 13.152999999999999,
-          "poly_archetypes": 3.003,
+          "electronic_technique": 13.524,
+          "poly_archetypes": 1.9165,
           "poly_voices": 0.39,
-          "poly_maker_lineage": 1.4299999999999997
+          "poly_maker_lineage": 1.103
         }
       },
       {
@@ -127,9 +127,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 6.305000000000001,
-          "tabla_bayan": 0.9099999999999999,
-          "tabla_syahi": 2.4050000000000002
+          "tabla_dayan": 2.99,
+          "tabla_bayan": 0.3,
+          "tabla_syahi": 5.395
         }
       },
       {
@@ -141,10 +141,10 @@
           "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 0.39,
-          "dholak_construction": 3.3799999999999994,
-          "dholak_head": 1.69,
-          "dholak_tensioning": 1.69
+          "dholak_use": 0.845,
+          "dholak_construction": 1.95,
+          "dholak_head": 0.7215,
+          "dholak_tensioning": 0.8452500000000001
         }
       },
       {
@@ -156,23 +156,23 @@
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 0.19500000000000003,
-          "harmonium_action": 1.365,
-          "harmonium_voicing": 0.975,
-          "harmonium_use": 2.9899999999999998
+          "free_reed_technique": 0.6499999999999999,
+          "harmonium_action": 1.04,
+          "harmonium_voicing": 0.39,
+          "harmonium_use": 2.21
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
           "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
-          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
-          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1970s_thirds_fifths",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 0.195,
-          "multitrack_stack_era_aesthetic": 2.145,
-          "multitrack_stack_processing": 1.9500000000000002
+          "multitrack_stack_density": 0.129,
+          "multitrack_stack_era_aesthetic": 1.53525,
+          "multitrack_stack_processing": 0.195
         }
       }
     ],

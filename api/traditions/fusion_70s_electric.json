@@ -3,9 +3,9 @@
   "name": "Jazz fusion (1970s post-Bitches-Brew electric jazz-rock)",
   "family": "jazz",
   "lineage": "1970s jazz subgenre developed from Miles Davis's late-1960s Bitches Brew sessions, integrating jazz-improvisational practice with rock-and-funk rhythmic vocabulary and electric-amplified-instrumentation. Weather Report (founded 1970 by Joe Zawinul and Wayne Shorter), Mahavishnu Orchestra (John McLaughlin), Return to Forever (Chick Corea), and Headhunters (Herbie Hancock) constitute the canonical 1970s fusion roster. Distinguished from broader jazz by fusion's explicit rock-and-funk-rhythmic-electric-instrument synthesis.",
-  "recipe": "classic Los Angeles jazz fusion, improv On Frame, fusion branch, progressive rock distorted rock zeuhl canterbury scene. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, marshall plexi amp British rock amp ernie ball slinky walking fingerstyle electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth, prog rock electric violin. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 674,
-  "score": 293.147,
+  "recipe": "classic Los Angeles jazz fusion, improv On Frame, fusion branch, progressive rock distorted rock zeuhl canterbury scene. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, marshall plexi amp British rock amp thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth, prog rock electric violin. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 675,
+  "score": 297.006,
   "config": {
     "traditions": [
       "fusion_70s_electric",
@@ -31,7 +31,7 @@
           "sax_body_alloy": 24.375,
           "sax_mouthpiece": 0.845,
           "sax_technique": 23.5,
-          "sax_maker_school": 29.743750000000002
+          "sax_maker_school": 30.788500000000003
         }
       },
       {
@@ -43,18 +43,18 @@
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": 3.9315,
-          "grand_piano_size": 0.34775,
+          "grand_piano_size": 0.3315,
           "grand_piano_brand": 1.4365,
           "piano_hammer": 14.852500000000001,
           "piano_rim": 13.1625,
-          "piano_soundboard": 1.005,
-          "piano_pinblock": 0.9199999999999999,
+          "piano_soundboard": 1.0365,
+          "piano_pinblock": 0.975,
           "piano_plate": 1.0725,
           "piano_pitch_standard": 1.1374999999999997
         }
@@ -65,7 +65,7 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
+          "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_walking"
@@ -74,7 +74,7 @@
           "amp_make": 12.805,
           "body_wood": 0.273,
           "pickup_config": 0.45499999999999996,
-          "string_type": 27.403125,
+          "string_type": 28.249,
           "scale_length_b": 0.45499999999999996,
           "fretted_or_not": 0,
           "bass_technique": 23.5
@@ -88,8 +88,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 45.155375,
-          "drumhead": 27.263625,
+          "drum_technique": 45.92249999999999,
+          "drumhead": 28.199,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -105,7 +105,7 @@
         "scores": {
           "electronic_technique": -0.05,
           "oscillator": 0.845,
-          "filter_topology": 0.273,
+          "filter_topology": 0.468,
           "envelope": 2.9494999999999996,
           "modulation": 0.15
         }

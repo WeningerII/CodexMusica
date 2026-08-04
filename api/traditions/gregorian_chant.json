@@ -1,0 +1,95 @@
+{
+  "id": "gregorian_chant",
+  "name": "Gregorian Chant",
+  "family": "classical",
+  "lineage": "Latin liturgical monophony of the Western church, synthesized from Roman and Frankish practice in the Carolingian empire during the eighth and ninth centuries and notated in neumes from circa 900, restored by the Solesmes monks in the nineteenth century — unaccompanied male or female unison voices, free unmeasured prose rhythm following the Latin text, eight-mode system, syllabic psalm tones through melismatic graduals and alleluias, sung antiphonally in resonant stone spaces.",
+  "recipe": "classic European early-1950s gregorian chant, art Music, western early branch, western common practice art music, christian gospel Russian orthodox choral byzantine chant. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 468,
+  "score": 163.025,
+  "config": {
+    "traditions": [
+      "gregorian_chant",
+      "choral",
+      "byzantine_chant"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 8.725,
+          "voice_quality": 15.859999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.89,
+          "voice_articulation": 16.704999999999995,
+          "voice_microtone": 18.037499999999994,
+          "voice_tradition": 11.509999999999998,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 6.705,
+          "voice_speech_song": 18.524999999999995,
+          "voice_ensemble_config": 19.109999999999996,
+          "voice_ornament_system": 6.140000000000001,
+          "voice_pitch_organization": 5.85,
+          "voice_processing_chain": 4.745,
+          "voice_multitrack_stack": 2.665000000000002
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 8.125,
+          "choir_polyphonic_configuration": 2.5999999999999996,
+          "choir_regional_canonical_configuration": 3.5349999999999997,
+          "choir_ensemble_repertoire": 6.4350000000000005
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pythagorean",
+    "room": "cathedral",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

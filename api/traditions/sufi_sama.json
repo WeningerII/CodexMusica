@@ -5,7 +5,7 @@
   "lineage": "Chishti-order Sufi devotional ceremony tradition centered on sama (Arabic for listening), the practice of group listening to qawwali-style devotional poetry-singing as a path toward divine union; performed at dargah (Sufi shrine) settings across the Indian subcontinent, with the Nizamuddin Auliya shrine in Delhi and the Khwaja Moinuddin Chishti shrine in Ajmer as the principal pilgrimage sites",
   "recipe": "classic North African early-1940s sufi sama, ritual Devotional, Sufi branch, Persian arab improv improv on frame, indian classical improv improv on frame iraqi maqam tarana. vocal fry, declaimed, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, vocal female harmonium indian, gut 3 main playing strings legato sarangi, qawwal voice, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. fez andalusi palace riad. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
   "recipe_chars": 580,
-  "score": 236.191,
+  "score": 238.985,
   "config": {
     "traditions": [
       "sufi_sama",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 2.9899999999999998,
-          "voice_quality": 16.97767857142857,
+          "voice_quality": 16.768749999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.9625,
           "voice_articulation": 2.405,
           "voice_microtone": 7.8,
-          "voice_tradition": 27.12796428571428,
+          "voice_tradition": 28.294749999999993,
           "voice_mechanism_compound": 11.13625,
-          "voice_estill_quality": 10.272749999999998,
+          "voice_estill_quality": 10.317749999999998,
           "voice_speech_song": 8.515,
           "voice_ensemble_config": 3.5100000000000002,
           "voice_ornament_system": 15.524999999999999,
-          "voice_pitch_organization": 13.434999999999999,
-          "voice_processing_chain": 4.7265,
+          "voice_pitch_organization": 14.8525,
+          "voice_processing_chain": 4.8100000000000005,
           "voice_multitrack_stack": 3.3799999999999994
         }
       },
@@ -74,7 +74,7 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 0,
+          "free_reed_technique": 0.15,
           "harmonium_action": 2.9899999999999998,
           "harmonium_voicing": 2.9899999999999998,
           "harmonium_use": 6.175
@@ -85,16 +85,16 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "sarangi_belly": "goat_skin_sarangi",
-          "sarangi_taraf": "sarangi_40_strings",
-          "sarangi_bow": "horse_hair_tensioned",
+          "sarangi_taraf": "sarangi_35_strings",
+          "sarangi_bow": "horse_hair_loose",
           "sarangi_main_strings": "sarangi_gut_main",
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "bowed_technique": 6.3307142857142855,
+          "bowed_technique": 6.17,
           "sarangi_belly": 2.9899999999999998,
-          "sarangi_taraf": 0.045,
-          "sarangi_bow": 0.24,
+          "sarangi_taraf": 0.105,
+          "sarangi_bow": 0.435,
           "sarangi_main_strings": 3.575,
           "sarangi_body_wood": 0.65
         }
@@ -106,8 +106,8 @@
           "qawwal_voice_context": "qawwal_voice_shrine"
         },
         "scores": {
-          "qawwal_role": 33.94767857142857,
-          "qawwal_voice_context": 5.3705
+          "qawwal_role": 33.738749999999996,
+          "qawwal_voice_context": 5.430499999999999
         }
       },
       {
@@ -121,10 +121,10 @@
         },
         "scores": {
           "percussion_technique": -0.1,
-          "tar_size": 6.910499999999999,
+          "tar_size": 7.030499999999999,
           "tar_frame_drum_context": 3.185,
           "tar_frame_shell_wood": 4.42,
-          "tar_frame_head": 7.5729999999999995
+          "tar_frame_head": 7.648
         }
       }
     ],

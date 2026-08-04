@@ -3,14 +3,14 @@
   "name": "Eurovision pop",
   "family": "global",
   "lineage": "Pan-European televised song-contest pop tradition tied to the annual Eurovision Song Contest (founded 1956) — codified through the contest’s evolving format: bombastic-power-ballad and key-change-climax conventions in the 1990s-2000s, then post-2010 electronic-and-quirky entries (Conchita Wurst 2014, Måneskin 2021); a stylistic register more than a genre",
-  "recipe": "classic mid-1990s eurovision pop, functional Song, europop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 753,
-  "score": 483.22,
+  "recipe": "classic mid-1990s eurovision pop, functional Song, europop branch, pop rock functional song yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 721,
+  "score": 424.712,
   "config": {
     "traditions": [
       "eurovision_pop",
-      "new_wave",
-      "yacht_rock"
+      "yacht_rock",
+      "skiffle"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 51.150000000000006,
-          "voice_quality": 13.552499999999991,
+          "voice_register": 54.60500000000001,
+          "voice_quality": 11.95999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.82,
-          "voice_articulation": 14.104999999999995,
-          "voice_microtone": 49.349999999999994,
-          "voice_tradition": 34.96999999999999,
-          "voice_mechanism_compound": 2.5349999999999997,
-          "voice_estill_quality": 1.8849999999999996,
-          "voice_speech_song": 24.634999999999994,
-          "voice_ensemble_config": 16.444999999999993,
-          "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.9499999999999997,
-          "voice_processing_chain": 12.405000000000001,
-          "voice_multitrack_stack": 7.994999999999999
+          "voice_vibrato": 12.575,
+          "voice_articulation": 15.144999999999996,
+          "voice_microtone": 45.224999999999994,
+          "voice_tradition": 25.804999999999993,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 2.2099999999999995,
+          "voice_speech_song": 23.984999999999992,
+          "voice_ensemble_config": 17.679999999999993,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 9.49,
+          "voice_multitrack_stack": 5.915000000000001
         }
       },
       {
@@ -58,51 +58,51 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 26.53499999999999,
-          "poly_archetypes": 11.764999999999999,
-          "poly_voices": 0.65,
-          "poly_maker_lineage": 0.19499999999999967
+          "electronic_technique": 20.389999999999993,
+          "poly_archetypes": 10.594999999999999,
+          "poly_voices": 0.45499999999999996,
+          "poly_maker_lineage": -0.8050000000000002
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
-          "bridge": "locking_trem",
+          "string_gauge": "g_12",
+          "bridge": "vintage_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 27.20499999999999,
-          "amp_make": 16.379999999999995,
-          "body_wood": 2.275,
-          "neck_wood": 2.275,
-          "fretboard": 2.21,
-          "pickup_magnet": 0.585,
-          "string_material": 0.585,
-          "string_gauge": 2.925,
-          "bridge": 0.65,
-          "scale_length": 2.275,
-          "finish": 0.09,
-          "string_tuning": 14.235
+          "electric_technique": 19.554999999999993,
+          "amp_make": 11.992499999999996,
+          "body_wood": 1.625,
+          "neck_wood": 1.625,
+          "fretboard": 1.17,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 1.235,
+          "bridge": 0.39,
+          "scale_length": 1.235,
+          "finish": 0.39,
+          "string_tuning": 12.089999999999998
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -110,13 +110,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 10.919999999999998,
-          "body_wood": 2.275,
-          "pickup_config": 0.195,
-          "string_type": 27.4625,
-          "scale_length_b": 2.275,
+          "amp_make": 11.992499999999996,
+          "body_wood": 1.4300000000000002,
+          "pickup_config": 0.375,
+          "string_type": 24.5375,
+          "scale_length_b": 1.235,
           "fretted_or_not": 0.045,
-          "bass_technique": 25.215
+          "bass_technique": 18.915
         }
       },
       {
@@ -127,8 +127,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.17,
-          "drumhead": 26.089999999999993,
+          "drum_technique": 18.92,
+          "drumhead": 19.189999999999994,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -141,10 +141,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 6.589999999999998,
-          "choir_polyphonic_configuration": 1.6249999999999998,
-          "choir_regional_canonical_configuration": 4.1,
-          "choir_ensemble_repertoire": 3.5100000000000002
+          "choir_size": 6.434999999999999,
+          "choir_polyphonic_configuration": 1.8199999999999998,
+          "choir_regional_canonical_configuration": 4.29,
+          "choir_ensemble_repertoire": 4.355
         }
       }
     ],

@@ -1,0 +1,174 @@
+{
+  "id": "newfoundland_folk",
+  "name": "Newfoundland traditional song and dance music",
+  "family": "vernacular",
+  "lineage": "Anglo-Irish and French-Newfoundland repertoire of the island's outports, transmitted orally since eighteenth-century West Country and Waterford settlement, collected by Maud Karpeles and Kenneth Peacock and revived from the 1970s by Figgy Duff and Ryan's Fancy — unaccompanied ballad singing in a high nasal outport delivery, single and double jigs for the kitchen set dance played on accordion and crooked-tuned fiddle, and accordion-led 'lancers' with bodhrán or ugly-stick percussion.",
+  "recipe": "classic North American mid-1970s newfoundland traditional song and dance music, ballad Poetry, newfoundland revival branch, atlantic Southeast Asian shanty, Celtic traditional improv on frame musique acadienne musique traditionnelle québécoise. thick, breath veiled tone, straight note core, interlocked note trading. fiddle, leather castagnari Italian premium folk music drone like accordion, tin whistle, dadgad tuning drone like modal dreadnought acoustic guitar, goat skin canonical Irish ash pre modern traditional Irish bodhran, spoons wooden and hand spoons. newfoundland outport kitchen party. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 664,
+  "score": 356.876,
+  "config": {
+    "traditions": [
+      "newfoundland_folk",
+      "musique_acadienne",
+      "trad_quebecois"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 11.9,
+          "fiddle_strings": 0.765,
+          "fiddle_bow": 0.3,
+          "fiddle_mute": 0.3,
+          "fiddle_articulation": 0.70625
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 12.440000000000001,
+          "accordion_reed_material": 0.195,
+          "musette_offset": 5.3950000000000005,
+          "reed_config": 4.187499999999999,
+          "bellows": 5.3950000000000005,
+          "voicing_chamber": 0.45499999999999996,
+          "accordion_maker_school": 4.159999999999999
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "whistle_key": "d_whistle",
+          "whistle_ornament": "cut_ornament",
+          "whistle_body_material": "whistle_brass_canonical"
+        },
+        "scores": {
+          "wind_articulation": 11.85,
+          "whistle_key": 4.84,
+          "whistle_ornament": 5.3950000000000005,
+          "whistle_body_material": 0.9299999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "string_tuning": "dadgad",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "nickel_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 12.540000000000001,
+          "string_tuning": 14.940000000000003,
+          "top_wood": 0.45499999999999996,
+          "back_sides": 0.45499999999999996,
+          "string_acoustic": 0.63
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.4750000000000005,
+          "voice_quality": 11.959999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.76,
+          "voice_articulation": 28.275000000000013,
+          "voice_microtone": 28.470000000000006,
+          "voice_tradition": 17.8875,
+          "voice_mechanism_compound": 3.9650000000000003,
+          "voice_estill_quality": 10.3025,
+          "voice_speech_song": 32.305000000000014,
+          "voice_ensemble_config": 29.185000000000013,
+          "voice_ornament_system": 22.817500000000003,
+          "voice_pitch_organization": 1.7099999999999997,
+          "voice_processing_chain": 6.175,
+          "voice_multitrack_stack": 5.915000000000001
+        }
+      },
+      {
+        "id": "bodhran",
+        "slots": {
+          "bodhran_play": "bodhran_kerry",
+          "bodhran_skin": "bodhran_goatskin",
+          "bodhran_shell_wood": "bodhran_ash_traditional"
+        },
+        "scores": {
+          "bodhran_play": 5.3950000000000005,
+          "bodhran_skin": 7.865000000000001,
+          "bodhran_shell_wood": 8.32
+        }
+      },
+      {
+        "id": "spoons",
+        "slots": {
+          "spoons_material": "spoons_wooden",
+          "spoons_playing": "spoons_knee_and_hand"
+        },
+        "scores": {
+          "spoons_material": 1.6899999999999997,
+          "spoons_playing": 28.470000000000017
+        }
+      }
+    ],
+    "room": "newfoundland_outport_kitchen_party",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "newfoundland_outport_kitchen_party",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

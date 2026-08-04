@@ -1,0 +1,195 @@
+{
+  "id": "freakbeat",
+  "name": "Freakbeat",
+  "family": "rock",
+  "lineage": "Retrospective term for the harder, R&B-derived British mod and proto-psych records of 1965-68 by The Creation, John's Children, The Eyes, The Birds, Wimple Winch and The Pretty Things — driving 4/4 at 130-160 BPM with heavy tambourine and crash-laden drumming, fuzz and feedback guitar (Eddie Phillips's bowed guitar), snarled shouted vocals, Hammond and harmonica, and compressed mono UK studio mixes cut fast for small singles budgets.",
+  "recipe": "classic British mid-1960s freakbeat, distorted Rock, classic branch, regional distorted rock, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, bamboo double brass chromatic canon solo canonical chromatic lead harmonica, tambourine orch. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 889,
+  "score": 552.565,
+  "config": {
+    "traditions": [
+      "freakbeat",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 49.375000000000014,
+          "voice_quality": 16.152499999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.075000000000001,
+          "voice_articulation": 20.084999999999994,
+          "voice_microtone": 47.49,
+          "voice_tradition": 17.049999999999997,
+          "voice_mechanism_compound": 3.575000000000001,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 25.284999999999993,
+          "voice_ensemble_config": 19.824999999999992,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 0.325,
+          "voice_processing_chain": 11.985,
+          "voice_multitrack_stack": 8.0275
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 16.775,
+          "amp_make": 22.814999999999998,
+          "body_wood": 1.75,
+          "neck_wood": 1.75,
+          "fretboard": 1.7,
+          "pickup_magnet": 0.585,
+          "string_material": 0.585,
+          "string_gauge": 2.25,
+          "bridge": 1.045,
+          "scale_length": 1.75,
+          "finish": 0,
+          "string_tuning": 17.485
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 16.705,
+          "body_wood": 2.795,
+          "pickup_config": 1.045,
+          "string_type": 37.254999999999995,
+          "scale_length_b": 1.75,
+          "fretted_or_not": 0.195,
+          "bass_technique": 34.114999999999995
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 29.124999999999996,
+          "drumhead": 15.944999999999997,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 15.924999999999995,
+          "drawbar_setting": 29.364999999999995,
+          "rotary_speed": 30.119999999999997,
+          "percussion_setting": 15.144999999999998,
+          "tonewheel_model": 17.289999999999996,
+          "leslie_cabinet_model": 2.925
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "bamboo_comb",
+          "harmonica_reed": "double_brass_harm",
+          "harmonica_technique": "harm_chromatic_jazz",
+          "harmonica_maker_school": "harmonica_hering_brazilian",
+          "harmonica_tuning": "harmonica_solo_chromatic"
+        },
+        "scores": {
+          "harmonica_type": 1.1,
+          "harmonica_comb": 1.0725,
+          "harmonica_reed": 3.275,
+          "harmonica_technique": 3.74,
+          "harmonica_maker_school": 0,
+          "harmonica_tuning": 3.4400000000000004
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_mixed",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.3,
+          "tambourine_orch_context": 0.6824999999999999
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_uk_small_commercial",
+    "inline_chain": {
+      "mic": "mic_coles_4038_ribbon",
+      "pre": "pre_console_inline_strip",
+      "console": "console_emi_redd",
+      "comp": "comp_fairchild_670_tube",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_coles_4038_ribbon",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_emi_redd"
+  }
+}

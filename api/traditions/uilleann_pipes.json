@@ -1,0 +1,140 @@
+{
+  "id": "uilleann_pipes",
+  "name": "Uilleann piping (Irish pipe tradition)",
+  "family": "global",
+  "lineage": "Irish bellows-blown pipe tradition developed from the union pipes of the late eighteenth century and codified by the Taylor and Rowsome making families and by Leo Rowsome, Willie Clancy and Séamus Ennis in the twentieth century — a two-octave chanter in D over three drones and three regulators, played seated on the knee with staccato 'tight' or legato 'open' fingering, crans and popping, supplying dance tunes at session tempo and free-time slow airs shaped to the sung Irish-language line.",
+  "recipe": "classic modern uilleann piping, drone Modal, wind pipe branch, Celtic traditional improv on frame, Celtic balladic sean nos sean-nós singing sean-nós solo singing. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed taylor egan philadelphia canonical wide bore Irish American uilleann pipes, fiddle, melodic tin whistle, irish wooden flute, low mid rich spectrum traditional gut gut string celtic harp, modern Irish carroll suttner premium revival drone like concertina anglo. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 690,
+  "score": 156.03,
+  "config": {
+    "traditions": [
+      "uilleann_pipes",
+      "sean_nos_singing",
+      "sean_nos_solo"
+    ],
+    "instruments": [
+      {
+        "id": "uilleann_pipes",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "uilleann_set": "full_set",
+          "uilleann_pipes_pitch": "uilleann_pipes_flat",
+          "uilleann_chanter_wood": "uilleann_african_blackwood",
+          "uilleann_reed": "uilleann_cane_canonical",
+          "uilleann_bag": "uilleann_leather_canonical",
+          "uilleann_lineage": "uilleann_taylor_egan"
+        },
+        "scores": {
+          "wind_articulation": 10.925,
+          "uilleann_set": 8.189999999999998,
+          "uilleann_pipes_pitch": 1.6899999999999997,
+          "uilleann_chanter_wood": 7.299999999999999,
+          "uilleann_reed": 7.304999999999999,
+          "uilleann_bag": 8.604999999999999,
+          "uilleann_lineage": 8.499999999999998
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 10.82,
+          "fiddle_strings": 0.09,
+          "fiddle_bow": 0.15,
+          "fiddle_mute": 1,
+          "fiddle_articulation": 0.54
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "d_whistle",
+          "whistle_ornament": "cut_ornament",
+          "whistle_body_material": "whistle_aluminum_anodized"
+        },
+        "scores": {
+          "wind_articulation": 10.925,
+          "whistle_key": 15.794999999999998,
+          "whistle_ornament": 1.6899999999999997,
+          "whistle_body_material": 0.045
+        }
+      },
+      {
+        "id": "irish_wooden_flute",
+        "slots": {
+          "irish_wooden_flute_pattern": "irish_wooden_flute_keyless_folk",
+          "irish_wooden_flute_keys": "irish_wooden_flute_four_key",
+          "irish_wooden_flute_idiom": "irish_wooden_flute_leitrim",
+          "irish_wooden_flute_material": "irish_wooden_flute_cocuswood"
+        },
+        "scores": {
+          "irish_wooden_flute_pattern": 16.5,
+          "irish_wooden_flute_keys": 1.6249999999999998,
+          "irish_wooden_flute_idiom": 9.825000000000001,
+          "irish_wooden_flute_material": 0.09999999999999999
+        }
+      },
+      {
+        "id": "celtic_harp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "celtic_harp_levers": "lever_camac",
+          "celtic_harp_strings": "celtic_gut"
+        },
+        "scores": {
+          "acoustic_technique": 1.7449999999999999,
+          "celtic_harp_levers": 0.39,
+          "celtic_harp_strings": 1.6899999999999997
+        }
+      },
+      {
+        "id": "concertina_anglo",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "concertina_anglo_config": "concertina_anglo_30",
+          "concertina_anglo_context": "concertina_anglo_morris",
+          "concertina_anglo_maker_school": "concertina_irish_made_modern",
+          "concertina_anglo_reed": "concertina_anglo_steel_reeds"
+        },
+        "scores": {
+          "free_reed_technique": 12.139999999999999,
+          "concertina_anglo_config": 9.879999999999999,
+          "concertina_anglo_context": 2.5349999999999997,
+          "concertina_anglo_maker_school": 8.534999999999998,
+          "concertina_anglo_reed": 0.195
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "live_room",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

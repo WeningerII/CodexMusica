@@ -1,0 +1,204 @@
+{
+  "id": "souldies",
+  "name": "Souldies",
+  "family": "blues_gospel",
+  "lineage": "A listening and revival tradition rather than a production era: slow 1960s soul and doo-wop ballads canonized by Mexican-American lowrider and oldies-radio culture in East Los Angeles, San Antonio and the Southwest from the 1970s onward and later re-recorded by Chicano revival acts since the 2000s — 6/8 and slow 12/8 triplet ballads at 55-75 BPM, tremolo guitar, triplet piano, close male group harmony behind a high aching tenor lead, and heavy plate reverb.",
+  "recipe": "classic North American mid-1960s souldies, functional Song, doowop branch, soul R&B functional song, tejano border functional song beach music memphis soul. thick, blues-shouter, slow rate, interlocked note trading. choir doo wop group, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, cold pressed weikert felt oversize maple tension resonator sitka spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, brushes-and-sticks drum kit, tenor ensemble honking attack saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 748,
+  "score": 459.638,
+  "config": {
+    "traditions": [
+      "souldies",
+      "beach_music_carolina",
+      "memphis_soul"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 22.675,
+          "voice_quality": 20.164999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.962999999999999,
+          "voice_articulation": 20.214999999999996,
+          "voice_microtone": 20.669999999999995,
+          "voice_tradition": 21.810000000000002,
+          "voice_mechanism_compound": 1.4949999999999999,
+          "voice_estill_quality": 20.324999999999996,
+          "voice_speech_song": 27.754999999999995,
+          "voice_ensemble_config": 20.539999999999996,
+          "voice_ornament_system": 1.1049999999999995,
+          "voice_pitch_organization": 2.5445,
+          "voice_processing_chain": 7.548,
+          "voice_multitrack_stack": 9.595500000000001
+        }
+      },
+      {
+        "id": "choir_doo_wop_group",
+        "slots": {
+          "voices": "doo_wop_baritone",
+          "arrangement": "doo_wop_a_cappella"
+        },
+        "scores": {
+          "voices": 2.34,
+          "arrangement": 0.17099999999999999
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 18.1965,
+          "amp_make": 22.684499999999996,
+          "body_wood": 2.34,
+          "neck_wood": 2.34,
+          "fretboard": 2.2749999999999995,
+          "pickup_magnet": 0.195,
+          "string_material": 0.345,
+          "string_gauge": 4.956499999999999,
+          "bridge": 0.45499999999999996,
+          "scale_length": 2.34,
+          "finish": 0.5,
+          "string_tuning": 1.56
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_weikert_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_415_baroque"
+        },
+        "scores": {
+          "keyboard_technique": 20.0435,
+          "grand_piano_size": 2.34,
+          "grand_piano_brand": 2.34,
+          "piano_hammer": 2.2749999999999995,
+          "piano_rim": 2.535,
+          "piano_soundboard": 6.1165,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.0499999999999998,
+          "piano_pitch_standard": 7.0009999999999994
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 23.207499999999996,
+          "body_wood": 2.34,
+          "pickup_config": 0.15,
+          "string_type": 25.447499999999998,
+          "scale_length_b": 2.34,
+          "fretted_or_not": 0.45499999999999996,
+          "bass_technique": 18.075
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 19.435,
+          "drumhead": 2.34,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 19.701999999999998,
+          "sax_size": 19.1315,
+          "sax_reed": 0.345,
+          "sax_body_alloy": 0.12999999999999998,
+          "sax_mouthpiece": 0.3495,
+          "sax_technique": 17.65,
+          "sax_maker_school": 0.26
+        }
+      }
+    ],
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "vinyl_master_cut"
+    },
+    "tuning": "doo_wop_changes_50s",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "doo_wop_changes_50s",
+    "room": "studio_early_tape_us_small",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "vinyl_master_cut",
+    "chain_console": "colored"
+  }
+}

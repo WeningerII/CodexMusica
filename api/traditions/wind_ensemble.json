@@ -1,0 +1,200 @@
+{
+  "id": "wind_ensemble",
+  "name": "Wind Ensemble",
+  "family": "classical",
+  "lineage": "The one-player-per-part symphonic wind medium founded by Frederick Fennell with the Eastman Wind Ensemble in 1952 as a deliberate reform of the doubled concert band, giving composers a transparent chamber-scaled wind palette exploited by Schoenberg, Stravinsky's Symphonies of Wind Instruments as ancestor, and by Husa, Karel Husa's Music for Prague 1968, Dahl, Maslanka and Joan Tower; variable instrumentation drawn from the full woodwind, brass and percussion families, fully notated, often in extended tonality or serial and aleatoric idioms with mixed and shifting metres.",
+  "recipe": "classic British early-1950s wind ensemble, art Music, western modern branch, western common practice art music, American marching groove percussion late romantic era concert band. silver powell boston canonical American orchestral continuous-airflow legato flute, loree paris canonical American school continuous-airflow legato oboe, grenadilla African blackwood traditional continuous-airflow legato clarinet, low c classical legato bass clarinet, continuous-airflow legato bassoon, continuous-airflow legato contrabassoon, brass continuous-airflow legato french horn, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato standard rim trumpet, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 930,
+  "score": 163.02,
+  "config": {
+    "traditions": [
+      "wind_ensemble",
+      "late_romantic_era",
+      "concert_band"
+    ],
+    "instruments": [
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "piccolo_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": 5.8525,
+          "flute_size": 2.1574999999999998,
+          "flute_material": 2.7950000000000004,
+          "flute_technique": 0.4550000000000001,
+          "flute_maker_school": 2.0149999999999997
+        }
+      },
+      {
+        "id": "oboe",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "oboe_reed": "oboe_american_scrape",
+          "oboe_class": "oboe_modern",
+          "oboe_body_wood": "oboe_boxwood_baroque",
+          "oboe_maker_school": "oboe_loree_paris"
+        },
+        "scores": {
+          "wind_articulation": 5.8525,
+          "oboe_reed": 0.195,
+          "oboe_class": 1.95,
+          "oboe_body_wood": 0.65,
+          "oboe_maker_school": 2.8599999999999994
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 5.8525,
+          "clarinet_body": 9.92375,
+          "clarinet_size": 2.8525,
+          "clarinet_reed": 2.1574999999999998,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "bass_clarinet",
+        "slots": {
+          "bass_clarinet_range": "bass_clarinet_to_low_c",
+          "bass_clarinet_style": "bass_clarinet_classical_legato"
+        },
+        "scores": {
+          "bass_clarinet_range": 2.535,
+          "bass_clarinet_style": 2.6
+        }
+      },
+      {
+        "id": "bassoon",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "bassoon_school": "bassoon_heckel",
+          "bassoon_body_wood": "bassoon_maple_canonical",
+          "bassoon_reed": "bassoon_glotin_cane",
+          "bassoon_context": "bassoon_chamber"
+        },
+        "scores": {
+          "wind_articulation": 5.8525,
+          "bassoon_school": 3.51,
+          "bassoon_body_wood": 0.39,
+          "bassoon_reed": 0.39,
+          "bassoon_context": 4.419999999999999
+        }
+      },
+      {
+        "id": "contrabassoon",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "contrabassoon_school": "contrabassoon_semi_kontra",
+          "contrabassoon_context": "contrabassoon_contemporary",
+          "contrabassoon_body_wood": "contrabassoon_maple_canonical"
+        },
+        "scores": {
+          "wind_articulation": 5.8525,
+          "contrabassoon_school": 2.8049999999999997,
+          "contrabassoon_context": 6.06125,
+          "contrabassoon_body_wood": 0.39
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 5.8525,
+          "french_horn_bore": 0.78,
+          "french_horn_metal": 4.485
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 5.8525,
+          "brass_size": 2.1574999999999998,
+          "trumpet_mouthpiece": 11.705,
+          "brass_mute": 5,
+          "trumpet_technique": 5,
+          "trumpet_bell_metal": 2.145,
+          "trumpet_maker_school": 2.0149999999999997
+        }
+      },
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "euph_use": "euph_orchestral",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_yellow_brass",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": 5.8525,
+          "euph_use": 10.875,
+          "euphonium_pitch": 5.915,
+          "euphonium_bell_metal": 5.915,
+          "euphonium_maker_school": 5.915
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_synthetic"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "timpani_size": 2.6,
+          "timpani_head": 0.4550000000000001
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_decca_sound_orchestral",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

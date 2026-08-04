@@ -5,7 +5,7 @@
   "lineage": "Oral heroic-verse recitation of the scop, the poet-performer of the Anglo-Saxon (Old English) mead-hall, c. 7th-11th centuries in early medieval England. The verse is unrhymed alliterative long-line (two half-lines bridged by alliteration and four stresses), preserved in Beowulf, Widsith, Deor and The Battle of Maldon; Widsith and the Beowulf scenes at Heorot are the tradition's self-portrait of the singer 'unwinding' word-hoards to the harp. The compositional idiom is oral-formulaic, and although a hearpe may have accompanied, the surviving character is that of chanted, stress-timed declamation.",
   "recipe": "classic modern anglo-saxon scop epic recitation, ballad Poetry, anglo singer song branch cape verdean batuko of santiago island jeju haenyeo songs. thick, breath veiled tone, breath pulsed, interlocked note trading. wooden barn. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 291,
-  "score": 253.482,
+  "score": 253.392,
   "config": {
     "traditions": [
       "anglo_saxon_scop",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 4.095000000000001,
           "voice_pitch_organization": 4.628500000000001,
           "voice_processing_chain": 17.16,
-          "voice_multitrack_stack": 4.677499999999999
+          "voice_multitrack_stack": 4.5874999999999995
         }
       }
     ],

@@ -1,0 +1,233 @@
+{
+  "id": "microtonal",
+  "name": "Microtonal Music (interval-scale practice)",
+  "family": "classical",
+  "lineage": "Twentieth-century concert practice codified by Alois Hába in Prague from 1923 with quarter-tone piano and clarinet, Ivan Wyschnegradsky in Paris, Julián Carrillo in Mexico and later Ligeti, Haas and the spectral school, using intervals smaller than the semitone — quarter- and sixth-tones, beating dyads and slow glissando drift — on retuned pianos, specially fingered winds and unfretted strings, fully notated with accidental systems invented for the purpose.",
+  "recipe": "classic British early-1920s microtonal music, art Music, western modern branch, overtone drone modal, musique concrete experimental electric tape music mongolian khoomei overtone singing. sygyt, false fold engaged, slow rate, interlocked note trading. silver wound lamb gut core sitka spruce European maple sycamore maple violin orchestral, silver wound lamb gut core norway spruce European alpine European maple cello, yamaha modern Japanese mid to premium breath tone airy low dynamic level flute, grenadilla African blackwood traditional breath tone airy low dynamic level clarinet, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, gold brass warmer tone selmer mark vi canonical 1954 1974 jazz paris breath tone airy low dynamic level saxophone, bach 42 canonical American orchestral tenor continuous-airflow legato tenor standard standard backbore trombone. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 984,
+  "score": 492.67,
+  "config": {
+    "traditions": [
+      "microtonal",
+      "tape_music",
+      "mongolian_khoomei"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 5.075,
+          "orch_strings": 4.55,
+          "orch_top_wood": 7.2475000000000005,
+          "orch_back_wood": 8.525,
+          "orch_varnish": 8.375,
+          "orch_setup_period": 7.13,
+          "orch_bow": 0.09,
+          "orch_bow_stick": 8.475,
+          "orch_articulation": 3.12,
+          "orch_rosin": 8.375
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "silver_wound_lamb_gut_cello",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 5.075,
+          "cello_strings": 4.55,
+          "cello_top_wood": 5.655000000000001,
+          "cello_back_wood": 8.525,
+          "cello_varnish": 8.375,
+          "cello_setup_period": 7.13,
+          "cello_bow_grip": 3.6399999999999997,
+          "cello_rosin": 9.325,
+          "cello_bow_stick": 8.475
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "flute_size": "alto_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 4.485,
+          "flute_size": 1.6899999999999997,
+          "flute_material": 4.81,
+          "flute_technique": 0.4550000000000001,
+          "flute_maker_school": 2.535
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 4.485,
+          "clarinet_body": 8.670000000000002,
+          "clarinet_size": 3.965,
+          "clarinet_reed": 0.7,
+          "clarinet_articulation": 0.15
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 4.45,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 1.6899999999999997,
+          "piano_hammer": 12.985,
+          "piano_rim": 11.170000000000002,
+          "piano_soundboard": 8.825,
+          "piano_pinblock": 8.375,
+          "piano_plate": 8.57,
+          "piano_pitch_standard": 16.2825
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "khoomei_tuvan_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 21.644999999999996,
+          "voice_quality": 19.919999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 10.009999999999998,
+          "voice_articulation": 18.459999999999997,
+          "voice_microtone": 24.179999999999993,
+          "voice_tradition": 22.9125,
+          "voice_mechanism_compound": 19.239999999999995,
+          "voice_estill_quality": 6.825,
+          "voice_speech_song": 24.96,
+          "voice_ensemble_config": 17.939999999999998,
+          "voice_ornament_system": 3.695,
+          "voice_pitch_organization": 23.270000000000003,
+          "voice_processing_chain": 4.972499999999999,
+          "voice_multitrack_stack": 2.0799999999999996
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "sax_size": "baritone_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_split_tone_overblown",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 4.485,
+          "sax_size": 2.535,
+          "sax_reed": 0.7,
+          "sax_body_alloy": 12.835,
+          "sax_mouthpiece": 3.965,
+          "sax_technique": 3.705,
+          "sax_maker_school": 2.4699999999999998
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "tailgate_slide",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 4.09,
+          "trombone_type": 1.6249999999999998,
+          "trombone_mouthpiece": 8.375,
+          "trombone_mute": 1.89,
+          "trombone_technique": 1,
+          "trombone_bell_metal": 0.65,
+          "trombone_maker_school": 1.69
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_decca_sound_orchestral",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "edo_72",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "edo_72",
+    "room": "concert_hall_shoebox",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

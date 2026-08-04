@@ -1,0 +1,116 @@
+{
+  "id": "guitarrada_portuguesa",
+  "name": "Guitarrada (Portuguese Guitar Instrumental)",
+  "family": "vernacular",
+  "lineage": "Instrumental repertoire for the pear-shaped twelve-string guitarra portuguesa, codified in Lisbon and Coimbra from the 1920s by Armandinho and later Carlos Paredes, in which the fado accompanist becomes soloist — fan-shaped preservation of fado harmonic frames plus variações, played with fingernail plectra, dense tremolo and cascading triplet runs over viola de fado bass-chord accompaniment at variable rubato tempi.",
+  "recipe": "classic Iberian mid-1920s guitarrada, ballad Poetry, fado lisboa branch, chanson fado fado coimbra, iberian functional song asturian folk. twelve string paired courses high pitched ringing fado lisboa tradition jacaranda Portuguese rosewood spruce canonical fado guitarra portuguesa, cedar fingerpicked classical nylon-string guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, viola campanica. coimbra university outdoor quad. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 578,
+  "score": 85.688,
+  "config": {
+    "traditions": [
+      "guitarrada_portuguesa",
+      "fado_coimbra_university",
+      "asturian_folk"
+    ],
+    "instruments": [
+      {
+        "id": "guitarra_portuguesa",
+        "slots": {
+          "guitarra_tuning_school": "guitarra_lisboa_d_d_a_b_a",
+          "guitarra_body_wood": "guitarra_jacaranda_body",
+          "guitarra_top_wood": "guitarra_spruce_top",
+          "guitarra_strings": "guitarra_steel_canonical",
+          "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
+        },
+        "scores": {
+          "guitarra_tuning_school": 23.645000000000003,
+          "guitarra_body_wood": 1.8199999999999998,
+          "guitarra_top_wood": 15.225000000000001,
+          "guitarra_strings": 1.885,
+          "guitarra_technique": 16.365000000000002
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "plain_lamb_gut_classical_guitar",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 8.045,
+          "string_tuning": 0,
+          "top_wood_classical": 6.175,
+          "bracing_classical": 1.6899999999999997,
+          "string_classical": 0.7,
+          "attack_technique_cl": 1.1375
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.6749999999999999,
+          "bass_size": 0.65,
+          "bass_strings": 1.8849999999999998,
+          "bass_top_wood": 0.4875,
+          "bass_back_wood": 0.4225,
+          "bass_varnish": 0.325,
+          "bass_setup_period": 1.685,
+          "bass_play": 0.39,
+          "bass_rosin": 2.9350000000000005,
+          "bass_bow_stick": 3.2499999999999996
+        }
+      },
+      {
+        "id": "viola_campanica",
+        "slots": {
+          "campanica_tuning": "campanica_alta",
+          "campanica_role": "campanica_baile"
+        },
+        "scores": {
+          "campanica_tuning": 0.345,
+          "campanica_role": 0
+        }
+      }
+    ],
+    "room": "coimbra_university_outdoor_quad",
+    "archetype": "arch_paris_chanson_orchestral",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "coimbra_university_outdoor_quad",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

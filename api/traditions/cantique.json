@@ -1,0 +1,129 @@
+{
+  "id": "cantique",
+  "name": "Cantique",
+  "family": "vernacular",
+  "lineage": "French-language devotional hymn tradition of France, Quebec, Brittany and Francophone Africa and the Caribbean, formalized in seventeenth- and eighteenth-century parish collections and diffused through nineteenth-century cantique books — strophic verse-and-refrain settings in duple or triple metre, sung in unison or simple parts by congregation and choir over harmonium or pipe organ, with syllabic text-setting in vernacular French rather than Latin.",
+  "recipe": "classic European early-1950s cantique, ritual Devotional, christian gospel branch, christian gospel anglican choral, Celtic British praise song anglican choral evensong welsh moliannu and cerdd dant. thick, declaimed, straight note core, interlocked note trading. a cappella small 3 to 8 one per part antiphonal double choir alternating kakhetian three voice two soloists choral drone choir ensemble, cavaille coll paris canonical French symphonic late 19th century romantic zinc canonical large pedal pipes late 19th century cost efficient werckmeister iii canonical bach era well temperament pneumatic canonical late 19th century romantic pipe organ, pump organ harmonium. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 764,
+  "score": 216.026,
+  "config": {
+    "traditions": [
+      "cantique",
+      "anglican_choral_evensong",
+      "welsh_moliannu_cerdd_dant"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 7.900000000000002,
+          "voice_quality": 26.394999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.015,
+          "voice_articulation": 17.614999999999995,
+          "voice_microtone": 17.874999999999993,
+          "voice_tradition": 12.595999999999997,
+          "voice_mechanism_compound": 3.7645,
+          "voice_estill_quality": 7.175000000000002,
+          "voice_speech_song": 19.954999999999995,
+          "voice_ensemble_config": 20.864999999999995,
+          "voice_ornament_system": 10.525,
+          "voice_pitch_organization": 2.975,
+          "voice_processing_chain": 6.565000000000001,
+          "voice_multitrack_stack": 3.303000000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 1.95,
+          "choir_polyphonic_configuration": 2.158,
+          "choir_regional_canonical_configuration": 4.81,
+          "choir_ensemble_repertoire": 6.369999999999999
+        }
+      },
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_cavaille_coll",
+          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
+          "pipe_organ_temperament": "pipe_organ_werckmeister_iii",
+          "pipe_organ_action": "pipe_organ_pneumatic"
+        },
+        "scores": {
+          "keyboard_technique": 0.12999999999999998,
+          "pipe_organ_class": 0,
+          "pipe_organ_context": 6.24,
+          "pipe_organ_voicing_school": 8.644999999999998,
+          "pipe_organ_pipe_alloy": 5.265,
+          "pipe_organ_temperament": 1.6899999999999997,
+          "pipe_organ_action": 5.265
+        }
+      },
+      {
+        "id": "pump_organ_harmonium",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pump_organ_construction": "pump_organ_late_19th_revival",
+          "pump_organ_stops": "pump_organ_celeste_stop"
+        },
+        "scores": {
+          "keyboard_technique": 0.12999999999999998,
+          "pump_organ_construction": 18.85,
+          "pump_organ_stops": 2.875
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "stone_parish_church",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

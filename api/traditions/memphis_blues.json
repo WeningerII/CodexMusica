@@ -1,0 +1,170 @@
+{
+  "id": "memphis_blues",
+  "name": "Memphis Blues",
+  "family": "blues_gospel",
+  "lineage": "Beale Street blues of Memphis and the Tennessee-Mississippi corridor, named by W.C. Handy in 1912 and shaped 1927-1935 by the Memphis Jug Band, Cannon's Jug Stompers, Memphis Minnie and Furry Lewis before its 1950s electric revival at Sun — 90-140 BPM ragtime-tinged good-time repertoire on guitar, kazoo, harmonica and blown jug, with duet guitar interplay and a hokum-leaning lyric wit.",
+  "recipe": "classic Southern American mid-1930s memphis blues, ballad Poetry, jug band branch, blues narrative hokum blues, blues electric functional song louisiana blues. thick, blues-shouter, wide pitch sway, interlocked note trading. narrative fingerpicked parlor acoustic guitar, traditional ceramic clay jug inst, kazoo, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, adirondack red spruce loar canon thomastik flatwound mandolin, and hand spoons. sun studios 706 union avenue memphis 1950-1968 indie-commercial sun studios memphis 706 union. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 672,
+  "score": 418.653,
+  "config": {
+    "traditions": [
+      "memphis_blues",
+      "hokum_blues_vaudeville",
+      "louisiana_blues"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 32.870000000000005,
+          "voice_quality": 15.892499999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 33.21,
+          "voice_articulation": 16.054999999999996,
+          "voice_microtone": 30.35,
+          "voice_tradition": 17.192500000000003,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 3.835,
+          "voice_speech_song": 21.384999999999994,
+          "voice_ensemble_config": 16.379999999999992,
+          "voice_ornament_system": 1.165,
+          "voice_pitch_organization": 0.845,
+          "voice_processing_chain": 5.055,
+          "voice_multitrack_stack": 2.145
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "eighty_twenty_p"
+        },
+        "scores": {
+          "acoustic_technique": 8.955,
+          "string_tuning": 1.8699999999999999,
+          "top_wood_parlor": 0.195,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.65
+        }
+      },
+      {
+        "id": "jug_inst",
+        "slots": {
+          "jug_material": "jug_ceramic_clay",
+          "jug_technique": "jug_lips_buzzed"
+        },
+        "scores": {
+          "jug_material": 11.25,
+          "jug_technique": 5.625
+        }
+      },
+      {
+        "id": "kazoo",
+        "slots": {
+          "kazoo_construction": "kazoo_metal"
+        },
+        "scores": {
+          "kazoo_construction": 5.575
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "octave_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 0.845,
+          "harmonica_comb": 35.665,
+          "harmonica_reed": 30.455000000000002,
+          "harmonica_technique": 33.06,
+          "harmonica_maker_school": 38.894999999999996,
+          "harmonica_tuning": 15.535000000000002
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "mandolin_shape": "a_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 0.52,
+          "mandolin_shape": 0.195,
+          "mandolin_top": 1.2349999999999999,
+          "mandolin_back": 0.495,
+          "mandolin_bracing": 0.12999999999999998,
+          "mandolin_strings": 1.5274999999999999,
+          "mandolin_fingerboard": 0.195,
+          "mandolin_pickup": 16.054999999999996
+        }
+      },
+      {
+        "id": "spoons",
+        "slots": {
+          "spoons_material": "spoons_wooden",
+          "spoons_playing": "spoons_knee_and_hand"
+        },
+        "scores": {
+          "spoons_material": 0,
+          "spoons_playing": 16.054999999999996
+        }
+      }
+    ],
+    "room": "sun_studios_memphis_706_union",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "sun_studios_memphis_706_union",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

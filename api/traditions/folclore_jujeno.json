@@ -1,0 +1,160 @@
+{
+  "id": "folclore_jujeno",
+  "name": "Folclore jujeño",
+  "family": "global",
+  "lineage": "Andean-facing folklore of Jujuy province on the Argentine puna and Quebrada de Humahuaca, documented from the early twentieth century and popularised by Ricardo Vilca and Tomás Lipán, centred on the fast duple carnavalito danced in a chain with siku, quena and charango, the copla sung solo to the square caja frame drum on a narrow three-note tritonic scale, and the reed erke and erkencho sounding at carnival in February.",
+  "recipe": "classic Andean modern folclore jujeño, carnival Processional, andean branch, indigenous ritual devotional, andean field work shipibo-conibo icaros healing songs música andina. vocal fry, breath veiled tone, fast rate, interlocked note trading. andean tradition paired rows interlocking siku panpipes, ceremonial bone quena, naranjillo andean premium wood cedar andean andean classical charango, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, altiplano lead carrying tarka, snappy thin to palm hand clap. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 626,
+  "score": 258.311,
+  "config": {
+    "traditions": [
+      "folclore_jujeno",
+      "shipibo_icaros",
+      "musica_andina"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.3,
+          "voice_quality": 31.134999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.445,
+          "voice_articulation": 22.554999999999996,
+          "voice_microtone": 20.929999999999996,
+          "voice_tradition": 22.23,
+          "voice_mechanism_compound": 8.145000000000001,
+          "voice_estill_quality": 14.284999999999998,
+          "voice_speech_song": 21.904999999999998,
+          "voice_ensemble_config": 21.254999999999995,
+          "voice_ornament_system": 15.42,
+          "voice_pitch_organization": 2.600000000000001,
+          "voice_processing_chain": 11.830000000000002,
+          "voice_multitrack_stack": 5.785000000000001
+        }
+      },
+      {
+        "id": "siku_panpipes",
+        "slots": {
+          "siku_construction": "siku_ira_arca_paired",
+          "siku_size": "siku_malta"
+        },
+        "scores": {
+          "siku_construction": 9.36,
+          "siku_size": 0.585
+        }
+      },
+      {
+        "id": "quena",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "quena_material": "quena_bone",
+          "quena_pitch": "quena_g"
+        },
+        "scores": {
+          "wind_articulation": 0.52,
+          "quena_material": 1.4949999999999999,
+          "quena_pitch": 1.625
+        }
+      },
+      {
+        "id": "charango",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "charango_back": "charango_naranjillo",
+          "charango_top_wood": "charango_cedar_top",
+          "charango_strings": "charango_5_double",
+          "charango_string_material": "charango_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.78,
+          "charango_back": 5.265,
+          "charango_top_wood": 6.5,
+          "charango_strings": 5.265,
+          "charango_string_material": 4.615
+        }
+      },
+      {
+        "id": "bombo_andino",
+        "slots": {
+          "bombo_andino_construction": "bombo_andino_leguero",
+          "bombo_andino_skin": "bombo_andino_llama",
+          "bombo_andino_shell_wood": "bombo_andino_ceibo"
+        },
+        "scores": {
+          "bombo_andino_construction": 2.0745,
+          "bombo_andino_skin": 1.4244999999999999,
+          "bombo_andino_shell_wood": 2.34
+        }
+      },
+      {
+        "id": "tarka",
+        "slots": {
+          "tarka_form": "tarka_curahuara",
+          "tarka_context": "tarka_tarkeada",
+          "tarka_consort_voice": "tarka_malta",
+          "tarka_body_wood": "tarka_mara_wood"
+        },
+        "scores": {
+          "tarka_form": 1.0074999999999998,
+          "tarka_context": 8.719999999999999,
+          "tarka_consort_voice": 1.065,
+          "tarka_body_wood": 0.65
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 5.850000000000001,
+          "clap_capture": 0.65
+        }
+      }
+    ],
+    "room": "andean_altiplano_outdoor",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "huayno_2_4_andean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "huayno_2_4_andean",
+    "room": "andean_altiplano_outdoor",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

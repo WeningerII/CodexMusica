@@ -3,14 +3,14 @@
   "name": "Sami noaidi drum-journey joik-chant",
   "family": "global",
   "lineage": "The noaidi was the shaman of the Sami peoples of northern Fennoscandia, who entered trance to travel to the spirit worlds — for healing, hunting-luck, and mediation with the dead — often falling into ecstatic stillness while helpers sang. The rite combined the runebomme (frame drum, whose membrane bore a painted cosmological map read with a vuorbi pointer) with joik, the characteristically non-lexical, circular Sami vocal genre. Christian missionary campaigns from the seventeenth century onward suppressed the drums and demonized joik, and much is reconstructed from missionary accounts, confiscated drums, and later joik documentation. The associated joik tradition survives strongly and is documented in extensive twentieth-century field recordings.",
-  "recipe": "classic Northern European modern sami noaidi drum-journey joik-chant, ritual Devotional, arctic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe": "classic Northern European modern sami noaidi drum-journey joik-chant, ritual Devotional, arctic branch, indigenous ritual devotional shipibo-conibo icaros healing songs korean muga shamanic ritual narrative. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 369,
-  "score": 238.686,
+  "score": 237.985,
   "config": {
     "traditions": [
       "sami_noaidi_drum_journey",
       "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "korean_muga"
     ],
     "instruments": [
       {
@@ -20,12 +20,12 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "sami_joik_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sami_yoik",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.9899999999999998,
-          "voice_quality": 47.06000000000003,
+          "voice_register": 2.34,
+          "voice_quality": 46.28000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9499999999999997,
-          "voice_articulation": 21.384999999999998,
-          "voice_microtone": 20.994999999999997,
-          "voice_tradition": 32.30749999999999,
-          "voice_mechanism_compound": 18.270000000000003,
-          "voice_estill_quality": 10.399999999999997,
-          "voice_speech_song": 22.879999999999995,
-          "voice_ensemble_config": 21.97,
-          "voice_ornament_system": 14.83375,
-          "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 15.534999999999998,
-          "voice_multitrack_stack": 5.720000000000001
+          "voice_vibrato": 1.2795,
+          "voice_articulation": 23.400000000000006,
+          "voice_microtone": 23.205000000000002,
+          "voice_tradition": 30.24,
+          "voice_mechanism_compound": 17.794000000000004,
+          "voice_estill_quality": 7.865,
+          "voice_speech_song": 25.090000000000003,
+          "voice_ensemble_config": 23.985000000000003,
+          "voice_ornament_system": 15.21625,
+          "voice_pitch_organization": 1.1699999999999995,
+          "voice_processing_chain": 15.925,
+          "voice_multitrack_stack": 4.42
         }
       }
     ],

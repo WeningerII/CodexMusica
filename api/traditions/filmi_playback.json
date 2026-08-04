@@ -1,0 +1,236 @@
+{
+  "id": "filmi_playback",
+  "name": "Filmi (Indian film playback song)",
+  "family": "pop",
+  "lineage": "The song form of Indian commercial cinema, established in Bombay studios from the 1940s once playback recording separated singer from actor — codified by composers Naushad, S.D. Burman, Shankar-Jaikishan, R.D. Burman and Laxmikant-Pyarelal with singers Lata Mangeshkar, Mohammed Rafi and Kishore Kumar; mukhda-antara verse-refrain structure over dholak or tabla keherwa with a large mixed orchestra of massed violins, brass, accordion, sitar and santoor, recorded live to multitrack in one room with the vocal in a high, thin, vibrato-light register.",
+  "recipe": "classic South Asian mid-1940s filmi, functional Song, south Asian pop branch, south Asian art music, east Asian pop functional song enka sinhala vannama. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood brass tabla, goat skin syahi rope laced steel ring dholak, brass castagnari Italian premium folk music accordion, teak calabash gut closed jawari ravi shankar canon sitar, walnut bronze tun indian cedar alternative santoor canonical lineage ornamented santoor, low overtone rich vocal male harmonium indian, yamaha modern Japanese mid to premium flute, venice catlin high twist renaissance bass carpathian spruce European maple double bass. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 882,
+  "score": 300.972,
+  "config": {
+    "traditions": [
+      "filmi_playback",
+      "enka",
+      "sinhala_vannama"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 17.34999999999999,
+          "voice_quality": 14.68999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.882499999999999,
+          "voice_articulation": 18.525000000000002,
+          "voice_microtone": 18.785,
+          "voice_tradition": 20.194625000000002,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 7.0200000000000005,
+          "voice_speech_song": 29.120000000000005,
+          "voice_ensemble_config": 19.11,
+          "voice_ornament_system": 9.114999999999998,
+          "voice_pitch_organization": 9.100000000000001,
+          "voice_processing_chain": 6.6000000000000005,
+          "voice_multitrack_stack": 6.550000000000001
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 4.42,
+          "tabla_bayan": 1.795,
+          "tabla_syahi": 5.330000000000001
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 2.275,
+          "dholak_construction": 0.845,
+          "dholak_head": 1.6899999999999997,
+          "dholak_tensioning": 1.6899999999999997
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 2.875,
+          "accordion_reed_material": 1,
+          "musette_offset": 2.5949999999999998,
+          "reed_config": 0.6749999999999998,
+          "bellows": 0.795,
+          "voicing_chamber": 0.045,
+          "accordion_maker_school": 3.769999999999999
+        }
+      },
+      {
+        "id": "sitar",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "sitar_neck": "teak",
+          "sitar_resonator": "single_kaddu",
+          "sitar_jawari": "camel_bone",
+          "sitar_taraf": "taraf_11",
+          "sitar_frets": "tied_gut_parda",
+          "sitar_pluck": "wire_mizrab",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_jawari_style": "sitar_jawari_closed",
+          "sitar_gharana": "sitar_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.825000000000001,
+          "sitar_neck": 1.4449999999999998,
+          "sitar_resonator": 1.34,
+          "sitar_jawari": 0.84,
+          "sitar_taraf": 0.795,
+          "sitar_frets": 1.295,
+          "sitar_pluck": 1.4949999999999999,
+          "sitar_main_strings": -0.5,
+          "sitar_jawari_style": 1,
+          "sitar_gharana": 2.0799999999999996
+        }
+      },
+      {
+        "id": "santoor",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "santoor_courses": "santoor_70",
+          "santoor_mallets": "walnut_mallets",
+          "santoor_strings": "bronze_strings",
+          "santoor_body_wood": "santoor_tun",
+          "santoor_lineage": "santoor_shivkumar_sharma_canon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.825000000000001,
+          "santoor_courses": 1.4949999999999999,
+          "santoor_mallets": 1.4449999999999998,
+          "santoor_strings": 1.295,
+          "santoor_body_wood": 2.9899999999999998,
+          "santoor_lineage": 3.3799999999999994
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 2.5545000000000004,
+          "harmonium_action": 4.419999999999999,
+          "harmonium_voicing": 5.069999999999999,
+          "harmonium_use": 5.719999999999999
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "flute_size": "alto_flute",
+          "flute_material": "wooden_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 2.875,
+          "flute_size": 0.54,
+          "flute_material": 0.45,
+          "flute_technique": 0.045,
+          "flute_maker_school": 4.1194999999999995
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 3.445,
+          "bass_size": 0,
+          "bass_strings": 2.31375,
+          "bass_top_wood": 2.875,
+          "bass_back_wood": 3.02,
+          "bass_varnish": 2.825,
+          "bass_setup_period": 2.69,
+          "bass_play": 1.885,
+          "bass_rosin": 5.015000000000001,
+          "bass_bow_stick": 3.6075000000000004
+        }
+      }
+    ],
+    "room": "mumbai_bombay_filmi_studio",
+    "archetype": "arch_bombay_filmi_playback",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "mumbai_bombay_filmi_studio",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

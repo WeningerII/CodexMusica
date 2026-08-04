@@ -1,0 +1,153 @@
+{
+  "id": "norwegian_folk",
+  "name": "Norwegian folk music (norsk folkemusikk)",
+  "family": "global",
+  "lineage": "Rural Norwegian instrumental and vocal tradition documented systematically from Ludvig Mathias Lindeman's 1840s collecting through the 20th-century kappleik contest circuit — asymmetric springar and gangar dance rhythms with unevenly long beats, Hardanger fiddle and ordinary fiddle slåtter over sympathetic-string drones, herding calls (lokk) and stev sung in free rhythm, plus lur and bukkehorn signalling instruments and the drone zither langeleik.",
+  "recipe": "classic Northern European mid-1840s norwegian folk music, drone Modal, string branch, string improv improv on frame, Celtic balladic ballad poetry scottish gaelic folk song newfoundland traditional song and dance music. thick, breath veiled tone, straight note core, interlocked note trading. mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian hardanger fiddle inst, double stops fiddle, dance driving langeleik, lur, bukkehorn. norwegian hardanger outdoor alpine. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 579,
+  "score": 252.065,
+  "config": {
+    "traditions": [
+      "norwegian_folk",
+      "scottish_gaelic_folk",
+      "newfoundland_folk"
+    ],
+    "instruments": [
+      {
+        "id": "hardanger_fiddle_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "hardingfele_strings": "hardingfele_4_taraf",
+          "hardingfele_tuning": "hardingfele_old_norwegian",
+          "hardingfele_strings_material": "hardingfele_steel_modern",
+          "hardingfele_inlay": "hardingfele_pearl_bone",
+          "hardingfele_body_wood": "hardingfele_spruce_maple"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "hardingfele_strings": 5.38,
+          "hardingfele_tuning": 0.65,
+          "hardingfele_strings_material": 0.39,
+          "hardingfele_inlay": 7.734999999999999,
+          "hardingfele_body_wood": 2.7499999999999996
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "pizz"
+        },
+        "scores": {
+          "bowed_technique": 11.995,
+          "fiddle_strings": 0.38999999999999996,
+          "fiddle_bow": 0.345,
+          "fiddle_mute": 0.24,
+          "fiddle_articulation": 0.41999999999999993
+        }
+      },
+      {
+        "id": "langeleik",
+        "slots": {
+          "langeleik_form": "langeleik_valdres",
+          "langeleik_repertoire": "langeleik_dance_slatt",
+          "langeleik_strings": "langeleik_brass_gut"
+        },
+        "scores": {
+          "langeleik_form": 7.334999999999999,
+          "langeleik_repertoire": 12.44,
+          "langeleik_strings": -0.07
+        }
+      },
+      {
+        "id": "lur",
+        "slots": {
+          "lur_form": "lur_wooden_herding",
+          "lur_repertoire": "lur_herding_calls",
+          "lur_mouthpiece": "lur_carved_rim"
+        },
+        "scores": {
+          "lur_form": 3.39,
+          "lur_repertoire": 4.45,
+          "lur_mouthpiece": -0.05
+        }
+      },
+      {
+        "id": "bukkehorn",
+        "slots": {
+          "bukkehorn_form": "bukkehorn_fingerholes",
+          "bukkehorn_technique": "bukkehorn_lokk"
+        },
+        "scores": {
+          "bukkehorn_form": 2.9499999999999997,
+          "bukkehorn_technique": 3.625
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 4.920000000000001,
+          "voice_quality": 11.569999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.1775,
+          "voice_articulation": 24.700000000000003,
+          "voice_microtone": 26.65,
+          "voice_tradition": 25.415000000000003,
+          "voice_mechanism_compound": 7.0200000000000005,
+          "voice_estill_quality": 7.5075,
+          "voice_speech_song": 26.130000000000006,
+          "voice_ensemble_config": 28.210000000000004,
+          "voice_ornament_system": 18.349999999999998,
+          "voice_pitch_organization": 3.0550000000000006,
+          "voice_processing_chain": 3.77,
+          "voice_multitrack_stack": 3.335000000000001
+        }
+      }
+    ],
+    "room": "norwegian_hardanger_outdoor_alpine",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "nordic_modal_drone_double_stops",
+    "room": "norwegian_hardanger_outdoor_alpine",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

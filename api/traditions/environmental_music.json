@@ -1,0 +1,164 @@
+{
+  "id": "environmental_music",
+  "name": "Environmental (Kankyō Ongaku)",
+  "family": "electronic",
+  "lineage": "Japanese kankyō ongaku, formulated in Tokyo between 1979 and the early 1990s by Satoshi Ashikawa, Hiroshi Yoshimura, Midori Takada and Yoshio Ojima for galleries, showrooms and architectural commissions after Erik Satie and Brian Eno — slow, unmetered or very loosely pulsed textures at low dynamic level, FM and analog synth pads with long release, sparse diatonic or pentatonic piano and marimba figures, prepared field and water sounds, and no vocal or rhythmic focal point.",
+  "recipe": "classic East Asian 1990-1993 environmental, experimental Elec, ambient branch, musique concrete experimental electric, retro aesthetic experimental electric, overtone drone modal dreampunk protovapor. oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca pad analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity pad fm synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marimba orchestral, vibraphone, rin singing bowl, tape replay keyboard, glockenspiel. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 727,
+  "score": 84.016,
+  "config": {
+    "traditions": [
+      "environmental_music",
+      "dreampunk",
+      "protovapor"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 8.075,
+          "poly_archetypes": 0.8450000000000001,
+          "poly_voices": 1.9987500000000002,
+          "poly_maker_lineage": 1.2349999999999999
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 8.075,
+          "fm_algorithm": 2.375,
+          "fm_modulator_ratio": 1.3,
+          "fm_polyphony": 0.315,
+          "fm_model_lineage": 3.705
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 16.700000000000003,
+          "grand_piano_size": 3.3,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 4.0625,
+          "piano_rim": 4.3625,
+          "piano_soundboard": 2.0100000000000002,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.25,
+          "piano_pitch_standard": 3.5100000000000002
+        }
+      },
+      {
+        "id": "marimba_orchestral",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "marimba_size": "marimba_4_octave",
+          "marimba_orchestral_bar": "marimba_orchestral_padauk"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "marimba_size": 0.44999999999999996,
+          "marimba_orchestral_bar": 0
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_off",
+          "vibe_mallets": "vibe_medium_mallets"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "vibe_motor": 0.6,
+          "vibe_mallets": 1.3
+        }
+      },
+      {
+        "id": "rin_singing_bowl",
+        "slots": {
+          "rin_size": "rin_small",
+          "rin_strike": "rin_struck_rim",
+          "rin_cushion": "rin_handheld"
+        },
+        "scores": {
+          "rin_size": 3.1550000000000002,
+          "rin_strike": 2.16125,
+          "rin_cushion": 0.49874999999999997
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "brass_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": 1.575,
+          "tape_voice": 0.7,
+          "tape_state": 0.895
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_3",
+          "glockenspiel_mallet": "glockenspiel_rubber"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 0.525,
+          "glockenspiel_mallet": 0.8
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_sony_mxp3000",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "japanese_yo_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_yo_scale",
+    "room": "tokyo_studio_1970s_80s",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

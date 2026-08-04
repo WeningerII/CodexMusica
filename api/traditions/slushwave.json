@@ -1,0 +1,114 @@
+{
+  "id": "slushwave",
+  "name": "Slushwave",
+  "family": "electronic",
+  "lineage": "Vaporwave subgenre named around 2016-2018 and codified by 猫 シ Corp., t e l e p a t h テレパシー能力者, Hantasi and Vaperror, built by pitching sampled easy-listening or new-age loops down 30-60 percent, drowning them in cascaded reverb and delay, and stretching two- to four-bar cycles across ten- to thirty-minute beatless tracks with no discernible pulse.",
+  "recipe": "classic 2016-2018 slushwave, experimental Elec, ambient branch, lofi experimental electric vaporwave chillwave. glitched textural sampler, modular granular sustained pad analog poly synth, sustained pad string machine, tape replay keyboard. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 358,
+  "score": 75.547,
+  "config": {
+    "traditions": [
+      "slushwave",
+      "vaporwave",
+      "chillwave"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s900",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 10.950000000000001,
+          "sampler_archetypes": 0.6590384615384614,
+          "sampler_bit_depth": 0.7475000000000003,
+          "sampler_workflow": 12.0425,
+          "sampler_classic_context": 17.744999999999997
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 10.981499999999999,
+          "granular_use": 0.39,
+          "granular_synth_source": 6.5
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_subtle",
+          "sm_voicing": "sm_violins"
+        },
+        "scores": {
+          "electronic_technique": 6.0415,
+          "sm_voice_count": 2.925,
+          "sm_chorus": 0.3,
+          "sm_voicing": 0.063
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 6.0415,
+          "poly_archetypes": 0.735,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": 0.8124999999999994
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "brass_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": 2.49,
+          "tape_voice": 0.063,
+          "tape_state": 0.195
+        }
+      }
+    ],
+    "room": "tape_echo_chamber",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tape_echo_chamber",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

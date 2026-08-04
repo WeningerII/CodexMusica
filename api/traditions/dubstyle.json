@@ -1,0 +1,155 @@
+{
+  "id": "dubstyle",
+  "name": "Dubstyle",
+  "family": "electronic",
+  "lineage": "Late-2000s Dutch and Australian crossover between hardstyle and dubstep, pushed by Zatox, The Prophet and Bass Kleph around 2009-2011, halving the hardstyle framework to a 140 BPM half-time feel while retaining the reverse-bass kick-and-offbeat pattern, screeching pitched hardstyle leads and LFO-wobbled dubstep sub-bass under a snare on beat three.",
+  "recipe": "classic 2009-2011 dubstyle, electronic Dance, hardstyle branch, bass descendants bass system, continental electronic dance, techno electronic dance bass trap german techno. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-909, low sub bass analog mono low sub bass wavetable synth, low sub bass digital subtractive, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 573,
+  "score": 270.551,
+  "config": {
+    "traditions": [
+      "dubstyle",
+      "bass_trap",
+      "german_techno"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_clap",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0.375,
+          "drum_machine_909_context": 2.6,
+          "tr909_production_origin": 0.5
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 25.447499999999998,
+          "mono_oscillator": 0,
+          "mono_filter": -0.245,
+          "mono_archetypes": 1.4299999999999997,
+          "mono_maker_lineage": -0.6300000000000001
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 25.447499999999998,
+          "wt_position": 8.71,
+          "wt_family": 0.65,
+          "wt_polyphony": 1.2349999999999999
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 25.447499999999998,
+          "va_archetypes": 0.35,
+          "digital_subtractive_context": 18.785
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 1.5924999999999998,
+          "sample_bitdepth": 0.845,
+          "sample_swing": 16.945,
+          "sample_processing": 1.16875
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.235,
+          "voice_quality": 11.504999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 19.955,
+          "voice_microtone": 22.814999999999998,
+          "voice_tradition": 4.680000000000001,
+          "voice_mechanism_compound": 4.315625000000001,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 19.889999999999997,
+          "voice_ensemble_config": 19.499999999999996,
+          "voice_ornament_system": 2.34,
+          "voice_pitch_organization": 2.08,
+          "voice_processing_chain": 17.756875,
+          "voice_multitrack_stack": 4.355
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

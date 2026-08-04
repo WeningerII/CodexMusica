@@ -3,14 +3,14 @@
   "name": "Pre-commercial country roots",
   "family": "country",
   "lineage": "The Anglo-Appalachian and Southern-Mountain folk tradition that was caught and codified by the 1927 Bristol Sessions (the Big Bang of country music, when Ralph Peer of the Victor Talking Machine Company recorded the Carter Family and Jimmie Rodgers) and the parallel 1928 Johnson City Sessions — featuring the Carter Family (A.P. Carter, Sara Carter, Maybelle Carter, their 1927 Bristol session establishing the Carter Family songbook and the Carter scratch guitar technique), Jimmie Rodgers (the singing brakeman, the commercial country founder, his 13 blue yodels), Vernon Dalhart, Uncle Dave Macon, Charlie Poole",
-  "recipe": "classic Southern American late-1920s pre-commercial country roots, functional Song, pre commercial branch, blues narrative ballad poetry classic blues women jug band. thick, breath veiled tone, wide pitch sway, interlocked note trading. open e tuning plain gut sheep gut pre 1900 parlor travis picked parlor acoustic guitar, plain gut sheep gut double stops fiddle, folk solid birch vintage 1920s 1940s autoharp, bowl back Italian adirondack red spruce loar canon big leaf maple mandolin, wood plain gut minstrel pre 1860s fretless canon compensated bridge banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 801,
-  "score": 622.253,
+  "recipe": "classic Southern American late-1920s pre-commercial country roots, functional Song, pre commercial branch, blues narrative ballad poetry classic blues women talking blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. open e tuning plain gut sheep gut pre 1900 parlor travis picked parlor acoustic guitar, plain gut sheep gut double stops fiddle, folk solid birch vintage 1920s 1940s autoharp, bowl back Italian Italian alpine spruce brescian calace big leaf maple modern American mandolin, wood plain gut minstrel pre 1860s fretless canon compensated bridge banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 827,
+  "score": 586.63,
   "config": {
     "traditions": [
       "pre_commercial_country",
       "classic_blues_women",
-      "jug_band"
+      "talking_blues_dustbowl"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 58.33500000000001,
+          "voice_register": 57.860000000000014,
           "voice_quality": 15.079999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 46.99,
-          "voice_articulation": 22.48999999999999,
-          "voice_microtone": 29.735000000000007,
-          "voice_tradition": 16.705000000000002,
-          "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 22.619999999999997,
-          "voice_speech_song": 26.259999999999994,
-          "voice_ensemble_config": 22.81499999999999,
-          "voice_ornament_system": 1.4299999999999995,
-          "voice_pitch_organization": 1.595,
-          "voice_processing_chain": 18.504999999999995,
-          "voice_multitrack_stack": 2.860000000000001
+          "voice_vibrato": 46.74,
+          "voice_articulation": 18.459999999999994,
+          "voice_microtone": 29.610000000000007,
+          "voice_tradition": 16.25,
+          "voice_mechanism_compound": 2.21,
+          "voice_estill_quality": 21.994999999999997,
+          "voice_speech_song": 22.03499999999999,
+          "voice_ensemble_config": 18.78499999999999,
+          "voice_ornament_system": 1.8849999999999996,
+          "voice_pitch_organization": 3.12,
+          "voice_processing_chain": 15.804999999999996,
+          "voice_multitrack_stack": 3.185
         }
       },
       {
@@ -57,16 +57,16 @@
         "slots": {
           "acoustic_technique": "acoustic_travis_picking",
           "string_tuning": "open_e",
-          "top_wood_parlor": "cedar_p",
+          "top_wood_parlor": "mahogany_top_p",
           "back_sides_parlor": "rosewood_bs_p",
           "string_acoustic_parlor": "gut_pre_1900_p"
         },
         "scores": {
-          "acoustic_technique": 22.315,
-          "string_tuning": 11.474999999999998,
-          "top_wood_parlor": 0.78,
+          "acoustic_technique": 23.815,
+          "string_tuning": 11.399999999999999,
+          "top_wood_parlor": 0.845,
           "back_sides_parlor": 0.995,
-          "string_acoustic_parlor": 2.729999999999999
+          "string_acoustic_parlor": 2.534999999999999
         }
       },
       {
@@ -74,16 +74,16 @@
         "slots": {
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "plain_sheep_gut_fiddle",
-          "fiddle_bow": "dark_rosin",
-          "fiddle_mute": "practice_mute",
-          "fiddle_articulation": "sul_tasto"
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 21.779999999999998,
-          "fiddle_strings": 4.624999999999999,
-          "fiddle_bow": 0.39,
-          "fiddle_mute": 0.585,
-          "fiddle_articulation": 0.65
+          "bowed_technique": 21.129999999999995,
+          "fiddle_strings": 5.624999999999999,
+          "fiddle_bow": 0.845,
+          "fiddle_mute": 0.39,
+          "fiddle_articulation": 0.585
         }
       },
       {
@@ -96,19 +96,19 @@
           "autoharp_body_wood": "autoharp_solid_birch"
         },
         "scores": {
-          "acoustic_technique": 1.7299999999999998,
-          "autoharp_chord_bars": 1.885,
-          "autoharp_context": 4.615,
+          "acoustic_technique": 1.105,
+          "autoharp_chord_bars": 2.58,
+          "autoharp_context": 3.7700000000000005,
           "autoharp_strings": 0,
-          "autoharp_body_wood": 1.4949999999999999
+          "autoharp_body_wood": 1.6899999999999997
         }
       },
       {
         "id": "mandolin",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
+          "acoustic_technique": "acoustic_flatpicked",
           "mandolin_shape": "flat_back",
-          "mandolin_top": "adirondack_m",
+          "mandolin_top": "italian_alpine_spruce_m",
           "mandolin_back": "big_leaf_maple",
           "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
           "mandolin_strings": "thomastik_jazz_mandolin_flat",
@@ -116,14 +116,14 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 1.7299999999999998,
-          "mandolin_shape": 1.885,
-          "mandolin_top": 1.3649999999999998,
-          "mandolin_back": 3.6399999999999997,
-          "mandolin_bracing": 2.6199999999999997,
-          "mandolin_strings": 6.059999999999999,
+          "acoustic_technique": 1.2,
+          "mandolin_shape": 4.659999999999999,
+          "mandolin_top": 2.0799999999999996,
+          "mandolin_back": 2.4049999999999994,
+          "mandolin_bracing": 2.47,
+          "mandolin_strings": 5.909999999999998,
           "mandolin_fingerboard": 2.279999999999999,
-          "mandolin_pickup": 23.854999999999997
+          "mandolin_pickup": 20.019999999999992
         }
       },
       {
@@ -133,7 +133,7 @@
           "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
-          "banjo_play": "clawhammer",
+          "banjo_play": "two_finger",
           "banjo_rim_wood": "banjo_3_ply_maple_gibson",
           "banjo_neck_wood": "banjo_maple_neck",
           "banjo_strings": "banjo_gut_minstrel",
@@ -141,16 +141,16 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 1.04,
-          "tone_ring": 1.4300000000000002,
-          "banjo_head": 22.944999999999997,
-          "banjo_pot": 0.195,
-          "banjo_play": 0.78,
+          "banjo_back": 1.2349999999999999,
+          "tone_ring": 1.625,
+          "banjo_head": 19.304999999999993,
+          "banjo_pot": 0.845,
+          "banjo_play": 0.9899999999999999,
           "banjo_rim_wood": 0.9450000000000001,
           "banjo_neck_wood": 0.75,
           "banjo_strings": 2.279999999999999,
           "banjo_bridge": 3.2499999999999987,
-          "banjo_setup_period": 23.464999999999996
+          "banjo_setup_period": 19.434999999999995
         }
       },
       {
@@ -164,12 +164,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 2.7299999999999995,
-          "harmonica_comb": 41.35,
-          "harmonica_reed": 29.150000000000002,
-          "harmonica_technique": 30.570000000000004,
-          "harmonica_maker_school": 40.8525,
-          "harmonica_tuning": 14.755000000000003
+          "harmonica_type": 2.5349999999999997,
+          "harmonica_comb": 36.575,
+          "harmonica_reed": 28.575000000000006,
+          "harmonica_technique": 28.820000000000004,
+          "harmonica_maker_school": 35.295,
+          "harmonica_tuning": 14.690000000000001
         }
       }
     ],

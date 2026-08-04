@@ -1,0 +1,157 @@
+{
+  "id": "disco_polo",
+  "name": "Disco Polo",
+  "family": "pop",
+  "lineage": "Polish provincial dance-pop that formed at rural wedding halls and roadside markets in the late 1980s and was codified on cassette by Blue Star and Green Star labels around 1992-1996, using 125-140 BPM preset drum-machine beats, cheap keyboard brass and accordion patches, simple I-V-vi-IV loops and plain-toned male vocals singing sentimental or bawdy Polish lyrics.",
+  "recipe": "classic Central European 1992-1996 disco polo, functional Song, europop branch, eurodance electronic dance, continental electronic dance melodipop bubblegum dance. extended whistle, chest mix belt, straight note core, interlocked note trading. singing lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, cheap paired with 303 chicago foundational TR-707, piano accordion, electric bass. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 657,
+  "score": 169.058,
+  "config": {
+    "traditions": [
+      "disco_polo",
+      "melodipop",
+      "bubblegum_dance"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 11.122499999999999,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_707",
+        "slots": {
+          "tr707_voice": "tr707_kick",
+          "drum_machine_707_context": "drum_machine_707_chicago_house"
+        },
+        "scores": {
+          "tr707_voice": 4.125,
+          "drum_machine_707_context": 2.8600000000000003
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 9.86875,
+          "voice_quality": 11.799999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 14.364999999999997,
+          "voice_microtone": 15.469999999999994,
+          "voice_tradition": 8.8725,
+          "voice_mechanism_compound": 1.2349999999999999,
+          "voice_estill_quality": 1.0399999999999998,
+          "voice_speech_song": 17.679999999999993,
+          "voice_ensemble_config": 15.859999999999994,
+          "voice_ornament_system": 0.845,
+          "voice_pitch_organization": 1.9499999999999997,
+          "voice_processing_chain": 16.824999999999996,
+          "voice_multitrack_stack": 7.62625
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 1.4949999999999999,
+          "pa_size": 0.3,
+          "pa_use": 0.3
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 1.56,
+          "body_wood": 0.39,
+          "pickup_config": 0.045,
+          "string_type": 0.7149999999999999,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 1.045,
+          "bass_technique": 0.52
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_simple",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 11.122499999999999,
+          "fm_algorithm": 0.045,
+          "fm_modulator_ratio": 1.2349999999999999,
+          "fm_polyphony": 1.3,
+          "fm_model_lineage": 6.5649999999999995
+        }
+      }
+    ],
+    "room": "polish_polskie_nagrania_muza",
+    "archetype": "arch_comecon_state_label",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_uk_community_studio_80s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "polish_polskie_nagrania_muza",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_uk_community_studio_80s"
+  }
+}

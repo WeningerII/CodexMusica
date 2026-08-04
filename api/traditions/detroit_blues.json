@@ -1,0 +1,176 @@
+{
+  "id": "detroit_blues",
+  "name": "Detroit Blues",
+  "family": "blues_gospel",
+  "lineage": "Postwar Michigan electric blues built by Delta migrants working the auto plants, codified 1948-1962 by John Lee Hooker, Eddie Burns, Baby Boy Warren and Bobo Jenkins on Sensation, Fortune and JVB — one-chord droning boogie at 90-130 BPM over amplified guitar with heavy tremolo, stomping foot as the only percussion on early sides, later a small combo with amplified harp and a shuffling drum kit.",
+  "recipe": "classic North American mid-1950s detroit blues, functional Song, blues electric branch, blues narrative delta narrative, soul R&B functional song new orleans blues. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bare foot hollow platform foot stomp. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 804,
+  "score": 363.35,
+  "config": {
+    "traditions": [
+      "detroit_blues",
+      "delta_blues",
+      "new_orleans_blues"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 31.199999999999996,
+          "voice_quality": 15.27999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 26.595,
+          "voice_articulation": 12.024999999999999,
+          "voice_microtone": 25.24,
+          "voice_tradition": 15.899999999999999,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 6.5,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 12.999999999999995,
+          "voice_ornament_system": 1.345,
+          "voice_pitch_organization": 2.405,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "alder",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 5.3950000000000005,
+          "amp_make": 7.91,
+          "body_wood": 0.6950000000000001,
+          "neck_wood": 0.5249999999999999,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.345,
+          "string_material": 0.195,
+          "string_gauge": 0.605,
+          "bridge": 0.105,
+          "scale_length": 1.0500000000000003,
+          "finish": 0.3,
+          "string_tuning": 12.434999999999999
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "octave_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 0.5,
+          "harmonica_comb": 27.374999999999996,
+          "harmonica_reed": 24.814999999999998,
+          "harmonica_technique": 33,
+          "harmonica_maker_school": 25.339999999999996,
+          "harmonica_tuning": 11.17
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 7.460000000000001,
+          "body_wood": 1.0500000000000003,
+          "pickup_config": 0,
+          "string_type": 8.6775,
+          "scale_length_b": 0.5249999999999999,
+          "fretted_or_not": 0.105,
+          "bass_technique": 5.3950000000000005
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 12.349999999999998,
+          "drumhead": 1.0725,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_bare_foot",
+          "stomp_surface": "stomp_hollow_platform"
+        },
+        "scores": {
+          "stomp_footwear": 1.3,
+          "stomp_surface": 2.195
+        }
+      }
+    ],
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "studio_early_tape_us_small",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

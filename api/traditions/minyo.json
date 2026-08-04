@@ -1,0 +1,169 @@
+{
+  "id": "minyo",
+  "name": "Min'yō",
+  "family": "global",
+  "lineage": "Japanese regional folk song — work, festival, dance and celebration repertoires such as Esashi Oiwake, Sōran Bushi and Tsugaru jongara — transmitted orally by locality, then standardized in the twentieth century through iemoto teaching lineages, NHK broadcast and contest culture, sung with strong nasal-forward tone and kobushi ornament over shamisen, shakuhachi, shinobue and taiko, some pieces in free unmeasured rhythm and others in strict festival duple.",
+  "recipe": "classic East Asian early-1940s min'yō, field Work, east Asian branch, east Asian pop enka, string drone modal turkish folk. thick, breath veiled tone, slow rate, interlocked note trading. dog skin ivory mulberry kuwa mid tier traditional min yo shamisen, madake bamboo phyllostachys canonical Japanese root section komuso fuke shu canonical pre meiji honkyoku zen shakuhachi, untempered pitch drift song accompaniment shinobue, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk sf taiko dojo tanaka 1968 diasporic outdoor traditional taiko drum, aizu paulownia regional silk pre wwii canon koto. tatami parlor japanese. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 727,
+  "score": 287.612,
+  "config": {
+    "traditions": [
+      "minyo",
+      "enka",
+      "turkish_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 12.924999999999994,
+          "voice_quality": 11.829999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.16,
+          "voice_articulation": 25.675000000000008,
+          "voice_microtone": 28.8275,
+          "voice_tradition": 31.77,
+          "voice_mechanism_compound": 6.045,
+          "voice_estill_quality": 6.305000000000001,
+          "voice_speech_song": 31.785000000000007,
+          "voice_ensemble_config": 24.635000000000005,
+          "voice_ornament_system": 8.980000000000002,
+          "voice_pitch_organization": 2.7100000000000004,
+          "voice_processing_chain": 3.8674999999999997,
+          "voice_multitrack_stack": 5.817500000000001
+        }
+      },
+      {
+        "id": "shamisen",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "shamisen_size": "futozao",
+          "shamisen_skin": "shamisen_dog",
+          "shamisen_pick": "bachi_ivory",
+          "shamisen_neck_wood": "shamisen_mulberry",
+          "shamisen_strings": "shamisen_silk_traditional",
+          "shamisen_tradition": "shamisen_min_yo"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.49,
+          "shamisen_size": 1.4949999999999999,
+          "shamisen_skin": 2.275,
+          "shamisen_pick": 1.4299999999999997,
+          "shamisen_neck_wood": 1.8199999999999998,
+          "shamisen_strings": 0.6,
+          "shamisen_tradition": 9.535
+        }
+      },
+      {
+        "id": "shakuhachi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "shaku_length": "two_four",
+          "shaku_technique": "mura_iki",
+          "shakuhachi_body_material": "shakuhachi_madake_canonical",
+          "shakuhachi_lineage": "shakuhachi_komuso_fuke"
+        },
+        "scores": {
+          "wind_articulation": 1.38,
+          "shaku_length": 1.25,
+          "shaku_technique": 3.8349999999999995,
+          "shakuhachi_body_material": 4.094999999999999,
+          "shakuhachi_lineage": 1.4949999999999999
+        }
+      },
+      {
+        "id": "shinobue",
+        "slots": {
+          "shinobue_family": "shinobue_family_hayashibue",
+          "shinobue_choshi": "shinobue_choshi_roku_pon",
+          "shinobue_context": "shinobue_context_minyo",
+          "shinobue_bore": "shinobue_bore_urushi_bark"
+        },
+        "scores": {
+          "shinobue_family": 8.959999999999999,
+          "shinobue_choshi": 8.584999999999999,
+          "shinobue_context": 16.29,
+          "shinobue_bore": 0.9099999999999999
+        }
+      },
+      {
+        "id": "taiko_drum",
+        "slots": {
+          "taiko_size": "taiko_o_daiko",
+          "taiko_skin": "taiko_cowhide",
+          "taiko_shell_wood": "taiko_keyaki_canonical",
+          "taiko_lineage": "taiko_san_francisco",
+          "taiko_technique": "taiko_festival_matsuri"
+        },
+        "scores": {
+          "taiko_size": 1.48,
+          "taiko_skin": 3.7049999999999996,
+          "taiko_shell_wood": 3.7049999999999996,
+          "taiko_lineage": 1.51,
+          "taiko_technique": 1.625
+        }
+      },
+      {
+        "id": "koto",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "koto_strings": "koto_13",
+          "koto_picks": "koto_yamada",
+          "koto_body_wood": "koto_aizu_paulownia",
+          "koto_strings_material": "koto_silk_historical",
+          "koto_bridge_material": "koto_ivory_bridges_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.49,
+          "koto_strings": 0.65,
+          "koto_picks": 2.4699999999999998,
+          "koto_body_wood": 1.4949999999999999,
+          "koto_strings_material": 1.3,
+          "koto_bridge_material": 0.12999999999999998
+        }
+      }
+    ],
+    "room": "tatami_parlor_japanese",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "japanese_yo_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_yo_scale",
+    "room": "tatami_parlor_japanese",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

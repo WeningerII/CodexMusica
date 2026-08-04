@@ -1,0 +1,136 @@
+{
+  "id": "trova",
+  "name": "Trova (Cuban troubadour song)",
+  "family": "global",
+  "lineage": "Guitar-and-voice troubadour practice of eastern Cuba from the 1880s, carried by Santiago cantadores such as Pepe Sánchez, Sindo Garay, Manuel Corona and Rosendo Ruiz into Havana's patios and cafés: two singers in parallel thirds and sixths over one strummed and one arpeggiating guitar, moderate 2/4 or 6/8, bolero, criolla, guaracha and canción forms, decorated with punteo interludes and light claves or maracas.",
+  "recipe": "classic Caribbean mid-1880s trova, ballad Poetry, Latin am troubadour branch, tropical song functional song, iberian Latin protest song bolero cubano polca paraguaya. kargyraa, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, claves, maracas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos. havana solar outdoor courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 500,
+  "score": 168.5,
+  "config": {
+    "traditions": [
+      "trova",
+      "bolero_cubano",
+      "polca_paraguaya"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "flamenco_chico_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 1.3499999999999999,
+          "voice_quality": 13.064999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 21.125,
+          "voice_microtone": 19.239999999999995,
+          "voice_tradition": 3.5749999999999993,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 5.265000000000001,
+          "voice_speech_song": 31.33,
+          "voice_ensemble_config": 21.45,
+          "voice_ornament_system": 2.5749999999999993,
+          "voice_pitch_organization": 1.8799999999999997,
+          "voice_processing_chain": 5.005,
+          "voice_multitrack_stack": 5.98
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_high_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 3.1,
+          "string_tuning": 0,
+          "top_wood_classical": 9.49,
+          "bracing_classical": 2.08,
+          "string_classical": 0,
+          "attack_technique_cl": 0.69
+        }
+      },
+      {
+        "id": "claves",
+        "slots": {
+          "claves_pattern": "claves_rumba",
+          "claves_wood": "claves_cuban_hardwood"
+        },
+        "scores": {
+          "claves_pattern": 3.1849999999999996,
+          "claves_wood": 0.15
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_leather",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 0.78,
+          "maracas_filling": 0.78
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_son",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 8.93,
+          "bongos_skin": 3.7699999999999996,
+          "bongos_context": 1.275,
+          "bongos_shell_wood": 2.145
+        }
+      }
+    ],
+    "room": "havana_solar_outdoor_courtyard",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "room": "havana_solar_outdoor_courtyard",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

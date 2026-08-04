@@ -3,14 +3,14 @@
   "name": "Merengue típico (Cibao traditional)",
   "family": "global",
   "lineage": "Traditional Dominican merengue variant of the Cibao region (Santiago, La Vega, Moca, San Francisco de Macorís). Button-accordion (German-immigrant introduction, adopted as canonical), tambora double-headed drum, güira metal-scraper, marímbula or electric-bass, voice. Tatico Henríquez (1944-1976) is the canonical tipico accordionist; Fefita La Grande (born 1943) is the canonical female lead.",
-  "recipe": "classic Caribbean early-1940s merengue típico, functional Song, tropical song branch, Caribbean groove percussion zydeco cadence-lypso. thick, breath veiled tone, wide pitch sway, interlocked note trading. leather castagnari Italian premium folk music chordal accordion, la bella flats Detroit soul bass canon electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe": "classic Caribbean early-1940s merengue típico, functional Song, tropical song branch, Caribbean groove percussion bomba y plena zydeco. thick, breath veiled tone, wide pitch sway, interlocked note trading. leather castagnari Italian premium folk music chordal accordion, la bella flats Detroit soul bass canon electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 499,
-  "score": 92.808,
+  "score": 110.03,
   "config": {
     "traditions": [
       "merengue_tipico",
-      "zydeco",
-      "cadence_lypso"
+      "bomba_y_plena",
+      "zydeco"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_oral_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 2.8600000000000017,
-          "voice_quality": 12.609999999999996,
+          "voice_register": 4.110000000000001,
+          "voice_quality": 14.884999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.9500000000000002,
-          "voice_articulation": 4.874999999999999,
-          "voice_microtone": 4.485,
-          "voice_tradition": 4.29,
+          "voice_articulation": 7.215,
+          "voice_microtone": 7.0200000000000005,
+          "voice_tradition": 5.2975,
           "voice_mechanism_compound": 4.4,
           "voice_estill_quality": 4.424999999999999,
-          "voice_speech_song": 9.62,
-          "voice_ensemble_config": 7.800000000000001,
-          "voice_ornament_system": 1.755,
+          "voice_speech_song": 13.064999999999996,
+          "voice_ensemble_config": 10.334999999999997,
+          "voice_ornament_system": 1.9499999999999997,
           "voice_pitch_organization": 4.14,
           "voice_processing_chain": 3.75,
-          "voice_multitrack_stack": 3.3799999999999994
+          "voice_multitrack_stack": 4.225
         }
       },
       {
@@ -66,11 +66,11 @@
         "scores": {
           "free_reed_technique": 4.559999999999999,
           "accordion_reed_material": 0.195,
-          "musette_offset": 2.3,
-          "reed_config": 3.575,
+          "musette_offset": 2.8,
+          "reed_config": 2.34,
           "bellows": 2.3,
           "voicing_chamber": 0.15,
-          "accordion_maker_school": 6.109999999999999
+          "accordion_maker_school": 6.759999999999999
         }
       },
       {
@@ -86,11 +86,11 @@
         },
         "scores": {
           "amp_make": 2.3724999999999996,
-          "body_wood": 0.38999999999999996,
+          "body_wood": 0.195,
           "pickup_config": 0,
           "string_type": 4.775,
-          "scale_length_b": 0.24,
-          "fretted_or_not": 0.195,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.39,
           "bass_technique": 0.12999999999999998
         }
       }

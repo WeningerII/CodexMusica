@@ -1,0 +1,134 @@
+{
+  "id": "chabad_niggunim",
+  "name": "Chabad-Lubavitch niggunim",
+  "family": "global",
+  "lineage": "Wordless devotional melody repertoire of the Chabad Hasidic movement, formed in Belarusian Lyubavichi from the early 19th century and codified in the printed Sefer HaNigunim under the sixth and seventh Rebbes from 1948 — melodies attributed to specific Rebbes, sung communally at farbrengen gatherings in slow rubato dveykus meditation form building through fixed repeated sections into fast duple rikud dance versions, on syllables like 'ai-ai-ai' and 'bim-bam', with table-banging and clapping the only percussion.",
+  "recipe": "classic Eastern European late-1940s chabad-lubavitch niggunim, ritual Devotional, Jewish branch, vocal drone modal cante alentejano alpine yodeling. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble, snappy to palm hand clap, foot stomp, drone like fiddle. eastern european chassidic farbrengen. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 552,
+  "score": 180.53,
+  "config": {
+    "traditions": [
+      "chabad_niggunim",
+      "cante_alentejano",
+      "alpine_yodeling"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 3.5100000000000002,
+          "voice_quality": 13.909999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.265000000000001,
+          "voice_articulation": 18.459999999999994,
+          "voice_microtone": 20.14999999999999,
+          "voice_tradition": 11.049999999999995,
+          "voice_mechanism_compound": 6.5,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 20.474999999999994,
+          "voice_ensemble_config": 17.549999999999997,
+          "voice_ornament_system": 6.15,
+          "voice_pitch_organization": 6.5649999999999995,
+          "voice_processing_chain": 5.265000000000002,
+          "voice_multitrack_stack": 4.095
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 7.41,
+          "choir_polyphonic_configuration": 6.695,
+          "choir_regional_canonical_configuration": 5.654999999999999,
+          "choir_ensemble_repertoire": 5.720000000000001
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 2.34,
+          "clap_capture": 0.6950000000000001
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_bare_foot",
+          "stomp_surface": "stomp_wood_stage"
+        },
+        "scores": {
+          "stomp_footwear": 0,
+          "stomp_surface": 0.345
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 4.485,
+          "fiddle_strings": 0.495,
+          "fiddle_bow": 0.45499999999999996,
+          "fiddle_mute": 0.45499999999999996,
+          "fiddle_articulation": 1.105
+        }
+      }
+    ],
+    "room": "eastern_european_chassidic_farbrengen",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "sephardi_chassidic_jewish_modal_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "sephardi_chassidic_jewish_modal_modes",
+    "room": "eastern_european_chassidic_farbrengen",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

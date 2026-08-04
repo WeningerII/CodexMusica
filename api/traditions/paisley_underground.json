@@ -1,0 +1,193 @@
+{
+  "id": "paisley_underground",
+  "name": "Paisley Underground",
+  "family": "rock",
+  "lineage": "Los Angeles guitar-pop movement of 1982-87 named by Michael Quercio of The Three O'Clock and defined by The Dream Syndicate, Rain Parade, Green on Red and The Bangles — mid-tempo 4/4 backbeats, twelve-string Rickenbacker jangle and Byrds-derived vocal harmony fused with Velvet Underground feedback drones and extended one-chord codas, Vox organ, and reverb-heavy but analogue, band-in-a-room production on independent labels.",
+  "recipe": "classic Los Angeles early-1980s paisley underground, distorted Rock, alternative branch, pop rock folk rock, noise rock distorted rock. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright hi gain Rickenbacker modern twelve string electric, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 860,
+  "score": 519.759,
+  "config": {
+    "traditions": [
+      "paisley_underground",
+      "folk_rock",
+      "noise_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 54.19600000000002,
+          "voice_quality": 11.504999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.322,
+          "voice_articulation": 18.914999999999992,
+          "voice_microtone": 39.17500000000001,
+          "voice_tradition": 19.713499999999996,
+          "voice_mechanism_compound": 9.782499999999999,
+          "voice_estill_quality": 6.2285,
+          "voice_speech_song": 21.839999999999993,
+          "voice_ensemble_config": 21.319999999999993,
+          "voice_ornament_system": 1.345,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 6.216500000000001,
+          "voice_multitrack_stack": 5.720000000000001
+        }
+      },
+      {
+        "id": "twelve_string_electric",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "twelve_string_electric_model": "twelve_string_electric_fender_xii",
+          "twelve_string_electric_context": "twelve_string_electric_arena",
+          "twelve_string_electric_strings": "twelve_string_electric_nickel_plated",
+          "twelve_string_electric_pickup": "twelve_string_hi_gain_rick"
+        },
+        "scores": {
+          "electric_technique": 7.043,
+          "amp_make": 5.557500000000002,
+          "twelve_string_electric_model": 6.888000000000002,
+          "twelve_string_electric_context": 22.424999999999997,
+          "twelve_string_electric_strings": 0.39,
+          "twelve_string_electric_pickup": 1.1949999999999998
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 8.479999999999999,
+          "amp_make": 18.524999999999995,
+          "body_wood": 2.535,
+          "neck_wood": 2.535,
+          "fretboard": 2.4699999999999998,
+          "pickup_magnet": 1.69,
+          "string_material": 1.8849999999999998,
+          "string_gauge": 2.535,
+          "bridge": 0.2865,
+          "scale_length": 2.535,
+          "finish": 0.045,
+          "string_tuning": 20.085
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 17.615,
+          "body_wood": 2.535,
+          "pickup_config": 0.195,
+          "string_type": 40.03,
+          "scale_length_b": 2.535,
+          "fretted_or_not": 0.195,
+          "bass_technique": 34.015
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 32.875,
+          "drumhead": 6.735000000000001,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_vox_ac"
+        },
+        "scores": {
+          "keyboard_technique": 7.995,
+          "combo_organ_model": 9.453,
+          "combo_organ_voicing": 9.943000000000001,
+          "combo_organ_context": 19.629999999999995,
+          "amp_make": 3.4365
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_film"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0,
+          "tambourine_orch_context": 0.585
+        }
+      }
+    ],
+    "room": "studio_small_la_chambers",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_api_312",
+      "console": "console_apinla_vintage_la",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_small_la_chambers",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_apinla_vintage_la"
+  }
+}

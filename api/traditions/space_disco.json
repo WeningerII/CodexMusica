@@ -1,0 +1,151 @@
+{
+  "id": "space_disco",
+  "name": "Space Disco",
+  "family": "electronic",
+  "lineage": "French, Italian and German disco of 1977-1981 codified by Jean-Marc Cerrone, Didier Marouani's Space and Giorgio Moroder's Munich productions, using a 115-125 BPM sequenced Moog bass pulse under four-on-the-floor kick and open hats, vocoder and synthesized choir textures, phased string washes and long instrumental suites with sci-fi sound effects in place of verses.",
+  "recipe": "classic Western European 1977-1981 space disco, electronic Dance, continental branch, italo house house, retro aesthetic experimental electric bitpop. moog lineage canonical minimoog 1970 trumansburg ny short envelope analog mono modular modular roland jupiter lineage canonical jupiter 8 1981 osaka short envelope analog poly synth, string machine, vocoder, pre muffled edge muffled four-on-floor drum kit, la bella flats Detroit soul bass canon electric bass. intimate paris small studio. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 640,
+  "score": 55.377,
+  "config": {
+    "traditions": [
+      "space_disco",
+      "bitpop",
+      "italo_house_piano"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 4.09,
+          "mono_oscillator": 0.9750000000000001,
+          "mono_filter": 0.8550000000000001,
+          "mono_archetypes": 0.195,
+          "mono_maker_lineage": 1.1449999999999998
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_serge_tcherepnin"
+        },
+        "scores": {
+          "electronic_technique": 5.375,
+          "mod_voltage_source": 0.39,
+          "mod_patch_density": 0.845,
+          "mod_lineage": 0.78
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_choir"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sm_voice_count": 6.695,
+          "sm_chorus": 1.69,
+          "sm_voicing": 0.3
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_few_bands",
+          "voc_carrier": "voc_noise_carrier",
+          "voc_modulator": "voc_voice_mod"
+        },
+        "scores": {
+          "voc_band_count": 0.105,
+          "voc_carrier": 0.135,
+          "voc_modulator": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_disco_four",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 16.619999999999997,
+          "drumhead": 4.09,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 2.4549999999999996,
+          "body_wood": 0.35999999999999993,
+          "pickup_config": 0.195,
+          "string_type": 2.27,
+          "scale_length_b": 0.32999999999999996,
+          "fretted_or_not": 0,
+          "bass_technique": 0.95
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 4.09,
+          "poly_archetypes": 0.45499999999999996,
+          "poly_voices": 0.78,
+          "poly_maker_lineage": 1.99
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_nyc_disco_twelve_inch",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_helios_uk_70s",
+      "console": "console_helios_uk_70s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_helios_uk_70s",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_helios_uk_70s"
+  }
+}

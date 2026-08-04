@@ -1,0 +1,143 @@
+{
+  "id": "piphat_ceremonial",
+  "name": "Piphat (Thai-Khmer ceremonial ensemble)",
+  "family": "classical",
+  "lineage": "Court and ritual ensemble of Siam and Cambodia, codified in the Bangkok Rattanakosin court from the late 18th century and standardized under Luang Pradit Phairoh's lineage — the pi nai shawm and ranat ek xylophone leading a stratified polyphony over khong wong gong-circle, with taphon and klong that drums and the ching hand-cymbals marking the colotomic cycle in a near-equidistant seven-tone tuning.",
+  "recipe": "classic Southeast Asian modern piphat, art Music, Thai classical branch, southeast Asian art music, east Asian groove percussion, buddhist ritual devotional thai traditional. ranat ek, ranat thum, khong wong yai, jackwood barrel canonical Thai piphat taphon, klong that, central Thai ching chap open and damped ching, arundo donax wooden pirouette canonical renaissance shawm, hardwood court classical silk canonical Thai court court ceremonial legato saw sam sai. phnom penh royal pinpeat palace court. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 566,
+  "score": 268.952,
+  "config": {
+    "traditions": [
+      "piphat_ceremonial",
+      "thai_traditional",
+      "thai_classical"
+    ],
+    "instruments": [
+      {
+        "id": "ranat_ek",
+        "slots": {
+          "ranat_ek_technique": "ranat_ek_kep"
+        },
+        "scores": {
+          "ranat_ek_technique": 27.285142857142855
+        }
+      },
+      {
+        "id": "ranat_thum",
+        "slots": {
+          "ranat_thum_keys": "ranat_thum_bamboo",
+          "ranat_thum_mallets": "ranat_thum_hard",
+          "ranat_thum_role": "ranat_thum_variation"
+        },
+        "scores": {
+          "ranat_thum_keys": 0,
+          "ranat_thum_mallets": 0.0495,
+          "ranat_thum_role": 0.975
+        }
+      },
+      {
+        "id": "khong_wong_yai",
+        "slots": {
+          "khong_wong_yai_role": "khong_wong_yai_main_melody"
+        },
+        "scores": {
+          "khong_wong_yai_role": 24.25
+        }
+      },
+      {
+        "id": "taphon",
+        "slots": {
+          "taphon_technique": "taphon_hand_struck",
+          "taphon_shell_wood": "taphon_jackwood_canonical",
+          "taphon_head": "taphon_calfskin_canonical"
+        },
+        "scores": {
+          "taphon_technique": 24.25,
+          "taphon_shell_wood": 12.805,
+          "taphon_head": 0.8957142857142857
+        }
+      },
+      {
+        "id": "klong_that",
+        "slots": {
+          "klong_that_setup": "klong_that_pair",
+          "klong_that_tuning": "klong_that_rice_paste"
+        },
+        "scores": {
+          "klong_that_setup": 0.435,
+          "klong_that_tuning": 0.3364285714285714
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_thai",
+          "ching_stroke": "ching_open_closed",
+          "ching_alloy": "ching_bronze"
+        },
+        "scores": {
+          "ching_form": 28.861,
+          "ching_stroke": 31.005000000000003,
+          "ching_alloy": 0.4875
+        }
+      },
+      {
+        "id": "shawm",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "shawm_pitch": "shawm_bass",
+          "shawm_context": "shawm_alta_capella",
+          "shawm_body_wood": "shawm_boxwood_canonical",
+          "shawm_reed": "shawm_arundo_pirouette"
+        },
+        "scores": {
+          "wind_articulation": -0.15000000000000002,
+          "shawm_pitch": 0.39,
+          "shawm_context": 3.185,
+          "shawm_body_wood": 0.195,
+          "shawm_reed": 1.0907142857142855
+        }
+      },
+      {
+        "id": "saw_sam_sai",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "saw_sam_sai_build": "saw_sam_sai_hardwood_court",
+          "saw_sam_sai_strings": "saw_sam_sai_silk",
+          "saw_sam_sai_body": "saw_sam_sai_shallow_loose",
+          "saw_sam_sai_role": "saw_sam_sai_royal_ritual"
+        },
+        "scores": {
+          "bowed_technique": 15.569999999999997,
+          "saw_sam_sai_build": 25.447499999999994,
+          "saw_sam_sai_strings": 25.71471428571428,
+          "saw_sam_sai_body": 16.075,
+          "saw_sam_sai_role": 26.48671428571428
+        }
+      }
+    ],
+    "room": "phnom_penh_royal_pinpeat_palace_court",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "equal_heptatonic_thai_khmer",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_thai_khmer",
+    "room": "phnom_penh_royal_pinpeat_palace_court",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

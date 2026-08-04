@@ -1,0 +1,224 @@
+{
+  "id": "beach_music_carolina",
+  "name": "Beach Music (Carolina)",
+  "family": "pop_rock",
+  "lineage": "Coastal Carolina dance-club repertoire that crystallized between the late 1940s and the mid 1960s along the Grand Strand and Myrtle Beach pavilions, built around jukebox R&B and vocal-group sides selected for the mid-tempo shag dance at roughly 110-130 BPM in a 12/8 or shuffled 4/4 with walking bass, honking tenor saxophone breaks, triplet piano and warm four-part male harmony behind a gritty lead.",
+  "recipe": "classic Midwestern American 1947-1949 beach music, functional Song, soul R&B branch, soul R&B doowop, blues electric functional song, pop rock functional song doo-wop souldies. thick, breath veiled tone, slow rate, interlocked note trading. choir doo wop group, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated sitka spruce diaphragmatic grand piano, schilke chicago lead bright ensemble shallow cup lead trumpet trumpet. 1540 brewster avenue cincinnati 1943-1971 indie-commercial king records studios cincinnati. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 949,
+  "score": 493.957,
+  "config": {
+    "traditions": [
+      "beach_music_carolina",
+      "doo_wop",
+      "souldies"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 26.769999999999992,
+          "voice_quality": 21.06000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.735,
+          "voice_articulation": 21.58,
+          "voice_microtone": 20.79999999999999,
+          "voice_tradition": 21.814999999999998,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 16.89,
+          "voice_speech_song": 29.379999999999995,
+          "voice_ensemble_config": 21.514999999999997,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 2.3850000000000002,
+          "voice_processing_chain": 7.344999999999999,
+          "voice_multitrack_stack": 10.409999999999998
+        }
+      },
+      {
+        "id": "choir_doo_wop_group",
+        "slots": {
+          "voices": "doo_wop_baritone",
+          "arrangement": "doo_wop_a_cappella"
+        },
+        "scores": {
+          "voices": 2.675,
+          "arrangement": 0.195
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "hard_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 15.985,
+          "sax_size": 16.99,
+          "sax_reed": 0.3,
+          "sax_body_alloy": 0.325,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 15.649999999999999,
+          "sax_maker_school": 1.56
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 14.889999999999999,
+          "amp_make": 20.455,
+          "body_wood": 2.63,
+          "neck_wood": 2.63,
+          "fretboard": 2.58,
+          "pickup_magnet": 0.3,
+          "string_material": 0.045,
+          "string_gauge": 4.56,
+          "bridge": 0.345,
+          "scale_length": 2.8099999999999996,
+          "finish": 0.045,
+          "string_tuning": 3.0549999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 23.425,
+          "body_wood": 2.8099999999999996,
+          "pickup_config": 0.3,
+          "string_type": 21.154999999999998,
+          "scale_length_b": 2.63,
+          "fretted_or_not": 0.24,
+          "bass_technique": 14.649999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 19.759999999999998,
+          "drumhead": 5.145,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_415_baroque"
+        },
+        "scores": {
+          "keyboard_technique": 16.255,
+          "grand_piano_size": 2.63,
+          "grand_piano_brand": 3.2149999999999994,
+          "piano_hammer": 3.4499999999999993,
+          "piano_rim": 7.119999999999999,
+          "piano_soundboard": 5.32,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.975,
+          "piano_pitch_standard": 6.7275
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "bucket_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_gold_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 15.985,
+          "brass_size": 0.24,
+          "trumpet_mouthpiece": 3.3150000000000004,
+          "brass_mute": 0.195,
+          "trumpet_technique": 15.985,
+          "trumpet_bell_metal": 0.3,
+          "trumpet_maker_school": 2.73
+        }
+      }
+    ],
+    "room": "king_records_studios_cincinnati",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "king_records_studios_cincinnati",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

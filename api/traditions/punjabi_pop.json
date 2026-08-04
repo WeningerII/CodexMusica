@@ -3,9 +3,9 @@
   "name": "Punjabi pop",
   "family": "pop",
   "lineage": "Punjabi-language pop crystallised in the early 1990s across Jalandhar, Delhi and the UK diaspora as folk boliyan and tappe were set to programmed beats — Malkit Singh, Gurdas Maan and Daler Mehndi's cassette-era hits established the form of a driving 100-140 BPM dhol chaal with tumbi or algoza riff, harmonium or synth chord stabs, and an open-throated declamatory tenor with sharp gamak-like grace notes — remade after 2010 by Diljit Dosanjh and the Punjabi-Canadian axis into a slick DAW production still anchored to the dhol pattern.",
-  "recipe": "classic 1990-1993 punjabi pop, functional Song, south Asian pop branch, Afro-diasporic electric groove percussion funk viral afrofuturismo brasileiro. extended whistle, breath veiled tone, interlocked note trading, neutral third half flat. dhol, steel single string canonical Punjabi tumbi, algoza, melodic straight harmonium indian, dholak, singing lead analog poly synth, pyramid pure nickel bass British mid 60s era electric bass, chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 654,
-  "score": 232.703,
+  "recipe": "classic 1990-1993 punjabi pop, functional Song, south Asian pop branch, Afro-diasporic electric groove percussion funk viral afrofuturismo brasileiro. thick, breath veiled tone, fast rate, interlocked note trading. dhol, steel single string canonical Punjabi tumbi, algoza, melodic straight harmonium indian, dholak, singing lead analog poly synth, pyramid pure nickel bass British mid 60s era electric bass, chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 629,
+  "score": 231.692,
   "config": {
     "traditions": [
       "punjabi_pop",
@@ -16,7 +16,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.4085,
+          "voice_register": 14.429999999999994,
           "voice_quality": 12.804999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.4215,
+          "voice_vibrato": 0.8849999999999999,
           "voice_articulation": 17.549999999999994,
           "voice_microtone": 17.35499999999999,
-          "voice_tradition": 13.285,
+          "voice_tradition": 11.575,
           "voice_mechanism_compound": 3.8349999999999995,
           "voice_estill_quality": 4.94,
           "voice_speech_song": 20.79999999999999,
           "voice_ensemble_config": 17.289999999999992,
-          "voice_ornament_system": 3.576,
-          "voice_pitch_organization": 2.7985,
-          "voice_processing_chain": 4.838,
+          "voice_ornament_system": 3.45,
+          "voice_pitch_organization": 2.6050000000000004,
+          "voice_processing_chain": 5.015000000000001,
           "voice_multitrack_stack": 4.842500000000001
         }
       },
@@ -61,8 +61,8 @@
         },
         "scores": {
           "dhol_form": 23.984999999999992,
-          "dhol_repertoire": 7.625500000000001,
-          "dhol_shell": -0.035
+          "dhol_repertoire": 7.885000000000001,
+          "dhol_shell": -0.05
         }
       },
       {
@@ -74,10 +74,10 @@
           "tumbi_string": "tumbi_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 2.5315,
+          "plucked_traditional_technique": 2.5,
           "tumbi_construction": 0.65,
-          "tumbi_context": 1.3425,
-          "tumbi_string": 4.355499999999999
+          "tumbi_context": 1.2749999999999997,
+          "tumbi_string": 3.7949999999999995
         }
       },
       {
@@ -100,10 +100,10 @@
           "harmonium_use": "harmonium_qawwali"
         },
         "scores": {
-          "free_reed_technique": 3.1875,
-          "harmonium_action": 0.39849999999999997,
+          "free_reed_technique": 3.21,
+          "harmonium_action": 0.43500000000000005,
           "harmonium_voicing": 0.585,
-          "harmonium_use": 1.045
+          "harmonium_use": 1.09
         }
       },
       {
@@ -111,26 +111,26 @@
         "slots": {
           "dholak_use": "dholak_classical",
           "dholak_construction": "dholak_large",
-          "dholak_head": "dholak_synthetic_head",
-          "dholak_tensioning": "dholak_rope_tuning"
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 0.6525,
-          "dholak_construction": 0.37649999999999995,
-          "dholak_head": 0.2865,
-          "dholak_tensioning": 0.255
+          "dholak_use": 0.42,
+          "dholak_construction": 0.345,
+          "dholak_head": 0.15,
+          "dholak_tensioning": 0.195
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 11.737,
+          "electronic_technique": 11.785,
           "poly_archetypes": 0.195,
           "poly_voices": 0.195,
           "poly_maker_lineage": -1.085
@@ -140,8 +140,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -149,12 +149,12 @@
         },
         "scores": {
           "amp_make": 1.4299999999999997,
-          "body_wood": 0.327,
-          "pickup_config": 0.2865,
+          "body_wood": 0.8250000000000001,
+          "pickup_config": 0.54,
           "string_type": 2.6650000000000005,
-          "scale_length_b": 0.3135,
-          "fretted_or_not": 0.045,
-          "bass_technique": 3.17
+          "scale_length_b": 0.435,
+          "fretted_or_not": 0.24,
+          "bass_technique": 3.365
         }
       },
       {
@@ -167,10 +167,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.9699999999999998,
-          "sampler_archetypes": 2.26,
-          "sampler_bit_depth": 0.573,
-          "sampler_workflow": 1.27,
+          "electronic_technique": 2.1125,
+          "sampler_archetypes": 2.3724999999999996,
+          "sampler_bit_depth": 0.09,
+          "sampler_workflow": 1.315,
           "sampler_classic_context": 19.109999999999992
         }
       }

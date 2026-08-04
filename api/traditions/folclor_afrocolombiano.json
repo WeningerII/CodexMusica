@@ -1,0 +1,152 @@
+{
+  "id": "folclor_afrocolombiano",
+  "name": "Folclor afrocolombiano (Pacific and Atlantic Afro-Colombian folklore)",
+  "family": "global",
+  "lineage": "Afro-descendant ritual and festive repertoire of Colombia's Pacific littoral (Chocó, Cauca, Nariño) and Atlantic coast, documented from the 1960s by Delia Zapata Olivella and later by Petronio Álvarez festival ensembles, built on marimba de chonta ostinati, cununo and bombo cross-rhythms, guasá shakers and interlocked female chorus over currulao's 6/8 and bullerengue's hand-drum 2/4.",
+  "recipe": "classic South American mid-1960s folclor afrocolombiano, field Work, sub saharan African branch, Afro-diasporic ritual devotional, west African groove percussion, African diasporic funeral lament balafon music makossa. thick, breath veiled tone, fast rate, interlocked note trading. two player palm wood bamboo tubes marimba de chonta, uraba coast call-and-response bullerengue lead tambor alegre, llamador, deep barrel coastal cumbia head and shell steady pulse tambora colombiana, shekere, snappy to palm hand clap. terreiro outdoor yard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 615,
+  "score": 249.255,
+  "config": {
+    "traditions": [
+      "folclor_afrocolombiano",
+      "balafon_mande",
+      "makossa"
+    ],
+    "instruments": [
+      {
+        "id": "marimba_de_chonta",
+        "slots": {
+          "marimba_de_chonta_form": "marimba_de_chonta_colombiana",
+          "marimba_de_chonta_role": "marimba_de_chonta_duet",
+          "marimba_de_chonta_material": "marimba_de_chonta_chonta_guadua"
+        },
+        "scores": {
+          "marimba_de_chonta_form": 5.4,
+          "marimba_de_chonta_role": 7.15,
+          "marimba_de_chonta_material": 4.6000000000000005
+        }
+      },
+      {
+        "id": "tambor_alegre",
+        "slots": {
+          "tambor_alegre_form": "tambor_alegre_form_bullerengue",
+          "tambor_alegre_role": "tambor_alegre_role_marcante",
+          "tambor_alegre_build": "tambor_alegre_build_moderno"
+        },
+        "scores": {
+          "tambor_alegre_form": 32.695,
+          "tambor_alegre_role": 6.665,
+          "tambor_alegre_build": 1.4999999999999998
+        }
+      },
+      {
+        "id": "llamador",
+        "slots": {
+          "llamador_pattern": "llamador_offbeat",
+          "llamador_head": "llamador_tight"
+        },
+        "scores": {
+          "llamador_pattern": 0.15,
+          "llamador_head": 0.15
+        }
+      },
+      {
+        "id": "tambora_colombiana",
+        "slots": {
+          "tambora_colombiana_form": "tambora_colombiana_form_costena",
+          "tambora_colombiana_pattern": "tambora_colombiana_pattern_cumbia",
+          "tambora_colombiana_build": "tambora_colombiana_build_goatskin"
+        },
+        "scores": {
+          "tambora_colombiana_form": 2.275,
+          "tambora_colombiana_pattern": 23.66,
+          "tambora_colombiana_build": -0.10500000000000001
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_medium",
+          "shekere_beads": "shekere_seed"
+        },
+        "scores": {
+          "shekere_size": 2.925,
+          "shekere_beads": 6.44
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 7.230000000000002,
+          "voice_quality": 9.035,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.74,
+          "voice_articulation": 23.529999999999998,
+          "voice_microtone": 21.189999999999998,
+          "voice_tradition": 27.9825,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 23.009999999999998,
+          "voice_ensemble_config": 21.904999999999998,
+          "voice_ornament_system": 6.9225,
+          "voice_pitch_organization": 1.545,
+          "voice_processing_chain": 5.459999999999999,
+          "voice_multitrack_stack": 3.7950000000000004
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 2.08,
+          "clap_capture": 0
+        }
+      }
+    ],
+    "room": "terreiro_outdoor_yard",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "terreiro_outdoor_yard",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

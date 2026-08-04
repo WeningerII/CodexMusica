@@ -1,0 +1,96 @@
+{
+  "id": "canti_alpini",
+  "name": "Canti alpini (Alpine male-choir song)",
+  "family": "global",
+  "lineage": "Northern Italian male-choir repertoire of Trentino, Veneto and Friuli codified by the Coro della SAT of Trento from 1926 and its arranger Antonio Pedrotti, drawing on Alpine village song and First World War Alpini regimental repertoire — four-part TTBB harmonization of modal or major folk melodies, sung a cappella in slow to moderate duple time with straight tone, strict blend, whispered pianissimi and swelling crescendi, texts on mountains, emigration, love and the war dead.",
+  "recipe": "classic European mid-1920s canti alpini, drinking Song, European branch, European funeral lament, European protest song, European lullaby liedermacher greek éntechno politicized. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 503,
+  "score": 159.342,
+  "config": {
+    "traditions": [
+      "canti_alpini",
+      "liedermacher",
+      "greek_entechno_politicized"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 2.750000000000001,
+          "voice_quality": 12.934999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6899999999999995,
+          "voice_articulation": 16.104999999999997,
+          "voice_microtone": 18.037499999999994,
+          "voice_tradition": 16.477499999999996,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 6.840000000000001,
+          "voice_speech_song": 27.299999999999997,
+          "voice_ensemble_config": 20.70499999999999,
+          "voice_ornament_system": 3.62,
+          "voice_pitch_organization": 3.5949999999999998,
+          "voice_processing_chain": 5.480000000000001,
+          "voice_multitrack_stack": 5.995
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 7.6000000000000005,
+          "choir_polyphonic_configuration": 2.545,
+          "choir_regional_canonical_configuration": 2.8600000000000003,
+          "choir_ensemble_repertoire": 2.145
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "stone_parish_church",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

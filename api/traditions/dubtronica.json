@@ -1,0 +1,138 @@
+{
+  "id": "dubtronica",
+  "name": "Dubtronica",
+  "family": "electronic",
+  "lineage": "European and North American studios from the mid-1990s onward, growing out of Basic Channel's Berlin work and Bill Laswell's New York dub projects — 120-140 BPM electronic productions built on Jamaican mixing-desk technique: one-drop or steppers kick placement, spring and tape echo throws, filtered chord stabs on the offbeat, melodica or dubbed guitar fragments, and a sustained sine sub-bass as the harmonic floor.",
+  "recipe": "classic Central European 1994-1996 dubtronica, bass System, dub descendants branch, Jamaican bass system, techno electronic dance, ambient experimental electric ambient house. sub bass analog poly sub bass modular synth, TR-909, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, hohner melodica canonical 1959 dub roots tradition melodica, field textural sampler. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
+  "recipe_chars": 657,
+  "score": 126.763,
+  "config": {
+    "traditions": [
+      "dubtronica",
+      "ambient_house",
+      "dub"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 7.475000000000001,
+          "poly_archetypes": 1,
+          "poly_voices": 1,
+          "poly_maker_lineage": -0.9800000000000001
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 6.245,
+          "drum_machine_909_context": 1.17,
+          "tr909_production_origin": 0.845
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 7.410000000000001,
+          "body_wood": 1.3,
+          "pickup_config": 0.495,
+          "string_type": 7.9300000000000015,
+          "scale_length_b": 1.285,
+          "fretted_or_not": 0.135,
+          "bass_technique": 16.199499999999997
+        }
+      },
+      {
+        "id": "melodica",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "melodica_use": "melodica_dub",
+          "melodica_pitch": "melodica_alto",
+          "melodica_maker_school": "melodica_hohner_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 0.8999999999999999,
+          "melodica_use": 12.125,
+          "melodica_pitch": 0.195,
+          "melodica_maker_school": 13.043499999999998
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 7.475000000000001,
+          "mod_voltage_source": 0.195,
+          "mod_patch_density": 2.3655,
+          "mod_lineage": 0.345
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 4.449999999999999,
+          "sampler_archetypes": 1.25,
+          "sampler_bit_depth": 1.3649999999999998,
+          "sampler_workflow": 5.430000000000001,
+          "sampler_classic_context": 27.36499999999999
+        }
+      }
+    ],
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_berlin_dub_techno_dm",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "berlin_techno_kreuzberg_studio",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformer_solid_state",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -3,31 +3,31 @@
   "name": "Global bass",
   "family": "global",
   "lineage": "Pan-Latin-American electronic global-bass subgenre fusing cumbia, dembow, kuduro, and dancehall — codified through Bersa Discos, Soundway Records, and Nacional Records labels post-2010; characterized by digitally-produced tropical-rhythm samples with sub-bass and house-tempo foundations",
-  "recipe": "classic early-2010s global bass, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm kwaito afroswing. melodic pitched sampler, TR-808, low sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 329,
-  "score": 79.353,
+  "recipe": "classic early-2010s global bass, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm merenrap kwaito. sampler, TR-808, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 308,
+  "score": 73.671,
   "config": {
     "traditions": [
       "tropical_bass",
-      "kwaito",
-      "afroswing"
+      "merenrap",
+      "kwaito"
     ],
     "instruments": [
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "roland_s750",
+          "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "sampler_archetypes": 1.04,
-          "sampler_bit_depth": 1.2349999999999999,
-          "sampler_workflow": 1.17,
-          "sampler_classic_context": 34.775
+          "electronic_technique": 1.1049999999999998,
+          "sampler_archetypes": 0.894,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 0.5199999999999999,
+          "sampler_classic_context": 33.8975
         }
       },
       {
@@ -38,9 +38,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 8.597999999999999,
-          "drum_machine_808_context": 9.091999999999999,
-          "tr808_production_origin": 0.78
+          "tr808_voice": 8.125499999999999,
+          "drum_machine_808_context": 8.619499999999999,
+          "tr808_production_origin": 0.744
         }
       },
       {
@@ -51,9 +51,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 8.693,
+          "electronic_technique": 8.0705,
           "va_archetypes": 0,
-          "digital_subtractive_context": 17.81
+          "digital_subtractive_context": 14.429999999999996
         }
       }
     ],

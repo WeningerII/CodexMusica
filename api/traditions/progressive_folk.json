@@ -1,0 +1,177 @@
+{
+  "id": "progressive_folk",
+  "name": "Progressive Folk",
+  "family": "pop_rock",
+  "lineage": "British and American folk of roughly 1965-1975 that extended revival repertoire into long-form, harmonically ambitious arrangement — Pentangle, the Incredible String Band, Roy Harper, Bert Jansch and Tim Buckley — using open and altered guitar tunings, jazz-derived double bass and brushed kit, modal and chromatic harmony, extended instrumental sections, and free-metred introductions before settling into a sung strophic body.",
+  "recipe": "classic British mid-1970s progressive folk, ballad Poetry, britfolk branch, pop rock folk rock, progressive rock distorted rock space rock. thick, incomplete closure resting, fast rate, interlocked note trading. dadgad tuning cedar walnut fingerpicked acoustic guitar, steel Baroque setup lighter bass bar no endpin lower tension double bass, pre muffled edge muffled sticks backbeat drum kit, maple mid tier Baroque alternative melodic recorder, bowl back Italian redwood hard rock maple k and k twin internal mounted mandolin. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 742,
+  "score": 392.949,
+  "config": {
+    "traditions": [
+      "progressive_folk",
+      "folk_rock",
+      "space_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 54.70500000000001,
+          "voice_quality": 8.963,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.68,
+          "voice_articulation": 18.71999999999999,
+          "voice_microtone": 33.58,
+          "voice_tradition": 24.959999999999994,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 6.772499999999999,
+          "voice_speech_song": 23.399999999999995,
+          "voice_ensemble_config": 18.849999999999994,
+          "voice_ornament_system": 4.485,
+          "voice_pitch_organization": 1.7365,
+          "voice_processing_chain": 7.295000000000001,
+          "voice_multitrack_stack": 7.735000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "dadgad",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "eighty_twenty_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 4.141500000000001,
+          "top_wood": 1.04,
+          "back_sides": 1.04,
+          "string_acoustic": 4.874999999999999,
+          "acoustic_om_technique": 24.947999999999993
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "bass_steel",
+          "bass_top_wood": "plywood_bass_top",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "bass_size": 0.195,
+          "bass_strings": 3.314999999999999,
+          "bass_top_wood": 0.75,
+          "bass_back_wood": 0.8949999999999999,
+          "bass_varnish": 0.75,
+          "bass_setup_period": 1.6349999999999998,
+          "bass_play": 3.295,
+          "bass_rosin": 5.93,
+          "bass_bow_stick": 0.8449999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 26.674999999999994,
+          "drumhead": 5.835,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "recorder",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "recorder_size": "alto_recorder",
+          "recorder_context": "recorder_baroque_solo",
+          "recorder_body_wood": "recorder_maple"
+        },
+        "scores": {
+          "wind_articulation": 17.807999999999993,
+          "recorder_size": 0.3165,
+          "recorder_context": 1.17,
+          "recorder_body_wood": 1.04
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "redwood_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "eighty_twenty_m",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 9.263,
+          "mandolin_shape": 9.619999999999997,
+          "mandolin_top": 1.04,
+          "mandolin_back": 13.714999999999996,
+          "mandolin_bracing": 0.12999999999999998,
+          "mandolin_strings": 4.874999999999999,
+          "mandolin_fingerboard": 0.975,
+          "mandolin_pickup": 20.084999999999997
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_helios_uk_70s",
+      "console": "console_helios_uk_70s",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "open_tuning_singer_songwriter",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "open_tuning_singer_songwriter",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_helios_uk_70s",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_helios_uk_70s"
+  }
+}

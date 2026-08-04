@@ -1,0 +1,187 @@
+{
+  "id": "russian_folk",
+  "name": "Russian Folk Music",
+  "family": "global",
+  "lineage": "Village song tradition of the Russian north and south, collected from the 1860s by Yuli Melgunov and Yevgeniya Linyova's phonograph work and later staged by Mitrofan Pyatnitsky's 1911 choir, built on podgoloski heterophonic multipart singing where a zapevala's line is branched by lower voices into open fifths and octaves, protyazhnaya long songs in free rhythm, and metered chastushka and dance tunes at 120-160 BPM over balalaika, gusli, garmon and clacking spoons.",
+  "recipe": "classic Eastern European mid-1860s russian folk music, field Work, Slavic balkan branch, Slavic baltic domestic rhythm, christian gospel Russian orthodox lithuanian folk music estonian folk music. thick, breath veiled tone, fast rate, interlocked note trading. sekunda tuning nylon modern Soviet orchestra canon strummed balalaika, orchestral lead steel modern strummed domra, melodic straight garmon, brass canonical Slavic maple birch canonical Slavic fingerpicked gusli, b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, hand clap, a cappella small 3 to 8 one per part homophonic chordal rhythm aligned sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 955,
+  "score": 264.248,
+  "config": {
+    "traditions": [
+      "russian_folk",
+      "lithuanian_folk_music",
+      "estonian_folk_music"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.700000000000001,
+          "voice_quality": 12.349999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.885,
+          "voice_articulation": 28.34,
+          "voice_microtone": 26.129999999999995,
+          "voice_tradition": 13.975,
+          "voice_mechanism_compound": 2.99,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 28.34,
+          "voice_ensemble_config": 26.649999999999995,
+          "voice_ornament_system": 6.110000000000001,
+          "voice_pitch_organization": 3.7150000000000007,
+          "voice_processing_chain": 7.864999999999998,
+          "voice_multitrack_stack": 5.395
+        }
+      },
+      {
+        "id": "balalaika",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "balalaika_size": "sekunda_balalaika",
+          "balalaika_strings": "nylon_balalaika",
+          "balalaika_body_wood": "balalaika_spruce_maple",
+          "balalaika_tradition": "balalaika_soviet_orchestra"
+        },
+        "scores": {
+          "plucked_traditional_technique": 11.375,
+          "balalaika_size": 1.04,
+          "balalaika_strings": 1.1099999999999999,
+          "balalaika_body_wood": 0.28500000000000003,
+          "balalaika_tradition": 1.235
+        }
+      },
+      {
+        "id": "domra",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "domra_courses": "three_string_domra",
+          "domra_size": "domra_prima",
+          "domra_body_wood": "domra_spruce_maple",
+          "domra_strings": "domra_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 11.375,
+          "domra_courses": 1.885,
+          "domra_size": 1.04,
+          "domra_body_wood": 0.15,
+          "domra_strings": 1.1099999999999999
+        }
+      },
+      {
+        "id": "garmon",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "garmon_regional_form": "garmon_regional_form_russian_garmoshka",
+          "garmon_performance_setting": "garmon_performance_setting_lezginka",
+          "garmon_reed_voicing": "garmon_reed_voicing_brass"
+        },
+        "scores": {
+          "free_reed_technique": 3.480000000000001,
+          "garmon_regional_form": 11.234999999999998,
+          "garmon_performance_setting": 5.789999999999999,
+          "garmon_reed_voicing": -0.05
+        }
+      },
+      {
+        "id": "gusli",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "gusli_strings": "gusli_chromatic",
+          "gusli_context": "gusli_revival",
+          "gusli_string_material": "gusli_brass_canonical",
+          "gusli_body_wood": "gusli_maple_birch"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.25,
+          "gusli_strings": 0.8700000000000001,
+          "gusli_context": 0.65,
+          "gusli_string_material": 5.265000000000001,
+          "gusli_body_wood": 5.265000000000001
+        }
+      },
+      {
+        "id": "bayan_russian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "bayan_russian_model": "bayan_russian_tula_standard",
+          "bayan_russian_context": "bayan_russian_folk_song_dance",
+          "bayan_russian_reed_voicing": "bayan_russian_dry_unison"
+        },
+        "scores": {
+          "free_reed_technique": 3.480000000000001,
+          "bayan_russian_model": 5.784999999999999,
+          "bayan_russian_context": 7.215,
+          "bayan_russian_reed_voicing": 0.24
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 0.33,
+          "clap_capture": 0.195
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 3.575,
+          "choir_polyphonic_configuration": 4.355,
+          "choir_regional_canonical_configuration": 3.5100000000000002,
+          "choir_ensemble_repertoire": 1.3
+        }
+      }
+    ],
+    "room": "moscow_melodiya_studio",
+    "archetype": "arch_melodiya_state",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "russian_minor_estrada_chanson",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "russian_minor_estrada_chanson",
+    "room": "moscow_melodiya_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

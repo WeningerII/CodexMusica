@@ -3,14 +3,14 @@
   "name": "Yoruba oríkì (praise-poetry)",
   "family": "global",
   "lineage": "Yoruba praise-poetry tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora; the oríkì is the canonical Yoruba praise-poetry-song-form naming the praise-receiver through accumulated epithet-and-ancestral-name lineage",
-  "recipe": "classic West African modern yoruba oríkì, praise Song, sub saharan African branch, African diasporic wedding, African diasporic funeral lament, west African griot ballad poetry yoruba ìrèmọjẹ mandé jeli. vocal fry, declaimed, straight onset, interlocked note trading. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, shekere. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 618,
-  "score": 291.034,
+  "recipe": "classic West African modern yoruba oríkì, praise Song, sub saharan African branch, African diasporic wedding, African diasporic funeral lament, west African griot ballad poetry yoruba ìrèmọjẹ griot praise song. vocal fry, declaimed, straight onset, interlocked note trading. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, modern revival iroko west African premium cowhide rope lacing canonical mande dunun, shekere. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 626,
+  "score": 294.697,
   "config": {
     "traditions": [
       "yoruba_oriki",
       "yoruba_iremoje",
-      "mande_griot"
+      "griot_praise_song"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.625,
-          "voice_quality": 30.530624999999993,
+          "voice_register": 1.4300000000000002,
+          "voice_quality": 28.230624999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.755,
-          "voice_articulation": 9.879999999999999,
-          "voice_microtone": 10.334999999999997,
-          "voice_tradition": 79.52687499999999,
-          "voice_mechanism_compound": 1.625,
-          "voice_estill_quality": 1.2349999999999999,
-          "voice_speech_song": 15.794999999999998,
-          "voice_ensemble_config": 10.27,
-          "voice_ornament_system": 24.555625,
-          "voice_pitch_organization": 32.128125,
-          "voice_processing_chain": 2.2424999999999997,
-          "voice_multitrack_stack": 2.5024999999999995
+          "voice_vibrato": 1.56,
+          "voice_articulation": 13.324999999999996,
+          "voice_microtone": 11.89499999999999,
+          "voice_tradition": 78.726875,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 18.394999999999992,
+          "voice_ensemble_config": 11.959999999999994,
+          "voice_ornament_system": 24.030624999999997,
+          "voice_pitch_organization": 32.478125,
+          "voice_processing_chain": 2.0474999999999994,
+          "voice_multitrack_stack": 2.3075
         }
       },
       {
@@ -61,8 +61,8 @@
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 0.78,
-          "talking_drum_context": 3.38,
+          "talking_drum_origin": 0.585,
+          "talking_drum_context": 3.185,
           "talking_drum_shell_wood": 15.380624999999998,
           "talking_drum_head": 1.69
         }
@@ -71,15 +71,15 @@
         "id": "dunun",
         "slots": {
           "dunun_size": "kenkeni",
-          "dunun_bell": "dunun_single_bell",
+          "dunun_bell": "dunun_double_bell",
           "dunun_shell_wood": "dunun_iroko",
           "dunun_head": "dunun_cowhide_canonical"
         },
         "scores": {
-          "dunun_size": 0.585,
-          "dunun_bell": 4.1274999999999995,
-          "dunun_shell_wood": 10.790000000000001,
-          "dunun_head": 3.185
+          "dunun_size": 1.04,
+          "dunun_bell": 1.69,
+          "dunun_shell_wood": 10.27,
+          "dunun_head": 1.885
         }
       },
       {
@@ -89,8 +89,8 @@
           "shekere_beads": "shekere_cowrie"
         },
         "scores": {
-          "shekere_size": 0.65,
-          "shekere_beads": 28.91
+          "shekere_size": 0.6749999999999999,
+          "shekere_beads": 28.759999999999998
         }
       }
     ],

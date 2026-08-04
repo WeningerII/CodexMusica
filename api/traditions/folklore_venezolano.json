@@ -1,0 +1,162 @@
+{
+  "id": "folklore_venezolano",
+  "name": "Folklore Venezolano",
+  "family": "global",
+  "lineage": "The traditional music of Venezuela's llanos and coast — joropo llanero above all, a fast 3/4 sesquiáltera at 130-180 BPM built from fixed harmonic corridos and golpes, with arpa llanera or bandola llanera taking the lead, cuatro strumming a percussive four-string chord chop, capachos maracas playing a continuous rustling subdivision, and shouted, high-register contrapunteo singing improvised in rhyming décimas.",
+  "recipe": "classic South American early-1950s folklore venezolano, functional Song, tropical song branch, Latin am troubadour ballad poetry, Latin am groove percussion milonga música jíbara. thick, breath veiled tone, fast rate, interlocked note trading. diatonic only joropo tradition cedar canonical llanos fast runs arpa four string pin pon driving lead bandola llanera, nylon cuatro venezolano, traditional leather maracas, venice catlin high twist renaissance bass rockabilly kolstein double bass. live tracking. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 626,
+  "score": 156.285,
+  "config": {
+    "traditions": [
+      "folklore_venezolano",
+      "milonga",
+      "musica_jibara"
+    ],
+    "instruments": [
+      {
+        "id": "arpa_llanera",
+        "slots": {
+          "arpa_llanera_strings": "arpa_llanera_32",
+          "arpa_llanera_body_wood": "arpa_llanera_cedar",
+          "arpa_llanera_string_material": "arpa_llanera_gut_historical",
+          "arpa_llanera_role": "arpa_llanera_bass_and_treble"
+        },
+        "scores": {
+          "arpa_llanera_strings": 6.24,
+          "arpa_llanera_body_wood": 1.3,
+          "arpa_llanera_string_material": 0.26,
+          "arpa_llanera_role": 4.745
+        }
+      },
+      {
+        "id": "cuatro_venezolano",
+        "slots": {
+          "cuatro_venezolano_tuning": "cuatro_venezolano_octave",
+          "cuatro_venezolano_technique": "cuatro_venezolano_hybrid",
+          "cuatro_venezolano_body_wood": "cuatro_venezolano_cedar",
+          "cuatro_venezolano_strings": "cuatro_venezolano_nylon"
+        },
+        "scores": {
+          "cuatro_venezolano_tuning": 0.525,
+          "cuatro_venezolano_technique": 0.975,
+          "cuatro_venezolano_body_wood": 0.39,
+          "cuatro_venezolano_strings": 1.17
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_leather",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 1.3,
+          "maracas_filling": 1.195
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 3.4150000000000005,
+          "voice_quality": 10.074999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 17.874999999999996,
+          "voice_microtone": 17.484999999999992,
+          "voice_tradition": 10.692500000000003,
+          "voice_mechanism_compound": 5.3950000000000005,
+          "voice_estill_quality": 6.045000000000002,
+          "voice_speech_song": 25.284999999999993,
+          "voice_ensemble_config": 18.459999999999994,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 1.575,
+          "voice_processing_chain": 3.77,
+          "voice_multitrack_stack": 3.08
+        }
+      },
+      {
+        "id": "bandola_llanera",
+        "slots": {
+          "bandola_llanera_form": "bandola_llanera_form_four_string",
+          "bandola_llanera_role": "bandola_llanera_role_pinpon",
+          "bandola_llanera_build": "bandola_llanera_build_nylon_cedar"
+        },
+        "scores": {
+          "bandola_llanera_form": 2.6650000000000005,
+          "bandola_llanera_role": 3.99,
+          "bandola_llanera_build": -0.1
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_slap",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.6749999999999999,
+          "bass_size": 0.195,
+          "bass_strings": 2.925,
+          "bass_top_wood": 0.96,
+          "bass_back_wood": 0.6174999999999999,
+          "bass_varnish": 0.325,
+          "bass_setup_period": 0.52,
+          "bass_play": 1.345,
+          "bass_rosin": 3.4125,
+          "bass_bow_stick": 0.35750000000000004
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_discos_fuentes_tropical",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_mci_jh636",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "joropo_3_4_corrido_hemiola",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "joropo_3_4_corrido_hemiola",
+    "room": "live_room",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_mci_jh636"
+  }
+}

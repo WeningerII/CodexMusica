@@ -1,0 +1,162 @@
+{
+  "id": "brega_saudade",
+  "name": "Brega saudade (slow nostalgic Belém brega)",
+  "family": "global",
+  "lineage": "Slow, nostalgic subgenre of Pará brega that consolidated in Belém in the 2000s-2010s at aparelhagem 'melody' hours and on brega-saudade radio programmes — 90-110 BPM 4/4 with a swaying tecnobrega kick, soft sustained synth pads and reverb-washed FM bell leads, sampled 1980s Caribbean and brega melodies, and a plaintive lead vocal drenched in long-tail digital reverb and delay.",
+  "recipe": "classic mid-2000s brega saudade, functional Song, Brazilian song branch, Latin electric electronic dance, retro aesthetic experimental electric cumbia 420 new italo disco. vocal fry, chest mix belt, slow rate, interlocked note trading. yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity sub bass fm sub bass analog poly synth, TR-707, coated elixir nanoweb sub heavy electric bass, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 620,
+  "score": 198.675,
+  "config": {
+    "traditions": [
+      "brega_saudade",
+      "cumbia_420",
+      "new_italo_disco"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 2.535,
+          "voice_quality": 4.645,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.4699999999999998,
+          "voice_articulation": 18.784999999999993,
+          "voice_microtone": 17.93999999999999,
+          "voice_tradition": 7.67,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 23.074999999999996,
+          "voice_ensemble_config": 18.004999999999992,
+          "voice_ornament_system": 3.45,
+          "voice_pitch_organization": 1.3849999999999998,
+          "voice_processing_chain": 14.81,
+          "voice_multitrack_stack": 8.540000000000001
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 4.192500000000001,
+          "fm_algorithm": 3.67,
+          "fm_modulator_ratio": 0.39,
+          "fm_polyphony": 1.95,
+          "fm_model_lineage": 3.535
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 4.192500000000001,
+          "poly_archetypes": 1,
+          "poly_voices": 1,
+          "poly_maker_lineage": -0.525
+        }
+      },
+      {
+        "id": "drum_machine_707",
+        "slots": {
+          "tr707_voice": "tr707_kick",
+          "drum_machine_707_context": "drum_machine_707_eighties_pop"
+        },
+        "scores": {
+          "tr707_voice": 4.875,
+          "drum_machine_707_context": 3.25
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "coated_nano_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 1.755,
+          "body_wood": 0.195,
+          "pickup_config": 0.845,
+          "string_type": 2.54,
+          "scale_length_b": 0.24,
+          "fretted_or_not": 0,
+          "bass_technique": 1.625
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.5749999999999997,
+          "sampler_archetypes": 0.75,
+          "sampler_bit_depth": 0.48,
+          "sampler_workflow": 3.665,
+          "sampler_classic_context": 25.154999999999994
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

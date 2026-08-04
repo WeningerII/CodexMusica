@@ -3,14 +3,14 @@
   "name": "Pinoy trap",
   "family": "hip_hop",
   "lineage": "Filipino trap formed after 2015 in Metro Manila and the provincial bedroom-producer scene — Ex Battalion, Shanti Dope, Al James and the Ownmuzik and Uprising collectives built it on 130-150 BPM half-time 808 patterns with long pitched sub-glides, triplet hi-hat rolls, dark minor-key plucked or bell loops, and Taglish rap alternating rapid triplet flows with sung Auto-Tuned hooks, circulated first through YouTube and SoundCloud rather than radio.",
-  "recipe": "classic Southern American mid-2010s pinoy trap, mc Rhythm, intl hip hop branch, us hip hop southern baton rouge rap dirty south rap. thick, rap, slow rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass wavetable sub bass analog poly synth, sub bass monosynth acid bass. bedroom. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 482,
-  "score": 272.405,
+  "recipe": "classic Southern American mid-2010s pinoy trap, mc Rhythm, intl hip hop branch, us hip hop southern country rap snap. thick, rap, wide pitch sway, interlocked note trading. TR-808, sampled chopped sampler drum machine, sub bass wavetable sub bass analog poly synth, sub bass monosynth acid bass. bedroom. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 429,
+  "score": 247.551,
   "config": {
     "traditions": [
       "pinoy_trap",
-      "baton_rouge_rap",
-      "dirty_south_rap"
+      "country_rap",
+      "snap"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 0.7799999999999997,
-          "voice_quality": 21.910000000000004,
+          "voice_register": 3.8500000000000014,
+          "voice_quality": 21.108125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.365,
-          "voice_articulation": 23.4,
-          "voice_microtone": 27.819999999999997,
-          "voice_tradition": 10.01,
-          "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 4.485,
-          "voice_speech_song": 22.1,
-          "voice_ensemble_config": 20.669999999999998,
-          "voice_ornament_system": 7.280000000000002,
-          "voice_pitch_organization": 2.835,
-          "voice_processing_chain": 14.219999999999999,
-          "voice_multitrack_stack": 4.225
+          "voice_vibrato": 4.465,
+          "voice_articulation": 17.029999999999998,
+          "voice_microtone": 18.849999999999994,
+          "voice_tradition": 8.745000000000001,
+          "voice_mechanism_compound": 4.874999999999999,
+          "voice_estill_quality": 8.805,
+          "voice_speech_song": 20.527500000000003,
+          "voice_ensemble_config": 14.559999999999997,
+          "voice_ornament_system": 7.020000000000003,
+          "voice_pitch_organization": 3.508750000000001,
+          "voice_processing_chain": 12.820000000000002,
+          "voice_multitrack_stack": 2.925
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 11.71,
-          "drum_machine_808_context": 5.9799999999999995,
-          "tr808_production_origin": 1.105
+          "tr808_voice": 9.385000000000002,
+          "drum_machine_808_context": 3.9,
+          "tr808_production_origin": 0.9099999999999999
         }
       },
       {
@@ -74,24 +74,24 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 8.125,
-          "sample_bitdepth": 2.535,
-          "sample_swing": 12.74,
-          "sample_processing": 2.925
+          "electronic_technique": 7.405000000000001,
+          "sample_bitdepth": 2.0799999999999996,
+          "sample_swing": 12.025,
+          "sample_processing": 2.08
         }
       },
       {
         "id": "wavetable_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "wt_position": "wt_morphing",
+          "wt_position": "wt_chaotic",
           "wt_family": "wt_industrial",
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 18.354999999999997,
-          "wt_position": 0.9149999999999999,
-          "wt_family": 0.65,
+          "electronic_technique": 17.28,
+          "wt_position": 0.9099999999999999,
+          "wt_family": 0.9099999999999999,
           "wt_polyphony": 0
         }
       },
@@ -104,25 +104,25 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 18.354999999999997,
-          "wave_acid": 0.195,
-          "filter_acid": 2.19,
-          "accent_acid": 0.65
+          "electronic_technique": 17.28,
+          "wave_acid": 0.39,
+          "filter_acid": 2.05875,
+          "accent_acid": 0.195
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "jupiter_8",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 18.354999999999997,
-          "poly_archetypes": 0.3,
-          "poly_voices": 0.3,
-          "poly_maker_lineage": -1.435
+          "electronic_technique": 17.28,
+          "poly_archetypes": 0.845,
+          "poly_voices": 0.44999999999999996,
+          "poly_maker_lineage": -1.085
         }
       }
     ],

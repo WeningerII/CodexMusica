@@ -1,0 +1,154 @@
+{
+  "id": "central_asian_folk",
+  "name": "Central Asian Folk",
+  "family": "global",
+  "lineage": "Village and pastoral repertory across Kazakhstan, Kyrgyzstan, Uzbekistan, Tajikistan and Turkmenistan documented by Soviet ethnographic expeditions from the 1920s onward — wedding and lament song, work and cradle song, and dance tunes carried on dutar, komuz, dombyra, ghijak and doira, mostly solo or in unison duo, in short strophic forms with free-rhythm openings and pentatonic or narrow-range modal melodies over an unstopped drone string.",
+  "recipe": "classic mid-1920s central asian folk, hunting Song, central Asian branch, middle eastern wedding, string drone modal, middle eastern funeral lament arabic nāḥa bağlama. thick, breath veiled tone, straight note core, interlocked note trading. turkmen long necked bagshy tradition fergana tashkent maqom tradition distinct from bukharan dutar, long necked teardrop bodied dombyra, song accompaniment secondary epic tellers komuz, ghijak pamiri, doira frame drum, sybyzgy. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 561,
+  "score": 180.89,
+  "config": {
+    "traditions": [
+      "central_asian_folk",
+      "arabic_naha",
+      "baglama_asik"
+    ],
+    "instruments": [
+      {
+        "id": "dutar",
+        "slots": {
+          "dutar_body": "dutar_turkmen_long",
+          "dutar_strings": "dutar_silk_traditional",
+          "dutar_tradition": "dutar_fergana_tashkent_maqom"
+        },
+        "scores": {
+          "dutar_body": 3.1200000000000006,
+          "dutar_strings": -0.06999999999999991,
+          "dutar_tradition": 5.59
+        }
+      },
+      {
+        "id": "dombyra",
+        "slots": {
+          "dombyra_form": "dombyra_western",
+          "dombyra_style": "dombyra_tokpe",
+          "dombyra_strings": "dombyra_gut"
+        },
+        "scores": {
+          "dombyra_form": 2.385,
+          "dombyra_style": 0.8449999999999999,
+          "dombyra_strings": -0.05
+        }
+      },
+      {
+        "id": "komuz",
+        "slots": {
+          "komuz_body": "komuz_apricot_three_string_canonical",
+          "komuz_tradition": "komuz_song_accompaniment"
+        },
+        "scores": {
+          "komuz_body": 0.585,
+          "komuz_tradition": 4.825000000000001
+        }
+      },
+      {
+        "id": "ghijak_pamiri",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "ghijak_pamiri_body": "ghijak_pamiri_gourd",
+          "ghijak_pamiri_style": "ghijak_pamiri_ensemble"
+        },
+        "scores": {
+          "bowed_technique": 0.375,
+          "ghijak_pamiri_body": 0,
+          "ghijak_pamiri_style": 0.585
+        }
+      },
+      {
+        "id": "doira_frame_drum",
+        "slots": {
+          "doira_jingles": "doira_ringless",
+          "doira_technique": "doira_roll",
+          "doira_head": "doira_goatskin"
+        },
+        "scores": {
+          "doira_jingles": 0.195,
+          "doira_technique": 1.6899999999999997,
+          "doira_head": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 4.444999999999999,
+          "voice_quality": 9.035,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.565,
+          "voice_articulation": 16.705,
+          "voice_microtone": 33.31249999999999,
+          "voice_tradition": 15.892499999999997,
+          "voice_mechanism_compound": 7.6049999999999995,
+          "voice_estill_quality": 4.2250000000000005,
+          "voice_speech_song": 23.952499999999997,
+          "voice_ensemble_config": 15.794999999999993,
+          "voice_ornament_system": 8.77,
+          "voice_pitch_organization": 9.205,
+          "voice_processing_chain": 3.9,
+          "voice_multitrack_stack": 2.0799999999999996
+        }
+      },
+      {
+        "id": "sybyzgy",
+        "slots": {
+          "sybyzgy_material": "sybyzgy_reed",
+          "sybyzgy_technique": "sybyzgy_plain"
+        },
+        "scores": {
+          "sybyzgy_material": 0.21,
+          "sybyzgy_technique": 4.03
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mongolian_pentatonic_long_song",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mongolian_pentatonic_long_song",
+    "room": "field_recording",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

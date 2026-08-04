@@ -1,0 +1,138 @@
+{
+  "id": "nightcore",
+  "name": "Nightcore",
+  "family": "electronic",
+  "lineage": "Begun in 2002 by Norwegian students Thomas S. Nilsen and Steffen Ojala Soderholm as a school project, nightcore is a transformation rather than a composition: existing eurodance, trance and later pop tracks are sped up roughly 10-35 percent with pitch raised in tandem, producing 160-180 BPM four-on-the-floor tracks with distinctively childlike, formant-raised vocals, distributed as YouTube uploads over anime stills.",
+  "recipe": "classic early-2000s nightcore, electronic Dance, eurodance branch, trance electronic dance, pop experimental experimental electric bubblegum bass indietronica. thick, chest mix belt, wide pitch sway, interlocked note trading. singing lead digital subtractive, TR-909, singing lead analog poly synth, glitched textural sampler. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 434,
+  "score": 222.952,
+  "config": {
+    "traditions": [
+      "nightcore",
+      "bubblegum_bass",
+      "indietronica"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 11.879999999999999,
+          "va_archetypes": 2.795,
+          "digital_subtractive_context": 14.234999999999996
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.78,
+          "tr909_production_origin": 0.195
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_formant_shifted_double_stereo"
+        },
+        "scores": {
+          "voice_register": 13.844999999999994,
+          "voice_quality": 12.12,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.94,
+          "voice_articulation": 14.429999999999994,
+          "voice_microtone": 13.389999999999992,
+          "voice_tradition": 12.83,
+          "voice_mechanism_compound": 6.174999999999999,
+          "voice_estill_quality": 4.94,
+          "voice_speech_song": 17.419999999999995,
+          "voice_ensemble_config": 15.404999999999994,
+          "voice_ornament_system": 1.5449999999999997,
+          "voice_pitch_organization": 2.93,
+          "voice_processing_chain": 18.374999999999996,
+          "voice_multitrack_stack": 4.1899999999999995
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 11.879999999999999,
+          "poly_archetypes": 0.915,
+          "poly_voices": 0.915,
+          "poly_maker_lineage": -1.765
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 13.275,
+          "sampler_archetypes": 0.495,
+          "sampler_bit_depth": 0.09,
+          "sampler_workflow": 13.775,
+          "sampler_classic_context": 15.177499999999997
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

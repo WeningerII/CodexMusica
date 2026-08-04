@@ -1,0 +1,168 @@
+{
+  "id": "sundanese_traditional",
+  "name": "Sundanese Traditional",
+  "family": "global",
+  "lineage": "West Javanese Sundanese repertoire complex — tembang Sunda cianjuran vocal poetry codified in mid-19th-century Cianjur under Bupati R.A.A. Kusumahningrat, gamelan degung, and kacapi-suling chamber music — marked by free-rhythm mamaos vocal lines over zither ostinato, breathy end-blown suling ornament, and pentatonic laras pelog/degung and salendro tunings, with kendang-driven jaipongan and bamboo angklung as its rural and popular offshoots.",
+  "recipe": "classic Southeast Asian modern sundanese traditional, art Music, southeast Asian branch, string drone modal, med east poetic ballad poetry ghazal balochi folk. vocal fry, breath veiled tone, slow rate, interlocked note trading. flat bodied pentatonic kacapi, bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling, gamelan foundational carved hardwood canonical javanese goat skin canonical javanese silk pre modern gamelan legato rebab, gamelan sundanese jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, bonang, pentatonic black bamboo angklung. javanese pendopo pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 729,
+  "score": 212.89,
+  "config": {
+    "traditions": [
+      "sundanese_traditional",
+      "ghazal",
+      "balochi_folk"
+    ],
+    "instruments": [
+      {
+        "id": "kacapi",
+        "slots": {
+          "kacapi_form": "kacapi_siter",
+          "kacapi_repertoire": "kacapi_kacapi_suling",
+          "kacapi_laras": "kacapi_pelog_degung",
+          "kacapi_construction": "kacapi_sawo_brass"
+        },
+        "scores": {
+          "kacapi_form": 8.540000000000001,
+          "kacapi_repertoire": 8.15,
+          "kacapi_laras": 1.45,
+          "kacapi_construction": 0.15
+        }
+      },
+      {
+        "id": "suling",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "suling_use": "suling_sundanese",
+          "suling_tuning": "suling_slendro",
+          "suling_body_material": "suling_bamboo_canonical"
+        },
+        "scores": {
+          "wind_articulation": 3.2550000000000003,
+          "suling_use": 6.045,
+          "suling_tuning": 2.34,
+          "suling_body_material": 2.9899999999999998
+        }
+      },
+      {
+        "id": "rebab",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "rebab_region": "rebab_javanese",
+          "rebab_context": "rebab_wayang",
+          "rebab_body": "rebab_wood_carved",
+          "rebab_skin": "rebab_goat_skin",
+          "rebab_strings": "rebab_silk_historical"
+        },
+        "scores": {
+          "bowed_technique": 3.125,
+          "rebab_region": 1.45,
+          "rebab_context": 2.34,
+          "rebab_body": 1.69,
+          "rebab_skin": 1.69,
+          "rebab_strings": 1.69
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_sundanese",
+          "kendang_shell_wood": "kendang_jackwood_canonical",
+          "kendang_head": "kendang_buffalo_hide_canonical"
+        },
+        "scores": {
+          "kendang_size": 3.38,
+          "kendang_context": 3.5999999999999996,
+          "kendang_shell_wood": 1.69,
+          "kendang_head": 1.69
+        }
+      },
+      {
+        "id": "bonang",
+        "slots": {
+          "bonang_tuning": "bonang_pelog",
+          "bonang_register": "bonang_panerus"
+        },
+        "scores": {
+          "bonang_tuning": 1.885,
+          "bonang_register": 0.39
+        }
+      },
+      {
+        "id": "angklung",
+        "slots": {
+          "angklung_form": "angklung_buncis",
+          "angklung_playing": "angklung_interlock",
+          "angklung_bamboo": "angklung_awi_wulung"
+        },
+        "scores": {
+          "angklung_form": 9.069999999999999,
+          "angklung_playing": 0.4875,
+          "angklung_bamboo": 1.085
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.415,
+          "voice_quality": 8.255,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.25,
+          "voice_articulation": 17.224999999999998,
+          "voice_microtone": 22.197499999999994,
+          "voice_tradition": 13.04,
+          "voice_mechanism_compound": 8.3,
+          "voice_estill_quality": 4.517500000000001,
+          "voice_speech_song": 18.069999999999997,
+          "voice_ensemble_config": 20.085,
+          "voice_ornament_system": 8.15,
+          "voice_pitch_organization": 8.344999999999999,
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 5.005000000000001
+        }
+      }
+    ],
+    "room": "javanese_pendopo_pavilion",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "gamelan_pelog",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "gamelan_pelog",
+    "room": "javanese_pendopo_pavilion",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "id": "jam_bands",
+  "name": "Jam Bands (festival circuit)",
+  "family": "rock",
+  "lineage": "North American touring scene consolidated in the 1990s around Phish, Widespread Panic, String Cheese Incident and moe., extending the Grateful Dead's practice — multi-night stands with rotating setlists, songs opened into twenty-minute modal or funk vamps with segues between them, mixed on a house desk and taped from the audience section for free trading.",
+  "recipe": "classic mid-1990s jam bands, improv On Frame, jam free branch, classic distorted rock, bluegrass improv on frame acid rock progressive bluegrass. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched ostinato fast tremolo tonewheel organ, congas, pocket ostinato electric piano tine, alto phosphor bronze continuous-airflow legato saxophone. festival stage. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+  "recipe_chars": 822,
+  "score": 340.955,
+  "config": {
+    "traditions": [
+      "jam_bands",
+      "acid_rock",
+      "progressive_bluegrass"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 24.044999999999995,
+          "voice_quality": 11.114999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.335,
+          "voice_articulation": 19.435,
+          "voice_microtone": 20.929999999999996,
+          "voice_tradition": 7.085,
+          "voice_mechanism_compound": 6.525,
+          "voice_estill_quality": 7.3500000000000005,
+          "voice_speech_song": 18.785,
+          "voice_ensemble_config": 16.574999999999996,
+          "voice_ornament_system": 4.375000000000001,
+          "voice_pitch_organization": 0.8775,
+          "voice_processing_chain": 5.1025,
+          "voice_multitrack_stack": 5.07
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 5.3950000000000005,
+          "amp_make": 12.595,
+          "body_wood": 0.885,
+          "neck_wood": 1.28,
+          "fretboard": 1.28,
+          "pickup_magnet": 1.28,
+          "string_material": 1.28,
+          "string_gauge": 0.885,
+          "bridge": 0,
+          "scale_length": 1.7700000000000002,
+          "finish": 0.435,
+          "string_tuning": 10.334999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.49,
+          "body_wood": 1.7700000000000002,
+          "pickup_config": 0.045,
+          "string_type": 20.15,
+          "scale_length_b": 0.885,
+          "fretted_or_not": 0,
+          "bass_technique": 15.584999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.2,
+          "drumhead": 2.535,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 3.2,
+          "drawbar_setting": 15.634999999999998,
+          "rotary_speed": 15.449999999999998,
+          "percussion_setting": 8.059999999999999,
+          "tonewheel_model": 8.319999999999999,
+          "leslie_cabinet_model": 1.17
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "tumba",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 0.06499999999999999,
+          "conga_set": 0.195,
+          "conga_skin": 0.885,
+          "conga_shell_wood": 0.885
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "tine_voicing": "mellow_tine",
+          "tine_effect": "overdrive_tine"
+        },
+        "scores": {
+          "keyboard_technique": 3.2,
+          "tine_voicing": 0,
+          "tine_effect": 8.059999999999999
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 1.4999999999999998,
+          "sax_size": 2.8600000000000003,
+          "sax_reed": 1.28,
+          "sax_body_alloy": 2,
+          "sax_mouthpiece": 1.28,
+          "sax_technique": 2,
+          "sax_maker_school": 0.3250000000000003
+        }
+      }
+    ],
+    "room": "festival_stage",
+    "archetype": "arch_mobile_remote_truck",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_console_inline_strip",
+      "console": "console_british_inline_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "open_tuning_singer_songwriter",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "open_tuning_singer_songwriter",
+    "room": "festival_stage",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_high",
+    "chain_console": "console_british_inline_80s"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "id": "barrelhouse_piano",
+  "name": "Barrelhouse piano",
+  "family": "blues_gospel",
+  "lineage": "Rough solo blues piano of southern juke joints, logging and turpentine camps and Texas-Louisiana barrelhouses from roughly 1900, first recorded in the late 1920s through Cow Cow Davenport, Little Brother Montgomery, Roosevelt Sykes and Cripple Clark Bell — heavy percussive left hand alternating walking bass, slow-drag 12/8 shuffle and eight-to-the-bar figures on badly maintained upright pianos, right hand playing blue-note tremolos and crushed seconds, hollered blues vocals over 12-bar forms and constant loud dynamics to carry over a drinking crowd.",
+  "recipe": "classic 1927-1929 barrelhouse piano, improv On Frame, boogie woogie branch, blues acoustic functional song, blues narrative hokum blues hill country blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. stride upright stride tack piano, foot stomp. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 362,
+  "score": 216.551,
+  "config": {
+    "traditions": [
+      "barrelhouse_piano",
+      "hokum_blues_vaudeville",
+      "hill_country_blues"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 5.744500000000001,
+          "upright_use": 0.4215,
+          "upright_piano_size": 0.65
+        }
+      },
+      {
+        "id": "tack_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "tack_density": "sparse_tacks",
+          "tack_piano_context": "tack_piano_saloon"
+        },
+        "scores": {
+          "keyboard_technique": 5.744500000000001,
+          "tack_density": 2.9899999999999998,
+          "tack_piano_context": 3.6399999999999997
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 33.51500000000002,
+          "voice_quality": 12.869999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 27.813,
+          "voice_articulation": 22.944999999999993,
+          "voice_microtone": 26.465000000000003,
+          "voice_tradition": 13.455,
+          "voice_mechanism_compound": 4.485,
+          "voice_estill_quality": 5.8825,
+          "voice_speech_song": 23.66,
+          "voice_ensemble_config": 20.084999999999997,
+          "voice_ornament_system": 1.885,
+          "voice_pitch_organization": 2.9299999999999997,
+          "voice_processing_chain": 3.77,
+          "voice_multitrack_stack": 2.535
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_boot",
+          "stomp_surface": "stomp_earth_ground"
+        },
+        "scores": {
+          "stomp_footwear": 0.39,
+          "stomp_surface": 0.15
+        }
+      }
+    ],
+    "room": "tin_roofed_shack",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "tin_roofed_shack",
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

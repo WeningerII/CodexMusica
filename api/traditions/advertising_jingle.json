@@ -1,0 +1,199 @@
+{
+  "id": "advertising_jingle",
+  "name": "Jingles (Advertising)",
+  "family": "pop",
+  "lineage": "Commercial broadcast micro-song form born with the 1926 Wheaties radio spot and industrialized from the 1950s by Chicago and Dallas jingle houses such as PAMS and later Steve Karmen and Barry Manilow's ad work, engineered as 15, 30 or 60-second cues with an immediately singable hook in the first two bars, close-stacked session-singer harmony, bright big-band or synth-pop backing tracks, a brand-name payoff on the final cadence, and mixes optimized for AM radio and small television speakers.",
+  "recipe": "classic mid-1950s jingles, spoken Word, broadcast branch, pop rock functional song, crooners functional song boy band yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. octuple plus dense stack multi track instrument mid 1960s double tracking era 2 to 4 track hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, extended harmony through composed jazz big band, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, cutting projecting brass glockenspiel. am radio booth. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 880,
+  "score": 387.18,
+  "config": {
+    "traditions": [
+      "advertising_jingle",
+      "boy_band",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 38.02500000000001,
+          "voice_quality": 13.194999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.095000000000001,
+          "voice_articulation": 20.799999999999997,
+          "voice_microtone": 36.10000000000001,
+          "voice_tradition": 24.277499999999996,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 4.290000000000001,
+          "voice_speech_song": 26.129999999999995,
+          "voice_ensemble_config": 20.929999999999993,
+          "voice_ornament_system": 0.9849999999999999,
+          "voice_pitch_organization": 2.83,
+          "voice_processing_chain": 7.475,
+          "voice_multitrack_stack": 5.102500000000001
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.365,
+          "multitrack_stack_era_aesthetic": 5.5575,
+          "multitrack_stack_processing": 1.085
+        }
+      },
+      {
+        "id": "jazz_big_band",
+        "slots": {
+          "sections": "bb_trumpets",
+          "era": "bb_progressive"
+        },
+        "scores": {
+          "sections": 1.04,
+          "era": 5.654999999999999
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 19.18,
+          "amp_make": 7.67,
+          "body_wood": 1.625,
+          "neck_wood": 1.235,
+          "fretboard": 1.17,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 1.235,
+          "bridge": 0.15,
+          "scale_length": 1.235,
+          "finish": 0.09,
+          "string_tuning": 8.709999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 8.71,
+          "body_wood": 1.235,
+          "pickup_config": 1,
+          "string_type": 19.3375,
+          "scale_length_b": 1.235,
+          "fretted_or_not": 0.045,
+          "bass_technique": 14.914999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.149999999999995,
+          "drumhead": 18.665,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 20.034999999999997,
+          "poly_archetypes": 7.734999999999999,
+          "poly_voices": 0.845,
+          "poly_maker_lineage": -1.12
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_marching",
+          "glockenspiel_mallet": "glockenspiel_brass"
+        },
+        "scores": {
+          "percussion_technique": 1.25,
+          "glockenspiel_size": 0.15,
+          "glockenspiel_mallet": 1.295
+        }
+      }
+    ],
+    "room": "am_radio_booth",
+    "archetype": "arch_network_radio_broadcast",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "room": "am_radio_booth",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

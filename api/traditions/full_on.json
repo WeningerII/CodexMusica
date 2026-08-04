@@ -1,0 +1,136 @@
+{
+  "id": "full_on",
+  "name": "Full On (Psytrance)",
+  "family": "electronic",
+  "lineage": "Israeli psytrance style codified 1997-2002 by Astrix, GMS, Infected Mushroom, Skazi and the Phonokol/HOMmega labels, running 142-148 BPM with a punchy short kick, a triplet rolling bass figure syncopated against it, bright major-key supersaw and pluck leads, big filtered breakdowns with spoken-word samples, and a peak-time arrangement built for large outdoor festival systems.",
+  "recipe": "classic mid-2000s full on, electronic Dance, trance branch, hardstyle electronic dance, techno electronic dance hard techno j-core. analog mono analog poly wavetable fm synth, TR-909, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 401,
+  "score": 57.455,
+  "config": {
+    "traditions": [
+      "full_on",
+      "hard_techno_2020s",
+      "j_core"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_korg_kato"
+        },
+        "scores": {
+          "electronic_technique": 8.45,
+          "mono_oscillator": 0,
+          "mono_filter": -0.35,
+          "mono_archetypes": 1.17,
+          "mono_maker_lineage": -0.6600000000000001
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_clap",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 1.625,
+          "drum_machine_909_context": 2.34,
+          "tr909_production_origin": 0.135
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 1.6699999999999997,
+          "poly_archetypes": 1.345,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": -1.1600000000000001
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": 2.6249999999999996,
+          "wt_position": 8.775,
+          "wt_family": 0.195,
+          "wt_polyphony": 1.345
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_native_instruments_fm8"
+        },
+        "scores": {
+          "electronic_technique": 1.6699999999999997,
+          "fm_algorithm": 0.345,
+          "fm_modulator_ratio": 0.81,
+          "fm_polyphony": 1.345,
+          "fm_model_lineage": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.6249999999999996,
+          "sampler_archetypes": 0.195,
+          "sampler_bit_depth": 0.525,
+          "sampler_workflow": 2.6249999999999996,
+          "sampler_classic_context": 16.119999999999997
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "id": "glitch_hop",
+  "name": "Glitch Hop",
+  "family": "electronic",
+  "lineage": "Late-1990s/2000s fusion of hip-hop tempo and IDM digital error, developed by Prefuse 73, Dabrye and Edit and later by the 110 BPM bass-heavy West Coast strain of Opiuo and Koan Sound, characterised by half-time boom-bap drum programming shredded with buffer stutters, bit-crushing and granular resampling, filthy modulated synth basslines and abrupt rhythmic gating.",
+  "recipe": "classic 1997-1999 glitch hop, experimental Elec, idm glitch branch, experimental MC rhythm, lofi experimental electric, bass descendants bass system halftime drum & bass hexd. vocal fry, rap, straight onset, interlocked note trading. glitched textural sampler, glitched textural granular glitched textural wavetable synth, roland tr 8s modern aira digital recreation TR-808, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 574,
+  "score": 280.838,
+  "config": {
+    "traditions": [
+      "glitch_hop",
+      "halftime_dnb",
+      "hexd"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 17.045,
+          "sampler_archetypes": 8.872499999999999,
+          "sampler_bit_depth": 1.5,
+          "sampler_workflow": 17.195,
+          "sampler_classic_context": 24.31
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 17.045,
+          "granular_use": 0.845,
+          "granular_synth_source": 5.2
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 17.045,
+          "wt_position": 2.495,
+          "wt_family": 0.54,
+          "wt_polyphony": 0.65
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 12.445,
+          "drum_machine_808_context": 8.305,
+          "tr808_production_origin": 1.9000000000000001
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 5.235000000000001,
+          "turntable_technique": 5.845000000000001
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.65,
+          "voice_quality": 10.075000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.95,
+          "voice_articulation": 17.809999999999995,
+          "voice_microtone": 20.14999999999999,
+          "voice_tradition": 12.97,
+          "voice_mechanism_compound": 4.160000000000001,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 17.809999999999995,
+          "voice_ensemble_config": 18.979999999999997,
+          "voice_ornament_system": 2.4050000000000002,
+          "voice_pitch_organization": 1.04,
+          "voice_processing_chain": 15.504999999999999,
+          "voice_multitrack_stack": 6.945
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

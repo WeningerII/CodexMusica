@@ -1,0 +1,140 @@
+{
+  "id": "folk_blues",
+  "name": "Folk Blues",
+  "family": "blues_gospel",
+  "lineage": "Concert-and-coffeehouse acoustic blues consolidated in the US and British revival circuits 1948-1965 by Lead Belly, Josh White, Big Bill Broonzy, Brownie McGhee and Sonny Terry — moderate 80-120 BPM twelve-bar and ballad forms on fingerpicked acoustic or twelve-string guitar with harmonica, delivered in clear enunciated diction for a listening audience rather than a dance floor, often with topical or narrative lyrics.",
+  "recipe": "classic Northern European mid-1950s folk blues, ballad Poetry, blues narrative branch, anglo singer song britfolk, anglo American protest song, blues acoustic functional song st. louis blues malian blues. thick, blues-shouter, wide pitch sway, interlocked note trading. extended drone raga adapted open tuning 12 string acoustic guitar 12 string, open g tuning cedar bronze fingerpicked dreadnought acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, upright bass. uk folk revival club 60s. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 661,
+  "score": 341.194,
+  "config": {
+    "traditions": [
+      "folk_blues",
+      "st_louis_blues",
+      "malian_blues"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 30.089999999999993,
+          "voice_quality": 11.309999999999985,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 24.874999999999993,
+          "voice_articulation": 19.174999999999997,
+          "voice_microtone": 25.104999999999997,
+          "voice_tradition": 14.884999999999998,
+          "voice_mechanism_compound": 6.24,
+          "voice_estill_quality": 6.954999999999999,
+          "voice_speech_song": 25.544999999999995,
+          "voice_ensemble_config": 20.604999999999997,
+          "voice_ornament_system": 0.7149999999999997,
+          "voice_pitch_organization": 1.16,
+          "voice_processing_chain": 6.41,
+          "voice_multitrack_stack": 2.5025000000000004
+        }
+      },
+      {
+        "id": "acoustic_guitar_12_string",
+        "slots": {
+          "twelve_string_body": "twelve_string_dreadnought_steel",
+          "twelve_string_tuning": "twelve_string_open_tunings",
+          "twelve_string_strings": "eighty_twenty_12"
+        },
+        "scores": {
+          "twelve_string_body": 0.845,
+          "twelve_string_tuning": 5.98,
+          "twelve_string_strings": 2.585
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 16.64,
+          "string_tuning": 3.2150000000000003,
+          "top_wood": 1.63,
+          "back_sides": 0.65,
+          "string_acoustic": 2.585
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 0.45499999999999996,
+          "harmonica_comb": 25.120624999999993,
+          "harmonica_reed": 25.230624999999996,
+          "harmonica_technique": 25.044999999999995,
+          "harmonica_maker_school": 24.489999999999995,
+          "harmonica_tuning": 11.974999999999998
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0.8749999999999999,
+          "upright_play": 0.8749999999999999
+        }
+      }
+    ],
+    "room": "uk_folk_revival_club_60s",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "folk_fingerstyle_alternating_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "folk_fingerstyle_alternating_bass",
+    "room": "uk_folk_revival_club_60s",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

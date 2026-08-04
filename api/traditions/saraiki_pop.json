@@ -1,0 +1,164 @@
+{
+  "id": "saraiki_pop",
+  "name": "Saraiki pop",
+  "family": "global",
+  "lineage": "Popular music in Saraiki from the southern Punjab belt of Multan, Dera Ghazi Khan and Bahawalpur, professionalized through Radio Pakistan Multan from the 1970s and the Lahore cassette-and-VCD trade of the 1980s-2000s with Attaullah Khan Esakhelvi, Pathanay Khan and Abida Parveen, marked by dholak-and-tabla duple grooves, alghoza double-flute and harmonium riffs, kafi and doha poetic texts of Khwaja Ghulam Farid, and long melismatic laments in a plaintive high register.",
+  "recipe": "classic South Asian mid-1970s saraiki pop, functional Song, south Asian pop branch, Sufi ritual devotional, indian bard ballad poetry qawwali rajasthani folk. extended whistle, declaimed, slow rate, interlocked note trading. goat skin syahi rope laced steel ring dholak, algoza, low overtone rich vocal male harmonium indian, steel single string canonical Punjabi ornamented tumbi, gourd bamboo canonical bengali steel modern ornamented ektara, pitched indian rosewood rosewood tabla. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 662,
+  "score": 226.22,
+  "config": {
+    "traditions": [
+      "saraiki_pop",
+      "qawwali",
+      "rajasthani_folk_thar"
+    ],
+    "instruments": [
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 0.195,
+          "dholak_construction": 0.845,
+          "dholak_head": 1.035,
+          "dholak_tensioning": 1.035
+        }
+      },
+      {
+        "id": "algoza",
+        "slots": {
+          "algoza_pair": "algoza_melody_drone",
+          "algoza_breath": "algoza_pulsed"
+        },
+        "scores": {
+          "algoza_pair": 0,
+          "algoza_breath": 0.3
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_kirtan"
+        },
+        "scores": {
+          "free_reed_technique": 0.8449999999999999,
+          "harmonium_action": 1.4299999999999997,
+          "harmonium_voicing": 1.4949999999999999,
+          "harmonium_use": 3.769999999999999
+        }
+      },
+      {
+        "id": "tumbi",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "tumbi_construction": "tumbi_synthetic",
+          "tumbi_context": "tumbi_film",
+          "tumbi_string": "tumbi_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.3,
+          "tumbi_construction": 0.78,
+          "tumbi_context": 0.7149999999999999,
+          "tumbi_string": 1.2349999999999999
+        }
+      },
+      {
+        "id": "ektara",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "ektara_use": "ektara_bhajan",
+          "ektara_body": "ektara_gourd_bamboo",
+          "ektara_string": "ektara_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.3,
+          "ektara_use": 5.395,
+          "ektara_body": 1.4699999999999998,
+          "ektara_string": 1.1849999999999998
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 4.16,
+          "tabla_bayan": 0.65,
+          "tabla_syahi": 5.3950000000000005
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 10.385,
+          "voice_quality": 16.489999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4050000000000002,
+          "voice_articulation": 22.099999999999994,
+          "voice_microtone": 22.619999999999994,
+          "voice_tradition": 28.1125,
+          "voice_mechanism_compound": 4.030000000000001,
+          "voice_estill_quality": 3.575000000000001,
+          "voice_speech_song": 26.325,
+          "voice_ensemble_config": 23.074999999999996,
+          "voice_ornament_system": 7.149999999999999,
+          "voice_pitch_organization": 5.19,
+          "voice_processing_chain": 5.45,
+          "voice_multitrack_stack": 3.2400000000000007
+        }
+      }
+    ],
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

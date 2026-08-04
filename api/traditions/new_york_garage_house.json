@@ -1,0 +1,192 @@
+{
+  "id": "new_york_garage_house",
+  "name": "New York Garage House",
+  "family": "electronic",
+  "lineage": "Named for the Paradise Garage, where Larry Levan DJed from 1977 to 1987, and codified on record in the mid-1980s by Tony Humphries at Newark's Zanzibar and producers Timmy Regisford, Blaze and Masters at Work — 118-124 BPM four-on-the-floor built on live-feel drum programming and Roland TR-909, gospel-rooted full-voiced lead singing, real piano and organ chords, and long dub-style breakdowns on the twelve-inch mix.",
+  "recipe": "classic North American 1984-1986 new york garage house, electronic Dance, garage house u s branch, deep house house, chicago house house, soul R&B functional song doo-wop. thick, breath veiled tone, straight note core, interlocked note trading. roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, sampler, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 smaller 25w tube home club gospel runs full spectrum fast tremolo tonewheel organ. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 958,
+  "score": 423.629,
+  "config": {
+    "traditions": [
+      "new_york_garage_house",
+      "doo_wop",
+      "chicago_house"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 19.735,
+          "voice_quality": 20.735000000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5606250000000004,
+          "voice_articulation": 22.48999999999999,
+          "voice_microtone": 21.709999999999994,
+          "voice_tradition": 15.624999999999998,
+          "voice_mechanism_compound": 3.0549999999999997,
+          "voice_estill_quality": 14.499999999999996,
+          "voice_speech_song": 25.61,
+          "voice_ensemble_config": 27.235,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 2.1999999999999997,
+          "voice_processing_chain": 18.575,
+          "voice_multitrack_stack": 6.6745
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 24.995,
+          "drum_machine_909_context": 5.589999999999998,
+          "tr909_production_origin": 1.4299999999999997
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 15.294999999999998,
+          "grand_piano_size": 2.145,
+          "grand_piano_brand": 2.7299999999999995,
+          "piano_hammer": 2.1931249999999993,
+          "piano_rim": 4.765,
+          "piano_soundboard": 3.5749999999999993,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.8999999999999999,
+          "piano_pitch_standard": 1.4949999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 6.204999999999999,
+          "poly_archetypes": 1,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": 2.5999999999999996
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 12.532624999999998,
+          "body_wood": 2.535,
+          "pickup_config": 0.195,
+          "string_type": 12.382499999999999,
+          "scale_length_b": 3.145,
+          "fretted_or_not": 1.045,
+          "bass_technique": 7.924999999999999
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.9099999999999999,
+          "sampler_archetypes": 1.271625,
+          "sampler_bit_depth": 2.0149999999999997,
+          "sampler_workflow": 0.52,
+          "sampler_classic_context": 59.63575
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_145_smaller"
+        },
+        "scores": {
+          "keyboard_technique": 15.294999999999998,
+          "drawbar_setting": 8.075,
+          "rotary_speed": 8.175,
+          "percussion_setting": 0.618125,
+          "tonewheel_model": 6.373124999999999,
+          "leslie_cabinet_model": 1.4299999999999997
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_nyc_disco_twelve_inch",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_late70s_nyc_commercial",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

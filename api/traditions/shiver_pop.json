@@ -3,14 +3,14 @@
   "name": "Shiver pop",
   "family": "pop",
   "lineage": "Algorithmically named descriptor for the cold-toned indie synth-pop that coalesced 2009–2014 across Brooklyn, Gothenburg and Toronto — Chromatics, Austra, Niki & The Dove, Purity Ring — built on arpeggiated analog-poly sequences at 100–120 BPM, gated reverb-drenched drum-machine hits, single-coil guitar washed in tremolo and chorus, and a high, breathy, heavily reverberant female lead sung in a narrow, unforced range.",
-  "recipe": "classic Northern European mid-2010s shiver pop, functional Song, synthpop branch, pop rock new wave, alternative distorted rock, retro aesthetic experimental electric shimmer pop. thick, breath veiled tone, breath pulsed, interlocked note trading. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, behringer rd 8 modern clone analog circuit reproduction TR-808, mid attack plastic glockenspiel. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 788,
-  "score": 412.025,
+  "recipe": "classic Northern European mid-2010s shiver pop, functional Song, synthpop branch, pop rock new wave, alternative distorted rock, retro aesthetic experimental electric shimmer pop college rock. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, behringer rd 8 modern clone analog circuit reproduction TR-808, mid attack plastic glockenspiel. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 797,
+  "score": 334.858,
   "config": {
     "traditions": [
       "shiver_pop",
-      "new_wave",
-      "shimmer_pop"
+      "shimmer_pop",
+      "college_rock"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_gated_reverb",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 48.745000000000026,
-          "voice_quality": 11.764999999999993,
+          "voice_register": 38.020000000000024,
+          "voice_quality": 9.88,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.7049999999999996,
-          "voice_articulation": 16.31499999999999,
-          "voice_microtone": 47.175000000000004,
-          "voice_tradition": 31.575,
-          "voice_mechanism_compound": 2.4699999999999998,
-          "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 23.33499999999999,
-          "voice_ensemble_config": 16.05499999999999,
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 15.534999999999997,
+          "voice_microtone": 36.17500000000001,
+          "voice_tradition": 24.455,
+          "voice_mechanism_compound": 3.6725000000000003,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 19.889999999999997,
+          "voice_ensemble_config": 15.469999999999995,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 2.0500000000000007,
-          "voice_processing_chain": 6.9350000000000005,
-          "voice_multitrack_stack": 8.060000000000002
+          "voice_pitch_organization": 2.0950000000000006,
+          "voice_processing_chain": 4.7299999999999995,
+          "voice_multitrack_stack": 3.575
         }
       },
       {
@@ -61,10 +61,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 29.774999999999995,
-          "poly_archetypes": 9.879999999999999,
-          "poly_voices": 1.9949999999999999,
-          "poly_maker_lineage": 0.4549999999999999
+          "electronic_technique": 21.274999999999995,
+          "poly_archetypes": 8.58,
+          "poly_voices": 1.845,
+          "poly_maker_lineage": -0.7350000000000001
         }
       },
       {
@@ -77,25 +77,25 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
-          "bridge": "locking_trem",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 30.709999999999997,
-          "amp_make": 14.884999999999998,
-          "body_wood": 1.885,
-          "neck_wood": 1.885,
-          "fretboard": 1.8199999999999998,
+          "electric_technique": 20.909999999999997,
+          "amp_make": 10.725,
+          "body_wood": 2.34,
+          "neck_wood": 2.34,
+          "fretboard": 2.2749999999999995,
           "pickup_magnet": 1,
-          "string_material": 0.195,
-          "string_gauge": 2.535,
-          "bridge": 0.65,
-          "scale_length": 1.885,
-          "finish": 0,
-          "string_tuning": 11.05
+          "string_material": 0.65,
+          "string_gauge": 2.5349999999999997,
+          "bridge": 0.9950000000000001,
+          "scale_length": 2.34,
+          "finish": 0.045,
+          "string_tuning": 9.425
         }
       },
       {
@@ -110,26 +110,26 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 12.155,
-          "body_wood": 1.885,
+          "amp_make": 11.7,
+          "body_wood": 2.34,
           "pickup_config": 1,
-          "string_type": 24.7,
-          "scale_length_b": 1.885,
-          "fretted_or_not": 0.105,
-          "bass_technique": 24.299999999999997
+          "string_type": 21.45,
+          "scale_length_b": 2.34,
+          "fretted_or_not": 0,
+          "bass_technique": 18.674999999999997
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_miami",
+          "drum_machine_808_context": "drum_machine_808_trap",
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0.585,
-          "drum_machine_808_context": 3.575,
-          "tr808_production_origin": 2.325
+          "tr808_voice": 1.4299999999999997,
+          "drum_machine_808_context": 1.4949999999999999,
+          "tr808_production_origin": 2.025
         }
       },
       {
@@ -141,8 +141,8 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "glockenspiel_size": 1.8399999999999999,
-          "glockenspiel_mallet": 1.885
+          "glockenspiel_size": 1.585,
+          "glockenspiel_mallet": 1.4949999999999999
         }
       }
     ],

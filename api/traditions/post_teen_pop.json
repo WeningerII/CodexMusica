@@ -3,14 +3,14 @@
   "name": "Post-Teen Pop",
   "family": "pop",
   "lineage": "North American and British mainstream pop of the 2010s made by artists who graduated out of teen-idol machinery into adult authorship — Ariana Grande, Selena Gomez, Demi Lovato, Halsey and Shawn Mendes working with Max Martin, Ilya Salmanzadeh and Ryan Tedder — built at 90-110 BPM on trap-derived hi-hat rolls and 808 sub-bass under sparse keyboard-and-plucked-synth beds, with stacked, heavily comped, lightly retuned vocal arrangements and whisper-to-whistle-register dynamic staging replacing the four-on-the-floor of prior teen pop.",
-  "recipe": "classic mid-2010s post-teen pop, functional Song, pop rock branch, soul R&B functional song, us hip hop modern, pop rock synthpop metropopolis. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, singing lead analog poly singing lead wavetable synth, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pitched chopped sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 729,
-  "score": 558.523,
+  "recipe": "classic mid-2010s post-teen pop, functional Song, pop rock branch, soul R&B functional song, us hip hop modern, pop rock synthpop doo-wop. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, plucked short envelope analog poly plucked short envelope wavetable synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pitched chopped sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 765,
+  "score": 537.84,
   "config": {
     "traditions": [
       "post_teen_pop",
-      "metropopolis",
-      "hip_pop"
+      "hip_pop",
+      "doo_wop"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 42.700000000000024,
-          "voice_quality": 10.269999999999996,
+          "voice_register": 42.30000000000002,
+          "voice_quality": 19.110000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9824999999999995,
-          "voice_articulation": 22.035,
-          "voice_microtone": 38.05000000000001,
-          "voice_tradition": 34.339999999999996,
-          "voice_mechanism_compound": 5.915,
-          "voice_estill_quality": 5.525,
-          "voice_speech_song": 28.6,
-          "voice_ensemble_config": 23.789999999999996,
-          "voice_ornament_system": 3.5100000000000016,
+          "voice_vibrato": 2.6325,
+          "voice_articulation": 21.31999999999999,
+          "voice_microtone": 32.55000000000001,
+          "voice_tradition": 30.840000000000003,
+          "voice_mechanism_compound": 6.044999999999999,
+          "voice_estill_quality": 8.444999999999999,
+          "voice_speech_song": 28.144999999999992,
+          "voice_ensemble_config": 22.74999999999999,
+          "voice_ornament_system": 3.4450000000000016,
           "voice_pitch_organization": 2.22,
-          "voice_processing_chain": 9.685,
-          "voice_multitrack_stack": 12.447499999999998
+          "voice_processing_chain": 11.082499999999998,
+          "voice_multitrack_stack": 10.042500000000002
         }
       },
       {
@@ -60,39 +60,39 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 8.15,
-          "drum_machine_808_context": 6.995,
-          "tr808_production_origin": 1.56
+          "tr808_voice": 7.800000000000001,
+          "drum_machine_808_context": 6.6450000000000005,
+          "tr808_production_origin": 1.3649999999999998
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
+          "electronic_technique": "electronic_pluck_short",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 29.724999999999998,
-          "poly_archetypes": 4.36,
+          "electronic_technique": 26.075,
+          "poly_archetypes": 3.41,
           "poly_voices": 0.24,
-          "poly_maker_lineage": -0.7350000000000001
+          "poly_maker_lineage": -0.7
         }
       },
       {
         "id": "wavetable_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
+          "electronic_technique": "electronic_pluck_short",
           "wt_position": "wt_chaotic",
           "wt_family": "wt_industrial",
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 29.724999999999998,
-          "wt_position": 1.56,
-          "wt_family": 1.56,
-          "wt_polyphony": 1.525
+          "electronic_technique": 26.075,
+          "wt_position": 1.3649999999999998,
+          "wt_family": 1.3649999999999998,
+          "wt_polyphony": 1.475
         }
       },
       {
@@ -101,19 +101,19 @@
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 9.165000000000001,
+          "amp_make": 14.564999999999998,
           "body_wood": 0.585,
-          "pickup_config": 3.795,
-          "string_type": 10.51,
-          "scale_length_b": 1.56,
-          "fretted_or_not": 0.545,
-          "bass_technique": 9.95
+          "pickup_config": 2.9949999999999997,
+          "string_type": 13,
+          "scale_length_b": 1.3649999999999998,
+          "fretted_or_not": 0.195,
+          "bass_technique": 7.575
         }
       },
       {
@@ -121,7 +121,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -130,32 +130,32 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 28.74,
+          "keyboard_technique": 26.415000000000003,
           "grand_piano_size": 1,
-          "grand_piano_brand": 0.81,
-          "piano_hammer": 32.2,
-          "piano_rim": 32.365,
-          "piano_soundboard": 31.25,
-          "piano_pinblock": 4.1,
-          "piano_plate": 5.46,
-          "piano_pitch_standard": 8.659999999999998
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 28.2,
+          "piano_rim": 29.315,
+          "piano_soundboard": 27.75,
+          "piano_pinblock": 3.724999999999999,
+          "piano_plate": 4.9725,
+          "piano_pitch_standard": 6.984999999999999
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "emu_sp1200",
+          "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
-          "sampler_classic_context": "sampler_classic_pop_production"
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 3.495,
-          "sampler_archetypes": 5.6875,
-          "sampler_bit_depth": 2.8,
+          "sampler_archetypes": 5.3950000000000005,
+          "sampler_bit_depth": 1.3649999999999998,
           "sampler_workflow": 3.7199999999999998,
-          "sampler_classic_context": 29.989999999999995
+          "sampler_classic_context": 30.484999999999992
         }
       }
     ],

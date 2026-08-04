@@ -1,0 +1,95 @@
+{
+  "id": "cante_alentejano",
+  "name": "Cante Alentejano",
+  "family": "vernacular",
+  "lineage": "Unaccompanied male choral singing of Portugal's Alentejo plains, formed among landless agricultural labourers in the 19th century and inscribed by UNESCO in 2014, structured as a solo ponto who announces the line, an alto who ornaments a third above, and a slow-moving massed coro entering underneath in parallel thirds at a very slow free-pulse tempo with long held cadences and social-protest texts.",
+  "recipe": "classic mid-2010s cante alentejano, drone Modal, vocal branch, iberian Latin protest song, iberian functional song catalan folk portuguese folk. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 434,
+  "score": 172.96,
+  "config": {
+    "traditions": [
+      "cante_alentejano",
+      "catalan_folk",
+      "portuguese_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.465,
+          "voice_quality": 10.204999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.07,
+          "voice_articulation": 21.515,
+          "voice_microtone": 25.675,
+          "voice_tradition": 13.594999999999999,
+          "voice_mechanism_compound": 7.085,
+          "voice_estill_quality": 4.680000000000001,
+          "voice_speech_song": 26.975000000000005,
+          "voice_ensemble_config": 22.23,
+          "voice_ornament_system": 8.075,
+          "voice_pitch_organization": 2.4850000000000003,
+          "voice_processing_chain": 5.135,
+          "voice_multitrack_stack": 4.875000000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_renaissance"
+        },
+        "scores": {
+          "choir_size": 9.294999999999998,
+          "choir_polyphonic_configuration": 2.585,
+          "choir_regional_canonical_configuration": 6.174999999999999,
+          "choir_ensemble_repertoire": 1.3649999999999998
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "stone_parish_church",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

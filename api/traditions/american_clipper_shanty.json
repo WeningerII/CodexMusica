@@ -3,14 +3,14 @@
   "name": "American clipper-ship shanty",
   "family": "global",
   "lineage": "American-clipper-ship-era shanty tradition continuous from 1830s-1880s American-merchant-marine clipper-ship work-song practice (the heyday of American clipper-ship trade between American-Eastern-Seaboard, California, China, and Australia) through 20th-century revival into modern American-folk-revival continuous practice; foundational repertoire includes \"Sacramento\" (capstan-shanty for California-gold-rush trade), \"Shenandoah\"",
-  "recipe": "classic mid-1830s american clipper-ship shanty, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry ectofolk indie folk. thick, breath veiled tone, straight note core, interlocked note trading. Celtic Irish straight concertina, magic rosin modern acrylic base drone like fiddle. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 420,
-  "score": 171.98,
+  "recipe": "classic mid-1830s american clipper-ship shanty, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry british folk revival chinese minyao. thick, breath veiled tone, straight onset, interlocked note trading. Celtic Irish straight concertina, plain gut lamb gut whole lamb method magic rosin modern acrylic base fiddle. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 458,
+  "score": 164.655,
   "config": {
     "traditions": [
       "american_clipper_shanty",
-      "ectofolk",
-      "indie_folk_2000s"
+      "british_folk_revival",
+      "chinese_minyao"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 25.55999999999999,
-          "voice_quality": 8.645000000000001,
+          "voice_register": 17.759999999999998,
+          "voice_quality": 11.569999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8125,
-          "voice_articulation": 12.479999999999997,
-          "voice_microtone": 12.479999999999995,
-          "voice_tradition": 23.224999999999994,
-          "voice_mechanism_compound": 2.6649999999999996,
-          "voice_estill_quality": 3.5100000000000007,
-          "voice_speech_song": 20.084999999999994,
-          "voice_ensemble_config": 10.919999999999996,
-          "voice_ornament_system": 3.7050000000000005,
+          "voice_vibrato": 1.0075,
+          "voice_articulation": 12.284999999999997,
+          "voice_microtone": 12.739999999999995,
+          "voice_tradition": 20.919999999999998,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 4.095000000000001,
+          "voice_speech_song": 21.319999999999993,
+          "voice_ensemble_config": 10.724999999999994,
+          "voice_ornament_system": 3.6075000000000004,
           "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 3.79,
-          "voice_multitrack_stack": 5.1674999999999995
+          "voice_processing_chain": 2.4049999999999994,
+          "voice_multitrack_stack": 2.5350000000000006
         }
       },
       {
@@ -57,29 +57,29 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "concertina_type": "anglo_concertina",
-          "concertina_reed_grade": "concertina_hybrid_accordion_reed"
+          "concertina_reed_grade": "concertina_traditional"
         },
         "scores": {
-          "free_reed_technique": 14.449999999999998,
-          "concertina_type": 11.169999999999998,
-          "concertina_reed_grade": 1.625
+          "free_reed_technique": 13.574999999999996,
+          "concertina_type": 10.52,
+          "concertina_reed_grade": 0
         }
       },
       {
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_rough_drone",
-          "fiddle_strings": "steel_core",
+          "fiddle_strings": "plain_lamb_gut_fiddle",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "rubber_mute",
           "fiddle_articulation": "pizz"
         },
         "scores": {
-          "bowed_technique": 13.369999999999997,
-          "fiddle_strings": 0.5700000000000001,
+          "bowed_technique": 13.499999999999998,
+          "fiddle_strings": 1.0999999999999999,
           "fiddle_bow": 2.2300000000000004,
           "fiddle_mute": 0.85,
-          "fiddle_articulation": 0.09
+          "fiddle_articulation": 0.195
         }
       }
     ],

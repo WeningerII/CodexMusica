@@ -1,0 +1,133 @@
+{
+  "id": "berlin_minimal_techno",
+  "name": "Berlin Minimal Techno",
+  "family": "electronic",
+  "lineage": "Berlin techno's reductionist turn from 1993 onward, codified by Basic Channel/Chain Reaction (Moritz von Oswald and Mark Ernestus), Monolake, and later the Perlon and Berghain/Ostgut orbit — 125-132 BPM, muted 909 or sampled kicks, single evolving chord stabs washed in tape delay and reverb, deep sub bass, and arrangements built from slow parameter automation over eight-to-twelve-minute durations.",
+  "recipe": "classic Central European early-1990s berlin minimal techno, electronic Dance, techno branch, microhouse house, ambient experimental electric ambient techno. TR-909, doepfer eurorack canonical 1995 present small format standardization modular sustained pad analog poly analog mono synth, glitched textural sampler, tape replay keyboard. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
+  "recipe_chars": 595,
+  "score": 103.453,
+  "config": {
+    "traditions": [
+      "berlin_minimal_techno",
+      "microhouse",
+      "ambient_techno"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 7.124999999999998,
+          "drum_machine_909_context": 6.140000000000001,
+          "tr909_production_origin": 0.15
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 17.325,
+          "mod_voltage_source": 0.65,
+          "mod_patch_density": 4.42,
+          "mod_lineage": 1.2349999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 5,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -1.225
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 8.015,
+          "sampler_archetypes": 0.75,
+          "sampler_bit_depth": 0.65,
+          "sampler_workflow": 8.165,
+          "sampler_classic_context": 27.007499999999993
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 17.325,
+          "mono_oscillator": 0.15,
+          "mono_filter": 1.2349999999999999,
+          "mono_archetypes": 1.2349999999999999,
+          "mono_maker_lineage": -1.225
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "brass_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": 1.7449999999999997,
+          "tape_voice": 0.32999999999999996,
+          "tape_state": 0.045
+        }
+      }
+    ],
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_berlin_dub_techno_dm",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "berlin_techno_kreuzberg_studio",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_german_tube_50s"
+  }
+}

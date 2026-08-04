@@ -5,7 +5,7 @@
   "lineage": "The broad electronic-music tradition — synthesizer- and drum-machine-based music built on programmed sequencing and studio production, descended from mid-20th-century tape experiments and synth and dance music",
   "recipe": "classic Asian mid-1980s electronic, experimental Elec, idm glitch branch. drum machine analog, analog synth, sampler drum machine. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay TC electronic 2290 delay pitch shifter ring modulator.",
   "recipe_chars": 334,
-  "score": 20.461,
+  "score": 20.876,
   "config": {
     "traditions": [
       "electronic"
@@ -14,16 +14,16 @@
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "sine_burst_kick",
+          "kick_voice": "fm_pair_kick",
           "snare_voice": "tone_noise_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "shuffle_high"
         },
         "scores": {
-          "kick_voice": 0.020624999999999998,
-          "snare_voice": 0.320625,
-          "hat_voice": 0.020624999999999998,
-          "shuffle_quantize": 0.048375
+          "kick_voice": 0.0735,
+          "snare_voice": 0.3315,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.10575
         }
       },
       {
@@ -39,7 +39,7 @@
           "electronic_technique": 0.585,
           "oscillator": 0.78,
           "filter_topology": 1.69,
-          "envelope": 0.40333928571428573,
+          "envelope": 0.534,
           "modulation": 0.1425
         }
       },
@@ -53,9 +53,9 @@
         },
         "scores": {
           "electronic_technique": 0.26,
-          "sample_bitdepth": 0.02839285714285714,
+          "sample_bitdepth": 0.0735,
           "sample_swing": 9.75,
-          "sample_processing": 1.1612767857142856
+          "sample_processing": 1.3
         }
       }
     ],

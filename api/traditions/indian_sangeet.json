@@ -5,7 +5,7 @@
   "lineage": "Pan-Indian (Hindi-Urdu, Punjabi, Bengali, and broader North-Indian) pre-wedding sangeet ceremony music continuous from medieval Mughal-era domestic-music practice through 20th-century filmi-Bollywood appropriation into modern South-Asian-and-diaspora wedding practice",
   "recipe": "classic modern indian sangeet, wedding, south Asian branch, middle eastern wedding, south Asian pop functional song, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. synthetic remo modern stable bolt tuned modern concert stable dholak, treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 479,
-  "score": 239.754,
+  "score": 237.715,
   "config": {
     "traditions": [
       "indian_sangeet",
@@ -28,26 +28,26 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.270000000000001,
+          "voice_register": 4.315000000000001,
           "voice_quality": 8.97,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.794999999999998,
+          "voice_vibrato": 15.629999999999999,
           "voice_articulation": 9.424999999999999,
           "voice_microtone": 10.659999999999995,
-          "voice_tradition": 33.81125,
+          "voice_tradition": 33.091249999999995,
           "voice_mechanism_compound": 13.374999999999998,
-          "voice_estill_quality": 13.914999999999996,
+          "voice_estill_quality": 13.569999999999995,
           "voice_speech_song": 14.202499999999997,
           "voice_ensemble_config": 9.814999999999998,
-          "voice_ornament_system": 21.665,
-          "voice_pitch_organization": 19.3575,
+          "voice_ornament_system": 21.395,
+          "voice_pitch_organization": 19.5975,
           "voice_processing_chain": 5.2,
           "voice_multitrack_stack": 4.484999999999999
         }
@@ -62,7 +62,7 @@
         },
         "scores": {
           "dholak_use": 1.17,
-          "dholak_construction": 5.46,
+          "dholak_construction": 4.7325,
           "dholak_head": 1.885,
           "dholak_tensioning": 2.275
         }
@@ -77,9 +77,9 @@
         },
         "scores": {
           "free_reed_technique": 0.9749999999999996,
-          "harmonium_action": 4.11625,
-          "harmonium_voicing": 4.30875,
-          "harmonium_use": 9.749999999999998
+          "harmonium_action": 4.266249999999999,
+          "harmonium_voicing": 4.26375,
+          "harmonium_use": 9.743749999999999
         }
       },
       {
@@ -90,7 +90,7 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 13.954999999999998,
+          "tabla_dayan": 13.759999999999998,
           "tabla_bayan": 6.434999999999999,
           "tabla_syahi": 2.6649999999999996
         }

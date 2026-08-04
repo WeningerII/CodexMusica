@@ -5,7 +5,7 @@
   "lineage": "The techno tradition — machine-driven electronic dance music originating in Detroit, built on futurist synthesis and the drum machine",
   "recipe": "classic mid-1980s techno, electronic Dance, techno branch. drum machine analog, analog synth. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette tape echo.",
   "recipe_chars": 215,
-  "score": 4.71,
+  "score": 5.329,
   "config": {
     "traditions": [
       "techno"
@@ -14,15 +14,15 @@
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "bridged_t_kick",
+          "kick_voice": "sine_burst_kick",
           "snare_voice": "two_oscillator_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.007499999999999999,
+          "kick_voice": 0,
           "snare_voice": 0,
-          "hat_voice": 0,
+          "hat_voice": 0.2415,
           "shuffle_quantize": 0.325
         }
       },
@@ -37,9 +37,9 @@
         },
         "scores": {
           "electronic_technique": -0.035,
-          "oscillator": 0.6952499999999999,
-          "filter_topology": 0.78975,
-          "envelope": 0.29100000000000004,
+          "oscillator": 0.9322499999999998,
+          "filter_topology": 0.9502499999999998,
+          "envelope": 0.279,
           "modulation": 0.1365
         }
       }

@@ -3,14 +3,14 @@
   "name": "Boy Band",
   "family": "pop",
   "lineage": "Manager-assembled male vocal-group pop running from Motown-era harmony acts through New Kids on the Block, and codified between 1993 and 2001 by Backstreet Boys and NSYNC recording with Denniz PoP and Max Martin at Cheiron Studios Stockholm — four or five non-instrumentalist singers trading lead lines over a 90-110 BPM programmed R&B-swing or four-on-the-floor track of sampled kit, slap-and-sub bass, sawtooth pad stacks and orchestral-hit punctuation, with block-harmony choruses and a mandatory unaccompanied a-cappella breakdown.",
-  "recipe": "classic North American early-1990s boy band, functional Song, pop rock branch, pop rock girl group, soul R&B functional song, europop functional song 1960s girl group. thick, breath veiled tone, straight onset, interlocked note trading. drum machine analog, singing lead analog poly synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampler, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall plexi amp British rock amp lower tension down tuning clean strummed single coil electric guitar. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 815,
-  "score": 520.41,
+  "recipe": "classic North American early-1990s boy band, functional Song, pop rock branch, pop rock girl group, soul R&B functional song, europop functional song 1960s girl group yé-yé. thick, breath veiled tone, straight note core, interlocked note trading. drum machine analog, singing lead analog poly synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, sampler, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 826,
+  "score": 516.163,
   "config": {
     "traditions": [
       "boy_band",
       "girl_group_60s",
-      "europop"
+      "ye_ye"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 38.55000000000002,
-          "voice_quality": 17.875,
+          "voice_register": 38.87500000000002,
+          "voice_quality": 14.884999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4624999999999997,
-          "voice_articulation": 28.404999999999994,
-          "voice_microtone": 34.67500000000001,
-          "voice_tradition": 30.9525,
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 27.754999999999995,
+          "voice_microtone": 35.42500000000001,
+          "voice_tradition": 31.272499999999997,
           "voice_mechanism_compound": 5.265,
           "voice_estill_quality": 4.875,
           "voice_speech_song": 32.695,
-          "voice_ensemble_config": 28.014999999999997,
-          "voice_ornament_system": 2.1449999999999996,
-          "voice_pitch_organization": 3.185,
-          "voice_processing_chain": 7.930000000000001,
-          "voice_multitrack_stack": 6.4350000000000005
+          "voice_ensemble_config": 28.21,
+          "voice_ornament_system": 2.3400000000000003,
+          "voice_pitch_organization": 1.92,
+          "voice_processing_chain": 6.89,
+          "voice_multitrack_stack": 7.67
         }
       },
       {
@@ -76,8 +76,8 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 27.964999999999996,
-          "poly_archetypes": 4.48,
+          "electronic_technique": 27.714999999999996,
+          "poly_archetypes": 5.210000000000001,
           "poly_voices": 1.09,
           "poly_maker_lineage": 0.5199999999999999
         }
@@ -94,30 +94,30 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.114999999999998,
-          "body_wood": 0.65,
-          "pickup_config": 0.845,
-          "string_type": 12.544999999999998,
-          "scale_length_b": 0.65,
+          "amp_make": 11.384999999999998,
+          "body_wood": 1.01,
+          "pickup_config": 0.195,
+          "string_type": 13,
+          "scale_length_b": 0.505,
           "fretted_or_not": 0.195,
-          "bass_technique": 9.27
+          "bass_technique": 10.270000000000001
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "fairlight_cmi",
+          "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_orchestral_library",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 0.945,
-          "sampler_archetypes": 1.72,
+          "sampler_archetypes": 1.25,
           "sampler_bit_depth": 0.9,
           "sampler_workflow": 3.325,
-          "sampler_classic_context": 28.794999999999998
+          "sampler_classic_context": 30.03
         }
       },
       {
@@ -125,7 +125,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -134,46 +134,46 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 28.814999999999998,
+          "keyboard_technique": 28.564999999999998,
           "grand_piano_size": 1.6899999999999997,
-          "grand_piano_brand": 0.845,
-          "piano_hammer": 27.027499999999996,
-          "piano_rim": 26.705,
-          "piano_soundboard": 25.699999999999996,
-          "piano_pinblock": 1.2525,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 26.322499999999998,
+          "piano_rim": 26.455,
+          "piano_soundboard": 25.449999999999996,
+          "piano_pinblock": 1.1025,
           "piano_plate": 2.0799999999999996,
-          "piano_pitch_standard": 8.145
+          "piano_pitch_standard": 7.929999999999999
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "pine",
           "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "fretboard": "maple_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "d_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 26.875,
-          "amp_make": 5.045000000000001,
+          "electric_technique": 27,
+          "amp_make": 5.590000000000002,
           "body_wood": 0.65,
-          "neck_wood": 0.65,
-          "fretboard": 0.585,
-          "pickup_magnet": 0.345,
-          "string_material": 0.345,
-          "string_gauge": 0.65,
+          "neck_wood": 0.505,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.15,
+          "string_material": 0.15,
+          "string_gauge": 0.505,
           "bridge": 0.44999999999999996,
-          "scale_length": 0.65,
+          "scale_length": 1.01,
           "finish": 0,
-          "string_tuning": 4.94
+          "string_tuning": 5.265000000000001
         }
       }
     ],

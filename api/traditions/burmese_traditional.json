@@ -1,0 +1,154 @@
+{
+  "id": "burmese_traditional",
+  "name": "Burmese traditional song (thachin gyi and village repertoire)",
+  "family": "global",
+  "lineage": "Court-derived and village song repertoire of central Myanmar, its canon fixed after the 18th-century Ayutthaya contact and preserved through the Konbaung palace and 20th-century state ensembles — heptatonic near-equal tuning, sharply syncopated melody with the vocal line deliberately offset from the instruments, saung gauk arched harp or pattala xylophone accompaniment, and time marked strictly by si bell and wa clapper rather than by drums.",
+  "recipe": "classic Southeast Asian early-1940s burmese traditional song, art Music, southeast Asian branch, southeast Asian Thai classical, heterophonic drone modal thai traditional piphat. thick, breath veiled tone, slow rate, interlocked note trading. court classical saung gauk, ornate gilded pattala, ensemble lead hne, linkwin, byo, ozi drum. wooden pagoda hall. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 431,
+  "score": 254.475,
+  "config": {
+    "traditions": [
+      "burmese_traditional",
+      "thai_traditional",
+      "piphat_ceremonial"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 1.7499999999999996,
+          "voice_quality": 15.924999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 10.0275,
+          "voice_articulation": 22.034999999999993,
+          "voice_microtone": 21.44999999999999,
+          "voice_tradition": 14.5275,
+          "voice_mechanism_compound": 8.254999999999999,
+          "voice_estill_quality": 9.415999999999999,
+          "voice_speech_song": 25.21999999999999,
+          "voice_ensemble_config": 22.294999999999998,
+          "voice_ornament_system": 7.864999999999999,
+          "voice_pitch_organization": 26.353,
+          "voice_processing_chain": 3.8349999999999995,
+          "voice_multitrack_stack": 2.6
+        }
+      },
+      {
+        "id": "saung_gauk",
+        "slots": {
+          "saung_gauk_form": "saung_gauk_thirteen_string",
+          "saung_gauk_role": "saung_gauk_mahagita_accompaniment",
+          "saung_gauk_strings": "saung_gauk_silk_strings"
+        },
+        "scores": {
+          "saung_gauk_form": 11.959999999999999,
+          "saung_gauk_role": 5.301,
+          "saung_gauk_strings": 4.550000000000001
+        }
+      },
+      {
+        "id": "pattala",
+        "slots": {
+          "pattala_type": "pattala_bamboo",
+          "pattala_repertoire": "pattala_mahagita",
+          "pattala_body": "pattala_gilt_box"
+        },
+        "scores": {
+          "pattala_type": 9.850000000000001,
+          "pattala_repertoire": 8.198,
+          "pattala_body": 3.4450000000000003
+        }
+      },
+      {
+        "id": "hne",
+        "slots": {
+          "hne_form": "hne_gyi",
+          "hne_style": "hne_hsaing_lead",
+          "hne_reed": "hne_reed_toddy_palm"
+        },
+        "scores": {
+          "hne_form": 10.375000000000002,
+          "hne_style": 6.5,
+          "hne_reed": 3.415
+        }
+      },
+      {
+        "id": "linkwin",
+        "slots": {
+          "linkwin_size": "linkwin_small_ceremonial",
+          "linkwin_stroke": "linkwin_open_clash",
+          "linkwin_context": "linkwin_hsaing_waing"
+        },
+        "scores": {
+          "linkwin_size": 0.195,
+          "linkwin_stroke": 0.345,
+          "linkwin_context": 0.24
+        }
+      },
+      {
+        "id": "byo",
+        "slots": {
+          "byo_form": "byo_thick_heavy",
+          "byo_beater": "byo_wood"
+        },
+        "scores": {
+          "byo_form": 0.5849999999999999,
+          "byo_beater": 0
+        }
+      },
+      {
+        "id": "ozi_drum",
+        "slots": {
+          "ozi_form": "ozi_long_goblet",
+          "ozi_head": "ozi_plain"
+        },
+        "scores": {
+          "ozi_form": 0.105,
+          "ozi_head": 0.345
+        }
+      }
+    ],
+    "room": "wooden_pagoda_hall",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "equal_heptatonic_thai_khmer",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_thai_khmer",
+    "room": "wooden_pagoda_hall",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

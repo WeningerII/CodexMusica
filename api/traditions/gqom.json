@@ -3,14 +3,14 @@
   "name": "Gqom",
   "family": "global",
   "lineage": "South African Durban-Zulu late-2000s minimal-bass dance subgenre, codified through Naked Boys, DJ Lag, Citizen Boy, and Rudeboyz starting circa 2010 — characterized by repetitive 4/4 sub-bass-driven drum patterns at 120-130 BPM, sparse hi-hats, vocal chants in isiZulu, and the deliberately dark / minimal aesthetic distinguishing it from house and amapiano",
-  "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm funk consciente kwaito. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-  "recipe_chars": 367,
-  "score": 157.918,
+  "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm merenrap merengue de calle. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 375,
+  "score": 139.034,
   "config": {
     "traditions": [
       "gqom",
-      "funk_consciente",
-      "kwaito"
+      "merenrap",
+      "merengue_de_calle"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.48725,
-          "voice_quality": 8.255,
+          "voice_register": 2.21725,
+          "voice_quality": 7.540000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.81025,
-          "voice_articulation": 16.314999999999994,
+          "voice_vibrato": 2.1049999999999995,
+          "voice_articulation": 16.574999999999992,
           "voice_microtone": 15.14499999999999,
-          "voice_tradition": 18.276,
-          "voice_mechanism_compound": 3.5100000000000002,
-          "voice_estill_quality": 2.9499999999999997,
-          "voice_speech_song": 15.534999999999995,
-          "voice_ensemble_config": 16.444999999999993,
-          "voice_ornament_system": 4.290000000000002,
-          "voice_pitch_organization": 1.777625,
-          "voice_processing_chain": 9.24025,
-          "voice_multitrack_stack": 6.695000000000002
+          "voice_tradition": 12.6745,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 16.964999999999993,
+          "voice_ensemble_config": 16.249999999999993,
+          "voice_ornament_system": 4.745000000000001,
+          "voice_pitch_organization": 1.608625,
+          "voice_processing_chain": 4.961500000000001,
+          "voice_multitrack_stack": 4.8100000000000005
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.285125000000001,
-          "drum_machine_808_context": 6.760125,
-          "tr808_production_origin": 0.1515
+          "tr808_voice": 5.309624999999999,
+          "drum_machine_808_context": 5.069999999999999,
+          "tr808_production_origin": 0.195
         }
       },
       {
@@ -74,10 +74,10 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 7.230125000000001,
+          "electronic_technique": 5.232499999999999,
           "wave_acid": 0.3345,
-          "filter_acid": 2.8455000000000004,
-          "accent_acid": 2.9499999999999997
+          "filter_acid": 2.9614999999999996,
+          "accent_acid": 2.4499999999999997
         }
       },
       {
@@ -86,13 +86,13 @@
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 7.230125000000001,
+          "electronic_technique": 5.232499999999999,
           "poly_archetypes": 0.173625,
           "poly_voices": 0.173625,
-          "poly_maker_lineage": -1.9978749999999998
+          "poly_maker_lineage": -2.0128749999999997
         }
       }
     ],

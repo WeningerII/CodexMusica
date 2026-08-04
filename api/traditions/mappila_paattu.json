@@ -1,0 +1,160 @@
+{
+  "id": "mappila_paattu",
+  "name": "Mappila paattu",
+  "family": "global",
+  "lineage": "Song tradition of the Mappila Muslims of Malabar in northern Kerala, written in Arabi-Malayalam script from at least the 17th century with Muhyiddin Mala (1607) as its founding text and Moyinkutty Vaidyar as its great 19th-century poet, revived commercially from the 1970s through V. M. Kutty and cassette-era singers, marked by isal melodic templates blending Arabic maqam contour with Malayalam prosody, duff frame-drum and kolkali stick rhythms, oppana wedding hand-clap accompaniment, and responsorial group singing.",
+  "recipe": "classic South Asian mid-1970s mappila paattu, praise Song, indian subcontinent branch, south Asian wedding, islamic ritual devotional sholawat anāshīd. vocal fry, declaimed, straight note core, interlocked note trading. walnut bent frame canonical Persian daf, elathalam, low overtone rich vocal male harmonium indian, ringing pitched indian rosewood rosewood tabla, communal group massed hand clap, slant mounted ritual jackwood shell layered cowhide canonical kerala chenda. chennai madras music academy sabha. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 651,
+  "score": 186.69,
+  "config": {
+    "traditions": [
+      "mappila_paattu",
+      "sholawat",
+      "islamic_anasheed"
+    ],
+    "instruments": [
+      {
+        "id": "daf",
+        "slots": {
+          "daf_rings": "daf_with_rings",
+          "daf_context": "daf_classical",
+          "daf_shell_wood": "daf_walnut_canonical",
+          "daf_head_material": "daf_goat_skin_canonical",
+          "daf_jingle_metal": "daf_brass_rings"
+        },
+        "scores": {
+          "daf_rings": 0.9099999999999999,
+          "daf_context": 1.9799999999999998,
+          "daf_shell_wood": 3.965,
+          "daf_head_material": 0.65,
+          "daf_jingle_metal": 0.65
+        }
+      },
+      {
+        "id": "elathalam",
+        "slots": {
+          "elathalam_stroke": "elathalam_closed",
+          "elathalam_ensemble": "elathalam_melam"
+        },
+        "scores": {
+          "elathalam_stroke": 0,
+          "elathalam_ensemble": 0.65
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_kirtan"
+        },
+        "scores": {
+          "free_reed_technique": 1.6899999999999997,
+          "harmonium_action": 2.795,
+          "harmonium_voicing": 2.145,
+          "harmonium_use": 5.654999999999999
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 2.4699999999999998,
+          "tabla_bayan": 0.28500000000000003,
+          "tabla_syahi": 5.135
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_group_massed",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 2.085,
+          "clap_capture": 0.045
+        }
+      },
+      {
+        "id": "chenda",
+        "slots": {
+          "chenda_form": "chenda_chande",
+          "chenda_repertoire": "chenda_ritual_theatre",
+          "chenda_construction": "chenda_jackwood_cowhide"
+        },
+        "scores": {
+          "chenda_form": 1.1949999999999998,
+          "chenda_repertoire": 5.07,
+          "chenda_construction": 3.69
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "arabic_maqam_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 0.845,
+          "voice_quality": 15.434999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8849999999999996,
+          "voice_articulation": 12.869999999999996,
+          "voice_microtone": 27.592499999999998,
+          "voice_tradition": 10.344999999999997,
+          "voice_mechanism_compound": 3.1849999999999996,
+          "voice_estill_quality": 2.99,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 12.999999999999995,
+          "voice_ornament_system": 18.555,
+          "voice_pitch_organization": 10.064999999999998,
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 2.925
+        }
+      }
+    ],
+    "room": "chennai_madras_music_academy_sabha",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "medium_indian_lebanese_pressing"
+    },
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "room": "chennai_madras_music_academy_sabha",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "medium_indian_lebanese_pressing",
+    "chain_console": "colored"
+  }
+}

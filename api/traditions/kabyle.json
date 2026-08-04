@@ -1,0 +1,163 @@
+{
+  "id": "kabyle",
+  "name": "Kabyle (Kabylie chanson)",
+  "family": "global",
+  "lineage": "Song tradition of the Kabylie mountains of northern Algeria, moving from village achewiq women's laments and idebbalen bendir-and-ghaita processionals into the exile chanson kabyle of the Paris cafés from the 1950s, codified by Slimane Azem, Cherif Kheddam, Idir and Lounès Matoub — Tamazight-language strophic verse in Aeolian and Phrygian modes over acoustic guitar, mandole and bendir at moderate 6/8 or 2/4, with a plain unforced lead voice and unison choral refrains carrying identity politics.",
+  "recipe": "classic Western European mid-1950s kabyle, ballad Poetry, med east poetic branch, middle east n African protest song, chanson fado ballad poetry cape verdean batuko of santiago island morna. vocal fry, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, rhythmic chordal mandole, bendir, plain gut beef gut varnished sitka spruce hard rock maple violin orchestral, snappy to palm hand clap. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 579,
+  "score": 255.585,
+  "config": {
+    "traditions": [
+      "kabyle",
+      "cape_verdean_batuko",
+      "morna"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "open_d",
+          "top_wood": "cedar_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 1.2999999999999998,
+          "top_wood": 0.45,
+          "back_sides": 0.78,
+          "string_acoustic": 1.04,
+          "acoustic_om_technique": 8.820000000000002
+        }
+      },
+      {
+        "id": "mandole",
+        "slots": {
+          "mandole_form": "mandole_kabyle",
+          "mandole_role": "mandole_strummed",
+          "mandole_strings": "mandole_steel"
+        },
+        "scores": {
+          "mandole_form": 13.649999999999999,
+          "mandole_role": 1.1375,
+          "mandole_strings": 0.75
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_no_snares",
+          "bendir_context": "bendir_folk",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_goat_skin_canonical"
+        },
+        "scores": {
+          "bendir_snares": 1.4949999999999999,
+          "bendir_context": 0.65,
+          "bendir_shell_wood": 0.345,
+          "bendir_head": 0.24
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 3.6399999999999997,
+          "voice_quality": 31.33,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5675,
+          "voice_articulation": 28.6,
+          "voice_microtone": 29.705,
+          "voice_tradition": 18.33,
+          "voice_mechanism_compound": 6.565000000000001,
+          "voice_estill_quality": 5.070000000000002,
+          "voice_speech_song": 33.962500000000006,
+          "voice_ensemble_config": 29.185,
+          "voice_ornament_system": 1.5299999999999998,
+          "voice_pitch_organization": 3.960000000000001,
+          "voice_processing_chain": 7.735000000000003,
+          "voice_multitrack_stack": 5.135
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_chopped_old_time",
+          "orch_strings": "plain_beef_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "pizz_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.52,
+          "orch_strings": 1.1449999999999998,
+          "orch_top_wood": 4.3549999999999995,
+          "orch_back_wood": 1.56,
+          "orch_varnish": 1.32,
+          "orch_setup_period": 0.26,
+          "orch_bow": 1.6899999999999997,
+          "orch_bow_stick": 1.7874999999999996,
+          "orch_articulation": 1.4949999999999999,
+          "orch_rosin": 1.125
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 3.3799999999999994,
+          "clap_capture": 0
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_paris_chanson_orchestral",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "transformer_solid_state",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

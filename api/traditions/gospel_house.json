@@ -1,0 +1,195 @@
+{
+  "id": "gospel_house",
+  "name": "Gospel House",
+  "family": "electronic",
+  "lineage": "Chicago and New York 1988-1996, codified by Marshall Jefferson and Curtis McClain, Frankie Knuckles with Robert Owens and Jamie Principle, and by Kerri Chandler and Tony Humphries at Club Zanzibar — 118-124 BPM four-on-the-floor with piano vamps, organ pads, hand claps and tambourine, topped by full-throated Black church belting, testifying ad-libs and choir-response stacks tracked in New York and Chicago commercial rooms.",
+  "recipe": "classic North American mid-1990s gospel house, electronic Dance, garage house u s branch, deep house house, christian gospel black gospel contemporary urban gospel. thick, declaimed, wide pitch sway, multi note runs per syllable. contemporary full choir southern black gospel, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 smaller 25w tube home club gospel runs full spectrum fast tremolo tonewheel organ, TR-909, hand clap, tambourine orch, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 833,
+  "score": 498.257,
+  "config": {
+    "traditions": [
+      "gospel_house",
+      "black_gospel_choir",
+      "contemporary_urban_gospel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 30.437500000000004,
+          "voice_quality": 31.556,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.625,
+          "voice_articulation": 26.173500000000004,
+          "voice_microtone": 22.685000000000002,
+          "voice_tradition": 35.4795,
+          "voice_mechanism_compound": 4.874999999999999,
+          "voice_estill_quality": 26.725,
+          "voice_speech_song": 24.830000000000005,
+          "voice_ensemble_config": 31.395000000000003,
+          "voice_ornament_system": 6.15,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 9.215,
+          "voice_multitrack_stack": 6.4350000000000005
+        }
+      },
+      {
+        "id": "choir_southern_black_gospel",
+        "slots": {
+          "voices": "lead_vocalist",
+          "accompaniment": "gospel_full_band",
+          "era": "gospel_quartet_lineage"
+        },
+        "scores": {
+          "voices": 0.585,
+          "accompaniment": 3.3200000000000003,
+          "era": 23.270000000000003
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 31.094500000000007,
+          "grand_piano_size": 1.63,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 4.355,
+          "piano_rim": 5.59,
+          "piano_soundboard": 2.6649999999999996,
+          "piano_pinblock": 1.625,
+          "piano_plate": 3.205,
+          "piano_pitch_standard": 4.7775
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_off",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_145_smaller"
+        },
+        "scores": {
+          "keyboard_technique": 31.094500000000007,
+          "drawbar_setting": 27.130000000000006,
+          "rotary_speed": 24.700000000000003,
+          "percussion_setting": 0.195,
+          "tonewheel_model": 27.4185,
+          "leslie_cabinet_model": 1.4299999999999997
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 17.445,
+          "drum_machine_909_context": 4.68,
+          "tr909_production_origin": -0.035
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.65,
+          "clap_capture": 0.3825
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.585,
+          "tambourine_orch_context": 1.1449999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 6.045,
+          "body_wood": 0.27149999999999996,
+          "pickup_config": 0.5850000000000002,
+          "string_type": 2.8924999999999996,
+          "scale_length_b": 0.255,
+          "fretted_or_not": 0.3,
+          "bass_technique": 3.3564999999999996
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_inline_80s"
+  }
+}

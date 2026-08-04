@@ -1,0 +1,171 @@
+{
+  "id": "st_louis_blues",
+  "name": "St. Louis Blues (piano-led Mississippi River blues)",
+  "family": "blues_gospel",
+  "lineage": "Piano-centred blues that formed in St. Louis and East St. Louis during the 1920s-30s Great Migration and was codified on Decca and Bluebird sides by Roosevelt Sykes, Peetie Wheatstraw, Walter Davis and Henry Townsend — a rolling barrelhouse left hand of walking octaves and light boogie eights at 80-120 BPM, guitar doubling in single-string counterpoint rather than slide, dry declamatory vocals with a taunting spoken edge, and 12-bar frames padded with piano turnarounds; a second postwar generation around Ike Turner and Albert King electrified the same repertoire.",
+  "recipe": "classic mid-1920s st. louis blues, functional Song, blues acoustic branch, blues electric functional song, American jazz boogie woogie, blues narrative delta narrative british blues. thick, blues-shouter, wide pitch sway, interlocked note trading. stride upright piano, open g tuning mahogany slide parlor acoustic Fender blackface amp American 60s amp spring reverb bright roasted maple maple single coil electric guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, growly gut upright bass. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 696,
+  "score": 439.58,
+  "config": {
+    "traditions": [
+      "st_louis_blues",
+      "delta_blues",
+      "british_blues"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 4.2,
+          "upright_use": 0.195,
+          "upright_piano_size": 1
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 36.02000000000002,
+          "voice_quality": 14.819999999999986,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 32.155,
+          "voice_articulation": 22.555,
+          "voice_microtone": 32.294999999999995,
+          "voice_tradition": 15.534999999999997,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 5.135,
+          "voice_speech_song": 27.495000000000005,
+          "voice_ensemble_config": 23.595000000000002,
+          "voice_ornament_system": 0.8124999999999999,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 4.419999999999999,
+          "voice_multitrack_stack": 2.535
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_bottleneck_slide",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "mahogany_top_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "eighty_twenty_p"
+        },
+        "scores": {
+          "acoustic_technique": 11.01,
+          "string_tuning": 11.12,
+          "top_wood_parlor": 1,
+          "back_sides_parlor": 1,
+          "string_acoustic_parlor": 1.845
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 1.3649999999999998,
+          "harmonica_comb": 31.834999999999994,
+          "harmonica_reed": 30.705,
+          "harmonica_technique": 39.91,
+          "harmonica_maker_school": 34.705,
+          "harmonica_tuning": 15.665
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 2.6249999999999996,
+          "upright_play": 2.6249999999999996
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "swamp_ash",
+          "neck_wood": "roasted_maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 4.405,
+          "amp_make": 3.7375000000000007,
+          "body_wood": 0.24,
+          "neck_wood": 1,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.195,
+          "string_material": 0.345,
+          "string_gauge": 0.845,
+          "bridge": 0.045,
+          "scale_length": 0.195,
+          "finish": 0.045,
+          "string_tuning": 19.11
+        }
+      }
+    ],
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "studio_electrical_era_office",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

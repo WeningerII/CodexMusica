@@ -1,0 +1,163 @@
+{
+  "id": "second_line",
+  "name": "Second line",
+  "family": "vernacular",
+  "lineage": "New Orleans street-parade practice in which the hired brass band is the first line and the following neighborhood crowd is the second, formalized through 19th-century Afro-Creole benevolent and social aid and pleasure club funerals and Sunday parades and still weekly in Treme and Central City — bass drum with attached cymbal marking a syncopated three-over-two street beat, snare rolling loose press patterns, sousaphone walking a two-beat bassline, trumpets and trombones riffing hymns and pop tunes over roughly 90-110 BPM, with the crowd's handclaps, whistles and dance steps as an active layer.",
+  "recipe": "classic modern second line, carnival Processional, American south branch, American marching groove percussion, American jazz early new orleans jazz swing-era jazz orchestra. eb bass brass band sousaphone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, double bass rapid double strokes bass pipe band flourishing kevlar aramid extreme tension tenor drum, traditional mellow brass tambourine orch, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 771,
+  "score": 161.47,
+  "config": {
+    "traditions": [
+      "second_line",
+      "new_orleans",
+      "big_band"
+    ],
+    "instruments": [
+      {
+        "id": "sousaphone",
+        "slots": {
+          "sousaphone_bore": "sousaphone_eb_bass",
+          "sousaphone_context": "sousaphone_nola_brass_band"
+        },
+        "scores": {
+          "sousaphone_bore": 2.73,
+          "sousaphone_context": 8.19
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "cornet",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 9.184999999999999,
+          "brass_size": 0,
+          "trumpet_mouthpiece": 13.59,
+          "brass_mute": 0.39,
+          "trumpet_technique": 9.184999999999999,
+          "trumpet_bell_metal": 4.03,
+          "trumpet_maker_school": 8.060000000000002
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 9.184999999999999,
+          "trombone_type": 11.625,
+          "trombone_mouthpiece": 14.125,
+          "trombone_mute": 0.195,
+          "trombone_technique": 2.015,
+          "trombone_bell_metal": 4.03,
+          "trombone_maker_school": 7.865000000000001
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 2.665000000000001,
+          "sax_size": 1.1049999999999998,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 11.775,
+          "sax_mouthpiece": 0.15,
+          "sax_technique": 11.625,
+          "sax_maker_school": 11.735
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.195,
+          "bass_drum_beater": 2.73
+        }
+      },
+      {
+        "id": "tenor_drum",
+        "slots": {
+          "tenor_drum_form": "tenor_drum_pipe_band",
+          "tenor_drum_head": "tenor_drum_kevlar",
+          "tenor_drum_beater": "tenor_drum_corps_mallets",
+          "tenor_drum_shell": "tenor_drum_muffled_cloth"
+        },
+        "scores": {
+          "tenor_drum_form": 8.775,
+          "tenor_drum_head": 2.045,
+          "tenor_drum_beater": 2.2849999999999993,
+          "tenor_drum_shell": 5.04
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 2.4699999999999998,
+          "tambourine_orch_context": 0.5199999999999999
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.39,
+          "clap_capture": 0.045
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "field_recording",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

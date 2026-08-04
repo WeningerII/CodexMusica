@@ -3,14 +3,14 @@
   "name": "Cumbia 420",
   "family": "electronic",
   "lineage": "Argentine subgenre formed circa 2015-2018 in Rosario and the Buenos Aires conurbano, codified by Perro Primo, Papu DJ, DT.Bilardo and popularised by L-Gante from 2020 — cumbia villera's keyboard riffs and güira slowed to roughly 95-100 BPM over a trap-derived 808 sub and triplet hi-hats, with cheap workstation lead patches, plate-heavy vocal reverb, and Auto-Tuned half-sung barrio narration about cannabis, money and neighbourhood life",
-  "recipe": "classic 2015-2018 cumbia 420, electronic Dance, Latin electric branch, reggaeton MC rhythm, Latin am groove percussion, Latin house house cumbia pop. thick, full chest belt, straight note core, interlocked note trading. organ preset yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios sub bass rompler workstation, guiro, brass hands layered timbales, TR-808, sub bass digital subtractive. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 532,
-  "score": 237.069,
+  "recipe": "classic 2015-2018 cumbia 420, electronic Dance, Latin electric branch, reggaeton MC rhythm, Latin am groove percussion, Latin house house cumbia pop freestyle house. thick, full chest belt, straight onset, interlocked note trading. organ preset yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios sub bass rompler workstation, guiro, open slap hand drum timbales, roland tr 8s modern aira digital recreation TR-808, sub bass digital subtractive. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 588,
+  "score": 247.164,
   "config": {
     "traditions": [
       "cumbia_420",
       "cumbia_pop",
-      "latin_house_percussion"
+      "freestyle_house"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.058750000000002,
+          "voice_register": 3.4087500000000017,
           "voice_quality": 12.599999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 22.554999999999996,
-          "voice_microtone": 22.359999999999992,
-          "voice_tradition": 6.995000000000001,
-          "voice_mechanism_compound": 4.3549999999999995,
-          "voice_estill_quality": 3.9650000000000003,
-          "voice_speech_song": 23.009999999999994,
-          "voice_ensemble_config": 22.619999999999997,
-          "voice_ornament_system": 1.7549999999999994,
-          "voice_pitch_organization": 2.0799999999999996,
-          "voice_processing_chain": 11.509,
-          "voice_multitrack_stack": 8.319999999999999
+          "voice_vibrato": 1.5599999999999996,
+          "voice_articulation": 23.205,
+          "voice_microtone": 23.20499999999999,
+          "voice_tradition": 5.46,
+          "voice_mechanism_compound": 5.005,
+          "voice_estill_quality": 5.265000000000001,
+          "voice_speech_song": 23.854999999999997,
+          "voice_ensemble_config": 22.619999999999994,
+          "voice_ornament_system": 1.5599999999999996,
+          "voice_pitch_organization": 1.8199999999999996,
+          "voice_processing_chain": 15.1,
+          "voice_multitrack_stack": 9.295
         }
       },
       {
@@ -61,33 +61,33 @@
           "rompler_lineage": "rompler_yamaha_psr_casio"
         },
         "scores": {
-          "electronic_technique": 8.913875,
-          "rompler_preset_bank": 12.624999999999996,
-          "rompler_context": 2.8645000000000005,
-          "rompler_lineage": 3.9
+          "electronic_technique": 9.469375,
+          "rompler_preset_bank": 12.719375,
+          "rompler_context": 2.845,
+          "rompler_lineage": 3.7049999999999996
         }
       },
       {
         "id": "guiro",
         "slots": {
           "guiro_origin": "guiro_mexican_pvc",
-          "guiro_striker": "guiro_metal"
+          "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "guiro_origin": 0.46875,
-          "guiro_striker": 0.105
+          "guiro_origin": 0.5325,
+          "guiro_striker": 0
         }
       },
       {
         "id": "timbales",
         "slots": {
-          "percussion_technique": "percussion_hands_layered",
+          "percussion_technique": "percussion_open_slap",
           "timbales_shell": "timbales_brass",
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 18.374999999999996,
-          "timbales_shell": 1.0550000000000002,
+          "percussion_technique": 15.620000000000001,
+          "timbales_shell": 0.65,
           "timbales_context": 0.65
         }
       },
@@ -99,9 +99,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.095000000000001,
-          "drum_machine_808_context": 4.16,
-          "tr808_production_origin": 0.585
+          "tr808_voice": 4.55,
+          "drum_machine_808_context": 4.615,
+          "tr808_production_origin": 1.0999999999999999
         }
       },
       {
@@ -112,9 +112,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 8.913875,
+          "electronic_technique": 9.469375,
           "va_archetypes": 0,
-          "digital_subtractive_context": 23.205
+          "digital_subtractive_context": 24.504999999999995
         }
       }
     ],

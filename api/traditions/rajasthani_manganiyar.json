@@ -5,7 +5,7 @@
   "lineage": "Rajasthani Manganiyar hereditary musician tradition of the Thar Desert region of western Rajasthan, India (Jaisalmer, Barmer, and Jodhpur districts), with the parallel Langa community sharing many features. The Manganiyar are Muslim-by-religion-but-Hindu-by-patron-relation hereditary musicians whose performance-economic configuration centers on the jajmani patron-relationship: each Manganiyar family is bound to specific Rajput patron-families across generations, performing at patron weddings, births, and funerals as the ritual-and-aesthetic specialist providers. Canonical instrumentation: kamaicha (gourd-bowled bowed lute with sympathetic strings) as the primary melodic carrier in deeper-register sustained-tone repertoire, plus khartal wooden-castanet-pair, dholak two-headed barrel drum, and sometimes algoza double-flute or sarangi. Repertoire spans devotional Sufi qawwali-adjacent material, Rajput court-praise repertoire, panihari water-bearer women's-song accompaniment, and the canonical drone-and-narrative-improvisation pieces such as Niambat Khan and Padharo Mhare Des. Modal vocabulary draws on regional raga-frameworks distinct from Hindustani classical but related — the Manganiyar mode-system uses approximately just-intonation tonal hierarchies. Komal Kothari's Rupayan Sansthan in Borunda (founded 1960s) and the Archives & Research Center for Ethnomusicology (AIIS Gurugram, Shubha Chaudhuri) provide the principal scholarly documentation; Daniel Neuman & Shubha Chaudhuri's Bards, Ballads and Boundaries (Seagull 2006) anchors the contemporary scholarship. Sakar Khan and Anwar Khan among the canonical twentieth-century kamaicha and singing masters. Distinguished from Hindustani classical by Manganiyar's jajmani-patron-relationship economic structure and folk-classical hybrid modal system; distinguished from Langa (the parallel Sindhi-influenced hereditary community) by Manganiyar-Marwari dialect and Rajput-patron-relationship base.",
   "recipe": "classic South Asian mid-1960s rajasthani manganiyar tradition, ballad Poetry, indian bard branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. mango sheesham wood canonical thar desert build gut main sympathetic resonance manganiyar hereditary lineage legato kamaicha, wooden castanet pair canonical manganiyar percussion manganiyar accompaniment canonical thar desert khartal, goat skin syahi rope laced steel ring dholak, gut 3 main playing strings tun cedar legato sarangi. manganiyar haveli courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 685,
-  "score": 450.215,
+  "score": 446.692,
   "config": {
     "traditions": [
       "rajasthani_manganiyar",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 4.275,
+          "voice_register": 4.425000000000001,
           "voice_quality": 26.78,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 27.002499999999994,
+          "voice_vibrato": 25.202499999999993,
           "voice_articulation": 22.164999999999996,
           "voice_microtone": 25.869999999999994,
-          "voice_tradition": 37.76499999999999,
+          "voice_tradition": 36.4925,
           "voice_mechanism_compound": 19.775,
           "voice_estill_quality": 22.549999999999997,
           "voice_speech_song": 25.707500000000003,
           "voice_ensemble_config": 24.244999999999997,
-          "voice_ornament_system": 29.724999999999998,
-          "voice_pitch_organization": 24.387499999999996,
-          "voice_processing_chain": 7.994999999999999,
-          "voice_multitrack_stack": 7.815000000000001
+          "voice_ornament_system": 30.16,
+          "voice_pitch_organization": 23.937499999999996,
+          "voice_processing_chain": 7.859999999999999,
+          "voice_multitrack_stack": 7.1850000000000005
         }
       },
       {
@@ -63,8 +63,8 @@
         "scores": {
           "bowed_technique": 20.92,
           "kamaicha_body": 6.517499999999999,
-          "kamaicha_strings": 5.262499999999999,
-          "kamaicha_tradition": 17.7375
+          "kamaicha_strings": 5.5024999999999995,
+          "kamaicha_tradition": 17.6925
         }
       },
       {
@@ -74,8 +74,8 @@
           "khartal_tradition": "khartal_manganiyar_canonical"
         },
         "scores": {
-          "khartal_body": 15.897499999999999,
-          "khartal_tradition": 16.677500000000002
+          "khartal_body": 16.0025,
+          "khartal_tradition": 16.8875
         }
       },
       {
@@ -87,7 +87,7 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 2.47,
+          "dholak_use": 2.335,
           "dholak_construction": 5.9799999999999995,
           "dholak_head": 3.9625,
           "dholak_tensioning": 3.9174999999999995
@@ -107,7 +107,7 @@
           "bowed_technique": 20.92,
           "sarangi_belly": 3.77,
           "sarangi_taraf": 0.24,
-          "sarangi_bow": 0.845,
+          "sarangi_bow": 0.65,
           "sarangi_main_strings": 9.035,
           "sarangi_body_wood": 3.9174999999999995
         }

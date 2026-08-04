@@ -1,0 +1,157 @@
+{
+  "id": "hard_trance",
+  "name": "Hard Trance",
+  "family": "electronic",
+  "lineage": "German and Dutch trance hardened circa 1994-1999 in Frankfurt, Cologne and Rotterdam through labels like Overdose, Tracid Traxxx and Blutonium and producers Kai Tracid, DJ Scot Project and Yoji Biomehanika, running 140-155 BPM over a hard offbeat-bass 4/4 kick, heavily distorted and hoovered supersaw stabs, gated 16th-note arpeggios, long filtered white-noise risers into breakdowns, and rolling acid-303 or reverse-bass sections with no vocal beyond short chopped shouts.",
+  "recipe": "classic Central European mid-1990s hard trance, electronic Dance, trance branch, hardstyle electronic dance, techno electronic dance dubstyle schranz. vocal fry, breath veiled tone, straight note core, interlocked note trading. sub bass analog poly sub bass wavetable synth, classic acid sub bass monosynth acid bass, TR-909, sound design field sampler. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 584,
+  "score": 222.507,
+  "config": {
+    "traditions": [
+      "hard_trance",
+      "dubstyle",
+      "schranz"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 11.405000000000001,
+          "poly_archetypes": 0.255,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": -0.875
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 11.405000000000001,
+          "wave_acid": 0.39,
+          "filter_acid": 1.345,
+          "accent_acid": 3.25
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.87,
+          "tr909_production_origin": 0.135
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 11.405000000000001,
+          "wt_position": 9.685000000000002,
+          "wt_family": 1.195,
+          "wt_polyphony": 0.195
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.17,
+          "sampler_archetypes": 0.78,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 1.6199999999999999,
+          "sampler_classic_context": 21.84
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.95,
+          "voice_quality": 8.71,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.885,
+          "voice_articulation": 22.425,
+          "voice_microtone": 22.099999999999994,
+          "voice_tradition": 6.4350000000000005,
+          "voice_mechanism_compound": 5.4275,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 21.319999999999997,
+          "voice_ensemble_config": 20.735,
+          "voice_ornament_system": 1.5,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 19.505000000000003,
+          "voice_multitrack_stack": 4.745000000000001
+        }
+      }
+    ],
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "berlin_techno_kreuzberg_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

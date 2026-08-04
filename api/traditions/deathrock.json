@@ -1,0 +1,161 @@
+{
+  "id": "deathrock",
+  "name": "Deathrock",
+  "family": "rock_punk",
+  "lineage": "Los Angeles offshoot of punk formed 1979-1983 around Christian Death, 45 Grave, Kommunity FK and Super Heroines — mid-tempo 100-140 BPM tom-heavy tribal drumming, high melodic bass carrying the riff, thin chorused and heavily reverbed guitar playing single-note minor figures, cheap string synth or organ pads and declamatory, theatrical vocals over horror and decadence imagery.",
+  "recipe": "classic North American 1979-1983 deathrock, distorted Rock, gothic rock branch, punk distorted rock, pop rock new wave gothabilly. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 678,
+  "score": 439.977,
+  "config": {
+    "traditions": [
+      "deathrock",
+      "new_wave",
+      "gothabilly"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 39.715000000000025,
+          "voice_quality": 15.209999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.0350000000000006,
+          "voice_articulation": 18.784999999999993,
+          "voice_microtone": 39.075,
+          "voice_tradition": 12.594999999999997,
+          "voice_mechanism_compound": 5.752500000000001,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 21.514999999999993,
+          "voice_ensemble_config": 17.80999999999999,
+          "voice_ornament_system": 1.89,
+          "voice_pitch_organization": 2.5950000000000006,
+          "voice_processing_chain": 4.58,
+          "voice_multitrack_stack": 4.940000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 13.649999999999999,
+          "amp_make": 30.059999999999995,
+          "body_wood": 2.34,
+          "neck_wood": 2.34,
+          "fretboard": 2.275,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 2.885,
+          "bridge": 0.5,
+          "scale_length": 2.34,
+          "finish": 1,
+          "string_tuning": 15.534999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 18.525,
+          "body_wood": 2.34,
+          "pickup_config": 0.39,
+          "string_type": 33.02499999999999,
+          "scale_length_b": 2.34,
+          "fretted_or_not": 0.045,
+          "bass_technique": 42.169999999999995
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 28.299999999999997,
+          "drumhead": 11.874999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 11.419999999999996,
+          "poly_archetypes": 14.559999999999999,
+          "poly_voices": 0.15,
+          "poly_maker_lineage": 6.825
+        }
+      }
+    ],
+    "room": "denver_gothic_basement_studio",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_american_op_amp",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "gothic_americana_minor_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "gothic_americana_minor_modal",
+    "room": "denver_gothic_basement_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

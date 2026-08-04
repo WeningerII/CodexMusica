@@ -1,0 +1,204 @@
+{
+  "id": "cumbia_surena",
+  "name": "Cumbia sureña",
+  "family": "global",
+  "lineage": "Southern-cone cumbia of southern Chile and Argentine Patagonia consolidated in the 1990s–2000s around Chiloé, Osorno and Neuquén dance circuits — brisk 100–110 BPM cumbia with brass or synth-brass hooks, accordion, snare-heavy kit and shouted call-and-response choruses for large open-air bailes.",
+  "recipe": "classic mid-1990s cumbia sureña, groove Percussion, Latin am branch, tropical song functional song, andean carnival processional lambada lambadão. vocal fry, breath veiled tone, fast rate, interlocked note trading. low overtone rich low onset attack brass accordion, yellow brass canonical 70 30 bach stradivarius schilke chicago lead bright large cup large rim orchestral bottom heavy trumpet, yellow brass canonical 70 30 bach 42 standard bass leaning trombone, alder la bella flats Detroit soul bass canon sub heavy electric bass, guiro, ride-driven brushes-and-sticks drum kit, lead open slap hand drum congas. festival stage. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+  "recipe_chars": 732,
+  "score": 185.641,
+  "config": {
+    "traditions": [
+      "cumbia_surena",
+      "lambada",
+      "lambadao"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chromatic_jazz",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 1.625,
+          "accordion_reed_material": 3.2499999999999996,
+          "musette_offset": 0.78,
+          "reed_config": 0.65,
+          "bellows": 0.78,
+          "voicing_chamber": 0.435,
+          "accordion_maker_school": 0.845
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_1c",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 1.0399999999999998,
+          "brass_size": 0.435,
+          "trumpet_mouthpiece": 2.8400000000000003,
+          "brass_mute": 0.15,
+          "trumpet_technique": 1.0399999999999998,
+          "trumpet_bell_metal": 3.8349999999999995,
+          "trumpet_maker_school": 2.34
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "valve_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_3g",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "tailgate_slide",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 1.0399999999999998,
+          "trombone_type": 0.195,
+          "trombone_mouthpiece": 4.42,
+          "trombone_mute": 0,
+          "trombone_technique": 1.95,
+          "trombone_bell_metal": 3.8349999999999995,
+          "trombone_maker_school": 0.8249999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 2.34,
+          "body_wood": 1.3,
+          "pickup_config": 0.65,
+          "string_type": 3.7050000000000005,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0,
+          "bass_technique": 1.945
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_wood"
+        },
+        "scores": {
+          "guiro_origin": 0.78,
+          "guiro_striker": 0.78
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 15.599999999999994,
+          "drumhead": 0.65,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 7.06125,
+          "conga_set": 1.69,
+          "conga_skin": 0.8249999999999998,
+          "conga_shell_wood": 0.8249999999999998
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.3,
+          "voice_quality": 10.075,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 15.339999999999995,
+          "voice_microtone": 14.94999999999999,
+          "voice_tradition": 5.98,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 4.290000000000001,
+          "voice_speech_song": 22.684999999999995,
+          "voice_ensemble_config": 16.249999999999993,
+          "voice_ornament_system": 1.9399999999999997,
+          "voice_pitch_organization": 1.6174999999999997,
+          "voice_processing_chain": 2.9899999999999998,
+          "voice_multitrack_stack": 4.875
+        }
+      }
+    ],
+    "room": "festival_stage",
+    "archetype": "arch_mobile_remote_truck",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "cumbia_4_4_paseo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cumbia_4_4_paseo",
+    "room": "festival_stage",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

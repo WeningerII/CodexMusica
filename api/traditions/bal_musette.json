@@ -1,0 +1,165 @@
+{
+  "id": "bal_musette",
+  "name": "Bal-musette (Parisian dance-hall practice)",
+  "family": "vernacular",
+  "lineage": "Parisian dance-hall music of the 1880s-1930s, begun in Auvergnat immigrant bals of the Bastille and Italie quarters where the bellows-blown cabrette bagpipe led bourrées, then reshaped after 1900 as Italian immigrant accordionists took over and standardised the repertoire of valse, java, polka and paso doble in fast 3/4 and 2/4, played by accordion with banjo and drums for a paying, close-packed dancing crowd.",
+  "recipe": "classic Western European mid-1880s bal-musette, functional Song, europop branch, wind pipe drone modal, chanson fado classic chanson scottish smallpipe music zampogna. thick, breath veiled tone, fast rate, interlocked note trading. castagnari Italian premium folk music drone like accordion, cabrette, long-scale strummed tenor banjo irish, Italian alpine spruce val di fiemme Baroque setup lighter bass bar no endpin double bass, ride-driven brushes-and-sticks drum kit. intimate paris small studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 573,
+  "score": 169.58,
+  "config": {
+    "traditions": [
+      "bal_musette",
+      "scottish_smallpipe_music",
+      "zampogna"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "italian_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 6.109999999999999,
+          "accordion_reed_material": 0.195,
+          "musette_offset": 1.3,
+          "reed_config": 1.9000000000000001,
+          "bellows": 0.45499999999999996,
+          "voicing_chamber": 0.15,
+          "accordion_maker_school": 5.07
+        }
+      },
+      {
+        "id": "cabrette",
+        "slots": {
+          "cabrette_form": "cabrette_parisienne",
+          "cabrette_ornament": "cabrette_plain"
+        },
+        "scores": {
+          "cabrette_form": 0.65,
+          "cabrette_ornament": 0.195
+        }
+      },
+      {
+        "id": "tenor_banjo_irish",
+        "slots": {
+          "tenor_banjo_irish_form": "tenor_banjo_irish_19fret",
+          "tenor_banjo_irish_style": "tenor_banjo_irish_ballad",
+          "tenor_banjo_irish_head": "tenor_banjo_irish_calfskin"
+        },
+        "scores": {
+          "tenor_banjo_irish_form": 2.2099999999999995,
+          "tenor_banjo_irish_style": 5.294999999999999,
+          "tenor_banjo_irish_head": 0.45499999999999996
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_sul_tasto",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "half_rectified_gut_bass",
+          "bass_top_wood": "italian_alpine_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.39,
+          "bass_size": 0.195,
+          "bass_strings": 0.12999999999999998,
+          "bass_top_wood": 1.895,
+          "bass_back_wood": 0.8775,
+          "bass_varnish": 0.375,
+          "bass_setup_period": 1.0899999999999999,
+          "bass_play": 0.195,
+          "bass_rosin": 0.565,
+          "bass_bow_stick": 0.375
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 15.859999999999994,
+          "drumhead": 0.97,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.0749999999999997,
+          "voice_quality": 15.92499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8399999999999999,
+          "voice_articulation": 15.534999999999995,
+          "voice_microtone": 17.809999999999988,
+          "voice_tradition": 11.602500000000001,
+          "voice_mechanism_compound": 8.125,
+          "voice_estill_quality": 7.43,
+          "voice_speech_song": 18.32999999999999,
+          "voice_ensemble_config": 15.469999999999994,
+          "voice_ornament_system": 4.4,
+          "voice_pitch_organization": 3.705,
+          "voice_processing_chain": 3.8899999999999997,
+          "voice_multitrack_stack": 2.04
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

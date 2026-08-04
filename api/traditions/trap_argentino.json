@@ -3,14 +3,14 @@
   "name": "Trap argentino",
   "family": "hip_hop",
   "lineage": "Buenos Aires trap scene that grew directly out of the El Quinto Escalón freestyle battle plaza (Parque Rivadavia, 2012-2017) and turned professional 1017-1019 through Duki, Bizarrap and Neo Pistea — 130-150 BPM halftime trap grids with rolled hi-hats and long 808 glides, dark minor-key synth loops, heavy Auto-Tune on rioplatense-accented Spanish, and lunfardo battle-rap diction carried over from freestyle into melodic song forms",
-  "recipe": "classic mid-2010s trap argentino, mc Rhythm, reggaeton branch, intl hip hop MC rhythm, us hip hop southern tagalog rap memphis hip-hop. extended whistle, rap, straight note core, interlocked note trading. 2010s melodyne microtuned stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, TR-808, sampled chopped sampler drum machine, low sub bass digital subtractive, low sub bass analog poly synth, low sub bass monosynth acid bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 561,
-  "score": 252.563,
+  "recipe": "classic mid-2010s trap argentino, mc Rhythm, reggaeton branch, intl hip hop MC rhythm, us hip hop southern tagalog rap atl trap. extended whistle, rap, straight note core, interlocked note trading. 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack, TR-808, sampled chopped sampler drum machine, sub bass digital subtractive, sub bass analog poly synth, sub bass monosynth acid bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 532,
+  "score": 258.895,
   "config": {
     "traditions": [
       "trap_argentino",
       "tagalog_rap",
-      "memphis_hip_hop_tape"
+      "atl_trap"
     ],
     "instruments": [
       {
@@ -29,53 +29,53 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.56,
-          "voice_quality": 21.677500000000002,
+          "voice_register": 2.2425,
+          "voice_quality": 21.872500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9364999999999997,
-          "voice_articulation": 17.874999999999996,
-          "voice_microtone": 21.709999999999994,
-          "voice_tradition": 7.410000000000001,
-          "voice_mechanism_compound": 1.885,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 20.929999999999996,
-          "voice_ensemble_config": 18.784999999999993,
-          "voice_ornament_system": 7.540000000000002,
-          "voice_pitch_organization": 2.6000000000000005,
-          "voice_processing_chain": 11.295,
-          "voice_multitrack_stack": 3.2175000000000007
+          "voice_vibrato": 1.5864999999999998,
+          "voice_articulation": 18.004999999999995,
+          "voice_microtone": 21.189999999999998,
+          "voice_tradition": 7.605000000000002,
+          "voice_mechanism_compound": 2.694,
+          "voice_estill_quality": 2.919000000000001,
+          "voice_speech_song": 21.06,
+          "voice_ensemble_config": 18.069999999999997,
+          "voice_ornament_system": 7.735000000000003,
+          "voice_pitch_organization": 1.984,
+          "voice_processing_chain": 11.095,
+          "voice_multitrack_stack": 5.2975
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_density": "multitrack_density_unison_double",
           "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
-          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 0.6,
-          "multitrack_stack_era_aesthetic": 1.9175,
-          "multitrack_stack_processing": 1.5925
+          "multitrack_stack_density": 0,
+          "multitrack_stack_era_aesthetic": 2.3075,
+          "multitrack_stack_processing": 2.23
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_rb",
+          "drum_machine_808_context": "drum_machine_808_trap",
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 6.765,
-          "drum_machine_808_context": 0.195,
-          "tr808_production_origin": 0.9500000000000001
+          "tr808_voice": 7.265,
+          "drum_machine_808_context": 1.7550000000000001,
+          "tr808_production_origin": 0.45499999999999996
         }
       },
       {
@@ -88,9 +88,9 @@
         },
         "scores": {
           "electronic_technique": 7.202500000000001,
-          "sample_bitdepth": 2.73,
+          "sample_bitdepth": 2.535,
           "sample_swing": 11.05,
-          "sample_processing": 0.195
+          "sample_processing": 0.8300000000000001
         }
       },
       {
@@ -101,9 +101,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 18.99,
+          "electronic_technique": 19.715,
           "va_archetypes": 0.195,
-          "digital_subtractive_context": 17.419999999999998
+          "digital_subtractive_context": 17.55
         }
       },
       {
@@ -115,7 +115,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 18.99,
+          "electronic_technique": 19.715,
           "poly_archetypes": 0.195,
           "poly_voices": 0.435,
           "poly_maker_lineage": -1.435
@@ -127,13 +127,13 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "no_accent_acid"
+          "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 18.99,
+          "electronic_technique": 19.715,
           "wave_acid": 0.39,
           "filter_acid": 0.384,
-          "accent_acid": 0.5
+          "accent_acid": 0
         }
       }
     ],

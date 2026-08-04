@@ -1,0 +1,242 @@
+{
+  "id": "serialism",
+  "name": "Serialism",
+  "family": "classical",
+  "lineage": "Devised by Arnold Schoenberg in Vienna around 1921-23 and extended to rhythm, dynamics and attack by Boulez, Stockhausen and Babbitt at Darmstadt after 1949 — a fixed ordering of all twelve chromatic pitches deployed in prime, inversion, retrograde and retrograde-inversion forms with no pitch privileged, pointillistic Webernian textures of isolated attacks across extreme registers, irregular non-repeating rhythm, and precisely notated dynamics changing note by note.",
+  "recipe": "classic early-1920s serialism, art Music, western modern branch, western common practice art music late romantic era german romanticism. thick, breath veiled tone, slow rate, interlocked note trading. steel sitka spruce bigleaf maple western maple oil varnish violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, silver yamaha modern Japanese mid to premium continuous-airflow legato flute, grenadilla African blackwood traditional continuous-airflow legato clarinet, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, legato celesta, treble-extended articulate rubber vibraphone, brass continuous-airflow legato french horn, concert harp. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 868,
+  "score": 488.215,
+  "config": {
+    "traditions": [
+      "serialism",
+      "late_romantic_era",
+      "german_romanticism"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 5.375,
+          "orch_strings": 2.24,
+          "orch_top_wood": 8.215000000000002,
+          "orch_back_wood": 13.325,
+          "orch_varnish": 10.5,
+          "orch_setup_period": 11.22,
+          "orch_bow": 1.17,
+          "orch_bow_stick": 13.36,
+          "orch_articulation": 0.9099999999999999,
+          "orch_rosin": 13.975
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 5.375,
+          "cello_strings": 3.7700000000000005,
+          "cello_top_wood": 6.26,
+          "cello_back_wood": 11.43,
+          "cello_varnish": 10.5,
+          "cello_setup_period": 11.22,
+          "cello_bow_grip": 2.6,
+          "cello_rosin": 10.935,
+          "cello_bow_stick": 13.36
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "piccolo_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 5.69,
+          "flute_size": 2.195,
+          "flute_material": 5.07,
+          "flute_technique": 2.8600000000000003,
+          "flute_maker_school": 5.590000000000001
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "glissando_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 5.69,
+          "clarinet_body": 10.6,
+          "clarinet_size": 2.6,
+          "clarinet_reed": 2.195,
+          "clarinet_articulation": 0.09999999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 5,
+          "grand_piano_size": 1.8850000000000002,
+          "grand_piano_brand": 2.195,
+          "piano_hammer": 14.159999999999998,
+          "piano_rim": 12.195,
+          "piano_soundboard": 10.5,
+          "piano_pinblock": 10.65,
+          "piano_plate": 11.325,
+          "piano_pitch_standard": 14.810000000000002
+        }
+      },
+      {
+        "id": "celesta",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "celesta_model": "celesta_schiedmayer",
+          "celesta_context": "celesta_film"
+        },
+        "scores": {
+          "keyboard_technique": 5,
+          "celesta_model": 1.4300000000000002,
+          "celesta_context": 2.8600000000000003
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_off",
+          "vibe_mallets": "vibe_hard_mallets"
+        },
+        "scores": {
+          "percussion_technique": 0.375,
+          "vibe_motor": 2.6,
+          "vibe_mallets": 3.195
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 5.85,
+          "voice_quality": 7.150000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.58,
+          "voice_articulation": 22.814999999999998,
+          "voice_microtone": 19.629999999999992,
+          "voice_tradition": 7.0200000000000005,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 8.355,
+          "voice_speech_song": 28.08,
+          "voice_ensemble_config": 20.604999999999993,
+          "voice_ornament_system": 6.945,
+          "voice_pitch_organization": 7.500000000000001,
+          "voice_processing_chain": 9.659999999999998,
+          "voice_multitrack_stack": 11.089999999999996
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "french_horn_bore": "french_horn_descant",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 5.69,
+          "french_horn_bore": 0.28500000000000003,
+          "french_horn_metal": 3.6399999999999997
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 3.445,
+          "harp_pedals": 4.9399999999999995
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

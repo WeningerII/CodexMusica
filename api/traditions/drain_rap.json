@@ -1,0 +1,153 @@
+{
+  "id": "drain_rap",
+  "name": "Drain (Drain Gang rap)",
+  "family": "hip_hop",
+  "lineage": "Stockholm-based cloud-rap aesthetic formed 2012-2016 around the Drain Gang collective — Bladee, Ecco2k, Thaiboy Digital and producer Whitearmor, in the Sad Boys orbit of Yung Lean — characterised by heavily Auto-Tuned thin high vocals, reverb-drowned bell and pad textures, sparse trap hi-hat programming at 130-150 BPM half-time, and fragmentary aphoristic lyrics about dissociation and luxury.",
+  "recipe": "classic 2012-2016 drain, mc Rhythm, intl hip hop branch, experimental MC rhythm, us hip hop modern dungeon rap nerdcore. sygyt, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, glitched textural granular low sub bass wavetable synth, pitched chopped sampler, octuple plus dense stack multi track instrument 2010s melodyne microtuned stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 632,
+  "score": 262.075,
+  "config": {
+    "traditions": [
+      "drain_rap",
+      "dungeon_rap",
+      "nerdcore"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.89,
+          "voice_quality": 30.799999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2349999999999997,
+          "voice_articulation": 14.104999999999995,
+          "voice_microtone": 16.11999999999999,
+          "voice_tradition": 9.33,
+          "voice_mechanism_compound": 3.5749999999999993,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 28.584999999999997,
+          "voice_ensemble_config": 14.234999999999992,
+          "voice_ornament_system": 7.345000000000002,
+          "voice_pitch_organization": 1.335,
+          "voice_processing_chain": 19.384999999999998,
+          "voice_multitrack_stack": 6.337500000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 7.77,
+          "drum_machine_808_context": 1.3649999999999998,
+          "tr808_production_origin": 2.6649999999999996
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 6.369999999999999,
+          "granular_use": 0.24,
+          "granular_synth_source": 3.3149999999999995
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 12.94,
+          "wt_position": 1.3649999999999998,
+          "wt_family": 3.6899999999999995,
+          "wt_polyphony": 0.195
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 7.2700000000000005,
+          "sampler_archetypes": 11.9925,
+          "sampler_bit_depth": 2.4049999999999994,
+          "sampler_workflow": 8.625,
+          "sampler_classic_context": 24.0175
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.17,
+          "multitrack_stack_era_aesthetic": 2.6975000000000002,
+          "multitrack_stack_processing": 2.02
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

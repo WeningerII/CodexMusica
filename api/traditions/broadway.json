@@ -3,53 +3,53 @@
   "name": "Broadway (musical theatre song)",
   "family": "pop",
   "lineage": "American musical-theatre song of the New York Broadway houses, codified between Show Boat (1927) and the Rodgers-and-Hammerstein book musical of the 1940s-50s and extended by Sondheim from Company (1970) — pit-orchestra scoring for reeds, brass, strings, piano and kit, diatonic-to-chromatic 32-bar and through-composed forms, verse-and-refrain structure, tempo and key shifts written to dramatic action, and an unamplified-legit-to-belt vocal delivery with fully articulated consonants that carries dialogue-bearing lyrics.",
-  "recipe": "classic North American mid-1940s broadway, functional Song, crooners branch, western common practice art music, stage performance spoken word german romanticism bel canto opera. thick, chest mix belt, straight note core, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, birch laminated maple laminated Asian spruce hokkaido source multi laminate grand piano, steel sitka spruce bigleaf maple western maple oil varnish violin orchestral, steel Italian alpine spruce val di fiemme European maple sycamore maple cello, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn legato trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, composite resin blackwood dust clarinet.",
-  "recipe_chars": 969,
-  "score": 368.587,
+  "recipe": "classic North American mid-1940s broadway, functional Song, crooners branch, western common practice art music, stage performance spoken word vaudeville requiem mass. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, steel sitka spruce bigleaf maple western maple oil varnish violin orchestral, steel carpathian spruce European maple sycamore maple oil varnish cello, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn legato trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone, composite resin blackwood dust clarinet, pre muffled edge muffled brushes-and-sticks drum kit.",
+  "recipe_chars": 989,
+  "score": 336.725,
   "config": {
     "traditions": [
       "broadway",
-      "german_romanticism",
-      "bel_canto_opera"
+      "vaudeville",
+      "requiem_mass"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "chest_mix_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "broadway_legit_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.325000000000001,
-          "voice_quality": 8.494999999999994,
+          "voice_register": 9.06875,
+          "voice_quality": 14.039999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.4925,
-          "voice_articulation": 21.515,
-          "voice_microtone": 21.319999999999997,
-          "voice_tradition": 14.924999999999999,
-          "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 9.530000000000001,
-          "voice_speech_song": 29.8675,
-          "voice_ensemble_config": 20.994999999999997,
-          "voice_ornament_system": 6.025000000000001,
-          "voice_pitch_organization": 6.37,
-          "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 3.5349999999999997
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 24.115000000000002,
+          "voice_microtone": 24.569999999999997,
+          "voice_tradition": 14.181874999999998,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 7.6,
+          "voice_speech_song": 30.94,
+          "voice_ensemble_config": 22.5875,
+          "voice_ornament_system": 2.1950000000000003,
+          "voice_pitch_organization": 2.8925,
+          "voice_processing_chain": 3.1849999999999996,
+          "voice_multitrack_stack": 2.3775
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 7.395,
-          "choir_polyphonic_configuration": 3.0349999999999997,
-          "choir_regional_canonical_configuration": 2.3899999999999997,
-          "choir_ensemble_repertoire": 4.614999999999999
+          "choir_size": 10.34625,
+          "choir_polyphonic_configuration": 2.34,
+          "choir_regional_canonical_configuration": 4.154375,
+          "choir_ensemble_repertoire": 2.535
         }
       },
       {
@@ -73,7 +73,7 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "renner_standard_hammer",
+          "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
@@ -81,15 +81,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 3.395,
-          "grand_piano_size": 1.105,
-          "grand_piano_brand": 1.885,
-          "piano_hammer": 5.3625,
-          "piano_rim": 5.985,
-          "piano_soundboard": 4.875,
-          "piano_pinblock": 4.275,
-          "piano_plate": 4.215,
-          "piano_pitch_standard": 7.734999999999999
+          "keyboard_technique": 5.325,
+          "grand_piano_size": 1.018125,
+          "grand_piano_brand": 2.34,
+          "piano_hammer": 5.39,
+          "piano_rim": 7.04,
+          "piano_soundboard": 6.125,
+          "piano_pinblock": 2.3,
+          "piano_plate": 2.09,
+          "piano_pitch_standard": 7.279999999999999
         }
       },
       {
@@ -107,16 +107,16 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 3.5,
+          "bowed_technique": 2.25,
           "orch_strings": 2.04,
-          "orch_top_wood": 6.49,
-          "orch_back_wood": 5.8825,
-          "orch_varnish": 4.125,
-          "orch_setup_period": 4.645,
-          "orch_bow": 1.625,
-          "orch_bow_stick": 5.2975,
-          "orch_articulation": 1.7550000000000001,
-          "orch_rosin": 4.5825000000000005
+          "orch_top_wood": 5.6137500000000005,
+          "orch_back_wood": 3.3149999999999995,
+          "orch_varnish": 2,
+          "orch_setup_period": 2.8099999999999996,
+          "orch_bow": 1.4300000000000002,
+          "orch_bow_stick": 2.535,
+          "orch_articulation": 0.7331249999999999,
+          "orch_rosin": 2.0149999999999997
         }
       },
       {
@@ -124,7 +124,7 @@
         "slots": {
           "bowed_technique": "bowed_spiccato_articulated",
           "cello_strings": "cello_steel",
-          "cello_top_wood": "italian_alpine_spruce_cello",
+          "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "european_maple_cello_back",
           "cello_varnish": "oil_amber_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
@@ -133,15 +133,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 3.5,
+          "bowed_technique": 2.25,
           "cello_strings": 2.04,
-          "cello_top_wood": 4.975,
-          "cello_back_wood": 5.055,
-          "cello_varnish": 4.125,
-          "cello_setup_period": 4.645,
-          "cello_bow_grip": 1.3,
-          "cello_rosin": 4.56,
-          "cello_bow_stick": 5.2975
+          "cello_top_wood": 2.08,
+          "cello_back_wood": 3.055,
+          "cello_varnish": 2,
+          "cello_setup_period": 2.8099999999999996,
+          "cello_bow_grip": 0.65,
+          "cello_rosin": 2.435,
+          "cello_bow_stick": 2.535
         }
       },
       {
@@ -156,34 +156,34 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 2.6900000000000004,
-          "brass_size": 1.695,
-          "trumpet_mouthpiece": 8.255,
-          "brass_mute": 2.5,
-          "trumpet_technique": 2.5,
-          "trumpet_bell_metal": 3.1849999999999996,
-          "trumpet_maker_school": 3.1849999999999996
+          "wind_articulation": 1.44,
+          "brass_size": 1.195,
+          "trumpet_mouthpiece": 7.322500000000001,
+          "brass_mute": 1.25,
+          "trumpet_technique": 1.25,
+          "trumpet_bell_metal": 1.6899999999999997,
+          "trumpet_maker_school": 2.6
         }
       },
       {
         "id": "trombone",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "trombone_type": "valve_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
           "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 2.6900000000000004,
-          "trombone_type": 0.15,
-          "trombone_mouthpiece": 5.01,
-          "trombone_mute": 1.7550000000000001,
+          "wind_articulation": 1.44,
+          "trombone_type": 1.8006249999999997,
+          "trombone_mouthpiece": 7.424999999999999,
+          "trombone_mute": 0.7331249999999999,
           "trombone_technique": 0.24,
-          "trombone_bell_metal": 3.1849999999999996,
-          "trombone_maker_school": 3.1849999999999996
+          "trombone_bell_metal": 1.6899999999999997,
+          "trombone_maker_school": 2.6
         }
       },
       {
@@ -193,14 +193,14 @@
           "clarinet_body": "buffet_greenline_clarinet",
           "clarinet_size": "e_flat_clarinet",
           "clarinet_reed": "soft_clarinet_reed",
-          "clarinet_articulation": "glissando_clarinet"
+          "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 2.6900000000000004,
-          "clarinet_body": 4.125,
-          "clarinet_size": 1.95,
-          "clarinet_reed": 1.695,
-          "clarinet_articulation": 0.09999999999999999
+          "wind_articulation": 1.44,
+          "clarinet_body": 2,
+          "clarinet_size": 1.195,
+          "clarinet_reed": 1.195,
+          "clarinet_articulation": 0
         }
       },
       {
@@ -211,20 +211,20 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.28,
-          "drumhead": 5.34,
+          "drum_technique": 22.490000000000002,
+          "drumhead": 6.744999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "steel_upright",
-          "upright_play": "arco_upright"
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 1.74,
-          "upright_play": 1.3
+          "upright_strings": 1.7499999999999998,
+          "upright_play": 1.7499999999999998
         }
       }
     ],

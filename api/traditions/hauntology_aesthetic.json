@@ -1,0 +1,171 @@
+{
+  "id": "hauntology_aesthetic",
+  "name": "Hauntology (library-music aesthetic)",
+  "family": "electronic",
+  "lineage": "British production aesthetic named from Derrida via Mark Fisher and Simon Reynolds around 2005-2006 and realised on Ghost Box, Trunk and Warp, in which Belbury Poly, The Focus Group, The Advisory Circle and Boards of Canada rebuild BBC Radiophonic Workshop and 1970s library-music textures using tape-wobbled Mellotron, early modular and VCS-style synths, wow-and-flutter cassette dubbing, folk-modal melodies and clipped public-information speech.",
+  "recipe": "classic 2005-2006 hauntology, experimental Elec, ambient branch, musique concrete experimental electric, idm glitch experimental electric folktronica idm and experimental electronic. thick, breath veiled tone, straight note core, interlocked note trading. tape replay keyboard, modular modular analog mono synth, glitched textural sampler, prepared upright piano, sustained pad string machine. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 552,
+  "score": 283.332,
+  "config": {
+    "traditions": [
+      "hauntology_aesthetic",
+      "folktronica",
+      "idm"
+    ],
+    "instruments": [
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "flute_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": 0.8249999999999998,
+          "tape_voice": 0.6,
+          "tape_state": 0.045
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 23.75,
+          "mod_voltage_source": 1.435,
+          "mod_patch_density": 3.895,
+          "mod_lineage": 0.845
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "tb_303",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 1.625,
+          "mono_oscillator": 0.525,
+          "mono_filter": 0.3,
+          "mono_archetypes": 0.75,
+          "mono_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 23.639999999999997,
+          "sampler_archetypes": 0.78,
+          "sampler_bit_depth": 1.05,
+          "sampler_workflow": 22.75,
+          "sampler_classic_context": 23.627500000000005
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 5.745,
+          "voice_quality": 8.255000000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.8400000000000003,
+          "voice_articulation": 18.98,
+          "voice_microtone": 20.085,
+          "voice_tradition": 19.595,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 2.695,
+          "voice_speech_song": 20.67,
+          "voice_ensemble_config": 18.915,
+          "voice_ornament_system": 0.99,
+          "voice_pitch_organization": 3.575,
+          "voice_processing_chain": 15.019999999999998,
+          "voice_multitrack_stack": 3.0550000000000006
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 15.700000000000003,
+          "upright_use": 0.3,
+          "upright_piano_size": 0.735
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_brass"
+        },
+        "scores": {
+          "electronic_technique": 7.8950000000000005,
+          "sm_voice_count": 3.445,
+          "sm_chorus": 0.15,
+          "sm_voicing": 0.15
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "pre_500_series_modern",
+      "console": "console_home_portastudio",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_isolation_cabin_diy",
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_home_portastudio"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "id": "new_orleans_funk",
+  "name": "New Orleans funk",
+  "family": "pop_rock",
+  "lineage": "Studio-band funk that formed in New Orleans between about 1965 and 1975 around Allen Toussaint's writing and production and The Meters as house band, with Eddie Bo, Lee Dorsey and the Neville family in orbit — Ziggy Modeliste's parade-derived kit patterns displacing the backbeat with second-line bass-drum syncopation and ghost-note snare, George Porter Jr's melodic sixteenth-note bass, Leo Nocentelli's clipped single-coil scratch guitar, Toussaint's rolling tresillo piano, mid tempos around 90-105 BPM and short vamp forms with laconic call-and-response vocals.",
+  "recipe": "classic Southern American mid-1960s new orleans funk, groove Percussion, funk percussive branch, American south carnival processional, soul R&B functional song doo-wop souldies. thick, breath veiled tone, slow rate, interlocked note trading. pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, Fender blackface amp American 60s amp spring reverb bright mahogany wenge single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ, gospel runs upright piano, lead cowhide mid tier congas. rural louisiana pine forest 1973-present mid tier in the country bogalusa. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 864,
+  "score": 433.973,
+  "config": {
+    "traditions": [
+      "new_orleans_funk",
+      "doo_wop",
+      "souldies"
+    ],
+    "instruments": [
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.490000000000002,
+          "drumhead": 3.289999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 19.92,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0,
+          "string_type": 19.499999999999996,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 1.5,
+          "bass_technique": 21.199999999999996
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 22.439999999999994,
+          "amp_make": 26.715,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.65,
+          "fretboard": 1.5,
+          "pickup_magnet": 0.15,
+          "string_material": 0.15,
+          "string_gauge": 3.0649999999999995,
+          "bridge": 1.5,
+          "scale_length": 1.4949999999999999,
+          "finish": 0,
+          "string_tuning": 2.08
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "slow_chorale",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 21.25,
+          "drawbar_setting": 1.9,
+          "rotary_speed": 12.34,
+          "percussion_setting": 0.65,
+          "tonewheel_model": 10.334999999999999,
+          "leslie_cabinet_model": 1.04
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 13.135,
+          "upright_use": 1.4949999999999999,
+          "upright_piano_size": 1.4949999999999999
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 2.145,
+          "conga_set": 1.78,
+          "conga_skin": 1.4949999999999999,
+          "conga_shell_wood": 0.045
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 18.05,
+          "voice_quality": 24.830000000000005,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.5100000000000002,
+          "voice_articulation": 26.519999999999992,
+          "voice_microtone": 23.139999999999997,
+          "voice_tradition": 16.259999999999998,
+          "voice_mechanism_compound": 5.85,
+          "voice_estill_quality": 12.899999999999999,
+          "voice_speech_song": 27.95,
+          "voice_ensemble_config": 22.554999999999996,
+          "voice_ornament_system": 2.7950000000000017,
+          "voice_pitch_organization": 1.2349999999999999,
+          "voice_processing_chain": 13.054999999999996,
+          "voice_multitrack_stack": 8.6125
+        }
+      }
+    ],
+    "room": "studio_in_the_country_bogalusa",
+    "archetype": "arch_memphis_southern_soul",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_mci_jh636",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "studio_in_the_country_bogalusa",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_mci_jh636"
+  }
+}

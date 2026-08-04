@@ -1,0 +1,191 @@
+{
+  "id": "ohangla",
+  "name": "Ohangla",
+  "family": "global",
+  "lineage": "Luo dance music of Nyanza and Nairobi, Kenya, grown from village ohangla drum ensembles into an electrified nightclub form during the 1990s-2000s and codified by Tony Nyadundo, Osogo Winyo and Prince Indah — 130-160 BPM eight-beat hand-drum battery under fast benga-derived interlocking electric guitar arpeggios, walking bass, thin synth pads and hoarse call-and-response Dholuo praise vocals that name patrons mid-song.",
+  "recipe": "classic West African mid-1990s ohangla, functional Song, African pop branch, central east south African groove percussion ndombolo séga. extended whistle, breath veiled tone, fast rate, interlocked note trading. orutu, mahogany ebony nitrocellulose clean strummed single coil electric guitar, alder pyramid pure nickel bass British mid 60s era electric bass, yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, lead cowhide mid tier siam oak mid tier modern open slap hand drum congas, snappy thin to palm hand clap. tin roofed shack. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 692,
+  "score": 197.064,
+  "config": {
+    "traditions": [
+      "ohangla",
+      "ndombolo",
+      "sega"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 5.785,
+          "voice_quality": 9.36,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.75,
+          "voice_articulation": 14.299999999999995,
+          "voice_microtone": 15.534999999999995,
+          "voice_tradition": 21.8725,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 19.304999999999993,
+          "voice_ensemble_config": 15.209999999999994,
+          "voice_ornament_system": 1.5749999999999997,
+          "voice_pitch_organization": 3.2760000000000007,
+          "voice_processing_chain": 5.460000000000001,
+          "voice_multitrack_stack": 4.758
+        }
+      },
+      {
+        "id": "orutu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orutu_form": "orutu_tin_tube",
+          "orutu_context": "orutu_ohangla",
+          "orutu_string_material": "orutu_sisal_lizard"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "orutu_form": 3.9000000000000004,
+          "orutu_context": 16.324999999999996,
+          "orutu_string_material": -0.035
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_3",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 4.45,
+          "amp_make": 1.8849999999999996,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 2.9899999999999998,
+          "pickup_magnet": 0,
+          "string_material": 0,
+          "string_gauge": 1.4949999999999999,
+          "bridge": 2.9899999999999998,
+          "scale_length": 1.4949999999999999,
+          "finish": 1,
+          "string_tuning": 0.39
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 1.9699999999999998,
+          "body_wood": 4.0365,
+          "pickup_config": 2.75,
+          "string_type": 3.5100000000000002,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 0.95
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 5.1115,
+          "fm_algorithm": 0.15,
+          "fm_modulator_ratio": 0.195,
+          "fm_polyphony": 0.585,
+          "fm_model_lineage": 1.6249999999999998
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 5.8264999999999985,
+          "conga_set": 1.125,
+          "conga_skin": 1.2865,
+          "conga_shell_wood": 1.3
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.3,
+          "clap_capture": 0
+        }
+      }
+    ],
+    "room": "tin_roofed_shack",
+    "archetype": "arch_lagos_afrobeats_digital",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tin_roofed_shack",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

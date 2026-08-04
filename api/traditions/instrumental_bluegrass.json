@@ -1,0 +1,149 @@
+{
+  "id": "instrumental_bluegrass",
+  "name": "Instrumental bluegrass",
+  "family": "country",
+  "lineage": "Voiceless branch of bluegrass established by Earl Scruggs's banjo showpieces and Bill Monroe's mandolin instrumentals in the late 1940s and extended from the 1960s by Kenny Baker, Tony Rice, Bela Fleck and Sam Bush — tunes built on fiddle-tune and blues forms taken at 140-220 BPM, with banjo roll, mandolin cross-picking, flatpicked guitar lead and long fiddle shuffles trading breaks over an unamplified bass-and-chop rhythm section, and no sung text at all.",
+  "recipe": "classic Southern American 1947-1949 instrumental bluegrass, improv On Frame, bluegrass branch, string improv improv on frame, pre commercial country string band pre-commercial country roots. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, plain gut sheep gut double stops fiddle, open d tuning sitka spruce spruce maple martin dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, treble-extended sustaining steel upright bass. live tracking. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 712,
+  "score": 296.557,
+  "config": {
+    "traditions": [
+      "instrumental_bluegrass",
+      "string_band",
+      "pre_commercial_country"
+    ],
+    "instruments": [
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "resonator",
+          "tone_ring": "flathead",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "three_finger",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_neck_wood": "banjo_maple_neck",
+          "banjo_strings": "banjo_medium_bluegrass",
+          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 1.3,
+          "tone_ring": 11.545,
+          "banjo_head": 22.36,
+          "banjo_pot": 1.3,
+          "banjo_play": 4.6000000000000005,
+          "banjo_rim_wood": 12.535,
+          "banjo_neck_wood": 11.5,
+          "banjo_strings": 11.545,
+          "banjo_bridge": 11.695,
+          "banjo_setup_period": 38.415000000000006
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "mandolin_shape": "f_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_brazilian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 13.25,
+          "mandolin_shape": 12.1,
+          "mandolin_top": 12.145000000000001,
+          "mandolin_back": 12.205,
+          "mandolin_bracing": 12,
+          "mandolin_strings": 4.055,
+          "mandolin_fingerboard": 0.9749999999999996,
+          "mandolin_pickup": 22.945000000000004
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "plain_sheep_gut_fiddle",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 34.745000000000005,
+          "fiddle_strings": 1.3499999999999996,
+          "fiddle_bow": 1.3,
+          "fiddle_mute": 1.105,
+          "fiddle_articulation": 0.525
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "open_d",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
+          "string_acoustic": "martin_lifespan"
+        },
+        "scores": {
+          "acoustic_technique": 15.565,
+          "string_tuning": 4.135,
+          "top_wood": 1.3,
+          "back_sides": 2.15,
+          "string_acoustic": 3.0549999999999997
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "upright_strings": 1.3,
+          "upright_play": 1.04
+        }
+      },
+      {
+        "id": "resonator_guitar",
+        "slots": {
+          "resonator_body": "resonator_dobro_wood_single_cone",
+          "resonator_strings": "gibson_dobro_set",
+          "resonator_technique": "resonator_lap_steel_position"
+        },
+        "scores": {
+          "resonator_body": 6.78,
+          "resonator_strings": 5.4,
+          "resonator_technique": 6.675000000000001
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_nashville_a_team",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "bluegrass_high_lonesome_pentatonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "bluegrass_high_lonesome_pentatonic",
+    "room": "live_room",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Japanese taue-uta (田植唄, rice-planting songs)",
   "family": "global",
   "lineage": "Japanese taue-uta (田植唄, \"rice-planting songs\") tradition continuous from premodern Japanese-agricultural village-labor practice through Edo-period continuous performance into modern Japanese-and-Japanese-diaspora continuous rural practice (where it survives) and into intangible-heritage status for certain regional variants; foundational repertoire integrates rice-paddy planting and weeding-songs with characteristic Japanese-folk pentatonic vocabulary",
-  "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta korean jajanga. thick, breath veiled tone, straight note core, interlocked note trading. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 385,
-  "score": 152.431,
+  "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta cambodian traditional. thick, breath veiled tone, straight note core, interlocked note trading. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 392,
+  "score": 148.979,
   "config": {
     "traditions": [
       "japanese_taue_uta",
       "japanese_komoriuta",
-      "korean_jajanga"
+      "cambodian_traditional"
     ],
     "instruments": [
       {
@@ -30,34 +30,34 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 5.649999999999999,
-          "voice_quality": 4.0950000000000015,
+          "voice_register": 5.874999999999999,
+          "voice_quality": 5.915000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.799,
-          "voice_articulation": 10.464999999999996,
-          "voice_microtone": 11.309999999999995,
-          "voice_tradition": 49.332499999999996,
-          "voice_mechanism_compound": 2.5349999999999997,
-          "voice_estill_quality": 1.4949999999999997,
-          "voice_speech_song": 13.649999999999995,
-          "voice_ensemble_config": 10.789999999999996,
-          "voice_ornament_system": 16.770000000000003,
-          "voice_pitch_organization": 6.76,
-          "voice_processing_chain": 2.6000000000000005,
-          "voice_multitrack_stack": 2.9899999999999998
+          "voice_vibrato": 4.565,
+          "voice_articulation": 12.154999999999994,
+          "voice_microtone": 12.804999999999993,
+          "voice_tradition": 48.29875,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 15.339999999999995,
+          "voice_ensemble_config": 12.284999999999995,
+          "voice_ornament_system": 8.97,
+          "voice_pitch_organization": 5.90525,
+          "voice_processing_chain": 2.2099999999999995,
+          "voice_multitrack_stack": 3.4450000000000003
         }
       },
       {
         "id": "shamisen",
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
-          "shamisen_size": "chuzao",
-          "shamisen_skin": "shamisen_dog",
+          "shamisen_size": "hosozao",
+          "shamisen_skin": "shamisen_cat",
           "shamisen_pick": "bachi_acrylic",
           "shamisen_neck_wood": "shamisen_red_sandalwood",
           "shamisen_strings": "shamisen_nylon_tsugaru",
@@ -65,12 +65,12 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.05,
-          "shamisen_size": 0,
-          "shamisen_skin": 0,
-          "shamisen_pick": 2.925,
+          "shamisen_size": 0.195,
+          "shamisen_skin": 0.195,
+          "shamisen_pick": 2.535,
           "shamisen_neck_wood": 0.12999999999999998,
-          "shamisen_strings": 2.925,
-          "shamisen_tradition": 5.459999999999999
+          "shamisen_strings": 2.535,
+          "shamisen_tradition": 3.769999999999999
         }
       }
     ],

@@ -1,0 +1,156 @@
+{
+  "id": "uk_dancehall",
+  "name": "UK Dancehall (Bashment)",
+  "family": "global",
+  "lineage": "British-Caribbean dancehall descendant formed in London, Birmingham and Luton sound-system circuits from the late 1990s and consolidated in the 2010s around Stylo G, Gappy Ranks and Riko Dan, built on digitally sequenced one-drop and steppers riddims at 95-105 BPM, 808 sub-bass and sparse hi-hat rolls, riddim-versioning where many MCs voice the same instrumental, and a Jamaican-patois-over-London-inflection deejay delivery pitched between toasting and grime bars.",
+  "recipe": "classic Western European 1997-1999 uk dancehall, bass System, uk soundsystem branch, Jamaican bass system, intl hip hop MC rhythm desi trap french rap. extended whistle, rap, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, low sub bass analog poly synth, sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, sampled chopped turntable. brent black community studio london. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3.",
+  "recipe_chars": 622,
+  "score": 238.725,
+  "config": {
+    "traditions": [
+      "uk_dancehall",
+      "desi_trap",
+      "french_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.56,
+          "voice_quality": 13.955,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.21,
+          "voice_articulation": 21.58,
+          "voice_microtone": 23.074999999999996,
+          "voice_tradition": 7.8,
+          "voice_mechanism_compound": 2.3025,
+          "voice_estill_quality": 1.2349999999999999,
+          "voice_speech_song": 22.425,
+          "voice_ensemble_config": 22.814999999999998,
+          "voice_ornament_system": 5.525000000000002,
+          "voice_pitch_organization": 1.5925,
+          "voice_processing_chain": 10.634999999999998,
+          "voice_multitrack_stack": 7.0200000000000005
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 14.4825,
+          "drum_machine_808_context": 7.085000000000001,
+          "tr808_production_origin": 1.8200000000000003
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 17.9025,
+          "poly_archetypes": 0.28500000000000003,
+          "poly_voices": 0.135,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 6.475,
+          "sample_bitdepth": 1.2474999999999998,
+          "sample_swing": 9.469999999999999,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 5.4275,
+          "body_wood": 0.69,
+          "pickup_config": 1.7474999999999998,
+          "string_type": 5.915000000000001,
+          "scale_length_b": 1.8650000000000002,
+          "fretted_or_not": 0.135,
+          "bass_technique": 2.8425000000000002
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 6.475,
+          "turntable_technique": 6.914999999999999
+        }
+      }
+    ],
+    "room": "brent_black_community_studio_london",
+    "archetype": "arch_uk_grime_dubstep_pirate",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "brent_black_community_studio_london",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "afro_drill",
+  "name": "Afro drill",
+  "family": "hip_hop",
+  "lineage": "Formed in London and Lagos circa 2019-2021 when UK drill producers and Nigerian-Ghanaian diaspora artists fused the 138-142 BPM sliding 808 drill pattern with Afrobeats' 3-2 log-drum and shaker feel, codified by Kwengface, Tion Wayne, Odumodublvck and producers like Ghosty and Gotcha, marked by triplet hats, a melodic Afro guitar or log-drum loop over the drill bass slide, and pidgin/Yoruba-inflected melodic hooks alternating with flat-affect road rap verses.",
+  "recipe": "classic Western European 2019-2021 afro drill, mc Rhythm, drill branch, intl hip hop MC rhythm, African dance electronic dance azontobeats trap italiana. extended whistle, rap, straight note core, interlocked note trading. TR-808, iroko alternative west African talking drum, cedar strummed open chord ringing overtones classical nylon-string guitar, sub bass analog poly synth, bright flat sharp hand clap. brent black community studio london. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 546,
+  "score": 196.175,
+  "config": {
+    "traditions": [
+      "afro_drill",
+      "azontobeats",
+      "trap_italiana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 5.330000000000001,
+          "voice_quality": 14.592500000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.885,
+          "voice_articulation": 22.879999999999995,
+          "voice_microtone": 23.919999999999995,
+          "voice_tradition": 12.415000000000001,
+          "voice_mechanism_compound": 5.071249999999999,
+          "voice_estill_quality": 5.6575,
+          "voice_speech_song": 22.489999999999995,
+          "voice_ensemble_config": 21.059999999999995,
+          "voice_ornament_system": 4.745000000000002,
+          "voice_pitch_organization": 3.835,
+          "voice_processing_chain": 8.445,
+          "voice_multitrack_stack": 6.110000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 5.36625,
+          "drum_machine_808_context": 3.4587499999999998,
+          "tr808_production_origin": 0.45499999999999996
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_world",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 0,
+          "talking_drum_context": 0.45499999999999996,
+          "talking_drum_shell_wood": 2.5000000000000004,
+          "talking_drum_head": 0.825
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 3.3925,
+          "string_tuning": 0,
+          "top_wood_classical": 3.575,
+          "bracing_classical": 0.45499999999999996,
+          "string_classical": 0.8449999999999999,
+          "attack_technique_cl": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 7.31625,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.435,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_flat_sharp",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.65,
+          "clap_capture": 0.15
+        }
+      }
+    ],
+    "room": "brent_black_community_studio_london",
+    "archetype": "arch_lagos_afrobeats_digital",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "brent_black_community_studio_london",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

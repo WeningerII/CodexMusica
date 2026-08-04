@@ -1,0 +1,193 @@
+{
+  "id": "ecm_style_jazz",
+  "name": "ECM-style Jazz",
+  "family": "jazz",
+  "lineage": "Codified by Manfred Eicher and engineer Jan Erik Kongshaug at Oslo's Rainbow Studio from ECM's founding in 1969, it is a European chamber-jazz manner — slow to medium tempos, modal or folk-derived material, brushed or mallet-led drums, arco double bass, piano and saxophone recorded with long artificial and room reverb, wide dynamic range, minimal overdubbing and an editorial preference for space over density.",
+  "recipe": "classic European late-1960s ecm-style jazz, improv On Frame, American jazz branch, western modern art music, ambient experimental electric xenharmonic music fluxus intermedia composition. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, steel plywood laminate European maple sycamore maple double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, vibraphone, bach stradivarius 180 canonical American orchestral continuous-airflow legato jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright basswood single coil electric guitar. live tracking. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 845,
+  "score": 306.082,
+  "config": {
+    "traditions": [
+      "ecm_style_jazz",
+      "xenharmonic",
+      "fluxus_intermedia"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_blue_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 3.4499999999999993,
+          "grand_piano_size": 1,
+          "grand_piano_brand": 1.5721875,
+          "piano_hammer": 11.415,
+          "piano_rim": 9.435,
+          "piano_soundboard": 9.8,
+          "piano_pinblock": 8.8,
+          "piano_plate": 10.2321875,
+          "piano_pitch_standard": 11.14
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "baritone_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 3.475,
+          "sax_size": 0.40218750000000003,
+          "sax_reed": 0.45499999999999996,
+          "sax_body_alloy": 17.5,
+          "sax_mouthpiece": 0.35,
+          "sax_technique": 12,
+          "sax_maker_school": 12.7571875
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_sul_tasto",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "bass_steel",
+          "bass_top_wood": "plywood_bass_top",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 2.7071875,
+          "bass_size": 1,
+          "bass_strings": 2.8600000000000003,
+          "bass_top_wood": 5.5,
+          "bass_back_wood": 9.39,
+          "bass_varnish": 8,
+          "bass_setup_period": 11.325000000000001,
+          "bass_play": 12.39,
+          "bass_rosin": 14.495,
+          "bass_bow_stick": 9.3
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "fiberskyn_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.359999999999992,
+          "drumhead": 17.5,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_fast",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "vibe_motor": 12,
+          "vibe_mallets": 12
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 3.475,
+          "brass_size": 0.24,
+          "trumpet_mouthpiece": 13.195,
+          "brass_mute": 2.5,
+          "trumpet_technique": 3.395,
+          "trumpet_bell_metal": 0.845,
+          "trumpet_maker_school": 3.185
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_jazz_comping",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "basswood",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 0.9750000000000001,
+          "amp_make": 3.459375000000001,
+          "body_wood": 1,
+          "neck_wood": 0.5971875,
+          "fretboard": 0.45499999999999996,
+          "pickup_magnet": 0.65,
+          "string_material": 0.45499999999999996,
+          "string_gauge": 1.8199999999999998,
+          "bridge": 2.8600000000000003,
+          "scale_length": 0.9993750000000001,
+          "finish": 0,
+          "string_tuning": 3.6400000000000006
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_ecm_kongshaug",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "modal_jazz_dorian_static",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "modal_jazz_dorian_static",
+    "room": "live_room",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

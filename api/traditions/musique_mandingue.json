@@ -1,0 +1,207 @@
+{
+  "id": "musique_mandingue",
+  "name": "Musique Mandingue",
+  "family": "global",
+  "lineage": "The pan-Mande national-orchestra idiom formalised in Guinea and Mali after independence, above all through Sékou Touré's state Syliphone label and its Bembeya Jazz National, Balla et ses Balladins and Rail Band de Bamako from 1960 to the mid-1970s — jeli kumbengo cycles rescored for horn section, twin electric guitars and Latin-derived rhythm section at 110-140 BPM, with epic praise texts on Sunjata and Almamy Samory sung over long modal guitar solos.",
+  "recipe": "classic West African 1974-1976 musique mandingue, functional Song, African pop branch, African pop congolese rumba, west African griot ballad poetry ngoni music sudanese aghani al-banat. griot voice, mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, ensemble shallow cup lead trumpet trumpet, pre muffled edge muffled brushes-and-sticks drum kit, lead cowhide mid tier open slap hand drum congas, buzzy natural material resonance calabash gourd balafon, gut cowhide mande traditional mande hardwood local traditional kora. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
+  "recipe_chars": 850,
+  "score": 170.1,
+  "config": {
+    "traditions": [
+      "musique_mandingue",
+      "ngoni_jeli",
+      "sudanese_aghani_al_banat"
+    ],
+    "instruments": [
+      {
+        "id": "griot_voice",
+        "slots": {
+          "griot_origin": "griot_wolof",
+          "griot_voice_context": "griot_voice_praise"
+        },
+        "scores": {
+          "griot_origin": 2.535,
+          "griot_voice_context": 0.81
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_soldano_slo100",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 9.935,
+          "amp_make": 2.73,
+          "body_wood": 2.145,
+          "neck_wood": 2.145,
+          "fretboard": 2.0799999999999996,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 2.795,
+          "bridge": 0.8,
+          "scale_length": 2.145,
+          "finish": 0.5,
+          "string_tuning": 2.4450000000000003
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 2.2749999999999995,
+          "body_wood": 2.795,
+          "pickup_config": 0.59,
+          "string_type": 3.25,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 0.8,
+          "bass_technique": 2.65
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 4.745,
+          "sax_size": 2.145,
+          "sax_reed": 0.39,
+          "sax_body_alloy": 3.795,
+          "sax_mouthpiece": 0.545,
+          "sax_technique": 2.545,
+          "sax_maker_school": 3.185
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 4.745,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 4.485,
+          "brass_mute": 0.5,
+          "trumpet_technique": 4.745,
+          "trumpet_bell_metal": 0.8450000000000001,
+          "trumpet_maker_school": 0.845
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.864999999999995,
+          "drumhead": 7.875,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 5.125,
+          "conga_set": 1.2349999999999999,
+          "conga_skin": 2.145,
+          "conga_shell_wood": 0.8449999999999999
+        }
+      },
+      {
+        "id": "balafon",
+        "slots": {
+          "balafon_tuning": "balafon_mandinka",
+          "balafon_resonator": "balafon_gourd"
+        },
+        "scores": {
+          "balafon_tuning": 7.4,
+          "balafon_resonator": 1.285
+        }
+      },
+      {
+        "id": "kora",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "kora_strings": "kora_21_traditional",
+          "kora_resonator": "kora_calabash_full",
+          "kora_strings_mat": "kora_gut_traditional",
+          "kora_top_skin": "kora_cowhide_canonical",
+          "kora_neck_wood": "kora_hardwood_local",
+          "kora_lineage": "kora_diabate_lineage"
+        },
+        "scores": {
+          "plucked_traditional_technique": 31.72,
+          "kora_strings": 3.25,
+          "kora_resonator": 0.74,
+          "kora_strings_mat": 2.0799999999999996,
+          "kora_top_skin": 2.925,
+          "kora_neck_wood": 2.73,
+          "kora_lineage": 2.6
+        }
+      }
+    ],
+    "room": "lagos_decca_west_african_studio",
+    "archetype": "arch_decca_west_africa_highlife",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mande_pentatonic_jeli_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mande_pentatonic_jeli_modal",
+    "room": "lagos_decca_west_african_studio",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

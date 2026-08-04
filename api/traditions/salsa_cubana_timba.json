@@ -5,7 +5,7 @@
   "lineage": "1990s Cuban dance-band evolution from son and salsa — characterized by complex multi-meter clave layering, jazz-fusion harmonic vocabulary, heavy electric-bass and synth integration; codified by NG La Banda, Los Van Van late-period, Issac Delgado, and Manolito y Su Trabuco bringing post-Soviet-era Cuban innovation to international Latin music",
   "recipe": "classic North American mid-1990s salsa cubana, groove Percussion, son salsa branch, rumba Cuban guaguancó rumba cubana. thick, blues-shouter, straight onset, interlocked note trading. a 415 Baroque pitch grand piano, mahogany thomastik infeld low tension jazz warm walking electric bass, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, brass open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, schilke chicago lead bright shallow cup lead trumpet ensemble trumpet, student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, vintage ambassador asymmetric brushes-and-sticks drum kit, low mouthed timbale mounted mambo section montuno lift coro section cencerro. live tracking. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 956,
-  "score": 254.033,
+  "score": 254.381,
   "config": {
     "traditions": [
       "salsa_cubana_timba",
@@ -38,7 +38,7 @@
           "voice_quality": 9.299999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9415,
+          "voice_vibrato": 2.805,
           "voice_articulation": 12.415,
           "voice_microtone": 12.414999999999996,
           "voice_tradition": 6.4350000000000005,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 12.154999999999998,
           "voice_ornament_system": 1.65,
           "voice_pitch_organization": 1.15,
-          "voice_processing_chain": 3.308,
+          "voice_processing_chain": 3.38,
           "voice_multitrack_stack": 2.73
         }
       },
@@ -74,7 +74,7 @@
           "piano_soundboard": 0.78,
           "piano_pinblock": 0.95,
           "piano_plate": 0.585,
-          "piano_pitch_standard": 2.54
+          "piano_pitch_standard": 2.765
         }
       },
       {
@@ -91,7 +91,7 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 1.04,
-          "pickup_config": 0.195,
+          "pickup_config": 0.24,
           "string_type": 4.0615,
           "scale_length_b": 1.04,
           "fretted_or_not": 0,
@@ -107,7 +107,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 11.1765,
+          "percussion_technique": 11.371500000000001,
           "conga_set": 2.4699999999999998,
           "conga_skin": 10.53,
           "conga_shell_wood": 10.53
@@ -121,7 +121,7 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 11.1765,
+          "percussion_technique": 11.371500000000001,
           "timbales_shell": 2.795,
           "timbales_context": 1.6899999999999997
         }
@@ -135,7 +135,7 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 11.1765,
+          "percussion_technique": 11.371500000000001,
           "bongos_skin": 18.655,
           "bongos_context": 1.885,
           "bongos_shell_wood": 10.53
@@ -155,10 +155,10 @@
         "scores": {
           "wind_articulation": 1.0399999999999998,
           "brass_size": 0.273,
-          "trumpet_mouthpiece": 5.48,
+          "trumpet_mouthpiece": 5.675000000000001,
           "brass_mute": 0.65,
           "trumpet_technique": 1.0399999999999998,
-          "trumpet_bell_metal": 0.378,
+          "trumpet_bell_metal": 0.2415,
           "trumpet_maker_school": 1.04
         }
       },
@@ -176,11 +176,11 @@
         "scores": {
           "wind_articulation": 1.0399999999999998,
           "trombone_type": 3.25,
-          "trombone_mouthpiece": 3.4415,
+          "trombone_mouthpiece": 3.35,
           "trombone_mute": 0,
           "trombone_technique": 1.4300000000000002,
-          "trombone_bell_metal": 0.378,
-          "trombone_maker_school": 0.742
+          "trombone_bell_metal": 0.2415,
+          "trombone_maker_school": 0.6054999999999999
         }
       },
       {
@@ -201,7 +201,7 @@
           "sax_body_alloy": 3.25,
           "sax_mouthpiece": 0.9500000000000001,
           "sax_technique": 3.34,
-          "sax_maker_school": 3.7395
+          "sax_maker_school": 3.603
         }
       },
       {

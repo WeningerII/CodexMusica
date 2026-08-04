@@ -1,0 +1,102 @@
+{
+  "id": "shape_note",
+  "name": "Shape-note singing (fasola tradition)",
+  "family": "vernacular",
+  "lineage": "American singing-school practice begun with Little and Smith's The Easy Instructor (1801), which assigned four notated head-shapes to fa-sol-la-mi so rural congregations could sight-read; carried south and west through The Southern Harmony (1835), The Sacred Harp (1844) and the seven-shape Christian Harmony and Stamps-Baxter books, sung a cappella in a hollow square at loud open-throated chest voice, one loud beat-marking arm stroke per singer, dispersed harmony with open fifths and octaves, fuging-tune imitative entries, and the syllables sung through once before the words.",
+  "recipe": "classic early-1800s shape-note singing, ritual Devotional, sacred harp branch, christian gospel southern gospel, American sacred ritual devotional southern gospel quartet bluegrass gospel. thick, declaimed, straight note core, multi note runs per syllable. shape note voice, choir sacred harp. country church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 372,
+  "score": 276.48,
+  "config": {
+    "traditions": [
+      "shape_note",
+      "southern_gospel_quartet",
+      "bluegrass_gospel"
+    ],
+    "instruments": [
+      {
+        "id": "shape_note_voice",
+        "slots": {
+          "shape_note_part": "shape_bass",
+          "shape_note_voice_context": "shape_note_voice_revival"
+        },
+        "scores": {
+          "shape_note_part": 3.343375,
+          "shape_note_voice_context": 0.845
+        }
+      },
+      {
+        "id": "choir_sacred_harp",
+        "slots": {
+          "parts": "sh_bass",
+          "arrangement": "hollow_square"
+        },
+        "scores": {
+          "parts": 3.343375,
+          "arrangement": 0.14983333333333335
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 28.819999999999997,
+          "voice_quality": 40.16875,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.7124999999999995,
+          "voice_articulation": 33.578895833333334,
+          "voice_microtone": 15.046854166666662,
+          "voice_tradition": 31.995104166666664,
+          "voice_mechanism_compound": 4.4774375,
+          "voice_estill_quality": 29.589999999999996,
+          "voice_speech_song": 21.124999999999996,
+          "voice_ensemble_config": 27.96395833333333,
+          "voice_ornament_system": 11.775,
+          "voice_pitch_organization": 4.687000000000001,
+          "voice_processing_chain": 7.1982083333333335,
+          "voice_multitrack_stack": 11.309999999999997
+        }
+      }
+    ],
+    "room": "wooden_country_church",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "wooden_country_church",
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

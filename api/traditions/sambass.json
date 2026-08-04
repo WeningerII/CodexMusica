@@ -1,0 +1,182 @@
+{
+  "id": "sambass",
+  "name": "Sambass",
+  "family": "electronic",
+  "lineage": "Developed in Sao Paulo and Rio de Janeiro from 1997, codified by DJ Marky, XRS Land, Patife and the Sambaloco label — 170-175 BPM drum and bass programming fused with samba and bossa nova, using surdo and pandeiro layers, tamborim patterns, nylon-string guitar comping, Rhodes chords and Portuguese-language female vocals over rolling two-step breaks.",
+  "recipe": "classic Southern American late-1990s sambass, bass System, bass descendants branch, Latin electric electronic dance, Brazilian song functional song nova música pernambucana arrochadeira. thick, breath veiled tone, straight onset, interlocked note trading. sampler drum machine, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, cedar nylon classical nylon-string guitar, pocket ostinato electric piano tine, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 799,
+  "score": 189.437,
+  "config": {
+    "traditions": [
+      "sambass",
+      "nova_musica_pernambucana",
+      "arrochadeira"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 0.9099999999999999,
+          "sample_bitdepth": 0.285,
+          "sample_swing": 4.295,
+          "sample_processing": 0.95
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_samba",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": 1.8499999999999996,
+          "pandeiro_size": 1.3,
+          "pandeiro_context": 0.9099999999999999,
+          "pandeiro_head": 4.345000000000001,
+          "pandeiro_shell_wood": 4.345000000000001,
+          "pandeiro_jingles": 4.495
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_terceira",
+          "surdo_skin": "surdo_nylon",
+          "surdo_shell": "surdo_aluminum_canonical"
+        },
+        "scores": {
+          "surdo_size": 0.65,
+          "surdo_skin": 4.035,
+          "surdo_shell": 1.95
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "thumb_attack_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.975,
+          "string_tuning": 0,
+          "top_wood_classical": 4.159999999999999,
+          "bracing_classical": 0.24,
+          "string_classical": 1.99,
+          "attack_technique_cl": 4
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "tine_voicing": "aggressive_tine",
+          "tine_effect": "phaser_tine"
+        },
+        "scores": {
+          "keyboard_technique": 3.075,
+          "tine_voicing": 0.24,
+          "tine_effect": 3.125
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.5799999999999996,
+          "voice_quality": 15.989999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.145,
+          "voice_articulation": 18.134999999999994,
+          "voice_microtone": 18.589999999999993,
+          "voice_tradition": 3.12,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 3.4450000000000003,
+          "voice_speech_song": 23.59499999999999,
+          "voice_ensemble_config": 18.459999999999994,
+          "voice_ornament_system": 1.695,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 5.33,
+          "voice_multitrack_stack": 4.452500000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "amp_make": 6.37,
+          "body_wood": 0.65,
+          "pickup_config": 0.435,
+          "string_type": 7.15,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0,
+          "bass_technique": 3.125
+        }
+      }
+    ],
+    "room": "estudios_scatena_sp",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "samba_2_4_telecoteco",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "samba_2_4_telecoteco",
+    "room": "estudios_scatena_sp",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

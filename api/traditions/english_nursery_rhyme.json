@@ -3,14 +3,14 @@
   "name": "English nursery rhyme",
   "family": "global",
   "lineage": "English-language nursery-rhyme tradition continuous from medieval and early-modern English play-song origins through 18th-century chapbook publication (Tommy Thumb's Pretty Song Book 1744 the earliest documented English nursery-rhyme collection) through Iona and Peter Opie's 20th-century Lore and Language of Schoolchildren ethnographic documentation",
-  "recipe": "classic mid-1740s english nursery rhyme, nursery Rhyme, European branch, americas nursery rhyme, European lullaby, Celtic balladic ballad poetry sean-nós solo singing cape breton milling-frolic. thick, breath veiled tone, straight note core, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 338,
-  "score": 129.025,
+  "recipe": "classic mid-1740s english nursery rhyme, nursery Rhyme, European branch, americas nursery rhyme, European lullaby, Celtic balladic ballad poetry newfoundland traditional song and dance music traditional english folk. thick, breath veiled tone, straight note core, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 360,
+  "score": 149.363,
   "config": {
     "traditions": [
       "english_nursery_rhyme",
-      "sean_nos_solo",
-      "cape_breton_milling"
+      "newfoundland_folk",
+      "english_traditional_folk"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.7799999999999998,
-          "voice_quality": 6.955000000000001,
+          "voice_register": 4.505000000000001,
+          "voice_quality": 8.71,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.34,
-          "voice_articulation": 13.194999999999993,
-          "voice_microtone": 13.25999999999999,
-          "voice_tradition": 25.081249999999997,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 1.0399999999999998,
-          "voice_speech_song": 17.354999999999993,
-          "voice_ensemble_config": 14.072499999999993,
-          "voice_ornament_system": 29.74,
-          "voice_pitch_organization": 5.42,
-          "voice_processing_chain": 3.38625,
-          "voice_multitrack_stack": 3.120000000000001
+          "voice_vibrato": 5.68375,
+          "voice_articulation": 19.955000000000005,
+          "voice_microtone": 19.37,
+          "voice_tradition": 14.397499999999997,
+          "voice_mechanism_compound": 1.6899999999999997,
+          "voice_estill_quality": 5.43,
+          "voice_speech_song": 25.48,
+          "voice_ensemble_config": 21.970000000000002,
+          "voice_ornament_system": 12.114999999999998,
+          "voice_pitch_organization": 4.390000000000001,
+          "voice_processing_chain": 4.236250000000001,
+          "voice_multitrack_stack": 4.355
         }
       }
     ],

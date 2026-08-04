@@ -1,0 +1,159 @@
+{
+  "id": "musette",
+  "name": "Valse musette (accordion virtuoso repertoire)",
+  "family": "vernacular",
+  "lineage": "The refined accordion repertoire that grew out of bal-musette from the mid-1930s when Gus Viseur, Tony Murena and Jo Privat absorbed the harmony and swing feel of the Paris manouche jazz scene, giving the fast valse — typically 180-220 beats per minute in 3/4 with the accordion's shimmering wet-tuned tremolo — chromatic passing chords, sixth and ninth voicings, rhythm-guitar la pompe and virtuoso right-hand runs, cut for Odéon and Pathé and later maintained by Yvette Horner and Marcel Azzola.",
+  "recipe": "classic Western European 1934-1936 valse musette, functional Song, europop branch, string improv improv on frame, chanson fado classic chanson flamenco guitar choro. weltmeister east German mid tier vintage volk chromatic lead accordion, dearmond vintage jazz carved top solid spruce Gibson canon archtop, norway spruce European alpine European maple sycamore maple oil varnish double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, cedar nylon classical nylon-string guitar, grenadilla African blackwood traditional clarinet. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 676,
+  "score": 128.631,
+  "config": {
+    "traditions": [
+      "musette",
+      "flamenco_guitar_toque",
+      "choro"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chromatic_jazz",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "french_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 3.12,
+          "accordion_reed_material": 2.205,
+          "musette_offset": 3.8,
+          "reed_config": 4.5945,
+          "bellows": 0.15,
+          "voicing_chamber": 0.345,
+          "accordion_maker_school": 1.5550000000000002
+        }
+      },
+      {
+        "id": "archtop_jazz",
+        "slots": {
+          "amp_make": "amp_american_fender_champ",
+          "archtop_body": "archtop_full_hollow",
+          "archtop_pickup": "archtop_dearmond_rhythm_chief",
+          "archtop_top_wood": "archtop_carved_spruce",
+          "archtop_strings": "la_bella_jazz_flat",
+          "archtop_technique": "archtop_walking_chords"
+        },
+        "scores": {
+          "amp_make": 0.6499999999999999,
+          "archtop_body": 7.105000000000001,
+          "archtop_pickup": 10.855,
+          "archtop_top_wood": 4.99,
+          "archtop_strings": 5.75,
+          "archtop_technique": 6.315
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.9099999999999999,
+          "bass_size": 0.195,
+          "bass_strings": 0.78,
+          "bass_top_wood": 2.5999999999999996,
+          "bass_back_wood": 3.355,
+          "bass_varnish": 2,
+          "bass_setup_period": 1.6899999999999997,
+          "bass_play": 6.120000000000001,
+          "bass_rosin": 7.0200000000000005,
+          "bass_bow_stick": 2.0444999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "fiberskyn_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.847499999999993,
+          "drumhead": 6,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 1.4199999999999997,
+          "string_tuning": 0,
+          "top_wood_classical": 8.580000000000002,
+          "bracing_classical": 0.39,
+          "string_classical": 3.0195000000000003,
+          "attack_technique_cl": 2.295
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 1.8199999999999998,
+          "clarinet_body": 2.34,
+          "clarinet_size": 0.845,
+          "clarinet_reed": 0.345,
+          "clarinet_articulation": 0.105
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_paris_chanson_orchestral",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

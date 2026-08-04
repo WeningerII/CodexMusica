@@ -1,0 +1,144 @@
+{
+  "id": "country_blues",
+  "name": "Country Blues",
+  "family": "blues_gospel",
+  "lineage": "Rural Southern US solo guitar-and-voice blues consolidated on race records between 1926 and 1935 through Blind Lemon Jefferson, Charley Patton, Blind Blake and Mississippi John Hurt — free-floating 8-to-13-bar stanzas at 70-110 BPM, thumb-driven alternating or monotonic bass under treble string answers, bottleneck slide and heavy string bending, and a declamatory field-holler vocal that the guitar answers phrase for phrase.",
+  "recipe": "classic mid-1920s country blues, functional Song, blues acoustic branch, blues narrative delta narrative, blues narrative piedmont narrative, pre commercial country ragtime blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning fingerpicked parlor acoustic open g tuning steel bronze fingerpicked steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, foot stomp. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 608,
+  "score": 429.75,
+  "config": {
+    "traditions": [
+      "country_blues",
+      "delta_blues",
+      "ragtime_blues"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 36.76000000000001,
+          "voice_quality": 26.449999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 35.32,
+          "voice_articulation": 18.979999999999997,
+          "voice_microtone": 33.705000000000005,
+          "voice_tradition": 14.734999999999996,
+          "voice_mechanism_compound": 1.8850000000000002,
+          "voice_estill_quality": 8.825,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 16.119999999999997,
+          "voice_ornament_system": 2.51,
+          "voice_pitch_organization": 2.4699999999999998,
+          "voice_processing_chain": 3.87,
+          "voice_multitrack_stack": 4.029999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "eighty_twenty_p"
+        },
+        "scores": {
+          "acoustic_technique": 14.600000000000001,
+          "string_tuning": 12.87,
+          "top_wood_parlor": 0.345,
+          "back_sides_parlor": 0.21,
+          "string_acoustic_parlor": 1.8399999999999999
+        }
+      },
+      {
+        "id": "acoustic_resonator_steel",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "cone_type": "biscuit",
+          "body_resonator": "steel_body",
+          "res_strings": "eighty_twenty_res"
+        },
+        "scores": {
+          "acoustic_technique": 14.600000000000001,
+          "string_tuning": 12.87,
+          "cone_type": 5.999999999999998,
+          "body_resonator": 1.9299999999999997,
+          "res_strings": 1.84
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 0.9099999999999999,
+          "harmonica_comb": 31.294999999999995,
+          "harmonica_reed": 29.169999999999998,
+          "harmonica_technique": 35.324999999999996,
+          "harmonica_maker_school": 30.609999999999996,
+          "harmonica_tuning": 14.429999999999998
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_boot",
+          "stomp_surface": "stomp_hollow_platform"
+        },
+        "scores": {
+          "stomp_footwear": 0.15,
+          "stomp_surface": 0.195
+        }
+      }
+    ],
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "folk_fingerstyle_alternating_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "folk_fingerstyle_alternating_bass",
+    "room": "studio_electrical_era_office",
+    "chain_mic": "mic_acoustic_horn_pre1925",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

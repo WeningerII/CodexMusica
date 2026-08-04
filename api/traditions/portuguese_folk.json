@@ -1,0 +1,183 @@
+{
+  "id": "portuguese_folk",
+  "name": "Portuguese Folk (Música Popular Portuguesa)",
+  "family": "vernacular",
+  "lineage": "The regional rural repertoire of mainland Portugal — Minho vira and chula, Beira and Trás-os-Montes dance tunes, Alentejo and Ribatejo song — collected systematically by Michel Giacometti and Fernando Lopes-Graça in the 1960s-70s and revived by Grupo de Acção Cultural and Brigada Victor Jara, marked by fast 6/8 and 2/4 dance metres, women's high open chest singing, adufe square frame-drum patterns, and plucked viola braguesa and cavaquinho accompaniment.",
+  "recipe": "classic mid-1960s portuguese folk, functional Song, iberian branch, European carnival processional, wind pipe drone modal basque folk organetto. thick, breath veiled tone, fast rate, interlocked note trading. viola braguesa, jacaranda rosewood canonical Portuguese strummed cavaquinho, adufe, gaita galega three drone muiñeira dance driving gaita galega, castagnari Italian premium folk music straight accordion, tambourine orch, regional traditional pomegranate wood castanets. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 570,
+  "score": 282.853,
+  "config": {
+    "traditions": [
+      "portuguese_folk",
+      "basque_folk",
+      "organetto_italiano"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 4.050000000000001,
+          "voice_quality": 10.204999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6,
+          "voice_articulation": 24.7,
+          "voice_microtone": 25.675,
+          "voice_tradition": 10.205,
+          "voice_mechanism_compound": 4.744999999999999,
+          "voice_estill_quality": 5.720000000000001,
+          "voice_speech_song": 28.860000000000003,
+          "voice_ensemble_config": 24.18,
+          "voice_ornament_system": 4.62,
+          "voice_pitch_organization": 2.4050000000000002,
+          "voice_processing_chain": 5.3950000000000005,
+          "voice_multitrack_stack": 3.9000000000000004
+        }
+      },
+      {
+        "id": "viola_braguesa",
+        "slots": {
+          "braguesa_technique": "braguesa_rasgado",
+          "braguesa_strings": "braguesa_steel"
+        },
+        "scores": {
+          "braguesa_technique": 0.845,
+          "braguesa_strings": 0.3
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_portuguese",
+          "cavaquinho_context": "cavaquinho_choro",
+          "cavaquinho_body_wood": "cavaquinho_jacaranda",
+          "cavaquinho_strings": "cavaquinho_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 8.799999999999999,
+          "cavaquinho_origin": 3.34,
+          "cavaquinho_context": 24.440000000000005,
+          "cavaquinho_body_wood": 1.535,
+          "cavaquinho_strings": -0.07000000000000003
+        }
+      },
+      {
+        "id": "adufe",
+        "slots": {
+          "adufe_form": "adufe_pandero_cuadrado",
+          "adufe_context": "adufe_romaria",
+          "adufe_skin_fill": "adufe_goatskin_seeds"
+        },
+        "scores": {
+          "adufe_form": 25.350000000000005,
+          "adufe_context": 28.665,
+          "adufe_skin_fill": 0.975
+        }
+      },
+      {
+        "id": "gaita_galega",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "gaita_galega_drones": "gaita_galega_three_drones",
+          "gaita_galega_use": "gaita_galega_muiñeira",
+          "gaita_galega_chanter_wood": "gaita_galega_boxwood",
+          "gaita_galega_reed": "gaita_galega_cane_canonical",
+          "gaita_galega_bag": "gaita_galega_goatskin_canonical"
+        },
+        "scores": {
+          "wind_articulation": 3.2,
+          "gaita_galega_drones": 4.984999999999999,
+          "gaita_galega_use": 7.182499999999999,
+          "gaita_galega_chanter_wood": 0.585,
+          "gaita_galega_reed": 0.585,
+          "gaita_galega_bag": 0.585
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 4.45,
+          "accordion_reed_material": 0.9000000000000001,
+          "musette_offset": 0.845,
+          "reed_config": 0.3,
+          "bellows": 0.65,
+          "voicing_chamber": 0.895,
+          "accordion_maker_school": 3.38
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.585,
+          "tambourine_orch_context": 0.325
+        }
+      },
+      {
+        "id": "castanets",
+        "slots": {
+          "castanets_material": "castanets_pomegranate",
+          "castanets_mounting": "castanets_paddle"
+        },
+        "scores": {
+          "castanets_material": 3.8600000000000003,
+          "castanets_mounting": 0.15
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "field_recording",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

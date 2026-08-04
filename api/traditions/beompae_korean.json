@@ -3,14 +3,14 @@
   "name": "Beompae (Korean Buddhist chant)",
   "family": "global",
   "lineage": "Korean Buddhist liturgical chant tradition with Joseon-era codification, allied to the broader yeombul devotional practice",
-  "recipe": "classic Northeast Asian modern beompae, ritual Devotional, buddhist branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. log drum. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 301,
-  "score": 178.452,
+  "recipe": "classic Northeast Asian modern beompae, ritual Devotional, buddhist branch, east Asian art music tibetan ache lhamo opera cantonese opera. thick, breath veiled tone, slow rate, interlocked note trading. log drum. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 303,
+  "score": 158.775,
   "config": {
     "traditions": [
       "beompae_korean",
-      "beijing_opera",
-      "tibetan_ache_lhamo"
+      "tibetan_ache_lhamo",
+      "cantonese_opera"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.97,
-          "voice_quality": 15.014999999999997,
+          "voice_register": 1.745,
+          "voice_quality": 14.559999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.45,
-          "voice_articulation": 15.86,
-          "voice_microtone": 15.859999999999996,
-          "voice_tradition": 32.9225,
-          "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 20.149999999999995,
-          "voice_speech_song": 16.509999999999998,
-          "voice_ensemble_config": 18.264999999999997,
-          "voice_ornament_system": 13.749999999999998,
-          "voice_pitch_organization": 7.66,
-          "voice_processing_chain": 3.5100000000000002,
-          "voice_multitrack_stack": 4.095000000000001
+          "voice_vibrato": 7.1825,
+          "voice_articulation": 14.364999999999998,
+          "voice_microtone": 14.169999999999996,
+          "voice_tradition": 26.065,
+          "voice_mechanism_compound": 5.425,
+          "voice_estill_quality": 18.349999999999998,
+          "voice_speech_song": 14.559999999999999,
+          "voice_ensemble_config": 16.379999999999995,
+          "voice_ornament_system": 11,
+          "voice_pitch_organization": 10.734999999999998,
+          "voice_processing_chain": 3.77,
+          "voice_multitrack_stack": 4.160000000000001
         }
       },
       {
@@ -59,8 +59,8 @@
           "log_drum_context": "log_drum_amapiano"
         },
         "scores": {
-          "log_drum_voice": 0.39,
-          "log_drum_context": 0.845
+          "log_drum_voice": 0.18,
+          "log_drum_context": 0.8400000000000001
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Bolivian diablada de Oruro (Carnaval de Oruro)",
   "family": "global",
   "lineage": "Bolivian Carnaval de Oruro diablada (devil-dance) processional tradition continuous from pre-Hispanic Andean ritual-dance practice through Spanish-colonial-era integration with Christian-Catholic devil-dance imagery (the post-1606 syncretism of Andean-Tio-deity worship with Catholic-devil-iconography) into modern Carnaval de Oruro continuous practice",
-  "recipe": "classic Andean mid-1600s bolivian diablada de oruro, carnival Processional, andean branch, European carnival processional, americas wedding, iberian Latin protest song andean matrimonio huayno cologne karneval. forward-resonance, straight onset, interlocked note trading, neutral third half flat. pvc continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato standard rim trumpet, pre muffled edge muffled brushes-and-sticks drum kit, altiplano mara canonical single block tarka. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 701,
-  "score": 271.03,
+  "recipe": "classic Andean mid-1600s bolivian diablada de oruro, carnival Processional, andean branch, European carnival processional, americas wedding, iberian Latin protest song andean matrimonio huayno raíces. thick, forward-resonance, straight onset, interlocked note trading. bone continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato standard rim trumpet, pre muffled edge muffled brushes-and-sticks drum kit, altiplano mara canonical single block tarka. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 674,
+  "score": 286.153,
   "config": {
     "traditions": [
       "bolivian_diablada_oruro",
       "andean_matrimonio_huayno",
-      "cologne_karneval"
+      "raices"
     ],
     "instruments": [
       {
@@ -31,49 +31,49 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.48892857142857155,
-          "voice_quality": 21.601428571428563,
+          "voice_register": 0.7000000000000002,
+          "voice_quality": 24.749499999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.29,
-          "voice_articulation": 7.735,
-          "voice_microtone": 7.735000000000001,
-          "voice_tradition": 33.388035714285714,
-          "voice_mechanism_compound": 4.204374999999999,
-          "voice_estill_quality": 18.90321428571428,
-          "voice_speech_song": 9.1,
-          "voice_ensemble_config": 19.236964285714283,
-          "voice_ornament_system": 25.968749999999993,
-          "voice_pitch_organization": 5.809374999999999,
-          "voice_processing_chain": 2.4700000000000006,
-          "voice_multitrack_stack": 0.975
+          "voice_vibrato": 3.2500000000000004,
+          "voice_articulation": 13.064999999999998,
+          "voice_microtone": 12.414999999999996,
+          "voice_tradition": 35.90624999999999,
+          "voice_mechanism_compound": 4.809999999999999,
+          "voice_estill_quality": 20.799999999999994,
+          "voice_speech_song": 14.299999999999997,
+          "voice_ensemble_config": 22.669999999999998,
+          "voice_ornament_system": 27.450999999999993,
+          "voice_pitch_organization": 4.764374999999999,
+          "voice_processing_chain": 3.315000000000001,
+          "voice_multitrack_stack": 2.0475
         }
       },
       {
         "id": "quena",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "quena_material": "quena_pvc",
+          "quena_material": "quena_bone",
           "quena_pitch": "quena_g"
         },
         "scores": {
-          "wind_articulation": 5.709375,
-          "quena_material": 4.806875,
-          "quena_pitch": 2.75
+          "wind_articulation": 4.664375,
+          "quena_material": 4.035,
+          "quena_pitch": 4
         }
       },
       {
         "id": "siku_panpipes",
         "slots": {
           "siku_construction": "siku_ira_arca_paired",
-          "siku_size": "siku_malta"
+          "siku_size": "siku_zanca"
         },
         "scores": {
-          "siku_construction": 12.821874999999999,
-          "siku_size": 0.78
+          "siku_construction": 11.995375,
+          "siku_size": 0.585
         }
       },
       {
@@ -82,19 +82,19 @@
           "wind_articulation": "wind_continuous_legato",
           "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "bach_trumpet_mp_3c",
-          "brass_mute": "no_mute_brass",
+          "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 5.709375,
+          "wind_articulation": 4.664375,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 8.495,
-          "brass_mute": 0.003214285714285714,
-          "trumpet_technique": 0.585,
-          "trumpet_bell_metal": 2.21,
-          "trumpet_maker_school": 4.42
+          "trumpet_mouthpiece": 5.264500000000001,
+          "brass_mute": 0.045,
+          "trumpet_technique": 1.0399999999999998,
+          "trumpet_bell_metal": 1.8200000000000003,
+          "trumpet_maker_school": 2.535
         }
       },
       {
@@ -105,8 +105,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 7.8,
-          "drumhead": 10.598214285714285,
+          "drum_technique": 11.83,
+          "drumhead": 6.820000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -119,10 +119,10 @@
           "tarka_body_wood": "tarka_mara_wood"
         },
         "scores": {
-          "tarka_form": 13.110624999999995,
-          "tarka_context": 26.474375,
-          "tarka_consort_voice": 0.78,
-          "tarka_body_wood": 1.625
+          "tarka_form": 12.790124999999996,
+          "tarka_context": 22.775624999999994,
+          "tarka_consort_voice": 0.745125,
+          "tarka_body_wood": 1.4300000000000002
         }
       }
     ],

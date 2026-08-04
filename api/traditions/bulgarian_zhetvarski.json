@@ -5,7 +5,7 @@
   "lineage": "Bulgarian harvest-song (zhetvarski pesni, женски pesni women's-songs) tradition continuous from premodern Bulgarian-agricultural village-labor practice through 19th-century Bulgarian-folklorist documentation through 20th-century Le Mystère des Voix Bulgares-era canonization into modern Bulgarian-folk-revival continuous practice; foundational harvest-song repertoire integrates women's-group-vocal close-harmony arrangement with characteristic Bulgarian-folk modal vocabulary",
   "recipe": "classic Northern European modern bulgarian zhetvarski pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby chinese chayang-diao indonesian rice-planting song traditions. thick, close mic intimate, straight onset, unrestrained. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 359,
-  "score": 118.165,
+  "score": 117.605,
   "config": {
     "traditions": [
       "bulgarian_zhetvarski",
@@ -28,27 +28,27 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
-          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 8.749999999999996,
-          "voice_quality": 5.965000000000001,
+          "voice_quality": 5.9350000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2500000000000004,
           "voice_articulation": 11,
           "voice_microtone": 7.15,
-          "voice_tradition": 24.954999999999995,
+          "voice_tradition": 23.469999999999995,
           "voice_mechanism_compound": 4.159999999999999,
           "voice_estill_quality": 2.4699999999999998,
           "voice_speech_song": 11.374999999999995,
-          "voice_ensemble_config": 9.685,
-          "voice_ornament_system": 5.3500000000000005,
-          "voice_pitch_organization": 15.004999999999999,
-          "voice_processing_chain": 3.185,
+          "voice_ensemble_config": 9.850000000000001,
+          "voice_ornament_system": 5.6450000000000005,
+          "voice_pitch_organization": 15.53,
+          "voice_processing_chain": 3.1550000000000002,
           "voice_multitrack_stack": 3.3149999999999995
         }
       }

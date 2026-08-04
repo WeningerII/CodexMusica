@@ -1,0 +1,160 @@
+{
+  "id": "basque_folk",
+  "name": "Basque folk (Euskal Herriko musika tradizionala)",
+  "family": "global",
+  "lineage": "Traditional music of the Basque Country on both sides of the Pyrenees, catalogued by Resurrección María de Azkue and Aita Donostia in the 1910s-20s and revived from the 1970s by Oskorri and Kepa Junkera — narrow-range modal melodies sung in Euskara, txistu-and-tamboril one-man pipe-and-drum for processional dances, double-reed alboka with circular breathing, txalaparta plank duo in interlocking irregular strokes, and dance repertoire (aurresku, fandango, arin-arin) alternating 6/8 and 2/4 with strong stepped accents.",
+  "recipe": "classic mid-1910s basque folk, carnival Processional, European branch, iberian Latin protest song, European drinking song, wind pipe drone modal raíces tuna universitaria. thick, breath veiled tone, straight note core, interlocked note trading. one handed traditional txistu, traditional dance driving cane piped horn belled alboka, interlocking seasoned cherry txalaparta, three row extended range dance driven pandero paired straight trikitixa, tambourine orch, processional cane double reed canonical arundo donax raw outdoor dulzaina. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 618,
+  "score": 282.072,
+  "config": {
+    "traditions": [
+      "basque_folk",
+      "raices",
+      "tuna_universitaria"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 4.895000000000001,
+          "voice_quality": 13.194999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.49,
+          "voice_articulation": 27.105,
+          "voice_microtone": 26.519999999999996,
+          "voice_tradition": 8.71,
+          "voice_mechanism_compound": 7.395,
+          "voice_estill_quality": 7.145,
+          "voice_speech_song": 29.770000000000003,
+          "voice_ensemble_config": 25.09,
+          "voice_ornament_system": 5.699999999999999,
+          "voice_pitch_organization": 2.9850000000000003,
+          "voice_processing_chain": 5.330000000000001,
+          "voice_multitrack_stack": 3.2175000000000007
+        }
+      },
+      {
+        "id": "txistu",
+        "slots": {
+          "txistu_form": "txistu_standard",
+          "txistu_context": "txistu_solo_tabor",
+          "txistu_body": "txistu_wood_boxwood"
+        },
+        "scores": {
+          "txistu_form": 5.75,
+          "txistu_context": 10.305,
+          "txistu_body": 6.945
+        }
+      },
+      {
+        "id": "alboka",
+        "slots": {
+          "alboka_form": "alboka_biscayan",
+          "alboka_repertoire": "alboka_dantza",
+          "alboka_material": "alboka_cane_cowhorn"
+        },
+        "scores": {
+          "alboka_form": 12.545,
+          "alboka_repertoire": 7.74,
+          "alboka_material": 7.395
+        }
+      },
+      {
+        "id": "txalaparta",
+        "slots": {
+          "txalaparta_type": "txalaparta_egur",
+          "txalaparta_playing": "txalaparta_interlock",
+          "txalaparta_timber": "txalaparta_cherry"
+        },
+        "scores": {
+          "txalaparta_type": 5.945,
+          "txalaparta_playing": 8.299999999999999,
+          "txalaparta_timber": 5.795
+        }
+      },
+      {
+        "id": "trikitixa",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "trikitixa_form": "trikitixa_form_three_row",
+          "trikitixa_dantza_setting": "trikitixa_dantza_setting_romeria",
+          "trikitixa_reed_voicing": "trikitixa_reed_voicing_wet"
+        },
+        "scores": {
+          "free_reed_technique": 5.27,
+          "trikitixa_form": 1.295,
+          "trikitixa_dantza_setting": 9.700000000000001,
+          "trikitixa_reed_voicing": 0.12999999999999998
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.995,
+          "tambourine_orch_context": 0.9950000000000001
+        }
+      },
+      {
+        "id": "dulzaina",
+        "slots": {
+          "dulzaina_form": "dulzaina_castellana",
+          "dulzaina_context": "dulzaina_tabalet_duo",
+          "dulzaina_reed": "dulzaina_hard_scrape",
+          "dulzaina_body_wood": "dulzaina_boj_boxwood"
+        },
+        "scores": {
+          "dulzaina_form": 9.605,
+          "dulzaina_context": 8.229999999999999,
+          "dulzaina_reed": 2.375,
+          "dulzaina_body_wood": 6.984999999999999
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "iberian_kantautor_minority_language_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "iberian_kantautor_minority_language_modal",
+    "room": "mountain_valley",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,66 +3,66 @@
   "name": "Trap Italiana",
   "family": "hip_hop",
   "lineage": "Italian-language trap formed in Milan and Rome 2015-2017 around the Dark Polo Gang, Sfera Ebbasta and producer Charlie Charles — 130-145 BPM half-time beats with rolled hi-hats, glassy detuned bell and plucked-synth loops over long 808 slides, heavily Auto-Tuned melodic delivery exploiting Italian open vowels, and ad-lib-saturated hooks mixing Milanese slang with English tags",
-  "recipe": "classic 2015-2017 trap italiana, mc Rhythm, intl hip hop branch, us hip hop modern, europop functional song pittsburgh rap scam rap. thick, rap, straight onset, interlocked note trading. 2010s melodyne microtuned stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass wavetable sub bass analog poly synth, mellow soft attack rubber glockenspiel. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 665,
-  "score": 227.815,
+  "recipe": "classic 2015-2017 trap italiana, mc Rhythm, intl hip hop branch, us hip hop modern, europop functional song dark plugg detroit trap. extended whistle, rap, straight onset, interlocked note trading. 2010s melodyne microtuned stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, low sub bass wavetable low sub bass analog poly synth, glockenspiel. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 658,
+  "score": 223.688,
   "config": {
     "traditions": [
       "trap_italiana",
-      "pittsburgh_rap",
-      "scam_rap"
+      "dark_plugg",
+      "detroit_trap"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.920000000000001,
-          "voice_quality": 16.759999999999998,
+          "voice_register": 2.145,
+          "voice_quality": 16.485,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.752500000000001,
-          "voice_articulation": 16.964999999999996,
-          "voice_microtone": 21.254999999999992,
-          "voice_tradition": 9.620000000000001,
-          "voice_mechanism_compound": 4.484999999999999,
-          "voice_estill_quality": 7.719999999999999,
-          "voice_speech_song": 17.874999999999996,
-          "voice_ensemble_config": 17.354999999999997,
-          "voice_ornament_system": 7.385000000000002,
-          "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 10.565,
-          "voice_multitrack_stack": 4.6475
+          "voice_vibrato": 2.9250000000000007,
+          "voice_articulation": 16.964999999999993,
+          "voice_microtone": 18.65499999999999,
+          "voice_tradition": 9.165000000000001,
+          "voice_mechanism_compound": 6.11,
+          "voice_estill_quality": 8.929999999999998,
+          "voice_speech_song": 17.224999999999994,
+          "voice_ensemble_config": 16.89999999999999,
+          "voice_ornament_system": 7.1499999999999995,
+          "voice_pitch_organization": 1.5349999999999997,
+          "voice_processing_chain": 8.34,
+          "voice_multitrack_stack": 6.142499999999999
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_density": "multitrack_density_unison_double",
           "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 0.28500000000000003,
-          "multitrack_stack_era_aesthetic": 1.02,
-          "multitrack_stack_processing": 1.795
+          "multitrack_stack_density": 0.65,
+          "multitrack_stack_era_aesthetic": 1.065,
+          "multitrack_stack_processing": 2.275
         }
       },
       {
@@ -73,8 +73,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.32,
-          "drum_machine_808_context": 2.8600000000000003,
+          "tr808_voice": 6.795000000000001,
+          "drum_machine_808_context": 3.055,
           "tr808_production_origin": 2.8600000000000003
         }
       },
@@ -87,10 +87,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 7.075,
-          "sample_bitdepth": 2.8600000000000003,
-          "sample_swing": 13.195,
-          "sample_processing": 1.69
+          "electronic_technique": 6.900000000000001,
+          "sample_bitdepth": 3.5100000000000002,
+          "sample_swing": 10.92,
+          "sample_processing": 2.34
         }
       },
       {
@@ -102,7 +102,7 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 14.519999999999998,
+          "electronic_technique": 15.064999999999998,
           "wt_position": 2.8600000000000003,
           "wt_family": 2.8600000000000003,
           "wt_polyphony": 0
@@ -112,15 +112,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 14.519999999999998,
-          "poly_archetypes": 0.915,
-          "poly_voices": 0.345,
-          "poly_maker_lineage": -1.6599999999999997
+          "electronic_technique": 15.064999999999998,
+          "poly_archetypes": 1.04,
+          "poly_voices": 1.04,
+          "poly_maker_lineage": -1.9
         }
       },
       {
@@ -128,12 +128,12 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "glockenspiel_size": "glockenspiel_orch_3",
-          "glockenspiel_mallet": "glockenspiel_rubber"
+          "glockenspiel_mallet": "glockenspiel_brass"
         },
         "scores": {
           "percussion_technique": -0.05,
           "glockenspiel_size": 2.8600000000000003,
-          "glockenspiel_mallet": 1.04
+          "glockenspiel_mallet": 0.78
         }
       }
     ],

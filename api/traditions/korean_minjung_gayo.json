@@ -3,14 +3,14 @@
   "name": "Korean minjung gayo (민중가요, people's song)",
   "family": "global",
   "lineage": "Korean minjung gayo (\"people's song\") democracy-movement protest-song tradition continuous from late-1970s anti-Park-Chung-hee resistance through the May 1980 Gwangju Uprising through 1980s anti-Chun-Doo-hwan student-and-labor-movement era; canonical anthems include \"Imjin River\" and \"Marching for our beloved\" (\"님을 위한 행진곡\")",
-  "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry enka j-acoustic. thick, breath veiled tone, straight note core, interlocked note trading. indian rosewood rosewood steel silk fingerpicked acoustic guitar. gymnasium. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 400,
-  "score": 198.408,
+  "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry enka lagu bali. thick, breath veiled tone, straight note core, interlocked note trading. cedar indian rosewood rosewood phosphor bronze bronze acoustic guitar. gymnasium. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 404,
+  "score": 183.403,
   "config": {
     "traditions": [
       "korean_minjung_gayo",
       "enka",
-      "j_acoustic"
+      "lagu_bali"
     ],
     "instruments": [
       {
@@ -29,44 +29,44 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 18.62499999999999,
-          "voice_quality": 10.139999999999997,
+          "voice_register": 17.37499999999999,
+          "voice_quality": 8.125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0875000000000004,
-          "voice_articulation": 18.590000000000003,
-          "voice_microtone": 19.630000000000003,
-          "voice_tradition": 32.975,
-          "voice_mechanism_compound": 1.8199999999999998,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 33.215,
-          "voice_ensemble_config": 19.110000000000007,
+          "voice_vibrato": 3.7375000000000007,
+          "voice_articulation": 16.900000000000006,
+          "voice_microtone": 17.940000000000005,
+          "voice_tradition": 25.382500000000004,
+          "voice_mechanism_compound": 1.625,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 31.915000000000006,
+          "voice_ensemble_config": 18.265000000000004,
           "voice_ornament_system": 13.774999999999999,
-          "voice_pitch_organization": 2.8925000000000005,
-          "voice_processing_chain": 10.405000000000001,
-          "voice_multitrack_stack": 10.86
+          "voice_pitch_organization": 5.389999999999999,
+          "voice_processing_chain": 9.910000000000002,
+          "voice_multitrack_stack": 11.459999999999999
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "string_tuning": "standard_tuning",
+          "string_tuning": "drop_d",
           "top_wood": "cedar_om",
           "back_sides": "rosewood_bs_om",
-          "string_acoustic": "silk_steel_om",
+          "string_acoustic": "phosphor_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 0,
-          "top_wood": 0.845,
+          "string_tuning": 0.15000000000000002,
+          "top_wood": 1.48,
           "back_sides": 1.4899999999999998,
-          "string_acoustic": 1.45,
-          "acoustic_om_technique": 5.594999999999999
+          "string_acoustic": 1.48,
+          "acoustic_om_technique": 2.0699999999999994
         }
       }
     ],

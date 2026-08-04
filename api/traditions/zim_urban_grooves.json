@@ -1,0 +1,162 @@
+{
+  "id": "zim_urban_grooves",
+  "name": "Zimbabwean Urban Grooves",
+  "family": "global",
+  "lineage": "Zimbabwean youth pop that exploded in Harare after the 2001 broadcasting policy mandating 75 percent local content, made almost entirely on home PCs by producers such as Delani Makhalima and Fortune Muparutsa — 90-105 BPM programmed R&B and dancehall drums, cheap sampled strings and rounded synth bass, Auto-Tuned melisma and rapped bridges, with lyrics code-switching between Shona and English.",
+  "recipe": "classic early-2000s zimbabwean urban grooves, functional Song, African pop branch, intl hip hop MC rhythm vietnamese melodic rap motswako. extended whistle, rap, slow rate, interlocked note trading. sampled chopped sampler drum machine, singing lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 635,
+  "score": 229.529,
+  "config": {
+    "traditions": [
+      "zim_urban_grooves",
+      "vietnamese_melodic_rap",
+      "motswako"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 10.828749999999998,
+          "voice_quality": 18.005,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.4450000000000003,
+          "voice_articulation": 24.440000000000005,
+          "voice_microtone": 24.505000000000003,
+          "voice_tradition": 11.603124999999999,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 3.3068750000000002,
+          "voice_speech_song": 28.145000000000007,
+          "voice_ensemble_config": 23.92000000000001,
+          "voice_ornament_system": 2.470000000000001,
+          "voice_pitch_organization": 4.42,
+          "voice_processing_chain": 11.795,
+          "voice_multitrack_stack": 4.6800000000000015
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 4.775,
+          "sample_bitdepth": 0.9750000000000001,
+          "sample_swing": 6.5,
+          "sample_processing": 3.1500000000000004
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 9.374999999999998,
+          "poly_archetypes": 0,
+          "poly_voices": 0.435,
+          "poly_maker_lineage": -1.085
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 9.374999999999998,
+          "fm_algorithm": 0.78,
+          "fm_modulator_ratio": 0,
+          "fm_polyphony": 0.3,
+          "fm_model_lineage": 3.3149999999999995
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 3.665,
+          "body_wood": 1.235,
+          "pickup_config": 0.845,
+          "string_type": 3.2500000000000004,
+          "scale_length_b": 1.8850000000000002,
+          "fretted_or_not": 0,
+          "bass_technique": 0.42
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.3,
+          "multitrack_stack_era_aesthetic": 0.4225,
+          "multitrack_stack_processing": 2.0225
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

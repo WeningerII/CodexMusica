@@ -3,14 +3,14 @@
   "name": "Newfoundland outport sea-shanty and work-song",
   "family": "global",
   "lineage": "Newfoundland-Labrador outport (Atlantic-fishing-village) sea-shanty and work-song tradition continuous from 17th-onward English-and-Irish-immigrant Newfoundland-cod-fishery work-song practice through 20th-century Newfoundland-folk-revival into modern Atlantic-Canadian-folk continuous practice; foundational repertoire includes \"I'se the B'y\" (canonical), \"The Squid-Jiggin' Ground,\" \"Lukey's Boat\"",
-  "recipe": "classic early-1940s newfoundland outport sea-shanty and work-song, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry ectofolk freak folk. thick, breath veiled tone, slow rate, interlocked note trading. narrative fingerpicked acoustic guitar, magic rosin modern acrylic base drone like fiddle, Celtic Irish straight concertina. irish pub. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 474,
-  "score": 241.92,
+  "recipe": "classic early-1940s newfoundland outport sea-shanty and work-song, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry anti-folk chinese minyao. thick, breath veiled tone, straight onset, interlocked note trading. mahogany steel silk fingerpicked acoustic guitar, magic rosin modern acrylic base drone like fiddle, Celtic Irish straight concertina. irish pub. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 494,
+  "score": 222.565,
   "config": {
     "traditions": [
       "newfoundland_outport_shanty",
-      "ectofolk",
-      "freak_folk_2000s"
+      "antifolk_nyc",
+      "chinese_minyao"
     ],
     "instruments": [
       {
@@ -20,10 +20,10 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,39 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 25.134999999999994,
-          "voice_quality": 11.114999999999991,
+          "voice_register": 19.759999999999994,
+          "voice_quality": 11.764999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2349999999999999,
-          "voice_articulation": 12.674999999999994,
-          "voice_microtone": 12.67499999999999,
-          "voice_tradition": 28.472499999999993,
-          "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 3.9650000000000007,
-          "voice_speech_song": 22.81499999999999,
-          "voice_ensemble_config": 12.999999999999993,
-          "voice_ornament_system": 6.880000000000001,
-          "voice_pitch_organization": 5.232499999999999,
-          "voice_processing_chain": 5.6525,
-          "voice_multitrack_stack": 5.817499999999999
+          "voice_vibrato": 1.4625000000000004,
+          "voice_articulation": 11.439999999999994,
+          "voice_microtone": 11.24499999999999,
+          "voice_tradition": 25.574999999999996,
+          "voice_mechanism_compound": 0.975,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 22.424999999999997,
+          "voice_ensemble_config": 11.959999999999992,
+          "voice_ornament_system": 4.205,
+          "voice_pitch_organization": 4.485,
+          "voice_processing_chain": 6.777499999999999,
+          "voice_multitrack_stack": 4.680000000000001
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "string_tuning": "dadgad",
+          "string_tuning": "open_d",
           "top_wood": "mahogany_top_om",
           "back_sides": "mahogany_bs_om",
-          "string_acoustic": "phosphor_om",
+          "string_acoustic": "silk_steel_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 2.3950000000000005,
-          "top_wood": 0.9099999999999999,
-          "back_sides": 0.9099999999999999,
-          "string_acoustic": 0.65,
-          "acoustic_om_technique": 28.794999999999995
+          "string_tuning": 1.3649999999999998,
+          "top_wood": 1.105,
+          "back_sides": 1.105,
+          "string_acoustic": 1.3,
+          "acoustic_om_technique": 27.724999999999998
         }
       },
       {
@@ -79,11 +79,11 @@
           "fiddle_articulation": "pizz"
         },
         "scores": {
-          "bowed_technique": 18.994999999999994,
-          "fiddle_strings": 0.5700000000000001,
+          "bowed_technique": 18.499999999999996,
+          "fiddle_strings": 0.65,
           "fiddle_bow": 2.2625,
           "fiddle_mute": 0.9099999999999999,
-          "fiddle_articulation": 0.09
+          "fiddle_articulation": 0.195
         }
       },
       {
@@ -91,12 +91,12 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "concertina_type": "anglo_concertina",
-          "concertina_reed_grade": "concertina_hybrid_accordion_reed"
+          "concertina_reed_grade": "concertina_traditional"
         },
         "scores": {
-          "free_reed_technique": 19.549999999999994,
-          "concertina_type": 15.245,
-          "concertina_reed_grade": 0.7800000000000001
+          "free_reed_technique": 18.799999999999997,
+          "concertina_type": 14.245,
+          "concertina_reed_grade": 0
         }
       }
     ],

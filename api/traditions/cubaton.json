@@ -3,27 +3,27 @@
   "name": "Cubatón",
   "family": "hip_hop",
   "lineage": "Havana adaptation of Puerto Rican reggaeton that took hold between 1999 and 2005 through home-computer producers in Alamar and Centro Habana, codified by Cubanito 20.02, Eddy-K, Candyman and the early Gente de Zona — dembow at 92-100 BPM overlaid with son clave, live or sampled congas, timbales and bongó, tumbao bass figures displacing the flat reggaeton sub, and a shouted party-chant delivery alternating with sung soneo-style choruses.",
-  "recipe": "classic Caribbean late-1990s cubatón, mc Rhythm, reggaeton branch, son salsa Cuban, tropical song functional song salsa puertorriqueña mambo chileno. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sampler drum machine, mule hide canonical Cuban premium oak staved canonical Cuban congas, classic salsa mellow brass timbales, sub bass analog poly synth. bedroom. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
-  "recipe_chars": 504,
-  "score": 162.07,
+  "recipe": "classic Caribbean late-1990s cubatón, mc Rhythm, reggaeton branch, son salsa Cuban, tropical song functional song kaseko salsa peruana. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, sampler drum machine, mule hide canonical Cuban premium oak staved canonical Cuban congas, classic salsa mellow brass timbales, low sub bass analog poly synth. bedroom. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 509,
+  "score": 157.047,
   "config": {
     "traditions": [
       "cubaton",
-      "salsa_puertorriquena",
-      "mambo_chileno"
+      "kaseko",
+      "salsa_peruana"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.5650000000000013,
-          "voice_quality": 7.8,
+          "voice_register": 1.2674999999999998,
+          "voice_quality": 10.139999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.8200000000000003,
-          "voice_articulation": 21.904999999999998,
-          "voice_microtone": 21.709999999999994,
-          "voice_tradition": 4.745,
-          "voice_mechanism_compound": 4.419999999999999,
-          "voice_estill_quality": 4.225,
-          "voice_speech_song": 23.985,
-          "voice_ensemble_config": 19.954999999999995,
-          "voice_ornament_system": 2.0549999999999997,
-          "voice_pitch_organization": 1.755,
-          "voice_processing_chain": 4.225,
-          "voice_multitrack_stack": 3.9650000000000007
+          "voice_vibrato": 1.2200000000000002,
+          "voice_articulation": 19.499999999999996,
+          "voice_microtone": 19.304999999999993,
+          "voice_tradition": 4.66,
+          "voice_mechanism_compound": 5.615,
+          "voice_estill_quality": 5.42,
+          "voice_speech_song": 23.334999999999994,
+          "voice_ensemble_config": 17.614999999999995,
+          "voice_ornament_system": 1.9049999999999998,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 4.3549999999999995,
+          "voice_multitrack_stack": 4.29
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 3.575,
-          "drum_machine_808_context": 3.6399999999999997,
+          "tr808_voice": 4.390000000000001,
+          "drum_machine_808_context": 4.68,
           "tr808_production_origin": 0
         }
       },
@@ -75,9 +75,9 @@
         },
         "scores": {
           "electronic_technique": 0.8999999999999999,
-          "sample_bitdepth": 0,
+          "sample_bitdepth": 0.15,
           "sample_swing": 0,
-          "sample_processing": 0.38999999999999996
+          "sample_processing": 1.04
         }
       },
       {
@@ -89,10 +89,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 2.09,
-          "conga_set": 0.65,
-          "conga_skin": 6.045,
-          "conga_shell_wood": 6.045
+          "percussion_technique": 2.44,
+          "conga_set": 0.845,
+          "conga_skin": 2.925,
+          "conga_shell_wood": 2.925
         }
       },
       {
@@ -103,23 +103,23 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 2.09,
-          "timbales_shell": 4.68,
-          "timbales_context": 1.235
+          "percussion_technique": 2.44,
+          "timbales_shell": 5.004999999999999,
+          "timbales_context": 0.195
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 3.4450000000000003,
-          "poly_archetypes": 0.3,
-          "poly_voices": 0.38999999999999996,
+          "electronic_technique": 4.44,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.5,
           "poly_maker_lineage": -1.085
         }
       }

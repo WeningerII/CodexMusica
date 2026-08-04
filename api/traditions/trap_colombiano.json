@@ -3,53 +3,53 @@
   "name": "Trap Colombiano",
   "family": "hip_hop",
   "lineage": "Colombian Spanish-language trap centred on Medellín's barrio studios from roughly 2015, downstream of Puerto Rican Latin trap but locally inflected by paisa slang and reggaetón session culture — 130-145 BPM half-time beats over long tuned 808 slides, triplet hi-hat rolls, minor-key piano or plucked-synth loops, and heavily Auto-Tuned melodic verses that slip between sung hook and rapped bar.",
-  "recipe": "classic mid-2010s trap colombiano, mc Rhythm, reggaeton branch, intl hip hop MC rhythm, us hip hop southern, Latin electric electronic dance dirty south rap trap queen. vocal fry, rap, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sub bass wavetable synth, sampled chopped sampler drum machine, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, sub bass monosynth acid bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
-  "recipe_chars": 634,
-  "score": 233.845,
+  "recipe": "classic mid-2010s trap colombiano, mc Rhythm, reggaeton branch, intl hip hop MC rhythm, us hip hop southern, Latin electric electronic dance pinoy trap turkish trap. extended whistle, rap, straight note core, interlocked note trading. TR-808, sub bass wavetable synth, sampled chopped sampler drum machine, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, sub bass monosynth acid bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 594,
+  "score": 227.725,
   "config": {
     "traditions": [
       "trap_colombiano",
-      "dirty_south_rap",
-      "trap_queen"
+      "pinoy_trap",
+      "turkish_trap"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "sean_nos_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.65,
-          "voice_quality": 18.622500000000002,
+          "voice_register": 1.56,
+          "voice_quality": 18.1675,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.785,
-          "voice_articulation": 23.14,
-          "voice_microtone": 27.364999999999995,
-          "voice_tradition": 6.955000000000001,
-          "voice_mechanism_compound": 2.9800000000000013,
-          "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 22.490000000000002,
-          "voice_ensemble_config": 19.825,
-          "voice_ornament_system": 9.685000000000002,
-          "voice_pitch_organization": 1.6249999999999998,
-          "voice_processing_chain": 9.02,
-          "voice_multitrack_stack": 4.242500000000001
+          "voice_vibrato": 2.9350000000000005,
+          "voice_articulation": 18.199999999999992,
+          "voice_microtone": 30.06249999999999,
+          "voice_tradition": 7.150000000000001,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 3.7700000000000005,
+          "voice_speech_song": 18.004999999999992,
+          "voice_ensemble_config": 16.639999999999993,
+          "voice_ornament_system": 8.84,
+          "voice_pitch_organization": 5.139999999999999,
+          "voice_processing_chain": 8.67,
+          "voice_multitrack_stack": 4.159999999999999
         }
       },
       {
@@ -57,12 +57,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 8.1625,
-          "drum_machine_808_context": 3.1849999999999996,
-          "tr808_production_origin": 1
+          "tr808_voice": 6.7875000000000005,
+          "drum_machine_808_context": 1.885,
+          "tr808_production_origin": 0.195
         }
       },
       {
@@ -74,9 +74,9 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 19.862499999999997,
+          "electronic_technique": 18.9875,
           "wt_position": 0.7,
-          "wt_family": 0.45499999999999996,
+          "wt_family": 0.345,
           "wt_polyphony": 0
         }
       },
@@ -89,10 +89,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 5.575,
-          "sample_bitdepth": 3.1975000000000002,
-          "sample_swing": 9.75,
-          "sample_processing": 3.2299999999999995
+          "electronic_technique": 5.3500000000000005,
+          "sample_bitdepth": 3.0475000000000003,
+          "sample_swing": 9.36,
+          "sample_processing": 4.7299999999999995
         }
       },
       {
@@ -105,7 +105,7 @@
         "scores": {
           "multitrack_stack_density": 0.7525,
           "multitrack_stack_era_aesthetic": 0.4225,
-          "multitrack_stack_processing": 3.55
+          "multitrack_stack_processing": 4.2
         }
       },
       {
@@ -114,13 +114,13 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "subtle_accent_acid"
+          "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 19.862499999999997,
+          "electronic_technique": 18.9875,
           "wave_acid": 0.39,
           "filter_acid": 1.2349999999999999,
-          "accent_acid": 0
+          "accent_acid": 0.585
         }
       }
     ],

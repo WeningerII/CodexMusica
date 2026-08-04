@@ -1,0 +1,150 @@
+{
+  "id": "phonk_brasileiro",
+  "name": "Phonk Brasileiro",
+  "family": "hip_hop",
+  "lineage": "Emerged online around 2020-2022 as Brazilian producers on SoundCloud and TikTok fused drift-phonk's cowbell-driven 130-150 BPM template with funk carioca's tamborzão and beat-mandela rhythms, codified by producers such as MXZI, Yzomandias-adjacent Brazilian circles, Kordhell imitators and the 'funk phonk' / 'brazilian phonk' YouTube channel economy, marked by distorted 808 cowbell melodies, sidechained subs, chopped Memphis-style vocal samples and Portuguese shouted or pitched vocal chops.",
+  "recipe": "classic 2020-2022 phonk brasileiro, mc Rhythm, experimental branch, Afro-diasporic MC rhythm, Latin electric electronic dance funk consciente rave funk. vocal fry, breath veiled tone, interlocked note trading, neutral third half flat. field textural sampler, TR-808, sub bass analog poly synth, nylon canonical rio carnival aluminum canonical modern rio escola surdo, hand clap. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 486,
+  "score": 174.531,
+  "config": {
+    "traditions": [
+      "phonk_brasileiro",
+      "funk_consciente",
+      "rave_funk"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.7,
+          "sampler_archetypes": 2.11,
+          "sampler_bit_depth": 1.4949999999999999,
+          "sampler_workflow": 4.17,
+          "sampler_classic_context": 27.982499999999998
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 3.1525,
+          "drum_machine_808_context": 2.4699999999999998,
+          "tr808_production_origin": 0.525
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 3.0225,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.6000000000000001,
+          "poly_maker_lineage": -1.8549999999999998
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.6399999999999997,
+          "voice_quality": 9.555,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 17.289999999999992,
+          "voice_microtone": 16.24999999999999,
+          "voice_tradition": 7.508500000000001,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 16.639999999999993,
+          "voice_ensemble_config": 17.80999999999999,
+          "voice_ornament_system": 4.290000000000002,
+          "voice_pitch_organization": 0.8499999999999999,
+          "voice_processing_chain": 11.944999999999999,
+          "voice_multitrack_stack": 7.0200000000000005
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_segunda",
+          "surdo_skin": "surdo_nylon",
+          "surdo_shell": "surdo_aluminum_canonical"
+        },
+        "scores": {
+          "surdo_size": 1.435,
+          "surdo_skin": 1.4949999999999999,
+          "surdo_shell": 1.4949999999999999
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.975,
+          "clap_capture": 0.845
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

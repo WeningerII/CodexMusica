@@ -3,24 +3,24 @@
   "name": "South African freedom song (anti-apartheid)",
   "family": "global",
   "lineage": "South African anti-apartheid freedom-song tradition continuous from late-1940s post-apartheid-codification group-vocal protest practice through the 1976 Soweto Uprising and 1980s-1990s liberation-and-transition era; defined by group-vocal harmony-singing, toyi-toyi marching-chant, and canonical anthems integrated into both the African National Congress and broader liberation movements",
-  "recipe": "classic 1947-1949 south african freedom song, protest Song, sub saharan African branch, African pop isicathamiya, anglo American protest song, christian gospel ritual devotional african-american spirituals ethiopian debtera liturgical incantation. thick, breath veiled tone, straight onset, interlocked note trading. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 395,
-  "score": 193.282,
+  "recipe": "classic 1947-1949 south african freedom song, protest Song, sub saharan African branch, African pop isicathamiya, anglo American protest song, christian gospel ritual devotional african-american spirituals spirituals. thick, declaimed, wide pitch sway, interlocked note trading. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 357,
+  "score": 197.343,
   "config": {
     "traditions": [
       "south_african_freedom_song",
       "spirituals_african_american",
-      "ethiopian_debtera_incantation"
+      "spirituals"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 15.895,
-          "voice_quality": 19.24,
+          "voice_register": 18.79,
+          "voice_quality": 21.86,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7625,
-          "voice_articulation": 18.199999999999996,
-          "voice_microtone": 20.929999999999993,
-          "voice_tradition": 34.685,
-          "voice_mechanism_compound": 3.055,
-          "voice_estill_quality": 10.350000000000001,
-          "voice_speech_song": 26.259999999999994,
-          "voice_ensemble_config": 18.784999999999993,
-          "voice_ornament_system": 8.025000000000002,
-          "voice_pitch_organization": 5.525,
-          "voice_processing_chain": 11.049999999999997,
-          "voice_multitrack_stack": 6.045
+          "voice_vibrato": 3.325,
+          "voice_articulation": 18.394999999999996,
+          "voice_microtone": 18.784999999999993,
+          "voice_tradition": 36.980000000000004,
+          "voice_mechanism_compound": 3.4450000000000003,
+          "voice_estill_quality": 12.865,
+          "voice_speech_song": 27.104999999999997,
+          "voice_ensemble_config": 20.962499999999995,
+          "voice_ornament_system": 8.9,
+          "voice_pitch_organization": 1.7999999999999998,
+          "voice_processing_chain": 5.785000000000001,
+          "voice_multitrack_stack": 6.695
         }
       }
     ],

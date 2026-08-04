@@ -3,14 +3,14 @@
   "name": "Mathcore",
   "family": "rock",
   "lineage": "Late-1990s through 2000s US extreme-metal-and-hardcore fusion genre incorporating math rock complex meter and rapid time-signature changes — codified through Converge (Jane Doe 2001), Dillinger Escape Plan (Calculating Infinity 1999, Miss Machine 2004), Botch, Coalesce, the modern continuation through Cult Leader and Frontierer",
-  "recipe": "classic Midwestern American 1997-1999 mathcore, distorted Rock, avant branch, experimental distorted rock krautrock post-rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 595,
-  "score": 322.302,
+  "recipe": "classic Midwestern American 1997-1999 mathcore, distorted Rock, avant branch, experimental distorted rock nintendocore krautrock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 598,
+  "score": 326.998,
   "config": {
     "traditions": [
       "mathcore",
-      "krautrock",
-      "post_rock_extended"
+      "nintendocore",
+      "krautrock"
     ],
     "instruments": [
       {
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 15.365749999999998,
-          "amp_make": 15.930499999999997,
-          "body_wood": 7.474999999999999,
-          "neck_wood": 1.04,
-          "fretboard": 1.04,
-          "pickup_magnet": 1.47825,
-          "pickup_winding": 1.497,
-          "string_material": 1.04,
-          "bridge": 0.099375,
-          "scale_length": 8.515,
-          "string_gauge": 0.099375,
-          "finish": 0.1365,
-          "string_tuning": 18.654999999999998
+          "electric_technique": 16.006500000000003,
+          "amp_make": 18.525,
+          "body_wood": 6.175,
+          "neck_wood": 0.845,
+          "fretboard": 0.845,
+          "pickup_magnet": 1.21,
+          "pickup_winding": 1.21,
+          "string_material": 0.845,
+          "bridge": 0.39,
+          "scale_length": 7.02,
+          "string_gauge": 0.39,
+          "finish": 0.195,
+          "string_tuning": 17.68
         }
       },
       {
@@ -58,13 +58,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.244999999999997,
-          "body_wood": 0.19875000000000004,
-          "pickup_config": 1.66875,
-          "string_type": 24.849,
-          "scale_length_b": 1.4940000000000002,
+          "amp_make": 11.309999999999999,
+          "body_wood": 0.39,
+          "pickup_config": 1.4049999999999998,
+          "string_type": 26.741,
+          "scale_length_b": 1.69,
           "fretted_or_not": 0.0315,
-          "bass_technique": 24.40575
+          "bass_technique": 25.375
         }
       },
       {
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.75,
-          "drumhead": 4.625,
+          "drum_technique": 21.875,
+          "drumhead": 4.125,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -92,31 +92,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 26.556249999999995,
-          "voice_quality": 7.150000000000001,
+          "voice_register": 25.869999999999997,
+          "voice_quality": 6.890000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.7265000000000006,
-          "voice_articulation": 13.844999999999994,
-          "voice_microtone": 26.029999999999998,
-          "voice_tradition": 10.764249999999999,
-          "voice_mechanism_compound": 19.16275,
-          "voice_estill_quality": 4.922124999999999,
-          "voice_speech_song": 16.542499999999993,
-          "voice_ensemble_config": 13.584999999999992,
-          "voice_ornament_system": 3.5017500000000004,
-          "voice_pitch_organization": 2.3064999999999998,
-          "voice_processing_chain": 4.42,
-          "voice_multitrack_stack": 6.825
+          "voice_vibrato": 3.3480000000000003,
+          "voice_articulation": 15.534999999999995,
+          "voice_microtone": 24.96,
+          "voice_tradition": 12.870000000000003,
+          "voice_mechanism_compound": 24.155,
+          "voice_estill_quality": 2.6650000000000005,
+          "voice_speech_song": 16.964999999999993,
+          "voice_ensemble_config": 15.274999999999993,
+          "voice_ornament_system": 1.7549999999999994,
+          "voice_pitch_organization": 0.6814999999999999,
+          "voice_processing_chain": 5.2325,
+          "voice_multitrack_stack": 6.467499999999999
         }
       }
     ],

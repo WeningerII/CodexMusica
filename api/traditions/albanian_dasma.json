@@ -5,7 +5,7 @@
   "lineage": "Albanian wedding-music tradition continuous from medieval Albanian rural practice through 19th-20th century continuous performance; particularly preserved in Northern Albanian highland zones, Southern Albanian iso-polyphonic zones, Kosovo, and Arbëresh-Italian diaspora",
   "recipe": "classic Eastern European modern albanian dasma, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal bulgarian women's choir persian aroosi. vocal fry, breath veiled tone, slow rate, interlocked note trading. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional goat skin Turkish darbuka regional darbuka, magic rosin modern acrylic base drone like fiddle. klezmer simcha celebration hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 610,
-  "score": 163.68,
+  "score": 162.934,
   "config": {
     "traditions": [
       "albanian_dasma",
@@ -43,13 +43,13 @@
           "voice_microtone": 15.729999999999993,
           "voice_tradition": 17.81,
           "voice_mechanism_compound": 9.575,
-          "voice_estill_quality": 6.684,
+          "voice_estill_quality": 6.729,
           "voice_speech_song": 11.959999999999997,
           "voice_ensemble_config": 11.114999999999997,
           "voice_ornament_system": 10.4225,
-          "voice_pitch_organization": 10.4675,
+          "voice_pitch_organization": 10.7075,
           "voice_processing_chain": 3.9650000000000003,
-          "voice_multitrack_stack": 4.68
+          "voice_multitrack_stack": 4.6545
         }
       },
       {
@@ -64,9 +64,9 @@
         "scores": {
           "wind_articulation": 5.494,
           "clarinet_body": 4.030000000000001,
-          "clarinet_size": 1.1300000000000001,
+          "clarinet_size": 1.175,
           "clarinet_reed": 0,
-          "clarinet_articulation": 0.43499999999999994
+          "clarinet_articulation": 0.045
         }
       },
       {
@@ -74,19 +74,19 @@
         "slots": {
           "free_reed_technique": "free_reed_orchestral_ensemble",
           "accordion_reed_material": "tipo_a_mano",
-          "musette_offset": "scottish_musette",
+          "musette_offset": "italian_tuning",
           "reed_config": "lmmh",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 4.2045,
-          "accordion_reed_material": 0.195,
-          "musette_offset": 0.495,
+          "free_reed_technique": 4.0995,
+          "accordion_reed_material": 0.21,
+          "musette_offset": 0.195,
           "reed_config": 0.195,
-          "bellows": 0.3,
-          "voicing_chamber": 0,
+          "bellows": 0.15,
+          "voicing_chamber": 0.105,
           "accordion_maker_school": 9.035
         }
       },
@@ -96,13 +96,13 @@
           "percussion_technique": "percussion_open_slap",
           "darbuka_material": "darbuka_clay_traditional",
           "darbuka_skin": "darbuka_goat_skin",
-          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+          "darbuka_regional_style": "darbuka_turkish_split"
         },
         "scores": {
           "percussion_technique": 0.6499999999999999,
           "darbuka_material": 1.04,
           "darbuka_skin": 1.4300000000000002,
-          "darbuka_regional_style": 0.39
+          "darbuka_regional_style": 0.57
         }
       },
       {
@@ -115,11 +115,11 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 10.065000000000001,
+          "bowed_technique": 9.855,
           "fiddle_strings": 0.845,
           "fiddle_bow": 2.1125,
           "fiddle_mute": 0.24,
-          "fiddle_articulation": 0.46499999999999997
+          "fiddle_articulation": 0.26999999999999996
         }
       }
     ],

@@ -1,0 +1,146 @@
+{
+  "id": "raboday",
+  "name": "Raboday",
+  "family": "global",
+  "lineage": "Port-au-Prince street-carnival electronic style that emerged in the 2000s and dominated Haitian youth dance music through the 2010s, taking the fast rara/petwo percussion cell out of the street band and rebuilding it in software at roughly 105-125 BPM as looped tanbou samples, hard programmed kick and hand-clap, cheap synth stabs and shouted, often obscene Kreyol MC vocals traded over a two-bar cycle.",
+  "recipe": "classic mid-2000s raboday, groove Percussion, Afro-diasporic electric branch, Caribbean carnival processional, Afro-diasporic MC rhythm funk consciente merengue de calle. kargyraa, breath veiled tone, fast rate, interlocked note trading. sampler drum machine, expressive muted and open tanbou ka, regional style kit party arranger one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation, snappy thin to palm hand clap, TR-808. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 612,
+  "score": 150.777,
+  "config": {
+    "traditions": [
+      "raboday",
+      "funk_consciente",
+      "merengue_de_calle"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.8949999999999999,
+          "voice_quality": 10.464999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 17.354999999999993,
+          "voice_microtone": 16.57499999999999,
+          "voice_tradition": 5.785,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 18.264999999999993,
+          "voice_ensemble_config": 16.70499999999999,
+          "voice_ornament_system": 3.9650000000000016,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 5.220000000000001,
+          "voice_multitrack_stack": 5.135
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 2.2725,
+          "sample_bitdepth": 0.585,
+          "sample_swing": 3.25,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "tanbou_ka",
+        "slots": {
+          "tanbou_ka_seating": "tanbou_ka_straddled",
+          "tanbou_ka_tuning": "tanbou_ka_fire"
+        },
+        "scores": {
+          "tanbou_ka_seating": 16.964999999999996,
+          "tanbou_ka_tuning": 0.195
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "rompler_preset_bank": "rompler_preset_oriental_arranger",
+          "rompler_context": "rompler_context_arranger_party",
+          "rompler_lineage": "rompler_korg_pa_arranger"
+        },
+        "scores": {
+          "electronic_technique": 2.5349999999999997,
+          "rompler_preset_bank": 1.95,
+          "rompler_context": 1.4949999999999999,
+          "rompler_lineage": 1.95
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.625,
+          "clap_capture": 0.195
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.6649999999999996,
+          "drum_machine_808_context": 1.6899999999999997,
+          "tr808_production_origin": 0.585
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "haitian_kompa_meringue",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "haitian_kompa_meringue",
+    "room": "untreated_bedroom",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

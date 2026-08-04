@@ -1,0 +1,170 @@
+{
+  "id": "kolo",
+  "name": "Kolo (Serbo-Croatian circle dance)",
+  "family": "global",
+  "lineage": "The chain and circle dance repertoire of Serbia, Croatia and Bosnia, standardised on record and radio from the 1930s and especially in the Yugoslav 1950s-70s — brisk 2/4 at roughly 130-160 BPM, an accordion or tamburica prim leading continuous sixteenth-note melody in harmonic minor, offbeat brač chords, a stamping bass on the downbeat, and paired repeated eight-bar strains driving the dancers' step cycle",
+  "recipe": "classic Southern European mid-1930s kolo, carnival Processional, European branch, balkan drinking song, European wedding trikiti greek gamílio glendí. castagnari Italian premium folk music accordion, tamburica prim, horo dance driving strummed tambura balkan, carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, grenadilla African blackwood traditional continuous-airflow legato clarinet, venice catlin high twist renaissance bass carpathian spruce European maple double bass, epirus dance bolt tuned tapan. balkan sevdalinka kafana tavern. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 728,
+  "score": 113.244,
+  "config": {
+    "traditions": [
+      "kolo",
+      "trikiti",
+      "greek_gamilio_glendi"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 0.9099999999999999,
+          "accordion_reed_material": 0.39,
+          "musette_offset": 0.195,
+          "reed_config": 0.195,
+          "bellows": 0,
+          "voicing_chamber": 0.39,
+          "accordion_maker_school": 3.0549999999999997
+        }
+      },
+      {
+        "id": "tamburica_prim",
+        "slots": {
+          "tamburica_prim_system": "tamburica_prim_srijem",
+          "tamburica_prim_technique": "tamburica_prim_single_strokes"
+        },
+        "scores": {
+          "tamburica_prim_system": 0.39,
+          "tamburica_prim_technique": 4.029999999999999
+        }
+      },
+      {
+        "id": "tambura_balkan",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "tambura_balkan_school": "tambura_macedonian",
+          "tambura_balkan_use": "tambura_horo"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.517499999999999,
+          "tambura_balkan_school": 1.7499999999999998,
+          "tambura_balkan_use": 8.28125
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_klezmer_ornamented",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.94,
+          "orch_strings": 0.39,
+          "orch_top_wood": 6.305000000000001,
+          "orch_back_wood": 7.8325000000000005,
+          "orch_varnish": 1.8237500000000002,
+          "orch_setup_period": 5.5575,
+          "orch_bow": 4.874999999999999,
+          "orch_bow_stick": 2.1125,
+          "orch_articulation": 0.195,
+          "orch_rosin": 2.1125
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "bass_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "doina_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 3.5100000000000002,
+          "clarinet_body": 1.7200000000000002,
+          "clarinet_size": 0.315,
+          "clarinet_reed": 0.39,
+          "clarinet_articulation": 0.47999999999999987
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "snakewood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "bass_size": 0,
+          "bass_strings": 2.4699999999999998,
+          "bass_top_wood": 6.305000000000001,
+          "bass_back_wood": 7.767500000000002,
+          "bass_varnish": 1.625,
+          "bass_setup_period": 5.5575,
+          "bass_play": 0.045,
+          "bass_rosin": 3.9275,
+          "bass_bow_stick": 1.6650000000000003
+        }
+      },
+      {
+        "id": "tapan",
+        "slots": {
+          "tapan_form": "tapan_daouli_greek",
+          "tapan_role": "tapan_wedding_processional",
+          "tapan_build": "tapan_modern_tensioned"
+        },
+        "scores": {
+          "tapan_form": 12.177499999999998,
+          "tapan_role": 9.54,
+          "tapan_build": 2.5737500000000004
+        }
+      }
+    ],
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "archetype": "arch_jugoton_yugoslav",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "id": "champeta",
+  "name": "Champeta (Colombian Caribbean picó style)",
+  "family": "global",
+  "lineage": "Cartagena and Palenque dance style born when 1970s-80s picó sound systems spun imported Congolese soukous and highlife, then localized from the late 1980s by Viviano Torres and Louis Towers into a 4/4 style with cascading single-coil guitar seben lines, syncopated bass, timbal-and-conga kit patterns and shouted Spanish-Palenquero lyrics.",
+  "recipe": "classic 1987-1989 champeta, electronic Dance, African dance branch, uk soundsystem bass system, reggaeton MC rhythm uk dancehall bassline. vocal fry, breath veiled tone, straight onset, interlocked note trading. mahogany clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, ride-driven brushes-and-sticks drum kit, high pitched lead congas, sampler drum machine. no single room 2015-present distributed distributed production. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, SSL surgical EQ. DAT pro mixdown spring reverb digital delay.",
+  "recipe_chars": 634,
+  "score": 191.887,
+  "config": {
+    "traditions": [
+      "champeta",
+      "uk_dancehall",
+      "bassline"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 0.585,
+          "voice_quality": 7.995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.3150000000000004,
+          "voice_articulation": 19.435,
+          "voice_microtone": 19.239999999999995,
+          "voice_tradition": 7.475,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 19.24,
+          "voice_ensemble_config": 20.864999999999995,
+          "voice_ornament_system": 4.615,
+          "voice_pitch_organization": 1.2349999999999999,
+          "voice_processing_chain": 11.025,
+          "voice_multitrack_stack": 6.855
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_c"
+        },
+        "scores": {
+          "electric_technique": 3.4499999999999993,
+          "amp_make": 2.0149999999999997,
+          "body_wood": 1.04,
+          "neck_wood": 1.04,
+          "fretboard": 0.975,
+          "pickup_magnet": 0.24,
+          "string_material": 0.39,
+          "string_gauge": 1.04,
+          "bridge": 0.15,
+          "scale_length": 1.04,
+          "finish": 0,
+          "string_tuning": 1.04
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 7.540000000000002,
+          "body_wood": 1.04,
+          "pickup_config": 0.545,
+          "string_type": 9.360000000000001,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0,
+          "bass_technique": 1.56
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 19.045,
+          "drumhead": 1.04,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 0.06499999999999999,
+          "conga_set": 1.04,
+          "conga_skin": 0.845,
+          "conga_shell_wood": 0.845
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.2999999999999998,
+          "sample_bitdepth": 0.545,
+          "sample_swing": 6.07,
+          "sample_processing": 1.04
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_kingston_digital_riddim",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "soukous_rumba_seben_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "soukous_rumba_seben_4_4",
+    "room": "studio_distributed_production",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

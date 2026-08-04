@@ -5,7 +5,7 @@
   "lineage": "West African 1970s polyrhythmic horn-driven big-band genre fusing Yoruba highlife, jazz, and James Brown funk — codified by Fela Kuti at his Shrine club in Lagos with Tony Allen on drums (Afrika 70 and Egypt 80 ensembles), characterized by extended jam-form arrangements, political-protest lyrics, and the dense polyrhythmic interlock that became the genre signature",
   "recipe": "classic African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion, Afro-diasporic MC rhythm acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 smaller 25w tube home club ostinato slow chorale tonewheel organ, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, foundational bass rhythm calabash shekere, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas.",
   "recipe_chars": 978,
-  "score": 676.264,
+  "score": 690.1,
   "config": {
     "traditions": [
       "afrobeat",
@@ -23,23 +23,23 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
-          "bridge": "hardtail",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 12.32,
-          "amp_make": 13.69,
-          "body_wood": 0.4065,
-          "neck_wood": 2.4450000000000003,
-          "fretboard": 2.4450000000000003,
-          "pickup_magnet": 2.4450000000000003,
+          "electric_technique": 12.125,
+          "amp_make": 14.98,
+          "body_wood": 0.195,
+          "neck_wood": 2.535,
+          "fretboard": 2.535,
+          "pickup_magnet": 2.535,
           "string_material": 2.535,
-          "string_gauge": 0.6375,
-          "bridge": 0.0765,
-          "scale_length": 0.813,
+          "string_gauge": 0.195,
+          "bridge": 0.36,
+          "scale_length": 0.39,
           "finish": 0,
           "string_tuning": 6.044999999999999
         }
@@ -48,7 +48,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
@@ -57,12 +57,12 @@
         },
         "scores": {
           "amp_make": 8.6775,
-          "body_wood": 0.813,
-          "pickup_config": 0.0315,
-          "string_type": 30.79,
+          "body_wood": 0.39,
+          "pickup_config": 0.195,
+          "string_type": 32.9875,
           "scale_length_b": 0.195,
-          "fretted_or_not": 0,
-          "bass_technique": 25.375
+          "fretted_or_not": 0.21,
+          "bass_technique": 25.42
         }
       },
       {
@@ -74,7 +74,7 @@
         },
         "scores": {
           "drum_technique": 45.467499999999994,
-          "drumhead": 30.650000000000002,
+          "drumhead": 32.9225,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -90,10 +90,10 @@
         },
         "scores": {
           "keyboard_technique": 8.875,
-          "drawbar_setting": 25.813,
-          "rotary_speed": 5.981,
+          "drawbar_setting": 25.57,
+          "rotary_speed": 5.75,
           "percussion_setting": 25.375,
-          "tonewheel_model": 33.1465,
+          "tonewheel_model": 33.3775,
           "leslie_cabinet_model": 3.7249999999999996
         }
       },
@@ -109,13 +109,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 9.0895,
-          "sax_size": 5.7315000000000005,
-          "sax_reed": 2.4450000000000003,
+          "wind_articulation": 9.864999999999998,
+          "sax_size": 5.7,
+          "sax_reed": 2.535,
           "sax_body_alloy": 26.375,
-          "sax_mouthpiece": 2.4450000000000003,
-          "sax_technique": 25.4065,
-          "sax_maker_school": 30.29
+          "sax_mouthpiece": 2.535,
+          "sax_technique": 25.375,
+          "sax_maker_school": 31.1675
         }
       },
       {
@@ -124,17 +124,17 @@
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
-          "brass_mute": "no_mute_brass",
+          "brass_mute": "cup_mute",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 9.0895,
-          "brass_size": 2.4450000000000003,
-          "trumpet_mouthpiece": 30.7,
-          "brass_mute": 0.063,
-          "trumpet_technique": 9.0895,
+          "wind_articulation": 9.864999999999998,
+          "brass_size": 2.535,
+          "trumpet_mouthpiece": 32.9875,
+          "brass_mute": 0,
+          "trumpet_technique": 9.864999999999998,
           "trumpet_bell_metal": 2.145,
           "trumpet_maker_school": 4.9399999999999995
         }
@@ -160,22 +160,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 33.20800000000001,
+          "voice_register": 33.04000000000001,
           "voice_quality": 5.655000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 25.183000000000003,
+          "voice_vibrato": 25.6,
           "voice_articulation": 15.274999999999995,
-          "voice_microtone": 30.455,
-          "voice_tradition": 30.895,
+          "voice_microtone": 30.604999999999997,
+          "voice_tradition": 32.9875,
           "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 3.99,
+          "voice_estill_quality": 4.140000000000001,
           "voice_speech_song": 16.119999999999994,
           "voice_ensemble_config": 15.014999999999993,
-          "voice_ornament_system": 2.295,
-          "voice_pitch_organization": 5.4895000000000005,
-          "voice_processing_chain": 15.3295,
-          "voice_multitrack_stack": 5.4515
+          "voice_ornament_system": 2.34,
+          "voice_pitch_organization": 5.3500000000000005,
+          "voice_processing_chain": 15.819999999999999,
+          "voice_multitrack_stack": 5.525
         }
       },
       {
@@ -186,7 +186,7 @@
         },
         "scores": {
           "shekere_size": 2.4699999999999998,
-          "shekere_beads": 5.081500000000001
+          "shekere_beads": 5.050000000000001
         }
       },
       {
@@ -198,8 +198,8 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 6.3950000000000005,
-          "conga_set": 0.363,
+          "percussion_technique": 6.695,
+          "conga_set": 0.39,
           "conga_skin": 1.2349999999999999,
           "conga_shell_wood": 1.2349999999999999
         }

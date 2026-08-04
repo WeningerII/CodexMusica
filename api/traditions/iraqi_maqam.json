@@ -3,14 +3,14 @@
   "name": "Iraqi maqam (al-Maqam al-Iraqi)",
   "family": "global",
   "lineage": "Iraqi classical vocal tradition codified in the Baghdadi school as a corpus of 56 canonical maqams (mode-pieces), each with a specific opening tahrir vocal cadenza, body section called miyana, and closing teslim cadence; performed by a solo qari vocalist accompanied by the chalghi small ensemble of santur, jawza Iraqi spike-fiddle, tabla, and riq — figures Mohammed al-Qabbanchi, Yusuf Omar, Hussein Al-Aazami, Hamid al-Saadi",
-  "recipe": "classic Middle Eastern early-1940s iraqi maqam, improv On Frame, Persian arab improv branch, middle eastern classical art music armenian liturgical and folk turkish makam. thick, breath veiled tone, slow rate, interlocked note trading. santur, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, coconut shell resonator skin face canonical baghdadi chalghi ensemble lead canonical iraqi maqam legato joza, small kettle pair stick struck canonical chalghi time keeping chalghi time keeping canonical baghdadi maqam naqqarat. baghdad iraqi maqam context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe": "classic Middle Eastern early-1940s iraqi maqam, improv On Frame, Persian arab improv branch, middle eastern classical art music khaleeji-iraqi song armenian liturgical and folk. thick, breath veiled tone, slow rate, interlocked note trading. drone like modal santur, metal finger picks rosewood body arab premium goat skin bridge plate drone like qanun, spun aluminum Egyptian sombaty iraqi maqam zarb drier finger darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, coconut shell resonator skin face canonical baghdadi chalghi ensemble lead canonical iraqi maqam legato joza, small kettle pair stick struck canonical chalghi time keeping chalghi time keeping canonical baghdadi maqam naqqarat. baghdad iraqi maqam context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
   "recipe_chars": 916,
-  "score": 350.29,
+  "score": 294.42,
   "config": {
     "traditions": [
       "iraqi_maqam",
-      "armenian_traditional",
-      "turkish_makam"
+      "khaleeji_iraqi",
+      "armenian_traditional"
     ],
     "instruments": [
       {
@@ -26,62 +26,62 @@
           "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_persian_tahrir",
-          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 3.8500000000000005,
-          "voice_quality": 8.645000000000001,
+          "voice_register": 3.225,
+          "voice_quality": 9.295,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.037499999999998,
-          "voice_articulation": 11.179999999999996,
-          "voice_microtone": 26.129999999999995,
-          "voice_tradition": 32.467499999999994,
-          "voice_mechanism_compound": 24.814999999999998,
-          "voice_estill_quality": 16.479999999999997,
-          "voice_speech_song": 13.909999999999997,
-          "voice_ensemble_config": 9.815000000000001,
-          "voice_ornament_system": 26.404999999999998,
-          "voice_pitch_organization": 26.964999999999996,
-          "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 4.705
+          "voice_vibrato": 12.48,
+          "voice_articulation": 11.504999999999997,
+          "voice_microtone": 22.9775,
+          "voice_tradition": 23.4,
+          "voice_mechanism_compound": 18.94,
+          "voice_estill_quality": 11.354999999999999,
+          "voice_speech_song": 13.779999999999998,
+          "voice_ensemble_config": 10.789999999999996,
+          "voice_ornament_system": 20.53,
+          "voice_pitch_organization": 20.77,
+          "voice_processing_chain": 3.835,
+          "voice_multitrack_stack": 3.3799999999999994
         }
       },
       {
         "id": "santur",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
+          "plucked_traditional_technique": "plucked_drone_modal",
           "santur_school": "santur_iraqi",
           "santur_technique": "santur_mizrab"
         },
         "scores": {
-          "plucked_traditional_technique": 13.874999999999998,
-          "santur_school": 7.734999999999999,
-          "santur_technique": 1.04
+          "plucked_traditional_technique": 11.6675,
+          "santur_school": 6.89,
+          "santur_technique": 0.195
         }
       },
       {
         "id": "qanun",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
+          "plucked_traditional_technique": "plucked_drone_modal",
           "qanun_strings": "qanun_arab_72",
           "qanun_levers": "mandal_brass",
           "qanun_pick": "qanun_finger_picks",
-          "qanun_body_wood": "qanun_maple_body",
+          "qanun_body_wood": "qanun_rosewood_body",
           "qanun_bridge_skin": "qanun_goat_skin_bridge",
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 13.874999999999998,
-          "qanun_strings": 7.214999999999998,
-          "qanun_levers": -0.35,
-          "qanun_pick": 7.409999999999999,
-          "qanun_body_wood": 4.81,
+          "plucked_traditional_technique": 11.6675,
+          "qanun_strings": 4.55,
+          "qanun_levers": -0.7,
+          "qanun_pick": 4.55,
+          "qanun_body_wood": 4.29,
           "qanun_bridge_skin": 1.3,
           "qanun_string_material": 0
         }
@@ -95,10 +95,10 @@
           "darbuka_regional_style": "darbuka_iraqi_zarb"
         },
         "scores": {
-          "percussion_technique": 0.06499999999999999,
-          "darbuka_material": 1.3,
-          "darbuka_skin": 2.2099999999999995,
-          "darbuka_regional_style": 8.969999999999999
+          "percussion_technique": 0.7149999999999999,
+          "darbuka_material": 1.4949999999999999,
+          "darbuka_skin": 0.845,
+          "darbuka_regional_style": 11.42
         }
       },
       {
@@ -111,10 +111,10 @@
           "riq_jingles": "riq_brass_jingles"
         },
         "scores": {
-          "riq_size": 7.409999999999999,
-          "riq_context": 0.78,
-          "riq_shell_wood": 1.2349999999999999,
-          "riq_head_material": 1.3,
+          "riq_size": 4.55,
+          "riq_context": 0.39,
+          "riq_shell_wood": 1.4299999999999997,
+          "riq_head_material": 1.4949999999999999,
           "riq_jingles": 1.3
         }
       },
@@ -126,9 +126,9 @@
           "joza_tradition": "joza_chalghi_canonical"
         },
         "scores": {
-          "bowed_technique": 13.874999999999998,
+          "bowed_technique": 8.75,
           "joza_body": 2.9899999999999998,
-          "joza_tradition": 13.229999999999999
+          "joza_tradition": 16.18
         }
       },
       {
@@ -138,8 +138,8 @@
           "naqqarat_tradition": "naqqarat_chalghi_canonical"
         },
         "scores": {
-          "naqqarat_body": 4.095,
-          "naqqarat_tradition": 7.85
+          "naqqarat_body": 3.9,
+          "naqqarat_tradition": 8.35
         }
       }
     ],

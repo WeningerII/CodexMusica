@@ -1,0 +1,141 @@
+{
+  "id": "tahitian_traditional",
+  "name": "Tahitian traditional music (ʻōteʻa and pāʻōʻā)",
+  "family": "global",
+  "lineage": "French Polynesian dance-and-drum repertoire revived from the 1950s through the Heiva competitions after decades of missionary prohibition — the tōʻere slit-gong battery driving fast unison patterns at 160-200 BPM with the pahu tūpaʻi and small faʻatete drum layered beneath, sudden ensemble breaks and tempo shifts cueing choreography, unaccompanied vocal pāʻōʻā and rhythmic hissed chant interludes, and hīmene choral blocks separating the drum sections.",
+  "recipe": "classic Oceanian mid-1950s tahitian traditional music, praise Song, oceania pacific branch, Caribbean groove percussion, European carnival processional guggenmusik tarantella. extended whistle, breath veiled tone, fast rate, interlocked note trading. carved interlocking pacific slit gong, coconut log carved hollow sharkskin head hand struck canonical hawaiian sacred hula kahiko accompaniment pahu mele song drum pahu, conch shell horn, snappy to palm hand clap, warm traditional koa ukulele. tongan outdoor village green. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 587,
+  "score": 203.542,
+  "config": {
+    "traditions": [
+      "tahitian_traditional",
+      "guggenmusik",
+      "tarantella"
+    ],
+    "instruments": [
+      {
+        "id": "pacific_slit_gong",
+        "slots": {
+          "pacific_slit_gong_form": "pacific_slit_gong_garamut",
+          "pacific_slit_gong_role": "pacific_slit_gong_dance",
+          "pacific_slit_gong_wood": "pacific_slit_gong_toa"
+        },
+        "scores": {
+          "pacific_slit_gong_form": 5.43,
+          "pacific_slit_gong_role": 6.7749999999999995,
+          "pacific_slit_gong_wood": 0.75
+        }
+      },
+      {
+        "id": "pahu",
+        "slots": {
+          "pahu_construction": "pahu_coconut_log_sharkskin_canonical",
+          "pahu_role": "pahu_hula_kahiko_accompaniment"
+        },
+        "scores": {
+          "pahu_construction": 1.14,
+          "pahu_role": 10.42
+        }
+      },
+      {
+        "id": "conch_shell_horn",
+        "slots": {
+          "wind_articulation": "wind_call_blowing",
+          "conch_use": "conch_andean",
+          "conch_shell_horn_region": "conch_shell_horn_polynesian"
+        },
+        "scores": {
+          "wind_articulation": 1.1549999999999998,
+          "conch_use": 0.15,
+          "conch_shell_horn_region": 23.400000000000006
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.2425,
+          "voice_quality": 13.129999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.7999999999999998,
+          "voice_articulation": 23.595000000000002,
+          "voice_microtone": 24.634999999999998,
+          "voice_tradition": 8.255,
+          "voice_mechanism_compound": 5.2,
+          "voice_estill_quality": 4.160000000000001,
+          "voice_speech_song": 26.195000000000004,
+          "voice_ensemble_config": 24.375,
+          "voice_ornament_system": 5,
+          "voice_pitch_organization": 0.545,
+          "voice_processing_chain": 4.745000000000001,
+          "voice_multitrack_stack": 4.15
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.4300000000000002,
+          "clap_capture": 0.3
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_soprano",
+          "ukulele_style": "ukulele_strum",
+          "ukulele_wood": "ukulele_koa"
+        },
+        "scores": {
+          "ukulele_size": 4.5,
+          "ukulele_style": 2.6649999999999996,
+          "ukulele_wood": 2.05
+        }
+      }
+    ],
+    "room": "tongan_outdoor_village_green",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "tongan_outdoor_village_green",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

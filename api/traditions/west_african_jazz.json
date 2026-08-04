@@ -1,0 +1,210 @@
+{
+  "id": "west_african_jazz",
+  "name": "West African Jazz",
+  "family": "jazz",
+  "lineage": "Developed in Lagos, Accra, Bamako and Dakar from the late 1950s through the 1970s in the dance-band highlife orbit — Fela Kuti's pre-Afrobeat Koola Lobitos, Guy Warren, Manu Dibango, the Bembeya and Rail Band circles — setting bebop and hard-bop horn language over highlife and Mande grooves: 4/4 or 12/8 clave-adjacent patterns, tenor and trumpet lead lines, clean single-coil guitar arpeggios, kora or balafon lines, and long vamp-based solo sections.",
+  "recipe": "classic West African 1957-1959 west african jazz, functional Song, African pop branch, American jazz hard bop, west African groove percussion blue note. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright open string slide resonance chicken-scratch single coil electric guitar, cowhide mande traditional mande hardwood local traditional call-and-response kora, balafon, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, iroko alternative west African talking drum, lead congas. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
+  "recipe_chars": 950,
+  "score": 364.633,
+  "config": {
+    "traditions": [
+      "west_african_jazz",
+      "hard_bop",
+      "blue_note"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 8.185,
+          "sax_size": 7.9350000000000005,
+          "sax_reed": 0.845,
+          "sax_body_alloy": 27.515000000000004,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": 26.42000000000001,
+          "sax_maker_school": 30.51000000000001
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_sterling_silver_bell",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 8.185,
+          "brass_size": 0.65,
+          "trumpet_mouthpiece": 31.120000000000008,
+          "brass_mute": 0.585,
+          "trumpet_technique": 8.185,
+          "trumpet_bell_metal": 1.04,
+          "trumpet_maker_school": 5.720000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "vintage_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 8.01,
+          "amp_make": 11.16,
+          "body_wood": 0.195,
+          "neck_wood": 0.65,
+          "fretboard": 0.65,
+          "pickup_magnet": 0.65,
+          "string_material": 0.65,
+          "string_gauge": 0.39,
+          "bridge": 0.105,
+          "scale_length": 0.195,
+          "finish": 0.105,
+          "string_tuning": 3.0549999999999997
+        }
+      },
+      {
+        "id": "kora",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "kora_strings": "kora_25_extended",
+          "kora_resonator": "kora_calabash_full",
+          "kora_strings_mat": "kora_gut_traditional",
+          "kora_top_skin": "kora_cowhide_canonical",
+          "kora_neck_wood": "kora_hardwood_local",
+          "kora_lineage": "kora_konte_lineage"
+        },
+        "scores": {
+          "plucked_traditional_technique": 26.877499999999998,
+          "kora_strings": 0.195,
+          "kora_resonator": 0.09,
+          "kora_strings_mat": 0.12999999999999998,
+          "kora_top_skin": 1.48,
+          "kora_neck_wood": 1.8250000000000002,
+          "kora_lineage": 0.39
+        }
+      },
+      {
+        "id": "balafon",
+        "slots": {
+          "balafon_tuning": "balafon_sosso_bala",
+          "balafon_resonator": "balafon_synth"
+        },
+        "scores": {
+          "balafon_tuning": 1.435,
+          "balafon_resonator": 0.15
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 10.27,
+          "body_wood": 0.39,
+          "pickup_config": 0.195,
+          "string_type": 30.410000000000007,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.24,
+          "bass_technique": 27.175000000000008
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 41.275000000000006,
+          "drumhead": 30.965000000000007,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_antelope"
+        },
+        "scores": {
+          "talking_drum_origin": 0.045,
+          "talking_drum_context": 0.39,
+          "talking_drum_shell_wood": 7.995,
+          "talking_drum_head": 0.18
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 0.45499999999999996,
+          "conga_set": 1.3,
+          "conga_skin": 0.195,
+          "conga_shell_wood": 0
+        }
+      }
+    ],
+    "room": "lagos_decca_west_african_studio",
+    "archetype": "arch_decca_west_africa_highlife",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mande_pentatonic_jeli_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mande_pentatonic_jeli_modal",
+    "room": "lagos_decca_west_african_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Macedonian-Serbian kafana drinking song",
   "family": "global",
   "lineage": "Macedonian-Serbian-and-broader-Balkan kafana (tavern) drinking-song tradition continuous from Ottoman-era kafana-cafe-tavern song-tradition through 20th-century Balkan-Yugoslav continuous performance into modern Serbian-Macedonian-and-Balkan-diaspora kafana-practice; the kafana is the documented Balkan-Slavic tavern-context where extended drinking-songs span multi-hour evening performance",
-  "recipe": "classic early-1950s macedonian-serbian kafana drinking song, drinking Song, balkan branch, European drinking song, European wedding, iberian functional song spanish canción pop galician kantautor and folk-pop. thick, breath veiled tone, straight onset, interlocked note trading. steel hohner gola canonical premium German concert straight accordion, synthetic magic rosin modern acrylic base drone like fiddle, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka. irish pub. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 603,
-  "score": 196.034,
+  "recipe": "classic early-1950s macedonian-serbian kafana drinking song, drinking Song, balkan branch, European drinking song, European wedding, iberian functional song greek gamílio glendí hungarian bordal. thick, breath veiled tone, straight onset, interlocked note trading. steel castagnari Italian premium folk music accordion, synthetic magic rosin modern acrylic base drone like fiddle, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. irish pub. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 578,
+  "score": 169.877,
   "config": {
     "traditions": [
       "macedonian_kafana_drinking",
-      "spanish_cancion_pop",
-      "galician_kantautor"
+      "greek_gamilio_glendi",
+      "hungarian_bordal"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 12.399999999999991,
-          "voice_quality": 9.165,
+          "voice_register": 2.5250000000000004,
+          "voice_quality": 5.2,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2500000000000004,
-          "voice_articulation": 12.349999999999993,
-          "voice_microtone": 13.12999999999999,
-          "voice_tradition": 35.162499999999994,
-          "voice_mechanism_compound": 1.7550000000000001,
-          "voice_estill_quality": 2.9556250000000004,
-          "voice_speech_song": 24.764999999999993,
-          "voice_ensemble_config": 20.978749999999998,
-          "voice_ornament_system": 9.875,
-          "voice_pitch_organization": 3.5749999999999993,
-          "voice_processing_chain": 5.5249999999999995,
-          "voice_multitrack_stack": 7.1825
+          "voice_vibrato": 2.4050000000000002,
+          "voice_articulation": 10.27,
+          "voice_microtone": 12.252499999999994,
+          "voice_tradition": 40.7375,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 1.3643750000000001,
+          "voice_speech_song": 23.724999999999994,
+          "voice_ensemble_config": 22.403749999999995,
+          "voice_ornament_system": 2.5749999999999993,
+          "voice_pitch_organization": 7.6049999999999995,
+          "voice_processing_chain": 0.9749999999999996,
+          "voice_multitrack_stack": 3.120000000000001
         }
       },
       {
@@ -60,17 +60,17 @@
           "musette_offset": "scottish_musette",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "no_cassotto",
-          "accordion_maker_school": "accordion_hohner_gola"
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 5.86625,
-          "accordion_reed_material": 1.4949999999999999,
-          "musette_offset": 1.6449999999999998,
+          "free_reed_technique": 2.5412500000000007,
+          "accordion_reed_material": 1.345,
+          "musette_offset": 1.345,
           "reed_config": 1.1099999999999997,
-          "bellows": 0.3,
-          "voicing_chamber": 1.4949999999999999,
-          "accordion_maker_school": 2.4262499999999996
+          "bellows": 0,
+          "voicing_chamber": 1.3649999999999998,
+          "accordion_maker_school": 3.055
         }
       },
       {
@@ -83,11 +83,11 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 5.368124999999999,
-          "fiddle_strings": 2.34,
-          "fiddle_bow": 5.85,
-          "fiddle_mute": 0.9099999999999999,
-          "fiddle_articulation": 0.78
+          "bowed_technique": 4.093125,
+          "fiddle_strings": 2.535,
+          "fiddle_bow": 6.3375,
+          "fiddle_mute": 1.3649999999999998,
+          "fiddle_articulation": 0.585
         }
       },
       {
@@ -95,14 +95,14 @@
         "slots": {
           "percussion_technique": "percussion_hands_layered",
           "darbuka_material": "darbuka_clay_traditional",
-          "darbuka_skin": "darbuka_fish_skin",
+          "darbuka_skin": "darbuka_synthetic_mylar",
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 1.5750000000000002,
-          "darbuka_material": 2.73,
-          "darbuka_skin": 2.73,
-          "darbuka_regional_style": 1.7062499999999996
+          "percussion_technique": -0.1,
+          "darbuka_material": 2.535,
+          "darbuka_skin": 3.705,
+          "darbuka_regional_style": 1.17
         }
       }
     ],

@@ -1,0 +1,172 @@
+{
+  "id": "denpa_kei",
+  "name": "Denpa-kei",
+  "family": "electronic",
+  "lineage": "Japanese otaku-culture song style crystallized around 2000s bishōjo-game and doujin circles (I've Sound, Momoi Halko, Under17), built on very fast 150-190 BPM four-on-the-floor or happy-hardcore kicks, saturated FM and supersaw synth stacks, chopped vocal samples and rapid modulating chord loops beneath a deliberately childlike, hyper-high, nonsense-syllable vocal delivered with exaggerated affect.",
+  "recipe": "classic mid-2000s denpa-kei, functional Song, east Asian pop branch, eurodance electronic dance, pop experimental experimental electric bubblegum bass etherpop. extended whistle, chest mix belt, fast rate, interlocked note trading. yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead wavetable singing lead analog poly synth, TR-909, field textural sampler, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 632,
+  "score": 268.262,
+  "config": {
+    "traditions": [
+      "denpa_kei",
+      "bubblegum_bass",
+      "etherpop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 17.902,
+          "voice_quality": 5.6000000000000005,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.135,
+          "voice_articulation": 15.924999999999995,
+          "voice_microtone": 16.925,
+          "voice_tradition": 19.152,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 3.770000000000001,
+          "voice_speech_song": 20.929999999999996,
+          "voice_ensemble_config": 17.159999999999993,
+          "voice_ornament_system": 3.1645000000000003,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 11.425,
+          "voice_multitrack_stack": 4.745
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 17.085,
+          "fm_algorithm": 2.3445,
+          "fm_modulator_ratio": 1.04,
+          "fm_polyphony": 0.845,
+          "fm_model_lineage": 7.475000000000001
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 17.085,
+          "wt_position": 4.81,
+          "wt_family": 1.89,
+          "wt_polyphony": 0.845
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 17.085,
+          "poly_archetypes": 0.9099999999999999,
+          "poly_voices": 0.045,
+          "poly_maker_lineage": -1.7199999999999998
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 1.42,
+          "drum_machine_909_context": 1.69,
+          "tr909_production_origin": 0.24
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 12.7,
+          "sampler_archetypes": 0.375,
+          "sampler_bit_depth": 0.22499999999999998,
+          "sampler_workflow": 14.244499999999999,
+          "sampler_classic_context": 20.15
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_many_bands",
+          "voc_carrier": "voc_noise_carrier",
+          "voc_modulator": "voc_drum_mod"
+        },
+        "scores": {
+          "voc_band_count": 1.89,
+          "voc_carrier": 0.74,
+          "voc_modulator": 0.845
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

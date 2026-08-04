@@ -1,0 +1,195 @@
+{
+  "id": "group_sounds",
+  "name": "Group Sounds",
+  "family": "rock",
+  "lineage": "Japanese Group Sounds (GS), Tokyo 1965-1969, codified by the Spiders, the Tigers, the Blue Comets and Ox under producers at Nippon Columbia and Toshiba — Ventures-derived twangy single-coil guitars, combo organ, 4/4 beat-group backbeat at 120-150 BPM, tight Japanese-language unison-and-harmony vocals, brass sweetening on ballads, all cut fast to two- and four-track for the kayokyoku singles market.",
+  "recipe": "classic East Asian 1965-1969 group sounds, distorted Rock, regional branch, east Asian pop functional song yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany ebony clean single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, traditional mellow brass tambourine orch, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral lead trumpet ensemble trumpet. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 839,
+  "score": 449.15,
+  "config": {
+    "traditions": [
+      "group_sounds",
+      "yacht_rock",
+      "skiffle"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 53.77500000000001,
+          "voice_quality": 14.039999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.829999999999998,
+          "voice_articulation": 17.354999999999997,
+          "voice_microtone": 44.82000000000001,
+          "voice_tradition": 23.042499999999997,
+          "voice_mechanism_compound": 2.21,
+          "voice_estill_quality": 1.8199999999999998,
+          "voice_speech_song": 21.384999999999994,
+          "voice_ensemble_config": 18.589999999999996,
+          "voice_ornament_system": 0.9999999999999998,
+          "voice_pitch_organization": 0.9749999999999996,
+          "voice_processing_chain": 6.93,
+          "voice_multitrack_stack": 6.9875
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 11.252499999999998,
+          "amp_make": 13.362499999999999,
+          "body_wood": 1.625,
+          "neck_wood": 1.625,
+          "fretboard": 1.345,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 1.235,
+          "bridge": 1.4949999999999999,
+          "scale_length": 1.235,
+          "finish": 0.39,
+          "string_tuning": 12.7675
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 13.362499999999999,
+          "body_wood": 2.6500000000000004,
+          "pickup_config": 1.345,
+          "string_type": 27.0175,
+          "scale_length_b": 1.235,
+          "fretted_or_not": 0.195,
+          "bass_technique": 25.96
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 27.174999999999997,
+          "drumhead": 11.079999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_vox_ac"
+        },
+        "scores": {
+          "keyboard_technique": 10.989999999999998,
+          "combo_organ_model": 10.934999999999997,
+          "combo_organ_voicing": 12.254999999999999,
+          "combo_organ_context": 13.737499999999999,
+          "amp_make": 4.465
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 2.725,
+          "tambourine_orch_context": 0.6824999999999999
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_lead_mp",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.2999999999999998,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 9.617499999999998,
+          "brass_mute": 0.2025,
+          "trumpet_technique": 1.2999999999999998,
+          "trumpet_bell_metal": 1.9,
+          "trumpet_maker_school": 2.47
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_nippon_columbia_enka",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tokyo_studio_1970s_80s",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

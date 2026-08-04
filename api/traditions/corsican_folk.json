@@ -1,0 +1,175 @@
+{
+  "id": "corsican_folk",
+  "name": "Corsican folk (canti corsi)",
+  "family": "global",
+  "lineage": "Village song repertoire of Corsica documented by Félix Quilici's 1948-63 field recordings and revived after 1970 — the free-rhythm solo genres (lamentu, voceru, nanna lullaby, tribbiera threshing calls, chjam'è rispondi improvised verse duels) alongside three-voice paghjella and accompanied dance songs, sung in Corsican with heavy nasal ricuccata ornament, non-vibrato chest tone, and accompaniment by cetera-derived plucked strings, guitar or button accordion in duple mountain dance rhythms.",
+  "recipe": "classic late-1940s corsican folk, ballad Poetry, Mediterranean ballad branch, European funeral lament, vocal drone modal naturjodel këngë popullore e jugut. vocal fry, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, bowl back Italian German spruce classical leaning parallel tone bars loar graduation mandolin, brass castagnari Italian premium folk music drone like accordion, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, flute. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 712,
+  "score": 225.753,
+  "config": {
+    "traditions": [
+      "corsican_folk",
+      "naturjodel",
+      "popullore_jugu"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.9,
+          "voice_quality": 10.919999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.0949999999999998,
+          "voice_articulation": 16.644999999999996,
+          "voice_microtone": 18.71999999999999,
+          "voice_tradition": 18.362500000000004,
+          "voice_mechanism_compound": 7.0200000000000005,
+          "voice_estill_quality": 4.615000000000001,
+          "voice_speech_song": 19.239999999999995,
+          "voice_ensemble_config": 19.699999999999996,
+          "voice_ornament_system": 5.330000000000001,
+          "voice_pitch_organization": 6.5200000000000005,
+          "voice_processing_chain": 6.175,
+          "voice_multitrack_stack": 3.25
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 5.125000000000001,
+          "string_tuning": 0,
+          "top_wood_classical": 7.149999999999999,
+          "bracing_classical": 0.45499999999999996,
+          "string_classical": 0.78,
+          "attack_technique_cl": 0.8
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "german_spruce_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 8.58,
+          "mandolin_shape": 2.6,
+          "mandolin_top": 1.0399999999999998,
+          "mandolin_back": 0.8449999999999999,
+          "mandolin_bracing": 1.04,
+          "mandolin_strings": 1.205,
+          "mandolin_fingerboard": 1.04,
+          "mandolin_pickup": 15.014999999999997
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 4.875,
+          "accordion_reed_material": 1.15,
+          "musette_offset": 1.545,
+          "reed_config": 0.39,
+          "bellows": 0.045,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 1.69
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 4.485,
+          "choir_polyphonic_configuration": 5.82,
+          "choir_regional_canonical_configuration": 10.235,
+          "choir_ensemble_repertoire": 2.6
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "flute_size": "concert_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "irish_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": 1.85,
+          "flute_size": 0.65,
+          "flute_material": 1.15,
+          "flute_technique": 0.935,
+          "flute_maker_school": 0.09
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "mountain_valley",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

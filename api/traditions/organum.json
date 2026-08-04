@@ -1,0 +1,145 @@
+{
+  "id": "organum",
+  "name": "Organum",
+  "family": "classical",
+  "lineage": "Earliest notated Western polyphony, documented from the Musica enchiriadis around 900 CE and brought to its high form at Notre-Dame de Paris circa 1160-1240 by Leonin and Perotin, in which a plainchant tenor is stretched into immensely sustained drone notes while one to three upper voices move above in rhythmic modes, cadencing on perfect fifths, octaves and unisons within a Pythagorean tuning, sung by small male ensembles in stone church acoustics.",
+  "recipe": "classic European early-1160s organum, art Music, western early branch, western common practice art music, vocal drone modal croatian istrian two-part-in-istrian-scale armenian duduk-accompanied chant. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, high treble chant doubling portative organ, gut bourdon drone legato vielle medieval, pigs head outline single plectrum line monophonic melodic lead medieval psaltery, sustained handbells rung handbells. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 576,
+  "score": 272.225,
+  "config": {
+    "traditions": [
+      "organum",
+      "croatian_istrian_diaphonic",
+      "armenian_duduk_chant"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 8.625,
+          "voice_quality": 33.525000000000006,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.052500000000001,
+          "voice_articulation": 24.049999999999997,
+          "voice_microtone": 31.909999999999993,
+          "voice_tradition": 23.65,
+          "voice_mechanism_compound": 9.305,
+          "voice_estill_quality": 9.979999999999999,
+          "voice_speech_song": 22.164999999999996,
+          "voice_ensemble_config": 27.95,
+          "voice_ornament_system": 6.4,
+          "voice_pitch_organization": 8.640000000000002,
+          "voice_processing_chain": 6.045,
+          "voice_multitrack_stack": 7.635000000000001
+        }
+      },
+      {
+        "id": "choir_cathedral_satb",
+        "slots": {
+          "voicing": "satb_with_boys",
+          "repertoire": "renaissance_polyphony"
+        },
+        "scores": {
+          "voicing": 2.75,
+          "repertoire": 1.74
+        }
+      },
+      {
+        "id": "portative_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "portative_organ_form": "portative_organ_form_landini_organetto",
+          "portative_organ_repertoire": "portative_organ_repertoire_sacred_organum",
+          "portative_organ_pipework": "portative_organ_pipework_wood"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "portative_organ_form": 2.745,
+          "portative_organ_repertoire": 8.52,
+          "portative_organ_pipework": 0.5499999999999999
+        }
+      },
+      {
+        "id": "vielle_medieval",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "vielle_medieval_form": "vielle_medieval_oval_five_string",
+          "vielle_medieval_repertoire": "vielle_medieval_polyphony_doubling",
+          "vielle_medieval_stringing": "vielle_medieval_bourdon_gut"
+        },
+        "scores": {
+          "bowed_technique": 6.275,
+          "vielle_medieval_form": 3.5999999999999996,
+          "vielle_medieval_repertoire": 6.389999999999999,
+          "vielle_medieval_stringing": 6.035
+        }
+      },
+      {
+        "id": "medieval_psaltery",
+        "slots": {
+          "medieval_psaltery_form": "medieval_psaltery_form_pigs_head",
+          "medieval_psaltery_playing": "medieval_psaltery_playing_single_plectrum",
+          "medieval_psaltery_stringing": "medieval_psaltery_stringing_brass_wire"
+        },
+        "scores": {
+          "medieval_psaltery_form": 1.7499999999999998,
+          "medieval_psaltery_playing": 2.4400000000000004,
+          "medieval_psaltery_stringing": -0.035
+        }
+      },
+      {
+        "id": "handbells",
+        "slots": {
+          "handbells_set": "handbells_chromatic_extended",
+          "handbells_technique": "handbells_rung"
+        },
+        "scores": {
+          "handbells_set": 0.46499999999999997,
+          "handbells_technique": 1.65
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pythagorean",
+    "room": "cathedral",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

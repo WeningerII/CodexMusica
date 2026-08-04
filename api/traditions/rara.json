@@ -1,0 +1,152 @@
+{
+  "id": "rara",
+  "name": "Rara",
+  "family": "global",
+  "lineage": "Haitian Lenten processional music from the rural Artibonite and Cul-de-Sac plains, documented from the nineteenth century and tied to vodou societies, in which bands walk the roads between Ash Wednesday and Easter playing interlocking single-note bamboo vaksin trumpets and tin cornets in hocket over tanbou and cylindrical drums, adja bells, scraped iron and conch, with a chorus answering a lead singer's Kreyol pwen in fast duple time.",
+  "recipe": "classic Caribbean modern rara, carnival Processional, Caribbean branch, Afro-diasporic ritual devotional, Caribbean groove percussion bomba gwoka. balanced, breath veiled tone, straight note core, interlocked note trading. processional interlocking vaksin, tanbou dejanbe, call-and-response manman drum, adja bell, call ritual conch shell horn, maracas. haitian vodou lakou outdoor peristyle. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 455,
+  "score": 191.201,
+  "config": {
+    "traditions": [
+      "rara",
+      "bomba",
+      "gwoka"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "mix_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0.65,
+          "voice_quality": 13.779999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.4949999999999997,
+          "voice_articulation": 24.179999999999996,
+          "voice_microtone": 20.994999999999994,
+          "voice_tradition": 10.075000000000001,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 3.4450000000000003,
+          "voice_speech_song": 23.009999999999994,
+          "voice_ensemble_config": 21.124999999999996,
+          "voice_ornament_system": 3.3999999999999995,
+          "voice_pitch_organization": 1.4006249999999998,
+          "voice_processing_chain": 3.77,
+          "voice_multitrack_stack": 5.915
+        }
+      },
+      {
+        "id": "vaksin",
+        "slots": {
+          "vaksin_material": "vaksin_bamboo",
+          "vaksin_role": "vaksin_hocket"
+        },
+        "scores": {
+          "vaksin_material": 0,
+          "vaksin_role": 4.495
+        }
+      },
+      {
+        "id": "tanbou_dejanbe",
+        "slots": {
+          "tanbou_dejanbe_rite": "tanbou_dejanbe_rada",
+          "tanbou_dejanbe_head": "tanbou_dejanbe_peg",
+          "tanbou_dejanbe_shell": "tanbou_dejanbe_mahogany"
+        },
+        "scores": {
+          "tanbou_dejanbe_rite": 0.7650000000000001,
+          "tanbou_dejanbe_head": 0,
+          "tanbou_dejanbe_shell": 0
+        }
+      },
+      {
+        "id": "manman_drum",
+        "slots": {
+          "manman_rite": "manman_rada",
+          "manman_technique": "manman_baget_hand",
+          "manman_head": "manman_cowhide"
+        },
+        "scores": {
+          "manman_rite": 22.879999999999995,
+          "manman_technique": 0.9500000000000001,
+          "manman_head": 0
+        }
+      },
+      {
+        "id": "adja_bell",
+        "slots": {
+          "adja_form": "adja_double",
+          "adja_use": "adja_invocation"
+        },
+        "scores": {
+          "adja_form": 0.65,
+          "adja_use": 1.1099999999999999
+        }
+      },
+      {
+        "id": "conch_shell_horn",
+        "slots": {
+          "wind_articulation": "wind_call_blowing",
+          "conch_use": "conch_polynesian",
+          "conch_shell_horn_region": "conch_shell_horn_polynesian"
+        },
+        "scores": {
+          "wind_articulation": 3.185,
+          "conch_use": 0.7650000000000001,
+          "conch_shell_horn_region": 20.085
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_leather",
+          "maracas_filling": "maracas_beads"
+        },
+        "scores": {
+          "maracas_construction": 0.195,
+          "maracas_filling": 0.8400000000000001
+        }
+      }
+    ],
+    "room": "haitian_vodou_lakou_outdoor_peristyle",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "haitian_kompa_meringue",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "haitian_kompa_meringue",
+    "room": "haitian_vodou_lakou_outdoor_peristyle",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

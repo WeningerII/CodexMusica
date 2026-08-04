@@ -5,7 +5,7 @@
   "lineage": "American drinking-song tradition continuous from 18th-19th century English-Irish-and-Scottish-imported drinking-song-and-sea-shanty repertoire through 19th-century American-frontier and Civil-War-era expansion through 20th-century college-fraternity drinking-song-and-country-music drinking-song lineage into modern American continuous bar-and-roadhouse practice; foundational repertoire includes \"99 Bottles of Beer,\" \"Show Me the Way to Go Home,\" \"Beer Barrel Polka,\" \"Drink to Me Only with Thine Eyes\"",
   "recipe": "classic modern american drinking song, drinking Song, americas branch, European drinking song, americana country, atlantic Southeast Asian shanty gothic americana gothic country. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning martin lifespan sealed travis picked dreadnought acoustic guitar, wood fluorocarbon modern open back scruggs stelling bluegrass setup banjo 5 string, pearwood marine band tradition double brass chromatic canon suzuki Japanese modern precision harmonica. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 593,
-  "score": 283.642,
+  "score": 283.849,
   "config": {
     "traditions": [
       "american_drinking_song",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
@@ -42,14 +42,14 @@
           "voice_articulation": 13.584999999999994,
           "voice_microtone": 13.974999999999993,
           "voice_tradition": 10.822500000000002,
-          "voice_mechanism_compound": 3.5281249999999997,
-          "voice_estill_quality": 22.563125,
+          "voice_mechanism_compound": 3.6331249999999997,
+          "voice_estill_quality": 22.668125,
           "voice_speech_song": 29.509999999999998,
           "voice_ensemble_config": 15.144999999999996,
           "voice_ornament_system": 3.0000000000000004,
           "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 2.21,
-          "voice_multitrack_stack": 3.347500000000001
+          "voice_processing_chain": 2.2425,
+          "voice_multitrack_stack": 3.3118750000000006
         }
       },
       {

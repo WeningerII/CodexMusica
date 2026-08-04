@@ -1,0 +1,185 @@
+{
+  "id": "art_punk",
+  "name": "Art Punk",
+  "family": "rock_punk",
+  "lineage": "Formed 1976-79 in the UK and US art schools (Leeds, Cleveland, New York) as punk's conceptual wing — Wire, Gang of Four, Pere Ubu and The Pop Group replaced three-chord acceleration with angular non-blues guitar intervals, treble-forward scratch rhythm playing, high-register melodic basslines carrying the hook, clipped 140-170 BPM disco-derived and stop-start drum figures, and declamatory half-spoken vocals delivering Marxist or absurdist texts over deliberately dry, unreverbed studio space.",
+  "recipe": "classic British mid-1970s art punk, distorted Rock, art rock branch, punk distorted rock, experimental distorted rock, noise rock distorted rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock block chord combo organ, alto multiphonic saxophone. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 764,
+  "score": 439.692,
+  "config": {
+    "traditions": [
+      "art_punk",
+      "noise_rock",
+      "experimental_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_short",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 11.624999999999996,
+          "amp_make": 29.609999999999996,
+          "body_wood": 0.195,
+          "neck_wood": 1.8900000000000001,
+          "fretboard": 1.8900000000000001,
+          "pickup_magnet": 1.8900000000000001,
+          "string_material": 1.8900000000000001,
+          "string_gauge": 0.195,
+          "bridge": 0.39,
+          "scale_length": 0.3,
+          "finish": 0.65,
+          "string_tuning": 19.499999999999996
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 18.589999999999996,
+          "body_wood": 0.195,
+          "pickup_config": 0.39,
+          "string_type": 37.275,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.045,
+          "bass_technique": 44.695
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 32.25,
+          "drumhead": 2.45,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 38.840000000000025,
+          "voice_quality": 7.8,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.3500000000000005,
+          "voice_articulation": 16.444999999999997,
+          "voice_microtone": 34.55000000000001,
+          "voice_tradition": 8.79,
+          "voice_mechanism_compound": 12.447499999999998,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 17.679999999999993,
+          "voice_ensemble_config": 17.874999999999996,
+          "voice_ornament_system": 1.9399999999999997,
+          "voice_pitch_organization": 1.6249999999999998,
+          "voice_processing_chain": 5.095000000000001,
+          "voice_multitrack_stack": 9.120000000000001
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_leslie_rotary"
+        },
+        "scores": {
+          "keyboard_technique": 3.975,
+          "combo_organ_model": 4.425,
+          "combo_organ_voicing": 3.235,
+          "combo_organ_context": 17.615,
+          "amp_make": 0.07499999999999996
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_multiphonic_avant",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 8.95,
+          "sax_size": 2.275,
+          "sax_reed": 1.8900000000000001,
+          "sax_body_alloy": -0.035,
+          "sax_mouthpiece": 1.8900000000000001,
+          "sax_technique": 9,
+          "sax_maker_school": 0
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_1176_fet",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_british_class_a_commercial",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

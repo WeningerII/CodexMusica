@@ -3,14 +3,14 @@
   "name": "Vapor Soul",
   "family": "pop",
   "lineage": "Blog-era downtempo electronic R&B named by streaming taxonomies around 2013-2016 and shaped by Rhye, Banks, Chet Faker and Sohn, running 80-100 BPM over soft-attack 808 sub-kicks and finger-snap backbeats under washed reverb-drenched Rhodes and analogue pads, with breathy androgynous close-mic'd vocals sung near a whisper and harmonized in stacked thirds.",
-  "recipe": "classic 2013-2016 vapor soul, functional Song, soul R&B branch, retro aesthetic experimental electric, ambient experimental electric melancholia weirdcore. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly synth, tremolo mark 7 modern tine post 2007 reissue close pickup gap more bark dirt gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, TR-808, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 685,
-  "score": 234.863,
+  "recipe": "classic 2013-2016 vapor soul, functional Song, soul R&B branch, retro aesthetic experimental electric, ambient experimental electric hauntology ambient house. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly synth, close pickup gap more bark dirt gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, TR-808, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 646,
+  "score": 246.157,
   "config": {
     "traditions": [
       "vapor_soul",
-      "melancholia_ambient",
-      "weirdcore"
+      "hauntology_aesthetic",
+      "ambient_house"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.759999999999998,
-          "voice_quality": 6.630000000000002,
+          "voice_register": 11.284999999999998,
+          "voice_quality": 9.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9899999999999998,
-          "voice_articulation": 18.849999999999994,
-          "voice_microtone": 19.304999999999993,
-          "voice_tradition": 12.8375,
+          "voice_vibrato": 1.6899999999999997,
+          "voice_articulation": 19.369999999999997,
+          "voice_microtone": 19.824999999999996,
+          "voice_tradition": 12.35,
           "voice_mechanism_compound": 3.12,
-          "voice_estill_quality": 6.994999999999999,
-          "voice_speech_song": 22.034999999999993,
-          "voice_ensemble_config": 19.954999999999995,
-          "voice_ornament_system": 0.8949999999999999,
-          "voice_pitch_organization": 2.9850000000000008,
-          "voice_processing_chain": 8.305,
-          "voice_multitrack_stack": 5.752499999999999
+          "voice_estill_quality": 6.799999999999999,
+          "voice_speech_song": 22.554999999999996,
+          "voice_ensemble_config": 20.735,
+          "voice_ornament_system": 1.0899999999999999,
+          "voice_pitch_organization": 3.5999999999999996,
+          "voice_processing_chain": 8.945,
+          "voice_multitrack_stack": 5.2
         }
       },
       {
@@ -57,33 +57,33 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 6.735,
-          "poly_archetypes": 0.57,
-          "poly_voices": 0.39,
-          "poly_maker_lineage": -0.7350000000000001
+          "electronic_technique": 7.1,
+          "poly_archetypes": 0.765,
+          "poly_voices": 0.78,
+          "poly_maker_lineage": -0.9
         }
       },
       {
         "id": "rhodes_electric",
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
-          "rhodes_model": "rhodes_suitcase",
+          "rhodes_model": "rhodes_mark2",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
-          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
           "rhodes_pickup_position": "rhodes_pickup_close_bark"
         },
         "scores": {
           "keyboard_technique": 6.949999999999999,
-          "rhodes_model": 1.7300000000000002,
-          "rhodes_use": 2.8600000000000003,
-          "rhodes_tine_material": 1.105,
-          "rhodes_hammer_tip": -0.28,
-          "rhodes_pickup_position": 2.79
+          "rhodes_model": 1.145,
+          "rhodes_use": 1.365,
+          "rhodes_tine_material": 0.65,
+          "rhodes_hammer_tip": -0.03500000000000003,
+          "rhodes_pickup_position": 1.9449999999999998
         }
       },
       {
@@ -93,16 +93,16 @@
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 8.08,
-          "body_wood": 1.645,
-          "pickup_config": 1.345,
-          "string_type": 8.03,
-          "scale_length_b": 1.625,
+          "amp_make": 8.759999999999996,
+          "body_wood": 1.69,
+          "pickup_config": 1.24,
+          "string_type": 7.824999999999999,
+          "scale_length_b": 0.975,
           "fretted_or_not": 0,
           "bass_technique": 6.899999999999999
         }
@@ -115,26 +115,26 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 1.36,
-          "drum_machine_808_context": 2.145,
-          "tr808_production_origin": 0.45499999999999996
+          "tr808_voice": 1.825,
+          "drum_machine_808_context": 2.9749999999999996,
+          "tr808_production_origin": 0.78
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "mpc_modern",
-          "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_hiphop"
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 10.065000000000001,
-          "sampler_archetypes": 1.13,
-          "sampler_bit_depth": 1.0399999999999998,
-          "sampler_workflow": 11.280000000000001,
-          "sampler_classic_context": 20.832499999999996
+          "electronic_technique": 9.875,
+          "sampler_archetypes": 0.99,
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": 10.025,
+          "sampler_classic_context": 28.047500000000003
         }
       }
     ],

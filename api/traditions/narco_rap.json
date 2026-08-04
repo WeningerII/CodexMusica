@@ -1,0 +1,164 @@
+{
+  "id": "narco_rap",
+  "name": "Narco rap",
+  "family": "hip_hop",
+  "lineage": "Emerged circa 2010 in Reynosa, Matamoros and the Tamaulipas border corridor of northeastern Mexico, spread by Cartel de Santa's precedent and artists such as Rowsty, Dan Sanchez and El Komander-adjacent rap crews, built on 70-90 BPM half-time trap and boom-bap beats with dark minor synth pads, heavy 808s, occasional sampled accordion or bajo sexto quotes, and blunt first-person cartel narrative delivered in a hard Norteño Spanish over YouTube-distributed, home-mixed audio.",
+  "recipe": "classic early-2010s narco rap, mc Rhythm, intl hip hop branch, tejano border corrido, us hip hop gangsta corridos bélicos. vocal fry, rap, straight onset, interlocked note trading. TR-808, chopped sampler, sub bass analog poly synth, weltmeister east German mid tier vintage volk chordal accordion, cedar nickel wound modern tejano strummed bajo sexto. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 460,
+  "score": 269.659,
+  "config": {
+    "traditions": [
+      "narco_rap",
+      "gangsta_rap",
+      "corridos_belicos"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.2349999999999999,
+          "voice_quality": 24.031,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.9174999999999995,
+          "voice_articulation": 18.52499999999999,
+          "voice_microtone": 21.31999999999999,
+          "voice_tradition": 10.068,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.9250000000000007,
+          "voice_speech_song": 23.034499999999998,
+          "voice_ensemble_config": 18.65499999999999,
+          "voice_ornament_system": 5.005000000000002,
+          "voice_pitch_organization": 1.19,
+          "voice_processing_chain": 18.189999999999998,
+          "voice_multitrack_stack": 5.005000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 8.919,
+          "drum_machine_808_context": 4.03,
+          "tr808_production_origin": 0.3
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 9.02,
+          "sampler_archetypes": 13,
+          "sampler_bit_depth": 1.7249999999999999,
+          "sampler_workflow": 9.549999999999999,
+          "sampler_classic_context": 28.957499999999992
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 14.369,
+          "poly_archetypes": 0.045,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.1
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "italian_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 9.599499999999999,
+          "accordion_reed_material": 1.4949999999999999,
+          "musette_offset": 0.9890000000000001,
+          "reed_config": 0.294,
+          "bellows": 0.045,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 1.885
+        }
+      },
+      {
+        "id": "bajo_sexto",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bajo_courses": "twelve_string_bajo",
+          "bajo_top": "cedar_bj",
+          "bajo_strings": "bajo_nickel_wound",
+          "bajo_back_wood": "bajo_mahogany_back"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.135,
+          "bajo_courses": 3.625,
+          "bajo_top": 1.4949999999999999,
+          "bajo_strings": 1.885,
+          "bajo_back_wood": 0
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

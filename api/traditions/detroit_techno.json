@@ -3,29 +3,29 @@
   "name": "Detroit techno",
   "family": "electronic",
   "lineage": "Mid-1980s Detroit electronic dance music genre developed by the Belleville Three (Juan Atkins, Derrick May, Kevin Saunderson) drawing on Kraftwerk's electronic vocabulary, Parliament-Funkadelic's Afrofuturist aesthetic, and Chicago house's rhythmic foundation — codified through Cybotron (Clear 1983), Model 500, Rhythim Is Rhythim (Strings of Life 1987), Inner City (Big Fun 1988), and the labels Metroplex, Transmat, KMS",
-  "recipe": "classic Asian 1984-1986 detroit techno, electronic Dance, techno branch, idm glitch experimental electric idm and experimental electronic drill'n'bass. drum machine analog, analog synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape echo lexicon 224 / 480L digital delay.",
-  "recipe_chars": 341,
-  "score": 17.51,
+  "recipe": "classic Asian 1984-1986 detroit techno, electronic Dance, techno branch, idm glitch experimental electric idm and experimental electronic live coding. drum machine analog, ambient pad like analog synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape echo lexicon 224 / 480L digital delay.",
+  "recipe_chars": 357,
+  "score": 13.17,
   "config": {
     "traditions": [
       "detroit_techno",
       "idm",
-      "drill_n_bass"
+      "live_coding"
     ],
     "instruments": [
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "sine_burst_kick",
+          "kick_voice": "fm_pair_kick",
           "snare_voice": "two_oscillator_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0,
-          "snare_voice": 0,
+          "kick_voice": 0.45499999999999996,
+          "snare_voice": 0.45499999999999996,
           "hat_voice": 0,
-          "shuffle_quantize": 2.123
+          "shuffle_quantize": 1.85
         }
       },
       {
@@ -34,14 +34,14 @@
           "electronic_technique": "electronic_pad_drone",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
-          "envelope": "gated_env",
+          "envelope": "pad_env",
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 2.9565,
-          "oscillator": 2.34,
-          "filter_topology": 4.255875,
-          "envelope": 2.535,
+          "electronic_technique": 2.8200000000000003,
+          "oscillator": 0.585,
+          "filter_topology": 1.885,
+          "envelope": 1.8199999999999998,
           "modulation": 0.65
         }
       }

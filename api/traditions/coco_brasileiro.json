@@ -3,14 +3,14 @@
   "name": "Coco brasileiro (NE Brazilian work-song)",
   "family": "global",
   "lineage": "Brazilian coco northeastern-Brazilian song-and-dance tradition of Pernambuco, Paraíba, and Alagoas, descended from the African-Brazilian colonial-period rural-work-song tradition (coco was originally a coconut-husking work-song with stamping-rhythm accompaniment). Performance: lead singer with chorus response, hand-clapping or ganzá-shaker rhythm, occasional pandeiro frame-drum. Repertoire spans rural-worker thematic content, coastal-fishing themes, and romantic-couplet improvisation. Genre revival under Nação Zumbi and Chico Science in 1990s integrated coco with rock-and-electronic-production.",
-  "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion pagode embolada. thick, breath veiled tone, straight note core, interlocked note trading. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 439,
-  "score": 190.62,
+  "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion samba de roda pagode. thick, breath veiled tone, straight note core, interlocked note trading. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 444,
+  "score": 199.83,
   "config": {
     "traditions": [
       "coco_brasileiro",
-      "pagode",
-      "embolada"
+      "samba_de_roda",
+      "pagode"
     ],
     "instruments": [
       {
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 8.149999999999995,
-          "voice_quality": 15.404999999999994,
+          "voice_quality": 18.102499999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.84,
-          "voice_articulation": 18.069999999999997,
-          "voice_microtone": 16.834999999999994,
-          "voice_tradition": 12.739999999999998,
-          "voice_mechanism_compound": 7.54,
-          "voice_estill_quality": 7.345000000000001,
-          "voice_speech_song": 26.617499999999996,
-          "voice_ensemble_config": 17.159999999999993,
-          "voice_ornament_system": 3.640000000000001,
+          "voice_articulation": 20.54,
+          "voice_microtone": 19.955,
+          "voice_tradition": 11.245000000000001,
+          "voice_mechanism_compound": 8.384999999999998,
+          "voice_estill_quality": 8.19,
+          "voice_speech_song": 30.029999999999998,
+          "voice_ensemble_config": 20.475,
+          "voice_ornament_system": 3.185000000000001,
           "voice_pitch_organization": 2.4050000000000002,
           "voice_processing_chain": 5.595,
-          "voice_multitrack_stack": 5.135
+          "voice_multitrack_stack": 4.485
         }
       },
       {
@@ -60,7 +60,7 @@
         },
         "scores": {
           "tambourine_orch_jingle": 0.12999999999999998,
-          "tambourine_orch_context": 1.17
+          "tambourine_orch_context": 0.5199999999999999
         }
       },
       {
@@ -74,12 +74,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 0.8249999999999998,
-          "pandeiro_size": 3.379999999999999,
+          "percussion_technique": 2.075,
+          "pandeiro_size": 3.9649999999999985,
           "pandeiro_context": 4.225,
-          "pandeiro_head": 12.025,
-          "pandeiro_shell_wood": 12.025,
-          "pandeiro_jingles": 12.025
+          "pandeiro_head": 10.139999999999999,
+          "pandeiro_shell_wood": 10.139999999999999,
+          "pandeiro_jingles": 10.139999999999999
         }
       }
     ],

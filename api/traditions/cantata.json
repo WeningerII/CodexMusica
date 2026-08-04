@@ -1,0 +1,205 @@
+{
+  "id": "cantata",
+  "name": "Cantata",
+  "family": "classical",
+  "lineage": "Multi-movement vocal-instrumental work for voices and continuo-based ensemble that emerged in early-seventeenth-century Italy as chamber cantata and was codified in its Lutheran church form by Buxtehude and J.S. Bach at Leipzig (1723-1750) — opening choral fugue or chorale fantasia, alternating recitatives and da capo arias with obbligato instruments, closing four-part chorale, scored for SATB choir, strings, oboes, occasional trumpets and basso continuo of organ and cello, notated in full score and performed at moderate tempi with Baroque articulation and unequal note conventions.",
+  "recipe": "classic European early-1720s cantata, art Music, western early branch, western common practice art music, christian gospel anglican choral oratorio chamber music. thick, breath veiled tone, straight note core, interlocked note trading. choir cathedral satb, norway spruce European alpine bigleaf maple western maple cremonese pre 1750 violin orchestral, damore a Baroque legato oboe damore, flemish ruckers antwerp canonical late 16th 17th century bach era reference soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord, synthetic norway spruce European alpine European maple bosnian source cello, trumpet Baroque natural trumpet, Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century high lead 25 75 canonical flue stops mellow romantic quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ.",
+  "recipe_chars": 986,
+  "score": 376.385,
+  "config": {
+    "traditions": [
+      "cantata",
+      "oratorio",
+      "chamber_music"
+    ],
+    "instruments": [
+      {
+        "id": "choir_cathedral_satb",
+        "slots": {
+          "voicing": "satb_standard",
+          "repertoire": "baroque_choral"
+        },
+        "scores": {
+          "voicing": 2.6,
+          "repertoire": 0.845
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.199999999999999,
+          "voice_quality": 6.110000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.785000000000001,
+          "voice_articulation": 27.89,
+          "voice_microtone": 22.165,
+          "voice_tradition": 9.12,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 10.104999999999999,
+          "voice_speech_song": 25.96750000000001,
+          "voice_ensemble_config": 26.747500000000002,
+          "voice_ornament_system": 6.5,
+          "voice_pitch_organization": 8.295,
+          "voice_processing_chain": 6.369999999999999,
+          "voice_multitrack_stack": 3.5100000000000002
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 5.375,
+          "orch_strings": 0.9099999999999999,
+          "orch_top_wood": 8.385,
+          "orch_back_wood": 8.9375,
+          "orch_varnish": 8.46,
+          "orch_setup_period": 7.645,
+          "orch_bow": 0.9099999999999999,
+          "orch_bow_stick": 8.5475,
+          "orch_articulation": 4.165,
+          "orch_rosin": 8.9375
+        }
+      },
+      {
+        "id": "oboe_damore",
+        "slots": {
+          "oboe_damore_pitch": "oboe_damore_a",
+          "oboe_damore_style": "oboe_damore_baroque_legato"
+        },
+        "scores": {
+          "oboe_damore_pitch": 3.84,
+          "oboe_damore_style": 1.195
+        }
+      },
+      {
+        "id": "harpsichord",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "harpsichord_register": "harpsi_double_8",
+          "harpsichord_context": "harpsichord_solo",
+          "harpsichord_maker_school": "harpsichord_flemish_ruckers",
+          "harpsichord_plectrum": "harpsichord_leather_french",
+          "harpsichord_temperament": "harpsichord_meantone_quarter"
+        },
+        "scores": {
+          "keyboard_technique": 5.15,
+          "harpsichord_register": 3.3149999999999995,
+          "harpsichord_context": 14.040000000000001,
+          "harpsichord_maker_school": 2.9899999999999998,
+          "harpsichord_plectrum": 1.3,
+          "harpsichord_temperament": 5.46
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 5.375,
+          "cello_strings": 4.159999999999999,
+          "cello_top_wood": 8.385,
+          "cello_back_wood": 8.085,
+          "cello_varnish": 8.46,
+          "cello_setup_period": 7.645,
+          "cello_bow_grip": 2.6,
+          "cello_rosin": 8.06,
+          "cello_bow_stick": 8.5475
+        }
+      },
+      {
+        "id": "natural_trumpet",
+        "slots": {
+          "natural_trumpet_type": "natural_trumpet_baroque",
+          "natural_trumpet_register": "natural_trumpet_principale_low"
+        },
+        "scores": {
+          "natural_trumpet_type": 1.195,
+          "natural_trumpet_register": 0.3
+        }
+      },
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
+          "pipe_organ_pipe_alloy": "pipe_organ_high_lead_25_75",
+          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
+          "pipe_organ_action": "pipe_organ_mechanical_tracker"
+        },
+        "scores": {
+          "keyboard_technique": 5.15,
+          "pipe_organ_class": 1.195,
+          "pipe_organ_context": 14.235000000000001,
+          "pipe_organ_voicing_school": 8.645,
+          "pipe_organ_pipe_alloy": 1.5900000000000003,
+          "pipe_organ_temperament": 5.46,
+          "pipe_organ_action": 1.3
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "well_temperament_north_german_baroque",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "well_temperament_north_german_baroque",
+    "room": "stone_parish_church",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

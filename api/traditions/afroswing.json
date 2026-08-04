@@ -3,24 +3,24 @@
   "name": "Afroswing",
   "family": "hip_hop",
   "lineage": "London-born fusion of Afrobeats, Jamaican dancehall and UK rap that broke between 2015 and 2018 through J Hus, Kojo Funds, Not3s and producers Jae5 and Steel Banglez — 100-108 BPM with a swung dancehall-derived kick-and-rim pattern, log-drum-adjacent percussion, clean plucked guitar and marimba-like synth motifs, and sing-rapped melodic hooks in London-Nigerian-Caribbean slang.",
-  "recipe": "classic mid-2010s afroswing, mc Rhythm, Afro-diasporic branch, drill MC rhythm, African pop functional song türkçe drill congolese rumba. thick, rap, straight onset, interlocked note trading. lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, TR-808, sampler drum machine, plucked short envelope analog poly synth, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 658,
-  "score": 224.612,
+  "recipe": "classic mid-2010s afroswing, mc Rhythm, Afro-diasporic branch, drill MC rhythm, African pop functional song türkçe drill afro drill. extended whistle, rap, straight note core, interlocked note trading. lead plus third fifth 3 part stack multitrack vocal stack, TR-808, sampler drum machine, low sub bass analog poly synth, siam oak mid tier modern open slap hand drum congas. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 579,
+  "score": 211.422,
   "config": {
     "traditions": [
       "afroswing",
       "turkce_drill",
-      "congolese_rumba"
+      "afro_drill"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -34,34 +34,34 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 10.389999999999997,
-          "voice_quality": 12.934999999999999,
+          "voice_register": 5.125,
+          "voice_quality": 16.0875,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.4449999999999985,
-          "voice_articulation": 26.325000000000003,
-          "voice_microtone": 35.0025,
-          "voice_tradition": 15.1775,
-          "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 2.7300000000000004,
-          "voice_speech_song": 30.160000000000007,
-          "voice_ensemble_config": 26.065000000000005,
-          "voice_ornament_system": 5.200000000000002,
+          "voice_vibrato": 4.030000000000001,
+          "voice_articulation": 25.48,
+          "voice_microtone": 34.3525,
+          "voice_tradition": 8.425,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 3.640000000000001,
+          "voice_speech_song": 26.195000000000004,
+          "voice_ensemble_config": 24.115000000000002,
+          "voice_ornament_system": 6.630000000000002,
           "voice_pitch_organization": 5.605,
-          "voice_processing_chain": 5.620000000000001,
-          "voice_multitrack_stack": 2.925
+          "voice_processing_chain": 7.395,
+          "voice_multitrack_stack": 3.8349999999999995
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
           "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
-          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 1.4299999999999997,
-          "multitrack_stack_era_aesthetic": 2.9575,
+          "multitrack_stack_density": 1.4949999999999999,
+          "multitrack_stack_era_aesthetic": 0.5199999999999999,
           "multitrack_stack_processing": 0.97
         }
       },
@@ -70,11 +70,11 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 2.145,
-          "drum_machine_808_context": 1.4299999999999997,
+          "tr808_voice": 3.4774999999999996,
+          "drum_machine_808_context": 1.885,
           "tr808_production_origin": 0.45499999999999996
         }
       },
@@ -87,25 +87,25 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 1.8449999999999998,
-          "sample_bitdepth": 2.9899999999999998,
-          "sample_swing": 2.21,
-          "sample_processing": 2.275
+          "electronic_technique": 2.415,
+          "sample_bitdepth": 2.795,
+          "sample_swing": 3.3149999999999995,
+          "sample_processing": 1.885
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pluck_short",
+          "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 6.994999999999999,
+          "electronic_technique": 4.9399999999999995,
           "poly_archetypes": 0.15,
           "poly_voices": 0.15,
-          "poly_maker_lineage": -1.4200000000000002
+          "poly_maker_lineage": -2.005
         }
       },
       {
@@ -113,14 +113,14 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "conga_set": "quinto",
-          "conga_skin": "conga_mule_hide",
-          "conga_shell_wood": "conga_oak_staved"
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 5.5600000000000005,
+          "percussion_technique": 8.254999999999999,
           "conga_set": 0.39,
-          "conga_skin": 2.2749999999999995,
-          "conga_shell_wood": 2.2749999999999995
+          "conga_skin": 0.7549999999999999,
+          "conga_shell_wood": 1.2999999999999998
         }
       }
     ],

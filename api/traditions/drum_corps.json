@@ -1,0 +1,158 @@
+{
+  "id": "drum_corps",
+  "name": "Drum and Bugle Corps",
+  "family": "vernacular",
+  "lineage": "The American competitive field ensemble that grew out of post-First-World-War American Legion and VFW veterans' units using surplus valveless bugles, reorganised under Drum Corps International from 1972 and progressively liberalised to three-valve brass in 2000 and any-key brass in 2014; a brass line of trumpets, mellophones, baritones, euphoniums and contrabass bugles plus a marching battery of snares, tenors and basses and an amplified front-ensemble pit of mallet keyboards and synthesisers, performing eleven-minute memorised competitive programs with extreme dynamic contrast and metric complexity.",
+  "recipe": "classic early-1970s drum and bugle corps, groove Percussion, American marching branch, western modern art music, American south carnival processional new orleans brass band second-line orchestral soundtrack. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line standard rim orchestral balance trumpet, projecting marching band mellophone, brass yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, drumline dci, cutting projecting brass glockenspiel, synthetic timpani, bass drum. festival stage. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+  "recipe_chars": 833,
+  "score": 190.053,
+  "config": {
+    "traditions": [
+      "drum_corps",
+      "new_orleans_brass_parade",
+      "orchestral_soundtrack"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 5.949999999999999,
+          "brass_size": 0.4007142857142857,
+          "trumpet_mouthpiece": 7.510357142857143,
+          "brass_mute": 1.5071875000000001,
+          "trumpet_technique": 5.949999999999999,
+          "trumpet_bell_metal": 10.705803571428573,
+          "trumpet_maker_school": 8.380357142857143
+        }
+      },
+      {
+        "id": "mellophone",
+        "slots": {
+          "mellophone_use": "mellophone_marching_band",
+          "mellophone_mouthpiece": "mellophone_trumpet_style"
+        },
+        "scores": {
+          "mellophone_use": 7.8999999999999995,
+          "mellophone_mouthpiece": 0.15
+        }
+      },
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "euph_use": "euph_brass_band",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_yellow_brass",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": 2.775,
+          "euph_use": 8.922901785714286,
+          "euphonium_pitch": 13.515714285714287,
+          "euphonium_bell_metal": 14.861428571428572,
+          "euphonium_maker_school": 14.445714285714285
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "tuba_pitch": "tuba_cc",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 2.775,
+          "tuba_pitch": 7.462544642857143,
+          "tuba_context": 12.068303571428572,
+          "tuba_bell_metal": 10.65607142857143,
+          "tuba_valve_system": 6.6828125,
+          "tuba_maker_school": 14.445714285714288
+        }
+      },
+      {
+        "id": "drumline_dci",
+        "slots": {
+          "section": "dci_tenor",
+          "era": "dci_modern"
+        },
+        "scores": {
+          "section": 3.2637499999999995,
+          "era": 0.6
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_3",
+          "glockenspiel_mallet": "glockenspiel_brass"
+        },
+        "scores": {
+          "percussion_technique": 1.125,
+          "glockenspiel_size": 2.73,
+          "glockenspiel_mallet": 9.840714285714286
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_synthetic"
+        },
+        "scores": {
+          "percussion_technique": 1.125,
+          "timpani_size": 1.2349999999999999,
+          "timpani_head": 2.925
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_wood_click"
+        },
+        "scores": {
+          "bass_drum_size": 0.585,
+          "bass_drum_beater": 0.195
+        }
+      }
+    ],
+    "room": "festival_stage",
+    "archetype": "arch_mobile_remote_truck",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_smart_c1_bus",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "festival_stage",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

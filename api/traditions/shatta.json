@@ -1,0 +1,152 @@
+{
+  "id": "shatta",
+  "name": "Shatta",
+  "family": "global",
+  "lineage": "Guadeloupe- and Martinique-centred dance style consolidated around 2014-2018 from Jamaican dancehall, Saint Lucian dennery segment and gwo ka accents, codified by Kalash, Jahyanaï and Bamby over 100-110 BPM tracks with a hard four-on-floor kick, offbeat iron and clave-like snare, minimal minor synth riffs, and shouted Kréyòl deejay vocals cut heavily with sirens and drops.",
+  "recipe": "classic 2014-2018 shatta, bass System, reggae diaspora branch, Afro-diasporic MC rhythm, Caribbean carnival processional funk consciente merenrap. extended whistle, rap, interlocked note trading, neutral third half flat. TR-808, sub bass analog poly synth, sub bass monosynth acid bass, agogo, sampler. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
+  "recipe_chars": 563,
+  "score": 175.972,
+  "config": {
+    "traditions": [
+      "shatta",
+      "funk_consciente",
+      "merenrap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.1549999999999998,
+          "voice_quality": 9.489999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.195,
+          "voice_articulation": 18.525,
+          "voice_microtone": 18.979999999999993,
+          "voice_tradition": 4.42,
+          "voice_mechanism_compound": 6.5649999999999995,
+          "voice_estill_quality": 5.525,
+          "voice_speech_song": 18.784999999999997,
+          "voice_ensemble_config": 19.304999999999996,
+          "voice_ornament_system": 4.160000000000001,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 4.545,
+          "voice_multitrack_stack": 1.9499999999999988
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 4.208125,
+          "drum_machine_808_context": 3.6399999999999997,
+          "tr808_production_origin": 0.78
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 4.153125,
+          "poly_archetypes": 0.045,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 4.153125,
+          "wave_acid": 0.045,
+          "filter_acid": 0.195,
+          "accent_acid": 1.65
+        }
+      },
+      {
+        "id": "agogo",
+        "slots": {
+          "agogo_bell": "agogo_single",
+          "agogo_context": "agogo_bateria"
+        },
+        "scores": {
+          "agogo_bell": 1.04,
+          "agogo_context": 5.46
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.3075,
+          "sampler_archetypes": 0.9099999999999999,
+          "sampler_bit_depth": 1.2600000000000002,
+          "sampler_workflow": 0.6824999999999999,
+          "sampler_classic_context": 24.8625
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_antilles_zouk_digital",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

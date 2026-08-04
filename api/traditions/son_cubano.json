@@ -5,7 +5,7 @@
   "lineage": "Cuban son tradition, the canonical Afro-Cuban song-form that became the foundational template for salsa, mambo, cha-cha-chá, and most Caribbean-Latin popular music 1900s-onward. Originated in eastern Cuban Oriente-province (Santiago de Cuba and Guantánamo region) late-19th-century out of changüí proto-son rural-Afro-Spanish-fusion, with classic ensemble of tres (small three-double-course guitar), Spanish guitar, bass (originally botija jug-bass, later contrabass), bongos, claves, and maracas. Migrated to Havana in the 1920s where the sexteto-and-septeto urban-commercial codification (adding trumpet) made son the international Cuban-music ambassador. The clave 3-2 (or reversed 2-3) two-bar wood-block rhythm anchors all son derivatives; the verse-montuno structure (canto verse-section, montuno call-and-response open-improvisation section) defines all subsequent Caribbean popular-song architectures.",
   "recipe": "classic Caribbean mid-1900s son cubano, groove Percussion, son salsa branch, rumba Cuban rumba cubana yambú. kargyraa, breath veiled tone, slow rate, interlocked note trading. cedar canonical Cuban octave doubled bronze steel rural traditional strummed tres cubano, low mid rich spectrum cedar classical nylon-string guitar, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, regional wood hardwood claves, maracas, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, low mouthed timbale mounted mambo section montuno lift coro section cencerro, son changui anchor walking bass runs melodic bass movement forged iron tongues marimbula. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 965,
-  "score": 293.359,
+  "score": 293.793,
   "config": {
     "traditions": [
       "son_cubano",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 14.949999999999996,
           "voice_ornament_system": 1.9249999999999998,
           "voice_pitch_organization": 2.2099999999999995,
-          "voice_processing_chain": 3.673,
+          "voice_processing_chain": 3.5364999999999998,
           "voice_multitrack_stack": 3.6399999999999997
         }
       },
@@ -80,12 +80,12 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 1.0499999999999998,
+          "acoustic_technique": 1.095,
           "string_tuning": 0,
           "top_wood_classical": 4.095,
           "bracing_classical": 0.0315,
           "string_classical": 0.1365,
-          "attack_technique_cl": 0.5129999999999999
+          "attack_technique_cl": 0.24
         }
       },
       {
@@ -108,9 +108,9 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 14.553,
-          "bongos_skin": 32.88825,
-          "bongos_context": 0.6765,
+          "percussion_technique": 14.748000000000001,
+          "bongos_skin": 33.11175,
+          "bongos_context": 0.7215,
           "bongos_shell_wood": 13.975
         }
       },
@@ -148,12 +148,12 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 3.906,
+          "wind_articulation": 3.951,
           "brass_size": 0.273,
-          "trumpet_mouthpiece": 2.6064999999999996,
+          "trumpet_mouthpiece": 2.6649999999999996,
           "brass_mute": 0.15,
-          "trumpet_technique": 3.906,
-          "trumpet_bell_metal": 1.2730000000000001,
+          "trumpet_technique": 3.951,
+          "trumpet_bell_metal": 1.1365,
           "trumpet_maker_school": 1.3
         }
       },
@@ -166,7 +166,7 @@
         },
         "scores": {
           "cencerro_bell_type": 3.9629999999999996,
-          "cencerro_context": 5.292249999999999,
+          "cencerro_context": 5.44225,
           "cencerro_build": 0
         }
       },
@@ -178,9 +178,9 @@
           "marimbula_construction": "marimbula_build_forged_iron"
         },
         "scores": {
-          "marimbula_regional_form": 24.439,
-          "marimbula_playing_role": 6.92075,
-          "marimbula_construction": 2.4915
+          "marimbula_regional_form": 24.476499999999998,
+          "marimbula_playing_role": 7.01075,
+          "marimbula_construction": 2.5365
         }
       }
     ],

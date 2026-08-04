@@ -5,7 +5,7 @@
   "lineage": "Late-1990s and 2000s electronic subgenre characterized by extreme-fast (200-300 BPM) chopped-Amen-break-and-other-breakbeat percussion, dense-aggressive sample-collage composition, and complex polymetric rhythmic structures. Venetian Snares (Aaron Funk, Winnipeg Canada, 2000-onward) is the canonical type-specimen; Igorrr, Drumcorps, Knifehandchop, and the broader Planet Mu and Hymen Records label rosters constitute the canonical roster.",
   "recipe": "classic breakcore, experimental Elec, idm glitch branch, thrash metal djent groove metal. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, analog synth, glitched textural sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion ring modulator.",
   "recipe_chars": 463,
-  "score": 47.829,
+  "score": 47.852,
   "config": {
     "traditions": [
       "breakcore",
@@ -22,7 +22,7 @@
         },
         "scores": {
           "tr808_voice": 0.845,
-          "drum_machine_808_context": 2.9575000000000005,
+          "drum_machine_808_context": 2.9515000000000002,
           "tr808_production_origin": 3.2499999999999987
         }
       },
@@ -30,14 +30,14 @@
         "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "oscillator": "noise_osc",
+          "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "gated_env",
           "modulation": "sample_hold"
         },
         "scores": {
           "electronic_technique": -0.05,
-          "oscillator": 0.845,
+          "oscillator": 0.8741249999999998,
           "filter_topology": 1.69,
           "envelope": 3.38,
           "modulation": 0.105

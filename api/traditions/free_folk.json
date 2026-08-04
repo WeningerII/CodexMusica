@@ -1,0 +1,170 @@
+{
+  "id": "free_folk",
+  "name": "Free Folk",
+  "family": "vernacular",
+  "lineage": "New England and the American Northeast circa 1998-2008 around Sunburned Hand of the Man, No-Neck Blues Band and the Brattleboro/Ecstatic Peace and Time-Lag circles — collectively improvised, largely unmetered sessions on acoustic guitar, hand percussion, harmonium, flute and untrained group voice, captured in one take on cassette or portable recorder in houses and lofts and issued in tiny CD-R editions.",
+  "recipe": "classic North American mid-2000s free folk, ballad Poetry, freak folk branch, string drone modal, experimental distorted rock drone folk musique touareg. thick, breath veiled tone, wide pitch sway, interlocked note trading. fingerpicked dreadnought acoustic guitar, open slap hand drum congas, melodic straight harmonium indian, melodic tin whistle, pre muffled edge muffled brushes-and-sticks drum kit, hammer low mid emphasis folk melodica. takoma home recording fahey. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 570,
+  "score": 265.112,
+  "config": {
+    "traditions": [
+      "free_folk",
+      "drone_folk",
+      "musique_touareg"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "eb_standard",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "coated_nano_acoustic"
+        },
+        "scores": {
+          "acoustic_technique": 13.964999999999996,
+          "string_tuning": 1.2999999999999998,
+          "top_wood": 0.21,
+          "back_sides": 0.21,
+          "string_acoustic": 0.845
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 4.5649999999999995,
+          "conga_set": 0.7049999999999998,
+          "conga_skin": 0.7949999999999999,
+          "conga_shell_wood": 0.7949999999999999
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_foot_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_qawwali"
+        },
+        "scores": {
+          "free_reed_technique": 11.809999999999997,
+          "harmonium_action": 3.9650000000000003,
+          "harmonium_voicing": 0.96,
+          "harmonium_use": 5.3950000000000005
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 15.899999999999997,
+          "voice_quality": 13.129999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.45,
+          "voice_articulation": 21.254999999999995,
+          "voice_microtone": 25.122499999999995,
+          "voice_tradition": 20.669999999999995,
+          "voice_mechanism_compound": 7.085,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 24.894999999999996,
+          "voice_ensemble_config": 22.099999999999994,
+          "voice_ornament_system": 3.3800000000000017,
+          "voice_pitch_organization": 3.9000000000000004,
+          "voice_processing_chain": 5.200000000000001,
+          "voice_multitrack_stack": 3.1200000000000006
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "low_d_whistle",
+          "whistle_ornament": "no_ornament",
+          "whistle_body_material": "whistle_wood_premium"
+        },
+        "scores": {
+          "wind_articulation": 11.769999999999998,
+          "whistle_key": 0.195,
+          "whistle_ornament": 4.6499999999999995,
+          "whistle_body_material": 0.585
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.28,
+          "drumhead": 2.5300000000000002,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "melodica",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "melodica_use": "melodica_pedagogical",
+          "melodica_pitch": "melodica_bass",
+          "melodica_maker_school": "melodica_suzuki_japanese"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "melodica_use": 4.844999999999999,
+          "melodica_pitch": 0.39,
+          "melodica_maker_school": 0.3
+        }
+      }
+    ],
+    "room": "takoma_home_recording_fahey",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_home_portastudio",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "american_primitive_open_drone",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "american_primitive_open_drone",
+    "room": "takoma_home_recording_fahey",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_home_portastudio"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "id": "sufi_zikr_chant",
+  "name": "Sufi zikr chant (dhikr recitation)",
+  "family": "global",
+  "lineage": "Congregational dhikr/zikr chanting practised across Sufi tariqas from the medieval Islamic world into modern Turkey, Egypt, Syria, the Maghreb and South Asia, codified in orders such as the Naqshbandiyya, Qadiriyya, Rifa'iyya and Mevleviyya — unison or responsorial repetition of divine names (Allah hu, la ilaha illa'llah) over a breath-locked pulse that accelerates from slow free declamation to a fast 2- or 4-beat panting ostinato, led by a solo munshid singing melismatic maqam phrases above the group, with frame drums (daf, bendir) and occasionally ney entering only in the faster stages.",
+  "recipe": "classic South Asian modern sufi zikr chant, ritual Devotional, Sufi branch, islamic ritual devotional, middle east n African praise song, vocal drone modal zikir sholawat. extended whistle, declaimed, slow rate, interlocked note trading. walnut bent frame canonical Persian synthetic remo modern stable steel rings brighter modern daf, Sufi mystical brass nickel silver Egyptian modern mevlevi Sufi konya tradition Turkish ney ney, kompang frame drum, mahogany modern alternative western red cedar la bella Turkish school canon oud, brass plastic modern alternative rosewood body arab premium qanun. karachi lahore naat devotional majlis. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 701,
+  "score": 200.779,
+  "config": {
+    "traditions": [
+      "sufi_zikr_chant",
+      "zikir",
+      "sholawat"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.17,
+          "voice_quality": 18.225624999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.5875000000000004,
+          "voice_articulation": 11.634999999999994,
+          "voice_microtone": 19.17499999999999,
+          "voice_tradition": 25.285000000000004,
+          "voice_mechanism_compound": 4.9399999999999995,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 15.144999999999992,
+          "voice_ensemble_config": 11.374999999999993,
+          "voice_ornament_system": 14.680000000000001,
+          "voice_pitch_organization": 6.161250000000001,
+          "voice_processing_chain": 6.045000000000002,
+          "voice_multitrack_stack": 6.37
+        }
+      },
+      {
+        "id": "daf",
+        "slots": {
+          "daf_rings": "daf_with_rings",
+          "daf_context": "daf_kurdish",
+          "daf_shell_wood": "daf_walnut_canonical",
+          "daf_head_material": "daf_synthetic_modern",
+          "daf_jingle_metal": "daf_steel_rings"
+        },
+        "scores": {
+          "daf_rings": 6.102499999999999,
+          "daf_context": 0.845,
+          "daf_shell_wood": 2.925,
+          "daf_head_material": 1.1949999999999998,
+          "daf_jingle_metal": 1
+        }
+      },
+      {
+        "id": "ney",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "ney_use": "ney_sufi",
+          "ney_pitch": "ney_kerdaniye",
+          "ney_body_material": "ney_metal_brass",
+          "ney_lineage": "ney_sufi_mevlevi"
+        },
+        "scores": {
+          "wind_articulation": 1.3499999999999999,
+          "ney_use": 5.9525,
+          "ney_pitch": 0.105,
+          "ney_body_material": 1.3,
+          "ney_lineage": 8.58
+        }
+      },
+      {
+        "id": "kompang_frame_drum",
+        "slots": {
+          "kompang_stroke": "kompang_melalu",
+          "kompang_size": "kompang_standard"
+        },
+        "scores": {
+          "kompang_stroke": 0.195,
+          "kompang_size": 0.195
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_thirteen",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_mahogany_body",
+          "oud_soundboard_wood": "oud_western_red_cedar_face",
+          "oud_string_material": "oud_la_bella_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.795000000000001,
+          "oud_school": 1.105,
+          "oud_strings": 1,
+          "oud_pick": 0,
+          "oud_body_wood": 1,
+          "oud_soundboard_wood": 1,
+          "oud_string_material": 1.3
+        }
+      },
+      {
+        "id": "qanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "qanun_strings": "qanun_turkish",
+          "qanun_levers": "mandal_brass",
+          "qanun_pick": "qanun_plastic_pick",
+          "qanun_body_wood": "qanun_rosewood_body",
+          "qanun_bridge_skin": "qanun_synthetic_bridge",
+          "qanun_string_material": "qanun_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.795000000000001,
+          "qanun_strings": 1,
+          "qanun_levers": 1,
+          "qanun_pick": 1,
+          "qanun_body_wood": 2.21,
+          "qanun_bridge_skin": 1.1949999999999998,
+          "qanun_string_material": 1
+        }
+      }
+    ],
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

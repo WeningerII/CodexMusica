@@ -3,14 +3,14 @@
   "name": "Rap DF",
   "family": "hip_hop",
   "lineage": "Mexico City hip-hop consolidated in the Distrito Federal barrios from the mid-1990s through the 2000s by Cartel de Santa's contemporaries, Control Machete's Monterrey rivals, Sociedad Café and the Neblinna City / Nezahualcóyotl crews — 85-95 BPM boom-bap breakbeats sampled from Mexican rock and bolero LPs, filtered upright-bass loops, turntable cuts on the hook, and a dense chilango slang delivery with clipped consonants and end-of-bar rhyme clusters",
-  "recipe": "classic 1994-1996 rap df, mc Rhythm, intl hip hop branch, us hip hop east coast, us hip hop conscious rap, iberian Latin protest song conscious hip-hop new jersey rap. thick, rap, straight onset, narrative. sampled chopped turntable, chopped sampler, sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass. concrete basement. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 497,
-  "score": 413.415,
+  "recipe": "classic 1994-1996 rap df, mc Rhythm, intl hip hop branch, us hip hop east coast, us hip hop conscious rap, iberian Latin protest song jazz rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, chopped sampler, sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass. concrete basement. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 506,
+  "score": 416.279,
   "config": {
     "traditions": [
       "rap_df",
-      "conscious_hip_hop",
-      "new_jersey_rap"
+      "jazz_rap",
+      "conscious_hip_hop"
     ],
     "instruments": [
       {
@@ -21,7 +21,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.045624999999998,
-          "voice_quality": 37.565625000000004,
+          "voice_register": 15.245624999999995,
+          "voice_quality": 38.130625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.464374999999999,
-          "voice_articulation": 18.905,
-          "voice_microtone": 18.199999999999996,
-          "voice_tradition": 13.890000000000002,
-          "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 5.77,
-          "voice_speech_song": 35.760625,
-          "voice_ensemble_config": 18.33,
-          "voice_ornament_system": 7.345000000000002,
-          "voice_pitch_organization": 0.45500000000000007,
-          "voice_processing_chain": 26.54375,
-          "voice_multitrack_stack": 5.102500000000001
+          "voice_vibrato": 7.1393749999999985,
+          "voice_articulation": 20.994999999999997,
+          "voice_microtone": 20.149999999999995,
+          "voice_tradition": 14.21,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 5.68,
+          "voice_speech_song": 36.26562500000001,
+          "voice_ensemble_config": 19.824999999999996,
+          "voice_ornament_system": 7.3450000000000015,
+          "voice_pitch_organization": 0.15,
+          "voice_processing_chain": 28.043749999999996,
+          "voice_multitrack_stack": 4.7125
         }
       },
       {
@@ -59,25 +59,25 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 14.465,
-          "turntable_technique": 17.34
+          "electronic_technique": 14.485000000000001,
+          "turntable_technique": 15.195
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_archetypes": "emu_sp1200",
           "sampler_bit_depth": "sampler_twelve_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 14.465,
-          "sampler_archetypes": 21.84,
-          "sampler_bit_depth": 2.7,
-          "sampler_workflow": 16.245,
-          "sampler_classic_context": 37.7975
+          "electronic_technique": 14.485000000000001,
+          "sampler_archetypes": 21.222500000000004,
+          "sampler_bit_depth": 2.9250000000000003,
+          "sampler_workflow": 15.945000000000002,
+          "sampler_classic_context": 37.96
         }
       },
       {
@@ -89,10 +89,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 14.465,
-          "sample_bitdepth": 2.7,
-          "sample_swing": 22.490000000000002,
-          "sample_processing": 1.48
+          "electronic_technique": 14.485000000000001,
+          "sample_bitdepth": 2.9250000000000003,
+          "sample_swing": 21.775,
+          "sample_processing": 1.69
         }
       },
       {
@@ -104,16 +104,16 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 9.354999999999997,
-          "body_wood": 1.54,
-          "pickup_config": 1.105,
-          "string_type": 9.294999999999998,
-          "scale_length_b": 2.795,
-          "fretted_or_not": 0.845,
-          "bass_technique": 5.239999999999998
+          "amp_make": 10.264999999999995,
+          "body_wood": 1.69,
+          "pickup_config": 0.8449999999999999,
+          "string_type": 10.79,
+          "scale_length_b": 2.34,
+          "fretted_or_not": 0.414375,
+          "bass_technique": 5.774999999999999
         }
       }
     ],

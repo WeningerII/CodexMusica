@@ -1,0 +1,169 @@
+{
+  "id": "coco",
+  "name": "Coco de Roda (Northeastern Brazilian circle coco)",
+  "family": "vernacular",
+  "lineage": "Afro-indigenous circle dance-song of the Northeastern Brazilian littoral and agreste, especially Alagoas, Pernambuco and Paraíba, documented from the 19th century in coconut-husking and sand-tamping labour, sung in call-and-response by a coqueiro with embolada verse improvisation over ganzá, pandeiro or zabumba, stamped feet and palmas in fast duple time with almost no melodic instrument.",
+  "recipe": "classic East African modern coco de roda, field Work, American south branch, Brazilian groove percussion, Brazilian song functional song pagode capoeira roda music. thick, breath veiled tone, fast rate, interlocked note trading. samba tradition metal construction ganza, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, wood baião tradition low stick with high bacalhau buzz zabumba, snappy to palm hand clap, atabaque, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, triangulo forro. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 774,
+  "score": 205.657,
+  "config": {
+    "traditions": [
+      "coco",
+      "pagode",
+      "capoeira"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.0999999999999996,
+          "voice_quality": 18.167499999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.145,
+          "voice_articulation": 20.084999999999997,
+          "voice_microtone": 19.499999999999993,
+          "voice_tradition": 5.2975,
+          "voice_mechanism_compound": 6.305,
+          "voice_estill_quality": 6.11,
+          "voice_speech_song": 24.114999999999995,
+          "voice_ensemble_config": 20.409999999999993,
+          "voice_ornament_system": 2.935,
+          "voice_pitch_organization": 0.7149999999999997,
+          "voice_processing_chain": 4.745,
+          "voice_multitrack_stack": 6.37
+        }
+      },
+      {
+        "id": "ganza",
+        "slots": {
+          "ganza_source": "ganza_metal_cylinder"
+        },
+        "scores": {
+          "ganza_source": 3.7699999999999987
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_capoeira",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": 4.575,
+          "pandeiro_size": 3.574999999999999,
+          "pandeiro_context": 5.525,
+          "pandeiro_head": 7.410000000000001,
+          "pandeiro_shell_wood": 7.410000000000001,
+          "pandeiro_jingles": 7.410000000000001
+        }
+      },
+      {
+        "id": "zabumba",
+        "slots": {
+          "zabumba_shell": "zabumba_wood_shallow",
+          "zabumba_technique": "zabumba_baiao_pattern"
+        },
+        "scores": {
+          "zabumba_shell": 2.0799999999999996,
+          "zabumba_technique": 7.085
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.625,
+          "clap_capture": 0.045
+        }
+      },
+      {
+        "id": "atabaque",
+        "slots": {
+          "atabaque_role": "atabaque_rum",
+          "atabaque_skin": "atabaque_goatskin",
+          "atabaque_shell_wood": "atabaque_oak_staved"
+        },
+        "scores": {
+          "atabaque_role": 0.735,
+          "atabaque_skin": 0.545,
+          "atabaque_shell_wood": 0.195
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 8.645,
+          "choir_polyphonic_configuration": 4.44,
+          "choir_regional_canonical_configuration": 4.38,
+          "choir_ensemble_repertoire": 1.885
+        }
+      },
+      {
+        "id": "triangulo_forro",
+        "slots": {
+          "triangulo_size": "triangulo_large_forro",
+          "triangulo_pattern": "triangulo_forro_pattern"
+        },
+        "scores": {
+          "triangulo_size": 0.195,
+          "triangulo_pattern": 0.39
+        }
+      }
+    ],
+    "room": "tanzanian_outdoor_village_clearing",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "baiao_2_4_beat_one_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "baiao_2_4_beat_one_bass",
+    "room": "tanzanian_outdoor_village_clearing",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

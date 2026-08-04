@@ -3,14 +3,14 @@
   "name": "Mexican Pop",
   "family": "pop",
   "lineage": "The Mexico City balada-pop industry built by RCA, Musart and Televisa from the 1960s through the 1990s — Armando Manzanero's bolero writing, then Juan Gabriel and Luis Miguel — slow 2/4 and 4/4 romantic ballads with orchestral string beds, nylon guitar and piano arpeggios, mariachi trumpet obbligatos on the ranchera-leaning numbers, and a large, vibrato-rich chest voice carrying the melody.",
-  "recipe": "classic Mexican mid-1960s mexican pop, functional Song, Mexican branch, tejano border ranchera, tropical song functional song bachata. extended whistle, full chest belt, slow rate, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, cedar nylon strummed open chord ringing overtones classical nylon-string guitar, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, bach stradivarius 180 canonical American orchestral unison shallow cup lead trumpet trumpet, alder pyramid pure nickel bass British mid 60s era sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 920,
-  "score": 394.175,
+  "recipe": "classic Mexican mid-1960s mexican pop, functional Song, Mexican branch, tejano border ranchera, tropical song functional song bolero cubano. extended whistle, full chest belt, slow rate, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, cedar nylon strummed open chord ringing overtones classical nylon-string guitar, sitka spruce European maple sycamore maple French Polish shellac pad violin orchestral, bach stradivarius 180 canonical American orchestral unison large cup large rim orchestral bottom heavy trumpet, alder sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 899,
+  "score": 358.46,
   "config": {
     "traditions": [
       "mexican_pop",
       "ranchera",
-      "bachata"
+      "bolero_cubano"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 10.914999999999997,
-          "voice_quality": 37.62000000000001,
+          "voice_register": 10.54,
+          "voice_quality": 29.46999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.2575,
-          "voice_articulation": 20.929999999999996,
-          "voice_microtone": 18.849999999999994,
-          "voice_tradition": 12.974999999999998,
-          "voice_mechanism_compound": 5.525,
+          "voice_vibrato": 5.297499999999999,
+          "voice_articulation": 20.344999999999995,
+          "voice_microtone": 18.459999999999994,
+          "voice_tradition": 10.849999999999998,
+          "voice_mechanism_compound": 5.719999999999999,
           "voice_estill_quality": 15.11,
-          "voice_speech_song": 34.4825,
-          "voice_ensemble_config": 21.514999999999997,
-          "voice_ornament_system": 1.8849999999999993,
-          "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 5.525,
-          "voice_multitrack_stack": 8.845000000000002
+          "voice_speech_song": 33.2475,
+          "voice_ensemble_config": 20.929999999999993,
+          "voice_ornament_system": 1.2,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 5.785,
+          "voice_multitrack_stack": 6.4025
         }
       },
       {
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 10.325,
+          "keyboard_technique": 10.45,
           "grand_piano_size": 1.4949999999999999,
-          "grand_piano_brand": 2.73,
-          "piano_hammer": 10.915,
-          "piano_rim": 14.144999999999998,
-          "piano_soundboard": 11.875,
-          "piano_pinblock": 2.875,
-          "piano_plate": 3.8,
-          "piano_pitch_standard": 6.915
+          "grand_piano_brand": 3.23,
+          "piano_hammer": 9.29,
+          "piano_rim": 12.02,
+          "piano_soundboard": 10.25,
+          "piano_pinblock": 1.625,
+          "piano_plate": 2.55,
+          "piano_pitch_standard": 6.3149999999999995
         }
       },
       {
@@ -88,10 +88,10 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 10.954999999999998,
+          "acoustic_technique": 10.579999999999998,
           "string_tuning": 0,
-          "top_wood_classical": 3.38,
-          "bracing_classical": 1.3,
+          "top_wood_classical": 6.175,
+          "bracing_classical": 1.95,
           "string_classical": 2.925,
           "attack_technique_cl": 1.3
         }
@@ -102,33 +102,33 @@
           "bowed_technique": "bowed_pizzicato",
           "orch_strings": "gut_strings_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
-          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "french_polish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
-          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
           "bowed_technique": 3.625,
           "orch_strings": 0.95,
-          "orch_top_wood": 4.44,
-          "orch_back_wood": 3.2199999999999998,
-          "orch_varnish": 3.4499999999999997,
-          "orch_setup_period": 2.6325,
+          "orch_top_wood": 3.04,
+          "orch_back_wood": 1.865,
+          "orch_varnish": 2.1999999999999997,
+          "orch_setup_period": 0.8125,
           "orch_bow": 2.73,
-          "orch_bow_stick": 3.3449999999999998,
-          "orch_articulation": 1.04,
-          "orch_rosin": 3.07
+          "orch_bow_stick": 1.77,
+          "orch_articulation": 0.195,
+          "orch_rosin": 1.82
         }
       },
       {
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_mariachi_unison",
-          "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_1c",
           "brass_mute": "bucket_mute",
           "trumpet_technique": "trumpet_mariachi_unison",
           "trumpet_bell_metal": "trumpet_yellow_brass",
@@ -136,8 +136,8 @@
         },
         "scores": {
           "wind_articulation": 7.999999999999998,
-          "brass_size": 0.435,
-          "trumpet_mouthpiece": 4.55,
+          "brass_size": 0.5,
+          "trumpet_mouthpiece": 3.715,
           "brass_mute": 1,
           "trumpet_technique": 7.999999999999998,
           "trumpet_bell_metal": 0.65,
@@ -150,19 +150,19 @@
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "pyramid_pure_nickel",
+          "string_type": "half_round",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 1.8200000000000003,
+          "amp_make": 0.975,
           "body_wood": 1.3,
           "pickup_config": 0.045,
-          "string_type": 1.95,
+          "string_type": 1.3,
           "scale_length_b": 0.735,
-          "fretted_or_not": 0.195,
-          "bass_technique": 2.695
+          "fretted_or_not": 0.5,
+          "bass_technique": 1.945
         }
       },
       {
@@ -173,8 +173,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.799999999999997,
-          "drumhead": 11.875,
+          "drum_technique": 18.719999999999995,
+          "drumhead": 10.399999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -187,10 +187,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 10.95,
+          "electronic_technique": 10.125,
           "poly_archetypes": 1.3,
           "poly_voices": 1.3,
-          "poly_maker_lineage": 0.78
+          "poly_maker_lineage": 0.585
         }
       }
     ],

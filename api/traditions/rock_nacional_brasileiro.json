@@ -3,13 +3,13 @@
   "name": "Rock nacional brasileiro (BRock)",
   "family": "rock",
   "lineage": "Brazilian-language rock consolidated in Rio de Janeiro, Brasília and São Paulo between 1982 and 1989 — codified by Blitz, Barão Vermelho, Legião Urbana, Titãs and Os Paralamas do Sucesso and broadcast nationally after Rock in Rio 1985 — built on chorused clean-to-overdriven guitar, driving eighth-note bass, straight 4/4 kit at 130-160 BPM with occasional reggae or ska upstrokes, DX-era synth pads, and declamatory Portuguese vocals delivering long narrative and political lyrics.",
-  "recipe": "classic Southern American early-1980s rock nacional brasileiro, functional Song, pop rock branch, Brazilian song functional song, pop rock new wave, pop punk distorted rock skate punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, saxophone. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 708,
-  "score": 527.44,
+  "recipe": "classic Southern American early-1980s rock nacional brasileiro, functional Song, pop rock branch, Brazilian song functional song, pop rock new wave, pop punk distorted rock oshare kei skate punk. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, saxophone. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 724,
+  "score": 462.09,
   "config": {
     "traditions": [
       "rock_nacional_brasileiro",
-      "new_wave",
+      "oshare_kei",
       "skate_punk"
     ],
     "instruments": [
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 56.11500000000002,
-          "voice_quality": 10.27,
+          "voice_register": 47.065000000000026,
+          "voice_quality": 7.735000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.13,
-          "voice_articulation": 21.059999999999988,
-          "voice_microtone": 54.67500000000001,
-          "voice_tradition": 21.95,
-          "voice_mechanism_compound": 5.825,
-          "voice_estill_quality": 2.4699999999999998,
-          "voice_speech_song": 27.94999999999999,
-          "voice_ensemble_config": 18.39499999999999,
-          "voice_ornament_system": 1.5599999999999996,
-          "voice_pitch_organization": 1.885,
-          "voice_processing_chain": 5.99,
-          "voice_multitrack_stack": 6.285
+          "voice_vibrato": 3.04,
+          "voice_articulation": 22.619999999999994,
+          "voice_microtone": 46.57500000000002,
+          "voice_tradition": 16.9,
+          "voice_mechanism_compound": 6.925,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 26.194999999999993,
+          "voice_ensemble_config": 18.654999999999994,
+          "voice_ornament_system": 2.1049999999999995,
+          "voice_pitch_organization": 4.160000000000001,
+          "voice_processing_chain": 4.8100000000000005,
+          "voice_multitrack_stack": 3.1200000000000006
         }
       },
       {
@@ -60,7 +60,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.025,
-          "amp_make": 27.58,
-          "body_wood": 2.6649999999999996,
-          "neck_wood": 2.015,
-          "fretboard": 1.95,
-          "pickup_magnet": 0.39,
+          "electric_technique": 16.45,
+          "amp_make": 26.58,
+          "body_wood": 1.4300000000000002,
+          "neck_wood": 0.975,
+          "fretboard": 0.9099999999999999,
+          "pickup_magnet": 0.65,
           "pickup_winding": 0.195,
-          "string_material": 0.195,
-          "bridge": 2.015,
-          "scale_length": 2.015,
-          "string_gauge": 2.6649999999999996,
+          "string_material": 0.09,
+          "bridge": 0.975,
+          "scale_length": 0.975,
+          "string_gauge": 0.975,
           "finish": 0.15,
-          "string_tuning": 17.125
+          "string_tuning": 15.075000000000003
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 16.495,
-          "body_wood": 2.015,
-          "pickup_config": 0.195,
-          "string_type": 35.55,
-          "scale_length_b": 2.015,
+          "amp_make": 15.695000000000002,
+          "body_wood": 1.17,
+          "pickup_config": 0.585,
+          "string_type": 31.925000000000004,
+          "scale_length_b": 0.975,
           "fretted_or_not": 0.3,
-          "bass_technique": 46.5
+          "bass_technique": 43.400000000000006
         }
       },
       {
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 35.25,
-          "drumhead": 20.195,
+          "drum_technique": 31.625000000000004,
+          "drumhead": 15.145,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -124,14 +124,14 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 20.22,
-          "poly_archetypes": 14.790000000000001,
-          "poly_voices": 0.44999999999999996,
-          "poly_maker_lineage": 0.5199999999999999
+          "electronic_technique": 16.095,
+          "poly_archetypes": 13.340000000000002,
+          "poly_voices": 0.445,
+          "poly_maker_lineage": 0.585
         }
       },
       {
@@ -140,19 +140,19 @@
           "wind_articulation": "wind_ska_skank_stab",
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "gold_brass_sax",
+          "sax_body_alloy": "yellow_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_bebop_runs",
+          "sax_technique": "sax_cool_lyrical",
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 4.4750000000000005,
-          "sax_size": 2.015,
-          "sax_reed": 0.195,
-          "sax_body_alloy": 0.625,
+          "wind_articulation": 3.2,
+          "sax_size": 0.975,
+          "sax_reed": 0.09,
+          "sax_body_alloy": 0.895,
           "sax_mouthpiece": 0.195,
-          "sax_technique": 0.9,
-          "sax_maker_school": 0.195
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.845
         }
       }
     ],

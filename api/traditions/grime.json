@@ -1,0 +1,150 @@
+{
+  "id": "grime",
+  "name": "Grime",
+  "family": "hip_hop",
+  "lineage": "East London MC-and-producer genre formed 2000-2003 out of UK garage and jungle by Wiley, Dizzee Rascal, More Fire Crew and the Roll Deep and Ruff Sqwad crews on pirate radio — 140 BPM instrumentals with a syncopated 8-bar or 16-bar skeletal structure, square-wave and sine sublows, sparse Playstation-era FruityLoops synth stabs, and rapid-fire aggressive MCing in London slang delivered over a spare, mostly beatless-in-the-middle arrangement.",
+  "recipe": "classic Western European 2000-2003 grime, mc Rhythm, intl hip hop branch, uk soundsystem bass system, bass descendants bass system raggatek jump-up. vocal fry, breath veiled tone, slow rate, interlocked note trading. sub bass digital subtractive, TR-909, sampled chopped sampler drum machine, yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm synth, sampled chopped turntable. brent black community studio london. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3.",
+  "recipe_chars": 517,
+  "score": 217.145,
+  "config": {
+    "traditions": [
+      "grime",
+      "raggatek",
+      "jump_up"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.8850000000000002,
+          "voice_quality": 9.555,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.6249999999999998,
+          "voice_articulation": 21.709999999999994,
+          "voice_microtone": 21.77499999999999,
+          "voice_tradition": 7.475,
+          "voice_mechanism_compound": 2.7299999999999995,
+          "voice_estill_quality": 2.5349999999999997,
+          "voice_speech_song": 22.359999999999992,
+          "voice_ensemble_config": 23.789999999999996,
+          "voice_ornament_system": 5.720000000000001,
+          "voice_pitch_organization": 1.9499999999999997,
+          "voice_processing_chain": 4.665000000000001,
+          "voice_multitrack_stack": 5.135000000000002
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 14.527499999999998,
+          "va_archetypes": 0.15,
+          "digital_subtractive_context": 21.319999999999997
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 0.09999999999999999,
+          "drum_machine_909_context": 1.8199999999999998,
+          "tr909_production_origin": 0
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 4.050000000000001,
+          "sample_bitdepth": 0.045,
+          "sample_swing": 4.33,
+          "sample_processing": 3.5949999999999998
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_tx81z"
+        },
+        "scores": {
+          "electronic_technique": 14.527499999999998,
+          "fm_algorithm": 1.2349999999999999,
+          "fm_modulator_ratio": 0.845,
+          "fm_polyphony": 0.15,
+          "fm_model_lineage": 8.385
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 4.050000000000001,
+          "turntable_technique": 3.4050000000000002
+        }
+      }
+    ],
+    "room": "brent_black_community_studio_london",
+    "archetype": "arch_uk_grime_dubstep_pirate",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "brent_black_community_studio_london",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

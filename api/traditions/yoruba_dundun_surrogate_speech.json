@@ -5,7 +5,7 @@
   "lineage": "Surrogate-speech practice of the Yoruba dùndún hourglass tension-drum family of southwestern Nigeria, in which the lead ìyá ìlù drummer squeezes the drum's lacing cords to glide pitch across the three tone levels of spoken Yoruba, literally 'talking' proverbs (òwe), oríkì praise epithets, and Ifá verses to listeners who decode the drummed speech. Drumming is the hereditary craft of àyàn lineages, who trace their art to the drum ancestor-spirit Àyàngalú, performing at royal courts, festivals, and ceremonies since at least the era of the Oyo empire. Akin Euba's monograph Yoruba Drumming: The Dùndún Tradition (1990) is the canonical scholarly study, and the idiom feeds directly into the talking-drum roles of jùjú and fújì popular music.",
   "recipe": "classic early-1990s yoruba dùndún surrogate speech, groove Percussion, west African branch columbia joropo. thick, breath veiled tone, fast rate, interlocked note trading. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 365,
-  "score": 237.602,
+  "score": 238.051,
   "config": {
     "traditions": [
       "yoruba_dundun_surrogate_speech",
@@ -47,9 +47,9 @@
           "voice_speech_song": 27.105,
           "voice_ensemble_config": 20.345,
           "voice_ornament_system": 7.215,
-          "voice_pitch_organization": 17.366499999999995,
+          "voice_pitch_organization": 17.442999999999998,
           "voice_processing_chain": 12.739999999999997,
-          "voice_multitrack_stack": 4.5385
+          "voice_multitrack_stack": 4.4935
         }
       },
       {
@@ -62,7 +62,7 @@
         },
         "scores": {
           "talking_drum_origin": 4.658,
-          "talking_drum_context": 4.263,
+          "talking_drum_context": 4.68,
           "talking_drum_shell_wood": 10.009999999999998,
           "talking_drum_head": 5.308000000000001
         }

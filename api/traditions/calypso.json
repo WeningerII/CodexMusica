@@ -3,24 +3,24 @@
   "name": "Calypso",
   "family": "global",
   "lineage": "Trinidadian narrative-and-topical song tradition emerging from post-1834 Emancipation kalinda stick-fighting chant, codified through the post-WWII commercial recording era — Mighty Sparrow (Slinger Francisco), Lord Kitchener (Aldwyn Roberts), Lord Invader, the Roaring Lion, Lord Melody, Calypso Rose; performed during the Trinidad and Tobago Carnival season (October-February preparation, with Carnival Monday-Tuesday peak) in calypso tent venues and competition contexts",
-  "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional bachata merengue urbano. vocal fry, breath veiled tone, straight note core, interlocked note trading. dreadnought acoustic guitar, claves, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, schilke chicago lead bright shallow cup lead trumpet ensemble trumpet, yellow brass modern standard yamaha custom 875ex modern Japanese premium rubber saxophone, steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 736,
-  "score": 177.068,
+  "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional coladeira compas. thick, breath veiled tone, slow rate, interlocked note trading. low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar, claves, mahogany pyramid pure nickel bass British mid 60s era fingerpicked electric bass, steelpan, heavy one piece matched to monette horn ensemble trumpet, rose brass darker warmer saxophone, cross genre concert stage steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 729,
+  "score": 153.23,
   "config": {
     "traditions": [
       "calypso",
-      "bachata",
-      "merengue_urbano"
+      "coladeira",
+      "compas_direk"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -28,88 +28,88 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 1.8199999999999998,
-          "voice_quality": 8.06,
+          "voice_register": 1.6699999999999995,
+          "voice_quality": 8.255,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2999999999999998,
-          "voice_articulation": 19.239999999999995,
-          "voice_microtone": 17.159999999999993,
-          "voice_tradition": 7.345000000000001,
-          "voice_mechanism_compound": 6.11,
-          "voice_estill_quality": 5.46,
-          "voice_speech_song": 28.664999999999996,
-          "voice_ensemble_config": 17.679999999999996,
-          "voice_ornament_system": 2.3399999999999994,
-          "voice_pitch_organization": 0.7499999999999998,
-          "voice_processing_chain": 6.885000000000001,
-          "voice_multitrack_stack": 7.214999999999998
+          "voice_vibrato": 0.78,
+          "voice_articulation": 17.939999999999994,
+          "voice_microtone": 15.794999999999991,
+          "voice_tradition": 7.6375,
+          "voice_mechanism_compound": 5.459999999999999,
+          "voice_estill_quality": 5.005,
+          "voice_speech_song": 26.58499999999999,
+          "voice_ensemble_config": 15.534999999999993,
+          "voice_ornament_system": 0.105,
+          "voice_pitch_organization": 0.8999999999999997,
+          "voice_processing_chain": 3.7350000000000003,
+          "voice_multitrack_stack": 2.275
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "open_g",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": 2.9250000000000003,
-          "string_tuning": 0.45500000000000007,
+          "string_tuning": 0,
           "top_wood": 0.69,
           "back_sides": 0.435,
-          "string_acoustic": 0.65
+          "string_acoustic": 1.0350000000000001
         }
       },
       {
         "id": "claves",
         "slots": {
-          "claves_pattern": "claves_bembe",
-          "claves_wood": "claves_cuban_hardwood"
+          "claves_pattern": "claves_rumba",
+          "claves_wood": "claves_ebony"
         },
         "scores": {
-          "claves_pattern": 2.2749999999999995,
-          "claves_wood": 0.65
+          "claves_pattern": 1.1249999999999998,
+          "claves_wood": 0.6
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_modern_modeling",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "sub_bass_synth_blend"
+          "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 1.17,
+          "amp_make": 1.625,
           "body_wood": 1.3800000000000001,
-          "pickup_config": 0.65,
-          "string_type": 2.4050000000000002,
-          "scale_length_b": 0.65,
+          "pickup_config": 0.345,
+          "string_type": 3.2500000000000004,
+          "scale_length_b": 0.39,
           "fretted_or_not": 0.3,
-          "bass_technique": 1.445
+          "bass_technique": 1.25
         }
       },
       {
         "id": "steelpan",
         "slots": {
-          "steelpan_voice": "cello_pan",
-          "steelpan_context": "steelpan_panyard"
+          "steelpan_voice": "double_seconds",
+          "steelpan_context": "steelpan_session"
         },
         "scores": {
-          "steelpan_voice": 2.7299999999999995,
-          "steelpan_context": 3.725
+          "steelpan_voice": 0.39,
+          "steelpan_context": 2.34
         }
       },
       {
@@ -117,20 +117,20 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_schilke"
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.3849999999999998,
+          "wind_articulation": 2.1850000000000005,
           "brass_size": 0.435,
-          "trumpet_mouthpiece": 1.365,
-          "brass_mute": 0.65,
-          "trumpet_technique": 1.3849999999999998,
-          "trumpet_bell_metal": 0.78,
-          "trumpet_maker_school": 1.235
+          "trumpet_mouthpiece": 2.6850000000000005,
+          "brass_mute": 0.195,
+          "trumpet_technique": 2.1850000000000005,
+          "trumpet_bell_metal": 0.975,
+          "trumpet_maker_school": 0.7799999999999998
         }
       },
       {
@@ -139,32 +139,32 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "yellow_brass_sax",
+          "sax_body_alloy": "rose_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_cool_lyrical",
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 1.3849999999999998,
+          "wind_articulation": 2.1850000000000005,
           "sax_size": 0.69,
           "sax_reed": 0.435,
-          "sax_body_alloy": 2.34,
-          "sax_mouthpiece": 1.6899999999999997,
-          "sax_technique": 0.325,
-          "sax_maker_school": 1.04
+          "sax_body_alloy": 1.8499999999999999,
+          "sax_mouthpiece": 0.78,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.39
         }
       },
       {
         "id": "steel_orchestra",
         "slots": {
-          "steel_orchestra_sections": "steel_orchestra_frontline",
+          "steel_orchestra_sections": "steel_orchestra_mid_harmony",
           "steel_orchestra_context": "steel_orchestra_concert_session",
           "steel_orchestra_size": "steel_orchestra_single_pan"
         },
         "scores": {
-          "steel_orchestra_sections": 2.08,
-          "steel_orchestra_context": 0.39,
-          "steel_orchestra_size": 2.0799999999999996
+          "steel_orchestra_sections": 0.845,
+          "steel_orchestra_context": 1.04,
+          "steel_orchestra_size": 0.39
         }
       }
     ],

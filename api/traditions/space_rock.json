@@ -5,7 +5,7 @@
   "lineage": "Late-1960s-and-1970s rock subgenre integrating extended psychedelic instrumental passages with science-fiction-cosmic thematic content. Hawkwind (UK 1969-onward) inaugurated the canonical style with Space Ritual (1973); Pink Floyd's pre-Dark-Side material, Gong's Radio Gnome Invisible trilogy, and (in the 1980s revival) Spacemen 3 and Loop continued the lineage. Distinguished from broader progressive rock by space rock's specific psychedelic-cosmic thematic focus and extended-instrumental-passage emphasis.",
   "recipe": "classic Central European space rock, distorted Rock, progressive rock branch, experimental distorted rock post-rock krautrock. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, ambient pad like analog synth, vibrato wobble internal speaker close miked stylophone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
   "recipe_chars": 737,
-  "score": 417.042,
+  "score": 428.211,
   "config": {
     "traditions": [
       "space_rock",
@@ -34,28 +34,28 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 36.79375000000002,
+          "voice_register": 37.000000000000014,
           "voice_quality": 10.14,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.1365,
+          "voice_vibrato": 4.419999999999999,
           "voice_articulation": 13.194999999999997,
-          "voice_microtone": 36.90350000000001,
-          "voice_tradition": 13.411499999999998,
+          "voice_microtone": 37.008500000000005,
+          "voice_tradition": 15.202499999999999,
           "voice_mechanism_compound": 4.615000000000001,
-          "voice_estill_quality": 6.3267500000000005,
+          "voice_estill_quality": 6.458,
           "voice_speech_song": 13.942499999999997,
           "voice_ensemble_config": 12.934999999999995,
-          "voice_ornament_system": 6.4115,
+          "voice_ornament_system": 6.718999999999999,
           "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 10.93925,
-          "voice_multitrack_stack": 8.8535
+          "voice_processing_chain": 11.378,
+          "voice_multitrack_stack": 9.003499999999999
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
+          "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
@@ -66,44 +66,44 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_11_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 9.7,
-          "amp_make": 17.028,
+          "electric_technique": 10.01,
+          "amp_make": 17.8425,
           "body_wood": 1.8849999999999996,
-          "neck_wood": 4.1365,
-          "fretboard": 4.1365,
-          "pickup_magnet": 0.04875,
+          "neck_wood": 4.419999999999999,
+          "fretboard": 4.419999999999999,
+          "pickup_magnet": 0.15,
           "pickup_winding": 0.845,
-          "string_material": 4.1365,
-          "bridge": 0.14625,
+          "string_material": 4.419999999999999,
+          "bridge": 0.09,
           "scale_length": 6.305,
-          "string_gauge": 0.14625,
-          "finish": 0,
-          "string_tuning": 24.584249999999997
+          "string_gauge": 0.09,
+          "finish": 0.195,
+          "string_tuning": 25.544999999999998
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
+          "body_wood": "swamp_ash_b",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 16.76275,
-          "body_wood": 0.2925,
-          "pickup_config": 0,
-          "string_type": 36.916500000000006,
-          "scale_length_b": 0.14625,
-          "fretted_or_not": 0.02625,
-          "bass_technique": 34.173750000000005
+          "amp_make": 17.485,
+          "body_wood": 0.3,
+          "pickup_config": 0.15,
+          "string_type": 39.918000000000006,
+          "scale_length_b": 0.09,
+          "fretted_or_not": 0,
+          "bass_technique": 34.12500000000001
         }
       },
       {
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 33.75000000000001,
-          "drumhead": 4.1365,
+          "drumhead": 4.419999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -126,14 +126,14 @@
           "oscillator": "saw_single",
           "filter_topology": "transistor_ladder",
           "envelope": "pad_env",
-          "modulation": "lfo_pitch"
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 1.2,
-          "oscillator": 4.1365,
-          "filter_topology": 0.31725000000000003,
+          "electronic_technique": 1.4264999999999999,
+          "oscillator": 4.419999999999999,
+          "filter_topology": 0.3,
           "envelope": 1.3,
-          "modulation": 0.105
+          "modulation": 0.15
         }
       },
       {
@@ -146,8 +146,8 @@
         },
         "scores": {
           "stylophone_model": 5.3999999999999995,
-          "stylophone_technique": 5.3999999999999995,
-          "stylophone_vibrato": 3.3799999999999994,
+          "stylophone_technique": 5.581499999999999,
+          "stylophone_vibrato": 3.263,
           "stylophone_output": 3.3799999999999994
         }
       }

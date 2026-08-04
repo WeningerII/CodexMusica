@@ -3,9 +3,9 @@
   "name": "Third-wave ska punk",
   "family": "rock_punk",
   "lineage": "1990s American ska-punk hybrid synthesizing third-wave ska revival with American hardcore-and-pop-punk aesthetic. Operation Ivy (Berkeley 1987-1989), Rancid, NOFX (ska-tinged), Less Than Jake, Reel Big Fish, and the Mighty Mighty Bosstones constitute the canonical roster. Distinguished from earlier two-tone British ska revival by third-wave ska-punk's American-suburban (vs British-multicultural-protest) cultural orientation and faster-aggressive tempi.",
-  "recipe": "classic North American 1987-1989 third-wave ska punk, distorted Rock, pop punk branch, Jamaican bass system jamaican dancehall reggae roots. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, pre muffled edge muffled sticks drum kit, gold brass warmer tone split tone overblown saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 966,
-  "score": 352.491,
+  "recipe": "classic North American 1987-1989 third-wave ska punk, distorted Rock, pop punk branch, Jamaican bass system jamaican dancehall reggae roots. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, pre muffled edge muffled sticks drum kit, gold brass warmer tone split tone overblown saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 972,
+  "score": 353.442,
   "config": {
     "traditions": [
       "ska_punk_third_wave",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 11.248749999999994,
+          "voice_register": 11.184999999999993,
           "voice_quality": 13.974999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6487499999999997,
+          "voice_vibrato": 3.7949999999999995,
           "voice_articulation": 11.439999999999996,
           "voice_microtone": 15.729999999999993,
-          "voice_tradition": 8.119,
-          "voice_mechanism_compound": 5.616750000000001,
+          "voice_tradition": 7.614999999999998,
+          "voice_mechanism_compound": 4.65,
           "voice_estill_quality": 2.0799999999999996,
           "voice_speech_song": 11.829999999999995,
-          "voice_ensemble_config": 20.894,
-          "voice_ornament_system": 3.54875,
-          "voice_pitch_organization": 3.7949999999999995,
-          "voice_processing_chain": 4.5305,
-          "voice_multitrack_stack": 4.506
+          "voice_ensemble_config": 21.38,
+          "voice_ornament_system": 3.545,
+          "voice_pitch_organization": 3.8399999999999994,
+          "voice_processing_chain": 4.565,
+          "voice_multitrack_stack": 4.995
         }
       },
       {
@@ -62,16 +62,16 @@
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
-          "string_material": "pure_nickel_h",
+          "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
-          "string_tuning": "drop_d"
+          "finish": "nitro_hum",
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 16.205,
-          "amp_make": 23.398999999999997,
+          "electric_technique": 16.04,
+          "amp_make": 22.579999999999995,
           "body_wood": 0.845,
           "neck_wood": 0.845,
           "fretboard": 0.78,
@@ -81,8 +81,8 @@
           "bridge": 0.845,
           "scale_length": 0.845,
           "string_gauge": 0.845,
-          "finish": 0.04875,
-          "string_tuning": 4.225
+          "finish": 0,
+          "string_tuning": 3.94
         }
       },
       {
@@ -97,9 +97,9 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 7.84325,
+          "amp_make": 8.255,
           "body_wood": 0.845,
-          "pickup_config": 0.276,
+          "pickup_config": 0.495,
           "string_type": 8.385,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.39,
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 16,
-          "drumhead": 7.234999999999999,
+          "drumhead": 7.385,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -126,18 +126,18 @@
           "sax_size": "baritone_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "gold_brass_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_split_tone_overblown",
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 21.624999999999996,
+          "wind_articulation": 21.864999999999995,
           "sax_size": 1.04,
           "sax_reed": 0.39,
-          "sax_body_alloy": 1.3425,
+          "sax_body_alloy": 1.4849999999999999,
           "sax_mouthpiece": 0.195,
-          "sax_technique": 1.295,
-          "sax_maker_school": 0.04875
+          "sax_technique": 1.385,
+          "sax_maker_school": 0
         }
       },
       {
@@ -152,34 +152,34 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 21.624999999999996,
-          "brass_size": 0.04875,
+          "wind_articulation": 21.864999999999995,
+          "brass_size": 0.195,
           "trumpet_mouthpiece": 3.445,
           "brass_mute": 0.195,
           "trumpet_technique": 21.624999999999996,
-          "trumpet_bell_metal": 1.64125,
-          "trumpet_maker_school": 5.7452499999999995
+          "trumpet_bell_metal": 1.3,
+          "trumpet_maker_school": 5.844999999999999
         }
       },
       {
         "id": "trombone",
         "slots": {
           "wind_articulation": "wind_ska_skank_stab",
-          "trombone_type": "bass_trombone",
+          "trombone_type": "valve_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_12c",
           "trombone_mute": "cup_mute_trb",
-          "trombone_technique": "tailgate_slide",
+          "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 21.624999999999996,
-          "trombone_type": 0.195,
-          "trombone_mouthpiece": 7.25,
+          "wind_articulation": 21.864999999999995,
+          "trombone_type": 1.1849999999999998,
+          "trombone_mouthpiece": 7.145,
           "trombone_mute": 0,
-          "trombone_technique": 0.24,
-          "trombone_bell_metal": 2.06275,
-          "trombone_maker_school": 5.640249999999999
+          "trombone_technique": 0.195,
+          "trombone_bell_metal": 1.6900000000000002,
+          "trombone_maker_school": 6.1899999999999995
         }
       }
     ],

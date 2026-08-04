@@ -3,14 +3,14 @@
   "name": "Korean jubu-ga (drinking-and-celebration songs)",
   "family": "global",
   "lineage": "Korean drinking-and-celebration song tradition continuous from premodern Korean banquet-and-tavern song-tradition through Japanese-colonial-era and post-1945 continuous performance into modern Korean-and-Korean-diaspora continuous noraebang (가요방, song-room) and drinking-establishment practice; the broader Korean drinking-culture integrates extensive trot (트로트) and folk-drinking-song repertoire",
-  "recipe": "classic mid-1940s korean jubu-ga, drinking Song, east Asian branch, European drinking song, east Asian pop functional song, east Asian protest song enka. thick, breath veiled tone, straight note core, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 366,
-  "score": 264.939,
+  "recipe": "classic mid-1940s korean jubu-ga, drinking Song, east Asian branch, European drinking song, east Asian pop functional song, east Asian protest song enka italian canti goliardici. thick, breath veiled tone, straight onset, interlocked note trading. mahogany fingerpicked acoustic guitar. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 360,
+  "score": 244.561,
   "config": {
     "traditions": [
       "korean_jubu_ga",
       "enka",
-      "opm"
+      "italian_canti_goliardici"
     ],
     "instruments": [
       {
@@ -20,52 +20,52 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "korean_minsogak_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 26.14999999999999,
-          "voice_quality": 10.464999999999991,
+          "voice_register": 14.249999999999991,
+          "voice_quality": 9.555,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.077500000000001,
-          "voice_articulation": 26.65000000000001,
-          "voice_microtone": 27.300000000000004,
-          "voice_tradition": 37.31249999999999,
-          "voice_mechanism_compound": 1.2349999999999999,
-          "voice_estill_quality": 3.6775,
-          "voice_speech_song": 44.52500000000003,
-          "voice_ensemble_config": 27.820000000000007,
-          "voice_ornament_system": 28.8,
-          "voice_pitch_organization": 5.719999999999999,
-          "voice_processing_chain": 7.065,
-          "voice_multitrack_stack": 6.536250000000001
+          "voice_vibrato": 4.095000000000001,
+          "voice_articulation": 23.40000000000001,
+          "voice_microtone": 24.050000000000004,
+          "voice_tradition": 35.2975,
+          "voice_mechanism_compound": 0.975,
+          "voice_estill_quality": 10.302499999999998,
+          "voice_speech_song": 43.71250000000003,
+          "voice_ensemble_config": 24.115000000000006,
+          "voice_ornament_system": 27.675,
+          "voice_pitch_organization": 7.409999999999999,
+          "voice_processing_chain": 7.867500000000001,
+          "voice_multitrack_stack": 5.956250000000001
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
           "string_tuning": "drop_d",
-          "top_wood": "cedar_om",
-          "back_sides": "walnut_bs_om",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "mahogany_bs_om",
           "string_acoustic": "phosphor_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 2.3000000000000003,
-          "top_wood": 1.15,
-          "back_sides": 1.285,
-          "string_acoustic": 1.65,
+          "string_tuning": 0.12499999999999997,
+          "top_wood": 1.3649999999999998,
+          "back_sides": 1.3649999999999998,
+          "string_acoustic": 0.8,
           "acoustic_om_technique": 4.195
         }
       }

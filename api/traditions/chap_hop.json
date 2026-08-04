@@ -1,0 +1,167 @@
+{
+  "id": "chap_hop",
+  "name": "Chap Hop",
+  "family": "hip_hop",
+  "lineage": "British novelty rap microgenre established in London and Brighton around 2008-2010 by Mr. B The Gentleman Rhymer and Professor Elemental, delivering received-pronunciation battle verses about tea, cricket and colonial-adventure absurdity over mid-tempo 90-100 BPM boom-bap loops sampling music-hall piano, brass-band 78s and Edwardian parlour records, with banjolele strumming replacing the usual sample chops.",
+  "recipe": "classic 2008-2010 chap hop, mc Rhythm, intl hip hop branch, us hip hop east coast, retro aesthetic experimental electric mafioso rap golden age hip hop. thick, rap, slow rate, interlocked note trading. sampled chopped turntable, chopped sampler, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, gospel runs upright piano, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 625,
+  "score": 317.545,
+  "config": {
+    "traditions": [
+      "chap_hop",
+      "mafioso_rap",
+      "golden_age_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 5.69,
+          "voice_quality": 27.015,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6650000000000005,
+          "voice_articulation": 17.679999999999993,
+          "voice_microtone": 17.484999999999992,
+          "voice_tradition": 10.610000000000001,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 4.03,
+          "voice_speech_song": 25.800000000000004,
+          "voice_ensemble_config": 16.964999999999993,
+          "voice_ornament_system": 5.785000000000001,
+          "voice_pitch_organization": 0.6499999999999999,
+          "voice_processing_chain": 18.625,
+          "voice_multitrack_stack": 4.0950000000000015
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 9.535,
+          "turntable_technique": 12.645000000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 9.535,
+          "sampler_archetypes": 15.86,
+          "sampler_bit_depth": 3.9000000000000004,
+          "sampler_workflow": 12.745000000000001,
+          "sampler_classic_context": 31.134999999999998
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_fluorocarbon",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.39,
+          "tone_ring": 0.195,
+          "banjo_head": 17.874999999999996,
+          "banjo_pot": 0,
+          "banjo_play": 0.195,
+          "banjo_rim_wood": 0.78,
+          "banjo_neck_wood": 2.4,
+          "banjo_strings": 0.345,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 17.159999999999997
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 4,
+          "upright_use": 2.535,
+          "upright_piano_size": 0.195
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "tuba_pitch": 3.335,
+          "tuba_context": 3.965,
+          "tuba_bell_metal": 1.885,
+          "tuba_valve_system": 0.195,
+          "tuba_maker_school": 5.265
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

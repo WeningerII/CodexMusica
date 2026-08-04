@@ -3,20 +3,20 @@
   "name": "UK metalcore",
   "family": "rock",
   "lineage": "British metalcore lineage formed in Brighton, Sheffield and the Midlands in the mid-2000s around Bring Me the Horizon, Architects and While She Sleeps — drop-tuned seven-string riffing in 4/4 with syncopated palm-muted chugs and half-time breakdowns, blastbeat-to-double-kick transitions, screamed verses answered by fully sung anthemic choruses, and layered ambient-synth pads under the guitars",
-  "recipe": "classic 2004-2006 uk metalcore, distorted Rock, metal branch, punk distorted rock, emo distorted rock post-punk trancecore. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, drop a palm mute seven string electric, marshall plexi amp British rock amp alder ernie ball slinky electric bass, sticks backbeat drum kit, unison double single performer stack mid 1960s double tracking era 2 to 4 track hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 830,
-  "score": 364.9,
+  "recipe": "classic 2004-2006 uk metalcore, distorted Rock, metal branch, punk distorted rock, emo distorted rock synthcore trancecore. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, drop a palm mute seven string electric, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, unison double single performer stack mid 1960s double tracking era 2 to 4 track hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, plucked short envelope analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 815,
+  "score": 350.771,
   "config": {
     "traditions": [
       "uk_metalcore",
-      "post_punk",
+      "synthcore",
       "trancecore"
     ],
     "instruments": [
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_palm_muted_chug",
+          "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 16.625,
-          "amp_make": 25.5125,
-          "body_wood": 6.4350000000000005,
+          "electric_technique": 15.470000000000002,
+          "amp_make": 23.1725,
+          "body_wood": 6.240000000000001,
           "neck_wood": 2.08,
           "fretboard": 2.015,
           "pickup_magnet": 1.3,
           "pickup_winding": 0.3,
-          "string_material": 0.39,
+          "string_material": 0.09,
           "bridge": 2.08,
-          "scale_length": 4.03,
+          "scale_length": 3.6400000000000006,
           "string_gauge": 3.38,
           "finish": 0.195,
-          "string_tuning": 14.690000000000001
+          "string_tuning": 12.935000000000002
         }
       },
       {
@@ -53,7 +53,7 @@
           "seven_string_technique": "seven_string_djent_palm_mute"
         },
         "scores": {
-          "seven_string_tuning": 3.7725,
+          "seven_string_tuning": 4.2975,
           "seven_string_technique": 1.3
         }
       },
@@ -69,25 +69,25 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 12.675,
+          "amp_make": 11.7,
           "body_wood": 2.9899999999999998,
           "pickup_config": 1.3,
-          "string_type": 25.804375,
+          "string_type": 23.725,
           "scale_length_b": 2.08,
           "fretted_or_not": 0.045,
-          "bass_technique": 28.92
+          "bass_technique": 24.795
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.125,
-          "drumhead": 2.08,
+          "drum_technique": 18.25,
+          "drumhead": 2.4499999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -106,28 +106,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 22.083749999999995,
-          "voice_quality": 10.789999999999994,
+          "voice_register": 21.188749999999995,
+          "voice_quality": 10.204999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.015,
-          "voice_articulation": 17.484999999999992,
-          "voice_microtone": 21.924999999999997,
-          "voice_tradition": 2.7950000000000004,
-          "voice_mechanism_compound": 19.63,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 17.484999999999992,
-          "voice_ensemble_config": 19.369999999999994,
-          "voice_ornament_system": 0.45499999999999996,
-          "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 3.9650000000000003,
-          "voice_multitrack_stack": 8.385000000000002
+          "voice_articulation": 16.964999999999996,
+          "voice_microtone": 20.752499999999994,
+          "voice_tradition": 3.5750000000000006,
+          "voice_mechanism_compound": 23.325625000000002,
+          "voice_estill_quality": 3.6400000000000006,
+          "voice_speech_song": 17.419999999999995,
+          "voice_ensemble_config": 17.354999999999997,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 2.5350000000000006,
+          "voice_processing_chain": 2.6,
+          "voice_multitrack_stack": 9.793125
         }
       },
       {
@@ -139,23 +139,23 @@
         },
         "scores": {
           "multitrack_stack_density": 2.11125,
-          "multitrack_stack_era_aesthetic": 7.67,
+          "multitrack_stack_era_aesthetic": 8.125,
           "multitrack_stack_processing": 3.5100000000000002
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_pluck_short",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 2.45,
-          "poly_archetypes": 10.465,
-          "poly_voices": 0.050624999999999996,
-          "poly_maker_lineage": 1.2349999999999999
+          "electronic_technique": 3.294999999999999,
+          "poly_archetypes": 9.49,
+          "poly_voices": 0.65,
+          "poly_maker_lineage": -0.7350000000000001
         }
       }
     ],

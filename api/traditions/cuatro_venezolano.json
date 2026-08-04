@@ -1,0 +1,98 @@
+{
+  "id": "cuatro_venezolano",
+  "name": "Cuatro venezolano (solo concert tradition)",
+  "family": "global",
+  "lineage": "Solo and small-ensemble concert repertoire for the four-string Venezuelan cuatro, lifted from accompaniment to art instrument by Fredy Reyna from the 1950s and extended by Cheo Hurtado and Jorge Glem, using re-entrant A-D-F#-B tuning, thumb-and-finger charrasqueo strum with muted rasgueo, and joropo, vals and merengue caraqueño forms at hemiola-heavy 3/4 and 5/8.",
+  "recipe": "classic mid-1950s cuatro venezolano, improv On Frame, string improv branch, tropical song functional song, Latin am troubadour ballad poetry cuatro puertorriqueño bolero cubano. cedar canonical Venezuelan gut pre modern cuatro venezolano, plastic synthetic maracas, treble-extended sustaining steel upright bass, cedar concert modern carbon fiber fan strum classical nylon-string guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 525,
+  "score": 30.601,
+  "config": {
+    "traditions": [
+      "cuatro_venezolano",
+      "cuatro_puertorriqueno",
+      "bolero_cubano"
+    ],
+    "instruments": [
+      {
+        "id": "cuatro_venezolano",
+        "slots": {
+          "cuatro_venezolano_tuning": "cuatro_venezolano_reentrant",
+          "cuatro_venezolano_technique": "cuatro_venezolano_picado",
+          "cuatro_venezolano_body_wood": "cuatro_venezolano_cedar",
+          "cuatro_venezolano_strings": "cuatro_venezolano_gut_historical"
+        },
+        "scores": {
+          "cuatro_venezolano_tuning": 0,
+          "cuatro_venezolano_technique": 1.8199999999999998,
+          "cuatro_venezolano_body_wood": 1.885,
+          "cuatro_venezolano_strings": 1.17
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_plastic",
+          "maracas_filling": "maracas_beads"
+        },
+        "scores": {
+          "maracas_construction": 1.04,
+          "maracas_filling": 1.235
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 1.885,
+          "upright_play": 0.75
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "rasgueado_cl"
+        },
+        "scores": {
+          "acoustic_technique": 1.8999999999999997,
+          "string_tuning": 0,
+          "top_wood_classical": 7.02,
+          "bracing_classical": 3.50625,
+          "string_classical": 1.04,
+          "attack_technique_cl": 1.4
+        }
+      }
+    ],
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "joropo_3_4_corrido_hemiola",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "joropo_3_4_corrido_hemiola",
+    "room": "parlor",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

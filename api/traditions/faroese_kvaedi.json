@@ -3,13 +3,14 @@
   "name": "Faroese kvæði (ballad chain-dance)",
   "family": "global",
   "lineage": "Faroese kvæði Faroe Islands ballad-and-chain-dance tradition, the canonical surviving medieval-Scandinavian narrative-ballad chain-dance form that has persisted in continuous practice on the Faroes since the medieval period. Performance configuration: a circle of dancers holding hands, moving in characteristic slow-stepping pattern, with the lead-singer (skipari) singing the narrative-stanzas while the dancer-chorus responds with refrain-lines. Repertoire centers on long narrative-cycles including the Sjúrðar kvæði (Sigurd-the-dragon-slayer cycle, the canonical Faroese epic, 200+ stanzas), and other historical, mythological, and ballad-narrative cycles in classical Faroese language. The post-1948 Faroese cultural-autonomy period under the Føroya Fróðskaparfelag (Faroese Society) consolidated institutional preservation.",
-  "recipe": "classic late-1940s faroese kvæði, ballad Poetry, Celtic balladic branch, Celtic balladic Scottish ballad child ballad revival. thick, breath veiled tone, straight note core, interlocked note trading. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 279,
-  "score": 117.016,
+  "recipe": "classic late-1940s faroese kvæði, ballad Poetry, Celtic balladic branch, Celtic balladic Scottish ballad child ballad revival orkney and shetland folk. thick, breath veiled tone, straight note core, interlocked note trading. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 304,
+  "score": 147.987,
   "config": {
     "traditions": [
       "faroese_kvaedi",
-      "child_ballad_revival"
+      "child_ballad_revival",
+      "orkney_shetland_folk"
     ],
     "instruments": [
       {
@@ -29,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.98,
-          "voice_quality": 21.580000000000002,
+          "voice_register": 2.15,
+          "voice_quality": 23.725,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.2505,
-          "voice_articulation": 7.54,
-          "voice_microtone": 7.345000000000001,
-          "voice_tradition": 22.132499999999997,
+          "voice_vibrato": 7.113999999999999,
+          "voice_articulation": 12.089999999999995,
+          "voice_microtone": 12.544999999999991,
+          "voice_tradition": 28.645999999999997,
           "voice_mechanism_compound": 6.75,
-          "voice_estill_quality": 5.8725000000000005,
-          "voice_speech_song": 8.384999999999998,
-          "voice_ensemble_config": 9.165,
-          "voice_ornament_system": 9.3015,
-          "voice_pitch_organization": 7.565499999999999,
-          "voice_processing_chain": 3.185,
-          "voice_multitrack_stack": 1.813
+          "voice_estill_quality": 5.853000000000001,
+          "voice_speech_song": 14.169999999999993,
+          "voice_ensemble_config": 14.104999999999993,
+          "voice_ornament_system": 12.7515,
+          "voice_pitch_organization": 7.2924999999999995,
+          "voice_processing_chain": 3.9650000000000003,
+          "voice_multitrack_stack": 4.355
         }
       }
     ],

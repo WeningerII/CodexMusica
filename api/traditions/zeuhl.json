@@ -1,0 +1,227 @@
+{
+  "id": "zeuhl",
+  "name": "Zeuhl (Kobaïan movement)",
+  "family": "rock_punk",
+  "lineage": "Paris, 1970 onward: drummer Christian Vander's Magma codified zeuhl as a rock idiom built on Coltrane-derived modal fervour and Orff-like massed choral chant in the invented Kobaïan language, over relentless minor-mode ostinati, distorted-and-clanking fuzz bass carrying the principal riff, marcato Fender Rhodes and piano clusters, jazz-schooled polyrhythmic drumming and long crescendo forms, extended by Univers Zéro, Art Zoyd, Eskaton and later Japanese followers Ruins and Koenjihyakkei.",
+  "recipe": "classic Western European early-1970s zeuhl, distorted Rock, progressive rock branch, experimental distorted rock, American jazz avant punk jazz / no-wave jazz m-base. thick, breath veiled tone, straight onset, interlocked note trading. ampeg svt amp rock bass amp ebony unlined fusion fretless canon fretless bass, vintage ambassador asymmetric brushes-and-sticks drum kit, torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, soft felt lacquer voiced 17 ply hard rock maple a 441 grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone.",
+  "recipe_chars": 864,
+  "score": 481.155,
+  "config": {
+    "traditions": [
+      "zeuhl",
+      "punk_jazz_70s_80s",
+      "m_base"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 35.24500000000001,
+          "voice_quality": 11.699999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 17.27,
+          "voice_articulation": 18.524999999999995,
+          "voice_microtone": 34.055000000000014,
+          "voice_tradition": 20.57,
+          "voice_mechanism_compound": 4.875000000000001,
+          "voice_estill_quality": 2.3399999999999994,
+          "voice_speech_song": 18.329999999999995,
+          "voice_ensemble_config": 18.52499999999999,
+          "voice_ornament_system": 1.69,
+          "voice_pitch_organization": 1.7899999999999998,
+          "voice_processing_chain": 6.925000000000001,
+          "voice_multitrack_stack": 6.869999999999999
+        }
+      },
+      {
+        "id": "fretless_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_svt",
+          "fretless_use": "fretless_jazz",
+          "fretless_bass_construction": "fretless_bass_factory",
+          "fretless_fingerboard_wood": "fretless_ebony_unlined",
+          "fretless_bass_strings": "fretless_flatwound"
+        },
+        "scores": {
+          "electric_technique": 1.675,
+          "amp_make": 11.309999999999999,
+          "fretless_use": 0.845,
+          "fretless_bass_construction": 0.045,
+          "fretless_fingerboard_wood": 17.635,
+          "fretless_bass_strings": 20.105
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 28.924999999999997,
+          "drumhead": 20.055,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 1.6650000000000003,
+          "rhodes_model": 17.59,
+          "rhodes_use": 1.3,
+          "rhodes_tine_material": 2.535,
+          "rhodes_hammer_tip": 4.03,
+          "rhodes_pickup_position": 2.535
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 9.07,
+          "grand_piano_size": 0.59,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 8.71,
+          "piano_rim": 8.71,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 4.355
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 5.817500000000001,
+          "amp_make": 10.7575,
+          "body_wood": 0.59,
+          "neck_wood": 1.3,
+          "fretboard": 1.3,
+          "pickup_magnet": 0.15,
+          "pickup_winding": 0.845,
+          "string_material": 1.3,
+          "bridge": 0.59,
+          "scale_length": 0.65,
+          "string_gauge": 0.59,
+          "finish": 0.195,
+          "string_tuning": 10.985
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 7.575,
+          "sax_size": 2.535,
+          "sax_reed": 1.3,
+          "sax_body_alloy": 17,
+          "sax_mouthpiece": 1.3,
+          "sax_technique": 17,
+          "sax_maker_school": 20.634999999999998
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 3.5100000000000002,
+          "choir_polyphonic_configuration": 1.9949999999999999,
+          "choir_regional_canonical_configuration": 3.0550000000000006,
+          "choir_ensemble_repertoire": 1.7550000000000001
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

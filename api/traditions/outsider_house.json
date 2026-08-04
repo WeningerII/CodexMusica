@@ -1,0 +1,109 @@
+{
+  "id": "outsider_house",
+  "name": "Outsider House",
+  "family": "electronic",
+  "lineage": "New York, Glasgow and London circa 2011-2015 around L.I.E.S., Mister Saturday Night and Trilogy Tapes, with Ron Morelli, Legowelt, DJ Slugo-influenced raw-hardware producers and Huerco S. — 118-126 BPM house tracked live from drum machines and cheap samplers to cassette or one-take stereo, deliberately overdriven and detuned, with hiss, clipping and mis-timed loops kept in the mix.",
+  "recipe": "classic 2011-2015 outsider house, electronic Dance, lofi house branch, lofi experimental electric skweee anime lo-fi. cheap paired with 303 chicago foundational TR-707, drum machine 606, analog mono synth, sampler drum machine, tape replay keyboard. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 357,
+  "score": 20.317,
+  "config": {
+    "traditions": [
+      "outsider_house",
+      "skweee",
+      "anime_lofi"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_707",
+        "slots": {
+          "tr707_voice": "tr707_snare",
+          "drum_machine_707_context": "drum_machine_707_chicago_house"
+        },
+        "scores": {
+          "tr707_voice": 0.78,
+          "drum_machine_707_context": 6.954999999999999
+        }
+      },
+      {
+        "id": "drum_machine_606",
+        "slots": {
+          "drum_machine_606_voice": "drum_machine_606_snare",
+          "drum_machine_606_context": "drum_machine_606_electro"
+        },
+        "scores": {
+          "drum_machine_606_voice": 0.15,
+          "drum_machine_606_context": 1.385
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_korg_kato"
+        },
+        "scores": {
+          "electronic_technique": 1.7014999999999998,
+          "mono_oscillator": 0.105,
+          "mono_filter": -0.35,
+          "mono_archetypes": 0.195,
+          "mono_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.705,
+          "sample_bitdepth": 1.2349999999999999,
+          "sample_swing": 10.875,
+          "sample_processing": 0.285
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "flute_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": 1.065,
+          "tape_voice": 0.045,
+          "tape_state": 0.045
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_home_portastudio",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_home_portastudio"
+  }
+}

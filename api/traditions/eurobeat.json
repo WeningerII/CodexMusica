@@ -1,0 +1,155 @@
+{
+  "id": "eurobeat",
+  "name": "Eurobeat",
+  "family": "electronic",
+  "lineage": "Italian-produced, Japan-exported hi-NRG dance style codified from 1990 onward by Milanese and Roman studios (A-Beat C, Delta, Time Records) for the Super Eurobeat compilation series — 150-160 BPM, driving straight kick and octave-jumping synth bass, twin-lead sawtooth riffs in the eight-bar break, English-language power vocals sung by session singers under stage aliases, and a rigid intro-verse-break-chorus template.",
+  "recipe": "classic early-1990s eurobeat, electronic Dance, eurodance branch, continental electronic dance, trance electronic dance hard trance tech trance. vocal fry, breath veiled tone, straight note core, interlocked note trading. digital subtractive, regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation, TR-909, analog poly synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 638,
+  "score": 189.51,
+  "config": {
+    "traditions": [
+      "eurobeat",
+      "hard_trance",
+      "tech_trance"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.4949999999999999,
+          "voice_quality": 8.645,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5800000000000005,
+          "voice_articulation": 17.419999999999998,
+          "voice_microtone": 17.419999999999995,
+          "voice_tradition": 5.719999999999999,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 5.329999999999999,
+          "voice_speech_song": 16.574999999999996,
+          "voice_ensemble_config": 17.29,
+          "voice_ornament_system": 3.1500000000000004,
+          "voice_pitch_organization": 1.2349999999999999,
+          "voice_processing_chain": 20.860000000000003,
+          "voice_multitrack_stack": 6.890000000000001
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 2.99,
+          "va_archetypes": 5.4399999999999995,
+          "digital_subtractive_context": 18.46
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "rompler_preset_bank": "rompler_preset_oriental_arranger",
+          "rompler_context": "rompler_context_arranger_party",
+          "rompler_lineage": "rompler_korg_pa_arranger"
+        },
+        "scores": {
+          "electronic_technique": 2.99,
+          "rompler_preset_bank": 3.185,
+          "rompler_context": 0.9750000000000001,
+          "rompler_lineage": 3.425
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.72,
+          "tr909_production_origin": 0.045
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 2.99,
+          "poly_archetypes": 0.69,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.4200000000000002
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.52,
+          "sampler_archetypes": 1.2349999999999999,
+          "sampler_bit_depth": 0.195,
+          "sampler_workflow": 0.45500000000000007,
+          "sampler_classic_context": 20.02
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -3,12 +3,13 @@
   "name": "Greek Trap",
   "family": "hip_hop",
   "lineage": "Athens trap scene that formed around 2015-2017 in Sepolia and the western suburbs through Light, Snik, Mad Clip and Sin Boy, with beats by Simon Rex and Pin Up Beats: 130-150 BPM half-time 808 grids with triplet hat rolls, Auto-Tuned melodic hooks, and loops sampling laiko and rebetiko bouzouki records over minor and hicaz-tinged progressions sung in Greek street argot.",
-  "recipe": "classic 2015-2017 greek trap, mc Rhythm, intl hip hop branch, chanson fado Greek entechno greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. TR-808, sampler drum machine, walnut staves canonical Greek strummed bouzouki, strummed baglamas, sub bass monosynth acid bass, sub bass wavetable synth, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 593,
-  "score": 177.215,
+  "recipe": "classic 2015-2017 greek trap, mc Rhythm, intl hip hop branch, chanson fado Greek entechno éntekhno greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. TR-808, sampler drum machine, walnut staves canonical Greek strummed bouzouki, strummed baglamas, sub bass monosynth acid bass, sub bass wavetable synth, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 602,
+  "score": 213.821,
   "config": {
     "traditions": [
       "greek_trap",
+      "entehno",
       "greek_entechno"
     ],
     "instruments": [
@@ -34,33 +35,33 @@
         },
         "scores": {
           "voice_register": 3.2015,
-          "voice_quality": 6.240000000000001,
+          "voice_quality": 7.280000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.38,
-          "voice_articulation": 11.504999999999995,
-          "voice_microtone": 16.477499999999992,
-          "voice_tradition": 23.819374999999997,
-          "voice_mechanism_compound": 4.875,
-          "voice_estill_quality": 3.338,
-          "voice_speech_song": 15.762499999999996,
-          "voice_ensemble_config": 12.219999999999994,
+          "voice_vibrato": 2.7625,
+          "voice_articulation": 16.314999999999998,
+          "voice_microtone": 22.587499999999995,
+          "voice_tradition": 28.564999999999998,
+          "voice_mechanism_compound": 6.175,
+          "voice_estill_quality": 4.7125,
+          "voice_speech_song": 22.9125,
+          "voice_ensemble_config": 17.029999999999994,
           "voice_ornament_system": 2.860000000000001,
           "voice_pitch_organization": 2.5999999999999996,
-          "voice_processing_chain": 3.3149999999999995,
-          "voice_multitrack_stack": 3.2500000000000004
+          "voice_processing_chain": 4.355,
+          "voice_multitrack_stack": 4.290000000000001
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_rb",
+          "drum_machine_808_context": "drum_machine_808_trap",
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.436,
-          "drum_machine_808_context": 0.9135,
+          "tr808_voice": 2.6310000000000002,
+          "drum_machine_808_context": 0.845,
           "tr808_production_origin": 0.845
         }
       },
@@ -76,7 +77,7 @@
           "electronic_technique": 2.2,
           "sample_bitdepth": 1.2349999999999999,
           "sample_swing": 3.9,
-          "sample_processing": 1.1608749999999999
+          "sample_processing": 1.15
         }
       },
       {
@@ -86,21 +87,21 @@
           "bouzouki_courses": "trichordo",
           "bouzouki_pick": "bouzouki_medium",
           "bouzouki_body_wood": "bouzouki_walnut_bowl",
-          "bouzouki_strings": "bouzouki_steel_modern"
+          "bouzouki_strings": "bouzouki_gut_historical"
         },
         "scores": {
           "plucked_traditional_technique": 3.4125,
-          "bouzouki_courses": 3.914,
+          "bouzouki_courses": 5.604,
           "bouzouki_pick": 0.845,
-          "bouzouki_body_wood": 8.890999999999998,
-          "bouzouki_strings": 0.546
+          "bouzouki_body_wood": 10.707999999999998,
+          "bouzouki_strings": 0.4549999999999999
         }
       },
       {
         "id": "baglamas",
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
-          "baglamas_config": "baglamas_four_double",
+          "baglamas_config": "baglamas_three_double",
           "baglamas_context": "baglamas_rebetiko",
           "baglamas_body_wood": "baglamas_mulberry",
           "baglamas_strings": "baglamas_steel_modern"
@@ -108,8 +109,8 @@
         "scores": {
           "plucked_traditional_technique": 3.4125,
           "baglamas_config": 0.845,
-          "baglamas_context": 8.54,
-          "baglamas_body_wood": 0.9500000000000001,
+          "baglamas_context": 10.629999999999999,
+          "baglamas_body_wood": 0.9950000000000001,
           "baglamas_strings": 0.845
         }
       },
@@ -122,10 +123,10 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 8.886,
+          "electronic_technique": 9.081,
           "wave_acid": 0.273,
           "filter_acid": 0.195,
-          "accent_acid": 0
+          "accent_acid": 0.105
         }
       },
       {
@@ -137,7 +138,7 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 8.886,
+          "electronic_technique": 9.081,
           "wt_position": 1.105,
           "wt_family": 0.845,
           "wt_polyphony": 0
@@ -146,14 +147,14 @@
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_density": "multitrack_density_polychordal_7_9_11",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2020s_ai_harmonized",
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 0.3,
-          "multitrack_stack_era_aesthetic": -0.07,
-          "multitrack_stack_processing": 1.2349999999999999
+          "multitrack_stack_density": 0.65,
+          "multitrack_stack_era_aesthetic": 0.52,
+          "multitrack_stack_processing": 1.0865
         }
       }
     ],

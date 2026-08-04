@@ -3,24 +3,24 @@
   "name": "Funk ostentacao",
   "family": "hip_hop",
   "lineage": "Sao Paulo periphery strain of Brazilian funk codified around 2008-2012 by MC Guime, MC Boy do Charmes and MC Daleste with producers such as KL Jay-adjacent home studios — tamborzao-derived 130 BPM beats built from timbal and surdo samples, sparse minor synth stabs, and boasting lyrics cataloguing cars, watches and imported liquor delivered in short chanted couplets",
-  "recipe": "classic Southern American 2008-2012 funk ostentacao, mc Rhythm, intl hip hop branch, Brazilian groove percussion, Latin electric electronic dance cumbia 420 baile funk. thick, rap, straight note core, interlocked note trading. sampler drum machine, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, sub bass analog poly synth, TR-808. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 503,
-  "score": 161.65,
+  "recipe": "classic Southern American 2008-2012 funk ostentacao, mc Rhythm, intl hip hop branch, Brazilian groove percussion, Latin electric electronic dance pagode deboxe. thick, breath veiled tone, slow rate, interlocked note trading. sampler drum machine, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, low sub bass analog poly synth, TR-808. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 505,
+  "score": 160.145,
   "config": {
     "traditions": [
       "funk_ostentacao",
-      "cumbia_420",
-      "baile_funk"
+      "pagode",
+      "deboxe"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
@@ -29,42 +29,42 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.8999999999999995,
-          "voice_quality": 10.85,
+          "voice_register": 2.1000000000000014,
+          "voice_quality": 17.809999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.84,
-          "voice_articulation": 16.834999999999997,
-          "voice_microtone": 17.939999999999994,
-          "voice_tradition": 7.052500000000001,
-          "voice_mechanism_compound": 4.42,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 16.834999999999997,
-          "voice_ensemble_config": 16.964999999999996,
-          "voice_ornament_system": 2.6650000000000014,
-          "voice_pitch_organization": 1.6399999999999997,
-          "voice_processing_chain": 14.85,
-          "voice_multitrack_stack": 8.4175
+          "voice_vibrato": 1.0725,
+          "voice_articulation": 18.459999999999994,
+          "voice_microtone": 19.17499999999999,
+          "voice_tradition": 7.6049999999999995,
+          "voice_mechanism_compound": 4.3549999999999995,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 18.979999999999993,
+          "voice_ensemble_config": 19.239999999999995,
+          "voice_ornament_system": 2.2099999999999995,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 11.024999999999999,
+          "voice_multitrack_stack": 7.345000000000001
         }
       },
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
+          "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 2.8750000000000004,
-          "sample_bitdepth": 0.95,
-          "sample_swing": 7.624999999999999,
-          "sample_processing": 1.345
+          "electronic_technique": 2.35,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 3.8749999999999996,
+          "sample_processing": 0.195
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "timbal_head": 0,
-          "timbal_size": 0.135,
+          "timbal_size": 0.785,
           "timbal_style": 0.195
         }
       },
@@ -88,9 +88,9 @@
           "surdo_shell": "surdo_aluminum_canonical"
         },
         "scores": {
-          "surdo_size": 0.525,
-          "surdo_skin": 1.885,
-          "surdo_shell": 2.535
+          "surdo_size": 0.195,
+          "surdo_skin": 3.51,
+          "surdo_shell": 3.3149999999999995
         }
       },
       {
@@ -102,10 +102,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 8.02,
-          "poly_archetypes": 1.3499999999999999,
+          "electronic_technique": 4.62,
+          "poly_archetypes": 0.585,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -1.435
+          "poly_maker_lineage": -1.225
         }
       },
       {
@@ -116,9 +116,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.9,
-          "drum_machine_808_context": 2.8600000000000003,
-          "tr808_production_origin": 0.845
+          "tr808_voice": 3.725,
+          "drum_machine_808_context": 3.4774999999999996,
+          "tr808_production_origin": 0.195
         }
       }
     ],

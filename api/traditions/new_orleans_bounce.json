@@ -1,0 +1,135 @@
+{
+  "id": "new_orleans_bounce",
+  "name": "Bounce (New Orleans)",
+  "family": "hip_hop",
+  "lineage": "New Orleans street-rap style dated to MC T. Tucker and DJ Irv's 'Where Dey At' (1991) and carried by DJ Jubilee, Magnolia Shorty, Partners-N-Crime and Big Freedia, running roughly 95-105 BPM over the near-mandatory Triggerman ('Drag Rap') and Brown Beat loops, with call-and-response ward and project shout-outs, chanted repetitive hooks and relentless triplet-inflected snare rolls.",
+  "recipe": "classic Southern American early-1990s bounce, mc Rhythm, southern branch, us hip hop modern, funk percussive groove percussion detroit trap. thick, rap, straight onset, interlocked note trading. chopped sampler, roland tr 8s modern aira digital recreation TR-808, sampled chopped turntable, behringer rd 9 modern clone TR-909. tin roofed shack. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 469,
+  "score": 258.868,
+  "config": {
+    "traditions": [
+      "new_orleans_bounce",
+      "detroit_trap",
+      "emo_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.340000000000002,
+          "voice_quality": 24.700000000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9250000000000007,
+          "voice_articulation": 21.58,
+          "voice_microtone": 22.034999999999993,
+          "voice_tradition": 9.585,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 3.1800000000000006,
+          "voice_speech_song": 23.245,
+          "voice_ensemble_config": 20.864999999999995,
+          "voice_ornament_system": 6.630000000000002,
+          "voice_pitch_organization": 2.24,
+          "voice_processing_chain": 15.74,
+          "voice_multitrack_stack": 5.785000000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 7.200000000000001,
+          "sampler_archetypes": 10.5625,
+          "sampler_bit_depth": 3.5100000000000002,
+          "sampler_workflow": 6.850000000000001,
+          "sampler_classic_context": 31.460000000000004
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 7.035000000000001,
+          "drum_machine_808_context": 3.25,
+          "tr808_production_origin": 2.8600000000000003
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 7.200000000000001,
+          "turntable_technique": 6.825000000000001
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 1.91,
+          "tr909_production_origin": 2.8600000000000003
+        }
+      }
+    ],
+    "room": "tin_roofed_shack",
+    "archetype": "arch_atlanta_trap_2010s",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "tin_roofed_shack",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

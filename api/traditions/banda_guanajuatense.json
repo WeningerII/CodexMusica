@@ -1,0 +1,151 @@
+{
+  "id": "banda_guanajuatense",
+  "name": "Banda guanajuatense",
+  "family": "vernacular",
+  "lineage": "Wind-band tradition of the Bajío state of Guanajuato consolidated after the 1870s municipal-band expansion, using a compact roster of clarinets, two trumpets, alto horn or trombone and tuba with tambora and platillos, playing sones abajeños, valses, marchas fúnebres and polkas at village fiestas in 2/4 and 3/4 with a lighter, more song-derived phrasing than the Sinaloan bandas.",
+  "recipe": "classic mid-1870s banda guanajuatense, functional Song, Mexican branch, American marching groove percussion, andean carnival processional fife and drum corps tamborazo zacatecano. softer tone ebonite hard rubber klezmer tradition clarinet, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, bach 42 canonical American orchestral tenor bass trombone trombone, compact tuba brass piston valves American school besson sovereign British brass band tuba, double bass rapid double strokes bass drum, saxophone. adobe room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 638,
+  "score": 52.92,
+  "config": {
+    "traditions": [
+      "banda_guanajuatense",
+      "fife_and_drum",
+      "tamborazo"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.26,
+          "clarinet_body": 2.405,
+          "clarinet_size": 0.195,
+          "clarinet_reed": 0.195,
+          "clarinet_articulation": 0.195
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "cornet",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.6000000000000005,
+          "brass_size": 0,
+          "trumpet_mouthpiece": 2.8600000000000003,
+          "brass_mute": 0.39,
+          "trumpet_technique": 2.6000000000000005,
+          "trumpet_bell_metal": 0.195,
+          "trumpet_maker_school": 3.965
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.6000000000000005,
+          "trombone_type": 0,
+          "trombone_mouthpiece": 3.38,
+          "trombone_mute": 0.195,
+          "trombone_technique": 0.845,
+          "trombone_bell_metal": 0.195,
+          "trombone_maker_school": 3.965
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "tuba_pitch": 7.58,
+          "tuba_context": 4.68,
+          "tuba_bell_metal": 0.195,
+          "tuba_valve_system": 3.965,
+          "tuba_maker_school": 4.419999999999999
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.195,
+          "bass_drum_beater": 2.145
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 2.6000000000000005,
+          "sax_size": 0.95,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 0.12999999999999998,
+          "sax_mouthpiece": 0.15,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.345
+        }
+      }
+    ],
+    "room": "adobe_room",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "mariachi_son_6_8_3_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mariachi_son_6_8_3_4",
+    "room": "adobe_room",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

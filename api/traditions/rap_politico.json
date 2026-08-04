@@ -5,7 +5,7 @@
   "lineage": "Spanish-language political hip-hop formed in the 1990s across Madrid, Santiago, Havana, Caracas and Mexico City — codified by Chile's Tiro de Gracia and Ana Tijoux, Cuba's Orishas and Los Aldeanos, and Spain's Def Con Dos and SFDK — 85-95 BPM sample loops drawn from nueva canción, son and Andean folk records, sparse scratched hooks, and long unhurried verses of denunciatory rhetoric delivered in an oratorical register closer to protest song than to battle rap",
   "recipe": "classic mid-1990s rap político, protest Song, iberian Latin branch, urban American protest song, intl hip hop MC rhythm, Latin am troubadour ballad poetry rap español american political hip-hop and conscious rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, quena, TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 582,
-  "score": 305.636,
+  "score": 305.394,
   "config": {
     "traditions": [
       "rap_politico",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.073125000000001,
-          "voice_quality": 30.73375,
+          "voice_register": 6.022500000000001,
+          "voice_quality": 30.473125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.009375,
+          "voice_vibrato": 2.79,
           "voice_articulation": 22.555,
           "voice_microtone": 22.36,
-          "voice_tradition": 9.363749999999998,
+          "voice_tradition": 9.558749999999998,
           "voice_mechanism_compound": 2.08,
           "voice_estill_quality": 3.345,
           "voice_speech_song": 28.535,
           "voice_ensemble_config": 21.84,
           "voice_ornament_system": 3.7,
           "voice_pitch_organization": 2.21,
-          "voice_processing_chain": 21.300624999999997,
+          "voice_processing_chain": 21.495624999999997,
           "voice_multitrack_stack": 6.7275
         }
       },
@@ -62,7 +62,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 8.475624999999999,
+          "electronic_technique": 8.424999999999999,
           "sampler_archetypes": 12.869999999999997,
           "sampler_bit_depth": 1.1049999999999998,
           "sampler_workflow": 8.724999999999998,
@@ -76,7 +76,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 8.475624999999999,
+          "electronic_technique": 8.424999999999999,
           "turntable_technique": 10.734999999999998
         }
       },

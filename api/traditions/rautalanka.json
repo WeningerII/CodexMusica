@@ -1,0 +1,126 @@
+{
+  "id": "rautalanka",
+  "name": "Rautalanka",
+  "family": "rock",
+  "lineage": "Finnish instrumental guitar-band style of 1961-1965, taking its name ('iron wire') from The Shadows' and The Spotnicks' sound and adapting it to Finnish and Karelian folk melodies — clean single-coil guitar with heavy spring reverb and tremolo carrying the tune in the middle register, second guitar on chords, electric bass and drums in plain 4/4 or fast 2/4, launched commercially by The Sounds' 'Emma' (1963) and consolidated by The Strangers and Agents in later revivals.",
+  "recipe": "classic British 1961-1965 rautalanka, distorted Rock, surf rock branch, classic distorted rock, pop rock functional song, europop functional song new wave yacht rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 745,
+  "score": 348.305,
+  "config": {
+    "traditions": [
+      "rautalanka",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 18.869999999999997,
+          "amp_make": 22.879999999999995,
+          "body_wood": 2.275,
+          "neck_wood": 2.275,
+          "fretboard": 2.21,
+          "pickup_magnet": 0.585,
+          "string_material": 0.585,
+          "string_gauge": 2.925,
+          "bridge": 1,
+          "scale_length": 2.275,
+          "finish": 0.435,
+          "string_tuning": 19.435
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 19.11,
+          "body_wood": 3.575,
+          "pickup_config": 1,
+          "string_type": 40.93,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0,
+          "bass_technique": 37.76
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 33.715,
+          "drumhead": 16.139999999999997,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 16.299999999999994,
+          "drawbar_setting": 33.76,
+          "rotary_speed": 35.875,
+          "percussion_setting": 17.485,
+          "tonewheel_model": 18.33,
+          "leslie_cabinet_model": 2.7
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_uk_small_commercial",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": null,
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

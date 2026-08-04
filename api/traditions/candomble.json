@@ -1,0 +1,143 @@
+{
+  "id": "candomble",
+  "name": "Candomblé ritual music",
+  "family": "global",
+  "lineage": "Liturgical music of Candomblé, the Yoruba-, Fon- and Bantu-derived religion consolidated in Salvador da Bahia from the 1830s at terreiros such as Casa Branca do Engenho Velho — cantigas sung in Yoruba by an alabê and answered by the congregation over three tuned atabaques played with aguidavis and the iron gã, cycling through fixed toques (ijexá, aguerê, opanijé) matched to each orixá.",
+  "recipe": "classic Southern American mid-1830s candomblé ritual music, ritual Devotional, Afro-diasporic branch, west African groove percussion, Brazilian carnival processional balafon music sabar drumming. thick, breath veiled tone, slow rate, interlocked note trading. atabaque, ilu yoruba, agogo, xequere, sacred iroko west African premium goat skin knife stretched lacing bata. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 458,
+  "score": 166.605,
+  "config": {
+    "traditions": [
+      "candomble",
+      "balafon_mande",
+      "sabar_drumming_wolof"
+    ],
+    "instruments": [
+      {
+        "id": "atabaque",
+        "slots": {
+          "atabaque_role": "atabaque_rum",
+          "atabaque_skin": "atabaque_cowhide",
+          "atabaque_shell_wood": "atabaque_cedrillo"
+        },
+        "scores": {
+          "atabaque_role": 0.845,
+          "atabaque_skin": 0.845,
+          "atabaque_shell_wood": 0.845
+        }
+      },
+      {
+        "id": "ilu_yoruba",
+        "slots": {
+          "ilu_form": "ilu_yoruba_form",
+          "ilu_technique": "ilu_hands"
+        },
+        "scores": {
+          "ilu_form": 3.9,
+          "ilu_technique": 0
+        }
+      },
+      {
+        "id": "agogo",
+        "slots": {
+          "agogo_bell": "agogo_single",
+          "agogo_context": "agogo_candomble"
+        },
+        "scores": {
+          "agogo_bell": 1.3,
+          "agogo_context": 4.26
+        }
+      },
+      {
+        "id": "xequere",
+        "slots": {
+          "xequere_size": "xequere_large",
+          "xequere_beads": "xequere_seed",
+          "xequere_technique": "xequere_toss"
+        },
+        "scores": {
+          "xequere_size": 0.045,
+          "xequere_beads": 0.045,
+          "xequere_technique": 0.195
+        }
+      },
+      {
+        "id": "bata",
+        "slots": {
+          "bata_set": "iya",
+          "bata_use": "bata_lucumi",
+          "bata_shell_wood": "bata_iroko",
+          "bata_head_material": "bata_goat_skin_canonical"
+        },
+        "scores": {
+          "bata_set": 0.845,
+          "bata_use": 1.845,
+          "bata_shell_wood": 7.0200000000000005,
+          "bata_head_material": 1.04
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.6249999999999993,
+          "voice_quality": 15.534999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 16.574999999999996,
+          "voice_microtone": 15.534999999999995,
+          "voice_tradition": 28.990000000000002,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 5.525,
+          "voice_speech_song": 15.729999999999997,
+          "voice_ensemble_config": 16.444999999999997,
+          "voice_ornament_system": 4.3875,
+          "voice_pitch_organization": 8.739999999999998,
+          "voice_processing_chain": 8.255,
+          "voice_multitrack_stack": 4.9399999999999995
+        }
+      }
+    ],
+    "room": "bahian_terreiro_outdoor",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "room": "bahian_terreiro_outdoor",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

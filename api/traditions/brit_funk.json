@@ -1,0 +1,237 @@
+{
+  "id": "brit_funk",
+  "name": "Brit Funk",
+  "family": "blues_gospel",
+  "lineage": "British Black dance-band funk of 1978-1984 centred on London's Acton, Wembley and Southall youth-club circuit and the Ealing/Crackers jazz-funk dancefloors, made by Light of the World, Hi-Tension, Freeez, Level 42, Beggar & Co and Incognito — jazz-schooled slap and thumb bass, tight brass sections, Rhodes and Prophet pads, Latin percussion, tempos of 105-120 BPM, and a lighter, more instrumental-led approach than American funk with chanted group vocals.",
+  "recipe": "classic Western European mid-1980s brit funk, groove Percussion, funk percussive branch, American jazz soul jazz, soul R&B functional song british soul. thick, blues-shouter, straight onset, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s wide pickup gap more bell less bark ostinato rhodes electric, Fender blackface amp American 60s amp spring reverb bright mahogany ebony single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet, cowhide mid tier siam oak mid tier modern open slap hand drum congas, low sub bass analog poly synth. brent black community studio london. large-diaphragm condenser.",
+  "recipe_chars": 977,
+  "score": 742.688,
+  "config": {
+    "traditions": [
+      "brit_funk",
+      "soul_jazz",
+      "british_soul"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 44.96000000000001,
+          "voice_quality": 20.494999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 22.959999999999997,
+          "voice_articulation": 20.149999999999995,
+          "voice_microtone": 23.224999999999998,
+          "voice_tradition": 22.435,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 19.749999999999996,
+          "voice_speech_song": 21.904999999999998,
+          "voice_ensemble_config": 21.384999999999994,
+          "voice_ornament_system": 1.0399999999999998,
+          "voice_pitch_organization": 0.5199999999999999,
+          "voice_processing_chain": 21.75,
+          "voice_multitrack_stack": 3.9325000000000006
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 26.209999999999997,
+          "body_wood": 1.8199999999999998,
+          "pickup_config": 1.3,
+          "string_type": 26.194999999999997,
+          "scale_length_b": 2.0149999999999997,
+          "fretted_or_not": 1.605,
+          "bass_technique": 34.075
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 29.444999999999997,
+          "drumhead": 23.38,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_far_bell"
+        },
+        "scores": {
+          "keyboard_technique": 34.125,
+          "rhodes_model": 22.889999999999997,
+          "rhodes_use": 3.25,
+          "rhodes_tine_material": 0.8449999999999999,
+          "rhodes_hammer_tip": 2.145,
+          "rhodes_pickup_position": 2.185
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 34.35999999999999,
+          "amp_make": 39.839999999999996,
+          "body_wood": 1.8199999999999998,
+          "neck_wood": 1.8199999999999998,
+          "fretboard": 1.755,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 1.8199999999999998,
+          "bridge": 1.605,
+          "scale_length": 1.8199999999999998,
+          "finish": 0.195,
+          "string_tuning": 2.535
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 19.089999999999996,
+          "sax_size": 16.9,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 20.875,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 21.07,
+          "sax_maker_school": 21.619999999999997
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 19.089999999999996,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 23.274999999999995,
+          "brass_mute": 1.15,
+          "trumpet_technique": 19.089999999999996,
+          "trumpet_bell_metal": 1.545,
+          "trumpet_maker_school": 6.044999999999999
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 6.49,
+          "conga_set": 0.8300000000000001,
+          "conga_skin": 1.625,
+          "conga_shell_wood": 1.625
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 3.71,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": 0.5200000000000002
+        }
+      }
+    ],
+    "room": "brent_black_community_studio_london",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_helios_uk_70s",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_adr_compex",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "brent_black_community_studio_london",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_helios_uk_70s",
+    "chain_comp": "comp_adr_compex",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

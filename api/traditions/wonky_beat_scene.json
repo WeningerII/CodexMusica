@@ -1,0 +1,128 @@
+{
+  "id": "wonky_beat_scene",
+  "name": "Wonky",
+  "family": "electronic",
+  "lineage": "Term applied by UK critics around 2008 to a transatlantic beat current — Flying Lotus, Hudson Mohawke, Rustie, Zomby, Joker and Dorian Concept — defined by unquantised, deliberately lurching drum programming, heavy pitch-bend and LFO detune on mid-range synth leads, 808 sub-bass, and 70-160 BPM tracks that shift metric feel mid-phrase rather than holding a grid.",
+  "recipe": "classic late-2000s wonky, experimental Elec, idm glitch branch, experimental MC rhythm, uk soundsystem bass system asian underground darkcore. sampler drum machine, TR-808, sub bass analog poly yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm synth, sub bass monosynth acid bass, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 494,
+  "score": 76.185,
+  "config": {
+    "traditions": [
+      "wonky_beat_scene",
+      "asian_underground",
+      "darkcore"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.7899999999999998,
+          "sample_bitdepth": 0.65,
+          "sample_swing": 5.875,
+          "sample_processing": 2.885
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 10.359999999999998,
+          "drum_machine_808_context": 10.059999999999999,
+          "tr808_production_origin": 0.195
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 11.254999999999997,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.045,
+          "poly_maker_lineage": -1.105
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 11.254999999999997,
+          "wave_acid": 0.195,
+          "filter_acid": 2.795,
+          "accent_acid": 0.15
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_tx81z"
+        },
+        "scores": {
+          "electronic_technique": 11.254999999999997,
+          "fm_algorithm": 0.195,
+          "fm_modulator_ratio": 0.87,
+          "fm_polyphony": 0.195,
+          "fm_model_lineage": 5.395
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 1.7899999999999998,
+          "turntable_technique": 0.585
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

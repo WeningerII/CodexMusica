@@ -3,14 +3,14 @@
   "name": "Russian rock",
   "family": "global",
   "lineage": "Late-Soviet (1980-1991) and post-Soviet (1991-onward) Russian-language rock tradition centered in Leningrad/Saint Petersburg (Boris Grebenshchikov / Aquarium, Viktor Tsoi / Kino, Yuri Shevchuk / DDT, Auktyon) and Moscow (Andrei Makarevich / Mashina Vremeni); the Leningrad Rok-klub legitimized the underground in 1981 under tight KGB oversight, with the perestroika era 1986-1991 enabling above-ground commercial release through Melodiya",
-  "recipe": "classic Eastern European mid-1980s russian rock, distorted Rock, regional branch, Slavic bard ballad poetry russian folk balalaika and choral south slavic kantautor. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp humbucker electric fingerpicked dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, sekunda tuning Soviet orchestra canon strummed balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. dynamic moving-coil, tube pre. Walkman cassette.",
-  "recipe_chars": 596,
-  "score": 178.065,
+  "recipe": "classic Eastern European mid-1980s russian rock, distorted Rock, regional branch, Slavic bard ballad poetry russian folk balalaika and choral russian chanson. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp humbucker electric narrative fingerpicked dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit, alto octave below prima Soviet orchestra canon strummed balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. dynamic moving-coil, tube pre. Walkman cassette.",
+  "recipe_chars": 611,
+  "score": 176.025,
   "config": {
     "traditions": [
       "russian_rock",
       "russian_folk_balalaika_choir",
-      "south_slavic_kantautor"
+      "russian_chanson"
     ],
     "instruments": [
       {
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 17.149999999999995,
+          "voice_register": 16.524999999999995,
           "voice_quality": 4.290000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.24,
-          "voice_articulation": 10.464999999999996,
-          "voice_microtone": 12.504999999999997,
-          "voice_tradition": 10.172499999999998,
-          "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 11.439999999999996,
-          "voice_ensemble_config": 12.089999999999996,
-          "voice_ornament_system": 1.2349999999999999,
-          "voice_pitch_organization": 2.21,
-          "voice_processing_chain": 3.9850000000000003,
-          "voice_multitrack_stack": 4.235000000000001
+          "voice_vibrato": 2.5900000000000007,
+          "voice_articulation": 11.114999999999998,
+          "voice_microtone": 11.569999999999997,
+          "voice_tradition": 10.3675,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 3.7375000000000007,
+          "voice_speech_song": 13.649999999999999,
+          "voice_ensemble_config": 11.894999999999998,
+          "voice_ornament_system": 0.795,
+          "voice_pitch_organization": 1.5599999999999996,
+          "voice_processing_chain": 4.085000000000001,
+          "voice_multitrack_stack": 4.735000000000001
         }
       },
       {
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": 1.4,
-          "amp_make": 5.1450000000000005,
+          "amp_make": 4.495,
           "body_wood": 0.735,
-          "neck_wood": 0.195,
-          "fretboard": 0.195,
+          "neck_wood": 0.045,
+          "fretboard": 0.045,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.195,
           "bridge": 0.195,
-          "scale_length": 1.4949999999999999,
+          "scale_length": 1.3,
           "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 6.175000000000001
+          "string_tuning": 5.329999999999999
         }
       },
       {
@@ -97,25 +97,25 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 6.040000000000001,
+          "amp_make": 5.390000000000001,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 12.37,
+          "string_type": 10.745,
           "scale_length_b": 0.3,
           "fretted_or_not": 0.3,
-          "bass_technique": 11.825
+          "bass_technique": 10.2
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "calfskin_drum",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.875,
-          "drumhead": 0.42249999999999993,
+          "drum_technique": 10.985,
+          "drumhead": 0.26,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -123,16 +123,16 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "open_e",
+          "string_tuning": "standard_tuning",
           "top_wood": "sitka",
           "back_sides": "maple_bs",
           "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 9.84,
-          "string_tuning": 0.6499999999999999,
-          "top_wood": 0.195,
-          "back_sides": 0.195,
+          "acoustic_technique": 10.215,
+          "string_tuning": 0,
+          "top_wood": 0.045,
+          "back_sides": 0.045,
           "string_acoustic": 0.195
         }
       },
@@ -140,17 +140,17 @@
         "id": "balalaika",
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
-          "balalaika_size": "sekunda_balalaika",
+          "balalaika_size": "alto_balalaika",
           "balalaika_strings": "nylon_balalaika",
           "balalaika_body_wood": "balalaika_spruce_maple",
           "balalaika_tradition": "balalaika_soviet_orchestra"
         },
         "scores": {
-          "plucked_traditional_technique": 5.1099999999999985,
-          "balalaika_size": 1.8850000000000002,
+          "plucked_traditional_technique": 6.26,
+          "balalaika_size": 1.69,
           "balalaika_strings": 0.735,
           "balalaika_body_wood": 0.735,
-          "balalaika_tradition": 6.364999999999998
+          "balalaika_tradition": 7.514999999999999
         }
       }
     ],

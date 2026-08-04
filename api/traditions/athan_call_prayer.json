@@ -3,21 +3,21 @@
   "name": "Athān (Islamic call to prayer)",
   "family": "global",
   "lineage": "Islamic ceremonial call-to-prayer (adhān) tradition broadcast five times daily from mosque minarets — codified through the seven phrases (takbīr, shahāda, hayya, etc.) in unmetered melismatic-modal singing, varying by regional tradition (Turkish, Egyptian, Maghrebi, Persian, Indo-Pakistani recitation schools)",
-  "recipe": "classic modern athān, ritual Devotional, islamic branch, Sufi ritual devotional sufi inshad qawwali. vocal fry, declaimed, slow rate, interlocked note trading. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 300,
-  "score": 175.681,
+  "recipe": "classic modern athān, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin sindhi. vocal fry, breath veiled tone, slow rate, interlocked note trading. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 309,
+  "score": 143.443,
   "config": {
     "traditions": [
       "athan_call_prayer",
-      "sufi_inshad_egyptian",
-      "qawwali"
+      "mevlevi_ayin",
+      "sindhi"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.4699999999999998,
-          "voice_quality": 20.574999999999996,
+          "voice_register": 1.17,
+          "voice_quality": 12.609999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5612500000000002,
-          "voice_articulation": 10.334999999999999,
-          "voice_microtone": 32.39,
-          "voice_tradition": 38.93399999999999,
-          "voice_mechanism_compound": 6.449999999999999,
-          "voice_estill_quality": 7.366999999999999,
-          "voice_speech_song": 12.479999999999997,
-          "voice_ensemble_config": 10.075,
-          "voice_ornament_system": 18.71025,
-          "voice_pitch_organization": 7.24875,
-          "voice_processing_chain": 3.77,
-          "voice_multitrack_stack": 3.6399999999999997
+          "voice_vibrato": 3.6075,
+          "voice_articulation": 9.49,
+          "voice_microtone": 24.082499999999996,
+          "voice_tradition": 23.432499999999997,
+          "voice_mechanism_compound": 7.15,
+          "voice_estill_quality": 7.839499999999999,
+          "voice_speech_song": 10.789999999999996,
+          "voice_ensemble_config": 10.919999999999996,
+          "voice_ornament_system": 11.023750000000001,
+          "voice_pitch_organization": 8.7765,
+          "voice_processing_chain": 7.210999999999999,
+          "voice_multitrack_stack": 7.865000000000001
         }
       }
     ],

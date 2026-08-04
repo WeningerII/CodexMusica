@@ -3,14 +3,14 @@
   "name": "Soundtrack (hybrid screen scoring)",
   "family": "classical",
   "lineage": "Contemporary film, television and game underscore as codified in Los Angeles and London from the mid-1990s by Hans Zimmer's Media Ventures and its descendants — sample-library and live-orchestra hybrids built to picture in a DAW, ostinato-driven minor-modal cells at 100-140 BPM, sub-bass braams and processed percussion loops layered under divisi strings, cues locked to timecode with click and stem-delivered for the dub stage",
-  "recipe": "classic 1994-1996 soundtrack, art Music, western modern branch, ambient experimental electric darksynth hauntology. sitka spruce European maple sycamore maple oil varnish amber tinted violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, french horn, synthetic timpani, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca pad analog poly glitched textural granular synth, field textural sampler, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sub saharan call response ostinato polyrhythmic choir ensemble, cowhide canonical Japanese stave built modern non trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 937,
-  "score": 245.317,
+  "recipe": "classic 1994-1996 soundtrack, art Music, western modern branch, ambient experimental electric darksynth hauntology. sitka spruce European maple sycamore maple oil varnish amber tinted violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, french horn, synthetic timpani, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano, sustained pad analog poly modular granular synth, field textural sampler, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble, stave built modern non trunk modern ensemble taiko drum. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 812,
+  "score": 250.217,
   "config": {
     "traditions": [
       "screen_soundtrack_hybrid",
       "darksynth",
-      "hauntology_uk_2010s"
+      "hauntology_aesthetic"
     ],
     "instruments": [
       {
@@ -105,15 +105,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 6.324999999999999,
-          "grand_piano_size": 2.535,
-          "grand_piano_brand": 3.38,
+          "keyboard_technique": 7.200000000000001,
+          "grand_piano_size": 2.7299999999999995,
+          "grand_piano_brand": 3.5749999999999993,
           "piano_hammer": 7.09,
           "piano_rim": 6.81,
           "piano_soundboard": 6.25,
           "piano_pinblock": 6.445,
-          "piano_plate": 7.779999999999999,
-          "piano_pitch_standard": 8.885
+          "piano_plate": 8.28,
+          "piano_pitch_standard": 9.335
         }
       },
       {
@@ -125,23 +125,23 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 5.735,
+          "electronic_technique": 6.11,
           "poly_archetypes": 0.45499999999999996,
           "poly_voices": 1.195,
-          "poly_maker_lineage": 1.6249999999999998
+          "poly_maker_lineage": 0.7799999999999998
         }
       },
       {
         "id": "granular_synth",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
+          "electronic_technique": "electronic_modular_patch",
           "granular_use": "granular_idm",
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 7.49,
+          "electronic_technique": 8.715000000000002,
           "granular_use": 0.39,
-          "granular_synth_source": 3.3149999999999995
+          "granular_synth_source": 3.7700000000000005
         }
       },
       {
@@ -154,11 +154,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 7.49,
+          "electronic_technique": 8.365,
           "sampler_archetypes": 4.005,
           "sampler_bit_depth": 2.34,
-          "sampler_workflow": 8.49,
-          "sampler_classic_context": 20.182499999999997
+          "sampler_workflow": 9.365,
+          "sampler_classic_context": 20.052500000000002
         }
       },
       {
@@ -166,14 +166,14 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
-          "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 5.475,
+          "choir_size": 5.924999999999999,
           "choir_polyphonic_configuration": 1.69,
-          "choir_regional_canonical_configuration": 2.3449999999999998,
-          "choir_ensemble_repertoire": 4.159999999999999
+          "choir_regional_canonical_configuration": 2.5850000000000004,
+          "choir_ensemble_repertoire": 4.615
         }
       },
       {
@@ -187,9 +187,9 @@
         },
         "scores": {
           "taiko_size": 0.345,
-          "taiko_skin": 1.69,
-          "taiko_shell_wood": 2.8,
-          "taiko_lineage": 1.69,
+          "taiko_skin": 0.845,
+          "taiko_shell_wood": 3.3,
+          "taiko_lineage": 0.845,
           "taiko_technique": 1.8
         }
       }

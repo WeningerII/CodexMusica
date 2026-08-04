@@ -5,7 +5,7 @@
   "lineage": "Late-1980s and 1990s American heavy-rock subgenre integrating industrial-electronic-production with rock-band-instrumentation. Nine Inch Nails (Trent Reznor, Cleveland 1988-onward) is the canonical type-specimen with Pretty Hate Machine (1989) and The Downward Spiral (1994); Ministry (Chicago, parallel scene), Filter, Stabbing Westward, Marilyn Manson (industrial-rock-glam-hybrid), and the broader Nothing Records and TVT Records label rosters anchor the canonical industrial rock roster.",
   "recipe": "classic North American industrial rock, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 573,
-  "score": 319.999,
+  "score": 320.69,
   "config": {
     "traditions": [
       "industrial_rock",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 23.156749999999995,
+          "voice_register": 23.239999999999995,
           "voice_quality": 9.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -46,10 +46,10 @@
           "voice_estill_quality": 3.185,
           "voice_speech_song": 14.169999999999996,
           "voice_ensemble_config": 14.949999999999996,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 4.875,
-          "voice_processing_chain": 18.794,
-          "voice_multitrack_stack": 11.693749999999998
+          "voice_ornament_system": 0.5399999999999999,
+          "voice_pitch_organization": 4.71,
+          "voice_processing_chain": 18.715,
+          "voice_multitrack_stack": 12.009999999999998
         }
       },
       {
@@ -58,31 +58,31 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
-          "string_material": "nickel_plated_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "pure_nickel_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 15.829,
-          "amp_make": 12.396499999999996,
-          "body_wood": 7.084999999999999,
-          "neck_wood": 0.168,
-          "fretboard": 0.168,
-          "pickup_magnet": 0.105,
-          "pickup_winding": 0.105,
-          "string_material": 0.168,
-          "bridge": 0.0315,
-          "scale_length": 7.084999999999999,
-          "string_gauge": 0.0315,
-          "finish": 0.1815,
-          "string_tuning": 19.305
+          "electric_technique": 15.959999999999999,
+          "amp_make": 11.844999999999997,
+          "body_wood": 6.529999999999999,
+          "neck_wood": 0.43499999999999994,
+          "fretboard": 0.33,
+          "pickup_magnet": 0.435,
+          "pickup_winding": 0.9749999999999999,
+          "string_material": 0,
+          "bridge": 0.43499999999999994,
+          "scale_length": 6.754999999999999,
+          "string_gauge": 0.5850000000000001,
+          "finish": 0.045,
+          "string_tuning": 17.445
         }
       },
       {
@@ -90,32 +90,32 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 13.2415,
-          "body_wood": 0.063,
-          "pickup_config": 0.105,
-          "string_type": 25.715,
-          "scale_length_b": 0.105,
-          "fretted_or_not": 0.0765,
-          "bass_technique": 23.45
+          "amp_make": 12.870000000000001,
+          "body_wood": 0.8250000000000002,
+          "pickup_config": 0.045,
+          "string_type": 24.7,
+          "scale_length_b": 0.615,
+          "fretted_or_not": 0.045,
+          "bass_technique": 23.884999999999998
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_clear",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 23.5,
-          "drumhead": 0.168,
+          "drumhead": 0.38999999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -125,15 +125,15 @@
           "electronic_technique": "electronic_bass_sub",
           "oscillator": "sine_osc",
           "filter_topology": "svf",
-          "envelope": "gated_env",
+          "envelope": "pad_env",
           "modulation": "no_mod"
         },
         "scores": {
           "electronic_technique": 1.4949999999999999,
           "oscillator": 1.69,
-          "filter_topology": 2.3,
-          "envelope": 0.41175,
-          "modulation": 0.09
+          "filter_topology": 2.54,
+          "envelope": 0.40499999999999997,
+          "modulation": 0.28500000000000003
         }
       }
     ],

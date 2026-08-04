@@ -1,0 +1,157 @@
+{
+  "id": "futurepop",
+  "name": "Futurepop",
+  "family": "electronic",
+  "lineage": "Named by VNV Nation's Ronan Harris and Apoptygma Berzerk's Stephan Groth around 1999-2000, this melodic descendant of EBM runs at 130-140 BPM with trance-derived supersaw arpeggios and gated pads, four-on-the-floor kicks with offbeat basslines, uplifting minor-key chord cycles, and clean, sung, lightly-processed baritone vocals — produced entirely in-the-box for club and festival playback.",
+  "recipe": "classic 1999-2000 futurepop, experimental Elec, industrial noise branch, trance electronic dance, pop rock synthpop, eurodance electronic dance new romanticism shiver pop. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog poly singing lead wavetable yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, sampler drum machine, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 634,
+  "score": 220.512,
+  "config": {
+    "traditions": [
+      "futurepop",
+      "new_romantic",
+      "shiver_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 22.59562499999999,
+          "voice_quality": 10.659999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.885,
+          "voice_articulation": 13.454999999999995,
+          "voice_microtone": 21.299999999999997,
+          "voice_tradition": 14.479999999999997,
+          "voice_mechanism_compound": 4.874999999999999,
+          "voice_estill_quality": 4.29,
+          "voice_speech_song": 17.419999999999995,
+          "voice_ensemble_config": 15.794999999999993,
+          "voice_ornament_system": 0.283125,
+          "voice_pitch_organization": 1.8849999999999996,
+          "voice_processing_chain": 8.282499999999999,
+          "voice_multitrack_stack": 2.925
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 15.511874999999996,
+          "poly_archetypes": 3.355,
+          "poly_voices": 0.915,
+          "poly_maker_lineage": -1.2500000000000002
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_analog_emul",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 15.511874999999996,
+          "wt_position": 3.77,
+          "wt_family": 0.845,
+          "wt_polyphony": 2.08
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 1.4125,
+          "sample_swing": 7.41875,
+          "sample_processing": 0.29624999999999996
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 1.95,
+          "tr909_production_origin": 0.195
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_simple",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 15.511874999999996,
+          "fm_algorithm": 1.3,
+          "fm_modulator_ratio": 0.30000000000000004,
+          "fm_polyphony": 2.08,
+          "fm_model_lineage": 4.9025
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "id": "piano_blues",
+  "name": "Piano Blues",
+  "family": "blues_gospel",
+  "lineage": "Solo blues piano of the barrelhouse, rent party and lumber camp circuit, recorded from 1923 and codified by Leroy Carr, Roosevelt Sykes, Little Brother Montgomery, Memphis Slim and Otis Spann — twelve-bar forms from 60 to 200 BPM, a walking or rolling ostinato left hand against right-hand blue-note tremolos and crushed grace notes, on hard-struck upright pianos left deliberately unrepaired.",
+  "recipe": "classic North American early-1920s piano blues, functional Song, blues acoustic branch, American jazz boogie woogie, American jazz stride piano, blues electric functional song. thick, breath veiled tone, straight onset, interlocked note trading. stride upright character piano stride tack piano, cedar phosphor bronze bronze parlor acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 650,
+  "score": 323.639,
+  "config": {
+    "traditions": [
+      "piano_blues",
+      "stride_piano",
+      "stride"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 9.61,
+          "upright_use": 1.69,
+          "upright_piano_size": 0.045
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 30.2725,
+          "voice_quality": 15.144999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 16.650000000000002,
+          "voice_articulation": 23.009999999999994,
+          "voice_microtone": 18.979999999999993,
+          "voice_tradition": 21.0325,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 22.684999999999995,
+          "voice_ensemble_config": 18.914999999999992,
+          "voice_ornament_system": 3.723750000000001,
+          "voice_pitch_organization": 1.045,
+          "voice_processing_chain": 5.915,
+          "voice_multitrack_stack": 2.0799999999999996
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 2.21,
+          "string_tuning": 0,
+          "top_wood_parlor": 1.69,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 1.885
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "bass_size": 0.195,
+          "bass_strings": 2.99,
+          "bass_top_wood": 0.7149999999999999,
+          "bass_back_wood": 0.06499999999999999,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 5.07,
+          "bass_play": 17.795,
+          "bass_rosin": 24.57625,
+          "bass_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 27.234999999999992,
+          "drumhead": 20.60375,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tack_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "tack_density": "sparse_tacks",
+          "tack_piano_context": "tack_piano_studio"
+        },
+        "scores": {
+          "keyboard_technique": 9.61,
+          "tack_density": 9.1,
+          "tack_piano_context": 7.15
+        }
+      }
+    ],
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "studio_early_tape_us_small",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

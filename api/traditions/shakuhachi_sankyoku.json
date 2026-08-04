@@ -1,0 +1,154 @@
+{
+  "id": "shakuhachi_sankyoku",
+  "name": "Shakuhachi (sankyoku ensemble repertoire)",
+  "family": "classical",
+  "lineage": "Chamber practice in which the shakuhachi joined the koto-and-shamisen jiuta-sokyoku trio, displacing the bowed kokyu across the late Edo and Meiji periods (roughly 1830-1900) as Kinko-ryu and then Tozan-ryu players entered secular concert life, playing heterophonic lines that shadow and decorate the koto melody in the in-scale with meri-kari microtonal shading, at slow to moderate free-breathing tempi articulated by the koto's plectrum attacks rather than a drum.",
+  "recipe": "classic East Asian early-1830s shakuhachi, art Music, east Asian branch, wind pipe drone modal, med east poetic ballad poetry somali qaraami song ethiopian azmari minstrel-poet. vocal fry, breath veiled tone, slow rate, interlocked note trading. jiari lacquered bore kinko tozan modern concert kinko ryu canonical edo period concert continuous-airflow legato shakuhachi, koto, cat skin ivory red sandalwood premium silk shamisen, sustained legato kokyu. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 607,
+  "score": 278.159,
+  "config": {
+    "traditions": [
+      "shakuhachi_sankyoku",
+      "somali_qaraami",
+      "azmari_ethiopian"
+    ],
+    "instruments": [
+      {
+        "id": "shakuhachi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "shaku_length": "one_eight",
+          "shaku_technique": "mura_iki",
+          "shakuhachi_body_material": "shakuhachi_jiari_lacquered",
+          "shakuhachi_lineage": "shakuhachi_kinko"
+        },
+        "scores": {
+          "wind_articulation": 5.49,
+          "shaku_length": 1.0499999999999998,
+          "shaku_technique": 4.68,
+          "shakuhachi_body_material": 3.33,
+          "shakuhachi_lineage": 6.39
+        }
+      },
+      {
+        "id": "koto",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "koto_strings": "koto_13",
+          "koto_picks": "koto_yamada",
+          "koto_body_wood": "koto_aizu_paulownia",
+          "koto_strings_material": "koto_nylon_tetron",
+          "koto_bridge_material": "koto_plastic_bridges_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.18,
+          "koto_strings": 2.24,
+          "koto_picks": 2.6,
+          "koto_body_wood": 0.09,
+          "koto_strings_material": 0.39,
+          "koto_bridge_material": 0.09
+        }
+      },
+      {
+        "id": "shamisen",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "shamisen_size": "hosozao",
+          "shamisen_skin": "shamisen_cat",
+          "shamisen_pick": "bachi_ivory",
+          "shamisen_neck_wood": "shamisen_red_sandalwood",
+          "shamisen_strings": "shamisen_silk_traditional",
+          "shamisen_tradition": "shamisen_nagauta"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.18,
+          "shamisen_size": 2.24,
+          "shamisen_skin": 2.24,
+          "shamisen_pick": 2.385,
+          "shamisen_neck_wood": 1.25,
+          "shamisen_strings": 2.6,
+          "shamisen_tradition": 6.645
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.4949999999999999,
+          "voice_quality": 25.285000000000004,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.36,
+          "voice_articulation": 19.240000000000002,
+          "voice_microtone": 25.5125,
+          "voice_tradition": 17.83625,
+          "voice_mechanism_compound": 8.514999999999999,
+          "voice_estill_quality": 8.43,
+          "voice_speech_song": 21.71,
+          "voice_ensemble_config": 18.785,
+          "voice_ornament_system": 7.800000000000001,
+          "voice_pitch_organization": 25.325,
+          "voice_processing_chain": 5.074999999999999,
+          "voice_multitrack_stack": 4.5
+        }
+      },
+      {
+        "id": "kokyu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kokyu_form": "kokyu_okinawan_kucho",
+          "kokyu_skin": "kokyu_cat_skin",
+          "kokyu_tuning": "kokyu_niagari_sansagari",
+          "kokyu_context": "kokyu_sankyoku"
+        },
+        "scores": {
+          "bowed_technique": 5.33,
+          "kokyu_form": 0.895,
+          "kokyu_skin": -0.05,
+          "kokyu_tuning": 3.5100000000000002,
+          "kokyu_context": 8.934999999999999
+        }
+      }
+    ],
+    "room": "tatami_parlor_japanese",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_tube_german_v72",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "japanese_in_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_in_scale",
+    "room": "tatami_parlor_japanese",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

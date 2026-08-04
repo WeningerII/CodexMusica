@@ -1,0 +1,153 @@
+{
+  "id": "greek_clarinet",
+  "name": "Greek Clarinet (Klarino)",
+  "family": "global",
+  "lineage": "Epirot and Macedonian folk instrumental tradition formed after the Albanian-Greek Ottoman clarinet trade of the 1830s-1870s and codified on disc by Kitsos Harisiadis, Vasilis Soukas and Petroloukas Chalkias, in which a B-flat or C klarino plays free-rhythm miroloi laments and then aksak dance suites (tsamiko 3/4, syrtos 2/4, beratis 8/8) at 60-130 BPM over a laouto strum-drone with heterophonic violi, using chalumeau-register smears, microtonal bends and long circular-breathed phrases.",
+  "recipe": "classic Southern European mid-1830s greek clarinet, drone Modal, wind pipe branch, chanson fado Greek entechno, heterophonic drone modal armenian folk music greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. grenadilla African blackwood traditional clarinet, strummed drone and chord rhythmic laouto, modal microtonal kanonaki, davul, walnut staves canonical Greek gut pre 1950s rebetiko drone like modal bouzouki. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 615,
+  "score": 285.419,
+  "config": {
+    "traditions": [
+      "greek_clarinet",
+      "armenian_folk",
+      "greek_entechno"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 2.36,
+          "clarinet_body": 5.122249999999999,
+          "clarinet_size": 2.02,
+          "clarinet_reed": 0.09,
+          "clarinet_articulation": 0.845
+        }
+      },
+      {
+        "id": "laouto",
+        "slots": {
+          "laouto_form": "laouto_politiko",
+          "laouto_role": "laouto_synodeia",
+          "laouto_strings": "laouto_strings_steel"
+        },
+        "scores": {
+          "laouto_form": 18.65,
+          "laouto_role": 24.895000000000003,
+          "laouto_strings": 1.625
+        }
+      },
+      {
+        "id": "kanonaki",
+        "slots": {
+          "kanonaki_mandal": "kanonaki_greek_mandal",
+          "kanonaki_technique": "kanonaki_tremolo",
+          "kanonaki_strings": "kanonaki_nylon"
+        },
+        "scores": {
+          "kanonaki_mandal": 7.215,
+          "kanonaki_technique": 0,
+          "kanonaki_strings": 0.3
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 5.295,
+          "voice_quality": 7.475,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.9974999999999996,
+          "voice_articulation": 17.55,
+          "voice_microtone": 30.3875,
+          "voice_tradition": 34.6015,
+          "voice_mechanism_compound": 9.23,
+          "voice_estill_quality": 6.76,
+          "voice_speech_song": 23.2375,
+          "voice_ensemble_config": 17.485,
+          "voice_ornament_system": 4.160000000000001,
+          "voice_pitch_organization": 5.330000000000001,
+          "voice_processing_chain": 5.199999999999999,
+          "voice_multitrack_stack": 2.08
+        }
+      },
+      {
+        "id": "davul",
+        "slots": {
+          "davul_form": "davul_armenian",
+          "davul_context": "davul_zurna_pairing",
+          "davul_head_material": "davul_synthetic"
+        },
+        "scores": {
+          "davul_form": 3.0877499999999998,
+          "davul_context": 23.14,
+          "davul_head_material": 1.625
+        }
+      },
+      {
+        "id": "bouzouki",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "bouzouki_courses": "trichordo",
+          "bouzouki_pick": "bouzouki_thin",
+          "bouzouki_body_wood": "bouzouki_walnut_bowl",
+          "bouzouki_strings": "bouzouki_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 11.309999999999999,
+          "bouzouki_courses": 7.54,
+          "bouzouki_pick": 0.845,
+          "bouzouki_body_wood": 8.645,
+          "bouzouki_strings": 1.365
+        }
+      }
+    ],
+    "room": "athens_minos_studios_60s_70s",
+    "archetype": "arch_greek_columbia_rizoupoli",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "room": "athens_minos_studios_60s_70s",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

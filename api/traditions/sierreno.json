@@ -3,20 +3,20 @@
   "name": "Sierreño",
   "family": "global",
   "lineage": "Acoustic trio format from the Sierra Madre Occidental (Sinaloa, Durango, Chihuahua) that spread through Southern California Mexican-American communities in the 1990s-2000s — requinto or twelve-string lead guitar picking the melody, second guitar strumming the 2/4 polka or 3/4 vals rhythm, and tuba or tololoche walking the bass, under two unornamented chest voices in parallel thirds narrating corridos at 90-130 BPM with no drum kit at all",
-  "recipe": "classic mid-1990s sierreño, functional Song, Mexican branch, tejano border corrido, tejano border ranchera corridos tumbados. vocal fry, full chest belt, slow rate, interlocked note trading. low mid rich spectrum cedar classical nylon-string guitar, dreadnought bass open tuning 12 string acoustic guitar 12 string, tololoche, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, nickel wound modern tejano strummed bajo sexto. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 703,
-  "score": 188.474,
+  "recipe": "classic mid-1990s sierreño, functional Song, Mexican branch, tejano border corrido, tejano border ranchera corridos alternativos. thick, full chest belt, slow rate, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string guitar, dreadnought bass open tuning 12 string acoustic guitar 12 string, tololoche, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, nickel wound modern tejano strummed bajo sexto. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 726,
+  "score": 176.144,
   "config": {
     "traditions": [
       "sierreno",
-      "corridos_tumbados",
-      "ranchera"
+      "ranchera",
+      "corridos_alternativos"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -28,47 +28,47 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.3649999999999998,
-          "voice_quality": 20.17499999999999,
+          "voice_register": 2.6564999999999994,
+          "voice_quality": 19.19499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.1774999999999998,
-          "voice_articulation": 16.054999999999996,
-          "voice_microtone": 13.259999999999994,
-          "voice_tradition": 5.915000000000001,
+          "voice_vibrato": 2.3724999999999996,
+          "voice_articulation": 14.169999999999996,
+          "voice_microtone": 11.374999999999993,
+          "voice_tradition": 5.785,
           "voice_mechanism_compound": 5.85,
-          "voice_estill_quality": 12.239999999999998,
-          "voice_speech_song": 24.9925,
-          "voice_ensemble_config": 13.844999999999995,
-          "voice_ornament_system": 4.095000000000001,
+          "voice_estill_quality": 12.033749999999998,
+          "voice_speech_song": 23.3675,
+          "voice_ensemble_config": 12.609999999999994,
+          "voice_ornament_system": 1.4365,
           "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 3.8999999999999995,
-          "voice_multitrack_stack": 5.329999999999999
+          "voice_processing_chain": 4.355,
+          "voice_multitrack_stack": 4.94
         }
       },
       {
         "id": "classical_nylon_string_guitar",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
-          "bracing_classical": "double_top_cl",
+          "bracing_classical": "lattice_cl",
           "string_classical": "carbon_cl",
-          "attack_technique_cl": "apoyando_cl"
+          "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 2.1449999999999996,
+          "acoustic_technique": 3.84375,
           "string_tuning": 0,
-          "top_wood_classical": 5.329999999999999,
-          "bracing_classical": 1.235,
+          "top_wood_classical": 6.434999999999999,
+          "bracing_classical": 0.65,
           "string_classical": 0.845,
-          "attack_technique_cl": 0.57
+          "attack_technique_cl": 0.65
         }
       },
       {
@@ -76,30 +76,30 @@
         "slots": {
           "twelve_string_body": "twelve_string_dreadnought_steel",
           "twelve_string_tuning": "twelve_string_open_tunings",
-          "twelve_string_strings": "phosphor_12"
+          "twelve_string_strings": "coated_nano_12"
         },
         "scores": {
-          "twelve_string_body": 3.05375,
-          "twelve_string_tuning": 1.4365,
-          "twelve_string_strings": 0.65
+          "twelve_string_body": 2.6437500000000003,
+          "twelve_string_tuning": 2.10525,
+          "twelve_string_strings": 0.195
         }
       },
       {
         "id": "tololoche",
         "slots": {
           "tololoche_size": "tololoche_three_string",
-          "tololoche_technique": "tololoche_bowed"
+          "tololoche_technique": "tololoche_polka_pump"
         },
         "scores": {
-          "tololoche_size": 3.05375,
-          "tololoche_technique": 0.105
+          "tololoche_size": 1.975,
+          "tololoche_technique": 0
         }
       },
       {
         "id": "tuba",
         "slots": {
           "wind_articulation": "wind_classical_legato",
-          "tuba_pitch": "tuba_eb",
+          "tuba_pitch": "tuba_cc",
           "tuba_context": "tuba_brass_band",
           "tuba_bell_metal": "tuba_yellow_brass",
           "tuba_valve_system": "tuba_piston_american",
@@ -107,10 +107,10 @@
         },
         "scores": {
           "wind_articulation": 0.375,
-          "tuba_pitch": 2.535,
-          "tuba_context": 6.500000000000001,
+          "tuba_pitch": 1.7422499999999999,
+          "tuba_context": 5.265,
           "tuba_bell_metal": 1.04,
-          "tuba_valve_system": 1.21,
+          "tuba_valve_system": 1.7422499999999999,
           "tuba_maker_school": 1.04
         }
       },
@@ -124,10 +124,10 @@
           "bajo_back_wood": "bajo_mahogany_back"
         },
         "scores": {
-          "plucked_traditional_technique": 4.755999999999999,
-          "bajo_courses": 10.3865,
-          "bajo_top": 0.40800000000000003,
-          "bajo_strings": 5.9799999999999995,
+          "plucked_traditional_technique": 3.055,
+          "bajo_courses": 9.375,
+          "bajo_top": 0.65,
+          "bajo_strings": 5.525,
           "bajo_back_wood": 0
         }
       }

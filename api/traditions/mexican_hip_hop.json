@@ -3,14 +3,14 @@
   "name": "Mexican Hip Hop",
   "family": "hip_hop",
   "lineage": "Rap in Mexican Spanish rooted in Mexico City's Neza and Monterrey's colonias, codified by Control Machete's Mucho Barato (1996) produced by Jason Roberts and Toy Selectah, then extended by Cartel de Santa, Akwid and Aleman: 88-98 BPM heavy boom-bap with banda, norteno accordion and mariachi horn samples, plus later trap grids, over a low, drawled chilango or regio delivery.",
-  "recipe": "classic mid-1990s mexican hip hop, mc Rhythm, intl hip hop branch, tejano border corrido corridos tumbados. vocal fry, rap, slow rate, interlocked note trading. sampled chopped turntable, chopped sampler, behringer rd 8 modern clone analog circuit reproduction TR-808, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass, castagnari Italian premium folk music chordal accordion, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison heavy one piece matched to monette horn trumpet, lead plus dense cluster 5 part stack mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 875,
-  "score": 278.604,
+  "recipe": "classic mid-1990s mexican hip hop, mc Rhythm, intl hip hop branch, tejano border corrido corridos tumbados corridos bélicos. vocal fry, rap, slow rate, interlocked note trading. sampled chopped turntable, chopped sampler, TR-808, orange amp British heavy crunch mahogany la bella flats Detroit soul bass canon electric bass, weltmeister east German mid tier vintage volk chordal accordion, yellow brass canonical 70 30 bach stradivarius schilke chicago lead bright heavy one piece matched to monette horn unison trumpet, lead plus third fifth 3 part stack 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 822,
+  "score": 263.914,
   "config": {
     "traditions": [
       "mexican_hip_hop",
       "corridos_tumbados",
-      "corrido"
+      "corridos_belicos"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.5041249999999997,
-          "voice_quality": 14.690000000000001,
+          "voice_register": 3.3697500000000002,
+          "voice_quality": 15.296500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8600000000000003,
-          "voice_articulation": 18.654999999999994,
-          "voice_microtone": 18.459999999999994,
-          "voice_tradition": 7.2475000000000005,
-          "voice_mechanism_compound": 5.459999999999999,
-          "voice_estill_quality": 5.915,
-          "voice_speech_song": 24.569999999999993,
-          "voice_ensemble_config": 20.929999999999993,
-          "voice_ornament_system": 4.745000000000001,
-          "voice_pitch_organization": 1.4849999999999999,
-          "voice_processing_chain": 9.895,
-          "voice_multitrack_stack": 6.954999999999999
+          "voice_vibrato": 2.275,
+          "voice_articulation": 19.499999999999996,
+          "voice_microtone": 19.304999999999993,
+          "voice_tradition": 7.372249999999999,
+          "voice_mechanism_compound": 4.42,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 23.919999999999995,
+          "voice_ensemble_config": 21.124999999999996,
+          "voice_ornament_system": 4.810000000000001,
+          "voice_pitch_organization": 0.845,
+          "voice_processing_chain": 10.42,
+          "voice_multitrack_stack": 6.5649999999999995
         }
       },
       {
@@ -59,8 +59,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 4.3465,
-          "turntable_technique": 4.465249999999999
+          "electronic_technique": 5.0665000000000004,
+          "turntable_technique": 4.99025
         }
       },
       {
@@ -68,16 +68,16 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_bit_depth": "sampler_twelve_bit",
           "sampler_workflow": "sampler_chopped_breaks",
-          "sampler_classic_context": "sampler_classic_edm"
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 4.3465,
-          "sampler_archetypes": 6.629999999999999,
-          "sampler_bit_depth": 2.535,
-          "sampler_workflow": 6.1,
-          "sampler_classic_context": 25.22
+          "electronic_technique": 5.0665000000000004,
+          "sampler_archetypes": 7.54,
+          "sampler_bit_depth": 1.9500000000000002,
+          "sampler_workflow": 6.625,
+          "sampler_classic_context": 25.8375
         }
       },
       {
@@ -85,12 +85,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.0737499999999995,
-          "drum_machine_808_context": 4.355,
-          "tr808_production_origin": 1.2350000000000003
+          "tr808_voice": 7.151749999999999,
+          "drum_machine_808_context": 2.73,
+          "tr808_production_origin": 0.3
         }
       },
       {
@@ -99,19 +99,19 @@
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "pyramid_pure_nickel",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 3.636750000000001,
-          "body_wood": 2.73,
-          "pickup_config": 1.69,
-          "string_type": 4.030000000000001,
-          "scale_length_b": 2.6942500000000003,
+          "amp_make": 3.380000000000001,
+          "body_wood": 2.34,
+          "pickup_config": 0.845,
+          "string_type": 2.4050000000000002,
+          "scale_length_b": 2.34,
           "fretted_or_not": 0,
-          "bass_technique": 4.1075
+          "bass_technique": 2.3274999999999997
         }
       },
       {
@@ -119,20 +119,20 @@
         "slots": {
           "free_reed_technique": "free_reed_chordal_chugging",
           "accordion_reed_material": "tipo_a_mano",
-          "musette_offset": "american_swing",
+          "musette_offset": "scottish_musette",
           "reed_config": "lm_only",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
-          "accordion_maker_school": "accordion_castagnari_italian"
+          "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 12.2535,
-          "accordion_reed_material": 2.6942500000000003,
-          "musette_offset": 1.3,
+          "free_reed_technique": 11.10375,
+          "accordion_reed_material": 2.34,
+          "musette_offset": 1.375,
           "reed_config": 0.40825,
           "bellows": 0.195,
-          "voicing_chamber": 1.3,
-          "accordion_maker_school": 2.08
+          "voicing_chamber": 1.18,
+          "accordion_maker_school": 1.0434999999999999
         }
       },
       {
@@ -144,29 +144,29 @@
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_mariachi_unison",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
+          "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 4.875,
-          "brass_size": 1.3,
-          "trumpet_mouthpiece": 2.715625,
-          "brass_mute": 2.055,
-          "trumpet_technique": 4.875,
-          "trumpet_bell_metal": 2.73,
+          "wind_articulation": 2.5,
+          "brass_size": 1.18,
+          "trumpet_mouthpiece": 2.73,
+          "brass_mute": 2.25,
+          "trumpet_technique": 2.5,
+          "trumpet_bell_metal": 1.4300000000000002,
           "trumpet_maker_school": 1.3
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_5_part_cluster",
-          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 3.3799999999999994,
-          "multitrack_stack_era_aesthetic": 1.364999999999999,
-          "multitrack_stack_processing": 1.6103749999999997
+          "multitrack_stack_density": 3.6399999999999997,
+          "multitrack_stack_era_aesthetic": 1.65,
+          "multitrack_stack_processing": 1.17
         }
       }
     ],

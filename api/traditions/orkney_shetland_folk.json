@@ -1,0 +1,166 @@
+{
+  "id": "orkney_shetland_folk",
+  "name": "Orkney and Shetland folk",
+  "family": "global",
+  "lineage": "Northern-isles fiddle tradition of the Norse-settled Scottish archipelago, collected and taught into the modern era by Tom Anderson from the 1940s onward — Shetland reels and 'trowie' tunes with heavy ringing-string double stops and off-beat bowing, wedding and Up Helly Aa dance repertoire, Orkney's slower strathspey-inflected airs, backed by vamping piano or guitar rather than by pipes.",
+  "recipe": "classic Northern European mid-1940s orkney and shetland folk, ballad Poetry, Scottish ballad branch, Celtic traditional improv on frame, string drone modal contra dance band music irish tenor banjo playing. thick, breath veiled tone, straight note core, interlocked note trading. magic rosin modern acrylic base double stops fiddle, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, dadgad tuning monel alloy drone like modal dreadnought acoustic guitar, silver wound lamb gut core plywood laminate European maple double bass. scottish bothy farmhouse kitchen. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 725,
+  "score": 273.757,
+  "config": {
+    "traditions": [
+      "orkney_shetland_folk",
+      "contra_dance",
+      "irish_banjo"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "sul_tasto"
+        },
+        "scores": {
+          "bowed_technique": 16.39,
+          "fiddle_strings": 0,
+          "fiddle_bow": 1.045,
+          "fiddle_mute": 0.9500000000000001,
+          "fiddle_articulation": 1.135
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 0.7149999999999999,
+          "grand_piano_size": 0.9500000000000001,
+          "grand_piano_brand": 0.3,
+          "piano_hammer": 2.795,
+          "piano_rim": 4.635,
+          "piano_soundboard": 4.725,
+          "piano_pinblock": 2.65,
+          "piano_plate": 3.55,
+          "piano_pitch_standard": 5.785
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "string_tuning": "dadgad",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "monel"
+        },
+        "scores": {
+          "acoustic_technique": 12.61,
+          "string_tuning": 19.59,
+          "top_wood": 0.39,
+          "back_sides": 0.9500000000000001,
+          "string_acoustic": 1.04
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "silver_wound_lamb_gut_bass",
+          "bass_top_wood": "plywood_bass_top",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.975,
+          "bass_size": 0.9500000000000001,
+          "bass_strings": 1.17,
+          "bass_top_wood": 2.5,
+          "bass_back_wood": 2.645,
+          "bass_varnish": 2.5,
+          "bass_setup_period": 2.08,
+          "bass_play": 1.04,
+          "bass_rosin": 2.6900000000000004,
+          "bass_bow_stick": 2.5
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 6.175,
+          "voice_quality": 15.469999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.2150000000000003,
+          "voice_articulation": 20.734999999999992,
+          "voice_microtone": 20.539999999999996,
+          "voice_tradition": 23.985,
+          "voice_mechanism_compound": 4.745,
+          "voice_estill_quality": 6.467499999999999,
+          "voice_speech_song": 20.929999999999996,
+          "voice_ensemble_config": 22.749999999999996,
+          "voice_ornament_system": 19.634999999999998,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 7.6049999999999995,
+          "voice_multitrack_stack": 5.3950000000000005
+        }
+      }
+    ],
+    "room": "scottish_bothy_farmhouse_kitchen",
+    "archetype": "arch_60s_uk_small_commercial",
+    "inline_chain": {
+      "mic": "mic_coles_4038_ribbon",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "nordic_modal_drone_double_stops",
+    "room": "scottish_bothy_farmhouse_kitchen",
+    "chain_mic": "mic_coles_4038_ribbon",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

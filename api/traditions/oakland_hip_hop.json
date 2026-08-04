@@ -3,14 +3,14 @@
   "name": "Oakland hip-hop",
   "family": "hip_hop",
   "lineage": "Developed in Oakland and the wider East Bay from 1985 onward through Too $hort's self-distributed tapes, Digital Underground, Souls of Mischief and Hieroglyphics, and later Mac Dre and E-40's Sick Wid It camp — 90-105 BPM tracks over live-played P-funk and Parliament-derived bass lines, slapping programmed snares, wah guitar and synth leads, with drawled, elastic flows and heavy local slang.",
-  "recipe": "classic North American mid-1980s oakland hip-hop, mc Rhythm, west coast branch, us hip hop gangsta, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, low sub bass analog poly synth, sampled chopped turntable, pocket ostinato rhodes electric. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 626,
-  "score": 444.945,
+  "recipe": "classic North American mid-1980s oakland hip-hop, mc Rhythm, west coast branch, us hip hop gangsta, us hip hop conscious rap jazz rap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, low sub bass analog poly synth, sampled chopped turntable, pocket ostinato rhodes electric. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 617,
+  "score": 380.086,
   "config": {
     "traditions": [
       "oakland_hip_hop",
-      "conscious_hip_hop",
-      "gangsta_rap"
+      "gangsta_rap",
+      "jazz_rap"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -34,52 +34,52 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 10.267999999999997,
-          "voice_quality": 35.432,
+          "voice_register": 5.498,
+          "voice_quality": 29.718000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.376499999999998,
-          "voice_articulation": 23.92,
-          "voice_microtone": 23.725,
-          "voice_tradition": 14.484000000000002,
-          "voice_mechanism_compound": 3.3150000000000004,
-          "voice_estill_quality": 4.785499999999999,
-          "voice_speech_song": 33.825,
-          "voice_ensemble_config": 26.130000000000003,
-          "voice_ornament_system": 7.345000000000002,
-          "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 25.332499999999996,
-          "voice_multitrack_stack": 7.48575
+          "voice_vibrato": 3.8815,
+          "voice_articulation": 22.619999999999994,
+          "voice_microtone": 21.77499999999999,
+          "voice_tradition": 13.190000000000001,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 27.682000000000002,
+          "voice_ensemble_config": 23.72499999999999,
+          "voice_ornament_system": 7.540000000000003,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 20.306499999999996,
+          "voice_multitrack_stack": 4.095000000000001
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_miami",
+          "drum_machine_808_context": "drum_machine_808_trap",
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 16.236250000000002,
-          "drum_machine_808_context": 5.478,
-          "tr808_production_origin": 1.6927500000000002
+          "tr808_voice": 14.7795,
+          "drum_machine_808_context": 4.159999999999999,
+          "tr808_production_origin": 1.3
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_archetypes": "emu_sp1200",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 13.804,
-          "sampler_archetypes": 23.79,
-          "sampler_bit_depth": 1.2999999999999998,
-          "sampler_workflow": 14.385000000000002,
-          "sampler_classic_context": 39.160000000000004
+          "electronic_technique": 12.0195,
+          "sampler_archetypes": 19.9225,
+          "sampler_bit_depth": 1.6574999999999998,
+          "sampler_workflow": 12.475000000000001,
+          "sampler_classic_context": 36.2255
         }
       },
       {
@@ -94,25 +94,25 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 9.0345,
+          "amp_make": 7.7490000000000006,
           "body_wood": 1.4299999999999997,
-          "pickup_config": 0.45499999999999996,
-          "string_type": 10.1115,
+          "pickup_config": 0.39,
+          "string_type": 8.2875,
           "scale_length_b": 1.4299999999999997,
-          "fretted_or_not": 0.08474999999999999,
-          "bass_technique": 9.45
+          "fretted_or_not": 0.1785,
+          "bass_technique": 7.825
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 17.987750000000002,
+          "electronic_technique": 16.125999999999998,
           "poly_archetypes": 0.195,
           "poly_voices": 0.195,
           "poly_maker_lineage": 0.7149999999999999
@@ -125,8 +125,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 13.804,
-          "turntable_technique": 17.595000000000002
+          "electronic_technique": 12.0195,
+          "turntable_technique": 15.045000000000002
         }
       },
       {
@@ -135,17 +135,17 @@
           "keyboard_technique": "keyboard_ostinato_groove",
           "rhodes_model": "rhodes_mark1_stage",
           "rhodes_use": "rhodes_soul",
-          "rhodes_tine_material": "rhodes_mark7_modern_tine",
-          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
-          "rhodes_pickup_position": "rhodes_pickup_close_bark"
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 9.499999999999998,
-          "rhodes_model": 6.464999999999999,
+          "keyboard_technique": 7.874999999999999,
+          "rhodes_model": 4.03,
           "rhodes_use": 1.8199999999999998,
-          "rhodes_tine_material": -1.38225,
-          "rhodes_hammer_tip": -0.5950000000000001,
-          "rhodes_pickup_position": 0.585
+          "rhodes_tine_material": -0.9450000000000001,
+          "rhodes_hammer_tip": -0.2799999999999999,
+          "rhodes_pickup_position": 0.845
         }
       }
     ],

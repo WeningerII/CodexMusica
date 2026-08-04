@@ -1,0 +1,173 @@
+{
+  "id": "c86",
+  "name": "C86",
+  "family": "rock",
+  "lineage": "UK indie-pop style named after the NME's 1986 cassette compilation and centred on Glasgow, Leeds and London labels such as 53rd & 3rd, Subway and Sarah — The Pastels, Talulah Gosh, The Shop Assistants, The Wedding Present, Primal Scream — fast unswung 4/4 with standing or minimal drum kits, trebly overdriven downstroke guitar, thin bass, boy-girl untrained vocals, two-to-three-minute song forms and cheap eight-track or cassette-level fidelity.",
+  "recipe": "classic North American mid-1980s c86, distorted Rock, alternative branch, punk distorted rock, pop punk distorted rock britpunk skate punk. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation ebony single coil electric strummed open chord ringing overtones parlor acoustic guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, tambourine orch. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 637,
+  "score": 352.39,
+  "config": {
+    "traditions": [
+      "c86",
+      "britpunk",
+      "skate_punk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 28.789999999999996,
+          "voice_quality": 11.309999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.73,
+          "voice_articulation": 19.304999999999996,
+          "voice_microtone": 28.3,
+          "voice_tradition": 10.42,
+          "voice_mechanism_compound": 12.544999999999998,
+          "voice_estill_quality": 3.315000000000001,
+          "voice_speech_song": 19.499999999999996,
+          "voice_ensemble_config": 18.134999999999998,
+          "voice_ornament_system": 1.7399999999999995,
+          "voice_pitch_organization": 2.2099999999999995,
+          "voice_processing_chain": 2.73,
+          "voice_multitrack_stack": 2.4000000000000004
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 14.375,
+          "amp_make": 28.96,
+          "body_wood": 0.585,
+          "neck_wood": 0.585,
+          "fretboard": 2.49,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 1,
+          "bridge": 2.49,
+          "scale_length": 0.585,
+          "finish": 1,
+          "string_tuning": 11.895000000000003
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 12.935000000000002,
+          "body_wood": 2.925,
+          "pickup_config": 2.34,
+          "string_type": 25.025000000000006,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.045,
+          "bass_technique": 32.54500000000001
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.150000000000006,
+          "drumhead": 8.899999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0,
+          "tambourine_orch_context": 0.78
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "open_d",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 9.475,
+          "string_tuning": 0.52,
+          "top_wood_parlor": 0.78,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.585
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_uk_community_studio_80s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_uk_community_studio_80s"
+  }
+}

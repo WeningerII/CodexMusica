@@ -1,0 +1,150 @@
+{
+  "id": "dark_jazz",
+  "name": "Dark Jazz",
+  "family": "jazz",
+  "lineage": "Slow noir-jazz idiom formed in Germany and the Netherlands from the mid-1990s, codified by Bohren & der Club of Gore's 'Sunset Mission' (2000) and The Kilimanjaro Darkjazz Ensemble — funereal 40-70 BPM tempos, sustained Rhodes and vibraphone chords, breathy near-static tenor saxophone lines, bowed bass and brushed kit under heavy reverb, film-noir minor modality, and long through-composed pieces with no soloing in the bebop sense.",
+  "recipe": "classic North American 1994-1996 dark jazz, improv On Frame, avant branch, ambient experimental electric, modal electric drone modal melancholia ambient techno. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, chordal mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, vibraphone, pistoy cinnabar loaded red dyed deep dark red norway spruce double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, sustained pad analog poly synth. denver gothic basement studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 720,
+  "score": 217.467,
+  "config": {
+    "traditions": [
+      "dark_jazz",
+      "melancholia_ambient",
+      "ambient_techno"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "alto_sax",
+          "sax_reed": "hard_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 5.325,
+          "sax_size": 3.235,
+          "sax_reed": 1.69,
+          "sax_body_alloy": 15.874999999999996,
+          "sax_mouthpiece": 2.34,
+          "sax_technique": 14.999999999999996,
+          "sax_maker_school": 14.314999999999998
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_jazz",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 0.9099999999999999,
+          "rhodes_model": 17.955624999999998,
+          "rhodes_use": 2.795,
+          "rhodes_tine_material": 1.4949999999999999,
+          "rhodes_hammer_tip": 0.3899999999999998,
+          "rhodes_pickup_position": 1.69
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_fast",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "vibe_motor": 14.999999999999996,
+          "vibe_mallets": 14.999999999999996
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_sul_ponticello",
+          "bass_size": "bass_seven_eighth",
+          "bass_strings": "pistoy_gut_bass",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "modern_synthetic_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "snakewood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 3.75,
+          "bass_size": 0.65,
+          "bass_strings": 2.275,
+          "bass_top_wood": 1.17,
+          "bass_back_wood": 1.4874999999999998,
+          "bass_varnish": 1.0728125,
+          "bass_setup_period": 3.04375,
+          "bass_play": 15.089999999999996,
+          "bass_rosin": 16.839999999999996,
+          "bass_bow_stick": 1.56
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "fiberskyn_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 25.154999999999994,
+          "drumhead": 16.072812499999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 10.534999999999998,
+          "poly_archetypes": 1.63,
+          "poly_voices": 1.63,
+          "poly_maker_lineage": -1.435
+        }
+      }
+    ],
+    "room": "denver_gothic_basement_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "modal_jazz_dorian_static",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "modal_jazz_dorian_static",
+    "room": "denver_gothic_basement_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

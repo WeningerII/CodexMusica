@@ -1,0 +1,168 @@
+{
+  "id": "cumbia_paraguaya",
+  "name": "Cumbia paraguaya",
+  "family": "global",
+  "lineage": "Paraguayan cumbia developed in Asunción from the 1970s onward, codified by Grupo Generación, Los Ojos Negros and Juan Carlos Oviedo's tropical bands — 95–105 BPM cumbia with Paraguayan harp or synth arpeggios, Guaraní- and Spanish-language lyrics, guarania-derived melodic phrasing and a bright electric-bass-and-güiro core.",
+  "recipe": "classic Andean mid-1970s cumbia paraguaya, groove Percussion, Latin am branch, tropical song functional song, Latin am troubadour ballad poetry milonga folklore surero. thick, full chest belt, straight note core, interlocked note trading. arpa paraguaya, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, guiro, lead open slap hand drum congas, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, open slap hand drum timbales. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 661,
+  "score": 168.63,
+  "config": {
+    "traditions": [
+      "cumbia_paraguaya",
+      "milonga",
+      "folklore_surero"
+    ],
+    "instruments": [
+      {
+        "id": "arpa_paraguaya",
+        "slots": {
+          "arpa_paraguaya_strings": "arpa_paraguaya_nylon",
+          "arpa_paraguaya_technique": "arpa_paraguaya_fingernail",
+          "arpa_paraguaya_body": "arpa_paraguaya_pine"
+        },
+        "scores": {
+          "arpa_paraguaya_strings": 0,
+          "arpa_paraguaya_technique": 1.045,
+          "arpa_paraguaya_body": 1.045
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 3.575000000000001,
+          "body_wood": 1.04,
+          "pickup_config": 0.045,
+          "string_type": 4.355,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0.3,
+          "bass_technique": 0.8999999999999999
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_wood"
+        },
+        "scores": {
+          "guiro_origin": 0.78,
+          "guiro_striker": 0.78
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 13.03,
+          "conga_set": 1.0650000000000002,
+          "conga_skin": 0.65,
+          "conga_shell_wood": 0.65
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 3.640000000000001,
+          "poly_archetypes": 0.24,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": 1.625
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 5.470000000000001,
+          "voice_quality": 9.849999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.2800000000000002,
+          "voice_articulation": 18.394999999999996,
+          "voice_microtone": 18.39499999999999,
+          "voice_tradition": 8.1575,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 4.68,
+          "voice_speech_song": 23.269999999999992,
+          "voice_ensemble_config": 18.264999999999993,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 0.9299999999999997,
+          "voice_processing_chain": 4.81,
+          "voice_multitrack_stack": 4.127500000000001
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_bronze",
+          "timbales_context": "timbales_son"
+        },
+        "scores": {
+          "percussion_technique": 13.03,
+          "timbales_shell": 0.65,
+          "timbales_context": 0.585
+        }
+      }
+    ],
+    "room": "bogota_colombian_andean_studio",
+    "archetype": "arch_discos_fuentes_tropical",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_console_inline_strip",
+      "console": "console_british_inline_80s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "cumbia_4_4_paseo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cumbia_4_4_paseo",
+    "room": "bogota_colombian_andean_studio",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_inline_80s"
+  }
+}

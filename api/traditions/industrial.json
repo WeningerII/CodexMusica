@@ -3,28 +3,28 @@
   "name": "Industrial",
   "family": "electronic",
   "lineage": "Late-1970s onward experimental-electronic genre using harsh noise textures, found-sound and concrete materials, deconstructed song-form, and explicitly transgressive thematic content — codified through Throbbing Gristle (Second Annual Report 1977, the founding industrial recording), Cabaret Voltaire, Einstürzende Neubauten, SPK, and continuing through the post-industrial commercial breakthrough (Ministry — Land of Rape and Honey 1988, Nine Inch Nails — Pretty Hate Machine 1989)",
-  "recipe": "classic European 1977-1979 industrial, experimental Elec, industrial noise branch, experimental distorted rock krautrock post-rock. thick, breath veiled tone, slow rate, interlocked note trading. drum machine analog, ambient pad like analog synth, vocoder. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo high-gain distortion plate reverb.",
-  "recipe_chars": 397,
-  "score": 146.216,
+  "recipe": "classic European 1977-1979 industrial, experimental Elec, industrial noise branch, experimental distorted rock krautrock. thick, breath veiled tone, straight onset, interlocked note trading. drum machine analog, analog synth, vocoder. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo high-gain distortion plate reverb.",
+  "recipe_chars": 375,
+  "score": 154.007,
   "config": {
     "traditions": [
       "industrial",
       "krautrock",
-      "post_rock_extended"
+      "experimental_rock"
     ],
     "instruments": [
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "fm_pair_kick",
+          "kick_voice": "bridged_t_kick",
           "snare_voice": "two_oscillator_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.45499999999999996,
-          "snare_voice": 0.45499999999999996,
-          "hat_voice": 0.01875,
+          "kick_voice": 0.345,
+          "snare_voice": 0.21,
+          "hat_voice": 0.0315,
           "shuffle_quantize": 0.5199999999999999
         }
       },
@@ -38,11 +38,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 1.2045,
-          "oscillator": 1.04,
-          "filter_topology": 0.46575,
-          "envelope": 1.3,
-          "modulation": 0.072
+          "electronic_technique": 1.395,
+          "oscillator": 0.845,
+          "filter_topology": 0.531,
+          "envelope": 0.45499999999999996,
+          "modulation": 0.213
         }
       },
       {
@@ -53,8 +53,8 @@
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
-          "voc_band_count": 0.45499999999999996,
-          "voc_carrier": 1.04,
+          "voc_band_count": 0.255,
+          "voc_carrier": 0.845,
           "voc_modulator": 0.195
         }
       },
@@ -65,36 +65,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 14.825124999999996,
+          "voice_register": 18.326499999999992,
           "voice_quality": 2.990000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.826125,
-          "voice_articulation": 15.144999999999992,
-          "voice_microtone": 14.75499999999999,
-          "voice_tradition": 17.223499999999998,
-          "voice_mechanism_compound": 10.679374999999999,
-          "voice_estill_quality": 4.962999999999999,
-          "voice_speech_song": 17.459249999999994,
-          "voice_ensemble_config": 15.274999999999993,
-          "voice_ornament_system": 3.3225000000000002,
-          "voice_pitch_organization": 2.3695,
-          "voice_processing_chain": 11.393749999999999,
-          "voice_multitrack_stack": 4.8425
+          "voice_vibrato": 1.9174999999999995,
+          "voice_articulation": 15.989999999999995,
+          "voice_microtone": 17.684999999999995,
+          "voice_tradition": 20.1835,
+          "voice_mechanism_compound": 12.349999999999998,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 18.32999999999999,
+          "voice_ensemble_config": 16.119999999999994,
+          "voice_ornament_system": 1.7549999999999994,
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 12.491499999999998,
+          "voice_multitrack_stack": 5.068000000000001
         }
       }
     ],

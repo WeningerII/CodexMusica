@@ -1,0 +1,198 @@
+{
+  "id": "urban_cowboy",
+  "name": "Urban Cowboy (Country-Pop)",
+  "family": "country",
+  "lineage": "Nashville and Los Angeles country-pop peak of 1978-1984, named for the 1980 John Travolta film and its Gilley's Club setting, delivered by Mickey Gilley, Johnny Lee, Kenny Rogers, Ronnie Milsap and Barbara Mandrell — mid-tempo 4/4 with soft rock drums, electric piano and synth pads, string sweetening, muted pedal steel far back in the mix, and smooth crossover-radio vocals.",
+  "recipe": "classic North American mid-1980s urban cowboy, functional Song, nashville branch, neo trad country, pop rock yacht rock, contemp main country christian country neotraditional country. thick, breath veiled tone, straight note core, interlocked note trading. block chord electric piano tine, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 931,
+  "score": 675.763,
+  "config": {
+    "traditions": [
+      "urban_cowboy",
+      "christian_country",
+      "neotraditional_country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 51.07000000000002,
+          "voice_quality": 8.19,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 32.96000000000001,
+          "voice_articulation": 16.184999999999995,
+          "voice_microtone": 15.79499999999999,
+          "voice_tradition": 12.805,
+          "voice_mechanism_compound": 5.07,
+          "voice_estill_quality": 35.79150000000001,
+          "voice_speech_song": 24.244999999999994,
+          "voice_ensemble_config": 16.18499999999999,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 0.7799999999999998,
+          "voice_processing_chain": 4.54,
+          "voice_multitrack_stack": 4.745
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tine_voicing": "aggressive_tine",
+          "tine_effect": "overdrive_tine"
+        },
+        "scores": {
+          "keyboard_technique": 8.61,
+          "tine_voicing": 0.195,
+          "tine_effect": 3.8999999999999995
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 38.943,
+          "amp_make": 33.17500000000001,
+          "pickup_steel": 2.9165,
+          "string_setup": 16.705000000000002,
+          "bar_material": 3.38,
+          "pedal_steel_brand": 41.428000000000004,
+          "pedal_steel_neck_config": 39.893499999999996,
+          "pedal_steel_strings": 39.1665
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 32.38,
+          "body_wood": 2.9899999999999998,
+          "pickup_config": 0.845,
+          "string_type": 9.629999999999999,
+          "scale_length_b": 2.9165,
+          "fretted_or_not": 0.195,
+          "bass_technique": 32.2015
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 15.469999999999994,
+          "drumhead": 8.25,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 8.86,
+          "poly_archetypes": 3.8999999999999995,
+          "poly_voices": 1.2349999999999999,
+          "poly_maker_lineage": 1.3849999999999998
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_country_chicken_pickin",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 34.095,
+          "amp_make": 33.17500000000001,
+          "body_wood": 2.9165,
+          "neck_wood": 2.9165,
+          "fretboard": 2.8665000000000003,
+          "pickup_magnet": 0.09,
+          "string_material": 3.38,
+          "string_gauge": 2.9165,
+          "bridge": 0.195,
+          "scale_length": 2.9899999999999998,
+          "finish": 0,
+          "string_tuning": 5.59
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "country_nashville_three_chord_train_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "country_nashville_three_chord_train_beat",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_inline_80s"
+  }
+}

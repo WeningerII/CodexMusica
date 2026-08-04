@@ -3,13 +3,14 @@
   "name": "M-Base collective (late-1980s Brooklyn-based jazz-avant-garde)",
   "family": "jazz",
   "lineage": "Late-1980s-and-onward jazz-avant-garde collective centered on alto saxophonist Steve Coleman (born 1956), pursuing a \"Macro-Basic Array of Structured Extemporizations\" compositional methodology integrating Yoruba metaphysical concepts, mathematical-rhythmic structures, and African diasporic musical-cultural inheritance. Cassandra Wilson's early-career M-Base recordings, Greg Osby's solo work, and Coleman's Five Elements and Council of Balance ensembles constitute the canonical core.",
-  "recipe": "classic North American m-base collective, improv On Frame, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 727,
-  "score": 355.863,
+  "recipe": "classic North American m-base collective, improv On Frame, avant branch, us hip hop conscious rap conscious hip-hop jazz rap. thick, rap, straight onset, interlocked note trading. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 736,
+  "score": 436.533,
   "config": {
     "traditions": [
       "m_base_collective",
-      "conscious_hip_hop"
+      "conscious_hip_hop",
+      "jazz_rap"
     ],
     "instruments": [
       {
@@ -21,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -33,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 19.603749999999994,
-          "voice_quality": 18.07,
+          "voice_register": 23.09149999999999,
+          "voice_quality": 24.856499999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 20.1105,
-          "voice_articulation": 14.040000000000001,
-          "voice_microtone": 16.223999999999997,
-          "voice_tradition": 18.875,
-          "voice_mechanism_compound": 0.845,
-          "voice_estill_quality": 3.8405,
-          "voice_speech_song": 17.494999999999997,
-          "voice_ensemble_config": 13.975,
-          "voice_ornament_system": 2.405000000000001,
-          "voice_pitch_organization": 3.1020000000000008,
-          "voice_processing_chain": 13.024999999999999,
-          "voice_multitrack_stack": 12.205499999999997
+          "voice_vibrato": 21.8785,
+          "voice_articulation": 20.215,
+          "voice_microtone": 19.369999999999997,
+          "voice_tradition": 22.836,
+          "voice_mechanism_compound": 1.8850000000000002,
+          "voice_estill_quality": 5.4895,
+          "voice_speech_song": 24.290499999999998,
+          "voice_ensemble_config": 19.045,
+          "voice_ornament_system": 4.485000000000002,
+          "voice_pitch_organization": 3.218000000000001,
+          "voice_processing_chain": 18.206499999999995,
+          "voice_multitrack_stack": 12.908999999999997
         }
       },
       {
@@ -56,7 +57,7 @@
         "slots": {
           "wind_articulation": "wind_multiphonic_avant",
           "sax_size": "tenor_sax",
-          "sax_reed": "hard_reed",
+          "sax_reed": "soft_reed",
           "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "ebonite_vintage",
           "sax_technique": "sax_continuous_legato",
@@ -64,12 +65,12 @@
         },
         "scores": {
           "wind_articulation": 9.399999999999999,
-          "sax_size": 3.5444999999999993,
-          "sax_reed": 0.195,
-          "sax_body_alloy": 16.875,
-          "sax_mouthpiece": 0.39,
-          "sax_technique": 16,
-          "sax_maker_school": 18.1565
+          "sax_size": 5.359999999999999,
+          "sax_reed": 0.1995,
+          "sax_body_alloy": 18.5,
+          "sax_mouthpiece": 0.585,
+          "sax_technique": 17.625,
+          "sax_maker_school": 21.729
         }
       },
       {
@@ -82,19 +83,19 @@
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": 9.45,
-          "grand_piano_size": 0.195,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 2.73,
-          "piano_rim": 3.9650000000000003,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 0.585,
+          "piano_hammer": 3.185,
+          "piano_rim": 4.42,
           "piano_soundboard": 1.17,
-          "piano_pinblock": 0.8749999999999999,
-          "piano_plate": 1.1424999999999998,
-          "piano_pitch_standard": 7.738500000000001
+          "piano_pinblock": 0.9799999999999999,
+          "piano_plate": 1.265,
+          "piano_pitch_standard": 11.2025
         }
       },
       {
@@ -109,13 +110,13 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 8.98675,
-          "body_wood": 0.195,
-          "pickup_config": 0.45499999999999996,
-          "string_type": 18.81225,
-          "scale_length_b": 0.8449999999999999,
-          "fretted_or_not": 0.0315,
-          "bass_technique": 16
+          "amp_make": 13.629499999999997,
+          "body_wood": 0.39,
+          "pickup_config": 0.8449999999999999,
+          "string_type": 22.9275,
+          "scale_length_b": 1.0399999999999998,
+          "fretted_or_not": 0.105,
+          "bass_technique": 17.924999999999997
         }
       },
       {
@@ -126,8 +127,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.425,
-          "drumhead": 18.579749999999997,
+          "drum_technique": 28.145000000000003,
+          "drumhead": 22.429,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -1,0 +1,170 @@
+{
+  "id": "berlin_school",
+  "name": "Berlin School",
+  "family": "electronic",
+  "lineage": "West Berlin and Dusseldorf 1971-79, codified by Tangerine Dream, Klaus Schulze and Ashra — long-form sequencer music built on 16-step analogue sequencer ostinati at roughly 100-130 pulses per minute, layered Mellotron and string-synthesiser pads, slow filter sweeps and gradual additive arrangements running fifteen to twenty-five minutes without vocals, tracked to multitrack tape in self-built studios.",
+  "recipe": "classic Central European early-1970s berlin school, experimental Elec, ambient branch, techno electronic dance, western modern art music proto-techno berlin minimal techno. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular roland jupiter lineage canonical jupiter 8 1981 osaka pad analog poly roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, sustained pad string machine, open string slide resonance single coil electric guitar, field textural sampler. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 845,
+  "score": 114.455,
+  "config": {
+    "traditions": [
+      "berlin_school",
+      "proto_techno",
+      "berlin_minimal_techno"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_buchla_west_coast"
+        },
+        "scores": {
+          "electronic_technique": 8.95,
+          "mod_voltage_source": 0.345,
+          "mod_patch_density": 4.800000000000001,
+          "mod_lineage": 4.225
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 5.715,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": 1.4299999999999997
+        }
+      },
+      {
+        "id": "mellotron",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "mellotron_voice": "mellotron_strings",
+          "mellotron_context": "mellotron_indie",
+          "mellotron_model": "mellotron_m400_canonical",
+          "mellotron_tape_material": "mellotron_polyester_tape_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 0.4,
+          "mellotron_voice": 0.39,
+          "mellotron_context": 1.9599999999999997,
+          "mellotron_model": 2.015,
+          "mellotron_tape_material": 1.69
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_violins"
+        },
+        "scores": {
+          "electronic_technique": 5.715,
+          "sm_voice_count": 6.76,
+          "sm_chorus": 2.6900000000000004,
+          "sm_voicing": 0.15
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 8.95,
+          "mono_oscillator": 0.7,
+          "mono_filter": 0.39,
+          "mono_archetypes": 0.39,
+          "mono_maker_lineage": 1.885
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_baritone",
+          "finish": "poly",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 2.05,
+          "amp_make": 2.6000000000000005,
+          "body_wood": 0.39,
+          "neck_wood": 0.39,
+          "fretboard": 0.325,
+          "pickup_magnet": 0.045,
+          "string_material": 0.195,
+          "string_gauge": 2.235,
+          "bridge": 0.745,
+          "scale_length": 0.5,
+          "finish": 0.15,
+          "string_tuning": 2.34
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 5.450000000000001,
+          "sampler_archetypes": 1.7499999999999998,
+          "sampler_bit_depth": 1.29,
+          "sampler_workflow": 6.515000000000001,
+          "sampler_classic_context": 21.254999999999995
+        }
+      }
+    ],
+    "room": "krautrock_dusseldorf_kling_klang_studio",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "krautrock_dusseldorf_kling_klang_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

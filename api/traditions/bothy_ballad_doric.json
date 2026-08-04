@@ -3,13 +3,14 @@
   "name": "Bothy ballad (Doric)",
   "family": "global",
   "lineage": "Aberdeenshire and Northeast Scottish farm-laborer balladry sung in Doric Scots dialect — collected by Gavin Greig and James Bruce Duncan in the early 20th century, preserved through the School of Scottish Studies Hamish Henderson field recordings, performed by John Strachan, Jeannie Robertson, Lizzie Higgins, the Stewart family of Blairgowrie, and the modern Aberdeenshire continuation (Sheena Wellington, Jock Duncan)",
-  "recipe": "classic Northern European early-1940s bothy ballad, ballad Poetry, bothy ballad branch, pre commercial country pre-commercial country roots. thick, breath veiled tone, wide pitch sway, interlocked note trading. castagnari Italian premium folk music straight accordion, Celtic straight melodeon diatonic. scottish bothy farmhouse kitchen. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 412,
-  "score": 145.428,
+  "recipe": "classic Northern European early-1940s bothy ballad, ballad Poetry, bothy ballad branch, pre commercial country pre-commercial country roots close harmony. thick, breath veiled tone, wide pitch sway, interlocked note trading. castagnari Italian premium folk music straight accordion, Celtic straight melodeon diatonic. scottish bothy farmhouse kitchen. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 426,
+  "score": 207.265,
   "config": {
     "traditions": [
       "bothy_ballad_doric",
-      "pre_commercial_country"
+      "pre_commercial_country",
+      "close_harmony"
     ],
     "instruments": [
       {
@@ -33,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 13.102499999999994,
-          "voice_quality": 13.026999999999997,
+          "voice_register": 18.777499999999993,
+          "voice_quality": 16.379999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.125,
-          "voice_articulation": 11.192249999999996,
-          "voice_microtone": 11.042249999999994,
-          "voice_tradition": 11.989749999999995,
-          "voice_mechanism_compound": 1.16025,
-          "voice_estill_quality": 9.281624999999998,
-          "voice_speech_song": 14.875999999999994,
-          "voice_ensemble_config": 11.501249999999995,
-          "voice_ornament_system": 4.175000000000001,
-          "voice_pitch_organization": 1.41,
-          "voice_processing_chain": 5.899999999999999,
-          "voice_multitrack_stack": 0.9749999999999989
+          "voice_vibrato": 13.819999999999997,
+          "voice_articulation": 17.939999999999994,
+          "voice_microtone": 17.09499999999999,
+          "voice_tradition": 16.416249999999994,
+          "voice_mechanism_compound": 2.21,
+          "voice_estill_quality": 14.798124999999997,
+          "voice_speech_song": 21.514999999999993,
+          "voice_ensemble_config": 17.61499999999999,
+          "voice_ornament_system": 4.880000000000001,
+          "voice_pitch_organization": 2.9350000000000005,
+          "voice_processing_chain": 7.774999999999999,
+          "voice_multitrack_stack": 3.5100000000000002
         }
       },
       {
@@ -57,18 +58,18 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "german_tuning",
-          "reed_config": "lmmm",
+          "reed_config": "lm_only",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "no_cassotto",
+          "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 10.825,
-          "accordion_reed_material": 0.3,
-          "musette_offset": 0.315,
-          "reed_config": 0.015,
+          "free_reed_technique": 14.324999999999998,
+          "accordion_reed_material": 0.345,
+          "musette_offset": 1.2349999999999999,
+          "reed_config": 0.36,
           "bellows": 0.315,
-          "voicing_chamber": 0.007499999999999999,
+          "voicing_chamber": 0.105,
           "accordion_maker_school": 1.885
         }
       },
@@ -80,9 +81,9 @@
           "melodeon_diatonic_context": "melodeon_diatonic_celtic"
         },
         "scores": {
-          "free_reed_technique": 10.825,
+          "free_reed_technique": 14.324999999999998,
           "melodeon_rows": 1.2349999999999999,
-          "melodeon_diatonic_context": 1.723125
+          "melodeon_diatonic_context": 1.9181249999999999
         }
       }
     ],

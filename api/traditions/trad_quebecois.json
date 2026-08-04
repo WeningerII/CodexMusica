@@ -1,0 +1,181 @@
+{
+  "id": "trad_quebecois",
+  "name": "Musique traditionnelle québécoise",
+  "family": "vernacular",
+  "lineage": "Québec's French-Canadian dance and song tradition of the Saint Lawrence valley, documented from the nineteenth century, professionalized by La Bolduc and fiddler Jean Carignan and revived from the 1970s by La Bottine Souriante and Le Vent du Nord — crooked reels and gigues at 110-130 BPM driven by seated podorythmie foot percussion, diatonic accordion and fiddle in unison, ragtime-inflected piano backing, and chansons à répondre with turlutte mouth-music refrains.",
+  "recipe": "classic mid-1970s musique traditionnelle québécoise, improv On Frame, Celtic traditional branch, Celtic balladic ballad poetry scottish gaelic folk song sean-nós singing. extended whistle, breath veiled tone, straight note core, interlocked note trading. fiddle, foot tap, Celtic drone like melodeon diatonic, upright piano, dadgad tuning drone like modal dreadnought acoustic guitar, and hand spoons, reed pearwood marine band tradition brass traditional harmonica. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 546,
+  "score": 322.65,
+  "config": {
+    "traditions": [
+      "trad_quebecois",
+      "scottish_gaelic_folk",
+      "sean_nos_singing"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 15.02,
+          "fiddle_strings": 0.63,
+          "fiddle_bow": 0.045,
+          "fiddle_mute": 0.135,
+          "fiddle_articulation": 1
+        }
+      },
+      {
+        "id": "foot_tap",
+        "slots": {
+          "tap_striker": "tap_hard_shoe_leather",
+          "tap_surface": "tap_board_plywood"
+        },
+        "scores": {
+          "tap_striker": 0.7,
+          "tap_surface": 0.5
+        }
+      },
+      {
+        "id": "melodeon_diatonic",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "melodeon_rows": "melodeon_2_row",
+          "melodeon_diatonic_context": "melodeon_diatonic_celtic"
+        },
+        "scores": {
+          "free_reed_technique": 14.475,
+          "melodeon_rows": 2.55,
+          "melodeon_diatonic_context": 7.475
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 0.52,
+          "upright_use": 0.135,
+          "upright_piano_size": 3.5100000000000002
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "string_tuning": "dadgad",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 15.209999999999999,
+          "string_tuning": 18.799999999999997,
+          "top_wood": 0.7,
+          "back_sides": 0.7,
+          "string_acoustic": 0.9600000000000002
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.5499999999999999,
+          "voice_quality": 14.559999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.8449999999999999,
+          "voice_articulation": 24.505000000000003,
+          "voice_microtone": 25.544999999999998,
+          "voice_tradition": 28.47,
+          "voice_mechanism_compound": 7.77,
+          "voice_estill_quality": 6.295,
+          "voice_speech_song": 28.925000000000004,
+          "voice_ensemble_config": 26.325,
+          "voice_ornament_system": 28.875,
+          "voice_pitch_organization": 2.495,
+          "voice_processing_chain": 6.24,
+          "voice_multitrack_stack": 7.475000000000001
+        }
+      },
+      {
+        "id": "spoons",
+        "slots": {
+          "spoons_material": "spoons_wooden",
+          "spoons_playing": "spoons_knee_and_hand"
+        },
+        "scores": {
+          "spoons_material": 0.7,
+          "spoons_playing": 24.505000000000006
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "tremolo_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_chordal_chugging",
+          "harmonica_maker_school": "harmonica_suzuki_japanese",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 2.31,
+          "harmonica_comb": 4.8100000000000005,
+          "harmonica_reed": 2.21,
+          "harmonica_technique": 1.1449999999999998,
+          "harmonica_maker_school": 0.4799999999999999,
+          "harmonica_tuning": 1
+        }
+      }
+    ],
+    "room": "hardwood_living",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "hardwood_living",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

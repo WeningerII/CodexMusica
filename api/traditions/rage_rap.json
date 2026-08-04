@@ -3,14 +3,14 @@
   "name": "Rage (rap)",
   "family": "global",
   "lineage": "Late-2010s onward Atlanta-and-Memphis trap-derived hip-hop subgenre characterized by aggressive 808-bass-driven instrumentals, screamed-and-rasping vocal delivery, mosh-pit-targeted live-show energy, and explicit punk-and-metal cross-pollination — codified through Trippie Redd, Lil Uzi Vert, Playboi Carti (Whole Lotta Red 2020, the genre's definitive statement), Ken Carson, Destroy Lonely",
-  "recipe": "classic Southern American 2017-2019 rage, mc Rhythm, experimental branch, punk distorted rock crust punk d-beat. thick, rap, straight onset, interlocked note trading. sub bass digital subtractive, TR-808, field textural sampler. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay eventide harmonizer.",
-  "recipe_chars": 389,
-  "score": 225.1,
+  "recipe": "classic Southern American 2017-2019 rage, mc Rhythm, experimental branch, punk distorted rock celtic punk gypsy punk. thick, rap, straight onset, interlocked note trading. sub bass digital subtractive, TR-808, field textural sampler. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay eventide harmonizer.",
+  "recipe_chars": 394,
+  "score": 218.415,
   "config": {
     "traditions": [
       "rage_rap",
-      "crust_punk",
-      "d_beat_swedish"
+      "celtic_punk",
+      "gypsy_punk"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.639999999999995,
+          "voice_register": 9.339999999999995,
           "voice_quality": 8.950000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.56,
-          "voice_articulation": 19.109999999999992,
-          "voice_microtone": 18.914999999999992,
-          "voice_tradition": 3.9650000000000007,
-          "voice_mechanism_compound": 17.285,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 19.109999999999992,
-          "voice_ensemble_config": 19.044999999999995,
-          "voice_ornament_system": 1.7399999999999998,
-          "voice_pitch_organization": 0.7149999999999999,
-          "voice_processing_chain": 6.995,
-          "voice_multitrack_stack": 11.784999999999998
+          "voice_vibrato": 1.755,
+          "voice_articulation": 18.979999999999997,
+          "voice_microtone": 18.32999999999999,
+          "voice_tradition": 8.110000000000001,
+          "voice_mechanism_compound": 9.945,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 20.279999999999994,
+          "voice_ensemble_config": 18.654999999999994,
+          "voice_ornament_system": 7.265000000000002,
+          "voice_pitch_organization": 0.645,
+          "voice_processing_chain": 7.1450000000000005,
+          "voice_multitrack_stack": 11.504999999999997
         }
       },
       {
@@ -60,21 +60,21 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 10.030000000000001,
+          "electronic_technique": 9.23,
           "va_archetypes": 0.645,
-          "digital_subtractive_context": 19.694999999999997
+          "digital_subtractive_context": 18.915
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_miami",
+          "drum_machine_808_context": "drum_machine_808_trap",
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 5.33,
-          "drum_machine_808_context": 4.595000000000001,
+          "tr808_voice": 4.53,
+          "drum_machine_808_context": 3.12,
           "tr808_production_origin": 0.195
         }
       },
@@ -89,10 +89,10 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sampler_archetypes": 5.27,
+          "sampler_archetypes": 2.6,
           "sampler_bit_depth": 0.39,
-          "sampler_workflow": 4.545000000000001,
-          "sampler_classic_context": 30.354999999999993
+          "sampler_workflow": 3.895,
+          "sampler_classic_context": 26.584999999999994
         }
       }
     ],

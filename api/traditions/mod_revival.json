@@ -1,0 +1,218 @@
+{
+  "id": "mod_revival",
+  "name": "Mod Revival",
+  "family": "rock_punk",
+  "lineage": "British movement of 1978-81 triggered by The Jam and the Quadrophenia film, codified by Secret Affair, The Chords, Purple Hearts, The Lambrettas and the Mods Mayday scene — fast punk-tempo 4/4 with sharp snare backbeats and tambourine, trebly Rickenbacker and Telecaster chording through overdriven combos, Hammond and occasional soul horn sections, melodic shouted vocals with clipped London diction, and dry punchy late-1970s UK studio mixes.",
+  "recipe": "classic British 1977-1979 mod revival, distorted Rock, punk branch, classic distorted rock, pop rock new wave freakbeat. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tenor ensemble honking attack saxophone, ensemble heavy one piece matched to monette horn trumpet, sharp projecting nickel silver nickel silver tambourine orch. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 966,
+  "score": 507.59,
+  "config": {
+    "traditions": [
+      "mod_revival",
+      "new_wave",
+      "freakbeat"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 37.920000000000016,
+          "voice_quality": 16.18499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6799999999999997,
+          "voice_articulation": 21.96999999999999,
+          "voice_microtone": 32.925000000000004,
+          "voice_tradition": 13.844999999999999,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 4.300000000000001,
+          "voice_speech_song": 26.649999999999995,
+          "voice_ensemble_config": 22.294999999999995,
+          "voice_ornament_system": 0.26000000000000006,
+          "voice_pitch_organization": 0.585,
+          "voice_processing_chain": 11.244999999999997,
+          "voice_multitrack_stack": 6.745
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "roasted_maple",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 13.744999999999997,
+          "amp_make": 28.697499999999994,
+          "body_wood": 1.04,
+          "neck_wood": 1.3,
+          "fretboard": 1.8,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 1.69,
+          "bridge": 1.8,
+          "scale_length": 1.04,
+          "finish": 0.435,
+          "string_tuning": 12.869999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 12.999999999999998,
+          "body_wood": 3.38,
+          "pickup_config": 1.8,
+          "string_type": 27.4625,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0,
+          "bass_technique": 33.385
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.749999999999996,
+          "drumhead": 12.464999999999996,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 12.474999999999998,
+          "drawbar_setting": 21.26,
+          "rotary_speed": 22.874999999999996,
+          "percussion_setting": 10.985,
+          "tonewheel_model": 10.529999999999998,
+          "leslie_cabinet_model": 2.75
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 7.325000000000001,
+          "sax_size": 3.575,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 0.715,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 3.575,
+          "sax_maker_school": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "plunger",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_monette"
+        },
+        "scores": {
+          "wind_articulation": 7.325000000000001,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 2.8600000000000003,
+          "brass_mute": 1.25,
+          "trumpet_technique": 7.325000000000001,
+          "trumpet_bell_metal": 0.9749999999999999,
+          "trumpet_maker_school": 0.845
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 1.195,
+          "tambourine_orch_context": 0.12999999999999998
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_british_class_a_commercial",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

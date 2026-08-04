@@ -3,29 +3,29 @@
   "name": "French chansons à boire (drinking songs)",
   "family": "global",
   "lineage": "French chanson à boire (drinking-song) tradition continuous from medieval-French goliardic-and-tavern-song origins through 16th-17th-century chanson-à-boire collections (Pierre Attaingnant 1530s and Pierre Phalèse late-16th-century printed-chanson collections include drinking-song repertoire) through 19th-century French cabaret-and-tavern continuous practice into modern French-and-French-Canadian pub-practice",
-  "recipe": "classic mid-1530s french chansons à boire, drinking Song, European branch, americas drinking song, chanson fado ballad poetry, iberian functional song cape verdean batuko of santiago island morna. vocal fry, breath veiled tone, straight onset, interlocked note trading. castagnari Italian premium folk music accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 392,
-  "score": 205.715,
+  "recipe": "classic mid-1530s french chansons à boire, drinking Song, European branch, americas drinking song, chanson fado ballad poetry, iberian functional song cape verdean batuko of santiago island catalan folk. thick, breath veiled tone, straight onset, interlocked note trading. castagnari Italian premium folk music accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 395,
+  "score": 217.27,
   "config": {
     "traditions": [
       "french_chansons_a_boire",
       "cape_verdean_batuko",
-      "morna"
+      "catalan_folk"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
@@ -34,43 +34,43 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 3.6399999999999997,
-          "voice_quality": 26.129999999999995,
+          "voice_register": 3.22,
+          "voice_quality": 26.259999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9000000000000004,
-          "voice_articulation": 26.39,
-          "voice_microtone": 26.715,
-          "voice_tradition": 15.534999999999998,
-          "voice_mechanism_compound": 4.875,
-          "voice_estill_quality": 4.5825,
-          "voice_speech_song": 38.7725,
-          "voice_ensemble_config": 25.675,
-          "voice_ornament_system": 2.619999999999999,
-          "voice_pitch_organization": 4.44,
-          "voice_processing_chain": 7.605000000000003,
-          "voice_multitrack_stack": 5.135
+          "voice_vibrato": 3.2500000000000004,
+          "voice_articulation": 27.95,
+          "voice_microtone": 29.054999999999996,
+          "voice_tradition": 14.169999999999998,
+          "voice_mechanism_compound": 5.525,
+          "voice_estill_quality": 4.680000000000001,
+          "voice_speech_song": 40.75500000000001,
+          "voice_ensemble_config": 27.235000000000003,
+          "voice_ornament_system": 4.495,
+          "voice_pitch_organization": 5.390000000000001,
+          "voice_processing_chain": 7.865000000000004,
+          "voice_multitrack_stack": 4.29
         }
       },
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_orchestral_ensemble",
-          "accordion_reed_material": "steel_reeds",
-          "musette_offset": "italian_tuning",
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 1.3324999999999998,
-          "accordion_reed_material": 0.39,
+          "free_reed_technique": 2.5800000000000005,
+          "accordion_reed_material": 0.345,
           "musette_offset": 0.65,
           "reed_config": 8.835,
-          "bellows": 0.39,
+          "bellows": 0.65,
           "voicing_chamber": 0.9099999999999999,
-          "accordion_maker_school": 1.4300000000000002
+          "accordion_maker_school": 2.535
         }
       }
     ],

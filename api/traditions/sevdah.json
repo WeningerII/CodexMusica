@@ -1,0 +1,194 @@
+{
+  "id": "sevdah",
+  "name": "Sevdah (modern Bosnian revival)",
+  "family": "global",
+  "lineage": "The contemporary concert reworking of Bosnian sevdalinka, developed in Sarajevo and the Bosnian diaspora after the 1992-95 war by Damir Imamović, Amira Medunjanin and Božo Vrećo — slow free-tempo openings on saz over sustained drone, melismatic makam-inflected melody with quarter-tone inflection, minimal jazz-informed double bass and violin accompaniment, and long unmetered melodic paragraphs that only occasionally settle into a slow 4/4",
+  "recipe": "classic Southern European early-1990s sevdah, ballad Poetry, Mediterranean ballad branch, Persian arab improv improv on frame, Slavic bard ballad poetry tarab. thick, breath veiled tone, slow rate, interlocked note trading. makam correct nylon cura saz softer modern concert arif sag erkan ogur saz baglama, silver wound lamb gut core carpathian spruce European maple bosnian source violin orchestral, silver wound lamb gut core carpathian spruce European maple bosnian source double bass, castagnari Italian premium folk music ensemble accordion, cedar carbon fiber fingerpicked classical nylon-string guitar. balkan sevdalinka kafana tavern. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 773,
+  "score": 382.987,
+  "config": {
+    "traditions": [
+      "sevdah",
+      "tarab_egyptian",
+      "arab_tarab"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.5245,
+          "voice_quality": 13.974999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 11.895,
+          "voice_articulation": 12.089999999999995,
+          "voice_microtone": 30.322499999999998,
+          "voice_tradition": 17.42,
+          "voice_mechanism_compound": 12.995000000000001,
+          "voice_estill_quality": 9.159999999999998,
+          "voice_speech_song": 14.689999999999994,
+          "voice_ensemble_config": 12.739999999999991,
+          "voice_ornament_system": 17.515,
+          "voice_pitch_organization": 17.709999999999997,
+          "voice_processing_chain": 5.2975,
+          "voice_multitrack_stack": 4.2575
+        }
+      },
+      {
+        "id": "saz_baglama",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "saz_size": "cura_saz",
+          "saz_frets": "saz_microtonal_frets",
+          "saz_body_wood": "saz_juniper_body",
+          "saz_strings": "saz_nylon_cura",
+          "saz_tradition": "saz_modern_concert"
+        },
+        "scores": {
+          "plucked_traditional_technique": 7.3445,
+          "saz_size": 0.585,
+          "saz_frets": 1.69,
+          "saz_body_wood": 0.9099999999999999,
+          "saz_strings": 1.3,
+          "saz_tradition": 2.855
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 7.295,
+          "orch_strings": 2.6745,
+          "orch_top_wood": 7.8005,
+          "orch_back_wood": 9.6155,
+          "orch_varnish": 8.75,
+          "orch_setup_period": 10.185,
+          "orch_bow": 0.345,
+          "orch_bow_stick": 10.559999999999999,
+          "orch_articulation": 1.6,
+          "orch_rosin": 8.84
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "silver_wound_lamb_gut_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 7.295,
+          "bass_size": 0.3,
+          "bass_strings": 2.6745,
+          "bass_top_wood": 7.8005,
+          "bass_back_wood": 9.6155,
+          "bass_varnish": 8.75,
+          "bass_setup_period": 10.185,
+          "bass_play": 4.55,
+          "bass_rosin": 10.350000000000001,
+          "bass_bow_stick": 10.559999999999999
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 8.6195,
+          "accordion_reed_material": 0.78,
+          "musette_offset": 1.24,
+          "reed_config": 1,
+          "bellows": 0.195,
+          "voicing_chamber": 0.195,
+          "accordion_maker_school": 2.145
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 6.475,
+          "string_tuning": 0,
+          "top_wood_classical": 3.5100000000000002,
+          "bracing_classical": 4.55,
+          "string_classical": 4.55,
+          "attack_technique_cl": 6.655
+        }
+      }
+    ],
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

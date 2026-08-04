@@ -3,9 +3,9 @@
   "name": "Rapso",
   "family": "global",
   "lineage": "Trinidadian chantwell spoken-word over soca-derived rhythm bed — codified through Brother Resistance (Lutalo Masimba) and the Network Riddum Band starting late 1970s, then Brother Marvin and the broader 3 Canal collective bringing rapso into Trinidad’s carnival mainstream; characterized by oratorical-political rapso-flow delivery over Caribbean percussion-and-electronic-instrument production",
-  "recipe": "classic Western European 1977-1979 rapso, ballad Poetry, anglo singer song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, breath veiled tone, straight onset, interlocked note trading. thomastik infeld low tension jazz warm walking fingerstyle electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bell like soca engine room iron trinidadian iron, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, steelpan, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. brent black community studio london.",
-  "recipe_chars": 994,
-  "score": 259.085,
+  "recipe": "classic Western European 1977-1979 rapso, ballad Poetry, anglo singer song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, breath veiled tone, straight onset, interlocked note trading. thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bell like soca engine room iron trinidadian iron, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, steelpan, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. brent black community studio london.",
+  "recipe_chars": 974,
+  "score": 259.595,
   "config": {
     "traditions": [
       "rapso",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.698,
+          "voice_register": 5.830000000000001,
           "voice_quality": 10.984999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.7665,
+          "voice_vibrato": 5.035,
           "voice_articulation": 14.949999999999992,
           "voice_microtone": 15.92499999999999,
-          "voice_tradition": 11.0175,
+          "voice_tradition": 10.995,
           "voice_mechanism_compound": 4.81,
           "voice_estill_quality": 5.005000000000001,
           "voice_speech_song": 19.369999999999994,
           "voice_ensemble_config": 14.884999999999993,
-          "voice_ornament_system": 2.971500000000001,
-          "voice_pitch_organization": 2.7960000000000003,
-          "voice_processing_chain": 11.031500000000001,
+          "voice_ornament_system": 3.1200000000000014,
+          "voice_pitch_organization": 2.5050000000000003,
+          "voice_processing_chain": 11.045,
           "voice_multitrack_stack": 5.817499999999999
         }
       },
@@ -57,20 +57,20 @@
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "slap_pop"
         },
         "scores": {
           "amp_make": 1.755,
           "body_wood": 0.975,
-          "pickup_config": 0.195,
+          "pickup_config": 0.54,
           "string_type": 3.0999999999999996,
           "scale_length_b": 0.975,
-          "fretted_or_not": 0.3765,
-          "bass_technique": 2.563
+          "fretted_or_not": 0.39,
+          "bass_technique": 2.54
         }
       },
       {
@@ -82,7 +82,7 @@
         },
         "scores": {
           "drum_technique": 18.524999999999995,
-          "drumhead": 3.1865,
+          "drumhead": 3.05,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -93,8 +93,8 @@
           "iron_pattern": "iron_quarter"
         },
         "scores": {
-          "iron_source": 5.094999999999999,
-          "iron_pattern": 0.0315
+          "iron_source": 5.139999999999999,
+          "iron_pattern": 0
         }
       },
       {
@@ -106,8 +106,8 @@
         },
         "scores": {
           "tassa_skin": 18.784999999999997,
-          "tassa_shell": 2.8265,
-          "tassa_lineage": 4.376499999999999
+          "tassa_shell": 3.2,
+          "tassa_lineage": 4.645
         }
       },
       {
@@ -118,7 +118,7 @@
         },
         "scores": {
           "steelpan_voice": 0.78,
-          "steelpan_context": 3.1165
+          "steelpan_context": 3.085
         }
       },
       {
@@ -131,7 +131,7 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -139,17 +139,17 @@
         },
         "scores": {
           "electric_technique": 7.425000000000001,
-          "amp_make": 3.6125000000000003,
-          "body_wood": 0.9450000000000001,
+          "amp_make": 3.245,
+          "body_wood": 0.975,
           "neck_wood": 1.4949999999999999,
           "fretboard": 1.4949999999999999,
           "pickup_magnet": 1.4949999999999999,
-          "string_material": 1.885,
+          "string_material": 1.795,
           "string_gauge": 0.975,
-          "bridge": 0.5265,
+          "bridge": 0.49499999999999994,
           "scale_length": 0.975,
-          "finish": 0,
-          "string_tuning": 2.275
+          "finish": 0.045,
+          "string_tuning": 2.245
         }
       },
       {
@@ -167,7 +167,7 @@
           "wind_articulation": 3.1525000000000003,
           "sax_size": 1.4299999999999997,
           "sax_reed": 1.4949999999999999,
-          "sax_body_alloy": 3.15,
+          "sax_body_alloy": 3.3,
           "sax_mouthpiece": 1.4949999999999999,
           "sax_technique": 2.695,
           "sax_maker_school": 1.625
@@ -187,10 +187,10 @@
         "scores": {
           "wind_articulation": 3.1525000000000003,
           "brass_size": 1.4949999999999999,
-          "trumpet_mouthpiece": 3.856,
-          "brass_mute": 0.7215,
+          "trumpet_mouthpiece": 3.775,
+          "brass_mute": 0.69,
           "trumpet_technique": 3.1525000000000003,
-          "trumpet_bell_metal": 1.7315,
+          "trumpet_bell_metal": 1.7000000000000002,
           "trumpet_maker_school": 1.2349999999999999
         }
       },
@@ -198,14 +198,14 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
           "electronic_technique": 1.8199999999999998,
           "poly_archetypes": 0.39,
-          "poly_voices": 0.3045,
+          "poly_voices": 0.18,
           "poly_maker_lineage": 2.34
         }
       }

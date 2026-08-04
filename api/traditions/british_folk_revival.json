@@ -1,0 +1,183 @@
+{
+  "id": "british_folk_revival",
+  "name": "British Folk Revival",
+  "family": "vernacular",
+  "lineage": "The second British folk revival, formed in London and the industrial north from 1951 onward around Ewan MacColl, A.L. Lloyd and the Topic Records catalogue and spread through the folk-club circuit — repertoire drawn from Child ballads, broadsides and Cecil Sharp collections, performed largely unaccompanied or with anglo concertina, fiddle and guitar in modal Dorian and Mixolydian settings, free or loosely metered on the long ballads, with plain non-vibrato regional-accented delivery.",
+  "recipe": "classic Northern European early-1950s british folk revival, ballad Poetry, britfolk branch, Celtic balladic English broadside, pop rock folk rock traditional english folk. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning cedar coated nanoweb fingerpicked dreadnought acoustic guitar, modern Irish carroll suttner premium revival steel reeds canonical anglo straight concertina anglo, plain gut lamb gut whole lamb method drone like fiddle, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, bowl back Italian redwood hard rock maple phosphor bronze bronze mandolin. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 787,
+  "score": 419.752,
+  "config": {
+    "traditions": [
+      "british_folk_revival",
+      "folk_rock",
+      "english_traditional_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 42.35999999999999,
+          "voice_quality": 17.224999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.004500000000001,
+          "voice_articulation": 20.929999999999996,
+          "voice_microtone": 22.034999999999993,
+          "voice_tradition": 33.300999999999995,
+          "voice_mechanism_compound": 5.525,
+          "voice_estill_quality": 8.387125000000001,
+          "voice_speech_song": 27.56,
+          "voice_ensemble_config": 22.359999999999992,
+          "voice_ornament_system": 7.966500000000001,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 3.5121250000000006,
+          "voice_multitrack_stack": 5.200000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "dadgad",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "coated_nano_acoustic"
+        },
+        "scores": {
+          "acoustic_technique": 32.96924999999999,
+          "string_tuning": 9.597999999999999,
+          "top_wood": 1.04,
+          "back_sides": 0.24149999999999996,
+          "string_acoustic": 1.2999999999999998
+        }
+      },
+      {
+        "id": "concertina_anglo",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "concertina_anglo_config": "concertina_anglo_30",
+          "concertina_anglo_context": "concertina_anglo_morris",
+          "concertina_anglo_maker_school": "concertina_irish_made_modern",
+          "concertina_anglo_reed": "concertina_anglo_steel_reeds"
+        },
+        "scores": {
+          "free_reed_technique": 26.31949999999999,
+          "concertina_anglo_config": 0.39,
+          "concertina_anglo_context": 1.921,
+          "concertina_anglo_maker_school": 2.5999999999999996,
+          "concertina_anglo_reed": 3.9
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "plain_lamb_gut_fiddle",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 21.991499999999995,
+          "fiddle_strings": 1.0999999999999999,
+          "fiddle_bow": 0.24149999999999996,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.49499999999999994
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "resonator",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.24149999999999996,
+          "tone_ring": 0.0315,
+          "banjo_head": 20.93,
+          "banjo_pot": 0.39,
+          "banjo_play": 0.49499999999999994,
+          "banjo_rim_wood": 0.195,
+          "banjo_neck_wood": 1.04,
+          "banjo_strings": 0.39,
+          "banjo_bridge": 0.195,
+          "banjo_setup_period": 20.865000000000002
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "redwood_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 11.218,
+          "mandolin_shape": 11.527249999999999,
+          "mandolin_top": 1.04,
+          "mandolin_back": 6.954999999999998,
+          "mandolin_bracing": 0.12999999999999998,
+          "mandolin_strings": 1.04,
+          "mandolin_fingerboard": 0.975,
+          "mandolin_pickup": 21.710000000000004
+        }
+      }
+    ],
+    "room": "uk_folk_revival_club_60s",
+    "archetype": "arch_60s_uk_small_commercial",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_emi_redd",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "uk_folk_revival_club_60s",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_emi_redd"
+  }
+}

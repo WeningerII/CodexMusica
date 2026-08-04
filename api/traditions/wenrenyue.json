@@ -3,14 +3,14 @@
   "name": "Wenrenyue",
   "family": "classical",
   "lineage": "Chinese scholar-amateur literati chamber music tradition with guqin (seven-string zither) and xiao (vertical bamboo flute) at its core — codified through the Tang dynasty (618-907 CE) scholar-official aesthetic, continued through Song-Yuan-Ming-Qing dynasties, formalized in the seven major guqin schools (Wu, Yu, Shu, Jiu Yi, Mei An, Zha’an, and Guangling), and preserved through the 20th-century rescue work of Zha Fuxi and the Beiping Guqin Research Society",
-  "recipe": "classic East Asian mid-1930s wenrenyue, art Music, east Asian branch, string drone modal, western early art music medieval latin chant and notre dame organum ars antiqua and organum. silk tongmu aged tang song canon guqin, purple bamboo phyllostachys canonical literati premium continuous-airflow legato xiao, bawu, hulusi, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi. chinese traditional teahouse. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 582,
-  "score": 84.275,
+  "recipe": "classic East Asian mid-1930s wenrenyue, art Music, east Asian branch, string drone modal, western early art music byzantine ecclesiastical music concerto grosso. silk tongmu aged tang song canon guqin, purple bamboo phyllostachys canonical literati premium continuous-airflow legato xiao, bawu, hulusi, no membrane buzz purple bamboo premium northern continuous-airflow legato dizi. chinese traditional teahouse. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 485,
+  "score": 72.545,
   "config": {
     "traditions": [
       "wenrenyue",
-      "medieval_latin_chant_organum",
-      "ars_antiqua_organum"
+      "byzantine_ecclesiastical",
+      "concerto_grosso"
     ],
     "instruments": [
       {
@@ -23,10 +23,10 @@
           "guqin_lacquer": "guqin_lacquer_changran"
         },
         "scores": {
-          "plucked_traditional_technique": 5.045,
+          "plucked_traditional_technique": 5.92,
           "guqin_strings": 3.1,
-          "guqin_context": 10.01,
-          "guqin_body_wood": 5.59,
+          "guqin_context": 9.209999999999999,
+          "guqin_body_wood": 4.29,
           "guqin_lacquer": 0.28500000000000003
         }
       },
@@ -39,36 +39,36 @@
           "xiao_body_material": "xiao_purple_bamboo"
         },
         "scores": {
-          "wind_articulation": 5.13,
-          "xiao_pitch": 2.54,
-          "xiao_context": 21.125000000000004,
-          "xiao_body_material": 4.199999999999999
+          "wind_articulation": 5.504999999999999,
+          "xiao_pitch": 2.6899999999999995,
+          "xiao_context": 16.249999999999996,
+          "xiao_body_material": 2.9
         }
       },
       {
         "id": "bawu",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
-          "bawu_pitch": "bawu_f",
+          "free_reed_technique": "free_reed_overblow_modern",
+          "bawu_pitch": "bawu_g",
           "bawu_context": "bawu_yi"
         },
         "scores": {
-          "free_reed_technique": 0.6499999999999999,
-          "bawu_pitch": 0.65,
-          "bawu_context": 8.58
+          "free_reed_technique": 0,
+          "bawu_pitch": 0.39499999999999996,
+          "bawu_context": 7.629999999999999
         }
       },
       {
         "id": "hulusi",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
+          "free_reed_technique": "free_reed_overblow_modern",
           "hulusi_config": "hulusi_three_pipe",
           "hulusi_context": "hulusi_yunnan"
         },
         "scores": {
-          "free_reed_technique": 0.6499999999999999,
+          "free_reed_technique": 0,
           "hulusi_config": 0.8099999999999999,
-          "hulusi_context": 8.58
+          "hulusi_context": 7.629999999999999
         }
       },
       {
@@ -77,15 +77,15 @@
           "wind_articulation": "wind_continuous_legato",
           "dizi_membrane": "dizi_without",
           "dizi_pitch": "dizi_ga",
-          "dizi_body_material": "dizi_bitter_bamboo",
+          "dizi_body_material": "dizi_purple_bamboo",
           "dizi_regional_style": "dizi_qudi_southern"
         },
         "scores": {
-          "wind_articulation": 5.13,
-          "dizi_membrane": 3.795,
-          "dizi_pitch": 1.3900000000000001,
-          "dizi_body_material": 2.9,
-          "dizi_regional_style": 1.6899999999999997
+          "wind_articulation": 5.504999999999999,
+          "dizi_membrane": 3.9450000000000003,
+          "dizi_pitch": 1.54,
+          "dizi_body_material": 1.59,
+          "dizi_regional_style": 0.75
         }
       }
     ],

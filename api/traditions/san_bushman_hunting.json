@@ -3,14 +3,14 @@
   "name": "San (Khoisan) hunting and trance song",
   "family": "global",
   "lineage": "San (Khoisan) hunting-and-trance song tradition continuous from premodern Kalahari-Desert hunter-gatherer practice through 20th-21st century continuous performance into modern San practice across Botswana, Namibia, and South Africa",
-  "recipe": "classic Southern African early-1940s san (khoisan) hunting and trance song, hunting Song, sub saharan African branch, arctic hunting song, indigenous ritual devotional, central Asian hunting song shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 447,
-  "score": 175.76,
+  "recipe": "classic Southern African early-1940s san (khoisan) hunting and trance song, hunting Song, sub saharan African branch, arctic hunting song, indigenous ritual devotional, central Asian hunting song shipibo-conibo icaros healing songs sami yoik. vocal fry, breath veiled tone, fast rate, interlocked note trading. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 415,
+  "score": 160.115,
   "config": {
     "traditions": [
       "san_bushman_hunting",
       "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "sami_yoik_tradition"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "inuit_katajjaq_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.08,
-          "voice_quality": 30.419999999999998,
+          "voice_register": 2.73,
+          "voice_quality": 22.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9499999999999997,
-          "voice_articulation": 19.174999999999997,
-          "voice_microtone": 18.784999999999993,
-          "voice_tradition": 19.11,
-          "voice_mechanism_compound": 12.684999999999999,
-          "voice_estill_quality": 6.89,
-          "voice_speech_song": 27.819999999999997,
-          "voice_ensemble_config": 19.759999999999998,
-          "voice_ornament_system": 7.15,
+          "voice_vibrato": 1.8850000000000002,
+          "voice_articulation": 16.964999999999996,
+          "voice_microtone": 17.224999999999994,
+          "voice_tradition": 18.970000000000002,
+          "voice_mechanism_compound": 15.135000000000002,
+          "voice_estill_quality": 4.550000000000001,
+          "voice_speech_song": 25.61,
+          "voice_ensemble_config": 18.199999999999996,
+          "voice_ornament_system": 7.895,
           "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 7.605000000000003,
-          "voice_multitrack_stack": 3.575
+          "voice_processing_chain": 4.550000000000003,
+          "voice_multitrack_stack": 4.42
         }
       }
     ],

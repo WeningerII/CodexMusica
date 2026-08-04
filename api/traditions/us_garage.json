@@ -1,0 +1,180 @@
+{
+  "id": "us_garage",
+  "name": "US Garage",
+  "family": "electronic",
+  "lineage": "New York and New Jersey style of roughly 1979-1992 named for the Paradise Garage and shaped by Larry Levan, Tony Humphries, Timmy Regisford and the Salsoul, West End and Nu Groove catalogues, running 118-124 BPM with live-feel drum programming that keeps disco's open hi-hat and tambourine, warm electric-bass and Rhodes comping, real percussion overdubs, gospel-trained lead vocals with full verse-chorus writing, and long dub-style breakdowns cut for twelve-inch play.",
+  "recipe": "classic North American mid-1980s us garage, electronic Dance, garage house u s branch, deep house house, chicago house house, uk soundsystem bass system. thick, breath veiled tone, straight onset, interlocked note trading. TR-909, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, congas, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, tambourine orch. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 836,
+  "score": 262.095,
+  "config": {
+    "traditions": [
+      "us_garage",
+      "deep_house_soulful",
+      "hip_house"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 11.499999999999996,
+          "voice_quality": 9.684999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.0549999999999997,
+          "voice_articulation": 18.264999999999997,
+          "voice_microtone": 18.459999999999994,
+          "voice_tradition": 8.575,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 8.274999999999999,
+          "voice_speech_song": 19.499999999999996,
+          "voice_ensemble_config": 20.734999999999992,
+          "voice_ornament_system": 1.1049999999999998,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 19,
+          "voice_multitrack_stack": 3.6950000000000003
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 32.745,
+          "drum_machine_909_context": 4.159999999999999,
+          "tr909_production_origin": 0.585
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_raymac_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 8.575,
+          "rhodes_model": 3.9249999999999994,
+          "rhodes_use": 1.625,
+          "rhodes_tine_material": -0.05,
+          "rhodes_hammer_tip": 2.275,
+          "rhodes_pickup_position": 1.84
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 8.774999999999999,
+          "body_wood": 0.845,
+          "pickup_config": 0.65,
+          "string_type": 7.995,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0,
+          "bass_technique": 3.7999999999999994
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "tumba",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_mahogany"
+        },
+        "scores": {
+          "percussion_technique": 2.8600000000000003,
+          "conga_set": 3.119999999999999,
+          "conga_skin": 0.195,
+          "conga_shell_wood": 0.09
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 8.575,
+          "drawbar_setting": 6.025,
+          "rotary_speed": 5.625000000000001,
+          "percussion_setting": 3.3999999999999995,
+          "tonewheel_model": 7.109999999999999,
+          "leslie_cabinet_model": 0.345
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.045,
+          "tambourine_orch_context": 0
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_nyc_disco_twelve_inch",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "vinyl_master_cut"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_late70s_nyc_commercial",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "vinyl_master_cut",
+    "chain_console": "console_american_op_amp"
+  }
+}

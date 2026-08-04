@@ -1,0 +1,257 @@
+{
+  "id": "p_funk",
+  "name": "P-Funk",
+  "family": "blues_gospel",
+  "lineage": "Detroit-and-Plainfield funk collective universe built by George Clinton around Parliament and Funkadelic from 1970 to 1981, recorded largely at United Sound Systems Detroit, with Bootsy Collins, Bernie Worrell, Eddie Hazel, Michael Hampton, Fred Wesley and Maceo Parker — slow-to-mid 95-110 BPM one-drop grooves with the emphasis violently on the One, Worrell's Minimoog portamento bass lines doubling or replacing electric bass, envelope-filtered Bootsy bass, layered gospel-shout and cartoon-character group vocals, extended acid-rock guitar solos, and a full JB-derived horn section over multi-album mythology.",
+  "recipe": "classic North American early-1970s p-funk, groove Percussion, funk percussive branch, soul R&B functional song, classic distorted rock doo-wop psychedelic soul. thick, breath veiled tone, slow rate, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, Fender blackface amp American 60s amp spring reverb bright mahogany maple humbucker electric guitar, hohner d6 canonical 1971 1981 funk era ostinato clavinet, moog lineage canonical minimoog 1970 trumansburg ny short envelope analog mono synth, pre muffled edge muffled brushes-and-sticks drum kit, tenor phosphor bronze ensemble honking attack saxophone, bach 42 canonical American orchestral tenor ensemble student commercial trombone, bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, talkbox. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre.",
+  "recipe_chars": 987,
+  "score": 542.292,
+  "config": {
+    "traditions": [
+      "p_funk",
+      "doo_wop",
+      "psychedelic_soul"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 29.224999999999998,
+          "voice_quality": 16.250000000000007,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.73,
+          "voice_articulation": 21.70999999999999,
+          "voice_microtone": 20.47499999999999,
+          "voice_tradition": 15.794999999999998,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 14.069999999999999,
+          "voice_speech_song": 24.374999999999996,
+          "voice_ensemble_config": 24.11499999999999,
+          "voice_ornament_system": 2.1500000000000004,
+          "voice_pitch_organization": 1.65,
+          "voice_processing_chain": 15.229999999999999,
+          "voice_multitrack_stack": 5.849999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 20.365,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 1.4949999999999999,
+          "string_type": 23.529999999999998,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 1.955,
+          "bass_technique": 21.2
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 21.439999999999998,
+          "amp_make": 24.555,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.845,
+          "fretboard": 1.955,
+          "pickup_magnet": 0.44999999999999996,
+          "pickup_winding": 1.105,
+          "string_material": 1.845,
+          "bridge": 1.4949999999999999,
+          "scale_length": 2.145,
+          "string_gauge": 2.675,
+          "finish": 0.3,
+          "string_tuning": 8.280000000000001
+        }
+      },
+      {
+        "id": "clavinet",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "clavinet_pickup": "clavinet_soft",
+          "clavinet_context": "clavinet_funk",
+          "clavinet_model": "clavinet_d6_canonical",
+          "clavinet_string_material": "clavinet_steel_string_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 21.25,
+          "clavinet_pickup": 2.675,
+          "clavinet_context": 1.955,
+          "clavinet_model": 7.8,
+          "clavinet_string_material": 0.585
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 5.749999999999999,
+          "mono_oscillator": 1.24,
+          "mono_filter": 2.795,
+          "mono_archetypes": 2.7299999999999995,
+          "mono_maker_lineage": 3.9
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.539999999999992,
+          "drumhead": 4.539999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 14.02,
+          "sax_size": 9.274999999999999,
+          "sax_reed": 1.845,
+          "sax_body_alloy": 2.2,
+          "sax_mouthpiece": 1.845,
+          "sax_technique": 9.274999999999999,
+          "sax_maker_school": 0.44999999999999996
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 14.02,
+          "trombone_type": 0.795,
+          "trombone_mouthpiece": 5.445,
+          "trombone_mute": 1.345,
+          "trombone_technique": 2.0799999999999996,
+          "trombone_bell_metal": 0.72,
+          "trombone_maker_school": 2.7299999999999995
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 14.02,
+          "brass_size": 1.845,
+          "trumpet_mouthpiece": 8.33,
+          "brass_mute": 1.345,
+          "trumpet_technique": 14.02,
+          "trumpet_bell_metal": 0.72,
+          "trumpet_maker_school": 2.7299999999999995
+        }
+      },
+      {
+        "id": "talkbox",
+        "slots": {
+          "talkbox_use": "talkbox_rock",
+          "talkbox_construction": "talkbox_tube"
+        },
+        "scores": {
+          "talkbox_use": 9.75,
+          "talkbox_construction": 1.105
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

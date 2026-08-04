@@ -3,13 +3,13 @@
   "name": "Chilean Rock",
   "family": "rock",
   "lineage": "Chilean rock formed in two waves — Los Jaivas' Andean progressive fusion from 1970, using charango, quena and tarka inside long-form rock suites, and the 1984-90 Santiago new-wave of Los Prisioneros, whose 120-135 BPM drum-machine-and-guitar songs carried sharply political Spanish lyrics against the Pinochet dictatorship, later joined by Los Tres' bolero-and-blues band writing.",
-  "recipe": "classic North American early-1970s chilean rock, distorted Rock, regional branch, iberian Latin protest song, Latin am troubadour ballad poetry rap político milonga. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall plexi amp British rock amp lower tension down tuning clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, drum machine analog, naranjillo andean premium wood cedar andean andean classical charango, melodic quena. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 794,
-  "score": 286.805,
+  "recipe": "classic North American early-1970s chilean rock, distorted Rock, regional branch, iberian Latin protest song, Latin am troubadour ballad poetry nueva canción milonga. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall plexi amp British rock amp lower tension down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, drum machine analog, naranjillo andean premium wood cedar andean andean classical charango, melodic quena. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 780,
+  "score": 297.362,
   "config": {
     "traditions": [
       "chilean_rock",
-      "rap_politico",
+      "nueva_cancion",
       "milonga"
     ],
     "instruments": [
@@ -31,31 +31,31 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 24.014999999999993,
-          "voice_quality": 9.1,
+          "voice_register": 23.319999999999993,
+          "voice_quality": 8.97,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.45,
-          "voice_articulation": 19.369999999999994,
-          "voice_microtone": 19.17499999999999,
-          "voice_tradition": 9.015,
-          "voice_mechanism_compound": 2.2749999999999995,
-          "voice_estill_quality": 6.275000000000001,
-          "voice_speech_song": 25.154999999999994,
-          "voice_ensemble_config": 19.239999999999995,
-          "voice_ornament_system": 7.8100000000000005,
-          "voice_pitch_organization": 0.7799999999999998,
-          "voice_processing_chain": 4.435,
-          "voice_multitrack_stack": 2.925000000000001
+          "voice_articulation": 20.604999999999997,
+          "voice_microtone": 20.409999999999993,
+          "voice_tradition": 13.617499999999996,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 7.5249999999999995,
+          "voice_speech_song": 25.934999999999995,
+          "voice_ensemble_config": 18.979999999999997,
+          "voice_ornament_system": 9.839999999999998,
+          "voice_pitch_organization": 1.6249999999999998,
+          "voice_processing_chain": 6.199999999999999,
+          "voice_multitrack_stack": 2.5349999999999997
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_overdriven_lead",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
@@ -63,24 +63,24 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "two_point_trem",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 3.2,
+          "electric_technique": 2.49,
           "amp_make": 6.6,
-          "body_wood": 0.975,
-          "neck_wood": 0.975,
-          "fretboard": 0.9099999999999999,
+          "body_wood": 0.78,
+          "neck_wood": 0.78,
+          "fretboard": 0.7149999999999999,
           "pickup_magnet": 0.345,
           "string_material": 0.345,
-          "string_gauge": 0.975,
-          "bridge": 0.3,
-          "scale_length": 0.975,
+          "string_gauge": 0.78,
+          "bridge": 0.15,
+          "scale_length": 0.78,
           "finish": 0.3,
-          "string_tuning": 8.225
+          "string_tuning": 7.834999999999999
         }
       },
       {
@@ -88,19 +88,19 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 7.584999999999999,
-          "body_wood": 0.975,
-          "pickup_config": 0.3,
-          "string_type": 17.095,
-          "scale_length_b": 0.975,
-          "fretted_or_not": 0.24,
+          "amp_make": 7.239999999999999,
+          "body_wood": 0.78,
+          "pickup_config": 0.15,
+          "string_type": 16.9,
+          "scale_length_b": 1.4300000000000002,
+          "fretted_or_not": 0.845,
           "bass_technique": 16.7
         }
       },
@@ -112,39 +112,39 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23.074999999999996,
-          "drumhead": 0.975,
+          "drum_technique": 22.814999999999998,
+          "drumhead": 0.78,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 2.335,
-          "poly_archetypes": 6.789999999999999,
-          "poly_voices": 0.39,
-          "poly_maker_lineage": 4.92
+          "electronic_technique": 0.7149999999999999,
+          "poly_archetypes": 6.744999999999999,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": 4.285
         }
       },
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "fm_pair_kick",
-          "snare_voice": "two_oscillator_snare",
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "tone_noise_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 0.3,
-          "snare_voice": 0.3,
-          "hat_voice": 0,
-          "shuffle_quantize": 0.495
+          "kick_voice": 0.105,
+          "snare_voice": 0.105,
+          "hat_voice": 0.105,
+          "shuffle_quantize": 0.195
         }
       },
       {
@@ -157,24 +157,24 @@
           "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 7.0600000000000005,
-          "charango_back": 3.2700000000000005,
-          "charango_top_wood": 3.3150000000000004,
-          "charango_strings": 3.5100000000000002,
-          "charango_string_material": 0.8450000000000002
+          "plucked_traditional_technique": 5.295,
+          "charango_back": 3.965,
+          "charango_top_wood": 3.965,
+          "charango_strings": 4.159999999999999,
+          "charango_string_material": 2.1449999999999996
         }
       },
       {
         "id": "quena",
         "slots": {
           "wind_articulation": "wind_folk_melodic",
-          "quena_material": "quena_pvc",
-          "quena_pitch": "quena_quenacho"
+          "quena_material": "quena_wood",
+          "quena_pitch": "quena_g"
         },
         "scores": {
-          "wind_articulation": 3.710000000000001,
-          "quena_material": 0.3,
-          "quena_pitch": 0.65
+          "wind_articulation": 3.21,
+          "quena_material": 0.195,
+          "quena_pitch": 1.25
         }
       }
     ],

@@ -1,0 +1,210 @@
+{
+  "id": "entehno",
+  "name": "Éntekhno",
+  "family": "global",
+  "lineage": "Greek art-popular song created in Athens from 1958-60 by Manos Hadjidakis and Mikis Theodorakis, who set major poets — Seferis, Elytis, Ritsos — to composed song cycles scored for bouzouki orchestra with strings and santouri, keeping rebetiko modal dromoi and 9/8 zeibekiko and 2/4 hasapiko rhythms but writing the parts out for trained arrangers and recording them at Columbia's Rizoupoli plant",
+  "recipe": "classic Southern European late-1950s éntekhno, ballad Poetry, Greek entechno branch, Mediterranean ballad ballad poetry, European protest song croatian klapa dalmatian close-harmony kabyle music. sygyt, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek steel canonical octave unison pairs tremolo bouzouki, drone like modal santur, cedar pre 1940 period gut fingerpicked classical nylon-string guitar, Italian alpine spruce val di fiemme European maple bosnian source flamed figure violin orchestral, cold pressed wurzen felt beech laminated maple laminated European tradition grand piano, venice catlin high twist renaissance bass Italian alpine spruce val di fiemme double bass. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 889,
+  "score": 339.65,
+  "config": {
+    "traditions": [
+      "entehno",
+      "croatian_klapa_dalmatian",
+      "kabyle_music_algerian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.345,
+          "voice_quality": 18.72,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.815,
+          "voice_articulation": 22.36,
+          "voice_microtone": 26.90999999999999,
+          "voice_tradition": 29.185,
+          "voice_mechanism_compound": 9.23,
+          "voice_estill_quality": 5.620000000000001,
+          "voice_speech_song": 25.35,
+          "voice_ensemble_config": 25.089999999999996,
+          "voice_ornament_system": 4.085,
+          "voice_pitch_organization": 4.095000000000001,
+          "voice_processing_chain": 7.085,
+          "voice_multitrack_stack": 3.1849999999999996
+        }
+      },
+      {
+        "id": "bouzouki",
+        "slots": {
+          "plucked_traditional_technique": "plucked_tremolo",
+          "bouzouki_courses": "trichordo",
+          "bouzouki_pick": "bouzouki_thin",
+          "bouzouki_body_wood": "bouzouki_walnut_bowl",
+          "bouzouki_strings": "bouzouki_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 10.375,
+          "bouzouki_courses": 6.175,
+          "bouzouki_pick": 0.65,
+          "bouzouki_body_wood": 5.784999999999999,
+          "bouzouki_strings": 2.145
+        }
+      },
+      {
+        "id": "santur",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "santur_school": "santur_iraqi",
+          "santur_technique": "santur_damped"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.07,
+          "santur_school": 3.7700000000000005,
+          "santur_technique": 0.045
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "gut_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 5.8,
+          "string_tuning": 0,
+          "top_wood_classical": 3.8349999999999995,
+          "bracing_classical": 2.34,
+          "string_classical": 1.69,
+          "attack_technique_cl": 3.295
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "gut_strings_orch",
+          "orch_top_wood": "italian_alpine_spruce_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "orch_strings": 0.585,
+          "orch_top_wood": 4.16,
+          "orch_back_wood": 4.515000000000001,
+          "orch_varnish": 3.545,
+          "orch_setup_period": 4.55,
+          "orch_bow": 2.445,
+          "orch_bow_stick": 3.6750000000000003,
+          "orch_articulation": 0.65,
+          "orch_rosin": 4.05
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 3.9,
+          "grand_piano_size": 0.845,
+          "grand_piano_brand": 2.145,
+          "piano_hammer": 5.695,
+          "piano_rim": 5.915000000000001,
+          "piano_soundboard": 5.98,
+          "piano_pinblock": 3.2,
+          "piano_plate": 3.245,
+          "piano_pitch_standard": 7.93
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "italian_alpine_spruce_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "bass_size": 0.045,
+          "bass_strings": 2.2749999999999995,
+          "bass_top_wood": 4.16,
+          "bass_back_wood": 4.515000000000001,
+          "bass_varnish": 3.2,
+          "bass_setup_period": 4.55,
+          "bass_play": 1.69,
+          "bass_rosin": 5.585,
+          "bass_bow_stick": 3.6750000000000003
+        }
+      }
+    ],
+    "room": "athens_minos_studios_60s_70s",
+    "archetype": "arch_greek_columbia_rizoupoli",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rebetiko_eastern_modal_dromos",
+    "room": "athens_minos_studios_60s_70s",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

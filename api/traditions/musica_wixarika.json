@@ -1,0 +1,127 @@
+{
+  "id": "musica_wixarika",
+  "name": "Música Wixárika (Huichol)",
+  "family": "global",
+  "lineage": "The ceremonial and social music of the Wixárika (Huichol) of the Sierra Madre Occidental in Jalisco and Nayarit, comprising the shaman-mara'akame's long night-long chanted narrations accompanied by the tepu log drum and the xaweri/kanari — a locally built miniature violin and five-string guitar pair — whose 'minuete' dance pieces run in a bright 3/4 with fast bowed ostinati at peyote and maize ceremonies, unnotated and transmitted entirely by apprenticeship.",
+  "recipe": "classic early-1940s música wixárika, ritual Devotional, indigenous branch, Mexican functional song, indigenous hunting song conjunto de arpa grande huapango. kargyraa, breath veiled tone, fast rate, interlocked note trading. warm bright silver wound lamb gut core fiddle, low mid rich spectrum broken in fast cedar classical nylon-string guitar, log drum. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 447,
+  "score": 143.535,
+  "config": {
+    "traditions": [
+      "musica_wixarika",
+      "arpa_grande",
+      "huapango"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 16.054999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.3,
+          "voice_articulation": 22.619999999999997,
+          "voice_microtone": 19.889999999999993,
+          "voice_tradition": 8.384999999999998,
+          "voice_mechanism_compound": 5.445,
+          "voice_estill_quality": 2.5349999999999997,
+          "voice_speech_song": 25.739999999999995,
+          "voice_ensemble_config": 18.784999999999993,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 4.225,
+          "voice_multitrack_stack": 3.3799999999999994
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_chopped_old_time",
+          "fiddle_strings": "silver_wound_lamb_gut_fiddle",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "pizz"
+        },
+        "scores": {
+          "bowed_technique": 0.26,
+          "fiddle_strings": 1.04,
+          "fiddle_bow": 0.15,
+          "fiddle_mute": 0.345,
+          "fiddle_articulation": 0.35
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_high_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.78,
+          "string_tuning": 0,
+          "top_wood_classical": 8.58,
+          "bracing_classical": 0.15,
+          "string_classical": 0,
+          "attack_technique_cl": 0.24
+        }
+      },
+      {
+        "id": "log_drum",
+        "slots": {
+          "log_drum_voice": "log_drum_mid",
+          "log_drum_context": "log_drum_sa_house"
+        },
+        "scores": {
+          "log_drum_voice": 0.585,
+          "log_drum_context": 0
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

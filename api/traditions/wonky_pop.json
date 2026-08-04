@@ -1,0 +1,210 @@
+{
+  "id": "wonky_pop",
+  "name": "Wonky Pop",
+  "family": "pop",
+  "lineage": "British press-coined pop tendency of 2007-2010 centred on London club nights of the same name, associated with Mika, Alphabeat, Frankmusik and Little Boots, characterized by 110-130 BPM major-key synth and piano hooks, theatrical wide-interval falsetto vocals, glockenspiel and handclap ornament, abrupt key and tempo lurches, and knowingly camp arrangement borrowed from 70s glam and 80s synthpop.",
+  "recipe": "classic British 2007-2010 wonky pop, functional Song, synthpop branch, europop functional song, glam rock distorted rock glam metal visual kei. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, mid attack plastic glockenspiel, wide group massed hand clap, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 854,
+  "score": 481.42,
+  "config": {
+    "traditions": [
+      "wonky_pop",
+      "glam_metal",
+      "visual_kei"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 41.520000000000024,
+          "voice_quality": 4.0950000000000015,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 20.084999999999994,
+          "voice_microtone": 41.87500000000001,
+          "voice_tradition": 18.705,
+          "voice_mechanism_compound": 8.124999999999998,
+          "voice_estill_quality": 3.835000000000001,
+          "voice_speech_song": 24.374999999999996,
+          "voice_ensemble_config": 21.384999999999994,
+          "voice_ornament_system": 1.195,
+          "voice_pitch_organization": 4.8100000000000005,
+          "voice_processing_chain": 6.11,
+          "voice_multitrack_stack": 4.680000000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 16.919999999999998,
+          "poly_archetypes": 12.905,
+          "poly_voices": 0.9,
+          "poly_maker_lineage": -0.06999999999999988
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 15.575,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 16.869999999999997,
+          "piano_rim": 18.31,
+          "piano_soundboard": 15.424999999999999,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 3.78
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 12.479999999999999,
+          "body_wood": 1.69,
+          "pickup_config": 0.345,
+          "string_type": 27.04,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.195,
+          "bass_technique": 27.45
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 27,
+          "drumhead": 15.225,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_3",
+          "glockenspiel_mallet": "glockenspiel_plastic"
+        },
+        "scores": {
+          "percussion_technique": 0.375,
+          "glockenspiel_size": 0.585,
+          "glockenspiel_mallet": 1.69
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_group_massed",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1,
+          "clap_capture": 0.09
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 16.799999999999997,
+          "amp_make": 13.259999999999998,
+          "body_wood": 1.69,
+          "neck_wood": 1.69,
+          "fretboard": 1.625,
+          "pickup_magnet": 0,
+          "string_material": 0.3,
+          "string_gauge": 1.69,
+          "bridge": 0.345,
+          "scale_length": 1.69,
+          "finish": 0,
+          "string_tuning": 13.72
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_british_class_a_commercial",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

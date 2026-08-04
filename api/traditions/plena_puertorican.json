@@ -3,14 +3,14 @@
   "name": "Plena (Puerto Rican)",
   "family": "global",
   "lineage": "Puerto Rican narrative-and-news song tradition originating in Ponce c. 1900 — built on the three sizes of pandereta frame drum (requinto small high-pitched lead, seguidor medium-pitched, segundo bass), plus voice and güiro scraper, performing topical-narrative songs about working-class urban Puerto Rican life and current events (the genres defining periódico cantado newspaper-set-to-music function); codified through Manuel Jiménez Canario (the first commercially-recorded plenero, 1925-onward), Mon Rivera (the mid-20th-century voice), and the modern Plena Libre, Los Pleneros de la 21, and Viento de Agua extensions",
-  "recipe": "classic Caribbean modern plena, groove Percussion, Caribbean branch, Latin am troubadour ballad poetry milonga jíbaro. thick, breath veiled tone, slow rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, guiro, cedar nylon fingerpicked classical nylon-string guitar. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 502,
-  "score": 150.65,
+  "recipe": "classic Caribbean modern plena, groove Percussion, Caribbean branch, Latin am troubadour ballad poetry milonga folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, guiro, cedar nylon fingerpicked classical nylon-string guitar. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 511,
+  "score": 158.195,
   "config": {
     "traditions": [
       "plena_puertorican",
       "milonga",
-      "jibaro"
+      "folklore_surero"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_tape_saturation",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 4.965,
+          "voice_register": 5.265,
           "voice_quality": 6.890000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.8025,
-          "voice_articulation": 16.769999999999996,
-          "voice_microtone": 16.379999999999992,
-          "voice_tradition": 7.9625,
-          "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 5.1674999999999995,
-          "voice_speech_song": 22.197499999999998,
-          "voice_ensemble_config": 20.409999999999993,
-          "voice_ornament_system": 3.3150000000000004,
-          "voice_pitch_organization": 1.5250000000000001,
-          "voice_processing_chain": 3.38,
-          "voice_multitrack_stack": 2.6
+          "voice_vibrato": 3.6725000000000003,
+          "voice_articulation": 18.134999999999994,
+          "voice_microtone": 18.13499999999999,
+          "voice_tradition": 8.6125,
+          "voice_mechanism_compound": 2.9249999999999994,
+          "voice_estill_quality": 4.8425,
+          "voice_speech_song": 23.2375,
+          "voice_ensemble_config": 21.904999999999994,
+          "voice_ornament_system": 3.055,
+          "voice_pitch_organization": 1.3499999999999999,
+          "voice_processing_chain": 3.3149999999999995,
+          "voice_multitrack_stack": 3.63
         }
       },
       {
@@ -63,7 +63,7 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 7.125,
+          "percussion_technique": 8.5,
           "pandeiro_size": 0.39,
           "pandeiro_context": 1.235,
           "pandeiro_head": 1.17,
@@ -78,7 +78,7 @@
           "guiro_striker": "guiro_comb"
         },
         "scores": {
-          "guiro_origin": 5.81,
+          "guiro_origin": 5.435,
           "guiro_striker": 0.39
         }
       },
@@ -90,15 +90,15 @@
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "double_top_cl",
           "string_classical": "nylon_normal_cl",
-          "attack_technique_cl": "apoyando_cl"
+          "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 8.820000000000002,
+          "acoustic_technique": 9.270000000000001,
           "string_tuning": 0,
-          "top_wood_classical": 5.525,
-          "bracing_classical": 1.2349999999999999,
-          "string_classical": 1.625,
-          "attack_technique_cl": 1.82
+          "top_wood_classical": 7.02,
+          "bracing_classical": 0.585,
+          "string_classical": 2.275,
+          "attack_technique_cl": 2.34
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Russian Orthodox liturgical chant tradition codified across the medieval-Kievan and Muscovite periods, drawing on the Byzantine octoechos modal system through the znamenny notation tradition — characterized by unaccompanied male-choir performance, the four-part choral harmonization style developed from the seventeenth century onward, deep-bass octavist register, and the obikhod and obihod-derived modern liturgical settings used across the Russian Orthodox parish-and-monastic-foundation network",
   "recipe": "classic modern russian orthodox liturgical chant, ritual Devotional, Russian orthodox branch, christian gospel coptic ethiopian tewahedo zema chant syriac orthodox liturgical chant. thick, breath veiled tone, straight note core, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, choir russian orthodox. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 575,
-  "score": 271.593,
+  "score": 271.518,
   "config": {
     "traditions": [
       "russian_orthodox_chant",
@@ -53,7 +53,7 @@
           "voice_quality": 23.919999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.130250000000001,
+          "voice_vibrato": 7.055250000000001,
           "voice_articulation": 18.654999999999994,
           "voice_microtone": 23.529999999999994,
           "voice_tradition": 17.09499999999999,

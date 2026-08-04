@@ -1,0 +1,206 @@
+{
+  "id": "glam_metal",
+  "name": "Glam Metal",
+  "family": "rock",
+  "lineage": "Los Angeles Sunset Strip hard-rock style codified 1981-1987 by Mötley Crüe, Ratt, Bon Jovi and Poison out of Van Halen and NWOBHM — mid-tempo 4/4 at 110-140 BPM with big backbeat snare and gated drum reverb, pentatonic power-chord riffs with tapped and whammy-bar lead breaks, stacked gang-vocal choruses in thirds, one obligatory piano-or-clean-guitar power ballad per album, and a high, grainy belted lead voice.",
+  "recipe": "classic Los Angeles mid-1980s glam metal, distorted Rock, glam rock branch, nwobhm metal, classic distorted rock, late analog major distorted rock deutschrock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 891,
+  "score": 551.08,
+  "config": {
+    "traditions": [
+      "glam_metal",
+      "deutschrock",
+      "nwobhm"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 24.5,
+          "amp_make": 21.58,
+          "body_wood": 10.529999999999998,
+          "neck_wood": 4.29,
+          "fretboard": 4.225,
+          "pickup_magnet": 1.3299999999999998,
+          "pickup_winding": 2.34,
+          "string_material": 1.3,
+          "bridge": 4.29,
+          "scale_length": 6.889999999999999,
+          "string_gauge": 4.29,
+          "finish": 0.435,
+          "string_tuning": 27.234999999999992
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 18.72,
+          "body_wood": 4.29,
+          "pickup_config": 0.045,
+          "string_type": 38.255,
+          "scale_length_b": 4.484999999999999,
+          "fretted_or_not": 0,
+          "bass_technique": 35.08
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 32.49,
+          "drumhead": 4.29,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 32.995000000000026,
+          "voice_quality": 7.9300000000000015,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.225,
+          "voice_articulation": 17.549999999999994,
+          "voice_microtone": 33.05000000000001,
+          "voice_tradition": 4.030000000000001,
+          "voice_mechanism_compound": 20.879999999999995,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 18.199999999999992,
+          "voice_ensemble_config": 21.38499999999999,
+          "voice_ornament_system": 1.0499999999999998,
+          "voice_pitch_organization": 3.0550000000000006,
+          "voice_processing_chain": 12.219999999999999,
+          "voice_multitrack_stack": 10.945
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 5.075,
+          "poly_archetypes": 16.445,
+          "poly_voices": 0.895,
+          "poly_maker_lineage": 3.7049999999999996
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 3.2800000000000002,
+          "grand_piano_size": 4.29,
+          "grand_piano_brand": 4.29,
+          "piano_hammer": 20.085,
+          "piano_rim": 21.384999999999998,
+          "piano_soundboard": 2.04,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.4299999999999997,
+          "piano_pitch_standard": 1.625
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "eb_standard",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 3.2800000000000002,
+          "string_tuning": 4.675000000000001,
+          "top_wood": 4.29,
+          "back_sides": 0.635,
+          "string_acoustic": 4.29
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_api_312",
+      "console": "console_british_inline_80s",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_la_rock_70s_90s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_inline_80s"
+  }
+}

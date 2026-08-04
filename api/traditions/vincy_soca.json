@@ -1,0 +1,173 @@
+{
+  "id": "vincy_soca",
+  "name": "Vincy Soca",
+  "family": "global",
+  "lineage": "Soca variant developed in St Vincent and the Grenadines from the 1990s onward around the Vincy Mas carnival calendar, favouring very fast power-soca tempos of roughly 155-175 BPM with driving four-on-the-floor kick, snare rolls into the drop, bright synth brass stabs, iron and cowbell patterns, and hoarse commanding lead vocals issuing jump-and-wave instructions in Vincentian dialect.",
+  "recipe": "classic North American mid-1990s vincy soca, carnival Processional, Caribbean branch, Caribbean groove percussion, tropical song functional song punta rock bomba y plena. thick, breath veiled tone, breath pulsed, interlocked note trading. TR-909, regional style kit party arranger diy sequenced yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation, alder pyramid pure nickel bass British mid 60s era electric bass, soca engine room iron trinidadian iron, yellow brass modern standard ensemble saxophone, bright flat sharp hand clap. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 777,
+  "score": 159.233,
+  "config": {
+    "traditions": [
+      "vincy_soca",
+      "punta_rock",
+      "bomba_y_plena"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 1.5274999999999999,
+          "voice_quality": 16.50999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.755,
+          "voice_articulation": 16.769999999999996,
+          "voice_microtone": 16.379999999999992,
+          "voice_tradition": 4.8100000000000005,
+          "voice_mechanism_compound": 5.329999999999999,
+          "voice_estill_quality": 4.485000000000001,
+          "voice_speech_song": 19.694999999999993,
+          "voice_ensemble_config": 18.199999999999996,
+          "voice_ornament_system": 1.3799999999999997,
+          "voice_pitch_organization": 1.3499999999999999,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 3.6000000000000005
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 1.45,
+          "drum_machine_909_context": 2.34,
+          "tr909_production_origin": 0.38999999999999996
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "rompler_preset_bank": "rompler_preset_oriental_arranger",
+          "rompler_context": "rompler_context_township_midi",
+          "rompler_lineage": "rompler_yamaha_psr_casio"
+        },
+        "scores": {
+          "electronic_technique": 1.73,
+          "rompler_preset_bank": 2.34,
+          "rompler_context": 1.4300000000000002,
+          "rompler_lineage": 1.2850000000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_hiwatt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 1.345,
+          "body_wood": 2.295,
+          "pickup_config": 1.5,
+          "string_type": 1.4949999999999999,
+          "scale_length_b": 1.14,
+          "fretted_or_not": 0.195,
+          "bass_technique": 0.4225
+        }
+      },
+      {
+        "id": "trinidadian_iron",
+        "slots": {
+          "iron_source": "iron_brake_drum",
+          "iron_pattern": "iron_quarter"
+        },
+        "scores": {
+          "iron_source": 7.269999999999999,
+          "iron_pattern": 1
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 3.2500000000000004,
+          "sax_size": 0.78,
+          "sax_reed": 0.15,
+          "sax_body_alloy": 3.0250000000000004,
+          "sax_mouthpiece": 0.15,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.38999999999999996
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_flat_sharp",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.045,
+          "clap_capture": 0.045
+        }
+      }
+    ],
+    "room": "port_of_spain_community_studio",
+    "archetype": "arch_trinidad_carnival_soca",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "trinidad_calypso_soca_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "trinidad_calypso_soca_2_4",
+    "room": "port_of_spain_community_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

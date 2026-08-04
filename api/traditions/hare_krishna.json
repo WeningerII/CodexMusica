@@ -3,14 +3,14 @@
   "name": "Hare Krishna Kirtan (ISKCON)",
   "family": "global",
   "lineage": "Gaudiya Vaishnava congregational chant carried from Bengal and Vrindavan to the West by A. C. Bhaktivedanta Swami Prabhupada from 1965, built on the sixteen-word maha-mantra sung antiphonally by leader and assembly over khol two-headed drum and karatala hand cymbals in a 1-2-3 clapping cycle, harmonium drone accompaniment, and a long accelerando from slow meditative tempo to ecstatic double time.",
-  "recipe": "classic South Asian mid-1960s hare krishna kirtan, ritual Devotional, hindu branch, indian bard ballad poetry, Sufi ritual devotional qawwali sufi sama. kargyraa, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, liturgical khol, small steady tala keeping manjira, harmonium indian, suited to female vocal bronze steel mix gourd body canonical traditional drone like tanpura, jackwood barrel canonical carnatic goat buffalo rice paste karanai mridangam. vrindavan braj mandir bhajan. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 722,
-  "score": 240.375,
+  "recipe": "classic South Asian mid-1960s hare krishna kirtan, ritual Devotional, hindu branch, indian bard ballad poetry, Sufi ritual devotional sufi zikr chant sindhi. kargyraa, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, liturgical fiberglass khol, small steady tala keeping manjira, harmonium indian, suited to female vocal wooden body miraj style drone like modal tanpura, mridangam. vrindavan braj mandir bhajan. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 650,
+  "score": 228.05,
   "config": {
     "traditions": [
       "hare_krishna",
-      "qawwali",
-      "sufi_sama"
+      "sufi_zikr_chant",
+      "sindhi"
     ],
     "instruments": [
       {
@@ -24,47 +24,47 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "qawwali_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.2999999999999998,
-          "voice_quality": 20.625,
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 14.12,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.0625,
-          "voice_articulation": 11.829999999999995,
-          "voice_microtone": 13.584999999999992,
-          "voice_tradition": 32.045,
-          "voice_mechanism_compound": 3.3249999999999997,
-          "voice_estill_quality": 8.6125,
-          "voice_speech_song": 14.429999999999994,
-          "voice_ensemble_config": 12.154999999999992,
-          "voice_ornament_system": 15.325000000000003,
-          "voice_pitch_organization": 4.319999999999999,
-          "voice_processing_chain": 3.38,
-          "voice_multitrack_stack": 2.925000000000001
+          "voice_vibrato": 3.38,
+          "voice_articulation": 15.989999999999997,
+          "voice_microtone": 17.09499999999999,
+          "voice_tradition": 16.3475,
+          "voice_mechanism_compound": 2.5349999999999997,
+          "voice_estill_quality": 7.085,
+          "voice_speech_song": 19.694999999999997,
+          "voice_ensemble_config": 16.964999999999996,
+          "voice_ornament_system": 10.025000000000002,
+          "voice_pitch_organization": 2.600000000000001,
+          "voice_processing_chain": 6.629999999999999,
+          "voice_multitrack_stack": 4.615000000000001
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 12.48,
-          "choir_polyphonic_configuration": 2.73,
-          "choir_regional_canonical_configuration": 5.792999999999999,
-          "choir_ensemble_repertoire": 3.25
+          "choir_size": 15.209999999999999,
+          "choir_polyphonic_configuration": 3.4450000000000003,
+          "choir_regional_canonical_configuration": 8.124999999999998,
+          "choir_ensemble_repertoire": 2.795
         }
       },
       {
@@ -72,12 +72,12 @@
         "slots": {
           "khol_form": "khol_bengali",
           "khol_repertoire": "khol_borgeet_liturgical",
-          "khol_body": "khol_body_wood"
+          "khol_body": "khol_body_fiberglass"
         },
         "scores": {
-          "khol_form": 10.725,
-          "khol_repertoire": 14.420000000000003,
-          "khol_body": -0.035
+          "khol_form": 8.360000000000001,
+          "khol_repertoire": 10.375000000000002,
+          "khol_body": 1.2
         }
       },
       {
@@ -88,8 +88,8 @@
           "manjira_metal": "manjira_brass"
         },
         "scores": {
-          "manjira_form": 14.120000000000003,
-          "manjira_stroke": 5.245,
+          "manjira_form": 10.405000000000003,
+          "manjira_stroke": 5.1850000000000005,
           "manjira_metal": -0.035
         }
       },
@@ -97,15 +97,15 @@
         "id": "harmonium_indian",
         "slots": {
           "free_reed_technique": "free_reed_overblow_modern",
-          "harmonium_action": "harmonium_hand_pump",
-          "harmonium_voicing": "harmonium_double",
+          "harmonium_action": "harmonium_foot_pump",
+          "harmonium_voicing": "harmonium_male",
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
           "free_reed_technique": 0,
           "harmonium_action": 1.95,
-          "harmonium_voicing": 0.585,
-          "harmonium_use": 7.345000000000001
+          "harmonium_voicing": 0.45499999999999996,
+          "harmonium_use": 5.265000000000001
         }
       },
       {
@@ -113,18 +113,18 @@
         "slots": {
           "plucked_traditional_technique": "plucked_drone_modal",
           "tanpura_size": "female_size",
-          "tanpura_jawari": "curved_jawari",
+          "tanpura_jawari": "flat_jawari",
           "tanpura_strings": "five_string_chitra",
           "tanpura_string_material": "tanpura_bronze_steel",
-          "tanpura_body_wood": "tanpura_gourd_body"
+          "tanpura_body_wood": "tanpura_wooden_body"
         },
         "scores": {
-          "plucked_traditional_technique": 3.3149999999999995,
-          "tanpura_size": 5.135,
-          "tanpura_jawari": 2.125,
+          "plucked_traditional_technique": 6.225,
+          "tanpura_size": 5.784999999999999,
+          "tanpura_jawari": 0.43499999999999994,
           "tanpura_strings": 1.0399999999999998,
-          "tanpura_string_material": 1.035,
-          "tanpura_body_wood": 1.275
+          "tanpura_string_material": 0.84,
+          "tanpura_body_wood": 1.04
         }
       },
       {
@@ -137,11 +137,11 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 1.105,
+          "mridangam_heads": 1.2000000000000002,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 1.4295,
-          "mridangam_heads_material": 1.035,
-          "mridangam_lineage": 0.65
+          "mridangam_shell_wood": 0.84,
+          "mridangam_heads_material": 0.6449999999999999,
+          "mridangam_lineage": 0.9899999999999999
         }
       }
     ],

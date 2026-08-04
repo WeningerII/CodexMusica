@@ -1,0 +1,155 @@
+{
+  "id": "circassian_folk",
+  "name": "Circassian (Adyghe) Folk Music",
+  "family": "global",
+  "lineage": "Adyghe and Kabardian song tradition of the Northwest Caucasus, carried into Ottoman exile after the 1864 expulsion and collected in the Soviet period by Vladimir Baragunov and the Nalchik ethnographers, built on pshinatl heroic narrative songs delivered by a soloist over a wordless male choral drone in seconds and fourths, the shichepshin bowed fiddle scraping a heterophonic second line, and pshine accordion dance tunes in 6/8 marked by hardwood clapper and hand-clap accompaniment.",
+  "recipe": "classic mid-1860s circassian (adyghe) folk music, ballad Poetry, med east poetic branch, vocal drone modal, middle eastern wedding berber amazigh ahidus persian aroosi. thick, breath veiled tone, straight note core, interlocked note trading. shichepshin, castagnari Italian premium folk music accordion, hand clap, dhol, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody svanetian complex three voice highland polyphonic global traditional polyphonic choir ensemble. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 580,
+  "score": 233.982,
+  "config": {
+    "traditions": [
+      "circassian_folk",
+      "berber_ahidus_wedding",
+      "persian_aroosi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.09,
+          "voice_quality": 12.86999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.505,
+          "voice_articulation": 17.029999999999994,
+          "voice_microtone": 24.01749999999999,
+          "voice_tradition": 15.794999999999998,
+          "voice_mechanism_compound": 10.834999999999997,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 21.839999999999996,
+          "voice_ensemble_config": 17.939999999999994,
+          "voice_ornament_system": 10.804999999999998,
+          "voice_pitch_organization": 11.089999999999998,
+          "voice_processing_chain": 6.11,
+          "voice_multitrack_stack": 5.850000000000001
+        }
+      },
+      {
+        "id": "shichepshin",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "shichepshin_form": "shichepshin_two",
+          "shichepshin_style": "shichepshin_epic",
+          "shichepshin_strings": "shichepshin_horsehair"
+        },
+        "scores": {
+          "bowed_technique": 2.225,
+          "shichepshin_form": 0.24,
+          "shichepshin_style": 2.6,
+          "shichepshin_strings": 0.045
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 2.64,
+          "accordion_reed_material": 0.39,
+          "musette_offset": 0.78,
+          "reed_config": 0.51,
+          "bellows": 0.42000000000000004,
+          "voicing_chamber": 0.7,
+          "accordion_maker_school": 6.174999999999999
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.78,
+          "clap_capture": 0.045
+        }
+      },
+      {
+        "id": "dhol",
+        "slots": {
+          "dhol_form": "dhol_bihu",
+          "dhol_repertoire": "dhol_baraat",
+          "dhol_shell": "dhol_fiberglass"
+        },
+        "scores": {
+          "dhol_form": 19.694999999999997,
+          "dhol_repertoire": 11.524999999999999,
+          "dhol_shell": 1.56
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_svanetian_complex_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 7.734999999999999,
+          "choir_polyphonic_configuration": 3.38,
+          "choir_regional_canonical_configuration": 7.170000000000001,
+          "choir_ensemble_repertoire": 2.9899999999999998
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "field_recording",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

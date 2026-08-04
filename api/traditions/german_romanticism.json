@@ -3,14 +3,14 @@
   "name": "German Romanticism",
   "family": "classical",
   "lineage": "German and Austrian art music of roughly 1815-1900, opened by Schubert's Lieder and carried by Schumann, Mendelssohn, Brahms, Wagner and Wolf — chromatically extended functional harmony with deferred cadences and enharmonic modulation, expanded orchestras built around a valve-horn and clarinet core, the piano-and-voice Lied cycle as a central form, wide dynamic terracing, and rubato-inflected phrasing at slow-to-moderate tempos in equal temperament.",
-  "recipe": "classic British early-1810s german romanticism, art Music, western common practice branch, western early art music, western modern art music, anglo singer song ballad poetry early modern classical orchestral soundtrack. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, silver wound lamb gut core norway spruce European alpine European maple general viola classical, synthetic norway spruce European alpine European maple sycamore maple cello, brass legato french horn, composite resin blackwood dust legato clarinet, concert harp, synthetic timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 822,
-  "score": 539.513,
+  "recipe": "classic British early-1810s german romanticism, art Music, western common practice branch, western early art music, western modern art music, anglo singer song ballad poetry post-romantic era early modern classical. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, silver wound lamb gut core norway spruce European alpine European maple general viola classical, silver wound lamb gut core norway spruce European alpine European maple cello, high register brass legato french horn, composite resin blackwood dust legato clarinet, concert harp, timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 824,
+  "score": 534.93,
   "config": {
     "traditions": [
       "german_romanticism",
-      "early_modern_classical",
-      "orchestral_soundtrack"
+      "post_romantic_era",
+      "early_modern_classical"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 6.564500000000001,
-          "voice_quality": 8.84,
+          "voice_register": 7.864000000000001,
+          "voice_quality": 8.645,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.165,
-          "voice_articulation": 23.074999999999996,
-          "voice_microtone": 23.72499999999999,
+          "voice_vibrato": 9.101374999999999,
+          "voice_articulation": 23.269999999999996,
+          "voice_microtone": 23.919999999999995,
           "voice_tradition": 7.475,
           "voice_mechanism_compound": 4.9,
-          "voice_estill_quality": 11.205437499999999,
-          "voice_speech_song": 29.9975,
-          "voice_ensemble_config": 25.284999999999993,
-          "voice_ornament_system": 6.059375,
-          "voice_pitch_organization": 5.245,
-          "voice_processing_chain": 6.175,
-          "voice_multitrack_stack": 3.640000000000002
+          "voice_estill_quality": 10.996999999999998,
+          "voice_speech_song": 30.192500000000003,
+          "voice_ensemble_config": 24.894999999999996,
+          "voice_ornament_system": 5.9,
+          "voice_pitch_organization": 5.59,
+          "voice_processing_chain": 4.875,
+          "voice_multitrack_stack": 2.182
         }
       },
       {
@@ -61,20 +61,20 @@
           "piano_hammer": "renner_standard_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 5,
-          "grand_piano_size": 3.445,
-          "grand_piano_brand": 2.6875,
-          "piano_hammer": 15.033562500000002,
-          "piano_rim": 12.24375,
-          "piano_soundboard": 10.659375,
-          "piano_pinblock": 10.995,
-          "piano_plate": 11.55625,
-          "piano_pitch_standard": 17.874499999999998
+          "grand_piano_size": 3.25,
+          "grand_piano_brand": 1.4300000000000002,
+          "piano_hammer": 15.734000000000002,
+          "piano_rim": 12.25875,
+          "piano_soundboard": 10.5,
+          "piano_pinblock": 11.16875,
+          "piano_plate": 10.9725,
+          "piano_pitch_standard": 16.909124999999996
         }
       },
       {
@@ -92,15 +92,15 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 6.5,
-          "orch_strings": 3.1200000000000006,
-          "orch_top_wood": 10.6554375,
+          "bowed_technique": 6.125,
+          "orch_strings": 3.73775,
+          "orch_top_wood": 10.447,
           "orch_back_wood": 13.975,
           "orch_varnish": 10.5,
-          "orch_setup_period": 10.8396875,
-          "orch_bow": 1.2349999999999999,
-          "orch_bow_stick": 12.226875,
-          "orch_articulation": 2.6649999999999996,
+          "orch_setup_period": 11.271875,
+          "orch_bow": 0.975,
+          "orch_bow_stick": 12.251249999999999,
+          "orch_articulation": 1.8199999999999998,
           "orch_rosin": 13.129999999999999
         }
       },
@@ -108,7 +108,7 @@
         "id": "viola_classical",
         "slots": {
           "bowed_technique": "bowed_pizzicato",
-          "viola_size": "viola_16_inch",
+          "viola_size": "viola_15_inch",
           "viola_strings": "viola_silver_wound_gut",
           "viola_top_wood": "viola_norway_spruce",
           "viola_back_wood": "viola_european_maple_general",
@@ -118,14 +118,14 @@
           "viola_rosin": "viola_pirastro_obligato_rosin"
         },
         "scores": {
-          "bowed_technique": 6.5,
-          "viola_size": 0.69825,
-          "viola_strings": 3.1200000000000006,
-          "viola_top_wood": 6.575,
-          "viola_back_wood": 11.325,
+          "bowed_technique": 6.125,
+          "viola_size": 1.04,
+          "viola_strings": 3.73775,
+          "viola_top_wood": 6.74,
+          "viola_back_wood": 11.49,
           "viola_varnish": 10.5,
-          "viola_setup_period": 10.8396875,
-          "viola_bow_stick": 12.226875,
+          "viola_setup_period": 11.271875,
+          "viola_bow_stick": 12.251249999999999,
           "viola_rosin": 10.5
         }
       },
@@ -133,7 +133,7 @@
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_pizzicato",
-          "cello_strings": "cello_synthetic",
+          "cello_strings": "silver_wound_lamb_gut_cello",
           "cello_top_wood": "norway_spruce_alpine_cello",
           "cello_back_wood": "european_maple_cello_back",
           "cello_varnish": "oil_amber_varnish_cello",
@@ -143,28 +143,28 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 6.5,
-          "cello_strings": 3.77,
-          "cello_top_wood": 6.875,
-          "cello_back_wood": 11.325,
+          "bowed_technique": 6.125,
+          "cello_strings": 3.73775,
+          "cello_top_wood": 7.04,
+          "cello_back_wood": 11.49,
           "cello_varnish": 10.5,
-          "cello_setup_period": 10.8396875,
+          "cello_setup_period": 11.271875,
           "cello_bow_grip": 2.6,
           "cello_rosin": 10.5,
-          "cello_bow_stick": 12.226875
+          "cello_bow_stick": 12.251249999999999
         }
       },
       {
         "id": "french_horn",
         "slots": {
           "wind_articulation": "wind_classical_legato",
-          "french_horn_bore": "french_horn_full",
+          "french_horn_bore": "french_horn_descant",
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
           "wind_articulation": 5.195,
-          "french_horn_bore": 0.69825,
-          "french_horn_metal": 2.411375
+          "french_horn_bore": 1.04,
+          "french_horn_metal": 1.885
         }
       },
       {
@@ -178,10 +178,10 @@
         },
         "scores": {
           "wind_articulation": 5.195,
-          "clarinet_body": 10.5,
+          "clarinet_body": 10.665,
           "clarinet_size": 2.6,
-          "clarinet_reed": 1.7408124999999999,
-          "clarinet_articulation": 0.25
+          "clarinet_reed": 1.8199999999999998,
+          "clarinet_articulation": 0.45062499999999994
         }
       },
       {
@@ -191,8 +191,8 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 4.225,
-          "harp_pedals": 3.185
+          "harp_strings": 3.185,
+          "harp_pedals": 2.9899999999999998
         }
       },
       {
@@ -203,9 +203,9 @@
           "timpani_head": "timpani_synthetic"
         },
         "scores": {
-          "percussion_technique": 1.5,
-          "timpani_size": 3.38,
-          "timpani_head": 1.1050000000000002
+          "percussion_technique": 1.125,
+          "timpani_size": 3.185,
+          "timpani_head": 0.9100000000000003
         }
       }
     ],

@@ -1,0 +1,130 @@
+{
+  "id": "trikiti",
+  "name": "Trikiti (Basque diatonic accordion dance music)",
+  "family": "global",
+  "lineage": "Basque dance music built on the diatonic button accordion introduced to Gipuzkoa and Bizkaia by Alpine railway and forestry workers in the 1880s, formalized as the trikitixa-and-pandero duo and modernized from the 1980s by Joseba Tapia, Elena Bergara and Kepa Junkera — fast fandango in 6/8 followed by arin-arin in 2/4 at 130-170 BPM, right-hand melody in parallel thirds with bisonoric bellows articulation, left-hand tonic-dominant bass, tambourine keeping continuous rolls and thumb accents, with optional shouted irrintzi and sung couplets.",
+  "recipe": "classic Iberian mid-1880s trikiti, wedding, European branch, European carnival processional, European drinking song, iberian functional song galician folk jota aragonesa. sygyt, breath veiled tone, fast rate, interlocked note trading. two row diatonic dance driven pandero paired trikitixa, tambourine orch, traditional dance driving modern build alboka, snappy to palm hand clap. iberian kantautor basque galician club. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 483,
+  "score": 218.612,
+  "config": {
+    "traditions": [
+      "trikiti",
+      "galician_folk",
+      "jota_aragonesa"
+    ],
+    "instruments": [
+      {
+        "id": "trikitixa",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "trikitixa_form": "trikitixa_form_two_row_gc",
+          "trikitixa_dantza_setting": "trikitixa_dantza_setting_romeria",
+          "trikitixa_reed_voicing": "trikitixa_reed_voicing_wet"
+        },
+        "scores": {
+          "free_reed_technique": 0.6499999999999999,
+          "trikitixa_form": 10.58,
+          "trikitixa_dantza_setting": 15.825,
+          "trikitixa_reed_voicing": -0.035
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.78,
+          "tambourine_orch_context": 0.045
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.6499999999999999,
+          "voice_quality": 17.74499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6,
+          "voice_articulation": 23.79,
+          "voice_microtone": 21.059999999999995,
+          "voice_tradition": 7.215,
+          "voice_mechanism_compound": 5.719999999999999,
+          "voice_estill_quality": 6.7275,
+          "voice_speech_song": 27.365000000000002,
+          "voice_ensemble_config": 22.034999999999993,
+          "voice_ornament_system": 6.795,
+          "voice_pitch_organization": 3.185000000000001,
+          "voice_processing_chain": 7.635,
+          "voice_multitrack_stack": 6.890000000000001
+        }
+      },
+      {
+        "id": "alboka",
+        "slots": {
+          "alboka_form": "alboka_biscayan",
+          "alboka_repertoire": "alboka_dantza",
+          "alboka_material": "alboka_hardwood_yoke"
+        },
+        "scores": {
+          "alboka_form": 13.87,
+          "alboka_repertoire": 11.495,
+          "alboka_material": 7.624999999999999
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.69,
+          "clap_capture": 0
+        }
+      }
+    ],
+    "room": "iberian_kantautor_basque_galician_club",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "iberian_kantautor_minority_language_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "iberian_kantautor_minority_language_modal",
+    "room": "iberian_kantautor_basque_galician_club",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

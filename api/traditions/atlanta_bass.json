@@ -1,0 +1,148 @@
+{
+  "id": "atlanta_bass",
+  "name": "Atlanta bass",
+  "family": "hip_hop",
+  "lineage": "Atlanta variant of Southern bass music running from the late 1980s through the mid-1990s on labels such as Ichiban, Bassment and So So Def, with Kilo Ali, MC Shy D, Raheem the Dream, DJ Smurf and Ghost Town DJs as its principal makers — 808 kick tuned to long decaying sub tones and Miami-style rapid hi-hat rolls at 130-145 BPM, sparse synth stabs and cheap sampler hits, chanted party and dance-instruction hooks over minimal verses, mixed with extreme low end for car audio and skating-rink systems.",
+  "recipe": "classic North American 1987-1989 atlanta bass, mc Rhythm, southern branch, bass descendants bass system, African dance electronic dance florida breaks jump-up. vocal fry, breath veiled tone, slow rate, interlocked note trading. TR-808, pitched chopped sampler, low sub bass analog poly synth, sampled chopped turntable, low cupped muffled hand clap. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 523,
+  "score": 260.552,
+  "config": {
+    "traditions": [
+      "atlanta_bass",
+      "florida_breaks",
+      "jump_up"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 19.9225,
+          "drum_machine_808_context": 16.315,
+          "tr808_production_origin": 0.585
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.2050000000000005,
+          "sampler_archetypes": 3.7,
+          "sampler_bit_depth": 3.285,
+          "sampler_workflow": 4.6475,
+          "sampler_classic_context": 26.91
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 23.367499999999996,
+          "poly_archetypes": 0.585,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 3.2050000000000005,
+          "turntable_technique": 3.2100000000000004
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_cupped_muffled",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.9500000000000002,
+          "clap_capture": 0.5
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 4.225,
+          "voice_quality": 9.620000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.11,
+          "voice_articulation": 20.604999999999997,
+          "voice_microtone": 20.864999999999995,
+          "voice_tradition": 5.720000000000001,
+          "voice_mechanism_compound": 4.134999999999999,
+          "voice_estill_quality": 3.985,
+          "voice_speech_song": 21.644999999999996,
+          "voice_ensemble_config": 20.929999999999996,
+          "voice_ornament_system": 4.225,
+          "voice_pitch_organization": 2.475,
+          "voice_processing_chain": 9.395,
+          "voice_multitrack_stack": 5.620000000000001
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "id": "new_weird_america",
+  "name": "New Weird America",
+  "family": "vernacular",
+  "lineage": "US underground folk current named by David Keenan in a 2003 Wire feature and centered on the Brattleboro/Providence axis (Sunburned Hand of the Man, Six Organs of Admittance, Josephine Foster, the Jewelled Antler collective), fusing Appalachian modal ballad and open-tuned fingerpicking with free-improvised drone, unmetered group ritual jams, tape-hiss home recording, and untrained keening or whispered vocal delivery over droning harmonium and bowed banjo.",
+  "recipe": "classic early-2000s new weird america, ballad Poetry, freak folk branch, anglo singer song indie folk, string drone modal, lofi experimental electric chinese minyao nordic folk. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked dreadnought acoustic guitar, walnut warmer than maple mahogany open back canon clawhammer banjo 5 string, folk steel modern canonical 36 37 string set drone like modal autoharp, vocal male straight harmonium indian, walnut canonical appalachian fingerpicked mountain walnut spruce canonical appalachian hammered dulcimer. isolated rural 2005-present isolation diy isolation cabin diy. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 754,
+  "score": 333.855,
+  "config": {
+    "traditions": [
+      "new_weird_america",
+      "chinese_minyao",
+      "nordic_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 17.49,
+          "voice_quality": 10.14,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2674999999999998,
+          "voice_articulation": 14.884999999999996,
+          "voice_microtone": 19.369999999999994,
+          "voice_tradition": 29.145714285714284,
+          "voice_mechanism_compound": 7.15,
+          "voice_estill_quality": 5.329999999999999,
+          "voice_speech_song": 21.06,
+          "voice_ensemble_config": 14.819999999999997,
+          "voice_ornament_system": 4.5825000000000005,
+          "voice_pitch_organization": 4.030000000000001,
+          "voice_processing_chain": 3.3475,
+          "voice_multitrack_stack": 4.1275
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 23.884999999999998,
+          "string_tuning": 2.0149999999999997,
+          "top_wood": 0.345,
+          "back_sides": 0.21,
+          "string_acoustic": 1.4949999999999999
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_mahogany_neck",
+          "banjo_strings": "banjo_fluorocarbon",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.705,
+          "tone_ring": 0.195,
+          "banjo_head": 15.08,
+          "banjo_pot": 1.04,
+          "banjo_play": 0.195,
+          "banjo_rim_wood": 1.2349999999999999,
+          "banjo_neck_wood": 1.4949999999999999,
+          "banjo_strings": 1.6899999999999997,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 14.819999999999999
+        }
+      },
+      {
+        "id": "autoharp",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "autoharp_chord_bars": "autoharp_15_chord",
+          "autoharp_context": "autoharp_folk_revival",
+          "autoharp_strings": "autoharp_steel_modern",
+          "autoharp_body_wood": "autoharp_spruce_maple"
+        },
+        "scores": {
+          "acoustic_technique": 8.32,
+          "autoharp_chord_bars": 8.19,
+          "autoharp_context": 6.5649999999999995,
+          "autoharp_strings": 4.225,
+          "autoharp_body_wood": 0.195
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_foot_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_qawwali"
+        },
+        "scores": {
+          "free_reed_technique": 16.51,
+          "harmonium_action": 2.6839285714285714,
+          "harmonium_voicing": 2.34,
+          "harmonium_use": 4.42
+        }
+      },
+      {
+        "id": "mountain_dulcimer",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "dulcimer_strings": "dulcimer_4",
+          "dulcimer_tuning": "mixolydian_tuning",
+          "dulcimer_body_wood": "dulcimer_walnut_canonical",
+          "dulcimer_string_material": "dulcimer_steel_modern"
+        },
+        "scores": {
+          "acoustic_technique": 23.884999999999998,
+          "dulcimer_strings": 9.23,
+          "dulcimer_tuning": 5.069999999999999,
+          "dulcimer_body_wood": 1.45,
+          "dulcimer_string_material": 0.845
+        }
+      },
+      {
+        "id": "hammered_dulcimer",
+        "slots": {
+          "hammer_dulcimer_courses": "hd_15_15",
+          "hammer_material": "wood_bare",
+          "hammered_dulcimer_body_wood": "hd_walnut_canonical",
+          "hammered_dulcimer_strings": "hd_steel_bronze_modern"
+        },
+        "scores": {
+          "hammer_dulcimer_courses": 8.19,
+          "hammer_material": 8.19,
+          "hammered_dulcimer_body_wood": 1.45,
+          "hammered_dulcimer_strings": 0.845
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_home_portastudio",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "american_primitive_open_drone",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "american_primitive_open_drone",
+    "room": "studio_isolation_cabin_diy",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_home_portastudio"
+  }
+}

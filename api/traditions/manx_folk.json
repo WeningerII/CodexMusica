@@ -1,0 +1,155 @@
+{
+  "id": "manx_folk",
+  "name": "Manx folk",
+  "family": "global",
+  "lineage": "Traditional music of the Isle of Man, collected by Dr John Clague and the Gill brothers in the 1890s and revived from the 1920s by Mona Douglas and again from the 1970s around the Yn Chruinnaght festival — Manx Gaelic carvals and lullabies sung in a plain narrow-range style, plus jigs, reels and the distinctive Manx hop-tu-naa and dance tunes played on fiddle, whistle and harp with light accompaniment.",
+  "recipe": "classic Northern European mid-1890s manx folk, ballad Poetry, Celtic balladic branch, Celtic traditional improv on frame, European lullaby musique acadienne scottish fiddle tradition. thick, breath veiled tone, wide pitch sway, interlocked note trading. fiddle, melodic tin whistle, low mid rich spectrum traditional gut gut string celtic harp, dadgad tuning drone like acoustic guitar, goat skin canonical Irish ash pre modern traditional Irish bodhran. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 618,
+  "score": 286.078,
+  "config": {
+    "traditions": [
+      "manx_folk",
+      "musique_acadienne",
+      "scottish_fiddle"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "plain_lamb_gut_fiddle",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 11.57,
+          "fiddle_strings": 0.95,
+          "fiddle_bow": 0.795,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.39
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "d_whistle",
+          "whistle_ornament": "cut_ornament",
+          "whistle_body_material": "whistle_wood_premium"
+        },
+        "scores": {
+          "wind_articulation": 14.025,
+          "whistle_key": 0.42,
+          "whistle_ornament": 4.8100000000000005,
+          "whistle_body_material": 0.7799999999999998
+        }
+      },
+      {
+        "id": "celtic_harp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "celtic_harp_levers": "lever_camac",
+          "celtic_harp_strings": "celtic_gut"
+        },
+        "scores": {
+          "acoustic_technique": 1.365,
+          "celtic_harp_levers": 1.6749999999999998,
+          "celtic_harp_strings": 5.46
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.875,
+          "voice_quality": 17.939999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.25,
+          "voice_articulation": 24.765000000000004,
+          "voice_microtone": 24.765,
+          "voice_tradition": 25.285000000000004,
+          "voice_mechanism_compound": 5.9799999999999995,
+          "voice_estill_quality": 7.8325000000000005,
+          "voice_speech_song": 26.455000000000005,
+          "voice_ensemble_config": 26.845000000000002,
+          "voice_ornament_system": 19.635,
+          "voice_pitch_organization": 1.8199999999999996,
+          "voice_processing_chain": 5.330000000000001,
+          "voice_multitrack_stack": 4.615
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "dadgad",
+          "top_wood": "cedar_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "silk_steel_om",
+          "acoustic_om_technique": "om_drop_d_drone"
+        },
+        "scores": {
+          "string_tuning": 12.815000000000001,
+          "top_wood": 0.525,
+          "back_sides": 0.585,
+          "string_acoustic": 0.65,
+          "acoustic_om_technique": 12.059999999999999
+        }
+      },
+      {
+        "id": "bodhran",
+        "slots": {
+          "bodhran_play": "bodhran_kerry",
+          "bodhran_skin": "bodhran_goatskin",
+          "bodhran_shell_wood": "bodhran_ash_traditional"
+        },
+        "scores": {
+          "bodhran_play": 4.8100000000000005,
+          "bodhran_skin": 5.005,
+          "bodhran_shell_wood": 5.85
+        }
+      }
+    ],
+    "room": "scottish_bothy_farmhouse_kitchen",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "scottish_bothy_farmhouse_kitchen",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "West-African Senegambian-Mande rice-planting song tradition continuous from premodern Senegambian-and-Guinean rice-agriculture village-labor practice through colonial-period continuous performance into modern West-African-rural continuous practice; the West-African Senegambian rice-planting song tradition was demonstrably the documented lineage origin point for the South-Carolina Lowcountry rice-cultivation work-songs continuous into the broader American-South work-song tradition",
   "recipe": "classic East African modern west-african rice-planting song, field Work, sub saharan African branch, American south field work, sub saharan African praise song, sub saharan African protest song south african freedom song zulu izibongo. thick, declaimed, straight onset, leader call answered. calabash nylon fishing line cowhide mande traditional kora. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 450,
-  "score": 236.665,
+  "score": 238.395,
   "config": {
     "traditions": [
       "west_african_rice_planting",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 3.0225000000000013,
-          "voice_quality": 13.780249999999993,
+          "voice_register": 3.112500000000001,
+          "voice_quality": 13.879999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.2250000000000005,
-          "voice_articulation": 16.403999999999996,
+          "voice_articulation": 16.919999999999998,
           "voice_microtone": 8.255,
-          "voice_tradition": 71.92049999999999,
+          "voice_tradition": 73.80749999999999,
           "voice_mechanism_compound": 1.625,
           "voice_estill_quality": 1.4299999999999997,
           "voice_speech_song": 21.839999999999996,
-          "voice_ensemble_config": 10.073,
-          "voice_ornament_system": 23.5345,
-          "voice_pitch_organization": 9.294999999999998,
+          "voice_ensemble_config": 9.655000000000001,
+          "voice_ornament_system": 24.2125,
+          "voice_pitch_organization": 8.774999999999999,
           "voice_processing_chain": 3.4450000000000003,
           "voice_multitrack_stack": 5.6875
         }
@@ -68,7 +68,7 @@
           "kora_strings": 0.45499999999999996,
           "kora_resonator": 3.5100000000000002,
           "kora_strings_mat": 3.5100000000000002,
-          "kora_top_skin": 4.5424999999999995,
+          "kora_top_skin": 3.94,
           "kora_neck_wood": 3.4450000000000003,
           "kora_lineage": 5.590000000000001
         }

@@ -1,0 +1,218 @@
+{
+  "id": "bosstown_sound",
+  "name": "Bosstown Sound",
+  "family": "rock",
+  "lineage": "Short-lived psychedelic scene manufactured by MGM Records publicist Alan Lorber in Boston in 1967-69 around Ultimate Spinach, The Beacon Street Union and Orpheus — heavily overdubbed eight-track productions with fuzz guitar, harpsichord and combo organ, flute and string sweetening, tempo-shifting suite structures, mixed-meter passages, and mystical or literary lyrics delivered in dry close-miked mid-range vocals.",
+  "recipe": "classic North American late-1960s bosstown sound, distorted Rock, art rock branch, experimental distorted rock, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, psychedelic foregrounded organ driven rock Leslie rotary block chord combo organ, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, powell boston canonical American orchestral flute, string quartet inst, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 906,
+  "score": 610.276,
+  "config": {
+    "traditions": [
+      "bosstown_sound",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 52.72250000000001,
+          "voice_quality": 13.942499999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.330000000000001,
+          "voice_articulation": 15.144999999999996,
+          "voice_microtone": 51.06,
+          "voice_tradition": 20.92375,
+          "voice_mechanism_compound": 3.575000000000001,
+          "voice_estill_quality": 2.665000000000001,
+          "voice_speech_song": 19.954999999999995,
+          "voice_ensemble_config": 14.884999999999994,
+          "voice_ornament_system": 0.7799999999999998,
+          "voice_pitch_organization": 0.325,
+          "voice_processing_chain": 9.88625,
+          "voice_multitrack_stack": 8.28875
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 16.9625,
+          "amp_make": 22.099999999999994,
+          "body_wood": 3.32,
+          "neck_wood": 3.32,
+          "fretboard": 3.27,
+          "pickup_magnet": 0.975,
+          "string_material": 0.975,
+          "string_gauge": 3.9699999999999998,
+          "bridge": 0.65,
+          "scale_length": 3.575,
+          "finish": 0.195,
+          "string_tuning": 19.435
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_leslie_rotary"
+        },
+        "scores": {
+          "keyboard_technique": 16.177499999999995,
+          "combo_organ_model": 16.845,
+          "combo_organ_voicing": 18.754999999999995,
+          "combo_organ_context": 20.085,
+          "amp_make": 1.3499999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 17.029999999999998,
+          "body_wood": 3.575,
+          "pickup_config": 0.15,
+          "string_type": 39.58125,
+          "scale_length_b": 3.32,
+          "fretted_or_not": 0.045,
+          "bass_technique": 36.92
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 32.92375,
+          "drumhead": 15.798749999999997,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "flute_size": "piccolo_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": 1.17,
+          "flute_size": 0.975,
+          "flute_material": 0.09,
+          "flute_technique": 0,
+          "flute_maker_school": 2.73
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_modern",
+          "string_quartet_inst_era": "string_quartet_inst_romantic"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "quartet_school": 1.885,
+          "string_quartet_inst_era": 2.015
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 16.177499999999995,
+          "grand_piano_size": 3.32,
+          "grand_piano_brand": 3.5637499999999998,
+          "piano_hammer": 17.9075,
+          "piano_rim": 17.549999999999997,
+          "piano_soundboard": 15.749999999999996,
+          "piano_pinblock": 1.4249999999999998,
+          "piano_plate": 0.6149999999999999,
+          "piano_pitch_standard": 2.5024999999999995
+        }
+      }
+    ],
+    "room": "a_and_r_recording_nyc",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_american_op_amp",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "a_and_r_recording_nyc",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

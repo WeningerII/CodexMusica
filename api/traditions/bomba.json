@@ -1,0 +1,115 @@
+{
+  "id": "bomba",
+  "name": "Bomba (Puerto Rico)",
+  "family": "global",
+  "lineage": "Afro-Puerto Rican drum-and-dance tradition rooted in seventeenth- and eighteenth-century sugar-plantation communities of Loíza, Mayagüez, Ponce and Santurce, sustained by families such as the Cepedas and Ayalas — a call-and-response song over two or more barriles de bomba, with the buleador drums holding the sicá, yubá or holandés rhythm, a cuá stick pattern on the drum shell, maraca, and the lead subidor drummer improvising in direct dialogue with a single dancer's piquetes.",
+  "recipe": "classic Caribbean modern bomba, groove Percussion, Caribbean branch, Afro-diasporic ritual devotional, rumba Cuban nyahbinghi. kargyraa, breath veiled tone, slow rate, interlocked note trading. buleador and subidor paired set barril de bomba, cua, maracas. san juan puerto rican bomba plena yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 359,
+  "score": 195.648,
+  "config": {
+    "traditions": [
+      "bomba",
+      "nyahbinghi",
+      "cuban_rumba"
+    ],
+    "instruments": [
+      {
+        "id": "barril_de_bomba",
+        "slots": {
+          "barril_de_bomba_form": "barril_de_bomba_cuerda",
+          "barril_de_bomba_repertoire": "barril_de_bomba_piquetes",
+          "barril_de_bomba_shell": "barril_de_bomba_rum_barrel"
+        },
+        "scores": {
+          "barril_de_bomba_form": 29.314999999999998,
+          "barril_de_bomba_repertoire": 29.705,
+          "barril_de_bomba_shell": 0.7149999999999999
+        }
+      },
+      {
+        "id": "cua",
+        "slots": {
+          "cua_form": "cua_barril_side",
+          "cua_pattern": "cua_sica"
+        },
+        "scores": {
+          "cua_form": 1.15,
+          "cua_pattern": 0.5
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_leather",
+          "maracas_filling": "maracas_beads"
+        },
+        "scores": {
+          "maracas_construction": 0.195,
+          "maracas_filling": 0.195
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 1.545,
+          "voice_quality": 13.259999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.275,
+          "voice_articulation": 18.719999999999995,
+          "voice_microtone": 19.174999999999994,
+          "voice_tradition": 11.764999999999997,
+          "voice_mechanism_compound": 4.9399999999999995,
+          "voice_estill_quality": 3.6400000000000006,
+          "voice_speech_song": 20.019999999999996,
+          "voice_ensemble_config": 21.44999999999999,
+          "voice_ornament_system": 4.775,
+          "voice_pitch_organization": 2.2099999999999995,
+          "voice_processing_chain": 5.812500000000001,
+          "voice_multitrack_stack": 5.359999999999999
+        }
+      }
+    ],
+    "room": "san_juan_puerto_rican_bomba_plena_yard",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "san_juan_puerto_rican_bomba_plena_yard",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

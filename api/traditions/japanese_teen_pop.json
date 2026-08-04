@@ -3,14 +3,14 @@
   "name": "Japanese idol pop (aidoru kayō)",
   "family": "pop",
   "lineage": "Japanese teen-idol pop formalised by talent agencies and TV variety programming in Tokyo from the early 1970s — Momoe Yamaguchi and then Seiko Matsuda in the 1980s establishing the template, extended by Onyanko Club and later Morning Musume and AKB48 — bright 120-145 BPM major-key songs with Brill-Building-style key-change choruses, session-band backing with syncopated slap bass and gated snare, sweetened brass and synth-string beds, and a deliberately thin, high, unrehearsed-sounding solo or unison-group vocal recorded very close.",
-  "recipe": "classic East Asian 1970-1973 japanese idol pop, functional Song, east Asian pop branch, pop rock synthpop new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. polychordal major seven nine eleven stack late 1980s reverb saturated bus stack natural blend light common bus EQ multitrack vocal stack, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, mid attack plastic glockenspiel. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, sony MXP-3000 series, dbx 160 VCA, SSL surgical EQ.",
-  "recipe_chars": 935,
-  "score": 727.877,
+  "recipe": "classic East Asian 1970-1973 japanese idol pop, functional Song, east Asian pop branch, pop rock synthpop yacht rock a cappella. thick, breath veiled tone, straight onset, interlocked note trading. lead plus dense cluster 5 part stack late 1980s reverb saturated bus stack chorus detuned thickener across stack multitrack vocal stack, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, marshall plexi amp British rock amp mahogany rosewood ceramic single coil electric guitar, singing lead analog poly synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, mid attack plastic glockenspiel. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, sony MXP-3000 series, dbx 160 VCA, SSL surgical EQ. 16-bit digital lexicon 224 / 480L TC electronic 2290 delay chorus.",
+  "recipe_chars": 924,
+  "score": 620.018,
   "config": {
     "traditions": [
       "japanese_teen_pop",
-      "new_wave",
-      "yacht_rock"
+      "yacht_rock",
+      "a_cappella"
     ],
     "instruments": [
       {
@@ -34,35 +34,35 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 58.75500000000002,
-          "voice_quality": 16.41249999999999,
+          "voice_register": 49.77000000000001,
+          "voice_quality": 14.364999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.58,
-          "voice_articulation": 20.604999999999997,
-          "voice_microtone": 56.849999999999994,
-          "voice_tradition": 42.445,
-          "voice_mechanism_compound": 3.9650000000000003,
-          "voice_estill_quality": 3.575000000000001,
-          "voice_speech_song": 28.275,
-          "voice_ensemble_config": 19.955,
-          "voice_ornament_system": 2.5850000000000004,
-          "voice_pitch_organization": 4.890000000000001,
-          "voice_processing_chain": 17.055,
-          "voice_multitrack_stack": 13.129999999999997
+          "voice_vibrato": 8.095,
+          "voice_articulation": 22.1,
+          "voice_microtone": 47.025000000000006,
+          "voice_tradition": 38.08999999999999,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 3.835000000000001,
+          "voice_speech_song": 27.04,
+          "voice_ensemble_config": 21.904999999999998,
+          "voice_ornament_system": 2.6300000000000003,
+          "voice_pitch_organization": 5.46,
+          "voice_processing_chain": 12.875,
+          "voice_multitrack_stack": 10.2375
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_polychordal_7_9_11",
+          "multitrack_stack_density": "multitrack_density_5_part_cluster",
           "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
-          "multitrack_stack_processing": "multitrack_processing_natural"
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 1.7550000000000001,
-          "multitrack_stack_era_aesthetic": 11.765,
-          "multitrack_stack_processing": 1.04
+          "multitrack_stack_density": 1.8199999999999998,
+          "multitrack_stack_era_aesthetic": 7.8325,
+          "multitrack_stack_processing": 1.3499999999999999
         }
       },
       {
@@ -70,32 +70,32 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 14.429999999999996,
-          "body_wood": 2.275,
-          "pickup_config": 0.345,
-          "string_type": 29.737499999999997,
-          "scale_length_b": 2.275,
-          "fretted_or_not": 0.345,
-          "bass_technique": 28.354999999999993
+          "amp_make": 11.569999999999999,
+          "body_wood": 1.8850000000000002,
+          "pickup_config": 0.65,
+          "string_type": 20.474999999999998,
+          "scale_length_b": 1.8850000000000002,
+          "fretted_or_not": 0.3,
+          "bass_technique": 17.134999999999998
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.874999999999996,
-          "drumhead": 31.794999999999995,
+          "drum_technique": 22.555,
+          "drumhead": 28.294999999999995,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -103,7 +103,7 @@
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
@@ -116,18 +116,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 33.50999999999999,
-          "amp_make": 16.899999999999995,
-          "body_wood": 2.275,
-          "neck_wood": 2.275,
-          "fretboard": 2.21,
-          "pickup_magnet": 1.585,
-          "string_material": 1.675,
-          "string_gauge": 2.925,
-          "bridge": 0.65,
-          "scale_length": 2.275,
-          "finish": 1.09,
-          "string_tuning": 15.534999999999998
+          "electric_technique": 28.684999999999995,
+          "amp_make": 8.059999999999999,
+          "body_wood": 1.8850000000000002,
+          "neck_wood": 1.8850000000000002,
+          "fretboard": 1.8200000000000003,
+          "pickup_magnet": 1.345,
+          "string_material": 1.435,
+          "string_gauge": 1.8850000000000002,
+          "bridge": 0.44999999999999996,
+          "scale_length": 1.8850000000000002,
+          "finish": 1.18,
+          "string_tuning": 10.854999999999997
         }
       },
       {
@@ -136,19 +136,19 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 33.724999999999994,
-          "poly_archetypes": 11.894999999999998,
-          "poly_voices": 1.4300000000000002,
-          "poly_maker_lineage": 2.795
+          "electronic_technique": 30.909999999999993,
+          "poly_archetypes": 8.189999999999998,
+          "poly_voices": 1.235,
+          "poly_maker_lineage": 0.5199999999999999
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
@@ -159,15 +159,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 32.404999999999994,
-          "grand_piano_size": 2.275,
-          "grand_piano_brand": 2.275,
-          "piano_hammer": 36.24999999999999,
-          "piano_rim": 35.82,
-          "piano_soundboard": 33.504999999999995,
-          "piano_pinblock": 1.755,
-          "piano_plate": 1.0074999999999998,
-          "piano_pitch_standard": 6.4025
+          "keyboard_technique": 28.774999999999995,
+          "grand_piano_size": 1.8850000000000002,
+          "grand_piano_brand": 1.8850000000000002,
+          "piano_hammer": 32.345,
+          "piano_rim": 31.779999999999994,
+          "piano_soundboard": 29.704999999999995,
+          "piano_pinblock": 1.5,
+          "piano_plate": 0.45499999999999996,
+          "piano_pitch_standard": 5.395
         }
       },
       {
@@ -179,8 +179,8 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "glockenspiel_size": 2.0799999999999996,
-          "glockenspiel_mallet": 2.4699999999999998
+          "glockenspiel_size": 1.69,
+          "glockenspiel_mallet": 1.8850000000000002
         }
       }
     ],

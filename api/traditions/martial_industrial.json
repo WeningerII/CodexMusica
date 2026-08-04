@@ -1,0 +1,136 @@
+{
+  "id": "martial_industrial",
+  "name": "Martial Industrial",
+  "family": "electronic",
+  "lineage": "Central and Northern Europe from the early 1990s (Cold Meat Industry in Sweden, Der Blutharsch in Austria, Les Joyaux de la Princesse in France) — slow processional 60-80 BPM marching-snare and timpani patterns, synthesized brass and orchestral samples, tolling bells, male choir pads and archival wartime speech samples, mixed dark and reverberant in DIY studios onto CD.",
+  "recipe": "classic European 1990-1993 martial industrial, experimental Elec, industrial noise branch, gothic rock distorted rock, ambient experimental electric ambient techno ambient house. marching gang, mallets timpani, rawhide mallet bells extended tubular bells, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, mixed satb canonical 4 part western antiphonal double choir alternating kakhetian three voice two soloists choral drone choir ensemble, field textural sampler, dark soft mallet gong tamtam. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 644,
+  "score": 78.573,
+  "config": {
+    "traditions": [
+      "martial_industrial",
+      "ambient_techno",
+      "ambient_house"
+    ],
+    "instruments": [
+      {
+        "id": "marching_gang",
+        "slots": {
+          "marching_gang_surface": "marching_gang_mud",
+          "marching_gang_footwear": "marching_gang_heavy_boots"
+        },
+        "scores": {
+          "marching_gang_surface": 0.195,
+          "marching_gang_footwear": 0.195
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_calfskin"
+        },
+        "scores": {
+          "percussion_technique": 3.25,
+          "timpani_size": 1.345,
+          "timpani_head": 0.65
+        }
+      },
+      {
+        "id": "tubular_bells",
+        "slots": {
+          "tubular_bells_striker": "tubular_bells_rawhide_mallet",
+          "tubular_bells_range": "tubular_bells_extended"
+        },
+        "scores": {
+          "tubular_bells_striker": 1.345,
+          "tubular_bells_range": 1.995
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 7.700000000000001,
+          "poly_archetypes": 1.8199999999999998,
+          "poly_voices": 0.42,
+          "poly_maker_lineage": 1.2349999999999999
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 1.95,
+          "choir_polyphonic_configuration": 1.195,
+          "choir_regional_canonical_configuration": 1.625,
+          "choir_ensemble_repertoire": 5.915000000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 11.240000000000002,
+          "sampler_archetypes": 0.195,
+          "sampler_bit_depth": 0.65,
+          "sampler_workflow": 11.055000000000001,
+          "sampler_classic_context": 23.172499999999992
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_opera_bending",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.5249999999999999,
+          "gong_striker": 1.3
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_vari_mu",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

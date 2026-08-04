@@ -1,0 +1,207 @@
+{
+  "id": "sungura",
+  "name": "Sungura",
+  "family": "global",
+  "lineage": "Zimbabwean guitar-band dance music formed in Harare in the early 1980s from Congolese rumba-soukous imported by migrant musicians and codified by Ephraim Joe, the Khiama Boys, Nicholas Zakaria, System Tazvida and Alick Macheso — roughly 120-140 BPM with a snare-and-hi-hat kanindo shuffle, three-guitar stratification of lead, rhythm and bass playing rapid triplet-feel runs, and paired Shona vocals over a long instrumental seben break.",
+  "recipe": "classic Southern African 1980-1983 sungura, functional Song, congolese rumba branch, African pop functional song rumba congolaise sebene. extended whistle, breath veiled tone, straight note core, interlocked note trading. mahogany rosewood ceramic nickel plated steel nickel single coil electric mahogany maple rosewood nickel plated steel nickel humbucker electric guitar, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, pre muffled edge muffled brushes-and-sticks drum kit, hosho, a cappella small 3 to 8 one per part homophonic chordal rhythm aligned sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 867,
+  "score": 318.218,
+  "config": {
+    "traditions": [
+      "sungura",
+      "rumba_congolaise",
+      "sebene"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 14.1375,
+          "voice_quality": 14.949999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.7680000000000002,
+          "voice_articulation": 20.475,
+          "voice_microtone": 20.279999999999994,
+          "voice_tradition": 18.98,
+          "voice_mechanism_compound": 2.795,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 27.3,
+          "voice_ensemble_config": 20.214999999999996,
+          "voice_ornament_system": 2.990000000000001,
+          "voice_pitch_organization": 2.0149999999999997,
+          "voice_processing_chain": 8.604000000000001,
+          "voice_multitrack_stack": 7.15
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 17.488000000000003,
+          "amp_make": 1.6249999999999998,
+          "body_wood": 1.69,
+          "neck_wood": 1.69,
+          "fretboard": 1.625,
+          "pickup_magnet": 1.04,
+          "string_material": 1.04,
+          "string_gauge": 2.0799999999999996,
+          "bridge": 0.255,
+          "scale_length": 1.69,
+          "finish": 0.195,
+          "string_tuning": 1.235
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 17.488000000000003,
+          "amp_make": 1.6249999999999998,
+          "body_wood": 1.69,
+          "neck_wood": 1.69,
+          "fretboard": 1.625,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.39,
+          "string_material": 1.04,
+          "bridge": 1.69,
+          "scale_length": 1.69,
+          "string_gauge": 2.0799999999999996,
+          "finish": 0.195,
+          "string_tuning": 1.235
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 3.25,
+          "body_wood": 2.08,
+          "pickup_config": 1.0399999999999998,
+          "string_type": 4.290000000000001,
+          "scale_length_b": 2.9899999999999998,
+          "fretted_or_not": 0.1215,
+          "bass_technique": 3.43
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.555,
+          "drumhead": 10.586500000000001,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "hosho",
+        "slots": {
+          "hosho_form": "hosho_matched_pair",
+          "hosho_groove": "hosho_mbira_lock",
+          "hosho_filler": "hosho_hota_seeds"
+        },
+        "scores": {
+          "hosho_form": 6.617000000000001,
+          "hosho_groove": 6.362,
+          "hosho_filler": 3.295
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 10.529999999999998,
+          "choir_polyphonic_configuration": 2.9899999999999998,
+          "choir_regional_canonical_configuration": 8.189999999999998,
+          "choir_ensemble_repertoire": 2.6
+        }
+      }
+    ],
+    "room": "harare_zimbabwean_chimurenga_studio",
+    "archetype": "arch_gallo_township_jive",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_console_inline_strip",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "soukous_rumba_seben_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "soukous_rumba_seben_4_4",
+    "room": "harare_zimbabwean_chimurenga_studio",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

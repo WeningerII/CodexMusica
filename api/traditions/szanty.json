@@ -1,0 +1,177 @@
+{
+  "id": "szanty",
+  "name": "Szanty",
+  "family": "vernacular",
+  "lineage": "The Polish sailor-song movement that emerged from Baltic yacht clubs and student sailing culture in the 1970s-80s, institutionalised by the Shanties festival in Krakow (from 1981) and by groups such as Stare Dzwony, Mechanicy Shanty, Perły i Łotry and Ryczące Dwudziestki; sung in Polish - part translated Anglo-American repertoire, part newly composed - at driving 4/4 or 6/8 tempos with strummed acoustic guitars, accordion, fiddle and a shouted unison male chorus, closer to campfire student song (piosenka turystyczna) than to shipboard labour practice.",
+  "recipe": "classic Central European mid-1970s szanty, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, Slavic bard ballad poetry russian chanson. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, narrative fingerpicked dreadnought acoustic guitar, castagnari Italian premium folk music straight accordion, double stops fiddle, half rectified brazilwood student tier double bass. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 754,
+  "score": 189.762,
+  "config": {
+    "traditions": [
+      "szanty",
+      "sea_shanty",
+      "russian_chanson"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 3.3,
+          "voice_quality": 11.569999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.0074999999999998,
+          "voice_articulation": 21.124999999999996,
+          "voice_microtone": 21.57999999999999,
+          "voice_tradition": 9.36,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 5.0375000000000005,
+          "voice_speech_song": 27.364999999999995,
+          "voice_ensemble_config": 20.864999999999995,
+          "voice_ornament_system": 1.0074999999999996,
+          "voice_pitch_organization": 2.0799999999999996,
+          "voice_processing_chain": 5.9799999999999995,
+          "voice_multitrack_stack": 5.610000000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 10.6145,
+          "choir_polyphonic_configuration": 1.8599999999999999,
+          "choir_regional_canonical_configuration": 3.9,
+          "choir_ensemble_repertoire": 1.4949999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "dadgad",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 8.27,
+          "string_tuning": 1.6499999999999997,
+          "top_wood": 0.105,
+          "back_sides": 0.105,
+          "string_acoustic": 0.195
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 4.29,
+          "accordion_reed_material": 0.345,
+          "musette_offset": 2.61,
+          "reed_config": 0.15,
+          "bellows": 0.045,
+          "voicing_chamber": 0.15,
+          "accordion_maker_school": 1.4949999999999999
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 5.6000000000000005,
+          "fiddle_strings": 0.24,
+          "fiddle_bow": 0.045,
+          "fiddle_mute": 0.255,
+          "fiddle_articulation": 0.6
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_seven_eighth",
+          "bass_strings": "half_rectified_gut_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.12999999999999998,
+          "bass_size": 0.15,
+          "bass_strings": 3.09,
+          "bass_top_wood": 0.39,
+          "bass_back_wood": 0.52,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 0.6499999999999999,
+          "bass_play": 0.195,
+          "bass_rosin": 0.5499999999999999,
+          "bass_bow_stick": 1.95
+        }
+      }
+    ],
+    "room": "polish_polskie_nagrania_muza",
+    "archetype": "arch_comecon_state_label",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "polish_polskie_nagrania_muza",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

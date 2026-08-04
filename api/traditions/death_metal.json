@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s onward extreme metal subgenre characterized by down-tuned humbucker guitar, palm-muted chug riffs, blast-beat drumming, growl-vocal delivery, and morbid thematic content — codified through Florida-tampa-bay (Death — Scream Bloody Gore 1987, Morbid Angel — Altars of Madness 1989, Obituary, Deicide), and Stockholm (Entombed — Left Hand Path 1990, Dismember, Grave) with the genre splitting into technical, brutal, and melodic substreams by the mid-1990s",
   "recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 605,
-  "score": 346.339,
+  "score": 347.519,
   "config": {
     "traditions": [
       "death_metal",
@@ -31,17 +31,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 30.857499999999998,
+          "electric_technique": 31.2475,
           "amp_make": 21.612499999999997,
           "body_wood": 19.044999999999998,
-          "neck_wood": 5.551,
-          "fretboard": 5.5009999999999994,
+          "neck_wood": 5.596,
+          "fretboard": 5.546,
           "pickup_magnet": 2.3400000000000003,
           "pickup_winding": 0.768,
           "string_material": 1.2349999999999999,
-          "bridge": 5.551,
+          "bridge": 5.596,
           "scale_length": 14.364999999999998,
-          "string_gauge": 6.396,
+          "string_gauge": 6.441,
           "finish": 0.0315,
           "string_tuning": 19.174999999999997
         }
@@ -59,10 +59,10 @@
         },
         "scores": {
           "amp_make": 6.4350000000000005,
-          "body_wood": 6.707999999999999,
+          "body_wood": 6.752999999999999,
           "pickup_config": 1.8850000000000002,
           "string_type": 13.65,
-          "scale_length_b": 5.551,
+          "scale_length_b": 5.596,
           "fretted_or_not": 1.145,
           "bass_technique": 13.7695
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 13.844999999999994,
-          "drumhead": 5.624499999999999,
+          "drumhead": 5.654999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -109,14 +109,14 @@
           "voice_articulation": 13.97499999999999,
           "voice_microtone": 14.36499999999999,
           "voice_tradition": 3.250000000000001,
-          "voice_mechanism_compound": 32.601,
-          "voice_estill_quality": 3.5570000000000004,
+          "voice_mechanism_compound": 32.80499999999999,
+          "voice_estill_quality": 3.7520000000000002,
           "voice_speech_song": 15.729999999999993,
           "voice_ensemble_config": 14.364999999999991,
           "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 2.0799999999999996,
           "voice_processing_chain": 5.59,
-          "voice_multitrack_stack": 5.846500000000001
+          "voice_multitrack_stack": 5.9365000000000006
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Dinner jazz",
   "family": "jazz",
   "lineage": "American and British background-jazz practice codified for hotel dining rooms, supper clubs and later for radio and streaming programming from the mid-1950s onward, growing out of cocktail piano and the Nat King Cole and George Shearing trio formats — 70-120 BPM medium swing and bossa feels, brushed drums, walking bass at low dynamics, sparse block-chord piano or vibraphone comping, warm subtone tenor obbligato and either wordless or crooned standards delivered without hard attack.",
-  "recipe": "classic North American 1954-1956 dinner jazz, improv On Frame, smooth vocal branch, crooners functional song, American jazz soul jazz adult standards. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, venice catlin high twist renaissance bass norway spruce European alpine double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble ebonite saxophone, vibraphone. jazz club. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 661,
-  "score": 585.03,
+  "recipe": "classic North American 1954-1956 dinner jazz, improv On Frame, smooth vocal branch, crooners functional song, American jazz soul jazz lounge. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, venice catlin high twist renaissance bass norway spruce European alpine double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble ebonite saxophone, vibraphone. jazz club. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 652,
+  "score": 582.05,
   "config": {
     "traditions": [
       "dinner_jazz",
       "soul_jazz",
-      "adult_standards"
+      "lounge_music"
     ],
     "instruments": [
       {
@@ -27,21 +27,21 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 8.12,
-          "grand_piano_size": 4.03,
-          "grand_piano_brand": 4.03,
+          "keyboard_technique": 7.834999999999999,
+          "grand_piano_size": 3.575,
+          "grand_piano_brand": 3.575,
           "piano_hammer": 7.605,
           "piano_rim": 7.995,
           "piano_soundboard": 2.45,
           "piano_pinblock": -0.05,
           "piano_plate": 1.25,
-          "piano_pitch_standard": 1.755
+          "piano_pitch_standard": 0.7149999999999999
         }
       },
       {
         "id": "double_bass",
         "slots": {
-          "bowed_technique": "bowed_sul_tasto",
+          "bowed_technique": "bowed_pizzicato",
           "bass_size": "bass_three_quarter",
           "bass_strings": "venice_catlin_bass",
           "bass_top_wood": "norway_spruce_alpine_bass",
@@ -53,15 +53,15 @@
           "bass_bow_stick": "pernambuco_stick_bass"
         },
         "scores": {
-          "bowed_technique": 0.12999999999999998,
-          "bass_size": 0.195,
-          "bass_strings": 2.92,
+          "bowed_technique": 0.32499999999999996,
+          "bass_size": 0.135,
+          "bass_strings": 2.68,
           "bass_top_wood": 1.2,
           "bass_back_wood": -0.05,
           "bass_varnish": -0.05,
-          "bass_setup_period": 3.6400000000000006,
-          "bass_play": 28.57,
-          "bass_rosin": 36.269999999999996,
+          "bass_setup_period": 3.185,
+          "bass_play": 29.17,
+          "bass_rosin": 35.625,
           "bass_bow_stick": 0.45500000000000007
         }
       },
@@ -73,8 +73,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 37.96,
-          "drumhead": 31.779999999999998,
+          "drum_technique": 38.675,
+          "drumhead": 31.18,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -90,13 +90,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 6.434999999999999,
+          "wind_articulation": 6.389999999999999,
           "sax_size": 6.645,
           "sax_reed": 0.78,
-          "sax_body_alloy": 28.375,
+          "sax_body_alloy": 29.125,
           "sax_mouthpiece": 2.3,
-          "sax_technique": 28.375,
-          "sax_maker_school": 30.934999999999995
+          "sax_technique": 29.17,
+          "sax_maker_school": 31.03
         }
       },
       {
@@ -107,9 +107,9 @@
           "vibe_mallets": "vibe_soft_mallets"
         },
         "scores": {
-          "percussion_technique": -0.05,
-          "vibe_motor": 29.479999999999997,
-          "vibe_mallets": 28.375
+          "percussion_technique": 0.375,
+          "vibe_motor": 29.38,
+          "vibe_mallets": 29.125
         }
       },
       {
@@ -128,27 +128,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 41.03000000000001,
-          "voice_quality": 14.94999999999999,
+          "voice_register": 41.64500000000002,
+          "voice_quality": 15.112499999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 28.075,
-          "voice_articulation": 24.634999999999998,
-          "voice_microtone": 31.81,
-          "voice_tradition": 31.485,
-          "voice_mechanism_compound": 4.484999999999999,
-          "voice_estill_quality": 9.059999999999999,
-          "voice_speech_song": 27.235,
-          "voice_ensemble_config": 22.684999999999995,
+          "voice_vibrato": 28.735000000000003,
+          "voice_articulation": 24.31,
+          "voice_microtone": 32.56000000000001,
+          "voice_tradition": 30.58,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 7.76,
+          "voice_speech_song": 26.065,
+          "voice_ensemble_config": 22.619999999999997,
           "voice_ornament_system": 0.8449999999999998,
-          "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 5.265,
-          "voice_multitrack_stack": 3.6399999999999997
+          "voice_pitch_organization": 0.195,
+          "voice_processing_chain": 5.265000000000001,
+          "voice_multitrack_stack": 3.5425000000000004
         }
       }
     ],

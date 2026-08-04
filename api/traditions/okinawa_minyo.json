@@ -1,0 +1,150 @@
+{
+  "id": "okinawa_minyo",
+  "name": "Okinawan min'yo",
+  "family": "global",
+  "lineage": "Village folk-song tradition of the Ryukyu islands, transmitted orally through work, festival and awamori-party settings and commercially codified from the 1950s by singers such as Kadekaru Rinsho and Fukuhara Tsuneo, based on the ryukyu pentatonic with its raised fourth and seventh, sanshin accompaniment with the singer playing his own part, interjected hayashi shout-calls of hiyamiaachi and iyasasa, and the fast open-ended kachashi finale in a driving duple pulse with paranku frame drums and hand claps.",
+  "recipe": "classic Asian mid-1950s okinawan min'yo, field Work, east Asian branch, east Asian drinking song, east Asian pop functional song enka korean jubu-ga. thick, breath veiled tone, straight note core, interlocked note trading. song accompaniment sanshin, paranku, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk outdoor traditional taiko drum, room natural hand clap, song accompaniment bark wrapped shinobue. tin roofed shack. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 574,
+  "score": 306.603,
+  "config": {
+    "traditions": [
+      "okinawa_minyo",
+      "enka",
+      "korean_jubu_ga"
+    ],
+    "instruments": [
+      {
+        "id": "sanshin",
+        "slots": {
+          "sanshin_kata": "sanshin_amami",
+          "sanshin_repertoire": "sanshin_shimauta",
+          "sanshin_skin": "sanshin_python_hon_bari",
+          "sanshin_plectrum": "sanshin_bamboo_stick"
+        },
+        "scores": {
+          "sanshin_kata": 0.39,
+          "sanshin_repertoire": 13.39,
+          "sanshin_skin": 0.12999999999999998,
+          "sanshin_plectrum": 0.39
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 15.349999999999993,
+          "voice_quality": 15.469999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.7700000000000005,
+          "voice_articulation": 25.415000000000006,
+          "voice_microtone": 26.065,
+          "voice_tradition": 39.015,
+          "voice_mechanism_compound": 5.9799999999999995,
+          "voice_estill_quality": 7.085,
+          "voice_speech_song": 38.54500000000001,
+          "voice_ensemble_config": 25.740000000000002,
+          "voice_ornament_system": 17.5,
+          "voice_pitch_organization": 3.1849999999999996,
+          "voice_processing_chain": 3.5850000000000004,
+          "voice_multitrack_stack": 6.8575
+        }
+      },
+      {
+        "id": "paranku",
+        "slots": {
+          "paranku_size": "paranku_large",
+          "paranku_stroke": "paranku_stick"
+        },
+        "scores": {
+          "paranku_size": 0.09,
+          "paranku_stroke": 0.39
+        }
+      },
+      {
+        "id": "taiko_drum",
+        "slots": {
+          "taiko_size": "taiko_chu_daiko",
+          "taiko_skin": "taiko_cowhide",
+          "taiko_shell_wood": "taiko_keyaki_canonical",
+          "taiko_lineage": "taiko_kodo_sado",
+          "taiko_technique": "taiko_festival_matsuri"
+        },
+        "scores": {
+          "taiko_size": 1.3,
+          "taiko_skin": 3.834999999999999,
+          "taiko_shell_wood": 3.834999999999999,
+          "taiko_lineage": 0.39,
+          "taiko_technique": 1.17
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.975,
+          "clap_capture": 1.385
+        }
+      },
+      {
+        "id": "shinobue",
+        "slots": {
+          "shinobue_family": "shinobue_family_utabue",
+          "shinobue_choshi": "shinobue_choshi_roku_pon",
+          "shinobue_context": "shinobue_context_minyo",
+          "shinobue_bore": "shinobue_bore_urushi_bark"
+        },
+        "scores": {
+          "shinobue_family": 9.305,
+          "shinobue_choshi": 8.37,
+          "shinobue_context": 28.465,
+          "shinobue_bore": 1.105
+        }
+      }
+    ],
+    "room": "tin_roofed_shack",
+    "archetype": "arch_nippon_columbia_enka",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "japanese_in_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_in_scale",
+    "room": "tin_roofed_shack",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

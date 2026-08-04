@@ -1,0 +1,161 @@
+{
+  "id": "melodipop",
+  "name": "Melodipop",
+  "family": "electronic",
+  "lineage": "A late-1980s-to-1990s melodic electronic pop current documented across Eastern Europe and the post-Soviet space, descended from Italo disco via ZYX-style imports, built on 110-125 BPM drum-machine four-on-the-floor, minor-key diatonic melodies carried by monophonic synth leads, sparse arpeggiated bass and untrained, plaintive lead vocals in the local language.",
+  "recipe": "classic Eastern European 1987-1989 melodipop, electronic Dance, eurodance branch, europop functional song, continental electronic dance disco polo neomelodici. extended whistle, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly singing lead analog mono synth, behringer rd 8 modern clone analog circuit reproduction TR-808, string machine, pyramid pure nickel bass British mid 60s era electric bass. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 641,
+  "score": 190.795,
+  "config": {
+    "traditions": [
+      "melodipop",
+      "disco_polo",
+      "neomelodici"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 11.6825,
+          "poly_archetypes": 1.11,
+          "poly_voices": 0.5,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 11.6825,
+          "mono_oscillator": 0.345,
+          "mono_filter": 0.8449999999999999,
+          "mono_archetypes": 2.04,
+          "mono_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 1.2349999999999999,
+          "drum_machine_808_context": 6.961250000000001,
+          "tr808_production_origin": 1.365
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 11.895,
+          "voice_quality": 9.75,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6650000000000005,
+          "voice_articulation": 13.259999999999996,
+          "voice_microtone": 15.404999999999992,
+          "voice_tradition": 12.284999999999998,
+          "voice_mechanism_compound": 0.495,
+          "voice_estill_quality": 2.2424999999999997,
+          "voice_speech_song": 17.874999999999996,
+          "voice_ensemble_config": 14.754999999999995,
+          "voice_ornament_system": 0.9950000000000001,
+          "voice_pitch_organization": 2.4400000000000004,
+          "voice_processing_chain": 20.672500000000003,
+          "voice_multitrack_stack": 9.135
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_cellos"
+        },
+        "scores": {
+          "electronic_technique": 0.4,
+          "sm_voice_count": 5.702500000000001,
+          "sm_chorus": 3.58375,
+          "sm_voicing": 1.5325
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 2.0799999999999996,
+          "body_wood": 0.8449999999999999,
+          "pickup_config": 0.345,
+          "string_type": 1.625,
+          "scale_length_b": 0.8449999999999999,
+          "fretted_or_not": 1.2325,
+          "bass_technique": 0.5499999999999999
+        }
+      }
+    ],
+    "room": "moscow_melodiya_studio",
+    "archetype": "arch_melodiya_state",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "russian_minor_estrada_chanson",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "russian_minor_estrada_chanson",
+    "room": "moscow_melodiya_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

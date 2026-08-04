@@ -1,0 +1,177 @@
+{
+  "id": "egg_punk",
+  "name": "Egg Punk",
+  "family": "rock_punk",
+  "lineage": "Internet-named strand of 2010s DIY punk crystallizing around Chicago's Erik Nervous, Coneheads, Big Zit and the Lumpy Records / Neck Chop orbit circa 2015-2020 — trebly, thin, deliberately cheap-sounding guitar, cheap monosynth or Casio bleeps, drum-machine or brittle live drums, hiccupping yelped vocals and short 120-170 BPM songs mixed midrange-forward in home recordings.",
+  "recipe": "classic mid-2010s egg punk, distorted Rock, punk branch, lofi experimental electric, pop rock new wave minimal wave neue deutsche welle. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum machine analog, plucked short envelope analog mono synth, pre muffled edge muffled brushes-and-sticks drum kit. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 615,
+  "score": 254.76,
+  "config": {
+    "traditions": [
+      "egg_punk",
+      "minimal_wave",
+      "neue_deutsche_welle"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 20.469999999999995,
+          "voice_quality": 5.980000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.185,
+          "voice_articulation": 13.584999999999997,
+          "voice_microtone": 20.174999999999994,
+          "voice_tradition": 11.067499999999999,
+          "voice_mechanism_compound": 2.2987500000000005,
+          "voice_estill_quality": 1.69,
+          "voice_speech_song": 17.549999999999997,
+          "voice_ensemble_config": 14.754999999999995,
+          "voice_ornament_system": 1.625,
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 3.77,
+          "voice_multitrack_stack": 7.800000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "roasted_maple",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_8",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 12.87,
+          "amp_make": 19.384999999999998,
+          "body_wood": 1.585,
+          "neck_wood": 0.96375,
+          "fretboard": 1,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 1.4949999999999999,
+          "bridge": 0.39,
+          "scale_length": 0.39,
+          "finish": 1.2999999999999998,
+          "string_tuning": 7.47
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 6.1899999999999995,
+          "body_wood": 0.39,
+          "pickup_config": 1,
+          "string_type": 13.74,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0,
+          "bass_technique": 25.865
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "shuffle_high"
+        },
+        "scores": {
+          "kick_voice": 0.255,
+          "snare_voice": 0.105,
+          "hat_voice": 0.195,
+          "shuffle_quantize": 0.78
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_korg_kato"
+        },
+        "scores": {
+          "electronic_technique": 9.537499999999998,
+          "mono_oscillator": 0.105,
+          "mono_filter": -0.14,
+          "mono_archetypes": 0.39,
+          "mono_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 13.454999999999997,
+          "drumhead": 9.362499999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_home_portastudio",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "medium_cassette_4track_bedroom"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_medium": "medium_cassette_4track_bedroom",
+    "chain_console": "console_home_portastudio"
+  }
+}

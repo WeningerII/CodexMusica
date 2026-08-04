@@ -3,14 +3,14 @@
   "name": "Persian aroosi (عروسی, wedding music)",
   "family": "global",
   "lineage": "Persian wedding-music tradition continuous from medieval Persian-domestic-music practice through Qajar-and-Pahlavi-era documented performance into modern Iranian and Iranian-diaspora practice; defined by daf-and-tar-and-vocal ensemble",
-  "recipe": "classic Middle Eastern modern persian aroosi, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab andalusī nūba. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut bent frame canonical Persian synthetic remo modern stable brass rings canonical Iranian daf, synthetic brass gut historical pre modern qajar modern concert tar walnut bowl canonical Persian steel brass wound radif lotfi alizadeh lineage setar persian, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 735,
-  "score": 385.722,
+  "recipe": "classic Middle Eastern modern persian aroosi, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab tajik traditional music. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut bent frame canonical Persian synthetic remo modern stable brass rings canonical Iranian daf, synthetic brass gut historical pre modern qajar modern concert tar walnut bowl canonical Persian steel brass wound radif lotfi alizadeh lineage setar persian, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 742,
+  "score": 371.297,
   "config": {
     "traditions": [
       "persian_aroosi",
       "arab_tarab",
-      "andalusi_nuba"
+      "tajik_traditional"
     ],
     "instruments": [
       {
@@ -31,42 +31,42 @@
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.485,
-          "voice_quality": 8.19,
+          "voice_register": 3.835,
+          "voice_quality": 8.58,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.45,
-          "voice_articulation": 12.869999999999994,
-          "voice_microtone": 31.459999999999994,
-          "voice_tradition": 43.49499999999999,
-          "voice_mechanism_compound": 33.29,
-          "voice_estill_quality": 15.939999999999998,
-          "voice_speech_song": 16.639999999999997,
-          "voice_ensemble_config": 13.389999999999993,
-          "voice_ornament_system": 34.669999999999995,
-          "voice_pitch_organization": 35.92999999999999,
-          "voice_processing_chain": 4.355,
-          "voice_multitrack_stack": 4.68
+          "voice_vibrato": 13.505000000000003,
+          "voice_articulation": 14.819999999999993,
+          "voice_microtone": 32.2725,
+          "voice_tradition": 38.765,
+          "voice_mechanism_compound": 33.815000000000005,
+          "voice_estill_quality": 13.17,
+          "voice_speech_song": 19.044999999999995,
+          "voice_ensemble_config": 16.18499999999999,
+          "voice_ornament_system": 34.295,
+          "voice_pitch_organization": 34.52,
+          "voice_processing_chain": 3.7050000000000005,
+          "voice_multitrack_stack": 3.835
         }
       },
       {
         "id": "daf",
         "slots": {
-          "daf_rings": "daf_no_rings",
+          "daf_rings": "daf_with_rings",
           "daf_context": "daf_classical",
           "daf_shell_wood": "daf_walnut_canonical",
           "daf_head_material": "daf_synthetic_modern",
           "daf_jingle_metal": "daf_brass_rings"
         },
         "scores": {
-          "daf_rings": 0.285,
-          "daf_context": 18.85,
-          "daf_shell_wood": 11.18,
+          "daf_rings": 0.45499999999999996,
+          "daf_context": 17.81,
+          "daf_shell_wood": 10.69,
           "daf_head_material": 1.69,
-          "daf_jingle_metal": 4.159999999999999
+          "daf_jingle_metal": 3.875
         }
       },
       {
@@ -80,11 +80,11 @@
           "tar_tradition": "tar_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": 12.715,
+          "plucked_traditional_technique": 11.285000000000002,
           "tar_belly": 1.69,
-          "tar_pick": 6.5,
+          "tar_pick": 5.655000000000001,
           "tar_body_wood": 0.78,
-          "tar_string_material": 3.7800000000000002,
+          "tar_string_material": 3.435,
           "tar_tradition": 2.08
         }
       },
@@ -99,10 +99,10 @@
           "setar_tradition": "setar_radif_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 12.715,
-          "setar_strings": 0.12999999999999998,
-          "setar_pluck": 6.5649999999999995,
-          "setar_body_wood": 8.904999999999998,
+          "plucked_traditional_technique": 11.285000000000002,
+          "setar_strings": -0.035,
+          "setar_pluck": 5.720000000000001,
+          "setar_body_wood": 8.264999999999999,
           "setar_string_material": 2.4699999999999998,
           "setar_tradition": 1.4949999999999999
         }
@@ -111,15 +111,15 @@
         "id": "darbuka",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_material": "darbuka_clay_traditional",
           "darbuka_skin": "darbuka_synthetic_mylar",
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
           "percussion_technique": 0.6499999999999999,
-          "darbuka_material": 2.4699999999999998,
-          "darbuka_skin": 4.159999999999999,
-          "darbuka_regional_style": 3.77
+          "darbuka_material": 2.23,
+          "darbuka_skin": 3.7699999999999996,
+          "darbuka_regional_style": 3.08
         }
       }
     ],

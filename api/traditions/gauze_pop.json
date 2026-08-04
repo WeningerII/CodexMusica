@@ -3,14 +3,14 @@
   "name": "Gauze Pop",
   "family": "pop",
   "lineage": "A soft-focus indie pop strain descended from Cocteau Twins and the 4AD roster of the mid-1980s and rebuilt after 2006 by Beach House, Mazzy Star's inheritors and the Captured Tracks/Sub Pop dream-pop wave — slow to mid 70-110 BPM songs whose guitars are run through chorus and long plate or hall reverb until attack disappears, breathy or reverb-veiled vocals mixed at or below the instruments with lyrics semi-intelligible by design, organ or string-machine pads, and simple two- or three-chord loops in mixolydian or aeolian colour.",
-  "recipe": "classic Northern European 1984-1986 gauze pop, functional Song, pop rock branch, alternative distorted rock, ambient experimental electric shimmer pop permanent wave. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, sustained pad string machine, psychedelic foregrounded organ driven rock block chord combo organ, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, late 1980s reverb saturated bus stack chorus detuned thickener across stack multitrack vocal stack, mid attack plastic glockenspiel. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 908,
-  "score": 523.375,
+  "recipe": "classic Northern European 1984-1986 gauze pop, functional Song, pop rock branch, alternative distorted rock, ambient experimental electric shimmer pop college rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, sustained pad string machine, psychedelic foregrounded organ driven rock block chord combo organ, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, late 1980s reverb saturated bus stack chorus detuned thickener across stack multitrack vocal stack, mid attack plastic glockenspiel. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 909,
+  "score": 522.645,
   "config": {
     "traditions": [
       "gauze_pop",
       "shimmer_pop",
-      "permanent_wave"
+      "college_rock"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_gated_reverb",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 41.58000000000003,
-          "voice_quality": 13.389999999999992,
+          "voice_register": 40.880000000000024,
+          "voice_quality": 13.779999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.609999999999999,
-          "voice_articulation": 18.069999999999993,
-          "voice_microtone": 40.55000000000001,
-          "voice_tradition": 27.278125,
-          "voice_mechanism_compound": 3.9650000000000003,
-          "voice_estill_quality": 2.405,
-          "voice_speech_song": 21.059999999999995,
-          "voice_ensemble_config": 18.52499999999999,
+          "voice_vibrato": 6.76,
+          "voice_articulation": 18.914999999999992,
+          "voice_microtone": 39.42500000000001,
+          "voice_tradition": 28.953125,
+          "voice_mechanism_compound": 3.6725000000000003,
+          "voice_estill_quality": 3.0550000000000006,
+          "voice_speech_song": 22.359999999999992,
+          "voice_ensemble_config": 19.629999999999995,
           "voice_ornament_system": 1.1049999999999998,
-          "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 7.81,
-          "voice_multitrack_stack": 13.942499999999997
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 7.435,
+          "voice_multitrack_stack": 11.764999999999997
         }
       },
       {
@@ -61,7 +61,7 @@
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
-          "string_material": "stainless",
+          "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 25.489999999999995,
-          "amp_make": 8.84,
-          "body_wood": 4.58,
-          "neck_wood": 4.58,
-          "fretboard": 4.53,
-          "pickup_magnet": 0.195,
+          "electric_technique": 25.864999999999995,
+          "amp_make": 10.205,
+          "body_wood": 4.7299999999999995,
+          "neck_wood": 4.7299999999999995,
+          "fretboard": 4.68,
+          "pickup_magnet": 0.845,
           "string_material": 0.65,
-          "string_gauge": 7.03,
-          "bridge": 0.39,
-          "scale_length": 5.135,
+          "string_gauge": 7.18,
+          "bridge": 0.9950000000000001,
+          "scale_length": 5.329999999999999,
           "finish": 0,
-          "string_tuning": 11.245000000000001
+          "string_tuning": 10.205
         }
       },
       {
@@ -89,13 +89,13 @@
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
           "sm_chorus": "sm_chorus_lush",
-          "sm_voicing": "sm_violins"
+          "sm_voicing": "sm_cellos"
         },
         "scores": {
           "electronic_technique": 5.875,
           "sm_voice_count": 0.4931249999999999,
           "sm_chorus": 2.5,
-          "sm_voicing": 0.5
+          "sm_voicing": 0.845
         }
       },
       {
@@ -108,18 +108,18 @@
           "amp_make": "amp_british_60s_selmer"
         },
         "scores": {
-          "keyboard_technique": 25.249999999999996,
-          "combo_organ_model": 26.510625,
-          "combo_organ_voicing": 28.234999999999996,
-          "combo_organ_context": 11.504999999999999,
-          "amp_make": 0.19500000000000003
+          "keyboard_technique": 26.124999999999996,
+          "combo_organ_model": 27.685624999999998,
+          "combo_organ_voicing": 28.759999999999994,
+          "combo_organ_context": 8.97,
+          "amp_make": 0.39
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -127,13 +127,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 9.49,
-          "body_wood": 5.534999999999999,
+          "amp_make": 9.100000000000001,
+          "body_wood": 5.329999999999999,
           "pickup_config": 1.3,
-          "string_type": 21.775,
-          "scale_length_b": 4.58,
+          "string_type": 19.175000000000004,
+          "scale_length_b": 4.7299999999999995,
           "fretted_or_not": 0.105,
-          "bass_technique": 16.7
+          "bass_technique": 15.625000000000002
         }
       },
       {
@@ -144,8 +144,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.939999999999994,
-          "drumhead": 24.294999999999998,
+          "drum_technique": 18.784999999999993,
+          "drumhead": 25.169999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -157,9 +157,9 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 0.845,
-          "multitrack_stack_era_aesthetic": 10.629999999999999,
-          "multitrack_stack_processing": 3.975625
+          "multitrack_stack_density": 0.65,
+          "multitrack_stack_era_aesthetic": 9.254999999999999,
+          "multitrack_stack_processing": 2.675625
         }
       },
       {
@@ -171,8 +171,8 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "glockenspiel_size": 0.65,
-          "glockenspiel_mallet": 5.234999999999999
+          "glockenspiel_size": 0.15,
+          "glockenspiel_mallet": 4.884999999999999
         }
       }
     ],

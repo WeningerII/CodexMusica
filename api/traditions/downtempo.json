@@ -5,7 +5,7 @@
   "lineage": "Downtempo formed in the chill-out rooms of London, Bristol, Vienna and Washington DC between 1990 and 1997 through Kruder & Dorfmeister, Thievery Corporation, Nightmares on Wax and Zero 7 — 80-105 BPM sampled or programmed breakbeats with heavy swing, dub-derived delay and spring reverb, filtered upright-bass and Rhodes loops, jazz and bossa samples, and either wordless textures or a single languid guest vocal.",
   "recipe": "classic Asian early-1990s downtempo, electronic Dance, continental branch, ambient experimental electric, deep house house, idm glitch experimental electric float house. thick, breath veiled tone, straight onset, interlocked note trading. glitched textural sampler, turntable, torrington spring steel tine canonical Rhodes 1965 1984 centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, growly gut upright bass, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, TR-909, powell boston canonical American orchestral flute. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 746,
-  "score": 276.805,
+  "score": 276.044,
   "config": {
     "traditions": [
       "downtempo",
@@ -27,7 +27,7 @@
           "sampler_archetypes": 0.5,
           "sampler_bit_depth": 0.7149999999999999,
           "sampler_workflow": 6.125,
-          "sampler_classic_context": 44.21499999999999
+          "sampler_classic_context": 43.943928571428565
         }
       },
       {
@@ -53,8 +53,8 @@
         },
         "scores": {
           "keyboard_technique": 4.875,
-          "rhodes_model": 7.2799999999999985,
-          "rhodes_use": 3.7249999999999996,
+          "rhodes_model": 7.084999999999998,
+          "rhodes_use": 3.53,
           "rhodes_tine_material": 1.0399999999999998,
           "rhodes_hammer_tip": 0.06500000000000011,
           "rhodes_pickup_position": 2.34
@@ -107,11 +107,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 12.759999999999993,
+          "voice_register": 12.808214285714278,
           "voice_quality": 9.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.199999999999999,
+          "voice_vibrato": 7.094999999999999,
           "voice_articulation": 20.279999999999994,
           "voice_microtone": 20.47499999999999,
           "voice_tradition": 7.239999999999999,
@@ -121,7 +121,7 @@
           "voice_ensemble_config": 19.304999999999993,
           "voice_ornament_system": 0.395,
           "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 17.744999999999997,
+          "voice_processing_chain": 17.807142857142857,
           "voice_multitrack_stack": 3.7700000000000005
         }
       },
@@ -151,7 +151,7 @@
           "wind_articulation": 0.8499999999999999,
           "flute_size": 1.11,
           "flute_material": 0.65,
-          "flute_technique": 1.095,
+          "flute_technique": 0.99,
           "flute_maker_school": 1.7550000000000001
         }
       }

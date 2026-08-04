@@ -1,0 +1,137 @@
+{
+  "id": "naat_south_asian",
+  "name": "Naat (South Asian Prophetic praise recitation)",
+  "family": "global",
+  "lineage": "South Asian devotional poetry in praise of the Prophet Muhammad, sung in Urdu, Punjabi, Arabic and Persian and codified in the Barelvi mehfil-e-naat culture of the Punjab and Deccan from the 19th century, transformed into a mass genre by Pakistani radio and the T-Series and Lahore cassette trades through Qari Waheed Zafar Qasmi, Marghoob Hamdani and Junaid Jamshed, marked by unmetered opening hamd, harmonium and tabla or wholly voice-only rendition, responsorial durood refrains, and ornate raga-inflected melisma at deliberate tempo.",
+  "recipe": "classic South Asian mid-1980s naat, praise Song, indian subcontinent branch, islamic ritual devotional, Sufi ritual devotional mevlevi ayin sindhi. extended whistle, declaimed, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, pitched indian rosewood rosewood tabla, dholak, multitrack vocal stack. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 510,
+  "score": 221.31,
+  "config": {
+    "traditions": [
+      "naat_south_asian",
+      "mevlevi_ayin",
+      "sindhi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.6499999999999999,
+          "voice_quality": 21.344999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.375,
+          "voice_articulation": 21.45,
+          "voice_microtone": 27.072499999999998,
+          "voice_tradition": 22.197499999999998,
+          "voice_mechanism_compound": 6.4,
+          "voice_estill_quality": 4.890000000000001,
+          "voice_speech_song": 24.7,
+          "voice_ensemble_config": 23.789999999999996,
+          "voice_ornament_system": 13.254999999999999,
+          "voice_pitch_organization": 7.275,
+          "voice_processing_chain": 7.949999999999999,
+          "voice_multitrack_stack": 6.175
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_overblow_modern",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_kirtan"
+        },
+        "scores": {
+          "free_reed_technique": 0.195,
+          "harmonium_action": 0.8100000000000002,
+          "harmonium_voicing": 1.35,
+          "harmonium_use": 5.07
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 3.1500000000000004,
+          "tabla_bayan": 0.955,
+          "tabla_syahi": 8.45
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 0.42,
+          "dholak_construction": 3.295,
+          "dholak_head": 0.495,
+          "dholak_tensioning": 0.495
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_5_part_cluster",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.65,
+          "multitrack_stack_era_aesthetic": -0.035,
+          "multitrack_stack_processing": 0.585
+        }
+      }
+    ],
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

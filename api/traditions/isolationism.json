@@ -1,0 +1,146 @@
+{
+  "id": "isolationism",
+  "name": "Isolationism",
+  "family": "electronic",
+  "lineage": "Named by Kevin Martin for the 1994 Virgin compilation Ambient 4: Isolationism, gathering British, American and European artists such as Thomas Koner, Main, Scorn, Paul Schutze and Aphex Twin — beatless or near-beatless ambient stripped of consonance and warmth, built from corroded guitar drones, processed metal, tape decay and sub-bass hum, with static harmonic fields, minimal event density and a bleak, depopulated affect.",
+  "recipe": "classic European mid-1990s isolationism, experimental Elec, ambient branch, industrial noise experimental electric, experimental distorted rock japanoise death industrial. orange amp British heavy crunch basswood mahogany ebony single coil electric guitar, modular granular pad like pad analog glitched textural modular synth, gong tamtam, field textural sampler. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 470,
+  "score": 172.93,
+  "config": {
+    "traditions": [
+      "isolationism",
+      "japanoise",
+      "death_industrial"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_british_orange",
+          "body_wood": "basswood",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 9.649999999999999,
+          "amp_make": 6.26,
+          "body_wood": 2.735,
+          "neck_wood": 1.4299999999999997,
+          "fretboard": 2.58,
+          "pickup_magnet": 0.845,
+          "string_material": 0.585,
+          "string_gauge": 3.4850000000000003,
+          "bridge": 2.2350000000000003,
+          "scale_length": 1.4299999999999997,
+          "finish": 0.345,
+          "string_tuning": 4.9399999999999995
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 14.450000000000001,
+          "granular_use": 0,
+          "granular_synth_source": 7.930000000000001
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 13.914999999999997,
+          "oscillator": 2.6,
+          "filter_topology": 2.535,
+          "envelope": 5.954999999999999,
+          "modulation": 1.7349999999999999
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.045,
+          "gong_striker": 0.585
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 14.450000000000003,
+          "sampler_archetypes": 0.75,
+          "sampler_bit_depth": 1.04,
+          "sampler_workflow": 15.32,
+          "sampler_classic_context": 30.25
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 14.450000000000003,
+          "mod_voltage_source": 0.285,
+          "mod_patch_density": 7.039999999999999,
+          "mod_lineage": 0.65
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "transformerless",
+      "console": "broken",
+      "comp": null,
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "transformerless",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "broken"
+  }
+}

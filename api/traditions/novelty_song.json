@@ -1,0 +1,181 @@
+{
+  "id": "novelty_song",
+  "name": "Novelty Song",
+  "family": "pop",
+  "lineage": "Anglo-American comic popular song tradition running from Tin Pan Alley sheet music of the 1900s through its commercial peak in the 1940s-60s with Spike Jones, Sheb Wooley, David Seville and Ray Stevens, built on thirty-two-bar AABA or twelve-bar frames at bright dance tempi, deliberately absurd lyrics, sound effects (gunshots, cowbells, whistles, anvils), cartoon vocal treatments including sped-up tape voices, and instrumental gimmicks such as kazoo, slide whistle and tuba glissandi.",
+  "recipe": "classic North American mid-1900s novelty song, functional Song, pop rock branch, stage performance spoken word, crooners functional song adult standards music hall. thick, breath veiled tone, pure, interlocked note trading. kazoo, compact tuba brass piston valves American school besson sovereign British brass band tuba, through composed jazz big band, pre muffled edge muffled brushes-and-sticks drum kit, block chord upright piano, whistle peanut train whistle, bright cutting metal beater anvil, glockenspiel. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 670,
+  "score": 195.87,
+  "config": {
+    "traditions": [
+      "novelty_song",
+      "adult_standards",
+      "music_hall"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 14.169999999999995,
+          "voice_quality": 8.58,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 20.604999999999997,
+          "voice_microtone": 18.719999999999995,
+          "voice_tradition": 9.76,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 31.265,
+          "voice_ensemble_config": 18.199999999999996,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 3.965,
+          "voice_multitrack_stack": 4.615000000000001
+        }
+      },
+      {
+        "id": "kazoo",
+        "slots": {
+          "kazoo_construction": "kazoo_metal"
+        },
+        "scores": {
+          "kazoo_construction": -0.1
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "tuba_pitch": 3.29,
+          "tuba_context": 3.8349999999999995,
+          "tuba_bell_metal": 0.845,
+          "tuba_valve_system": 3.1849999999999996,
+          "tuba_maker_school": 2.275
+        }
+      },
+      {
+        "id": "jazz_big_band",
+        "slots": {
+          "sections": "bb_trumpets",
+          "era": "bb_progressive"
+        },
+        "scores": {
+          "sections": 0.345,
+          "era": 1.69
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 17.939999999999998,
+          "drumhead": 8.715000000000002,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_honky_tonk",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 8.565,
+          "upright_use": 1.2349999999999999,
+          "upright_piano_size": 0.65
+        }
+      },
+      {
+        "id": "train_whistle",
+        "slots": {
+          "train_whistle_type": "train_whistle_peanut",
+          "train_whistle_articulation": "train_whistle_long_wail"
+        },
+        "scores": {
+          "train_whistle_type": 1,
+          "train_whistle_articulation": 0
+        }
+      },
+      {
+        "id": "anvil",
+        "slots": {
+          "anvil_type": "anvil_steel_pipe",
+          "anvil_striker": "anvil_metal_beater"
+        },
+        "scores": {
+          "anvil_type": 0.65,
+          "anvil_striker": 1
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_25",
+          "glockenspiel_mallet": "glockenspiel_brass"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 0.39,
+          "glockenspiel_mallet": 0.78
+        }
+      }
+    ],
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "pre_ua_610_tube",
+      "console": "console_american_op_amp",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "room": "studio_early_tape_us_small",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

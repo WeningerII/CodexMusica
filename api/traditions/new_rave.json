@@ -1,0 +1,206 @@
+{
+  "id": "new_rave",
+  "name": "New Rave",
+  "family": "electronic",
+  "lineage": "British scene of 2006-2008 named by NME around Klaxons, Shitdisco and Hadouken!, layering early-1990s rave synth stabs, air-horns and acid basslines onto indie guitar band instrumentation at 130-145 BPM, with shouted call-and-response vocals, sidechained pumping and neon club presentation.",
+  "recipe": "classic British 2006-2008 new rave, electronic Dance, continental branch, alternative distorted rock, techno electronic dance, punk distorted rock grebo crack rock steady. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation lower tension down tuning single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric classic acid monosynth acid bass, pre muffled edge muffled brushes-and-sticks drum kit, analog poly synth, TR-909, field sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 795,
+  "score": 301.31,
+  "config": {
+    "traditions": [
+      "new_rave",
+      "grebo",
+      "crack_rock_steady"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 13.329999999999993,
+          "voice_quality": 5.200000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.78,
+          "voice_articulation": 17.289999999999996,
+          "voice_microtone": 17.289999999999992,
+          "voice_tradition": 3.0550000000000006,
+          "voice_mechanism_compound": 12.154999999999998,
+          "voice_estill_quality": 4.485,
+          "voice_speech_song": 17.939999999999998,
+          "voice_ensemble_config": 18.264999999999997,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 10.935,
+          "voice_multitrack_stack": 2.925000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 10.605,
+          "amp_make": 23.335,
+          "body_wood": 0.845,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
+          "pickup_magnet": 0.195,
+          "string_material": 0.15,
+          "string_gauge": 0.845,
+          "bridge": 0.39,
+          "scale_length": 0.845,
+          "finish": 0,
+          "string_tuning": 6.76
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.165000000000001,
+          "body_wood": 1.2349999999999999,
+          "pickup_config": 0.3,
+          "string_type": 15.275,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 0.105,
+          "bass_technique": 19.75
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.1025,
+          "drumhead": 1.395,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 2.6000000000000005,
+          "poly_archetypes": 6.11,
+          "poly_voices": 0,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 6.25,
+          "wave_acid": 0.15,
+          "filter_acid": 1.995,
+          "accent_acid": 4.800000000000001
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_clap",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 7.249999999999999,
+          "drum_machine_909_context": 4.239999999999999,
+          "tr909_production_origin": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 1.2,
+          "sampler_archetypes": 1.25,
+          "sampler_bit_depth": 0.72,
+          "sampler_workflow": 1.0724999999999998,
+          "sampler_classic_context": 18.265
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_british_class_a_commercial",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

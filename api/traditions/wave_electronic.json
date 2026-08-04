@@ -1,0 +1,136 @@
+{
+  "id": "wave_electronic",
+  "name": "Wave (Hardwave)",
+  "family": "electronic",
+  "lineage": "Emerging around 2014-2016 out of London and continental European Soundcloud circles via Klimeks, Skit, Plastician's Terrorhythm label and the Liquid Ritual crew, wave sets 140-150 BPM halftime trap drums under cavernous reverbed detuned supersaw and bell leads, sub-bass swells and pitched vocal chops, with hardwave sharpening the same template into distorted, aggressive drops.",
+  "recipe": "classic 2014-2016 wave, electronic Dance, continental branch, ambient experimental electric, uk soundsystem bass system illbient ambient house. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. low sub bass digital subtractive, low sub bass wavetable sustained pad granular synth, TR-808. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 473,
+  "score": 167.992,
+  "config": {
+    "traditions": [
+      "wave_electronic",
+      "illbient",
+      "ambient_house"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 8.959999999999999,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 14.884999999999998
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 8.959999999999999,
+          "wt_position": 5.005,
+          "wt_family": 0.3,
+          "wt_polyphony": 0
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 5.5649999999999995,
+          "drum_machine_808_context": 5.495,
+          "tr808_production_origin": 0.255
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.39,
+          "voice_quality": 9.555,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.11,
+          "voice_articulation": 14.689999999999996,
+          "voice_microtone": 14.494999999999994,
+          "voice_tradition": 8.9375,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 15.079999999999997,
+          "voice_ensemble_config": 16.249999999999996,
+          "voice_ornament_system": 1.595,
+          "voice_pitch_organization": 1.195,
+          "voice_processing_chain": 11.395000000000001,
+          "voice_multitrack_stack": 2.6900000000000004
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_synthesized"
+        },
+        "scores": {
+          "electronic_technique": 8.86,
+          "granular_use": 0.39,
+          "granular_synth_source": 5.005
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

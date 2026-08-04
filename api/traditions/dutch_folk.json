@@ -1,0 +1,199 @@
+{
+  "id": "dutch_folk",
+  "name": "Dutch Folk",
+  "family": "vernacular",
+  "lineage": "Folk and street-music tradition of the Netherlands, spanning 19th-century Amsterdam draaiorgel barrel-organ street repertoire, the Jordaan café levenslied, and the 1970s revival led by Fungus and Wolverlei working from Nynke van Hichtum and Boer collections — moderate duple-time waltzes and marches, accordion and harmonica lead, sentimental full-throated chest singing, and sing-along strophic choruses.",
+  "recipe": "classic Eastern European mid-1970s dutch folk, drinking Song, European branch, European carnival processional, Mediterranean ballad ballad poetry canzone genovese canzone d'autore. thick, breath veiled tone, slow rate, interlocked note trading. large street organ carved facade strolling crank street waltz musette tune barrel organ, castagnari Italian premium folk music straight accordion, pearwood marine band tradition stainless steel steel harmonica, cedar nylon fingerpicked classical nylon-string guitar, norway spruce European alpine European maple sycamore maple double bass, drone like fiddle. irish pub. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 737,
+  "score": 247.472,
+  "config": {
+    "traditions": [
+      "dutch_folk",
+      "canzone_genovese",
+      "canzone_dautore"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 7.949999999999998,
+          "voice_quality": 10.269999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4250000000000003,
+          "voice_articulation": 19.434999999999995,
+          "voice_microtone": 20.734999999999992,
+          "voice_tradition": 17.824999999999996,
+          "voice_mechanism_compound": 1.0399999999999998,
+          "voice_estill_quality": 4.175,
+          "voice_speech_song": 22.879999999999995,
+          "voice_ensemble_config": 22.880000000000003,
+          "voice_ornament_system": 2.0500000000000003,
+          "voice_pitch_organization": 0.8400000000000001,
+          "voice_processing_chain": 6.010000000000001,
+          "voice_multitrack_stack": 4.6450000000000005
+        }
+      },
+      {
+        "id": "barrel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "barrel_organ_form": "barrel_organ_form_draaiorgel",
+          "barrel_organ_programme": "barrel_organ_programme_street",
+          "barrel_organ_pipework": "barrel_organ_pipework_mixed"
+        },
+        "scores": {
+          "keyboard_technique": 1.545,
+          "barrel_organ_form": 7.1,
+          "barrel_organ_programme": 2.4,
+          "barrel_organ_pipework": 19.759999999999998
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "american_swing",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 7.274999999999999,
+          "accordion_reed_material": 0.9950000000000001,
+          "musette_offset": 0.59,
+          "reed_config": 1.2999999999999998,
+          "bellows": 0.15,
+          "voicing_chamber": 0.7,
+          "accordion_maker_school": 6.305
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "octave_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "stainless_harm",
+          "harmonica_technique": "harm_folk_first_position",
+          "harmonica_maker_school": "harmonica_hering_brazilian",
+          "harmonica_tuning": "harmonica_minor_key"
+        },
+        "scores": {
+          "harmonica_type": 2.585,
+          "harmonica_comb": 3.3150000000000004,
+          "harmonica_reed": 1.115,
+          "harmonica_technique": 7.274999999999999,
+          "harmonica_maker_school": 0.15,
+          "harmonica_tuning": 0.885
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 14.7,
+          "string_tuning": 0,
+          "top_wood_classical": 3.12,
+          "bracing_classical": 1.95,
+          "string_classical": 1.385,
+          "attack_technique_cl": 1.055
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "bass_size": 1.2999999999999998,
+          "bass_strings": 0.12999999999999998,
+          "bass_top_wood": 3.380000000000001,
+          "bass_back_wood": 3.2825000000000006,
+          "bass_varnish": 0.375,
+          "bass_setup_period": 0.06499999999999999,
+          "bass_play": 0.24,
+          "bass_rosin": 0.6174999999999999,
+          "bass_bow_stick": 0.5525
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 7.669999999999999,
+          "fiddle_strings": 0.65,
+          "fiddle_bow": 1.105,
+          "fiddle_mute": 1.2449999999999999,
+          "fiddle_articulation": 1.605
+        }
+      }
+    ],
+    "room": "irish_pub",
+    "archetype": "arch_comecon_state_label",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "clean",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "irish_pub",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

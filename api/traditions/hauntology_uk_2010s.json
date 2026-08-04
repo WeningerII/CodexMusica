@@ -5,7 +5,7 @@
   "lineage": "2000s and 2010s UK electronic subgenre developed through Ghost Box Records (founded 2004 by Julian House and Jim Jupp) and the broader UK-electronic scene, characterized by sampling-and-evocation of 1960s-1970s BBC Radiophonic Workshop, library music, and lost-British-television-soundtrack aesthetics. Belbury Poly, The Focus Group, The Advisory Circle, Mordant Music, and Boards of Canada (parallel adjacent) anchor the canonical hauntology roster.",
   "recipe": "classic British mid-2000s hauntology, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit. breath veiled tone, straight note core, interlocked note trading, neutral third half flat. pad like pad analog synth, glitched textural sampler, vibrato wobble internal speaker close miked stylophone, cleaner optical looped rhythm bed wow and flutter warped disc optigan. converted victorian 1965-1985 major-flagship british class a commercial. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 567,
-  "score": 242.53,
+  "score": 245.277,
   "config": {
     "traditions": [
       "hauntology_uk_2010s",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.1995,
+          "voice_register": 0,
           "voice_quality": 9.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.7965,
+          "voice_vibrato": 1.945,
           "voice_articulation": 16.704999999999995,
           "voice_microtone": 16.50999999999999,
-          "voice_tradition": 12.786750000000001,
-          "voice_mechanism_compound": 1.23975,
+          "voice_tradition": 13.162500000000001,
+          "voice_mechanism_compound": 1.6649999999999996,
           "voice_estill_quality": 0.6499999999999999,
           "voice_speech_song": 16.704999999999995,
           "voice_ensemble_config": 17.484999999999992,
-          "voice_ornament_system": 0.105,
+          "voice_ornament_system": 0.66,
           "voice_pitch_organization": 4.030000000000001,
-          "voice_processing_chain": 22.552,
-          "voice_multitrack_stack": 9.5275
+          "voice_processing_chain": 22.769499999999997,
+          "voice_multitrack_stack": 10.367499999999998
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "oscillator": "sine_osc",
-          "filter_topology": "svf",
+          "filter_topology": "resonant_acid",
           "envelope": "pad_env",
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 4.819500000000001,
-          "oscillator": 0.5129999999999999,
-          "filter_topology": 0.0315,
+          "electronic_technique": 4.62,
+          "oscillator": 1.35,
+          "filter_topology": 0.045,
           "envelope": 2.4050000000000002,
           "modulation": 0.15
         }
@@ -79,9 +79,9 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 15.988000000000001,
+          "electronic_technique": 15.820000000000002,
           "sampler_archetypes": 0.105,
-          "sampler_bit_depth": 0.3045,
+          "sampler_bit_depth": 0.21,
           "sampler_workflow": 15.625000000000002,
           "sampler_classic_context": 22.197499999999994
         }
@@ -89,13 +89,13 @@
       {
         "id": "stylophone",
         "slots": {
-          "stylophone_model": "stylophone_bass_model",
+          "stylophone_model": "stylophone_350s",
           "stylophone_technique": "stylophone_drone_texture",
           "stylophone_vibrato": "stylophone_vibrato_on",
           "stylophone_output": "stylophone_internal_speaker"
         },
         "scores": {
-          "stylophone_model": 0.063,
+          "stylophone_model": 0.045,
           "stylophone_technique": 5.25,
           "stylophone_vibrato": 3.38,
           "stylophone_output": 3.38
@@ -113,7 +113,7 @@
           "keyboard_technique": -0.1,
           "optigan_model": 16.834999999999997,
           "optigan_disc_program": 16.834999999999997,
-          "optigan_playback_mechanism": 2.2815
+          "optigan_playback_mechanism": 2.295
         }
       }
     ],

@@ -1,0 +1,189 @@
+{
+  "id": "tarantella",
+  "name": "Tarantella (pan-southern Italian dance complex)",
+  "family": "global",
+  "lineage": "The family of fast southern Italian couple and ritual dances documented from seventeenth-century Neapolitan tarantism accounts and revived from the 1970s by Nuova Compagnia di Canto Popolare and later Officina Zoè — driving 6/8 or 12/8 at 110-160 BPM propelled by tamburello frame drum with continuous thumb-roll and rim slaps, organetto or mandolin and guitar cycling two-chord modal vamps, castanets and shouted vocal refrains, in regional variants from Neapolitan tammurriata to Salentine pizzica and Calabrian tarantella.",
+  "recipe": "classic mid-1970s tarantella, carnival Processional, European branch, Mediterranean ballad ballad poetry, Afro-diasporic ritual devotional, European wedding berber ahidus and ahwash italian southern folk. kargyraa, breath veiled tone, fast rate, interlocked note trading. tambourine orch, organetto abruzzese, bowl back Italian Italian alpine spruce brescian calace European maple loar canon mandolin, cedar fingerpicked classical nylon-string guitar, regional traditional pomegranate wood castanets, snappy to palm hand clap, olive wood canonical southern Italian cane arundo donax canonical Italian whole goatskin canonical southern Italian pastoral zampogna. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 741,
+  "score": 333.83,
+  "config": {
+    "traditions": [
+      "tarantella",
+      "berber_ahidus_ahwash",
+      "italian_southern_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.6450000000000005,
+          "voice_quality": 17.289999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 26.520000000000003,
+          "voice_microtone": 29.25,
+          "voice_tradition": 16.8675,
+          "voice_mechanism_compound": 10.595,
+          "voice_estill_quality": 14.769999999999998,
+          "voice_speech_song": 29.705000000000002,
+          "voice_ensemble_config": 26.455000000000002,
+          "voice_ornament_system": 13.149999999999999,
+          "voice_pitch_organization": 1.24,
+          "voice_processing_chain": 6.955000000000001,
+          "voice_multitrack_stack": 5.655000000000001
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.585,
+          "tambourine_orch_context": 0
+        }
+      },
+      {
+        "id": "organetto_abruzzese",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "organetto_rows": "organetto_two_row",
+          "organetto_tremolo": "organetto_wet",
+          "organetto_style": "organetto_saltarello"
+        },
+        "scores": {
+          "free_reed_technique": 1.6749999999999998,
+          "organetto_rows": 1,
+          "organetto_tremolo": 0,
+          "organetto_style": 1
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "italian_alpine_spruce_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_x_brace",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 4.3875,
+          "mandolin_shape": 10.27,
+          "mandolin_top": 6.369999999999999,
+          "mandolin_back": 2.3000000000000003,
+          "mandolin_bracing": 2.34,
+          "mandolin_strings": 1.625,
+          "mandolin_fingerboard": 2.34,
+          "mandolin_pickup": 26.715000000000003
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 4.925,
+          "string_tuning": 0,
+          "top_wood_classical": 7.215,
+          "bracing_classical": 1.4949999999999999,
+          "string_classical": 0.65,
+          "attack_technique_cl": 0.525
+        }
+      },
+      {
+        "id": "castanets",
+        "slots": {
+          "castanets_material": "castanets_pomegranate",
+          "castanets_mounting": "castanets_machine"
+        },
+        "scores": {
+          "castanets_material": 3.445,
+          "castanets_mounting": 0
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.885,
+          "clap_capture": 0.5399999999999999
+        }
+      },
+      {
+        "id": "zampogna",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "zampogna_region": "zampogna_calabrese",
+          "zampogna_context": "zampogna_festival",
+          "zampogna_chanter_wood": "zampogna_olivewood_canonical",
+          "zampogna_reed": "zampogna_cane_canonical",
+          "zampogna_bag": "zampogna_goatskin_canonical"
+        },
+        "scores": {
+          "wind_articulation": 2.65,
+          "zampogna_region": 15.795,
+          "zampogna_context": 4.095,
+          "zampogna_chanter_wood": 13,
+          "zampogna_reed": 6.369999999999999,
+          "zampogna_bag": 14.495000000000001
+        }
+      }
+    ],
+    "room": "urban_courtyard",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "urban_courtyard",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

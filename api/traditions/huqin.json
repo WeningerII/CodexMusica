@@ -1,0 +1,157 @@
+{
+  "id": "huqin",
+  "name": "Huqin Ensemble (Chinese Bowed-Fiddle Family)",
+  "family": "global",
+  "lineage": "The family of Chinese bowed spike lutes — jinghu, erhu, gaohu, zhonghu, banhu — that entered China from Central Asian nomadic sources by the Song dynasty and became the melodic backbone of regional opera pits and southern chamber ensembles, standardised into fixed pitch registers by twentieth-century conservatories, all sharing bow hair fixed between two strings, a resonator of snakeskin, wood or coconut, tension-stopped fingering with no fingerboard, and a shared role of shadowing and ornamenting the singer's line in metered ban-yan opera cycles.",
+  "recipe": "classic East Asian early-1950s huqin ensemble, art Music, beijing opera branch, east Asian Cantonese opera. snake skin legato jing erhu, python skin snake skin bamboo silk bamboo stick erhu, Cantonese silk and bamboo python skin legato gaohu, python skin snake skin legato zhonghu, gutty bowl resonator coconut shell paulownia steel modern banhu, sustained legato banhu gaoyin, extended range modern concert yangqin, paiban. chinese traditional teahouse. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 570,
+  "score": 192.414,
+  "config": {
+    "traditions": [
+      "huqin",
+      "beijing_opera",
+      "cantonese_opera"
+    ],
+    "instruments": [
+      {
+        "id": "jing_erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "jing_erhu_skin": "jing_erhu_skin_thin_snake",
+          "jing_erhu_role_type": "jing_erhu_role_qingyi",
+          "jing_erhu_texture": "jing_erhu_texture_divergent"
+        },
+        "scores": {
+          "bowed_technique": 5.715,
+          "jing_erhu_skin": 7.25,
+          "jing_erhu_role_type": 13.29675,
+          "jing_erhu_texture": 9.4875
+        }
+      },
+      {
+        "id": "gaohu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "gaohu_type": "gaohu_cantonese",
+          "gaohu_setting": "gaohu_yinyue",
+          "gaohu_membrane": "gaohu_python"
+        },
+        "scores": {
+          "bowed_technique": 5.715,
+          "gaohu_type": 15.936499999999999,
+          "gaohu_setting": 19.109999999999996,
+          "gaohu_membrane": 2.68375
+        }
+      },
+      {
+        "id": "zhonghu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "zhonghu_tuning": "zhonghu_a_e_fourth_below",
+          "zhonghu_role": "zhonghu_concerto_solo",
+          "zhonghu_box": "zhonghu_round_box",
+          "zhonghu_membrane": "zhonghu_python_skin"
+        },
+        "scores": {
+          "bowed_technique": 5.715,
+          "zhonghu_tuning": 3.3475,
+          "zhonghu_role": 5.0625,
+          "zhonghu_box": 3.25,
+          "zhonghu_membrane": 2.45
+        }
+      },
+      {
+        "id": "banhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "banhu_form": "banhu_qinqiang",
+          "banhu_role": "banhu_bangzi_opera",
+          "banhu_bowl": "banhu_coconut_bowl",
+          "banhu_strings": "banhu_steel_modern"
+        },
+        "scores": {
+          "bowed_technique": 5.715,
+          "banhu_form": 27.75,
+          "banhu_role": 29.654,
+          "banhu_bowl": 6.550000000000001,
+          "banhu_strings": 2.275
+        }
+      },
+      {
+        "id": "banhu_gaoyin",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "banhu_gaoyin_body": "banhu_gaoyin_coconut",
+          "banhu_gaoyin_style": "banhu_gaoyin_solo"
+        },
+        "scores": {
+          "bowed_technique": 5.715,
+          "banhu_gaoyin_body": 0.78,
+          "banhu_gaoyin_style": 0.09
+        }
+      },
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_jiangnan",
+          "erhu_body_wood": "erhu_mahogany_body",
+          "erhu_strings": "erhu_steel_modern",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": 5.715,
+          "erhu_skin": 5.525,
+          "erhu_use": 3.38,
+          "erhu_body_wood": 0.845,
+          "erhu_strings": 0.39,
+          "erhu_bow": 2.6
+        }
+      },
+      {
+        "id": "yangqin",
+        "slots": {
+          "yangqin_courses": "yangqin_402_modern",
+          "yangqin_technique": "yangqin_bamboo_mallets"
+        },
+        "scores": {
+          "yangqin_courses": 1.17,
+          "yangqin_technique": 0.39
+        }
+      },
+      {
+        "id": "paiban",
+        "slots": {
+          "paiban_form": "paiban_three_slab"
+        },
+        "scores": {
+          "paiban_form": 0
+        }
+      }
+    ],
+    "room": "chinese_traditional_teahouse",
+    "archetype": "arch_china_record_state_broadcast",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "chinese_traditional_teahouse",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

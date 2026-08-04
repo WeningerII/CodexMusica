@@ -1,0 +1,154 @@
+{
+  "id": "raggatek",
+  "name": "Raggatek",
+  "family": "electronic",
+  "lineage": "Formed in the French and Spanish free-party teknival circuit in the early 2000s around Sirius, Da Mongoloids and the Rotule and Jah Gunz collectives — 170-200 BPM tribe-and-hardtek kick patterns overlaid with pitched-up Jamaican ragga and dancehall vocal samples, siren melodica lines, chopped Amen fills and dub-style delay throws, played from mobile sound systems at outdoor teknivals.",
+  "recipe": "classic 2000-2003 raggatek, bass System, bass descendants branch, uk soundsystem bass system, hardstyle electronic dance uk funky oldschool jungle. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-909, chopped sampler, low sub bass analog mono synth, low sub bass monosynth acid bass, turntable. isolated rural 2005-present isolation diy isolation cabin diy. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 488,
+  "score": 183.688,
+  "config": {
+    "traditions": [
+      "raggatek",
+      "uk_funky",
+      "oldschool_jungle"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 2.3000000000000003,
+          "drum_machine_909_context": 1.625,
+          "tr909_production_origin": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "fairlight_cmi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.21,
+          "sampler_archetypes": 0,
+          "sampler_bit_depth": 0.195,
+          "sampler_workflow": 3.3049999999999997,
+          "sampler_classic_context": 24.83
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_arp_pearlman"
+        },
+        "scores": {
+          "electronic_technique": 9.4575,
+          "mono_oscillator": 0,
+          "mono_filter": -0.245,
+          "mono_archetypes": 0.3,
+          "mono_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.3149999999999995,
+          "voice_quality": 9.165000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.7474999999999999,
+          "voice_articulation": 18.459999999999997,
+          "voice_microtone": 17.679999999999993,
+          "voice_tradition": 5.654999999999999,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 18.264999999999997,
+          "voice_ensemble_config": 20.539999999999992,
+          "voice_ornament_system": 5.654999999999999,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 10.370625,
+          "voice_multitrack_stack": 6.045
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 9.4575,
+          "wave_acid": 0.345,
+          "filter_acid": 0.65,
+          "accent_acid": 0.345
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "scores": {
+          "electronic_technique": 2.21,
+          "turntable_technique": 0
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "studio_isolation_cabin_diy",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

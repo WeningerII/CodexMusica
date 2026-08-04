@@ -1,0 +1,148 @@
+{
+  "id": "mincecore",
+  "name": "Mincecore",
+  "family": "rock_punk",
+  "lineage": "Coined by Belgian band Agathocles in Deinze around 1987 as a deliberate rejection of the term grindcore, mincecore fuses 200-plus-BPM blastbeat bursts with mid-tempo d-beat crust punk stomps, downtuned buzzsaw guitar, and alternating low guttural growls and hoarse shouted political sloganeering across songs often under ninety seconds, released almost exclusively on split 7-inches and tape trades.",
+  "recipe": "classic European late-1980s mincecore, distorted Rock, punk branch, death metal, noise rock distorted rock deathcore spazzcore. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 517,
+  "score": 356.763,
+  "config": {
+    "traditions": [
+      "mincecore",
+      "deathcore",
+      "spazzcore"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 18.599999999999998,
+          "voice_quality": 6.175000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.3950000000000005,
+          "voice_articulation": 19.23999999999999,
+          "voice_microtone": 18.625,
+          "voice_tradition": 7.215,
+          "voice_mechanism_compound": 27.434062500000003,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 17.09499999999999,
+          "voice_ensemble_config": 15.729999999999993,
+          "voice_ornament_system": 0.45500000000000007,
+          "voice_pitch_organization": 2.7000000000000006,
+          "voice_processing_chain": 4.355,
+          "voice_multitrack_stack": 2.7299999999999995
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 20.6021875,
+          "amp_make": 24.4190625,
+          "body_wood": 11.244999999999997,
+          "neck_wood": 5.46,
+          "fretboard": 5.3950000000000005,
+          "pickup_magnet": 0.845,
+          "pickup_winding": 1.885,
+          "string_material": 0.65,
+          "bridge": 5.46,
+          "scale_length": 7.669999999999999,
+          "string_gauge": 5.46,
+          "finish": 0.39,
+          "string_tuning": 17.485
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 10.790000000000001,
+          "body_wood": 5.46,
+          "pickup_config": 0.65,
+          "string_type": 24.5375,
+          "scale_length_b": 5.46,
+          "fretted_or_not": 0.195,
+          "bass_technique": 28.1
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.875,
+          "drumhead": 5.915,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "concrete_basement",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

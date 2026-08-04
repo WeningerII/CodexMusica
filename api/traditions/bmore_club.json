@@ -1,0 +1,150 @@
+{
+  "id": "bmore_club",
+  "name": "Bmore club",
+  "family": "electronic",
+  "lineage": "Baltimore club-DJ style developed from 1989 onward by Frank Ski, Scottie B, KW Griff, Miss Tony, DJ Technics and Rod Lee, running 128-135 BPM over an eight-bar loop of the Lyn Collins 'Think (About It)' break and the Gaz 'Sing Sing' kick pattern, with call-and-response shouted chants, blunt repetition of chopped one-word vocal samples, and abrupt DJ-friendly arrangement cuts.",
+  "recipe": "classic North American late-1980s bmore club, electronic Dance, house branch, chicago house house, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, low sub bass monosynth acid bass, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. concrete basement. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 640,
+  "score": 330.501,
+  "config": {
+    "traditions": [
+      "bmore_club",
+      "conscious_hip_hop",
+      "gangsta_rap"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 10.954999999999998,
+          "sampler_archetypes": 15.469999999999999,
+          "sampler_bit_depth": 0.9099999999999999,
+          "sampler_workflow": 11.215,
+          "sampler_classic_context": 40.495000000000005
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 10.954999999999998,
+          "turntable_technique": 11.144999999999998
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 9.095,
+          "drum_machine_909_context": 5.069999999999999,
+          "tr909_production_origin": 4.68
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 8.814999999999996,
+          "voice_quality": 25.767,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.964999999999999,
+          "voice_articulation": 19.629999999999995,
+          "voice_microtone": 19.434999999999995,
+          "voice_tradition": 11.684499999999998,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 4.895,
+          "voice_speech_song": 24.257499999999997,
+          "voice_ensemble_config": 20.15,
+          "voice_ornament_system": 4.485000000000002,
+          "voice_pitch_organization": 0.45500000000000007,
+          "voice_processing_chain": 17.934999999999995,
+          "voice_multitrack_stack": 8.995000000000001
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 12.759999999999998,
+          "wave_acid": 0.195,
+          "filter_acid": 0.585,
+          "accent_acid": 0.15
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 10.98,
+          "drum_machine_808_context": 9.849499999999999,
+          "tr808_production_origin": 1.56
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_nyc_disco_twelve_inch",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "concrete_basement",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

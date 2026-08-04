@@ -1,0 +1,158 @@
+{
+  "id": "zimdancehall",
+  "name": "Zimdancehall",
+  "family": "global",
+  "lineage": "Zimbabwean adaptation of Jamaican dancehall that formed in Harare's Mbare ghetto studios around 2010-2012 through producers Levels, Oskid and the Chillspot Records crew, running riddim-based digital productions at 95-110 BPM with programmed kick-snare grids, deep synth bass, and rapid Shona-and-English chatting delivered in a patois-inflected accent over communal 'riddim albums' released for free download.",
+  "recipe": "classic Southern African 2010-2012 zimdancehall, bass System, reggae diaspora branch, Afro-diasporic MC rhythm, African dance electronic dance azonto bolobedu house. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampler drum machine, organ preset yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios sub bass rompler workstation, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon thumb muted electric bass, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 731,
+  "score": 168.667,
+  "config": {
+    "traditions": [
+      "zimdancehall",
+      "azonto",
+      "bolobedu_house"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.6950000000000003,
+          "voice_quality": 7.605000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 14.039999999999994,
+          "voice_microtone": 14.234999999999992,
+          "voice_tradition": 14.365,
+          "voice_mechanism_compound": 2.0799999999999996,
+          "voice_estill_quality": 1.69,
+          "voice_speech_song": 15.144999999999992,
+          "voice_ensemble_config": 15.209999999999994,
+          "voice_ornament_system": 2.2749999999999995,
+          "voice_pitch_organization": 1.0949999999999998,
+          "voice_processing_chain": 9.861249999999998,
+          "voice_multitrack_stack": 2.6975000000000007
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 4.16,
+          "drum_machine_808_context": 4.225,
+          "tr808_production_origin": 1.24
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 0.06499999999999999,
+          "sample_bitdepth": 0.24,
+          "sample_swing": 8.875,
+          "sample_processing": 0.32625
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "rompler_preset_bank": "rompler_preset_dance_stabs",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_yamaha_psr_casio"
+        },
+        "scores": {
+          "electronic_technique": 4.030000000000001,
+          "rompler_preset_bank": 2.825,
+          "rompler_context": 1.7499999999999998,
+          "rompler_lineage": 2.08
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 3.575,
+          "body_wood": 0.8474999999999999,
+          "pickup_config": 0.195,
+          "string_type": 3.9,
+          "scale_length_b": 0.46125,
+          "fretted_or_not": 0.15,
+          "bass_technique": 3.7
+        }
+      },
+      {
+        "id": "hosho",
+        "slots": {
+          "hosho_form": "hosho_matched_pair",
+          "hosho_groove": "hosho_mbira_lock",
+          "hosho_filler": "hosho_hota_seeds"
+        },
+        "scores": {
+          "hosho_form": 4.75,
+          "hosho_groove": 5.595000000000001,
+          "hosho_filler": 4.60125
+        }
+      }
+    ],
+    "room": "harare_zimbabwean_chimurenga_studio",
+    "archetype": "arch_sa_township_digital",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "harare_zimbabwean_chimurenga_studio",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

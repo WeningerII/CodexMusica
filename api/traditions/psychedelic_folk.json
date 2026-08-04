@@ -1,0 +1,210 @@
+{
+  "id": "psychedelic_folk",
+  "name": "Psychedelic Folk",
+  "family": "pop_rock",
+  "lineage": "Late-1960s British and American acid-folk, codified 1967-1971 by the Incredible String Band, Vashti Bunyan, Comus and Pearls Before Swine, applying modal fingerstyle guitar in altered tunings to raga-derived drone (sitar, tanpura, hand percussion), free-floating tempo, chamber-string and recorder overdubs, and high, unforced close-miked vocals treated with tape flange and reverse tape.",
+  "recipe": "classic British 1967-1971 psychedelic folk, ballad Poetry, britfolk branch, anglo singer song freak folk, pop rock folk rock, modal electric drone modal new weird america. thick, incomplete closure resting, straight note core, interlocked note trading. dadgad tuning cedar walnut phosphor bronze bronze acoustic marshall plexi amp British rock amp mahogany clean strummed single coil electric guitar, teak drone like modal sitar, dark folk clay tabla, gut gut string strummed open chord ringing overtones celtic harp, maple mid tier Baroque alternative melodic recorder, string quartet inst. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 783,
+  "score": 354.89,
+  "config": {
+    "traditions": [
+      "psychedelic_folk",
+      "folk_rock",
+      "new_weird_america"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 44.8,
+          "voice_quality": 8.043,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.773,
+          "voice_articulation": 17.419999999999995,
+          "voice_microtone": 22.09999999999999,
+          "voice_tradition": 38.446,
+          "voice_mechanism_compound": 7.54,
+          "voice_estill_quality": 7.1175,
+          "voice_speech_song": 24.04999999999999,
+          "voice_ensemble_config": 17.159999999999993,
+          "voice_ornament_system": 4.485000000000001,
+          "voice_pitch_organization": 3.7050000000000005,
+          "voice_processing_chain": 4.94,
+          "voice_multitrack_stack": 9.752999999999998
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "dadgad",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 3.8730000000000007,
+          "top_wood": 1.04,
+          "back_sides": 1.04,
+          "string_acoustic": 1.04,
+          "acoustic_om_technique": 31.882999999999996
+        }
+      },
+      {
+        "id": "sitar",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "sitar_neck": "teak",
+          "sitar_resonator": "single_kaddu",
+          "sitar_jawari": "camel_bone",
+          "sitar_taraf": "taraf_11",
+          "sitar_frets": "tied_gut_parda",
+          "sitar_pluck": "fingers_sitar",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_jawari_style": "sitar_jawari_open",
+          "sitar_gharana": "sitar_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 11.309999999999999,
+          "sitar_neck": 1.04,
+          "sitar_resonator": 0.45599999999999996,
+          "sitar_jawari": 0.4125,
+          "sitar_taraf": 0.171,
+          "sitar_frets": 0.171,
+          "sitar_pluck": 0.045,
+          "sitar_main_strings": -0.14000000000000012,
+          "sitar_jawari_style": 0.65,
+          "sitar_gharana": 0.78
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "clay_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 0.25,
+          "tabla_bayan": 12.61,
+          "tabla_syahi": 3.5100000000000002
+        }
+      },
+      {
+        "id": "celtic_harp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "celtic_harp_levers": "lever_camac",
+          "celtic_harp_strings": "celtic_gut"
+        },
+        "scores": {
+          "acoustic_technique": 6.976500000000001,
+          "celtic_harp_levers": 10.659999999999998,
+          "celtic_harp_strings": 4.485
+        }
+      },
+      {
+        "id": "recorder",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "recorder_size": "alto_recorder",
+          "recorder_context": "recorder_baroque_solo",
+          "recorder_body_wood": "recorder_maple"
+        },
+        "scores": {
+          "wind_articulation": 24.262999999999998,
+          "recorder_size": 0.09,
+          "recorder_context": 1.17,
+          "recorder_body_wood": 1.04
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_modern",
+          "string_quartet_inst_era": "string_quartet_inst_contemporary"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "quartet_school": 0.45499999999999996,
+          "string_quartet_inst_era": 0.45499999999999996
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 4.525,
+          "amp_make": 8.319999999999999,
+          "body_wood": 1.04,
+          "neck_wood": 1.04,
+          "fretboard": 0.975,
+          "pickup_magnet": 0.24149999999999996,
+          "string_material": 0.195,
+          "string_gauge": 1.04,
+          "bridge": 0.045,
+          "scale_length": 1.04,
+          "finish": 0.105,
+          "string_tuning": 6.954999999999998
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_uk_small_commercial",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "open_tuning_singer_songwriter",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "open_tuning_singer_songwriter",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

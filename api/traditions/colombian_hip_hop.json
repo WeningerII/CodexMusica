@@ -3,14 +3,14 @@
   "name": "Colombian Hip Hop",
   "family": "hip_hop",
   "lineage": "Rap in Spanish rooted in Bogota's Ciudad Bolivar and Medellin's Comuna 13 from the early 1990s, codified by La Etnnia's El Ataque (1995), then extended by Alcolirykoz, Crack Family and the Pacific-coast fusion of ChocQuibTown: 85-95 BPM boom-bap breaks and later trap grids, samples drawn from salsa, currulao marimba and vallenato records, and dense, socially documentary Spanish verse in Bogota and paisa accents.",
-  "recipe": "classic 1990-1993 colombian hip hop, mc Rhythm, intl hip hop branch, us hip hop east coast boom bap new jersey rap. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, chopped sampler, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, congas, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, octuple plus dense stack multi track instrument hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. concrete basement. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 663,
-  "score": 327.68,
+  "recipe": "classic 1990-1993 colombian hip hop, mc Rhythm, intl hip hop branch, us hip hop east coast golden age hip hop boom bap. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, chopped sampler, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, congas, pocket ostinato rhodes electric, octuple plus dense stack multi track instrument hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. concrete basement. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 612,
+  "score": 339.805,
   "config": {
     "traditions": [
       "colombian_hip_hop",
-      "boom_bap",
-      "new_jersey_rap"
+      "golden_age_hip_hop",
+      "boom_bap"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.915000000000001,
-          "voice_quality": 24.02175,
+          "voice_register": 9.665,
+          "voice_quality": 25.718,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.994999999999999,
-          "voice_articulation": 17.289999999999996,
-          "voice_microtone": 17.09499999999999,
-          "voice_tradition": 11.389874999999998,
-          "voice_mechanism_compound": 3.0549999999999997,
-          "voice_estill_quality": 4.56625,
-          "voice_speech_song": 22.493125,
-          "voice_ensemble_config": 17.419999999999995,
-          "voice_ornament_system": 5.525000000000002,
-          "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 15.82275,
-          "voice_multitrack_stack": 5.395000000000001
+          "voice_vibrato": 6.3975,
+          "voice_articulation": 17.744999999999994,
+          "voice_microtone": 17.54999999999999,
+          "voice_tradition": 12.333,
+          "voice_mechanism_compound": 2.8599999999999994,
+          "voice_estill_quality": 4.18,
+          "voice_speech_song": 24.5375,
+          "voice_ensemble_config": 17.874999999999993,
+          "voice_ornament_system": 5.330000000000002,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 17.453999999999997,
+          "voice_multitrack_stack": 5.590000000000002
         }
       },
       {
@@ -59,8 +59,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 11.301249999999998,
-          "turntable_technique": 17.145
+          "electronic_technique": 12.294999999999998,
+          "turntable_technique": 16.3725
         }
       },
       {
@@ -73,31 +73,31 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 11.301249999999998,
-          "sampler_archetypes": 17.029999999999998,
-          "sampler_bit_depth": 3.2249999999999996,
-          "sampler_workflow": 13.725624999999999,
-          "sampler_classic_context": 34.32
+          "electronic_technique": 12.294999999999998,
+          "sampler_archetypes": 18.33,
+          "sampler_bit_depth": 3.4499999999999997,
+          "sampler_workflow": 14.897499999999999,
+          "sampler_classic_context": 35.74999999999999
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_miami",
+          "drum_machine_808_context": "drum_machine_808_rb",
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 11.251874999999998,
-          "drum_machine_808_context": 3.530875,
-          "tr808_production_origin": 0.65
+          "tr808_voice": 12.187499999999998,
+          "drum_machine_808_context": 2.8599999999999994,
+          "tr808_production_origin": 0.495
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
@@ -105,13 +105,13 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 6.16275,
-          "body_wood": 0.24,
-          "pickup_config": 0.65,
-          "string_type": 7.3774999999999995,
-          "scale_length_b": 1.2349999999999999,
-          "fretted_or_not": 0.845,
-          "bass_technique": 4.914999999999999
+          "amp_make": 5.9565,
+          "body_wood": 0.39,
+          "pickup_config": 0.3,
+          "string_type": 7.735,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.65,
+          "bass_technique": 4.495
         }
       },
       {
@@ -123,7 +123,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 0.52,
+          "percussion_technique": 0.7149999999999999,
           "conga_set": 0.195,
           "conga_skin": 0.7799999999999999,
           "conga_shell_wood": 0.7799999999999999
@@ -132,7 +132,7 @@
       {
         "id": "rhodes_electric",
         "slots": {
-          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "keyboard_technique": "keyboard_ostinato_groove",
           "rhodes_model": "rhodes_mark1_stage",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
@@ -140,24 +140,24 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 5.175,
-          "rhodes_model": 3.244624999999999,
-          "rhodes_use": 0.39,
-          "rhodes_tine_material": 0.65,
-          "rhodes_hammer_tip": -0.17499999999999996,
-          "rhodes_pickup_position": 1.125
+          "keyboard_technique": 4.5,
+          "rhodes_model": 5.4415,
+          "rhodes_use": 0.78,
+          "rhodes_tine_material": 0.15,
+          "rhodes_hammer_tip": -0.42000000000000004,
+          "rhodes_pickup_position": 0.975
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
           "multitrack_stack_density": "multitrack_density_octuple_plus",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2020s_ai_harmonized",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 1.4299999999999997,
-          "multitrack_stack_era_aesthetic": 0.37,
+          "multitrack_stack_density": 2.2749999999999995,
+          "multitrack_stack_era_aesthetic": -0.07,
           "multitrack_stack_processing": 1.2349999999999999
         }
       }

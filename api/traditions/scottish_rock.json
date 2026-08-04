@@ -3,14 +3,14 @@
   "name": "Scottish rock",
   "family": "rock",
   "lineage": "Rock from Glasgow, East Kilbride and Edinburgh from the late 1970s onward — Simple Minds and Big Country building wide, reverberant anthem rock with e-bowed or MXR-processed guitars imitating pipe drones, The Jesus and Mary Chain burying doo-wop melody under feedback in 1985, and later Primal Scream, Mogwai and Franz Ferdinand working dance-rock and instrumental crescendo forms, typically 110-150 BPM 4/4 with big gated snares, chorused bass and plain-spoken Scottish vocal accent.",
-  "recipe": "classic British 1977-1979 scottish rock, distorted Rock, regional branch, alternative distorted rock, noise rock distorted rock, pop rock new wave. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, African blackwood grenadilla canonical Scottish cane double reed canonical arundo donax highland bagpipes. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 939,
-  "score": 653.811,
+  "recipe": "classic British 1977-1979 scottish rock, distorted Rock, regional branch, alternative distorted rock, noise rock distorted rock, pop rock new wave permanent wave. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, cocobolo premium alternative cane double reed canonical arundo donax synthetic bannatyne ross canonical modern highland bagpipes. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 977,
+  "score": 571.945,
   "config": {
     "traditions": [
       "scottish_rock",
-      "new_wave",
-      "noise_rock"
+      "noise_rock",
+      "permanent_wave"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,59 +34,59 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 60.715714285714306,
-          "voice_quality": 12.479999999999993,
+          "voice_register": 50.380000000000024,
+          "voice_quality": 10.204999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.755000000000001,
-          "voice_articulation": 23.985,
-          "voice_microtone": 55.925000000000004,
-          "voice_tradition": 13.453214285714283,
-          "voice_mechanism_compound": 10.107500000000002,
-          "voice_estill_quality": 8.540000000000001,
-          "voice_speech_song": 28.6,
-          "voice_ensemble_config": 22.814999999999998,
-          "voice_ornament_system": 1,
-          "voice_pitch_organization": 2.1799999999999997,
-          "voice_processing_chain": 9.32,
-          "voice_multitrack_stack": 9.945
+          "voice_vibrato": 4.65,
+          "voice_articulation": 22.36,
+          "voice_microtone": 46.05000000000001,
+          "voice_tradition": 6.630000000000001,
+          "voice_mechanism_compound": 11.927499999999998,
+          "voice_estill_quality": 8.09,
+          "voice_speech_song": 23.854999999999997,
+          "voice_ensemble_config": 21.124999999999996,
+          "voice_ornament_system": 0.49999999999999983,
+          "voice_pitch_organization": 1.6249999999999998,
+          "voice_processing_chain": 5.32,
+          "voice_multitrack_stack": 7.702500000000001
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_feedback_drone",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "stainless",
-          "string_gauge": "g_11",
-          "bridge": "locking_trem",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 13.72392857142857,
-          "amp_make": 29.964999999999996,
-          "body_wood": 1.235,
-          "neck_wood": 1.235,
-          "fretboard": 1.17,
-          "pickup_magnet": 0.585,
-          "string_material": 0.585,
-          "string_gauge": 1.8850000000000002,
-          "bridge": 0.605,
-          "scale_length": 1.235,
+          "electric_technique": 9.575,
+          "amp_make": 24.504999999999995,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4299999999999997,
+          "pickup_magnet": 0.39,
+          "string_material": 0.9500000000000001,
+          "string_gauge": 1.885,
+          "bridge": 0.195,
+          "scale_length": 1.4949999999999999,
           "finish": 0,
-          "string_tuning": 24.375
+          "string_tuning": 23.79
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_feedback_drone",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
@@ -96,24 +96,24 @@
           "string_material": "stainless_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 13.72392857142857,
-          "amp_make": 29.964999999999996,
-          "body_wood": 1.625,
-          "neck_wood": 1.235,
-          "fretboard": 1.17,
+          "electric_technique": 9.575,
+          "amp_make": 24.504999999999995,
+          "body_wood": 1.6899999999999997,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4299999999999997,
           "pickup_magnet": 0.195,
-          "pickup_winding": 1.1164285714285715,
-          "string_material": 0.585,
-          "bridge": 1.235,
-          "scale_length": 1.235,
-          "string_gauge": 1.8850000000000002,
+          "pickup_winding": 0.39,
+          "string_material": 0.9500000000000001,
+          "bridge": 1.4949999999999999,
+          "scale_length": 1.4949999999999999,
+          "string_gauge": 1.885,
           "finish": 0,
-          "string_tuning": 24.569999999999997
+          "string_tuning": 23.985
         }
       },
       {
@@ -128,13 +128,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 25.089999999999996,
-          "body_wood": 1.235,
-          "pickup_config": 0.195,
-          "string_type": 52.10785714285714,
-          "scale_length_b": 1.235,
+          "amp_make": 25.024999999999995,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0.585,
+          "string_type": 51.43,
+          "scale_length_b": 1.4949999999999999,
           "fretted_or_not": 0.105,
-          "bass_technique": 49.89999999999999
+          "bass_technique": 45.4
         }
       },
       {
@@ -145,8 +145,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 44.29821428571429,
-          "drumhead": 12.444999999999997,
+          "drum_technique": 43.9,
+          "drumhead": 2.645,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -155,33 +155,33 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 12.183928571428567,
-          "poly_archetypes": 24.31,
-          "poly_voices": 0.44999999999999996,
-          "poly_maker_lineage": 0.7149999999999999
+          "electronic_technique": 3.25,
+          "poly_archetypes": 24.05,
+          "poly_voices": 0.5,
+          "poly_maker_lineage": 0.325
         }
       },
       {
         "id": "highland_bagpipes",
         "slots": {
-          "wind_articulation": "wind_folk_melodic",
+          "wind_articulation": "wind_ornament_heavy",
           "highland_drones": "highland_3_drones",
-          "highland_chanter": "highland_blackwood",
+          "highland_chanter": "highland_cocobolo",
           "highland_drone_reeds": "highland_synthetic_drone_reeds",
           "highland_chanter_reed": "highland_cane_chanter_reed",
           "highland_bag": "highland_synthetic_bag"
         },
         "scores": {
-          "wind_articulation": 0.45499999999999996,
+          "wind_articulation": 0.35,
           "highland_drones": 0,
-          "highland_chanter": 2.925,
+          "highland_chanter": 3.12,
           "highland_drone_reeds": 0.195,
-          "highland_chanter_reed": 1.5599999999999998,
-          "highland_bag": 0.195
+          "highland_chanter_reed": 1.755,
+          "highland_bag": 1.755
         }
       }
     ],

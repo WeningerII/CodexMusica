@@ -1,0 +1,140 @@
+{
+  "id": "erhu",
+  "name": "Erhu Repertoire",
+  "family": "global",
+  "lineage": "Solo repertoire for the two-string snakeskin-membrane spike fiddle, elevated from folk and opera accompaniment to art-music status by Liu Tianhua's 1918-1932 conservatory etudes and pieces and by the recorded improvisations of the blind Wuxi street musician Abing in 1950, defined by a bow permanently threaded between the strings, fingering with no fingerboard so pitch is produced by string tension, continuous sliding portamento, wide expressive vibrato, and a nasal, vocally-inflected tone over pentatonic melodies in slow lament tempos.",
+  "recipe": "classic East Asian mid-1920s erhu repertoire, art Music, east Asian branch, string drone modal, east Asian funeral lament dombra küy hardanger fiddle. steel modern bamboo stick horsehair threaded between strings erhu, hardwood carved hardwood body python skin snake skin zhonghu, mellow virtuoso metal body copper steel modern banhu, traditional bamboo yangqin, no membrane buzz bangdi northern sharp opera percussive melodic dizi, pipa. chinese traditional teahouse. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 583,
+  "score": 51.892,
+  "config": {
+    "traditions": [
+      "erhu",
+      "dombra_kuy",
+      "hardanger_fiddle"
+    ],
+    "instruments": [
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_classical",
+          "erhu_body_wood": "erhu_mahogany_body",
+          "erhu_strings": "erhu_steel_modern",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "erhu_skin": 0.65,
+          "erhu_use": 1.45,
+          "erhu_body_wood": 0.195,
+          "erhu_strings": 1.035,
+          "erhu_bow": 6.882187499999999
+        }
+      },
+      {
+        "id": "zhonghu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "zhonghu_tuning": "zhonghu_a_e_fourth_below",
+          "zhonghu_role": "zhonghu_concerto_solo",
+          "zhonghu_box": "zhonghu_hexagonal_box",
+          "zhonghu_membrane": "zhonghu_python_skin"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "zhonghu_tuning": 1.2349999999999999,
+          "zhonghu_role": 8.275,
+          "zhonghu_box": 2.45,
+          "zhonghu_membrane": 2.54
+        }
+      },
+      {
+        "id": "banhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "banhu_form": "banhu_henan",
+          "banhu_role": "banhu_solo_virtuoso",
+          "banhu_bowl": "banhu_metal_bowl",
+          "banhu_strings": "banhu_steel_modern"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "banhu_form": 3.2,
+          "banhu_role": 7.825000000000001,
+          "banhu_bowl": 2.54,
+          "banhu_strings": 1.3
+        }
+      },
+      {
+        "id": "yangqin",
+        "slots": {
+          "yangqin_courses": "yangqin_traditional_smaller",
+          "yangqin_technique": "yangqin_bamboo_mallets"
+        },
+        "scores": {
+          "yangqin_courses": 1.3,
+          "yangqin_technique": 1.4949999999999999
+        }
+      },
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "dizi_membrane": "dizi_without",
+          "dizi_pitch": "dizi_cd",
+          "dizi_body_material": "dizi_bitter_bamboo",
+          "dizi_regional_style": "dizi_bangdi_northern"
+        },
+        "scores": {
+          "wind_articulation": 4.245,
+          "dizi_membrane": 2.6449999999999996,
+          "dizi_pitch": 2.275,
+          "dizi_body_material": 0.6,
+          "dizi_regional_style": 1.3900000000000001
+        }
+      },
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_modern_frets",
+          "pipa_strings": "pipa_silk",
+          "pipa_pick": "pipa_fingernail",
+          "pipa_body_wood": "pipa_padauk"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.12999999999999998,
+          "pipa_frets": 0.3,
+          "pipa_strings": 0.65,
+          "pipa_pick": 0.195,
+          "pipa_body_wood": 0.315
+        }
+      }
+    ],
+    "room": "chinese_traditional_teahouse",
+    "archetype": "arch_china_record_state_broadcast",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "chinese_traditional_teahouse",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

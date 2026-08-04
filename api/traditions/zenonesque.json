@@ -1,0 +1,116 @@
+{
+  "id": "zenonesque",
+  "name": "Zenonesque",
+  "family": "electronic",
+  "lineage": "Mid-tempo psychedelic style named for Melbourne's Zenon Records (founded 2007 by Sensient), codified through the 2010s by Grouch, Kliment, Zen Mechanics and Way Out West festival culture — 125-140 BPM with a rolling but non-relentless kick-bass relationship, offbeat and swung hi-hat and shaker layers borrowed from techno and tribal house, granular and field-recording textures placed as percussion, dark modal or near-atonal micro-motifs instead of trance melody, and long eight-to-sixteen-bar morphs as the main structural device.",
+  "recipe": "classic mid-2010s zenonesque, electronic Dance, trance branch, techno electronic dance, tech house house, idm glitch experimental electric tech-house. analog mono modular granular synth, sub bass digital subtractive, glitched textural sampler, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 455,
+  "score": 148.552,
+  "config": {
+    "traditions": [
+      "zenonesque",
+      "tech_house_classic",
+      "glitch_hop"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 11.999999999999998,
+          "mono_oscillator": 0,
+          "mono_filter": 1.8849999999999998,
+          "mono_archetypes": 1.885,
+          "mono_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_synthesized"
+        },
+        "scores": {
+          "electronic_technique": 10.625,
+          "granular_use": 0.045,
+          "granular_synth_source": 7.345000000000001
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 5.1675,
+          "va_archetypes": 3.0999999999999996,
+          "digital_subtractive_context": 19.694999999999997
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 10.625,
+          "sampler_archetypes": 3.07,
+          "sampler_bit_depth": 1.7399999999999998,
+          "sampler_workflow": 11.625,
+          "sampler_classic_context": 41.004999999999995
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 16.615,
+          "drum_machine_909_context": 3.575,
+          "tr909_production_origin": 0.785
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "id": "filk_music",
+  "name": "Filk Music",
+  "family": "vernacular",
+  "lineage": "Science-fiction and fantasy fandom's own song tradition, established at American conventions from the 1950s (the name a typo for 'folk' in a 1953 fanzine) and codified through late-night convention filksings and the Off Centaur and Firebird cassette labels — guitar-accompanied or unaccompanied strophic singing at moderate tempo, contrafacta set to existing folk and pop tunes alongside original songs, prizing lyric wit and narrative clarity over vocal polish.",
+  "recipe": "classic European mid-1950s filk music, ballad Poetry, anglo singer song branch, Celtic balladic English broadside, anglo American protest song american folk-revival protest song industrial folk. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning martin lifespan sealed fingerpicked dreadnought acoustic guitar, folk steel modern canonical 36 37 string set strummed open chord ringing overtones autoharp, bowl back Italian big leaf maple modern American k and k twin internal mounted mandolin, modern Irish carroll suttner premium revival steel reeds canonical anglo straight concertina anglo, melodic recorder. hardwood living. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 751,
+  "score": 284.708,
+  "config": {
+    "traditions": [
+      "filk_music",
+      "american_folk_revival_protest",
+      "industrial_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 14.000499999999999,
+          "voice_quality": 11.504999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.1365000000000003,
+          "voice_articulation": 18.525,
+          "voice_microtone": 18.784999999999993,
+          "voice_tradition": 22.77,
+          "voice_mechanism_compound": 2.5349999999999997,
+          "voice_estill_quality": 4.940000000000001,
+          "voice_speech_song": 28.21,
+          "voice_ensemble_config": 18.459999999999997,
+          "voice_ornament_system": 5.886,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 2.0799999999999996,
+          "voice_multitrack_stack": 2.9575000000000005
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "dadgad",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "martin_lifespan"
+        },
+        "scores": {
+          "acoustic_technique": 19.5095,
+          "string_tuning": 4.806500000000001,
+          "top_wood": 0.895,
+          "back_sides": 0.9265,
+          "string_acoustic": 1.04
+        }
+      },
+      {
+        "id": "autoharp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "autoharp_chord_bars": "autoharp_15_chord",
+          "autoharp_context": "autoharp_folk_revival",
+          "autoharp_strings": "autoharp_steel_modern",
+          "autoharp_body_wood": "autoharp_spruce_maple"
+        },
+        "scores": {
+          "acoustic_technique": 4.9525,
+          "autoharp_chord_bars": 5.004999999999999,
+          "autoharp_context": 9.879999999999999,
+          "autoharp_strings": 2.145,
+          "autoharp_body_wood": 0.845
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "sitka_m",
+          "mandolin_back": "big_leaf_maple",
+          "mandolin_bracing": "mandolin_gilchrist_graduation",
+          "mandolin_strings": "ghs_mandolin_silk_steel",
+          "mandolin_fingerboard": "mandolin_brazilian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 4.9525,
+          "mandolin_shape": 5.459999999999999,
+          "mandolin_top": 0.845,
+          "mandolin_back": 5.8375,
+          "mandolin_bracing": 0.845,
+          "mandolin_strings": 0.231,
+          "mandolin_fingerboard": 0.12999999999999998,
+          "mandolin_pickup": 18.525
+        }
+      },
+      {
+        "id": "concertina_anglo",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "concertina_anglo_config": "concertina_anglo_20",
+          "concertina_anglo_context": "concertina_anglo_morris",
+          "concertina_anglo_maker_school": "concertina_irish_made_modern",
+          "concertina_anglo_reed": "concertina_anglo_steel_reeds"
+        },
+        "scores": {
+          "free_reed_technique": 11.444999999999999,
+          "concertina_anglo_config": 0.195,
+          "concertina_anglo_context": 0.845,
+          "concertina_anglo_maker_school": 2.6649999999999996,
+          "concertina_anglo_reed": 5.135
+        }
+      },
+      {
+        "id": "recorder",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "recorder_size": "alto_recorder",
+          "recorder_context": "recorder_baroque_solo",
+          "recorder_body_wood": "recorder_grenadilla"
+        },
+        "scores": {
+          "wind_articulation": 13.069999999999999,
+          "recorder_size": 0.2415,
+          "recorder_context": 3.445,
+          "recorder_body_wood": 0.78
+        }
+      }
+    ],
+    "room": "hardwood_living",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_home_portastudio",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "folk_fingerstyle_alternating_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "folk_fingerstyle_alternating_bass",
+    "room": "hardwood_living",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_home_portastudio"
+  }
+}

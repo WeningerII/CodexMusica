@@ -3,14 +3,14 @@
   "name": "Orchestral Soundtrack (symphonic film score)",
   "family": "classical",
   "lineage": "Symphonic screen music codified at the Hollywood studio orchestras between 1933 and 1960 by Max Steiner, Erich Korngold and Alfred Newman out of late-Romantic Viennese practice, revived in 1977 by John Williams — full 70-100 piece orchestra recorded live to picture on a scoring stage, leitmotivic theme-and-transformation writing, rubato cues conducted to streamers and punches, and brass-and-string tutti climaxes with harp and celesta coloration",
-  "recipe": "classic British early-1930s orchestral soundtrack, art Music, western modern branch, western common practice art music german romanticism british brass band. synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, synthetic core norway spruce European alpine European maple general oil varnish viola classical, synthetic norway spruce European alpine European maple sycamore maple cello, steel norway spruce European alpine European maple sycamore maple double bass, brass continuous-airflow legato french horn, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato standard rim trumpet, yellow brass canonical 70 30 bach 42 standard conn 88h American symphonic continuous-airflow legato tenor standard trombone, mallets timpani, concert harp, legato celesta. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 936,
-  "score": 364.077,
+  "recipe": "classic British early-1930s orchestral soundtrack, art Music, western modern branch, western common practice art music late romantic era concert band. synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, tungsten wound larsen spirocore viola c canon carpathian spruce eastern European source viola classical, synthetic norway spruce European alpine European maple sycamore maple cello, steel norway spruce European alpine European maple sycamore maple double bass, brass continuous-airflow legato french horn, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato standard rim trumpet, red brass 90 10 darker orchestral conn 88h American symphonic continuous-airflow legato tenor standard trombone, mallets timpani, concert harp, legato celesta. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 925,
+  "score": 399.211,
   "config": {
     "traditions": [
       "orchestral_soundtrack",
-      "german_romanticism",
-      "british_brass_band"
+      "late_romantic_era",
+      "concert_band"
     ],
     "instruments": [
       {
@@ -25,19 +25,19 @@
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "magic_rosin_orch"
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 7.375,
-          "orch_strings": 2.5999999999999996,
-          "orch_top_wood": 8.50625,
-          "orch_back_wood": 12.1875,
-          "orch_varnish": 8.375,
-          "orch_setup_period": 7.756,
+          "bowed_technique": 8.25,
+          "orch_strings": 1.755,
+          "orch_top_wood": 7.8618749999999995,
+          "orch_back_wood": 11.2775,
+          "orch_varnish": 9.625,
+          "orch_setup_period": 8.866875,
           "orch_bow": 1.885,
-          "orch_bow_stick": 10.822499999999998,
-          "orch_articulation": 3.0549999999999997,
-          "orch_rosin": 10.8875
+          "orch_bow_stick": 12.447499999999998,
+          "orch_articulation": 3.6968749999999995,
+          "orch_rosin": 9.625
         }
       },
       {
@@ -45,8 +45,8 @@
         "slots": {
           "bowed_technique": "bowed_pizzicato",
           "viola_size": "viola_16_inch",
-          "viola_strings": "viola_synthetic",
-          "viola_top_wood": "viola_norway_spruce",
+          "viola_strings": "viola_tungsten_wound_c",
+          "viola_top_wood": "viola_carpathian_spruce",
           "viola_back_wood": "viola_european_maple_general",
           "viola_varnish": "viola_oil_amber",
           "viola_setup_period": "viola_modern_setup",
@@ -54,15 +54,15 @@
           "viola_rosin": "viola_pirastro_obligato_rosin"
         },
         "scores": {
-          "bowed_technique": 7.375,
-          "viola_size": 1.885,
-          "viola_strings": 1.495,
-          "viola_top_wood": 4.71,
-          "viola_back_wood": 9.96475,
-          "viola_varnish": 8.375,
-          "viola_setup_period": 7.756,
-          "viola_bow_stick": 10.822499999999998,
-          "viola_rosin": 8.57
+          "bowed_technique": 8.25,
+          "viola_size": 1.58875,
+          "viola_strings": 1.0650000000000002,
+          "viola_top_wood": 5.739999999999999,
+          "viola_back_wood": 10.709999999999999,
+          "viola_varnish": 9.625,
+          "viola_setup_period": 8.866875,
+          "viola_bow_stick": 12.447499999999998,
+          "viola_rosin": 9.82
         }
       },
       {
@@ -79,15 +79,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 7.375,
-          "cello_strings": 3.8999999999999986,
-          "cello_top_wood": 4.9087499999999995,
-          "cello_back_wood": 9.96475,
-          "cello_varnish": 8.375,
-          "cello_setup_period": 7.756,
-          "cello_bow_grip": 2.795,
-          "cello_rosin": 8.81,
-          "cello_bow_stick": 10.822499999999998
+          "bowed_technique": 8.25,
+          "cello_strings": 4.549999999999999,
+          "cello_top_wood": 5.939375,
+          "cello_back_wood": 10.709999999999999,
+          "cello_varnish": 9.625,
+          "cello_setup_period": 8.866875,
+          "cello_bow_grip": 2.6,
+          "cello_rosin": 10.06,
+          "cello_bow_stick": 12.447499999999998
         }
       },
       {
@@ -105,16 +105,16 @@
           "bass_bow_stick": "pernambuco_stick_bass"
         },
         "scores": {
-          "bowed_technique": 7.375,
-          "bass_size": 1.525,
+          "bowed_technique": 8.25,
+          "bass_size": 2.6937499999999996,
           "bass_strings": 1.105,
-          "bass_top_wood": 4.9087499999999995,
-          "bass_back_wood": 9.96475,
-          "bass_varnish": 8.375,
-          "bass_setup_period": 7.756,
-          "bass_play": 3.835,
-          "bass_rosin": 8.57225,
-          "bass_bow_stick": 10.822499999999998
+          "bass_top_wood": 5.939375,
+          "bass_back_wood": 10.709999999999999,
+          "bass_varnish": 9.625,
+          "bass_setup_period": 8.866875,
+          "bass_play": 4.29,
+          "bass_rosin": 9.67,
+          "bass_bow_stick": 12.447499999999998
         }
       },
       {
@@ -125,9 +125,9 @@
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 3.9400000000000004,
-          "french_horn_bore": 2.73,
-          "french_horn_metal": 4.68
+          "wind_articulation": 5.858750000000001,
+          "french_horn_bore": 1.69,
+          "french_horn_metal": 2.795
         }
       },
       {
@@ -142,13 +142,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 3.9400000000000004,
+          "wind_articulation": 5.858750000000001,
           "brass_size": 0.65,
-          "trumpet_mouthpiece": 11.3135,
-          "brass_mute": 3.75,
-          "trumpet_technique": 3.75,
-          "trumpet_bell_metal": 5.135,
-          "trumpet_maker_school": 2.275
+          "trumpet_mouthpiece": 11.55875,
+          "brass_mute": 5,
+          "trumpet_technique": 5,
+          "trumpet_bell_metal": 3.445,
+          "trumpet_maker_school": 2.795
         }
       },
       {
@@ -159,17 +159,17 @@
           "trombone_mouthpiece": "bach_trombone_mp_6half_al",
           "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
-          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_bell_metal": "trombone_red_brass",
           "trombone_maker_school": "trombone_conn_88h"
         },
         "scores": {
-          "wind_articulation": 3.9400000000000004,
+          "wind_articulation": 5.858750000000001,
           "trombone_type": 0.15,
-          "trombone_mouthpiece": 10.589250000000002,
-          "trombone_mute": 3.0549999999999997,
-          "trombone_technique": 0.65,
-          "trombone_bell_metal": 5.9799999999999995,
-          "trombone_maker_school": 3.5794999999999995
+          "trombone_mouthpiece": 10.66,
+          "trombone_mute": 3.6968749999999995,
+          "trombone_technique": 0.195,
+          "trombone_bell_metal": 3.835,
+          "trombone_maker_school": 4.748749999999999
         }
       },
       {
@@ -180,8 +180,8 @@
           "timpani_head": "timpani_synthetic"
         },
         "scores": {
-          "percussion_technique": 3.625,
-          "timpani_size": 3.835,
+          "percussion_technique": 3.25,
+          "timpani_size": 4.29,
           "timpani_head": 0.8450000000000002
         }
       },
@@ -192,21 +192,21 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 5.525,
-          "harp_pedals": 2.535
+          "harp_strings": 7.279999999999999,
+          "harp_pedals": 3.835
         }
       },
       {
         "id": "celesta",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "celesta_model": "celesta_schiedmayer",
+          "celesta_model": "celesta_yamaha",
           "celesta_context": "celesta_orch"
         },
         "scores": {
-          "keyboard_technique": 3.75,
-          "celesta_model": 3.12,
-          "celesta_context": 4.16
+          "keyboard_technique": 5,
+          "celesta_model": 1.885,
+          "celesta_context": 4.3549999999999995
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "American mid-century popular-song repertoire — the Tin Pan Alley and Broadway catalogue as sung by post-swing crooners in New York and Hollywood between roughly 1946 and 1965, codified by Sinatra's Capitol concept albums with Nelson Riddle and Gordon Jenkins: 32-bar AABA and ABAC forms at ballad-to-medium-swing tempos, lush string-and-reed orchestration with muted brass punctuation, brushed kit and walking bass, and a conversational baritone delivery that treats lyric diction and rubato phrasing as the primary expressive instrument.",
   "recipe": "classic North American mid-1940s adult standards, functional Song, crooners branch, American jazz smooth vocal, pop rock functional song, chanson fado classic chanson new wave skiffle. thick, breath veiled tone, straight onset, interlocked note trading. extended harmony through composed jazz big band, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, pre muffled edge muffled brushes-and-sticks drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance ensemble trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, concert harp, block chord celesta. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc.",
   "recipe_chars": 985,
-  "score": 490.127,
+  "score": 489.788,
   "config": {
     "traditions": [
       "adult_standards",
@@ -41,14 +41,14 @@
           "voice_vibrato": 7.669999999999998,
           "voice_articulation": 25.414999999999996,
           "voice_microtone": 40.22500000000001,
-          "voice_tradition": 19.79875,
+          "voice_tradition": 19.573749999999997,
           "voice_mechanism_compound": 5.004999999999999,
           "voice_estill_quality": 4.8100000000000005,
           "voice_speech_song": 34.515,
           "voice_ensemble_config": 24.634999999999998,
           "voice_ornament_system": 0.45499999999999996,
           "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 7.189375,
+          "voice_processing_chain": 7.339375,
           "voice_multitrack_stack": 4.452500000000001
         }
       },
@@ -84,10 +84,10 @@
           "orch_back_wood": 10.562499999999998,
           "orch_varnish": 0.6824999999999999,
           "orch_setup_period": 4.095000000000001,
-          "orch_bow": 1.195,
+          "orch_bow": 1.15,
           "orch_bow_stick": 0.4875,
           "orch_articulation": 0.585,
-          "orch_rosin": 1.145
+          "orch_rosin": 1.2349999999999999
         }
       },
       {
@@ -108,7 +108,7 @@
           "grand_piano_size": 2.73,
           "grand_piano_brand": 2.73,
           "piano_hammer": 15.489999999999998,
-          "piano_rim": 17.544999999999998,
+          "piano_rim": 17.275,
           "piano_soundboard": 16.9,
           "piano_pinblock": 0.42249999999999993,
           "piano_plate": 0.675625,
@@ -131,7 +131,7 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "bass_size": 0.39,
+          "bass_size": 0.35062499999999996,
           "bass_strings": 2.6650000000000005,
           "bass_top_wood": 0.4875,
           "bass_back_wood": 0.42249999999999993,

@@ -1,0 +1,172 @@
+{
+  "id": "south_african_house",
+  "name": "South African house (SA house)",
+  "family": "electronic",
+  "lineage": "Johannesburg and Durban house variant that emerged in the mid-1990s as kwaito's faster sibling and was codified through Oskido, DJ Christos, Black Coffee and the Soulistic/Soul Candi label network — four-on-the-floor at 118-125 BPM, deep Rhodes-and-pad chords over rolling shaker and conga layers, gospel-inflected lead vocals in isiZulu, Sesotho and English, and extended 7-9 minute arrangements built for taxi-rank and club sound systems.",
+  "recipe": "classic Southern African 1994-1996 south african house, electronic Dance, house branch, African dance electronic dance, deep house house, African pop functional song isicathamiya. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 9 modern clone TR-909, singing lead analog poly synth, sound design field sampler, cowhide mid tier siam oak mid tier modern congas, deep foundational bass rhythm calabash shekere, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 736,
+  "score": 346.595,
+  "config": {
+    "traditions": [
+      "south_african_house",
+      "deep_house_soulful",
+      "isicathamiya"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 20.435,
+          "voice_quality": 14.364999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.48375,
+          "voice_articulation": 20.605,
+          "voice_microtone": 20.604999999999997,
+          "voice_tradition": 23.82125,
+          "voice_mechanism_compound": 1.95,
+          "voice_estill_quality": 12.639999999999997,
+          "voice_speech_song": 23.335,
+          "voice_ensemble_config": 24.3425,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 1.6906249999999998,
+          "voice_processing_chain": 13.515625,
+          "voice_multitrack_stack": 5.3625
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 26.04,
+          "drum_machine_909_context": 2.145,
+          "tr909_production_origin": 1.15
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 5.340000000000001,
+          "poly_archetypes": 2.275,
+          "poly_voices": 2.275,
+          "poly_maker_lineage": -1.555
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_emax",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 0.5,
+          "sampler_bit_depth": 2.04125,
+          "sampler_workflow": 1.17,
+          "sampler_classic_context": 55.821875
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "tumba",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 1.1249999999999998,
+          "conga_set": 4.738749999999999,
+          "conga_skin": 1.59625,
+          "conga_shell_wood": 1.7462499999999999
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_large",
+          "shekere_beads": "shekere_seed"
+        },
+        "scores": {
+          "shekere_size": 5.979999999999999,
+          "shekere_beads": 5.915
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 12.115,
+          "rhodes_model": 4.99625,
+          "rhodes_use": 5.061875,
+          "rhodes_tine_material": 1.6356249999999999,
+          "rhodes_hammer_tip": 0.975,
+          "rhodes_pickup_position": 1.350625
+        }
+      }
+    ],
+    "room": "johannesburg_gallo_african_studios",
+    "archetype": "arch_sa_township_digital",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "johannesburg_gallo_african_studios",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Persian rowzeh-khwāni (روضه‌خوانی, Shi'a Muharram lament)",
   "family": "global",
   "lineage": "Persian Shi'a Islamic mourning-recitation tradition codified from the 16th-century Safavid period forward; centered on the recitation-and-lamentation of the martyrdom of Imam Husayn at Karbala (680 CE); the rowzeh-khwāni (rowzeh-reciter) is a professional religious-vocalist role with continuous practice across Iran, Iraqi-Shi'a, and broader Shi'a-diaspora communities",
-  "recipe": "classic Middle Eastern modern persian rowzeh-khwāni, funeral Lament, middle eastern branch, islamic ritual devotional, vocal drone modal, middle eastern classical art music persian dastgāh andalusī nūba. vocal fry, breath veiled tone, slow rate, interlocked note trading. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 368,
-  "score": 237.88,
+  "recipe": "classic Middle Eastern modern persian rowzeh-khwāni, funeral Lament, middle eastern branch, islamic ritual devotional, vocal drone modal, middle eastern classical art music persian dastgāh persian traditional music. vocal fry, breath veiled tone, slow rate, interlocked note trading. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 380,
+  "score": 234.197,
   "config": {
     "traditions": [
       "persian_rowzehkhwani",
       "persian_dastgah",
-      "andalusi_nuba"
+      "persian_traditional"
     ],
     "instruments": [
       {
@@ -26,7 +26,7 @@
           "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.38,
-          "voice_quality": 14.55999999999999,
+          "voice_register": 2.715,
+          "voice_quality": 14.68999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 14.16,
-          "voice_articulation": 10.074999999999998,
-          "voice_microtone": 24.1475,
-          "voice_tradition": 33.115,
-          "voice_mechanism_compound": 28.9,
-          "voice_estill_quality": 15.294999999999998,
-          "voice_speech_song": 14.165,
-          "voice_ensemble_config": 10.399999999999995,
-          "voice_ornament_system": 29.244999999999997,
-          "voice_pitch_organization": 30.43,
+          "voice_vibrato": 12.1,
+          "voice_articulation": 11.634999999999994,
+          "voice_microtone": 24.797499999999992,
+          "voice_tradition": 32.739999999999995,
+          "voice_mechanism_compound": 28.299999999999997,
+          "voice_estill_quality": 12.914999999999997,
+          "voice_speech_song": 12.609999999999994,
+          "voice_ensemble_config": 12.609999999999992,
+          "voice_ornament_system": 28.539999999999996,
+          "voice_pitch_organization": 30.224999999999994,
           "voice_processing_chain": 5.2,
-          "voice_multitrack_stack": 3.77
+          "voice_multitrack_stack": 3.7700000000000005
         }
       }
     ],

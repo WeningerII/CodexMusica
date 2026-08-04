@@ -5,7 +5,7 @@
   "lineage": "Early-2000s onward drum-and-bass subgenre emphasizing soulful-jazz harmonic foundation, melodic content, and accessible vocal-pop arrangement against rolling drum-and-bass percussion — codified through Calibre, High Contrast (True Colours 2002), Logistics, Netsky (Netsky 2010), London Elektricity, and the broader Hospital Records label catalog",
   "recipe": "classic 2000-2003 liquid funk, bass System, uk soundsystem branch, Afro-diasporic electric groove percussion afrofuturismo brasileiro afrobeat. thick, breath veiled tone, straight onset, interlocked note trading. melodic pitched sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 530,
-  "score": 188.779,
+  "score": 186.017,
   "config": {
     "traditions": [
       "liquid_funk",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.777499999999996,
+          "voice_register": 9.904999999999996,
           "voice_quality": 7.150000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.419999999999999,
+          "voice_vibrato": 6.135,
           "voice_articulation": 14.624999999999995,
           "voice_microtone": 14.429999999999993,
-          "voice_tradition": 11.115,
+          "voice_tradition": 11.07,
           "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.5499999999999998,
+          "voice_estill_quality": 1.5949999999999998,
           "voice_speech_song": 15.729999999999995,
           "voice_ensemble_config": 14.169999999999993,
           "voice_ornament_system": 3.5100000000000007,
-          "voice_pitch_organization": 3.9350000000000005,
+          "voice_pitch_organization": 3.980000000000001,
           "voice_processing_chain": 6.405,
           "voice_multitrack_stack": 5.2975
         }
@@ -63,8 +63,8 @@
         },
         "scores": {
           "electronic_technique": 0.9099999999999999,
-          "sampler_archetypes": 0.357,
-          "sampler_bit_depth": 0.1215,
+          "sampler_archetypes": 0.21,
+          "sampler_bit_depth": 0.09,
           "sampler_workflow": 1.625,
           "sampler_classic_context": 19.629999999999995
         }
@@ -90,7 +90,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 8.905000000000001,
+          "electronic_technique": 7.960000000000001,
           "va_archetypes": 1.045,
           "digital_subtractive_context": 14.624999999999998
         }
@@ -99,20 +99,20 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 9.013000000000002,
-          "body_wood": 0.453,
-          "pickup_config": 0.0765,
-          "string_type": 8.4,
-          "scale_length_b": 0.513,
-          "fretted_or_not": 0.045,
+          "amp_make": 7.720000000000001,
+          "body_wood": 0.8250000000000001,
+          "pickup_config": 0.54,
+          "string_type": 7.215000000000001,
+          "scale_length_b": 0.435,
+          "fretted_or_not": 0.24,
           "bass_technique": 6
         }
       }

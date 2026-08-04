@@ -5,7 +5,7 @@
   "lineage": "Spanish-language rock movement that matured across Mexico City, Buenos Aires, Santiago and Madrid in the 1980s and peaked commercially 1988-1998 through the Mexico City rock urbano scene and BMG/Sony Latin signings — post-punk and new-wave guitar textures and synth pads over 4/4 rock backbeats, frequent grafting of ska, cumbia, bolero and Andean rhythms onto rock instrumentation, and declamatory Spanish lead vocals carrying overtly political or urban-social lyrics",
   "recipe": "classic North American mid-1990s rock en español, distorted Rock, regional branch, pop rock new wave, alternative distorted rock permanent wave. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, psychedelic foregrounded organ driven rock block chord combo organ, lead water buffalo premium alternative siam oak mid tier modern open slap hand drum congas. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 976,
-  "score": 707.829,
+  "score": 706.733,
   "config": {
     "traditions": [
       "rock_en_espanol",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 55.910000000000025,
+          "voice_register": 55.895000000000024,
           "voice_quality": 12.024999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.584499999999999,
+          "voice_vibrato": 4.745,
           "voice_articulation": 20.019999999999996,
           "voice_microtone": 53.67500000000001,
-          "voice_tradition": 14.324499999999997,
+          "voice_tradition": 15.129999999999995,
           "voice_mechanism_compound": 5.395000000000001,
           "voice_estill_quality": 2.4000000000000004,
           "voice_speech_song": 24.049999999999997,
           "voice_ensemble_config": 20.279999999999998,
-          "voice_ornament_system": 2.6495,
+          "voice_ornament_system": 2.6,
           "voice_pitch_organization": 1.9499999999999997,
-          "voice_processing_chain": 8.734500000000002,
+          "voice_processing_chain": 8.685000000000002,
           "voice_multitrack_stack": 11.342499999999998
         }
       },
@@ -60,7 +60,7 @@
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "alnico_2",
+          "pickup_magnet": "ceramic",
           "string_material": "stainless",
           "string_gauge": "g_11",
           "bridge": "locking_trem",
@@ -69,7 +69,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 13.674499999999997,
+          "electric_technique": 13.459999999999997,
           "amp_make": 31.46,
           "body_wood": 2.34,
           "neck_wood": 2.34,
@@ -79,7 +79,7 @@
           "string_gauge": 2.9899999999999998,
           "bridge": 0.65,
           "scale_length": 2.34,
-          "finish": 0,
+          "finish": 0.045,
           "string_tuning": 23.855
         }
       },
@@ -101,7 +101,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 13.674499999999997,
+          "electric_technique": 13.459999999999997,
           "amp_make": 31.46,
           "body_wood": 2.535,
           "neck_wood": 2.34,
@@ -112,7 +112,7 @@
           "bridge": 2.34,
           "scale_length": 2.34,
           "string_gauge": 2.9899999999999998,
-          "finish": 0,
+          "finish": 0.045,
           "string_tuning": 23.855
         }
       },
@@ -131,7 +131,7 @@
           "amp_make": 22.75,
           "body_wood": 2.34,
           "pickup_config": 0.195,
-          "string_type": 50.907,
+          "string_type": 49.74,
           "scale_length_b": 2.34,
           "fretted_or_not": 0,
           "bass_technique": 50
@@ -145,8 +145,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 42.94950000000001,
-          "drumhead": 11.499999999999998,
+          "drum_technique": 42.900000000000006,
+          "drumhead": 11.694999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -159,9 +159,9 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 13.089499999999997,
+          "electronic_technique": 12.874999999999998,
           "poly_archetypes": 22.23,
-          "poly_voices": 0.845,
+          "poly_voices": 0.6950000000000001,
           "poly_maker_lineage": 0.7149999999999999
         }
       },
@@ -176,8 +176,8 @@
         },
         "scores": {
           "keyboard_technique": 11.269999999999998,
-          "combo_organ_model": 12.408999999999999,
-          "combo_organ_voicing": 13.734999999999998,
+          "combo_organ_model": 12.399999999999999,
+          "combo_organ_voicing": 13.404999999999998,
           "combo_organ_context": 25.025,
           "amp_make": 0.19500000000000003
         }
@@ -191,10 +191,10 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 4.61,
-          "conga_set": 2.0145,
+          "percussion_technique": 5,
+          "conga_set": 1.7999999999999998,
           "conga_skin": 4.355,
-          "conga_shell_wood": 2.535
+          "conga_shell_wood": 2.475
         }
       }
     ],

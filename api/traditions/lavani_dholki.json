@@ -1,0 +1,163 @@
+{
+  "id": "lavani_dholki",
+  "name": "Lavani (Maharashtrian dholki stage song)",
+  "family": "global",
+  "lineage": "Marathi women's dance-song of Maharashtra, developed in 18th–19th century Peshwa-era tamasha troupes and carried into 20th-century Marathi cinema by composers such as Vasant Pawar and singers Sulochana Chavan and Shanta Shelke's lyricists — fast 6- or 8-beat dholki patterns with halgi frame-drum accents at 130–160 BPM, harmonium and manjira filling the cadences, and a chest-forward, nasal, forwardly-projected female delivery declaiming double-meaning Marathi verse punctuated by shouted interjections for the ghungroo-dancer.",
+  "recipe": "classic mid-1980s lavani, ballad Poetry, indian bard branch, south Asian carnival processional, south Asian pop functional song, south Asian field work gujarati pop bhojpuri pop. extended whistle, breath veiled tone, fast rate, interlocked note trading. dholak, halgi, vocal female straight harmonium indian, small open ring manjira, indian rosewood rosewood clay tabla, synthetic ornamented tumbi. festival stage. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 553,
+  "score": 231.853,
+  "config": {
+    "traditions": [
+      "lavani_dholki",
+      "gujarati_pop",
+      "bhojpuri_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 13.519999999999998,
+          "voice_quality": 11.764999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.645,
+          "voice_articulation": 22.035,
+          "voice_microtone": 21.644999999999996,
+          "voice_tradition": 16.9,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 6.11,
+          "voice_speech_song": 30.875,
+          "voice_ensemble_config": 21.775,
+          "voice_ornament_system": 7.184374999999999,
+          "voice_pitch_organization": 6.80125,
+          "voice_processing_chain": 5.525,
+          "voice_multitrack_stack": 7.2475000000000005
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 1.11,
+          "dholak_construction": 2.440625,
+          "dholak_head": 0.78,
+          "dholak_tensioning": 0.78
+        }
+      },
+      {
+        "id": "halgi",
+        "slots": {
+          "halgi_form": "halgi_metal_hoop",
+          "halgi_technique": "halgi_fire_tuned"
+        },
+        "scores": {
+          "halgi_form": 0.800625,
+          "halgi_technique": 0.3
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_female",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 3.1200000000000006,
+          "harmonium_action": 2.08,
+          "harmonium_voicing": 4.615,
+          "harmonium_use": 2.08
+        }
+      },
+      {
+        "id": "manjira",
+        "slots": {
+          "manjira_form": "manjira_taal_small",
+          "manjira_stroke": "manjira_open_ringing",
+          "manjira_metal": "manjira_brass"
+        },
+        "scores": {
+          "manjira_form": 4.05,
+          "manjira_stroke": 3.9881249999999993,
+          "manjira_metal": 0.585
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "clay_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 2.0799999999999996,
+          "tabla_bayan": 1.04,
+          "tabla_syahi": 3.835
+        }
+      },
+      {
+        "id": "tumbi",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "tumbi_construction": "tumbi_synthetic",
+          "tumbi_context": "tumbi_film",
+          "tumbi_string": "tumbi_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.35,
+          "tumbi_construction": 1.4949999999999999,
+          "tumbi_context": 1.4299999999999997,
+          "tumbi_string": 0.65
+        }
+      }
+    ],
+    "room": "festival_stage",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "festival_stage",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

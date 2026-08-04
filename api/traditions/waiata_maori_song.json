@@ -1,0 +1,139 @@
+{
+  "id": "waiata_maori_song",
+  "name": "Waiata (Māori song tradition)",
+  "family": "global",
+  "lineage": "Aotearoa New Zealand Māori sung repertoire carried on the marae from pre-contact times and reshaped after the 19th century by mission hymnody, spanning waiata ā-ringa, waiata aroha and waiata tangi — narrow-ambitus recitational melody built on two or three pitches with a characteristic falling cadence, unmetered phrasing tied to breath groups and whakaeke entries, communal unison or drone-plus-melody texture, and post-contact strophic harmonised settings sung in te reo Māori.",
+  "recipe": "classic Oceanian modern waiata, praise Song, oceania pacific branch, oceania pacific funeral lament, med east poetic ballad poetry circassian (adyghe) folk music karadeniz türküleri. thick, breath veiled tone, fast rate, interlocked note trading. albatross wing bone three hole canonical pre contact Maori waiata accompaniment lament lullaby charm koauau, nguru, split hollowed hardwood torpedo case moth profile canonical Maori unique aotearoa putorino, snappy to palm hand clap, foot stomp. maori marae carved wharenui. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 584,
+  "score": 160.657,
+  "config": {
+    "traditions": [
+      "waiata_maori_song",
+      "circassian_folk",
+      "karadeniz_turkuleri"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.17,
+          "voice_quality": 14.819999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.73,
+          "voice_articulation": 18.719999999999995,
+          "voice_microtone": 19.304999999999993,
+          "voice_tradition": 11.0825,
+          "voice_mechanism_compound": 4.419999999999999,
+          "voice_estill_quality": 4.16,
+          "voice_speech_song": 25.609999999999992,
+          "voice_ensemble_config": 19.434999999999995,
+          "voice_ornament_system": 6.140000000000001,
+          "voice_pitch_organization": 3.72,
+          "voice_processing_chain": 5.915,
+          "voice_multitrack_stack": 6.240000000000001
+        }
+      },
+      {
+        "id": "koauau",
+        "slots": {
+          "koauau_material": "koauau_albatross_bone_canonical",
+          "koauau_tradition": "koauau_waiata_accompaniment"
+        },
+        "scores": {
+          "koauau_material": 6.8100000000000005,
+          "koauau_tradition": 7.344999999999999
+        }
+      },
+      {
+        "id": "nguru",
+        "slots": {
+          "nguru_material": "nguru_whale_tooth",
+          "nguru_technique": "nguru_nose_blown",
+          "nguru_context": "nguru_breath_speech",
+          "nguru_size": "nguru_medium"
+        },
+        "scores": {
+          "nguru_material": 0.6499999999999999,
+          "nguru_technique": 0.6499999999999999,
+          "nguru_context": 0.7149999999999999,
+          "nguru_size": -0.05
+        }
+      },
+      {
+        "id": "putorino",
+        "slots": {
+          "putorino_construction": "putorino_split_hollowed_hardwood_case_moth_canonical",
+          "putorino_voice": "putorino_dual_flute_and_bugle"
+        },
+        "scores": {
+          "putorino_construction": 2.34,
+          "putorino_voice": 0.845
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.885,
+          "clap_capture": 0.5
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_boot",
+          "stomp_surface": "stomp_wood_stage"
+        },
+        "scores": {
+          "stomp_footwear": 0.15,
+          "stomp_surface": 0
+        }
+      }
+    ],
+    "room": "maori_marae_carved_wharenui",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "maori_marae_carved_wharenui",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

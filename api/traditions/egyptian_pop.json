@@ -3,14 +3,14 @@
   "name": "Egyptian Pop",
   "family": "pop",
   "lineage": "Cairo's al-jeel ('generation') pop, formed circa 1980 around Hamid El Shaeri and Egyptian-Libyan cassette-kiosk production, layering Casio/Roland preset keyboards and drum machines over maqsum and baladi patterns at 110-125 BPM with darbuka, riq, accordion and mizmar interjections and a nasal, forward-placed street vocal in colloquial Egyptian Arabic.",
-  "recipe": "classic North African early-1980s egyptian pop, functional Song, mid east n African pop branch, middle eastern wedding, med east poetic ballad poetry lebanese-arab wedding takht pontic greek music. extended whistle, breath veiled tone, slow rate, interlocked note trading. spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, weltmeister east German mid tier vintage volk ensemble accordion, apricot canonical Egyptian mizmar, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, alder pyramid pure nickel bass British mid 60s era electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, drum machine analog. stone plaster medina room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 995,
-  "score": 300.875,
+  "recipe": "classic North African early-1980s egyptian pop, functional Song, mid east n African pop branch, middle eastern wedding, med east poetic ballad poetry dabke rumeli türküleri. extended whistle, breath veiled tone, slow rate, interlocked note trading. spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive riq, weltmeister east German mid tier vintage volk accordion, apricot canonical Egyptian mizmar, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean drone like oud, alder pyramid pure nickel bass British mid 60s era electric bass, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, drum machine analog. stone plaster medina room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 926,
+  "score": 283.98,
   "config": {
     "traditions": [
       "egyptian_pop",
-      "lebanese_arab_takht_wedding",
-      "pontic_greek"
+      "dabke",
+      "rumeli_turkuleri"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 14.454999999999998,
-          "voice_quality": 7.215000000000002,
+          "voice_register": 15.529999999999998,
+          "voice_quality": 6.76,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.405,
-          "voice_articulation": 16.834999999999994,
-          "voice_microtone": 40.5275,
-          "voice_tradition": 17.224999999999994,
-          "voice_mechanism_compound": 8.075,
-          "voice_estill_quality": 5.92,
-          "voice_speech_song": 19.174999999999997,
-          "voice_ensemble_config": 17.159999999999993,
-          "voice_ornament_system": 15.015,
-          "voice_pitch_organization": 15.209999999999999,
-          "voice_processing_chain": 2.925,
-          "voice_multitrack_stack": 2.275
+          "voice_vibrato": 2.34,
+          "voice_articulation": 20.084999999999997,
+          "voice_microtone": 42.835,
+          "voice_tradition": 15.214999999999998,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 3.2500000000000004,
+          "voice_speech_song": 24.049999999999997,
+          "voice_ensemble_config": 20.799999999999997,
+          "voice_ornament_system": 6.94,
+          "voice_pitch_organization": 7.225,
+          "voice_processing_chain": 3.7749999999999995,
+          "voice_multitrack_stack": 2.7950000000000004
         }
       },
       {
@@ -61,48 +61,48 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 2.375,
-          "darbuka_material": 4.17,
-          "darbuka_skin": 4.484999999999999,
-          "darbuka_regional_style": 10.27
+          "percussion_technique": 1.755,
+          "darbuka_material": 4.215,
+          "darbuka_skin": 4.68,
+          "darbuka_regional_style": 10.895
         }
       },
       {
         "id": "riq",
         "slots": {
           "riq_size": "riq_medium",
-          "riq_context": "riq_sufi",
+          "riq_context": "riq_wedding",
           "riq_shell_wood": "riq_rosewood_inlaid",
           "riq_head_material": "riq_fish_skin_canonical",
           "riq_jingles": "riq_brass_jingles"
         },
         "scores": {
-          "riq_size": 3.1849999999999996,
-          "riq_context": 0.21,
-          "riq_shell_wood": 4.965,
-          "riq_head_material": 4.215,
-          "riq_jingles": 1.4300000000000002
+          "riq_size": 1.5599999999999998,
+          "riq_context": 0.46499999999999997,
+          "riq_shell_wood": 4.359999999999999,
+          "riq_head_material": 4.26,
+          "riq_jingles": 0.39
         }
       },
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "tipo_a_mano",
-          "musette_offset": "scottish_musette",
+          "musette_offset": "italian_tuning",
           "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 5.584999999999999,
-          "accordion_reed_material": 1.5,
-          "musette_offset": 0.585,
-          "reed_config": 0.6,
+          "free_reed_technique": 1.69,
+          "accordion_reed_material": 2.06,
+          "musette_offset": 0.5,
+          "reed_config": 0.75,
           "bellows": 0,
-          "voicing_chamber": 0.585,
-          "accordion_maker_school": 5.785
+          "voicing_chamber": 0.3,
+          "accordion_maker_school": 6.680000000000001
         }
       },
       {
@@ -115,32 +115,32 @@
           "mizmar_reed": "mizmar_arundo_canonical"
         },
         "scores": {
-          "wind_articulation": -9.714451465470119e-18,
-          "mizmar_pitch": 0.21,
-          "mizmar_context": 8.875,
-          "mizmar_body_wood": 4.17,
-          "mizmar_reed": 0.195
+          "wind_articulation": -0.10500000000000001,
+          "mizmar_pitch": 1.105,
+          "mizmar_context": 6.875,
+          "mizmar_body_wood": 4.215,
+          "mizmar_reed": 0.72
         }
       },
       {
         "id": "oud",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
+          "plucked_traditional_technique": "plucked_drone_modal",
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
           "oud_body_wood": "oud_padauk_body",
           "oud_soundboard_wood": "oud_lebanese_cedar_face",
-          "oud_string_material": "oud_pyramid_nylon"
+          "oud_string_material": "oud_la_bella_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 4.694999999999999,
-          "oud_school": 3.835,
-          "oud_strings": 2.34,
-          "oud_pick": 1.5,
-          "oud_body_wood": 3.3,
-          "oud_soundboard_wood": 3.38,
-          "oud_string_material": 2.73
+          "plucked_traditional_technique": 3.12,
+          "oud_school": 5.3950000000000005,
+          "oud_strings": 1.365,
+          "oud_pick": 2.06,
+          "oud_body_wood": 4.145,
+          "oud_soundboard_wood": 2.34,
+          "oud_string_material": 0.845
         }
       },
       {
@@ -148,20 +148,20 @@
         "slots": {
           "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerpicked_country_b"
+          "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 1.2999999999999998,
-          "body_wood": 2.3449999999999998,
-          "pickup_config": 0.845,
-          "string_type": 2.0149999999999997,
-          "scale_length_b": 1.6949999999999998,
+          "amp_make": 1.8599999999999999,
+          "body_wood": 2.3,
+          "pickup_config": 0.195,
+          "string_type": 2.275,
+          "scale_length_b": 2.105,
           "fretted_or_not": 0.045,
-          "bass_technique": 0.78
+          "bass_technique": 0.375
         }
       },
       {
@@ -170,13 +170,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 12.7,
+          "electronic_technique": 14.449999999999998,
           "poly_archetypes": 0.435,
-          "poly_voices": 0.195,
-          "poly_maker_lineage": 1.8199999999999998
+          "poly_voices": 0.24,
+          "poly_maker_lineage": 3.575
         }
       },
       {
@@ -185,13 +185,13 @@
           "kick_voice": "fm_pair_kick",
           "snare_voice": "two_oscillator_snare",
           "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "shuffle_low"
+          "shuffle_quantize": "shuffle_high"
         },
         "scores": {
-          "kick_voice": 0.39,
-          "snare_voice": 0.39,
+          "kick_voice": 0.195,
+          "snare_voice": 0.195,
           "hat_voice": 0,
-          "shuffle_quantize": 0.39
+          "shuffle_quantize": 0.545
         }
       }
     ],

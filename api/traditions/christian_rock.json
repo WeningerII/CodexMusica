@@ -3,14 +3,14 @@
   "name": "Christian rock",
   "family": "rock",
   "lineage": "American evangelical rock idiom begun with the late-1960s Jesus Movement in Southern California through Larry Norman and Love Song, industrialized in Nashville from the 1980s by Petra, DC Talk and later Switchfoot and Skillet — conventional verse-chorus rock at 90-140 BPM with distorted power chords, layered piano and synth pads, four-on-the-floor or backbeat kit, and explicitly devotional lyrics sung in unison-friendly congregational range",
-  "recipe": "classic North American 1967-1969 christian rock, functional Song, pop rock branch, christian gospel pentecostal, alternative distorted rock permanent wave noise pop. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, singing lead analog poly synth, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 916,
-  "score": 487.93,
+  "recipe": "classic North American 1967-1969 christian rock, functional Song, pop rock branch, christian gospel pentecostal, alternative distorted rock permanent wave hamburger schule. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, singing lead analog poly synth, a cappella small 3 to 8 one per part four voice polyphonic regional aka four part motangole ngue osese diyei choir ensemble. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 933,
+  "score": 464.64,
   "config": {
     "traditions": [
       "christian_rock",
       "permanent_wave",
-      "noise_pop"
+      "hamburger_schule"
     ],
     "instruments": [
       {
@@ -29,34 +29,34 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_gated_reverb",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 44.550000000000026,
-          "voice_quality": 10.919999999999991,
+          "voice_register": 40.35000000000002,
+          "voice_quality": 10.334999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.8600000000000003,
-          "voice_articulation": 15.924999999999995,
-          "voice_microtone": 41.17500000000001,
-          "voice_tradition": 9.16,
-          "voice_mechanism_compound": 7.67,
+          "voice_articulation": 16.249999999999996,
+          "voice_microtone": 36.05000000000001,
+          "voice_tradition": 5.59,
+          "voice_mechanism_compound": 5.7200000000000015,
           "voice_estill_quality": 4.29,
-          "voice_speech_song": 19.824999999999996,
-          "voice_ensemble_config": 16.704999999999995,
+          "voice_speech_song": 20.604999999999997,
+          "voice_ensemble_config": 17.614999999999995,
           "voice_ornament_system": 4.1499999999999995,
-          "voice_pitch_organization": 0.54,
-          "voice_processing_chain": 5.784999999999999,
-          "voice_multitrack_stack": 10.985
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 5.505000000000001,
+          "voice_multitrack_stack": 10.465
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 8.645,
-          "amp_make": 17.939999999999998,
-          "body_wood": 1.4949999999999999,
-          "neck_wood": 1.4949999999999999,
-          "fretboard": 1.4299999999999997,
+          "electric_technique": 7.540000000000001,
+          "amp_make": 19.955,
+          "body_wood": 2.34,
+          "neck_wood": 2.34,
+          "fretboard": 2.275,
           "pickup_magnet": 0.15,
           "pickup_winding": 0.39,
           "string_material": 0.65,
-          "bridge": 1.4949999999999999,
-          "scale_length": 1.4949999999999999,
-          "string_gauge": 1.4949999999999999,
+          "bridge": 2.34,
+          "scale_length": 2.34,
+          "string_gauge": 2.34,
           "finish": 0,
-          "string_tuning": 20.67
+          "string_tuning": 18.85
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 18.2,
-          "body_wood": 1.4949999999999999,
-          "pickup_config": 0.33,
-          "string_type": 39.475,
-          "scale_length_b": 1.4949999999999999,
+          "amp_make": 17.225,
+          "body_wood": 2.34,
+          "pickup_config": 0.375,
+          "string_type": 37,
+          "scale_length_b": 2.34,
           "fretted_or_not": 0.24,
-          "bass_technique": 34.7
+          "bass_technique": 35
         }
       },
       {
@@ -114,15 +114,15 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 35.900000000000006,
-          "drumhead": 6.574999999999999,
+          "drum_technique": 33.65,
+          "drumhead": 3.85,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "steinway_original_hammer",
@@ -133,12 +133,12 @@
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 7.2700000000000005,
-          "grand_piano_size": 1.4949999999999999,
-          "grand_piano_brand": 1.4949999999999999,
-          "piano_hammer": 17.939999999999998,
-          "piano_rim": 19.37,
-          "piano_soundboard": 6.574999999999999,
+          "keyboard_technique": 3.9400000000000004,
+          "grand_piano_size": 2.34,
+          "grand_piano_brand": 2.34,
+          "piano_hammer": 16.769999999999996,
+          "piano_rim": 18.2,
+          "piano_soundboard": 3.7,
           "piano_pinblock": 1.49,
           "piano_plate": 0.26,
           "piano_pitch_standard": 5.004999999999999
@@ -153,8 +153,8 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 8.004999999999999,
-          "poly_archetypes": 18.07,
+          "electronic_technique": 5.130000000000001,
+          "poly_archetypes": 16.9,
           "poly_voices": 0.5,
           "poly_maker_lineage": 0.12999999999999998
         }
@@ -163,15 +163,15 @@
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_aka_four_part",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 2.9249999999999994,
-          "choir_polyphonic_configuration": 1.885,
-          "choir_regional_canonical_configuration": 1.2999999999999998,
-          "choir_ensemble_repertoire": 0.54
+          "choir_size": 4.225,
+          "choir_polyphonic_configuration": 2.13,
+          "choir_regional_canonical_configuration": 1.6449999999999998,
+          "choir_ensemble_repertoire": 1.14
         }
       }
     ],

@@ -1,0 +1,123 @@
+{
+  "id": "french_house",
+  "name": "French House",
+  "family": "electronic",
+  "lineage": "Paris-centred style of roughly 1995-2003 codified by Daft Punk, Cassius, Etienne de Crecy, Alan Braxe and Stardust, built from short looped disco and boogie vinyl samples at 115-128 BPM, driven by aggressive resonant band-pass filter sweeps and phaser motion across the whole loop, hard bus compression that pumps against a 909 kick, and vocals used as pitched, chopped, vocoded or talkbox texture rather than as verse-chorus lead.",
+  "recipe": "classic Western European mid-1990s french house, electronic Dance, house branch, deep house house, italo house house, continental electronic dance float house tropical house. turntable, melodic pitched sampler, TR-909, plucked short envelope analog poly synth, vocoder, talkbox. intimate paris small studio. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
+  "recipe_chars": 437,
+  "score": 102.245,
+  "config": {
+    "traditions": [
+      "french_house",
+      "float_house",
+      "tropical_house"
+    ],
+    "instruments": [
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "scores": {
+          "electronic_technique": 1.17,
+          "turntable_technique": 0.105
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.17,
+          "sampler_archetypes": 0.585,
+          "sampler_bit_depth": 0.9099999999999999,
+          "sampler_workflow": 2.0799999999999996,
+          "sampler_classic_context": 51.317499999999995
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 27.514999999999997,
+          "drum_machine_909_context": 1.2349999999999999,
+          "tr909_production_origin": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 3.27,
+          "poly_archetypes": 1.3,
+          "poly_voices": 0.65,
+          "poly_maker_lineage": -1.085
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_few_bands",
+          "voc_carrier": "voc_noise_carrier",
+          "voc_modulator": "voc_drum_mod"
+        },
+        "scores": {
+          "voc_band_count": 0,
+          "voc_carrier": 0.845,
+          "voc_modulator": 0.045
+        }
+      },
+      {
+        "id": "talkbox",
+        "slots": {
+          "talkbox_use": "talkbox_funk",
+          "talkbox_construction": "talkbox_combo"
+        },
+        "scores": {
+          "talkbox_use": 0,
+          "talkbox_construction": 0.045
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_french_touch_filter_house",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_ua_610_tube",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

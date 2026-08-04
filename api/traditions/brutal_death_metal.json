@@ -5,7 +5,7 @@
   "lineage": "Extreme-aggressive death-metal sub-style codified through Suffocation (Effigy of the Forgotten 1991), Cannibal Corpse (Tomb of the Mutilated 1992), Cryptopsy (None So Vile 1996), Disgorge — characterized by guttural-pig-squeal vocals, sub-200-BPM blast-beat drums, and downtuned-baritone-guitar low-end",
   "recipe": "classic North American early-1990s brutal death metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 575,
-  "score": 287.848,
+  "score": 288.256,
   "config": {
     "traditions": [
       "brutal_death_metal",
@@ -42,7 +42,7 @@
           "voice_articulation": 7.344999999999999,
           "voice_microtone": 10.905,
           "voice_tradition": 2.4050000000000002,
-          "voice_mechanism_compound": 31.429,
+          "voice_mechanism_compound": 31.632999999999996,
           "voice_estill_quality": 2.0149999999999997,
           "voice_speech_song": 7.344999999999999,
           "voice_ensemble_config": 7.279999999999999,
@@ -70,7 +70,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 35.739999999999995,
+          "electric_technique": 35.943999999999996,
           "amp_make": 19.467499999999998,
           "body_wood": 19.304999999999996,
           "neck_wood": 2.9899999999999998,

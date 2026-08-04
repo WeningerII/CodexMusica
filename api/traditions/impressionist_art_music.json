@@ -1,0 +1,216 @@
+{
+  "id": "impressionist_art_music",
+  "name": "Impressionist (Art Music)",
+  "family": "classical",
+  "lineage": "French art-music current of roughly 1890-1925 centred on Claude Debussy and Maurice Ravel in Paris, defined by whole-tone and octatonic collections, unresolved parallel ninth and eleventh chords, modal borrowings from plainchant and Javanese gamelan heard at the 1889 Exposition, veiled orchestration favouring divided muted strings, harp glissandi, celesta and flute in its lowest register, and rubato-heavy pacing that suppresses downbeat articulation.",
+  "recipe": "classic British early-1890s impressionist, art Music, western modern branch, western common practice art music, southeast Asian art music thai classical burmese mahagita. silver yamaha modern Japanese mid to premium continuous-airflow legato flute, concert harp, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core carpathian spruce European maple sycamore maple violin orchestral, legato celesta, composite resin modern climate stable buffet greenline style continuous-airflow legato english high register brass continuous-airflow legato french horn, composite resin blackwood dust continuous-airflow legato clarinet, tambourine orch, synthetic carpathian spruce European maple sycamore maple oil varnish cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 858,
+  "score": 560.858,
+  "config": {
+    "traditions": [
+      "impressionist_art_music",
+      "thai_classical",
+      "burmese_mahagita"
+    ],
+    "instruments": [
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "piccolo_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 14.214999999999998,
+          "flute_size": 0.354375,
+          "flute_material": 1.2350000000000003,
+          "flute_technique": 1.2350000000000003,
+          "flute_maker_school": 2.08
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 7.214999999999998,
+          "harp_pedals": 7.214999999999998
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 13.874999999999998,
+          "grand_piano_size": 1.3649999999999998,
+          "grand_piano_brand": 1.3828125000000002,
+          "piano_hammer": 24.519375,
+          "piano_rim": 22.794999999999998,
+          "piano_soundboard": 20.65,
+          "piano_pinblock": 21.099999999999998,
+          "piano_plate": 20.09,
+          "piano_pitch_standard": 22.379375
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 13.874999999999998,
+          "orch_strings": 1.4299999999999997,
+          "orch_top_wood": 14.759999999999998,
+          "orch_back_wood": 21.08,
+          "orch_varnish": 20,
+          "orch_setup_period": 19.2265625,
+          "orch_bow": 1.69,
+          "orch_bow_stick": 23.519374999999997,
+          "orch_articulation": 2.145,
+          "orch_rosin": 20
+        }
+      },
+      {
+        "id": "celesta",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "celesta_model": "celesta_schiedmayer",
+          "celesta_context": "celesta_orch"
+        },
+        "scores": {
+          "keyboard_technique": 13.874999999999998,
+          "celesta_model": 0.9806250000000001,
+          "celesta_context": 1.4299999999999997
+        }
+      },
+      {
+        "id": "english_horn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "english_horn_school": "english_horn_french",
+          "english_horn_context": "english_horn_film",
+          "english_horn_body_wood": "english_horn_resin_composite"
+        },
+        "scores": {
+          "wind_articulation": 14.214999999999998,
+          "english_horn_school": 3.25,
+          "english_horn_context": 1.2350000000000003,
+          "english_horn_body_wood": 2.925
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "buffet_greenline_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 14.214999999999998,
+          "clarinet_body": 20,
+          "clarinet_size": 7.214999999999998,
+          "clarinet_reed": 1.3649999999999998,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "french_horn_bore": "french_horn_descant",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 14.214999999999998,
+          "french_horn_bore": 1.2850000000000001,
+          "french_horn_metal": 1.5271875
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.195,
+          "tambourine_orch_context": 0.75
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 13.874999999999998,
+          "cello_strings": 2.6,
+          "cello_top_wood": 14.759999999999998,
+          "cello_back_wood": 21.08,
+          "cello_varnish": 20,
+          "cello_setup_period": 19.2265625,
+          "cello_bow_grip": 7.214999999999998,
+          "cello_rosin": 21.034999999999997,
+          "cello_bow_stick": 23.519374999999997
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_decca_sound_orchestral",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

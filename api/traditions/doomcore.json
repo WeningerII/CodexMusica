@@ -1,0 +1,117 @@
+{
+  "id": "doomcore",
+  "name": "Doomcore",
+  "family": "electronic",
+  "lineage": "Slow, apocalyptic branch of European hardcore techno that formed in Germany and the Netherlands in the mid-1990s around Low Entropy, The Kotzaak Klan and Fifth Era, running 140-170 BPM with distorted but ponderous kicks, sustained minor-mode drones and orchestral or choral pads, heavily reverbed film and horror dialogue samples, and near-absent hi-hat activity.",
+  "recipe": "classic European 1994-1996 doomcore, electronic Dance, hardstyle branch, techno electronic dance, industrial noise experimental electric, doom metal german techno birmingham techno. TR-909, roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono modular synth, sound design field sampler, digital subtractive. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 427,
+  "score": 98.785,
+  "config": {
+    "traditions": [
+      "doomcore",
+      "german_techno",
+      "birmingham_techno"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_clap",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0.75,
+          "drum_machine_909_context": 2.6,
+          "tr909_production_origin": 0.935
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 15.125,
+          "mono_oscillator": 0,
+          "mono_filter": 3.0349999999999997,
+          "mono_archetypes": 3.2749999999999995,
+          "mono_maker_lineage": 1.8200000000000003
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "fairlight_cmi",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 2.5749999999999993,
+          "sampler_archetypes": 0.045,
+          "sampler_bit_depth": 1.7399999999999998,
+          "sampler_workflow": 4.14,
+          "sampler_classic_context": 19.694999999999997
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 15.125,
+          "mod_voltage_source": 0.65,
+          "mod_patch_density": 0.15,
+          "mod_lineage": 0.65
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 1.56,
+          "va_archetypes": 0.35,
+          "digital_subtractive_context": 18.914999999999996
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

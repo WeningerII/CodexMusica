@@ -1,0 +1,257 @@
+{
+  "id": "motown",
+  "name": "Motown Sound",
+  "family": "pop",
+  "lineage": "Detroit label style codified 1959-1972 by Berry Gordy at Hitsville U.S.A., with Holland-Dozier-Holland writing and the Funk Brothers house band, defined by four-on-the-floor tambourine-and-handclap backbeats, James Jamerson's melodically active syncopated electric bass, doubled guitars and vibes, layered horn and string sweetening, gospel-trained lead vocals with call-and-response backing groups, and 8-track basement tracking mixed for AM car radio.",
+  "recipe": "classic Midwestern American mid-1960s motown sound, functional Song, soul R&B branch, pop rock girl group, soul R&B doowop doo-wop souldies. thick, breath veiled tone, slow rate, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, traditional mellow brass tambourine orch, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, vibraphone, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. Neumann U67.",
+  "recipe_chars": 993,
+  "score": 488.595,
+  "config": {
+    "traditions": [
+      "motown",
+      "doo_wop",
+      "souldies"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 31.032499999999988,
+          "voice_quality": 18.330000000000005,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.2099999999999995,
+          "voice_articulation": 22.48999999999999,
+          "voice_microtone": 21.709999999999994,
+          "voice_tradition": 22.543,
+          "voice_mechanism_compound": 4.549999999999999,
+          "voice_estill_quality": 20.335,
+          "voice_speech_song": 29.379999999999995,
+          "voice_ensemble_config": 23.334999999999994,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 1.05,
+          "voice_processing_chain": 6.044999999999999,
+          "voice_multitrack_stack": 7.2475000000000005
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 24.179,
+          "body_wood": 0.195,
+          "pickup_config": 0,
+          "string_type": 27.116499999999995,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.39,
+          "bass_technique": 17.2
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.879999999999995,
+          "drumhead": 8.457999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_film"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 1.9515,
+          "tambourine_orch_context": 0.195
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 20.0645,
+          "grand_piano_size": 0.975,
+          "grand_piano_brand": 0.975,
+          "piano_hammer": 7.254999999999999,
+          "piano_rim": 10.3745,
+          "piano_soundboard": 8.2,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.975,
+          "piano_pitch_standard": 4.745
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_slow",
+          "vibe_mallets": "vibe_hard_mallets"
+        },
+        "scores": {
+          "percussion_technique": 1.875,
+          "vibe_motor": 0.12999999999999998,
+          "vibe_mallets": 0.5714999999999999
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "hard_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 18.055999999999997,
+          "sax_size": 15.495,
+          "sax_reed": 0.105,
+          "sax_body_alloy": 0.245,
+          "sax_mouthpiece": 0.15,
+          "sax_technique": 14.649999999999999,
+          "sax_maker_school": 1.56
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 17.7715,
+          "amp_make": 21.313000000000002,
+          "body_wood": 0.195,
+          "neck_wood": 0.195,
+          "fretboard": 0.5714999999999999,
+          "pickup_magnet": 0,
+          "string_material": 0.105,
+          "string_gauge": 1.8849999999999996,
+          "bridge": 0,
+          "scale_length": 0.195,
+          "finish": 0,
+          "string_tuning": 2.6
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.825,
+          "orch_strings": 0.5199999999999999,
+          "orch_top_wood": 1.755,
+          "orch_back_wood": 2.73,
+          "orch_varnish": 1.17,
+          "orch_setup_period": 2.5024999999999995,
+          "orch_bow": 0.585,
+          "orch_bow_stick": -9.714451465470119e-18,
+          "orch_articulation": 0.39,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_processing": "multitrack_processing_natural"
+        },
+        "scores": {
+          "multitrack_stack_density": 2.925,
+          "multitrack_stack_era_aesthetic": 9.457500000000001,
+          "multitrack_stack_processing": 0.195
+        }
+      }
+    ],
+    "room": "hitsville_usa_motown_detroit",
+    "archetype": "arch_motown_snakepit",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "console_american_op_amp",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "motown_four_on_floor_tambourine",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "motown_four_on_floor_tambourine",
+    "room": "hitsville_usa_motown_detroit",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

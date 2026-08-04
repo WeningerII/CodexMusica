@@ -1,0 +1,165 @@
+{
+  "id": "reggaeton_mexicano",
+  "name": "Reggaeton Mexicano",
+  "family": "global",
+  "lineage": "Mexican regional adaptation of Puerto Rican reggaeton that broke nationally around 2019-2022 out of Monterrey, Guadalajara and Mexico City through Yeri Mua, El Bogueto, Uzielito Mix and the 'guaracha/reggaeton mexa' DJ circuit, keeping the 90-100 BPM dembow kick-snare pattern but adding sharper Mexican Spanish diction, cumbia-derived keyboard riffs and sequenced brass or requinto stabs over hard-clipped 808s.",
+  "recipe": "classic 2019-2022 reggaeton mexicano, mc Rhythm, reggaeton branch, Mexican functional song, tropical song functional song cumbia ranchera duranguense. thick, full chest belt, straight note core, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampler, analog poly synth, la bella flats Detroit soul bass canon electric bass, requinto jarocho. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 578,
+  "score": 148.81,
+  "config": {
+    "traditions": [
+      "reggaeton_mexicano",
+      "cumbia_ranchera",
+      "duranguense"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.1449999999999996,
+          "voice_quality": 14.325,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.7399999999999999,
+          "voice_articulation": 15.794999999999995,
+          "voice_microtone": 15.599999999999993,
+          "voice_tradition": 4.8100000000000005,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 6.139999999999999,
+          "voice_speech_song": 22.035,
+          "voice_ensemble_config": 15.924999999999995,
+          "voice_ornament_system": 2.600000000000001,
+          "voice_pitch_organization": 0.45500000000000007,
+          "voice_processing_chain": 3.965,
+          "voice_multitrack_stack": 3.185000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 0.975,
+          "drum_machine_808_context": 1.235,
+          "tr808_production_origin": 1.69
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 0.195,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 0.84,
+          "sampler_classic_context": 19.824999999999996
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 2.0149999999999997,
+          "poly_archetypes": 0.15,
+          "poly_voices": 0.045,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 1.2349999999999999,
+          "body_wood": 0.65,
+          "pickup_config": 0.65,
+          "string_type": 1.17,
+          "scale_length_b": 0.24,
+          "fretted_or_not": 0.65,
+          "bass_technique": 0.445
+        }
+      },
+      {
+        "id": "requinto_jarocho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "requinto_jarocho_pluck": "requinto_jarocho_finger",
+          "requinto_jarocho_tuning": "requinto_jarocho_high",
+          "requinto_jarocho_body_wood": "requinto_cedrillo",
+          "requinto_jarocho_strings": "requinto_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.6650000000000005,
+          "requinto_jarocho_pluck": 0.24,
+          "requinto_jarocho_tuning": 2.535,
+          "requinto_jarocho_body_wood": 0.39,
+          "requinto_jarocho_strings": 0.195
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

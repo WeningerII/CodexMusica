@@ -1,0 +1,189 @@
+{
+  "id": "neomelodici",
+  "name": "Neomelodici",
+  "family": "pop",
+  "lineage": "Neapolitan working-class pop that crystallized in the Naples suburbs during the late 1980s and 1990s around Nino D'Angelo's successors — Gigi D'Alessio, Mauro Nardi, Tommy Riccio, Gianni Celeste — built on cheap MIDI keyboard-and-drum-machine backing at 90-115 BPM, string-pad and mandolin patches, minor-key melodic hooks, and a piercing high-tenor dialect voice singing love, jail and neighbourhood narratives distributed on locally pressed cassettes and CDs sold outside the national label system.",
+  "recipe": "classic Southern European 1987-1989 neomelodici, functional Song, europop branch, Mediterranean ballad ballad poetry, mid east n African pop functional song turkmen pop israeli pop. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, drum machine analog, alder pyramid pure nickel bass British mid 60s era electric bass, teardrop redwood x brace modern mandolin phosphor bronze mandolin, melodic orchestral imitation pitched sampler. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 761,
+  "score": 287.71,
+  "config": {
+    "traditions": [
+      "neomelodici",
+      "turkmen_pop",
+      "israeli_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 15.394999999999994,
+          "voice_quality": 10.789999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.7950000000000004,
+          "voice_articulation": 16.834999999999994,
+          "voice_microtone": 21.612499999999997,
+          "voice_tradition": 14.78,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 24.244999999999994,
+          "voice_ensemble_config": 19.759999999999994,
+          "voice_ornament_system": 2.875,
+          "voice_pitch_organization": 3.9300000000000006,
+          "voice_processing_chain": 8.525,
+          "voice_multitrack_stack": 7.930000000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 15.719999999999999,
+          "poly_archetypes": 1.3,
+          "poly_voices": 1.15,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 15.719999999999999,
+          "fm_algorithm": 0.195,
+          "fm_modulator_ratio": 0.24,
+          "fm_polyphony": 0.65,
+          "fm_model_lineage": 11.305
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 0.495,
+          "snare_voice": 0.495,
+          "hat_voice": 0.3,
+          "shuffle_quantize": 0.495
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 2.44,
+          "body_wood": 3.25,
+          "pickup_config": 0.78,
+          "string_type": 2.7300000000000004,
+          "scale_length_b": 2.395,
+          "fretted_or_not": 1.3,
+          "bass_technique": 2.8750000000000004
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "a_style",
+          "mandolin_top": "redwood_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_x_brace",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 13.5,
+          "mandolin_shape": 2.395,
+          "mandolin_top": 2.395,
+          "mandolin_back": 0.8,
+          "mandolin_bracing": 1.69,
+          "mandolin_strings": 2.4400000000000004,
+          "mandolin_fingerboard": 2.345,
+          "mandolin_pickup": 16.834999999999997
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "maschine_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.4,
+          "sampler_archetypes": 0.495,
+          "sampler_bit_depth": 2.2950000000000004,
+          "sampler_workflow": 1.6249999999999998,
+          "sampler_classic_context": 18.134999999999998
+        }
+      }
+    ],
+    "room": "naples_canzone_napoletana_studio",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "naples_canzone_napoletana_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_in_the_box"
+  }
+}

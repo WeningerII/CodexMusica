@@ -1,0 +1,182 @@
+{
+  "id": "bengali_folk_lokgeeti",
+  "name": "Bengali folk (lokgeeti of Bengal and Bangladesh)",
+  "family": "global",
+  "lineage": "Regional song stock of Bengal and Bangladesh — bhawaiya of Rangpur and Cooch Behar, bhatiali of the river delta, jhumur of the Rarh plateau and gambhira of Chapainawabganj — collected by Abbasuddin Ahmed, Nirmalendu Chowdhury and the Kolkata Folk and Tribal Cultural Centre from the 1930s onward; dotara and ektara supply a bright metallic ostinato under khol or dholak in dadra and keherwa cycles, with long free-breath opening calls and a lightly nasal upper-register male delivery carrying wave-like meend.",
+  "recipe": "classic South Asian mid-1930s bengali folk, field Work, south Asian branch, indian bard ballad poetry, south Asian domestic rhythm, hindu ritual devotional bhojpuri lok geet himalayan folk. thick, breath veiled tone, breath pulsed, interlocked note trading. ornamented dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ornamented ektara, liturgical khol, dholak, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, vocal male straight harmonium indian, bengali brass manjira. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 692,
+  "score": 294.843,
+  "config": {
+    "traditions": [
+      "bengali_folk_lokgeeti",
+      "bhojpuri_lok_geet",
+      "himalayan_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 7.8500000000000005,
+          "voice_quality": 13.454999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.195,
+          "voice_articulation": 23.79,
+          "voice_microtone": 23.595,
+          "voice_tradition": 19.955000000000002,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 6.4350000000000005,
+          "voice_speech_song": 28.145000000000003,
+          "voice_ensemble_config": 24.245000000000005,
+          "voice_ornament_system": 10.465,
+          "voice_pitch_organization": 8.89,
+          "voice_processing_chain": 10.145,
+          "voice_multitrack_stack": 2.990000000000001
+        }
+      },
+      {
+        "id": "dotara",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "dotara_strings": "dotara_4",
+          "dotara_context": "dotara_folk"
+        },
+        "scores": {
+          "plucked_traditional_technique": 8.42,
+          "dotara_strings": 3.155,
+          "dotara_context": 26.650000000000006
+        }
+      },
+      {
+        "id": "ektara",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "ektara_use": "ektara_baul",
+          "ektara_body": "ektara_gourd_bamboo",
+          "ektara_string": "ektara_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 8.42,
+          "ektara_use": 4.485,
+          "ektara_body": 1.3,
+          "ektara_string": 1.4299999999999997
+        }
+      },
+      {
+        "id": "khol",
+        "slots": {
+          "khol_form": "khol_bengali",
+          "khol_repertoire": "khol_borgeet_liturgical",
+          "khol_body": "khol_body_wood"
+        },
+        "scores": {
+          "khol_form": 5.380000000000001,
+          "khol_repertoire": 1.8499999999999996,
+          "khol_body": -0.035
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 0.345,
+          "dholak_construction": 1.3,
+          "dholak_head": 0.69,
+          "dholak_tensioning": 0.84
+        }
+      },
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "bansuri_length": "small_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_kerala_bamboo",
+          "bansuri_lineage": "bansuri_hariprasad_maihar"
+        },
+        "scores": {
+          "wind_articulation": 6.045,
+          "bansuri_length": 6.139999999999999,
+          "bansuri_ornament": 1.16,
+          "bansuri_body_material": 8.45,
+          "bansuri_lineage": 1.95
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_foot_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_qawwali"
+        },
+        "scores": {
+          "free_reed_technique": 5.995,
+          "harmonium_action": 1.95,
+          "harmonium_voicing": 2.9899999999999998,
+          "harmonium_use": 2.145
+        }
+      },
+      {
+        "id": "manjira",
+        "slots": {
+          "manjira_form": "manjira_karatala",
+          "manjira_stroke": "manjira_tala_ostinato",
+          "manjira_metal": "manjira_brass"
+        },
+        "scores": {
+          "manjira_form": 7.42,
+          "manjira_stroke": 0.26,
+          "manjira_metal": 1.2349999999999999
+        }
+      }
+    ],
+    "room": "kolkata_hmv_dum_dum_studio",
+    "archetype": "arch_hmv_dumdum_raga",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "medium_indian_lebanese_pressing"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "kolkata_hmv_dum_dum_studio",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "medium_indian_lebanese_pressing",
+    "chain_console": "console_german_tube_50s"
+  }
+}

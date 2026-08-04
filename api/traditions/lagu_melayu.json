@@ -1,0 +1,176 @@
+{
+  "id": "lagu_melayu",
+  "name": "Lagu Melayu (Malay Asli)",
+  "family": "global",
+  "lineage": "Malay traditional song repertoire of the Riau-Johor-Malacca littoral, formalized on record from the 1930s-60s through bangsawan theatre and Singapore-Malaya EMI sessions with singers such as P. Ramlee and Saloma, comprising the slow rubato-ornamented asli, the brisk duple joget and inang, and the Arab-derived zapin, accompanied by violin, accordion, gendang or rebana frame drums and punctuating gong, with heavily ornamented patah lagu vocal turns.",
+  "recipe": "classic Southeast Asian mid-1930s lagu melayu, functional Song, east Asian pop branch, southeast Asian art music, tropical song functional song thai traditional thai classical. thick, breath veiled tone, slow rate, interlocked note trading. norway spruce European alpine European maple sycamore maple oil varnish violin orchestral, leather castagnari Italian premium folk music ensemble accordion, gendang melayu, rebana ubi, gong chau gong tamtam, serunai shawm. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 676,
+  "score": 325.7,
+  "config": {
+    "traditions": [
+      "lagu_melayu",
+      "thai_traditional",
+      "thai_classical"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.750000000000002,
+          "voice_quality": 19.499999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 14.722499999999998,
+          "voice_articulation": 20.8,
+          "voice_microtone": 20.604999999999993,
+          "voice_tradition": 20.9625,
+          "voice_mechanism_compound": 9.774999999999999,
+          "voice_estill_quality": 13.029999999999994,
+          "voice_speech_song": 27.3,
+          "voice_ensemble_config": 21.124999999999996,
+          "voice_ornament_system": 10.774999999999999,
+          "voice_pitch_organization": 25.61,
+          "voice_processing_chain": 3.3150000000000004,
+          "voice_multitrack_stack": 3.5750000000000024
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 10.069999999999999,
+          "orch_strings": 0.975,
+          "orch_top_wood": 11.299999999999997,
+          "orch_back_wood": 10.819999999999999,
+          "orch_varnish": 10.969999999999999,
+          "orch_setup_period": 11.254999999999997,
+          "orch_bow": 1.69,
+          "orch_bow_stick": 13.379999999999997,
+          "orch_articulation": 1.4300000000000002,
+          "orch_rosin": 11.309999999999999
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "accordion_reed_material": "a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 15.244999999999997,
+          "accordion_reed_material": 0.45499999999999996,
+          "musette_offset": 1.3,
+          "reed_config": 0.45499999999999996,
+          "bellows": 1.24,
+          "voicing_chamber": 0.195,
+          "accordion_maker_school": 5.59
+        }
+      },
+      {
+        "id": "gendang_melayu",
+        "slots": {
+          "gendang_melayu_role": "gendang_melayu_anak",
+          "gendang_melayu_stroke": "gendang_melayu_hands",
+          "gendang_melayu_head": "gendang_melayu_goat"
+        },
+        "scores": {
+          "gendang_melayu_role": 0.24,
+          "gendang_melayu_stroke": 0.15,
+          "gendang_melayu_head": 0
+        }
+      },
+      {
+        "id": "rebana_ubi",
+        "slots": {
+          "rebana_ubi_size": "rebana_ubi_giant",
+          "rebana_ubi_style": "rebana_ubi_ensemble"
+        },
+        "scores": {
+          "rebana_ubi_size": 0.15,
+          "rebana_ubi_style": 0.24
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_chau",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 3.7700000000000005,
+          "gong_striker": 0
+        }
+      },
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_kelantan",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 2,
+          "serunai_bell": 0
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_emi_pakistan_lollywood",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

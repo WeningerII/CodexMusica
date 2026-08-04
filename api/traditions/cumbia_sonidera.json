@@ -3,74 +3,74 @@
   "name": "Cumbia sonidera",
   "family": "global",
   "lineage": "Mexico City and Puebla sound-system cumbia culture, formalized from the late 1970s onward by sonideros such as Sonido La Changa, Sonido Fascinación and Sonido Duende who slowed Colombian and Peruvian cumbia records to 85-100 BPM, drenched them in tape and spring echo, and overlaid live shouted dedicatorias to named neighbourhoods and migrants; the studio-produced strain that followed keeps the guacharaca-and-güiro paseo pattern, syncopated electric bass, teclado organ leads and thick slapback on every voice.",
-  "recipe": "classic South American 1977-1979 cumbia sonidera, groove Percussion, Latin am branch, dub descendants bass system, tropical song functional song panamanian pop merengue urbano. thick, breath veiled tone, straight note core, interlocked note trading. leather castagnari Italian premium folk music accordion, guacharaca, gourd wood guiro, open slap hand drum congas, open slap hand drum timbales, mahogany la bella flats Detroit soul bass canon thumb muted electric bass, psychedelic foregrounded organ driven rock block chord combo organ, cencerro, turntable. boombox portable speaker. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
-  "recipe_chars": 704,
-  "score": 187.33,
+  "recipe": "classic South American 1977-1979 cumbia sonidera, groove Percussion, Latin am branch, dub descendants bass system, tropical song functional song trip hop chicha. thick, full chest belt, breath pulsed, interlocked note trading. accordion, guacharaca, guiro, open slap hand drum congas, open slap hand drum timbales, ampeg svt amp rock bass amp mahogany la bella flats Detroit soul bass canon electric bass, lead instrument elevated psychedelic foregrounded organ driven rock combo organ, cencerro, turntable. boombox portable speaker. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 653,
+  "score": 199.602,
   "config": {
     "traditions": [
       "cumbia_sonidera",
-      "panamanian_pop",
-      "merengue_urbano"
+      "trip_hop",
+      "chicha"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "andean_quechua_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 4.370000000000002,
-          "voice_quality": 11.764999999999992,
+          "voice_register": 3.8500000000000014,
+          "voice_quality": 12.544999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.0074999999999998,
-          "voice_articulation": 20.41,
-          "voice_microtone": 21.319999999999997,
-          "voice_tradition": 4.2575,
-          "voice_mechanism_compound": 2.47,
-          "voice_estill_quality": 3.84,
-          "voice_speech_song": 28.015,
-          "voice_ensemble_config": 21.84,
-          "voice_ornament_system": 2.63,
-          "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 6.845000000000001,
-          "voice_multitrack_stack": 5.385000000000002
+          "voice_vibrato": 1.105,
+          "voice_articulation": 23.53,
+          "voice_microtone": 25.025,
+          "voice_tradition": 5.1025,
+          "voice_mechanism_compound": 2.21,
+          "voice_estill_quality": 5.0600000000000005,
+          "voice_speech_song": 27.885000000000005,
+          "voice_ensemble_config": 24.895000000000003,
+          "voice_ornament_system": 5.265,
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 6.37,
+          "voice_multitrack_stack": 5.990000000000001
         }
       },
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "steel_reeds",
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "brass_reeds",
           "musette_offset": "german_tuning",
-          "reed_config": "lm_only",
+          "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
-          "accordion_maker_school": "accordion_castagnari_italian"
+          "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 1.0075,
-          "accordion_reed_material": 0.435,
-          "musette_offset": 1.6899999999999997,
-          "reed_config": 0.15,
-          "bellows": 1.6899999999999997,
-          "voicing_chamber": 0.435,
-          "accordion_maker_school": 1.3649999999999998
+          "free_reed_technique": 0.26,
+          "accordion_reed_material": 0.845,
+          "musette_offset": 0.65,
+          "reed_config": 0.195,
+          "bellows": 0.38999999999999996,
+          "voicing_chamber": 0.045,
+          "accordion_maker_school": 0.435
         }
       },
       {
@@ -79,7 +79,7 @@
           "guacharaca_body": "guacharaca_palm_wood"
         },
         "scores": {
-          "guacharaca_body": 0.585
+          "guacharaca_body": 0.39
         }
       },
       {
@@ -89,23 +89,23 @@
           "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "guiro_origin": 1.6899999999999997,
-          "guiro_striker": 1.6899999999999997
+          "guiro_origin": 0.65,
+          "guiro_striker": 0.845
         }
       },
       {
         "id": "congas",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "conga_set": "quinto",
-          "conga_skin": "conga_mule_hide",
+          "conga_set": "tumba",
+          "conga_skin": "conga_cowhide",
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 5.13,
-          "conga_set": 0.8250000000000002,
-          "conga_skin": 0.8249999999999998,
-          "conga_shell_wood": 0.8249999999999998
+          "percussion_technique": 4.675,
+          "conga_set": 0.65,
+          "conga_skin": 0.39,
+          "conga_shell_wood": 0.24
         }
       },
       {
@@ -116,9 +116,9 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 5.13,
-          "timbales_shell": 0.195,
-          "timbales_context": 1.3
+          "percussion_technique": 4.675,
+          "timbales_shell": 0.15,
+          "timbales_context": 1.95
         }
       },
       {
@@ -133,42 +133,42 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 2.145,
-          "body_wood": 1.4949999999999999,
-          "pickup_config": 0.045,
-          "string_type": 3.7700000000000005,
-          "scale_length_b": 1.4949999999999999,
+          "amp_make": 5.719999999999999,
+          "body_wood": 1.3,
+          "pickup_config": 0.845,
+          "string_type": 6.825,
+          "scale_length_b": 1.3,
           "fretted_or_not": 0,
-          "bass_technique": 4.5
+          "bass_technique": 6.475
         }
       },
       {
         "id": "combo_organ",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "combo_organ_model": "farfisa_compact",
-          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_model": "vox_continental_combo",
+          "combo_organ_voicing": "combo_organ_16_pedal",
           "combo_organ_context": "combo_organ_doors_psych",
           "amp_make": "amp_unspecified"
         },
         "scores": {
-          "keyboard_technique": 3.0650000000000004,
-          "combo_organ_model": 3.5800000000000005,
-          "combo_organ_voicing": 2.7950000000000004,
-          "combo_organ_context": 1.3,
+          "keyboard_technique": -0.07,
+          "combo_organ_model": 1.55,
+          "combo_organ_voicing": 0.78,
+          "combo_organ_context": 2.5999999999999996,
           "amp_make": 0
         }
       },
       {
         "id": "cencerro",
         "slots": {
-          "cencerro_bell_type": "cencerro_cha_cha_bell",
+          "cencerro_bell_type": "cencerro_bongo_bell",
           "cencerro_context": "cencerro_charanga",
           "cencerro_build": "cencerro_hammered_bronze"
         },
         "scores": {
-          "cencerro_bell_type": 0.15,
-          "cencerro_context": 0.845,
+          "cencerro_bell_type": 0.65,
+          "cencerro_context": 0.28500000000000003,
           "cencerro_build": 0.045
         }
       },
@@ -179,8 +179,8 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 0.925,
-          "turntable_technique": 3.1525
+          "electronic_technique": 2.385,
+          "turntable_technique": 1.95
         }
       }
     ],

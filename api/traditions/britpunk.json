@@ -1,0 +1,148 @@
+{
+  "id": "britpunk",
+  "name": "Britpunk",
+  "family": "rock_punk",
+  "lineage": "Codified in London and Manchester 1976-1978 by the Sex Pistols, The Clash, The Damned and Buzzcocks, working from pub-rock and Stooges/New York Dolls models — barre-chord downstroke guitar through overdriven Marshall stacks, 160-200 BPM straight-eighth drumming with snare on 2 and 4 and minimal fills, root-note eighth-note bass, and sneered, glottal-accented English vocals cut fast and cheap in small commercial studios like Wessex and Pathway.",
+  "recipe": "classic British 1976-1978 britpunk, distorted Rock, punk branch, art rock distorted rock, pop punk distorted rock motorpop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 648,
+  "score": 381.28,
+  "config": {
+    "traditions": [
+      "britpunk",
+      "art_punk",
+      "motorpop"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "maple_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 11.25,
+          "amp_make": 29.444999999999993,
+          "body_wood": 0.65,
+          "neck_wood": 0.65,
+          "fretboard": 1.4949999999999999,
+          "pickup_magnet": 0.845,
+          "pickup_winding": 0.39,
+          "string_material": 0.65,
+          "bridge": 1.3,
+          "scale_length": 0.65,
+          "string_gauge": 0.65,
+          "finish": 0,
+          "string_tuning": 16.445
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 15.275,
+          "body_wood": 1.95,
+          "pickup_config": 1.18,
+          "string_type": 32.38,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.045,
+          "bass_technique": 37.04
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 25.3,
+          "drumhead": 6.5,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 33.27500000000002,
+          "voice_quality": 13.649999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.5600000000000005,
+          "voice_articulation": 25.09,
+          "voice_microtone": 31.955,
+          "voice_tradition": 8.255,
+          "voice_mechanism_compound": 9.23,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 23.270000000000003,
+          "voice_ensemble_config": 22.815,
+          "voice_ornament_system": 5.685000000000001,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 5.9799999999999995,
+          "voice_multitrack_stack": 4.015000000000001
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_helios_uk_70s",
+      "console": "console_helios_uk_70s",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_helios_uk_70s",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_helios_uk_70s"
+  }
+}

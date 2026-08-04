@@ -3,14 +3,14 @@
   "name": "Tamil pop (independent non-film)",
   "family": "pop",
   "lineage": "Non-film Tamil popular music took shape in the 1990s when the Chennai studio culture around Ilaiyaraaja and A. R. Rahman spilled into standalone albums — Unnikrishnan and Bombay Jayashri's light-music records, then the 2000s Tamil rock and indie wave (Kadal Pura, Anthony Daasan) and after 2015 an internet-native scene of Hiphop Tamizha, Sean Roldan and Santhosh Narayanan side projects — typically 80-130 BPM 4/4 productions blending programmed kits and synth pads with mridangam, thavil, nadaswaram or urumi accents and Carnatic-trained vocal gamaka over Western chord progressions.",
-  "recipe": "classic mid-1990s tamil pop, functional Song, south Asian pop branch, south Asian art music sinhala vannama telugu kirtana. thick, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth, rock canon ernie ball slinky electric bass, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, bronze strummed open chord ringing overtones dreadnought acoustic guitar, kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, synthetic core modern lalgudi lineage carnatic legato violin carnatic.",
-  "recipe_chars": 984,
-  "score": 365.727,
+  "recipe": "classic mid-1990s tamil pop, functional Song, south Asian pop branch, south Asian art music afghan traditional carnatic kacheri. thick, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, singing lead analog poly synth, rock canon ernie ball slinky electric bass, TR-808, indian rosewood rosewood bronze strummed open chord ringing overtones dreadnought acoustic guitar, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
+  "recipe_chars": 974,
+  "score": 308.281,
   "config": {
     "traditions": [
       "tamil_pop",
-      "sinhala_vannama",
-      "telugu_kirtana"
+      "afghan_traditional",
+      "carnatic_kacheri"
     ],
     "instruments": [
       {
@@ -24,7 +24,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 13.736499999999994,
-          "voice_quality": 19.11,
+          "voice_register": 14.761499999999995,
+          "voice_quality": 14.429999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.864999999999998,
-          "voice_articulation": 15.534999999999995,
-          "voice_microtone": 15.339999999999991,
-          "voice_tradition": 28.8985,
-          "voice_mechanism_compound": 5.6499999999999995,
-          "voice_estill_quality": 6.464499999999999,
-          "voice_speech_song": 19.564999999999994,
-          "voice_ensemble_config": 18.004999999999995,
-          "voice_ornament_system": 25.086499999999997,
-          "voice_pitch_organization": 23.7865,
-          "voice_processing_chain": 8.254999999999999,
-          "voice_multitrack_stack": 2.8645000000000005
+          "voice_vibrato": 5.46,
+          "voice_articulation": 17.809999999999995,
+          "voice_microtone": 19.36999999999999,
+          "voice_tradition": 24.7,
+          "voice_mechanism_compound": 3.9,
+          "voice_estill_quality": 5.1265,
+          "voice_speech_song": 20.34499999999999,
+          "voice_ensemble_config": 19.629999999999992,
+          "voice_ornament_system": 15.53,
+          "voice_pitch_organization": 14.274999999999999,
+          "voice_processing_chain": 5.265000000000001,
+          "voice_multitrack_stack": 2.9545000000000003
         }
       },
       {
@@ -62,11 +62,11 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 2.9899999999999998,
+          "mridangam_heads": 1.95,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 9.294999999999998,
-          "mridangam_heads_material": 2.5349999999999997,
-          "mridangam_lineage": 8.45
+          "mridangam_shell_wood": 1.885,
+          "mridangam_heads_material": 0.69,
+          "mridangam_lineage": 1.885
         }
       },
       {
@@ -78,10 +78,10 @@
           "thavil_head": "thavil_buffalo_goat"
         },
         "scores": {
-          "thavil_context": 0.845,
-          "thavil_technique": 0.714,
-          "thavil_shell_wood": 7.830499999999999,
-          "thavil_head": 2.5349999999999997
+          "thavil_context": 1.04,
+          "thavil_technique": 0.3495,
+          "thavil_shell_wood": 4.547999999999999,
+          "thavil_head": 0.69
         }
       },
       {
@@ -94,11 +94,11 @@
           "nadaswaram_lineage": "nadaswaram_thiruvavaduthurai"
         },
         "scores": {
-          "nadaswaram_register": 4.9925,
-          "nadaswaram_ensemble": 1.69,
-          "nadaswaram_body_wood": 6.680999999999999,
-          "nadaswaram_reed": 6.680999999999999,
-          "nadaswaram_lineage": 7.211999999999999
+          "nadaswaram_register": 4.342499999999999,
+          "nadaswaram_ensemble": 2.2185,
+          "nadaswaram_body_wood": 4.3214999999999995,
+          "nadaswaram_reed": 4.3214999999999995,
+          "nadaswaram_lineage": 4.68
         }
       },
       {
@@ -110,10 +110,10 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 8.8995,
+          "electronic_technique": 9.758,
           "poly_archetypes": 1.168,
           "poly_voices": 0,
-          "poly_maker_lineage": 1.1699999999999995
+          "poly_maker_lineage": -0.7350000000000001
         }
       },
       {
@@ -123,16 +123,16 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 1.17,
-          "body_wood": 0.42,
+          "amp_make": 1.1099999999999999,
+          "body_wood": 0.147,
           "pickup_config": 0.2415,
           "string_type": 2.605,
-          "scale_length_b": 0.845,
+          "scale_length_b": 0.2415,
           "fretted_or_not": 0.845,
           "bass_technique": 2.45
         }
@@ -142,29 +142,29 @@
         "slots": {
           "tr808_voice": "tr808_clap",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_roland_osaka_canonical"
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
           "tr808_voice": 0.105,
-          "drum_machine_808_context": 0.9824999999999999,
-          "tr808_production_origin": 1.1049999999999993
+          "drum_machine_808_context": 0.845,
+          "tr808_production_origin": 0.2415
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "standard_tuning",
-          "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "string_tuning": "open_e",
+          "top_wood": "sitka",
+          "back_sides": "rosewood_bs",
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
           "acoustic_technique": 9.7,
-          "string_tuning": 0,
-          "top_wood": 0.21000000000000002,
-          "back_sides": 0.168,
-          "string_acoustic": 1.0315
+          "string_tuning": 0.45500000000000007,
+          "top_wood": 0.195,
+          "back_sides": 1.885,
+          "string_acoustic": 1.2265
         }
       },
       {
@@ -177,11 +177,11 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 5.699999999999999,
-          "bansuri_length": 0.845,
-          "bansuri_ornament": 2.883,
-          "bansuri_body_material": 5.654999999999999,
-          "bansuri_lineage": 2.5349999999999997
+          "wind_articulation": 3.7,
+          "bansuri_length": 1.8850000000000002,
+          "bansuri_ornament": 5.483,
+          "bansuri_body_material": 7.6049999999999995,
+          "bansuri_lineage": 1.04
         }
       },
       {
@@ -189,16 +189,16 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "violin_carnatic_tuning": "violin_carnatic_carnatic",
-          "violin_carnatic_posture": "violin_carnatic_seated_western",
-          "violin_carnatic_strings": "violin_carnatic_synthetic",
+          "violin_carnatic_posture": "violin_carnatic_seated_south",
+          "violin_carnatic_strings": "violin_carnatic_gut_historical",
           "violin_carnatic_lineage": "violin_carnatic_lalgudi"
         },
         "scores": {
-          "bowed_technique": 5.75,
-          "violin_carnatic_tuning": 21.384999999999994,
-          "violin_carnatic_posture": 1.69,
-          "violin_carnatic_strings": 3.3799999999999994,
-          "violin_carnatic_lineage": 8.45
+          "bowed_technique": 3.75,
+          "violin_carnatic_tuning": 25.609999999999992,
+          "violin_carnatic_posture": 2.795,
+          "violin_carnatic_strings": 4.9399999999999995,
+          "violin_carnatic_lineage": 1.885
         }
       }
     ],

@@ -1,0 +1,139 @@
+{
+  "id": "phonk",
+  "name": "Phonk",
+  "family": "hip_hop",
+  "lineage": "Memphis-derived internet rap subgenre codified circa 2011-2016 by SpaceGhostPurrp, DJ Smokey, Soudiere and the SoundCloud/Bandcamp underground, built from pitched-down chopped-and-screwed samples of early-1990s Three 6 Mafia and Tommy Wright III cassette tapes over 808 kicks and cowbell at 130-140 BPM half-time, with saturated tape hiss, distorted sub, and muttered or screamed lo-fi verses.",
+  "recipe": "classic mid-2010s phonk, mc Rhythm, southern branch, us hip hop modern, experimental MC rhythm nerdcore. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, sampled chopped turntable, sub bass analog synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 393,
+  "score": 267.04,
+  "config": {
+    "traditions": [
+      "phonk",
+      "nerdcore",
+      "emo_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.315000000000001,
+          "voice_quality": 23.96,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.2099999999999995,
+          "voice_articulation": 17.744999999999994,
+          "voice_microtone": 19.889999999999993,
+          "voice_tradition": 10.010000000000002,
+          "voice_mechanism_compound": 4.825,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 22.150000000000002,
+          "voice_ensemble_config": 16.834999999999994,
+          "voice_ornament_system": 6.435000000000002,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 13.89,
+          "voice_multitrack_stack": 4.452500000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 9.055000000000001,
+          "drum_machine_808_context": 3.8349999999999995,
+          "tr808_production_origin": 2.34
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 8.600000000000001,
+          "sampler_archetypes": 14.072500000000002,
+          "sampler_bit_depth": 3.1849999999999996,
+          "sampler_workflow": 9.850000000000001,
+          "sampler_classic_context": 26.064999999999998
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 8.600000000000001,
+          "turntable_technique": 7.590000000000002
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "comb_filter",
+          "envelope": "pad_env",
+          "modulation": "sample_hold"
+        },
+        "scores": {
+          "electronic_technique": 11.950000000000001,
+          "oscillator": 1.95,
+          "filter_topology": 1.54,
+          "envelope": 0.9299999999999999,
+          "modulation": 0.15
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "untreated_bedroom",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "dreampunk",
+  "name": "Dreampunk",
+  "family": "electronic",
+  "lineage": "Named around 2016 by the Dream Catalogue label under HKE in the wake of the 2 8 1 4 records, dreampunk slows vaporwave's sample logic into 60-80 BPM or beatless long-form ambient — heavily reverbed and time-stretched synth pads, dial-tone and rain field recordings, distant Mandarin or Japanese speech samples, tape hiss and cassette wow — arranged as continuous album-length dystopian-city atmospheres.",
+  "recipe": "classic mid-2010s dreampunk, experimental Elec, retro aesthetic branch, ambient experimental electric, lofi experimental electric dark ambient environmental. glitched textural granular sustained pad analog poly synth, sustained pad digital subtractive, tape replay keyboard, field textural sampler. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 415,
+  "score": 122.471,
+  "config": {
+    "traditions": [
+      "dreampunk",
+      "dark_ambient",
+      "environmental_music"
+    ],
+    "instruments": [
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 13.830000000000002,
+          "granular_use": 0.39,
+          "granular_synth_source": 8.32
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 11.824499999999999,
+          "va_archetypes": 0.585,
+          "digital_subtractive_context": 17.680000000000003
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "brass_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "tape_voice": 0.65,
+          "tape_state": 0.45499999999999996
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 13.830000000000002,
+          "sampler_archetypes": 0.15,
+          "sampler_bit_depth": 1.8850000000000002,
+          "sampler_workflow": 16.9748125,
+          "sampler_classic_context": 19.987500000000004
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 11.824499999999999,
+          "poly_archetypes": 0.65,
+          "poly_voices": 1.17,
+          "poly_maker_lineage": -0.385
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "carpeted_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_in_the_box"
+  }
+}

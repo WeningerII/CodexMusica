@@ -1,0 +1,118 @@
+{
+  "id": "acid_techno",
+  "name": "Acid Techno",
+  "family": "electronic",
+  "lineage": "Formed in London and Chicago between 1988 and 1993 and codified by Liberator DJs, Chris Liberator, Lochi and the Stay Up Forever label out of the UK squat-party circuit, built on a 135-150 BPM four-on-the-floor TR-909 kick with open-hat offbeats and one or more overdriven Roland TB-303 lines whose cutoff, resonance and accent are performed live over long single-chord loops with little or no vocal.",
+  "recipe": "classic Asian late-1980s acid techno, electronic Dance, techno branch, chicago house house, hardstyle electronic dance ghettotech acid house. roland tr 8s modern aira digital recreation TR-909, squelching classic acid monosynth acid bass, roland tr 8s modern aira digital recreation TR-808, roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, sampler. concrete basement. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 526,
+  "score": 154.392,
+  "config": {
+    "traditions": [
+      "acid_techno",
+      "ghettotech",
+      "acid_house"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 16.8,
+          "drum_machine_909_context": 8.709999999999999,
+          "tr909_production_origin": 3.415
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 20.294999999999998,
+          "wave_acid": 0.135,
+          "filter_acid": 3.765,
+          "accent_acid": 8.95
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.8600000000000003,
+          "drum_machine_808_context": 3.575,
+          "tr808_production_origin": 3.415
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "tb_303",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 20.294999999999998,
+          "mono_oscillator": 0,
+          "mono_filter": 0.39,
+          "mono_archetypes": 5.15,
+          "mono_maker_lineage": 6.835
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.7499999999999998,
+          "sampler_archetypes": 0.43499999999999994,
+          "sampler_bit_depth": 0.585,
+          "sampler_workflow": 1.7499999999999998,
+          "sampler_classic_context": 41.795
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_hk_cantopop_ballad_factory",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "id": "mafioso_rap",
+  "name": "Mafioso Rap",
+  "family": "hip_hop",
+  "lineage": "New York subgenre codified between 1992 and 1997 by Kool G Rap's 'Live and Let Die', Raekwon's 'Only Built 4 Cuban Linx' and Jay-Z's 'Reasonable Doubt', pairing organized-crime narrative personas with mid-tempo 85-95 BPM boom bap built on filtered soul and Italian-film-score samples, lush string and Rhodes loops, hard-swung MPC drums and conversational multisyllabic-rhyme delivery.",
+  "recipe": "classic North American early-1990s mafioso rap, mc Rhythm, east coast branch, us hip hop gangsta, soul R&B functional song. thick, rap, slow rate, interlocked note trading. chopped sampler, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 796,
+  "score": 397.325,
+  "config": {
+    "traditions": [
+      "mafioso_rap",
+      "gangsta_rap",
+      "hip_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 12.874999999999998,
+          "voice_quality": 26.044999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.6399999999999997,
+          "voice_articulation": 22.164999999999992,
+          "voice_microtone": 21.969999999999988,
+          "voice_tradition": 13.739999999999998,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 7.574999999999999,
+          "voice_speech_song": 27.469999999999995,
+          "voice_ensemble_config": 21.189999999999987,
+          "voice_ornament_system": 5.200000000000002,
+          "voice_pitch_organization": 1.435,
+          "voice_processing_chain": 22.369999999999997,
+          "voice_multitrack_stack": 3.3149999999999995
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 9.194999999999999,
+          "sampler_archetypes": 14.754999999999999,
+          "sampler_bit_depth": 2.99,
+          "sampler_workflow": 11.024999999999999,
+          "sampler_classic_context": 33.669999999999995
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 9.194999999999999,
+          "turntable_technique": 12.795
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 11.644999999999996,
+          "body_wood": 2.925,
+          "pickup_config": 0.45499999999999996,
+          "string_type": 11.472499999999998,
+          "scale_length_b": 2.925,
+          "fretted_or_not": 0.195,
+          "bass_technique": 9.45
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 9.5,
+          "rhodes_model": 3.3449999999999998,
+          "rhodes_use": 3.965,
+          "rhodes_tine_material": -0.7,
+          "rhodes_hammer_tip": 2.0149999999999997,
+          "rhodes_pickup_position": 1.3
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 8.459999999999999,
+          "grand_piano_size": 2.925,
+          "grand_piano_brand": 2.925,
+          "piano_hammer": 5.45,
+          "piano_rim": 5.81,
+          "piano_soundboard": 5,
+          "piano_pinblock": 0.975,
+          "piano_plate": 3.7375,
+          "piano_pitch_standard": 9.12
+        }
+      }
+    ],
+    "room": "nyc_bronx_hip_hop_block_party_studio",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_hit_factory_nyc_1991_92",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "nyc_bronx_hip_hop_block_party_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_hit_factory_nyc_1991_92"
+  }
+}

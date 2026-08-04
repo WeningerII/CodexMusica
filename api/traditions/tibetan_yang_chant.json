@@ -3,9 +3,9 @@
   "name": "Tibetan multiphonic yang chant",
   "family": "classical",
   "lineage": "Tibetan Buddhist monastic multiphonic yang chant tradition of the Gelug-school tantric colleges Gyuto and Gyume (founded 1474 and 1485, respectively, by Sherab Sengge, a direct disciple of Tsongkhapa). The yang chant technique produces a chest-register-pitched fundamental enriched with audible upper-partial overtones such that a single voice produces what sounds like a chord — the third, fifth, and sometimes higher partials being amplified into clearly audible voice-leading register. Multiple monks chanting in unison produce a thick texture of fundamental-plus-overtones across the assembly. Repertoire centers on the Lama Chöpa (Guru Puja), the Yamantaka tantric cycles, the Guhyasamaja tantric cycles, and the Chakrasamvara tantric cycles. Accompaniment by the canonical monastic-ensemble percussion: rolmo large paired cymbals, dril-bu small hand-bell, damaru double-headed hand-drum, dung-chen long telescoping copper-or-brass trumpet (the four-meter-long ceremonial instrument, played in pairs, capable of producing the very-low subharmonic that anchors the ensemble), rgya-gling double-reed oboe (the melodic-leading instrument when wind voices are present), and kangling thigh-bone trumpet (for specific wrathful-deity cycles). Huston Smith's 1967 Music of Tibet recordings (GemsTone GT1003-CD reissue 2005) and David Lewiston's 1971 Nonesuch Explorer H-72071 Tibetan Ritual Music constitute the principal Western-distributed documentation. Distinguished from Mongolian khoomei by Tibetan yang chant's ensemble (vs solo) and liturgical (vs secular) framework; distinguished from Sakya-school chant by Gelug-specific tantric-cycle repertoire; distinguished from Bön pre-Buddhist Tibetan chant by Buddhist tantric-text base.",
-  "recipe": "classic East Asian mid-1470s tibetan multiphonic yang chant, ritual Devotional, buddhist branch, overtone drone modal, east Asian Tibetan ritual tibetan ache lhamo opera tuvan throat singing. sygyt, breath veiled tone, slow rate, interlocked note trading. large paired bronze cymbals canonical Tibetan monastic yang chant ensemble canonical gelug monastic rolmo, conical bore double reed canonical Tibetan monastic gelug monastic ceremonial canonical Tibetan rgya gling, ceremonial copper brass telescoping silver inlay canonical Tibetan build gelug monastic yang chant ritual dung chen, double headed cord pellets rotated canonical Tibetan gelug monastic ritual canonical Tibetan damaru, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet.",
-  "recipe_chars": 845,
-  "score": 739.441,
+  "recipe": "classic East Asian mid-1470s tibetan multiphonic yang chant, ritual Devotional, buddhist branch, overtone drone modal, east Asian Tibetan ritual tibetan ache lhamo opera tuvan throat singing. sygyt, breath veiled tone, slow rate, interlocked note trading. large paired bronze cymbals canonical Tibetan monastic yang chant ensemble canonical gelug monastic rolmo, conical bore double reed canonical Tibetan monastic gelug monastic ceremonial canonical Tibetan rgya gling, ceremonial copper brass telescoping silver inlay canonical Tibetan build gelug monastic yang chant ritual dung chen, double headed cord pellets rotated canonical Tibetan gelug monastic ritual canonical Tibetan damaru, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato heavy one piece trumpet.",
+  "recipe_chars": 838,
+  "score": 730.327,
   "config": {
     "traditions": [
       "tibetan_yang_chant",
@@ -42,7 +42,7 @@
           "voice_articulation": 24.894999999999992,
           "voice_microtone": 26.389999999999993,
           "voice_tradition": 23.074999999999996,
-          "voice_mechanism_compound": 29.06,
+          "voice_mechanism_compound": 29.54,
           "voice_estill_quality": 13.909999999999997,
           "voice_speech_song": 25.089999999999996,
           "voice_ensemble_config": 31.394999999999996,
@@ -59,8 +59,8 @@
           "rolmo_tradition": "rolmo_yang_chant_ensemble_canonical"
         },
         "scores": {
-          "rolmo_body": 24.56375,
-          "rolmo_tradition": 30.31052083333333
+          "rolmo_body": 24.099999999999998,
+          "rolmo_tradition": 29.019999999999996
         }
       },
       {
@@ -70,8 +70,8 @@
           "rgya_gling_tradition": "rgya_gling_monastic_ceremonial_canonical"
         },
         "scores": {
-          "rgya_gling_body": 24.403062499999997,
-          "rgya_gling_tradition": 22.43125
+          "rgya_gling_body": 23.905,
+          "rgya_gling_tradition": 21.85
         }
       },
       {
@@ -83,8 +83,8 @@
         },
         "scores": {
           "dung_chen_length": 31.525,
-          "dung_chen_body": 17.7780625,
-          "dung_chen_tradition": 30.927958333333333
+          "dung_chen_body": 17.605000000000004,
+          "dung_chen_tradition": 29.134999999999998
         }
       },
       {
@@ -94,14 +94,14 @@
           "damaru_tradition": "damaru_gelug_ritual_canonical"
         },
         "scores": {
-          "damaru_body": 19.648,
-          "damaru_tradition": 27.4120625
+          "damaru_body": 19.555,
+          "damaru_tradition": 26.3
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_continuous_legato",
           "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "bucket_mute",
@@ -110,12 +110,12 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 5.785,
+          "wind_articulation": 5.864999999999999,
           "brass_size": 2.08,
-          "trumpet_mouthpiece": 9.62,
+          "trumpet_mouthpiece": 9.912499999999998,
           "brass_mute": 6.954999999999999,
           "trumpet_technique": 5.785,
-          "trumpet_bell_metal": 4.764375,
+          "trumpet_bell_metal": 4.545,
           "trumpet_maker_school": 3.835
         }
       },
@@ -129,7 +129,7 @@
         "scores": {
           "throat_mechanism_root": 12.22,
           "throat_overtone_target_region": 9.229999999999999,
-          "throat_singing_voice_region": 53.72864583333333
+          "throat_singing_voice_region": 52.12
         }
       },
       {
@@ -144,7 +144,7 @@
           "choir_size": 13.064999999999998,
           "choir_polyphonic_configuration": 10.4,
           "choir_regional_canonical_configuration": 8.774999999999999,
-          "choir_ensemble_repertoire": 6.984833333333334
+          "choir_ensemble_repertoire": 6.930000000000001
         }
       },
       {
@@ -155,9 +155,9 @@
           "gyaling_reed": "gyaling_arundo_canonical"
         },
         "scores": {
-          "gyaling_body": 21.2861875,
-          "gyaling_body_wood": 16.1280625,
-          "gyaling_reed": 18.4844375
+          "gyaling_body": 19.81,
+          "gyaling_body_wood": 15.955,
+          "gyaling_reed": 18.055
         }
       }
     ],

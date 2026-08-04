@@ -3,20 +3,20 @@
   "name": "Arabic madh and qasida (Arabic praise-poetry)",
   "family": "global",
   "lineage": "Arabic classical praise-poetry tradition continuous from pre-Islamic jāhiliyya-era qasida ode-form (the canonical pre-Islamic Mu'allaqat seven-poem collection) through medieval-Islamic-era continuous performance into modern Arabic-classical-poetry recitation practice; madh (praise) and qasida (extended-ode) are the canonical Arabic praise-poetry-and-song forms",
-  "recipe": "classic Middle Eastern early-1940s arabic madh and qasida, praise Song, middle east n African branch, indian subcontinent praise song, middle eastern classical art music, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, declaimed, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud. qat chew majlis room. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-  "recipe_chars": 485,
-  "score": 360.312,
+  "recipe": "classic Middle Eastern early-1940s arabic madh and qasida, praise Song, middle east n African branch, indian subcontinent praise song, middle eastern classical art music, med east poetic ballad poetry persian traditional music andalusī nūba. thick, declaimed, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud. qat chew majlis room. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 491,
+  "score": 334.88,
   "config": {
     "traditions": [
       "arabic_madh_qasida",
-      "andalusi_nuba",
-      "persian_dastgah"
+      "persian_traditional",
+      "andalusi_nuba"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.08,
-          "voice_quality": 19.674999999999994,
+          "voice_register": 1.6300000000000001,
+          "voice_quality": 19.71999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 25.564999999999998,
-          "voice_articulation": 10.594999999999994,
-          "voice_microtone": 40.592499999999994,
-          "voice_tradition": 45.64,
-          "voice_mechanism_compound": 26.439999999999994,
-          "voice_estill_quality": 22.724999999999994,
-          "voice_speech_song": 20.799999999999997,
-          "voice_ensemble_config": 11.309999999999995,
-          "voice_ornament_system": 42.105,
-          "voice_pitch_organization": 42.735,
-          "voice_processing_chain": 3.08,
+          "voice_vibrato": 21.404999999999998,
+          "voice_articulation": 11.374999999999995,
+          "voice_microtone": 40.12499999999999,
+          "voice_tradition": 41.06999999999999,
+          "voice_mechanism_compound": 22.789999999999996,
+          "voice_estill_quality": 19.644999999999996,
+          "voice_speech_song": 19.279999999999998,
+          "voice_ensemble_config": 12.739999999999995,
+          "voice_ornament_system": 39.55,
+          "voice_pitch_organization": 39.92499999999999,
+          "voice_processing_chain": 2.995,
           "voice_multitrack_stack": 3.705
         }
       },
@@ -56,7 +56,7 @@
         "id": "oud",
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
-          "oud_school": "oud_arab_classic",
+          "oud_school": "oud_turkish",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_horn",
           "oud_body_wood": "oud_walnut_body",
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 20.419999999999998,
-          "oud_school": 2.275,
-          "oud_strings": 10.79,
-          "oud_pick": 1.54,
-          "oud_body_wood": 3.2299999999999995,
-          "oud_soundboard_wood": 3.2299999999999995,
-          "oud_string_material": 4.029999999999999
+          "plucked_traditional_technique": 18.464999999999996,
+          "oud_school": 1.69,
+          "oud_strings": 9.749999999999998,
+          "oud_pick": 1.345,
+          "oud_body_wood": 3.1449999999999996,
+          "oud_soundboard_wood": 3.1449999999999996,
+          "oud_string_material": 4.335
         }
       }
     ],

@@ -1,0 +1,115 @@
+{
+  "id": "laptronica",
+  "name": "Laptronica",
+  "family": "electronic",
+  "lineage": "Late-1990s European and Japanese live-computer performance idiom named around 2001 and practiced by Oval, Ryoji Ikeda, Christian Fennesz and Kim Cascone, in which the laptop running Max/MSP or SuperCollider is the sole instrument, producing beatless or arrhythmic fields of sine tones, CD-skip artefacts, clicks and DSP feedback at extreme dynamic contrast with no vocals and no fixed meter.",
+  "recipe": "classic 1997-1999 laptronica, experimental Elec, idm glitch branch, musique concrete experimental electric, ambient experimental electric, industrial noise experimental electric death industrial dark ambient. evolving modular granular evolving modular modular glitched textural wavetable synth, sustained pad digital subtractive, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 502,
+  "score": 174.426,
+  "config": {
+    "traditions": [
+      "laptronica",
+      "death_industrial",
+      "dark_ambient"
+    ],
+    "instruments": [
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 20.175,
+          "granular_use": 0.045,
+          "granular_synth_source": 9.035
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 20.175,
+          "mod_voltage_source": 0,
+          "mod_patch_density": 3.7049999999999996,
+          "mod_lineage": 0.65
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": 19.92,
+          "wt_position": 3.324375,
+          "wt_family": 1.4300000000000002,
+          "wt_polyphony": 0.315
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 6.14875,
+          "va_archetypes": 0.34875,
+          "digital_subtractive_context": 17.744999999999997
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 19.92,
+          "sampler_archetypes": 0.53375,
+          "sampler_bit_depth": 2.08,
+          "sampler_workflow": 19.875,
+          "sampler_classic_context": 28.25
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

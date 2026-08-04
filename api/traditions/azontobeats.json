@@ -3,20 +3,20 @@
   "name": "Azontobeats",
   "family": "global",
   "lineage": "Ghanaian dance-driven pop that broke out of Accra between 2010 and 2013 around the azonto dance, codified by Sarkodie, EL, Guru and Fuse ODG in FL Studio bedroom sessions — a 120-130 BPM 4/4 built on a kpanlogo-derived clave-like handclap and rim pattern, syncopated 808 or gome bass on the offbeat, short bright synth marimba and pluck hooks, and interlocking Twi-and-pidgin rap-sung vocals with chanted crowd refrains naming the dance.",
-  "recipe": "classic early-2010s azontobeats, electronic Dance, African dance branch, African pop functional song, west African groove percussion, Afro-diasporic MC rhythm congolese rumba south african pop. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sampler drum machine, syncopated improvising lead voice kpanlogo, gome drum, singing lead analog mono synth, snappy thin to palm hand clap. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe": "classic early-2010s azontobeats, electronic Dance, African dance branch, African pop functional song, west African groove percussion, Afro-diasporic MC rhythm sungura rumba congolaise. extended whistle, breath veiled tone, straight onset, interlocked note trading. TR-808, sampler drum machine, syncopated improvising lead voice kpanlogo, gome drum, singing lead analog mono synth, bright flat sharp hand clap. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
   "recipe_chars": 586,
-  "score": 257.985,
+  "score": 238.915,
   "config": {
     "traditions": [
       "azontobeats",
-      "congolese_rumba",
-      "south_african_pop"
+      "sungura",
+      "rumba_congolaise"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 21.544999999999995,
-          "voice_quality": 13.97499999999999,
+          "voice_register": 14.104999999999997,
+          "voice_quality": 12.349999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.6875,
-          "voice_articulation": 22.490000000000002,
-          "voice_microtone": 22.294999999999998,
-          "voice_tradition": 26.8125,
-          "voice_mechanism_compound": 2.73,
-          "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 27.494999999999997,
-          "voice_ensemble_config": 23.269999999999996,
-          "voice_ornament_system": 0.7149999999999996,
-          "voice_pitch_organization": 1.775,
-          "voice_processing_chain": 7.760000000000002,
-          "voice_multitrack_stack": 5.07
+          "voice_vibrato": 4.42,
+          "voice_articulation": 23.4,
+          "voice_microtone": 23.205000000000002,
+          "voice_tradition": 21.254999999999995,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 1.9499999999999997,
+          "voice_speech_song": 28.73,
+          "voice_ensemble_config": 21.84,
+          "voice_ornament_system": 2.2099999999999995,
+          "voice_pitch_organization": 2.3,
+          "voice_processing_chain": 7.385000000000002,
+          "voice_multitrack_stack": 6.825000000000001
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.915,
-          "drum_machine_808_context": 4.3549999999999995,
+          "tr808_voice": 3.615,
+          "drum_machine_808_context": 3.77,
           "tr808_production_origin": 0.675
         }
       },
@@ -69,15 +69,15 @@
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
+          "sample_bitdepth": "twenty_four_bit",
           "sample_swing": "tight_swing",
           "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0.195,
-          "sample_swing": 4.625,
-          "sample_processing": 1.04
+          "sample_bitdepth": 1.15,
+          "sample_swing": 3.75,
+          "sample_processing": 0.845
         }
       },
       {
@@ -89,10 +89,10 @@
           "kpanlogo_idiom": "kpanlogo_traditional_nono_fao"
         },
         "scores": {
-          "kpanlogo_seat": 5.329999999999999,
-          "kpanlogo_set": 2.375,
+          "kpanlogo_seat": 4.484999999999999,
+          "kpanlogo_set": 3.2249999999999996,
           "kpanlogo_head": 2.1399999999999997,
-          "kpanlogo_idiom": 22.869999999999997
+          "kpanlogo_idiom": 21.095
         }
       },
       {
@@ -102,8 +102,8 @@
           "gome_size": "gome_small"
         },
         "scores": {
-          "gome_technique": 3.665,
-          "gome_size": 0.39
+          "gome_technique": 3.365,
+          "gome_size": 0.98
         }
       },
       {
@@ -116,22 +116,22 @@
           "mono_maker_lineage": "mono_arp_pearlman"
         },
         "scores": {
-          "electronic_technique": 16.54,
+          "electronic_technique": 11.114999999999998,
           "mono_oscillator": 0.525,
-          "mono_filter": 0.39,
-          "mono_archetypes": 2.08,
-          "mono_maker_lineage": -1.12
+          "mono_filter": 0.19500000000000003,
+          "mono_archetypes": 1.69,
+          "mono_maker_lineage": -1.435
         }
       },
       {
         "id": "hand_clap",
         "slots": {
-          "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_room_natural"
+          "clap_technique": "clap_flat_sharp",
+          "clap_capture": "clap_close_dry"
         },
         "scores": {
-          "clap_technique": 2.015,
-          "clap_capture": 0.65
+          "clap_technique": 1.3,
+          "clap_capture": 0.585
         }
       }
     ],

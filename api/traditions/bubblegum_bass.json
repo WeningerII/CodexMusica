@@ -1,0 +1,127 @@
+{
+  "id": "bubblegum_bass",
+  "name": "Bubblegum Bass",
+  "family": "electronic",
+  "lineage": "Codified in London from 2013 by A. G. Cook's PC Music label together with SOPHIE and QT, bubblegum bass sets 130-150 BPM hard-clipped square and rubbery FM bass leads under extremely pitch-shifted, formant-raised and heavily retuned female vocals, borrowing eurodance and J-pop chord loops while treating hyper-glossy commercial sheen and synthetic textures as an explicit conceptual stance.",
+  "recipe": "classic early-2010s bubblegum bass, experimental Elec, pop experimental branch, eurodance electronic dance, pop rock synthpop new romanticism wonky pop. singing lead digital subtractive, yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead wavetable synth, 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack, TR-909, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 632,
+  "score": 110.167,
+  "config": {
+    "traditions": [
+      "bubblegum_bass",
+      "new_romantic",
+      "wonky_pop"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 21.584999999999997,
+          "va_archetypes": 0.39,
+          "digital_subtractive_context": 18.915
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 21.584999999999997,
+          "fm_algorithm": 0.645,
+          "fm_modulator_ratio": 0.525,
+          "fm_polyphony": 0.845,
+          "fm_model_lineage": 10.204999999999998
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.845,
+          "multitrack_stack_era_aesthetic": 1.7225,
+          "multitrack_stack_processing": 3.34
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 21.584999999999997,
+          "wt_position": 2.8600000000000003,
+          "wt_family": 0.39,
+          "wt_polyphony": 0.845
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 1.39,
+          "tr909_production_origin": 0.24
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_many_bands",
+          "voc_carrier": "voc_saw_carrier",
+          "voc_modulator": "voc_drum_mod"
+        },
+        "scores": {
+          "voc_band_count": 0.39,
+          "voc_carrier": 0.24,
+          "voc_modulator": 1.45
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

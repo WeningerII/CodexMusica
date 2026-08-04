@@ -1,0 +1,163 @@
+{
+  "id": "corridos_belicos",
+  "name": "Corridos bélicos",
+  "family": "global",
+  "lineage": "Militarized narco-corrido strain that emerged in Sinaloa, Michoacán and Guerrero in the mid-2000s and hardened through the 2010s, sung over tuba-and-charchetas banda or a guitar-tololoche-requinto conjunto at 80–120 BPM in 3/4 vals and 2/4, with gunfire and radio-chatter samples, chanted gritos naming commanders, and a declamatory shouted-tenor vocal that abandons the older corrido's narrative distance for first-person boasting.",
+  "recipe": "classic 2004-2006 corridos bélicos, functional Song, corrido branch, Mexican functional song, intl hip hop MC rhythm grupera hawaiian hip hop. vocal fry, breath veiled tone, slow rate, interlocked note trading. compact tuba brass tuba, schilke chicago lead bright shallow cup lead trumpet unison trumpet, cedar nylon classical nylon-string guitar, tololoche, double bass rapid double strokes bass drum. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 596,
+  "score": 171.915,
+  "config": {
+    "traditions": [
+      "corridos_belicos",
+      "grupera",
+      "hawaiian_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_miraphone_german"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "tuba_pitch": 1.69,
+          "tuba_context": 2.34,
+          "tuba_bell_metal": 0.195,
+          "tuba_valve_system": 0.8250000000000001,
+          "tuba_maker_school": 0.8250000000000001
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_mariachi_unison",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_mariachi_unison",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 1.25,
+          "brass_size": 0.15,
+          "trumpet_mouthpiece": 1.56,
+          "brass_mute": 0.3,
+          "trumpet_technique": 1.25,
+          "trumpet_bell_metal": 0.845,
+          "trumpet_maker_school": 1.4300000000000002
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 1.1643749999999997,
+          "string_tuning": 0,
+          "top_wood_classical": 7.865,
+          "bracing_classical": 0.195,
+          "string_classical": 1.19,
+          "attack_technique_cl": 1.24
+        }
+      },
+      {
+        "id": "tololoche",
+        "slots": {
+          "tololoche_size": "tololoche_three_string",
+          "tololoche_technique": "tololoche_bowed"
+        },
+        "scores": {
+          "tololoche_size": 2.145,
+          "tololoche_technique": 0.15
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.74,
+          "bass_drum_beater": 2.145
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.45,
+          "voice_quality": 10.854999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 22.034999999999993,
+          "voice_microtone": 22.749999999999996,
+          "voice_tradition": 8.45,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 27.429999999999996,
+          "voice_ensemble_config": 20.929999999999996,
+          "voice_ornament_system": 1.4499999999999997,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 4.415625,
+          "voice_multitrack_stack": 7.67
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "ranchera_3_4_and_2_4",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

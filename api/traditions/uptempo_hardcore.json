@@ -1,0 +1,139 @@
+{
+  "id": "uptempo_hardcore",
+  "name": "Uptempo Hardcore",
+  "family": "electronic",
+  "lineage": "Consolidated in the Netherlands and Belgium circa 2014-2018 out of the raw hardcore scene via producers such as N-Vitral, Dr Donk, Lunatic and Killshot on labels like Barbaric Records and Triumph — running 200-260 BPM with a short, brutally clipped and pitched kick programmed in rolling triplet and gabber-roll patterns, screamed or pitch-shifted vocal shouts, and drops built from kick-pattern variation rather than melody.",
+  "recipe": "classic 2014-2018 uptempo hardcore, electronic Dance, hardstyle branch, techno electronic dance, industrial noise experimental electric free tekno peak-time techno. vocal fry, breath veiled tone, wide pitch sway, interlocked note trading. TR-909, digital subtractive, sampler drum machine, analog mono synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 517,
+  "score": 198.115,
+  "config": {
+    "traditions": [
+      "uptempo_hardcore",
+      "free_tekno",
+      "peak_techno"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 1.265,
+          "drum_machine_909_context": 1.4300000000000002,
+          "tr909_production_origin": 0.13499999999999998
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 1.885,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 18.134999999999998
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0.3,
+          "sample_swing": 16.530625,
+          "sample_processing": 1.365
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.79,
+          "voice_quality": 8.384999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5000000000000004,
+          "voice_articulation": 20.019999999999996,
+          "voice_microtone": 18.134999999999994,
+          "voice_tradition": 5.7200000000000015,
+          "voice_mechanism_compound": 13.253124999999999,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 21.514999999999997,
+          "voice_ensemble_config": 19.109999999999992,
+          "voice_ornament_system": 1.69,
+          "voice_pitch_organization": 1.545,
+          "voice_processing_chain": 18.113750000000003,
+          "voice_multitrack_stack": 5.07
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_arp_pearlman"
+        },
+        "scores": {
+          "electronic_technique": 11.875,
+          "mono_oscillator": 0,
+          "mono_filter": 0.32499999999999996,
+          "mono_archetypes": 0.975,
+          "mono_maker_lineage": -1.435
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

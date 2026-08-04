@@ -3,14 +3,14 @@
   "name": "Piseiro",
   "family": "global",
   "lineage": "Brazilian Northeastern dance-pop offshoot of forró that crystallized in Bahia and Pernambuco around 2015-2019 through Barões da Pisadinha, Zé Vaqueiro and João Gomes, built on a MIDI-keyboard 'pisadinha' groove at 95-115 BPM in which a programmed zabumba-and-triangle pattern lands hard on beat one under bright arpeggiated teclado hooks, sanfona countermelody, and plainspoken tenor vocals about rural romance and heartbreak.",
-  "recipe": "classic South American 2015-2019 piseiro, functional Song, Brazilian song branch, Brazilian groove percussion, tropical song functional song pagode velha guarda. extended whistle, breath veiled tone, straight onset, interlocked note trading. piano accordion, forró tradition baião tradition low stick with high bacalhau buzz zabumba, singing lead analog poly synth, electric bass, sampler drum machine. recife brazilian northeast forro house. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 541,
-  "score": 154.157,
+  "recipe": "classic South American 2015-2019 piseiro, functional Song, Brazilian song branch, Brazilian groove percussion, tropical song functional song cumbia argentina roda de samba. extended whistle, breath veiled tone, fast rate, interlocked note trading. piano accordion, forró tradition baião tradition low stick with high bacalhau buzz zabumba, singing lead analog poly synth, heavy gauge flatwound la bella flats Detroit soul bass canon electric bass, sampler drum machine. recife brazilian northeast forro house. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 608,
+  "score": 135.245,
   "config": {
     "traditions": [
       "piseiro",
-      "pagode",
-      "velha_guarda"
+      "cumbia_argentina",
+      "roda_de_samba"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -29,38 +29,38 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 4.16,
-          "voice_quality": 23.43249999999999,
+          "voice_register": 3.6725000000000003,
+          "voice_quality": 13.389999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0149999999999997,
-          "voice_articulation": 19.369999999999994,
-          "voice_microtone": 19.17499999999999,
-          "voice_tradition": 5.784999999999999,
-          "voice_mechanism_compound": 3.7049999999999996,
-          "voice_estill_quality": 3.5100000000000002,
+          "voice_vibrato": 0.645,
+          "voice_articulation": 18.32999999999999,
+          "voice_microtone": 17.87499999999999,
+          "voice_tradition": 7.734999999999998,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 2.34,
           "voice_speech_song": 26.714999999999993,
-          "voice_ensemble_config": 20.34499999999999,
-          "voice_ornament_system": 1.8449999999999998,
-          "voice_pitch_organization": 0.9749999999999996,
-          "voice_processing_chain": 3.705,
-          "voice_multitrack_stack": 5.654999999999999
+          "voice_ensemble_config": 18.589999999999993,
+          "voice_ornament_system": 1.1049999999999998,
+          "voice_pitch_organization": 0.8849999999999998,
+          "voice_processing_chain": 4.42,
+          "voice_multitrack_stack": 2.1125
         }
       },
       {
         "id": "piano_accordion",
         "slots": {
-          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "free_reed_technique": "free_reed_chromatic_jazz",
           "pa_size": "pa_72_bass",
           "pa_use": "pa_polka"
         },
         "scores": {
-          "free_reed_technique": 1.7225000000000001,
+          "free_reed_technique": 0.325,
           "pa_size": 0.045,
           "pa_use": 0.045
         }
@@ -73,7 +73,7 @@
         },
         "scores": {
           "zabumba_shell": 0.585,
-          "zabumba_technique": 4.289999999999999
+          "zabumba_technique": 2.535
         }
       },
       {
@@ -85,8 +85,8 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 4.13,
-          "poly_archetypes": 0.585,
+          "electronic_technique": 3.305,
+          "poly_archetypes": 1.3499999999999999,
           "poly_voices": 0.195,
           "poly_maker_lineage": -1.225
         }
@@ -97,19 +97,19 @@
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "thomastik_jazz_bass_flat",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 1.105,
-          "body_wood": 0.645,
+          "amp_make": 1.17,
+          "body_wood": 0.195,
           "pickup_config": 0.645,
-          "string_type": 0.6824999999999999,
-          "scale_length_b": 0.195,
-          "fretted_or_not": 0.195,
-          "bass_technique": 0.6099999999999999
+          "string_type": 1.755,
+          "scale_length_b": 0.43500000000000005,
+          "fretted_or_not": 0.15,
+          "bass_technique": 0.585
         }
       },
       {
@@ -122,7 +122,7 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0.195,
+          "sample_bitdepth": 0.43499999999999994,
           "sample_swing": 0,
           "sample_processing": 0.195
         }

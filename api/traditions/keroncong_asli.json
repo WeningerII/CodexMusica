@@ -1,0 +1,207 @@
+{
+  "id": "keroncong_asli",
+  "name": "Keroncong asli (Indonesian kroncong classic form)",
+  "family": "global",
+  "lineage": "Urban Indonesian song style descended from 16th-century Portuguese-Eurasian moresco fado brought by Mardijker communities to Batavia, standardised in the early 20th century as the 28-bar keroncong asli form by Jakarta and Solo ensembles and popularised on radio by Gesang and Waldjinah — a slow to moderate 4/4 at 60–90 BPM in which cak (high ukulele) plays offbeat strums, cuk answers on the beat, cello is plucked pizzicato as a kendang substitute, double bass walks sparse roots and violin and flute weave heterophonic countermelody under a light, straight-toned vocal with slow terminal vibrato.",
+  "recipe": "classic Southeast Asian early-1950s keroncong asli, functional Song, east Asian pop branch, tropical song functional song, chanson fado ballad poetry greek éntechno. thick, lament wail, slow rate, interlocked note trading. ukulele, venice catlin high twist renaissance bass carpathian spruce European maple cello, venice catlin high twist renaissance bass carpathian spruce European maple double bass, sitka spruce European maple sycamore maple oil varnish amber tinted violin orchestral, silver yamaha modern Japanese mid to premium flute, parlor classic steel silk fingerpicked parlor acoustic guitar. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 814,
+  "score": 296.93,
+  "config": {
+    "traditions": [
+      "keroncong_asli",
+      "greek_entechno",
+      "fado"
+    ],
+    "instruments": [
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_baritone",
+          "ukulele_style": "ukulele_fingerstyle",
+          "ukulele_wood": "ukulele_koa"
+        },
+        "scores": {
+          "ukulele_size": 1.365,
+          "ukulele_style": 0.5199999999999999,
+          "ukulele_wood": 0.78
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "venice_catlin_cello",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 4.75,
+          "cello_strings": 2.535,
+          "cello_top_wood": 3.395,
+          "cello_back_wood": 5.77,
+          "cello_varnish": 5.375,
+          "cello_setup_period": 9.145,
+          "cello_bow_grip": 1.5,
+          "cello_rosin": 6.824999999999999,
+          "cello_bow_stick": 5.4750000000000005
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 4.75,
+          "bass_size": 0,
+          "bass_strings": 2.535,
+          "bass_top_wood": 3.395,
+          "bass_back_wood": 5.77,
+          "bass_varnish": 5.375,
+          "bass_setup_period": 9.145,
+          "bass_play": 1.2349999999999999,
+          "bass_rosin": 8.8,
+          "bass_bow_stick": 5.4750000000000005
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 4.75,
+          "orch_strings": 0.845,
+          "orch_top_wood": 6.614999999999999,
+          "orch_back_wood": 5.77,
+          "orch_varnish": 5.375,
+          "orch_setup_period": 9.145,
+          "orch_bow": 0.39,
+          "orch_bow_stick": 5.4750000000000005,
+          "orch_articulation": 0.585,
+          "orch_rosin": 5.72
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "flute_size": "piccolo_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 2.5,
+          "flute_size": 0.65,
+          "flute_material": 2.145,
+          "flute_technique": 1.6899999999999997,
+          "flute_maker_school": 5.425
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "rosewood_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
+        },
+        "scores": {
+          "acoustic_technique": 5.45,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.65,
+          "back_sides_parlor": 0.45,
+          "string_acoustic_parlor": 1.15
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fado_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 7.57,
+          "voice_quality": 12.09,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.5,
+          "voice_articulation": 12.609999999999996,
+          "voice_microtone": 14.462499999999995,
+          "voice_tradition": 17.339999999999996,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 5.485,
+          "voice_speech_song": 23.66,
+          "voice_ensemble_config": 13.389999999999997,
+          "voice_ornament_system": 3.3350000000000004,
+          "voice_pitch_organization": 5.995,
+          "voice_processing_chain": 6.8500000000000005,
+          "voice_multitrack_stack": 7.1825
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_china_record_state_broadcast",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

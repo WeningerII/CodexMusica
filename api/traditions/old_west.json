@@ -1,0 +1,175 @@
+{
+  "id": "old_west",
+  "name": "Old West frontier music",
+  "family": "country",
+  "lineage": "Nineteenth-century Anglo-American frontier repertoire of the trans-Mississippi West (roughly 1840s-1890s), carried by soldiers, freighters, miners and trail crews and later salvaged by collectors John A. Lomax (Cowboy Songs, 1910) and N. Howard 'Jack' Thorp — solo or duo performance of parlor sentimental songs, broadside ballads and Anglo-Celtic fiddle tunes on fiddle in cross-tuning, gut-strung parlor guitar and harmonica, sung in an unforced declamatory chest voice with free rubato in ballads and a hard-driving 2/4 or 6/8 in the dance tunes.",
+  "recipe": "classic mid-1840s old west frontier music, functional Song, pre commercial branch, anglo singer song country folk story, anglo American protest song texas country-folk storyteller american folk-revival protest song. thick, breath veiled tone, straight note core, interlocked note trading. plain gut sheep gut double stops fiddle, dadgad tuning mahogany plain gut sheep gut pre 1900 parlor parlor acoustic guitar, pearwood marine band tradition stainless steel steel solo canonical chromatic harmonica, wood plain gut minstrel pre 1860s fretless canon scruggs stelling banjo 5 string, american reed organ. adobe room. acoustic horn. wax cylinder.",
+  "recipe_chars": 645,
+  "score": 296.423,
+  "config": {
+    "traditions": [
+      "old_west",
+      "texas_country_folk_storyteller",
+      "american_folk_revival_protest"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "plain_sheep_gut_fiddle",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "pizz"
+        },
+        "scores": {
+          "bowed_technique": 19.974999999999998,
+          "fiddle_strings": 3.7700000000000005,
+          "fiddle_bow": 0.16250000000000014,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.7735
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "dadgad",
+          "top_wood_parlor": "mahogany_top_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "gut_pre_1900_p"
+        },
+        "scores": {
+          "acoustic_technique": 22.296499999999998,
+          "string_tuning": 4.1000000000000005,
+          "top_wood_parlor": 1.042,
+          "back_sides_parlor": 0.7735,
+          "string_acoustic_parlor": 6.776875
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "octave_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "stainless_harm",
+          "harmonica_technique": "harm_folk_first_position",
+          "harmonica_maker_school": "harmonica_hering_brazilian",
+          "harmonica_tuning": "harmonica_solo_chromatic"
+        },
+        "scores": {
+          "harmonica_type": 0.2415,
+          "harmonica_comb": 2.145,
+          "harmonica_reed": 1.898,
+          "harmonica_technique": 24.889999999999997,
+          "harmonica_maker_school": 0,
+          "harmonica_tuning": 1.2638749999999999
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_gut_minstrel",
+          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.195,
+          "tone_ring": 1.6945,
+          "banjo_head": 15.794999999999998,
+          "banjo_pot": 0.195,
+          "banjo_play": 1.4575,
+          "banjo_rim_wood": 0.39,
+          "banjo_neck_wood": 0.52,
+          "banjo_strings": 1.1700000000000002,
+          "banjo_bridge": 0.325,
+          "banjo_setup_period": 15.534999999999997
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 22.906499999999998,
+          "voice_quality": 8.515,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 15.339999999999998,
+          "voice_articulation": 15.404999999999994,
+          "voice_microtone": 15.209999999999992,
+          "voice_tradition": 18.008125,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 15.971999999999998,
+          "voice_speech_song": 25.934999999999995,
+          "voice_ensemble_config": 17.224999999999994,
+          "voice_ornament_system": 4.9311250000000015,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 4.424375,
+          "voice_multitrack_stack": 1.17
+        }
+      },
+      {
+        "id": "american_reed_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "reed_organ_form": "reed_organ_folding",
+          "reed_organ_stops": "reed_organ_diapason",
+          "reed_organ_bellows": "reed_organ_steady"
+        },
+        "scores": {
+          "keyboard_technique": 2.8015,
+          "reed_organ_form": 0.363,
+          "reed_organ_stops": 0.39,
+          "reed_organ_bellows": 0.0315
+        }
+      }
+    ],
+    "room": "adobe_room",
+    "archetype": "arch_wax_cylinder_ethnographic",
+    "inline_chain": {
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "cross_tuning_fiddle",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cross_tuning_fiddle",
+    "room": "adobe_room",
+    "chain_mic": "mic_acoustic_horn_pre1925",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "shellac_78",
+    "chain_console": "clean"
+  }
+}

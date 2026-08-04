@@ -1,0 +1,192 @@
+{
+  "id": "nuevo_flamenco",
+  "name": "Nuevo Flamenco",
+  "family": "global",
+  "lineage": "Madrid and Andalusian scene of the late 1970s-1980s, codified by Paco de Lucía's sextet, Camarón's 'La Leyenda del Tiempo' (1979), Ketama, Pata Negra and Lole y Manuel, keeping flamenco's 12-beat compás and Phrygian cadence while adding Peruvian cajón, electric bass, Latin percussion, jazz and Brazilian harmony, saxophone or flute lines, and studio-produced song forms alongside traditional palmas and cante jondo delivery.",
+  "recipe": "classic Los Angeles 1977-1979 nuevo flamenco, functional Song, iberian branch, string improv improv on frame flamenco guitar cimbálová muzika. thick, nasal, straight onset, interlocked note trading. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco cedar nylon fan strum classical nylon-string guitar, festejo tradition marinera tradition open back Afro peruvian tradition cajon peruano, hand clap, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, open slap hand drum congas. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 875,
+  "score": 246.873,
+  "config": {
+    "traditions": [
+      "nuevo_flamenco",
+      "flamenco_guitar_toque",
+      "cimbalova_muzika"
+    ],
+    "instruments": [
+      {
+        "id": "flamenco_guitar",
+        "slots": {
+          "flamenco_body": "flamenco_blanca_cypress",
+          "flamenco_features": "flamenco_low_action_golpe_plate",
+          "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
+        },
+        "scores": {
+          "flamenco_body": 6.499999999999999,
+          "flamenco_features": 3.1399999999999997,
+          "flamenco_technique": 6.434999999999999
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_open_back",
+          "cajon_peruano_role": "cajon_peruano_marinera"
+        },
+        "scores": {
+          "cajon_peruano_construction": 1.3,
+          "cajon_peruano_role": 0.885
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_cupped_muffled",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.65,
+          "clap_capture": 0.15
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 3.315000000000001,
+          "body_wood": 0.65,
+          "pickup_config": 0.65,
+          "string_type": 4.65,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.39,
+          "bass_technique": 3.73
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "nasal_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "flamenco_jondo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 4.320000000000001,
+          "voice_quality": 7.999999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.085,
+          "voice_articulation": 22.1,
+          "voice_microtone": 21.904999999999998,
+          "voice_tradition": 16.564999999999998,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 13.194999999999999,
+          "voice_speech_song": 25.707500000000003,
+          "voice_ensemble_config": 22.489999999999995,
+          "voice_ornament_system": 11.839999999999998,
+          "voice_pitch_organization": 1.695,
+          "voice_processing_chain": 8.275,
+          "voice_multitrack_stack": 6.185000000000001
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 0.52,
+          "sax_size": 0.65,
+          "sax_reed": 0.345,
+          "sax_body_alloy": 5.15,
+          "sax_mouthpiece": 2.145,
+          "sax_technique": 3.34,
+          "sax_maker_school": 4.16
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 4.220000000000001,
+          "conga_set": 0.845,
+          "conga_skin": 0.15,
+          "conga_shell_wood": 0.15
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "rasgueado_cl"
+        },
+        "scores": {
+          "acoustic_technique": 1.56,
+          "string_tuning": 0,
+          "top_wood_classical": 4.03,
+          "bracing_classical": 1.645,
+          "string_classical": 1.4299999999999997,
+          "attack_technique_cl": 8.974999999999998
+        }
+      }
+    ],
+    "room": "studio_small_la_chambers",
+    "archetype": "arch_60s_la_smallroom_chambers",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "flamenco_compas_12_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "flamenco_compas_12_beat",
+    "room": "studio_small_la_chambers",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

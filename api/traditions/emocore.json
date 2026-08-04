@@ -1,0 +1,179 @@
+{
+  "id": "emocore",
+  "name": "Emocore",
+  "family": "rock_punk",
+  "lineage": "The mid-1990s Midwest and Pacific Northwest development of DC emotional hardcore, carried by Cap'n Jazz, Braid, Sunny Day Real Estate, Jawbreaker and Texas Is the Reason circa 1992-1998 — twin-guitar interlocking arpeggios in odd or shifting meters, loud-quiet dynamic architecture, busy tom-heavy drumming, and strained tenor vocals that break into shouts, tracked to analog tape at mid-budget indie studios.",
+  "recipe": "classic Pacific Northwest mid-1990s emocore, distorted Rock, emo branch, alternative distorted rock, pop punk distorted rock oshare kei skate punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 783,
+  "score": 435.562,
+  "config": {
+    "traditions": [
+      "emocore",
+      "oshare_kei",
+      "skate_punk"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "stainless",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 12.999999999999998,
+          "amp_make": 30.192500000000003,
+          "body_wood": 3.575,
+          "neck_wood": 3.575,
+          "fretboard": 3.5100000000000002,
+          "pickup_magnet": 0.585,
+          "string_material": 0.3107142857142857,
+          "string_gauge": 3.575,
+          "bridge": 0.975,
+          "scale_length": 3.575,
+          "finish": 0.15,
+          "string_tuning": 11.505000000000003
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "stainless_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 12.999999999999998,
+          "amp_make": 30.192500000000003,
+          "body_wood": 4.03,
+          "neck_wood": 3.575,
+          "fretboard": 3.5100000000000002,
+          "pickup_magnet": 0.65,
+          "pickup_winding": 1.885,
+          "string_material": 0.3107142857142857,
+          "bridge": 3.575,
+          "scale_length": 3.575,
+          "string_gauge": 3.575,
+          "finish": 0.15,
+          "string_tuning": 11.96
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 11.115,
+          "body_wood": 3.575,
+          "pickup_config": 0.39,
+          "string_type": 24.2125,
+          "scale_length_b": 3.575,
+          "fretted_or_not": 0,
+          "bass_technique": 30.4
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.673214285714284,
+          "drumhead": 9.45,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 31.665714285714284,
+          "voice_quality": 8.385,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.5100000000000002,
+          "voice_articulation": 16.50999999999999,
+          "voice_microtone": 30.625,
+          "voice_tradition": 11.128214285714284,
+          "voice_mechanism_compound": 17.0625,
+          "voice_estill_quality": 1.8849999999999996,
+          "voice_speech_song": 18.394999999999992,
+          "voice_ensemble_config": 21.53875,
+          "voice_ornament_system": 2.45,
+          "voice_pitch_organization": 3.770000000000001,
+          "voice_processing_chain": 6.890000000000001,
+          "voice_multitrack_stack": 2.665000000000001
+        }
+      }
+    ],
+    "room": "studio_pacnw_commercial_indie",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_api_312",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_pacnw_commercial_indie",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

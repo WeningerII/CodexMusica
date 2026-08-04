@@ -5,7 +5,7 @@
   "lineage": "Filipino kundiman romantic art-song genre emerging in the nineteenth century from the Tagalog-Visayan folk-courtship-song tradition, codified into formal art-song repertoire by Spanish-period and early-American-period composers. Characterized by the canonical kundiman structure: opening minor-key verse followed by major-key chorus, in slow 3/4 meter with characteristic rubato. Lyrical content addresses love, loss, devotion, and (in the Philippine Revolution period) covert nationalist-political symbolism (the beloved as metaphor for the Philippine homeland). Francisco Santiago, Nicanor Abelardo, and Antonio Molina constitute the early-twentieth-century compositional canon; Atang de la Rama and Sylvia La Torre are the canonical mid-twentieth-century interpreters.",
   "recipe": "classic Mexican mid-1930s filipino kundiman, ballad Poetry, Latin am troubadour branch, iberian functional song galician kantautor and folk-pop canzone napoletana. thick, breath veiled tone, slow rate, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 537,
-  "score": 226.681,
+  "score": 227.447,
   "config": {
     "traditions": [
       "filipino_kundiman",
@@ -41,12 +41,12 @@
           "voice_vibrato": 5.85,
           "voice_articulation": 13.454999999999995,
           "voice_microtone": 16.834999999999994,
-          "voice_tradition": 18.186999999999994,
+          "voice_tradition": 18.194999999999993,
           "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 7.679999999999999,
+          "voice_estill_quality": 7.769999999999999,
           "voice_speech_song": 25.804999999999996,
           "voice_ensemble_config": 14.039999999999994,
-          "voice_ornament_system": 5.690000000000001,
+          "voice_ornament_system": 6.215000000000001,
           "voice_pitch_organization": 10.724999999999996,
           "voice_processing_chain": 7.539999999999998,
           "voice_multitrack_stack": 4.1274999999999995
@@ -62,7 +62,7 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 14.676499999999995,
+          "acoustic_technique": 14.644999999999996,
           "string_tuning": 0.12499999999999997,
           "top_wood_parlor": 2.3850000000000002,
           "back_sides_parlor": 0,
@@ -86,12 +86,12 @@
           "keyboard_technique": 1.4,
           "grand_piano_size": 2.3850000000000002,
           "grand_piano_brand": 4.97,
-          "piano_hammer": 3.8805,
+          "piano_hammer": 3.725,
           "piano_rim": 6.695,
           "piano_soundboard": 5.005,
           "piano_pinblock": 2.5,
           "piano_plate": 2.695,
-          "piano_pitch_standard": 12.41
+          "piano_pitch_standard": 12.74
         }
       }
     ],

@@ -1,0 +1,203 @@
+{
+  "id": "texas_blues",
+  "name": "Texas Blues",
+  "family": "blues_gospel",
+  "lineage": "Blues lineage running from Blind Lemon Jefferson's 1920s Dallas recordings through T-Bone Walker's 1940s Houston-Los Angeles electrification to Freddie King, Albert Collins, Johnny Winter and Stevie Ray Vaughan — marked by single-note horn-like guitar lines with wide string bends, jazz-inflected ninth and thirteenth chord voicings, swung shuffles at 100-160 BPM over a walking or boogie bass, frequent horn or organ backing, and a loose, elastic vocal phrasing that floats across the barline.",
+  "recipe": "classic Los Angeles mid-1920s texas blues, functional Song, blues electric branch, classic distorted rock, American jazz kansas city kansas city blues. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric parlor acoustic guitar, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 872,
+  "score": 405.108,
+  "config": {
+    "traditions": [
+      "texas_blues",
+      "kansas_city_jazz",
+      "kansas_city_blues"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 2.4925000000000006,
+          "amp_make": 7.052500000000001,
+          "body_wood": 0.885,
+          "neck_wood": 0.885,
+          "fretboard": 0.65,
+          "pickup_magnet": 0.65,
+          "string_material": 0.65,
+          "string_gauge": 0.885,
+          "bridge": 0.3,
+          "scale_length": 1.7700000000000002,
+          "finish": 0.435,
+          "string_tuning": 11.375
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 9.4375,
+          "body_wood": 1.7700000000000002,
+          "pickup_config": 1.0474999999999999,
+          "string_type": 14.5825,
+          "scale_length_b": 0.3,
+          "fretted_or_not": 0,
+          "bass_technique": 16.1275
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.684999999999995,
+          "drumhead": 15.2225,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 35.59500000000001,
+          "voice_quality": 18.897499999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 20.812499999999996,
+          "voice_articulation": 17.159999999999993,
+          "voice_microtone": 20.07,
+          "voice_tradition": 15.174999999999999,
+          "voice_mechanism_compound": 2.0799999999999996,
+          "voice_estill_quality": 2.5675,
+          "voice_speech_song": 18.52499999999999,
+          "voice_ensemble_config": 20.019999999999992,
+          "voice_ornament_system": 2.0199999999999996,
+          "voice_pitch_organization": 2.24,
+          "voice_processing_chain": 5.525,
+          "voice_multitrack_stack": 3.0550000000000006
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 1.5299999999999998,
+          "drawbar_setting": 14.68,
+          "rotary_speed": 2.45,
+          "percussion_setting": 13.75,
+          "tonewheel_model": 16.444999999999997,
+          "leslie_cabinet_model": 0.255
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 3.7275000000000005,
+          "sax_size": 2.0999999999999996,
+          "sax_reed": 0.65,
+          "sax_body_alloy": 14.5,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": 13.75,
+          "sax_maker_school": 13.8525
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "eb_standard",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
+        },
+        "scores": {
+          "acoustic_technique": 1.8824999999999998,
+          "string_tuning": 1.5999999999999999,
+          "top_wood_parlor": 0.885,
+          "back_sides_parlor": 0.195,
+          "string_acoustic_parlor": 0.9099999999999999
+        }
+      }
+    ],
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "studio_la_rock_70s_90s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

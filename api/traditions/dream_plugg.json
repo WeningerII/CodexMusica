@@ -1,0 +1,141 @@
+{
+  "id": "dream_plugg",
+  "name": "Dream Plugg",
+  "family": "hip_hop",
+  "lineage": "Internet-native offshoot of Atlanta plugg formed circa 2018-2020 on SoundCloud and YouTube type-beat channels, codified by producers MexikoDro, StoopidXool, Nept and Kankan-adjacent rappers, built on 130-145 BPM half-time 808 patterns with long glide-tuned sub bass, sparse triplet hi-hat rolls, and washed reverb-drenched bell, music-box and detuned pad presets under heavily Auto-Tuned melodic mumble delivery.",
+  "recipe": "classic 2018-2020 dream plugg, mc Rhythm, modern branch, us hip hop southern, lofi experimental electric nerdcore atlanta bass. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, low sub bass analog poly low sub bass wavetable synth. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 422,
+  "score": 258.022,
+  "config": {
+    "traditions": [
+      "dream_plugg",
+      "nerdcore",
+      "atlanta_bass"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 2.6699999999999995,
+          "voice_quality": 19.035000000000004,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.1200000000000006,
+          "voice_articulation": 16.054999999999996,
+          "voice_microtone": 17.159999999999993,
+          "voice_tradition": 9.360000000000001,
+          "voice_mechanism_compound": 5.654999999999999,
+          "voice_estill_quality": 5.07,
+          "voice_speech_song": 17.655,
+          "voice_ensemble_config": 15.794999999999995,
+          "voice_ornament_system": 8.775000000000002,
+          "voice_pitch_organization": 3.2350000000000003,
+          "voice_processing_chain": 9.195000000000002,
+          "voice_multitrack_stack": 2.3725
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 12.610000000000001,
+          "drum_machine_808_context": 7.695,
+          "tr808_production_origin": 2.4050000000000002
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 7.975000000000001,
+          "sampler_archetypes": 11.830000000000002,
+          "sampler_bit_depth": 3.8349999999999995,
+          "sampler_workflow": 8.95,
+          "sampler_classic_context": 25.22
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 14.83,
+          "poly_archetypes": 1.495,
+          "poly_voices": 1.3,
+          "poly_maker_lineage": -1.085
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 14.83,
+          "wt_position": 2.24,
+          "wt_family": 2.74,
+          "wt_polyphony": 0
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "carpeted_bedroom",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

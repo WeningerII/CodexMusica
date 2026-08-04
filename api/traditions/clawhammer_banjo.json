@@ -1,0 +1,118 @@
+{
+  "id": "clawhammer_banjo",
+  "name": "Clawhammer banjo",
+  "family": "vernacular",
+  "lineage": "Downstroking five-string banjo technique carried from West African plucked-lute practice into the antebellum American South and through blackface minstrelsy's stroke style into Appalachian home and dance music, documented from the 1920s Round Peak players onward — the striking nail of the index or middle finger brushes down onto the melody string while the thumb catches the fifth-string drone on the off-beat, producing a bum-ditty ostinato in open gDGCD, gCGCD or gDGBD tunings on a fretless or open-back gut- or nylon-strung banjo at dance tempo with almost no dynamic variation.",
+  "recipe": "classic mid-1920s clawhammer banjo, drone Modal, appalachian branch, bluegrass improv on frame, pre commercial country neo-traditional bluegrass reactionary bluegrass. thick, breath veiled tone, wide pitch sway, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, foot tap. wooden barn. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 397,
+  "score": 240.105,
+  "config": {
+    "traditions": [
+      "clawhammer_banjo",
+      "neo_traditional_bluegrass",
+      "reactionary_bluegrass"
+    ],
+    "instruments": [
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "open_back",
+          "tone_ring": "flathead",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "three_finger",
+          "banjo_rim_wood": "banjo_block_rim_maple",
+          "banjo_neck_wood": "banjo_maple_neck",
+          "banjo_strings": "banjo_medium_bluegrass",
+          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 1.8499999999999999,
+          "tone_ring": 9.299999999999999,
+          "banjo_head": 13.259999999999996,
+          "banjo_pot": 0.195,
+          "banjo_play": 4.68,
+          "banjo_rim_wood": 11.7,
+          "banjo_neck_wood": 11.7,
+          "banjo_strings": 11.894999999999998,
+          "banjo_bridge": 11.894999999999998,
+          "banjo_setup_period": 25.934999999999995
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 9.834999999999997,
+          "voice_quality": 18.069999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.8,
+          "voice_articulation": 13.844999999999995,
+          "voice_microtone": 14.494999999999994,
+          "voice_tradition": 9.03,
+          "voice_mechanism_compound": 5.525,
+          "voice_estill_quality": 12.839999999999998,
+          "voice_speech_song": 18.069999999999993,
+          "voice_ensemble_config": 12.089999999999995,
+          "voice_ornament_system": 2.925,
+          "voice_pitch_organization": 5.455000000000002,
+          "voice_processing_chain": 6.305000000000001,
+          "voice_multitrack_stack": 5.654999999999999
+        }
+      },
+      {
+        "id": "foot_tap",
+        "slots": {
+          "tap_striker": "tap_hard_shoe_leather",
+          "tap_surface": "tap_sprung_wood_floor"
+        },
+        "scores": {
+          "tap_striker": 0.8049999999999999,
+          "tap_surface": 0
+        }
+      }
+    ],
+    "room": "wooden_barn",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "american_primitive_open_drone",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "american_primitive_open_drone",
+    "room": "wooden_barn",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

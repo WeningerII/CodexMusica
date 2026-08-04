@@ -1,0 +1,123 @@
+{
+  "id": "cifteli",
+  "name": "Çifteli Song (North Albanian)",
+  "family": "global",
+  "lineage": "Northern Albanian and Kosovar song accompanied by the two-string long-necked çifteli, carried by the Gheg highlands of Malësia and Dukagjin and spread on cassette through the 1970s-90s Kosovo and diaspora market — one string plucked as a fast melodic line, the second sounding a fixed drone, under a nasal declamatory tenor singing strophic heroic and wedding texts in free rhythm or a steady 2/4 with def frame drum",
+  "recipe": "classic mid-1970s çifteli song, drone Modal, string branch, Mediterranean ballad ballad poetry, European wedding sefardi song corsican folk. kargyraa, breath veiled tone, straight note core, interlocked note trading. mulberry bowl canonical anatolian steel canonical modern drone like modal saz baglama, horo dance driving strummed tambura balkan, def turkish. field recording. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 469,
+  "score": 168.172,
+  "config": {
+    "traditions": [
+      "cifteli",
+      "sefardi_romancero",
+      "corsican_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.4949999999999999,
+          "voice_quality": 11.634999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5350000000000006,
+          "voice_articulation": 17.809999999999995,
+          "voice_microtone": 20.76749999999999,
+          "voice_tradition": 11.959999999999999,
+          "voice_mechanism_compound": 7.0200000000000005,
+          "voice_estill_quality": 6.565000000000001,
+          "voice_speech_song": 25.414999999999996,
+          "voice_ensemble_config": 19.369999999999997,
+          "voice_ornament_system": 6.385000000000002,
+          "voice_pitch_organization": 4.215,
+          "voice_processing_chain": 5.329999999999999,
+          "voice_multitrack_stack": 2.99
+        }
+      },
+      {
+        "id": "saz_baglama",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "saz_size": "cura_saz",
+          "saz_frets": "saz_microtonal_frets",
+          "saz_body_wood": "saz_mulberry_body",
+          "saz_strings": "saz_steel_modern",
+          "saz_tradition": "saz_modern_concert"
+        },
+        "scores": {
+          "plucked_traditional_technique": 7.15,
+          "saz_size": 1.3499999999999996,
+          "saz_frets": 0.845,
+          "saz_body_wood": 1.035,
+          "saz_strings": 1.3800000000000001,
+          "saz_tradition": 0.495
+        }
+      },
+      {
+        "id": "tambura_balkan",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "tambura_balkan_school": "tambura_macedonian",
+          "tambura_balkan_use": "tambura_horo"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.38,
+          "tambura_balkan_school": 0.4875,
+          "tambura_balkan_use": 1.9825
+        }
+      },
+      {
+        "id": "def_turkish",
+        "slots": {
+          "def_jingles": "def_jingled",
+          "def_technique": "def_finger"
+        },
+        "scores": {
+          "def_jingles": 0,
+          "def_technique": 2.275
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "field_recording",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

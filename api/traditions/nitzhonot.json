@@ -1,0 +1,118 @@
+{
+  "id": "nitzhonot",
+  "name": "Nitzhonot",
+  "family": "electronic",
+  "lineage": "Israeli late-1990s Goa-trance variant (from nitzachon, 'victory'), built on the Phonokol and Krembo Records compilation series and the post-army Sinai and Negev party circuit — 145-155 BPM with a hard four-on-floor kick and continuous 16th-note offbeat bass, extended uplifting lead melodies in harmonic minor and Hijaz with Middle Eastern ornament and rapid trills, stacked supersaw and PPG-style digital lead layers, and long two-to-four-minute breakdowns that strip to pad and melody before an anthemic full return.",
+  "recipe": "classic 1997-1999 nitzhonot, electronic Dance, trance branch, eurodance electronic dance, mid east n African pop functional song, hardstyle electronic dance arab pop israeli pop. singing lead analog mono singing lead analog poly synth, singing lead digital subtractive, roland tr 8s modern aira digital recreation TR-909, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 534,
+  "score": 116.37,
+  "config": {
+    "traditions": [
+      "nitzhonot",
+      "arab_pop",
+      "israeli_pop"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 13.734999999999998,
+          "mono_oscillator": 0.045,
+          "mono_filter": 3.075,
+          "mono_archetypes": 6.395,
+          "mono_maker_lineage": -1.7199999999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 13.734999999999998,
+          "poly_archetypes": 1.495,
+          "poly_voices": 1.045,
+          "poly_maker_lineage": -1.7199999999999998
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 13.734999999999998,
+          "va_archetypes": 5.539999999999999,
+          "digital_subtractive_context": 26.650000000000006
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 1.14,
+          "tr909_production_origin": 1.24
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 0.21,
+          "sampler_bit_depth": 2.8850000000000007,
+          "sampler_workflow": 0.695,
+          "sampler_classic_context": 24.96
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

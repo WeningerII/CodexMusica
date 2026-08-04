@@ -3,14 +3,14 @@
   "name": "Albanian vajtim (lament)",
   "family": "global",
   "lineage": "Albanian mourning-song tradition continuous from medieval Albanian rural practice through 19th-20th century continuous performance; particularly preserved in Northern Albanian highland zones (Mirdita, Dukagjin) and in Albanian-language Kosovo and South-Italian Arbëresh diaspora communities",
-  "recipe": "classic modern albanian vajtim, funeral Lament, European branch, middle eastern funeral lament, vocal drone modal, Mediterranean ballad ballad poetry skolt sámi leuʹdd silbo gomero whistled language. vocal fry, breath veiled tone, slow rate, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 339,
-  "score": 164.58,
+  "recipe": "classic modern albanian vajtim, funeral Lament, European branch, middle eastern funeral lament, vocal drone modal, Mediterranean ballad ballad poetry naturjodel doina. vocal fry, breath veiled tone, slow rate, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 307,
+  "score": 119.98,
   "config": {
     "traditions": [
       "albanian_vajtim",
-      "sami_skolt_leudd",
-      "silbo_gomero"
+      "naturjodel",
+      "doina"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sami_yoik",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.865000000000001,
-          "voice_quality": 25.155,
+          "voice_register": 3.51,
+          "voice_quality": 6.045,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 12.609999999999996,
-          "voice_microtone": 19.207499999999992,
-          "voice_tradition": 25.642500000000002,
-          "voice_mechanism_compound": 6.565000000000001,
-          "voice_estill_quality": 8.585,
-          "voice_speech_song": 16.444999999999997,
-          "voice_ensemble_config": 13.779999999999998,
-          "voice_ornament_system": 3.6350000000000002,
-          "voice_pitch_organization": 7.23,
-          "voice_processing_chain": 12.284999999999998,
-          "voice_multitrack_stack": 7.67
+          "voice_vibrato": 1.8200000000000003,
+          "voice_articulation": 13.649999999999995,
+          "voice_microtone": 17.354999999999993,
+          "voice_tradition": 19.8575,
+          "voice_mechanism_compound": 6.4350000000000005,
+          "voice_estill_quality": 5.68,
+          "voice_speech_song": 17.09499999999999,
+          "voice_ensemble_config": 14.429999999999993,
+          "voice_ornament_system": 3.1500000000000004,
+          "voice_pitch_organization": 5.8825,
+          "voice_processing_chain": 3.7049999999999996,
+          "voice_multitrack_stack": 3.6400000000000006
         }
       }
     ],

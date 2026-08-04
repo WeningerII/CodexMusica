@@ -3,14 +3,14 @@
   "name": "Somali qaraami song",
   "family": "global",
   "lineage": "Somali qaraami art-song tradition emerging in 1940s Mogadishu and Hargeisa as urban-classical Somali popular music, incorporating Arabian peninsular oud and qanun with Somali-language poetic-meter. The genre matured through the Somali Republic golden-age 1960s-1970s with Radio Mogadishu broadcasting the canonical Hargeisa-school singers. Vocal style features melismatic ornament over Arabic maqam vocabulary with Somali-Cushitic vocal-inflection. The post-1991 civil war disrupted institutional transmission; diaspora-revival in Minneapolis, London, and Toronto sustains contemporary practice.",
-  "recipe": "classic Middle Eastern mid-1940s somali qaraami song, ballad Poetry, med east poetic branch, middle eastern classical art music libyan maluf sawt. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic walnut ribs canonical mid tier Lebanese cedar oud, metal finger picks walnut body canonical decorative goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. qat chew majlis room. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
-  "recipe_chars": 667,
-  "score": 309.55,
+  "recipe": "classic Middle Eastern mid-1940s somali qaraami song, ballad Poetry, med east poetic branch, middle eastern classical art music türk sanat müziği libyan maluf. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic maple ribs Turkish school Lebanese cedar oud, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka. qat chew majlis room. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
+  "recipe_chars": 633,
+  "score": 320.135,
   "config": {
     "traditions": [
       "somali_qaraami",
-      "libyan_maluf",
-      "sawt_bahraini_kuwaiti"
+      "turk_sanat_muzigi",
+      "libyan_maluf"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 3.3649999999999998,
-          "voice_quality": 13.129999999999995,
+          "voice_quality": 16.054999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.85,
-          "voice_articulation": 12.479999999999995,
-          "voice_microtone": 31.134999999999994,
-          "voice_tradition": 31.235,
-          "voice_mechanism_compound": 18.764999999999997,
-          "voice_estill_quality": 16.804999999999996,
-          "voice_speech_song": 16.314999999999994,
-          "voice_ensemble_config": 11.569999999999993,
-          "voice_ornament_system": 27.54,
-          "voice_pitch_organization": 27.72,
-          "voice_processing_chain": 3.345,
-          "voice_multitrack_stack": 3.440000000000001
+          "voice_vibrato": 19.044999999999998,
+          "voice_articulation": 13.585,
+          "voice_microtone": 32.63,
+          "voice_tradition": 30.385,
+          "voice_mechanism_compound": 19.639999999999997,
+          "voice_estill_quality": 16.955,
+          "voice_speech_song": 16.965,
+          "voice_ensemble_config": 12.675,
+          "voice_ornament_system": 28.04,
+          "voice_pitch_organization": 28.369999999999997,
+          "voice_processing_chain": 3.6950000000000003,
+          "voice_multitrack_stack": 4
         }
       },
       {
@@ -59,18 +59,18 @@
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_plastic",
-          "oud_body_wood": "oud_walnut_body",
+          "oud_body_wood": "oud_maple_body",
           "oud_soundboard_wood": "oud_lebanese_cedar_face",
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 14.5,
-          "oud_school": 3.3799999999999994,
+          "plucked_traditional_technique": 15,
+          "oud_school": 3.5599999999999996,
           "oud_strings": 7.54,
           "oud_pick": 2.1900000000000004,
-          "oud_body_wood": 1.69,
+          "oud_body_wood": 2.535,
           "oud_soundboard_wood": 2.8600000000000003,
-          "oud_string_material": 3.835
+          "oud_string_material": 4.485
         }
       },
       {
@@ -80,16 +80,16 @@
           "qanun_strings": "qanun_arab_72",
           "qanun_levers": "mandal_brass",
           "qanun_pick": "qanun_finger_picks",
-          "qanun_body_wood": "qanun_walnut_body",
+          "qanun_body_wood": "qanun_maple_body",
           "qanun_bridge_skin": "qanun_goat_skin_bridge",
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 14.5,
+          "plucked_traditional_technique": 15,
           "qanun_strings": 7.54,
           "qanun_levers": -1.05,
           "qanun_pick": 7.54,
-          "qanun_body_wood": 1.69,
+          "qanun_body_wood": 2.535,
           "qanun_bridge_skin": 1.69,
           "qanun_string_material": 0
         }
@@ -103,10 +103,10 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 1.56,
+          "percussion_technique": -0.07,
           "darbuka_material": 1.69,
-          "darbuka_skin": 1.4849999999999999,
-          "darbuka_regional_style": 4.9399999999999995
+          "darbuka_skin": 0.845,
+          "darbuka_regional_style": 3.6399999999999997
         }
       }
     ],

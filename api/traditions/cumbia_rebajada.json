@@ -3,14 +3,14 @@
   "name": "Cumbia rebajada (Monterrey slowed)",
   "family": "global",
   "lineage": "Slowed-down Mexican cumbia variant emerging accidentally in Monterrey 1980s-1990s when sonidero DJs played records at slower speed, producing characteristically lowered-pitch hypnotic-droning. Deliberate cultural practice followed, with sound-systems and bedroom-producers crafting deliberately slowed versions. Intersected with 2010s \"tribal guarachero\" Monterrey electronic-cumbia.",
-  "recipe": "classic Mexican mid-1980s cumbia rebajada, functional Song, Mexican branch, Latin electric electronic dance baile funk cumbia electrónica. thick, full chest belt, straight note core, interlocked note trading. petosa seattle American premium accordion, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 526,
-  "score": 105.535,
+  "recipe": "classic Mexican mid-1980s cumbia rebajada, functional Song, Mexican branch, Latin electric electronic dance baile funk brega funk. thick, full chest belt, straight note core, interlocked note trading. brass castagnari Italian premium folk music accordion, alder pyramid pure nickel bass British mid 60s era electric bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 501,
+  "score": 104.773,
   "config": {
     "traditions": [
       "cumbia_rebajada",
       "baile_funk",
-      "cumbia_electronica"
+      "brega_funk"
     ],
     "instruments": [
       {
@@ -23,54 +23,54 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "baroque_ornamental_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_just_intonation",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 0.8125000000000001,
-          "voice_quality": 13.349999999999998,
+          "voice_register": 1.17,
+          "voice_quality": 8.349999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9899999999999998,
-          "voice_articulation": 7.799999999999999,
-          "voice_microtone": 6.954999999999999,
-          "voice_tradition": 1.9050000000000002,
-          "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 3.835,
-          "voice_speech_song": 11.634999999999994,
-          "voice_ensemble_config": 7.734999999999999,
-          "voice_ornament_system": 0.06500000000000002,
+          "voice_vibrato": 3.185,
+          "voice_articulation": 7.865,
+          "voice_microtone": 7.67,
+          "voice_tradition": 1.8199999999999998,
+          "voice_mechanism_compound": 6.369999999999999,
+          "voice_estill_quality": 5.525,
+          "voice_speech_song": 12.414999999999996,
+          "voice_ensemble_config": 8.84,
+          "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 2.085,
-          "voice_processing_chain": 17.532999999999998,
-          "voice_multitrack_stack": 6.755
+          "voice_processing_chain": 13.87,
+          "voice_multitrack_stack": 6.9875
         }
       },
       {
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_chordal_chugging",
-          "accordion_reed_material": "tipo_a_mano",
-          "musette_offset": "german_tuning",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "scottish_musette",
           "reed_config": "lmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
-          "accordion_maker_school": "accordion_petosa_seattle"
+          "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 0.26,
-          "accordion_reed_material": 0.65,
-          "musette_offset": 0.65,
-          "reed_config": 0.39,
-          "bellows": 0.65,
+          "free_reed_technique": 0.7149999999999997,
+          "accordion_reed_material": 1.1,
+          "musette_offset": 0.345,
+          "reed_config": 0.135,
+          "bellows": 0.15,
           "voicing_chamber": 0.045,
-          "accordion_maker_school": 1.4949999999999999
+          "accordion_maker_school": 1.04
         }
       },
       {
@@ -80,18 +80,18 @@
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "slap_pop"
         },
         "scores": {
-          "amp_make": 3.120000000000001,
-          "body_wood": 0.845,
-          "pickup_config": 0.845,
-          "string_type": 2.4050000000000002,
+          "amp_make": 1.4299999999999997,
+          "body_wood": 1.2349999999999999,
+          "pickup_config": 0.65,
+          "string_type": 1.7550000000000001,
           "scale_length_b": 0.845,
           "fretted_or_not": 0,
-          "bass_technique": 6.25
+          "bass_technique": 9.375
         }
       }
     ],

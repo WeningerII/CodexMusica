@@ -1,0 +1,172 @@
+{
+  "id": "taiwan_campus_folk",
+  "name": "Taiwan Campus Folk",
+  "family": "pop",
+  "lineage": "Taiwanese campus folk song movement (xiaoyuan minge), Taipei 1975-1985, launched by Li Shuang-tse's 'sing our own songs' call and codified by Yang Hsien and Hou Te-chien on the Sing Your Own Songs and Golden Melody compilations — moderate-tempo acoustic guitar strumming with fingerpicked accompaniment, unaffected clear Mandarin vocals, literary lyrics, simple diatonic harmony and light string or flute overdubs.",
+  "recipe": "classic North American mid-1980s taiwan campus folk, functional Song, east Asian pop branch, anglo singer song ballad poetry, east Asian protest song british folk revival freak folk. thick, breath veiled tone, slow rate, interlocked note trading. dadgad tuning cedar koa fingerpicked dreadnought acoustic dadgad tuning cedar walnut phosphor bronze bronze acoustic guitar, double bass, flute, block chord upright piano. treated studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 566,
+  "score": 252.56,
+  "config": {
+    "traditions": [
+      "taiwan_campus_folk",
+      "british_folk_revival",
+      "freak_folk_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 29.224999999999994,
+          "voice_quality": 11.179999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.365,
+          "voice_articulation": 16.574999999999992,
+          "voice_microtone": 15.72999999999999,
+          "voice_tradition": 30.614999999999995,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 4.290000000000001,
+          "voice_speech_song": 25.024999999999995,
+          "voice_ensemble_config": 15.599999999999993,
+          "voice_ornament_system": 7.020000000000001,
+          "voice_pitch_organization": 4.140000000000001,
+          "voice_processing_chain": 3.77,
+          "voice_multitrack_stack": 1.6899999999999997
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "dadgad",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "coated_nano_acoustic"
+        },
+        "scores": {
+          "acoustic_technique": 25.755,
+          "string_tuning": 3.4650000000000003,
+          "top_wood": 1.4300000000000002,
+          "back_sides": 1,
+          "string_acoustic": 0.59
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "dadgad",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 3.4650000000000003,
+          "top_wood": 1.4300000000000002,
+          "back_sides": 1.4300000000000002,
+          "string_acoustic": 1.385,
+          "acoustic_om_technique": 25.755
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "plain_sheep_gut_bass",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "snakewood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.32499999999999996,
+          "bass_size": 0,
+          "bass_strings": 0.75,
+          "bass_top_wood": 0.36999999999999994,
+          "bass_back_wood": 0.32499999999999996,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 0.8124999999999999,
+          "bass_play": 0.195,
+          "bass_rosin": 0.325,
+          "bass_bow_stick": 0.4225
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "flute_size": "piccolo_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "flute_size": 0.285,
+          "flute_material": 0.135,
+          "flute_technique": 0.105,
+          "flute_maker_school": 0.78
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 8.745,
+          "upright_use": 1.4300000000000002,
+          "upright_piano_size": 0.195
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "clean",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

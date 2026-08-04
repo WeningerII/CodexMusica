@@ -1,0 +1,112 @@
+{
+  "id": "violao_brasileiro",
+  "name": "Violão brasileiro (solo Brazilian guitar)",
+  "family": "global",
+  "lineage": "Brazilian art-of-the-guitar tradition running from turn-of-the-century Rio choro accompanists through Villa-Lobos's 1920s-40s Chôros and Études, Dilermando Reis's romantic valsas, Garoto's harmonically advanced 1940s pieces and Baden Powell's Afro-Bahian 1960s writing — nylon strings played fingerstyle with an independent bass thumb, the seven-string violão adding a low B for contrapuntal baixaria lines under syncopated 2/4 choro and waltz forms.",
+  "recipe": "classic Southern American mid-1920s violão brasileiro, functional Song, Brazilian song branch, western common practice art music, string improv improv on frame salon music cuatro venezolano. cedar nylon classical nylon-string guitar, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, cavaquinho, Brazilian flat back European spruce choro luthier canon Brazilian rosewood pre 1992 vintage bandolim. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 599,
+  "score": 83.988,
+  "config": {
+    "traditions": [
+      "violao_brasileiro",
+      "salon_music",
+      "cuatro_venezolano"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 1.859375,
+          "string_tuning": 0,
+          "top_wood_classical": 3.835,
+          "bracing_classical": 1.04,
+          "string_classical": 6.7985267857142855,
+          "attack_technique_cl": 2.7950000000000004
+        }
+      },
+      {
+        "id": "violao_7_cordas",
+        "slots": {
+          "violao_7_string7": "violao_7_low_C",
+          "violao_7_strings": "violao_7_nylon",
+          "violao_7_body_wood": "violao_7_brazilian_rosewood",
+          "violao_7_top_wood": "violao_7_cedar_top",
+          "violao_7_role": "violao_7_bordao_counter"
+        },
+        "scores": {
+          "violao_7_string7": 4.5471875,
+          "violao_7_strings": 6.504999999999999,
+          "violao_7_body_wood": 4.345,
+          "violao_7_top_wood": 2.69,
+          "violao_7_role": 5.859999999999999
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_brazilian",
+          "cavaquinho_context": "cavaquinho_choro",
+          "cavaquinho_body_wood": "cavaquinho_mahogany",
+          "cavaquinho_strings": "cavaquinho_steel"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.7478125,
+          "cavaquinho_origin": 0.39,
+          "cavaquinho_context": 22.164999999999996,
+          "cavaquinho_body_wood": 0.43499999999999994,
+          "cavaquinho_strings": -0.9450000000000001
+        }
+      },
+      {
+        "id": "bandolim",
+        "slots": {
+          "bandolim_body": "bandolim_flat_back",
+          "bandolim_top_wood": "bandolim_european_spruce",
+          "bandolim_back_wood": "bandolim_brazilian_rosewood",
+          "bandolim_strings": "bandolim_steel_courses",
+          "bandolim_technique": "bandolim_pick_tremolo"
+        },
+        "scores": {
+          "bandolim_body": 4.4778125,
+          "bandolim_top_wood": 3.6399999999999997,
+          "bandolim_back_wood": 4.484999999999999,
+          "bandolim_strings": 3.574375,
+          "bandolim_technique": 4.68
+        }
+      }
+    ],
+    "room": "estudios_scatena_sp",
+    "archetype": "arch_odeon_bossa_mpb",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "choro_2_4_syncopated",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "choro_2_4_syncopated",
+    "room": "estudios_scatena_sp",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

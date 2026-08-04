@@ -1,0 +1,176 @@
+{
+  "id": "oberkrainer",
+  "name": "Oberkrainer",
+  "family": "global",
+  "lineage": "Slovenian-Alpine dance-band style created by Slavko Avsenik and his Ansambel bratov Avsenik in Begunje in 1953 and spread across Austria and Germany as Oberkrainer Musik — a fixed quintet of diatonic accordion, B-flat trumpet, clarinet, baritone horn and guitar with bass, playing brisk polkas at 120-150 BPM and lilting waltzes, with the trumpet and clarinet in parallel thirds over the baritone's counter-melody and an off-beat guitar chop.",
+  "recipe": "classic Central European early-1950s oberkrainer, drinking Song, European branch, European wedding, europop functional song trikiti finnish tango. extended whistle, breath veiled tone, fast rate, interlocked note trading. piano accordion, heavy one piece matched to monette horn ensemble trumpet, clarinet, yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, venice catlin high twist renaissance bass norway spruce European alpine double bass. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 709,
+  "score": 185.305,
+  "config": {
+    "traditions": [
+      "oberkrainer",
+      "trikiti",
+      "finnish_tango"
+    ],
+    "instruments": [
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 2.1149999999999998,
+          "pa_size": 0.195,
+          "pa_use": 0.195
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_monette"
+        },
+        "scores": {
+          "wind_articulation": 2.5350000000000006,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 3.19625,
+          "brass_mute": 0.045,
+          "trumpet_technique": 2.5350000000000006,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.65
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "doina_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.52,
+          "clarinet_body": 0.06499999999999999,
+          "clarinet_size": 0.195,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.5849999999999999
+        }
+      },
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "euph_use": "euph_orchestral",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_yellow_brass",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": 0.52,
+          "euph_use": 1.9024999999999999,
+          "euphonium_pitch": 1.69,
+          "euphonium_bell_metal": 1.69,
+          "euphonium_maker_school": 1.69
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.585,
+          "bass_size": 0,
+          "bass_strings": 1.885,
+          "bass_top_wood": 7.0200000000000005,
+          "bass_back_wood": 5.07,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 3.3112500000000002,
+          "bass_play": 0.65,
+          "bass_rosin": 1.885,
+          "bass_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.56,
+          "voice_quality": 12.024999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 25.740000000000002,
+          "voice_microtone": 24.895000000000003,
+          "voice_tradition": 4.9075,
+          "voice_mechanism_compound": 5.135,
+          "voice_estill_quality": 4.94,
+          "voice_speech_song": 30.745000000000005,
+          "voice_ensemble_config": 23.270000000000003,
+          "voice_ornament_system": 1.04,
+          "voice_pitch_organization": 5.5075,
+          "voice_processing_chain": 4.9399999999999995,
+          "voice_multitrack_stack": 2.8600000000000003
+        }
+      }
+    ],
+    "room": "prague_supraphon_studio",
+    "archetype": "arch_jugoton_yugoslav",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "prague_supraphon_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "id": "tamazight",
+  "name": "Tamazight (Amazigh-language song, Middle Atlas)",
+  "family": "global",
+  "lineage": "Tamazight-language song of Morocco's Middle Atlas, carried by the izlan and ahidus repertoires of Khenifra and Azrou and professionalized from the 1970s by cassette artists such as Rouicha Mohamed, Hadda Ouakki and the amdyaz poet-singers — lotar three-string lute ostinato and bendir line-drumming in an even 6/8 or 4/4, antiphonal male-female verse exchange in a narrow pentatonic range, and long strophic poems on love, drought and migration sung in a high tense open-throated voice.",
+  "recipe": "classic North African mid-1970s tamazight, ballad Poetry, med east poetic branch, middle eastern wedding, sub saharan African field work berber amazigh ahidus folclor afrocolombiano. sygyt, breath veiled tone, straight note core, interlocked note trading. melodic single line mandole, synthetic remo modern world music bendir, hand clap, tar frame drum, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral. atlas mountain village square. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 565,
+  "score": 193.496,
+  "config": {
+    "traditions": [
+      "tamazight",
+      "berber_ahidus_wedding",
+      "folclor_afrocolombiano"
+    ],
+    "instruments": [
+      {
+        "id": "mandole",
+        "slots": {
+          "mandole_form": "mandole_kabyle",
+          "mandole_role": "mandole_melodic",
+          "mandole_strings": "mandole_steel"
+        },
+        "scores": {
+          "mandole_form": 13.86,
+          "mandole_role": 1.8199999999999998,
+          "mandole_strings": -0.05
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_no_snares",
+          "bendir_context": "bendir_folk",
+          "bendir_shell_wood": "bendir_beech",
+          "bendir_head": "bendir_synthetic_modern"
+        },
+        "scores": {
+          "bendir_snares": 1.4300000000000002,
+          "bendir_context": 0.195,
+          "bendir_shell_wood": 0.845,
+          "bendir_head": 1.8850000000000002
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 2.566500000000001,
+          "voice_quality": 7.995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.1775,
+          "voice_articulation": 20.865000000000002,
+          "voice_microtone": 22.9125,
+          "voice_tradition": 17.6475,
+          "voice_mechanism_compound": 2.075,
+          "voice_estill_quality": 2.21,
+          "voice_speech_song": 24.7,
+          "voice_ensemble_config": 22.035,
+          "voice_ornament_system": 5.2,
+          "voice_pitch_organization": 4.825000000000001,
+          "voice_processing_chain": 5.175,
+          "voice_multitrack_stack": 2.3000000000000007
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.195,
+          "clap_capture": 0
+        }
+      },
+      {
+        "id": "tar_frame_drum",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "tar_size": "tar_small",
+          "tar_frame_drum_context": "tar_frame_drum_sufi",
+          "tar_frame_shell_wood": "tar_frame_walnut",
+          "tar_frame_head": "tar_frame_synthetic"
+        },
+        "scores": {
+          "percussion_technique": 2.45,
+          "tar_size": 0.045,
+          "tar_frame_drum_context": 1.56,
+          "tar_frame_shell_wood": 0.585,
+          "tar_frame_head": 0.845
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "half_rectified_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "pizz_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "orch_strings": 0.78,
+          "orch_top_wood": 3.95,
+          "orch_back_wood": 3.3049999999999997,
+          "orch_varnish": 3.8150000000000004,
+          "orch_setup_period": 2.0475000000000003,
+          "orch_bow": 1.4300000000000002,
+          "orch_bow_stick": 2.1125,
+          "orch_articulation": 0.49499999999999994,
+          "orch_rosin": 2.1125
+        }
+      }
+    ],
+    "room": "atlas_mountain_village_square",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
+    "room": "atlas_mountain_village_square",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

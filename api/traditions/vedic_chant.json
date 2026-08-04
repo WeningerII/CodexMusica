@@ -3,14 +3,14 @@
   "name": "Vedic chant",
   "family": "global",
   "lineage": "Vedic chant — the canonical three-thousand-year-continuous Sanskrit recitation tradition for the four Vedas (Rgveda, Yajurveda, Sāmaveda, Atharvaveda) preserved through the gurukula master-disciple oral-transmission lineage; defined by the three-tone udatta-anudatta-svarita pitch-accent system (udatta the raised pitch, anudatta the lower pitch, svarita the falling-pitch tone) inherited from Proto-Indo-European prosody, with the additional Sāmaveda musical-melodic elaboration (the Sāman chant tradition that uses seven svaras and is considered the source of later Indian classical raga); transmission preserved through the canonical paṭha (recitation-style) variants — Saṃhitā (continuous), Padapāṭha (word-by-word), Krama-pāṭha (interlocking pairs), Jaṭā-pāṭha (woven pattern), and Ghana-pāṭha (dense pattern) — each designed to lock the text against transmission error; the Nambudiri Brahmin community of Kerala preserves the most archaic Sāmavedic chanting layer, with parallel Tamil-Brahmin, Maharashtrian, and Kashi (Banaras) regional preservation lineages",
-  "recipe": "classic modern vedic chant, ritual Devotional, hindu branch, south Asian art music sinhala vannama kutiyattam sanskrit recitation. vocal fry, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 442,
-  "score": 241.91,
+  "recipe": "classic modern vedic chant, ritual Devotional, hindu branch, south Asian art music sinhala vannama carnatic kacheri. vocal fry, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 426,
+  "score": 232.953,
   "config": {
     "traditions": [
       "vedic_chant",
       "sinhala_vannama",
-      "kutiyattam_recitation"
+      "carnatic_kacheri"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.845,
-          "voice_quality": 37.659250000000014,
+          "voice_register": 0.9734999999999999,
+          "voice_quality": 36.14000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.919,
-          "voice_articulation": 15.794999999999995,
-          "voice_microtone": 14.754999999999992,
-          "voice_tradition": 20.93,
-          "voice_mechanism_compound": 8.9,
-          "voice_estill_quality": 11.503,
-          "voice_speech_song": 22.099999999999994,
-          "voice_ensemble_config": 18.264999999999993,
-          "voice_ornament_system": 14.044,
-          "voice_pitch_organization": 28.3315,
-          "voice_processing_chain": 7.799999999999999,
-          "voice_multitrack_stack": 6.6315
+          "voice_vibrato": 11.2125,
+          "voice_articulation": 13.844999999999995,
+          "voice_microtone": 12.414999999999992,
+          "voice_tradition": 24.017500000000002,
+          "voice_mechanism_compound": 8.525,
+          "voice_estill_quality": 11.37,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 16.509999999999994,
+          "voice_ornament_system": 13.636500000000002,
+          "voice_pitch_organization": 28.345,
+          "voice_processing_chain": 4.81,
+          "voice_multitrack_stack": 6.7215
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "choir_size": "mixed_4_part_satb",
           "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_andean_three_voice_parallel_thirds",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
           "choir_size": 5.00625,
-          "choir_polyphonic_configuration": 9.703499999999998,
-          "choir_regional_canonical_configuration": 4.7764999999999995,
-          "choir_ensemble_repertoire": 6.369999999999999
+          "choir_polyphonic_configuration": 9.866999999999999,
+          "choir_regional_canonical_configuration": 5.525,
+          "choir_ensemble_repertoire": 6.195499999999999
         }
       }
     ],

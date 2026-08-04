@@ -1,0 +1,178 @@
+{
+  "id": "criolla",
+  "name": "Criolla",
+  "family": "global",
+  "lineage": "Cuban art-song genre created in Havana in 1909 by Luis Casas Romero with 'Mujer Bayamesa' and developed by Jorge Anckermann and Eliseo Grenet through the 1920s-40s teatro vernáculo, a slow lyrical 6/8 derived from the clave cubana and criolla-bolero: nylon guitar and tres accompaniment with a gently rocking hemiola, subtle claves and maracas, and refined duo or solo voices singing pastoral, patriotic and nostalgic texts.",
+  "recipe": "classic Caribbean mid-1920s criolla, ballad Poetry, Latin am troubadour branch, tropical song functional song bolero cubano méringue. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon classical nylon-string guitar, cedar canonical Cuban octave doubled bronze steel rural traditional tres cubano, claves, maracas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, sitka spruce diaphragmatic a 442 European orchestral grand piano. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 644,
+  "score": 190.535,
+  "config": {
+    "traditions": [
+      "criolla",
+      "bolero_cubano",
+      "meringue_haitian"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 2.575,
+          "string_tuning": 0,
+          "top_wood_classical": 9.36,
+          "bracing_classical": 1.95,
+          "string_classical": 1.4299999999999997,
+          "attack_technique_cl": 0.195
+        }
+      },
+      {
+        "id": "tres_cubano",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "tres_courses": "tres_3x3",
+          "tres_cubano_context": "tres_cubano_son",
+          "tres_cubano_body_wood": "tres_cubano_cedar",
+          "tres_cubano_strings": "tres_cubano_octave_doubled"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.21,
+          "tres_courses": 2.88,
+          "tres_cubano_context": 1.845,
+          "tres_cubano_body_wood": 2.535,
+          "tres_cubano_strings": 1.125
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.5849999999999995,
+          "voice_quality": 10.139999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 21.839999999999996,
+          "voice_microtone": 20.34499999999999,
+          "voice_tradition": 7.084999999999999,
+          "voice_mechanism_compound": 6.37,
+          "voice_estill_quality": 7.020000000000001,
+          "voice_speech_song": 29.119999999999994,
+          "voice_ensemble_config": 21.059999999999995,
+          "voice_ornament_system": 0.7999999999999998,
+          "voice_pitch_organization": 0.995,
+          "voice_processing_chain": 5.8,
+          "voice_multitrack_stack": 1.1699999999999993
+        }
+      },
+      {
+        "id": "claves",
+        "slots": {
+          "claves_pattern": "claves_rumba",
+          "claves_wood": "claves_cuban_hardwood"
+        },
+        "scores": {
+          "claves_pattern": 3.575,
+          "claves_wood": 0.15
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_leather",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 0.65,
+          "maracas_filling": 0.78
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_son",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 9.03,
+          "bongos_skin": 4.82,
+          "bongos_context": 1.275,
+          "bongos_shell_wood": 2.535
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "felt_piano_practice_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 0.45,
+          "grand_piano_size": 0.195,
+          "grand_piano_brand": 2.54,
+          "piano_hammer": 0.75,
+          "piano_rim": 0.06499999999999999,
+          "piano_soundboard": 1.545,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": 6.069999999999999
+        }
+      }
+    ],
+    "room": "panart_puchito_havana_pre_1959",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "son_clave_2_3",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "son_clave_2_3",
+    "room": "panart_puchito_havana_pre_1959",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "console_german_tube_50s"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "id": "halftime_dnb",
+  "name": "Halftime Drum & Bass",
+  "family": "electronic",
+  "lineage": "Emerged circa 2012-2015 across London, Prague and Vienna out of the neurofunk and autonomic wings of drum & bass, codified by Ivy Lab, Alix Perez's 1985 Music, Sam Binga and Fracture — retaining the 170-175 BPM drum-and-bass grid and 32-bar arrangement while programming the kick-snare backbone at half that rate so the snare lands on beat three, leaving space for swung trap-derived hi-hat triplets, heavily resampled and time-stretched breaks, and a foregrounded distorted sub-bass or Reese line with no vocal lead beyond chopped fragments.",
+  "recipe": "classic 2012-2015 halftime drum & bass, bass System, bass descendants branch, uk soundsystem bass system, us hip hop southern dirty south rap phonk. thick, rap, straight note core, interlocked note trading. chopped sampler, sampled chopped sampler drum machine, sub bass analog mono sub bass wavetable granular synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 521,
+  "score": 298.688,
+  "config": {
+    "traditions": [
+      "halftime_dnb",
+      "dirty_south_rap",
+      "phonk"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 7.6000000000000005,
+          "sampler_archetypes": 8.08,
+          "sampler_bit_depth": 1.105,
+          "sampler_workflow": 8.155000000000001,
+          "sampler_classic_context": 31.297500000000003
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 7.6000000000000005,
+          "sample_bitdepth": 2.495,
+          "sample_swing": 7.33,
+          "sample_processing": 0.975
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 28.405000000000005,
+          "mono_oscillator": 0.35,
+          "mono_filter": 0.195,
+          "mono_archetypes": 1.4949999999999999,
+          "mono_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 28.405000000000005,
+          "wt_position": 1.3,
+          "wt_family": 0.65,
+          "wt_polyphony": 1.045
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_sampled"
+        },
+        "scores": {
+          "electronic_technique": 0.8249999999999998,
+          "granular_use": 2.43,
+          "granular_synth_source": 1.815
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 2.644999999999999,
+          "voice_quality": 13.52,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.21,
+          "voice_articulation": 24.115000000000002,
+          "voice_microtone": 27.3,
+          "voice_tradition": 8.415000000000001,
+          "voice_mechanism_compound": 4.590000000000001,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 24.115000000000002,
+          "voice_ensemble_config": 23.79,
+          "voice_ornament_system": 4.8100000000000005,
+          "voice_pitch_organization": 3.2150000000000003,
+          "voice_processing_chain": 8.84,
+          "voice_multitrack_stack": 6.24
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

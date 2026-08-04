@@ -1,0 +1,169 @@
+{
+  "id": "tamborazo",
+  "name": "Tamborazo zacatecano",
+  "family": "vernacular",
+  "lineage": "Rural wind-and-drum band tradition of Zacatecas and Jalisco codified in the late nineteenth century out of village municipal bands, in which two or three clarinets and trumpets carry the melody over trombone and tuba bass while a single huge double-headed tambora, struck with a mallet on one head and a stick on the shell, drives 2/4 marches and 3/4 valses outdoors at ceremonial volume with shouted gritos.",
+  "recipe": "classic modern tamborazo zacatecano, groove Percussion, American marching branch, Mexican functional song, andean carnival processional, Latin am groove percussion banda guanajuatense banda jalisciense. kargyraa, breath veiled tone, straight onset, interlocked note trading. softer tone ebonite hard rubber klezmer tradition clarinet, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn unison trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor bass trombone trombone, compact tuba brass piston valves American school besson sovereign British brass band tuba, double bass rapid double strokes bass drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 783,
+  "score": 174.8,
+  "config": {
+    "traditions": [
+      "tamborazo",
+      "banda_guanajuatense",
+      "banda_jalisciense"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.49,
+          "clarinet_body": 2.6650000000000005,
+          "clarinet_size": 0,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_mariachi_unison",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_mariachi_unison",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.875,
+          "brass_size": 0.15,
+          "trumpet_mouthpiece": 3.3150000000000004,
+          "brass_mute": 0.195,
+          "trumpet_technique": 2.875,
+          "trumpet_bell_metal": 1.4949999999999999,
+          "trumpet_maker_school": 2.4050000000000002
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 0.8449999999999999,
+          "trombone_type": 0,
+          "trombone_mouthpiece": 4.03,
+          "trombone_mute": 0.045,
+          "trombone_technique": 0.24,
+          "trombone_bell_metal": 1.4949999999999999,
+          "trombone_maker_school": 2.4050000000000002
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "tuba_pitch": 7.33,
+          "tuba_context": 5.9799999999999995,
+          "tuba_bell_metal": 0.845,
+          "tuba_valve_system": 2.3,
+          "tuba_maker_school": 4.875
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.09321428571428571,
+          "bass_drum_beater": 3.235
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.755,
+          "voice_quality": 10.72499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 19.239999999999995,
+          "voice_microtone": 18.134999999999994,
+          "voice_tradition": 8.728928571428572,
+          "voice_mechanism_compound": 4.9399999999999995,
+          "voice_estill_quality": 4.550000000000001,
+          "voice_speech_song": 23.205,
+          "voice_ensemble_config": 19.174999999999997,
+          "voice_ornament_system": 3.3474999999999997,
+          "voice_pitch_organization": 1.3649999999999995,
+          "voice_processing_chain": 7.0200000000000005,
+          "voice_multitrack_stack": 3.6399999999999997
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "ranchera_3_4_and_2_4",
+    "room": "field_recording",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

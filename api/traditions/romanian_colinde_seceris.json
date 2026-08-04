@@ -5,7 +5,7 @@
   "lineage": "Romanian harvest-carol (colinde de seceriş, \"harvest-colinde\") tradition continuous from premodern Romanian-agricultural village-labor practice through 19th-century Romanian-folklorist documentation (Vasile Alecsandri and Constantin Brăiloiu documented the Romanian harvest-carol corpus) through 20th-century Béla Bartók-and-Constantin-Brăiloiu canonical-ethnomusicology into modern Romanian-folk-revival continuous practice",
   "recipe": "classic Northern European modern romanian colinde de seceriş, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby chinese chayang-diao japanese taue-uta. thick, close mic intimate, straight onset, unrestrained. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 337,
-  "score": 109.407,
+  "score": 110.992,
   "config": {
     "traditions": [
       "romanian_colinde_seceris",
@@ -28,7 +28,7 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
@@ -41,12 +41,12 @@
           "voice_vibrato": 3.2500000000000004,
           "voice_articulation": 11,
           "voice_microtone": 10.204999999999997,
-          "voice_tradition": 28.847500000000004,
+          "voice_tradition": 30.137500000000003,
           "voice_mechanism_compound": 1.8199999999999998,
           "voice_estill_quality": 1.0399999999999998,
           "voice_speech_song": 11.699999999999996,
           "voice_ensemble_config": 9.945,
-          "voice_ornament_system": 5.3500000000000005,
+          "voice_ornament_system": 5.6450000000000005,
           "voice_pitch_organization": 6.759999999999999,
           "voice_processing_chain": 1.6899999999999997,
           "voice_multitrack_stack": 1.8199999999999996

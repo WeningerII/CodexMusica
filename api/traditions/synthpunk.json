@@ -1,0 +1,166 @@
+{
+  "id": "synthpunk",
+  "name": "Synthpunk",
+  "family": "rock_punk",
+  "lineage": "Late-1970s American punk offshoot (Los Angeles, Akron, New York, 1977-1981) in which cheap monophonic synthesizers, combo organs and primitive drum machines replaced guitars entirely — codified by The Screamers, Suicide, Nervous Gender and The Units, running 140-170 BPM with buzzing sawtooth ostinati, no cymbals, hammering eighth-note machine pulses and shouted, hectoring, close-miked vocals delivered flat and unmelodic.",
+  "recipe": "classic European 1977-1981 synthpunk, distorted Rock, punk branch, pop rock synthpop, industrial noise experimental electric minimal synth new romanticism. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog mono oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, psychedelic foregrounded organ driven rock block chord combo organ, drum machine analog, ampeg svt amp rock bass amp ernie ball slinky electric bass. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 597,
+  "score": 253.215,
+  "config": {
+    "traditions": [
+      "synthpunk",
+      "minimal_synth",
+      "new_romantic"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 19.359999999999996,
+          "voice_quality": 9.555,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.6899999999999997,
+          "voice_articulation": 16.379999999999995,
+          "voice_microtone": 19.174999999999997,
+          "voice_tradition": 12.74,
+          "voice_mechanism_compound": 3.8675000000000006,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 19.759999999999994,
+          "voice_ensemble_config": 17.224999999999994,
+          "voice_ornament_system": 2.1,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 8.265,
+          "voice_multitrack_stack": 6.597500000000001
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_arp_pearlman"
+        },
+        "scores": {
+          "electronic_technique": 10.735000000000001,
+          "mono_oscillator": 0.24,
+          "mono_filter": 0.435,
+          "mono_archetypes": 0.845,
+          "mono_maker_lineage": 0.325
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_selmer"
+        },
+        "scores": {
+          "keyboard_technique": 9.2,
+          "combo_organ_model": 9.985,
+          "combo_organ_voicing": 9.445,
+          "combo_organ_context": 6.760000000000002,
+          "amp_make": 0.8449999999999999
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.24,
+          "snare_voice": 0.09,
+          "hat_voice": 0,
+          "shuffle_quantize": 1.9100000000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 7.540000000000001,
+          "body_wood": 0.43499999999999994,
+          "pickup_config": 0.285,
+          "string_type": 13.005000000000003,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.15,
+          "bass_technique": 18.445
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 10.735000000000001,
+          "poly_archetypes": 5.265000000000001,
+          "poly_voices": 0.255,
+          "poly_maker_lineage": 3.38
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_console_inline_strip",
+      "console": "console_home_portastudio",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_cassette_4track_bedroom"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "medium_cassette_4track_bedroom",
+    "chain_console": "console_home_portastudio"
+  }
+}

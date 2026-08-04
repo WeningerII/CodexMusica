@@ -1,0 +1,196 @@
+{
+  "id": "cape_jazz",
+  "name": "Cape Jazz",
+  "family": "jazz",
+  "lineage": "South African jazz idiom formed in District Six and the Cape Flats from the late 1950s, codified by Abdullah Ibrahim, the Blue Notes, Robbie Jansen and Basil Coetzee — mid-tempo 4/4 with a lilting ghoema carnival rhythm and marabi-derived cyclic I-IV-V vamps, hymn-like piano voicings from Cape Malay and mission-church singing, penny-whistle and alto-sax lead lines, and an anthemic, deliberately communal ensemble sound.",
+  "recipe": "classic Southern African 1957-1959 cape jazz, improv On Frame, American jazz branch, African pop functional song, American jazz avant spiritual jazz m-base jazz. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic shallow cup lead trumpet ensemble trumpet, African blackwood boxwood premium pre modern tin whistle, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 929,
+  "score": 500.06,
+  "config": {
+    "traditions": [
+      "cape_jazz",
+      "spiritual_jazz",
+      "mbase_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 7.1000000000000005,
+          "sax_size": 2.450625,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 27.5,
+          "sax_mouthpiece": 0.39,
+          "sax_technique": 27.550625,
+          "sax_maker_school": 29.22
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_gold_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 7.1000000000000005,
+          "brass_size": 1.09,
+          "trumpet_mouthpiece": 29.544375,
+          "brass_mute": 0.24,
+          "trumpet_technique": 1.3299999999999996,
+          "trumpet_bell_metal": 0.65,
+          "trumpet_maker_school": 5.84
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "c_whistle",
+          "whistle_ornament": "no_ornament",
+          "whistle_body_material": "whistle_wood_premium"
+        },
+        "scores": {
+          "wind_articulation": 0.06499999999999999,
+          "whistle_key": 0.24,
+          "whistle_ornament": 0.195,
+          "whistle_body_material": 1.885
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_415_baroque"
+        },
+        "scores": {
+          "keyboard_technique": 5.45,
+          "grand_piano_size": 1.3,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 5.640000000000001,
+          "piano_rim": 7.0200000000000005,
+          "piano_soundboard": 1.9399999999999997,
+          "piano_pinblock": -0.035,
+          "piano_plate": 1.19,
+          "piano_pitch_standard": 2.9899999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 7.1243750000000015,
+          "body_wood": 1.3,
+          "pickup_config": 0.195,
+          "string_type": 28.52,
+          "scale_length_b": 1.3,
+          "fretted_or_not": 1.09,
+          "bass_technique": 27.5
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 33.897499999999994,
+          "drumhead": 29.03,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 30.919999999999998,
+          "voice_quality": 7.540000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 29.865,
+          "voice_articulation": 17.354999999999993,
+          "voice_microtone": 30.209999999999997,
+          "voice_tradition": 29.080000000000002,
+          "voice_mechanism_compound": 6.045,
+          "voice_estill_quality": 3.770000000000001,
+          "voice_speech_song": 19.499999999999993,
+          "voice_ensemble_config": 18.979999999999993,
+          "voice_ornament_system": 2.7300000000000018,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 4.03,
+          "voice_multitrack_stack": 4.647500000000001
+        }
+      }
+    ],
+    "room": "johannesburg_gallo_african_studios",
+    "archetype": "arch_gallo_township_jive",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "jazz_swing_eighth_4_4",
+    "room": "johannesburg_gallo_african_studios",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

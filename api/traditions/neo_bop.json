@@ -1,0 +1,170 @@
+{
+  "id": "neo_bop",
+  "name": "Neo-Bop",
+  "family": "jazz",
+  "lineage": "1980s American acoustic-jazz revival centered on New York's Village Vanguard and Blue Note/Columbia rosters, codified by Wynton and Branford Marsalis, Kenny Garrett and the Jazz Messengers alumni network, restoring the bebop/hard-bop language of fast 4/4 swung eighths at 200-300 BPM, ii-V-heavy chord cycles, unison horn heads over walking bass and ride-cymbal timekeeping, and virtuosic linear improvisation, but recorded with clean 1980s digital-era fidelity rather than 1950s tape grit.",
+  "recipe": "classic North American mid-1980s neo-bop, improv On Frame, bop branch, American jazz hard bop blue note. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, venice catlin high twist renaissance bass modern setup heavier bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sterling silver rare premium bach 42 canonical American orchestral tenor student commercial trombone. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 872,
+  "score": 470.65,
+  "config": {
+    "traditions": [
+      "neo_bop",
+      "blue_note",
+      "hard_bop"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 6.750000000000001,
+          "sax_size": 7.760375000000001,
+          "sax_reed": 0.845,
+          "sax_body_alloy": 33.054000000000016,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": 31.92450000000001,
+          "sax_maker_school": 36.78350000000001
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_sterling_silver_bell",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 6.750000000000001,
+          "brass_size": 0.65,
+          "trumpet_mouthpiece": 39.19550000000002,
+          "brass_mute": 0.585,
+          "trumpet_technique": 6.750000000000001,
+          "trumpet_bell_metal": 1.04,
+          "trumpet_maker_school": 8.58
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 9.006,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 9.717500000000001,
+          "piano_rim": 9.4575,
+          "piano_soundboard": 1.7225,
+          "piano_pinblock": 0.4225,
+          "piano_plate": 1.1809999999999998,
+          "piano_pitch_standard": 1.0725
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.4515,
+          "bass_size": 0.39,
+          "bass_strings": 2.0799999999999996,
+          "bass_top_wood": 0.375,
+          "bass_back_wood": 0.3745,
+          "bass_varnish": 0.325,
+          "bass_setup_period": 2.5675,
+          "bass_play": 32.58412500000001,
+          "bass_rosin": 42.53025000000001,
+          "bass_bow_stick": 1.5014999999999996
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 40.495000000000005,
+          "drumhead": 39.42875000000001,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "tailgate_slide",
+          "trombone_bell_metal": "trombone_sterling_silver",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 6.750000000000001,
+          "trombone_type": 31.87500000000001,
+          "trombone_mouthpiece": 31.82500000000001,
+          "trombone_mute": 0.195,
+          "trombone_technique": 1.1365,
+          "trombone_bell_metal": 1.04,
+          "trombone_maker_school": 9.425
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "bebop_complex_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "bebop_complex_changes",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

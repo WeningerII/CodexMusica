@@ -3,14 +3,14 @@
   "name": "Epicore (trailer-music epic)",
   "family": "classical",
   "lineage": "Los Angeles trailer-music production libraries of the 2000s — Immediate Music, Two Steps From Hell (Thomas Bergersen and Nick Phoenix, founded 2006), Audiomachine — codified a consumer-facing 'epic' idiom sold direct to listeners from 2010 onward: 80-130 BPM ostinato string figures, unison low brass and horn calls, wordless Latinate choir, taiko and orchestral bass-drum hits on a rising two-minute build-to-drop arc, sampled-orchestra libraries layered with synth sub and cinematic braams.",
-  "recipe": "classic mid-2000s epicore, art Music, western modern branch, western common practice art music, symphonic metal british brass band german romanticism. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu choir ensemble, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, brass continuous-airflow legato french horn, synthetic timpani, stave built modern non trunk modern ensemble taiko drum, immediate hard beater gong tamtam, one man band sub bass rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 791,
-  "score": 198.27,
+  "recipe": "classic mid-2000s epicore, art Music, western modern branch, western common practice art music, symphonic metal zarzuela género chico british brass band. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu choir ensemble, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, brass continuous-airflow legato french horn, synthetic timpani, stave built modern non trunk modern ensemble taiko drum, immediate hard beater gong tamtam, one man band sub bass rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 794,
+  "score": 182.615,
   "config": {
     "traditions": [
       "epicore",
-      "british_brass_band",
-      "german_romanticism"
+      "zarzuela_genero_chico",
+      "british_brass_band"
     ],
     "instruments": [
       {
@@ -22,10 +22,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 8.395,
-          "choir_polyphonic_configuration": 1.345,
+          "choir_size": 9.895,
+          "choir_polyphonic_configuration": 1.845,
           "choir_regional_canonical_configuration": 4.6899999999999995,
-          "choir_ensemble_repertoire": 3.575
+          "choir_ensemble_repertoire": 2.925
         }
       },
       {
@@ -43,16 +43,16 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 6.625,
+          "bowed_technique": 6.25,
           "orch_strings": 1.3,
-          "orch_top_wood": 8.19,
-          "orch_back_wood": 12.1875,
-          "orch_varnish": 8.375,
-          "orch_setup_period": 10.545,
-          "orch_bow": 1.17,
-          "orch_bow_stick": 10.822499999999998,
+          "orch_top_wood": 7.8149999999999995,
+          "orch_back_wood": 10.14,
+          "orch_varnish": 7.5,
+          "orch_setup_period": 9.67,
+          "orch_bow": 1.04,
+          "orch_bow_stick": 9.685,
           "orch_articulation": 0.8449999999999999,
-          "orch_rosin": 12.8375
+          "orch_rosin": 10.14
         }
       },
       {
@@ -69,15 +69,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 6.625,
-          "cello_strings": 3.25,
-          "cello_top_wood": 5.86,
-          "cello_back_wood": 9.955,
-          "cello_varnish": 8.375,
-          "cello_setup_period": 10.545,
-          "cello_bow_grip": 2.795,
-          "cello_rosin": 9.375,
-          "cello_bow_stick": 10.822499999999998
+          "bowed_technique": 6.25,
+          "cello_strings": 2.795,
+          "cello_top_wood": 5.635,
+          "cello_back_wood": 9.43,
+          "cello_varnish": 7.5,
+          "cello_setup_period": 9.67,
+          "cello_bow_grip": 2.9899999999999998,
+          "cello_rosin": 8.5,
+          "cello_bow_stick": 9.685
         }
       },
       {
@@ -89,8 +89,8 @@
         },
         "scores": {
           "wind_articulation": 3.9400000000000004,
-          "french_horn_bore": 2.34,
-          "french_horn_metal": 4.68
+          "french_horn_bore": 2.145,
+          "french_horn_metal": 3.8349999999999995
         }
       },
       {
@@ -101,9 +101,9 @@
           "timpani_head": "timpani_synthetic"
         },
         "scores": {
-          "percussion_technique": 2.875,
-          "timpani_size": 3.445,
-          "timpani_head": 2.4050000000000002
+          "percussion_technique": 2.5,
+          "timpani_size": 3.25,
+          "timpani_head": 1.95
         }
       },
       {
@@ -116,11 +116,11 @@
           "taiko_technique": "taiko_kumi_daiko"
         },
         "scores": {
-          "taiko_size": 1.15,
+          "taiko_size": 1,
           "taiko_skin": 0.585,
-          "taiko_shell_wood": 3.025,
+          "taiko_shell_wood": 2.6,
           "taiko_lineage": 0.585,
-          "taiko_technique": 3.4450000000000003
+          "taiko_technique": 2.9899999999999998
         }
       },
       {
@@ -143,10 +143,10 @@
           "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
-          "electronic_technique": 3.7950000000000004,
-          "rompler_preset_bank": 1.6449999999999998,
-          "rompler_context": 5.329999999999999,
-          "rompler_lineage": 0.09
+          "electronic_technique": 3.6450000000000005,
+          "rompler_preset_bank": 1.295,
+          "rompler_context": 5.83,
+          "rompler_lineage": 0.59
         }
       }
     ],

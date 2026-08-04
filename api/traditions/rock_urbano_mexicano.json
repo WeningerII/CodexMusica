@@ -3,14 +3,14 @@
   "name": "Rock urbano mexicano",
   "family": "rock",
   "lineage": "Working-class Mexico City rock forged in the hoyos fonquis of the 1970s-80s by Alex Lora's Three Souls in My Mind and El Tri, then Banda Bostik, El Haragán y Compañía and Liran' Roll — blues-shuffle and mid-tempo hard-rock forms at 90-130 BPM with pentatonic guitar riffs, harmonica, plainspoken chorded Spanish shouted vocals, and lyrics about poverty, police, alcohol and barrio life sold on cassette outside the commercial industry.",
-  "recipe": "classic North American mid-1970s rock urbano mexicano, distorted Rock, regional branch, classic distorted rock, iberian Latin protest song acid rock garage rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, sticks backbeat drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe": "classic North American mid-1970s rock urbano mexicano, distorted Rock, regional branch, classic distorted rock, iberian Latin protest song freakbeat deutschrock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, sticks backbeat drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 827,
-  "score": 507.91,
+  "score": 504.32,
   "config": {
     "traditions": [
       "rock_urbano_mexicano",
-      "acid_rock",
-      "garage_rock"
+      "freakbeat",
+      "deutschrock"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 38.895000000000024,
-          "voice_quality": 12.739999999999997,
+          "voice_register": 37.07000000000002,
+          "voice_quality": 10.334999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.035,
-          "voice_articulation": 16.834999999999997,
-          "voice_microtone": 32.250000000000014,
-          "voice_tradition": 3.4450000000000003,
-          "voice_mechanism_compound": 9.23,
-          "voice_estill_quality": 2.5349999999999997,
-          "voice_speech_song": 18.33,
-          "voice_ensemble_config": 16.964999999999996,
+          "voice_vibrato": 5.535,
+          "voice_articulation": 18.784999999999993,
+          "voice_microtone": 32.42500000000001,
+          "voice_tradition": 3.1950000000000003,
+          "voice_mechanism_compound": 6.955000000000001,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 21.18999999999999,
+          "voice_ensemble_config": 19.564999999999994,
           "voice_ornament_system": 1.6999999999999997,
-          "voice_pitch_organization": 2.2850000000000006,
-          "voice_processing_chain": 8.06,
-          "voice_multitrack_stack": 4.16
+          "voice_pitch_organization": 1.4849999999999999,
+          "voice_processing_chain": 9.815,
+          "voice_multitrack_stack": 3.6075
         }
       },
       {
@@ -60,9 +60,9 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
+          "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_11_hum",
@@ -70,19 +70,19 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 10.530000000000001,
-          "amp_make": 20.214999999999996,
-          "body_wood": 2.9899999999999998,
-          "neck_wood": 1.95,
-          "fretboard": 1.885,
-          "pickup_magnet": 0.195,
+          "electric_technique": 7.0200000000000005,
+          "amp_make": 20.572499999999998,
+          "body_wood": 3.3799999999999994,
+          "neck_wood": 2.9899999999999998,
+          "fretboard": 2.925,
+          "pickup_magnet": 0.65,
           "pickup_winding": 2.8600000000000003,
-          "string_material": 0.195,
-          "bridge": 1.95,
-          "scale_length": 1.95,
-          "string_gauge": 1.95,
-          "finish": 1.04,
-          "string_tuning": 21.45
+          "string_material": 0.65,
+          "bridge": 2.9899999999999998,
+          "scale_length": 2.9899999999999998,
+          "string_gauge": 2.9899999999999998,
+          "finish": 0.435,
+          "string_tuning": 21.71
         }
       },
       {
@@ -90,20 +90,20 @@
         "slots": {
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 17.81,
-          "body_wood": 1.95,
-          "pickup_config": 0.045,
-          "string_type": 40.305,
-          "scale_length_b": 1.95,
+          "amp_make": 19.5975,
+          "body_wood": 3.6399999999999997,
+          "pickup_config": 0.5,
+          "string_type": 39.055,
+          "scale_length_b": 2.9899999999999998,
           "fretted_or_not": 0,
-          "bass_technique": 33.885
+          "bass_technique": 33.51
         }
       },
       {
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 32.59,
-          "drumhead": 1.95,
+          "drum_technique": 31.99,
+          "drumhead": 2.9899999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,12 +130,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.845,
-          "harmonica_comb": 8.075000000000001,
-          "harmonica_reed": 8.335,
-          "harmonica_technique": 6.600000000000001,
-          "harmonica_maker_school": 6.175000000000001,
-          "harmonica_tuning": 3.1200000000000006
+          "harmonica_type": 0.195,
+          "harmonica_comb": 4.925000000000001,
+          "harmonica_reed": 7.135000000000001,
+          "harmonica_technique": 4.1000000000000005,
+          "harmonica_maker_school": 2.7300000000000004,
+          "harmonica_tuning": 2.08
         }
       },
       {
@@ -149,12 +149,12 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 1.105,
-          "drawbar_setting": 32.635,
-          "rotary_speed": 32.45,
-          "percussion_setting": 16.9,
-          "tonewheel_model": 14.104999999999997,
-          "leslie_cabinet_model": 0.78
+          "keyboard_technique": 1.0724999999999998,
+          "drawbar_setting": 31.884999999999998,
+          "rotary_speed": 32.2,
+          "percussion_setting": 16.509999999999998,
+          "tonewheel_model": 14.364999999999997,
+          "leslie_cabinet_model": 0.585
         }
       }
     ],

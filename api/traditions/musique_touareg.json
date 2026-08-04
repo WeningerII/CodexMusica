@@ -1,0 +1,152 @@
+{
+  "id": "musique_touareg",
+  "name": "Musique touareg (Tuareg traditional repertoire)",
+  "family": "global",
+  "lineage": "Pre-electric music of the Kel Tamasheq across Mali, Niger, Algeria and Libya, documented ethnographically from the 1950s onward — the noble imzad one-string fiddle accompanying men's sung poetry in free rubato, the women's tinde mortar-drum ensembles driving fast handclapped 6/8 possession and camel-race songs, and the tehardent lute repertoire of the inhaden artisan caste, all in narrow pentatonic modes with heavy portamento and ululation.",
+  "recipe": "classic North African mid-1950s musique touareg, drone Modal, string branch, central Asian hunting song, middle eastern wedding tuvan folk music central asian folk. sygyt, breath veiled tone, fast rate, interlocked note trading. gourd goatskin horsehair bow canonical tuareg tuareg women canonical solo imzad, driving call-and-response tinde, tehardent, snappy thin to palm hand clap, inverted calabash, mortar pestle. saharan desert encampment. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 520,
+  "score": 180.21,
+  "config": {
+    "traditions": [
+      "musique_touareg",
+      "tuvan_folk",
+      "central_asian_folk"
+    ],
+    "instruments": [
+      {
+        "id": "imzad",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "imzad_body": "imzad_halfgourd",
+          "imzad_string": "imzad_horsehair",
+          "imzad_bow": "imzad_horsehair_bow",
+          "imzad_tradition": "imzad_tuareg_women"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "imzad_body": 1.54,
+          "imzad_string": 0.65,
+          "imzad_bow": 2.67,
+          "imzad_tradition": 3.865
+        }
+      },
+      {
+        "id": "tinde",
+        "slots": {
+          "tinde_build": "tinde_mortar",
+          "tinde_context": "tinde_tende_nomnas"
+        },
+        "scores": {
+          "tinde_build": 0,
+          "tinde_context": 19.305
+        }
+      },
+      {
+        "id": "tehardent",
+        "slots": {
+          "tehardent_body": "tehardent_wood_hide",
+          "tehardent_style": "tehardent_takamba"
+        },
+        "scores": {
+          "tehardent_body": 0.045,
+          "tehardent_style": 1.95
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "khoomei_tuvan_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 5.0375,
+          "voice_quality": 15.989999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.535,
+          "voice_articulation": 18.005,
+          "voice_microtone": 24.569999999999997,
+          "voice_tradition": 10.36,
+          "voice_mechanism_compound": 8.97,
+          "voice_estill_quality": 3.9650000000000003,
+          "voice_speech_song": 23.595,
+          "voice_ensemble_config": 18.134999999999998,
+          "voice_ornament_system": 2.795,
+          "voice_pitch_organization": 9.197499999999998,
+          "voice_processing_chain": 2.275,
+          "voice_multitrack_stack": 1.4949999999999999
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 2.015,
+          "clap_capture": 0.045
+        }
+      },
+      {
+        "id": "inverted_calabash",
+        "slots": {
+          "inverted_calabash_size": "inverted_calabash_medium",
+          "inverted_calabash_technique": "inverted_calabash_hands"
+        },
+        "scores": {
+          "inverted_calabash_size": 0.195,
+          "inverted_calabash_technique": 1.54
+        }
+      },
+      {
+        "id": "mortar_pestle",
+        "slots": {
+          "mortar_pestle_vessel": "mortar_pestle_wood",
+          "mortar_pestle_content": "mortar_pestle_grain"
+        },
+        "scores": {
+          "mortar_pestle_vessel": 0,
+          "mortar_pestle_content": 0
+        }
+      }
+    ],
+    "room": "saharan_desert_encampment",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "tuareg_pentatonic_raised4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tuareg_pentatonic_raised4",
+    "room": "saharan_desert_encampment",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

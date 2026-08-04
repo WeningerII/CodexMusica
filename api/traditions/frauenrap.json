@@ -3,14 +3,14 @@
   "name": "Frauenrap (German women's rap)",
   "family": "hip_hop",
   "lineage": "German-language women's rap tradition running from Cora E. and Sabrina Setlur in the early 1990s Heidelberg/Frankfurt scenes through the 2010s Berlin queer-feminist wave of Sookee, Ebow and Nura, marked by dense multisyllabic German rhyme over 85–100 BPM boom-bap or, latterly, trap hi-hat triplets and 808 glides, dry close-miked delivery, and explicitly gendered lyrical address answering the male-dominated Straßenrap canon.",
-  "recipe": "classic 1990-1993 frauenrap, mc Rhythm, intl hip hop branch, us hip hop conscious rap, European protest song conscious hip-hop greek éntechno politicized. thick, rap, straight onset, interlocked note trading. chopped sampler, TR-808, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, low sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 605,
-  "score": 305.718,
+  "recipe": "classic 1990-1993 frauenrap, mc Rhythm, intl hip hop branch, us hip hop conscious rap, European protest song jazz rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. chopped sampler, TR-808, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, low sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 587,
+  "score": 362.347,
   "config": {
     "traditions": [
       "frauenrap",
-      "conscious_hip_hop",
-      "greek_entechno_politicized"
+      "jazz_rap",
+      "conscious_hip_hop"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
@@ -34,39 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.37,
-          "voice_quality": 28.874,
+          "voice_register": 11.044999999999996,
+          "voice_quality": 34.105,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.879999999999999,
-          "voice_articulation": 18.589999999999996,
-          "voice_microtone": 18.947499999999998,
-          "voice_tradition": 11.927499999999997,
-          "voice_mechanism_compound": 2.4049999999999994,
-          "voice_estill_quality": 3.665,
-          "voice_speech_song": 27.817999999999994,
-          "voice_ensemble_config": 18.72,
-          "voice_ornament_system": 4.355000000000002,
-          "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 22.524999999999995,
-          "voice_multitrack_stack": 9.0675
+          "voice_vibrato": 7.504999999999999,
+          "voice_articulation": 20.604999999999997,
+          "voice_microtone": 19.759999999999994,
+          "voice_tradition": 11.089999999999998,
+          "voice_mechanism_compound": 3.055,
+          "voice_estill_quality": 5.289999999999999,
+          "voice_speech_song": 33.154999999999994,
+          "voice_ensemble_config": 19.434999999999995,
+          "voice_ornament_system": 5.955000000000001,
+          "voice_pitch_organization": 2.235,
+          "voice_processing_chain": 27.674999999999994,
+          "voice_multitrack_stack": 9.3275
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_archetypes": "emu_sp1200",
           "sampler_bit_depth": "sampler_twelve_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 8.143999999999998,
-          "sampler_archetypes": 13.909999999999998,
-          "sampler_bit_depth": 1.9500000000000002,
-          "sampler_workflow": 10.349999999999998,
-          "sampler_classic_context": 30.0625
+          "electronic_technique": 10.499999999999998,
+          "sampler_archetypes": 15.884999999999998,
+          "sampler_bit_depth": 2.9250000000000003,
+          "sampler_workflow": 13.2,
+          "sampler_classic_context": 32.565
         }
       },
       {
@@ -77,7 +77,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 8.494,
+          "tr808_voice": 11.089999999999998,
           "drum_machine_808_context": 2.6650000000000005,
           "tr808_production_origin": 0.45499999999999996
         }
@@ -89,8 +89,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 8.143999999999998,
-          "turntable_technique": 8.875
+          "electronic_technique": 10.499999999999998,
+          "turntable_technique": 11.144999999999998
         }
       },
       {
@@ -105,13 +105,13 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 5.637999999999999,
-          "body_wood": 0.585,
-          "pickup_config": 2.145,
-          "string_type": 6.452999999999999,
-          "scale_length_b": 0.8449999999999999,
+          "amp_make": 8.235,
+          "body_wood": 0.78,
+          "pickup_config": 2.5349999999999997,
+          "string_type": 9.604999999999999,
+          "scale_length_b": 1.0399999999999998,
           "fretted_or_not": 0.045,
-          "bass_technique": 3.999999999999999
+          "bass_technique": 5.864999999999998
         }
       },
       {
@@ -123,10 +123,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 12.263999999999998,
+          "electronic_technique": 15.054999999999998,
           "poly_archetypes": 0.195,
           "poly_voices": 0,
-          "poly_maker_lineage": -1.336
+          "poly_maker_lineage": -1.6749999999999998
         }
       }
     ],

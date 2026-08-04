@@ -5,7 +5,7 @@
   "lineage": "Aboriginal Australian hunting-and-songlines tradition continuous from at-least-65,000-year-continuous Indigenous-Australian cultural-practice through colonial-era continuous performance into modern Aboriginal-and-Torres-Strait-Islander continuous practice",
   "recipe": "classic Oceanian modern aboriginal australian hunting songlines, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, oceania pacific praise song māori waiata mōteatea / patere hawaiian mele inoa. extended whistle, declaimed, straight onset, continuous-phonation. eucalyptus tetrodonta yidaki canon northeast arnhem sugarbag beeswax native bee wax didgeridoo, arnhem land song cycle clapsticks bilma, narrow blade ancient ritual slow whirl ritual summoning bullroarer. arctic arnhem indigenous outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 600,
-  "score": 191.498,
+  "score": 191.97,
   "config": {
     "traditions": [
       "aboriginal_australian_songlines",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 0.6499999999999999,
-          "voice_quality": 21.896499999999993,
+          "voice_quality": 22.05999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6000000000000005,
-          "voice_articulation": 10.139999999999999,
+          "voice_articulation": 10.034999999999998,
           "voice_microtone": 9.36,
-          "voice_tradition": 32.709,
-          "voice_mechanism_compound": 11.545,
+          "voice_tradition": 32.87,
+          "voice_mechanism_compound": 11.785,
           "voice_estill_quality": 1.17,
           "voice_speech_song": 18.849999999999994,
           "voice_ensemble_config": 10.269999999999996,
-          "voice_ornament_system": 7.3950000000000005,
-          "voice_pitch_organization": 10.139999999999999,
+          "voice_ornament_system": 7.53,
+          "voice_pitch_organization": 10.034999999999998,
           "voice_processing_chain": 1.4949999999999999,
           "voice_multitrack_stack": 0.9099999999999998
         }
@@ -61,9 +61,9 @@
           "didj_technique": "circular_breathing"
         },
         "scores": {
-          "wind_articulation": 0.945,
+          "wind_articulation": 1.14,
           "didj_material": 10.125,
-          "didj_mouthpiece": 10.442999999999998,
+          "didj_mouthpiece": 10.169999999999998,
           "didj_technique": 10.139999999999999
         }
       },
@@ -72,12 +72,12 @@
         "slots": {
           "clapsticks_bilma_form": "clapsticks_bilma_arnhem",
           "clapsticks_bilma_context": "clapsticks_bilma_manikay",
-          "clapsticks_bilma_wood": "clapsticks_bilma_ironwood"
+          "clapsticks_bilma_wood": "clapsticks_bilma_mulga"
         },
         "scores": {
           "clapsticks_bilma_form": 6.1,
           "clapsticks_bilma_context": 8.97,
-          "clapsticks_bilma_wood": -0.05
+          "clapsticks_bilma_wood": -0.035
         }
       },
       {
@@ -90,7 +90,7 @@
         "scores": {
           "bullroarer_regional_form": 3.965,
           "bullroarer_whirl_style": 3.3799999999999994,
-          "bullroarer_slat_build": 0
+          "bullroarer_slat_build": 0.045
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Japanese imperial court music tradition codified during the Nara and Heian periods (eighth through twelfth centuries CE) drawing on Tang Chinese, Korean, and indigenous Japanese ceremonial-court repertoire — preserved continuously through the Imperial Household Music Department (Kunaichō Gakubu) lineage in Tokyo, with characteristic ensemble of shō mouth-organ, hichiriki double-reed, ryūteki transverse flute, biwa lute, koto zither, kakko drum, and shōko gong",
   "recipe": "classic East Asian modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum, Korean repertoire higher pitched six holed ryuteki, sustained cluster chords gagaku kangen. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 646,
-  "score": 66.671,
+  "score": 67.076,
   "config": {
     "traditions": [
       "gagaku"
@@ -20,8 +20,8 @@
         },
         "scores": {
           "free_reed_technique": 1.6249999999999998,
-          "sho_pipes": 1.17,
-          "sho_warming": 0.3
+          "sho_pipes": 1.095,
+          "sho_warming": 0.40499999999999997
         }
       },
       {
@@ -38,7 +38,7 @@
           "hichiriki_double_reed_size": 1.345,
           "hichiriki_double_reed_context": 1.3,
           "hichiriki_body_wood": 1.69,
-          "hichiriki_reed": 8.078642857142857
+          "hichiriki_reed": 8.047142857142855
         }
       },
       {
@@ -55,7 +55,7 @@
           "biwa_type": 2.08,
           "biwa_plectrum": 0.21,
           "biwa_body_wood": 0.6814285714285714,
-          "biwa_strings": 0.8841428571428569
+          "biwa_strings": 0.8526428571428569
         }
       },
       {
@@ -68,7 +68,7 @@
           "taiko_technique": "taiko_gagaku_ritual"
         },
         "scores": {
-          "taiko_size": 0.5747142857142856,
+          "taiko_size": 0.8147142857142856,
           "taiko_skin": 3.769999999999999,
           "taiko_shell_wood": 3.769999999999999,
           "taiko_lineage": 1.9454285714285715,
@@ -80,12 +80,12 @@
         "slots": {
           "ryuteki_form": "ryuteki_komabue",
           "ryuteki_style": "ryuteki_netori",
-          "ryuteki_material": "ryuteki_susudake"
+          "ryuteki_material": "ryuteki_bark_wrapped"
         },
         "scores": {
-          "ryuteki_form": 7.583142857142857,
-          "ryuteki_style": 4.018000000000001,
-          "ryuteki_material": 0.855
+          "ryuteki_form": 7.551642857142857,
+          "ryuteki_style": 3.9865000000000004,
+          "ryuteki_material": 0.7847142857142857
         }
       },
       {
@@ -98,7 +98,7 @@
         "scores": {
           "gagaku_kangen_configuration": 4.595,
           "gagaku_kangen_repertoire": 4.595,
-          "gagaku_kangen_texture": 4.183
+          "gagaku_kangen_texture": 4.5145
         }
       }
     ],

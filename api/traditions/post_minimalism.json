@@ -1,0 +1,210 @@
+{
+  "id": "post_minimalism",
+  "name": "Post-Minimalism",
+  "family": "classical",
+  "lineage": "Emerging in New York and Britain circa 1975-1990 as composers including John Adams, Michael Nyman, Louis Andriessen, Arvo Pärt and the Bang on a Can circle absorbed Reich-Glass pulse technique back into functional harmony, expressive phrase-shape and long-form architecture — steady eighth-note motor pulse, additive but audibly directional harmonic rhythm, mixed amplified chamber forces (piano, mallets, electric guitar, saxophones, strings), fully notated with no improvisation and dynamic arcs the earlier minimalists refused.",
+  "recipe": "classic British mid-1980s post-minimalism, art Music, western modern branch, ambient experimental electric, art rock distorted rock art punk motorpop. soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, marimba sitka spruce hard rock maple acer saccharum oil varnish amber tinted violin orchestral, treble-extended articulate rubber vibraphone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation wenge single coil electric guitar, gold brass warmer tone ebonite saxophone, string quartet inst, engelmann spruce hard rock maple oil varnish amber tinted modern setup cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 709,
+  "score": 224.96,
+  "config": {
+    "traditions": [
+      "post_minimalism",
+      "art_punk",
+      "motorpop"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 5.574999999999999,
+          "grand_piano_size": 1.045,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 13.905,
+          "piano_rim": 13.71,
+          "piano_soundboard": 7.74,
+          "piano_pinblock": 6.445,
+          "piano_plate": 6.25,
+          "piano_pitch_standard": 9.835
+        }
+      },
+      {
+        "id": "marimba_orchestral",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "marimba_size": "marimba_4_octave",
+          "marimba_orchestral_bar": "marimba_orchestral_padauk"
+        },
+        "scores": {
+          "percussion_technique": 1.75,
+          "marimba_size": 1,
+          "marimba_orchestral_bar": 0.65
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_off",
+          "vibe_mallets": "vibe_hard_mallets"
+        },
+        "scores": {
+          "percussion_technique": 1.75,
+          "vibe_motor": 1.1949999999999998,
+          "vibe_mallets": 2.04
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "alder",
+          "neck_wood": "wenge_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 7.875,
+          "amp_make": 11.354999999999999,
+          "body_wood": 0.745,
+          "neck_wood": 1.11,
+          "fretboard": 1.56,
+          "pickup_magnet": 1.04,
+          "string_material": 1.56,
+          "string_gauge": 1.4,
+          "bridge": 0.3,
+          "scale_length": 1.345,
+          "finish": 0,
+          "string_tuning": 10.805
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "baritone_sax",
+          "sax_reed": "hard_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_multiphonic_avant",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "sax_size": 0.65,
+          "sax_reed": 1.11,
+          "sax_body_alloy": 6.4,
+          "sax_mouthpiece": 1.155,
+          "sax_technique": 0.825,
+          "sax_maker_school": 0.44999999999999996
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_modern",
+          "string_quartet_inst_era": "string_quartet_inst_contemporary"
+        },
+        "scores": {
+          "bowed_technique": 2.785,
+          "quartet_school": 3.119999999999999,
+          "string_quartet_inst_era": 2.9249999999999994
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "venice_catlin_cello",
+          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "liebenzeller_metal_rosin_cello",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "cello_strings": 0.9450000000000001,
+          "cello_top_wood": 3.75,
+          "cello_back_wood": 11.21,
+          "cello_varnish": 6.25,
+          "cello_setup_period": 5.245,
+          "cello_bow_grip": 1,
+          "cello_rosin": 6.835,
+          "cello_bow_stick": 6.5
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "orch_strings": 0.7,
+          "orch_top_wood": 5.045,
+          "orch_back_wood": 12.65,
+          "orch_varnish": 6.25,
+          "orch_setup_period": 5.245,
+          "orch_bow": 1,
+          "orch_bow_stick": 6.5,
+          "orch_articulation": 1.2449999999999999,
+          "orch_rosin": 7.11
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_decca_sound_orchestral",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

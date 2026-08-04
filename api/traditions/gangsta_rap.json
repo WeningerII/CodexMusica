@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s onward American hip-hop street-narrative subgenre codified through Schoolly D (\"PSK What Does It Mean?\" 1985), Ice-T (Rhyme Pays 1987), and the N.W.A. Straight Outta Compton (1988) breakthrough — characterized by first-person street-life narratives, hardened drum-machine production, sample-based foundations, and explicit anti-establishment lyrical content driving the late-80s/early-90s West Coast scene",
   "recipe": "classic North American 1984-1986 gangsta rap, mc Rhythm, gangsta branch, us hip hop west coast, us hip hop east coast boom bap pre-sampling hip-hop. thick, rap, straight onset, narrative. sampled chopped sampler drum machine, chopped sampler, low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. treated studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 493,
-  "score": 386.185,
+  "score": 387.495,
   "config": {
     "traditions": [
       "gangsta_rap",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 10.434999999999999,
-          "voice_quality": 31.53,
+          "voice_register": 10.584999999999999,
+          "voice_quality": 31.290000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.82,
-          "voice_articulation": 22.065000000000005,
+          "voice_articulation": 22.020000000000003,
           "voice_microtone": 15.469999999999988,
-          "voice_tradition": 15.885000000000002,
+          "voice_tradition": 16.185000000000002,
           "voice_mechanism_compound": 3.1849999999999996,
           "voice_estill_quality": 5.605000000000001,
-          "voice_speech_song": 30.310000000000002,
+          "voice_speech_song": 30.415000000000003,
           "voice_ensemble_config": 15.989999999999991,
           "voice_ornament_system": 5.915000000000002,
           "voice_pitch_organization": 1.4625,
-          "voice_processing_chain": 23.17,
-          "voice_multitrack_stack": 5.719999999999999
+          "voice_processing_chain": 23.365000000000002,
+          "voice_multitrack_stack": 5.92
         }
       },
       {
@@ -61,7 +61,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 14.485000000000001,
+          "electronic_technique": 14.575000000000001,
           "sample_bitdepth": 1.4249999999999998,
           "sample_swing": 24.44,
           "sample_processing": 1.885
@@ -77,7 +77,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 14.485000000000001,
+          "electronic_technique": 14.575000000000001,
           "sampler_archetypes": 24.44,
           "sampler_bit_depth": 1.95,
           "sampler_workflow": 15.67,
@@ -91,10 +91,10 @@
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "pluck_env",
-          "modulation": "lfo_pitch"
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 18.94,
+          "electronic_technique": 19.225,
           "oscillator": 1.3649999999999998,
           "filter_topology": 3.055,
           "envelope": 0.195,
@@ -106,19 +106,19 @@
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 9.22,
+          "amp_make": 9.355,
           "body_wood": 1.885,
           "pickup_config": 0.15,
           "string_type": 7.6375,
           "scale_length_b": 1.885,
-          "fretted_or_not": 0.21,
+          "fretted_or_not": 0.255,
           "bass_technique": 9.075000000000001
         }
       }

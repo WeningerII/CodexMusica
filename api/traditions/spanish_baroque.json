@@ -1,0 +1,193 @@
+{
+  "id": "spanish_baroque",
+  "name": "Spanish Baroque",
+  "family": "classical",
+  "lineage": "Iberian and colonial Hispanic music c.1600-1750 — Juan Hidalgo and Sebastian Duron at the Madrid court, Correa de Arauxo and Cabanilles at the organ, Jose de Nebra and the New World chapelmasters — vernacular Castilian villancicos in refrain-and-copla form, hemiola-heavy 6/8 against 3/4 dance metres, guitar and cross-strung harp continuo instead of harpsichord, tiento organ writing on split-keyboard horizontal reeds, and zarzuela's mix of sung and spoken theatre.",
+  "recipe": "classic North African early-1600s spanish baroque, art Music, western common practice branch, western early art music historically-informed performance recording burgundian school. thick, breath veiled tone, slow rate, interlocked note trading. canonical Spanish dance rhythms double bourdon early Italian baroque guitar, concert harp, Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, mixed satb canonical 4 part western heterophonic same melody variant ornament per voice kakhetian three voice two soloists choral drone choir ensemble, Italian alpine spruce val di fiemme European maple bosnian source flamed figure violin orchestral, castanets, projecting brass dulcian. stone plaster medina room. blumlein stereo pair, ultra-clean solid-state pre.",
+  "recipe_chars": 982,
+  "score": 367.23,
+  "config": {
+    "traditions": [
+      "spanish_baroque",
+      "historical_informed_performance",
+      "burgundian_school"
+    ],
+    "instruments": [
+      {
+        "id": "baroque_guitar",
+        "slots": {
+          "baroque_guitar_form": "baroque_guitar_spanish_sanz",
+          "baroque_guitar_style": "baroque_guitar_rasgueado",
+          "baroque_guitar_stringing": "baroque_guitar_double_bourdons"
+        },
+        "scores": {
+          "baroque_guitar_form": 3.7700000000000005,
+          "baroque_guitar_style": 1.945,
+          "baroque_guitar_stringing": 3.25
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 3.445,
+          "harp_pedals": 3.445
+        }
+      },
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
+          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
+          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
+          "pipe_organ_action": "pipe_organ_mechanical_tracker"
+        },
+        "scores": {
+          "keyboard_technique": 6.625,
+          "pipe_organ_class": 3.1200000000000006,
+          "pipe_organ_context": 13.975000000000001,
+          "pipe_organ_voicing_school": 7.475,
+          "pipe_organ_pipe_alloy": 2.145,
+          "pipe_organ_temperament": 5.98,
+          "pipe_organ_action": 3.9650000000000003
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 5.4799999999999995,
+          "voice_quality": 13.714999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.4575,
+          "voice_articulation": 20.150000000000006,
+          "voice_microtone": 17.810000000000002,
+          "voice_tradition": 19.18,
+          "voice_mechanism_compound": 6.5249999999999995,
+          "voice_estill_quality": 11.8625,
+          "voice_speech_song": 18.005000000000003,
+          "voice_ensemble_config": 18.330000000000005,
+          "voice_ornament_system": 7.325,
+          "voice_pitch_organization": 12.057500000000003,
+          "voice_processing_chain": 5.135,
+          "voice_multitrack_stack": 1.54
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_heterophonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 7.605,
+          "choir_polyphonic_configuration": 2.7749999999999995,
+          "choir_regional_canonical_configuration": 3.8249999999999993,
+          "choir_ensemble_repertoire": 2.795
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "plain_sheep_gut_violin",
+          "orch_top_wood": "italian_alpine_spruce_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "snakewood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 6.874999999999999,
+          "orch_strings": 0.325,
+          "orch_top_wood": 13.75,
+          "orch_back_wood": 13.840000000000002,
+          "orch_varnish": 13.835,
+          "orch_setup_period": 12.72,
+          "orch_bow": 4.465,
+          "orch_bow_stick": 9.525,
+          "orch_articulation": 1.8199999999999998,
+          "orch_rosin": 15.635
+        }
+      },
+      {
+        "id": "castanets",
+        "slots": {
+          "castanets_material": "castanets_boxwood",
+          "castanets_mounting": "castanets_machine"
+        },
+        "scores": {
+          "castanets_material": 3.445,
+          "castanets_mounting": 0
+        }
+      },
+      {
+        "id": "dulcian",
+        "slots": {
+          "dulcian_size": "dulcian_descant_bajoncillo",
+          "dulcian_repertoire": "dulcian_revival_consort",
+          "dulcian_regional_form": "dulcian_bajon_spanish",
+          "dulcian_pitch_standard": "dulcian_a415"
+        },
+        "scores": {
+          "dulcian_size": 5.235,
+          "dulcian_repertoire": 6.825,
+          "dulcian_regional_form": 6.74,
+          "dulcian_pitch_standard": 10.07
+        }
+      }
+    ],
+    "room": "stone_plaster_medina_room",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "meantone",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "meantone",
+    "room": "stone_plaster_medina_room",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "id": "minimal_wave",
+  "name": "Minimal Wave",
+  "family": "electronic",
+  "lineage": "Retroactive category defined by Veronica Vasicka's Minimal Wave label (New York, 2005) for European and North American DIY synth records of roughly 1979-1985 — monophonic and cheap polyphonic synths, primitive drum machines at 100-130 BPM, single-take four-track cassette production, cold detached vocals often in French, German or Dutch, and short repetitive minor-key sequences with almost no arrangement development.",
+  "recipe": "classic mid-1980s minimal wave, functional Song, new wave branch, pop rock synthpop, retro aesthetic experimental electric, gothic rock distorted rock coldwave deathrock. thick, breath veiled tone, breath pulsed, interlocked note trading. plucked short envelope analog mono oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca short envelope analog poly synth, drum machine analog, drum machine 606, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass. carpeted bedroom. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 593,
+  "score": 284.422,
+  "config": {
+    "traditions": [
+      "minimal_wave",
+      "coldwave",
+      "deathrock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 29.789999999999996,
+          "voice_quality": 7.280000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.885,
+          "voice_articulation": 16.574999999999992,
+          "voice_microtone": 29.905,
+          "voice_tradition": 9.360000000000001,
+          "voice_mechanism_compound": 3.200000000000001,
+          "voice_estill_quality": 3.34,
+          "voice_speech_song": 20.084999999999994,
+          "voice_ensemble_config": 18.394999999999992,
+          "voice_ornament_system": 1.3,
+          "voice_pitch_organization": 1.885,
+          "voice_processing_chain": 4.165,
+          "voice_multitrack_stack": 5.329999999999999
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 8.485,
+          "mono_oscillator": 0.7200000000000001,
+          "mono_filter": 1.95,
+          "mono_archetypes": 2.34,
+          "mono_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 8.485,
+          "poly_archetypes": 11.830000000000002,
+          "poly_voices": 0.675,
+          "poly_maker_lineage": 4.5249999999999995
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "noise_only_snare",
+          "hat_voice": "noise_hat",
+          "shuffle_quantize": "shuffle_high"
+        },
+        "scores": {
+          "kick_voice": 0.5700000000000001,
+          "snare_voice": 0.39,
+          "hat_voice": 0.3,
+          "shuffle_quantize": 0.24
+        }
+      },
+      {
+        "id": "drum_machine_606",
+        "slots": {
+          "drum_machine_606_voice": "drum_machine_606_cymbal",
+          "drum_machine_606_context": "drum_machine_606_electro"
+        },
+        "scores": {
+          "drum_machine_606_voice": 1.3,
+          "drum_machine_606_context": 8.045
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 14.95,
+          "body_wood": 1.95,
+          "pickup_config": 0.43499999999999994,
+          "string_type": 25.375000000000004,
+          "scale_length_b": 1.74,
+          "fretted_or_not": 0.15,
+          "bass_technique": 29.695000000000004
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_home_portastudio",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "medium_cassette_4track_bedroom"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "carpeted_bedroom",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_medium": "medium_cassette_4track_bedroom",
+    "chain_console": "console_home_portastudio"
+  }
+}

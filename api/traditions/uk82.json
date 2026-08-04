@@ -1,0 +1,148 @@
+{
+  "id": "uk82",
+  "name": "UK82",
+  "family": "rock_punk",
+  "lineage": "Second-wave British punk of 1980-1984 — Discharge, The Exploited, GBH, Chaos UK and Broken Bones — running at 180-220 BPM with buzzsaw distorted downstroke guitar, snare-heavy galloping or D-beat drumming, barked distorted vocals and anti-Thatcher, anti-nuclear lyrics, recorded quickly for independent labels like Clay and Riot City.",
+  "recipe": "classic North American 1980-1984 uk82, distorted Rock, punk branch, thrash metal, noise rock distorted rock crossover thrash groove metal. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 604,
+  "score": 327.185,
+  "config": {
+    "traditions": [
+      "uk82",
+      "crossover_thrash",
+      "groove_metal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 15.069999999999997,
+          "voice_quality": 5.525000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.56775,
+          "voice_articulation": 14.169999999999996,
+          "voice_microtone": 15.23,
+          "voice_tradition": 2.0149999999999997,
+          "voice_mechanism_compound": 36.213499999999996,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 13.779999999999994,
+          "voice_ensemble_config": 16.53275,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 1.6899999999999995,
+          "voice_processing_chain": 3.5100000000000002,
+          "voice_multitrack_stack": 5.135
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 33.08875,
+          "amp_make": 31.620999999999995,
+          "body_wood": 12.804999999999996,
+          "neck_wood": 1.4300000000000002,
+          "fretboard": 1.365,
+          "pickup_magnet": 0.77775,
+          "pickup_winding": 0.39,
+          "string_material": 0.43500000000000005,
+          "bridge": 1.4300000000000002,
+          "scale_length": 11.375,
+          "string_gauge": 1.4300000000000002,
+          "finish": 0.045,
+          "string_tuning": 20.215
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.555,
+          "body_wood": 1.4300000000000002,
+          "pickup_config": 0.67275,
+          "string_type": 19.987500000000004,
+          "scale_length_b": 1.4300000000000002,
+          "fretted_or_not": 0.43499999999999994,
+          "bass_technique": 25.67
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 15.417750000000002,
+          "drumhead": 1.4300000000000002,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "id": "barbershop",
+  "name": "Barbershop Harmony",
+  "family": "vernacular",
+  "lineage": "American close-harmony quartet singing of the 1890s-1920s revived and codified after 1938 by SPEBSQSA — four unaccompanied male or female voices with the melody in the second-from-top lead part, tenor harmonizing above, bass on roots and fifths and baritone filling the remaining chord tone, built on ringing dominant-seventh 'barbershop sevenths' tuned in just intonation, sung rubato with swipes, tags and an expanded-sound overtone effect.",
+  "recipe": "classic North American mid-1890s barbershop harmony, functional Song, doowop branch, christian gospel jubilee quartet, crooners functional song american barbershop quartet. thick, breath veiled tone, wide pitch sway, interlocked note trading. choir barbershop quartet. us uk civic amateur band hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 394,
+  "score": 183.71,
+  "config": {
+    "traditions": [
+      "barbershop",
+      "jubilee_quartet",
+      "barbershop_quartet"
+    ],
+    "instruments": [
+      {
+        "id": "choir_barbershop_quartet",
+        "slots": {
+          "voices": "barbershop_lead",
+          "choir_barbershop_quartet_context": "choir_barbershop_quartet_contemporary"
+        },
+        "scores": {
+          "voices": 6.55,
+          "choir_barbershop_quartet_context": 1.885
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 17.464999999999996,
+          "voice_quality": 22.489999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.595,
+          "voice_articulation": 14.689999999999996,
+          "voice_microtone": 12.544999999999993,
+          "voice_tradition": 16.995000000000005,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 15.51,
+          "voice_speech_song": 20.019999999999996,
+          "voice_ensemble_config": 16.639999999999993,
+          "voice_ornament_system": 6.150000000000001,
+          "voice_pitch_organization": 13.294999999999996,
+          "voice_processing_chain": 8.515000000000002,
+          "voice_multitrack_stack": 11.485
+        }
+      }
+    ],
+    "room": "us_uk_civic_amateur_band_hall",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_american_op_amp",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "us_uk_civic_amateur_band_hall",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

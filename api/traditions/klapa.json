@@ -1,0 +1,123 @@
+{
+  "id": "klapa",
+  "name": "Klapa",
+  "family": "global",
+  "lineage": "Dalmatian coastal a cappella harmony singing formalised at the Omiš festival from 1967 out of nineteenth-century church and confraternity practice — four to eight male voices in close homophonic chords, a high first tenor carrying the melody above two inner parts and a bass, with unmetered rubato opening lines, wide crescendos, and long fermatas at cadence, recognised by UNESCO in 2012",
+  "recipe": "classic Southern European late-1960s klapa, ballad Poetry, Mediterranean ballad branch, Mediterranean Southeast Asian shanty, vocal drone modal greek cretan tabachaniotika nisiótika. thick, breath veiled tone, straight onset, interlocked note trading. bowl back Italian adirondack red spruce loar canon x brace mandolin, cedar fingerpicked classical nylon-string guitar. dalmatian stone alley. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 539,
+  "score": 177.057,
+  "config": {
+    "traditions": [
+      "klapa",
+      "greek_tabachaniotika",
+      "nisiotika"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 1.715,
+          "voice_quality": 10.659999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.56,
+          "voice_articulation": 18.654999999999994,
+          "voice_microtone": 20.019999999999992,
+          "voice_tradition": 28.08,
+          "voice_mechanism_compound": 5.719999999999999,
+          "voice_estill_quality": 7.8,
+          "voice_speech_song": 21.644999999999992,
+          "voice_ensemble_config": 18.13499999999999,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 3.5100000000000016,
+          "voice_processing_chain": 4.16,
+          "voice_multitrack_stack": 2.990000000000001
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "big_leaf_maple",
+          "mandolin_bracing": "mandolin_x_brace",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 2.5349999999999997,
+          "mandolin_shape": 1.7550000000000001,
+          "mandolin_top": 1.2349999999999999,
+          "mandolin_back": 0.845,
+          "mandolin_bracing": 1.2349999999999999,
+          "mandolin_strings": 0.51,
+          "mandolin_fingerboard": 0.39,
+          "mandolin_pickup": 15.599999999999994
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 6.415000000000001,
+          "string_tuning": 0,
+          "top_wood_classical": 4.874999999999999,
+          "bracing_classical": 2.145,
+          "string_classical": 0.845,
+          "attack_technique_cl": 0.615
+        }
+      }
+    ],
+    "room": "dalmatian_stone_alley",
+    "archetype": "arch_jugoton_yugoslav",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "dalmatian_stone_alley",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

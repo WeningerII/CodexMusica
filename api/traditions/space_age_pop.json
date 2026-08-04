@@ -1,0 +1,225 @@
+{
+  "id": "space_age_pop",
+  "name": "Space Age Pop",
+  "family": "pop",
+  "lineage": "American instrumental mood music of roughly 1955-1965 written for the new stereo hi-fi market — Les Baxter, Martin Denny, Esquivel, Juan García Esquivel's RCA ping-pong stereo sessions and the Enoch Light Command Records catalogue — light Latin and lounge tempos of 80-130 BPM, exotic orchestration built on vibraphone, celesta, marimba, muted brass and theremin or Ondes Martenot, wordless cooing vocal choirs, abrupt stereo channel-to-channel effects and bird calls or percussion novelties used as arrangement punctuation.",
+  "recipe": "classic North American mid-1960s space age pop, functional Song, crooners branch, pop rock functional song, retro aesthetic experimental electric new wave 1960s girl group. thick, breath veiled tone, straight note core, interlocked note trading. singing lead theremin, modern art rock modern art rock revival post 2000 film score ondes martenot lead ondes martenot, vibraphone, block chord celesta, treble-extended alternative padauk marimba orchestral, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral breath tone airy low dynamic level lead trumpet trumpet, timpani, lead cowhide mid tier open slap hand drum congas. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 909,
+  "score": 420.722,
+  "config": {
+    "traditions": [
+      "space_age_pop",
+      "new_wave",
+      "girl_group_60s"
+    ],
+    "instruments": [
+      {
+        "id": "theremin",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "theremin_model": "theremin_etherwave",
+          "theremin_technique": "theremin_aerial",
+          "theremin_lineage": "theremin_clara_rockmore"
+        },
+        "scores": {
+          "electronic_technique": 24.084499999999995,
+          "theremin_model": 2.9575,
+          "theremin_technique": 0.78,
+          "theremin_lineage": -0.1400000000000001
+        }
+      },
+      {
+        "id": "ondes_martenot",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "ondes_martenot_model": "ondes_martenot_mark_vii",
+          "ondes_martenot_context": "ondes_martenot_rock",
+          "ondes_martenot_lineage": "ondes_martenot_radiohead_modern"
+        },
+        "scores": {
+          "electronic_technique": 24.084499999999995,
+          "ondes_martenot_model": 1.625,
+          "ondes_martenot_context": 5.459999999999999,
+          "ondes_martenot_lineage": 7.409999999999999
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_slow",
+          "vibe_mallets": "vibe_hard_mallets"
+        },
+        "scores": {
+          "percussion_technique": 0.375,
+          "vibe_motor": 0.855,
+          "vibe_mallets": 0.975
+        }
+      },
+      {
+        "id": "celesta",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "celesta_model": "celesta_yamaha",
+          "celesta_context": "celesta_orch"
+        },
+        "scores": {
+          "keyboard_technique": 23.225,
+          "celesta_model": 1.8199999999999998,
+          "celesta_context": 2.21
+        }
+      },
+      {
+        "id": "marimba_orchestral",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "marimba_size": "marimba_5_octave",
+          "marimba_orchestral_bar": "marimba_orchestral_padauk"
+        },
+        "scores": {
+          "percussion_technique": 0.375,
+          "marimba_size": 0.195,
+          "marimba_orchestral_bar": 1.04
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 23.225,
+          "grand_piano_size": 1.04,
+          "grand_piano_brand": 1.235,
+          "piano_hammer": 21.83,
+          "piano_rim": 23.989999999999995,
+          "piano_soundboard": 23.045,
+          "piano_pinblock": 0.46499999999999997,
+          "piano_plate": 0.52,
+          "piano_pitch_standard": 3.5100000000000002
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_lead_mp",
+          "brass_mute": "plunger",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 4.12,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 2.4050000000000002,
+          "brass_mute": 1.625,
+          "trumpet_technique": 3.59,
+          "trumpet_bell_metal": 1.3900000000000001,
+          "trumpet_maker_school": 2.2749999999999995
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_calfskin"
+        },
+        "scores": {
+          "percussion_technique": 0.375,
+          "timpani_size": 0.195,
+          "timpani_head": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 38.730000000000004,
+          "voice_quality": 18.4275,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4050000000000002,
+          "voice_articulation": 18.979999999999997,
+          "voice_microtone": 36.125,
+          "voice_tradition": 28.762214285714286,
+          "voice_mechanism_compound": 2.5349999999999997,
+          "voice_estill_quality": 2.1449999999999996,
+          "voice_speech_song": 26.58499999999999,
+          "voice_ensemble_config": 19.304999999999993,
+          "voice_ornament_system": 0.8449999999999998,
+          "voice_pitch_organization": 1.978214285714286,
+          "voice_processing_chain": 6.07,
+          "voice_multitrack_stack": 5.557499999999999
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 3.2899999999999996,
+          "conga_set": 1.04,
+          "conga_skin": 1.04,
+          "conga_shell_wood": 0.165
+        }
+      }
+    ],
+    "room": "capitol_tower_studios_la",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "console_apinla_vintage_la",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "capitol_tower_studios_la",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_apinla_vintage_la"
+  }
+}

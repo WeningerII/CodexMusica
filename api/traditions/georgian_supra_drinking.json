@@ -5,7 +5,7 @@
   "lineage": "Georgian supra-feast drinking-and-singing tradition continuous from medieval-Georgian feast-and-toast tradition through 19th-20th century continuous performance into modern Georgian-and-Georgian-diaspora continuous practice; the Georgian supra is the documented multi-hour ritual-feast-and-toast-ceremony where the tamada (toast-master) directs the extended-toast-and-song sequence",
   "recipe": "classic modern georgian supra feast-singing, drinking Song, balkan branch, European drinking song, European wedding, middle east n African praise song sufi munajat and naat arabic madh and qasida. extended whistle, declaimed, slow rate, interlocked note trading. eastern georgian three string panduri, massed male voices drone bass choir georgian polyphonic. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 432,
-  "score": 318.126,
+  "score": 318.166,
   "config": {
     "traditions": [
       "georgian_supra_drinking",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
@@ -38,17 +38,17 @@
           "voice_quality": 24.715624999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.17,
+          "voice_vibrato": 6.47,
           "voice_articulation": 13.584999999999994,
           "voice_microtone": 24.309999999999995,
-          "voice_tradition": 22.894374999999997,
+          "voice_tradition": 22.519375,
           "voice_mechanism_compound": 9.925,
-          "voice_estill_quality": 6.625,
+          "voice_estill_quality": 6.67,
           "voice_speech_song": 28.437499999999996,
           "voice_ensemble_config": 15.274999999999995,
-          "voice_ornament_system": 13.745,
+          "voice_ornament_system": 13.7,
           "voice_pitch_organization": 13.7,
-          "voice_processing_chain": 2.3399999999999994,
+          "voice_processing_chain": 2.4699999999999998,
           "voice_multitrack_stack": 1.5599999999999992
         }
       },
@@ -60,9 +60,9 @@
           "panduri_strings": "panduri_nylon"
         },
         "scores": {
-          "panduri_form": 23.705000000000002,
+          "panduri_form": 23.3,
           "panduri_repertoire": 22.400000000000002,
-          "panduri_strings": 6.5
+          "panduri_strings": 6.605
         }
       },
       {
@@ -73,7 +73,7 @@
           "choir_georgian_polyphonic_voices": "choir_georgian_polyphonic_bani"
         },
         "scores": {
-          "choir_georgian_polyphonic_style": 21.7,
+          "choir_georgian_polyphonic_style": 21.985,
           "choir_georgian_polyphonic_context": 33.949999999999996,
           "choir_georgian_polyphonic_voices": 22.965625
         }

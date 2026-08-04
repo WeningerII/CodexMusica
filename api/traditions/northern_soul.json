@@ -1,0 +1,237 @@
+{
+  "id": "northern_soul",
+  "name": "Northern Soul",
+  "family": "pop",
+  "lineage": "English club movement of 1968-1981 centred on the Twisted Wheel, Wigan Casino and Blackpool Mecca and named by journalist Dave Godin, built on rare mid-1960s American soul 45s played at 120-135 BPM with insistent four-on-the-floor kick, driving eighth-note tambourine, punchy horn stabs, walking or pumping bass and urgently belted lead vocals over Motown-derived changes.",
+  "recipe": "classic Midwestern American mid-1970s northern soul, functional Song, soul R&B branch, pop rock girl group, funk percussive groove percussion 1960s girl group yé-yé. thick, breath veiled tone, straight note core, interlocked note trading. pre muffled edge muffled sticks pocket drum kit, traditional mellow brass tambourine orch, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, tenor gold brass warmer tone ensemble honking saxophone, bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, vibraphone. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. Neumann U67, dedicated DI box, colored vintage console, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 975,
+  "score": 502.89,
+  "config": {
+    "traditions": [
+      "northern_soul",
+      "girl_group_60s",
+      "ye_ye"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 36.04,
+          "voice_quality": 14.625,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.405,
+          "voice_articulation": 19.955,
+          "voice_microtone": 22.174999999999994,
+          "voice_tradition": 18.974999999999998,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 13.104999999999997,
+          "voice_speech_song": 24.765,
+          "voice_ensemble_config": 20.019999999999996,
+          "voice_ornament_system": 2.3400000000000003,
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 7.475,
+          "voice_multitrack_stack": 8.370000000000003
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_motown",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 17.945,
+          "drumhead": 16.749999999999996,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_film"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 1.065,
+          "tambourine_orch_context": 0.195
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 23.255,
+          "body_wood": 2.08,
+          "pickup_config": 0.39,
+          "string_type": 22.97,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.9099999999999999,
+          "bass_technique": 14.52
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 17.499999999999996,
+          "amp_make": 17.249999999999996,
+          "body_wood": 1.69,
+          "neck_wood": 1.69,
+          "fretboard": 1.625,
+          "pickup_magnet": 0.345,
+          "string_material": 0.345,
+          "string_gauge": 1.69,
+          "bridge": 0.9099999999999999,
+          "scale_length": 1.69,
+          "finish": 0.045,
+          "string_tuning": 3.3149999999999995
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 16.599999999999998,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 1.885,
+          "piano_hammer": 15.639999999999997,
+          "piano_rim": 17.379999999999995,
+          "piano_soundboard": 16.854999999999997,
+          "piano_pinblock": 0.9099999999999999,
+          "piano_plate": 0.8949999999999999,
+          "piano_pitch_standard": 3.119999999999999
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 16.005,
+          "sax_size": 12.149999999999999,
+          "sax_reed": 0.345,
+          "sax_body_alloy": 1.39,
+          "sax_mouthpiece": 0.345,
+          "sax_technique": 12.149999999999999,
+          "sax_maker_school": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 16.005,
+          "brass_size": 0.345,
+          "trumpet_mouthpiece": 3.055,
+          "brass_mute": 0.195,
+          "trumpet_technique": 16.005,
+          "trumpet_bell_metal": 0.585,
+          "trumpet_maker_school": 2.4699999999999998
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_off",
+          "vibe_mallets": "vibe_hard_mallets"
+        },
+        "scores": {
+          "percussion_technique": 0.375,
+          "vibe_motor": 0,
+          "vibe_mallets": 0.195
+        }
+      }
+    ],
+    "room": "hitsville_usa_motown_detroit",
+    "archetype": "arch_motown_snakepit",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "motown_four_on_floor_tambourine",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "motown_four_on_floor_tambourine",
+    "room": "hitsville_usa_motown_detroit",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

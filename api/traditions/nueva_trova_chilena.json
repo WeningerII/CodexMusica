@@ -1,0 +1,170 @@
+{
+  "id": "nueva_trova_chilena",
+  "name": "Nueva trova chilena",
+  "family": "global",
+  "lineage": "Post-1973 exile and internal-resistance continuation of the Chilean nueva canción, sustained abroad by Quilapayún and Inti-Illimani on European labels and at home by the canto nuevo circuit of the late 1970s: charango, quena, tiple and bombo behind massed male chorus singing in fourths and fifths, cueca-derived 6/8 hemiola alternating with slow tonada, and coded metaphorical lyrics replacing the direct slogans of the Unidad Popular years.",
+  "recipe": "classic Western European 1977-1979 nueva trova chilena, protest Song, iberian Latin branch, Latin am troubadour ballad poetry, chanson fado ballad poetry cape verdean batuko of santiago island milonga. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, armadillo shell shell pre 1973 historical pine traditional rural strummed charango, melodic quena, andean tradition paired rows interlocking siku panpipes, syncopated rim accented bombo leguero, yamaha modern Japanese mid to premium flute. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 693,
+  "score": 267.861,
+  "config": {
+    "traditions": [
+      "nueva_trova_chilena",
+      "cape_verdean_batuko",
+      "milonga"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 5.665,
+          "voice_quality": 32.695,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.2175000000000002,
+          "voice_articulation": 31.265,
+          "voice_microtone": 29.639999999999997,
+          "voice_tradition": 14.072499999999998,
+          "voice_mechanism_compound": 6.825,
+          "voice_estill_quality": 6.76,
+          "voice_speech_song": 34.385,
+          "voice_ensemble_config": 28.21,
+          "voice_ornament_system": 3.7,
+          "voice_pitch_organization": 2.7300000000000004,
+          "voice_processing_chain": 7.475000000000003,
+          "voice_multitrack_stack": 5.389375
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 8.895,
+          "string_tuning": 0,
+          "top_wood_classical": 7.799999999999999,
+          "bracing_classical": 1.3,
+          "string_classical": 0.325,
+          "attack_technique_cl": 1.8699999999999997
+        }
+      },
+      {
+        "id": "charango",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "charango_back": "charango_armadillo",
+          "charango_top_wood": "charango_pine_top",
+          "charango_strings": "charango_5_double",
+          "charango_string_material": "charango_nylon_canonical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.455625000000001,
+          "charango_back": 2.21,
+          "charango_top_wood": 2.664999999999999,
+          "charango_strings": 0.585,
+          "charango_string_material": 0.9749999999999999
+        }
+      },
+      {
+        "id": "quena",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "quena_material": "quena_bamboo",
+          "quena_pitch": "quena_quenacho"
+        },
+        "scores": {
+          "wind_articulation": 4.055000000000001,
+          "quena_material": 0.585,
+          "quena_pitch": 0.845
+        }
+      },
+      {
+        "id": "siku_panpipes",
+        "slots": {
+          "siku_construction": "siku_ira_arca_paired",
+          "siku_size": "siku_malta"
+        },
+        "scores": {
+          "siku_construction": 2.8599999999999994,
+          "siku_size": 0.5587500000000001
+        }
+      },
+      {
+        "id": "bombo_leguero",
+        "slots": {
+          "bombo_leguero_form": "bombo_leguero_santiagueno",
+          "bombo_leguero_style": "bombo_leguero_chacarera",
+          "bombo_leguero_head": "bombo_leguero_cabra"
+        },
+        "scores": {
+          "bombo_leguero_form": 3.365,
+          "bombo_leguero_style": 1.1906249999999998,
+          "bombo_leguero_head": -0.05
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "flute_size": "alto_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 0.7149999999999999,
+          "flute_size": 1.245625,
+          "flute_material": 1.16875,
+          "flute_technique": 1.2350000000000003,
+          "flute_maker_school": 2.0149999999999992
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_paris_chanson_orchestral",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "andean_colombian_bambuco_6_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "andean_colombian_bambuco_6_8",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

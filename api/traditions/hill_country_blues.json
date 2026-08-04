@@ -1,0 +1,182 @@
+{
+  "id": "hill_country_blues",
+  "name": "Hill Country Blues",
+  "family": "blues_gospel",
+  "lineage": "North Mississippi hill-country style of Marshall, Tate and Panola counties documented by David Evans and Alan Lomax from the 1960s and carried onto record by Mississippi Fred McDowell, R.L. Burnside, Junior Kimbrough and the Turner family fife-and-drum bands — one-chord modal vamps at 85-125 BPM with no chord change, droning guitar riffs over a steady dance groove, and West African-derived polyrhythmic snare-and-bass-drum patterns behind cane fife.",
+  "recipe": "classic mid-1960s hill country blues, functional Song, blues acoustic branch, blues narrative delta narrative, modal electric drone modal, American south field work tuareg guitar. thick, worn fold, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric open g tuning slide steel resonator guitar, blues inflected fife, double bass rapid double strokes bass five drum arc tenor drum, pre muffled edge muffled brushes-and-sticks drum kit. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 624,
+  "score": 321.275,
+  "config": {
+    "traditions": [
+      "hill_country_blues",
+      "delta_blues",
+      "tuareg_guitar"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 25.687999999999995,
+          "voice_quality": 17.424999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 24.045,
+          "voice_articulation": 20.865000000000002,
+          "voice_microtone": 27.625,
+          "voice_tradition": 19.304999999999996,
+          "voice_mechanism_compound": 10.725,
+          "voice_estill_quality": 11.644999999999998,
+          "voice_speech_song": 25.415,
+          "voice_ensemble_config": 20.605,
+          "voice_ornament_system": 2.1565,
+          "voice_pitch_organization": 2.5350000000000006,
+          "voice_processing_chain": 5.2975,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 11.011499999999998,
+          "amp_make": 9.323499999999997,
+          "body_wood": 0.258,
+          "neck_wood": 0.258,
+          "fretboard": 0.2265,
+          "pickup_magnet": 0.168,
+          "string_material": 0.195,
+          "string_gauge": 0.258,
+          "bridge": 0.195,
+          "scale_length": 0.5159999999999999,
+          "finish": 0,
+          "string_tuning": 10.075
+        }
+      },
+      {
+        "id": "acoustic_resonator_steel",
+        "slots": {
+          "acoustic_technique": "acoustic_bottleneck_slide",
+          "string_tuning": "open_g",
+          "cone_type": "biscuit",
+          "body_resonator": "brass_body",
+          "res_strings": "phosphor_res"
+        },
+        "scores": {
+          "acoustic_technique": 12.963,
+          "string_tuning": 8.895,
+          "cone_type": 7.5,
+          "body_resonator": 0.258,
+          "res_strings": 0.258
+        }
+      },
+      {
+        "id": "fife",
+        "slots": {
+          "fife_tradition": "fife_tradition_mississippi_cane",
+          "fife_build": "fife_build_cane",
+          "fife_pitch": "fife_pitch_aflat",
+          "fife_role": "fife_role_blues_lead"
+        },
+        "scores": {
+          "fife_tradition": 8.71,
+          "fife_build": 3.2315,
+          "fife_pitch": -0.05,
+          "fife_role": 8.71
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_18_jazz",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.195,
+          "bass_drum_beater": 1.885
+        }
+      },
+      {
+        "id": "tenor_drum",
+        "slots": {
+          "tenor_drum_form": "tenor_drum_corps_multi",
+          "tenor_drum_head": "tenor_drum_calfskin",
+          "tenor_drum_beater": "tenor_drum_corps_mallets",
+          "tenor_drum_shell": "tenor_drum_rope_stave"
+        },
+        "scores": {
+          "tenor_drum_form": 2.4130000000000003,
+          "tenor_drum_head": -0.07,
+          "tenor_drum_beater": 0.245,
+          "tenor_drum_shell": -0.07
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.735000000000003,
+          "drumhead": 1.8199999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "field_recording",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "id": "turkmen_pop",
+  "name": "Turkmen Pop",
+  "family": "global",
+  "lineage": "State-adjacent popular song of Turkmenistan formed in the late Soviet 1980s and consolidated after 1991 in Ashgabat television studios — synthesizer string pads and DX-style presets over programmed 4/4 or aksak-inflected drum-machine patterns, with the gijak fiddle and dutar sampled or played live as national signifiers, and a nasal, heavily ornamented male or female lead voice carrying Turkmen-language lyrics with reverb-drenched doubling.",
+  "recipe": "classic North African mid-1980s turkmen pop, functional Song, mid east n African pop branch, europop functional song, middle eastern wedding finnish tango austropop. thick, breath veiled tone, slow rate, interlocked note trading. gijak turkmen, turkmen long necked bagshy tradition silk canonical pre modern shashmaqam fergana tashkent maqom tradition distinct from bukharan dutar, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, mahogany ernie ball slinky electric bass. cement block broadcast booth. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 648,
+  "score": 183.762,
+  "config": {
+    "traditions": [
+      "turkmen_pop",
+      "finnish_tango",
+      "austropop"
+    ],
+    "instruments": [
+      {
+        "id": "gijak_turkmen",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "gijak_body": "gijak_gourd",
+          "gijak_strings": "gijak_three",
+          "gijak_style": "gijak_bagshy"
+        },
+        "scores": {
+          "bowed_technique": 0.45,
+          "gijak_body": 1,
+          "gijak_strings": 0.5,
+          "gijak_style": 3.08
+        }
+      },
+      {
+        "id": "dutar",
+        "slots": {
+          "dutar_body": "dutar_turkmen_long",
+          "dutar_strings": "dutar_silk_traditional",
+          "dutar_tradition": "dutar_fergana_tashkent_maqom"
+        },
+        "scores": {
+          "dutar_body": 3.3799999999999994,
+          "dutar_strings": 1.1250000000000002,
+          "dutar_tradition": 2.08
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 14.644999999999994,
+          "voice_quality": 7.540000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.185,
+          "voice_articulation": 15.989999999999995,
+          "voice_microtone": 19.95499999999999,
+          "voice_tradition": 12.6425,
+          "voice_mechanism_compound": 4.095,
+          "voice_estill_quality": 5.050000000000001,
+          "voice_speech_song": 24.764999999999997,
+          "voice_ensemble_config": 18.979999999999997,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 2.6000000000000005,
+          "voice_processing_chain": 5.7524999999999995,
+          "voice_multitrack_stack": 7.32
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_clap",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 0,
+          "drum_machine_808_context": 3.9749999999999996,
+          "tr808_production_origin": 1.4299999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 2.8400000000000007,
+          "body_wood": 2.6,
+          "pickup_config": 0.345,
+          "string_type": 5.04,
+          "scale_length_b": 2.435,
+          "fretted_or_not": 0.65,
+          "bass_technique": 4.45
+        }
+      }
+    ],
+    "room": "cement_block_broadcast_booth",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformer_solid_state",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "cement_block_broadcast_booth",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

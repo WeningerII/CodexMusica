@@ -5,7 +5,7 @@
   "lineage": "Amazigh song tradition of the Rif mountains of northern Morocco, transmitted as women's izran couplets and codified for record and cassette from the 1970s-1990s by Walid Mimoun, Milouda El Hoceima and Thidrin, set in short antiphonal Tarifit-language quatrains over a fast duple bendir and deff pattern with adjun frame-drum accents, zamar or ghaita double-reed drone melody, and from the 1980s a strummed banjo or cheap synth doubling the vocal line.",
   "recipe": "classic North African mid-1970s rif, functional Song, mid east n African pop branch, middle east n African protest song, middle eastern wedding algerian raï egyptian sayyed darwish and sheikh imam political-vocal lineage. extended whistle, breath veiled tone, slow rate, interlocked note trading. juniper bent frame canonical Maghrebi bendir, deff moroccan, ghaita, tunisian banjo, plucked short envelope analog poly synth. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 604,
-  "score": 194.115,
+  "score": 196.045,
   "config": {
     "traditions": [
       "rif_amazigh",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 6.6564375,
+          "voice_register": 6.172499999999999,
           "voice_quality": 14.234999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.03,
           "voice_articulation": 18.459999999999994,
-          "voice_microtone": 30.522312499999988,
+          "voice_microtone": 30.874999999999986,
           "voice_tradition": 23.9525,
           "voice_mechanism_compound": 3.7314999999999996,
-          "voice_estill_quality": 1.9324374999999998,
+          "voice_estill_quality": 1.843,
           "voice_speech_song": 28.859999999999992,
           "voice_ensemble_config": 17.484999999999992,
-          "voice_ornament_system": 7.282,
-          "voice_pitch_organization": 7.3613124999999995,
-          "voice_processing_chain": 9.334562499999999,
+          "voice_ornament_system": 7.358499999999999,
+          "voice_pitch_organization": 7.6434999999999995,
+          "voice_processing_chain": 9.8065,
           "voice_multitrack_stack": 6.467500000000001
         }
       },
@@ -61,8 +61,8 @@
           "bendir_head": "bendir_goat_skin_canonical"
         },
         "scores": {
-          "bendir_snares": 3.7343125,
-          "bendir_context": 0.2115,
+          "bendir_snares": 3.7615000000000003,
+          "bendir_context": 0.25649999999999995,
           "bendir_shell_wood": 2.34,
           "bendir_head": 0.195
         }
@@ -74,8 +74,8 @@
           "deff_technique": "deff_dance"
         },
         "scores": {
-          "deff_form": 0.0735,
-          "deff_technique": 0
+          "deff_form": 0.345,
+          "deff_technique": 0.345
         }
       },
       {
@@ -88,9 +88,9 @@
           "ghaita_reed": "ghaita_arundo_canonical"
         },
         "scores": {
-          "wind_articulation": -0.10500000000000002,
+          "wind_articulation": -0.10500000000000001,
           "ghaita_region": 5.265000000000001,
-          "ghaita_context": 0.8144999999999999,
+          "ghaita_context": 0.6779999999999999,
           "ghaita_body_wood": 0.195,
           "ghaita_reed": 0.195
         }
@@ -99,12 +99,12 @@
         "id": "tunisian_banjo",
         "slots": {
           "tunisian_banjo_setup": "tunisian_banjo_fretless",
-          "tunisian_banjo_context": "tunisian_banjo_mizwid_song",
+          "tunisian_banjo_context": "tunisian_banjo_mezoued",
           "tunisian_banjo_head": "tunisian_banjo_plastic_head"
         },
         "scores": {
           "tunisian_banjo_setup": 0.045,
-          "tunisian_banjo_context": 1.1423125,
+          "tunisian_banjo_context": 1.9485,
           "tunisian_banjo_head": 0
         }
       },
@@ -113,13 +113,13 @@
         "slots": {
           "electronic_technique": "electronic_pluck_short",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 5.984312500000001,
-          "poly_archetypes": 0.1843125,
-          "poly_voices": 0,
+          "electronic_technique": 6.04,
+          "poly_archetypes": 0.045,
+          "poly_voices": 0.045,
           "poly_maker_lineage": 0.12999999999999998
         }
       }

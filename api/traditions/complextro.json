@@ -3,29 +3,29 @@
   "name": "Complextro",
   "family": "electronic",
   "lineage": "Late-2000s American and European festival-EDM subgenre codified circa 2010 by Porter Robinson, Wolfgang Gartner and Savant out of electro house — 128 BPM four-on-the-floor with hyper-detailed sixteenth-note bass-synth arpeggios chopped across many short wavetable and FM patches, staccato glitch edits, video-game timbres and drop-oriented arrangement rather than DJ-tool looping",
-  "recipe": "classic 2007-2009 complextro, electronic Dance, house branch, idm glitch experimental electric breakcore chiptune / 8-bit. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. plucked short envelope analog poly glitched textural wavetable yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity short envelope fm synth, sampler drum machine, monosynth acid bass, talkbox. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 651,
-  "score": 168.478,
+  "recipe": "classic 2007-2009 complextro, electronic Dance, house branch, idm glitch experimental electric breakcore. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. sub bass analog poly glitched textural wavetable yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm synth, sampled chopped sampler drum machine, sub bass monosynth acid bass, talkbox. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 614,
+  "score": 188.085,
   "config": {
     "traditions": [
       "complextro",
-      "breakcore",
-      "chiptune_8bit"
+      "glitch_hop",
+      "breakcore"
     ],
     "instruments": [
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pluck_short",
+          "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 3.45,
+          "electronic_technique": 6.08,
           "poly_archetypes": 0.45499999999999996,
           "poly_voices": 0.195,
-          "poly_maker_lineage": 0.7149999999999994
+          "poly_maker_lineage": -0.5250000000000001
         }
       },
       {
@@ -37,41 +37,41 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 11.195,
-          "wt_position": 6.695,
-          "wt_family": 0.1365,
-          "wt_polyphony": 0.39
+          "electronic_technique": 14.57,
+          "wt_position": 5.3950000000000005,
+          "wt_family": 0.105,
+          "wt_polyphony": 0.3
         }
       },
       {
         "id": "fm_synth",
         "slots": {
-          "electronic_technique": "electronic_pluck_short",
-          "fm_algorithm": "fm_complex",
-          "fm_modulator_ratio": "fm_inharmonic",
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
           "fm_polyphony": "fm_mono",
-          "fm_model_lineage": "fm_yamaha_dx7"
+          "fm_model_lineage": "fm_yamaha_tx81z"
         },
         "scores": {
-          "electronic_technique": 3.45,
-          "fm_algorithm": 1.6899999999999997,
-          "fm_modulator_ratio": 0.1365,
-          "fm_polyphony": 0.39,
-          "fm_model_lineage": 2.0149999999999997
+          "electronic_technique": 6.08,
+          "fm_algorithm": 1.625,
+          "fm_modulator_ratio": 0,
+          "fm_polyphony": 0.3,
+          "fm_model_lineage": 2.4699999999999998
         }
       },
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
+          "sample_bitdepth": "twelve_bit",
           "sample_swing": "tight_swing",
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 1.7449999999999999,
-          "sample_bitdepth": 0.1365,
-          "sample_swing": 12.875,
+          "electronic_technique": 3.4150000000000005,
+          "sample_bitdepth": 0.75,
+          "sample_swing": 10.375,
           "sample_processing": 0.845
         }
       },
@@ -84,10 +84,10 @@
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 2.535,
-          "wave_acid": 0.1365,
+          "electronic_technique": 6.08,
+          "wave_acid": 0,
           "filter_acid": 0.15,
-          "accent_acid": 1.625
+          "accent_acid": 0.78
         }
       },
       {
@@ -108,25 +108,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 0.3749999999999997,
-          "voice_quality": 8.775,
+          "voice_quality": 8.320000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.25,
-          "voice_articulation": 15.859999999999994,
-          "voice_microtone": 13.974999999999993,
-          "voice_tradition": 7.15,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.1049999999999998,
-          "voice_speech_song": 13.779999999999994,
-          "voice_ensemble_config": 16.249999999999996,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 3.185,
-          "voice_processing_chain": 19.5015,
-          "voice_multitrack_stack": 7.708
+          "voice_vibrato": 3.4450000000000003,
+          "voice_articulation": 17.159999999999997,
+          "voice_microtone": 16.119999999999994,
+          "voice_tradition": 9.425,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 1.9499999999999997,
+          "voice_speech_song": 15.079999999999997,
+          "voice_ensemble_config": 16.9,
+          "voice_ornament_system": 1.95,
+          "voice_pitch_organization": 1.4949999999999997,
+          "voice_processing_chain": 19.725,
+          "voice_multitrack_stack": 7.9300000000000015
         }
       },
       {
@@ -137,7 +137,7 @@
         },
         "scores": {
           "talkbox_use": 0.8749999999999999,
-          "talkbox_construction": 0
+          "talkbox_construction": 0.105
         }
       }
     ],

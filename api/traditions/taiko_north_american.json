@@ -1,0 +1,150 @@
+{
+  "id": "taiko_north_american",
+  "name": "Taiko (North American kumi-daiko)",
+  "family": "global",
+  "lineage": "Diasporic drum-ensemble tradition founded in California — San Francisco Taiko Dojo under Tanaka Seiichi in 1968, Kinnara Taiko at Senshin Buddhist Temple in Los Angeles in 1969, San Jose Taiko in 1973 — adapting Japanese kumi-daiko to Japanese-American identity work with wine-barrel-built nagado drums, choreographed full-body stances, shime-daiko keeping the ji base pulse under odaiko solos, unison kiai shouts and pieces built as sectional grooves at 100-160 BPM rather than festival-cycle accompaniment.",
+  "recipe": "classic late-1960s taiko, groove Percussion, east Asian branch, east Asian carnival processional, buddhist ritual devotional japanese matsuri festival drumming himalayan vajrayana liturgy. thick, declaimed, breath pulsed, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, odaiko, shime daiko, untempered pitch drift bright ritual synthetic resin shinobue, kane japanese. gymnasium. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 566,
+  "score": 173.071,
+  "config": {
+    "traditions": [
+      "taiko_north_american",
+      "japanese_matsuri_taiko",
+      "vajrayana_broader"
+    ],
+    "instruments": [
+      {
+        "id": "taiko_drum",
+        "slots": {
+          "taiko_size": "taiko_o_daiko",
+          "taiko_skin": "taiko_cowhide",
+          "taiko_shell_wood": "taiko_keyaki_canonical",
+          "taiko_lineage": "taiko_oedo_sukeroku",
+          "taiko_technique": "taiko_kumi_daiko"
+        },
+        "scores": {
+          "taiko_size": 0.7799999999999999,
+          "taiko_skin": 7.539999999999998,
+          "taiko_shell_wood": 7.734999999999999,
+          "taiko_lineage": 8.314,
+          "taiko_technique": 4.875
+        }
+      },
+      {
+        "id": "odaiko",
+        "slots": {
+          "odaiko_mounting": "odaiko_miyadaiko_stand",
+          "odaiko_bachi": "odaiko_heavy_bachi",
+          "odaiko_shell": "odaiko_keyaki"
+        },
+        "scores": {
+          "odaiko_mounting": 2.73,
+          "odaiko_bachi": 0.195,
+          "odaiko_shell": 0.195
+        }
+      },
+      {
+        "id": "shime_daiko",
+        "slots": {
+          "shime_daiko_tension": "shime_daiko_gochou",
+          "shime_daiko_hardware": "shime_daiko_bolt"
+        },
+        "scores": {
+          "shime_daiko_tension": 0.408,
+          "shime_daiko_hardware": 0.845
+        }
+      },
+      {
+        "id": "shinobue",
+        "slots": {
+          "shinobue_family": "shinobue_family_hayashibue",
+          "shinobue_choshi": "shinobue_choshi_hachi_pon",
+          "shinobue_context": "shinobue_context_shishimai",
+          "shinobue_bore": "shinobue_bore_resin"
+        },
+        "scores": {
+          "shinobue_family": 23.16,
+          "shinobue_choshi": 23.1645,
+          "shinobue_context": 24.192499999999995,
+          "shinobue_bore": 2.1065
+        }
+      },
+      {
+        "id": "kane_japanese",
+        "slots": {
+          "kane_japanese_stroke": "kane_japanese_rim",
+          "kane_japanese_beater": "kane_japanese_antler",
+          "kane_japanese_context": "kane_japanese_matsuri"
+        },
+        "scores": {
+          "kane_japanese_stroke": 0,
+          "kane_japanese_beater": 0,
+          "kane_japanese_context": 0.045
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 0.6175000000000002,
+          "voice_quality": 5.0165,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 6.5649999999999995,
+          "voice_microtone": 6.37,
+          "voice_tradition": 22.041499999999996,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 6.5649999999999995,
+          "voice_ensemble_config": 7.995,
+          "voice_ornament_system": 5.425000000000001,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 1.56,
+          "voice_multitrack_stack": 1.6899999999999997
+        }
+      }
+    ],
+    "room": "gymnasium",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "japanese_yo_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_yo_scale",
+    "room": "gymnasium",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

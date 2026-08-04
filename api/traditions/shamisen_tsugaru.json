@@ -1,0 +1,151 @@
+{
+  "id": "shamisen_tsugaru",
+  "name": "Tsugaru-jamisen",
+  "family": "global",
+  "lineage": "Percussive virtuoso shamisen style of the Tsugaru plain in Aomori, northern Honshu, developed from the 1870s by itinerant blind bosama beggar-musicians — Nitabo (Akimoto Nitaro) is the traditional founder — using the heavy futozao thick-necked instrument with a thick-skinned body struck rather than plucked by a large bachi, built on the fast triplet-driven Jongara-bushi, Yosare-bushi and Aiya-bushi tune families with extended improvised maebiki preludes and rough, forced min'yo vocal delivery.",
+  "recipe": "classic East Asian mid-1870s tsugaru-jamisen, improv On Frame, string improv branch, east Asian field work, east Asian pop functional song enka korean nongak. thick, breath veiled tone, straight note core, interlocked note trading. dog skin acrylic mulberry kuwa mid tier traditional nylon shamisen, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk outdoor traditional taiko drum, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert shakuhachi, song accompaniment synthetic resin shinobue. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 724,
+  "score": 275.95,
+  "config": {
+    "traditions": [
+      "shamisen_tsugaru",
+      "enka",
+      "korean_nongak_field"
+    ],
+    "instruments": [
+      {
+        "id": "shamisen",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "shamisen_size": "futozao",
+          "shamisen_skin": "shamisen_dog",
+          "shamisen_pick": "bachi_acrylic",
+          "shamisen_neck_wood": "shamisen_mulberry",
+          "shamisen_strings": "shamisen_nylon_tsugaru",
+          "shamisen_tradition": "shamisen_min_yo"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.44499999999999995,
+          "shamisen_size": 4.245,
+          "shamisen_skin": 4.8,
+          "shamisen_pick": 4.225,
+          "shamisen_neck_wood": 2.55,
+          "shamisen_strings": 4.225,
+          "shamisen_tradition": 10.27
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 15.299999999999995,
+          "voice_quality": 15.339999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.055000000000001,
+          "voice_articulation": 16.055,
+          "voice_microtone": 16.509999999999998,
+          "voice_tradition": 36.605,
+          "voice_mechanism_compound": 5.004999999999999,
+          "voice_estill_quality": 5.915,
+          "voice_speech_song": 21.255000000000003,
+          "voice_ensemble_config": 16.64,
+          "voice_ornament_system": 12.965,
+          "voice_pitch_organization": 3.285,
+          "voice_processing_chain": 5.490000000000001,
+          "voice_multitrack_stack": 6.2725
+        }
+      },
+      {
+        "id": "taiko_drum",
+        "slots": {
+          "taiko_size": "taiko_o_daiko",
+          "taiko_skin": "taiko_cowhide",
+          "taiko_shell_wood": "taiko_keyaki_canonical",
+          "taiko_lineage": "taiko_oedo_sukeroku",
+          "taiko_technique": "taiko_festival_matsuri"
+        },
+        "scores": {
+          "taiko_size": 0.39,
+          "taiko_skin": 4.094999999999999,
+          "taiko_shell_wood": 4.094999999999999,
+          "taiko_lineage": 0.845,
+          "taiko_technique": 1.75
+        }
+      },
+      {
+        "id": "shakuhachi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "shaku_length": "two_one",
+          "shaku_technique": "mura_iki",
+          "shakuhachi_body_material": "shakuhachi_madake_canonical",
+          "shakuhachi_lineage": "shakuhachi_kinko"
+        },
+        "scores": {
+          "wind_articulation": 2.4049999999999994,
+          "shaku_length": 0.15,
+          "shaku_technique": 3.6399999999999997,
+          "shakuhachi_body_material": 4.484999999999999,
+          "shakuhachi_lineage": 2.145
+        }
+      },
+      {
+        "id": "shinobue",
+        "slots": {
+          "shinobue_family": "shinobue_family_utabue",
+          "shinobue_choshi": "shinobue_choshi_roku_pon",
+          "shinobue_context": "shinobue_context_minyo",
+          "shinobue_bore": "shinobue_bore_resin"
+        },
+        "scores": {
+          "shinobue_family": 10.024999999999999,
+          "shinobue_choshi": 7.424999999999999,
+          "shinobue_context": 17.684999999999995,
+          "shinobue_bore": 2.1125
+        }
+      }
+    ],
+    "room": "tatami_parlor_japanese",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "japanese_yo_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_yo_scale",
+    "room": "tatami_parlor_japanese",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

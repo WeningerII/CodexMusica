@@ -1,0 +1,112 @@
+{
+  "id": "kantele_music",
+  "name": "Kantele music",
+  "family": "vernacular",
+  "lineage": "Finnish and Karelian plucked box-zither tradition, originally a five-string instrument tuned to a pentachord and played resting on the lap to accompany Kalevala-meter rune-singing, expanded in the 19th century to ten and fifteen strings and in 1920s-1930s Finland to the large chromatic concert kantele with switchable levers built by Paul Salminen — repertoire ranges from short cyclic drone-and-tremolo improvisations to notated concert works and pelimanni dance tunes.",
+  "recipe": "classic mid-1920s kantele music, drone Modal, string branch, vocal drone modal, Slavic bard ballad poetry, Slavic baltic domestic rhythm alpine yodeling estonian folk music. vocal fry, breath veiled tone, straight note core, interlocked note trading. archaic spruce top modern concert gut pre modern five string kantele, estonian four string jouhikko. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 439,
+  "score": 189.387,
+  "config": {
+    "traditions": [
+      "kantele_music",
+      "alpine_yodeling",
+      "estonian_folk_music"
+    ],
+    "instruments": [
+      {
+        "id": "kantele",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "kantele_strings": "kantele_5",
+          "kantele_context": "kantele_art",
+          "kantele_body_wood": "kantele_spruce_top",
+          "kantele_string_material": "kantele_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.05,
+          "kantele_strings": 1.24,
+          "kantele_context": 5.9799999999999995,
+          "kantele_body_wood": 1.0399999999999998,
+          "kantele_string_material": 3.380000000000001
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 2.535,
+          "voice_quality": 14.559999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.9049999999999998,
+          "voice_articulation": 22.229999999999993,
+          "voice_microtone": 25.934999999999988,
+          "voice_tradition": 14.689999999999996,
+          "voice_mechanism_compound": 7.865000000000001,
+          "voice_estill_quality": 8.385,
+          "voice_speech_song": 25.414999999999992,
+          "voice_ensemble_config": 23.594999999999988,
+          "voice_ornament_system": 2.7300000000000013,
+          "voice_pitch_organization": 9.7825,
+          "voice_processing_chain": 4.484999999999999,
+          "voice_multitrack_stack": 2.925
+        }
+      },
+      {
+        "id": "jouhikko",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "jouhikko_form": "jouhikko_talharpa",
+          "jouhikko_context": "jouhikko_runic_song",
+          "jouhikko_strings": "jouhikko_gut"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "jouhikko_form": 7.285,
+          "jouhikko_context": 5.460000000000001,
+          "jouhikko_strings": 0
+        }
+      }
+    ],
+    "room": "wooden_barn",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "nordic_modal_drone_double_stops",
+    "room": "wooden_barn",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

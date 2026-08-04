@@ -5,7 +5,7 @@
   "lineage": "The Kaddish is a doxology in Aramaic and Hebrew central to Jewish liturgy, its best-known form the Mourner's Kaddish (Kaddish Yatom) recited by the bereaved during the eleven months of mourning and on the yahrzeit. The text sanctifies God's name and, notably, contains no mention of death; it is delivered by the mourner in a rapid, low, rhythmic spoken flow, with the congregation answering the responsorial refrain 'Yehei shmei rabba mevarach.' Its melodic contours vary by rite (Ashkenazi, Sephardi, Yemenite) but the mourner's form leans toward recitation rather than song. The tradition is documented across the siddur manuscript tradition and centuries of synagogue practice.",
   "recipe": "classic Middle Eastern modern jewish kaddish mourner recitation, ritual Devotional, Jewish branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. mediterranean sephardi synagogue. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 341,
-  "score": 215.305,
+  "score": 215.135,
   "config": {
     "traditions": [
       "jewish_kaddish",
@@ -38,7 +38,7 @@
           "voice_quality": 48.75000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.640000000000001,
+          "voice_vibrato": 3.5803750000000005,
           "voice_articulation": 19.694999999999997,
           "voice_microtone": 19.304999999999993,
           "voice_tradition": 23.009999999999994,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 10.900000000000002,
           "voice_pitch_organization": 2.665000000000001,
           "voice_processing_chain": 17.224999999999998,
-          "voice_multitrack_stack": 9.1
+          "voice_multitrack_stack": 8.989375
         }
       }
     ],

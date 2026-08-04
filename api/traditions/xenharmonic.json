@@ -1,0 +1,192 @@
+{
+  "id": "xenharmonic",
+  "name": "Xenharmonic Music",
+  "family": "classical",
+  "lineage": "Named by Ivor Darreg in the 1970s out of the Harry Partch and Erv Wilson lineage in California and consolidated online from the 1990s through the Alternate Tuning List and Xenharmonic Wiki, it is composition built explicitly on non-12-TET lattices — 19-, 22- and 31-note equal divisions, Bohlen-Pierce, and rank-2 temperaments — realized on refretted guitars, retuned synthesizers and purpose-built instruments, with harmony judged by comma-pump and consonance behaviour rather than by common-practice function.",
+  "recipe": "classic mid-1970s xenharmonic music, art Music, western modern branch, idm glitch experimental electric, overtone drone modal tuvan throat singing xhosa umngqokolo overtone singing. sygyt, breath veiled tone, breath pulsed, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany single coil electric guitar, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, glitched textural modular glitched textural wavetable synth, marimba orchestral, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 783,
+  "score": 377.525,
+  "config": {
+    "traditions": [
+      "xenharmonic",
+      "tuvan_throat",
+      "xhosa_umngqokolo_overtone"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_overdriven_lead",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "oil_satin",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 1.6949999999999998,
+          "amp_make": 3.2500000000000004,
+          "body_wood": 1.04,
+          "neck_wood": 1.04,
+          "fretboard": 2.885,
+          "pickup_magnet": 0.6950000000000001,
+          "string_material": 0.09,
+          "string_gauge": 1.04,
+          "bridge": 2.255,
+          "scale_length": 1.2999999999999998,
+          "finish": 1.7999999999999998,
+          "string_tuning": 5.925000000000001
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 1.04,
+          "grand_piano_brand": 1.795,
+          "piano_hammer": 9.995,
+          "piano_rim": 9.15,
+          "piano_soundboard": 8.045,
+          "piano_pinblock": 7.85,
+          "piano_plate": 7.095000000000001,
+          "piano_pitch_standard": 12.555
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 3.6949999999999994,
+          "mod_voltage_source": 0.845,
+          "mod_patch_density": 1.9949999999999999,
+          "mod_lineage": 0.65
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 3.6949999999999994,
+          "wt_position": 2.8199999999999994,
+          "wt_family": 2.255,
+          "wt_polyphony": 0
+        }
+      },
+      {
+        "id": "marimba_orchestral",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "marimba_size": "marimba_4_octave",
+          "marimba_orchestral_bar": "marimba_orchestral_padauk"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "marimba_size": 1,
+          "marimba_orchestral_bar": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "khoomei_tuvan_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 24.299999999999997,
+          "voice_quality": 24.775,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.68,
+          "voice_articulation": 23.529999999999998,
+          "voice_microtone": 23.399999999999995,
+          "voice_tradition": 20.234999999999996,
+          "voice_mechanism_compound": 23.025,
+          "voice_estill_quality": 6.675000000000001,
+          "voice_speech_song": 24.634999999999994,
+          "voice_ensemble_config": 21.774999999999995,
+          "voice_ornament_system": 5.125,
+          "voice_pitch_organization": 24.394999999999996,
+          "voice_processing_chain": 7.475,
+          "voice_multitrack_stack": 11.439999999999996
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 1.6949999999999998,
+          "va_archetypes": 1.15,
+          "digital_subtractive_context": 19.044999999999998
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "edo_19",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "edo_19",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

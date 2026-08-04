@@ -5,7 +5,7 @@
   "lineage": "Scottish-Hebridean Gaelic rowing-song (iorram, pronounced \"ear-ram\") tradition continuous from medieval-Hebridean-Gaelic maritime practice through 18th-19th-century continuous performance on Scottish-Western-Isles fishing-boats and ferries into 20th-century Scottish-Gaelic revival; the iorram coordinates the synchronized-oar-stroke timing of multi-oar Hebridean fishing-boats",
   "recipe": "classic early-1940s scottish hebridean iorram, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, European lullaby, Celtic British praise song scottish gaelic tàladh irish suantraí. vocal fry, breath veiled tone, slow rate, interlocked note trading. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 362,
-  "score": 145.182,
+  "score": 146.277,
   "config": {
     "traditions": [
       "hebridean_iorram",
@@ -38,18 +38,18 @@
           "voice_quality": 7.994999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.895,
+          "voice_vibrato": 2,
           "voice_articulation": 6.24,
           "voice_microtone": 7.930000000000001,
-          "voice_tradition": 46.52999999999999,
+          "voice_tradition": 46.874999999999986,
           "voice_mechanism_compound": 3.5100000000000002,
           "voice_estill_quality": 2.3725,
           "voice_speech_song": 13.357499999999996,
           "voice_ensemble_config": 6.37,
-          "voice_ornament_system": 33.08,
-          "voice_pitch_organization": 7.625000000000001,
+          "voice_ornament_system": 33.275,
+          "voice_pitch_organization": 8.21,
           "voice_processing_chain": 3.1,
-          "voice_multitrack_stack": 4.295
+          "voice_multitrack_stack": 4.16
         }
       }
     ],

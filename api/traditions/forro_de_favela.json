@@ -1,0 +1,190 @@
+{
+  "id": "forro_de_favela",
+  "name": "Forró de Favela (forró eletrônico das periferias)",
+  "family": "global",
+  "lineage": "Peripheral-urban electronic forró that took shape in Rio and Northeastern favelas and periferias from the 2000s onward, built in home DAW setups on programmed baião and arrasta-pé patterns at 130-150 BPM with sampled zabumba and triangle, sub-heavy synthesized bass, keyboard-emulated sanfona lines and autotuned melodic-romantic or piseiro-style vocals distributed via WhatsApp and streaming rather than label release.",
+  "recipe": "classic Southern American mid-2000s forró de favela, functional Song, Brazilian song branch, Latin electric electronic dance, Afro-diasporic electric groove percussion freestyle tecnobrega. thick, breath veiled tone, straight note core, interlocked note trading. accordion, wood baião tradition low stick with high bacalhau buzz zabumba, triangulo forro, roland tr 8s modern aira digital recreation TR-808, sub bass analog poly synth, melodic pitched sampler, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 678,
+  "score": 222.135,
+  "config": {
+    "traditions": [
+      "forro_de_favela",
+      "freestyle",
+      "tecnobrega"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.5550000000000015,
+          "voice_quality": 5.850000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.640000000000001,
+          "voice_articulation": 22.229999999999997,
+          "voice_microtone": 22.684999999999995,
+          "voice_tradition": 4.030000000000001,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 28.08,
+          "voice_ensemble_config": 23.399999999999995,
+          "voice_ornament_system": 2.0250000000000004,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 13.834999999999999,
+          "voice_multitrack_stack": 5.2325
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_petosa_seattle"
+        },
+        "scores": {
+          "free_reed_technique": 2.34,
+          "accordion_reed_material": 0.65,
+          "musette_offset": 0.345,
+          "reed_config": 0.135,
+          "bellows": 0.15,
+          "voicing_chamber": 0.045,
+          "accordion_maker_school": 0.845
+        }
+      },
+      {
+        "id": "zabumba",
+        "slots": {
+          "zabumba_shell": "zabumba_wood_shallow",
+          "zabumba_technique": "zabumba_baiao_pattern"
+        },
+        "scores": {
+          "zabumba_shell": 3.0300000000000002,
+          "zabumba_technique": 4.029999999999999
+        }
+      },
+      {
+        "id": "triangulo_forro",
+        "slots": {
+          "triangulo_size": "triangulo_large_forro",
+          "triangulo_pattern": "triangulo_forro_pattern"
+        },
+        "scores": {
+          "triangulo_size": 0.545,
+          "triangulo_pattern": 0
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 5.265,
+          "drum_machine_808_context": 5.525,
+          "tr808_production_origin": 1.4949999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 5.135,
+          "poly_archetypes": 0.35,
+          "poly_voices": 0,
+          "poly_maker_lineage": -1.5099999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.17,
+          "sampler_archetypes": 0.75,
+          "sampler_bit_depth": 0.48,
+          "sampler_workflow": 3.075,
+          "sampler_classic_context": 26.617499999999996
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 4.68,
+          "body_wood": 0.39,
+          "pickup_config": 0.435,
+          "string_type": 5.85,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0,
+          "bass_technique": 3.9650000000000003
+        }
+      }
+    ],
+    "room": "rio_favela_home_baile_funk",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "baiao_2_4_beat_one_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "baiao_2_4_beat_one_bass",
+    "room": "rio_favela_home_baile_funk",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

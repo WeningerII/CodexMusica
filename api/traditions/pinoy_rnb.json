@@ -3,14 +3,14 @@
   "name": "Pinoy R&B",
   "family": "pop",
   "lineage": "Manila-based Filipino R&B emerged in the early 1990s as OPM absorbed American new jack swing and quiet-storm soul — Jaya, Kyla and later Nyoy Volante and Jay-R built it on 65-95 BPM swung sixteenth programmed kits, electric-piano and pad-heavy chord beds, and a heavily melismatic belt-and-riff vocal culture nurtured by nationwide karaoke and church choirs — with a 2010s neo-soul and alt-R&B turn through Careless Music and the Manila indie scene.",
-  "recipe": "classic 1990-1993 pinoy r&b, functional Song, soul R&B branch, pop rock functional song 1960s girl group post-teen pop. thick, breath veiled tone, straight note core, interlocked note trading. block chord electric piano tine, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, TR-808, singing lead analog poly synth, phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, melodic orchestral imitation pitched sampler, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 717,
-  "score": 444.16,
+  "recipe": "classic 1990-1993 pinoy r&b, functional Song, soul R&B branch, pop rock functional song 1960s girl group new wave. thick, breath veiled tone, straight note core, interlocked note trading. block chord electric piano tine, ampeg b15 amp American 60s bass amp flip top character alder ernie ball slinky electric bass, TR-808, singing lead analog poly synth, cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, sampler, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 666,
+  "score": 471.84,
   "config": {
     "traditions": [
       "pinoy_rnb",
       "girl_group_60s",
-      "post_teen_pop"
+      "new_wave"
     ],
     "instruments": [
       {
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 38.3,
-          "voice_quality": 14.755000000000003,
+          "voice_register": 45.425,
+          "voice_quality": 17.29,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.21,
-          "voice_articulation": 25.155,
-          "voice_microtone": 24.375,
-          "voice_tradition": 26.779999999999998,
-          "voice_mechanism_compound": 4.9399999999999995,
-          "voice_estill_quality": 14.229999999999997,
-          "voice_speech_song": 31.330000000000005,
-          "voice_ensemble_config": 26.325,
-          "voice_ornament_system": 2.4050000000000002,
+          "voice_vibrato": 2.5999999999999996,
+          "voice_articulation": 25.089999999999996,
+          "voice_microtone": 32.07499999999999,
+          "voice_tradition": 28.404999999999998,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 13.354999999999997,
+          "voice_speech_song": 32.305,
+          "voice_ensemble_config": 25.414999999999996,
+          "voice_ornament_system": 1.7549999999999994,
           "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 7.93,
-          "voice_multitrack_stack": 11.634999999999998
+          "voice_processing_chain": 7.715,
+          "voice_multitrack_stack": 10.1075
         }
       },
       {
@@ -60,9 +60,9 @@
           "tine_effect": "overdrive_tine"
         },
         "scores": {
-          "keyboard_technique": 19.42,
-          "tine_voicing": 0.45499999999999996,
-          "tine_effect": 3.51
+          "keyboard_technique": 21.319999999999997,
+          "tine_voicing": 0.195,
+          "tine_effect": 6.759999999999999
         }
       },
       {
@@ -71,32 +71,32 @@
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 17.979999999999997,
-          "body_wood": 0.39,
-          "pickup_config": 1.8250000000000002,
-          "string_type": 17.52,
-          "scale_length_b": 0.81,
+          "amp_make": 16.104999999999997,
+          "body_wood": 1.4300000000000002,
+          "pickup_config": 0.78,
+          "string_type": 16.412499999999994,
+          "scale_length_b": 1.04,
           "fretted_or_not": 0.195,
-          "bass_technique": 11.95
+          "bass_technique": 16.865
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
+          "drum_machine_808_context": "drum_machine_808_miami",
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 3.205,
-          "drum_machine_808_context": 2.925,
-          "tr808_production_origin": 0.8449999999999999
+          "tr808_voice": 0.7149999999999999,
+          "drum_machine_808_context": 4.9075,
+          "tr808_production_origin": 0.78
         }
       },
       {
@@ -105,13 +105,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 19.185,
-          "poly_archetypes": 3.3149999999999995,
-          "poly_voices": 1.2850000000000001,
-          "poly_maker_lineage": -0.91
+          "electronic_technique": 20.784999999999997,
+          "poly_archetypes": 6.564999999999999,
+          "poly_voices": 1.435,
+          "poly_maker_lineage": 0.38999999999999957
         }
       },
       {
@@ -124,28 +124,28 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 19.189999999999998,
-          "string_tuning": 0.5149999999999999,
-          "top_wood": 0.975,
+          "acoustic_technique": 21.089999999999993,
+          "string_tuning": 0.35749999999999993,
+          "top_wood": 1.8200000000000003,
           "back_sides": 0.585,
-          "string_acoustic": 1.885
+          "string_acoustic": 1.8199999999999998
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
+          "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.7,
-          "sampler_archetypes": 2.1849999999999996,
-          "sampler_bit_depth": 0.45499999999999996,
-          "sampler_workflow": 1.17,
-          "sampler_classic_context": 32.89
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 1.385,
+          "sampler_bit_depth": 1.105,
+          "sampler_workflow": 0.7149999999999999,
+          "sampler_classic_context": 31.394999999999996
         }
       },
       {
@@ -156,8 +156,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.025000000000006,
-          "drumhead": 18.59,
+          "drum_technique": 25.675,
+          "drumhead": 19.839999999999993,
           "drum_kit_kick_pedal": 0
         }
       }

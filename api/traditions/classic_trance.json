@@ -1,0 +1,119 @@
+{
+  "id": "classic_trance",
+  "name": "Classic Trance",
+  "family": "electronic",
+  "lineage": "German-centred style codified 1993-1999 through Frankfurt and Berlin labels (Eye Q, Harthouse, MFS, Superstition) by Paul van Dyk, Oliver Lieb, Cosmic Baby, Jam & Spoon and Sven Väth — 135-142 BPM four-on-floor with rolling offbeat sixteenth bass, layered detuned saw arpeggios, a long instrumental breakdown with a sustained pad chord progression, and a snare-roll build into the main melodic drop.",
+  "recipe": "classic Central European mid-1990s classic trance, electronic Dance, trance branch, techno electronic dance, eurodance electronic dance detroit techno hi-nrg. singing lead analog poly analog mono singing lead wavetable synth, TR-909, sampler. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 473,
+  "score": 70.78,
+  "config": {
+    "traditions": [
+      "classic_trance",
+      "detroit_techno",
+      "hi_nrg"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 3.79,
+          "poly_archetypes": 2.99,
+          "poly_voices": 2.8400000000000003,
+          "poly_maker_lineage": -0.665
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 3.49,
+          "drum_machine_909_context": 5.5200000000000005,
+          "tr909_production_origin": 0.585
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 8.75,
+          "mono_oscillator": 0,
+          "mono_filter": 0.5850000000000001,
+          "mono_archetypes": 2.6650000000000005,
+          "mono_maker_lineage": -0.8050000000000002
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 3.79,
+          "wt_position": 10.660000000000002,
+          "wt_family": 0.195,
+          "wt_polyphony": 1.34
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.7499999999999998,
+          "sampler_archetypes": 1,
+          "sampler_bit_depth": 0.4550000000000001,
+          "sampler_workflow": 1.7499999999999998,
+          "sampler_classic_context": 19.044999999999998
+        }
+      }
+    ],
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "berlin_techno_kreuzberg_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "clean"
+  }
+}

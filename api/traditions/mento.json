@@ -3,21 +3,21 @@
   "name": "Mento",
   "family": "global",
   "lineage": "Jamaican rural folk-and-dance music tradition that preceded ska as the dominant Jamaican popular music genre — codified through the post-WWII commercial recordings of Lord Flea, Count Lasher, the Jolly Boys, Stanley Beckford, Harold Richardson; built on a fusion of West African rhythmic foundations, European-derived quadrille dance forms, and Caribbean Spanish-influenced song structures",
-  "recipe": "classic Caribbean mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata bachata dominicana. thick, full chest belt, straight note core, interlocked note trading. alternating thumb travis picked parlor acoustic guitar, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, maracas, mento rhumba box repeating bass ostinato forged iron tongues marimbula. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 617,
-  "score": 187.705,
+  "recipe": "classic Caribbean mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song coladeira compas. thick, breath veiled tone, straight note core, interlocked note trading. alternating thumb travis picked parlor acoustic guitar, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, maracas, mento rhumba box walking bass runs melodic bass movement forged iron tongues marimbula. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 630,
+  "score": 179.797,
   "config": {
     "traditions": [
       "mento",
-      "bachata",
-      "bachata_dominicana"
+      "coladeira",
+      "compas_direk"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
@@ -28,42 +28,42 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 7.970000000000001,
-          "voice_quality": 11.749999999999996,
+          "voice_register": 7.82,
+          "voice_quality": 9.034999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1800000000000006,
-          "voice_articulation": 14.949999999999998,
-          "voice_microtone": 14.754999999999995,
-          "voice_tradition": 10.985,
-          "voice_mechanism_compound": 4.745,
-          "voice_estill_quality": 5.785,
-          "voice_speech_song": 25.414999999999996,
-          "voice_ensemble_config": 15.079999999999997,
-          "voice_ornament_system": 1.8849999999999991,
-          "voice_pitch_organization": 1.1800000000000002,
-          "voice_processing_chain": 5.8100000000000005,
-          "voice_multitrack_stack": 6.045000000000002
+          "voice_vibrato": 1.7799999999999998,
+          "voice_articulation": 14.949999999999992,
+          "voice_microtone": 14.49499999999999,
+          "voice_tradition": 11.46,
+          "voice_mechanism_compound": 4.9399999999999995,
+          "voice_estill_quality": 5.135,
+          "voice_speech_song": 23.984999999999992,
+          "voice_ensemble_config": 14.234999999999992,
+          "voice_ornament_system": 0.5199999999999999,
+          "voice_pitch_organization": 0.545,
+          "voice_processing_chain": 3.9250000000000003,
+          "voice_multitrack_stack": 3.1200000000000006
         }
       },
       {
         "id": "acoustic_guitar_parlor",
         "slots": {
           "acoustic_technique": "acoustic_travis_picking",
-          "string_tuning": "open_g",
+          "string_tuning": "open_d",
           "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "mahogany_bs_p",
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
           "acoustic_technique": 4.3,
-          "string_tuning": 1.1049999999999998,
+          "string_tuning": 0.39999999999999997,
           "top_wood_parlor": 0.69,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 0.69
@@ -85,15 +85,15 @@
         },
         "scores": {
           "banjo_back": 0.435,
-          "tone_ring": 0.045,
-          "banjo_head": 14.95,
+          "tone_ring": 0.545,
+          "banjo_head": 14.494999999999996,
           "banjo_pot": 1.215,
-          "banjo_play": 0.345,
-          "banjo_rim_wood": 0.195,
-          "banjo_neck_wood": 1.04,
+          "banjo_play": 0.995,
+          "banjo_rim_wood": 0.39,
+          "banjo_neck_wood": 0.52,
           "banjo_strings": 0.15,
           "banjo_bridge": 0,
-          "banjo_setup_period": 14.884999999999998
+          "banjo_setup_period": 14.429999999999994
         }
       },
       {
@@ -111,13 +111,13 @@
         "id": "marimbula",
         "slots": {
           "marimbula_regional_form": "marimbula_form_rhumba_box",
-          "marimbula_playing_role": "marimbula_role_ostinato",
+          "marimbula_playing_role": "marimbula_role_walking",
           "marimbula_construction": "marimbula_build_forged_iron"
         },
         "scores": {
-          "marimbula_regional_form": 11.25,
-          "marimbula_playing_role": 7.93,
-          "marimbula_construction": 3.1849999999999996
+          "marimbula_regional_form": 11.75,
+          "marimbula_playing_role": 11.2775,
+          "marimbula_construction": 3.835
         }
       }
     ],

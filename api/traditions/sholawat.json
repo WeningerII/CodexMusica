@@ -1,0 +1,144 @@
+{
+  "id": "sholawat",
+  "name": "Sholawat (Indonesian praise of the Prophet)",
+  "family": "global",
+  "lineage": "Indonesian devotional genre of sung blessings on the Prophet Muhammad, rooted in Hadrami Arab maulid texts (Barzanji, Simtud Durar) brought to Java in the 19th century and mass-popularized from the 1990s by pesantren majelis and cassette/television broadcast — a solo munsyid sings ornamented Arabic verse in maqam over a hadrah bank of rebana and marwas frames at a swaying 90-110 BPM, answered by massed male congregational refrains.",
+  "recipe": "classic South Asian mid-1990s sholawat, ritual Devotional, islamic branch, middle east n African praise song, Sufi ritual devotional sufi zikr chant shailat. extended whistle, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, rebana ubi, kompang frame drum, juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, snappy to palm hand clap. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 685,
+  "score": 190.203,
+  "config": {
+    "traditions": [
+      "sholawat",
+      "sufi_zikr_chant",
+      "shailat"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.21,
+          "voice_quality": 19.419999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 12.999999999999995,
+          "voice_microtone": 22.684999999999995,
+          "voice_tradition": 13.909999999999998,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 18.134999999999994,
+          "voice_ensemble_config": 13.584999999999994,
+          "voice_ornament_system": 13.981500000000002,
+          "voice_pitch_organization": 8.461500000000001,
+          "voice_processing_chain": 6.369999999999999,
+          "voice_multitrack_stack": 6.142500000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 13.59,
+          "choir_polyphonic_configuration": 1.2349999999999999,
+          "choir_regional_canonical_configuration": 9.77,
+          "choir_ensemble_repertoire": 3.445
+        }
+      },
+      {
+        "id": "rebana_ubi",
+        "slots": {
+          "rebana_ubi_size": "rebana_ubi_giant",
+          "rebana_ubi_style": "rebana_ubi_ensemble"
+        },
+        "scores": {
+          "rebana_ubi_size": 0,
+          "rebana_ubi_style": 0.3
+        }
+      },
+      {
+        "id": "kompang_frame_drum",
+        "slots": {
+          "kompang_stroke": "kompang_melalu",
+          "kompang_size": "kompang_standard"
+        },
+        "scores": {
+          "kompang_stroke": 0.49499999999999994,
+          "kompang_size": 0
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_no_snares",
+          "bendir_context": "bendir_sufi",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_goat_skin_canonical"
+        },
+        "scores": {
+          "bendir_snares": 3.445,
+          "bendir_context": 0.285,
+          "bendir_shell_wood": 2.4699999999999998,
+          "bendir_head": 2.7299999999999995
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 3.185,
+          "clap_capture": 0.195
+        }
+      }
+    ],
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

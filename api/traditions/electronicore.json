@@ -1,0 +1,170 @@
+{
+  "id": "electronicore",
+  "name": "Electronicore (Metalcore Hybrid)",
+  "family": "rock_punk",
+  "lineage": "Late-2000s American and British metalcore hybrid codified circa 2007-2012 by Attack Attack!, Asking Alexandria and Crossfaith, layering trance supersaw leads, sidechained pads and dubstep-style wobble drops over drop-tuned breakdown riffing, blast beats and triggered kick drums at 130-175 BPM, alternating screamed verses with heavily tuned clean choruses.",
+  "recipe": "classic mid-2010s electronicore, distorted Rock, metal branch, thrash metal, emo distorted rock, trance electronic dance trancecore scenecore. thick, breath veiled tone, straight onset, interlocked note trading. drop a seven string electric, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, plucked short envelope digital subtractive, plucked short envelope wavetable synth, sampler drum machine. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 670,
+  "score": 271.632,
+  "config": {
+    "traditions": [
+      "electronicore",
+      "trancecore",
+      "scenecore"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 19.049999999999994,
+          "voice_quality": 3.5100000000000016,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.7625,
+          "voice_articulation": 18.914999999999992,
+          "voice_microtone": 18.154999999999998,
+          "voice_tradition": 4.517500000000001,
+          "voice_mechanism_compound": 21.191250000000004,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 16.574999999999992,
+          "voice_ornament_system": 0.045,
+          "voice_pitch_organization": 3.2375000000000007,
+          "voice_processing_chain": 4.045749999999999,
+          "voice_multitrack_stack": 9.88475
+        }
+      },
+      {
+        "id": "seven_string_electric",
+        "slots": {
+          "seven_string_tuning": "seven_string_drop_a",
+          "seven_string_technique": "seven_string_djent_palm_mute"
+        },
+        "scores": {
+          "seven_string_tuning": 2.615625,
+          "seven_string_technique": 0.81
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.555,
+          "body_wood": 5.2,
+          "pickup_config": 5.1025,
+          "string_type": 19.2235,
+          "scale_length_b": 1.215,
+          "fretted_or_not": 0.195,
+          "bass_technique": 16.625
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 16.932499999999997,
+          "drumhead": 3.37,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 4.695,
+          "va_archetypes": 5.116375,
+          "digital_subtractive_context": 15.729999999999997
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": 4.695,
+          "wt_position": 1.3676249999999996,
+          "wt_family": 0.65,
+          "wt_polyphony": 0.65
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 3.185,
+          "sample_swing": 2.999999999999999,
+          "sample_processing": 5.719999999999999
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

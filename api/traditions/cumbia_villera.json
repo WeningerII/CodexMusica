@@ -5,7 +5,7 @@
   "lineage": "Greater Buenos Aires villa-miseria cumbia that emerged in 1999-2000 with Flor de Piedra, Yerba Brava, Damas Gratis (Pablo Lescano) and Pibes Chorros — 95-105 BPM cumbia paseo carried by cheap Korg/Roland preset organ and whistle patches, a driving synth-and-electric bass line, güiro and timbal on a stiff programmed grid, nasal shouted male lead with gang-chorus responses, and lurid first-person lyrics about drugs, theft, police and slum life.",
   "recipe": "classic 1999-2000 cumbia villera, groove Percussion, Latin am branch, Latin electric electronic dance, intl hip hop MC rhythm cumbia 420 hawaiian hip hop. extended whistle, full chest belt, straight note core, interlocked note trading. sub bass analog poly synth, lead instrument elevated psychedelic foregrounded organ driven rock combo organ, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon thumb muted electric bass, guiro, open slap hand drum timbales, lead open slap hand drum congas, drum machine analog. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 668,
-  "score": 196.962,
+  "score": 197.083,
   "config": {
     "traditions": [
       "cumbia_villera",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 1.17,
-          "voice_quality": 12.398249999999999,
+          "voice_quality": 12.299999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.6899999999999997,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 19.629999999999995,
           "voice_ornament_system": 3.445000000000001,
           "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 6.8,
+          "voice_processing_chain": 6.68,
           "voice_multitrack_stack": 7.5075
         }
       },
@@ -61,10 +61,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 10.3675,
-          "poly_archetypes": 0.09,
+          "electronic_technique": 10.315000000000001,
+          "poly_archetypes": 0.135,
           "poly_voices": 0,
-          "poly_maker_lineage": -0.81
+          "poly_maker_lineage": -0.7350000000000001
         }
       },
       {
@@ -80,7 +80,7 @@
           "keyboard_technique": -0.07,
           "combo_organ_model": 2.795,
           "combo_organ_voicing": 4.45,
-          "combo_organ_context": 3.3400000000000003,
+          "combo_organ_context": 3.49,
           "amp_make": 0
         }
       },
@@ -112,7 +112,7 @@
           "guiro_striker": "guiro_metal"
         },
         "scores": {
-          "guiro_origin": 0.73875,
+          "guiro_origin": 0.6900000000000001,
           "guiro_striker": 0.24
         }
       },
@@ -124,8 +124,8 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 9.852500000000001,
-          "timbales_shell": 0.375,
+          "percussion_technique": 9.690000000000001,
+          "timbales_shell": 0.57,
           "timbales_context": 1
         }
       },
@@ -134,14 +134,14 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "conga_set": "quinto",
-          "conga_skin": "conga_synthetic_head",
-          "conga_shell_wood": "conga_fiberglass"
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 9.852500000000001,
+          "percussion_technique": 9.690000000000001,
           "conga_set": 2.34,
-          "conga_skin": 0.24,
-          "conga_shell_wood": 0.24
+          "conga_skin": 0.345,
+          "conga_shell_wood": 0.345
         }
       },
       {
@@ -155,8 +155,8 @@
         "scores": {
           "kick_voice": 0.24,
           "snare_voice": 0.24,
-          "hat_voice": 0.135,
-          "shuffle_quantize": 0.375
+          "hat_voice": 0.18,
+          "shuffle_quantize": 0.42
         }
       }
     ],

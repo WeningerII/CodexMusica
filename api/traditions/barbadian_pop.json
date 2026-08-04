@@ -3,14 +3,14 @@
   "name": "Barbadian pop",
   "family": "pop",
   "lineage": "Barbadian pop crystallised in Bridgetown and the transatlantic studio circuit from the mid-2000s, when Rihanna, Shontelle and Livvi Franc carried the island's bashment-soca and spouge rhythmic accents into mainstream radio production — mid-tempo 95-105 BPM dembow-and-soca hybrid drum programming, glossy synth pads, Bajan-inflected melisma and clipped consonant phrasing over four-bar loop forms.",
-  "recipe": "classic 2004-2006 barbadian pop, functional Song, tropical song branch, Caribbean carnival processional, soul R&B functional song, reggae diaspora bass system doo-wop. thick, breath veiled tone, slow rate, interlocked note trading. mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack, behringer rd 8 modern clone analog circuit reproduction TR-808, singing lead analog poly synth, steelpan, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 729,
-  "score": 279.195,
+  "recipe": "classic 2004-2006 barbadian pop, functional Song, tropical song branch, Caribbean carnival processional, soul R&B functional song, reggae diaspora bass system souldies. thick, breath veiled tone, slow rate, interlocked note trading. lead plus third fifth 3 part stack 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack, behringer rd 8 modern clone analog circuit reproduction TR-808, singing lead analog poly synth, steelpan, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 752,
+  "score": 254.659,
   "config": {
     "traditions": [
       "barbadian_pop",
-      "doo_wop",
-      "hip_pop"
+      "hip_pop",
+      "souldies"
     ],
     "instruments": [
       {
@@ -22,60 +22,60 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 28.299999999999997,
-          "voice_quality": 19.110000000000003,
+          "voice_register": 23.59999999999999,
+          "voice_quality": 10.919999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.73,
-          "voice_articulation": 19.629999999999995,
-          "voice_microtone": 19.549999999999997,
-          "voice_tradition": 22.410625,
-          "voice_mechanism_compound": 3.0549999999999997,
-          "voice_estill_quality": 8.339999999999998,
-          "voice_speech_song": 29.184999999999995,
-          "voice_ensemble_config": 20.669999999999995,
-          "voice_ornament_system": 1.15,
+          "voice_vibrato": 3.58,
+          "voice_articulation": 19.304999999999993,
+          "voice_microtone": 19.499999999999993,
+          "voice_tradition": 17.210625,
+          "voice_mechanism_compound": 1.885,
+          "voice_estill_quality": 9.424999999999999,
+          "voice_speech_song": 29.509999999999994,
+          "voice_ensemble_config": 20.734999999999992,
+          "voice_ornament_system": 0.9099999999999999,
           "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 8.807500000000001,
-          "voice_multitrack_stack": 7.6049999999999995
+          "voice_processing_chain": 6.953125000000001,
+          "voice_multitrack_stack": 7.300625000000001
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
           "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
-          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 0.78,
-          "multitrack_stack_era_aesthetic": 3.9975,
-          "multitrack_stack_processing": 1.2674999999999998
+          "multitrack_stack_density": 1.2349999999999999,
+          "multitrack_stack_era_aesthetic": 4.365,
+          "multitrack_stack_processing": 1.9174999999999998
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
+          "drum_machine_808_context": "drum_machine_808_rb",
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 4.64375,
-          "drum_machine_808_context": 3.8349999999999995,
-          "tr808_production_origin": 1.7550000000000001
+          "tr808_voice": 4.38875,
+          "drum_machine_808_context": 3.575,
+          "tr808_production_origin": 3.25
         }
       },
       {
@@ -84,31 +84,31 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 17.854999999999997,
-          "poly_archetypes": 1.4949999999999999,
+          "electronic_technique": 15.314999999999998,
+          "poly_archetypes": 0.8131249999999999,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -0.7
+          "poly_maker_lineage": -0.6300000000000001
         }
       },
       {
         "id": "steelpan",
         "slots": {
           "steelpan_voice": "cello_pan",
-          "steelpan_context": "steelpan_session"
+          "steelpan_context": "steelpan_orchestra"
         },
         "scores": {
-          "steelpan_voice": 4.515,
-          "steelpan_context": 0.585
+          "steelpan_voice": 3.7350000000000003,
+          "steelpan_context": 0.45499999999999996
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
@@ -116,13 +116,13 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 13.368124999999997,
-          "body_wood": 2.795,
+          "amp_make": 12.448124999999997,
+          "body_wood": 2.435,
           "pickup_config": 0.45499999999999996,
-          "string_type": 12.219999999999999,
-          "scale_length_b": 2.78,
+          "string_type": 11.7275,
+          "scale_length_b": 2.4349999999999996,
           "fretted_or_not": 0.195,
-          "bass_technique": 6.899999999999999
+          "bass_technique": 8.65
         }
       }
     ],

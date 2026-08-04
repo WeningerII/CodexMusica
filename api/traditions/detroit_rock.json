@@ -3,14 +3,14 @@
   "name": "Detroit rock",
   "family": "rock",
   "lineage": "Consolidated in Detroit and Ann Arbor between 1966 and 1972 through the MC5, the Stooges, the Amboy Dukes, SRC and Grand Funk Railroad, working the Grande Ballroom circuit — high-volume twin-humbucker guitars run into overdriven amplifiers, mid-tempo 4/4 backbeats around 120-150 BPM played hard on the snare, one- and two-chord blues-pentatonic riff vamps, and a shouted, hectoring lead vocal derived from Detroit R&B revue delivery.",
-  "recipe": "classic North American mid-1960s detroit rock, distorted Rock, regional branch, classic distorted rock, punk distorted rock, noise rock distorted rock post-punk. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ. live tracking. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 843,
-  "score": 588.262,
+  "recipe": "classic North American mid-1960s detroit rock, distorted Rock, regional branch, classic distorted rock, punk distorted rock, noise rock distorted rock queercore. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. live tracking. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 855,
+  "score": 575.694,
   "config": {
     "traditions": [
       "detroit_rock",
       "noise_rock",
-      "post_punk"
+      "queercore"
     ],
     "instruments": [
       {
@@ -25,37 +25,37 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 36.44500000000002,
-          "voice_quality": 14.039999999999992,
+          "voice_register": 36.745625000000025,
+          "voice_quality": 15.144999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.185,
-          "voice_articulation": 20.734999999999992,
-          "voice_microtone": 32.80000000000001,
-          "voice_tradition": 4.8100000000000005,
-          "voice_mechanism_compound": 13.2275,
-          "voice_estill_quality": 1.5599999999999996,
-          "voice_speech_song": 21.709999999999994,
-          "voice_ensemble_config": 21.449999999999996,
-          "voice_ornament_system": 0.45499999999999996,
-          "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 7.855,
-          "voice_multitrack_stack": 7.15
+          "voice_articulation": 19.174999999999997,
+          "voice_microtone": 33.05000000000001,
+          "voice_tradition": 4.745000000000001,
+          "voice_mechanism_compound": 15.1325,
+          "voice_estill_quality": 1.6249999999999998,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 18.589999999999993,
+          "voice_ornament_system": 0.325,
+          "voice_pitch_organization": 1.0006249999999997,
+          "voice_processing_chain": 6.98,
+          "voice_multitrack_stack": 7.6375
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_power_chord",
+          "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
@@ -67,28 +67,28 @@
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 12.317499999999999,
-          "amp_make": 30.257499999999993,
-          "body_wood": 1.4949999999999999,
-          "neck_wood": 1.4949999999999999,
-          "fretboard": 1.4299999999999997,
+          "electric_technique": 10.875,
+          "amp_make": 32.7275,
+          "body_wood": 1.6899999999999997,
+          "neck_wood": 1.6899999999999997,
+          "fretboard": 1.6249999999999998,
           "pickup_magnet": 1.585,
           "pickup_winding": 0.9099999999999999,
-          "string_material": 0.78,
-          "bridge": 1.4949999999999999,
-          "scale_length": 1.4949999999999999,
-          "string_gauge": 1.4949999999999999,
-          "finish": 0.435,
-          "string_tuning": 20.67
+          "string_material": 0.39,
+          "bridge": 1.6899999999999997,
+          "scale_length": 1.6899999999999997,
+          "string_gauge": 1.6899999999999997,
+          "finish": 0.195,
+          "string_tuning": 18.395
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_power_chord",
+          "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
@@ -102,18 +102,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 12.317499999999999,
-          "amp_make": 30.257499999999993,
-          "body_wood": 1.4949999999999999,
-          "neck_wood": 1.4949999999999999,
-          "fretboard": 1.4299999999999997,
-          "pickup_magnet": 0.78,
-          "string_material": 0.78,
-          "string_gauge": 1.4949999999999999,
+          "electric_technique": 10.875,
+          "amp_make": 32.7275,
+          "body_wood": 1.6899999999999997,
+          "neck_wood": 1.6899999999999997,
+          "fretboard": 1.6249999999999998,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 1.6899999999999997,
           "bridge": 0.3,
-          "scale_length": 1.4949999999999999,
-          "finish": 0.435,
-          "string_tuning": 19.825
+          "scale_length": 1.6899999999999997,
+          "finish": 0.195,
+          "string_tuning": 18.07
         }
       },
       {
@@ -128,13 +128,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 19.825,
-          "body_wood": 1.885,
+          "amp_make": 17.81,
+          "body_wood": 2.0799999999999996,
           "pickup_config": 0.3,
-          "string_type": 39.93,
-          "scale_length_b": 1.4949999999999999,
-          "fretted_or_not": 0,
-          "bass_technique": 43.585
+          "string_type": 37.837500000000006,
+          "scale_length_b": 1.6899999999999997,
+          "fretted_or_not": 0.65,
+          "bass_technique": 42.835
         }
       },
       {
@@ -145,15 +145,15 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 33.01500000000001,
-          "drumhead": 2.405,
+          "drum_technique": 31.140000000000004,
+          "drumhead": 2.5999999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "tonewheel_organ",
         "slots": {
-          "keyboard_technique": "keyboard_ostinato_groove",
+          "keyboard_technique": "keyboard_block_chord_pop",
           "drawbar_setting": "rock_drawbars",
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
@@ -161,12 +161,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 2.45,
-          "drawbar_setting": 34.21,
-          "rotary_speed": 32.87500000000001,
-          "percussion_setting": 16.965,
-          "tonewheel_model": 14.169999999999998,
-          "leslie_cabinet_model": 2.45
+          "keyboard_technique": 4.08,
+          "drawbar_setting": 32.335,
+          "rotary_speed": 31.000000000000004,
+          "percussion_setting": 15.99,
+          "tonewheel_model": 13.844999999999999,
+          "leslie_cabinet_model": 1.4049999999999998
         }
       }
     ],

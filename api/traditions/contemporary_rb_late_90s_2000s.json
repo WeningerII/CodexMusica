@@ -5,7 +5,7 @@
   "lineage": "Late-1990s-and-2000s producer-team-era contemporary R&B aesthetic codified by the Darkchild, Jam-and-Lewis (later Flyte Tyme), Timbaland, She'kspere, and Rodney Jerkins production-lineage. Built on the breath-admixed close-miked intimate-vocal-aesthetic with stacked harmony backgrounds (typically 4-to-8 voice layered), neo-soul jazz-extended chord-vocabulary (minor-9, major-7-sharp-11, sus-2, sus-4 voicings), and programmed drum-machine kit (typically Roland TR-909, Akai MPC60-3000, or Korg M1) playing swung-and-shuffled hi-hat-and-snare-with-808-kick. The genre layered Atlanta-Memphis-NYC studio-clusters and bridged classic-Motown-and-Philly-soul lineage to 2010s-modern-R&B and trap-soul.",
   "recipe": "classic contemporary r&b, functional Song, soul R&B branch, us hip hop east coast golden-age sample-collage hip-hop boom bap. thick, breath admixed, straight onset, narrative. roland tr 8s modern aira digital recreation TR-808, chopped sampler, roland jupiter lineage canonical jupiter 8 1981 osaka sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 580,
-  "score": 354.89,
+  "score": 354.365,
   "config": {
     "traditions": [
       "contemporary_rb_late_90s_2000s",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 23.051,
+          "voice_register": 23.015,
           "voice_quality": 12.094999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.29,
-          "voice_articulation": 21.62,
+          "voice_articulation": 21.86,
           "voice_microtone": 21.96999999999999,
-          "voice_tradition": 16.051000000000002,
+          "voice_tradition": 16.015,
           "voice_mechanism_compound": 5.85,
           "voice_estill_quality": 16.305,
           "voice_speech_song": 22.554999999999996,
           "voice_ensemble_config": 21.644999999999996,
           "voice_ornament_system": 2.860000000000001,
           "voice_pitch_organization": 2.8450000000000006,
-          "voice_processing_chain": 7.1499999999999995,
+          "voice_processing_chain": 7.3,
           "voice_multitrack_stack": 9.23
         }
       },
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.784999999999999,
+          "tr808_voice": 7.829999999999999,
           "drum_machine_808_context": 4.42,
           "tr808_production_origin": 3.495
         }
@@ -75,7 +75,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 7.239999999999999,
+          "electronic_technique": 7.284999999999999,
           "sampler_archetypes": 10.659999999999998,
           "sampler_bit_depth": 2.145,
           "sampler_workflow": 8.395,
@@ -91,7 +91,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 11.454999999999998,
+          "electronic_technique": 11.499999999999998,
           "poly_archetypes": 1.4949999999999999,
           "poly_voices": 3.1449999999999996,
           "poly_maker_lineage": 2.535
@@ -109,10 +109,10 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 21.151,
+          "amp_make": 21.040000000000003,
           "body_wood": 0.845,
           "pickup_config": 2.8,
-          "string_type": 22.997,
+          "string_type": 22.130000000000003,
           "scale_length_b": 3.185,
           "fretted_or_not": 0.45499999999999996,
           "bass_technique": 17.415000000000003

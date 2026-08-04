@@ -5,7 +5,7 @@
   "lineage": "Manila-centred Filipino-language hip hop that broke commercially in 1990 when Francis Magalona's 'Mga Kababayan Ko' and Andrew E's 'Humanap Ka Ng Panget' put Tagalog and Taglish flow over imported boom-bap and new-jack breaks, later hardened by Gloc-9's rapid multisyllabic socio-political verses and the 2010s FlipTop battle-league and Ex Battalion trap wave — typically 85-100 BPM sampled or programmed beats, a sung Tagalog hook over the chorus, and rhyme schemes exploiting the language's abundant open-vowel and -an/-in suffix endings.",
   "recipe": "classic mid-2010s tagalog rap, mc Rhythm, intl hip hop branch, us hip hop east coast, east Asian pop functional song, drill MC rhythm new jersey rap new york city rap. thick, rap, straight onset, interlocked note trading. chopped sampler, TR-808, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, gospel runs rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 615,
-  "score": 332.423,
+  "score": 333.142,
   "config": {
     "traditions": [
       "tagalog_rap",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 7.415000000000001,
-          "voice_quality": 29.305,
+          "voice_quality": 29.965,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4050000000000002,
+          "voice_vibrato": 2.39,
           "voice_articulation": 18.849999999999994,
           "voice_microtone": 18.654999999999994,
-          "voice_tradition": 10.98,
+          "voice_tradition": 10.935,
           "voice_mechanism_compound": 3.965,
           "voice_estill_quality": 4.875,
-          "voice_speech_song": 28.219999999999995,
+          "voice_speech_song": 28.549999999999997,
           "voice_ensemble_config": 19.954999999999995,
           "voice_ornament_system": 7.3450000000000015,
-          "voice_pitch_organization": 2.5300000000000007,
-          "voice_processing_chain": 20.175,
+          "voice_pitch_organization": 2.0950000000000006,
+          "voice_processing_chain": 20.325,
           "voice_multitrack_stack": 7.279999999999999
         }
       },
@@ -62,7 +62,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 12.614999999999998,
+          "electronic_technique": 12.66,
           "sampler_archetypes": 17.03,
           "sampler_bit_depth": 3.6750000000000003,
           "sampler_workflow": 14.145,
@@ -89,7 +89,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 12.614999999999998,
+          "electronic_technique": 12.66,
           "turntable_technique": 14.294999999999998
         }
       },
@@ -105,7 +105,7 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 4.680000000000001,
+          "amp_make": 4.665000000000001,
           "body_wood": 0.39,
           "pickup_config": 1.04,
           "string_type": 4.8100000000000005,

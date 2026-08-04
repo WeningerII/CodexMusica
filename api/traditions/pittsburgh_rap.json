@@ -3,14 +3,14 @@
   "name": "Pittsburgh rap",
   "family": "hip_hop",
   "lineage": "Emerged from Pittsburgh's East End and Point Breeze in the late 2000s through the free-mixtape careers of Wiz Khalifa and Mac Miller with producers ID Labs and Big Jerm — 75-90 BPM half-time beats over warm, dusty jazz and soul loops, soft filtered drums, prominent Rhodes and vinyl noise, and relaxed, half-sung conversational flows aimed at internet blog distribution rather than radio.",
-  "recipe": "classic 2007-2009 pittsburgh rap, mc Rhythm, modern branch, us hip hop east coast, us hip hop conscious rap conscious hip-hop new york city rap. thick, rap, straight onset, interlocked note trading. chopped sampler, roland tr 8s modern aira digital recreation TR-808, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampled chopped turntable, 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 826,
-  "score": 442.97,
+  "recipe": "classic 2007-2009 pittsburgh rap, mc Rhythm, modern branch, us hip hop east coast, us hip hop conscious rap new york city rap jazz rap. thick, rap, straight onset, interlocked note trading. chopped sampler, roland tr 8s modern aira digital recreation TR-808, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampled chopped turntable, 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 814,
+  "score": 375.147,
   "config": {
     "traditions": [
       "pittsburgh_rap",
-      "conscious_hip_hop",
-      "nyc_rap"
+      "nyc_rap",
+      "jazz_rap"
     ],
     "instruments": [
       {
@@ -34,39 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 17.865,
-          "voice_quality": 35.575,
+          "voice_register": 13.065,
+          "voice_quality": 28.715,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.09,
-          "voice_articulation": 22.619999999999997,
-          "voice_microtone": 25.414999999999996,
-          "voice_tradition": 13.015,
-          "voice_mechanism_compound": 3.6399999999999997,
-          "voice_estill_quality": 9.169999999999998,
-          "voice_speech_song": 33.47,
-          "voice_ensemble_config": 23.335,
-          "voice_ornament_system": 8.840000000000002,
+          "voice_vibrato": 9.415,
+          "voice_articulation": 21.319999999999993,
+          "voice_microtone": 23.464999999999993,
+          "voice_tradition": 11.46,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 6.9300000000000015,
+          "voice_speech_song": 26.85,
+          "voice_ensemble_config": 20.929999999999996,
+          "voice_ornament_system": 9.035000000000002,
           "voice_pitch_organization": 0.45500000000000007,
-          "voice_processing_chain": 24.599999999999998,
-          "voice_multitrack_stack": 6.780000000000001
+          "voice_processing_chain": 19.474999999999998,
+          "voice_multitrack_stack": 4.865
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twelve_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 12.29,
-          "sampler_archetypes": 18.72,
-          "sampler_bit_depth": 2.6,
-          "sampler_workflow": 13.295000000000002,
-          "sampler_classic_context": 39
+          "electronic_technique": 10.435,
+          "sampler_archetypes": 14.852500000000001,
+          "sampler_bit_depth": 2.4000000000000004,
+          "sampler_workflow": 11.445,
+          "sampler_classic_context": 33.475
         }
       },
       {
@@ -77,28 +77,28 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 11.885000000000002,
-          "drum_machine_808_context": 3.055,
-          "tr808_production_origin": 2.4050000000000002
+          "tr808_voice": 10.180000000000001,
+          "drum_machine_808_context": 3.445,
+          "tr808_production_origin": 1.95
         }
       },
       {
         "id": "rhodes_electric",
         "slots": {
-          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "keyboard_technique": "keyboard_ostinato_groove",
           "rhodes_model": "rhodes_mark1_stage",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
-          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 8.75,
-          "rhodes_model": 9.475,
+          "keyboard_technique": 6.92,
+          "rhodes_model": 7.295000000000001,
           "rhodes_use": 0.78,
-          "rhodes_tine_material": 2.105,
-          "rhodes_hammer_tip": -0.03499999999999988,
-          "rhodes_pickup_position": 2.535
+          "rhodes_tine_material": 1.65,
+          "rhodes_hammer_tip": -0.03500000000000003,
+          "rhodes_pickup_position": 3.185
         }
       },
       {
@@ -110,16 +110,16 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 12.104999999999997,
+          "amp_make": 10.064999999999998,
           "body_wood": 0.78,
-          "pickup_config": 2.255,
-          "string_type": 12.48,
-          "scale_length_b": 4.095,
+          "pickup_config": 2.1,
+          "string_type": 10.530000000000001,
+          "scale_length_b": 3.4299999999999997,
           "fretted_or_not": 0.39,
-          "bass_technique": 8.5
+          "bass_technique": 6.915000000000001
         }
       },
       {
@@ -129,8 +129,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 12.29,
-          "turntable_technique": 14.340000000000002
+          "electronic_technique": 10.435,
+          "turntable_technique": 11.745000000000001
         }
       },
       {
@@ -142,8 +142,8 @@
         },
         "scores": {
           "multitrack_stack_density": 0.65,
-          "multitrack_stack_era_aesthetic": 4.04,
-          "multitrack_stack_processing": 1.8150000000000002
+          "multitrack_stack_era_aesthetic": 3.62,
+          "multitrack_stack_processing": 1.62
         }
       }
     ],

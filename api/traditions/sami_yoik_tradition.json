@@ -1,0 +1,104 @@
+{
+  "id": "sami_yoik_tradition",
+  "name": "Sami yoik (Sápmi vocal tradition)",
+  "family": "global",
+  "lineage": "Circumpolar Sápmi vocal art across northern Norway, Sweden, Finland and the Kola Peninsula, documented from the 17th-century missionary suppression records and revived from the 1960s-70s by Nils-Aslak Valkeapää and later Mari Boine — short cyclic melodic cells of narrow ambitus repeated with subtle variation, non-lexical vocables (loi-la-loi) carrying more weight than text, glottal catches and pulsing chest attacks, no fixed metric frame, historically unaccompanied though the noaidi's oval frame drum survives in ritual and revival use.",
+  "recipe": "classic Northern European mid-1960s sami yoik, ritual Devotional, arctic branch, arctic hunting song, vocal drone modal sami yoik — animal-tracking and hunting song katajjaq. vocal fry, breath veiled tone, straight note core, interlocked note trading. burl bowl southern sami soft pulse reindeer hide red figures sami frame drum, snappy to palm hand clap. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 445,
+  "score": 204.073,
+  "config": {
+    "traditions": [
+      "sami_yoik_tradition",
+      "sami_yoik_tracking",
+      "inuit_katajjaq"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 5.329999999999999,
+          "voice_quality": 13.649999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9899999999999998,
+          "voice_articulation": 13.649999999999995,
+          "voice_microtone": 14.169999999999991,
+          "voice_tradition": 27.4575,
+          "voice_mechanism_compound": 20.844375000000003,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 19.824999999999996,
+          "voice_ensemble_config": 14.494999999999994,
+          "voice_ornament_system": 22.865,
+          "voice_pitch_organization": 3.217500000000001,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 7.6049999999999995
+        }
+      },
+      {
+        "id": "sami_frame_drum",
+        "slots": {
+          "sami_frame_drum_form": "sami_frame_drum_goavddis",
+          "sami_frame_drum_ritual": "sami_frame_drum_yoik",
+          "sami_frame_drum_material": "sami_frame_drum_reindeer_burl"
+        },
+        "scores": {
+          "sami_frame_drum_form": 8.434999999999999,
+          "sami_frame_drum_ritual": 14.613749999999998,
+          "sami_frame_drum_material": 8.065
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 2.0799999999999996,
+          "clap_capture": 0.65
+        }
+      }
+    ],
+    "room": "sapmi_outdoor_tundra_yoik",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "sami_narrow_range_pentatonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "sami_narrow_range_pentatonic",
+    "room": "sapmi_outdoor_tundra_yoik",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

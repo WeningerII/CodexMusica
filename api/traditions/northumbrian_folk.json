@@ -1,0 +1,140 @@
+{
+  "id": "northumbrian_folk",
+  "name": "Northumbrian folk",
+  "family": "global",
+  "lineage": "Border-county tradition of north-east England centred on the closed-chanter Northumbrian smallpipes standardised in the nineteenth century by the Reid family of North Shields and carried forward by the Northumbrian Pipers' Society from 1928 — staccato detached-note pipe variation sets, hornpipes and rants at dance tempo, Tyneside industrial songs and Border ballads sung with plain unornamented delivery, backed by fiddle, concertina and melodeon.",
+  "recipe": "classic North American late-1920s northumbrian folk, ballad Poetry, English broadside branch, wind pipe drone modal, anglo singer song britfolk british folk revival scottish smallpipe music. thick, breath veiled tone, straight note core, interlocked note trading. modal traditional northumbrian smallpipes, plain gut lamb gut whole lamb method drone like fiddle, steel reeds canonical anglo drone like concertina anglo, Celtic drone like melodeon diatonic. hexham head studio pa chamber folk. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 616,
+  "score": 216.216,
+  "config": {
+    "traditions": [
+      "northumbrian_folk",
+      "british_folk_revival",
+      "scottish_smallpipe_music"
+    ],
+    "instruments": [
+      {
+        "id": "northumbrian_smallpipes",
+        "slots": {
+          "northumbrian_smallpipes_chanter_set": "northumbrian_smallpipes_seven_key",
+          "northumbrian_smallpipes_style": "northumbrian_smallpipes_dance_rants",
+          "northumbrian_smallpipes_body": "northumbrian_smallpipes_blackwood_nickel"
+        },
+        "scores": {
+          "northumbrian_smallpipes_chanter_set": 3.0550000000000006,
+          "northumbrian_smallpipes_style": 4.5,
+          "northumbrian_smallpipes_body": -0.05
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "plain_lamb_gut_fiddle",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 12.252499999999996,
+          "fiddle_strings": 1.45,
+          "fiddle_bow": 0.15,
+          "fiddle_mute": 0.345,
+          "fiddle_articulation": 0.345
+        }
+      },
+      {
+        "id": "concertina_anglo",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "concertina_anglo_config": "concertina_anglo_30",
+          "concertina_anglo_context": "concertina_anglo_morris",
+          "concertina_anglo_maker_school": "concertina_irish_made_modern",
+          "concertina_anglo_reed": "concertina_anglo_steel_reeds"
+        },
+        "scores": {
+          "free_reed_technique": 10.952499999999999,
+          "concertina_anglo_config": 1.04,
+          "concertina_anglo_context": 2.0799999999999996,
+          "concertina_anglo_maker_school": -0.07000000000000006,
+          "concertina_anglo_reed": 1.95
+        }
+      },
+      {
+        "id": "melodeon_diatonic",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "melodeon_rows": "melodeon_2_row",
+          "melodeon_diatonic_context": "melodeon_diatonic_celtic"
+        },
+        "scores": {
+          "free_reed_technique": 10.952499999999999,
+          "melodeon_rows": 5.193214285714285,
+          "melodeon_diatonic_context": 3.3149999999999995
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 10.249999999999998,
+          "voice_quality": 17.289999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4375,
+          "voice_articulation": 17.484999999999992,
+          "voice_microtone": 18.52499999999999,
+          "voice_tradition": 25.414999999999996,
+          "voice_mechanism_compound": 6.825,
+          "voice_estill_quality": 4.095000000000001,
+          "voice_speech_song": 20.604999999999997,
+          "voice_ensemble_config": 16.89999999999999,
+          "voice_ornament_system": 11.764999999999997,
+          "voice_pitch_organization": 2.5349999999999997,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 2.7625
+        }
+      }
+    ],
+    "room": "hexham_head_studio_pa_chamber_folk",
+    "archetype": "arch_60s_uk_small_commercial",
+    "inline_chain": {
+      "mic": "mic_coles_4038_ribbon",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "hexham_head_studio_pa_chamber_folk",
+    "chain_mic": "mic_coles_4038_ribbon",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

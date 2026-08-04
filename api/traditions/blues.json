@@ -5,7 +5,7 @@
   "lineage": "The blues tradition — African-American vernacular form built on the twelve-bar progression, blue notes, and call-and-response, originating in the Deep South at the turn of the 20th century and electrified in postwar Chicago",
   "recipe": "classic Midwestern American mid-1970s blues, functional Song, blues electric branch. thick, breath veiled tone, wide pitch sway, interlocked note trading. rock blues lower tension down tuning single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, electric bass, jazz-trained brushes-and-sticks drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. 2120 south michigan avenue 1957-1975 indie-commercial chess studios chicago. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 689,
-  "score": 170.424,
+  "score": 177.103,
   "config": {
     "traditions": [
       "blues"
@@ -32,22 +32,22 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 13.060874999999996,
+          "voice_register": 13.036499999999995,
           "voice_quality": 7.280000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.987124999999999,
+          "voice_vibrato": 11.495999999999999,
           "voice_articulation": 6.824999999999999,
-          "voice_microtone": 11.42925,
-          "voice_tradition": 10.180249999999997,
-          "voice_mechanism_compound": 0.541,
+          "voice_microtone": 11.66025,
+          "voice_tradition": 10.399999999999999,
+          "voice_mechanism_compound": 1.13025,
           "voice_estill_quality": 0.5499999999999998,
           "voice_speech_song": 8.384999999999998,
           "voice_ensemble_config": 6.369999999999999,
-          "voice_ornament_system": 1.94275,
-          "voice_pitch_organization": 0.17925,
+          "voice_ornament_system": 1.987,
+          "voice_pitch_organization": 0.49424999999999997,
           "voice_processing_chain": 1.755,
-          "voice_multitrack_stack": 0.5816250000000001
+          "voice_multitrack_stack": 1.5435
         }
       },
       {
@@ -58,26 +58,26 @@
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "maple_fb",
-          "pickup_magnet": "ceramic",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_baritone",
-          "finish": "nitro",
+          "finish": "oil_satin",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 0.689,
+          "electric_technique": 0.818,
           "amp_make": 2.0149999999999997,
-          "body_wood": 0.118,
-          "neck_wood": 0.118,
-          "fretboard": 0.039,
+          "body_wood": 0.31575,
+          "neck_wood": 0.31575,
+          "fretboard": 0.0315,
           "pickup_magnet": 0.0315,
-          "string_material": 0.13275,
-          "string_gauge": 0.23575,
-          "bridge": 0,
+          "string_material": 0.0315,
+          "string_gauge": 0.69375,
+          "bridge": 0.0315,
           "scale_length": 1,
-          "finish": 0,
+          "finish": 0.0315,
           "string_tuning": 6.109999999999999
         }
       },
@@ -86,18 +86,18 @@
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "drawbar_setting": "jazz_drawbars",
-          "rotary_speed": "slow_chorale",
+          "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_short",
           "tonewheel_model": "tonewheel_hammond_a100",
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 0.7,
-          "drawbar_setting": 0.84925,
-          "rotary_speed": 0.8365,
-          "percussion_setting": 0.76875,
-          "tonewheel_model": 4.4485,
-          "leslie_cabinet_model": 0.09999999999999999
+          "keyboard_technique": 0.9099999999999999,
+          "drawbar_setting": 0.975,
+          "rotary_speed": 0.9099999999999999,
+          "percussion_setting": 0.75,
+          "tonewheel_model": 4.615,
+          "leslie_cabinet_model": 0.0315
         }
       },
       {
@@ -113,10 +113,10 @@
         },
         "scores": {
           "amp_make": 2.0799999999999996,
-          "body_wood": 0.21724999999999997,
+          "body_wood": 0.6315,
           "pickup_config": 0,
           "string_type": 0.975,
-          "scale_length_b": 0.09924999999999999,
+          "scale_length_b": 0.31575,
           "fretted_or_not": 0.07425,
           "bass_technique": 0.975
         }
@@ -145,11 +145,11 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 1,
-          "harmonica_comb": 13.02925,
-          "harmonica_reed": 11.068,
-          "harmonica_technique": 12.168,
-          "harmonica_maker_school": 11.573499999999997,
+          "harmonica_type": 1.0315,
+          "harmonica_comb": 13.203249999999999,
+          "harmonica_reed": 11.29725,
+          "harmonica_technique": 13.0595,
+          "harmonica_maker_school": 12.024999999999999,
           "harmonica_tuning": 5.719999999999999
         }
       }

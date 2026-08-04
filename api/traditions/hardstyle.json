@@ -3,14 +3,14 @@
   "name": "Hardstyle",
   "family": "electronic",
   "lineage": "Late-1990s onward Dutch hard-electronic-dance genre evolved from hardcore-techno and gabber through tempo deceleration to 150 bpm and the addition of reverse-bass kick-drum compositional convention — codified through Showtek, Headhunterz, Brennan Heart, Wildstylez, and the Q-dance festival-and-event-promotion network, with the form serving as the Dutch hard-dance commercial mainstream",
-  "recipe": "classic 1997-1999 hardstyle, electronic Dance, hardstyle branch, continental electronic dance french touch / filter house disco. low sub bass digital subtractive, TR-909, sampler. live tracking. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 329,
-  "score": 90.043,
+  "recipe": "classic 1997-1999 hardstyle, electronic Dance, hardstyle branch, continental electronic dance french touch / filter house techno-folk. low sub bass digital subtractive, TR-909, sampler. live tracking. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 335,
+  "score": 97.27,
   "config": {
     "traditions": [
       "hardstyle",
       "french_touch",
-      "disco"
+      "techno_folk"
     ],
     "instruments": [
       {
@@ -21,22 +21,22 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 3.185000000000001,
-          "va_archetypes": 0.9450000000000001,
-          "digital_subtractive_context": 24.895000000000003
+          "electronic_technique": 4.680000000000001,
+          "va_archetypes": 0.975,
+          "digital_subtractive_context": 26.71500000000001
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_tr_8s_modern"
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 4.794999999999999,
-          "drum_machine_909_context": 1.885,
-          "tr909_production_origin": 0.063
+          "tr909_voice": 6.17,
+          "drum_machine_909_context": 1.69,
+          "tr909_production_origin": 0.045
         }
       },
       {
@@ -45,15 +45,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.9099999999999999,
-          "sampler_archetypes": 2.875,
+          "electronic_technique": 1.56,
+          "sampler_archetypes": 1.625,
           "sampler_bit_depth": 2.8600000000000003,
-          "sampler_workflow": 2,
-          "sampler_classic_context": 35.230000000000004
+          "sampler_workflow": 0.7149999999999999,
+          "sampler_classic_context": 37.79750000000001
         }
       }
     ],

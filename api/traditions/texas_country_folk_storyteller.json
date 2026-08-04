@@ -3,14 +3,14 @@
   "name": "Texas country-folk storyteller",
   "family": "global",
   "lineage": "Texas songwriter narrative-folk tradition centered around Townes Van Zandt, Guy Clark, Steve Earle, Jerry Jeff Walker, Lyle Lovett, Robert Earl Keen, Slaid Cleaves, James McMurtry — storytelling-foregrounded songwriting often tracked in Austin and Nashville",
-  "recipe": "classic Southern American mid-1970s texas country-folk storyteller, ballad Poetry, country folk story branch, outlaw country redneck rock. thick, breath veiled tone, straight note core, interlocked note trading. steel silk travis picked acoustic guitar, steel double stops fiddle, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, ride-driven brushes-and-sticks drum kit, bowl back Italian hard rock maple ghs silk steel k and k twin internal mounted mandolin, pearwood marine band tradition stainless steel steel harmonica. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 775,
-  "score": 387.005,
+  "recipe": "classic Southern American mid-1970s texas country-folk storyteller, ballad Poetry, country folk story branch, outlaw country lubbock sound redneck rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. travis picked acoustic guitar, steel double stops fiddle, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, ride-driven brushes-and-sticks drum kit, bowl back Italian hard rock maple k and k twin internal mounted acoustic faithful mandolin, low overtone rich traditional pearwood marine band tradition harmonica. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 786,
+  "score": 424.382,
   "config": {
     "traditions": [
       "texas_country_folk_storyteller",
-      "redneck_rock",
-      "outlaw_country"
+      "lubbock_sound",
+      "redneck_rock"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 44.152500000000025,
-          "voice_quality": 9.88,
+          "voice_register": 48.02750000000001,
+          "voice_quality": 8.319999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 26.05125,
-          "voice_articulation": 11.532499999999995,
-          "voice_microtone": 10.757499999999993,
-          "voice_tradition": 16.27,
+          "voice_vibrato": 28.302499999999995,
+          "voice_articulation": 13.352499999999996,
+          "voice_microtone": 12.577499999999993,
+          "voice_tradition": 17.22,
           "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 26.528749999999995,
-          "voice_speech_song": 18.064999999999998,
-          "voice_ensemble_config": 10.853749999999994,
-          "voice_ornament_system": 1.85875,
-          "voice_pitch_organization": 2.0825,
-          "voice_processing_chain": 3.7325000000000004,
-          "voice_multitrack_stack": 3.127500000000001
+          "voice_estill_quality": 30.478749999999994,
+          "voice_speech_song": 20.604999999999993,
+          "voice_ensemble_config": 12.673749999999995,
+          "voice_ornament_system": 1.9637499999999999,
+          "voice_pitch_organization": 2.1774999999999998,
+          "voice_processing_chain": 3.3199999999999994,
+          "voice_multitrack_stack": 2.34
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0.65,
-          "back_sides": 0.65,
-          "string_acoustic": 1.04,
-          "acoustic_om_technique": 25.099999999999998
+          "top_wood": 0.1575,
+          "back_sides": 0.1575,
+          "string_acoustic": 0.845,
+          "acoustic_om_technique": 28.099999999999994
         }
       },
       {
@@ -79,10 +79,10 @@
           "fiddle_articulation": "sul_pont"
         },
         "scores": {
-          "bowed_technique": 28.109999999999996,
-          "fiddle_strings": 1.235,
+          "bowed_technique": 32.735,
+          "fiddle_strings": 1.04,
           "fiddle_bow": 0.195,
-          "fiddle_mute": 0.49499999999999994,
+          "fiddle_mute": 0.345,
           "fiddle_articulation": 0.195
         }
       },
@@ -98,49 +98,49 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 24.406249999999996,
-          "body_wood": 0.65,
+          "amp_make": 27.406249999999993,
+          "body_wood": 0.315,
           "pickup_config": 0,
-          "string_type": 10.165,
-          "scale_length_b": 0.65,
+          "string_type": 9.834999999999999,
+          "scale_length_b": 0.1575,
           "fretted_or_not": 0,
-          "bass_technique": 26.83125
+          "bass_technique": 30.026249999999994
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "double_coated",
+          "drumhead": "hydraulic",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.164999999999996,
-          "drumhead": 0.65,
+          "drum_technique": 13.029999999999996,
+          "drumhead": 0.25,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "mandolin",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
+          "acoustic_technique": "acoustic_flatpicked",
           "mandolin_shape": "flat_back",
-          "mandolin_top": "redwood_m",
+          "mandolin_top": "adirondack_m",
           "mandolin_back": "hard_rock_maple_mandolin",
           "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
           "mandolin_strings": "ghs_mandolin_silk_steel",
-          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": -0.0425,
-          "mandolin_shape": 4.491249999999999,
-          "mandolin_top": 0.65,
-          "mandolin_back": 4.68,
+          "acoustic_technique": 0.52,
+          "mandolin_shape": 5.141249999999999,
+          "mandolin_top": 0.585,
+          "mandolin_back": 4.484999999999999,
           "mandolin_bracing": -0.035,
-          "mandolin_strings": 1.04,
-          "mandolin_fingerboard": 0.585,
-          "mandolin_pickup": 11.636249999999997
+          "mandolin_strings": 0.845,
+          "mandolin_fingerboard": 0,
+          "mandolin_pickup": 14.301249999999998
         }
       },
       {
@@ -154,10 +154,10 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.65,
-          "harmonica_comb": 2.24,
-          "harmonica_reed": 1.17,
-          "harmonica_technique": 38.60125,
+          "harmonica_type": 0.18375,
+          "harmonica_comb": 2.285,
+          "harmonica_reed": 0.975,
+          "harmonica_technique": 42.851249999999986,
           "harmonica_maker_school": 0.0625,
           "harmonica_tuning": 0.30374999999999996
         }

@@ -1,0 +1,151 @@
+{
+  "id": "doina",
+  "name": "Doina",
+  "family": "global",
+  "lineage": "Romanian and Moldovan free-rhythm improvised song type documented across Oltenia, Maramureș and Moldavia and inscribed by UNESCO in 2009, sung or played parlando-rubato with no fixed metre, opening on a held high pitch and descending in long ornamented arcs over a static drone, cadencing on descending sighs and interjected calls, typically solo voice with fiddle, cobza or nai shadowing the line, and used as the improvised prelude before metred dance sets.",
+  "recipe": "classic late-2000s doina, ballad Poetry, Mediterranean ballad branch, European wedding, European funeral lament, Persian arab improv improv on frame ney taksim corsican voceru. extended whistle, breath veiled tone, straight note core, interlocked note trading. rubato glissando cane nai romanian, drone like fiddle, rubato free rhythm cobza, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, grenadilla African blackwood traditional clarinet. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 585,
+  "score": 182.173,
+  "config": {
+    "traditions": [
+      "doina",
+      "ney_taksim",
+      "corsican_voceru"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 12.024999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.010625,
+          "voice_articulation": 15.859999999999996,
+          "voice_microtone": 19.337499999999995,
+          "voice_tradition": 14.754999999999997,
+          "voice_mechanism_compound": 5.4,
+          "voice_estill_quality": 3.640000000000001,
+          "voice_speech_song": 20.702499999999997,
+          "voice_ensemble_config": 16.899999999999995,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 8.045,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 1.8
+        }
+      },
+      {
+        "id": "nai_romanian",
+        "slots": {
+          "nai_romanian_form": "nai_romanian_traditional",
+          "nai_romanian_repertoire": "nai_romanian_doina",
+          "nai_romanian_pipe_material": "nai_romanian_cane"
+        },
+        "scores": {
+          "nai_romanian_form": 3.345625,
+          "nai_romanian_repertoire": 8.53125,
+          "nai_romanian_pipe_material": 2.125
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_tasto"
+        },
+        "scores": {
+          "bowed_technique": 4.28175,
+          "fiddle_strings": 0.195,
+          "fiddle_bow": 0.16250000000000014,
+          "fiddle_mute": 0.105,
+          "fiddle_articulation": 0.5
+        }
+      },
+      {
+        "id": "cobza",
+        "slots": {
+          "cobza_form": "cobza_moldavian",
+          "cobza_role": "cobza_doina_free",
+          "cobza_strings": "cobza_steel_wound"
+        },
+        "scores": {
+          "cobza_form": 1.56,
+          "cobza_role": 4.13575,
+          "cobza_strings": 3.295
+        }
+      },
+      {
+        "id": "cimbalom",
+        "slots": {
+          "cimbalom_size": "cimbalom_concert_pedal",
+          "cimbalom_mallet": "cimbalom_hard_wood"
+        },
+        "scores": {
+          "cimbalom_size": 19.629999999999995,
+          "cimbalom_mallet": 0.195
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "doina_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 1.9174999999999998,
+          "clarinet_body": 2.54,
+          "clarinet_size": 0.35,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.5849999999999999
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "field_recording",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

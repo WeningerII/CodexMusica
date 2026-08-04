@@ -1,0 +1,154 @@
+{
+  "id": "ragini",
+  "name": "Ragini (Hindustani feminine-mode repertoire)",
+  "family": "classical",
+  "lineage": "The feminine-consort modes of the North Indian ragamala system, systematised in the medieval raga-ragini classifications and painted in the Rajput and Pahari ragamala albums from the sixteenth century, and surviving in performance through gharana khayal and dhrupad treatments of Todi, Asavari, Bhairavi, Gauri and Malkauns's consorts — slow unmetered alap over tanpura drone, then a bandish in vilambit and drut laya on tabla, with sarangi or sitar shadowing a heavily meend- and gamak-inflected vocal line.",
+  "recipe": "classic South Asian early-1950s ragini, art Music, south Asian branch, indian classical improv improv on frame, vocal drone modal këngë popullore e jugut naturjodel. vocal fry, breath veiled tone, slow rate, interlocked note trading. gut 3 main playing strings legato sarangi, maihar gharana instrumental concert lineage classical trained lineage drone like modal sitar, indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 557,
+  "score": 255.042,
+  "config": {
+    "traditions": [
+      "ragini",
+      "popullore_jugu",
+      "naturjodel"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 5.2,
+          "voice_quality": 14.429999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.555,
+          "voice_articulation": 21.619999999999997,
+          "voice_microtone": 23.08,
+          "voice_tradition": 15.599999999999994,
+          "voice_mechanism_compound": 6.629999999999999,
+          "voice_estill_quality": 7.715000000000001,
+          "voice_speech_song": 22.72,
+          "voice_ensemble_config": 23.044999999999998,
+          "voice_ornament_system": 13.52,
+          "voice_pitch_organization": 8.6,
+          "voice_processing_chain": 4.2250000000000005,
+          "voice_multitrack_stack": 4.745
+        }
+      },
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_40_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "sarangi_gut_main",
+          "sarangi_body_wood": "sarangi_teak_body"
+        },
+        "scores": {
+          "bowed_technique": 4.595,
+          "sarangi_belly": 5.2,
+          "sarangi_taraf": 0.045,
+          "sarangi_bow": 1.195,
+          "sarangi_main_strings": 4.29,
+          "sarangi_body_wood": 0.345
+        }
+      },
+      {
+        "id": "sitar",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "sitar_neck": "teak",
+          "sitar_resonator": "with_tumba",
+          "sitar_jawari": "antelope_horn",
+          "sitar_taraf": "taraf_13",
+          "sitar_frets": "fixed_metal",
+          "sitar_pluck": "wire_mizrab",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_jawari_style": "sitar_jawari_closed",
+          "sitar_gharana": "sitar_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 11.724999999999998,
+          "sitar_neck": 0.845,
+          "sitar_resonator": 0.65,
+          "sitar_jawari": 1,
+          "sitar_taraf": 0.48,
+          "sitar_frets": 0.195,
+          "sitar_pluck": 2.21,
+          "sitar_main_strings": 0.345,
+          "sitar_jawari_style": 0.75,
+          "sitar_gharana": 3.5100000000000002
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 4.745,
+          "tabla_bayan": 2.21,
+          "tabla_syahi": 9.639999999999999
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_overblow_modern",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 0.15,
+          "harmonium_action": 5.135,
+          "harmonium_voicing": 6.694999999999999,
+          "harmonium_use": 6.5649999999999995
+        }
+      }
+    ],
+    "room": "varanasi_benares_gharana_baithak",
+    "archetype": "arch_hmv_dumdum_raga",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "shruti_22",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "shruti_22",
+    "room": "varanasi_benares_gharana_baithak",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

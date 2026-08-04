@@ -1,0 +1,156 @@
+{
+  "id": "lok_dohori",
+  "name": "Lok dohori (Nepali call-and-response duet)",
+  "family": "global",
+  "lineage": "Nepali competitive improvised duet song, rooted in village courtship exchanges of the hill districts and commercialized through Radio Nepal and the 1980s-90s cassette industry, in which male and female singers trade extemporized rhyming couplets in a fixed melodic frame over a driving madal ostinato at roughly 100-130 BPM with sarangi, bansuri and later harmonium and keyboard filling the responses.",
+  "recipe": "classic South Asian mid-1980s lok dohori, ballad Poetry, indian bard branch, south Asian domestic rhythm, south Asian pop functional song chutney bhojpuri lok geet. thick, breath veiled tone, straight note core, interlocked note trading. dance driving slung madal, four string nepali sarangi, kerala bamboo alternative south indian pannalal ghosh foundational concert bansuri melodic bansuri, vocal male straight harmonium indian, tungna. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 657,
+  "score": 214.465,
+  "config": {
+    "traditions": [
+      "lok_dohori",
+      "chutney_bhojpuri",
+      "bhojpuri_lok_geet"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 9.145,
+          "voice_quality": 11.309999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2999999999999998,
+          "voice_articulation": 18.784999999999997,
+          "voice_microtone": 18.004999999999992,
+          "voice_tradition": 17.387500000000003,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 4.745,
+          "voice_speech_song": 25.284999999999993,
+          "voice_ensemble_config": 18.524999999999995,
+          "voice_ornament_system": 7.860000000000001,
+          "voice_pitch_organization": 8.465,
+          "voice_processing_chain": 3.38,
+          "voice_multitrack_stack": 4.355
+        }
+      },
+      {
+        "id": "madal",
+        "slots": {
+          "madal_role": "madal_role_jhyaure",
+          "madal_posture": "madal_posture_patuka",
+          "madal_paste": "madal_paste_khari",
+          "madal_shell": "madal_shell_hardwood"
+        },
+        "scores": {
+          "madal_role": 8.934999999999999,
+          "madal_posture": 4.125,
+          "madal_paste": 0.54,
+          "madal_shell": -0.1
+        }
+      },
+      {
+        "id": "nepali_sarangi",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "nepali_sarangi_form": "nepali_sarangi_form_gandharba",
+          "nepali_sarangi_context": "nepali_sarangi_context_seasonal",
+          "nepali_sarangi_build": "nepali_sarangi_build_steel"
+        },
+        "scores": {
+          "bowed_technique": 0.375,
+          "nepali_sarangi_form": 4.34,
+          "nepali_sarangi_context": 4.215,
+          "nepali_sarangi_build": 0.795
+        }
+      },
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "bansuri_length": "small_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_kerala_bamboo",
+          "bansuri_lineage": "bansuri_pannalal_ghosh"
+        },
+        "scores": {
+          "wind_articulation": 5.41,
+          "bansuri_length": 3.5899999999999994,
+          "bansuri_ornament": 1.3324999999999998,
+          "bansuri_body_material": 7.930000000000001,
+          "bansuri_lineage": 1.195
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 5.36,
+          "harmonium_action": 0.845,
+          "harmonium_voicing": 3.38,
+          "harmonium_use": 1.04
+        }
+      },
+      {
+        "id": "tungna",
+        "slots": {
+          "tungna_form": "tungna_hide_top",
+          "tungna_style": "tungna_selo",
+          "tungna_strings": "tungna_nylon"
+        },
+        "scores": {
+          "tungna_form": 0,
+          "tungna_style": 3.575,
+          "tungna_strings": 0
+        }
+      }
+    ],
+    "room": "kolkata_hmv_dum_dum_studio",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "kolkata_hmv_dum_dum_studio",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

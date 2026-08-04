@@ -5,7 +5,7 @@
   "lineage": "Israeli Eastern-Jewish popular tradition descended from Yemenite, Iraqi, Moroccan, and Persian Jewish communities — codified through Zohar Argov, Ofra Haza (whose 1988 Im Nin’Alu became an international crossover), Eyal Golan, and the broader Mizrahi recording scene; characterized by Hebrew vocals over Arabic-maqam-derived melodic vocabulary",
   "recipe": "classic late-1980s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, Persian arab improv improv on frame iraqi maqam malhun. thick, declaimed, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, fish skin pre modern Egyptian traditional iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass. live tracking. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 603,
-  "score": 194.268,
+  "score": 191.493,
   "config": {
     "traditions": [
       "mizrahi_israeli",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.135000000000002,
-          "voice_quality": 9.739999999999998,
+          "voice_register": 6.985000000000002,
+          "voice_quality": 10.04,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.3125,
           "voice_articulation": 6.24,
           "voice_microtone": 20.3125,
-          "voice_tradition": 17.46,
-          "voice_mechanism_compound": 13.495000000000001,
+          "voice_tradition": 16.275,
+          "voice_mechanism_compound": 13.3,
           "voice_estill_quality": 6.0775,
           "voice_speech_song": 8.19,
           "voice_ensemble_config": 6.175,
-          "voice_ornament_system": 15.725,
-          "voice_pitch_organization": 15.83,
+          "voice_ornament_system": 15.185,
+          "voice_pitch_organization": 15.440000000000001,
           "voice_processing_chain": 2.9899999999999998,
           "voice_multitrack_stack": 4.485
         }
@@ -64,11 +64,11 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 5.4,
+          "plucked_traditional_technique": 5.46,
           "oud_school": 4.095,
           "oud_strings": 2.145,
           "oud_pick": 1.83,
-          "oud_body_wood": 3.585,
+          "oud_body_wood": 3.15,
           "oud_soundboard_wood": 1.7550000000000001,
           "oud_string_material": 4.16
         }
@@ -85,7 +85,7 @@
           "percussion_technique": -0.07,
           "darbuka_material": 0.69,
           "darbuka_skin": 1.3499999999999999,
-          "darbuka_regional_style": 5.265
+          "darbuka_regional_style": 4.77
         }
       },
       {
@@ -106,16 +106,16 @@
         },
         "scores": {
           "electric_technique": 5.2,
-          "amp_make": 2.2249999999999996,
+          "amp_make": 2.1199999999999997,
           "body_wood": 1.785,
           "neck_wood": 1.785,
           "fretboard": 1.7349999999999999,
           "pickup_magnet": 0.195,
-          "string_material": 0.045,
-          "string_gauge": 1.935,
-          "bridge": 0.345,
+          "string_material": 0.195,
+          "string_gauge": 1.95,
+          "bridge": 0.495,
           "scale_length": 1.95,
-          "finish": 0.65,
+          "finish": 0.5,
           "string_tuning": 1.95
         }
       },
@@ -133,10 +133,10 @@
         "scores": {
           "amp_make": 1.5849999999999997,
           "body_wood": 1.95,
-          "pickup_config": 0.15,
+          "pickup_config": 0.3,
           "string_type": 1.95,
           "scale_length_b": 1.785,
-          "fretted_or_not": 0.15,
+          "fretted_or_not": 0.195,
           "bass_technique": -0.05
         }
       }

@@ -1,0 +1,209 @@
+{
+  "id": "south_african_jazz",
+  "name": "South African Jazz",
+  "family": "jazz",
+  "lineage": "Formed in Sophiatown and Cape Town from the 1940s marabi and kwela lineage and codified by the Jazz Epistles, Abdullah Ibrahim, Chris McGregor's Blue Notes and the exile generation after 1964 — a rolling I-IV-V or three-chord marabi cycle at mid tempo, hymn-derived voicings, sung-tone alto and tenor saxophone, muted or open trumpet and trombone, and township-jive backbeat under long collective vamps.",
+  "recipe": "classic Southern African mid-1940s south african jazz, improv On Frame, American jazz branch, African pop functional song, sub saharan African protest song sungura rumba congolaise. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral shallow cup lead trumpet trumpet, bach 42 canonical American orchestral tenor student commercial trombone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, couesnon vintage canonical pre 1970 flugelhorn. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 922,
+  "score": 467.982,
+  "config": {
+    "traditions": [
+      "south_african_jazz",
+      "sungura",
+      "rumba_congolaise"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 1.5,
+          "sax_size": 2.9499999999999997,
+          "sax_reed": 0.44999999999999996,
+          "sax_body_alloy": 16,
+          "sax_mouthpiece": 0.44999999999999996,
+          "sax_technique": 16.15,
+          "sax_maker_school": 17.419999999999998
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "plunger",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.5,
+          "brass_size": 0.44999999999999996,
+          "trumpet_mouthpiece": 19.669999999999998,
+          "brass_mute": 0.5849999999999999,
+          "trumpet_technique": 1.5,
+          "trumpet_bell_metal": 0.5399999999999999,
+          "trumpet_maker_school": 2.73
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "plunger_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 1.5,
+          "trombone_type": 16.389999999999997,
+          "trombone_mouthpiece": 24.48,
+          "trombone_mute": 0.5849999999999999,
+          "trombone_technique": 0.65,
+          "trombone_bell_metal": 0.5399999999999999,
+          "trombone_maker_school": 3.985
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 9.25,
+          "grand_piano_size": 2.07,
+          "grand_piano_brand": 2.145,
+          "piano_hammer": 6.975000000000001,
+          "piano_rim": 9.72,
+          "piano_soundboard": 8.040000000000001,
+          "piano_pinblock": -0.035,
+          "piano_plate": 1.19,
+          "piano_pitch_standard": 5.869999999999999
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 16,
+          "upright_play": 16
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 32.045,
+          "drumhead": 16.88,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 25.09499999999999,
+          "voice_quality": 13.129999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 16.464999999999996,
+          "voice_articulation": 23.789999999999996,
+          "voice_microtone": 24.384999999999998,
+          "voice_tradition": 21.480000000000004,
+          "voice_mechanism_compound": 1.645,
+          "voice_estill_quality": 1.9499999999999997,
+          "voice_speech_song": 30.419999999999998,
+          "voice_ensemble_config": 23.529999999999998,
+          "voice_ornament_system": 2.335,
+          "voice_pitch_organization": 3.6500000000000004,
+          "voice_processing_chain": 3.6399999999999997,
+          "voice_multitrack_stack": 3.4775000000000005
+        }
+      },
+      {
+        "id": "flugelhorn",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "flugel_use": "flugel_jazz",
+          "flugelhorn_pitch": "flugelhorn_bb",
+          "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+          "flugelhorn_maker_school": "flugelhorn_couesnon_vintage"
+        },
+        "scores": {
+          "wind_articulation": 1.44,
+          "flugel_use": 0.48000000000000004,
+          "flugelhorn_pitch": 0,
+          "flugelhorn_bell_metal": 0.38999999999999996,
+          "flugelhorn_maker_school": 16.43
+        }
+      }
+    ],
+    "room": "johannesburg_gallo_african_studios",
+    "archetype": "arch_gallo_township_jive",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "jazz_swing_eighth_4_4",
+    "room": "johannesburg_gallo_african_studios",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

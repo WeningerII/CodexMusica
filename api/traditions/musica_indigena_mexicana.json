@@ -1,0 +1,153 @@
+{
+  "id": "musica_indigena_mexicana",
+  "name": "Música Indígena Mexicana",
+  "family": "global",
+  "lineage": "The collective pre-Hispanic-descended and syncretic musics of Mexico's indigenous peoples — Nahua, Maya, Zapotec, Otomí, Rarámuri, Totonac and others — documented systematically by the INAH and INI from the 1960s onward, spanning conch-trumpet and clay-flute ceremonial signalling, teponaztli/huehuetl slit-and-skin drum patterns for danza, and post-conquest string and wind adaptations, with vocal delivery ranging from narrow-range ritual chant to festival song in indigenous languages.",
+  "recipe": "classic mid-1960s música indígena mexicana, ritual Devotional, indigenous branch, Mexican functional song, andean carnival processional folclore jujeño huayno peruano. extended whistle, breath veiled tone, fast rate, interlocked note trading. call ritual conch shell horn, log drum, ocarina, fiddle, cedar plain gut sheep gut unsplit classical nylon-string guitar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 444,
+  "score": 216.763,
+  "config": {
+    "traditions": [
+      "musica_indigena_mexicana",
+      "folclore_jujeno",
+      "huayno_peruano"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.6500000000000004,
+          "voice_quality": 13.974999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.48,
+          "voice_articulation": 23.009999999999998,
+          "voice_microtone": 20.539999999999996,
+          "voice_tradition": 15.991999999999999,
+          "voice_mechanism_compound": 11.819999999999999,
+          "voice_estill_quality": 12.289,
+          "voice_speech_song": 24.569999999999997,
+          "voice_ensemble_config": 21.904999999999998,
+          "voice_ornament_system": 13.8575,
+          "voice_pitch_organization": 3.0549999999999997,
+          "voice_processing_chain": 5.135000000000002,
+          "voice_multitrack_stack": 5.330000000000001
+        }
+      },
+      {
+        "id": "conch_shell_horn",
+        "slots": {
+          "wind_articulation": "wind_call_blowing",
+          "conch_use": "conch_polynesian",
+          "conch_shell_horn_region": "conch_shell_horn_polynesian"
+        },
+        "scores": {
+          "wind_articulation": 6.365,
+          "conch_use": 1.3,
+          "conch_shell_horn_region": 20.93
+        }
+      },
+      {
+        "id": "log_drum",
+        "slots": {
+          "log_drum_voice": "log_drum_sub",
+          "log_drum_context": "log_drum_amapiano"
+        },
+        "scores": {
+          "log_drum_voice": 0.3,
+          "log_drum_context": 0.585
+        }
+      },
+      {
+        "id": "ocarina",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "ocarina_chamber": "ocarina_triple",
+          "ocarina_material": "ocarina_wood_metal"
+        },
+        "scores": {
+          "wind_articulation": 0.245,
+          "ocarina_chamber": 0.39,
+          "ocarina_material": 0.6950000000000001
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "fiddle_strings": 0.24,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.345,
+          "fiddle_articulation": 0.345
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "plain_sheep_gut_classical_guitar",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 1.365,
+          "string_tuning": 0,
+          "top_wood_classical": 6.759999999999999,
+          "bracing_classical": 0.75,
+          "string_classical": 1.0999999999999999,
+          "attack_technique_cl": 0.24
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

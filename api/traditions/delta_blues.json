@@ -3,14 +3,14 @@
   "name": "Delta blues",
   "family": "blues_gospel",
   "lineage": "Country-blues tradition of the Mississippi Delta region — slide-guitar-and-vocal solo and small-ensemble repertoire developed in the early twentieth century through the lineage of Charley Patton (the 1929 Paramount recordings), Son House, Robert Johnson (the 1936-37 San Antonio and Dallas sessions), Skip James, Bukka White, and continuing through the post-WWII Chicago-blues electrification by Muddy Waters, Howlin' Wolf, and others",
-  "recipe": "classic late-1920s delta blues, ballad Poetry, delta narrative branch, vocal drone modal, blues acoustic functional song, American south field work piedmont blues corsican paghjella three-voice unaccompanied. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 515,
-  "score": 369.581,
+  "recipe": "classic late-1920s delta blues, ballad Poetry, delta narrative branch, vocal drone modal, blues acoustic functional song, American south field work piedmont blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 470,
+  "score": 403.977,
   "config": {
     "traditions": [
       "delta_blues",
       "piedmont_blues",
-      "corsican_paghjella"
+      "acoustic_blues"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "bend_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 28.637499999999996,
-          "voice_quality": 20.424999999999997,
+          "voice_register": 35.51250000000002,
+          "voice_quality": 26.974999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 26.875,
-          "voice_articulation": 14.787499999999994,
-          "voice_microtone": 24.72375,
-          "voice_tradition": 17.485,
-          "voice_mechanism_compound": 5.525,
-          "voice_estill_quality": 7.410000000000001,
-          "voice_speech_song": 15.859999999999994,
-          "voice_ensemble_config": 19.239999999999995,
-          "voice_ornament_system": 6.305,
-          "voice_pitch_organization": 2.99,
-          "voice_processing_chain": 5.59,
-          "voice_multitrack_stack": 5.004999999999999
+          "voice_vibrato": 33.25,
+          "voice_articulation": 14.884999999999996,
+          "voice_microtone": 31.373750000000005,
+          "voice_tradition": 13.33625,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 7.3125,
+          "voice_speech_song": 16.444999999999997,
+          "voice_ensemble_config": 13.974999999999998,
+          "voice_ornament_system": 2.8274999999999997,
+          "voice_pitch_organization": 2.6000000000000005,
+          "voice_processing_chain": 3.7375,
+          "voice_multitrack_stack": 3.575
         }
       },
       {
@@ -62,11 +62,11 @@
           "res_strings": "phosphor_res"
         },
         "scores": {
-          "acoustic_technique": 17.599999999999998,
-          "string_tuning": 15.295,
-          "cone_type": 11.5,
+          "acoustic_technique": 17.125,
+          "string_tuning": 17.67,
+          "cone_type": 12.374999999999998,
           "body_resonator": 0.49874999999999997,
-          "res_strings": 0.45499999999999996
+          "res_strings": 0.195
         }
       },
       {
@@ -81,11 +81,11 @@
         },
         "scores": {
           "harmonica_type": 0.66,
-          "harmonica_comb": 29.05125,
-          "harmonica_reed": 23.645,
-          "harmonica_technique": 34.625,
-          "harmonica_maker_school": 24.70375,
-          "harmonica_tuning": 12.788749999999999
+          "harmonica_comb": 34.55125,
+          "harmonica_reed": 29.795,
+          "harmonica_technique": 41.5,
+          "harmonica_maker_school": 29.403750000000002,
+          "harmonica_tuning": 13.73875
         }
       }
     ],

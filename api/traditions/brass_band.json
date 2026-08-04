@@ -1,0 +1,170 @@
+{
+  "id": "brass_band",
+  "name": "Brass Band (British)",
+  "family": "classical",
+  "lineage": "The all-brass amateur ensemble that formed around northern English and Welsh mills, collieries and ironworks in the 1830s-50s - Black Dyke Mills from 1855, Besses o' th' Barn, Foden's - and was standardised by the Belle Vue and National contests into a fixed roster of soprano and solo cornets, flugelhorn, tenor horns, baritones, euphoniums, trombones and E-flat and B-flat basses plus percussion, all reading from transposed treble-clef parts; repertoire runs from marches and hymn settings to purpose-written contest test pieces, played with wide vibrato and a homogeneous conical-bore blend.",
+  "recipe": "classic British mid-1830s brass band, carnival Processional, European branch, western common practice art music, Celtic British praise song concert band british brass band. high register brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow cornet, brass yellow brass kanstul American boutique continuous-airflow legato flugelhorn, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble large cup tenor large trombone, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, cutting projecting brass glockenspiel, bass drum, timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 902,
+  "score": 241.017,
+  "config": {
+    "traditions": [
+      "brass_band",
+      "concert_band",
+      "british_brass_band"
+    ],
+    "instruments": [
+      {
+        "id": "cornet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "cornet_pitch": "cornet_eb_high",
+          "cornet_context": "cornet_brass_band",
+          "cornet_bell_metal": "cornet_yellow_brass",
+          "cornet_maker_school": "cornet_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 3.9400000000000004,
+          "cornet_pitch": 13.6685,
+          "cornet_context": 6.109999999999999,
+          "cornet_bell_metal": 14.169999999999998,
+          "cornet_maker_school": 16.90983333333333
+        }
+      },
+      {
+        "id": "flugelhorn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flugel_use": "flugel_brass_band",
+          "flugelhorn_pitch": "flugelhorn_c",
+          "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+          "flugelhorn_maker_school": "flugelhorn_kanstul"
+        },
+        "scores": {
+          "wind_articulation": 3.9400000000000004,
+          "flugel_use": 8.698999999999998,
+          "flugelhorn_pitch": 3.0599999999999996,
+          "flugelhorn_bell_metal": 5.069999999999999,
+          "flugelhorn_maker_school": 1.885
+        }
+      },
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "euph_use": "euph_orchestral",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_yellow_brass",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": 3.9400000000000004,
+          "euph_use": 10.431333333333333,
+          "euphonium_pitch": 17.525666666666666,
+          "euphonium_bell_metal": 17.615,
+          "euphonium_maker_school": 16.90983333333333
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "valve_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_5g",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 6.11,
+          "trombone_type": 0.15,
+          "trombone_mouthpiece": 7.574333333333334,
+          "trombone_mute": 1.95,
+          "trombone_technique": 1.2349999999999999,
+          "trombone_bell_metal": 6.5649999999999995,
+          "trombone_maker_school": 4.615
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 3.9400000000000004,
+          "tuba_pitch": 13.071,
+          "tuba_context": 13.975,
+          "tuba_bell_metal": 5.069999999999999,
+          "tuba_valve_system": 2.925,
+          "tuba_maker_school": 16.90983333333333
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_25",
+          "glockenspiel_mallet": "glockenspiel_brass"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 2.925,
+          "glockenspiel_mallet": 4.651666666666666
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_18_jazz",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 1.1558333333333333,
+          "bass_drum_beater": 0.195
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_calfskin"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "timpani_size": 1.95,
+          "timpani_head": 0
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_decca_sound_orchestral",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

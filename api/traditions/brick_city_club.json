@@ -1,0 +1,155 @@
+{
+  "id": "brick_city_club",
+  "name": "Brick City Club",
+  "family": "electronic",
+  "lineage": "Newark, New Jersey club style built from roughly 1999 by DJ Tameil and the Brick Bandits after importing Baltimore club records, running 130-140 BPM tracks on a five-kick triplet-into-four pattern, the ubiquitous Lyn Collins 'Think' break, bed-squeak samples and chopped a cappella vocal stabs, arranged as short DJ tools rather than songs.",
+  "recipe": "classic late-1990s brick city club, electronic Dance, garage house u s branch, footwork electronic dance, Afro-diasporic MC rhythm jersey club. vocal fry, breath veiled tone, straight onset, interlocked note trading. sampled chopped turntable, sampled chopped sampler drum machine, TR-808, analog poly synth, la bella flats Detroit soul bass canon sub heavy electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 480,
+  "score": 151.696,
+  "config": {
+    "traditions": [
+      "brick_city_club",
+      "footwork",
+      "jersey_club"
+    ],
+    "instruments": [
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 5.0375000000000005,
+          "turntable_technique": 1.4599999999999997
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 5.0375000000000005,
+          "sample_bitdepth": 0.45499999999999996,
+          "sample_swing": 14.25,
+          "sample_processing": 0.4515
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 1.5274999999999999,
+          "drum_machine_808_context": 9.7115,
+          "tr808_production_origin": 0.45499999999999996
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 3.12,
+          "voice_quality": 10.984999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 11.634999999999994,
+          "voice_microtone": 11.43999999999999,
+          "voice_tradition": 6.694999999999999,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.9749999999999996,
+          "voice_speech_song": 11.829999999999995,
+          "voice_ensemble_config": 13.454999999999993,
+          "voice_ornament_system": 1.1699999999999993,
+          "voice_pitch_organization": 2.0815,
+          "voice_processing_chain": 16.715,
+          "voice_multitrack_stack": 11.434500000000002
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 1.545,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.77
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 0.9749999999999999,
+          "body_wood": 0.903,
+          "pickup_config": 0.45499999999999996,
+          "string_type": 1.2999999999999998,
+          "scale_length_b": 0.45499999999999996,
+          "fretted_or_not": 0,
+          "bass_technique": 1.5814999999999997
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "untreated_bedroom",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

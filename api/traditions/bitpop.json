@@ -1,0 +1,190 @@
+{
+  "id": "bitpop",
+  "name": "Bitpop",
+  "family": "electronic",
+  "lineage": "Northern European home-computer scene music turned pop, roughly 1998-2010 in Sweden, Germany and the northeastern United States, made by routing Commodore 64 SID and Game Boy LSDJ chip voices through conventional pop songwriting — verse-chorus forms, 120-160 BPM four-on-the-floor or breakbeat drums, arpeggiated square-wave leads, and sung vocals or guitars layered against the 8-bit timbres.",
+  "recipe": "classic mid-2000s bitpop, experimental Elec, retro aesthetic branch, idm glitch experimental electric, pop rock synthpop, eurodance electronic dance wonky pop metropopolis. thick, breath veiled tone, breath pulsed, interlocked note trading. singing lead digital subtractive, yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead wavetable synth, Fender blackface amp American 60s amp spring reverb bright soft down tuning clean single coil electric guitar, behringer rd 8 modern clone analog circuit reproduction TR-808, ampeg svt amp rock bass amp ernie ball slinky electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 749,
+  "score": 333.313,
+  "config": {
+    "traditions": [
+      "bitpop",
+      "wonky_pop",
+      "metropopolis"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 20.37,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 18.265
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_simple",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 20.37,
+          "fm_algorithm": 1.65,
+          "fm_modulator_ratio": 0,
+          "fm_polyphony": 0.5,
+          "fm_model_lineage": 8.465
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 20.37,
+          "wt_position": 3.3149999999999995,
+          "wt_family": 0.195,
+          "wt_polyphony": 0.5
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 28.64999999999999,
+          "voice_quality": 8.45,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.885,
+          "voice_articulation": 19.369999999999997,
+          "voice_microtone": 28.599999999999998,
+          "voice_tradition": 20.154999999999998,
+          "voice_mechanism_compound": 2.0799999999999996,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 21.774999999999995,
+          "voice_ensemble_config": 19.629999999999995,
+          "voice_ornament_system": 0.65,
+          "voice_pitch_organization": 2.7950000000000004,
+          "voice_processing_chain": 9.399999999999999,
+          "voice_multitrack_stack": 7.865000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "poly",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 20.474999999999998,
+          "amp_make": 5.1899999999999995,
+          "body_wood": 0.39,
+          "neck_wood": 0.5,
+          "fretboard": 0.5,
+          "pickup_magnet": 0.045,
+          "string_material": 0.09,
+          "string_gauge": 0.195,
+          "bridge": 0.39,
+          "scale_length": 0.39,
+          "finish": 0.5,
+          "string_tuning": 4.875
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 0.78,
+          "drum_machine_808_context": 1.1375,
+          "tr808_production_origin": 1.2349999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 5.460000000000001,
+          "body_wood": 0.78,
+          "pickup_config": 0.905,
+          "string_type": 9.105,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.545,
+          "bass_technique": 8.95
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

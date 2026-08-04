@@ -3,14 +3,14 @@
   "name": "Naʿat (Islamic devotional song)",
   "family": "global",
   "lineage": "Pan-Islamic devotional poetry-recitation tradition in praise of the Prophet Muhammad (Arabic naʿat literally means description / praise) — performed at Mawlid an-Nabi celebrations, milad-un-Nabi processions, private home and mosque gatherings; codified through the Urdu-language naat khwani tradition in Pakistan and India (reciters Owais Raza Qadri, Junaid Jamshed, Sami Yusuf), with parallel Arabic-and-Turkish-and-Indonesian language traditions across the broader Muslim world",
-  "recipe": "classic South Asian mid-1980s naʿat, ritual Devotional, islamic branch, Sufi ritual devotional qawwali sufi inshad. vocal fry, declaimed, slow rate, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, low overtone rich vocal male harmonium indian. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
-  "recipe_chars": 651,
-  "score": 253.953,
+  "recipe": "classic South Asian mid-1980s naʿat, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin qawwali. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, walnut bent frame canonical Persian daf, overtone rich sustained ceremonial reed harmonium indian. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 600,
+  "score": 219.353,
   "config": {
     "traditions": [
       "naat_devotional",
-      "qawwali",
-      "sufi_inshad_egyptian"
+      "mevlevi_ayin",
+      "qawwali"
     ],
     "instruments": [
       {
@@ -30,41 +30,41 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.6899999999999997,
-          "voice_quality": 31.212499999999995,
+          "voice_register": 0.8449999999999999,
+          "voice_quality": 27.444999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.585,
-          "voice_articulation": 15.144999999999996,
-          "voice_microtone": 35.772,
-          "voice_tradition": 35.891749999999995,
-          "voice_mechanism_compound": 3.9499999999999993,
-          "voice_estill_quality": 5.465125,
-          "voice_speech_song": 18.979999999999997,
-          "voice_ensemble_config": 14.884999999999994,
-          "voice_ornament_system": 29.160999999999998,
-          "voice_pitch_organization": 11.444999999999999,
-          "voice_processing_chain": 2.0799999999999996,
-          "voice_multitrack_stack": 1.8849999999999996
+          "voice_vibrato": 4.387500000000001,
+          "voice_articulation": 12.609999999999996,
+          "voice_microtone": 27.332499999999992,
+          "voice_tradition": 30.679999999999996,
+          "voice_mechanism_compound": 6.275,
+          "voice_estill_quality": 6.077500000000001,
+          "voice_speech_song": 15.794999999999995,
+          "voice_ensemble_config": 13.194999999999997,
+          "voice_ornament_system": 23.8495,
+          "voice_pitch_organization": 10.966000000000001,
+          "voice_processing_chain": 1.8199999999999998,
+          "voice_multitrack_stack": 1.0399999999999998
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "mixed_4_part_satb",
-          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_andean_three_voice_parallel_thirds",
-          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 1.6899999999999997,
+          "choir_size": 3.705,
           "choir_polyphonic_configuration": 1.6899999999999997,
-          "choir_regional_canonical_configuration": 1.037125,
-          "choir_ensemble_repertoire": 4.9399999999999995
+          "choir_regional_canonical_configuration": 1.3,
+          "choir_ensemble_repertoire": 2.7299999999999995
         }
       },
       {
@@ -77,11 +77,11 @@
           "daf_jingle_metal": "daf_brass_rings"
         },
         "scores": {
-          "daf_rings": 9.099999999999998,
-          "daf_context": 1.4949999999999999,
-          "daf_shell_wood": 3.119999999999999,
-          "daf_head_material": 1.6899999999999997,
-          "daf_jingle_metal": 1.6899999999999997
+          "daf_rings": 8.059999999999999,
+          "daf_context": 3.5100000000000002,
+          "daf_shell_wood": 2.08,
+          "daf_head_material": 0.6187499999999999,
+          "daf_jingle_metal": 0.6187499999999999
         }
       },
       {
@@ -89,14 +89,14 @@
         "slots": {
           "free_reed_technique": "free_reed_overblow_modern",
           "harmonium_action": "harmonium_hand_pump",
-          "harmonium_voicing": "harmonium_male",
+          "harmonium_voicing": "harmonium_double",
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 0.1365,
-          "harmonium_action": 1.8849999999999996,
-          "harmonium_voicing": 1.6899999999999997,
-          "harmonium_use": 11.18
+          "free_reed_technique": 0,
+          "harmonium_action": 1.0399999999999998,
+          "harmonium_voicing": 1.2349999999999999,
+          "harmonium_use": 9.034999999999998
         }
       }
     ],

@@ -1,0 +1,180 @@
+{
+  "id": "cybergrind",
+  "name": "Cybergrind",
+  "family": "rock_punk",
+  "lineage": "Bedroom-produced grindcore hybrid emerging in the late 1990s and consolidating through 2000s internet scenes, characterized by programmed drum-machine blastbeats at impossible tempos (250-1000 BPM triggers), downtuned heavily clipped guitar riffs in 10-30 second songs, pitch-shifted pig-squeal and shrieked vocals, and inserted chiptune, breakcore or glitch passages, all mixed in-the-box with no live drummer.",
+  "recipe": "classic 1997-1999 cybergrind, distorted Rock, avant branch, death metal, experimental distorted rock, idm glitch experimental electric nintendocore. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum machine analog, sampler drum machine, glitched textural wavetable synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 587,
+  "score": 275.367,
+  "config": {
+    "traditions": [
+      "cybergrind",
+      "nintendocore",
+      "experimental_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 15.99107142857143,
+          "amp_make": 11.505000000000003,
+          "body_wood": 4.095,
+          "neck_wood": 1.3,
+          "fretboard": 1.3,
+          "pickup_magnet": 0.65,
+          "pickup_winding": 1.69,
+          "string_material": 1.3,
+          "bridge": 0.39,
+          "scale_length": 5.3950000000000005,
+          "string_gauge": 0.39,
+          "finish": 0.7432142857142857,
+          "string_tuning": 15.21
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.75,
+          "body_wood": 0.7799999999999999,
+          "pickup_config": 0.65,
+          "string_type": 23.616071428571427,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0.345,
+          "bass_technique": 19.93
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_high"
+        },
+        "scores": {
+          "kick_voice": 0.255,
+          "snare_voice": 0.255,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.39
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0.975,
+          "sample_swing": 0.39,
+          "sample_processing": 1.2882142857142855
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 19.069999999999993,
+          "voice_quality": 6.305,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.755,
+          "voice_articulation": 15.339999999999996,
+          "voice_microtone": 19.154999999999998,
+          "voice_tradition": 12.164285714285715,
+          "voice_mechanism_compound": 19.736785714285716,
+          "voice_estill_quality": 2.6000000000000005,
+          "voice_speech_song": 17.289999999999996,
+          "voice_ensemble_config": 15.274999999999995,
+          "voice_ornament_system": 1.1982142857142857,
+          "voice_pitch_organization": 1.6457142857142855,
+          "voice_processing_chain": 4.875,
+          "voice_multitrack_stack": 5.8882142857142865
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_static",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 11.515,
+          "wt_position": 0.28500000000000003,
+          "wt_family": 0.3,
+          "wt_polyphony": 1.0057142857142858
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "untreated_bedroom",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

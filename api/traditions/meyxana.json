@@ -1,0 +1,143 @@
+{
+  "id": "meyxana",
+  "name": "Meyxana",
+  "family": "global",
+  "lineage": "Azerbaijani improvised rhyming-duel form from the Baku-Absheron villages, attested from the early twentieth century and commercialized on cassette and wedding video from the 1980s through Aghamirze, Namiq Qaraçuxurlu and Rəşad Dağlı, in which two or more performers trade rhymed couplets on a set theme over a fixed short rhythmic loop from nagara or a cheap drum-machine pattern at 90-120 BPM, delivered in a nasal shouted half-sung cadence with the crowd marking the rhyme landing.",
+  "recipe": "classic mid-1980s meyxana, mc Rhythm, intl hip hop branch, med east poetic ballad poetry, stage performance spoken word tamazight karadeniz türküleri. thick, breath veiled tone, fast rate, interlocked note trading. tight high pitched naghara azerbaijani, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval, drum machine analog, sub bass analog poly synth, hand clap. tin roofed shack. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 523,
+  "score": 145.102,
+  "config": {
+    "traditions": [
+      "meyxana",
+      "tamazight",
+      "karadeniz_turkuleri"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.47,
+          "voice_quality": 14.169999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8850000000000002,
+          "voice_articulation": 16.834999999999997,
+          "voice_microtone": 22.035,
+          "voice_tradition": 11.6675,
+          "voice_mechanism_compound": 3.1849999999999996,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 19.759999999999998,
+          "voice_ensemble_config": 18.914999999999996,
+          "voice_ornament_system": 4.0950000000000015,
+          "voice_pitch_organization": 3.9850000000000003,
+          "voice_processing_chain": 5.6,
+          "voice_multitrack_stack": 3.3850000000000007
+        }
+      },
+      {
+        "id": "naghara_azerbaijani",
+        "slots": {
+          "naghara_size": "naghara_cura",
+          "naghara_technique": "naghara_sticks"
+        },
+        "scores": {
+          "naghara_size": 1.15,
+          "naghara_technique": 0.3
+        }
+      },
+      {
+        "id": "gaval",
+        "slots": {
+          "gaval_body": "gaval_wooden_frame_internal_jingles_canonical",
+          "gaval_tradition": "gaval_khananda_canonical"
+        },
+        "scores": {
+          "gaval_body": 1.4949999999999999,
+          "gaval_tradition": 1.365
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 0.195,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 3.1450000000000005,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": 0.585
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 0.39,
+          "clap_capture": 0.5
+        }
+      }
+    ],
+    "room": "tin_roofed_shack",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "tin_roofed_shack",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

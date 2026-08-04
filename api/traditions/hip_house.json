@@ -1,0 +1,148 @@
+{
+  "id": "hip_house",
+  "name": "Hip House",
+  "family": "electronic",
+  "lineage": "Chicago and New York style of 1988-1991 in which rapped verses were set over house tracks, codified by Fast Eddie, Tyree Cooper, the Jungle Brothers with Todd Terry, and Doug Lazy, running 118-125 BPM with a TR-909 or TR-707 four-on-the-floor, chopped James Brown breakbeat overlays, acid or sampled sub bass, minimal chordal material, and a straight-eighth party-rap delivery locked to the kick rather than to a swung boom-bap grid.",
+  "recipe": "classic Asian 1988-1991 hip house, electronic Dance, chicago house branch, garage house u s house ghettotech. thick, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, cheap paired with 303 chicago foundational TR-707, chopped sampler, monosynth acid bass, sampled chopped turntable. carpeted bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 502,
+  "score": 309.456,
+  "config": {
+    "traditions": [
+      "hip_house",
+      "ghettotech",
+      "chicago_house"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 4.73,
+          "voice_quality": 10.464999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.73,
+          "voice_articulation": 18.199999999999996,
+          "voice_microtone": 18.004999999999995,
+          "voice_tradition": 7.3450000000000015,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 3.9750000000000005,
+          "voice_speech_song": 19.174999999999997,
+          "voice_ensemble_config": 22.489999999999995,
+          "voice_ornament_system": 1.4999999999999998,
+          "voice_pitch_organization": 2.74,
+          "voice_processing_chain": 20.6445,
+          "voice_multitrack_stack": 4.03
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 31.750000000000004,
+          "drum_machine_909_context": 10.595,
+          "tr909_production_origin": 3.38
+        }
+      },
+      {
+        "id": "drum_machine_707",
+        "slots": {
+          "tr707_voice": "tr707_snare",
+          "drum_machine_707_context": "drum_machine_707_chicago_house"
+        },
+        "scores": {
+          "tr707_voice": 3.3149999999999995,
+          "drum_machine_707_context": 16.6725
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 5.395,
+          "sampler_archetypes": 2.5900000000000003,
+          "sampler_bit_depth": 1.5,
+          "sampler_workflow": 7.180000000000001,
+          "sampler_classic_context": 60.775
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 6.7115,
+          "wave_acid": 0.195,
+          "filter_acid": 2.19,
+          "accent_acid": 4.63
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 5.395,
+          "turntable_technique": 0.8999999999999999
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_hk_cantopop_ballad_factory",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_american_op_amp",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "carpeted_bedroom",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_american_op_amp"
+  }
+}

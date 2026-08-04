@@ -1,0 +1,151 @@
+{
+  "id": "euro_hi_nrg",
+  "name": "Euro Hi-NRG",
+  "family": "electronic",
+  "lineage": "European gay-club dance music of 1982-1990 built on the San Francisco Hi-NRG template and codified in London by Stock Aitken Waterman and in Italy by producers for ZYX, running 128-140 BPM with a hammering octave-jumping synth bass, four-on-the-floor kick with sixteenth open hats, orchestra-hit stabs and belted, heavily double-tracked female lead vocals.",
+  "recipe": "classic North American mid-1980s euro hi-nrg, electronic Dance, continental branch, eurodance electronic dance, europop functional song chasidic pop muzică etno. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, classic source linn electronics lm 2 linndrum canonical 1982 1984 8 bit sample rom linndrum, TR-909, octave double single performer stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, wide horn like brass string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 710,
+  "score": 189.475,
+  "config": {
+    "traditions": [
+      "euro_hi_nrg",
+      "chasidic_pop",
+      "muzica_etno"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 12.684999999999999,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.045,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "linndrum",
+        "slots": {
+          "linndrum_voice": "linndrum_hat_perc",
+          "linndrum_context": "linndrum_hiphop_sample",
+          "linndrum_production_origin": "linndrum_lm_2_canonical"
+        },
+        "scores": {
+          "linndrum_voice": 2.375,
+          "linndrum_context": 5.135,
+          "linndrum_production_origin": 1.8399999999999999
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 0.585,
+          "drum_machine_909_context": 1.24,
+          "tr909_production_origin": 0.585
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 12.989999999999995,
+          "voice_quality": 8.06,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.7799999999999998,
+          "voice_articulation": 18.33,
+          "voice_microtone": 16.89999999999999,
+          "voice_tradition": 14.742499999999998,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 5.3950000000000005,
+          "voice_speech_song": 20.539999999999996,
+          "voice_ensemble_config": 19.824999999999996,
+          "voice_ornament_system": 0.7749999999999999,
+          "voice_pitch_organization": 1.1699999999999995,
+          "voice_processing_chain": 12.077499999999999,
+          "voice_multitrack_stack": 4.5825000000000005
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_octave_double",
+          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+        },
+        "scores": {
+          "multitrack_stack_density": 3.4399999999999995,
+          "multitrack_stack_era_aesthetic": 5.882499999999999,
+          "multitrack_stack_processing": 0.845
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_brass"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sm_voice_count": 4.615,
+          "sm_chorus": 0.195,
+          "sm_voicing": 1.2349999999999999
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_1176_fet",
+      "eq": "eq_console_surgical",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_inline_80s"
+  }
+}

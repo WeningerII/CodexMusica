@@ -5,7 +5,7 @@
   "lineage": "Kutiyattam is the Sanskrit temple theatre of Kerala in southwestern India, the oldest continuously performed classical theatre tradition of the subcontinent, staged in the kuttampalam theatres of Hindu temples and transmitted through the Chakyar and Nangyar hereditary performer families. Its recitation delivers Sanskrit and Prakrit verse in stylized, raga-based intonation with greatly elongated syllables, accompanied by the mizhavu copper drum, so that a single verse may be expanded across many hours of vachika (vocal) and angika (gestural) elaboration. The guru Ammannur Madhava Chakyar (1917-2008) is the emblematic 20th-century master. It is documented under UNESCO's intangible-cultural-heritage inscription (2001/2008) and in the Margi and Kerala Kalamandalam training institutions.",
   "recipe": "classic South Asian early-1910s kutiyattam sanskrit recitation, art Music, south Asian branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. chennai madras music academy sabha. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 297,
-  "score": 281.455,
+  "score": 281.218,
   "config": {
     "traditions": [
       "kutiyattam_recitation",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.945,
+          "voice_register": 2.1550000000000002,
           "voice_quality": 32.50000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,11 +43,11 @@
           "voice_microtone": 26.455,
           "voice_tradition": 31.915,
           "voice_mechanism_compound": 16.049999999999997,
-          "voice_estill_quality": 20.974999999999998,
+          "voice_estill_quality": 19.929499999999997,
           "voice_speech_song": 26,
           "voice_ensemble_config": 26.389999999999997,
-          "voice_ornament_system": 19.357499999999998,
-          "voice_pitch_organization": 19.5975,
+          "voice_ornament_system": 19.6635,
+          "voice_pitch_organization": 19.89,
           "voice_processing_chain": 9.49,
           "voice_multitrack_stack": 5.980000000000002
         }

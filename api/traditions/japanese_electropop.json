@@ -3,14 +3,14 @@
   "name": "Japanese technopop (electropop)",
   "family": "electronic",
   "lineage": "Tokyo synthesizer pop launched by Yellow Magic Orchestra in 1978 with Haruomi Hosono, Ryuichi Sakamoto and Yukihiro Takahashi sequencing a Roland MC-8 microcomposer against live drums, joined by Hikashu and P-Model, and revived from the mid-2000s by Yasutaka Nakata's work with capsule and Perfume — 110-135 BPM four-on-the-floor or stiff sixteenth-note sequences, pentatonic and exotica-derived melodic hooks, vocoder and heavy formant-shifted or pitch-corrected vocals, and analogue polysynth stabs later replaced by sidechained in-the-box production.",
-  "recipe": "classic East Asian 2004-2006 japanese technopop, functional Song, synthpop branch, east Asian pop functional song, continental electronic dance, retro aesthetic experimental electric enka japanese idol pop. thick, breath veiled tone, straight note core, interlocked note trading. roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly korg lineage canonical ms 20 1978 tokyo lead analog mono yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, drum machine analog, vocoder, melodic orchestral imitation pitched sampler, ampeg svt amp rock bass amp alder ernie ball slinky electric bass. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, sony MXP-3000 series, dbx 160 VCA, SSL surgical EQ. 16-bit digital lexicon 224 / 480L TC electronic 2290 delay chorus.",
-  "recipe_chars": 877,
-  "score": 407.514,
+  "recipe": "classic East Asian 2004-2006 japanese technopop, functional Song, synthpop branch, east Asian pop functional song, continental electronic dance, retro aesthetic experimental electric enka j-synth. thick, breath veiled tone, straight note core, interlocked note trading. roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly korg lineage canonical ms 20 1978 tokyo lead analog mono yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, drum machine analog, vocoder, sound design field sampler, orange amp British heavy crunch mahogany ernie ball slinky electric bass. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, sony MXP-3000 series, dbx 160 VCA, SSL surgical EQ. 16-bit digital lexicon 224 / 480L TC electronic 2290 delay chorus.",
+  "recipe_chars": 856,
+  "score": 389.404,
   "config": {
     "traditions": [
       "japanese_electropop",
       "enka",
-      "japanese_teen_pop"
+      "j_synth"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 29.999999999999993,
-          "voice_quality": 14.169999999999991,
+          "voice_register": 26.249999999999993,
+          "voice_quality": 14.429999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.740714285714285,
-          "voice_articulation": 26.585000000000004,
-          "voice_microtone": 29.7475,
-          "voice_tradition": 30.81,
-          "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 5.785,
-          "voice_speech_song": 34.84,
-          "voice_ensemble_config": 26.520000000000003,
+          "voice_vibrato": 6.8877500000000005,
+          "voice_articulation": 25.935000000000002,
+          "voice_microtone": 26.714499999999997,
+          "voice_tradition": 31.59,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 5.07,
+          "voice_speech_song": 33.085,
+          "voice_ensemble_config": 25.870000000000005,
           "voice_ornament_system": 4.2,
-          "voice_pitch_organization": 3.8025,
-          "voice_processing_chain": 14.38375,
-          "voice_multitrack_stack": 8.092500000000001
+          "voice_pitch_organization": 4.8100000000000005,
+          "voice_processing_chain": 13.8615,
+          "voice_multitrack_stack": 7.280000000000001
         }
       },
       {
@@ -61,10 +61,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 23.264464285714283,
-          "poly_archetypes": 3.0549999999999997,
-          "poly_voices": 2.21,
-          "poly_maker_lineage": 3.3150000000000004
+          "electronic_technique": 20.278999999999996,
+          "poly_archetypes": 2.795,
+          "poly_voices": 2.275,
+          "poly_maker_lineage": 4.8100000000000005
         }
       },
       {
@@ -77,11 +77,11 @@
           "mono_maker_lineage": "mono_korg_kato"
         },
         "scores": {
-          "electronic_technique": 23.264464285714283,
-          "mono_oscillator": 0.04821428571428571,
-          "mono_filter": 2.145,
-          "mono_archetypes": 2.34,
-          "mono_maker_lineage": 3.9650000000000003
+          "electronic_technique": 20.278999999999996,
+          "mono_oscillator": 0.65,
+          "mono_filter": 2.8489999999999998,
+          "mono_archetypes": 2.5349999999999997,
+          "mono_maker_lineage": 5.655000000000001
         }
       },
       {
@@ -90,13 +90,13 @@
           "kick_voice": "sine_burst_kick",
           "snare_voice": "tone_noise_snare",
           "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
+          "shuffle_quantize": "shuffle_high"
         },
         "scores": {
-          "kick_voice": 0.1382142857142857,
-          "snare_voice": 0.1382142857142857,
+          "kick_voice": 0.65,
+          "snare_voice": 0.09,
           "hat_voice": 0.09,
-          "shuffle_quantize": 1.55
+          "shuffle_quantize": 0.65
         }
       },
       {
@@ -107,8 +107,8 @@
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
-          "voc_band_count": 0.65,
-          "voc_carrier": 0.65,
+          "voc_band_count": 0.25249999999999995,
+          "voc_carrier": 0.38749999999999996,
           "voc_modulator": 1
         }
       },
@@ -118,39 +118,39 @@
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "fairlight_cmi",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.6999999999999997,
-          "sampler_archetypes": 1.95,
-          "sampler_bit_depth": 2.0149999999999997,
-          "sampler_workflow": 2.8600000000000003,
-          "sampler_classic_context": 32.045
+          "electronic_technique": 2.5749999999999993,
+          "sampler_archetypes": 2.8145000000000002,
+          "sampler_bit_depth": 2.749,
+          "sampler_workflow": 2.92,
+          "sampler_classic_context": 29.705000000000005
         }
       },
       {
         "id": "fm_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "fm_algorithm": "fm_classic",
+          "fm_algorithm": "fm_complex",
           "fm_modulator_ratio": "fm_harmonic",
           "fm_polyphony": "fm_mono",
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 23.264464285714283,
-          "fm_algorithm": 0.585,
+          "electronic_technique": 20.278999999999996,
+          "fm_algorithm": 0.39,
           "fm_modulator_ratio": 0.25625,
-          "fm_polyphony": 0.845,
-          "fm_model_lineage": 15.86
+          "fm_polyphony": 0.195,
+          "fm_model_lineage": 15.794999999999998
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -158,13 +158,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 4.484999999999999,
-          "body_wood": 2.145,
-          "pickup_config": 0.1982142857142857,
-          "string_type": 6.674999999999999,
-          "scale_length_b": 2.145,
+          "amp_make": 3.3785000000000007,
+          "body_wood": 2.34,
+          "pickup_config": 0.15,
+          "string_type": 5.80175,
+          "scale_length_b": 2.2289999999999996,
           "fretted_or_not": 0.195,
-          "bass_technique": 6.772499999999999
+          "bass_technique": 5.397500000000001
         }
       }
     ],

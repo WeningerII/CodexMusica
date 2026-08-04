@@ -1,0 +1,178 @@
+{
+  "id": "carimbo",
+  "name": "Carimbó (Pará Amazonian carimbó)",
+  "family": "vernacular",
+  "lineage": "Afro-indigenous round dance of coastal Pará in Brazilian Amazonia, named for the curimbó log drum straddled and hand-struck by the player, documented in Marapanim and Salvaterra and professionalized on record in the 1960s-70s by Pinduca and Verequete — fast duple pulse around 120-140 BPM with two curimbós, maracas, banjo or guitar, transverse flute or clarinet and short responsorial verses.",
+  "recipe": "classic West African mid-1960s carimbó, groove Percussion, Brazilian branch, tropical song functional song, Brazilian carnival processional chicha funaná. thick, breath veiled tone, slow rate, interlocked note trading. traditional cowhide canonical candomble atabaque, ganza, reco reco, cedar plain gut sheep gut unsplit classical nylon-string guitar, round tenor saxophone, hand clap, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. tin roofed shack. passive ribbon, tube pre. direct-to-disc lacquer.",
+  "recipe_chars": 584,
+  "score": 147.267,
+  "config": {
+    "traditions": [
+      "carimbo",
+      "chicha",
+      "funana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 3.0200000000000014,
+          "voice_quality": 9.685,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 18.134999999999998,
+          "voice_microtone": 17.874999999999996,
+          "voice_tradition": 4.4525,
+          "voice_mechanism_compound": 5.46,
+          "voice_estill_quality": 2.8649999999999998,
+          "voice_speech_song": 23.66,
+          "voice_ensemble_config": 16.964999999999996,
+          "voice_ornament_system": 3.0650000000000004,
+          "voice_pitch_organization": 0.44999999999999996,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 6.8575
+        }
+      },
+      {
+        "id": "atabaque",
+        "slots": {
+          "atabaque_role": "atabaque_rum",
+          "atabaque_skin": "atabaque_cowhide",
+          "atabaque_shell_wood": "atabaque_cedrillo"
+        },
+        "scores": {
+          "atabaque_role": 0.39,
+          "atabaque_skin": 1.365,
+          "atabaque_shell_wood": 0.69
+        }
+      },
+      {
+        "id": "ganza",
+        "slots": {
+          "ganza_source": "ganza_metal_cylinder"
+        },
+        "scores": {
+          "ganza_source": 0.585
+        }
+      },
+      {
+        "id": "reco_reco",
+        "slots": {
+          "reco_source": "reco_metal_springs"
+        },
+        "scores": {
+          "reco_source": 0.585
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "plain_sheep_gut_classical_guitar",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 1.0725,
+          "string_tuning": 0,
+          "top_wood_classical": 7.15,
+          "bracing_classical": 0.78,
+          "string_classical": 1.5499999999999998,
+          "attack_technique_cl": 0.69
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 1.3499999999999999,
+          "sax_size": 1.1949999999999998,
+          "sax_reed": 0.435,
+          "sax_body_alloy": -0.035,
+          "sax_mouthpiece": 0.78,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.195
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.74,
+          "clap_capture": 0.195
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 4.744999999999999,
+          "choir_polyphonic_configuration": 1.02,
+          "choir_regional_canonical_configuration": 3.625,
+          "choir_ensemble_repertoire": 1.3
+        }
+      }
+    ],
+    "room": "tin_roofed_shack",
+    "archetype": "arch_decca_west_africa_highlife",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "samba_2_4_telecoteco",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "samba_2_4_telecoteco",
+    "room": "tin_roofed_shack",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

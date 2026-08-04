@@ -3,14 +3,14 @@
   "name": "Spanish rock (rock urbano and rock andaluz)",
   "family": "rock",
   "lineage": "Spanish-language rock formed in Madrid, Barcelona and Seville between the late 1960s and the 1980s — Smash and Triana grafting flamenco compás and Phrygian cadences onto blues-rock in Andalusia while Madrid's rock urbano (Leño, Barón Rojo) and La Movida bands (Radio Futura, Nacha Pop) worked mid-tempo 4/4 riff rock at 110-150 BPM with declamatory Castilian vocals, single-coil guitars through Marshall stacks, Hammond organ pads and hand-clap palmas or cajón accents carried over from flamenco.",
-  "recipe": "classic European 1967-1969 spanish rock, distorted Rock, regional branch, classic distorted rock, europop functional song, anglo singer song ballad poetry britpop psychedelic rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ, cajon peruano. live tracking. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 864,
-  "score": 614.043,
+  "recipe": "classic European 1967-1969 spanish rock, distorted Rock, regional branch, classic distorted rock, europop functional song, anglo singer song ballad poetry deutschrock ostrock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, cajon peruano. live tracking. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 853,
+  "score": 647.7,
   "config": {
     "traditions": [
       "spanish_rock",
-      "britpop",
-      "psychedelic_rock"
+      "deutschrock",
+      "ostrock"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "flamenco_jondo_tradition",
@@ -29,34 +29,34 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 48.79500000000002,
-          "voice_quality": 12.544999999999993,
+          "voice_register": 53.12000000000002,
+          "voice_quality": 7.93,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.98,
-          "voice_articulation": 19.11,
-          "voice_microtone": 44.975000000000016,
+          "voice_vibrato": 3.785,
+          "voice_articulation": 22.814999999999998,
+          "voice_microtone": 48.42500000000001,
           "voice_tradition": 7.374999999999999,
-          "voice_mechanism_compound": 5.525000000000001,
-          "voice_estill_quality": 9.35,
-          "voice_speech_song": 23.79,
-          "voice_ensemble_config": 17.744999999999997,
+          "voice_mechanism_compound": 6.175000000000001,
+          "voice_estill_quality": 9.699999999999998,
+          "voice_speech_song": 28.404999999999998,
+          "voice_ensemble_config": 22.099999999999994,
           "voice_ornament_system": 6.449999999999999,
-          "voice_pitch_organization": 2.99,
-          "voice_processing_chain": 7.67,
-          "voice_multitrack_stack": 15.634999999999998
+          "voice_pitch_organization": 1.9450000000000003,
+          "voice_processing_chain": 8.352500000000001,
+          "voice_multitrack_stack": 8.7425
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
@@ -69,18 +69,18 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 8.19,
-          "amp_make": 27.69,
-          "body_wood": 3.38,
-          "neck_wood": 3.38,
-          "fretboard": 3.3150000000000004,
-          "pickup_magnet": 0.39,
-          "string_material": 0.39,
-          "string_gauge": 3.38,
+          "electric_technique": 5.590000000000001,
+          "amp_make": 26.325,
+          "body_wood": 3.3799999999999994,
+          "neck_wood": 3.3799999999999994,
+          "fretboard": 3.3149999999999995,
+          "pickup_magnet": 0.65,
+          "string_material": 0.65,
+          "string_gauge": 3.3799999999999994,
           "bridge": 0,
-          "scale_length": 3.38,
+          "scale_length": 3.3799999999999994,
           "finish": 0.435,
-          "string_tuning": 25.090000000000003
+          "string_tuning": 26.455000000000002
         }
       },
       {
@@ -95,25 +95,25 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 27.69,
-          "body_wood": 3.38,
+          "amp_make": 25.805,
+          "body_wood": 3.3799999999999994,
           "pickup_config": 0.3,
-          "string_type": 46.80500000000001,
-          "scale_length_b": 3.38,
+          "string_type": 52.68,
+          "scale_length_b": 3.3799999999999994,
           "fretted_or_not": 0.3,
-          "bass_technique": 39.58500000000001
+          "bass_technique": 46.76
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 39.89000000000001,
-          "drumhead": 5.290000000000001,
+          "drum_technique": 45.915000000000006,
+          "drumhead": 4.185,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -127,7 +127,7 @@
         "scores": {
           "flamenco_body": 2.7949999999999995,
           "flamenco_features": 0.24,
-          "flamenco_technique": 3.0349999999999997
+          "flamenco_technique": 2.885
         }
       },
       {
@@ -138,15 +138,15 @@
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_122_canonical"
+          "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 5.575,
-          "drawbar_setting": 39.635000000000005,
-          "rotary_speed": 39.45000000000001,
-          "percussion_setting": 20.540000000000003,
-          "tonewheel_model": 24.277500000000003,
-          "leslie_cabinet_model": 2.925
+          "keyboard_technique": 3.575,
+          "drawbar_setting": 45.51,
+          "rotary_speed": 45.325,
+          "percussion_setting": 23.595000000000002,
+          "tonewheel_model": 25.740000000000002,
+          "leslie_cabinet_model": 2.0500000000000003
         }
       },
       {

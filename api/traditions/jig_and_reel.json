@@ -1,0 +1,165 @@
+{
+  "id": "jig_and_reel",
+  "name": "Jig and reel (Irish dance tune repertoire)",
+  "family": "global",
+  "lineage": "Core Irish instrumental dance repertoire consolidated in the eighteenth and nineteenth centuries and fixed in print by O'Neill's Music of Ireland (1903), then standardised for session play by the 1960s Ceoltóirí Chualann and Tulla/Kilfenora circles — reels in cut time at 110-120 BPM and double jigs in 6/8 at 120-130, cast in binary AABB form with each part eight bars, played heterophonically in unison by fiddle, flute, whistle, box and pipes with cuts, rolls and crans supplying the ornament and the bodhrán or foot marking the pulse.",
+  "recipe": "classic Northern European mid-1960s jig and reel, improv On Frame, Celtic traditional branch, wind pipe drone modal, Celtic balladic ballad poetry sean-nós singing sean-nós solo singing. fiddle, irish wooden flute, melodic tin whistle, modern Irish carroll suttner premium revival drone like concertina anglo, leather castagnari Italian premium folk music drone like accordion, goat skin canonical Irish ash pre modern traditional Irish bodhran, irish bouzouki, long-scale strummed tenor banjo irish. irish pub doolin clare session. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 595,
+  "score": 194.62,
+  "config": {
+    "traditions": [
+      "jig_and_reel",
+      "sean_nos_singing",
+      "sean_nos_solo"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "silver_wound_lamb_gut_fiddle",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 12.52,
+          "fiddle_strings": 0.95,
+          "fiddle_bow": 0.15,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.195
+        }
+      },
+      {
+        "id": "irish_wooden_flute",
+        "slots": {
+          "irish_wooden_flute_pattern": "irish_wooden_flute_keyless_folk",
+          "irish_wooden_flute_keys": "irish_wooden_flute_four_key",
+          "irish_wooden_flute_idiom": "irish_wooden_flute_leitrim",
+          "irish_wooden_flute_material": "irish_wooden_flute_cocuswood"
+        },
+        "scores": {
+          "irish_wooden_flute_pattern": 14.149999999999997,
+          "irish_wooden_flute_keys": 2.9050000000000002,
+          "irish_wooden_flute_idiom": 11.825,
+          "irish_wooden_flute_material": 0.09999999999999999
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "d_whistle",
+          "whistle_ornament": "cut_ornament",
+          "whistle_body_material": "whistle_aluminum_anodized"
+        },
+        "scores": {
+          "wind_articulation": 12.97,
+          "whistle_key": 13.249999999999996,
+          "whistle_ornament": 2.955,
+          "whistle_body_material": 0.09
+        }
+      },
+      {
+        "id": "concertina_anglo",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "concertina_anglo_config": "concertina_anglo_30",
+          "concertina_anglo_context": "concertina_anglo_morris",
+          "concertina_anglo_maker_school": "concertina_irish_made_modern",
+          "concertina_anglo_reed": "concertina_anglo_steel_reeds"
+        },
+        "scores": {
+          "free_reed_technique": 16.58,
+          "concertina_anglo_config": 8.75,
+          "concertina_anglo_context": 3.8899999999999997,
+          "concertina_anglo_maker_school": 6.964999999999999,
+          "concertina_anglo_reed": 0.15
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 16.58,
+          "accordion_reed_material": 0.195,
+          "musette_offset": 3.695,
+          "reed_config": 0.3,
+          "bellows": 2.91,
+          "voicing_chamber": 0.15,
+          "accordion_maker_school": 2.275
+        }
+      },
+      {
+        "id": "bodhran",
+        "slots": {
+          "bodhran_play": "bodhran_kerry",
+          "bodhran_skin": "bodhran_goatskin",
+          "bodhran_shell_wood": "bodhran_ash_traditional"
+        },
+        "scores": {
+          "bodhran_play": 2.91,
+          "bodhran_skin": 8.899999999999999,
+          "bodhran_shell_wood": 8.885
+        }
+      },
+      {
+        "id": "irish_bouzouki",
+        "slots": {
+          "irish_bouzouki_form": "irish_bouzouki_octave_mandolin",
+          "irish_bouzouki_playing": "irish_bouzouki_countermelody",
+          "irish_bouzouki_top_wood": "irish_bouzouki_carved_top"
+        },
+        "scores": {
+          "irish_bouzouki_form": -0.035,
+          "irish_bouzouki_playing": 0.975,
+          "irish_bouzouki_top_wood": 0.195
+        }
+      },
+      {
+        "id": "tenor_banjo_irish",
+        "slots": {
+          "tenor_banjo_irish_form": "tenor_banjo_irish_19fret",
+          "tenor_banjo_irish_style": "tenor_banjo_irish_ballad",
+          "tenor_banjo_irish_head": "tenor_banjo_irish_calfskin"
+        },
+        "scores": {
+          "tenor_banjo_irish_form": 26.664999999999996,
+          "tenor_banjo_irish_style": 19.92,
+          "tenor_banjo_irish_head": 3.41
+        }
+      }
+    ],
+    "room": "irish_pub_doolin_clare_session",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "irish_pub_doolin_clare_session",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

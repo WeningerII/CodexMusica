@@ -1,0 +1,143 @@
+{
+  "id": "sanfona_nordestina",
+  "name": "Sanfona nordestina (Brazilian accordion tradition)",
+  "family": "global",
+  "lineage": "Accordion tradition of the Brazilian Northeast, moving from the eight-bass pé-de-bode to the 120-bass sanfona and codified nationally by Luiz Gonzaga from 1946 — right-hand melody in bellows-articulated thirds and sixths over left-hand bass-chord alternation, locked to the zabumba's low-and-muffled beat one and the triangle's continuous sixteenths at 100-140 BPM across baião, xote, xaxado and arrasta-pé.",
+  "recipe": "classic South American mid-1940s sanfona nordestina, functional Song, Brazilian song branch, tropical song functional song, Latin am troubadour ballad poetry milonga música criolla peruana. thick, breath veiled tone, slow rate, interlocked note trading. castagnari Italian premium folk music bellows articulated accordion, wood baião tradition low stick with high bacalhau buzz zabumba, forró tradition open closed alternation triangulo forro, pinho paranas traditional Brazilian imbuia Brazilian walnut alternative strummed viola caipira. recife brazilian northeast forro house. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 674,
+  "score": 213.563,
+  "config": {
+    "traditions": [
+      "sanfona_nordestina",
+      "milonga",
+      "musica_criolla_peru"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "american_swing",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 9.749999999999996,
+          "accordion_reed_material": 1.69,
+          "musette_offset": 1,
+          "reed_config": 0.3,
+          "bellows": 0.78,
+          "voicing_chamber": 0.435,
+          "accordion_maker_school": 1.625
+        }
+      },
+      {
+        "id": "zabumba",
+        "slots": {
+          "zabumba_shell": "zabumba_wood_shallow",
+          "zabumba_technique": "zabumba_baiao_pattern"
+        },
+        "scores": {
+          "zabumba_shell": 1.2349999999999999,
+          "zabumba_technique": 10.009999999999998
+        }
+      },
+      {
+        "id": "triangulo_forro",
+        "slots": {
+          "triangulo_size": "triangulo_large_forro",
+          "triangulo_pattern": "triangulo_forro_pattern"
+        },
+        "scores": {
+          "triangulo_size": 3.91,
+          "triangulo_pattern": 4.91
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 3.22,
+          "voice_quality": 14.364999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.3724999999999996,
+          "voice_articulation": 22.554999999999993,
+          "voice_microtone": 20.994999999999994,
+          "voice_tradition": 11.472500000000002,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 4.728999999999999,
+          "voice_speech_song": 30.874999999999996,
+          "voice_ensemble_config": 19.434999999999995,
+          "voice_ornament_system": 1.0399999999999998,
+          "voice_pitch_organization": 3.5895000000000006,
+          "voice_processing_chain": 4.159999999999999,
+          "voice_multitrack_stack": 2.762500000000001
+        }
+      },
+      {
+        "id": "viola_caipira",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "viola_caipira_courses": "viola_rio_abaixo",
+          "viola_caipira_context": "viola_caipira_caipira",
+          "viola_caipira_top_wood": "viola_caipira_pinho_brasil",
+          "viola_caipira_back_wood": "viola_caipira_imbuia",
+          "viola_caipira_strings": "viola_caipira_steel_doubled"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.3625,
+          "viola_caipira_courses": 3.4449999999999985,
+          "viola_caipira_context": 16.38,
+          "viola_caipira_top_wood": 4.28,
+          "viola_caipira_back_wood": 3.5,
+          "viola_caipira_strings": 0.39
+        }
+      }
+    ],
+    "room": "recife_brazilian_northeast_forro_house",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "baiao_2_4_beat_one_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "baiao_2_4_beat_one_bass",
+    "room": "recife_brazilian_northeast_forro_house",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

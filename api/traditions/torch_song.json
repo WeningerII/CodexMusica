@@ -3,14 +3,14 @@
   "name": "Torch Song",
   "family": "jazz",
   "lineage": "American cabaret-and-popular ballad of unrequited love, named for 'carrying a torch' and codified in the late-1920s Broadway and speakeasy revues by Helen Morgan and Libby Holman, then perfected on record between 1935 and 1960 by Billie Holiday, Judy Garland, Frank Sinatra and Julie London — slow rubato 32-bar AABA or verse-and-chorus forms at roughly 55-75 BPM, lush strings and muted brass or a solo piano, a spoken-to-sung verse preamble, and a conversational, near-confessional vocal that trades vibrato for microphone intimacy.",
-  "recipe": "classic North American 1927-1929 torch song, improv On Frame, smooth vocal branch, crooners functional song, chanson fado classic chanson, American jazz bop cool jazz / west coast modal jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator a 441 grand piano, string quartet inst, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical lead trumpet trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, vibraphone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 890,
-  "score": 464.93,
+  "recipe": "classic North American 1927-1929 torch song, improv On Frame, smooth vocal branch, crooners functional song, chanson fado classic chanson, American jazz bop contemporary post-bop cool jazz / west coast. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator a 442 grand piano, string quartet inst, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical lead trumpet trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, vibraphone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 901,
+  "score": 475.375,
   "config": {
     "traditions": [
       "torch_song",
-      "cool_jazz_west_coast",
-      "modal_jazz"
+      "contemporary_post_bop",
+      "cool_jazz_west_coast"
     ],
     "instruments": [
       {
@@ -24,7 +24,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "jazz_scat_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,47 +34,47 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 20.744999999999994,
-          "voice_quality": 10.594999999999995,
+          "voice_register": 22.169999999999995,
+          "voice_quality": 10.692499999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.479999999999997,
-          "voice_articulation": 19.89,
-          "voice_microtone": 21.644999999999996,
-          "voice_tradition": 22.35,
-          "voice_mechanism_compound": 3.1849999999999996,
-          "voice_estill_quality": 3.335000000000001,
-          "voice_speech_song": 22.490000000000002,
-          "voice_ensemble_config": 19.37,
+          "voice_vibrato": 21.485,
+          "voice_articulation": 22.944999999999997,
+          "voice_microtone": 22.164999999999996,
+          "voice_tradition": 21.275,
+          "voice_mechanism_compound": 1.2999999999999998,
+          "voice_estill_quality": 4.0600000000000005,
+          "voice_speech_song": 25.61,
+          "voice_ensemble_config": 21.839999999999996,
           "voice_ornament_system": 0.945,
-          "voice_pitch_organization": 2.3300000000000005,
-          "voice_processing_chain": 6.044999999999999,
+          "voice_pitch_organization": 2.8300000000000005,
+          "voice_processing_chain": 6.5,
           "voice_multitrack_stack": 4.874999999999999
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_441_japanese"
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 1.24,
+          "keyboard_technique": 1.02,
           "grand_piano_size": 1.34,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 6.89,
-          "piano_rim": 6.89,
-          "piano_soundboard": 0.49999999999999994,
-          "piano_pinblock": -0.05,
+          "grand_piano_brand": 0.78,
+          "piano_hammer": 7.994999999999999,
+          "piano_rim": 7.994999999999999,
+          "piano_soundboard": 0.2,
+          "piano_pinblock": 0.4,
           "piano_plate": 0.25,
-          "piano_pitch_standard": 7.9849999999999985
+          "piano_pitch_standard": 8.16
         }
       },
       {
@@ -82,12 +82,12 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "quartet_school": "quartet_modern",
-          "string_quartet_inst_era": "string_quartet_inst_contemporary"
+          "string_quartet_inst_era": "string_quartet_inst_romantic"
         },
         "scores": {
-          "bowed_technique": 0.09999999999999999,
-          "quartet_school": 0.9500000000000001,
-          "string_quartet_inst_era": 1.4249999999999998
+          "bowed_technique": -0.035,
+          "quartet_school": 1.2999999999999998,
+          "string_quartet_inst_era": 1.3
         }
       },
       {
@@ -97,25 +97,25 @@
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_mouthpiece": "ebonite_vintage",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 5.444999999999999,
-          "sax_size": 5.744999999999998,
-          "sax_reed": 0.195,
-          "sax_body_alloy": 20.25,
-          "sax_mouthpiece": 0.6,
-          "sax_technique": 20.25,
-          "sax_maker_school": 22.544999999999998
+          "wind_articulation": 4.92,
+          "sax_size": 4.32,
+          "sax_reed": 0.65,
+          "sax_body_alloy": 19.625,
+          "sax_mouthpiece": 0.8,
+          "sax_technique": 19.8,
+          "sax_maker_school": 22.075
         }
       },
       {
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_cool_lyrical",
-          "brass_size": "flugelhorn",
+          "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_lead_mp",
           "brass_mute": "harmon_out",
           "trumpet_technique": "trumpet_bebop_lines",
@@ -123,13 +123,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 5.444999999999999,
-          "brass_size": 0.39,
-          "trumpet_mouthpiece": 22.914999999999996,
-          "brass_mute": 2.0999999999999996,
-          "trumpet_technique": 5.249999999999999,
+          "wind_articulation": 4.92,
+          "brass_size": 0.65,
+          "trumpet_mouthpiece": 22.139999999999997,
+          "brass_mute": 1.9499999999999997,
+          "trumpet_technique": 3.6249999999999996,
           "trumpet_bell_metal": 2.145,
-          "trumpet_maker_school": 8.19
+          "trumpet_maker_school": 9.294999999999998
         }
       },
       {
@@ -139,8 +139,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 20.25,
-          "upright_play": 20.25
+          "upright_strings": 19.625,
+          "upright_play": 19.625
         }
       },
       {
@@ -151,8 +151,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 28.794999999999998,
-          "drumhead": 21.744999999999997,
+          "drum_technique": 31.98,
+          "drumhead": 21.424999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -165,8 +165,8 @@
         },
         "scores": {
           "percussion_technique": 0.75,
-          "vibe_motor": 22.835,
-          "vibe_mallets": 20.25
+          "vibe_motor": 21.9325,
+          "vibe_mallets": 19.625
         }
       }
     ],

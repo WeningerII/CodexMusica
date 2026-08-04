@@ -1,0 +1,160 @@
+{
+  "id": "merenrap",
+  "name": "Merenrap",
+  "family": "hip_hop",
+  "lineage": "Dominican-New York hybrid launched around 1989-1993 by Proyecto Uno, Ilegales and Sandy y Papo, laying Spanish and Spanglish rap over 140-160 BPM merengue with programmed tambora patterns, güira sixteenths, synth-brass jaleo stabs and sampled house drums, alternating rapped verses with sung merengue choruses.",
+  "recipe": "classic Caribbean 1989-1993 merenrap, mc Rhythm, Afro-diasporic branch, reggaeton MC rhythm, tropical song functional song chutney soca huayno popular. extended whistle, breath veiled tone, breath pulsed, interlocked note trading. locked with tambora fast scrape guira wood avocado canonical Dominican merengue tradition tambora dominicana, rose brass darker warmer saxophone, analog poly synth, sampler drum machine. Dominican canon 1970-1995 mid tier dominican capital studio 80s. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
+  "recipe_chars": 679,
+  "score": 166.627,
+  "config": {
+    "traditions": [
+      "merenrap",
+      "chutney_soca",
+      "huayno_popular"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 1.2674999999999998,
+          "voice_quality": 9.49,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 18.199999999999996,
+          "voice_microtone": 16.249999999999996,
+          "voice_tradition": 3.9650000000000003,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 5.07,
+          "voice_speech_song": 23.074999999999996,
+          "voice_ensemble_config": 16.639999999999997,
+          "voice_ornament_system": 3.5100000000000016,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 4.42,
+          "voice_multitrack_stack": 2.0799999999999996
+        }
+      },
+      {
+        "id": "guira_dominicana",
+        "slots": {
+          "guira_dominicana_form": "guira_dominicana_tipico",
+          "guira_dominicana_pattern": "guira_dominicana_merengue_drive",
+          "guira_dominicana_sheet": "guira_dominicana_steel"
+        },
+        "scores": {
+          "guira_dominicana_form": 5.15,
+          "guira_dominicana_pattern": 19.15,
+          "guira_dominicana_sheet": 3.5949999999999998
+        }
+      },
+      {
+        "id": "tambora_dominicana",
+        "slots": {
+          "tambora_shell": "tambora_carved_wood_two_heads",
+          "tambora_technique": "tambora_hand_and_stick",
+          "tambora_dominicana_shell_wood": "tambora_dominicana_avocado",
+          "tambora_dominicana_heads": "tambora_dominicana_male_female"
+        },
+        "scores": {
+          "tambora_shell": 4.034999999999999,
+          "tambora_technique": 3.724999999999999,
+          "tambora_dominicana_shell_wood": 1.69,
+          "tambora_dominicana_heads": 0.195
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "soprano_sax",
+          "sax_reed": "hard_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 1.2499999999999998,
+          "sax_size": 0.5,
+          "sax_reed": 0.15,
+          "sax_body_alloy": 2.47,
+          "sax_mouthpiece": 0.15,
+          "sax_technique": -0.05,
+          "sax_maker_school": 0.105
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 1.565,
+          "poly_archetypes": 0.545,
+          "poly_voices": 0.545,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 1.395,
+          "sample_bitdepth": 1.125,
+          "sample_swing": 1.68,
+          "sample_processing": 1.545
+        }
+      }
+    ],
+    "room": "dominican_capital_studio_80s",
+    "archetype": "arch_antilles_zouk_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "merengue_2_4_perico_ripiao",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "merengue_2_4_perico_ripiao",
+    "room": "dominican_capital_studio_80s",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

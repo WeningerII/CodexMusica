@@ -1,0 +1,169 @@
+{
+  "id": "rkt",
+  "name": "RKT (Argentine reggaetón-cumbia)",
+  "family": "hip_hop",
+  "lineage": "Buenos Aires conurbano style named for the \"rikitiki\" pattern, produced from roughly 2016 by DJ Alex, DJ Tao and Perreo Circuit and popularised by L-Gante's Cumbia 420 crossover: 95-105 BPM fusion of the reggaetón dembow snare with cumbia güira and organ, hard 808 sub, minor two- or three-chord synth loops, DJ tag drops, and half-sung half-rapped local slang vocals heavy with autotune, released to YouTube and streaming rather than to labels.",
+  "recipe": "classic Caribbean mid-2010s rkt, mc Rhythm, reggaeton branch, Latin electric electronic dance, tropical song functional song cumbia 420 techengue. kargyraa, full chest belt, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampler drum machine, low sub bass analog poly synth, locked with tambora fast scrape guira dominicana, la bella flats Detroit soul bass canon sub heavy electric bass, turntable. carpeted bedroom. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 584,
+  "score": 190.326,
+  "config": {
+    "traditions": [
+      "rkt",
+      "cumbia_420",
+      "techengue"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.8693749999999998,
+          "voice_quality": 17.099999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 21.319999999999997,
+          "voice_microtone": 25.284999999999993,
+          "voice_tradition": 4.0200000000000005,
+          "voice_mechanism_compound": 4.419999999999999,
+          "voice_estill_quality": 4.03,
+          "voice_speech_song": 24.699999999999996,
+          "voice_ensemble_config": 20.474999999999994,
+          "voice_ornament_system": 2.6650000000000014,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 7.055,
+          "voice_multitrack_stack": 8.6125
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 2.8600000000000003,
+          "drum_machine_808_context": 2.925,
+          "tr808_production_origin": 1.3
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 0.7149999999999999,
+          "sample_bitdepth": 0.845,
+          "sample_swing": 6.625,
+          "sample_processing": 1.2349999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 6.2725,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0,
+          "poly_maker_lineage": -1.6599999999999997
+        }
+      },
+      {
+        "id": "guira_dominicana",
+        "slots": {
+          "guira_dominicana_form": "guira_dominicana_tipico",
+          "guira_dominicana_pattern": "guira_dominicana_merengue_drive",
+          "guira_dominicana_sheet": "guira_dominicana_steel"
+        },
+        "scores": {
+          "guira_dominicana_form": 0.40062499999999995,
+          "guira_dominicana_pattern": 4.875,
+          "guira_dominicana_sheet": -0.035
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 2.6200000000000006,
+          "body_wood": 0.585,
+          "pickup_config": 0.845,
+          "string_type": 2.7950000000000004,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0.3,
+          "bass_technique": 4.918750000000001
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 0.7149999999999999,
+          "turntable_technique": 0.325
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_san_juan_reggaeton_mixtape",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "cumbia_4_4_paseo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cumbia_4_4_paseo",
+    "room": "carpeted_bedroom",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

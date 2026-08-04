@@ -1,0 +1,139 @@
+{
+  "id": "cuban_rumba",
+  "name": "Cuban Rumba (guaguancó, yambú, columbia complex)",
+  "family": "global",
+  "lineage": "Secular Afro-Cuban drum-and-voice tradition formed in the solares and dock quarters of Havana and Matanzas in the later 19th century, codified in the 20th by Los Muñequitos de Matanzas and Los Papines — three-conga interlock (salidor, tres-dos, improvising quinto) plus claves and catá over guaguancó's 2/3 rumba clave, with lead diana vocal and choral coro answering.",
+  "recipe": "classic Caribbean mid-1950s cuban rumba, groove Percussion, rumba branch, son salsa Cuban, Afro-diasporic ritual devotional candomblé ritual music nyahbinghi. vocal fry, breath veiled tone, slow rate, interlocked note trading. quinto conga, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, claves, open back Afro peruvian tradition festejo tradition cajon peruano, maracas. havana solar outdoor courtyard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 560,
+  "score": 169.605,
+  "config": {
+    "traditions": [
+      "cuban_rumba",
+      "candomble",
+      "nyahbinghi"
+    ],
+    "instruments": [
+      {
+        "id": "quinto_conga",
+        "slots": {
+          "quinto_tuning": "quinto_high",
+          "quinto_style": "quinto_columbia"
+        },
+        "scores": {
+          "quinto_tuning": 0,
+          "quinto_style": 0.39
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 12.34,
+          "conga_set": 1.645,
+          "conga_skin": 5.85,
+          "conga_shell_wood": 5.85
+        }
+      },
+      {
+        "id": "claves",
+        "slots": {
+          "claves_pattern": "claves_rumba",
+          "claves_wood": "claves_cuban_hardwood"
+        },
+        "scores": {
+          "claves_pattern": 14.235,
+          "claves_wood": 0.345
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.24,
+          "voice_quality": 10.919999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 17.159999999999993,
+          "voice_microtone": 17.61499999999999,
+          "voice_tradition": 8.575,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 17.159999999999993,
+          "voice_ensemble_config": 20.474999999999994,
+          "voice_ornament_system": 5.775,
+          "voice_pitch_organization": 3.0000000000000004,
+          "voice_processing_chain": 4.614999999999999,
+          "voice_multitrack_stack": 4.05
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_open_back",
+          "cajon_peruano_role": "cajon_peruano_festejo"
+        },
+        "scores": {
+          "cajon_peruano_construction": 6.449999999999999,
+          "cajon_peruano_role": 1.9900000000000002
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_leather",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 0.24,
+          "maracas_filling": 0.045
+        }
+      }
+    ],
+    "room": "havana_solar_outdoor_courtyard",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rumba_clave_3_2",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rumba_clave_3_2",
+    "room": "havana_solar_outdoor_courtyard",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

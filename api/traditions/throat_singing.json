@@ -1,0 +1,164 @@
+{
+  "id": "throat_singing",
+  "name": "Throat Singing (Overtone Singing)",
+  "family": "global",
+  "lineage": "Inner Asian overtone vocal technique practised across Tuva, Mongolia, Altai, Khakassia and Bashkortostan and paralleled in Tibetan monastic chant, transmitted orally among herders and formalised into named styles (khoomei, sygyt, kargyraa, borbangnadyr, ezengileer) by Tuvan and Mongolian state ensembles from the 1960s, produced by constricting the ventricular folds or false vocal folds over a fixed low fundamental and shaping the mouth and tongue to isolate harmonics 6-12 into an audible whistled melody, usually in free or slow duple time against igil or morin khuur drone.",
+  "recipe": "classic Northeast Asian mid-1960s throat singing, drone Modal, overtone branch, vocal drone modal, central Asian hunting song mongolian folk music tuvan folk music. sygyt, false fold engaged, breath pulsed, interlocked note trading. m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range central Asian steppe canonical research site throat singing voice, wood larch canonical tuvan khoomei accompaniment igil, doshpuluur, breathy throat colored voiced khomus, long song morin khuur synthetic sycamore canonical mongolian morin khuur, tsuur. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 674,
+  "score": 352.675,
+  "config": {
+    "traditions": [
+      "throat_singing",
+      "mongolian_folk",
+      "tuvan_folk"
+    ],
+    "instruments": [
+      {
+        "id": "throat_singing_voice",
+        "slots": {
+          "throat_mechanism_root": "throat_mechanism_M1_compound_with_overtones",
+          "throat_overtone_target_region": "throat_overtone_8th_to_12th_partial",
+          "throat_singing_voice_region": "throat_singing_voice_central_asian_steppe"
+        },
+        "scores": {
+          "throat_mechanism_root": 17.095000000000002,
+          "throat_overtone_target_region": 8.51,
+          "throat_singing_voice_region": 8.254999999999999
+        }
+      },
+      {
+        "id": "igil",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "igil_body": "igil_carved_horsehead",
+          "igil_string": "igil_horsehair_two",
+          "igil_body_wood": "igil_larch_canonical",
+          "igil_tradition": "igil_khoomei_accompaniment"
+        },
+        "scores": {
+          "bowed_technique": 0.975,
+          "igil_body": 4.8100000000000005,
+          "igil_string": 0.69875,
+          "igil_body_wood": 2.73,
+          "igil_tradition": 3.6399999999999997
+        }
+      },
+      {
+        "id": "doshpuluur",
+        "slots": {
+          "dosh_belly": "dosh_wood",
+          "dosh_style": "dosh_strum",
+          "dosh_strings": "dosh_nylon"
+        },
+        "scores": {
+          "dosh_belly": 1.04,
+          "dosh_style": 0,
+          "dosh_strings": 0.54
+        }
+      },
+      {
+        "id": "khomus",
+        "slots": {
+          "khomus_form": "khomus_altai_komus",
+          "khomus_technique": "khomus_breath_voice",
+          "khomus_material": "khomus_forged_steel"
+        },
+        "scores": {
+          "khomus_form": 7.1975,
+          "khomus_technique": 2.0149999999999997,
+          "khomus_material": -0.035
+        }
+      },
+      {
+        "id": "morin_khuur",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "morin_khuur_use": "morin_khuur_long_song",
+          "morin_khuur_construction": "morin_khuur_synthetic",
+          "morin_khuur_body_wood": "morin_khuur_sycamore",
+          "morin_khuur_strings": "morin_khuur_horsehair_canonical"
+        },
+        "scores": {
+          "bowed_technique": 9.847499999999998,
+          "morin_khuur_use": 24.017500000000002,
+          "morin_khuur_construction": 1.125,
+          "morin_khuur_body_wood": 2.925,
+          "morin_khuur_strings": 2.9899999999999998
+        }
+      },
+      {
+        "id": "tsuur",
+        "slots": {
+          "tsuur_material": "tsuur_reed_grass",
+          "tsuur_technique": "tsuur_drone_hum"
+        },
+        "scores": {
+          "tsuur_material": 0.195,
+          "tsuur_technique": 0.845
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "khoomei_tuvan_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 21.443750000000005,
+          "voice_quality": 22.27499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.6875,
+          "voice_articulation": 24.83,
+          "voice_microtone": 26.779999999999998,
+          "voice_tradition": 27.50375,
+          "voice_mechanism_compound": 23.9,
+          "voice_estill_quality": 4.875000000000001,
+          "voice_speech_song": 29.964999999999996,
+          "voice_ensemble_config": 22.034999999999993,
+          "voice_ornament_system": 2.7950000000000017,
+          "voice_pitch_organization": 28.73875,
+          "voice_processing_chain": 5.459999999999999,
+          "voice_multitrack_stack": 6.695
+        }
+      }
+    ],
+    "room": "open_steppe_outdoor",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_khoomei_harmonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mongolian_khoomei_harmonic",
+    "room": "open_steppe_outdoor",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

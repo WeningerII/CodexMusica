@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s British and European punk-and-extreme-metal hybrid genre developed from anarcho-punk through Discharge (Stoke-on-Trent, 1977-onward) and Amebix (Bristol, 1978-onward), integrating thicker distorted-guitar-and-bass production, slower-doom-influenced tempi alongside fast hardcore tempos, and bleak political content. The 1984 Amebix Arise! and the 1989 Doom Police Bastard albums anchored the canonical sound. Direct precursor of broader crustcore and grindcore.",
   "recipe": "classic modern crust punk, distorted Rock, punk branch, thrash metal groove metal speed metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 558,
-  "score": 422.3,
+  "score": 422.311,
   "config": {
     "traditions": [
       "crust_punk",
@@ -42,14 +42,14 @@
           "voice_articulation": 18.394999999999996,
           "voice_microtone": 18.199999999999996,
           "voice_tradition": 4.875,
-          "voice_mechanism_compound": 40.53750000000001,
-          "voice_estill_quality": 3.12,
+          "voice_mechanism_compound": 40.7415,
+          "voice_estill_quality": 3.0885000000000002,
           "voice_speech_song": 19.24,
           "voice_ensemble_config": 20.019999999999996,
           "voice_ornament_system": 1.5250000000000001,
           "voice_pitch_organization": 3.185,
           "voice_processing_chain": 6.550000000000001,
-          "voice_multitrack_stack": 9.725000000000001
+          "voice_multitrack_stack": 9.605
         }
       },
       {
@@ -70,14 +70,14 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 43.5085,
-          "amp_make": 31.62025,
+          "electric_technique": 43.618,
+          "amp_make": 31.51975,
           "body_wood": 21.515,
           "neck_wood": 3.38,
           "fretboard": 3.3150000000000004,
           "pickup_magnet": 1.69,
           "pickup_winding": 0.105,
-          "string_material": 0.258,
+          "string_material": 0.195,
           "bridge": 3.38,
           "scale_length": 18.135,
           "string_gauge": 3.38,
@@ -97,7 +97,7 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 13.873249999999999,
+          "amp_make": 13.88675,
           "body_wood": 5.07,
           "pickup_config": 1.69,
           "string_type": 14.3,

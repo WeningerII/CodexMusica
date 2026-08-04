@@ -1,0 +1,208 @@
+{
+  "id": "middle_of_the_road",
+  "name": "Middle of the Road (MOR adult radio pop)",
+  "family": "pop_rock",
+  "lineage": "A US and UK radio-format category hardened between 1968 and 1980 in Los Angeles, Nashville and London studios around Karen Carpenter, Neil Diamond, Barry Manilow and Anne Murray — mid-tempo 4/4 ballads and soft shuffles at 70-110 BPM, close-miked unstrained lead vocal over acoustic guitar and electric piano, sweetened with orchestral strings, flugelhorn and stacked backing harmonies, brushes or restrained kit, and a key-change final chorus.",
+  "recipe": "classic North American late-1960s middle of the road, functional Song, pop rock branch, crooners functional song, pop rock yacht rock adult standards. thick, breath veiled tone, straight onset, interlocked note trading. cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, block chord electric piano tine, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, sitka spruce hard rock maple acer saccharum modern setup longer neck violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lead trumpet trumpet, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console.",
+  "recipe_chars": 989,
+  "score": 423.74,
+  "config": {
+    "traditions": [
+      "middle_of_the_road",
+      "yacht_rock",
+      "adult_standards"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 38.52000000000002,
+          "voice_quality": 12.349999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.410000000000001,
+          "voice_articulation": 25.48,
+          "voice_microtone": 38.06,
+          "voice_tradition": 17.984999999999996,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 33.085,
+          "voice_ensemble_config": 23.075,
+          "voice_ornament_system": 0.63,
+          "voice_pitch_organization": 1.545,
+          "voice_processing_chain": 6.67,
+          "voice_multitrack_stack": 7.8149999999999995
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 15.764999999999999,
+          "string_tuning": 0,
+          "top_wood": 4.875,
+          "back_sides": 0.75,
+          "string_acoustic": 3.38
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tine_voicing": "aggressive_tine",
+          "tine_effect": "overdrive_tine"
+        },
+        "scores": {
+          "keyboard_technique": 15.764999999999999,
+          "tine_voicing": 0.195,
+          "tine_effect": 8.54
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.334999999999999,
+          "body_wood": 3.185,
+          "pickup_config": 0.195,
+          "string_type": 20.15,
+          "scale_length_b": 4.16,
+          "fretted_or_not": 0.3,
+          "bass_technique": 19.245
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 26.585000000000004,
+          "drumhead": 15.704999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.2,
+          "orch_strings": 0.78,
+          "orch_top_wood": 1.365,
+          "orch_back_wood": 9.224999999999998,
+          "orch_varnish": 0.9099999999999999,
+          "orch_setup_period": 1.17,
+          "orch_bow": 0.65,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.3,
+          "orch_rosin": 0.585
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_lead_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 0.19500000000000003,
+          "brass_size": 0.75,
+          "trumpet_mouthpiece": 7.085000000000001,
+          "brass_mute": 0.195,
+          "trumpet_technique": 0.19500000000000003,
+          "trumpet_bell_metal": 2.145,
+          "trumpet_maker_school": 3.4450000000000003
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 6.825,
+          "choir_polyphonic_configuration": 3.77,
+          "choir_regional_canonical_configuration": 5.045,
+          "choir_ensemble_repertoire": 2.535
+        }
+      }
+    ],
+    "room": "a_and_m_studios_hollywood",
+    "archetype": "arch_70s_la_rock_commercial",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_quad_eight_la_70s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "a_and_m_studios_hollywood",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_quad_eight_la_70s"
+  }
+}

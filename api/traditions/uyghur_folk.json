@@ -1,0 +1,156 @@
+{
+  "id": "uyghur_folk",
+  "name": "Uyghur folk music (Xinjiang village and meshrep song)",
+  "family": "global",
+  "lineage": "Turkic-Muslim tradition of the Tarim Basin oases — Kashgar, Khotan, Turpan and Ili — documented in state collecting campaigns from the 1950s and on China Record Corporation issues, distinct from the courtly On Ikki Muqam: strophic love songs and meshrep gathering songs in 7/8, 6/8 and 5/8 aksak patterns, plucked rawap and dutar with wire sympathetic strings, bowed ghijek, kalun struck zither, and the dap frame drum's dum-tek accents driving communal dance, sung in a bright nasal chest voice with heavy neighbour-tone ornament.",
+  "recipe": "classic Central Asian mid-1950s uyghur folk music, functional Song, mid east n African pop branch, Persian arab improv improv on frame, heterophonic drone modal armenian folk music wagogo nindo and cipande polyphony. thick, breath veiled tone, slow rate, interlocked note trading. rawap kashgar, turkmen long necked bagshy tradition silk canonical pre modern shashmaqam fergana tashkent maqom tradition distinct from bukharan dutar, gijjak spike fiddle, kalun uyghur zither, dap uyghur, drone like modal tanbur persian. bukhara shashmaqam courtyard chamber. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 673,
+  "score": 235.638,
+  "config": {
+    "traditions": [
+      "uyghur_folk",
+      "armenian_folk",
+      "wagogo_nindo_cipande"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
+        },
+        "scores": {
+          "voice_register": 7.825000000000002,
+          "voice_quality": 11.764999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.03,
+          "voice_articulation": 26.520000000000003,
+          "voice_microtone": 35.165000000000006,
+          "voice_tradition": 17.127499999999998,
+          "voice_mechanism_compound": 11.999999999999998,
+          "voice_estill_quality": 9.15,
+          "voice_speech_song": 31.005000000000003,
+          "voice_ensemble_config": 30.095000000000002,
+          "voice_ornament_system": 4.775,
+          "voice_pitch_organization": 5.005000000000001,
+          "voice_processing_chain": 4.225,
+          "voice_multitrack_stack": 2.4450000000000003
+        }
+      },
+      {
+        "id": "rawap_kashgar",
+        "slots": {
+          "rawap_kashgar_form": "rawap_qumul",
+          "rawap_kashgar_plectrum": "rawap_horn_pick"
+        },
+        "scores": {
+          "rawap_kashgar_form": 1.795,
+          "rawap_kashgar_plectrum": 1.735
+        }
+      },
+      {
+        "id": "dutar",
+        "slots": {
+          "dutar_body": "dutar_turkmen_long",
+          "dutar_strings": "dutar_silk_traditional",
+          "dutar_tradition": "dutar_fergana_tashkent_maqom"
+        },
+        "scores": {
+          "dutar_body": 2.535,
+          "dutar_strings": 1.2349999999999999,
+          "dutar_tradition": 12.385
+        }
+      },
+      {
+        "id": "gijjak_spike_fiddle",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "gijjak_body": "gijjak_gourd",
+          "gijjak_strings": "gijjak_three_metal"
+        },
+        "scores": {
+          "bowed_technique": 0.12999999999999998,
+          "gijjak_body": 1.5,
+          "gijjak_strings": 1.72
+        }
+      },
+      {
+        "id": "kalun_uyghur_zither",
+        "slots": {
+          "kalun_technique": "kalun_pluck_slide",
+          "kalun_strings": "kalun_single_course"
+        },
+        "scores": {
+          "kalun_technique": 0.43500000000000005,
+          "kalun_strings": 0.15
+        }
+      },
+      {
+        "id": "dap_uyghur",
+        "slots": {
+          "dap_uyghur_size": "dap_uyghur_large",
+          "dap_uyghur_technique": "dap_uyghur_center_rim"
+        },
+        "scores": {
+          "dap_uyghur_size": 0,
+          "dap_uyghur_technique": 1.15
+        }
+      },
+      {
+        "id": "tanbur_persian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "tanbur_use": "tanbur_yarsan",
+          "tanbur_persian_strings": "tanbur_persian_three",
+          "tanbur_persian_body_wood": "tanbur_mulberry_body",
+          "tanbur_persian_string_material": "tanbur_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 7.25,
+          "tanbur_use": 0.45499999999999996,
+          "tanbur_persian_strings": 4.8100000000000005,
+          "tanbur_persian_body_wood": 0.8,
+          "tanbur_persian_string_material": 0.845
+        }
+      }
+    ],
+    "room": "bukhara_shashmaqam_courtyard_chamber",
+    "archetype": "arch_china_record_state_broadcast",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "bukhara_shashmaqam_courtyard_chamber",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

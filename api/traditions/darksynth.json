@@ -3,9 +3,9 @@
   "name": "Darksynth (mid-2010s horror-cinematic synthwave)",
   "family": "electronic",
   "lineage": "Mid-2010s outrun/synthwave subgenre emphasizing aggressive, dark, horror-cinematic atmospheric register over the broader synthwave's nostalgic-cheerful aesthetic. Perturbator (James Kent, French producer) inaugurated the canonical darksynth sound through Dangerous Days (2014) and The Uncanny Valley (2016); Carpenter Brut, GosT, Dance with the Dead, and the broader Blood Music label roster extended the genre.",
-  "recipe": "classic darksynth, experimental Elec, ambient branch, thrash metal djent groove metal. pad like arpeggiated analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 553,
-  "score": 141.697,
+  "recipe": "classic darksynth, experimental Elec, ambient branch, thrash metal djent groove metal. pad like lead analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 546,
+  "score": 141.759,
   "config": {
     "traditions": [
       "darksynth",
@@ -16,18 +16,18 @@
       {
         "id": "analog_synth",
         "slots": {
-          "electronic_technique": "electronic_arpeggiated",
+          "electronic_technique": "electronic_lead_line",
           "oscillator": "saw_single",
           "filter_topology": "transistor_ladder",
           "envelope": "pad_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 9,
+          "electronic_technique": 9.04,
           "oscillator": 1.69,
-          "filter_topology": 4.5794999999999995,
+          "filter_topology": 4.4879999999999995,
           "envelope": 1.95,
-          "modulation": 0.0315
+          "modulation": 0.0765
         }
       },
       {
@@ -61,17 +61,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 24.153499999999998,
+          "electric_technique": 24.588499999999996,
           "amp_make": 17.5175,
           "body_wood": 17.744999999999997,
-          "neck_wood": 4.503,
-          "fretboard": 4.452999999999999,
+          "neck_wood": 4.4115,
+          "fretboard": 4.3614999999999995,
           "pickup_magnet": 1.3,
           "pickup_winding": 0.45499999999999996,
           "string_material": 1.6315,
-          "bridge": 4.503,
+          "bridge": 4.4115,
           "scale_length": 13.909999999999998,
-          "string_gauge": 5.3795,
+          "string_gauge": 5.288,
           "finish": 0,
           "string_tuning": 17.615
         }

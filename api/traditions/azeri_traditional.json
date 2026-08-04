@@ -1,0 +1,158 @@
+{
+  "id": "azeri_traditional",
+  "name": "Azerbaijani Traditional Music",
+  "family": "global",
+  "lineage": "Umbrella village and ashiq repertoire of Azerbaijan and Iranian Azerbaijan, transmitted by saz-playing ashiq bards and by wedding zurna-nagara duos and codified in transcription by Uzeyir Hajibeyov from the 1920s, spanning strophic ashiq epics in 6/8 declaimed over strummed drone chords, yalli line dances in 6/8 at 120-150 BPM, and Absheron wedding music where paired zurna trade a piercing lead over an unbroken circular-breathed drone and interlocking nagara.",
+  "recipe": "classic mid-1920s azerbaijani traditional music, art Music, middle eastern classical branch, middle eastern wedding, Persian arab improv improv on frame iraqi maqam tarab. vocal fry, breath veiled tone, slow rate, interlocked note trading. apricot canonical anatolian ottoman zurna, naghara balaban eleven string reformed tar azerbaijani, four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory legato kamancha, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 638,
+  "score": 218.677,
+  "config": {
+    "traditions": [
+      "azeri_traditional",
+      "iraqi_maqam",
+      "tarab_egyptian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.885,
+          "voice_quality": 8.645000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.945,
+          "voice_articulation": 12.024999999999999,
+          "voice_microtone": 25.5125,
+          "voice_tradition": 23.08,
+          "voice_mechanism_compound": 18.195,
+          "voice_estill_quality": 9.309999999999999,
+          "voice_speech_song": 12.414999999999996,
+          "voice_ensemble_config": 12.219999999999995,
+          "voice_ornament_system": 19.875,
+          "voice_pitch_organization": 19.810000000000002,
+          "voice_processing_chain": 6.629999999999999,
+          "voice_multitrack_stack": 1.885
+        }
+      },
+      {
+        "id": "zurna",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "zurna_size": "zurna_kaba",
+          "zurna_context": "zurna_sufi",
+          "zurna_body_wood": "zurna_apricot_canonical",
+          "zurna_reed": "zurna_arundo_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000001,
+          "zurna_size": 4.29,
+          "zurna_context": 0.45499999999999996,
+          "zurna_body_wood": 1.04,
+          "zurna_reed": 0.65
+        }
+      },
+      {
+        "id": "naghara_azerbaijani",
+        "slots": {
+          "naghara_size": "naghara_cura",
+          "naghara_technique": "naghara_sticks"
+        },
+        "scores": {
+          "naghara_size": 0.24,
+          "naghara_technique": 0.3
+        }
+      },
+      {
+        "id": "balaban_azerbaijani",
+        "slots": {
+          "balaban_role": "balaban_melody",
+          "balaban_body": "balaban_apricot"
+        },
+        "scores": {
+          "balaban_role": 1.885,
+          "balaban_body": 0
+        }
+      },
+      {
+        "id": "tar_azerbaijani",
+        "slots": {
+          "tar_azerbaijani_form": "tar_azerbaijani_sadigjan",
+          "tar_azerbaijani_repertoire": "tar_azerbaijani_mugham",
+          "tar_azerbaijani_membrane": "tar_azerbaijani_heart_membrane"
+        },
+        "scores": {
+          "tar_azerbaijani_form": 3.2,
+          "tar_azerbaijani_repertoire": 5.655,
+          "tar_azerbaijani_membrane": 1.25
+        }
+      },
+      {
+        "id": "kamancha",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kamancha_body": "kamancha_walnut_skin_canonical",
+          "kamancha_string": "kamancha_four_silk_or_metal",
+          "kamancha_tradition": "kamancha_persian_radif"
+        },
+        "scores": {
+          "bowed_technique": 7.5,
+          "kamancha_body": 0.65,
+          "kamancha_string": 1.04,
+          "kamancha_tradition": 4.745
+        }
+      },
+      {
+        "id": "gaval",
+        "slots": {
+          "gaval_body": "gaval_wooden_frame_internal_jingles_canonical",
+          "gaval_tradition": "gaval_khananda_canonical"
+        },
+        "scores": {
+          "gaval_body": 5.2,
+          "gaval_tradition": 1.3
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "field_recording",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

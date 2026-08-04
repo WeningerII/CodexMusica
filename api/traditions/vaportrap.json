@@ -1,0 +1,150 @@
+{
+  "id": "vaportrap",
+  "name": "Vaportrap",
+  "family": "electronic",
+  "lineage": "Internet-born hybrid formed around 2013-2016 on Bandcamp and SoundCloud, merging vaporwave's pitched-down 1980s corporate and R&B samples with Atlanta trap drum programming — 60-75 BPM half-time feel over 808 kicks with long pitch-glide sub tails, rolling triplet hi-hats, chopped and screwed vocal fragments drowned in hall reverb, and lush pad washes lifted from smooth-jazz and mall-music sources.",
+  "recipe": "classic 2013-2016 vaportrap, experimental Elec, retro aesthetic branch, us hip hop southern, lofi experimental electric dirty south rap lo-fi beats. thick, rap, straight onset, interlocked note trading. TR-808, field textural sampler, sub bass digital subtractive, sub bass analog poly synth, sampled chopped turntable. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 436,
+  "score": 288.795,
+  "config": {
+    "traditions": [
+      "vaportrap",
+      "dirty_south_rap",
+      "lofi_beats"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 10.66357142857143,
+          "drum_machine_808_context": 5.720000000000001,
+          "tr808_production_origin": 0.65
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 9.075000000000001,
+          "sampler_archetypes": 7.3125,
+          "sampler_bit_depth": 1.365,
+          "sampler_workflow": 10.163214285714288,
+          "sampler_classic_context": 27.267500000000002
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 15.18357142857143,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 22.620000000000005
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 4.900000000000001,
+          "voice_quality": 11.342500000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.675000000000001,
+          "voice_articulation": 21.97,
+          "voice_microtone": 23.724999999999994,
+          "voice_tradition": 9.62,
+          "voice_mechanism_compound": 5.719999999999999,
+          "voice_estill_quality": 5.135,
+          "voice_speech_song": 23.465,
+          "voice_ensemble_config": 21.06,
+          "voice_ornament_system": 3.3800000000000017,
+          "voice_pitch_organization": 4.943928571428572,
+          "voice_processing_chain": 7.1450000000000005,
+          "voice_multitrack_stack": 4.9399999999999995
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 15.18357142857143,
+          "poly_archetypes": 1.195,
+          "poly_voices": 1,
+          "poly_maker_lineage": -1.33
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 6.005000000000001,
+          "turntable_technique": 5.325000000000001
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "carpeted_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

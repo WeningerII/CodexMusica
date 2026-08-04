@@ -1,0 +1,191 @@
+{
+  "id": "asian_underground",
+  "name": "Asian Underground",
+  "family": "electronic",
+  "lineage": "London club-scene fusion formed 1995-2000 around Talvin Singh's Anokha nights at the Blue Note and Nitin Sawhney's Outcaste circle, welding 160-175 BPM jungle and breakbeat programming to live tabla tarang, sitar and sarangi with Hindustani raga melody and Punjabi/Bengali vocal lines sung over sampled amen edits and long dub-delayed sub-bass.",
+  "recipe": "classic mid-1990s asian underground, bass System, uk soundsystem branch, bass descendants bass system, indian classical improv improv on frame, south Asian pop functional song tamil pop baila. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar, gut 3 main playing strings tun cedar microtonal sarangi, chopped sampler, singing lead analog poly synth, suited to female vocal bronze steel mix gourd body canonical traditional ornamented tanpura. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 782,
+  "score": 248.59,
+  "config": {
+    "traditions": [
+      "asian_underground",
+      "tamil_pop",
+      "baila"
+    ],
+    "instruments": [
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 2.04,
+          "tabla_bayan": 1.3,
+          "tabla_syahi": 2.925
+        }
+      },
+      {
+        "id": "sitar",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "sitar_neck": "teak",
+          "sitar_resonator": "single_kaddu",
+          "sitar_jawari": "camel_bone",
+          "sitar_taraf": "taraf_11",
+          "sitar_frets": "tied_gut_parda",
+          "sitar_pluck": "wire_mizrab",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_jawari_style": "sitar_jawari_open",
+          "sitar_gharana": "sitar_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.4750000000000005,
+          "sitar_neck": 0.78,
+          "sitar_resonator": 0.195,
+          "sitar_jawari": 0.39,
+          "sitar_taraf": 0.195,
+          "sitar_frets": 0.3,
+          "sitar_pluck": 1.195,
+          "sitar_main_strings": 0,
+          "sitar_jawari_style": 1.045,
+          "sitar_gharana": 1.7850000000000001
+        }
+      },
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_microtonal_inflected",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_35_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "sarangi_gut_main",
+          "sarangi_body_wood": "sarangi_tun_body"
+        },
+        "scores": {
+          "bowed_technique": 3.45,
+          "sarangi_belly": 1.95,
+          "sarangi_taraf": 0,
+          "sarangi_bow": 0.585,
+          "sarangi_main_strings": 1.885,
+          "sarangi_body_wood": 1.9500000000000002
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 9.869999999999994,
+          "voice_quality": 9.945,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.445,
+          "voice_articulation": 25.02499999999999,
+          "voice_microtone": 22.03499999999999,
+          "voice_tradition": 12.12,
+          "voice_mechanism_compound": 3.035,
+          "voice_estill_quality": 4.830000000000001,
+          "voice_speech_song": 28.729999999999993,
+          "voice_ensemble_config": 23.65999999999999,
+          "voice_ornament_system": 10.415000000000001,
+          "voice_pitch_organization": 8.700000000000001,
+          "voice_processing_chain": 3.9,
+          "voice_multitrack_stack": 2.9250000000000007
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.5299999999999998,
+          "sampler_archetypes": 1.25,
+          "sampler_bit_depth": 0.5,
+          "sampler_workflow": 3.4800000000000004,
+          "sampler_classic_context": 24.049999999999997
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 7.420000000000001,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.9800000000000001
+        }
+      },
+      {
+        "id": "tanpura",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "tanpura_size": "female_size",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "five_string_chitra",
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_gourd_body"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.4750000000000005,
+          "tanpura_size": 3.445,
+          "tanpura_jawari": 2.5,
+          "tanpura_strings": 1.345,
+          "tanpura_string_material": 1.9500000000000002,
+          "tanpura_body_wood": 1.9500000000000002
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

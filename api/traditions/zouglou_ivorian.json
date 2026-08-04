@@ -3,14 +3,14 @@
   "name": "Zouglou (Ivorian student music)",
   "family": "global",
   "lineage": "Zouglou Ivorian student-and-popular music emerging in 1990 at the University of Abidjan dormitories as a participatory call-and-response song-and-dance form expressing political commentary. The genre arose from the older bidakouro Bété percussion-and-vocal tradition adapted with French-language and Nouchi-slang lyrics. Performance grew from a-cappella dormitory-circle form into commercial studio recording from 1992 onward. Magic System's 1ère Gaou (1999) became the first international-crossover zouglou hit.",
-  "recipe": "classic West African early-1990s zouglou, functional Song, African pop branch, Afro-diasporic MC rhythm kwaito afroswing. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, electric bass, clean strummed single coil electric guitar. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 483,
-  "score": 163.826,
+  "recipe": "classic West African early-1990s zouglou, functional Song, African pop branch, Afro-diasporic MC rhythm kwaito merenrap. extended whistle, breath veiled tone, straight onset, interlocked note trading. TR-808, electric bass, clean strummed single coil electric guitar. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 478,
+  "score": 143.253,
   "config": {
     "traditions": [
       "zouglou_ivorian",
       "kwaito",
-      "afroswing"
+      "merenrap"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.5975,
-          "voice_quality": 7.8,
+          "voice_register": 4.8100000000000005,
+          "voice_quality": 9.620000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8449999999999999,
-          "voice_articulation": 20.604999999999997,
-          "voice_microtone": 19.109999999999992,
-          "voice_tradition": 19.6625,
-          "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 3.5750000000000006,
-          "voice_speech_song": 23.009999999999994,
-          "voice_ensemble_config": 18.199999999999996,
-          "voice_ornament_system": 2.925000000000001,
-          "voice_pitch_organization": 2.0149999999999997,
-          "voice_processing_chain": 7.554,
-          "voice_multitrack_stack": 3.12
+          "voice_vibrato": 0.52,
+          "voice_articulation": 17.224999999999994,
+          "voice_microtone": 14.884999999999993,
+          "voice_tradition": 17.344,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 19.434999999999995,
+          "voice_ensemble_config": 14.819999999999993,
+          "voice_ornament_system": 3.1200000000000014,
+          "voice_pitch_organization": 2.125,
+          "voice_processing_chain": 7.383000000000001,
+          "voice_multitrack_stack": 4.095000000000001
         }
       },
       {
@@ -57,33 +57,33 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_rb",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 0.5199999999999999,
-          "drum_machine_808_context": 3.3770000000000002,
-          "tr808_production_origin": 0.8819999999999999
+          "tr808_voice": 0.325,
+          "drum_machine_808_context": 3.6125,
+          "tr808_production_origin": 0.195
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_orange",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "half_round",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 0.5199999999999999,
-          "body_wood": 0.585,
-          "pickup_config": 0.336,
-          "string_type": 1.2349999999999999,
-          "scale_length_b": 0.585,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 0.5199999999999999
+          "amp_make": 0.26,
+          "body_wood": 0.39,
+          "pickup_config": 0.21300000000000002,
+          "string_type": 0.6499999999999999,
+          "scale_length_b": 0.30300000000000005,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 0.12999999999999998
         }
       },
       {
@@ -93,7 +93,7 @@
           "amp_make": "amp_american_fender_champ",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
@@ -103,18 +103,18 @@
           "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 11.65,
-          "amp_make": 1.5444999999999998,
-          "body_wood": 0.585,
-          "neck_wood": 0.585,
-          "fretboard": 0.5199999999999999,
-          "pickup_magnet": 0.195,
-          "string_material": 0.65,
-          "string_gauge": 0.585,
-          "bridge": 0.195,
-          "scale_length": 0.585,
+          "electric_technique": 10.65,
+          "amp_make": 1.1949999999999998,
+          "body_wood": 0.195,
+          "neck_wood": 0.195,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.045,
+          "string_material": 0.3,
+          "string_gauge": 0.195,
+          "bridge": 0.21300000000000002,
+          "scale_length": 0.195,
           "finish": 0,
-          "string_tuning": 0.546
+          "string_tuning": 0.273
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Fusion codified in 2019-2020 by Natanael Cano and the Rancho Humilde label in Los Angeles and Hermosillo, grafting trap-rap phrasing, cadence and lyric attitude onto the sierreño acoustic trio — requinto lead over strummed rhythm guitar and tuba or tololoche bass at 70-100 BPM, sometimes with added 808 sub and trap hi-hat rolls, and rapped-sung nasal lead vocals with light Auto-Tune narrating contemporary narco and flex themes",
   "recipe": "classic 2019-2020 corridos tumbados, functional Song, corrido branch, Mexican functional song, reggaeton MC rhythm, tejano border ranchera grupera. vocal fry, full chest belt, straight onset, interlocked note trading. low mid rich spectrum cedar classical nylon-string guitar, dreadnought bass phosphor bronze light gauge acoustic guitar 12 string, compact tuba brass tuba, tololoche, behringer rd 8 modern clone analog circuit reproduction TR-808, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track natural blend light common bus EQ multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 788,
-  "score": 223.456,
+  "score": 223.411,
   "config": {
     "traditions": [
       "corridos_tumbados",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 1.65,
-          "voice_quality": 21.539999999999992,
+          "voice_quality": 21.52499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.56,
@@ -111,7 +111,7 @@
         },
         "scores": {
           "tololoche_size": 3.3150000000000004,
-          "tololoche_technique": 0.165
+          "tololoche_technique": 0.15
         }
       },
       {
@@ -122,7 +122,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 4.859375000000001,
+          "tr808_voice": 4.844375000000001,
           "drum_machine_808_context": 6.240000000000001,
           "tr808_production_origin": 1.04
         }

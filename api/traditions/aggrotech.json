@@ -1,0 +1,140 @@
+{
+  "id": "aggrotech",
+  "name": "Aggrotech",
+  "family": "electronic",
+  "lineage": "Late-1990s/2000s harsh EBM variant developed in Germany and Central Europe around the Out of Line and Alfa Matrix labels, built on 140-150 BPM four-on-the-floor kicks, distorted rolling sixteenth-note bass sequences, sidechained pads, and screamed vocals run through heavy distortion and pitch-shift, with horror-film and clinical spoken-word samples as intros.",
+  "recipe": "classic 1997-1999 aggrotech, experimental Elec, industrial noise branch, hardstyle electronic dance, techno electronic dance electro backbeat schranz. thick, breath veiled tone, straight note core, interlocked note trading. sub bass analog poly glitched textural wavetable synth, sampler drum machine, TR-909. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 503,
+  "score": 163.95,
+  "config": {
+    "traditions": [
+      "aggrotech",
+      "electro_backbeat",
+      "schranz"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 2.4750000000000014,
+          "voice_quality": 10.464999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.6899999999999997,
+          "voice_articulation": 18.394999999999996,
+          "voice_microtone": 18.329999999999995,
+          "voice_tradition": 5.86,
+          "voice_mechanism_compound": 7.1825,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 18.394999999999996,
+          "voice_ensemble_config": 19.889999999999993,
+          "voice_ornament_system": 1.2174999999999998,
+          "voice_pitch_organization": 1.79,
+          "voice_processing_chain": 15.305,
+          "voice_multitrack_stack": 4.355
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 3.2825000000000006,
+          "poly_archetypes": 1.04,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": -1.6599999999999997
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 5.450000000000001,
+          "wt_position": 6.825,
+          "wt_family": 0.7475,
+          "wt_polyphony": 0.46
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 0.6174999999999999,
+          "sample_bitdepth": 2.08,
+          "sample_swing": 13.125,
+          "sample_processing": 1.45
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0.25,
+          "drum_machine_909_context": 2.0675,
+          "tr909_production_origin": 0.635
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

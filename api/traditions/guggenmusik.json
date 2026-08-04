@@ -1,0 +1,154 @@
+{
+  "id": "guggenmusik",
+  "name": "Guggenmusik",
+  "family": "global",
+  "lineage": "Swiss carnival brass practice formalized in Basel and Lucerne in the 1930s and expanded through post-war Fasnacht and Fasnet cliques in Switzerland, Alsace and southwest Germany — massed trumpets, trombones, sousaphones and percussion marching at roughly 100-130 BPM playing familiar pop and march tunes deliberately out of tune, with smeared attacks, scooped entries and blown-out fortissimo, driven by bass drum and snare in simple duple patterns.",
+  "recipe": "classic mid-1930s guggenmusik, carnival Processional, European branch, American marching groove percussion, European drinking song american drumline tamborazo zacatecano. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor bass trombone trombone, eb bass oompah march marching sousaphone, silver plated British brass band ceremonial besson sovereign canonical British brass band euphonium, double bass rapid double strokes bass five drum arc kevlar aramid extreme tension nylon tenor drum, softer tone ebonite hard rubber klezmer tradition clarinet. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 815,
+  "score": 110.53,
+  "config": {
+    "traditions": [
+      "guggenmusik",
+      "american_drumline",
+      "tamborazo"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.5999999999999996,
+          "brass_size": 0.135,
+          "trumpet_mouthpiece": 2.0149999999999997,
+          "brass_mute": 0.39,
+          "trumpet_technique": 2.5999999999999996,
+          "trumpet_bell_metal": 1.69,
+          "trumpet_maker_school": 3.7049999999999996
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.5999999999999996,
+          "trombone_type": 0.435,
+          "trombone_mouthpiece": 3.38,
+          "trombone_mute": 0.195,
+          "trombone_technique": 1.235,
+          "trombone_bell_metal": 1.885,
+          "trombone_maker_school": 4.549999999999999
+        }
+      },
+      {
+        "id": "sousaphone",
+        "slots": {
+          "sousaphone_bore": "sousaphone_eb_bass",
+          "sousaphone_context": "sousaphone_oompah_march"
+        },
+        "scores": {
+          "sousaphone_bore": 2.795,
+          "sousaphone_context": 7.93
+        }
+      },
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "euph_use": "euph_orchestral",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_silver_plated",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": 0.39,
+          "euph_use": 1.885,
+          "euphonium_pitch": 3.12,
+          "euphonium_bell_metal": 3.575,
+          "euphonium_maker_school": 2.925
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.195,
+          "bass_drum_beater": 3.445
+        }
+      },
+      {
+        "id": "tenor_drum",
+        "slots": {
+          "tenor_drum_form": "tenor_drum_corps_multi",
+          "tenor_drum_head": "tenor_drum_kevlar",
+          "tenor_drum_beater": "tenor_drum_corps_mallets",
+          "tenor_drum_shell": "tenor_drum_corps_shell"
+        },
+        "scores": {
+          "tenor_drum_form": 17.72,
+          "tenor_drum_head": 12.295,
+          "tenor_drum_beater": 12.385,
+          "tenor_drum_shell": 11.95
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "contra_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 2.5999999999999996,
+          "clarinet_body": 2.7950000000000004,
+          "clarinet_size": 0.435,
+          "clarinet_reed": 0.195,
+          "clarinet_articulation": 0.45499999999999996
+        }
+      }
+    ],
+    "room": "urban_courtyard",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "urban_courtyard",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

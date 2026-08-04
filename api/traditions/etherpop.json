@@ -3,14 +3,14 @@
   "name": "Etherpop",
   "family": "electronic",
   "lineage": "North American and northern-European bedroom-to-label electronic pop of 2011-2016 — Purity Ring, Grimes, Chvrches and Sylvan Esso — built at 90-125 BPM on pitched vocal samples, reverb-drenched bell and marimba-timbre synth leads, sub-bass and trap-derived hi-hat rolls under a high, breathy, heavily reverbed and layered female lead, arrangements assembled in the box with almost no acoustic sourcing and no live drum performance.",
-  "recipe": "classic mid-2010s etherpop, experimental Elec, pop experimental branch, pop rock synthpop, ambient experimental electric, lofi experimental electric shiver pop metropopolis. thick, breath veiled tone, breath pulsed, interlocked note trading. lead plus dense cluster 5 part stack 2010s melodyne microtuned stack chorus detuned thickener across stack multitrack vocal stack, singing lead wavetable glitched textural granular singing lead analog poly synth, sampler drum machine, high-gain-saturation sub bass monosynth acid bass, glockenspiel. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 649,
-  "score": 309.109,
+  "recipe": "classic mid-2010s etherpop, experimental Elec, pop experimental branch, pop rock synthpop, ambient experimental electric, lofi experimental electric shiver pop wonky pop. thick, breath veiled tone, fast rate, interlocked note trading. lead plus third fifth 3 part stack heavy bus compression glue post 2010 multitrack vocal stack, singing lead wavetable glitched textural granular singing lead analog poly synth, sampler drum machine, high-gain-saturation sub bass monosynth acid bass, glockenspiel. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 607,
+  "score": 287.281,
   "config": {
     "traditions": [
       "etherpop",
       "shiver_pop",
-      "metropopolis"
+      "wonky_pop"
     ],
     "instruments": [
       {
@@ -20,12 +20,12 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_falsetto",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
@@ -34,35 +34,35 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 31.709999999999994,
-          "voice_quality": 6.500000000000001,
+          "voice_register": 31.074999999999992,
+          "voice_quality": 5.200000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.65,
-          "voice_articulation": 20.994999999999997,
-          "voice_microtone": 30.674999999999997,
-          "voice_tradition": 25.82,
-          "voice_mechanism_compound": 2.5349999999999997,
-          "voice_estill_quality": 2.21,
-          "voice_speech_song": 24.504999999999995,
-          "voice_ensemble_config": 20.474999999999998,
-          "voice_ornament_system": 2.5999999999999996,
-          "voice_pitch_organization": 2.4700000000000006,
-          "voice_processing_chain": 10.539375,
-          "voice_multitrack_stack": 6.703124999999999
+          "voice_articulation": 19.11,
+          "voice_microtone": 29.799999999999997,
+          "voice_tradition": 26.169999999999998,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 2.85875,
+          "voice_speech_song": 23.464999999999996,
+          "voice_ensemble_config": 19.044999999999998,
+          "voice_ornament_system": 3.3999999999999995,
+          "voice_pitch_organization": 3.5100000000000016,
+          "voice_processing_chain": 8.414375,
+          "voice_multitrack_stack": 6.548124999999999
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_5_part_cluster",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
-          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 3.104375,
-          "multitrack_stack_era_aesthetic": 2.4050000000000002,
-          "multitrack_stack_processing": 1.95
+          "multitrack_stack_density": 2.535,
+          "multitrack_stack_era_aesthetic": 0.4549999999999999,
+          "multitrack_stack_processing": 1.3
         }
       },
       {
@@ -74,10 +74,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 25.489375,
-          "wt_position": 4.095,
-          "wt_family": 2.559375,
-          "wt_polyphony": 3.0143750000000002
+          "electronic_technique": 23.809374999999996,
+          "wt_position": 2.9899999999999998,
+          "wt_family": 2.4093750000000003,
+          "wt_polyphony": 2.535
         }
       },
       {
@@ -89,10 +89,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sample_bitdepth": 2.145,
-          "sample_swing": 7.92,
-          "sample_processing": 0.39
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 1.495,
+          "sample_swing": 5.795,
+          "sample_processing": 0.195
         }
       },
       {
@@ -104,10 +104,10 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 6.91,
-          "wave_acid": 2.535,
+          "electronic_technique": 6.800000000000001,
+          "wave_acid": 2.3643750000000003,
           "filter_acid": 2.169375,
-          "accent_acid": 0.24
+          "accent_acid": 0.135
         }
       },
       {
@@ -120,7 +120,7 @@
         "scores": {
           "electronic_technique": 12.065,
           "granular_use": 0.24,
-          "granular_synth_source": 6.175
+          "granular_synth_source": 6.1431249999999995
         }
       },
       {
@@ -128,14 +128,14 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 25.489375,
-          "poly_archetypes": 4.680000000000001,
-          "poly_voices": 0.24,
-          "poly_maker_lineage": -0.7350000000000001
+          "electronic_technique": 23.809374999999996,
+          "poly_archetypes": 5.330000000000001,
+          "poly_voices": 0.54,
+          "poly_maker_lineage": -1.435
         }
       },
       {
@@ -143,12 +143,12 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "glockenspiel_size": "glockenspiel_orch_3",
-          "glockenspiel_mallet": "glockenspiel_plastic"
+          "glockenspiel_mallet": "glockenspiel_rubber"
         },
         "scores": {
           "percussion_technique": -0.05,
-          "glockenspiel_size": 1.04,
-          "glockenspiel_mallet": 0.345
+          "glockenspiel_size": 0.845,
+          "glockenspiel_mallet": 0.24
         }
       }
     ],

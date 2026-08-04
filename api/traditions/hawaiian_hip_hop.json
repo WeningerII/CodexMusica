@@ -3,14 +3,14 @@
   "name": "Hawaiian hip hop",
   "family": "hip_hop",
   "lineage": "Oʻahu and Maui scene formed in the early 1990s as Honolulu MCs grafted local pidgin-English rhyming onto reggae-inflected boom-bap, codified by Sudden Rush's Hawaiian-language 'na mele paleoleo' records from 1995 onward and by the Jawaiian-adjacent island-rap circuit — 88-100 BPM half-time drums, one-drop and steppers bass patterns borrowed from roots reggae, ukulele and slack-key guitar samples or live overdubs, and a relaxed conversational flow that switches between English, Hawaiian Pidgin and ʻōlelo Hawaiʻi.",
-  "recipe": "classic 1990-1993 hawaiian hip hop, mc Rhythm, intl hip hop branch, reggae diaspora bass system, string drone modal huayno brazilian reggae. extended whistle, rap, slow rate, interlocked note trading. traditional koa ukulele, sampled chopped sampler drum machine, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, sampled chopped turntable, mahogany rosewood open string slide resonance clean strummed single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 627,
-  "score": 245.937,
+  "recipe": "classic 1990-1993 hawaiian hip hop, mc Rhythm, intl hip hop branch, reggae diaspora bass system, string drone modal kaneka seggae. rap, slow rate, interlocked note trading, neutral third half flat. traditional koa ukulele, sampled chopped sampler drum machine, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, sampled chopped turntable, mahogany rosewood clean strummed single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 599,
+  "score": 250.62,
   "config": {
     "traditions": [
       "hawaiian_hip_hop",
-      "andean_huayno",
-      "brazilian_reggae"
+      "kaneka",
+      "seggae"
     ],
     "instruments": [
       {
@@ -25,44 +25,44 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.0725,
-          "voice_quality": 10.835,
+          "voice_register": 0.4225,
+          "voice_quality": 11.194999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0799999999999996,
-          "voice_articulation": 20.214999999999996,
-          "voice_microtone": 24.959999999999994,
-          "voice_tradition": 13.894999999999998,
-          "voice_mechanism_compound": 5.005,
-          "voice_estill_quality": 2.8200000000000003,
-          "voice_speech_song": 22.554999999999996,
-          "voice_ensemble_config": 18.654999999999998,
-          "voice_ornament_system": 4.665,
-          "voice_pitch_organization": 3.4750000000000005,
-          "voice_processing_chain": 7.444999999999999,
-          "voice_multitrack_stack": 6.305000000000001
+          "voice_vibrato": 2.73,
+          "voice_articulation": 18.784999999999993,
+          "voice_microtone": 21.44999999999999,
+          "voice_tradition": 11.454999999999998,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 20.734999999999992,
+          "voice_ensemble_config": 17.029999999999994,
+          "voice_ornament_system": 2.8600000000000003,
+          "voice_pitch_organization": 2.7350000000000008,
+          "voice_processing_chain": 7.854999999999999,
+          "voice_multitrack_stack": 6.467500000000001
         }
       },
       {
         "id": "ukulele",
         "slots": {
-          "ukulele_size": "ukulele_concert",
+          "ukulele_size": "ukulele_soprano",
           "ukulele_style": "ukulele_strum",
           "ukulele_wood": "ukulele_koa"
         },
         "scores": {
-          "ukulele_size": 9.75,
-          "ukulele_style": 11.379999999999999,
-          "ukulele_wood": 10.229999999999999
+          "ukulele_size": 10.625,
+          "ukulele_style": 11.679999999999998,
+          "ukulele_wood": 9.75
         }
       },
       {
@@ -74,42 +74,42 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 4.449999999999999,
+          "electronic_technique": 4.84,
           "sample_bitdepth": 1.9500000000000002,
           "sample_swing": 6.5,
-          "sample_processing": 1.4949999999999999
+          "sample_processing": 2.145
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 4.8100000000000005,
+          "amp_make": 6.369999999999999,
           "body_wood": 2.145,
-          "pickup_config": 0.545,
-          "string_type": 6.240000000000001,
-          "scale_length_b": 1.4949999999999999,
-          "fretted_or_not": 0.15,
-          "bass_technique": 12.54
+          "pickup_config": 0.195,
+          "string_type": 8.45,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 0,
+          "bass_technique": 17.95
         }
       },
       {
         "id": "turntable",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_backspin"
+          "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 4.449999999999999,
-          "turntable_technique": 4.529999999999999
+          "electronic_technique": 4.84,
+          "turntable_technique": 5.085
         }
       },
       {
@@ -121,26 +121,26 @@
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_3",
-          "string_material": "pure_nickel",
-          "string_gauge": "g_12",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "open_g"
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 5.75,
-          "amp_make": 1.2999999999999998,
-          "body_wood": 1.4949999999999999,
-          "neck_wood": 1.4949999999999999,
-          "fretboard": 1.4299999999999997,
+          "electric_technique": 6.5,
+          "amp_make": 2.1449999999999996,
+          "body_wood": 2.145,
+          "neck_wood": 2.145,
+          "fretboard": 2.0799999999999996,
           "pickup_magnet": 0,
-          "string_material": 0.19500000000000003,
-          "string_gauge": 1.4949999999999999,
-          "bridge": 0.545,
-          "scale_length": 1.4949999999999999,
-          "finish": 0.21,
-          "string_tuning": 3.185
+          "string_material": 0,
+          "string_gauge": 2.145,
+          "bridge": 0.195,
+          "scale_length": 2.145,
+          "finish": 0,
+          "string_tuning": 0.9600000000000001
         }
       }
     ],

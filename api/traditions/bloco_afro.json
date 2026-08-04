@@ -1,0 +1,138 @@
+{
+  "id": "bloco_afro",
+  "name": "Bloco afro (Salvador carnival)",
+  "family": "global",
+  "lineage": "Salvador da Bahia carnival percussion movement launched by Ilê Aiyê in 1974 and reshaped by Olodum's samba-reggae in the mid-1980s under Neguinho do Samba — massed surdos in three tuned voices playing a displaced reggae-derived bass pattern under repique lead calls, snapping caixas and tamborim breaks at roughly 100 BPM, with unison black-consciousness refrains sung over the top while marching.",
+  "recipe": "classic Southern American 1984-1986 bloco afro, carnival Processional, Brazilian branch, Brazilian groove percussion, reggae diaspora bass system pagode roda de samba. thick, breath veiled tone, slow rate, interlocked note trading. nylon canonical rio carnival aluminum canonical modern rio escola surdo, samba tradition metal construction repinique, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, agogo, samba tradition metal construction ganza. escola samba quadra. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+  "recipe_chars": 602,
+  "score": 200.397,
+  "config": {
+    "traditions": [
+      "bloco_afro",
+      "pagode",
+      "roda_de_samba"
+    ],
+    "instruments": [
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_segunda",
+          "surdo_skin": "surdo_nylon",
+          "surdo_shell": "surdo_aluminum_canonical"
+        },
+        "scores": {
+          "surdo_size": 0.195,
+          "surdo_skin": 8.45,
+          "surdo_shell": 2.8600000000000003
+        }
+      },
+      {
+        "id": "repinique",
+        "slots": {
+          "repinique_shell": "repinique_metal",
+          "repinique_technique": "repinique_one_stick_one_hand"
+        },
+        "scores": {
+          "repinique_shell": 7.994999999999998,
+          "repinique_technique": 7.994999999999998
+        }
+      },
+      {
+        "id": "tamborim",
+        "slots": {
+          "tamborim_skin": "tamborim_nylon",
+          "tamborim_striker": "tamborim_cluster",
+          "tamborim_shell": "tamborim_aluminum_canonical"
+        },
+        "scores": {
+          "tamborim_skin": 5.59,
+          "tamborim_striker": 13.389999999999997,
+          "tamborim_shell": 2.8600000000000003
+        }
+      },
+      {
+        "id": "agogo",
+        "slots": {
+          "agogo_bell": "agogo_double",
+          "agogo_context": "agogo_bateria"
+        },
+        "scores": {
+          "agogo_bell": 8.189999999999998,
+          "agogo_context": 5.785
+        }
+      },
+      {
+        "id": "ganza",
+        "slots": {
+          "ganza_source": "ganza_metal_cylinder"
+        },
+        "scores": {
+          "ganza_source": 7.994999999999998
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 2.1000000000000014,
+          "voice_quality": 30.61499999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.11,
+          "voice_articulation": 16.249999999999996,
+          "voice_microtone": 13.714999999999991,
+          "voice_tradition": 5.720000000000001,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 3.7700000000000005,
+          "voice_speech_song": 15.729999999999995,
+          "voice_ensemble_config": 14.819999999999997,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 1.44,
+          "voice_processing_chain": 7.169999999999999,
+          "voice_multitrack_stack": 9.074999999999998
+        }
+      }
+    ],
+    "room": "escola_samba_quadra",
+    "archetype": "arch_mobile_remote_truck",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "samba_2_4_telecoteco",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "samba_2_4_telecoteco",
+    "room": "escola_samba_quadra",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "colored"
+  }
+}

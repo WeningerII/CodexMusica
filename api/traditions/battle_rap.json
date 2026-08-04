@@ -1,0 +1,102 @@
+{
+  "id": "battle_rap",
+  "name": "Battle Rap",
+  "family": "hip_hop",
+  "lineage": "Competitive rhymed-insult performance descending from Bronx park-jam MC clashes of the late 1970s, formalised through Scribble Jam and Blaze Battle in the 1990s, BET 106 & Park's Freestyle Friday, and after 2008 the a cappella league format of Smack/URL, King of the Dot and Don't Flop — three timed rounds, no instrumental backing, written multi-bar schemes packed with rebuttals, delivered at conversational tempo to a crowd whose reaction is part of the performance.",
+  "recipe": "classic 1977-1979 battle rap, mc Rhythm, us hip hop branch, us hip hop east coast, intl hip hop MC rhythm drumless hip hop new jersey rap. thick, rap, straight onset, narrative. snappy to palm hand clap, sampled chopped turntable. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 310,
+  "score": 161.752,
+  "config": {
+    "traditions": [
+      "battle_rap",
+      "drumless_hip_hop",
+      "new_jersey_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.565000000000001,
+          "voice_quality": 28.89,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.3899999999999997,
+          "voice_articulation": 12.660000000000002,
+          "voice_microtone": 10.269999999999996,
+          "voice_tradition": 10.185000000000002,
+          "voice_mechanism_compound": 3.1849999999999996,
+          "voice_estill_quality": 3.5300000000000007,
+          "voice_speech_song": 28.075000000000003,
+          "voice_ensemble_config": 10.205,
+          "voice_ornament_system": 7.345000000000002,
+          "voice_pitch_organization": 2.92,
+          "voice_processing_chain": 17.150000000000002,
+          "voice_multitrack_stack": 4.452500000000001
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 2.795,
+          "clap_capture": 0.7799999999999999
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 9.610000000000001,
+          "turntable_technique": 14.195
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "field_recording",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

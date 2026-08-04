@@ -1,0 +1,183 @@
+{
+  "id": "cumbia_rap",
+  "name": "Cumbia Rap",
+  "family": "hip_hop",
+  "lineage": "Mexican and Colombian crossover consolidated in Monterrey and Medellín through the 1990s, with Control Machete's collaborations with accordionist Celso Piña and El Gran Silencio as the pivot, rapping in Spanish over 90-100 BPM cumbia paseo grooves whose guacharaca scrape and alegre-drum backbeat are looped as breaks under accordion or gaita riffs and 808 sub-bass.",
+  "recipe": "classic mid-1990s cumbia rap, mc Rhythm, intl hip hop branch, tropical song functional song, Latin am groove percussion cumbia chilena cumbia sonidera. full chest belt, straight onset, interlocked note trading, neutral third half flat. low overtone rich low onset attack brass accordion, guacharaca, alegre drum, llamador, pitched chopped sampler, heavy gauge flatwound la bella flats Detroit soul bass canon electric bass, sampled chopped turntable. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 644,
+  "score": 200.67,
+  "config": {
+    "traditions": [
+      "cumbia_rap",
+      "cumbia_chilena",
+      "cumbia_sonidera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.39,
+          "voice_quality": 14.224999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.3649999999999998,
+          "voice_articulation": 20.084999999999997,
+          "voice_microtone": 19.889999999999993,
+          "voice_tradition": 7.770000000000001,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 3.9000000000000004,
+          "voice_speech_song": 23.919999999999998,
+          "voice_ensemble_config": 20.864999999999995,
+          "voice_ornament_system": 2.3400000000000003,
+          "voice_pitch_organization": 1.195,
+          "voice_processing_chain": 7.000000000000001,
+          "voice_multitrack_stack": 4.160000000000001
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 2.5350000000000006,
+          "accordion_reed_material": 1.4499999999999997,
+          "musette_offset": 0.78,
+          "reed_config": 0.15,
+          "bellows": 0.78,
+          "voicing_chamber": 0.435,
+          "accordion_maker_school": 0.885
+        }
+      },
+      {
+        "id": "guacharaca",
+        "slots": {
+          "guacharaca_body": "guacharaca_palm_wood"
+        },
+        "scores": {
+          "guacharaca_body": 0.195
+        }
+      },
+      {
+        "id": "alegre_drum",
+        "slots": {
+          "alegre_role": "alegre_cumbia",
+          "alegre_head": "alegre_deerskin",
+          "alegre_shell": "alegre_ceiba"
+        },
+        "scores": {
+          "alegre_role": 0,
+          "alegre_head": 0.195,
+          "alegre_shell": 0.15
+        }
+      },
+      {
+        "id": "llamador",
+        "slots": {
+          "llamador_pattern": "llamador_offbeat",
+          "llamador_head": "llamador_tight"
+        },
+        "scores": {
+          "llamador_pattern": 0.65,
+          "llamador_head": 0.15
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 3.1000000000000005,
+          "sampler_archetypes": 5.19,
+          "sampler_bit_depth": 0.69,
+          "sampler_workflow": 3.795,
+          "sampler_classic_context": 26.064999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 2.73,
+          "body_wood": 0.65,
+          "pickup_config": 0.345,
+          "string_type": 4.355,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.3,
+          "bass_technique": 1.5750000000000002
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 3.1000000000000005,
+          "turntable_technique": 4.125
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "cumbia_4_4_paseo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cumbia_4_4_paseo",
+    "room": "studio_distributed_production",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

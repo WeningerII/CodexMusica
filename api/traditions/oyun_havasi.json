@@ -1,0 +1,167 @@
+{
+  "id": "oyun_havasi",
+  "name": "Oyun Havası",
+  "family": "global",
+  "lineage": "Turkish instrumental dance-tune repertoire performed at weddings, henna nights and circumcision feasts across Anatolia and Thrace, professionalized by Roman (Çingene) musician families in Istanbul and Edirne — brisk 9/8 karşılama and roman havası, 4/4 çiftetelli and 7/8 patterns led by clarinet, zurna or cümbüş over davul and darbuka, with heavily ornamented improvised gazino breaks between fixed dance strains.",
+  "recipe": "classic mid-1980s oyun havası, wedding, middle eastern branch, west African groove percussion, mid east n African pop functional song mezwed shaabi. dense hardwood grenadilla African blackwood traditional clarinet, booming and ticking davul zurna, zurna, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, ornamented cumbus, kanun ornamented tortoiseshell traditional kanun, fast-attack-transient mid rich alder electric bass, def turkish. urban courtyard. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 577,
+  "score": 91.381,
+  "config": {
+    "traditions": [
+      "oyun_havasi",
+      "mezwed",
+      "shaabi"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_split_tone_overblown",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.78,
+          "clarinet_body": 4.2250000000000005,
+          "clarinet_size": 0.8250000000000001,
+          "clarinet_reed": 0.8250000000000001,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "davul_zurna",
+        "slots": {
+          "davul_zurna_region": "davul_zurna_anatolian",
+          "davul_zurna_zurna_size": "davul_zurna_kaba",
+          "davul_zurna_drum": "davul_zurna_tokmak"
+        },
+        "scores": {
+          "davul_zurna_region": 4.484999999999999,
+          "davul_zurna_zurna_size": 0.195,
+          "davul_zurna_drum": 20.604999999999997
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_brass",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": 0.6499999999999999,
+          "darbuka_material": 0.78,
+          "darbuka_skin": 3.4589285714285714,
+          "darbuka_regional_style": 5.364285714285715
+        }
+      },
+      {
+        "id": "cumbus",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "cumbus_neck": "cumbus_oud_neck",
+          "cumbus_context": "cumbus_balkan",
+          "cumbus_body": "cumbus_brass_rim",
+          "cumbus_head_skin": "cumbus_synthetic_head",
+          "cumbus_strings": "cumbus_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.205714285714286,
+          "cumbus_neck": 0.195,
+          "cumbus_context": 0.65,
+          "cumbus_body": 0.78,
+          "cumbus_head_skin": 0.35571428571428565,
+          "cumbus_strings": 0.4007142857142857
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "kanun_school": "kanun_turkish",
+          "kanun_articulation": "kanun_tortoiseshell_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.205714285714286,
+          "kanun_school": 3.2,
+          "kanun_articulation": 2.7950000000000004
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "half_round",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 2.527142857142858,
+          "body_wood": 4.55,
+          "pickup_config": 1.69,
+          "string_type": 4.027142857142858,
+          "scale_length_b": 2.8171428571428576,
+          "fretted_or_not": 0.24,
+          "bass_technique": -0.035
+        }
+      },
+      {
+        "id": "def_turkish",
+        "slots": {
+          "def_jingles": "def_jingled",
+          "def_technique": "def_finger"
+        },
+        "scores": {
+          "def_jingles": 0,
+          "def_technique": 3.8842857142857143
+        }
+      },
+      {
+        "id": "zurna",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "zurna_size": "zurna_kaba",
+          "zurna_context": "zurna_sufi",
+          "zurna_body_wood": "zurna_plum",
+          "zurna_reed": "zurna_arundo_canonical"
+        },
+        "scores": {
+          "wind_articulation": 1.8557142857142856,
+          "zurna_size": 2.818214285714286,
+          "zurna_context": 0.105,
+          "zurna_body_wood": 0.045,
+          "zurna_reed": 0
+        }
+      }
+    ],
+    "room": "urban_courtyard",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "urban_courtyard",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

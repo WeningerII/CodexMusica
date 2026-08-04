@@ -1,0 +1,219 @@
+{
+  "id": "philly_soul",
+  "name": "Philly Soul",
+  "family": "blues_gospel",
+  "lineage": "Philadelphia orchestral soul codified 1971-1979 by Kenny Gamble, Leon Huff and arranger Thom Bell at Sigma Sound Studios with the MFSB house band, built on Earl Young's four-on-the-floor kick with open hi-hat on the upbeats (the proto-disco pattern), Ronnie Baker's melodic bass, Norman Harris and Bobby Eli's clean rhythm guitar, sweeping violin and harp lines, Vince Montana's vibraphone, and smooth gospel-tenor or falsetto group vocals at 100-120 BPM.",
+  "recipe": "classic North American mid-1970s philly soul, functional Song, soul R&B branch, funk percussive groove percussion, crooners functional song boogie brit funk. thick, blues-shouter, straight onset, interlocked note trading. vintage ambassador asymmetric brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, steel hard rock maple acer saccharum Baroque setup short neck violin orchestral, vibraphone, concert harp, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor ensemble student commercial trombone. philadelphia 212 north 12th street 1968-2003 mid tier sigma sound studios philadelphia. Neumann U87, console-strip pre, MCI JH-636 US 70s indie/jazz, LA-2A optical, parametric EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 924,
+  "score": 423.167,
+  "config": {
+    "traditions": [
+      "philly_soul",
+      "boogie_post_disco",
+      "brit_funk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 23.539999999999996,
+          "voice_quality": 15.04499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.7349999999999994,
+          "voice_articulation": 18.264999999999993,
+          "voice_microtone": 17.87499999999999,
+          "voice_tradition": 18.269999999999996,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 17.189999999999994,
+          "voice_speech_song": 22.619999999999994,
+          "voice_ensemble_config": 22.684999999999988,
+          "voice_ornament_system": 0.9099999999999997,
+          "voice_pitch_organization": 0.7949999999999998,
+          "voice_processing_chain": 14.34,
+          "voice_multitrack_stack": 8.15
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.34499999999999,
+          "drumhead": 6.315,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 20.124999999999993,
+          "body_wood": 0.195,
+          "pickup_config": 0.39000000000000007,
+          "string_type": 19.58,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 2.8600000000000003,
+          "bass_technique": 27.044999999999995
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_short",
+          "finish": "oil_satin",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 27.984999999999996,
+          "amp_make": 29.844999999999995,
+          "body_wood": 0.195,
+          "neck_wood": 2.8600000000000003,
+          "fretboard": 2.8600000000000003,
+          "pickup_magnet": 1.04,
+          "string_material": 1.04,
+          "string_gauge": 0.195,
+          "bridge": 2.8600000000000003,
+          "scale_length": 0.65,
+          "finish": 0.39,
+          "string_tuning": 1.7799999999999998
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "pizz_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.45,
+          "orch_strings": 1.04,
+          "orch_top_wood": 0.325,
+          "orch_back_wood": 1.17,
+          "orch_varnish": -0.035,
+          "orch_setup_period": 3.9650000000000003,
+          "orch_bow": 1.95,
+          "orch_bow_stick": 0.12999999999999998,
+          "orch_articulation": 3.25,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_slow",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": 2.5,
+          "vibe_motor": 5,
+          "vibe_mallets": 5
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 1,
+          "harp_pedals": 0
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 15.219999999999997,
+          "trombone_type": 5,
+          "trombone_mouthpiece": 6.445,
+          "trombone_mute": 0,
+          "trombone_technique": 0.8250000000000001,
+          "trombone_bell_metal": 2.145,
+          "trombone_maker_school": 4.745
+        }
+      }
+    ],
+    "room": "sigma_sound_studios_philadelphia",
+    "archetype": "arch_sigma_philly_soul",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "motown_four_on_floor_tambourine",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "motown_four_on_floor_tambourine",
+    "room": "sigma_sound_studios_philadelphia",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

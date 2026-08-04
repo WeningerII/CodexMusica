@@ -3,14 +3,14 @@
   "name": "Corsican voceru (vendetta-lament)",
   "family": "global",
   "lineage": "Corsican mourning-song tradition continuous from medieval-and-early-modern Corsican rural practice through 18th-19th century documented performance by voceratrice (Corsican professional women keeners); particularly associated with the vendetta tradition where the voceru explicitly demands revenge on the killer",
-  "recipe": "classic Southern European modern corsican voceru, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, chanson fado ballad poetry skolt sámi leuʹdd northern sámi luohti yoik. vocal fry, breath veiled tone, straight note core, interlocked note trading. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 387,
-  "score": 190.205,
+  "recipe": "classic Southern European modern corsican voceru, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 379,
+  "score": 182.598,
   "config": {
     "traditions": [
       "corsican_voceru",
-      "sami_skolt_leudd",
-      "sami_northern_luohti"
+      "morna",
+      "cape_verdean_batuko"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 7.215,
-          "voice_quality": 34.645,
+          "voice_register": 5.720000000000001,
+          "voice_quality": 31.59,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9799999999999998,
-          "voice_articulation": 13.455,
-          "voice_microtone": 15.664999999999996,
-          "voice_tradition": 24.44,
-          "voice_mechanism_compound": 8.32,
-          "voice_estill_quality": 8.45,
-          "voice_speech_song": 18.394999999999996,
-          "voice_ensemble_config": 13.325,
-          "voice_ornament_system": 12.92,
-          "voice_pitch_organization": 8.8,
-          "voice_processing_chain": 14.040000000000001,
-          "voice_multitrack_stack": 9.555
+          "voice_vibrato": 2.5675,
+          "voice_articulation": 21.320000000000004,
+          "voice_microtone": 22.945000000000004,
+          "voice_tradition": 23.009999999999998,
+          "voice_mechanism_compound": 8.254999999999999,
+          "voice_estill_quality": 6.4025,
+          "voice_speech_song": 25.382500000000007,
+          "voice_ensemble_config": 20.995000000000005,
+          "voice_ornament_system": 2.0799999999999996,
+          "voice_pitch_organization": 5.46,
+          "voice_processing_chain": 8.092500000000001,
+          "voice_multitrack_stack": 7.215000000000001
         }
       }
     ],

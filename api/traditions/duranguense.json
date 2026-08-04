@@ -3,14 +3,14 @@
   "name": "Duranguense (pasito duranguense)",
   "family": "global",
   "lineage": "Chicago-based Mexican-migrant style codified around 2000 by Grupo Montez de Durango and K-Paz de la Sierra, transplanting the Durango tamborazo repertoire into a small electric ensemble: synthesizer patches replacing the clarinet and brass sections, saxophone and trombone leads, a fast 2/4 polka-derived tempo near 150–170 BPM, tambora-and-tarola battery on top, and a nasal high-tenor lead vocal singing ranchera and cumbia covers, danced as the shuffling pasito duranguense.",
-  "recipe": "classic early-2000s duranguense, functional Song, Mexican branch, tejano border functional song, tejano border ranchera. thick, full chest belt, slow rate, interlocked note trading. tenor yellow brass modern standard ensemble saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone, brass yellow brass canonical orchestral besson sovereign British brass band tuba, singing lead analog poly synth, pre muffled edge muffled brushes-and-sticks drum kit, bass drum. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 761,
-  "score": 259.688,
+  "recipe": "classic early-2000s duranguense, functional Song, Mexican branch, tejano border functional song, tejano border ranchera corridos bélicos. vocal fry, full chest belt, slow rate, interlocked note trading. tenor yellow brass modern standard ensemble saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, analog poly synth, fiberskyn synthetic calf brushes-and-sticks drum kit, double bass rapid double strokes bass drum. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 815,
+  "score": 226.627,
   "config": {
     "traditions": [
       "duranguense",
       "ranchera",
-      "tejano"
+      "corridos_belicos"
     ],
     "instruments": [
       {
@@ -25,10 +25,10 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 5.98,
+          "wind_articulation": 4.290000000000001,
           "sax_size": 2.405,
           "sax_reed": 0.195,
-          "sax_body_alloy": 3.8024999999999998,
+          "sax_body_alloy": 3.6075,
           "sax_mouthpiece": 0.105,
           "sax_technique": -0.05,
           "sax_maker_school": 0.65
@@ -46,12 +46,12 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 5.98,
+          "wind_articulation": 4.290000000000001,
           "trombone_type": 0.95,
-          "trombone_mouthpiece": 4.085,
-          "trombone_mute": 0.845,
-          "trombone_technique": 1.4949999999999999,
-          "trombone_bell_metal": 2.34,
+          "trombone_mouthpiece": 4.585,
+          "trombone_mute": 0.195,
+          "trombone_technique": 0.65,
+          "trombone_bell_metal": 2.145,
           "trombone_maker_school": 3.25
         }
       },
@@ -59,7 +59,7 @@
         "id": "tuba",
         "slots": {
           "wind_articulation": "wind_classical_legato",
-          "tuba_pitch": "tuba_cc",
+          "tuba_pitch": "tuba_eb",
           "tuba_context": "tuba_brass_band",
           "tuba_bell_metal": "tuba_yellow_brass",
           "tuba_valve_system": "tuba_rotary_german",
@@ -67,11 +67,11 @@
         },
         "scores": {
           "wind_articulation": 0.375,
-          "tuba_pitch": 0.65,
-          "tuba_context": 6.24,
-          "tuba_bell_metal": 2.145,
+          "tuba_pitch": 1.2349999999999999,
+          "tuba_context": 5.005,
+          "tuba_bell_metal": 1.95,
           "tuba_valve_system": 0.65,
-          "tuba_maker_school": 2.535
+          "tuba_maker_school": 2.34
         }
       },
       {
@@ -80,32 +80,32 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "prophet_5",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 6.81,
-          "poly_archetypes": 0.845,
+          "electronic_technique": 2.4699999999999998,
+          "poly_archetypes": 0.195,
           "poly_voices": 0.345,
-          "poly_maker_lineage": -0.875
+          "poly_maker_lineage": -0.7350000000000001
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "fiberskyn_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.06,
-          "drumhead": 5.115,
+          "drum_technique": 19.174999999999997,
+          "drumhead": 1.5,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -119,26 +119,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.190000000000001,
-          "voice_quality": 28.58499999999999,
+          "voice_register": 2.925,
+          "voice_quality": 25.20999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2675,
-          "voice_articulation": 20.994999999999997,
-          "voice_microtone": 20.799999999999997,
-          "voice_tradition": 10.790000000000001,
+          "voice_vibrato": 1.9175,
+          "voice_articulation": 19.109999999999992,
+          "voice_microtone": 18.914999999999992,
+          "voice_tradition": 11.699999999999998,
           "voice_mechanism_compound": 3.51,
-          "voice_estill_quality": 17.45,
-          "voice_speech_song": 31.817500000000003,
-          "voice_ensemble_config": 22.814999999999998,
-          "voice_ornament_system": 1.1049999999999995,
-          "voice_pitch_organization": 0.9399999999999998,
-          "voice_processing_chain": 5.005000000000001,
-          "voice_multitrack_stack": 6.695
+          "voice_estill_quality": 16.2,
+          "voice_speech_song": 29.477499999999996,
+          "voice_ensemble_config": 20.279999999999994,
+          "voice_ornament_system": 1.3649999999999998,
+          "voice_pitch_organization": 1.0899999999999999,
+          "voice_processing_chain": 3.5749999999999993,
+          "voice_multitrack_stack": 6.24
         }
       },
       {
@@ -148,8 +148,8 @@
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.65,
-          "bass_drum_beater": 0.845
+          "bass_drum_size": 0.44999999999999996,
+          "bass_drum_beater": 1.59
         }
       }
     ],

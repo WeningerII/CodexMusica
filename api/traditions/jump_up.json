@@ -1,0 +1,152 @@
+{
+  "id": "jump_up",
+  "name": "Jump-Up",
+  "family": "electronic",
+  "lineage": "London, from about 1995 and revived from the mid-2000s by Aphrodite, DJ Hype, Shy FX, Hazard and Original Sin — 172-176 BPM drum and bass built on a short, bouncy, heavily pitch-modulated mid-range bass hook, tight two-step kick-and-snare programming, funk and reggae vocal samples used as punctuation, and simple call-and-response arrangements written for immediate crowd reaction.",
+  "recipe": "classic 2004-2006 jump-up, bass System, bass descendants branch, uk soundsystem bass system, reggae diaspora bass system, intl hip hop MC rhythm punjabi hip hop trap italiana. extended whistle, rap, slow rate, interlocked note trading. pitched chopped sampler, sub bass monosynth acid bass, TR-909, sampled chopped turntable, sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 530,
+  "score": 260.186,
+  "config": {
+    "traditions": [
+      "jump_up",
+      "punjabi_hip_hop",
+      "trap_italiana"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 4.4556249999999995,
+          "sampler_archetypes": 6.629999999999999,
+          "sampler_bit_depth": 4.3774999999999995,
+          "sampler_workflow": 5.980625,
+          "sampler_classic_context": 27.7875
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 20.182499999999997,
+          "wave_acid": 0.345,
+          "filter_acid": 0.585,
+          "accent_acid": 0.345
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.615,
+          "tr909_production_origin": 0.45499999999999996
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 4.4556249999999995,
+          "turntable_technique": 4.455
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.5425000000000004,
+          "voice_quality": 13.8075,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.615,
+          "voice_articulation": 22.75,
+          "voice_microtone": 25.804999999999993,
+          "voice_tradition": 7.6375,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 5.427499999999998,
+          "voice_speech_song": 24.96,
+          "voice_ensemble_config": 21.904999999999998,
+          "voice_ornament_system": 3.7700000000000005,
+          "voice_pitch_organization": 3.315000000000001,
+          "voice_processing_chain": 9.938749999999999,
+          "voice_multitrack_stack": 9.2575
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 20.182499999999997,
+          "poly_archetypes": 0.7012499999999999,
+          "poly_voices": 0.7012499999999999,
+          "poly_maker_lineage": -1.435
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_uk_jungle_dubplate",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformerless",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dub_plate_cut"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "medium_dub_plate_cut",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

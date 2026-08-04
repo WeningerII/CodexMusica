@@ -1,0 +1,120 @@
+{
+  "id": "khmer_court_music",
+  "name": "Khmer Court Music (Pinpeat)",
+  "family": "global",
+  "lineage": "Cambodian royal ceremonial and dance-accompaniment tradition traceable to Angkorian temple reliefs and maintained at the Phnom Penh palace until the Khmer Rouge, then rebuilt after 1979 by surviving masters such as Chek Mach and the Royal University of Fine Arts, scored for roneat xylophones, kong vong gong circles, the sralai quadruple reed and skor thom barrel drums in stratified heterophony over a chhing cymbal cycle.",
+  "recipe": "classic Southeast Asian late-1970s khmer court music, art Music, southeast Asian branch, southeast Asian Thai classical, buddhist ritual devotional piphat thai traditional. twenty one bamboo bars boat resonator canonical pinpeat lead royal court pinpeat canonical pre 1975 lineage roneat ek, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung, sixteen tuned bronze bossed gongs rattan frame canonical pinpeat melodic backbone pinpeat melodic skeleton sustains core under roneat elaboration kong vong large barrel pair stick struck canonical pinpeat bass skor thom, palm leaf quadruple reed conical bore canonical khmer pinpeat melodic lead sustained voice sralai, skor daey, khmer ching chap open and damped ching. phnom penh royal pinpeat palace court. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 873,
+  "score": 79.364,
+  "config": {
+    "traditions": [
+      "khmer_court_music",
+      "piphat_ceremonial",
+      "thai_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "roneat_ek",
+        "slots": {
+          "roneat_ek_bars": "roneat_ek_bamboo_21_bar_canonical",
+          "roneat_ek_tradition": "roneat_ek_royal_court_canonical"
+        },
+        "scores": {
+          "roneat_ek_bars": 2.2749999999999995,
+          "roneat_ek_tradition": 7.409999999999999
+        }
+      },
+      {
+        "id": "roneat_thung",
+        "slots": {
+          "roneat_thung_bars": "roneat_thung_bamboo_canonical",
+          "roneat_thung_role": "roneat_thung_pinpeat_counter"
+        },
+        "scores": {
+          "roneat_thung_bars": 2.0799999999999996,
+          "roneat_thung_role": 6.305000000000001
+        }
+      },
+      {
+        "id": "kong_vong_thom",
+        "slots": {
+          "kong_vong_thom_construction": "kong_vong_thom_sixteen_bronze_canonical",
+          "kong_vong_thom_role": "kong_vong_thom_pinpeat_melodic_skeleton"
+        },
+        "scores": {
+          "kong_vong_thom_construction": 2.6649999999999996,
+          "kong_vong_thom_role": 5.459999999999999
+        }
+      },
+      {
+        "id": "sralai",
+        "slots": {
+          "sralai_reed": "sralai_palm_leaf_quadruple",
+          "sralai_role": "sralai_pinpeat_lead_melodic"
+        },
+        "scores": {
+          "sralai_reed": 6.704,
+          "sralai_role": 2.4699999999999998
+        }
+      },
+      {
+        "id": "skor_thom",
+        "slots": {
+          "skor_thom_construction": "skor_thom_large_pair_canonical"
+        },
+        "scores": {
+          "skor_thom_construction": 3.3799999999999994
+        }
+      },
+      {
+        "id": "skor_daey",
+        "slots": {
+          "skor_daey_body": "skor_daey_hardwood_pair",
+          "skor_daey_stroke": "skor_daey_bare_hands",
+          "skor_daey_context": "skor_daey_mohori"
+        },
+        "scores": {
+          "skor_daey_body": 0,
+          "skor_daey_stroke": 0.3,
+          "skor_daey_context": 0.045
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_khmer",
+          "ching_stroke": "ching_open_closed",
+          "ching_alloy": "ching_bronze"
+        },
+        "scores": {
+          "ching_form": 14.488,
+          "ching_stroke": 22.944999999999997,
+          "ching_alloy": 0.975
+        }
+      }
+    ],
+    "room": "phnom_penh_royal_pinpeat_palace_court",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "equal_heptatonic_thai_khmer",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_thai_khmer",
+    "room": "phnom_penh_royal_pinpeat_palace_court",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

@@ -3,9 +3,9 @@
   "name": "Alté",
   "family": "global",
   "lineage": "Lagos alternative scene named around 2016 by DRB LasGidi affiliates and consolidated by Odunsi (The Engine), Santi and Cruel Santino — laptop-built afrofusion at 90-110 BPM that sets loose, log-drum-free syncopated programming and 808 sub against clean single-coil guitar chords, chorused synth pads, and a breathy, half-sung half-rapped delivery in Nigerian Pidgin and English.",
-  "recipe": "classic mid-2010s alté, functional Song, African pop branch, lofi experimental electric, Afro-diasporic MC rhythm afroswing bedroom pop. thick, breath veiled tone, slow rate, interlocked note trading. clean strummed single coil electric guitar, sub heavy electric bass, TR-808, plucked short envelope analog poly synth, field textural sampler, iroko alternative west African talking drum. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
-  "recipe_chars": 564,
-  "score": 211.185,
+  "recipe": "classic mid-2010s alté, functional Song, African pop branch, lofi experimental electric, Afro-diasporic MC rhythm afroswing bedroom pop. thick, breath veiled tone, pure, interlocked note trading. clean strummed single coil electric guitar, sub heavy electric bass, TR-808, plucked short envelope analog poly synth, field textural sampler, iroko alternative west African talking drum. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 559,
+  "score": 211.595,
   "config": {
     "traditions": [
       "alte_nigeria",
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 11.844999999999995,
+          "voice_register": 11.694999999999995,
           "voice_quality": 6.955000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.7149999999999999,
+          "voice_vibrato": 0.81,
           "voice_articulation": 17.225,
           "voice_microtone": 20.019999999999996,
-          "voice_tradition": 11.489999999999998,
+          "voice_tradition": 11.534999999999998,
           "voice_mechanism_compound": 2.4700000000000006,
           "voice_estill_quality": 1.885,
           "voice_speech_song": 20.669999999999998,
           "voice_ensemble_config": 16.509999999999998,
-          "voice_ornament_system": 3.250000000000001,
+          "voice_ornament_system": 3.085000000000001,
           "voice_pitch_organization": 1.4949999999999999,
           "voice_processing_chain": 4.03,
           "voice_multitrack_stack": 8.6775
@@ -62,7 +62,7 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_12",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -79,7 +79,7 @@
           "string_gauge": 0.585,
           "bridge": 0.39,
           "scale_length": 0.585,
-          "finish": 0,
+          "finish": 0.15,
           "string_tuning": 1.0399999999999998
         }
       },
@@ -126,7 +126,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 10.099999999999998,
+          "electronic_technique": 10.249999999999998,
           "poly_archetypes": 0.8449999999999999,
           "poly_voices": 0.195,
           "poly_maker_lineage": -1.085
@@ -145,7 +145,7 @@
           "electronic_technique": 3.5749999999999997,
           "sampler_archetypes": 1.605,
           "sampler_bit_depth": 2.19,
-          "sampler_workflow": 3.9199999999999995,
+          "sampler_workflow": 4.01,
           "sampler_classic_context": 21.514999999999997
         }
       },
@@ -161,7 +161,7 @@
           "talking_drum_origin": 0,
           "talking_drum_context": 0.845,
           "talking_drum_shell_wood": 3.75,
-          "talking_drum_head": 0.15
+          "talking_drum_head": 0.345
         }
       }
     ],

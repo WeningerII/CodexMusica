@@ -3,14 +3,14 @@
   "name": "Türkçe Drill",
   "family": "hip_hop",
   "lineage": "Istanbul and Turkish-diaspora Berlin, 2019 onward, adapting UK and Brooklyn drill to Turkish — 138-145 BPM half-time patterns with sliding 808 glides, triplet hi-hat rolls and skeletal snare on the third beat, melodic hooks sampled or replayed from arabesk and saz lines in Phrygian-dominant colour, and a low, clipped, heavily consonant Turkish flow tracked on an SM7B in home rooms and mixed entirely in the box.",
-  "recipe": "classic late-2010s türkçe drill, mc Rhythm, drill branch, intl hip hop MC rhythm, mid east n African pop functional song, us hip hop modern pittsburgh rap desi trap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, steel canonical modern modern concert arif sag erkan ogur strummed saz baglama, low sub bass wavetable synth, low sub bass monosynth acid bass, clay pre modern traditional goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 680,
-  "score": 278.951,
+  "recipe": "classic late-2010s türkçe drill, mc Rhythm, drill branch, intl hip hop MC rhythm, mid east n African pop functional song, us hip hop modern detroit trap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, steel canonical modern modern concert arif sag erkan ogur strummed saz baglama, low sub bass wavetable synth, low sub bass monosynth acid bass, clay pre modern traditional goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 668,
+  "score": 274.117,
   "config": {
     "traditions": [
       "turkce_drill",
-      "pittsburgh_rap",
-      "desi_trap"
+      "detroit_trap",
+      "emo_rap"
     ],
     "instruments": [
       {
@@ -24,8 +24,8 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 6.720000000000001,
-          "voice_quality": 18.200000000000003,
+          "voice_register": 5.895000000000002,
+          "voice_quality": 16.8675,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9562500000000003,
-          "voice_articulation": 20.864999999999995,
-          "voice_microtone": 39.974999999999994,
-          "voice_tradition": 10.107499999999998,
-          "voice_mechanism_compound": 4.111250000000001,
-          "voice_estill_quality": 2.2350000000000003,
-          "voice_speech_song": 22.229999999999997,
-          "voice_ensemble_config": 21.904999999999994,
-          "voice_ornament_system": 10.075000000000001,
+          "voice_vibrato": 2.5312500000000004,
+          "voice_articulation": 20.669999999999995,
+          "voice_microtone": 37.24499999999999,
+          "voice_tradition": 12.5225,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 2.6350000000000007,
+          "voice_speech_song": 21.57999999999999,
+          "voice_ensemble_config": 20.86499999999999,
+          "voice_ornament_system": 7.9300000000000015,
           "voice_pitch_organization": 9.7,
-          "voice_processing_chain": 9.545000000000002,
-          "voice_multitrack_stack": 9.0025
+          "voice_processing_chain": 8.445,
+          "voice_multitrack_stack": 8.32
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 6.352500000000001,
-          "drum_machine_808_context": 2.0799999999999996,
-          "tr808_production_origin": 1.73125
+          "tr808_voice": 5.5275,
+          "drum_machine_808_context": 3.19375,
+          "tr808_production_origin": 2.48125
         }
       },
       {
@@ -74,10 +74,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 6.875000000000001,
-          "sample_bitdepth": 2.73125,
-          "sample_swing": 11.115,
-          "sample_processing": 1.94375
+          "electronic_technique": 6.55,
+          "sample_bitdepth": 3.98125,
+          "sample_swing": 8.84,
+          "sample_processing": 2.59375
         }
       },
       {
@@ -91,12 +91,12 @@
           "saz_tradition": "saz_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": 7.020000000000001,
+          "plucked_traditional_technique": 6.760000000000002,
           "saz_size": 0.195,
-          "saz_frets": 1.73125,
+          "saz_frets": 2.48125,
           "saz_body_wood": 0.78,
-          "saz_strings": 1.885,
-          "saz_tradition": 1.73125
+          "saz_strings": 2.8600000000000003,
+          "saz_tradition": 2.48125
         }
       },
       {
@@ -108,9 +108,9 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 10.8025,
-          "wt_position": 1.73125,
-          "wt_family": 1.885,
+          "electronic_technique": 9.9775,
+          "wt_position": 2.48125,
+          "wt_family": 2.67625,
           "wt_polyphony": 0
         }
       },
@@ -120,13 +120,13 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "heavy_accent_acid"
+          "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 10.8025,
+          "electronic_technique": 9.9775,
           "wave_acid": 0.39,
-          "filter_acid": 0.195,
-          "accent_acid": 0.09999999999999999
+          "filter_acid": 0.21749999999999997,
+          "accent_acid": 0.15
         }
       },
       {
@@ -138,9 +138,9 @@
           "darbuka_regional_style": "darbuka_turkish_split"
         },
         "scores": {
-          "percussion_technique": 0.06499999999999999,
-          "darbuka_material": 1.73125,
-          "darbuka_skin": 4.199999999999999,
+          "percussion_technique": -0.07,
+          "darbuka_material": 2.48125,
+          "darbuka_skin": 4.35,
           "darbuka_regional_style": 4.199999999999999
         }
       }

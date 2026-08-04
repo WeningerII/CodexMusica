@@ -5,7 +5,7 @@
   "lineage": "Trinidadian Carnival road-march tradition continuous from 19th-century post-emancipation Carnival celebrations through 20th-century calypso (1930s-1960s Lord Kitchener and Mighty Sparrow era) and soca (1970s-onward Lord Shorty era) into modern Trinidad-and-Tobago Carnival continuous practice; the \"Road March\" is the canonical Carnival competition for the song most-played during Carnival processional",
   "recipe": "classic Caribbean mid-1930s trinidad calypso-soca road march, carnival Processional, Caribbean branch, Brazilian carnival processional, americas wedding, iberian Latin protest song brazilian samba-school enredo rap político. thick, breath veiled tone, straight onset, interlocked note trading. concert stage steel steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato standard rim trumpet, kevlar aramid extreme tension brushes-and-sticks drum kit, steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 739,
-  "score": 168.912,
+  "score": 170.66,
   "config": {
     "traditions": [
       "trinidad_road_march",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.75,
-          "voice_quality": 22.80087499999999,
+          "voice_register": 0.9,
+          "voice_quality": 23.82249999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.4050000000000002,
           "voice_articulation": 14.949999999999996,
           "voice_microtone": 14.949999999999992,
-          "voice_tradition": 5.751125000000001,
+          "voice_tradition": 5.682500000000001,
           "voice_mechanism_compound": 1.2349999999999999,
-          "voice_estill_quality": 1.830625,
+          "voice_estill_quality": 1.825,
           "voice_speech_song": 20.734999999999992,
           "voice_ensemble_config": 14.884999999999994,
           "voice_ornament_system": 3.5749999999999997,
           "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 5.336499999999999,
+          "voice_processing_chain": 5.499999999999999,
           "voice_multitrack_stack": 6.240000000000001
         }
       },
@@ -67,20 +67,20 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "brass_size": "trumpet_b_flat",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "bach_trumpet_mp_3c",
-          "brass_mute": "bucket_mute",
+          "brass_mute": "cup_mute",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
           "wind_articulation": 4.9399999999999995,
-          "brass_size": 0.045,
-          "trumpet_mouthpiece": 4.87,
-          "brass_mute": 0.03,
+          "brass_size": 0.28500000000000003,
+          "trumpet_mouthpiece": 4.915,
+          "brass_mute": 0,
           "trumpet_technique": 0.7799999999999998,
-          "trumpet_bell_metal": 3.7479999999999993,
+          "trumpet_bell_metal": 3.6849999999999996,
           "trumpet_maker_school": 3.8349999999999995
         }
       },
@@ -102,12 +102,12 @@
         "slots": {
           "steel_orchestra_sections": "steel_orchestra_mid_harmony",
           "steel_orchestra_context": "steel_orchestra_concert_session",
-          "steel_orchestra_size": "steel_orchestra_stageside"
+          "steel_orchestra_size": "steel_orchestra_large_conventional"
         },
         "scores": {
-          "steel_orchestra_sections": 0.57,
-          "steel_orchestra_context": 0.303,
-          "steel_orchestra_size": 0.1365
+          "steel_orchestra_sections": 0.765,
+          "steel_orchestra_context": 0.38999999999999996,
+          "steel_orchestra_size": 0.15
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Armenian Apostolic Christian liturgical tradition (the sharakan hymn repertoire dating to the 5th-century Mesrop Mashtots alphabet creation) and Armenian folk-and-ashugh-poetry-song tradition — codified by Komitas (1869-1935, the founding ethnomusicologist of Armenian musical scholarship) and preserved through the Yerevan Komitas State Conservatory; signature instrument the duduk, modern voices Djivan Gasparyan and Tigran Hamasyan",
   "recipe": "classic Eastern European early-1860s armenian liturgical and folk, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. thick, breath veiled tone, slow rate, interlocked note trading. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk, kanun synthetic kanun, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. yerevan armenian komitas studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 674,
-  "score": 315.999,
+  "score": 318.563,
   "config": {
     "traditions": [
       "armenian_traditional",
@@ -40,14 +40,14 @@
           "voice_effort": 0,
           "voice_vibrato": 13.682500000000003,
           "voice_articulation": 14.754999999999997,
-          "voice_microtone": 31.6025,
-          "voice_tradition": 26.520000000000003,
-          "voice_mechanism_compound": 18.908,
-          "voice_estill_quality": 14.1455,
+          "voice_microtone": 31.7525,
+          "voice_tradition": 26.145000000000003,
+          "voice_mechanism_compound": 18.845000000000002,
+          "voice_estill_quality": 14.03,
           "voice_speech_song": 17.744999999999997,
           "voice_ensemble_config": 13.194999999999997,
-          "voice_ornament_system": 23.386000000000003,
-          "voice_pitch_organization": 23.166999999999998,
+          "voice_ornament_system": 25.12,
+          "voice_pitch_organization": 25.015,
           "voice_processing_chain": 3.3150000000000004,
           "voice_multitrack_stack": 3.445
         }
@@ -63,12 +63,12 @@
           "duduk_lineage": "duduk_djivan_gasparyan"
         },
         "scores": {
-          "wind_articulation": 10.388000000000002,
+          "wind_articulation": 10.415000000000001,
           "duduk_use": 2.795,
-          "duduk_pitch": 0.0765,
-          "duduk_body_wood": 6.359499999999999,
-          "duduk_reed": 6.059499999999999,
-          "duduk_lineage": 13.558499999999999
+          "duduk_pitch": 0.045,
+          "duduk_body_wood": 5.949999999999999,
+          "duduk_reed": 5.6499999999999995,
+          "duduk_lineage": 13.454999999999998
         }
       },
       {
@@ -79,8 +79,8 @@
           "kanun_articulation": "kanun_synthetic_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 10.375,
-          "kanun_school": 14.307999999999996,
+          "plucked_traditional_technique": 10.465,
+          "kanun_school": 14.439999999999998,
           "kanun_articulation": 1.69
         }
       },
@@ -90,13 +90,13 @@
           "plucked_traditional_technique": "plucked_classical_idiom",
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
-          "oud_pick": "risha_horn",
+          "oud_pick": "risha_eagle_feather",
           "oud_body_wood": "oud_padauk_body",
           "oud_soundboard_wood": "oud_lebanese_cedar_face",
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 10.375,
+          "plucked_traditional_technique": 10.465,
           "oud_school": 3.575,
           "oud_strings": 5.3950000000000005,
           "oud_pick": 0.195,

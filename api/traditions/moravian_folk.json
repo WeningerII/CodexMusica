@@ -1,0 +1,140 @@
+{
+  "id": "moravian_folk",
+  "name": "Moravian Folk Song",
+  "family": "global",
+  "lineage": "Song tradition of Moravia's Slovácko, Horňácko, Wallachia and Haná regions, collected systematically by František Sušil in the 1830s-1860s and by Leoš Janáček and Pavel Váša around 1900 — modal melodies using Lydian and Mixolydian inflections, unaccompanied or lightly cimbalom-backed strophic songs, slow rubato table songs with wide ornamented leaps giving way to duple dance songs, and two-part women's singing in thirds at village festivals and harvest work.",
+  "recipe": "classic mid-1830s moravian folk song, field Work, Slavic balkan branch, string improv improv on frame, European funeral lament cimbálová muzika corsican voceru. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles paghjella corsican secondu bassu terzu choir ensemble, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, magic rosin modern acrylic base drone like fiddle, ebonite hard rubber klezmer tradition clarinet. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 651,
+  "score": 188.78,
+  "config": {
+    "traditions": [
+      "moravian_folk",
+      "cimbalova_muzika",
+      "corsican_voceru"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
+        },
+        "scores": {
+          "voice_register": 4.795000000000001,
+          "voice_quality": 8.905000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 16.314999999999998,
+          "voice_microtone": 18.264999999999993,
+          "voice_tradition": 19.74,
+          "voice_mechanism_compound": 5.85,
+          "voice_estill_quality": 3.120000000000001,
+          "voice_speech_song": 20.735,
+          "voice_ensemble_config": 17.224999999999994,
+          "voice_ornament_system": 2.5750000000000006,
+          "voice_pitch_organization": 5.205,
+          "voice_processing_chain": 5.265,
+          "voice_multitrack_stack": 2.535
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_paghjella_corsican",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 6.305,
+          "choir_polyphonic_configuration": 1.8199999999999998,
+          "choir_regional_canonical_configuration": 5.999999999999998,
+          "choir_ensemble_repertoire": 2.9899999999999998
+        }
+      },
+      {
+        "id": "cimbalom",
+        "slots": {
+          "cimbalom_size": "cimbalom_concert_pedal",
+          "cimbalom_mallet": "cimbalom_hard_wood"
+        },
+        "scores": {
+          "cimbalom_size": 25.349999999999994,
+          "cimbalom_mallet": 0.42
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "sul_tasto"
+        },
+        "scores": {
+          "bowed_technique": 6.4700000000000015,
+          "fiddle_strings": 0.38999999999999996,
+          "fiddle_bow": 1.7199999999999998,
+          "fiddle_mute": 0.39,
+          "fiddle_articulation": 0.9099999999999999
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.6399999999999999,
+          "clarinet_body": 4.03,
+          "clarinet_size": 2.08,
+          "clarinet_reed": 0.345,
+          "clarinet_articulation": 0.105
+        }
+      }
+    ],
+    "room": "wooden_barn",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "wooden_barn",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}
