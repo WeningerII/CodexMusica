@@ -1,0 +1,146 @@
+{
+  "id": "mandoloncello",
+  "name": "Mandoloncello (tenor/bass member of the mandolin family)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "mandoloncello",
+  "parts": [
+    {
+      "id": "mandoloncello_body",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "mandoloncello_bowl",
+          "default": true,
+          "name": "Neapolitan bowl-back",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "mandolin-family",
+            "plucked"
+          ]
+        },
+        {
+          "id": "mandoloncello_flat",
+          "name": "Flat-back / carved-top (American style)",
+          "descriptors": [
+            "punchy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandoloncello_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "mandoloncello_tremolo",
+          "default": true,
+          "name": "Tremolo picking (sustained line)",
+          "descriptors": [
+            "shimmering",
+            "singing"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "plucked"
+          ]
+        },
+        {
+          "id": "mandoloncello_pizz",
+          "name": "Single-stroke plucking / bass line",
+          "descriptors": [
+            "punchy",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mandoloncello_body",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "mandoloncello_bowl",
+          "default": true,
+          "name": "Neapolitan bowl-back",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "mandolin-family",
+            "plucked"
+          ]
+        },
+        {
+          "id": "mandoloncello_flat",
+          "name": "Flat-back / carved-top (American style)",
+          "descriptors": [
+            "punchy",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandoloncello_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "mandoloncello_tremolo",
+          "default": true,
+          "name": "Tremolo picking (sustained line)",
+          "descriptors": [
+            "shimmering",
+            "singing"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "plucked"
+          ]
+        },
+        {
+          "id": "mandoloncello_pizz",
+          "name": "Single-stroke plucking / bass line",
+          "descriptors": [
+            "punchy",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "id": "tidinit",
+  "name": "Tidinit (Moorish men's four-string lute of Mauritania)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tidinit",
+  "parts": [
+    {
+      "id": "tidinit_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "tidinit_traditional",
+          "default": true,
+          "name": "Traditional hide-topped canoe body, gut/nylon strings",
+          "descriptors": [
+            "dry",
+            "buzzing-timbre",
+            "percussive-pluck"
+          ],
+          "match_tokens": [
+            "moorish-lute",
+            "mauritanian"
+          ]
+        },
+        {
+          "id": "tidinit_amplified",
+          "name": "Amplified/electrified tidinit (modern Moorish stage)",
+          "descriptors": [
+            "twangy",
+            "cutting"
+          ],
+          "match_tokens": [
+            "amplified",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tidinit_mode",
+      "name": "Modal way (dhahr / l'byadh)",
+      "variants": [
+        {
+          "id": "tidinit_lkhal",
+          "default": true,
+          "name": "Black way (l'khal) - grave modes",
+          "descriptors": [
+            "solemn",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "azawan",
+            "modal"
+          ]
+        },
+        {
+          "id": "tidinit_lbyadh",
+          "name": "White way (l'byadh) - bright festive modes",
+          "descriptors": [
+            "bright",
+            "festive"
+          ],
+          "match_tokens": [
+            "azawan",
+            "modal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tidinit_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "tidinit_traditional",
+          "default": true,
+          "name": "Traditional hide-topped canoe body, gut/nylon strings",
+          "descriptors": [
+            "dry",
+            "buzzing-timbre",
+            "percussive-pluck"
+          ],
+          "match_tokens": [
+            "moorish-lute",
+            "mauritanian"
+          ]
+        },
+        {
+          "id": "tidinit_amplified",
+          "name": "Amplified/electrified tidinit (modern Moorish stage)",
+          "descriptors": [
+            "twangy",
+            "cutting"
+          ],
+          "match_tokens": [
+            "amplified",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tidinit_mode",
+      "name": "Modal way (dhahr / l'byadh)",
+      "variants": [
+        {
+          "id": "tidinit_lkhal",
+          "default": true,
+          "name": "Black way (l'khal) - grave modes",
+          "descriptors": [
+            "solemn",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "azawan",
+            "modal"
+          ]
+        },
+        {
+          "id": "tidinit_lbyadh",
+          "name": "White way (l'byadh) - bright festive modes",
+          "descriptors": [
+            "bright",
+            "festive"
+          ],
+          "match_tokens": [
+            "azawan",
+            "modal"
+          ]
+        }
+      ]
+    }
+  ]
+}

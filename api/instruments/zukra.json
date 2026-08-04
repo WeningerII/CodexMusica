@@ -1,0 +1,158 @@
+{
+  "id": "zukra",
+  "name": "Zukra (Libyan/Tunisian double-reed bagpipe)",
+  "family": "wind",
+  "class": "reed_bagpipe",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "zukra",
+  "parts": [
+    {
+      "id": "zukra_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "zukra_libyan",
+          "default": true,
+          "name": "Libyan zukra with flared horn bell",
+          "descriptors": [
+            "strident",
+            "nasal",
+            "outdoor-loud"
+          ],
+          "match_tokens": [
+            "libyan",
+            "bagpipe",
+            "double-reed"
+          ]
+        },
+        {
+          "id": "zukra_south_tunisian",
+          "name": "Southern Tunisian zukra",
+          "descriptors": [
+            "raw",
+            "buzzing-timbre",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "tunisian",
+            "bagpipe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zukra_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "zukra_wedding",
+          "default": true,
+          "name": "Wedding procession with tabl drums",
+          "descriptors": [
+            "festive",
+            "penetrating",
+            "rhythm-driven"
+          ],
+          "match_tokens": [
+            "procession",
+            "bagpipe",
+            "north-africa"
+          ]
+        },
+        {
+          "id": "zukra_ritual",
+          "name": "Ritual / saint-festival playing",
+          "descriptors": [
+            "trance",
+            "continuous",
+            "archaic"
+          ],
+          "match_tokens": [
+            "ritual",
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zukra_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "zukra_libyan",
+          "default": true,
+          "name": "Libyan zukra with flared horn bell",
+          "descriptors": [
+            "strident",
+            "nasal",
+            "outdoor-loud"
+          ],
+          "match_tokens": [
+            "libyan",
+            "bagpipe",
+            "double-reed"
+          ]
+        },
+        {
+          "id": "zukra_south_tunisian",
+          "name": "Southern Tunisian zukra",
+          "descriptors": [
+            "raw",
+            "buzzing-timbre",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "tunisian",
+            "bagpipe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zukra_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "zukra_wedding",
+          "default": true,
+          "name": "Wedding procession with tabl drums",
+          "descriptors": [
+            "festive",
+            "penetrating",
+            "rhythm-driven"
+          ],
+          "match_tokens": [
+            "procession",
+            "bagpipe",
+            "north-africa"
+          ]
+        },
+        {
+          "id": "zukra_ritual",
+          "name": "Ritual / saint-festival playing",
+          "descriptors": [
+            "trance",
+            "continuous",
+            "archaic"
+          ],
+          "match_tokens": [
+            "ritual",
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ]
+}

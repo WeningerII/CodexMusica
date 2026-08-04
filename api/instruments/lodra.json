@@ -1,0 +1,152 @@
+{
+  "id": "lodra",
+  "name": "Lodra (Albanian double-headed dance drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "lodra",
+  "parts": [
+    {
+      "id": "lodra_stroke",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "lodra_hand_stick",
+          "default": true,
+          "name": "Hand-and-stick combination",
+          "descriptors": [
+            "thumping",
+            "crisp-accent",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "albanian",
+            "double-headed-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "lodra_two_stick",
+          "name": "Two-beater outdoor playing",
+          "descriptors": [
+            "loud",
+            "booming",
+            "processional"
+          ],
+          "match_tokens": [
+            "albanian",
+            "outdoor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lodra_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "lodra_curle",
+          "default": true,
+          "name": "With curle shawm (wedding band)",
+          "descriptors": [
+            "raucous",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "albanian",
+            "wedding"
+          ]
+        },
+        {
+          "id": "lodra_saze",
+          "name": "With saze urban ensemble",
+          "descriptors": [
+            "restrained",
+            "supporting"
+          ],
+          "match_tokens": [
+            "albanian",
+            "saze"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lodra_stroke",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "lodra_hand_stick",
+          "default": true,
+          "name": "Hand-and-stick combination",
+          "descriptors": [
+            "thumping",
+            "crisp-accent",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "albanian",
+            "double-headed-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "lodra_two_stick",
+          "name": "Two-beater outdoor playing",
+          "descriptors": [
+            "loud",
+            "booming",
+            "processional"
+          ],
+          "match_tokens": [
+            "albanian",
+            "outdoor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lodra_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "lodra_curle",
+          "default": true,
+          "name": "With curle shawm (wedding band)",
+          "descriptors": [
+            "raucous",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "albanian",
+            "wedding"
+          ]
+        },
+        {
+          "id": "lodra_saze",
+          "name": "With saze urban ensemble",
+          "descriptors": [
+            "restrained",
+            "supporting"
+          ],
+          "match_tokens": [
+            "albanian",
+            "saze"
+          ]
+        }
+      ]
+    }
+  ]
+}

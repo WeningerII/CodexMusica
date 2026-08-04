@@ -1,0 +1,146 @@
+{
+  "id": "klong_put",
+  "name": "Klông pút (Central Highlands Vietnamese hand-clapped bamboo tubes)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "klong put",
+  "parts": [
+    {
+      "id": "klong_put_set",
+      "name": "Tube set size",
+      "variants": [
+        {
+          "id": "kp_five",
+          "default": true,
+          "name": "Five-tube pentatonic set",
+          "descriptors": [
+            "breathy-thud",
+            "hollow",
+            "airy"
+          ],
+          "match_tokens": [
+            "bamboo-tubes",
+            "hand-clapped"
+          ]
+        },
+        {
+          "id": "kp_extended",
+          "name": "Extended seven-to-ten tube set",
+          "descriptors": [
+            "wide-ranging",
+            "hollow"
+          ],
+          "match_tokens": [
+            "bamboo-tubes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "klong_put_technique",
+      "name": "Sounding technique",
+      "variants": [
+        {
+          "id": "kp_clap",
+          "default": true,
+          "name": "Clapped air-column (no contact)",
+          "descriptors": [
+            "puffy",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "hand-clapped",
+            "air-column"
+          ]
+        },
+        {
+          "id": "kp_struck",
+          "name": "Beaten with soft pads (modern stage)",
+          "descriptors": [
+            "defined-attack",
+            "projecting"
+          ],
+          "match_tokens": [
+            "struck",
+            "bamboo-tubes"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "klong_put_set",
+      "name": "Tube set size",
+      "variants": [
+        {
+          "id": "kp_five",
+          "default": true,
+          "name": "Five-tube pentatonic set",
+          "descriptors": [
+            "breathy-thud",
+            "hollow",
+            "airy"
+          ],
+          "match_tokens": [
+            "bamboo-tubes",
+            "hand-clapped"
+          ]
+        },
+        {
+          "id": "kp_extended",
+          "name": "Extended seven-to-ten tube set",
+          "descriptors": [
+            "wide-ranging",
+            "hollow"
+          ],
+          "match_tokens": [
+            "bamboo-tubes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "klong_put_technique",
+      "name": "Sounding technique",
+      "variants": [
+        {
+          "id": "kp_clap",
+          "default": true,
+          "name": "Clapped air-column (no contact)",
+          "descriptors": [
+            "puffy",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "hand-clapped",
+            "air-column"
+          ]
+        },
+        {
+          "id": "kp_struck",
+          "name": "Beaten with soft pads (modern stage)",
+          "descriptors": [
+            "defined-attack",
+            "projecting"
+          ],
+          "match_tokens": [
+            "struck",
+            "bamboo-tubes"
+          ]
+        }
+      ]
+    }
+  ]
+}

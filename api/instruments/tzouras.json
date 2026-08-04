@@ -1,0 +1,156 @@
+{
+  "id": "tzouras",
+  "name": "Tzouras (small long-neck Greek bouzouki of rebetiko)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tzouras",
+  "parts": [
+    {
+      "id": "tzouras_courses",
+      "name": "Course layout",
+      "variants": [
+        {
+          "id": "tzouras_trichordo",
+          "default": true,
+          "name": "Trichordo (three double courses)",
+          "descriptors": [
+            "nasal-bright",
+            "ringing",
+            "rebetiko"
+          ],
+          "match_tokens": [
+            "tzouras",
+            "rebetiko",
+            "greek"
+          ]
+        },
+        {
+          "id": "tzouras_baglamadaki",
+          "name": "Small-bodied near-baglamas build",
+          "descriptors": [
+            "thin-toned",
+            "tinkling",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "tzouras",
+            "treble-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tzouras_body",
+      "name": "Bowl construction",
+      "variants": [
+        {
+          "id": "tzouras_staved",
+          "default": true,
+          "name": "Staved mulberry bowl",
+          "descriptors": [
+            "woody",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "tzouras",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tzouras_carved",
+          "name": "Carved single-block bowl (prison-made tradition)",
+          "descriptors": [
+            "dry",
+            "raw",
+            "archaic"
+          ],
+          "match_tokens": [
+            "tzouras",
+            "rebetiko"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tzouras_courses",
+      "name": "Course layout",
+      "variants": [
+        {
+          "id": "tzouras_trichordo",
+          "default": true,
+          "name": "Trichordo (three double courses)",
+          "descriptors": [
+            "nasal-bright",
+            "ringing",
+            "rebetiko"
+          ],
+          "match_tokens": [
+            "tzouras",
+            "rebetiko",
+            "greek"
+          ]
+        },
+        {
+          "id": "tzouras_baglamadaki",
+          "name": "Small-bodied near-baglamas build",
+          "descriptors": [
+            "thin-toned",
+            "tinkling",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "tzouras",
+            "treble-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tzouras_body",
+      "name": "Bowl construction",
+      "variants": [
+        {
+          "id": "tzouras_staved",
+          "default": true,
+          "name": "Staved mulberry bowl",
+          "descriptors": [
+            "woody",
+            "resonant",
+            "warm"
+          ],
+          "match_tokens": [
+            "tzouras",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tzouras_carved",
+          "name": "Carved single-block bowl (prison-made tradition)",
+          "descriptors": [
+            "dry",
+            "raw",
+            "archaic"
+          ],
+          "match_tokens": [
+            "tzouras",
+            "rebetiko"
+          ]
+        }
+      ]
+    }
+  ]
+}

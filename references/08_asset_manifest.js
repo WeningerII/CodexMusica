@@ -173,6 +173,7 @@ const ICON_ALIASES = {
 
 
 
+
 // ─────────────── EMOJI registries ─────────────── (auto-generated)
 // Source: Twemoji v15.1.0 SVGs in references/_assets/emoji/ (CC-BY 4.0)
 // Built from scripts/_instrument_emoji_map.json via scripts/build_emoji.js

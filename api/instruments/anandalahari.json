@@ -1,0 +1,144 @@
+{
+  "id": "anandalahari",
+  "name": "Anandalahari (Bengali friction-plucked tension drum)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "anandalahari",
+  "parts": [
+    {
+      "id": "anandalahari_body",
+      "name": "Drum body",
+      "variants": [
+        {
+          "id": "anandalahari_wood",
+          "default": true,
+          "name": "Small wooden barrel with hide head",
+          "descriptors": [
+            "croaking",
+            "talking-tone"
+          ],
+          "match_tokens": [
+            "tension-drum",
+            "bengali"
+          ]
+        },
+        {
+          "id": "anandalahari_clay",
+          "name": "Clay-bodied variant",
+          "descriptors": [
+            "dry",
+            "earthy"
+          ],
+          "match_tokens": [
+            "plucked-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anandalahari_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "anandalahari_baul",
+          "default": true,
+          "name": "Baul accompaniment with arm-pull bends",
+          "descriptors": [
+            "swooping",
+            "wobbling"
+          ],
+          "match_tokens": [
+            "pitch-bend",
+            "baul"
+          ]
+        },
+        {
+          "id": "anandalahari_kirtan",
+          "name": "Kirtan timekeeping strokes",
+          "descriptors": [
+            "thumping",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "devotional",
+            "timekeeping"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "anandalahari_body",
+      "name": "Drum body",
+      "variants": [
+        {
+          "id": "anandalahari_wood",
+          "default": true,
+          "name": "Small wooden barrel with hide head",
+          "descriptors": [
+            "croaking",
+            "talking-tone"
+          ],
+          "match_tokens": [
+            "tension-drum",
+            "bengali"
+          ]
+        },
+        {
+          "id": "anandalahari_clay",
+          "name": "Clay-bodied variant",
+          "descriptors": [
+            "dry",
+            "earthy"
+          ],
+          "match_tokens": [
+            "plucked-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anandalahari_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "anandalahari_baul",
+          "default": true,
+          "name": "Baul accompaniment with arm-pull bends",
+          "descriptors": [
+            "swooping",
+            "wobbling"
+          ],
+          "match_tokens": [
+            "pitch-bend",
+            "baul"
+          ]
+        },
+        {
+          "id": "anandalahari_kirtan",
+          "name": "Kirtan timekeeping strokes",
+          "descriptors": [
+            "thumping",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "devotional",
+            "timekeeping"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "id": "kissar",
+  "name": "Kissar (Nubian/Sudanese bowl lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kissar",
+  "parts": [
+    {
+      "id": "kissar_body",
+      "name": "Resonator body",
+      "variants": [
+        {
+          "id": "kissar_gourd_skin",
+          "default": true,
+          "name": "Gourd/wooden bowl with hide soundtable",
+          "descriptors": [
+            "dry-toned",
+            "buzzing-timbre",
+            "earthy"
+          ],
+          "match_tokens": [
+            "bowl-lyre",
+            "nubian"
+          ]
+        },
+        {
+          "id": "kissar_tortoise",
+          "name": "Tortoise-shell bowl resonator",
+          "descriptors": [
+            "nasal",
+            "compact",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowl-lyre",
+            "sudanese"
+          ]
+        },
+        {
+          "id": "kissar_tin",
+          "name": "Metal tin resonator (urban form)",
+          "descriptors": [
+            "metallic-ring",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "bowl-lyre",
+            "urban"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kissar_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kissar_plectrum_strum",
+          "default": true,
+          "name": "Horn plectrum strumming with damped strings",
+          "descriptors": [
+            "rhythmic-strum",
+            "chiming"
+          ],
+          "match_tokens": [
+            "strummed",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "kissar_finger_pluck",
+          "name": "Finger-plucked melodic picking",
+          "descriptors": [
+            "delicate",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kissar_body",
+      "name": "Resonator body",
+      "variants": [
+        {
+          "id": "kissar_gourd_skin",
+          "default": true,
+          "name": "Gourd/wooden bowl with hide soundtable",
+          "descriptors": [
+            "dry-toned",
+            "buzzing-timbre",
+            "earthy"
+          ],
+          "match_tokens": [
+            "bowl-lyre",
+            "nubian"
+          ]
+        },
+        {
+          "id": "kissar_tortoise",
+          "name": "Tortoise-shell bowl resonator",
+          "descriptors": [
+            "nasal",
+            "compact",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowl-lyre",
+            "sudanese"
+          ]
+        },
+        {
+          "id": "kissar_tin",
+          "name": "Metal tin resonator (urban form)",
+          "descriptors": [
+            "metallic-ring",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "bowl-lyre",
+            "urban"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kissar_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kissar_plectrum_strum",
+          "default": true,
+          "name": "Horn plectrum strumming with damped strings",
+          "descriptors": [
+            "rhythmic-strum",
+            "chiming"
+          ],
+          "match_tokens": [
+            "strummed",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "kissar_finger_pluck",
+          "name": "Finger-plucked melodic picking",
+          "descriptors": [
+            "delicate",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "mizhavu",
+  "name": "Mizhavu (Kerala copper pot drum of Koodiyattam)",
+  "family": "percussion",
+  "class": "clay_pot_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mizhavu",
+  "parts": [
+    {
+      "id": "mizhavu_body",
+      "name": "Pot body",
+      "variants": [
+        {
+          "id": "mizhavu_copper",
+          "default": true,
+          "name": "Large copper vessel, narrow mouth",
+          "descriptors": [
+            "booming",
+            "hollow-toned"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "kerala"
+          ]
+        },
+        {
+          "id": "mizhavu_small",
+          "name": "Smaller vessel (higher voice)",
+          "descriptors": [
+            "tighter",
+            "punchy"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mizhavu_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "mizhavu_koodiyattam",
+          "default": true,
+          "name": "Koodiyattam stage accompaniment",
+          "descriptors": [
+            "deep-toned",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "theatre-accompaniment",
+            "ritual"
+          ]
+        },
+        {
+          "id": "mizhavu_thayambaka",
+          "name": "Extended solo build (mizhavu thayambaka)",
+          "descriptors": [
+            "accelerating",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "rhythmic-solo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mizhavu_body",
+      "name": "Pot body",
+      "variants": [
+        {
+          "id": "mizhavu_copper",
+          "default": true,
+          "name": "Large copper vessel, narrow mouth",
+          "descriptors": [
+            "booming",
+            "hollow-toned"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "kerala"
+          ]
+        },
+        {
+          "id": "mizhavu_small",
+          "name": "Smaller vessel (higher voice)",
+          "descriptors": [
+            "tighter",
+            "punchy"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mizhavu_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "mizhavu_koodiyattam",
+          "default": true,
+          "name": "Koodiyattam stage accompaniment",
+          "descriptors": [
+            "deep-toned",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "theatre-accompaniment",
+            "ritual"
+          ]
+        },
+        {
+          "id": "mizhavu_thayambaka",
+          "name": "Extended solo build (mizhavu thayambaka)",
+          "descriptors": [
+            "accelerating",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "rhythmic-solo"
+          ]
+        }
+      ]
+    }
+  ]
+}

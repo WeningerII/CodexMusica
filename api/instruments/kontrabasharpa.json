@@ -1,0 +1,265 @@
+{
+  "id": "kontrabasharpa",
+  "name": "Kontrabasharpa (Swedish contrabass keyed fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kontrabasharpa",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kbharpa_form",
+      "name": "Historical form",
+      "variants": [
+        {
+          "id": "kbharpa_gotland",
+          "default": true,
+          "name": "Gotland-type contrabass harpa (two key rows, drone)",
+          "descriptors": [
+            "dark-toned",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "drone-foundation",
+            "swedish"
+          ]
+        },
+        {
+          "id": "kbharpa_uppland",
+          "name": "Uppland eighteenth-century pattern",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "folk-fiddle"
+          ]
+        },
+        {
+          "id": "kbharpa_revival",
+          "name": "Modern revival build",
+          "descriptors": [
+            "even-toned",
+            "projecting"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "swedish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kbharpa_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "kbharpa_bass",
+          "default": true,
+          "name": "Bass and drone under melody harpa",
+          "descriptors": [
+            "underpinning",
+            "sustained",
+            "drone-heavy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "kbharpa_solo",
+          "name": "Solo polska playing",
+          "descriptors": [
+            "lilting",
+            "dance-rhythm",
+            "gritty"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kbharpa_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kbharpa_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "kbharpa_steel",
+          "name": "Steel strings",
+          "descriptors": [
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kbharpa_form",
+      "name": "Historical form",
+      "variants": [
+        {
+          "id": "kbharpa_gotland",
+          "default": true,
+          "name": "Gotland-type contrabass harpa (two key rows, drone)",
+          "descriptors": [
+            "dark-toned",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "drone-foundation",
+            "swedish"
+          ]
+        },
+        {
+          "id": "kbharpa_uppland",
+          "name": "Uppland eighteenth-century pattern",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "folk-fiddle"
+          ]
+        },
+        {
+          "id": "kbharpa_revival",
+          "name": "Modern revival build",
+          "descriptors": [
+            "even-toned",
+            "projecting"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "swedish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kbharpa_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "kbharpa_bass",
+          "default": true,
+          "name": "Bass and drone under melody harpa",
+          "descriptors": [
+            "underpinning",
+            "sustained",
+            "drone-heavy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "kbharpa_solo",
+          "name": "Solo polska playing",
+          "descriptors": [
+            "lilting",
+            "dance-rhythm",
+            "gritty"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kbharpa_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kbharpa_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "kbharpa_steel",
+          "name": "Steel strings",
+          "descriptors": [
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

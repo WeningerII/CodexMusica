@@ -1,0 +1,148 @@
+{
+  "id": "dan_da",
+  "name": "Đàn đá (Vietnamese prehistoric stone lithophone)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "dan da",
+  "parts": [
+    {
+      "id": "dan_da_set",
+      "name": "Slab set",
+      "variants": [
+        {
+          "id": "dan_da_ancient",
+          "default": true,
+          "name": "Archaic 8–12 slab set (Khánh Sơn type)",
+          "descriptors": [
+            "stony",
+            "ringing",
+            "inharmonic"
+          ],
+          "match_tokens": [
+            "lithophone",
+            "struck"
+          ]
+        },
+        {
+          "id": "dan_da_concert",
+          "name": "Extended tuned concert lithophone",
+          "descriptors": [
+            "bell-like",
+            "wide-ranging"
+          ],
+          "match_tokens": [
+            "lithophone",
+            "tuned"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_da_mallet",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "dan_da_wood",
+          "default": true,
+          "name": "Hard wooden beater",
+          "descriptors": [
+            "sharp-attack",
+            "clacking"
+          ],
+          "match_tokens": [
+            "struck",
+            "hard-mallet"
+          ]
+        },
+        {
+          "id": "dan_da_padded",
+          "name": "Padded mallet",
+          "descriptors": [
+            "rounded-attack",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck",
+            "soft-mallet"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dan_da_set",
+      "name": "Slab set",
+      "variants": [
+        {
+          "id": "dan_da_ancient",
+          "default": true,
+          "name": "Archaic 8–12 slab set (Khánh Sơn type)",
+          "descriptors": [
+            "stony",
+            "ringing",
+            "inharmonic"
+          ],
+          "match_tokens": [
+            "lithophone",
+            "struck"
+          ]
+        },
+        {
+          "id": "dan_da_concert",
+          "name": "Extended tuned concert lithophone",
+          "descriptors": [
+            "bell-like",
+            "wide-ranging"
+          ],
+          "match_tokens": [
+            "lithophone",
+            "tuned"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_da_mallet",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "dan_da_wood",
+          "default": true,
+          "name": "Hard wooden beater",
+          "descriptors": [
+            "sharp-attack",
+            "clacking"
+          ],
+          "match_tokens": [
+            "struck",
+            "hard-mallet"
+          ]
+        },
+        {
+          "id": "dan_da_padded",
+          "name": "Padded mallet",
+          "descriptors": [
+            "rounded-attack",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck",
+            "soft-mallet"
+          ]
+        }
+      ]
+    }
+  ]
+}

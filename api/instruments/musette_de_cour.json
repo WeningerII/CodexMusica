@@ -1,0 +1,146 @@
+{
+  "id": "musette_de_cour",
+  "name": "Musette de cour (French baroque bellows bagpipe)",
+  "family": "wind",
+  "class": "bellows_bagpipe",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "musette de cour",
+  "parts": [
+    {
+      "id": "musette_chanters",
+      "name": "Chanter configuration",
+      "variants": [
+        {
+          "id": "musette_grand_petit",
+          "default": true,
+          "name": "Grand chalumeau plus petit chalumeau (Hotteterre type)",
+          "descriptors": [
+            "sweet-toned",
+            "refined",
+            "extended-range"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "baroque"
+          ]
+        },
+        {
+          "id": "musette_grand_only",
+          "name": "Grand chalumeau alone (earlier form)",
+          "descriptors": [
+            "mellow",
+            "narrow-ranged"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "musette_drone",
+      "name": "Drone barrel",
+      "variants": [
+        {
+          "id": "musette_shuttle_drone",
+          "default": true,
+          "name": "Shuttle drone with sliders (chromatic drone tuning)",
+          "descriptors": [
+            "soft-drone",
+            "harmonically-shifting"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "musette_drone_silent",
+          "name": "Drones stopped off",
+          "descriptors": [
+            "clean-toned",
+            "chamber-intimate"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "musette_chanters",
+      "name": "Chanter configuration",
+      "variants": [
+        {
+          "id": "musette_grand_petit",
+          "default": true,
+          "name": "Grand chalumeau plus petit chalumeau (Hotteterre type)",
+          "descriptors": [
+            "sweet-toned",
+            "refined",
+            "extended-range"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "baroque"
+          ]
+        },
+        {
+          "id": "musette_grand_only",
+          "name": "Grand chalumeau alone (earlier form)",
+          "descriptors": [
+            "mellow",
+            "narrow-ranged"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "musette_drone",
+      "name": "Drone barrel",
+      "variants": [
+        {
+          "id": "musette_shuttle_drone",
+          "default": true,
+          "name": "Shuttle drone with sliders (chromatic drone tuning)",
+          "descriptors": [
+            "soft-drone",
+            "harmonically-shifting"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "musette_drone_silent",
+          "name": "Drones stopped off",
+          "descriptors": [
+            "clean-toned",
+            "chamber-intimate"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "limbe",
+  "name": "Limbe (Mongolian side-blown bamboo flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "limbe",
+  "parts": [
+    {
+      "id": "limbe_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "limbe_bamboo",
+          "default": true,
+          "name": "Bamboo limbe",
+          "descriptors": [
+            "airy",
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "limbe_wood",
+          "name": "Hardwood or bone limbe",
+          "descriptors": [
+            "focused",
+            "clear"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "limbe_technique",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "limbe_circular",
+          "default": true,
+          "name": "Circular breathing for urtiin duu long song",
+          "descriptors": [
+            "seamless",
+            "endless-line",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "long-tones"
+          ]
+        },
+        {
+          "id": "limbe_dance",
+          "name": "Short-breath dance tunes",
+          "descriptors": [
+            "agile",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "limbe_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "limbe_bamboo",
+          "default": true,
+          "name": "Bamboo limbe",
+          "descriptors": [
+            "airy",
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "limbe_wood",
+          "name": "Hardwood or bone limbe",
+          "descriptors": [
+            "focused",
+            "clear"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "limbe_technique",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "limbe_circular",
+          "default": true,
+          "name": "Circular breathing for urtiin duu long song",
+          "descriptors": [
+            "seamless",
+            "endless-line",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "long-tones"
+          ]
+        },
+        {
+          "id": "limbe_dance",
+          "name": "Short-breath dance tunes",
+          "descriptors": [
+            "agile",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "id": "nagara_indian",
+  "name": "Nagara (North Indian pair of kettledrums)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "nagara indian",
+  "parts": [
+    {
+      "id": "nagara_indian_size",
+      "name": "Drum pair size",
+      "variants": [
+        {
+          "id": "nagara_indian_naubat",
+          "default": true,
+          "name": "Large naubat temple pair",
+          "descriptors": [
+            "booming",
+            "thunderous",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "indian",
+            "low-register"
+          ]
+        },
+        {
+          "id": "nagara_indian_folk",
+          "name": "Small folk nagara pair",
+          "descriptors": [
+            "cracking",
+            "tight",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "folk",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagara_indian_shell",
+      "surface": false,
+      "name": "Bowl material",
+      "variants": [
+        {
+          "id": "nagara_indian_clay",
+          "default": true,
+          "name": "Clay bowl shells",
+          "descriptors": [
+            "earthy",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "clay-shell",
+            "kettledrum"
+          ]
+        },
+        {
+          "id": "nagara_indian_metal",
+          "name": "Copper/iron bowl shells",
+          "descriptors": [
+            "ringing",
+            "projecting"
+          ],
+          "match_tokens": [
+            "metal-shell",
+            "kettledrum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagara_indian_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "nagara_indian_shehnai",
+          "default": true,
+          "name": "Shehnai-naubat accompaniment",
+          "descriptors": [
+            "processional",
+            "supporting",
+            "rolling"
+          ],
+          "match_tokens": [
+            "indian",
+            "procession"
+          ]
+        },
+        {
+          "id": "nagara_indian_solo",
+          "name": "Solo virtuoso stick playing",
+          "descriptors": [
+            "rapid-rolls",
+            "explosive"
+          ],
+          "match_tokens": [
+            "indian",
+            "virtuosic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nagara_indian_size",
+      "name": "Drum pair size",
+      "variants": [
+        {
+          "id": "nagara_indian_naubat",
+          "default": true,
+          "name": "Large naubat temple pair",
+          "descriptors": [
+            "booming",
+            "thunderous",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "indian",
+            "low-register"
+          ]
+        },
+        {
+          "id": "nagara_indian_folk",
+          "name": "Small folk nagara pair",
+          "descriptors": [
+            "cracking",
+            "tight",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "folk",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagara_indian_shell",
+      "surface": false,
+      "name": "Bowl material",
+      "variants": [
+        {
+          "id": "nagara_indian_clay",
+          "default": true,
+          "name": "Clay bowl shells",
+          "descriptors": [
+            "earthy",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "clay-shell",
+            "kettledrum"
+          ]
+        },
+        {
+          "id": "nagara_indian_metal",
+          "name": "Copper/iron bowl shells",
+          "descriptors": [
+            "ringing",
+            "projecting"
+          ],
+          "match_tokens": [
+            "metal-shell",
+            "kettledrum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagara_indian_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "nagara_indian_shehnai",
+          "default": true,
+          "name": "Shehnai-naubat accompaniment",
+          "descriptors": [
+            "processional",
+            "supporting",
+            "rolling"
+          ],
+          "match_tokens": [
+            "indian",
+            "procession"
+          ]
+        },
+        {
+          "id": "nagara_indian_solo",
+          "name": "Solo virtuoso stick playing",
+          "descriptors": [
+            "rapid-rolls",
+            "explosive"
+          ],
+          "match_tokens": [
+            "indian",
+            "virtuosic"
+          ]
+        }
+      ]
+    }
+  ]
+}

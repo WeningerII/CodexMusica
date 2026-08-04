@@ -1,0 +1,281 @@
+{
+  "id": "rabel_castellano",
+  "name": "Rabel (Castilian-Cantabrian bowed shepherd's fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "rabel",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "rabel_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "rabel_cantabro",
+          "default": true,
+          "name": "Cántabro two-string rabel (carved boat body, tin-can or wood soundboard)",
+          "descriptors": [
+            "nasal",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shepherd-fiddle"
+          ]
+        },
+        {
+          "id": "rabel_castellano_3",
+          "name": "Castilian three-string rabel",
+          "descriptors": [
+            "droning",
+            "broader-range"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "rabel_morisco",
+          "name": "Rabel morisco (archaic rebec form, gut strings)",
+          "descriptors": [
+            "archaic",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "medieval"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rabel_soundboard",
+      "name": "Soundboard / skin",
+      "variants": [
+        {
+          "id": "rabel_skin",
+          "default": true,
+          "name": "Skin (parchment) belly",
+          "descriptors": [
+            "buzzing-timbre",
+            "punchy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "skin-head"
+          ]
+        },
+        {
+          "id": "rabel_wood",
+          "name": "Wooden belly",
+          "descriptors": [
+            "rounder",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "rabel_tin",
+          "name": "Tin-plate belly (improvised)",
+          "descriptors": [
+            "metallic",
+            "raspy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rabel_use",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "rabel_cantada",
+          "default": true,
+          "name": "Sung coplas with fiddle answers",
+          "descriptors": [
+            "voice-shadowing",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "rabel_baile",
+          "name": "Dance playing (jota, baile a lo llano)",
+          "descriptors": [
+            "driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rabel_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "rabel_cantabro",
+          "default": true,
+          "name": "Cántabro two-string rabel (carved boat body, tin-can or wood soundboard)",
+          "descriptors": [
+            "nasal",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "shepherd-fiddle"
+          ]
+        },
+        {
+          "id": "rabel_castellano_3",
+          "name": "Castilian three-string rabel",
+          "descriptors": [
+            "droning",
+            "broader-range"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "rabel_morisco",
+          "name": "Rabel morisco (archaic rebec form, gut strings)",
+          "descriptors": [
+            "archaic",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "medieval"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rabel_soundboard",
+      "name": "Soundboard / skin",
+      "variants": [
+        {
+          "id": "rabel_skin",
+          "default": true,
+          "name": "Skin (parchment) belly",
+          "descriptors": [
+            "buzzing-timbre",
+            "punchy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "skin-head"
+          ]
+        },
+        {
+          "id": "rabel_wood",
+          "name": "Wooden belly",
+          "descriptors": [
+            "rounder",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "rabel_tin",
+          "name": "Tin-plate belly (improvised)",
+          "descriptors": [
+            "metallic",
+            "raspy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rabel_use",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "rabel_cantada",
+          "default": true,
+          "name": "Sung coplas with fiddle answers",
+          "descriptors": [
+            "voice-shadowing",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "rabel_baile",
+          "name": "Dance playing (jota, baile a lo llano)",
+          "descriptors": [
+            "driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

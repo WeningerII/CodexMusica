@@ -1,0 +1,150 @@
+{
+  "id": "cifte",
+  "name": "Cifte (Albanian double-pipe single-reed clarinet)",
+  "family": "wind",
+  "class": "single_reed_double_clarinet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "cifte",
+  "parts": [
+    {
+      "id": "cifte_tuning",
+      "name": "Pipe pairing",
+      "variants": [
+        {
+          "id": "cifte_drone_melody",
+          "default": true,
+          "name": "Melody pipe over drone pipe",
+          "descriptors": [
+            "droning",
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "albanian",
+            "double-clarinet",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "cifte_parallel",
+          "name": "Two fingered pipes in near-unison",
+          "descriptors": [
+            "beating-unison",
+            "raw",
+            "thick"
+          ],
+          "match_tokens": [
+            "double-clarinet",
+            "unison-beating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cifte_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "cifte_circular",
+          "default": true,
+          "name": "Circular breathing",
+          "descriptors": [
+            "continuous",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "cifte_phrased",
+          "name": "Phrased breathing",
+          "descriptors": [
+            "song-like",
+            "articulated"
+          ],
+          "match_tokens": [
+            "albanian",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cifte_tuning",
+      "name": "Pipe pairing",
+      "variants": [
+        {
+          "id": "cifte_drone_melody",
+          "default": true,
+          "name": "Melody pipe over drone pipe",
+          "descriptors": [
+            "droning",
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "albanian",
+            "double-clarinet",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "cifte_parallel",
+          "name": "Two fingered pipes in near-unison",
+          "descriptors": [
+            "beating-unison",
+            "raw",
+            "thick"
+          ],
+          "match_tokens": [
+            "double-clarinet",
+            "unison-beating"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cifte_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "cifte_circular",
+          "default": true,
+          "name": "Circular breathing",
+          "descriptors": [
+            "continuous",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "cifte_phrased",
+          "name": "Phrased breathing",
+          "descriptors": [
+            "song-like",
+            "articulated"
+          ],
+          "match_tokens": [
+            "albanian",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

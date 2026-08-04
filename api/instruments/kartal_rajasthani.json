@@ -1,0 +1,168 @@
+{
+  "id": "kartal_rajasthani",
+  "name": "Kartal (Rajasthani wooden hand clappers)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kartal",
+  "parts": [
+    {
+      "id": "kartal_form",
+      "name": "Clapper form",
+      "variants": [
+        {
+          "id": "kartal_plain",
+          "default": true,
+          "name": "Plain hardwood blocks (four-piece, two per hand)",
+          "descriptors": [
+            "dry-click",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "wood-clappers",
+            "rajasthani"
+          ]
+        },
+        {
+          "id": "kartal_jingle",
+          "name": "Blocks with inset brass jingles",
+          "descriptors": [
+            "jingling",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "jingle-clappers"
+          ]
+        },
+        {
+          "id": "kartal_manjira_style",
+          "name": "Brass disc kartal (bhajan style)",
+          "descriptors": [
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "metal-clappers",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kartal_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kartal_manganiyar",
+          "default": true,
+          "name": "Manganiyar virtuoso rolls",
+          "descriptors": [
+            "rattling",
+            "rapid-fire"
+          ],
+          "match_tokens": [
+            "folk-rhythm",
+            "rajasthani"
+          ]
+        },
+        {
+          "id": "kartal_bhajan",
+          "name": "Steady devotional keeping-time",
+          "descriptors": [
+            "steady-pulse",
+            "clicking"
+          ],
+          "match_tokens": [
+            "devotional",
+            "timekeeping"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kartal_form",
+      "name": "Clapper form",
+      "variants": [
+        {
+          "id": "kartal_plain",
+          "default": true,
+          "name": "Plain hardwood blocks (four-piece, two per hand)",
+          "descriptors": [
+            "dry-click",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "wood-clappers",
+            "rajasthani"
+          ]
+        },
+        {
+          "id": "kartal_jingle",
+          "name": "Blocks with inset brass jingles",
+          "descriptors": [
+            "jingling",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "jingle-clappers"
+          ]
+        },
+        {
+          "id": "kartal_manjira_style",
+          "name": "Brass disc kartal (bhajan style)",
+          "descriptors": [
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "metal-clappers",
+            "devotional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kartal_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kartal_manganiyar",
+          "default": true,
+          "name": "Manganiyar virtuoso rolls",
+          "descriptors": [
+            "rattling",
+            "rapid-fire"
+          ],
+          "match_tokens": [
+            "folk-rhythm",
+            "rajasthani"
+          ]
+        },
+        {
+          "id": "kartal_bhajan",
+          "name": "Steady devotional keeping-time",
+          "descriptors": [
+            "steady-pulse",
+            "clicking"
+          ],
+          "match_tokens": [
+            "devotional",
+            "timekeeping"
+          ]
+        }
+      ]
+    }
+  ]
+}

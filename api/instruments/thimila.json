@@ -1,0 +1,144 @@
+{
+  "id": "thimila",
+  "name": "Thimila (Kerala hourglass drum)",
+  "family": "percussion",
+  "class": "hourglass_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "thimila",
+  "parts": [
+    {
+      "id": "thimila_tension",
+      "name": "Lacing tension",
+      "variants": [
+        {
+          "id": "thimila_tight",
+          "default": true,
+          "name": "High-tension jackwood shell, tight laced heads",
+          "descriptors": [
+            "cracking",
+            "piercing"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "kerala"
+          ]
+        },
+        {
+          "id": "thimila_slack",
+          "name": "Slacker lacing for lower voice",
+          "descriptors": [
+            "round-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "low-register",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thimila_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "thimila_panchavadyam",
+          "default": true,
+          "name": "Panchavadyam lead role",
+          "descriptors": [
+            "driving",
+            "accelerating"
+          ],
+          "match_tokens": [
+            "temple-ensemble",
+            "kerala"
+          ]
+        },
+        {
+          "id": "thimila_solo",
+          "name": "Solo rhythmic exposition",
+          "descriptors": [
+            "rapid-fire",
+            "articulate"
+          ],
+          "match_tokens": [
+            "rhythmic-solo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "thimila_tension",
+      "name": "Lacing tension",
+      "variants": [
+        {
+          "id": "thimila_tight",
+          "default": true,
+          "name": "High-tension jackwood shell, tight laced heads",
+          "descriptors": [
+            "cracking",
+            "piercing"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "kerala"
+          ]
+        },
+        {
+          "id": "thimila_slack",
+          "name": "Slacker lacing for lower voice",
+          "descriptors": [
+            "round-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "low-register",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thimila_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "thimila_panchavadyam",
+          "default": true,
+          "name": "Panchavadyam lead role",
+          "descriptors": [
+            "driving",
+            "accelerating"
+          ],
+          "match_tokens": [
+            "temple-ensemble",
+            "kerala"
+          ]
+        },
+        {
+          "id": "thimila_solo",
+          "name": "Solo rhythmic exposition",
+          "descriptors": [
+            "rapid-fire",
+            "articulate"
+          ],
+          "match_tokens": [
+            "rhythmic-solo"
+          ]
+        }
+      ]
+    }
+  ]
+}

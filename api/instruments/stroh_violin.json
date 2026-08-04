@@ -1,0 +1,263 @@
+{
+  "id": "stroh_violin",
+  "name": "Stroh violin (horn-amplified violin)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -1,
+    "dynamics": 1
+  },
+  "short": "stroh violin",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "stroh_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "stroh_original",
+          "default": true,
+          "name": "Stroh recording violin (aluminium horn)",
+          "descriptors": [
+            "metallic",
+            "nasal",
+            "phonograph-toned"
+          ],
+          "match_tokens": [
+            "horn-fiddle",
+            "early-recording"
+          ]
+        },
+        {
+          "id": "stroh_vioara",
+          "name": "Vioară cu goarnă (Bihor, Romania)",
+          "descriptors": [
+            "piercing",
+            "raw",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "horn-fiddle",
+            "romanian",
+            "folk-fiddle"
+          ]
+        },
+        {
+          "id": "stroh_phonofiddle",
+          "name": "One-string phonofiddle",
+          "descriptors": [
+            "thin",
+            "reedy",
+            "novelty-toned"
+          ],
+          "match_tokens": [
+            "horn-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stroh_horn",
+      "name": "Horn size / direction",
+      "variants": [
+        {
+          "id": "stroh_large",
+          "default": true,
+          "name": "Large forward-facing horn",
+          "descriptors": [
+            "projecting",
+            "focused-beam",
+            "loud"
+          ],
+          "match_tokens": [
+            "horn-fiddle",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "stroh_small",
+          "name": "Small monitor horn only",
+          "descriptors": [
+            "boxy",
+            "muted",
+            "close"
+          ],
+          "match_tokens": [
+            "horn-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stroh_diaphragm",
+      "surface": false,
+      "name": "Diaphragm material",
+      "variants": [
+        {
+          "id": "stroh_mica",
+          "default": true,
+          "name": "Mica diaphragm",
+          "descriptors": [
+            "brittle",
+            "bright"
+          ],
+          "match_tokens": [
+            "horn-fiddle"
+          ]
+        },
+        {
+          "id": "stroh_aluminium",
+          "name": "Aluminium diaphragm",
+          "descriptors": [
+            "clangy",
+            "metallic"
+          ],
+          "match_tokens": [
+            "horn-fiddle"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "stroh_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "stroh_original",
+          "default": true,
+          "name": "Stroh recording violin (aluminium horn)",
+          "descriptors": [
+            "metallic",
+            "nasal",
+            "phonograph-toned"
+          ],
+          "match_tokens": [
+            "horn-fiddle",
+            "early-recording"
+          ]
+        },
+        {
+          "id": "stroh_vioara",
+          "name": "Vioară cu goarnă (Bihor, Romania)",
+          "descriptors": [
+            "piercing",
+            "raw",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "horn-fiddle",
+            "romanian",
+            "folk-fiddle"
+          ]
+        },
+        {
+          "id": "stroh_phonofiddle",
+          "name": "One-string phonofiddle",
+          "descriptors": [
+            "thin",
+            "reedy",
+            "novelty-toned"
+          ],
+          "match_tokens": [
+            "horn-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stroh_horn",
+      "name": "Horn size / direction",
+      "variants": [
+        {
+          "id": "stroh_large",
+          "default": true,
+          "name": "Large forward-facing horn",
+          "descriptors": [
+            "projecting",
+            "focused-beam",
+            "loud"
+          ],
+          "match_tokens": [
+            "horn-fiddle",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "stroh_small",
+          "name": "Small monitor horn only",
+          "descriptors": [
+            "boxy",
+            "muted",
+            "close"
+          ],
+          "match_tokens": [
+            "horn-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stroh_diaphragm",
+      "surface": false,
+      "name": "Diaphragm material",
+      "variants": [
+        {
+          "id": "stroh_mica",
+          "default": true,
+          "name": "Mica diaphragm",
+          "descriptors": [
+            "brittle",
+            "bright"
+          ],
+          "match_tokens": [
+            "horn-fiddle"
+          ]
+        },
+        {
+          "id": "stroh_aluminium",
+          "name": "Aluminium diaphragm",
+          "descriptors": [
+            "clangy",
+            "metallic"
+          ],
+          "match_tokens": [
+            "horn-fiddle"
+          ]
+        }
+      ]
+    }
+  ]
+}

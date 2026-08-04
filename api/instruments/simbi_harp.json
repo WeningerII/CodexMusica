@@ -1,0 +1,210 @@
+{
+  "id": "simbi_harp",
+  "name": "Simbi (Maninka seven-string hunters' harp)",
+  "family": "plucked_traditional",
+  "class": "plucked_harp_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "simbi",
+  "parts": [
+    {
+      "id": "simbi_resonator",
+      "name": "Gourd resonator",
+      "variants": [
+        {
+          "id": "simbi_calabash",
+          "default": true,
+          "name": "Half-calabash with hide soundtable",
+          "descriptors": [
+            "dry",
+            "woody",
+            "earthy"
+          ],
+          "match_tokens": [
+            "harp-lute",
+            "hunters-music"
+          ]
+        },
+        {
+          "id": "simbi_large_gourd",
+          "name": "Large deep gourd body",
+          "descriptors": [
+            "boomy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "harp-lute",
+            "gourd-resonator"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "simbi_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "simbi_nylon",
+          "default": true,
+          "name": "Nylon fishing-line strings",
+          "descriptors": [
+            "bright",
+            "clear"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mande"
+          ]
+        },
+        {
+          "id": "simbi_leather",
+          "name": "Twisted leather / gut strings",
+          "descriptors": [
+            "muted",
+            "archaic",
+            "thudding"
+          ],
+          "match_tokens": [
+            "plucked",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "simbi_buzzer",
+      "surface": false,
+      "name": "Buzzing plate",
+      "variants": [
+        {
+          "id": "simbi_nege",
+          "default": true,
+          "name": "Metal buzzer plate (nege) with rings",
+          "descriptors": [
+            "buzzing-timbre",
+            "rattling"
+          ],
+          "match_tokens": [
+            "buzz-timbre"
+          ]
+        },
+        {
+          "id": "simbi_no_nege",
+          "name": "No buzzer plate",
+          "descriptors": [
+            "clean-tone",
+            "plain"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "simbi_resonator",
+      "name": "Gourd resonator",
+      "variants": [
+        {
+          "id": "simbi_calabash",
+          "default": true,
+          "name": "Half-calabash with hide soundtable",
+          "descriptors": [
+            "dry",
+            "woody",
+            "earthy"
+          ],
+          "match_tokens": [
+            "harp-lute",
+            "hunters-music"
+          ]
+        },
+        {
+          "id": "simbi_large_gourd",
+          "name": "Large deep gourd body",
+          "descriptors": [
+            "boomy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "harp-lute",
+            "gourd-resonator"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "simbi_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "simbi_nylon",
+          "default": true,
+          "name": "Nylon fishing-line strings",
+          "descriptors": [
+            "bright",
+            "clear"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mande"
+          ]
+        },
+        {
+          "id": "simbi_leather",
+          "name": "Twisted leather / gut strings",
+          "descriptors": [
+            "muted",
+            "archaic",
+            "thudding"
+          ],
+          "match_tokens": [
+            "plucked",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "simbi_buzzer",
+      "surface": false,
+      "name": "Buzzing plate",
+      "variants": [
+        {
+          "id": "simbi_nege",
+          "default": true,
+          "name": "Metal buzzer plate (nege) with rings",
+          "descriptors": [
+            "buzzing-timbre",
+            "rattling"
+          ],
+          "match_tokens": [
+            "buzz-timbre"
+          ]
+        },
+        {
+          "id": "simbi_no_nege",
+          "name": "No buzzer plate",
+          "descriptors": [
+            "clean-tone",
+            "plain"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "id": "hardanger_damore",
+  "name": "Hardanger d'amore (modern viola-range Hardanger fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "hardanger d'amore",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "hdamore_tuning",
+      "name": "Scordatura tuning",
+      "variants": [
+        {
+          "id": "hdamore_standard",
+          "default": true,
+          "name": "Standard viola-range tuning with sympathetic set",
+          "descriptors": [
+            "shimmering",
+            "halo-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "hdamore_troll",
+          "name": "Trollstilt (raised-drone scordatura)",
+          "descriptors": [
+            "eerie",
+            "drone-heavy",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "hdamore_low",
+          "name": "Lowered bass scordatura",
+          "descriptors": [
+            "dark-toned",
+            "weighty",
+            "brooding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hdamore_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "hdamore_slatt",
+          "default": true,
+          "name": "Slått dance playing (double-stopped)",
+          "descriptors": [
+            "driving",
+            "double-stopped",
+            "lilting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "hdamore_contemporary",
+          "name": "Contemporary composed / chamber writing",
+          "descriptors": [
+            "sustained",
+            "lyrical",
+            "open-voiced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        },
+        {
+          "id": "hdamore_lydarslatt",
+          "name": "Lydarslått listening tune",
+          "descriptors": [
+            "rubato",
+            "meditative",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hdamore_sympathetic",
+      "surface": false,
+      "name": "Sympathetic string material",
+      "variants": [
+        {
+          "id": "hdamore_steel",
+          "default": true,
+          "name": "Steel understrings",
+          "descriptors": [
+            "bright-halo",
+            "silvery"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "hdamore_bronze",
+          "name": "Bronze-wound understrings",
+          "descriptors": [
+            "warm-halo",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hdamore_tuning",
+      "name": "Scordatura tuning",
+      "variants": [
+        {
+          "id": "hdamore_standard",
+          "default": true,
+          "name": "Standard viola-range tuning with sympathetic set",
+          "descriptors": [
+            "shimmering",
+            "halo-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "hdamore_troll",
+          "name": "Trollstilt (raised-drone scordatura)",
+          "descriptors": [
+            "eerie",
+            "drone-heavy",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "hdamore_low",
+          "name": "Lowered bass scordatura",
+          "descriptors": [
+            "dark-toned",
+            "weighty",
+            "brooding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hdamore_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "hdamore_slatt",
+          "default": true,
+          "name": "Slått dance playing (double-stopped)",
+          "descriptors": [
+            "driving",
+            "double-stopped",
+            "lilting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "hdamore_contemporary",
+          "name": "Contemporary composed / chamber writing",
+          "descriptors": [
+            "sustained",
+            "lyrical",
+            "open-voiced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        },
+        {
+          "id": "hdamore_lydarslatt",
+          "name": "Lydarslått listening tune",
+          "descriptors": [
+            "rubato",
+            "meditative",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hdamore_sympathetic",
+      "surface": false,
+      "name": "Sympathetic string material",
+      "variants": [
+        {
+          "id": "hdamore_steel",
+          "default": true,
+          "name": "Steel understrings",
+          "descriptors": [
+            "bright-halo",
+            "silvery"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "hdamore_bronze",
+          "name": "Bronze-wound understrings",
+          "descriptors": [
+            "warm-halo",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "id": "davul_zurna",
+  "name": "Davul-zurna (Anatolian shawm-and-drum outdoor duo)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "davul zurna",
+  "parts": [
+    {
+      "id": "davul_zurna_region",
+      "name": "Regional style",
+      "variants": [
+        {
+          "id": "davul_zurna_anatolian",
+          "default": true,
+          "name": "Central Anatolian wedding style",
+          "descriptors": [
+            "blaring",
+            "piercing",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "anatolian",
+            "shawm-and-drum",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "davul_zurna_black_sea",
+          "name": "Eastern/Black Sea horon style",
+          "descriptors": [
+            "fast-ornamented",
+            "relentless"
+          ],
+          "match_tokens": [
+            "turkish",
+            "horon",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "davul_zurna_balkan",
+          "name": "Balkan zurla-tapan style",
+          "descriptors": [
+            "raw",
+            "droning",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "balkan",
+            "zurla",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "davul_zurna_zurna_size",
+      "name": "Zurna size / pitch",
+      "variants": [
+        {
+          "id": "davul_zurna_kaba",
+          "default": true,
+          "name": "Kaba zurna (large, low)",
+          "descriptors": [
+            "deep-toned",
+            "reedy",
+            "broad"
+          ],
+          "match_tokens": [
+            "shawm",
+            "low-register"
+          ]
+        },
+        {
+          "id": "davul_zurna_cura",
+          "name": "Cura zurna (small, shrill)",
+          "descriptors": [
+            "shrill",
+            "cutting",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "shawm",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "davul_zurna_drum",
+      "name": "Davul stroke pattern",
+      "variants": [
+        {
+          "id": "davul_zurna_tokmak",
+          "default": true,
+          "name": "Tokmak-and-switch (bass beater plus thin stick)",
+          "descriptors": [
+            "booming-and-ticking",
+            "asymmetric",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "davul_zurna_aksak",
+          "name": "Aksak limping-meter accompaniment",
+          "descriptors": [
+            "limping-meter",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "aksak",
+            "anatolian"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "davul_zurna_region",
+      "name": "Regional style",
+      "variants": [
+        {
+          "id": "davul_zurna_anatolian",
+          "default": true,
+          "name": "Central Anatolian wedding style",
+          "descriptors": [
+            "blaring",
+            "piercing",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "anatolian",
+            "shawm-and-drum",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "davul_zurna_black_sea",
+          "name": "Eastern/Black Sea horon style",
+          "descriptors": [
+            "fast-ornamented",
+            "relentless"
+          ],
+          "match_tokens": [
+            "turkish",
+            "horon",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "davul_zurna_balkan",
+          "name": "Balkan zurla-tapan style",
+          "descriptors": [
+            "raw",
+            "droning",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "balkan",
+            "zurla",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "davul_zurna_zurna_size",
+      "name": "Zurna size / pitch",
+      "variants": [
+        {
+          "id": "davul_zurna_kaba",
+          "default": true,
+          "name": "Kaba zurna (large, low)",
+          "descriptors": [
+            "deep-toned",
+            "reedy",
+            "broad"
+          ],
+          "match_tokens": [
+            "shawm",
+            "low-register"
+          ]
+        },
+        {
+          "id": "davul_zurna_cura",
+          "name": "Cura zurna (small, shrill)",
+          "descriptors": [
+            "shrill",
+            "cutting",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "shawm",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "davul_zurna_drum",
+      "name": "Davul stroke pattern",
+      "variants": [
+        {
+          "id": "davul_zurna_tokmak",
+          "default": true,
+          "name": "Tokmak-and-switch (bass beater plus thin stick)",
+          "descriptors": [
+            "booming-and-ticking",
+            "asymmetric",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "davul_zurna_aksak",
+          "name": "Aksak limping-meter accompaniment",
+          "descriptors": [
+            "limping-meter",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "aksak",
+            "anatolian"
+          ]
+        }
+      ]
+    }
+  ]
+}

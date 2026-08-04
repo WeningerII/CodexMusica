@@ -1,0 +1,179 @@
+{
+  "id": "pulluvan_veena",
+  "name": "Pulluvan veena (Kerala serpent-ritual bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "pulluvan veena",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pulluvanveena_form",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "pulluvanveena_gourd",
+          "default": true,
+          "name": "Gourd body with hide belly, single string",
+          "descriptors": [
+            "hoarse",
+            "nasal",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kerala",
+            "ritual"
+          ]
+        },
+        {
+          "id": "pulluvanveena_wood",
+          "name": "Carved wooden-bowl body",
+          "descriptors": [
+            "woody",
+            "dry-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kerala"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pulluvanveena_context",
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "pulluvanveena_pambu",
+          "default": true,
+          "name": "Pambin thullal serpent-grove song accompaniment",
+          "descriptors": [
+            "droning",
+            "incantatory",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "pulluvanveena_narrative",
+          "name": "Narrative ballad accompaniment",
+          "descriptors": [
+            "voice-shadowing",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kerala"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pulluvanveena_form",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "pulluvanveena_gourd",
+          "default": true,
+          "name": "Gourd body with hide belly, single string",
+          "descriptors": [
+            "hoarse",
+            "nasal",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kerala",
+            "ritual"
+          ]
+        },
+        {
+          "id": "pulluvanveena_wood",
+          "name": "Carved wooden-bowl body",
+          "descriptors": [
+            "woody",
+            "dry-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kerala"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pulluvanveena_context",
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "pulluvanveena_pambu",
+          "default": true,
+          "name": "Pambin thullal serpent-grove song accompaniment",
+          "descriptors": [
+            "droning",
+            "incantatory",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ritual",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "pulluvanveena_narrative",
+          "name": "Narrative ballad accompaniment",
+          "descriptors": [
+            "voice-shadowing",
+            "plain"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kerala"
+          ]
+        }
+      ]
+    }
+  ]
+}

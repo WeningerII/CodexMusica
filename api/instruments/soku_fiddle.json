@@ -1,0 +1,173 @@
+{
+  "id": "soku_fiddle",
+  "name": "Soku (Maninka one-string calabash fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "soku",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "soku_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "soku_calabash",
+          "default": true,
+          "name": "Half-calabash with lizard/goat skin table",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "rasping"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "mande"
+          ]
+        },
+        {
+          "id": "soku_tin",
+          "name": "Tin-can resonator (modern)",
+          "descriptors": [
+            "metallic",
+            "edgy"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "urban"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soku_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "soku_praise",
+          "default": true,
+          "name": "Praise-song accompaniment shadowing the voice",
+          "descriptors": [
+            "voice-shadowing",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "soku_solo",
+          "name": "Ornamented solo instrumental",
+          "descriptors": [
+            "ornamented",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "soku_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "soku_calabash",
+          "default": true,
+          "name": "Half-calabash with lizard/goat skin table",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "rasping"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "mande"
+          ]
+        },
+        {
+          "id": "soku_tin",
+          "name": "Tin-can resonator (modern)",
+          "descriptors": [
+            "metallic",
+            "edgy"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "urban"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soku_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "soku_praise",
+          "default": true,
+          "name": "Praise-song accompaniment shadowing the voice",
+          "descriptors": [
+            "voice-shadowing",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "soku_solo",
+          "name": "Ornamented solo instrumental",
+          "descriptors": [
+            "ornamented",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

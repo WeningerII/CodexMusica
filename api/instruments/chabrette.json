@@ -1,0 +1,144 @@
+{
+  "id": "chabrette",
+  "name": "Chabrette (Limousin mouth-blown bagpipe)",
+  "family": "wind",
+  "class": "mouth_blown_bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "chabrette",
+  "parts": [
+    {
+      "id": "chabrette_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "chabrette_limousine",
+          "default": true,
+          "name": "Chabrette limousine with carved boitier and small drone",
+          "descriptors": [
+            "reedy-tone",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "limousin"
+          ]
+        },
+        {
+          "id": "chabrette_perigord",
+          "name": "Périgord-style chabrette",
+          "descriptors": [
+            "brighter-chanter",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chabrette_drones",
+      "name": "Drone setup",
+      "variants": [
+        {
+          "id": "chabrette_shoulder_drone",
+          "default": true,
+          "name": "Shoulder drone plus small boitier drone",
+          "descriptors": [
+            "layered-drone",
+            "broad"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "chabrette_single_drone",
+          "name": "Single drone only",
+          "descriptors": [
+            "lean-drone",
+            "focused"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chabrette_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "chabrette_limousine",
+          "default": true,
+          "name": "Chabrette limousine with carved boitier and small drone",
+          "descriptors": [
+            "reedy-tone",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "limousin"
+          ]
+        },
+        {
+          "id": "chabrette_perigord",
+          "name": "Périgord-style chabrette",
+          "descriptors": [
+            "brighter-chanter",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chabrette_drones",
+      "name": "Drone setup",
+      "variants": [
+        {
+          "id": "chabrette_shoulder_drone",
+          "default": true,
+          "name": "Shoulder drone plus small boitier drone",
+          "descriptors": [
+            "layered-drone",
+            "broad"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "chabrette_single_drone",
+          "name": "Single drone only",
+          "descriptors": [
+            "lean-drone",
+            "focused"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": "danbolin",
+  "name": "Danbolin (Basque small stick-beaten drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "danbolin",
+  "parts": [
+    {
+      "id": "danbolin_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "danbolin_snared",
+          "default": true,
+          "name": "Shallow drum with gut snare across the head",
+          "descriptors": [
+            "crisp-crack",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "tabor-drum",
+            "basque"
+          ]
+        },
+        {
+          "id": "danbolin_unsnared",
+          "name": "Unsnared deeper tabor",
+          "descriptors": [
+            "dull-thud",
+            "woody"
+          ],
+          "match_tokens": [
+            "tabor-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "danbolin_head",
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "danbolin_goatskin",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "dry-attack",
+            "warm-thud"
+          ],
+          "match_tokens": [
+            "tabor-drum"
+          ]
+        },
+        {
+          "id": "danbolin_synthetic",
+          "name": "Synthetic head (modern band use)",
+          "descriptors": [
+            "bright-attack",
+            "consistent"
+          ],
+          "match_tokens": [
+            "tabor-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "danbolin_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "danbolin_snared",
+          "default": true,
+          "name": "Shallow drum with gut snare across the head",
+          "descriptors": [
+            "crisp-crack",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "tabor-drum",
+            "basque"
+          ]
+        },
+        {
+          "id": "danbolin_unsnared",
+          "name": "Unsnared deeper tabor",
+          "descriptors": [
+            "dull-thud",
+            "woody"
+          ],
+          "match_tokens": [
+            "tabor-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "danbolin_head",
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "danbolin_goatskin",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "dry-attack",
+            "warm-thud"
+          ],
+          "match_tokens": [
+            "tabor-drum"
+          ]
+        },
+        {
+          "id": "danbolin_synthetic",
+          "name": "Synthetic head (modern band use)",
+          "descriptors": [
+            "bright-attack",
+            "consistent"
+          ],
+          "match_tokens": [
+            "tabor-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

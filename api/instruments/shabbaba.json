@@ -1,0 +1,152 @@
+{
+  "id": "shabbaba",
+  "name": "Shabbaba (Levantine-Bedouin open end-blown shepherd flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "shabbaba",
+  "parts": [
+    {
+      "id": "shabbaba_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "shabbaba_pastoral",
+          "default": true,
+          "name": "Free-rhythm pastoral melody",
+          "descriptors": [
+            "breathy",
+            "lonesome",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bedouin",
+            "shepherd-flute",
+            "levantine"
+          ]
+        },
+        {
+          "id": "shabbaba_dabke",
+          "name": "Dabke dance tunes",
+          "descriptors": [
+            "driving",
+            "repetitive",
+            "bright"
+          ],
+          "match_tokens": [
+            "dabke",
+            "levantine",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shabbaba_material",
+      "surface": false,
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "shabbaba_cane",
+          "default": true,
+          "name": "Cane tube",
+          "descriptors": [
+            "reedy",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "cane-flute"
+          ]
+        },
+        {
+          "id": "shabbaba_metal",
+          "name": "Metal pipe (modern makeshift)",
+          "descriptors": [
+            "bright",
+            "edgy"
+          ],
+          "match_tokens": [
+            "metal-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shabbaba_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "shabbaba_pastoral",
+          "default": true,
+          "name": "Free-rhythm pastoral melody",
+          "descriptors": [
+            "breathy",
+            "lonesome",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bedouin",
+            "shepherd-flute",
+            "levantine"
+          ]
+        },
+        {
+          "id": "shabbaba_dabke",
+          "name": "Dabke dance tunes",
+          "descriptors": [
+            "driving",
+            "repetitive",
+            "bright"
+          ],
+          "match_tokens": [
+            "dabke",
+            "levantine",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shabbaba_material",
+      "surface": false,
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "shabbaba_cane",
+          "default": true,
+          "name": "Cane tube",
+          "descriptors": [
+            "reedy",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "cane-flute"
+          ]
+        },
+        {
+          "id": "shabbaba_metal",
+          "name": "Metal pipe (modern makeshift)",
+          "descriptors": [
+            "bright",
+            "edgy"
+          ],
+          "match_tokens": [
+            "metal-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

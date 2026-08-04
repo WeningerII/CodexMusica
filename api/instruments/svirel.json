@@ -1,0 +1,142 @@
+{
+  "id": "svirel",
+  "name": "Svirel (Russian wooden duct whistle flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 2,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "svirel",
+  "parts": [
+    {
+      "id": "svirel_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "svirel_single",
+          "default": true,
+          "name": "Single six-hole svirel (willow or maple)",
+          "descriptors": [
+            "bright-whistle",
+            "airy-tone"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "russian-folk"
+          ]
+        },
+        {
+          "id": "svirel_double",
+          "name": "Dvoychatka (paired svirel, melody plus drone)",
+          "descriptors": [
+            "droning",
+            "beating-tone"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "svirel_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "svirel_willow",
+          "default": true,
+          "name": "Willow / elder tube",
+          "descriptors": [
+            "soft-toned",
+            "woody"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        },
+        {
+          "id": "svirel_maple",
+          "name": "Maple or fruitwood tube",
+          "descriptors": [
+            "bright-attack",
+            "focused"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "svirel_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "svirel_single",
+          "default": true,
+          "name": "Single six-hole svirel (willow or maple)",
+          "descriptors": [
+            "bright-whistle",
+            "airy-tone"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "russian-folk"
+          ]
+        },
+        {
+          "id": "svirel_double",
+          "name": "Dvoychatka (paired svirel, melody plus drone)",
+          "descriptors": [
+            "droning",
+            "beating-tone"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "svirel_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "svirel_willow",
+          "default": true,
+          "name": "Willow / elder tube",
+          "descriptors": [
+            "soft-toned",
+            "woody"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        },
+        {
+          "id": "svirel_maple",
+          "name": "Maple or fruitwood tube",
+          "descriptors": [
+            "bright-attack",
+            "focused"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

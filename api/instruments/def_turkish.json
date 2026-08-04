@@ -1,0 +1,154 @@
+{
+  "id": "def_turkish",
+  "name": "Def (Turkish frame drum with jingles)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "def",
+  "parts": [
+    {
+      "id": "def_jingles",
+      "name": "Jingle configuration",
+      "variants": [
+        {
+          "id": "def_jingled",
+          "default": true,
+          "name": "Ringed jingle def (zilli def)",
+          "descriptors": [
+            "jingling",
+            "shimmering",
+            "crisp"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "turkish",
+            "jingles"
+          ]
+        },
+        {
+          "id": "def_bendir",
+          "name": "Jingle-less ring-fitted def",
+          "descriptors": [
+            "dry",
+            "dark-thump"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "turkish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "def_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "def_finger",
+          "default": true,
+          "name": "Finger-snap and shake technique",
+          "descriptors": [
+            "intricate",
+            "rattling",
+            "fast-ornamented"
+          ],
+          "match_tokens": [
+            "finger-technique",
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "def_sufi",
+          "name": "Sufi zikr steady pulse",
+          "descriptors": [
+            "hypnotic",
+            "measured",
+            "devotional"
+          ],
+          "match_tokens": [
+            "sufi",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "def_jingles",
+      "name": "Jingle configuration",
+      "variants": [
+        {
+          "id": "def_jingled",
+          "default": true,
+          "name": "Ringed jingle def (zilli def)",
+          "descriptors": [
+            "jingling",
+            "shimmering",
+            "crisp"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "turkish",
+            "jingles"
+          ]
+        },
+        {
+          "id": "def_bendir",
+          "name": "Jingle-less ring-fitted def",
+          "descriptors": [
+            "dry",
+            "dark-thump"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "turkish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "def_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "def_finger",
+          "default": true,
+          "name": "Finger-snap and shake technique",
+          "descriptors": [
+            "intricate",
+            "rattling",
+            "fast-ornamented"
+          ],
+          "match_tokens": [
+            "finger-technique",
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "def_sufi",
+          "name": "Sufi zikr steady pulse",
+          "descriptors": [
+            "hypnotic",
+            "measured",
+            "devotional"
+          ],
+          "match_tokens": [
+            "sufi",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "id": "lingbu",
+  "name": "Lingbu (Tibetan transverse bamboo flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "lingbu",
+  "parts": [
+    {
+      "id": "lingbu_size",
+      "name": "Size / key",
+      "variants": [
+        {
+          "id": "lingbu_medium",
+          "default": true,
+          "name": "Medium bamboo lingbu",
+          "descriptors": [
+            "airy",
+            "breathy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "flute",
+            "tibetan",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "lingbu_long",
+          "name": "Long low-pitched lingbu",
+          "descriptors": [
+            "low-register",
+            "hollow",
+            "mellow"
+          ],
+          "match_tokens": [
+            "flute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "lingbu_short",
+          "name": "Short high lingbu",
+          "descriptors": [
+            "bright",
+            "piercing"
+          ],
+          "match_tokens": [
+            "flute",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lingbu_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "lingbu_song",
+          "default": true,
+          "name": "Folk-song melody with wide ornaments",
+          "descriptors": [
+            "ornamented",
+            "lyrical",
+            "gliding"
+          ],
+          "match_tokens": [
+            "flute",
+            "expressive"
+          ]
+        },
+        {
+          "id": "lingbu_pastoral",
+          "name": "Pastoral / herding improvisation",
+          "descriptors": [
+            "free-rhythm",
+            "spacious",
+            "breathy"
+          ],
+          "match_tokens": [
+            "flute",
+            "rubato"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lingbu_size",
+      "name": "Size / key",
+      "variants": [
+        {
+          "id": "lingbu_medium",
+          "default": true,
+          "name": "Medium bamboo lingbu",
+          "descriptors": [
+            "airy",
+            "breathy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "flute",
+            "tibetan",
+            "bamboo"
+          ]
+        },
+        {
+          "id": "lingbu_long",
+          "name": "Long low-pitched lingbu",
+          "descriptors": [
+            "low-register",
+            "hollow",
+            "mellow"
+          ],
+          "match_tokens": [
+            "flute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "lingbu_short",
+          "name": "Short high lingbu",
+          "descriptors": [
+            "bright",
+            "piercing"
+          ],
+          "match_tokens": [
+            "flute",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lingbu_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "lingbu_song",
+          "default": true,
+          "name": "Folk-song melody with wide ornaments",
+          "descriptors": [
+            "ornamented",
+            "lyrical",
+            "gliding"
+          ],
+          "match_tokens": [
+            "flute",
+            "expressive"
+          ]
+        },
+        {
+          "id": "lingbu_pastoral",
+          "name": "Pastoral / herding improvisation",
+          "descriptors": [
+            "free-rhythm",
+            "spacious",
+            "breathy"
+          ],
+          "match_tokens": [
+            "flute",
+            "rubato"
+          ]
+        }
+      ]
+    }
+  ]
+}

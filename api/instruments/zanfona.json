@@ -1,0 +1,191 @@
+{
+  "id": "zanfona",
+  "name": "Zanfona (Galician hurdy-gurdy)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "zanfona",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "zanfona_drone_set",
+      "name": "Drone / trompeta setup",
+      "variants": [
+        {
+          "id": "zanfona_trompeta",
+          "default": true,
+          "name": "Buzzing bridge (trompeta) engaged with drones",
+          "descriptors": [
+            "buzzing-timbre",
+            "rhythmic-drone"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zanfona_drones_only",
+          "name": "Plain drones, trompeta disengaged",
+          "descriptors": [
+            "smooth-drone",
+            "sustained"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zanfona_melody_only",
+          "name": "Melody strings only (drones muted)",
+          "descriptors": [
+            "exposed-melody",
+            "nasal"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zanfona_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "zanfona_sol_do",
+          "default": true,
+          "name": "G/C tuning (galega standard)",
+          "descriptors": [
+            "earthy",
+            "broad"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "galician"
+          ]
+        },
+        {
+          "id": "zanfona_re_sol",
+          "name": "D/G tuning (brighter dance tuning)",
+          "descriptors": [
+            "bright-tone",
+            "dance-ready"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zanfona_drone_set",
+      "name": "Drone / trompeta setup",
+      "variants": [
+        {
+          "id": "zanfona_trompeta",
+          "default": true,
+          "name": "Buzzing bridge (trompeta) engaged with drones",
+          "descriptors": [
+            "buzzing-timbre",
+            "rhythmic-drone"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zanfona_drones_only",
+          "name": "Plain drones, trompeta disengaged",
+          "descriptors": [
+            "smooth-drone",
+            "sustained"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "zanfona_melody_only",
+          "name": "Melody strings only (drones muted)",
+          "descriptors": [
+            "exposed-melody",
+            "nasal"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zanfona_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "zanfona_sol_do",
+          "default": true,
+          "name": "G/C tuning (galega standard)",
+          "descriptors": [
+            "earthy",
+            "broad"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "galician"
+          ]
+        },
+        {
+          "id": "zanfona_re_sol",
+          "name": "D/G tuning (brighter dance tuning)",
+          "descriptors": [
+            "bright-tone",
+            "dance-ready"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        }
+      ]
+    }
+  ]
+}

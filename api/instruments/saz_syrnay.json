@@ -1,0 +1,148 @@
+{
+  "id": "saz_syrnay",
+  "name": "Saz syrnay (Kazakh clay vessel flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": -2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "saz syrnay",
+  "parts": [
+    {
+      "id": "saz_syrnay_size",
+      "name": "Vessel size",
+      "variants": [
+        {
+          "id": "saz_syrnay_small",
+          "default": true,
+          "name": "Small four-hole clay vessel",
+          "descriptors": [
+            "hollow",
+            "hooting",
+            "soft"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "kazakh"
+          ]
+        },
+        {
+          "id": "saz_syrnay_large",
+          "name": "Large low-pitched vessel",
+          "descriptors": [
+            "deep-toned",
+            "breathy"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saz_syrnay_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "saz_syrnay_pastoral",
+          "default": true,
+          "name": "Pastoral melody, plain breath",
+          "descriptors": [
+            "plaintive",
+            "pure-toned"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "saz_syrnay_trill",
+          "name": "Fluttered trill imitation of birds",
+          "descriptors": [
+            "fluttering",
+            "chirping"
+          ],
+          "match_tokens": [
+            "trills",
+            "flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saz_syrnay_size",
+      "name": "Vessel size",
+      "variants": [
+        {
+          "id": "saz_syrnay_small",
+          "default": true,
+          "name": "Small four-hole clay vessel",
+          "descriptors": [
+            "hollow",
+            "hooting",
+            "soft"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "kazakh"
+          ]
+        },
+        {
+          "id": "saz_syrnay_large",
+          "name": "Large low-pitched vessel",
+          "descriptors": [
+            "deep-toned",
+            "breathy"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saz_syrnay_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "saz_syrnay_pastoral",
+          "default": true,
+          "name": "Pastoral melody, plain breath",
+          "descriptors": [
+            "plaintive",
+            "pure-toned"
+          ],
+          "match_tokens": [
+            "vessel-flute",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "saz_syrnay_trill",
+          "name": "Fluttered trill imitation of birds",
+          "descriptors": [
+            "fluttering",
+            "chirping"
+          ],
+          "match_tokens": [
+            "trills",
+            "flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

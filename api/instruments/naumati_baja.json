@@ -1,0 +1,144 @@
+{
+  "id": "naumati_baja",
+  "name": "Naumati baja (Nepali nine-instrument ceremonial band)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "naumati baja",
+  "parts": [
+    {
+      "id": "naumati_lead",
+      "name": "Lead voice",
+      "variants": [
+        {
+          "id": "naumati_sahanai",
+          "default": true,
+          "name": "Paired sahanai shawms carrying the melody",
+          "descriptors": [
+            "nasal",
+            "piercing"
+          ],
+          "match_tokens": [
+            "shawm",
+            "nepali"
+          ]
+        },
+        {
+          "id": "naumati_narsingha",
+          "name": "Narsingha / karnal curved horns leading",
+          "descriptors": [
+            "blaring",
+            "fanfare-like"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naumati_context",
+      "name": "Ceremonial context",
+      "variants": [
+        {
+          "id": "naumati_wedding",
+          "default": true,
+          "name": "Wedding procession",
+          "descriptors": [
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "processional"
+          ]
+        },
+        {
+          "id": "naumati_temple",
+          "name": "Temple ritual (mangal dhun)",
+          "descriptors": [
+            "solemn",
+            "auspicious"
+          ],
+          "match_tokens": [
+            "ritual",
+            "nepali"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "naumati_lead",
+      "name": "Lead voice",
+      "variants": [
+        {
+          "id": "naumati_sahanai",
+          "default": true,
+          "name": "Paired sahanai shawms carrying the melody",
+          "descriptors": [
+            "nasal",
+            "piercing"
+          ],
+          "match_tokens": [
+            "shawm",
+            "nepali"
+          ]
+        },
+        {
+          "id": "naumati_narsingha",
+          "name": "Narsingha / karnal curved horns leading",
+          "descriptors": [
+            "blaring",
+            "fanfare-like"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naumati_context",
+      "name": "Ceremonial context",
+      "variants": [
+        {
+          "id": "naumati_wedding",
+          "default": true,
+          "name": "Wedding procession",
+          "descriptors": [
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "processional"
+          ]
+        },
+        {
+          "id": "naumati_temple",
+          "name": "Temple ritual (mangal dhun)",
+          "descriptors": [
+            "solemn",
+            "auspicious"
+          ],
+          "match_tokens": [
+            "ritual",
+            "nepali"
+          ]
+        }
+      ]
+    }
+  ]
+}

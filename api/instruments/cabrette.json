@@ -1,0 +1,146 @@
+{
+  "id": "cabrette",
+  "name": "Cabrette (Auvergne bellows-blown bagpipe)",
+  "family": "wind",
+  "class": "bellows_bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "cabrette",
+  "parts": [
+    {
+      "id": "cabrette_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "cabrette_parisienne",
+          "default": true,
+          "name": "Cabrette parisienne (dronelessered, keyed chanter, bal musette)",
+          "descriptors": [
+            "sweet-toned",
+            "ornamented",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "auvergne"
+          ]
+        },
+        {
+          "id": "cabrette_auvergnate",
+          "name": "Older Auvergne country cabrette with drone",
+          "descriptors": [
+            "droning",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cabrette_ornament",
+      "name": "Ornamentation style",
+      "variants": [
+        {
+          "id": "cabrette_brise",
+          "default": true,
+          "name": "Brisé wrist-shake vibrato and cuts",
+          "descriptors": [
+            "fluttering",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "cabrette_plain",
+          "name": "Plain legato phrasing",
+          "descriptors": [
+            "smooth-lined",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cabrette_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "cabrette_parisienne",
+          "default": true,
+          "name": "Cabrette parisienne (dronelessered, keyed chanter, bal musette)",
+          "descriptors": [
+            "sweet-toned",
+            "ornamented",
+            "nasal"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "auvergne"
+          ]
+        },
+        {
+          "id": "cabrette_auvergnate",
+          "name": "Older Auvergne country cabrette with drone",
+          "descriptors": [
+            "droning",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cabrette_ornament",
+      "name": "Ornamentation style",
+      "variants": [
+        {
+          "id": "cabrette_brise",
+          "default": true,
+          "name": "Brisé wrist-shake vibrato and cuts",
+          "descriptors": [
+            "fluttering",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "cabrette_plain",
+          "name": "Plain legato phrasing",
+          "descriptors": [
+            "smooth-lined",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ]
+}

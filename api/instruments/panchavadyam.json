@@ -1,0 +1,278 @@
+{
+  "id": "panchavadyam",
+  "name": "Panchavadyam (Kerala five-instrument temple percussion ensemble)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "panchavadyam",
+  "parts": [
+    {
+      "id": "panchavadyam_lead",
+      "name": "Lead instrument voicing",
+      "variants": [
+        {
+          "id": "panchavadyam_timila",
+          "default": true,
+          "name": "Timila-led hourglass drum core",
+          "descriptors": [
+            "ringing-attack",
+            "interlocking",
+            "crescendoing"
+          ],
+          "match_tokens": [
+            "kerala",
+            "temple-percussion",
+            "hourglass-drum"
+          ]
+        },
+        {
+          "id": "panchavadyam_maddalam",
+          "name": "Maddalam-weighted low core",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "grounding"
+          ],
+          "match_tokens": [
+            "kerala",
+            "barrel-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "panchavadyam_kombu",
+          "name": "Kombu-and-edakka wind-forward blend",
+          "descriptors": [
+            "blaring",
+            "keening",
+            "processional"
+          ],
+          "match_tokens": [
+            "kerala",
+            "curved-horn",
+            "temple-procession"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "panchavadyam_tempo",
+      "name": "Tala cycle / tempo stage",
+      "variants": [
+        {
+          "id": "panchavadyam_slow",
+          "default": true,
+          "name": "Opening slow cycle (long thripuda)",
+          "descriptors": [
+            "spacious",
+            "ceremonial",
+            "measured"
+          ],
+          "match_tokens": [
+            "kerala",
+            "slow-cycle"
+          ]
+        },
+        {
+          "id": "panchavadyam_halving",
+          "name": "Halved cycles (accelerating middle)",
+          "descriptors": [
+            "building",
+            "insistent",
+            "dense"
+          ],
+          "match_tokens": [
+            "kerala",
+            "accelerando"
+          ]
+        },
+        {
+          "id": "panchavadyam_climax",
+          "name": "Climactic fast finish (idamvattam)",
+          "descriptors": [
+            "thunderous",
+            "frenzied",
+            "peak-intensity"
+          ],
+          "match_tokens": [
+            "kerala",
+            "climax",
+            "dense-texture"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "panchavadyam_scale",
+      "name": "Ensemble size",
+      "variants": [
+        {
+          "id": "panchavadyam_small",
+          "name": "Small temple group (a dozen players)",
+          "descriptors": [
+            "transparent",
+            "articulate"
+          ],
+          "match_tokens": [
+            "kerala",
+            "small-ensemble"
+          ]
+        },
+        {
+          "id": "panchavadyam_large",
+          "default": true,
+          "name": "Full festival ensemble (hundreds of players)",
+          "descriptors": [
+            "massed",
+            "overwhelming",
+            "wall-of-percussion"
+          ],
+          "match_tokens": [
+            "kerala",
+            "massed-percussion"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "panchavadyam_lead",
+      "name": "Lead instrument voicing",
+      "variants": [
+        {
+          "id": "panchavadyam_timila",
+          "default": true,
+          "name": "Timila-led hourglass drum core",
+          "descriptors": [
+            "ringing-attack",
+            "interlocking",
+            "crescendoing"
+          ],
+          "match_tokens": [
+            "kerala",
+            "temple-percussion",
+            "hourglass-drum"
+          ]
+        },
+        {
+          "id": "panchavadyam_maddalam",
+          "name": "Maddalam-weighted low core",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "grounding"
+          ],
+          "match_tokens": [
+            "kerala",
+            "barrel-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "panchavadyam_kombu",
+          "name": "Kombu-and-edakka wind-forward blend",
+          "descriptors": [
+            "blaring",
+            "keening",
+            "processional"
+          ],
+          "match_tokens": [
+            "kerala",
+            "curved-horn",
+            "temple-procession"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "panchavadyam_tempo",
+      "name": "Tala cycle / tempo stage",
+      "variants": [
+        {
+          "id": "panchavadyam_slow",
+          "default": true,
+          "name": "Opening slow cycle (long thripuda)",
+          "descriptors": [
+            "spacious",
+            "ceremonial",
+            "measured"
+          ],
+          "match_tokens": [
+            "kerala",
+            "slow-cycle"
+          ]
+        },
+        {
+          "id": "panchavadyam_halving",
+          "name": "Halved cycles (accelerating middle)",
+          "descriptors": [
+            "building",
+            "insistent",
+            "dense"
+          ],
+          "match_tokens": [
+            "kerala",
+            "accelerando"
+          ]
+        },
+        {
+          "id": "panchavadyam_climax",
+          "name": "Climactic fast finish (idamvattam)",
+          "descriptors": [
+            "thunderous",
+            "frenzied",
+            "peak-intensity"
+          ],
+          "match_tokens": [
+            "kerala",
+            "climax",
+            "dense-texture"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "panchavadyam_scale",
+      "name": "Ensemble size",
+      "variants": [
+        {
+          "id": "panchavadyam_small",
+          "name": "Small temple group (a dozen players)",
+          "descriptors": [
+            "transparent",
+            "articulate"
+          ],
+          "match_tokens": [
+            "kerala",
+            "small-ensemble"
+          ]
+        },
+        {
+          "id": "panchavadyam_large",
+          "default": true,
+          "name": "Full festival ensemble (hundreds of players)",
+          "descriptors": [
+            "massed",
+            "overwhelming",
+            "wall-of-percussion"
+          ],
+          "match_tokens": [
+            "kerala",
+            "massed-percussion"
+          ]
+        }
+      ]
+    }
+  ]
+}

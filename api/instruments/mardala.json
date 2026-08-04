@@ -1,0 +1,144 @@
+{
+  "id": "mardala",
+  "name": "Mardala (Odissi barrel drum)",
+  "family": "percussion",
+  "class": "barrel_drum",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mardala",
+  "parts": [
+    {
+      "id": "mardala_head",
+      "name": "Head loading",
+      "variants": [
+        {
+          "id": "mardala_paste",
+          "default": true,
+          "name": "Permanent black paste on right head",
+          "descriptors": [
+            "pitched-tone",
+            "ringing"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "odissi"
+          ]
+        },
+        {
+          "id": "mardala_plain",
+          "name": "Unloaded heads (older folk form)",
+          "descriptors": [
+            "open-toned",
+            "earthy"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mardala_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "mardala_odissi",
+          "default": true,
+          "name": "Odissi dance accompaniment (tala cycles)",
+          "descriptors": [
+            "crisp",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "dance-accompaniment",
+            "tala"
+          ]
+        },
+        {
+          "id": "mardala_temple",
+          "name": "Temple ritual playing",
+          "descriptors": [
+            "resonant",
+            "stately"
+          ],
+          "match_tokens": [
+            "ritual",
+            "odisha"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mardala_head",
+      "name": "Head loading",
+      "variants": [
+        {
+          "id": "mardala_paste",
+          "default": true,
+          "name": "Permanent black paste on right head",
+          "descriptors": [
+            "pitched-tone",
+            "ringing"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "odissi"
+          ]
+        },
+        {
+          "id": "mardala_plain",
+          "name": "Unloaded heads (older folk form)",
+          "descriptors": [
+            "open-toned",
+            "earthy"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mardala_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "mardala_odissi",
+          "default": true,
+          "name": "Odissi dance accompaniment (tala cycles)",
+          "descriptors": [
+            "crisp",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "dance-accompaniment",
+            "tala"
+          ]
+        },
+        {
+          "id": "mardala_temple",
+          "name": "Temple ritual playing",
+          "descriptors": [
+            "resonant",
+            "stately"
+          ],
+          "match_tokens": [
+            "ritual",
+            "odisha"
+          ]
+        }
+      ]
+    }
+  ]
+}

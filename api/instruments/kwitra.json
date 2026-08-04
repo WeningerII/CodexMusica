@@ -1,0 +1,158 @@
+{
+  "id": "kwitra",
+  "name": "Kwitra (Algerian four-course Andalusi lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kwitra",
+  "parts": [
+    {
+      "id": "kwitra_school",
+      "name": "Andalusi school",
+      "variants": [
+        {
+          "id": "kwitra_sanaa_algiers",
+          "default": true,
+          "name": "San'a school of Algiers",
+          "descriptors": [
+            "mellow",
+            "nuba-ornamented",
+            "intimate"
+          ],
+          "match_tokens": [
+            "andalusi",
+            "algerian-lute",
+            "nuba"
+          ]
+        },
+        {
+          "id": "kwitra_gharnati",
+          "name": "Gharnati school (Tlemcen)",
+          "descriptors": [
+            "lyrical",
+            "rounded",
+            "modal"
+          ],
+          "match_tokens": [
+            "gharnati",
+            "andalusi",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kwitra_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kwitra_gut",
+          "default": true,
+          "name": "Gut / nylgut courses",
+          "descriptors": [
+            "warm",
+            "soft-toned",
+            "old-world"
+          ],
+          "match_tokens": [
+            "gut-strung",
+            "andalusi"
+          ]
+        },
+        {
+          "id": "kwitra_nylon",
+          "name": "Nylon and wound courses",
+          "descriptors": [
+            "clear",
+            "brighter",
+            "projecting"
+          ],
+          "match_tokens": [
+            "nylon-strung",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kwitra_school",
+      "name": "Andalusi school",
+      "variants": [
+        {
+          "id": "kwitra_sanaa_algiers",
+          "default": true,
+          "name": "San'a school of Algiers",
+          "descriptors": [
+            "mellow",
+            "nuba-ornamented",
+            "intimate"
+          ],
+          "match_tokens": [
+            "andalusi",
+            "algerian-lute",
+            "nuba"
+          ]
+        },
+        {
+          "id": "kwitra_gharnati",
+          "name": "Gharnati school (Tlemcen)",
+          "descriptors": [
+            "lyrical",
+            "rounded",
+            "modal"
+          ],
+          "match_tokens": [
+            "gharnati",
+            "andalusi",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kwitra_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kwitra_gut",
+          "default": true,
+          "name": "Gut / nylgut courses",
+          "descriptors": [
+            "warm",
+            "soft-toned",
+            "old-world"
+          ],
+          "match_tokens": [
+            "gut-strung",
+            "andalusi"
+          ]
+        },
+        {
+          "id": "kwitra_nylon",
+          "name": "Nylon and wound courses",
+          "descriptors": [
+            "clear",
+            "brighter",
+            "projecting"
+          ],
+          "match_tokens": [
+            "nylon-strung",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

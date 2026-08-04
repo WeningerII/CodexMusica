@@ -1,0 +1,144 @@
+{
+  "id": "umuduri",
+  "name": "Umuduri (Burundian gourd-resonated musical bow)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "umuduri",
+  "parts": [
+    {
+      "id": "umuduri_excitation",
+      "name": "String excitation",
+      "variants": [
+        {
+          "id": "umuduri_struck",
+          "default": true,
+          "name": "Struck with a thin stick",
+          "descriptors": [
+            "percussive-twang",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "burundi"
+          ]
+        },
+        {
+          "id": "umuduri_plucked",
+          "name": "Finger-plucked bow string",
+          "descriptors": [
+            "soft-attack",
+            "intimate"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "umuduri_resonator",
+      "name": "Gourd resonator coupling",
+      "variants": [
+        {
+          "id": "umuduri_chest",
+          "default": true,
+          "name": "Gourd pressed to chest (opened/closed for vowel shading)",
+          "descriptors": [
+            "wah-shaded",
+            "formant-shifting"
+          ],
+          "match_tokens": [
+            "gourd-resonator",
+            "overtone"
+          ]
+        },
+        {
+          "id": "umuduri_open",
+          "name": "Gourd held free of the body",
+          "descriptors": [
+            "open-toned",
+            "ringing"
+          ],
+          "match_tokens": [
+            "gourd-resonator"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "umuduri_excitation",
+      "name": "String excitation",
+      "variants": [
+        {
+          "id": "umuduri_struck",
+          "default": true,
+          "name": "Struck with a thin stick",
+          "descriptors": [
+            "percussive-twang",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "burundi"
+          ]
+        },
+        {
+          "id": "umuduri_plucked",
+          "name": "Finger-plucked bow string",
+          "descriptors": [
+            "soft-attack",
+            "intimate"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "umuduri_resonator",
+      "name": "Gourd resonator coupling",
+      "variants": [
+        {
+          "id": "umuduri_chest",
+          "default": true,
+          "name": "Gourd pressed to chest (opened/closed for vowel shading)",
+          "descriptors": [
+            "wah-shaded",
+            "formant-shifting"
+          ],
+          "match_tokens": [
+            "gourd-resonator",
+            "overtone"
+          ]
+        },
+        {
+          "id": "umuduri_open",
+          "name": "Gourd held free of the body",
+          "descriptors": [
+            "open-toned",
+            "ringing"
+          ],
+          "match_tokens": [
+            "gourd-resonator"
+          ]
+        }
+      ]
+    }
+  ]
+}

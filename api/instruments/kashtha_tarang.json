@@ -1,0 +1,150 @@
+{
+  "id": "kashtha_tarang",
+  "name": "Kashtha tarang (Indian tuned wooden bar xylophone)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kashtha tarang",
+  "parts": [
+    {
+      "id": "kashtha_tarang_bars",
+      "name": "Bar wood",
+      "variants": [
+        {
+          "id": "kashtha_tarang_teak",
+          "default": true,
+          "name": "Seasoned teak bars",
+          "descriptors": [
+            "woody",
+            "dry-attack",
+            "warm"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "indian",
+            "wooden-bars"
+          ]
+        },
+        {
+          "id": "kashtha_tarang_rosewood",
+          "name": "Rosewood bars",
+          "descriptors": [
+            "bright-attack",
+            "clear-toned"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "rosewood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kashtha_tarang_mallets",
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "kashtha_tarang_hard",
+          "default": true,
+          "name": "Hard wooden mallets",
+          "descriptors": [
+            "clacking",
+            "percussive"
+          ],
+          "match_tokens": [
+            "struck",
+            "hard-mallet"
+          ]
+        },
+        {
+          "id": "kashtha_tarang_soft",
+          "name": "Padded mallets",
+          "descriptors": [
+            "mellow",
+            "rounded-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "soft-mallet"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kashtha_tarang_bars",
+      "name": "Bar wood",
+      "variants": [
+        {
+          "id": "kashtha_tarang_teak",
+          "default": true,
+          "name": "Seasoned teak bars",
+          "descriptors": [
+            "woody",
+            "dry-attack",
+            "warm"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "indian",
+            "wooden-bars"
+          ]
+        },
+        {
+          "id": "kashtha_tarang_rosewood",
+          "name": "Rosewood bars",
+          "descriptors": [
+            "bright-attack",
+            "clear-toned"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "rosewood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kashtha_tarang_mallets",
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "kashtha_tarang_hard",
+          "default": true,
+          "name": "Hard wooden mallets",
+          "descriptors": [
+            "clacking",
+            "percussive"
+          ],
+          "match_tokens": [
+            "struck",
+            "hard-mallet"
+          ]
+        },
+        {
+          "id": "kashtha_tarang_soft",
+          "name": "Padded mallets",
+          "descriptors": [
+            "mellow",
+            "rounded-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "soft-mallet"
+          ]
+        }
+      ]
+    }
+  ]
+}

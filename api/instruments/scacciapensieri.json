@@ -1,0 +1,168 @@
+{
+  "id": "scacciapensieri",
+  "name": "Scacciapensieri (Italian jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "scacciapensieri",
+  "parts": [
+    {
+      "id": "scacciapensieri_size",
+      "name": "Frame size / pitch",
+      "variants": [
+        {
+          "id": "scacciapensieri_medium",
+          "default": true,
+          "name": "Medium steel frame",
+          "descriptors": [
+            "buzzing-timbre",
+            "twanging"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "italian"
+          ]
+        },
+        {
+          "id": "scacciapensieri_small",
+          "name": "Small high-pitched frame",
+          "descriptors": [
+            "bright-attack",
+            "thin"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "high-pitched"
+          ]
+        },
+        {
+          "id": "scacciapensieri_large",
+          "name": "Large low frame",
+          "descriptors": [
+            "deep-toned",
+            "growling"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scacciapensieri_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "scacciapensieri_breath",
+          "default": true,
+          "name": "Breath-pulsed overtone melody",
+          "descriptors": [
+            "overtone-rich",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        },
+        {
+          "id": "scacciapensieri_flick",
+          "name": "Rapid finger-flick rhythm",
+          "descriptors": [
+            "percussive",
+            "driving"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "scacciapensieri_size",
+      "name": "Frame size / pitch",
+      "variants": [
+        {
+          "id": "scacciapensieri_medium",
+          "default": true,
+          "name": "Medium steel frame",
+          "descriptors": [
+            "buzzing-timbre",
+            "twanging"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "italian"
+          ]
+        },
+        {
+          "id": "scacciapensieri_small",
+          "name": "Small high-pitched frame",
+          "descriptors": [
+            "bright-attack",
+            "thin"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "high-pitched"
+          ]
+        },
+        {
+          "id": "scacciapensieri_large",
+          "name": "Large low frame",
+          "descriptors": [
+            "deep-toned",
+            "growling"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scacciapensieri_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "scacciapensieri_breath",
+          "default": true,
+          "name": "Breath-pulsed overtone melody",
+          "descriptors": [
+            "overtone-rich",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        },
+        {
+          "id": "scacciapensieri_flick",
+          "name": "Rapid finger-flick rhythm",
+          "descriptors": [
+            "percussive",
+            "driving"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

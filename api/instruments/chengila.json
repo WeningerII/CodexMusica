@@ -1,0 +1,152 @@
+{
+  "id": "chengila",
+  "name": "Chengila (Kerala bell-metal gong disc)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "chengila",
+  "parts": [
+    {
+      "id": "chengila_beater",
+      "name": "Beater / striking",
+      "variants": [
+        {
+          "id": "chengila_wood_stick",
+          "default": true,
+          "name": "Wooden stick strike (timekeeping)",
+          "descriptors": [
+            "clanging",
+            "cutting",
+            "metronomic"
+          ],
+          "match_tokens": [
+            "kerala",
+            "gong",
+            "timekeeper"
+          ]
+        },
+        {
+          "id": "chengila_damped",
+          "name": "Damped hand-held strike",
+          "descriptors": [
+            "clipped",
+            "dry-clang"
+          ],
+          "match_tokens": [
+            "kerala",
+            "damped-gong"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chengila_size",
+      "surface": false,
+      "name": "Disc size",
+      "variants": [
+        {
+          "id": "chengila_standard",
+          "default": true,
+          "name": "Standard bell-metal disc",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bell-metal",
+            "gong"
+          ]
+        },
+        {
+          "id": "chengila_large",
+          "name": "Large temple disc",
+          "descriptors": [
+            "deep-clang",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "bell-metal",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chengila_beater",
+      "name": "Beater / striking",
+      "variants": [
+        {
+          "id": "chengila_wood_stick",
+          "default": true,
+          "name": "Wooden stick strike (timekeeping)",
+          "descriptors": [
+            "clanging",
+            "cutting",
+            "metronomic"
+          ],
+          "match_tokens": [
+            "kerala",
+            "gong",
+            "timekeeper"
+          ]
+        },
+        {
+          "id": "chengila_damped",
+          "name": "Damped hand-held strike",
+          "descriptors": [
+            "clipped",
+            "dry-clang"
+          ],
+          "match_tokens": [
+            "kerala",
+            "damped-gong"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chengila_size",
+      "surface": false,
+      "name": "Disc size",
+      "variants": [
+        {
+          "id": "chengila_standard",
+          "default": true,
+          "name": "Standard bell-metal disc",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "bell-metal",
+            "gong"
+          ]
+        },
+        {
+          "id": "chengila_large",
+          "name": "Large temple disc",
+          "descriptors": [
+            "deep-clang",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "bell-metal",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

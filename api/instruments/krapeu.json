@@ -1,0 +1,146 @@
+{
+  "id": "krapeu",
+  "name": "Krapeu (Cambodian crocodile-shaped three-string floor zither, takhe)",
+  "family": "plucked_traditional",
+  "class": "fretboard_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "krapeu",
+  "parts": [
+    {
+      "id": "krapeu_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "krapeu_silk",
+          "default": true,
+          "name": "Silk / gut strings (traditional)",
+          "descriptors": [
+            "mellow",
+            "thudding"
+          ],
+          "match_tokens": [
+            "crocodile-zither",
+            "plucked"
+          ]
+        },
+        {
+          "id": "krapeu_nylon",
+          "name": "Nylon and wound metal strings",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "crocodile-zither",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krapeu_technique",
+      "name": "Plectrum technique",
+      "variants": [
+        {
+          "id": "krapeu_horn_pick",
+          "default": true,
+          "name": "Buffalo-horn plectrum, rapid tremolo",
+          "descriptors": [
+            "clattering",
+            "percussive",
+            "rippling"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "krapeu_soft",
+          "name": "Sparse single-stroke plucking",
+          "descriptors": [
+            "clear",
+            "spacious"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "krapeu_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "krapeu_silk",
+          "default": true,
+          "name": "Silk / gut strings (traditional)",
+          "descriptors": [
+            "mellow",
+            "thudding"
+          ],
+          "match_tokens": [
+            "crocodile-zither",
+            "plucked"
+          ]
+        },
+        {
+          "id": "krapeu_nylon",
+          "name": "Nylon and wound metal strings",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "crocodile-zither",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krapeu_technique",
+      "name": "Plectrum technique",
+      "variants": [
+        {
+          "id": "krapeu_horn_pick",
+          "default": true,
+          "name": "Buffalo-horn plectrum, rapid tremolo",
+          "descriptors": [
+            "clattering",
+            "percussive",
+            "rippling"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "krapeu_soft",
+          "name": "Sparse single-stroke plucking",
+          "descriptors": [
+            "clear",
+            "spacious"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

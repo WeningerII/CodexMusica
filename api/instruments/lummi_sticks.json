@@ -1,0 +1,144 @@
+{
+  "id": "lummi_sticks",
+  "name": "Lummi sticks (Coast Salish paired rhythm sticks)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "lummi sticks",
+  "parts": [
+    {
+      "id": "lummi_material",
+      "name": "Stick material",
+      "variants": [
+        {
+          "id": "lummi_hardwood",
+          "default": true,
+          "name": "Turned hardwood sticks (cedar or maple)",
+          "descriptors": [
+            "dry-click",
+            "sharp-attack",
+            "woody"
+          ],
+          "match_tokens": [
+            "rhythm-sticks",
+            "coast-salish"
+          ]
+        },
+        {
+          "id": "lummi_bamboo",
+          "name": "Bamboo or hollow sticks",
+          "descriptors": [
+            "hollow-click",
+            "lighter-toned"
+          ],
+          "match_tokens": [
+            "rhythm-sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lummi_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "lummi_pattern_game",
+          "default": true,
+          "name": "Seated pattern-and-toss stick game",
+          "descriptors": [
+            "steady-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "rhythm-sticks",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "lummi_floor_strike",
+          "name": "Struck against floor or plank",
+          "descriptors": [
+            "thudding",
+            "deep-click"
+          ],
+          "match_tokens": [
+            "rhythm-sticks"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lummi_material",
+      "name": "Stick material",
+      "variants": [
+        {
+          "id": "lummi_hardwood",
+          "default": true,
+          "name": "Turned hardwood sticks (cedar or maple)",
+          "descriptors": [
+            "dry-click",
+            "sharp-attack",
+            "woody"
+          ],
+          "match_tokens": [
+            "rhythm-sticks",
+            "coast-salish"
+          ]
+        },
+        {
+          "id": "lummi_bamboo",
+          "name": "Bamboo or hollow sticks",
+          "descriptors": [
+            "hollow-click",
+            "lighter-toned"
+          ],
+          "match_tokens": [
+            "rhythm-sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lummi_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "lummi_pattern_game",
+          "default": true,
+          "name": "Seated pattern-and-toss stick game",
+          "descriptors": [
+            "steady-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "rhythm-sticks",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "lummi_floor_strike",
+          "name": "Struck against floor or plank",
+          "descriptors": [
+            "thudding",
+            "deep-click"
+          ],
+          "match_tokens": [
+            "rhythm-sticks"
+          ]
+        }
+      ]
+    }
+  ]
+}

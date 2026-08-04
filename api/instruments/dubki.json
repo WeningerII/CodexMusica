@@ -1,0 +1,142 @@
+{
+  "id": "dubki",
+  "name": "Dubki (small Indian folk frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dubki",
+  "parts": [
+    {
+      "id": "dubki_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "dubki_plain",
+          "default": true,
+          "name": "Plain shallow wooden hoop, single skin",
+          "descriptors": [
+            "dry-slap",
+            "papery"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "folk-rhythm"
+          ]
+        },
+        {
+          "id": "dubki_jingle",
+          "name": "Hoop with jingles (daf-like)",
+          "descriptors": [
+            "jingling",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "jingle-frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dubki_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "dubki_baul",
+          "default": true,
+          "name": "Baul/kirtan finger-and-palm patterns",
+          "descriptors": [
+            "crisp",
+            "rippling"
+          ],
+          "match_tokens": [
+            "devotional",
+            "hand-played"
+          ]
+        },
+        {
+          "id": "dubki_dance",
+          "name": "Fast dance accompaniment",
+          "descriptors": [
+            "driving",
+            "snapping"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dubki_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "dubki_plain",
+          "default": true,
+          "name": "Plain shallow wooden hoop, single skin",
+          "descriptors": [
+            "dry-slap",
+            "papery"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "folk-rhythm"
+          ]
+        },
+        {
+          "id": "dubki_jingle",
+          "name": "Hoop with jingles (daf-like)",
+          "descriptors": [
+            "jingling",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "jingle-frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dubki_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "dubki_baul",
+          "default": true,
+          "name": "Baul/kirtan finger-and-palm patterns",
+          "descriptors": [
+            "crisp",
+            "rippling"
+          ],
+          "match_tokens": [
+            "devotional",
+            "hand-played"
+          ]
+        },
+        {
+          "id": "dubki_dance",
+          "name": "Fast dance accompaniment",
+          "descriptors": [
+            "driving",
+            "snapping"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

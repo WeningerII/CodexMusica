@@ -1,0 +1,146 @@
+{
+  "id": "krakeb",
+  "name": "Krakeb (Gnawa iron hand castanets)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "krakeb",
+  "parts": [
+    {
+      "id": "krakeb_size",
+      "name": "Plate size",
+      "variants": [
+        {
+          "id": "krakeb_standard",
+          "default": true,
+          "name": "Standard forged iron pairs",
+          "descriptors": [
+            "clanging",
+            "metallic-clatter"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "iron-castanets"
+          ]
+        },
+        {
+          "id": "krakeb_large",
+          "name": "Large heavy plates",
+          "descriptors": [
+            "deep-clang",
+            "booming-metal"
+          ],
+          "match_tokens": [
+            "iron-castanets",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krakeb_pattern",
+      "name": "Playing pattern",
+      "variants": [
+        {
+          "id": "krakeb_triplet",
+          "default": true,
+          "name": "Rolling triplet lila groove",
+          "descriptors": [
+            "driving",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "cyclic-ostinato"
+          ]
+        },
+        {
+          "id": "krakeb_march",
+          "name": "Straight processional clatter",
+          "descriptors": [
+            "marching",
+            "insistent"
+          ],
+          "match_tokens": [
+            "procession",
+            "clattering"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "krakeb_size",
+      "name": "Plate size",
+      "variants": [
+        {
+          "id": "krakeb_standard",
+          "default": true,
+          "name": "Standard forged iron pairs",
+          "descriptors": [
+            "clanging",
+            "metallic-clatter"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "iron-castanets"
+          ]
+        },
+        {
+          "id": "krakeb_large",
+          "name": "Large heavy plates",
+          "descriptors": [
+            "deep-clang",
+            "booming-metal"
+          ],
+          "match_tokens": [
+            "iron-castanets",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krakeb_pattern",
+      "name": "Playing pattern",
+      "variants": [
+        {
+          "id": "krakeb_triplet",
+          "default": true,
+          "name": "Rolling triplet lila groove",
+          "descriptors": [
+            "driving",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "cyclic-ostinato"
+          ]
+        },
+        {
+          "id": "krakeb_march",
+          "name": "Straight processional clatter",
+          "descriptors": [
+            "marching",
+            "insistent"
+          ],
+          "match_tokens": [
+            "procession",
+            "clattering"
+          ]
+        }
+      ]
+    }
+  ]
+}

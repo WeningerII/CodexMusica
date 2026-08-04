@@ -1,0 +1,148 @@
+{
+  "id": "tehardent",
+  "name": "Tehardent (Tuareg three-string lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tehardent",
+  "parts": [
+    {
+      "id": "tehardent_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "tehardent_wood_hide",
+          "default": true,
+          "name": "Carved wooden trough with goatskin table",
+          "descriptors": [
+            "dry",
+            "snapping",
+            "percussive-pluck"
+          ],
+          "match_tokens": [
+            "tuareg",
+            "plucked-lute"
+          ]
+        },
+        {
+          "id": "tehardent_gourd",
+          "name": "Calabash-bodied variant",
+          "descriptors": [
+            "rounder",
+            "boomy"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tehardent_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "tehardent_takamba",
+          "default": true,
+          "name": "Takamba groove with soundboard slaps",
+          "descriptors": [
+            "hypnotic",
+            "rhythm-driving"
+          ],
+          "match_tokens": [
+            "takamba",
+            "strummed"
+          ]
+        },
+        {
+          "id": "tehardent_praise",
+          "name": "Griot praise-song accompaniment",
+          "descriptors": [
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "griot"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tehardent_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "tehardent_wood_hide",
+          "default": true,
+          "name": "Carved wooden trough with goatskin table",
+          "descriptors": [
+            "dry",
+            "snapping",
+            "percussive-pluck"
+          ],
+          "match_tokens": [
+            "tuareg",
+            "plucked-lute"
+          ]
+        },
+        {
+          "id": "tehardent_gourd",
+          "name": "Calabash-bodied variant",
+          "descriptors": [
+            "rounder",
+            "boomy"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tehardent_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "tehardent_takamba",
+          "default": true,
+          "name": "Takamba groove with soundboard slaps",
+          "descriptors": [
+            "hypnotic",
+            "rhythm-driving"
+          ],
+          "match_tokens": [
+            "takamba",
+            "strummed"
+          ]
+        },
+        {
+          "id": "tehardent_praise",
+          "name": "Griot praise-song accompaniment",
+          "descriptors": [
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "griot"
+          ]
+        }
+      ]
+    }
+  ]
+}

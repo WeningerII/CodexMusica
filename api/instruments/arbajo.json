@@ -1,0 +1,210 @@
+{
+  "id": "arbajo",
+  "name": "Arbajo (Nepali Gandharba four-string plucked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "arbajo",
+  "parts": [
+    {
+      "id": "arbajo_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "arbajo_large",
+          "default": true,
+          "name": "Large traditional arbajo (deep bowl)",
+          "descriptors": [
+            "deep-toned",
+            "strummed",
+            "droning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "nepali",
+            "gandharba"
+          ]
+        },
+        {
+          "id": "arbajo_small",
+          "name": "Small modern arbajo",
+          "descriptors": [
+            "brighter",
+            "nimble"
+          ],
+          "match_tokens": [
+            "plucked",
+            "nepali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arbajo_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "arbajo_gut",
+          "default": true,
+          "name": "Gut / sinew strings",
+          "descriptors": [
+            "warm",
+            "soft-attack",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "arbajo_nylon",
+          "name": "Nylon strings",
+          "descriptors": [
+            "bright",
+            "clean"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arbajo_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "arbajo_karkha",
+          "default": true,
+          "name": "Karkha epic-narrative accompaniment",
+          "descriptors": [
+            "declamatory",
+            "steady-strum"
+          ],
+          "match_tokens": [
+            "plucked",
+            "narrative"
+          ]
+        },
+        {
+          "id": "arbajo_sarangi_duo",
+          "name": "Duet with Nepali sarangi",
+          "descriptors": [
+            "supporting",
+            "drone-foundation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "arbajo_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "arbajo_large",
+          "default": true,
+          "name": "Large traditional arbajo (deep bowl)",
+          "descriptors": [
+            "deep-toned",
+            "strummed",
+            "droning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "nepali",
+            "gandharba"
+          ]
+        },
+        {
+          "id": "arbajo_small",
+          "name": "Small modern arbajo",
+          "descriptors": [
+            "brighter",
+            "nimble"
+          ],
+          "match_tokens": [
+            "plucked",
+            "nepali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arbajo_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "arbajo_gut",
+          "default": true,
+          "name": "Gut / sinew strings",
+          "descriptors": [
+            "warm",
+            "soft-attack",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "arbajo_nylon",
+          "name": "Nylon strings",
+          "descriptors": [
+            "bright",
+            "clean"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arbajo_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "arbajo_karkha",
+          "default": true,
+          "name": "Karkha epic-narrative accompaniment",
+          "descriptors": [
+            "declamatory",
+            "steady-strum"
+          ],
+          "match_tokens": [
+            "plucked",
+            "narrative"
+          ]
+        },
+        {
+          "id": "arbajo_sarangi_duo",
+          "name": "Duet with Nepali sarangi",
+          "descriptors": [
+            "supporting",
+            "drone-foundation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

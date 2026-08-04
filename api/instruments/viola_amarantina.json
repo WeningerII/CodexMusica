@@ -1,0 +1,142 @@
+{
+  "id": "viola_amarantina",
+  "name": "Viola amarantina (Portuguese heart-shaped folk guitar of Amarante)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "viola amarantina",
+  "parts": [
+    {
+      "id": "amarantina_soundhole",
+      "name": "Soundhole form",
+      "variants": [
+        {
+          "id": "amarantina_hearts",
+          "default": true,
+          "name": "Twin heart-shaped soundholes",
+          "descriptors": [
+            "nasal-sweet",
+            "open"
+          ],
+          "match_tokens": [
+            "portuguese",
+            "folk-guitar"
+          ]
+        },
+        {
+          "id": "amarantina_round",
+          "name": "Round soundhole variant",
+          "descriptors": [
+            "fuller",
+            "rounder"
+          ],
+          "match_tokens": [
+            "folk-guitar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amarantina_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "amarantina_chula",
+          "default": true,
+          "name": "Chula do Douro accompaniment",
+          "descriptors": [
+            "driving",
+            "strummed"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "amarantina_cantiga",
+          "name": "Song accompaniment (cantiga ao desafio)",
+          "descriptors": [
+            "supporting",
+            "steady-strum"
+          ],
+          "match_tokens": [
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "amarantina_soundhole",
+      "name": "Soundhole form",
+      "variants": [
+        {
+          "id": "amarantina_hearts",
+          "default": true,
+          "name": "Twin heart-shaped soundholes",
+          "descriptors": [
+            "nasal-sweet",
+            "open"
+          ],
+          "match_tokens": [
+            "portuguese",
+            "folk-guitar"
+          ]
+        },
+        {
+          "id": "amarantina_round",
+          "name": "Round soundhole variant",
+          "descriptors": [
+            "fuller",
+            "rounder"
+          ],
+          "match_tokens": [
+            "folk-guitar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amarantina_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "amarantina_chula",
+          "default": true,
+          "name": "Chula do Douro accompaniment",
+          "descriptors": [
+            "driving",
+            "strummed"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "amarantina_cantiga",
+          "name": "Song accompaniment (cantiga ao desafio)",
+          "descriptors": [
+            "supporting",
+            "steady-strum"
+          ],
+          "match_tokens": [
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ]
+}

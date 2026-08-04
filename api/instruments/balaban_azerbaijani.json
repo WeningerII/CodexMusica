@@ -1,0 +1,152 @@
+{
+  "id": "balaban_azerbaijani",
+  "name": "Balaban (Azerbaijani cylindrical soft double reed)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "balaban",
+  "parts": [
+    {
+      "id": "balaban_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "balaban_melody",
+          "default": true,
+          "name": "Melodic lead (mugham lament)",
+          "descriptors": [
+            "plaintive",
+            "vocal",
+            "breathy"
+          ],
+          "match_tokens": [
+            "azerbaijani",
+            "double-reed",
+            "mugham"
+          ]
+        },
+        {
+          "id": "balaban_drone",
+          "name": "Second balaban holding drone (dam)",
+          "descriptors": [
+            "droning",
+            "steady",
+            "supporting"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "azerbaijani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balaban_body",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "balaban_apricot",
+          "default": true,
+          "name": "Apricot wood body",
+          "descriptors": [
+            "warm",
+            "velvety"
+          ],
+          "match_tokens": [
+            "apricot-wood",
+            "double-reed"
+          ]
+        },
+        {
+          "id": "balaban_mulberry",
+          "name": "Mulberry/walnut body",
+          "descriptors": [
+            "dark-toned",
+            "husky"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "balaban_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "balaban_melody",
+          "default": true,
+          "name": "Melodic lead (mugham lament)",
+          "descriptors": [
+            "plaintive",
+            "vocal",
+            "breathy"
+          ],
+          "match_tokens": [
+            "azerbaijani",
+            "double-reed",
+            "mugham"
+          ]
+        },
+        {
+          "id": "balaban_drone",
+          "name": "Second balaban holding drone (dam)",
+          "descriptors": [
+            "droning",
+            "steady",
+            "supporting"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "azerbaijani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balaban_body",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "balaban_apricot",
+          "default": true,
+          "name": "Apricot wood body",
+          "descriptors": [
+            "warm",
+            "velvety"
+          ],
+          "match_tokens": [
+            "apricot-wood",
+            "double-reed"
+          ]
+        },
+        {
+          "id": "balaban_mulberry",
+          "name": "Mulberry/walnut body",
+          "descriptors": [
+            "dark-toned",
+            "husky"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

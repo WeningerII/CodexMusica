@@ -1,0 +1,203 @@
+{
+  "id": "banam_tribal_fiddle",
+  "name": "Banam (Santal tribal bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "banam",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "banam_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "banam_huka",
+          "default": true,
+          "name": "Huka banam (single-string gourd fiddle)",
+          "descriptors": [
+            "raspy",
+            "earthy",
+            "vocal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tribal-fiddle",
+            "santal"
+          ]
+        },
+        {
+          "id": "banam_phet",
+          "name": "Phet banam (small carved bamboo-bodied)",
+          "descriptors": [
+            "thin",
+            "nasal",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tribal-fiddle"
+          ]
+        },
+        {
+          "id": "banam_dhodro",
+          "name": "Dhodro banam (figure-carved wooden body)",
+          "descriptors": [
+            "woody",
+            "hoarse",
+            "ancestral"
+          ],
+          "match_tokens": [
+            "bowed",
+            "santal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banam_membrane",
+      "name": "Soundboard",
+      "variants": [
+        {
+          "id": "banam_hide",
+          "default": true,
+          "name": "Animal-hide belly",
+          "descriptors": [
+            "buzzing-timbre",
+            "dry",
+            "muted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "skin-belly"
+          ]
+        },
+        {
+          "id": "banam_wood",
+          "name": "Thin wooden belly",
+          "descriptors": [
+            "woody",
+            "open"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "banam_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "banam_huka",
+          "default": true,
+          "name": "Huka banam (single-string gourd fiddle)",
+          "descriptors": [
+            "raspy",
+            "earthy",
+            "vocal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tribal-fiddle",
+            "santal"
+          ]
+        },
+        {
+          "id": "banam_phet",
+          "name": "Phet banam (small carved bamboo-bodied)",
+          "descriptors": [
+            "thin",
+            "nasal",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "tribal-fiddle"
+          ]
+        },
+        {
+          "id": "banam_dhodro",
+          "name": "Dhodro banam (figure-carved wooden body)",
+          "descriptors": [
+            "woody",
+            "hoarse",
+            "ancestral"
+          ],
+          "match_tokens": [
+            "bowed",
+            "santal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banam_membrane",
+      "name": "Soundboard",
+      "variants": [
+        {
+          "id": "banam_hide",
+          "default": true,
+          "name": "Animal-hide belly",
+          "descriptors": [
+            "buzzing-timbre",
+            "dry",
+            "muted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "skin-belly"
+          ]
+        },
+        {
+          "id": "banam_wood",
+          "name": "Thin wooden belly",
+          "descriptors": [
+            "woody",
+            "open"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

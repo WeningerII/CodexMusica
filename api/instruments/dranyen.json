@@ -1,0 +1,236 @@
+{
+  "id": "dranyen",
+  "name": "Dranyen (Himalayan six-string long-necked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "dranyen",
+  "parts": [
+    {
+      "id": "dranyen_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dranyen_bhutanese",
+          "default": true,
+          "name": "Bhutanese dramnyen (carved sea-monster head)",
+          "descriptors": [
+            "strummed",
+            "buzzing-timbre",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bhutanese",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "dranyen_ladakhi",
+          "name": "Ladakhi dranyen",
+          "descriptors": [
+            "dry",
+            "rhythmic",
+            "folk-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ladakh"
+          ]
+        },
+        {
+          "id": "dranyen_sikkimese",
+          "name": "Sikkimese / Lepcha form",
+          "descriptors": [
+            "mellow",
+            "lilting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "himalayan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dranyen_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "dranyen_strum",
+          "default": true,
+          "name": "Plectrum strumming for dance-song",
+          "descriptors": [
+            "strummed",
+            "driving",
+            "chordal"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "dranyen_pluck",
+          "name": "Fingerpicked melody",
+          "descriptors": [
+            "delicate",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dranyen_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dranyen_nylon",
+          "default": true,
+          "name": "Nylon strings",
+          "descriptors": [
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "dranyen_gut",
+          "name": "Gut / silk strings",
+          "descriptors": [
+            "soft",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dranyen_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dranyen_bhutanese",
+          "default": true,
+          "name": "Bhutanese dramnyen (carved sea-monster head)",
+          "descriptors": [
+            "strummed",
+            "buzzing-timbre",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bhutanese",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "dranyen_ladakhi",
+          "name": "Ladakhi dranyen",
+          "descriptors": [
+            "dry",
+            "rhythmic",
+            "folk-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ladakh"
+          ]
+        },
+        {
+          "id": "dranyen_sikkimese",
+          "name": "Sikkimese / Lepcha form",
+          "descriptors": [
+            "mellow",
+            "lilting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "himalayan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dranyen_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "dranyen_strum",
+          "default": true,
+          "name": "Plectrum strumming for dance-song",
+          "descriptors": [
+            "strummed",
+            "driving",
+            "chordal"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "dranyen_pluck",
+          "name": "Fingerpicked melody",
+          "descriptors": [
+            "delicate",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dranyen_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dranyen_nylon",
+          "default": true,
+          "name": "Nylon strings",
+          "descriptors": [
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "dranyen_gut",
+          "name": "Gut / silk strings",
+          "descriptors": [
+            "soft",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

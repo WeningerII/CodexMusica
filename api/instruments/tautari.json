@@ -1,0 +1,144 @@
+{
+  "id": "tautari",
+  "name": "Tautari (Baltic birch-bound wooden herding trumpet)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tautari",
+  "parts": [
+    {
+      "id": "tautari_length",
+      "name": "Tube length",
+      "variants": [
+        {
+          "id": "tautari_long",
+          "default": true,
+          "name": "Long straight herding trumpet (1.5-2m)",
+          "descriptors": [
+            "far-carrying",
+            "low-fundamental",
+            "open-air"
+          ],
+          "match_tokens": [
+            "wooden-trumpet",
+            "baltic"
+          ]
+        },
+        {
+          "id": "tautari_short",
+          "name": "Short signalling horn",
+          "descriptors": [
+            "bright-call",
+            "punchy"
+          ],
+          "match_tokens": [
+            "wooden-trumpet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tautari_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "tautari_birchbark_bound",
+          "default": true,
+          "name": "Split pine bound with spiral birch bark",
+          "descriptors": [
+            "woody-tone",
+            "rough-edged"
+          ],
+          "match_tokens": [
+            "wooden-trumpet",
+            "baltic"
+          ]
+        },
+        {
+          "id": "tautari_horn_bell",
+          "name": "Wooden tube with cowhorn bell",
+          "descriptors": [
+            "brighter-bell",
+            "edgy"
+          ],
+          "match_tokens": [
+            "wooden-trumpet"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tautari_length",
+      "name": "Tube length",
+      "variants": [
+        {
+          "id": "tautari_long",
+          "default": true,
+          "name": "Long straight herding trumpet (1.5-2m)",
+          "descriptors": [
+            "far-carrying",
+            "low-fundamental",
+            "open-air"
+          ],
+          "match_tokens": [
+            "wooden-trumpet",
+            "baltic"
+          ]
+        },
+        {
+          "id": "tautari_short",
+          "name": "Short signalling horn",
+          "descriptors": [
+            "bright-call",
+            "punchy"
+          ],
+          "match_tokens": [
+            "wooden-trumpet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tautari_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "tautari_birchbark_bound",
+          "default": true,
+          "name": "Split pine bound with spiral birch bark",
+          "descriptors": [
+            "woody-tone",
+            "rough-edged"
+          ],
+          "match_tokens": [
+            "wooden-trumpet",
+            "baltic"
+          ]
+        },
+        {
+          "id": "tautari_horn_bell",
+          "name": "Wooden tube with cowhorn bell",
+          "descriptors": [
+            "brighter-bell",
+            "edgy"
+          ],
+          "match_tokens": [
+            "wooden-trumpet"
+          ]
+        }
+      ]
+    }
+  ]
+}

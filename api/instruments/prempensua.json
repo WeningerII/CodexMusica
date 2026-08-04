@@ -1,0 +1,144 @@
+{
+  "id": "prempensua",
+  "name": "Prempensua (Ghanaian box bass lamellophone)",
+  "family": "plucked_traditional",
+  "class": "bass_lamellophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "prempensua",
+  "parts": [
+    {
+      "id": "prempensua_box",
+      "name": "Box size",
+      "variants": [
+        {
+          "id": "prempensua_seated",
+          "default": true,
+          "name": "Large seated box (player sits on it)",
+          "descriptors": [
+            "deep-toned",
+            "thumping",
+            "boomy"
+          ],
+          "match_tokens": [
+            "bass-lamellophone",
+            "ghanaian"
+          ]
+        },
+        {
+          "id": "prempensua_small",
+          "name": "Smaller portable box",
+          "descriptors": [
+            "mid-toned",
+            "dry"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "highlife"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prempensua_keys",
+      "name": "Key material",
+      "variants": [
+        {
+          "id": "prempensua_steel",
+          "default": true,
+          "name": "Flattened steel strip keys",
+          "descriptors": [
+            "metallic-thump",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "plucked-lamella"
+          ]
+        },
+        {
+          "id": "prempensua_bamboo",
+          "name": "Bamboo/cane tongues",
+          "descriptors": [
+            "woody",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "plucked-lamella"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "prempensua_box",
+      "name": "Box size",
+      "variants": [
+        {
+          "id": "prempensua_seated",
+          "default": true,
+          "name": "Large seated box (player sits on it)",
+          "descriptors": [
+            "deep-toned",
+            "thumping",
+            "boomy"
+          ],
+          "match_tokens": [
+            "bass-lamellophone",
+            "ghanaian"
+          ]
+        },
+        {
+          "id": "prempensua_small",
+          "name": "Smaller portable box",
+          "descriptors": [
+            "mid-toned",
+            "dry"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "highlife"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prempensua_keys",
+      "name": "Key material",
+      "variants": [
+        {
+          "id": "prempensua_steel",
+          "default": true,
+          "name": "Flattened steel strip keys",
+          "descriptors": [
+            "metallic-thump",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "plucked-lamella"
+          ]
+        },
+        {
+          "id": "prempensua_bamboo",
+          "name": "Bamboo/cane tongues",
+          "descriptors": [
+            "woody",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "plucked-lamella"
+          ]
+        }
+      ]
+    }
+  ]
+}

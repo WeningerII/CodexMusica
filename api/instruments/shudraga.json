@@ -1,0 +1,148 @@
+{
+  "id": "shudraga",
+  "name": "Shudraga (Mongolian three-string snakeskin lute)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "shudraga",
+  "parts": [
+    {
+      "id": "shudraga_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "shudraga_standard",
+          "default": true,
+          "name": "Standard shudraga (fretless, snakeskin)",
+          "descriptors": [
+            "dry-attack",
+            "snapping",
+            "nasal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretless-lute",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "shudraga_bass",
+          "name": "Orchestral bass shudraga",
+          "descriptors": [
+            "deep-toned",
+            "thumpy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shudraga_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "shudraga_pick",
+          "default": true,
+          "name": "Horn plectrum tremolo",
+          "descriptors": [
+            "rippling",
+            "incisive"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "plucked"
+          ]
+        },
+        {
+          "id": "shudraga_finger",
+          "name": "Bare-finger plucking (song accompaniment)",
+          "descriptors": [
+            "soft",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shudraga_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "shudraga_standard",
+          "default": true,
+          "name": "Standard shudraga (fretless, snakeskin)",
+          "descriptors": [
+            "dry-attack",
+            "snapping",
+            "nasal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretless-lute",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "shudraga_bass",
+          "name": "Orchestral bass shudraga",
+          "descriptors": [
+            "deep-toned",
+            "thumpy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shudraga_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "shudraga_pick",
+          "default": true,
+          "name": "Horn plectrum tremolo",
+          "descriptors": [
+            "rippling",
+            "incisive"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "plucked"
+          ]
+        },
+        {
+          "id": "shudraga_finger",
+          "name": "Bare-finger plucking (song accompaniment)",
+          "descriptors": [
+            "soft",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

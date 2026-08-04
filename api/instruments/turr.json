@@ -1,0 +1,146 @@
+{
+  "id": "turr",
+  "name": "Turr (Cambodian long straight ceremonial trumpet)",
+  "family": "wind",
+  "class": "ritual_trumpet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": -1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "turr",
+  "parts": [
+    {
+      "id": "turr_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "turr_brass",
+          "default": true,
+          "name": "Beaten brass telescoping tube",
+          "descriptors": [
+            "blaring",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "ritual-trumpet",
+            "khmer"
+          ]
+        },
+        {
+          "id": "turr_horn",
+          "name": "Buffalo-horn bell form (sneng-related)",
+          "descriptors": [
+            "rough",
+            "braying"
+          ],
+          "match_tokens": [
+            "horn-trumpet",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "turr_use",
+      "name": "Ceremonial use",
+      "variants": [
+        {
+          "id": "turr_procession",
+          "default": true,
+          "name": "Royal/temple procession calls",
+          "descriptors": [
+            "signalling",
+            "sustained"
+          ],
+          "match_tokens": [
+            "ceremonial",
+            "long-tones"
+          ]
+        },
+        {
+          "id": "turr_funeral",
+          "name": "Funerary signalling",
+          "descriptors": [
+            "solemn",
+            "wailing"
+          ],
+          "match_tokens": [
+            "ritual",
+            "funeral"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "turr_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "turr_brass",
+          "default": true,
+          "name": "Beaten brass telescoping tube",
+          "descriptors": [
+            "blaring",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "ritual-trumpet",
+            "khmer"
+          ]
+        },
+        {
+          "id": "turr_horn",
+          "name": "Buffalo-horn bell form (sneng-related)",
+          "descriptors": [
+            "rough",
+            "braying"
+          ],
+          "match_tokens": [
+            "horn-trumpet",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "turr_use",
+      "name": "Ceremonial use",
+      "variants": [
+        {
+          "id": "turr_procession",
+          "default": true,
+          "name": "Royal/temple procession calls",
+          "descriptors": [
+            "signalling",
+            "sustained"
+          ],
+          "match_tokens": [
+            "ceremonial",
+            "long-tones"
+          ]
+        },
+        {
+          "id": "turr_funeral",
+          "name": "Funerary signalling",
+          "descriptors": [
+            "solemn",
+            "wailing"
+          ],
+          "match_tokens": [
+            "ritual",
+            "funeral"
+          ]
+        }
+      ]
+    }
+  ]
+}

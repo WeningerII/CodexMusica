@@ -1,0 +1,144 @@
+{
+  "id": "ragai",
+  "name": "Ragai (Lithuanian wooden horn ensemble)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "ragai",
+  "parts": [
+    {
+      "id": "ragai_set",
+      "name": "Ensemble set",
+      "variants": [
+        {
+          "id": "ragai_five_set",
+          "default": true,
+          "name": "Graduated five-horn set (interlocking sutartinė hocket)",
+          "descriptors": [
+            "hocketing",
+            "open-fifths",
+            "ritual"
+          ],
+          "match_tokens": [
+            "wooden-horn",
+            "lithuanian"
+          ]
+        },
+        {
+          "id": "ragai_single_low",
+          "name": "Single large bass horn",
+          "descriptors": [
+            "low-fundamental",
+            "drone-sustained"
+          ],
+          "match_tokens": [
+            "wooden-horn",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ragai_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "ragai_split_birchbark",
+          "default": true,
+          "name": "Split-and-glued wood bound with birch bark",
+          "descriptors": [
+            "woody-tone",
+            "rough-edged"
+          ],
+          "match_tokens": [
+            "wooden-horn"
+          ]
+        },
+        {
+          "id": "ragai_hollowed_alder",
+          "name": "Hollowed alder tube with wide bell",
+          "descriptors": [
+            "broad-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "wooden-horn"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ragai_set",
+      "name": "Ensemble set",
+      "variants": [
+        {
+          "id": "ragai_five_set",
+          "default": true,
+          "name": "Graduated five-horn set (interlocking sutartinė hocket)",
+          "descriptors": [
+            "hocketing",
+            "open-fifths",
+            "ritual"
+          ],
+          "match_tokens": [
+            "wooden-horn",
+            "lithuanian"
+          ]
+        },
+        {
+          "id": "ragai_single_low",
+          "name": "Single large bass horn",
+          "descriptors": [
+            "low-fundamental",
+            "drone-sustained"
+          ],
+          "match_tokens": [
+            "wooden-horn",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ragai_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "ragai_split_birchbark",
+          "default": true,
+          "name": "Split-and-glued wood bound with birch bark",
+          "descriptors": [
+            "woody-tone",
+            "rough-edged"
+          ],
+          "match_tokens": [
+            "wooden-horn"
+          ]
+        },
+        {
+          "id": "ragai_hollowed_alder",
+          "name": "Hollowed alder tube with wide bell",
+          "descriptors": [
+            "broad-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "wooden-horn"
+          ]
+        }
+      ]
+    }
+  ]
+}

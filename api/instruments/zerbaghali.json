@@ -1,0 +1,144 @@
+{
+  "id": "zerbaghali",
+  "name": "Zerbaghali (Afghan goblet drum)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "zerbaghali",
+  "parts": [
+    {
+      "id": "zerbaghali_shell",
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "zerbaghali_clay",
+          "default": true,
+          "name": "Fired clay goblet shell",
+          "descriptors": [
+            "dry-slap",
+            "earthy"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "afghan"
+          ]
+        },
+        {
+          "id": "zerbaghali_wood",
+          "name": "Turned wooden shell",
+          "descriptors": [
+            "warm",
+            "round-toned"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zerbaghali_stroke",
+      "name": "Stroke vocabulary",
+      "variants": [
+        {
+          "id": "zerbaghali_finger",
+          "default": true,
+          "name": "Finger rolls and rim slaps",
+          "descriptors": [
+            "crisp",
+            "rippling"
+          ],
+          "match_tokens": [
+            "finger-roll",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "zerbaghali_bass",
+          "name": "Open bass strokes on head center",
+          "descriptors": [
+            "deep-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "low-register",
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zerbaghali_shell",
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "zerbaghali_clay",
+          "default": true,
+          "name": "Fired clay goblet shell",
+          "descriptors": [
+            "dry-slap",
+            "earthy"
+          ],
+          "match_tokens": [
+            "goblet-drum",
+            "afghan"
+          ]
+        },
+        {
+          "id": "zerbaghali_wood",
+          "name": "Turned wooden shell",
+          "descriptors": [
+            "warm",
+            "round-toned"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zerbaghali_stroke",
+      "name": "Stroke vocabulary",
+      "variants": [
+        {
+          "id": "zerbaghali_finger",
+          "default": true,
+          "name": "Finger rolls and rim slaps",
+          "descriptors": [
+            "crisp",
+            "rippling"
+          ],
+          "match_tokens": [
+            "finger-roll",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "zerbaghali_bass",
+          "name": "Open bass strokes on head center",
+          "descriptors": [
+            "deep-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "low-register",
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

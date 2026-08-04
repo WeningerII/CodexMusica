@@ -1,0 +1,156 @@
+{
+  "id": "tamburica_prim",
+  "name": "Prim (smallest lead tamburica of the Pannonian tambura orchestra)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "prim",
+  "parts": [
+    {
+      "id": "tamburica_prim_system",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "tamburica_prim_farkas",
+          "default": true,
+          "name": "Farkaš system prim (four courses)",
+          "descriptors": [
+            "bright",
+            "tremolo-lead",
+            "ringing"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "prim",
+            "lead-line"
+          ]
+        },
+        {
+          "id": "tamburica_prim_srijem",
+          "name": "Srijem/Bačka three-course prim",
+          "descriptors": [
+            "nasal-bright",
+            "folk",
+            "piercing"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tamburica_prim_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tamburica_prim_tremolo",
+          "default": true,
+          "name": "Sustained plectrum tremolo melody",
+          "descriptors": [
+            "shimmering",
+            "singing",
+            "continuous"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "tamburica"
+          ]
+        },
+        {
+          "id": "tamburica_prim_single_strokes",
+          "name": "Single-stroke picking",
+          "descriptors": [
+            "crisp",
+            "articulate",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tamburica_prim_system",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "tamburica_prim_farkas",
+          "default": true,
+          "name": "Farkaš system prim (four courses)",
+          "descriptors": [
+            "bright",
+            "tremolo-lead",
+            "ringing"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "prim",
+            "lead-line"
+          ]
+        },
+        {
+          "id": "tamburica_prim_srijem",
+          "name": "Srijem/Bačka three-course prim",
+          "descriptors": [
+            "nasal-bright",
+            "folk",
+            "piercing"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tamburica_prim_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "tamburica_prim_tremolo",
+          "default": true,
+          "name": "Sustained plectrum tremolo melody",
+          "descriptors": [
+            "shimmering",
+            "singing",
+            "continuous"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "tamburica"
+          ]
+        },
+        {
+          "id": "tamburica_prim_single_strokes",
+          "name": "Single-stroke picking",
+          "descriptors": [
+            "crisp",
+            "articulate",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "tamburica",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

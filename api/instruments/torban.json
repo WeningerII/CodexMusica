@@ -1,0 +1,144 @@
+{
+  "id": "torban",
+  "name": "Torban (Ukrainian bass lute with off-board treble strings)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "torban",
+  "parts": [
+    {
+      "id": "torban_stringing",
+      "name": "Stringing layout",
+      "variants": [
+        {
+          "id": "torban_full_prystrunky",
+          "default": true,
+          "name": "Full layout: fretted courses, bass diapasons and off-board prystrunky",
+          "descriptors": [
+            "wide-ranged",
+            "resonant-bass",
+            "shimmering-treble"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "ukrainian"
+          ]
+        },
+        {
+          "id": "torban_reduced",
+          "name": "Reduced Cossack torban (fewer diapasons)",
+          "descriptors": [
+            "intimate",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "ukrainian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "torban_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "torban_gut",
+          "default": true,
+          "name": "Gut strings (historical)",
+          "descriptors": [
+            "warm-plucked",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        },
+        {
+          "id": "torban_wire",
+          "name": "Wire treble strings",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "torban_stringing",
+      "name": "Stringing layout",
+      "variants": [
+        {
+          "id": "torban_full_prystrunky",
+          "default": true,
+          "name": "Full layout: fretted courses, bass diapasons and off-board prystrunky",
+          "descriptors": [
+            "wide-ranged",
+            "resonant-bass",
+            "shimmering-treble"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "ukrainian"
+          ]
+        },
+        {
+          "id": "torban_reduced",
+          "name": "Reduced Cossack torban (fewer diapasons)",
+          "descriptors": [
+            "intimate",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "ukrainian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "torban_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "torban_gut",
+          "default": true,
+          "name": "Gut strings (historical)",
+          "descriptors": [
+            "warm-plucked",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        },
+        {
+          "id": "torban_wire",
+          "name": "Wire treble strings",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    }
+  ]
+}

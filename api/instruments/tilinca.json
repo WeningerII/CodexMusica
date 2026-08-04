@@ -1,0 +1,148 @@
+{
+  "id": "tilinca",
+  "name": "Tilinca (Romanian fingerhole-less overtone flute)",
+  "family": "wind",
+  "class": "overtone_flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tilinca",
+  "parts": [
+    {
+      "id": "tilinca_technique",
+      "name": "Overtone technique",
+      "variants": [
+        {
+          "id": "tilinca_open_closed",
+          "default": true,
+          "name": "Open/closed end with overblowing",
+          "descriptors": [
+            "natural-harmonics",
+            "whistling",
+            "otherworldly"
+          ],
+          "match_tokens": [
+            "overtone-flute",
+            "romanian"
+          ]
+        },
+        {
+          "id": "tilinca_open_only",
+          "name": "Fully open harmonic series only",
+          "descriptors": [
+            "gapped-scale",
+            "archaic",
+            "airy"
+          ],
+          "match_tokens": [
+            "harmonic-series",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tilinca_material",
+      "surface": false,
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "tilinca_wood",
+          "default": true,
+          "name": "Elder or willow bark tube",
+          "descriptors": [
+            "soft-toned",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wooden-flute"
+          ]
+        },
+        {
+          "id": "tilinca_metal",
+          "name": "Metal tube (modern)",
+          "descriptors": [
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "metal-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tilinca_technique",
+      "name": "Overtone technique",
+      "variants": [
+        {
+          "id": "tilinca_open_closed",
+          "default": true,
+          "name": "Open/closed end with overblowing",
+          "descriptors": [
+            "natural-harmonics",
+            "whistling",
+            "otherworldly"
+          ],
+          "match_tokens": [
+            "overtone-flute",
+            "romanian"
+          ]
+        },
+        {
+          "id": "tilinca_open_only",
+          "name": "Fully open harmonic series only",
+          "descriptors": [
+            "gapped-scale",
+            "archaic",
+            "airy"
+          ],
+          "match_tokens": [
+            "harmonic-series",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tilinca_material",
+      "surface": false,
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "tilinca_wood",
+          "default": true,
+          "name": "Elder or willow bark tube",
+          "descriptors": [
+            "soft-toned",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wooden-flute"
+          ]
+        },
+        {
+          "id": "tilinca_metal",
+          "name": "Metal tube (modern)",
+          "descriptors": [
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "metal-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

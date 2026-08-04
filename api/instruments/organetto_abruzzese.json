@@ -1,0 +1,264 @@
+{
+  "id": "organetto_abruzzese",
+  "name": "Organetto abruzzese (Italian two-row diatonic button accordion)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "organetto",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "organetto_rows",
+      "name": "Keyboard layout",
+      "variants": [
+        {
+          "id": "organetto_two_row",
+          "default": true,
+          "name": "Two-row diatonic (8 bass)",
+          "descriptors": [
+            "reedy",
+            "driving"
+          ],
+          "match_tokens": [
+            "button-accordion",
+            "italian"
+          ]
+        },
+        {
+          "id": "organetto_one_row",
+          "name": "One-row organetto (4 bass)",
+          "descriptors": [
+            "archaic",
+            "simple-harmony"
+          ],
+          "match_tokens": [
+            "button-accordion"
+          ]
+        },
+        {
+          "id": "organetto_three_row",
+          "name": "Three-row chromatic-capable",
+          "descriptors": [
+            "full-toned",
+            "versatile"
+          ],
+          "match_tokens": [
+            "button-accordion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organetto_tremolo",
+      "name": "Reed tuning",
+      "variants": [
+        {
+          "id": "organetto_wet",
+          "default": true,
+          "name": "Wet (tremolo) tuning",
+          "descriptors": [
+            "shimmering",
+            "beating-tone"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "organetto_dry",
+          "name": "Dry tuning",
+          "descriptors": [
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "free-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organetto_style",
+      "surface": false,
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "organetto_saltarello",
+          "default": true,
+          "name": "Saltarello / tarantella dance",
+          "descriptors": [
+            "driving",
+            "bouncing"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "organetto_ballad",
+          "name": "Song accompaniment",
+          "descriptors": [
+            "sustained",
+            "supporting"
+          ],
+          "match_tokens": [
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "organetto_rows",
+      "name": "Keyboard layout",
+      "variants": [
+        {
+          "id": "organetto_two_row",
+          "default": true,
+          "name": "Two-row diatonic (8 bass)",
+          "descriptors": [
+            "reedy",
+            "driving"
+          ],
+          "match_tokens": [
+            "button-accordion",
+            "italian"
+          ]
+        },
+        {
+          "id": "organetto_one_row",
+          "name": "One-row organetto (4 bass)",
+          "descriptors": [
+            "archaic",
+            "simple-harmony"
+          ],
+          "match_tokens": [
+            "button-accordion"
+          ]
+        },
+        {
+          "id": "organetto_three_row",
+          "name": "Three-row chromatic-capable",
+          "descriptors": [
+            "full-toned",
+            "versatile"
+          ],
+          "match_tokens": [
+            "button-accordion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organetto_tremolo",
+      "name": "Reed tuning",
+      "variants": [
+        {
+          "id": "organetto_wet",
+          "default": true,
+          "name": "Wet (tremolo) tuning",
+          "descriptors": [
+            "shimmering",
+            "beating-tone"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "organetto_dry",
+          "name": "Dry tuning",
+          "descriptors": [
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "free-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organetto_style",
+      "surface": false,
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "organetto_saltarello",
+          "default": true,
+          "name": "Saltarello / tarantella dance",
+          "descriptors": [
+            "driving",
+            "bouncing"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "organetto_ballad",
+          "name": "Song accompaniment",
+          "descriptors": [
+            "sustained",
+            "supporting"
+          ],
+          "match_tokens": [
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ]
+}

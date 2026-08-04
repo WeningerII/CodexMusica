@@ -1,0 +1,218 @@
+{
+  "id": "villadi_vadyam",
+  "name": "Villadi vadyam (Tamil struck musical bow with bells)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "villadi vadyam",
+  "parts": [
+    {
+      "id": "villadi_size",
+      "name": "Bow size / resonator",
+      "variants": [
+        {
+          "id": "villadi_large",
+          "default": true,
+          "name": "Large bow over inverted clay pot resonator",
+          "descriptors": [
+            "booming",
+            "thudding",
+            "jangling"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "musical-bow",
+            "tamil"
+          ]
+        },
+        {
+          "id": "villadi_small",
+          "name": "Small portable bow",
+          "descriptors": [
+            "dry",
+            "clattering"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "musical-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "villadi_bells",
+      "name": "Bell attachment",
+      "variants": [
+        {
+          "id": "villadi_bells_on",
+          "default": true,
+          "name": "Rows of brass bells lashed to the stave",
+          "descriptors": [
+            "jingling",
+            "rattling",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "jingles"
+          ]
+        },
+        {
+          "id": "villadi_bells_off",
+          "name": "Bare stave, no bells",
+          "descriptors": [
+            "dry-thud",
+            "plain"
+          ],
+          "match_tokens": [
+            "struck-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "villadi_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "villadi_villuppattu",
+          "default": true,
+          "name": "Villuppattu narrative ballad",
+          "descriptors": [
+            "driving",
+            "call-and-response",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "narrative",
+            "tamil"
+          ]
+        },
+        {
+          "id": "villadi_temple",
+          "name": "Temple festival procession",
+          "descriptors": [
+            "loud",
+            "outdoor",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "villadi_size",
+      "name": "Bow size / resonator",
+      "variants": [
+        {
+          "id": "villadi_large",
+          "default": true,
+          "name": "Large bow over inverted clay pot resonator",
+          "descriptors": [
+            "booming",
+            "thudding",
+            "jangling"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "musical-bow",
+            "tamil"
+          ]
+        },
+        {
+          "id": "villadi_small",
+          "name": "Small portable bow",
+          "descriptors": [
+            "dry",
+            "clattering"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "musical-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "villadi_bells",
+      "name": "Bell attachment",
+      "variants": [
+        {
+          "id": "villadi_bells_on",
+          "default": true,
+          "name": "Rows of brass bells lashed to the stave",
+          "descriptors": [
+            "jingling",
+            "rattling",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "jingles"
+          ]
+        },
+        {
+          "id": "villadi_bells_off",
+          "name": "Bare stave, no bells",
+          "descriptors": [
+            "dry-thud",
+            "plain"
+          ],
+          "match_tokens": [
+            "struck-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "villadi_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "villadi_villuppattu",
+          "default": true,
+          "name": "Villuppattu narrative ballad",
+          "descriptors": [
+            "driving",
+            "call-and-response",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "narrative",
+            "tamil"
+          ]
+        },
+        {
+          "id": "villadi_temple",
+          "name": "Temple festival procession",
+          "descriptors": [
+            "loud",
+            "outdoor",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

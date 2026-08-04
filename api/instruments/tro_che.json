@@ -1,0 +1,173 @@
+{
+  "id": "tro_che",
+  "name": "Tro Che (Cambodian coconut-body low fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tro che",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tro_che_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "tro_che_coconut",
+          "default": true,
+          "name": "Coconut shell with skin face and carved fretwork cover",
+          "descriptors": [
+            "husky",
+            "muffled",
+            "warm"
+          ],
+          "match_tokens": [
+            "coconut-fiddle",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tro_che_wood",
+          "name": "Carved wooden bowl",
+          "descriptors": [
+            "focused",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_che_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "tro_che_bass_line",
+          "default": true,
+          "name": "Low sustaining line under mohori",
+          "descriptors": [
+            "droning",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tro_che_solo",
+          "name": "Slow solo melody",
+          "descriptors": [
+            "plaintive",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tro_che_body",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "tro_che_coconut",
+          "default": true,
+          "name": "Coconut shell with skin face and carved fretwork cover",
+          "descriptors": [
+            "husky",
+            "muffled",
+            "warm"
+          ],
+          "match_tokens": [
+            "coconut-fiddle",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tro_che_wood",
+          "name": "Carved wooden bowl",
+          "descriptors": [
+            "focused",
+            "dry"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_che_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "tro_che_bass_line",
+          "default": true,
+          "name": "Low sustaining line under mohori",
+          "descriptors": [
+            "droning",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tro_che_solo",
+          "name": "Slow solo melody",
+          "descriptors": [
+            "plaintive",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

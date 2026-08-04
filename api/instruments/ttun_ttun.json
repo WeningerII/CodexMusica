@@ -1,0 +1,142 @@
+{
+  "id": "ttun_ttun",
+  "name": "Ttun-ttun (Basque struck string drum)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ttun-ttun",
+  "parts": [
+    {
+      "id": "ttun_ttun_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "ttun_ttun_six_unison",
+          "default": true,
+          "name": "Six strings tuned to tonic and fifth (struck with stick)",
+          "descriptors": [
+            "thudding-drone",
+            "percussive-buzz"
+          ],
+          "match_tokens": [
+            "string-drum",
+            "basque"
+          ]
+        },
+        {
+          "id": "ttun_ttun_four",
+          "name": "Four-string older build",
+          "descriptors": [
+            "leaner-drone",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "string-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ttun_ttun_technique",
+      "name": "Beating technique",
+      "variants": [
+        {
+          "id": "ttun_ttun_dance_pulse",
+          "default": true,
+          "name": "Steady dance pulse alongside xirula",
+          "descriptors": [
+            "driving",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "string-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "ttun_ttun_rolls",
+          "name": "Rapid stick rolls",
+          "descriptors": [
+            "rumbling",
+            "rattling"
+          ],
+          "match_tokens": [
+            "string-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ttun_ttun_stringing",
+      "name": "Stringing",
+      "variants": [
+        {
+          "id": "ttun_ttun_six_unison",
+          "default": true,
+          "name": "Six strings tuned to tonic and fifth (struck with stick)",
+          "descriptors": [
+            "thudding-drone",
+            "percussive-buzz"
+          ],
+          "match_tokens": [
+            "string-drum",
+            "basque"
+          ]
+        },
+        {
+          "id": "ttun_ttun_four",
+          "name": "Four-string older build",
+          "descriptors": [
+            "leaner-drone",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "string-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ttun_ttun_technique",
+      "name": "Beating technique",
+      "variants": [
+        {
+          "id": "ttun_ttun_dance_pulse",
+          "default": true,
+          "name": "Steady dance pulse alongside xirula",
+          "descriptors": [
+            "driving",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "string-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "ttun_ttun_rolls",
+          "name": "Rapid stick rolls",
+          "descriptors": [
+            "rumbling",
+            "rattling"
+          ],
+          "match_tokens": [
+            "string-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

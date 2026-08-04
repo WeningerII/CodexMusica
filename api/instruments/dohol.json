@@ -1,0 +1,154 @@
+{
+  "id": "dohol",
+  "name": "Dohol (Iranian-Kurdish double-headed barrel drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "dohol",
+  "parts": [
+    {
+      "id": "dohol_stroke",
+      "name": "Beater technique",
+      "variants": [
+        {
+          "id": "dohol_changal",
+          "default": true,
+          "name": "Curved changal cane plus deshtak stick",
+          "descriptors": [
+            "booming",
+            "rattling-counterpoint",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "kurdish",
+            "barrel-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "dohol_hand",
+          "name": "Hand-played southern Iranian style",
+          "descriptors": [
+            "earthy",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "iranian",
+            "hand-played"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dohol_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "dohol_sorna",
+          "default": true,
+          "name": "With sorna in outdoor duo",
+          "descriptors": [
+            "loud",
+            "raw",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "kurdish",
+            "shawm-and-drum",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "dohol_halparke",
+          "name": "Halparke line-dance accompaniment",
+          "descriptors": [
+            "relentless",
+            "driving"
+          ],
+          "match_tokens": [
+            "kurdish",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dohol_stroke",
+      "name": "Beater technique",
+      "variants": [
+        {
+          "id": "dohol_changal",
+          "default": true,
+          "name": "Curved changal cane plus deshtak stick",
+          "descriptors": [
+            "booming",
+            "rattling-counterpoint",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "kurdish",
+            "barrel-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "dohol_hand",
+          "name": "Hand-played southern Iranian style",
+          "descriptors": [
+            "earthy",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "iranian",
+            "hand-played"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dohol_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "dohol_sorna",
+          "default": true,
+          "name": "With sorna in outdoor duo",
+          "descriptors": [
+            "loud",
+            "raw",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "kurdish",
+            "shawm-and-drum",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "dohol_halparke",
+          "name": "Halparke line-dance accompaniment",
+          "descriptors": [
+            "relentless",
+            "driving"
+          ],
+          "match_tokens": [
+            "kurdish",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

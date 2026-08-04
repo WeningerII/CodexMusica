@@ -1,0 +1,224 @@
+{
+  "id": "divan_saz",
+  "name": "Divan sazı (largest bass Turkish long-neck saz)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "divan saz",
+  "parts": [
+    {
+      "id": "divan_saz_courses",
+      "name": "Course layout",
+      "variants": [
+        {
+          "id": "divan_saz_triple",
+          "default": true,
+          "name": "Three triple courses (full divan)",
+          "descriptors": [
+            "deep-toned",
+            "drone-rich",
+            "grounding"
+          ],
+          "match_tokens": [
+            "saz",
+            "bass-lute",
+            "turkish"
+          ]
+        },
+        {
+          "id": "divan_saz_double",
+          "name": "Reduced double courses",
+          "descriptors": [
+            "cleaner",
+            "articulate",
+            "focused"
+          ],
+          "match_tokens": [
+            "saz",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "divan_saz_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "divan_saz_mizrap",
+          "default": true,
+          "name": "Mızrap plectrum strumming",
+          "descriptors": [
+            "driving",
+            "percussive-attack",
+            "resonant"
+          ],
+          "match_tokens": [
+            "saz",
+            "strummed"
+          ]
+        },
+        {
+          "id": "divan_saz_selpe",
+          "name": "Şelpe fingerstyle",
+          "descriptors": [
+            "soft-attack",
+            "intimate",
+            "tapped"
+          ],
+          "match_tokens": [
+            "selpe",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "divan_saz_body",
+      "surface": false,
+      "name": "Bowl wood",
+      "variants": [
+        {
+          "id": "divan_saz_mulberry",
+          "default": true,
+          "name": "Mulberry bowl",
+          "descriptors": [
+            "warm",
+            "woody",
+            "traditional"
+          ],
+          "match_tokens": [
+            "saz",
+            "long-neck-lute"
+          ]
+        },
+        {
+          "id": "divan_saz_juniper",
+          "name": "Juniper bowl",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "clear"
+          ],
+          "match_tokens": [
+            "saz",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "divan_saz_courses",
+      "name": "Course layout",
+      "variants": [
+        {
+          "id": "divan_saz_triple",
+          "default": true,
+          "name": "Three triple courses (full divan)",
+          "descriptors": [
+            "deep-toned",
+            "drone-rich",
+            "grounding"
+          ],
+          "match_tokens": [
+            "saz",
+            "bass-lute",
+            "turkish"
+          ]
+        },
+        {
+          "id": "divan_saz_double",
+          "name": "Reduced double courses",
+          "descriptors": [
+            "cleaner",
+            "articulate",
+            "focused"
+          ],
+          "match_tokens": [
+            "saz",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "divan_saz_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "divan_saz_mizrap",
+          "default": true,
+          "name": "Mızrap plectrum strumming",
+          "descriptors": [
+            "driving",
+            "percussive-attack",
+            "resonant"
+          ],
+          "match_tokens": [
+            "saz",
+            "strummed"
+          ]
+        },
+        {
+          "id": "divan_saz_selpe",
+          "name": "Şelpe fingerstyle",
+          "descriptors": [
+            "soft-attack",
+            "intimate",
+            "tapped"
+          ],
+          "match_tokens": [
+            "selpe",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "divan_saz_body",
+      "surface": false,
+      "name": "Bowl wood",
+      "variants": [
+        {
+          "id": "divan_saz_mulberry",
+          "default": true,
+          "name": "Mulberry bowl",
+          "descriptors": [
+            "warm",
+            "woody",
+            "traditional"
+          ],
+          "match_tokens": [
+            "saz",
+            "long-neck-lute"
+          ]
+        },
+        {
+          "id": "divan_saz_juniper",
+          "name": "Juniper bowl",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "clear"
+          ],
+          "match_tokens": [
+            "saz",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "id": "dan_doc_huyen",
+  "name": "Đàn độc huyền (Vietnamese one-string monochord, dàn bầu form)",
+  "family": "plucked_traditional",
+  "class": "stick_zither",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "dan doc huyen",
+  "parts": [
+    {
+      "id": "dan_doc_huyen_body",
+      "name": "Body / resonator form",
+      "variants": [
+        {
+          "id": "ddh_bamboo",
+          "default": true,
+          "name": "Bamboo trough body with gourd resonator",
+          "descriptors": [
+            "hollow-toned",
+            "vocal",
+            "gliding"
+          ],
+          "match_tokens": [
+            "monochord",
+            "harmonics"
+          ]
+        },
+        {
+          "id": "ddh_wood",
+          "name": "Hardwood box body (modern craft)",
+          "descriptors": [
+            "clear",
+            "sustained"
+          ],
+          "match_tokens": [
+            "monochord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ddh_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ddh_harmonic_glide",
+          "default": true,
+          "name": "Flageolet harmonics with whammy-rod bending",
+          "descriptors": [
+            "pure-harmonic",
+            "portamento",
+            "weeping"
+          ],
+          "match_tokens": [
+            "harmonics",
+            "pitch-bend"
+          ]
+        },
+        {
+          "id": "ddh_vibrato",
+          "name": "Deep rod vibrato (rung)",
+          "descriptors": [
+            "quavering",
+            "expressive"
+          ],
+          "match_tokens": [
+            "vibrato",
+            "monochord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ddh_amp",
+      "surface": false,
+      "name": "Amplification",
+      "variants": [
+        {
+          "id": "ddh_acoustic",
+          "default": true,
+          "name": "Purely acoustic",
+          "descriptors": [
+            "intimate",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "acoustic"
+          ]
+        },
+        {
+          "id": "ddh_pickup",
+          "name": "Electromagnetic pickup (20th-c standard)",
+          "descriptors": [
+            "sustained",
+            "amplified"
+          ],
+          "match_tokens": [
+            "amplified"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dan_doc_huyen_body",
+      "name": "Body / resonator form",
+      "variants": [
+        {
+          "id": "ddh_bamboo",
+          "default": true,
+          "name": "Bamboo trough body with gourd resonator",
+          "descriptors": [
+            "hollow-toned",
+            "vocal",
+            "gliding"
+          ],
+          "match_tokens": [
+            "monochord",
+            "harmonics"
+          ]
+        },
+        {
+          "id": "ddh_wood",
+          "name": "Hardwood box body (modern craft)",
+          "descriptors": [
+            "clear",
+            "sustained"
+          ],
+          "match_tokens": [
+            "monochord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ddh_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ddh_harmonic_glide",
+          "default": true,
+          "name": "Flageolet harmonics with whammy-rod bending",
+          "descriptors": [
+            "pure-harmonic",
+            "portamento",
+            "weeping"
+          ],
+          "match_tokens": [
+            "harmonics",
+            "pitch-bend"
+          ]
+        },
+        {
+          "id": "ddh_vibrato",
+          "name": "Deep rod vibrato (rung)",
+          "descriptors": [
+            "quavering",
+            "expressive"
+          ],
+          "match_tokens": [
+            "vibrato",
+            "monochord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ddh_amp",
+      "surface": false,
+      "name": "Amplification",
+      "variants": [
+        {
+          "id": "ddh_acoustic",
+          "default": true,
+          "name": "Purely acoustic",
+          "descriptors": [
+            "intimate",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "acoustic"
+          ]
+        },
+        {
+          "id": "ddh_pickup",
+          "name": "Electromagnetic pickup (20th-c standard)",
+          "descriptors": [
+            "sustained",
+            "amplified"
+          ],
+          "match_tokens": [
+            "amplified"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "id": "daouli",
+  "name": "Daouli (Greek large double-headed processional drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "daouli",
+  "parts": [
+    {
+      "id": "daouli_size",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "daouli_large",
+          "default": true,
+          "name": "Large outdoor daouli (deep booming shell)",
+          "descriptors": [
+            "booming",
+            "deep-toned",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "daouli",
+            "procession",
+            "double-headed-drum"
+          ]
+        },
+        {
+          "id": "daouli_medium",
+          "name": "Medium indoor daouli",
+          "descriptors": [
+            "punchy",
+            "tight",
+            "articulate"
+          ],
+          "match_tokens": [
+            "daouli",
+            "greek",
+            "drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daouli_beaters",
+      "name": "Beaters",
+      "variants": [
+        {
+          "id": "daouli_kopanos_vitsa",
+          "default": true,
+          "name": "Heavy kopanos mallet plus thin vitsa switch",
+          "descriptors": [
+            "boom-and-crack",
+            "contrasting-attack",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "daouli",
+            "beater-struck"
+          ]
+        },
+        {
+          "id": "daouli_two_mallets",
+          "name": "Two mallets (heavier pattern)",
+          "descriptors": [
+            "thudding",
+            "weighty",
+            "steady"
+          ],
+          "match_tokens": [
+            "drum",
+            "greek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daouli_heads",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "daouli_goatskin",
+          "default": true,
+          "name": "Goat/calf skin heads",
+          "descriptors": [
+            "warm",
+            "dry",
+            "earthy"
+          ],
+          "match_tokens": [
+            "daouli",
+            "skin-headed"
+          ]
+        },
+        {
+          "id": "daouli_synthetic",
+          "name": "Synthetic heads",
+          "descriptors": [
+            "bright-attack",
+            "consistent",
+            "modern"
+          ],
+          "match_tokens": [
+            "drum",
+            "greek"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "daouli_size",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "daouli_large",
+          "default": true,
+          "name": "Large outdoor daouli (deep booming shell)",
+          "descriptors": [
+            "booming",
+            "deep-toned",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "daouli",
+            "procession",
+            "double-headed-drum"
+          ]
+        },
+        {
+          "id": "daouli_medium",
+          "name": "Medium indoor daouli",
+          "descriptors": [
+            "punchy",
+            "tight",
+            "articulate"
+          ],
+          "match_tokens": [
+            "daouli",
+            "greek",
+            "drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daouli_beaters",
+      "name": "Beaters",
+      "variants": [
+        {
+          "id": "daouli_kopanos_vitsa",
+          "default": true,
+          "name": "Heavy kopanos mallet plus thin vitsa switch",
+          "descriptors": [
+            "boom-and-crack",
+            "contrasting-attack",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "daouli",
+            "beater-struck"
+          ]
+        },
+        {
+          "id": "daouli_two_mallets",
+          "name": "Two mallets (heavier pattern)",
+          "descriptors": [
+            "thudding",
+            "weighty",
+            "steady"
+          ],
+          "match_tokens": [
+            "drum",
+            "greek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daouli_heads",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "daouli_goatskin",
+          "default": true,
+          "name": "Goat/calf skin heads",
+          "descriptors": [
+            "warm",
+            "dry",
+            "earthy"
+          ],
+          "match_tokens": [
+            "daouli",
+            "skin-headed"
+          ]
+        },
+        {
+          "id": "daouli_synthetic",
+          "name": "Synthetic heads",
+          "descriptors": [
+            "bright-attack",
+            "consistent",
+            "modern"
+          ],
+          "match_tokens": [
+            "drum",
+            "greek"
+          ]
+        }
+      ]
+    }
+  ]
+}

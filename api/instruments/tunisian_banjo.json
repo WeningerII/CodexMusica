@@ -1,0 +1,226 @@
+{
+  "id": "tunisian_banjo",
+  "name": "Tunisian banjo (fretless Arab-tuned banjo of mezoued music)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tunisian banjo",
+  "parts": [
+    {
+      "id": "tunisian_banjo_setup",
+      "name": "Neck setup",
+      "variants": [
+        {
+          "id": "tunisian_banjo_fretless",
+          "default": true,
+          "name": "Fretless neck for maqam microtones",
+          "descriptors": [
+            "microtonal-slide",
+            "nasal-bright",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "tunisian",
+            "fretless-banjo",
+            "mezoued"
+          ]
+        },
+        {
+          "id": "tunisian_banjo_fretted",
+          "name": "Fretted five-string (imported build)",
+          "descriptors": [
+            "crisp",
+            "chordal",
+            "tempered"
+          ],
+          "match_tokens": [
+            "banjo",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tunisian_banjo_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tunisian_banjo_mezoued",
+          "default": true,
+          "name": "Mezoued / rboukh ensemble lead",
+          "descriptors": [
+            "driving",
+            "ornamented",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "mezoued",
+            "tunisian",
+            "lead-line"
+          ]
+        },
+        {
+          "id": "tunisian_banjo_mizwid_song",
+          "name": "Popular song accompaniment",
+          "descriptors": [
+            "strummed",
+            "supporting",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "tunisian",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tunisian_banjo_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "tunisian_banjo_plastic_head",
+          "default": true,
+          "name": "Plastic head",
+          "descriptors": [
+            "bright-attack",
+            "loud",
+            "metallic"
+          ],
+          "match_tokens": [
+            "banjo",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tunisian_banjo_skin_head",
+          "name": "Calfskin head",
+          "descriptors": [
+            "warmer",
+            "softer-attack",
+            "woody"
+          ],
+          "match_tokens": [
+            "banjo",
+            "skin-topped"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tunisian_banjo_setup",
+      "name": "Neck setup",
+      "variants": [
+        {
+          "id": "tunisian_banjo_fretless",
+          "default": true,
+          "name": "Fretless neck for maqam microtones",
+          "descriptors": [
+            "microtonal-slide",
+            "nasal-bright",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "tunisian",
+            "fretless-banjo",
+            "mezoued"
+          ]
+        },
+        {
+          "id": "tunisian_banjo_fretted",
+          "name": "Fretted five-string (imported build)",
+          "descriptors": [
+            "crisp",
+            "chordal",
+            "tempered"
+          ],
+          "match_tokens": [
+            "banjo",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tunisian_banjo_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tunisian_banjo_mezoued",
+          "default": true,
+          "name": "Mezoued / rboukh ensemble lead",
+          "descriptors": [
+            "driving",
+            "ornamented",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "mezoued",
+            "tunisian",
+            "lead-line"
+          ]
+        },
+        {
+          "id": "tunisian_banjo_mizwid_song",
+          "name": "Popular song accompaniment",
+          "descriptors": [
+            "strummed",
+            "supporting",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "tunisian",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tunisian_banjo_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "tunisian_banjo_plastic_head",
+          "default": true,
+          "name": "Plastic head",
+          "descriptors": [
+            "bright-attack",
+            "loud",
+            "metallic"
+          ],
+          "match_tokens": [
+            "banjo",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tunisian_banjo_skin_head",
+          "name": "Calfskin head",
+          "descriptors": [
+            "warmer",
+            "softer-attack",
+            "woody"
+          ],
+          "match_tokens": [
+            "banjo",
+            "skin-topped"
+          ]
+        }
+      ]
+    }
+  ]
+}

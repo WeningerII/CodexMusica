@@ -1,0 +1,182 @@
+{
+  "id": "floyera",
+  "name": "Floyera (Greek shepherd's end-blown cane flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "floyera",
+  "parts": [
+    {
+      "id": "floyera_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "floyera_cane",
+          "default": true,
+          "name": "Cane (kalami) tube",
+          "descriptors": [
+            "airy",
+            "breathy",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "greek",
+            "shepherd-flute",
+            "end-blown"
+          ]
+        },
+        {
+          "id": "floyera_wood",
+          "name": "Turned wood tube",
+          "descriptors": [
+            "fuller",
+            "rounded",
+            "warm"
+          ],
+          "match_tokens": [
+            "greek",
+            "flute"
+          ]
+        },
+        {
+          "id": "floyera_metal",
+          "name": "Metal tube (modern)",
+          "descriptors": [
+            "bright",
+            "clear",
+            "projecting"
+          ],
+          "match_tokens": [
+            "greek",
+            "flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "floyera_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "floyera_pastoral",
+          "default": true,
+          "name": "Free-rhythm pastoral improvisation",
+          "descriptors": [
+            "rubato",
+            "ornamented",
+            "lonesome"
+          ],
+          "match_tokens": [
+            "shepherd-flute",
+            "greek"
+          ]
+        },
+        {
+          "id": "floyera_dance",
+          "name": "Dance-tune playing with ensemble",
+          "descriptors": [
+            "driving",
+            "agile",
+            "rhythm-locked"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "floyera_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "floyera_cane",
+          "default": true,
+          "name": "Cane (kalami) tube",
+          "descriptors": [
+            "airy",
+            "breathy",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "greek",
+            "shepherd-flute",
+            "end-blown"
+          ]
+        },
+        {
+          "id": "floyera_wood",
+          "name": "Turned wood tube",
+          "descriptors": [
+            "fuller",
+            "rounded",
+            "warm"
+          ],
+          "match_tokens": [
+            "greek",
+            "flute"
+          ]
+        },
+        {
+          "id": "floyera_metal",
+          "name": "Metal tube (modern)",
+          "descriptors": [
+            "bright",
+            "clear",
+            "projecting"
+          ],
+          "match_tokens": [
+            "greek",
+            "flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "floyera_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "floyera_pastoral",
+          "default": true,
+          "name": "Free-rhythm pastoral improvisation",
+          "descriptors": [
+            "rubato",
+            "ornamented",
+            "lonesome"
+          ],
+          "match_tokens": [
+            "shepherd-flute",
+            "greek"
+          ]
+        },
+        {
+          "id": "floyera_dance",
+          "name": "Dance-tune playing with ensemble",
+          "descriptors": [
+            "driving",
+            "agile",
+            "rhythm-locked"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "id": "urumi_drum",
+  "name": "Urumi (Tamil friction talking drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "urumi",
+  "parts": [
+    {
+      "id": "urumi_stick",
+      "name": "Stick technique",
+      "variants": [
+        {
+          "id": "urumi_friction",
+          "default": true,
+          "name": "Curved stick rubbed across the head",
+          "descriptors": [
+            "growling",
+            "talking-tone"
+          ],
+          "match_tokens": [
+            "friction-drum",
+            "tamil"
+          ]
+        },
+        {
+          "id": "urumi_struck",
+          "name": "Straight struck strokes on the counter head",
+          "descriptors": [
+            "cracking",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "urumi_context",
+      "name": "Context",
+      "variants": [
+        {
+          "id": "urumi_melam",
+          "default": true,
+          "name": "Urumi melam street procession",
+          "descriptors": [
+            "roaring",
+            "driving"
+          ],
+          "match_tokens": [
+            "processional",
+            "folk-rhythm"
+          ]
+        },
+        {
+          "id": "urumi_ritual",
+          "name": "Village deity ritual playing",
+          "descriptors": [
+            "moaning",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "ritual",
+            "trance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "urumi_stick",
+      "name": "Stick technique",
+      "variants": [
+        {
+          "id": "urumi_friction",
+          "default": true,
+          "name": "Curved stick rubbed across the head",
+          "descriptors": [
+            "growling",
+            "talking-tone"
+          ],
+          "match_tokens": [
+            "friction-drum",
+            "tamil"
+          ]
+        },
+        {
+          "id": "urumi_struck",
+          "name": "Straight struck strokes on the counter head",
+          "descriptors": [
+            "cracking",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "urumi_context",
+      "name": "Context",
+      "variants": [
+        {
+          "id": "urumi_melam",
+          "default": true,
+          "name": "Urumi melam street procession",
+          "descriptors": [
+            "roaring",
+            "driving"
+          ],
+          "match_tokens": [
+            "processional",
+            "folk-rhythm"
+          ]
+        },
+        {
+          "id": "urumi_ritual",
+          "name": "Village deity ritual playing",
+          "descriptors": [
+            "moaning",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "ritual",
+            "trance"
+          ]
+        }
+      ]
+    }
+  ]
+}

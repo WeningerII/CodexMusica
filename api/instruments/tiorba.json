@@ -1,0 +1,230 @@
+{
+  "id": "tiorba",
+  "name": "Tiorba (Italian theorbo, long-necked continuo lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tiorba",
+  "parts": [
+    {
+      "id": "tiorba_size",
+      "name": "Instrument size / pitch",
+      "variants": [
+        {
+          "id": "tiorba_romana",
+          "default": true,
+          "name": "Roman tiorba (large, A tuning, 14 courses)",
+          "descriptors": [
+            "deep-resonant",
+            "cavernous"
+          ],
+          "match_tokens": [
+            "theorbo",
+            "continuo"
+          ]
+        },
+        {
+          "id": "tiorba_tiorbino",
+          "name": "Tiorbino (small octave theorbo)",
+          "descriptors": [
+            "bright",
+            "chiming"
+          ],
+          "match_tokens": [
+            "plucked",
+            "high-pitched"
+          ]
+        },
+        {
+          "id": "tiorba_arciliuto",
+          "name": "Archlute-style stringing (G tuning, re-entrant-free)",
+          "descriptors": [
+            "even-toned",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiorba_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "tiorba_continuo",
+          "default": true,
+          "name": "Basso continuo realization",
+          "descriptors": [
+            "supporting",
+            "arpeggiated"
+          ],
+          "match_tokens": [
+            "continuo",
+            "baroque"
+          ]
+        },
+        {
+          "id": "tiorba_solo",
+          "name": "Solo toccata / passacaglia",
+          "descriptors": [
+            "resonant",
+            "contrapuntal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiorba_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tiorba_gut",
+          "default": true,
+          "name": "Plain gut with loaded basses",
+          "descriptors": [
+            "warm",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "tiorba_wound",
+          "name": "Wound bass strings",
+          "descriptors": [
+            "sustaining",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tiorba_size",
+      "name": "Instrument size / pitch",
+      "variants": [
+        {
+          "id": "tiorba_romana",
+          "default": true,
+          "name": "Roman tiorba (large, A tuning, 14 courses)",
+          "descriptors": [
+            "deep-resonant",
+            "cavernous"
+          ],
+          "match_tokens": [
+            "theorbo",
+            "continuo"
+          ]
+        },
+        {
+          "id": "tiorba_tiorbino",
+          "name": "Tiorbino (small octave theorbo)",
+          "descriptors": [
+            "bright",
+            "chiming"
+          ],
+          "match_tokens": [
+            "plucked",
+            "high-pitched"
+          ]
+        },
+        {
+          "id": "tiorba_arciliuto",
+          "name": "Archlute-style stringing (G tuning, re-entrant-free)",
+          "descriptors": [
+            "even-toned",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiorba_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "tiorba_continuo",
+          "default": true,
+          "name": "Basso continuo realization",
+          "descriptors": [
+            "supporting",
+            "arpeggiated"
+          ],
+          "match_tokens": [
+            "continuo",
+            "baroque"
+          ]
+        },
+        {
+          "id": "tiorba_solo",
+          "name": "Solo toccata / passacaglia",
+          "descriptors": [
+            "resonant",
+            "contrapuntal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiorba_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tiorba_gut",
+          "default": true,
+          "name": "Plain gut with loaded basses",
+          "descriptors": [
+            "warm",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "tiorba_wound",
+          "name": "Wound bass strings",
+          "descriptors": [
+            "sustaining",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

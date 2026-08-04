@@ -1,0 +1,171 @@
+{
+  "id": "tro_sau",
+  "name": "Tro sau (Cambodian high-pitched two-string fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tro sau",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tro_sau_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "tro_sau_toch",
+          "default": true,
+          "name": "Tro sau toch (small, highest)",
+          "descriptors": [
+            "piercing",
+            "keening"
+          ],
+          "match_tokens": [
+            "khmer-fiddle",
+            "high-register"
+          ]
+        },
+        {
+          "id": "tro_sau_thom",
+          "name": "Tro sau thom (larger, fuller)",
+          "descriptors": [
+            "rounded",
+            "singing"
+          ],
+          "match_tokens": [
+            "khmer-fiddle",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_sau_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "tro_sau_mohori",
+          "default": true,
+          "name": "Mohori entertainment ensemble",
+          "descriptors": [
+            "lyrical",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tro_sau_wedding",
+          "name": "Phleng kar wedding music",
+          "descriptors": [
+            "ornamented",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ceremonial"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tro_sau_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "tro_sau_toch",
+          "default": true,
+          "name": "Tro sau toch (small, highest)",
+          "descriptors": [
+            "piercing",
+            "keening"
+          ],
+          "match_tokens": [
+            "khmer-fiddle",
+            "high-register"
+          ]
+        },
+        {
+          "id": "tro_sau_thom",
+          "name": "Tro sau thom (larger, fuller)",
+          "descriptors": [
+            "rounded",
+            "singing"
+          ],
+          "match_tokens": [
+            "khmer-fiddle",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tro_sau_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "tro_sau_mohori",
+          "default": true,
+          "name": "Mohori entertainment ensemble",
+          "descriptors": [
+            "lyrical",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "tro_sau_wedding",
+          "name": "Phleng kar wedding music",
+          "descriptors": [
+            "ornamented",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ceremonial"
+          ]
+        }
+      ]
+    }
+  ]
+}

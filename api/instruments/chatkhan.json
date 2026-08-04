@@ -1,0 +1,146 @@
+{
+  "id": "chatkhan",
+  "name": "Chatkhan (Khakas long box zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "chatkhan",
+  "parts": [
+    {
+      "id": "chatkhan_strings",
+      "name": "String count / tuning",
+      "variants": [
+        {
+          "id": "chatkhan_six",
+          "default": true,
+          "name": "Six-string pentatonic (movable bone bridges)",
+          "descriptors": [
+            "twanging",
+            "modal",
+            "open-toned"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "khakas"
+          ]
+        },
+        {
+          "id": "chatkhan_seven",
+          "name": "Seven-string extended tuning",
+          "descriptors": [
+            "wide-ranging",
+            "resonant"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chatkhan_role",
+      "name": "Performance role",
+      "variants": [
+        {
+          "id": "chatkhan_epic",
+          "default": true,
+          "name": "Epic (khai) throat-song accompaniment",
+          "descriptors": [
+            "ostinato",
+            "droning",
+            "narrative"
+          ],
+          "match_tokens": [
+            "epic-accompaniment",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "chatkhan_solo",
+          "name": "Solo instrumental piece",
+          "descriptors": [
+            "rippling",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chatkhan_strings",
+      "name": "String count / tuning",
+      "variants": [
+        {
+          "id": "chatkhan_six",
+          "default": true,
+          "name": "Six-string pentatonic (movable bone bridges)",
+          "descriptors": [
+            "twanging",
+            "modal",
+            "open-toned"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "khakas"
+          ]
+        },
+        {
+          "id": "chatkhan_seven",
+          "name": "Seven-string extended tuning",
+          "descriptors": [
+            "wide-ranging",
+            "resonant"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chatkhan_role",
+      "name": "Performance role",
+      "variants": [
+        {
+          "id": "chatkhan_epic",
+          "default": true,
+          "name": "Epic (khai) throat-song accompaniment",
+          "descriptors": [
+            "ostinato",
+            "droning",
+            "narrative"
+          ],
+          "match_tokens": [
+            "epic-accompaniment",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "chatkhan_solo",
+          "name": "Solo instrumental piece",
+          "descriptors": [
+            "rippling",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

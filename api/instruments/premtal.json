@@ -1,0 +1,142 @@
+{
+  "id": "premtal",
+  "name": "Premtal (Bengali two-headed plucked tension drum)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "premtal",
+  "parts": [
+    {
+      "id": "premtal_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "premtal_double",
+          "default": true,
+          "name": "Twin-chambered body with paired strings",
+          "descriptors": [
+            "doubled-tone",
+            "wobbling"
+          ],
+          "match_tokens": [
+            "tension-drum",
+            "bengali"
+          ]
+        },
+        {
+          "id": "premtal_single",
+          "name": "Single-chamber khamak-like form",
+          "descriptors": [
+            "punchy",
+            "talking-tone"
+          ],
+          "match_tokens": [
+            "plucked-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "premtal_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "premtal_baul",
+          "default": true,
+          "name": "Baul/kirtan groove with bent accents",
+          "descriptors": [
+            "pulsing",
+            "swooping"
+          ],
+          "match_tokens": [
+            "pitch-bend",
+            "folk-song"
+          ]
+        },
+        {
+          "id": "premtal_solo",
+          "name": "Rhythmic solo flourishes",
+          "descriptors": [
+            "rattling",
+            "rapid-fire"
+          ],
+          "match_tokens": [
+            "rhythmic-solo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "premtal_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "premtal_double",
+          "default": true,
+          "name": "Twin-chambered body with paired strings",
+          "descriptors": [
+            "doubled-tone",
+            "wobbling"
+          ],
+          "match_tokens": [
+            "tension-drum",
+            "bengali"
+          ]
+        },
+        {
+          "id": "premtal_single",
+          "name": "Single-chamber khamak-like form",
+          "descriptors": [
+            "punchy",
+            "talking-tone"
+          ],
+          "match_tokens": [
+            "plucked-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "premtal_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "premtal_baul",
+          "default": true,
+          "name": "Baul/kirtan groove with bent accents",
+          "descriptors": [
+            "pulsing",
+            "swooping"
+          ],
+          "match_tokens": [
+            "pitch-bend",
+            "folk-song"
+          ]
+        },
+        {
+          "id": "premtal_solo",
+          "name": "Rhythmic solo flourishes",
+          "descriptors": [
+            "rattling",
+            "rapid-fire"
+          ],
+          "match_tokens": [
+            "rhythmic-solo"
+          ]
+        }
+      ]
+    }
+  ]
+}

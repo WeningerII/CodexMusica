@@ -1,0 +1,202 @@
+{
+  "id": "kugikly",
+  "name": "Kugikly (Russian Kursk raft panpipes)",
+  "family": "wind",
+  "class": "raft_panpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kugikly",
+  "parts": [
+    {
+      "id": "kugikly_set",
+      "name": "Pipe set",
+      "variants": [
+        {
+          "id": "kugikly_five",
+          "default": true,
+          "name": "Five-pipe Kursk set (village ensemble part)",
+          "descriptors": [
+            "breathy-tone",
+            "hocketing"
+          ],
+          "match_tokens": [
+            "panpipes",
+            "russian-folk"
+          ]
+        },
+        {
+          "id": "kugikly_three",
+          "name": "Three-pipe upper set",
+          "descriptors": [
+            "high-pitched",
+            "piercing"
+          ],
+          "match_tokens": [
+            "panpipes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kugikly_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "kugikly_reed",
+          "default": true,
+          "name": "Kuga reed / cane tubes",
+          "descriptors": [
+            "airy-tone",
+            "fragile"
+          ],
+          "match_tokens": [
+            "panpipes"
+          ]
+        },
+        {
+          "id": "kugikly_elder",
+          "name": "Elder-wood tubes",
+          "descriptors": [
+            "fuller-bodied",
+            "woody"
+          ],
+          "match_tokens": [
+            "panpipes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kugikly_technique",
+      "surface": false,
+      "name": "Vocal technique",
+      "variants": [
+        {
+          "id": "kugikly_with_calls",
+          "default": true,
+          "name": "Blowing interleaved with sung whoops",
+          "descriptors": [
+            "hocketing",
+            "rhythmic-breath"
+          ],
+          "match_tokens": [
+            "panpipes",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "kugikly_pure",
+          "name": "Pure blown melody",
+          "descriptors": [
+            "smooth-lined",
+            "gentle"
+          ],
+          "match_tokens": [
+            "panpipes"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kugikly_set",
+      "name": "Pipe set",
+      "variants": [
+        {
+          "id": "kugikly_five",
+          "default": true,
+          "name": "Five-pipe Kursk set (village ensemble part)",
+          "descriptors": [
+            "breathy-tone",
+            "hocketing"
+          ],
+          "match_tokens": [
+            "panpipes",
+            "russian-folk"
+          ]
+        },
+        {
+          "id": "kugikly_three",
+          "name": "Three-pipe upper set",
+          "descriptors": [
+            "high-pitched",
+            "piercing"
+          ],
+          "match_tokens": [
+            "panpipes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kugikly_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "kugikly_reed",
+          "default": true,
+          "name": "Kuga reed / cane tubes",
+          "descriptors": [
+            "airy-tone",
+            "fragile"
+          ],
+          "match_tokens": [
+            "panpipes"
+          ]
+        },
+        {
+          "id": "kugikly_elder",
+          "name": "Elder-wood tubes",
+          "descriptors": [
+            "fuller-bodied",
+            "woody"
+          ],
+          "match_tokens": [
+            "panpipes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kugikly_technique",
+      "surface": false,
+      "name": "Vocal technique",
+      "variants": [
+        {
+          "id": "kugikly_with_calls",
+          "default": true,
+          "name": "Blowing interleaved with sung whoops",
+          "descriptors": [
+            "hocketing",
+            "rhythmic-breath"
+          ],
+          "match_tokens": [
+            "panpipes",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "kugikly_pure",
+          "name": "Pure blown melody",
+          "descriptors": [
+            "smooth-lined",
+            "gentle"
+          ],
+          "match_tokens": [
+            "panpipes"
+          ]
+        }
+      ]
+    }
+  ]
+}

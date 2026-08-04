@@ -1,0 +1,170 @@
+{
+  "id": "bukkehorn",
+  "name": "Bukkehorn (Norwegian goat-horn signal instrument)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bukkehorn",
+  "parts": [
+    {
+      "id": "bukkehorn_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "bukkehorn_fingerholes",
+          "default": true,
+          "name": "Goat horn with finger holes (melodic)",
+          "descriptors": [
+            "reedy-call",
+            "nasal",
+            "modal"
+          ],
+          "match_tokens": [
+            "animal-horn",
+            "norwegian"
+          ]
+        },
+        {
+          "id": "bukkehorn_plain",
+          "name": "Plain holeless signal horn",
+          "descriptors": [
+            "overtone-calls",
+            "raw-tone"
+          ],
+          "match_tokens": [
+            "animal-horn",
+            "signal-call"
+          ]
+        },
+        {
+          "id": "bukkehorn_ram_horn",
+          "name": "Large ram-horn build",
+          "descriptors": [
+            "deeper-toned",
+            "broad"
+          ],
+          "match_tokens": [
+            "animal-horn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bukkehorn_technique",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "bukkehorn_lokk",
+          "default": true,
+          "name": "Herding calls (lokk) across open valley",
+          "descriptors": [
+            "far-carrying",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "animal-horn",
+            "signal-call"
+          ]
+        },
+        {
+          "id": "bukkehorn_dance_tune",
+          "name": "Dance tune playing",
+          "descriptors": [
+            "driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "animal-horn",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bukkehorn_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "bukkehorn_fingerholes",
+          "default": true,
+          "name": "Goat horn with finger holes (melodic)",
+          "descriptors": [
+            "reedy-call",
+            "nasal",
+            "modal"
+          ],
+          "match_tokens": [
+            "animal-horn",
+            "norwegian"
+          ]
+        },
+        {
+          "id": "bukkehorn_plain",
+          "name": "Plain holeless signal horn",
+          "descriptors": [
+            "overtone-calls",
+            "raw-tone"
+          ],
+          "match_tokens": [
+            "animal-horn",
+            "signal-call"
+          ]
+        },
+        {
+          "id": "bukkehorn_ram_horn",
+          "name": "Large ram-horn build",
+          "descriptors": [
+            "deeper-toned",
+            "broad"
+          ],
+          "match_tokens": [
+            "animal-horn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bukkehorn_technique",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "bukkehorn_lokk",
+          "default": true,
+          "name": "Herding calls (lokk) across open valley",
+          "descriptors": [
+            "far-carrying",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "animal-horn",
+            "signal-call"
+          ]
+        },
+        {
+          "id": "bukkehorn_dance_tune",
+          "name": "Dance tune playing",
+          "descriptors": [
+            "driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "animal-horn",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

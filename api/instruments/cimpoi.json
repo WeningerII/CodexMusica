@@ -1,0 +1,152 @@
+{
+  "id": "cimpoi",
+  "name": "Cimpoi (Romanian single-drone mouth-blown bagpipe)",
+  "family": "wind",
+  "class": "mouth_blown_bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "cimpoi",
+  "parts": [
+    {
+      "id": "cimpoi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "cimpoi_oltenia",
+          "default": true,
+          "name": "Oltenian cimpoi (single drone, single chanter)",
+          "descriptors": [
+            "droning",
+            "nasal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "romanian",
+            "bagpipe",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "cimpoi_moldavian",
+          "name": "Moldavian cimpoi with double chanter",
+          "descriptors": [
+            "buzzing-timbre",
+            "thicker-texture"
+          ],
+          "match_tokens": [
+            "romanian",
+            "bagpipe",
+            "double-chanter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cimpoi_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "cimpoi_goatskin",
+          "default": true,
+          "name": "Whole goatskin bag",
+          "descriptors": [
+            "earthy",
+            "raw"
+          ],
+          "match_tokens": [
+            "goatskin-bag",
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "cimpoi_synthetic",
+          "name": "Synthetic bag (modern)",
+          "descriptors": [
+            "steady",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cimpoi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "cimpoi_oltenia",
+          "default": true,
+          "name": "Oltenian cimpoi (single drone, single chanter)",
+          "descriptors": [
+            "droning",
+            "nasal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "romanian",
+            "bagpipe",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "cimpoi_moldavian",
+          "name": "Moldavian cimpoi with double chanter",
+          "descriptors": [
+            "buzzing-timbre",
+            "thicker-texture"
+          ],
+          "match_tokens": [
+            "romanian",
+            "bagpipe",
+            "double-chanter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cimpoi_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "cimpoi_goatskin",
+          "default": true,
+          "name": "Whole goatskin bag",
+          "descriptors": [
+            "earthy",
+            "raw"
+          ],
+          "match_tokens": [
+            "goatskin-bag",
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "cimpoi_synthetic",
+          "name": "Synthetic bag (modern)",
+          "descriptors": [
+            "steady",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        }
+      ]
+    }
+  ]
+}

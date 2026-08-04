@@ -1,0 +1,146 @@
+{
+  "id": "friscalettu",
+  "name": "Friscalettu (Sicilian cane duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 2,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "friscalettu",
+  "parts": [
+    {
+      "id": "friscalettu_size",
+      "name": "Cane size / key",
+      "variants": [
+        {
+          "id": "friscalettu_standard",
+          "default": true,
+          "name": "Standard cane friscalettu (high, seven holes)",
+          "descriptors": [
+            "bright-airy",
+            "piercing"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "sicilian"
+          ]
+        },
+        {
+          "id": "friscalettu_grande",
+          "name": "Larger low friscalettu",
+          "descriptors": [
+            "breathy",
+            "mellow"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friscalettu_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "friscalettu_dance",
+          "default": true,
+          "name": "Tarantella dance tune with trills",
+          "descriptors": [
+            "ornamented",
+            "lively"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "flute"
+          ]
+        },
+        {
+          "id": "friscalettu_pastoral",
+          "name": "Pastoral free-rhythm air",
+          "descriptors": [
+            "rubato",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "flute",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "friscalettu_size",
+      "name": "Cane size / key",
+      "variants": [
+        {
+          "id": "friscalettu_standard",
+          "default": true,
+          "name": "Standard cane friscalettu (high, seven holes)",
+          "descriptors": [
+            "bright-airy",
+            "piercing"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "sicilian"
+          ]
+        },
+        {
+          "id": "friscalettu_grande",
+          "name": "Larger low friscalettu",
+          "descriptors": [
+            "breathy",
+            "mellow"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friscalettu_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "friscalettu_dance",
+          "default": true,
+          "name": "Tarantella dance tune with trills",
+          "descriptors": [
+            "ornamented",
+            "lively"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "flute"
+          ]
+        },
+        {
+          "id": "friscalettu_pastoral",
+          "name": "Pastoral free-rhythm air",
+          "descriptors": [
+            "rubato",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "flute",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

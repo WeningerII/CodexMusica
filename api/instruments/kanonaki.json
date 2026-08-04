@@ -1,0 +1,226 @@
+{
+  "id": "kanonaki",
+  "name": "Kanonaki (Greek plucked box zither with mandal levers)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kanonaki",
+  "parts": [
+    {
+      "id": "kanonaki_mandal",
+      "name": "Mandal lever system",
+      "variants": [
+        {
+          "id": "kanonaki_greek_mandal",
+          "default": true,
+          "name": "Greek/Ottoman mandalia for microtonal shifts",
+          "descriptors": [
+            "microtonal",
+            "modal",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "qanun",
+            "greek",
+            "box-zither"
+          ]
+        },
+        {
+          "id": "kanonaki_no_mandal",
+          "name": "Older leverless build (fixed tuning)",
+          "descriptors": [
+            "archaic",
+            "plain-modal",
+            "open-ringing"
+          ],
+          "match_tokens": [
+            "qanun",
+            "plucked-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanonaki_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "kanonaki_tremolo",
+          "default": true,
+          "name": "Two-plectrum tremolo and runs",
+          "descriptors": [
+            "shimmering",
+            "cascading",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "qanun",
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "kanonaki_accompaniment",
+          "name": "Chordal / rhythmic accompaniment",
+          "descriptors": [
+            "supporting",
+            "ringing",
+            "harmonic-bed"
+          ],
+          "match_tokens": [
+            "qanun",
+            "greek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanonaki_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kanonaki_nylon",
+          "default": true,
+          "name": "Nylon triple courses",
+          "descriptors": [
+            "warm",
+            "round",
+            "full"
+          ],
+          "match_tokens": [
+            "qanun",
+            "nylon-strung"
+          ]
+        },
+        {
+          "id": "kanonaki_gut",
+          "name": "Gut courses (historic)",
+          "descriptors": [
+            "mellow",
+            "soft",
+            "old-world"
+          ],
+          "match_tokens": [
+            "qanun",
+            "gut-strung"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kanonaki_mandal",
+      "name": "Mandal lever system",
+      "variants": [
+        {
+          "id": "kanonaki_greek_mandal",
+          "default": true,
+          "name": "Greek/Ottoman mandalia for microtonal shifts",
+          "descriptors": [
+            "microtonal",
+            "modal",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "qanun",
+            "greek",
+            "box-zither"
+          ]
+        },
+        {
+          "id": "kanonaki_no_mandal",
+          "name": "Older leverless build (fixed tuning)",
+          "descriptors": [
+            "archaic",
+            "plain-modal",
+            "open-ringing"
+          ],
+          "match_tokens": [
+            "qanun",
+            "plucked-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanonaki_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "kanonaki_tremolo",
+          "default": true,
+          "name": "Two-plectrum tremolo and runs",
+          "descriptors": [
+            "shimmering",
+            "cascading",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "qanun",
+            "plucked",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "kanonaki_accompaniment",
+          "name": "Chordal / rhythmic accompaniment",
+          "descriptors": [
+            "supporting",
+            "ringing",
+            "harmonic-bed"
+          ],
+          "match_tokens": [
+            "qanun",
+            "greek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kanonaki_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kanonaki_nylon",
+          "default": true,
+          "name": "Nylon triple courses",
+          "descriptors": [
+            "warm",
+            "round",
+            "full"
+          ],
+          "match_tokens": [
+            "qanun",
+            "nylon-strung"
+          ]
+        },
+        {
+          "id": "kanonaki_gut",
+          "name": "Gut courses (historic)",
+          "descriptors": [
+            "mellow",
+            "soft",
+            "old-world"
+          ],
+          "match_tokens": [
+            "qanun",
+            "gut-strung"
+          ]
+        }
+      ]
+    }
+  ]
+}

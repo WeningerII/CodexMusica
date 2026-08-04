@@ -1,0 +1,142 @@
+{
+  "id": "galoubet",
+  "name": "Galoubet (Provençal three-hole tabor pipe)",
+  "family": "wind",
+  "class": "three_hole_tabor_pipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "galoubet",
+  "parts": [
+    {
+      "id": "galoubet_pitch",
+      "name": "Pitch / size",
+      "variants": [
+        {
+          "id": "galoubet_c_standard",
+          "default": true,
+          "name": "Standard galoubet in C (played one-handed with tambourin)",
+          "descriptors": [
+            "piercing",
+            "bright-attack",
+            "overblown"
+          ],
+          "match_tokens": [
+            "tabor-pipe",
+            "provencal"
+          ]
+        },
+        {
+          "id": "galoubet_b_flat",
+          "name": "Lower galoubet in B-flat",
+          "descriptors": [
+            "mellower",
+            "rounder-toned"
+          ],
+          "match_tokens": [
+            "tabor-pipe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "galoubet_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "galoubet_boxwood",
+          "default": true,
+          "name": "Boxwood or fruitwood body",
+          "descriptors": [
+            "woody",
+            "warm-edge"
+          ],
+          "match_tokens": [
+            "tabor-pipe"
+          ]
+        },
+        {
+          "id": "galoubet_ebony",
+          "name": "Ebony body with ivory-style rings",
+          "descriptors": [
+            "hard-edged",
+            "projecting"
+          ],
+          "match_tokens": [
+            "tabor-pipe"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "galoubet_pitch",
+      "name": "Pitch / size",
+      "variants": [
+        {
+          "id": "galoubet_c_standard",
+          "default": true,
+          "name": "Standard galoubet in C (played one-handed with tambourin)",
+          "descriptors": [
+            "piercing",
+            "bright-attack",
+            "overblown"
+          ],
+          "match_tokens": [
+            "tabor-pipe",
+            "provencal"
+          ]
+        },
+        {
+          "id": "galoubet_b_flat",
+          "name": "Lower galoubet in B-flat",
+          "descriptors": [
+            "mellower",
+            "rounder-toned"
+          ],
+          "match_tokens": [
+            "tabor-pipe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "galoubet_material",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "galoubet_boxwood",
+          "default": true,
+          "name": "Boxwood or fruitwood body",
+          "descriptors": [
+            "woody",
+            "warm-edge"
+          ],
+          "match_tokens": [
+            "tabor-pipe"
+          ]
+        },
+        {
+          "id": "galoubet_ebony",
+          "name": "Ebony body with ivory-style rings",
+          "descriptors": [
+            "hard-edged",
+            "projecting"
+          ],
+          "match_tokens": [
+            "tabor-pipe"
+          ]
+        }
+      ]
+    }
+  ]
+}

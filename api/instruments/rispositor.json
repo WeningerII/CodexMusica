@@ -1,0 +1,173 @@
+{
+  "id": "rispositor",
+  "name": "Rispositor (chromatic Swedish keyed-fiddle experiment)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "rispositor",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "rispositor_keying",
+      "name": "Key mechanism",
+      "variants": [
+        {
+          "id": "rispositor_chromatic",
+          "default": true,
+          "name": "Full chromatic key rows",
+          "descriptors": [
+            "even-tempered",
+            "precise",
+            "clacking-keys"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "chromatic",
+            "swedish"
+          ]
+        },
+        {
+          "id": "rispositor_diatonic",
+          "name": "Reduced diatonic keying",
+          "descriptors": [
+            "modal",
+            "folk-toned"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "folk-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rispositor_body",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "rispositor_standard",
+          "default": true,
+          "name": "Standard body",
+          "descriptors": [
+            "balanced",
+            "nasal-sweet"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "rispositor_deep",
+          "name": "Deep-bodied build",
+          "descriptors": [
+            "dark-toned",
+            "broad"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rispositor_keying",
+      "name": "Key mechanism",
+      "variants": [
+        {
+          "id": "rispositor_chromatic",
+          "default": true,
+          "name": "Full chromatic key rows",
+          "descriptors": [
+            "even-tempered",
+            "precise",
+            "clacking-keys"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "chromatic",
+            "swedish"
+          ]
+        },
+        {
+          "id": "rispositor_diatonic",
+          "name": "Reduced diatonic keying",
+          "descriptors": [
+            "modal",
+            "folk-toned"
+          ],
+          "match_tokens": [
+            "keyed-fiddle",
+            "folk-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rispositor_body",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "rispositor_standard",
+          "default": true,
+          "name": "Standard body",
+          "descriptors": [
+            "balanced",
+            "nasal-sweet"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "rispositor_deep",
+          "name": "Deep-bodied build",
+          "descriptors": [
+            "dark-toned",
+            "broad"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

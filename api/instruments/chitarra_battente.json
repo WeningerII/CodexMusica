@@ -1,0 +1,166 @@
+{
+  "id": "chitarra_battente",
+  "name": "Chitarra battente (southern Italian strummed steel-strung guitar)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "chitarra battente",
+  "parts": [
+    {
+      "id": "battente_courses",
+      "name": "Courses / stringing",
+      "variants": [
+        {
+          "id": "battente_five_double",
+          "default": true,
+          "name": "Five double steel courses, vaulted back",
+          "descriptors": [
+            "jangly",
+            "metallic-ring"
+          ],
+          "match_tokens": [
+            "strummed",
+            "calabrian"
+          ]
+        },
+        {
+          "id": "battente_four",
+          "name": "Four-course archaic form",
+          "descriptors": [
+            "archaic",
+            "sparse"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        },
+        {
+          "id": "battente_triple",
+          "name": "Triple-strung courses",
+          "descriptors": [
+            "shimmering",
+            "dense"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "battente_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "battente_rasgueado",
+          "default": true,
+          "name": "Percussive rasgueado with soundboard tapping",
+          "descriptors": [
+            "percussive",
+            "driving"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "battente_tarantella",
+          "name": "Tarantella accompaniment with drone courses",
+          "descriptors": [
+            "droning",
+            "relentless"
+          ],
+          "match_tokens": [
+            "strummed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "battente_courses",
+      "name": "Courses / stringing",
+      "variants": [
+        {
+          "id": "battente_five_double",
+          "default": true,
+          "name": "Five double steel courses, vaulted back",
+          "descriptors": [
+            "jangly",
+            "metallic-ring"
+          ],
+          "match_tokens": [
+            "strummed",
+            "calabrian"
+          ]
+        },
+        {
+          "id": "battente_four",
+          "name": "Four-course archaic form",
+          "descriptors": [
+            "archaic",
+            "sparse"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        },
+        {
+          "id": "battente_triple",
+          "name": "Triple-strung courses",
+          "descriptors": [
+            "shimmering",
+            "dense"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "battente_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "battente_rasgueado",
+          "default": true,
+          "name": "Percussive rasgueado with soundboard tapping",
+          "descriptors": [
+            "percussive",
+            "driving"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "battente_tarantella",
+          "name": "Tarantella accompaniment with drone courses",
+          "descriptors": [
+            "droning",
+            "relentless"
+          ],
+          "match_tokens": [
+            "strummed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "bugchu",
+  "name": "Bugchu (Punjabi friction pot drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bugchu",
+  "parts": [
+    {
+      "id": "bugchu_body",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "bugchu_wood",
+          "default": true,
+          "name": "Hourglass wooden body with friction cord",
+          "descriptors": [
+            "croaking",
+            "rasping"
+          ],
+          "match_tokens": [
+            "friction-drum",
+            "punjabi"
+          ]
+        },
+        {
+          "id": "bugchu_clay",
+          "name": "Clay-bodied variant",
+          "descriptors": [
+            "dry",
+            "thuddy"
+          ],
+          "match_tokens": [
+            "friction-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bugchu_stroke",
+      "name": "Cord technique",
+      "variants": [
+        {
+          "id": "bugchu_bhangra",
+          "default": true,
+          "name": "Fast bhangra pulls on the beat",
+          "descriptors": [
+            "chugging",
+            "driving"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "bhangra"
+          ]
+        },
+        {
+          "id": "bugchu_slow",
+          "name": "Slow drawn pulls (pitch bend)",
+          "descriptors": [
+            "groaning",
+            "swooping"
+          ],
+          "match_tokens": [
+            "pitch-bend"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bugchu_body",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "bugchu_wood",
+          "default": true,
+          "name": "Hourglass wooden body with friction cord",
+          "descriptors": [
+            "croaking",
+            "rasping"
+          ],
+          "match_tokens": [
+            "friction-drum",
+            "punjabi"
+          ]
+        },
+        {
+          "id": "bugchu_clay",
+          "name": "Clay-bodied variant",
+          "descriptors": [
+            "dry",
+            "thuddy"
+          ],
+          "match_tokens": [
+            "friction-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bugchu_stroke",
+      "name": "Cord technique",
+      "variants": [
+        {
+          "id": "bugchu_bhangra",
+          "default": true,
+          "name": "Fast bhangra pulls on the beat",
+          "descriptors": [
+            "chugging",
+            "driving"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "bhangra"
+          ]
+        },
+        {
+          "id": "bugchu_slow",
+          "name": "Slow drawn pulls (pitch bend)",
+          "descriptors": [
+            "groaning",
+            "swooping"
+          ],
+          "match_tokens": [
+            "pitch-bend"
+          ]
+        }
+      ]
+    }
+  ]
+}

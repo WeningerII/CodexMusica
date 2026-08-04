@@ -1,0 +1,144 @@
+{
+  "id": "kombu_kerala",
+  "name": "Kombu (Kerala C-shaped natural horn)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": -1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "kombu",
+  "parts": [
+    {
+      "id": "kombu_material",
+      "name": "Horn material",
+      "variants": [
+        {
+          "id": "kombu_brass",
+          "default": true,
+          "name": "Sectional brass C-curve horn",
+          "descriptors": [
+            "blaring",
+            "brassy"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "kerala"
+          ]
+        },
+        {
+          "id": "kombu_copper",
+          "name": "Copper-bodied horn",
+          "descriptors": [
+            "darker",
+            "mellow"
+          ],
+          "match_tokens": [
+            "temple-horn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kombu_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kombu_pattu",
+          "default": true,
+          "name": "Kombu pattu ensemble calls",
+          "descriptors": [
+            "fanfare-like",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "temple-ensemble",
+            "call-and-response"
+          ]
+        },
+        {
+          "id": "kombu_long",
+          "name": "Long sustained ritual blasts",
+          "descriptors": [
+            "sustained",
+            "droning"
+          ],
+          "match_tokens": [
+            "ritual",
+            "sustained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kombu_material",
+      "name": "Horn material",
+      "variants": [
+        {
+          "id": "kombu_brass",
+          "default": true,
+          "name": "Sectional brass C-curve horn",
+          "descriptors": [
+            "blaring",
+            "brassy"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "kerala"
+          ]
+        },
+        {
+          "id": "kombu_copper",
+          "name": "Copper-bodied horn",
+          "descriptors": [
+            "darker",
+            "mellow"
+          ],
+          "match_tokens": [
+            "temple-horn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kombu_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kombu_pattu",
+          "default": true,
+          "name": "Kombu pattu ensemble calls",
+          "descriptors": [
+            "fanfare-like",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "temple-ensemble",
+            "call-and-response"
+          ]
+        },
+        {
+          "id": "kombu_long",
+          "name": "Long sustained ritual blasts",
+          "descriptors": [
+            "sustained",
+            "droning"
+          ],
+          "match_tokens": [
+            "ritual",
+            "sustained"
+          ]
+        }
+      ]
+    }
+  ]
+}

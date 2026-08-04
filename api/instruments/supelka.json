@@ -1,0 +1,152 @@
+{
+  "id": "supelka",
+  "name": "Supelka (Macedonian small end-blown shepherd flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "supelka",
+  "parts": [
+    {
+      "id": "supelka_playing",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "supelka_dance",
+          "default": true,
+          "name": "Oro dance tunes",
+          "descriptors": [
+            "bright-toned",
+            "fast-ornamented",
+            "chirping"
+          ],
+          "match_tokens": [
+            "macedonian",
+            "shepherd-flute",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "supelka_pastoral",
+          "name": "Free-rhythm pastoral airs",
+          "descriptors": [
+            "airy",
+            "rubato",
+            "lonesome"
+          ],
+          "match_tokens": [
+            "macedonian",
+            "pastoral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "supelka_material",
+      "surface": false,
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "supelka_wood",
+          "default": true,
+          "name": "Ash or cherry wood tube",
+          "descriptors": [
+            "woody",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wooden-flute"
+          ]
+        },
+        {
+          "id": "supelka_reed",
+          "name": "Cane tube",
+          "descriptors": [
+            "thin",
+            "reedy",
+            "breathy"
+          ],
+          "match_tokens": [
+            "cane-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "supelka_playing",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "supelka_dance",
+          "default": true,
+          "name": "Oro dance tunes",
+          "descriptors": [
+            "bright-toned",
+            "fast-ornamented",
+            "chirping"
+          ],
+          "match_tokens": [
+            "macedonian",
+            "shepherd-flute",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "supelka_pastoral",
+          "name": "Free-rhythm pastoral airs",
+          "descriptors": [
+            "airy",
+            "rubato",
+            "lonesome"
+          ],
+          "match_tokens": [
+            "macedonian",
+            "pastoral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "supelka_material",
+      "surface": false,
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "supelka_wood",
+          "default": true,
+          "name": "Ash or cherry wood tube",
+          "descriptors": [
+            "woody",
+            "mellow"
+          ],
+          "match_tokens": [
+            "wooden-flute"
+          ]
+        },
+        {
+          "id": "supelka_reed",
+          "name": "Cane tube",
+          "descriptors": [
+            "thin",
+            "reedy",
+            "breathy"
+          ],
+          "match_tokens": [
+            "cane-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

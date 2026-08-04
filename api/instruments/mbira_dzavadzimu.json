@@ -1,0 +1,232 @@
+{
+  "id": "mbira_dzavadzimu",
+  "name": "Mbira dzavadzimu (Shona ancestral lamellophone)",
+  "family": "percussion",
+  "class": "plucked_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "mbira dzavadzimu",
+  "parts": [
+    {
+      "id": "mbira_dza_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "mbira_dza_deze",
+          "default": true,
+          "name": "Played inside a deze gourd resonator",
+          "descriptors": [
+            "booming",
+            "buzzing-timbre",
+            "enveloping"
+          ],
+          "match_tokens": [
+            "gourd-resonator",
+            "shona"
+          ]
+        },
+        {
+          "id": "mbira_dza_bare",
+          "name": "Bare board without deze",
+          "descriptors": [
+            "dry",
+            "intimate",
+            "clear"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "unamplified"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbira_dza_tuning",
+      "name": "Tuning family",
+      "variants": [
+        {
+          "id": "mbira_dza_nyamaropa",
+          "default": true,
+          "name": "Nyamaropa tuning",
+          "descriptors": [
+            "hypnotic",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "shona",
+            "cyclic-ostinato"
+          ]
+        },
+        {
+          "id": "mbira_dza_dambatsoko",
+          "name": "Dambatsoko (low ancestral) tuning",
+          "descriptors": [
+            "deep-toned",
+            "solemn"
+          ],
+          "match_tokens": [
+            "shona",
+            "ritual"
+          ]
+        },
+        {
+          "id": "mbira_dza_gandanga",
+          "name": "Gandanga / high tuning",
+          "descriptors": [
+            "bright",
+            "piercing"
+          ],
+          "match_tokens": [
+            "shona",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbira_dza_buzzers",
+      "name": "Buzzers (machachara)",
+      "variants": [
+        {
+          "id": "mbira_dza_shells",
+          "default": true,
+          "name": "Shell / bottle-cap buzzers on the soundboard",
+          "descriptors": [
+            "buzzing-timbre",
+            "hazy"
+          ],
+          "match_tokens": [
+            "buzz-timbre"
+          ]
+        },
+        {
+          "id": "mbira_dza_clean",
+          "name": "Buzzers removed (clean board)",
+          "descriptors": [
+            "pure-toned",
+            "bell-like"
+          ],
+          "match_tokens": [
+            "clean-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mbira_dza_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "mbira_dza_deze",
+          "default": true,
+          "name": "Played inside a deze gourd resonator",
+          "descriptors": [
+            "booming",
+            "buzzing-timbre",
+            "enveloping"
+          ],
+          "match_tokens": [
+            "gourd-resonator",
+            "shona"
+          ]
+        },
+        {
+          "id": "mbira_dza_bare",
+          "name": "Bare board without deze",
+          "descriptors": [
+            "dry",
+            "intimate",
+            "clear"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "unamplified"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbira_dza_tuning",
+      "name": "Tuning family",
+      "variants": [
+        {
+          "id": "mbira_dza_nyamaropa",
+          "default": true,
+          "name": "Nyamaropa tuning",
+          "descriptors": [
+            "hypnotic",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "shona",
+            "cyclic-ostinato"
+          ]
+        },
+        {
+          "id": "mbira_dza_dambatsoko",
+          "name": "Dambatsoko (low ancestral) tuning",
+          "descriptors": [
+            "deep-toned",
+            "solemn"
+          ],
+          "match_tokens": [
+            "shona",
+            "ritual"
+          ]
+        },
+        {
+          "id": "mbira_dza_gandanga",
+          "name": "Gandanga / high tuning",
+          "descriptors": [
+            "bright",
+            "piercing"
+          ],
+          "match_tokens": [
+            "shona",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbira_dza_buzzers",
+      "name": "Buzzers (machachara)",
+      "variants": [
+        {
+          "id": "mbira_dza_shells",
+          "default": true,
+          "name": "Shell / bottle-cap buzzers on the soundboard",
+          "descriptors": [
+            "buzzing-timbre",
+            "hazy"
+          ],
+          "match_tokens": [
+            "buzz-timbre"
+          ]
+        },
+        {
+          "id": "mbira_dza_clean",
+          "name": "Buzzers removed (clean board)",
+          "descriptors": [
+            "pure-toned",
+            "bell-like"
+          ],
+          "match_tokens": [
+            "clean-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

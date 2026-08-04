@@ -1,0 +1,152 @@
+{
+  "id": "gethu_vadyam",
+  "name": "Gethu vadyam (South Indian struck-string jhallari)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "gethu vadyam",
+  "parts": [
+    {
+      "id": "gethu_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "gethu_jhallari",
+          "default": true,
+          "name": "Jhallari form (thick strings over a wooden trough)",
+          "descriptors": [
+            "percussive",
+            "dry-thud",
+            "cracking"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "south-indian",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "gethu_small",
+          "name": "Small hand-held gethu",
+          "descriptors": [
+            "tight",
+            "clicking"
+          ],
+          "match_tokens": [
+            "struck-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gethu_context",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "gethu_nagaswaram",
+          "default": true,
+          "name": "Rhythm support in nagaswaram periya melam",
+          "descriptors": [
+            "driving",
+            "time-keeping",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "temple",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "gethu_solo",
+          "name": "Solo rhythmic display",
+          "descriptors": [
+            "intricate",
+            "snapping"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gethu_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "gethu_jhallari",
+          "default": true,
+          "name": "Jhallari form (thick strings over a wooden trough)",
+          "descriptors": [
+            "percussive",
+            "dry-thud",
+            "cracking"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "south-indian",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "gethu_small",
+          "name": "Small hand-held gethu",
+          "descriptors": [
+            "tight",
+            "clicking"
+          ],
+          "match_tokens": [
+            "struck-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gethu_context",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "gethu_nagaswaram",
+          "default": true,
+          "name": "Rhythm support in nagaswaram periya melam",
+          "descriptors": [
+            "driving",
+            "time-keeping",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "temple",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "gethu_solo",
+          "name": "Solo rhythmic display",
+          "descriptors": [
+            "intricate",
+            "snapping"
+          ],
+          "match_tokens": [
+            "struck-string",
+            "rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

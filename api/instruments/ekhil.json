@@ -1,0 +1,169 @@
+{
+  "id": "ekhil",
+  "name": "Ekhil (Buryat-Mongol two-string bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ekhil",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ekhil_body",
+      "name": "Body / soundboard",
+      "variants": [
+        {
+          "id": "ekhil_skin",
+          "default": true,
+          "name": "Skin-faced trapezoid box, carved horse head",
+          "descriptors": [
+            "husky",
+            "raspy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "buryat",
+            "bowed-fiddle"
+          ]
+        },
+        {
+          "id": "ekhil_wood",
+          "name": "Wooden soundboard (modern build)",
+          "descriptors": [
+            "even",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ekhil_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ekhil_horsehair",
+          "default": true,
+          "name": "Horsehair bundle strings",
+          "descriptors": [
+            "breathy",
+            "grainy"
+          ],
+          "match_tokens": [
+            "horsehair",
+            "bowed"
+          ]
+        },
+        {
+          "id": "ekhil_nylon",
+          "name": "Nylon strings",
+          "descriptors": [
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ekhil_body",
+      "name": "Body / soundboard",
+      "variants": [
+        {
+          "id": "ekhil_skin",
+          "default": true,
+          "name": "Skin-faced trapezoid box, carved horse head",
+          "descriptors": [
+            "husky",
+            "raspy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "buryat",
+            "bowed-fiddle"
+          ]
+        },
+        {
+          "id": "ekhil_wood",
+          "name": "Wooden soundboard (modern build)",
+          "descriptors": [
+            "even",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ekhil_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ekhil_horsehair",
+          "default": true,
+          "name": "Horsehair bundle strings",
+          "descriptors": [
+            "breathy",
+            "grainy"
+          ],
+          "match_tokens": [
+            "horsehair",
+            "bowed"
+          ]
+        },
+        {
+          "id": "ekhil_nylon",
+          "name": "Nylon strings",
+          "descriptors": [
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

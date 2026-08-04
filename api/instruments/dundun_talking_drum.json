@@ -1,0 +1,168 @@
+{
+  "id": "dundun_talking_drum",
+  "name": "Dùndún (Yoruba hourglass talking drum)",
+  "family": "percussion",
+  "class": "hourglass_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "dundun",
+  "parts": [
+    {
+      "id": "dundun_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "dundun_iyaalu",
+          "default": true,
+          "name": "Ìyáàlù dùndún (lead speech-surrogate drum)",
+          "descriptors": [
+            "speech-mimicking",
+            "glissando-bending"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "yoruba"
+          ]
+        },
+        {
+          "id": "dundun_gudugudu",
+          "name": "Gúdúgúdú (small kettle support drum)",
+          "descriptors": [
+            "dry",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "talking-drum-ensemble"
+          ]
+        },
+        {
+          "id": "dundun_kanango",
+          "name": "Kanango (small high squeeze drum)",
+          "descriptors": [
+            "high-pitched",
+            "chattering"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dundun_technique",
+      "name": "Tension technique",
+      "variants": [
+        {
+          "id": "dundun_squeeze",
+          "default": true,
+          "name": "Arm-squeezed tension bending with curved stick",
+          "descriptors": [
+            "pitch-bending",
+            "vocal"
+          ],
+          "match_tokens": [
+            "tension-drum",
+            "struck"
+          ]
+        },
+        {
+          "id": "dundun_open",
+          "name": "Played open with fixed tension",
+          "descriptors": [
+            "punchy",
+            "steady"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dundun_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "dundun_iyaalu",
+          "default": true,
+          "name": "Ìyáàlù dùndún (lead speech-surrogate drum)",
+          "descriptors": [
+            "speech-mimicking",
+            "glissando-bending"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "yoruba"
+          ]
+        },
+        {
+          "id": "dundun_gudugudu",
+          "name": "Gúdúgúdú (small kettle support drum)",
+          "descriptors": [
+            "dry",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "talking-drum-ensemble"
+          ]
+        },
+        {
+          "id": "dundun_kanango",
+          "name": "Kanango (small high squeeze drum)",
+          "descriptors": [
+            "high-pitched",
+            "chattering"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dundun_technique",
+      "name": "Tension technique",
+      "variants": [
+        {
+          "id": "dundun_squeeze",
+          "default": true,
+          "name": "Arm-squeezed tension bending with curved stick",
+          "descriptors": [
+            "pitch-bending",
+            "vocal"
+          ],
+          "match_tokens": [
+            "tension-drum",
+            "struck"
+          ]
+        },
+        {
+          "id": "dundun_open",
+          "name": "Played open with fixed tension",
+          "descriptors": [
+            "punchy",
+            "steady"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

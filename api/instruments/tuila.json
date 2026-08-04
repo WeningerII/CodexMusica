@@ -1,0 +1,152 @@
+{
+  "id": "tuila",
+  "name": "Tuila (Odisha tribal one-string gourd lute)",
+  "family": "plucked_traditional",
+  "class": "stick_zither",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "tuila",
+  "parts": [
+    {
+      "id": "tuila_form",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "tuila_gourd",
+          "default": true,
+          "name": "Bamboo stick with single gourd resonator",
+          "descriptors": [
+            "twanging",
+            "dry",
+            "earthy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tribal",
+            "odisha"
+          ]
+        },
+        {
+          "id": "tuila_wooden",
+          "name": "Carved wooden-bodied tuila",
+          "descriptors": [
+            "woody",
+            "fuller-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tribal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuila_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "tuila_glide",
+          "default": true,
+          "name": "Gliding stopped melody against chest resonance",
+          "descriptors": [
+            "sliding",
+            "vocal",
+            "murmuring"
+          ],
+          "match_tokens": [
+            "plucked",
+            "glissando"
+          ]
+        },
+        {
+          "id": "tuila_dance",
+          "name": "Dance accompaniment plucking",
+          "descriptors": [
+            "rhythmic",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tuila_form",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "tuila_gourd",
+          "default": true,
+          "name": "Bamboo stick with single gourd resonator",
+          "descriptors": [
+            "twanging",
+            "dry",
+            "earthy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tribal",
+            "odisha"
+          ]
+        },
+        {
+          "id": "tuila_wooden",
+          "name": "Carved wooden-bodied tuila",
+          "descriptors": [
+            "woody",
+            "fuller-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tribal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuila_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "tuila_glide",
+          "default": true,
+          "name": "Gliding stopped melody against chest resonance",
+          "descriptors": [
+            "sliding",
+            "vocal",
+            "murmuring"
+          ],
+          "match_tokens": [
+            "plucked",
+            "glissando"
+          ]
+        },
+        {
+          "id": "tuila_dance",
+          "name": "Dance accompaniment plucking",
+          "descriptors": [
+            "rhythmic",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

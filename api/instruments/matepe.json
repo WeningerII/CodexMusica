@@ -1,0 +1,144 @@
+{
+  "id": "matepe",
+  "name": "Matepe (Korekore/Sena large lamellophone)",
+  "family": "percussion",
+  "class": "plucked_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "matepe",
+  "parts": [
+    {
+      "id": "matepe_board",
+      "name": "Board size / key count",
+      "variants": [
+        {
+          "id": "matepe_large",
+          "default": true,
+          "name": "Large multi-row board (c. 26-30 keys)",
+          "descriptors": [
+            "deep-toned",
+            "cascading",
+            "wide-ranged"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "zambezi-valley"
+          ]
+        },
+        {
+          "id": "matepe_hera",
+          "name": "Hera-style madhebhe variant",
+          "descriptors": [
+            "dense",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "shona"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "matepe_resonator",
+      "name": "Gourd resonator",
+      "variants": [
+        {
+          "id": "matepe_deze",
+          "default": true,
+          "name": "Played inside a large deze gourd",
+          "descriptors": [
+            "booming",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "gourd-resonator"
+          ]
+        },
+        {
+          "id": "matepe_bare",
+          "name": "Bare board",
+          "descriptors": [
+            "dry",
+            "articulate"
+          ],
+          "match_tokens": [
+            "lamellophone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "matepe_board",
+      "name": "Board size / key count",
+      "variants": [
+        {
+          "id": "matepe_large",
+          "default": true,
+          "name": "Large multi-row board (c. 26-30 keys)",
+          "descriptors": [
+            "deep-toned",
+            "cascading",
+            "wide-ranged"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "zambezi-valley"
+          ]
+        },
+        {
+          "id": "matepe_hera",
+          "name": "Hera-style madhebhe variant",
+          "descriptors": [
+            "dense",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "lamellophone",
+            "shona"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "matepe_resonator",
+      "name": "Gourd resonator",
+      "variants": [
+        {
+          "id": "matepe_deze",
+          "default": true,
+          "name": "Played inside a large deze gourd",
+          "descriptors": [
+            "booming",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "gourd-resonator"
+          ]
+        },
+        {
+          "id": "matepe_bare",
+          "name": "Bare board",
+          "descriptors": [
+            "dry",
+            "articulate"
+          ],
+          "match_tokens": [
+            "lamellophone"
+          ]
+        }
+      ]
+    }
+  ]
+}

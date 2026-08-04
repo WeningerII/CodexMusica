@@ -1,0 +1,154 @@
+{
+  "id": "kawala",
+  "name": "Kawala (Egyptian six-hole end-blown cane flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kawala",
+  "parts": [
+    {
+      "id": "kawala_context",
+      "name": "Musical context",
+      "variants": [
+        {
+          "id": "kawala_sufi",
+          "default": true,
+          "name": "Sufi inshad and dhikr accompaniment",
+          "descriptors": [
+            "breathy",
+            "devotional",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "egyptian",
+            "cane-flute",
+            "sufi"
+          ]
+        },
+        {
+          "id": "kawala_baladi",
+          "name": "Baladi/saidi folk playing",
+          "descriptors": [
+            "earthy",
+            "dance-driving",
+            "raw"
+          ],
+          "match_tokens": [
+            "egyptian",
+            "baladi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kawala_size",
+      "surface": false,
+      "name": "Tube length",
+      "variants": [
+        {
+          "id": "kawala_long",
+          "default": true,
+          "name": "Long low kawala",
+          "descriptors": [
+            "deep-toned",
+            "husky"
+          ],
+          "match_tokens": [
+            "low-register",
+            "cane-flute"
+          ]
+        },
+        {
+          "id": "kawala_short",
+          "name": "Short high kawala",
+          "descriptors": [
+            "bright",
+            "airy"
+          ],
+          "match_tokens": [
+            "high-register",
+            "cane-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kawala_context",
+      "name": "Musical context",
+      "variants": [
+        {
+          "id": "kawala_sufi",
+          "default": true,
+          "name": "Sufi inshad and dhikr accompaniment",
+          "descriptors": [
+            "breathy",
+            "devotional",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "egyptian",
+            "cane-flute",
+            "sufi"
+          ]
+        },
+        {
+          "id": "kawala_baladi",
+          "name": "Baladi/saidi folk playing",
+          "descriptors": [
+            "earthy",
+            "dance-driving",
+            "raw"
+          ],
+          "match_tokens": [
+            "egyptian",
+            "baladi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kawala_size",
+      "surface": false,
+      "name": "Tube length",
+      "variants": [
+        {
+          "id": "kawala_long",
+          "default": true,
+          "name": "Long low kawala",
+          "descriptors": [
+            "deep-toned",
+            "husky"
+          ],
+          "match_tokens": [
+            "low-register",
+            "cane-flute"
+          ]
+        },
+        {
+          "id": "kawala_short",
+          "name": "Short high kawala",
+          "descriptors": [
+            "bright",
+            "airy"
+          ],
+          "match_tokens": [
+            "high-register",
+            "cane-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

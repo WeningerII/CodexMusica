@@ -1,0 +1,171 @@
+{
+  "id": "chifonie",
+  "name": "Chifonie (medieval French hurdy-gurdy)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "chifonie",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "chifonie_body",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "chifonie_lute_back",
+          "default": true,
+          "name": "Lute-backed chifonie (troubadour era)",
+          "descriptors": [
+            "warm-drone",
+            "resonant",
+            "archaic"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "medieval-french"
+          ]
+        },
+        {
+          "id": "chifonie_guitar_body",
+          "name": "Flat guitar-shaped body",
+          "descriptors": [
+            "focused-tone",
+            "clearer-melody"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chifonie_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "chifonie_dance_estampie",
+          "default": true,
+          "name": "Estampie dance playing",
+          "descriptors": [
+            "driving",
+            "rhythmic-wheel"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "chifonie_song_accompaniment",
+          "name": "Trouvère song accompaniment",
+          "descriptors": [
+            "drone-sustained",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chifonie_body",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "chifonie_lute_back",
+          "default": true,
+          "name": "Lute-backed chifonie (troubadour era)",
+          "descriptors": [
+            "warm-drone",
+            "resonant",
+            "archaic"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "medieval-french"
+          ]
+        },
+        {
+          "id": "chifonie_guitar_body",
+          "name": "Flat guitar-shaped body",
+          "descriptors": [
+            "focused-tone",
+            "clearer-melody"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chifonie_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "chifonie_dance_estampie",
+          "default": true,
+          "name": "Estampie dance playing",
+          "descriptors": [
+            "driving",
+            "rhythmic-wheel"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "chifonie_song_accompaniment",
+          "name": "Trouvère song accompaniment",
+          "descriptors": [
+            "drone-sustained",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "hurdy-gurdy",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

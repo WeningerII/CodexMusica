@@ -1,0 +1,146 @@
+{
+  "id": "ardin",
+  "name": "Ardin (Moorish women's arched harp of Mauritania)",
+  "family": "plucked_traditional",
+  "class": "arched_harp",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ardin",
+  "parts": [
+    {
+      "id": "ardin_body",
+      "name": "Calabash body",
+      "variants": [
+        {
+          "id": "ardin_large_calabash",
+          "default": true,
+          "name": "Large calabash with hide soundtable",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "rippling"
+          ],
+          "match_tokens": [
+            "arched-harp",
+            "mauritanian"
+          ]
+        },
+        {
+          "id": "ardin_small",
+          "name": "Smaller travelling ardin",
+          "descriptors": [
+            "bright",
+            "compact"
+          ],
+          "match_tokens": [
+            "arched-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ardin_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "ardin_arpeggiated",
+          "default": true,
+          "name": "Rippling arpeggiated accompaniment to singing",
+          "descriptors": [
+            "cascading",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "plucked",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "ardin_percussive",
+          "name": "Struck-soundboard percussion between phrases",
+          "descriptors": [
+            "percussive-tap",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "struck",
+            "griot"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ardin_body",
+      "name": "Calabash body",
+      "variants": [
+        {
+          "id": "ardin_large_calabash",
+          "default": true,
+          "name": "Large calabash with hide soundtable",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "rippling"
+          ],
+          "match_tokens": [
+            "arched-harp",
+            "mauritanian"
+          ]
+        },
+        {
+          "id": "ardin_small",
+          "name": "Smaller travelling ardin",
+          "descriptors": [
+            "bright",
+            "compact"
+          ],
+          "match_tokens": [
+            "arched-harp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ardin_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "ardin_arpeggiated",
+          "default": true,
+          "name": "Rippling arpeggiated accompaniment to singing",
+          "descriptors": [
+            "cascading",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "plucked",
+            "song-accompaniment"
+          ]
+        },
+        {
+          "id": "ardin_percussive",
+          "name": "Struck-soundboard percussion between phrases",
+          "descriptors": [
+            "percussive-tap",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "struck",
+            "griot"
+          ]
+        }
+      ]
+    }
+  ]
+}

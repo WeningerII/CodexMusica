@@ -1,0 +1,148 @@
+{
+  "id": "tinde",
+  "name": "Tinde (Tuareg mortar drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tinde",
+  "parts": [
+    {
+      "id": "tinde_build",
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "tinde_mortar",
+          "default": true,
+          "name": "Wooden grain mortar with lashed goatskin head",
+          "descriptors": [
+            "dry",
+            "cracking",
+            "earthy"
+          ],
+          "match_tokens": [
+            "tuareg",
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "tinde_basin",
+          "name": "Metal basin body (modern)",
+          "descriptors": [
+            "metallic-ring",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tinde_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "tinde_tende_nomnas",
+          "default": true,
+          "name": "Tende n'goumaten women's chorus and clapping",
+          "descriptors": [
+            "call-and-response",
+            "driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "tinde_camel",
+          "name": "Tende camel-race songs",
+          "descriptors": [
+            "galloping",
+            "festive"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tinde_build",
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "tinde_mortar",
+          "default": true,
+          "name": "Wooden grain mortar with lashed goatskin head",
+          "descriptors": [
+            "dry",
+            "cracking",
+            "earthy"
+          ],
+          "match_tokens": [
+            "tuareg",
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "tinde_basin",
+          "name": "Metal basin body (modern)",
+          "descriptors": [
+            "metallic-ring",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tinde_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "tinde_tende_nomnas",
+          "default": true,
+          "name": "Tende n'goumaten women's chorus and clapping",
+          "descriptors": [
+            "call-and-response",
+            "driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "tinde_camel",
+          "name": "Tende camel-race songs",
+          "descriptors": [
+            "galloping",
+            "festive"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

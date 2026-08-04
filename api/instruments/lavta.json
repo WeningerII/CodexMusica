@@ -1,0 +1,158 @@
+{
+  "id": "lavta",
+  "name": "Lavta (Ottoman/Greek fretted short-neck lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "lavta",
+  "parts": [
+    {
+      "id": "lavta_frets",
+      "name": "Fret arrangement",
+      "variants": [
+        {
+          "id": "lavta_tied_makam",
+          "default": true,
+          "name": "Tied gut frets in makam perde",
+          "descriptors": [
+            "microtonal",
+            "modal",
+            "singing"
+          ],
+          "match_tokens": [
+            "lavta",
+            "ottoman",
+            "fretted-lute"
+          ]
+        },
+        {
+          "id": "lavta_chromatic",
+          "name": "Fixed chromatic frets (Greek politiki lavta)",
+          "descriptors": [
+            "tempered",
+            "crisp",
+            "urban"
+          ],
+          "match_tokens": [
+            "lavta",
+            "greek",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lavta_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "lavta_taksim",
+          "default": true,
+          "name": "Taksim and melodic lead",
+          "descriptors": [
+            "rubato",
+            "ornamented",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "taksim",
+            "lavta"
+          ]
+        },
+        {
+          "id": "lavta_accompaniment",
+          "name": "Rhythmic accompaniment in fasıl/rebetiko",
+          "descriptors": [
+            "strummed",
+            "driving",
+            "supporting"
+          ],
+          "match_tokens": [
+            "lavta",
+            "rhythm-part"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lavta_frets",
+      "name": "Fret arrangement",
+      "variants": [
+        {
+          "id": "lavta_tied_makam",
+          "default": true,
+          "name": "Tied gut frets in makam perde",
+          "descriptors": [
+            "microtonal",
+            "modal",
+            "singing"
+          ],
+          "match_tokens": [
+            "lavta",
+            "ottoman",
+            "fretted-lute"
+          ]
+        },
+        {
+          "id": "lavta_chromatic",
+          "name": "Fixed chromatic frets (Greek politiki lavta)",
+          "descriptors": [
+            "tempered",
+            "crisp",
+            "urban"
+          ],
+          "match_tokens": [
+            "lavta",
+            "greek",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lavta_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "lavta_taksim",
+          "default": true,
+          "name": "Taksim and melodic lead",
+          "descriptors": [
+            "rubato",
+            "ornamented",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "taksim",
+            "lavta"
+          ]
+        },
+        {
+          "id": "lavta_accompaniment",
+          "name": "Rhythmic accompaniment in fasıl/rebetiko",
+          "descriptors": [
+            "strummed",
+            "driving",
+            "supporting"
+          ],
+          "match_tokens": [
+            "lavta",
+            "rhythm-part"
+          ]
+        }
+      ]
+    }
+  ]
+}

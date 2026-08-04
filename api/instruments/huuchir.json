@@ -1,0 +1,171 @@
+{
+  "id": "huuchir",
+  "name": "Huuchir (Mongolian two-string spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "huuchir",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "huuchir_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "huuchir_skin_cylinder",
+          "default": true,
+          "name": "Skin-faced cylindrical or hexagonal cup",
+          "descriptors": [
+            "nasal",
+            "penetrating",
+            "reedy"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "huuchir_wood_face",
+          "name": "Wood-faced concert huuchir",
+          "descriptors": [
+            "rounded",
+            "warm"
+          ],
+          "match_tokens": [
+            "spike-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "huuchir_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "huuchir_theatre",
+          "default": true,
+          "name": "Theatre and folk-orchestra melodic line",
+          "descriptors": [
+            "leading",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-line"
+          ]
+        },
+        {
+          "id": "huuchir_song",
+          "name": "Song accompaniment shadowing the voice",
+          "descriptors": [
+            "voice-shadowing",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "huuchir_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "huuchir_skin_cylinder",
+          "default": true,
+          "name": "Skin-faced cylindrical or hexagonal cup",
+          "descriptors": [
+            "nasal",
+            "penetrating",
+            "reedy"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "huuchir_wood_face",
+          "name": "Wood-faced concert huuchir",
+          "descriptors": [
+            "rounded",
+            "warm"
+          ],
+          "match_tokens": [
+            "spike-fiddle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "huuchir_role",
+      "name": "Role",
+      "variants": [
+        {
+          "id": "huuchir_theatre",
+          "default": true,
+          "name": "Theatre and folk-orchestra melodic line",
+          "descriptors": [
+            "leading",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "lead-line"
+          ]
+        },
+        {
+          "id": "huuchir_song",
+          "name": "Song accompaniment shadowing the voice",
+          "descriptors": [
+            "voice-shadowing",
+            "supporting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment"
+          ]
+        }
+      ]
+    }
+  ]
+}

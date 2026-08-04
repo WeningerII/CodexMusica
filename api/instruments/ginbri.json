@@ -1,0 +1,254 @@
+{
+  "id": "ginbri",
+  "name": "Ginbri (Gnawa skin-topped bass lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ginbri",
+  "parts": [
+    {
+      "id": "ginbri_form",
+      "name": "Regional form / size",
+      "variants": [
+        {
+          "id": "ginbri_hajhouj",
+          "default": true,
+          "name": "Hajhouj (large Gnawa bass, Marrakech/Essaouira)",
+          "descriptors": [
+            "deep-toned",
+            "percussive-thump",
+            "trance-driving"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "bass-lute",
+            "skin-topped"
+          ]
+        },
+        {
+          "id": "ginbri_sintir_small",
+          "name": "Small sintir (higher-tuned northern form)",
+          "descriptors": [
+            "mid-register",
+            "punchy",
+            "agile"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "plucked",
+            "morocco"
+          ]
+        },
+        {
+          "id": "ginbri_gnbri_stambeli",
+          "name": "Gumbri of Tunisian Stambeli",
+          "descriptors": [
+            "dry-attack",
+            "ritual",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "stambeli",
+            "bass-lute",
+            "tunisia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ginbri_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ginbri_gut",
+          "default": true,
+          "name": "Goat-gut strings",
+          "descriptors": [
+            "warm",
+            "buzzing-timbre",
+            "muted-decay"
+          ],
+          "match_tokens": [
+            "gut-strung",
+            "gnawa"
+          ]
+        },
+        {
+          "id": "ginbri_nylon",
+          "name": "Nylon / fishing-line strings",
+          "descriptors": [
+            "bright-attack",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "nylon-strung",
+            "gnawa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ginbri_soundboard",
+      "surface": false,
+      "name": "Soundboard skin",
+      "variants": [
+        {
+          "id": "ginbri_camel",
+          "default": true,
+          "name": "Camel-neck skin over carved poplar body",
+          "descriptors": [
+            "thumping",
+            "dry",
+            "resonant-low"
+          ],
+          "match_tokens": [
+            "skin-topped",
+            "bass-lute"
+          ]
+        },
+        {
+          "id": "ginbri_goat",
+          "name": "Goat skin (thinner, brighter)",
+          "descriptors": [
+            "snappy",
+            "brighter",
+            "light-bodied"
+          ],
+          "match_tokens": [
+            "skin-topped",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ginbri_form",
+      "name": "Regional form / size",
+      "variants": [
+        {
+          "id": "ginbri_hajhouj",
+          "default": true,
+          "name": "Hajhouj (large Gnawa bass, Marrakech/Essaouira)",
+          "descriptors": [
+            "deep-toned",
+            "percussive-thump",
+            "trance-driving"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "bass-lute",
+            "skin-topped"
+          ]
+        },
+        {
+          "id": "ginbri_sintir_small",
+          "name": "Small sintir (higher-tuned northern form)",
+          "descriptors": [
+            "mid-register",
+            "punchy",
+            "agile"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "plucked",
+            "morocco"
+          ]
+        },
+        {
+          "id": "ginbri_gnbri_stambeli",
+          "name": "Gumbri of Tunisian Stambeli",
+          "descriptors": [
+            "dry-attack",
+            "ritual",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "stambeli",
+            "bass-lute",
+            "tunisia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ginbri_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "ginbri_gut",
+          "default": true,
+          "name": "Goat-gut strings",
+          "descriptors": [
+            "warm",
+            "buzzing-timbre",
+            "muted-decay"
+          ],
+          "match_tokens": [
+            "gut-strung",
+            "gnawa"
+          ]
+        },
+        {
+          "id": "ginbri_nylon",
+          "name": "Nylon / fishing-line strings",
+          "descriptors": [
+            "bright-attack",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "nylon-strung",
+            "gnawa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ginbri_soundboard",
+      "surface": false,
+      "name": "Soundboard skin",
+      "variants": [
+        {
+          "id": "ginbri_camel",
+          "default": true,
+          "name": "Camel-neck skin over carved poplar body",
+          "descriptors": [
+            "thumping",
+            "dry",
+            "resonant-low"
+          ],
+          "match_tokens": [
+            "skin-topped",
+            "bass-lute"
+          ]
+        },
+        {
+          "id": "ginbri_goat",
+          "name": "Goat skin (thinner, brighter)",
+          "descriptors": [
+            "snappy",
+            "brighter",
+            "light-bodied"
+          ],
+          "match_tokens": [
+            "skin-topped",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "viola_campanica",
+  "name": "Viola campaniça (Portuguese Alentejo folk guitar)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "campanica",
+  "parts": [
+    {
+      "id": "campanica_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "campanica_alta",
+          "default": true,
+          "name": "Afinação alta (high open tuning)",
+          "descriptors": [
+            "ringing",
+            "bell-like"
+          ],
+          "match_tokens": [
+            "alentejo",
+            "folk-guitar"
+          ]
+        },
+        {
+          "id": "campanica_baixa",
+          "name": "Afinação baixa (low tuning)",
+          "descriptors": [
+            "deep-toned",
+            "mellow"
+          ],
+          "match_tokens": [
+            "low-register",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "campanica_role",
+      "name": "Musical role",
+      "variants": [
+        {
+          "id": "campanica_baile",
+          "default": true,
+          "name": "Baile / saia dance accompaniment",
+          "descriptors": [
+            "driving",
+            "percussive-strum"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "campanica_cante",
+          "name": "Support for cante alentejano singing",
+          "descriptors": [
+            "sparse",
+            "droning"
+          ],
+          "match_tokens": [
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "campanica_tuning",
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "campanica_alta",
+          "default": true,
+          "name": "Afinação alta (high open tuning)",
+          "descriptors": [
+            "ringing",
+            "bell-like"
+          ],
+          "match_tokens": [
+            "alentejo",
+            "folk-guitar"
+          ]
+        },
+        {
+          "id": "campanica_baixa",
+          "name": "Afinação baixa (low tuning)",
+          "descriptors": [
+            "deep-toned",
+            "mellow"
+          ],
+          "match_tokens": [
+            "low-register",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "campanica_role",
+      "name": "Musical role",
+      "variants": [
+        {
+          "id": "campanica_baile",
+          "default": true,
+          "name": "Baile / saia dance accompaniment",
+          "descriptors": [
+            "driving",
+            "percussive-strum"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "campanica_cante",
+          "name": "Support for cante alentejano singing",
+          "descriptors": [
+            "sparse",
+            "droning"
+          ],
+          "match_tokens": [
+            "song-accompaniment"
+          ]
+        }
+      ]
+    }
+  ]
+}

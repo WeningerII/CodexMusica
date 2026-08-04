@@ -1,0 +1,228 @@
+{
+  "id": "timbila",
+  "name": "Timbila (Chopi gourd-resonated xylophone)",
+  "family": "percussion",
+  "class": "tuned_idiophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "timbila",
+  "parts": [
+    {
+      "id": "timbila_register",
+      "name": "Orchestra register",
+      "variants": [
+        {
+          "id": "timbila_sanje",
+          "default": true,
+          "name": "Sanje (lead treble timbila)",
+          "descriptors": [
+            "bright-attack",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "chopi"
+          ]
+        },
+        {
+          "id": "timbila_dole",
+          "name": "Dole (tenor/bass timbila)",
+          "descriptors": [
+            "deep-toned",
+            "grounding"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "low-register"
+          ]
+        },
+        {
+          "id": "timbila_chinzumana",
+          "name": "Chinzumana (contrabass timbila)",
+          "descriptors": [
+            "subsonic",
+            "booming"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbila_resonator",
+      "name": "Gourd resonator membranes",
+      "variants": [
+        {
+          "id": "timbila_mirliton",
+          "default": true,
+          "name": "Gourd resonators with spider-nest mirliton membranes",
+          "descriptors": [
+            "buzzing-timbre",
+            "nasal-buzz"
+          ],
+          "match_tokens": [
+            "gourd-resonator",
+            "buzz-timbre"
+          ]
+        },
+        {
+          "id": "timbila_plain_gourd",
+          "name": "Unmembraned gourd resonators",
+          "descriptors": [
+            "round-toned",
+            "clean"
+          ],
+          "match_tokens": [
+            "gourd-resonator"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbila_mallets",
+      "surface": false,
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "timbila_rubber",
+          "default": true,
+          "name": "Rubber-headed mallets",
+          "descriptors": [
+            "warm-attack",
+            "full"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        },
+        {
+          "id": "timbila_hard",
+          "name": "Hard wooden mallets",
+          "descriptors": [
+            "sharp-attack",
+            "clacky"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "timbila_register",
+      "name": "Orchestra register",
+      "variants": [
+        {
+          "id": "timbila_sanje",
+          "default": true,
+          "name": "Sanje (lead treble timbila)",
+          "descriptors": [
+            "bright-attack",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "chopi"
+          ]
+        },
+        {
+          "id": "timbila_dole",
+          "name": "Dole (tenor/bass timbila)",
+          "descriptors": [
+            "deep-toned",
+            "grounding"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "low-register"
+          ]
+        },
+        {
+          "id": "timbila_chinzumana",
+          "name": "Chinzumana (contrabass timbila)",
+          "descriptors": [
+            "subsonic",
+            "booming"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbila_resonator",
+      "name": "Gourd resonator membranes",
+      "variants": [
+        {
+          "id": "timbila_mirliton",
+          "default": true,
+          "name": "Gourd resonators with spider-nest mirliton membranes",
+          "descriptors": [
+            "buzzing-timbre",
+            "nasal-buzz"
+          ],
+          "match_tokens": [
+            "gourd-resonator",
+            "buzz-timbre"
+          ]
+        },
+        {
+          "id": "timbila_plain_gourd",
+          "name": "Unmembraned gourd resonators",
+          "descriptors": [
+            "round-toned",
+            "clean"
+          ],
+          "match_tokens": [
+            "gourd-resonator"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbila_mallets",
+      "surface": false,
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "timbila_rubber",
+          "default": true,
+          "name": "Rubber-headed mallets",
+          "descriptors": [
+            "warm-attack",
+            "full"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        },
+        {
+          "id": "timbila_hard",
+          "name": "Hard wooden mallets",
+          "descriptors": [
+            "sharp-attack",
+            "clacky"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

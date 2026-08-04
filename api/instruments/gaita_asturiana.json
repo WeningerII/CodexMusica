@@ -1,0 +1,252 @@
+{
+  "id": "gaita_asturiana",
+  "name": "Gaita asturiana (Asturian bellows-less mouth-blown bagpipe)",
+  "family": "wind",
+  "class": "mouth_blown_bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "gaita asturiana",
+  "parts": [
+    {
+      "id": "gaita_ast_tuning",
+      "name": "Chanter tuning / size",
+      "variants": [
+        {
+          "id": "gaita_ast_do",
+          "default": true,
+          "name": "Gaita en Do (C chanter, standard)",
+          "descriptors": [
+            "bright-piercing",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "asturian"
+          ]
+        },
+        {
+          "id": "gaita_ast_sib",
+          "name": "Gaita en Si bemol (B-flat, mellower)",
+          "descriptors": [
+            "warm-reedy",
+            "broad"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "low-register"
+          ]
+        },
+        {
+          "id": "gaita_ast_re",
+          "name": "Gaita en Re (D, high and shrill)",
+          "descriptors": [
+            "shrill",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_ast_drone",
+      "name": "Drone configuration",
+      "variants": [
+        {
+          "id": "gaita_ast_ronco",
+          "default": true,
+          "name": "Single bass drone (roncón) over shoulder",
+          "descriptors": [
+            "droning",
+            "sustained"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaita_ast_ronquillo",
+          "name": "Added ronquillo tenor drone",
+          "descriptors": [
+            "thick-drone",
+            "layered"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "gaita_ast_stopped",
+          "name": "Drone stopped (chanter alone)",
+          "descriptors": [
+            "dry",
+            "exposed-melody"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_ast_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "gaita_ast_muineira",
+          "default": true,
+          "name": "Muñeira / dance tune with picado ornaments",
+          "descriptors": [
+            "driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "gaita_ast_asturianada",
+          "name": "Asturianada song accompaniment (rubato)",
+          "descriptors": [
+            "rubato",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gaita_ast_tuning",
+      "name": "Chanter tuning / size",
+      "variants": [
+        {
+          "id": "gaita_ast_do",
+          "default": true,
+          "name": "Gaita en Do (C chanter, standard)",
+          "descriptors": [
+            "bright-piercing",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "asturian"
+          ]
+        },
+        {
+          "id": "gaita_ast_sib",
+          "name": "Gaita en Si bemol (B-flat, mellower)",
+          "descriptors": [
+            "warm-reedy",
+            "broad"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "low-register"
+          ]
+        },
+        {
+          "id": "gaita_ast_re",
+          "name": "Gaita en Re (D, high and shrill)",
+          "descriptors": [
+            "shrill",
+            "cutting"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_ast_drone",
+      "name": "Drone configuration",
+      "variants": [
+        {
+          "id": "gaita_ast_ronco",
+          "default": true,
+          "name": "Single bass drone (roncón) over shoulder",
+          "descriptors": [
+            "droning",
+            "sustained"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "gaita_ast_ronquillo",
+          "name": "Added ronquillo tenor drone",
+          "descriptors": [
+            "thick-drone",
+            "layered"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "gaita_ast_stopped",
+          "name": "Drone stopped (chanter alone)",
+          "descriptors": [
+            "dry",
+            "exposed-melody"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_ast_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "gaita_ast_muineira",
+          "default": true,
+          "name": "Muñeira / dance tune with picado ornaments",
+          "descriptors": [
+            "driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "gaita_ast_asturianada",
+          "name": "Asturianada song accompaniment (rubato)",
+          "descriptors": [
+            "rubato",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -367,6 +367,12 @@
       "pair": ["kignit_bati_major", "kignit_bati_minor"],
       "verdict": "distinct",
       "note": "two distinct modes within the bati kignit."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["torban", "tiorba"],
+      "verdict": "distinct",
+      "note": "the Ukrainian torban is a bass lute with off-fingerboard treble strings played in Cossack court music; the tiorba (theorbo) is the Italian extended-neck continuo lute. Same family and class because both are large plucked lutes, but different instruments, repertoire and tuning."
     }
   ]
 }
