@@ -46,6 +46,19 @@ zero unrecoverable.
 Also stripped **162 crossRefs that duplicated their own parent**, which
 `audit.js` counts as an error rather than a warning.
 
+### Fixed — the count-drift fault class had silently stopped working
+
+`faults.js` plants a wrong tradition count in `package.json` and asserts that
+`check_docs.js` catches it. The planted value was a hardcoded literal
+(`1145-tradition` → `1144-tradition`), so the moment the catalog grew the
+string-replace became a **no-op**: nothing was planted, the gate passed, and
+fault injection reported an escape. It now derives the number from the file, so
+the class cannot rot on the next catalog change.
+
+Worth stating plainly: the gate did not fail because of a defect in the
+catalog. It failed because a test fixture went stale — which is exactly what
+fault injection exists to surface.
+
 ### Note — 137 recipe fixtures moved
 
 Adding 281 traditions changed nearest-neighbour rankings across the similarity
