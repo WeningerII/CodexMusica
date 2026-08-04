@@ -1,0 +1,144 @@
+{
+  "id": "phandyr",
+  "name": "Phandyr (Nakh three-string plucked lute, dechig-pondar)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "phandyr",
+  "parts": [
+    {
+      "id": "phandyr_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "phandyr_dechig",
+          "default": true,
+          "name": "Carved wooden dechig-pondar (fretless)",
+          "descriptors": [
+            "dry",
+            "woody",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "chechen"
+          ]
+        },
+        {
+          "id": "phandyr_fretted",
+          "name": "Fretted modern pondar",
+          "descriptors": [
+            "clean",
+            "even"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phandyr_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "phandyr_illi",
+          "default": true,
+          "name": "Illi heroic-song accompaniment",
+          "descriptors": [
+            "declamatory",
+            "steady-strum"
+          ],
+          "match_tokens": [
+            "accompaniment",
+            "epic"
+          ]
+        },
+        {
+          "id": "phandyr_dance",
+          "name": "Lezginka dance figures",
+          "descriptors": [
+            "driving",
+            "snappy"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "phandyr_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "phandyr_dechig",
+          "default": true,
+          "name": "Carved wooden dechig-pondar (fretless)",
+          "descriptors": [
+            "dry",
+            "woody",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "chechen"
+          ]
+        },
+        {
+          "id": "phandyr_fretted",
+          "name": "Fretted modern pondar",
+          "descriptors": [
+            "clean",
+            "even"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phandyr_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "phandyr_illi",
+          "default": true,
+          "name": "Illi heroic-song accompaniment",
+          "descriptors": [
+            "declamatory",
+            "steady-strum"
+          ],
+          "match_tokens": [
+            "accompaniment",
+            "epic"
+          ]
+        },
+        {
+          "id": "phandyr_dance",
+          "name": "Lezginka dance figures",
+          "descriptors": [
+            "driving",
+            "snappy"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

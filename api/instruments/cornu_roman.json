@@ -1,0 +1,248 @@
+{
+  "id": "cornu_roman",
+  "name": "Cornu (Roman G-shaped military horn)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "cornu",
+  "parts": [
+    {
+      "id": "cornu_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "cornu_military",
+          "default": true,
+          "name": "Legionary cornu (full G-curve with crossbar)",
+          "descriptors": [
+            "booming",
+            "brassy",
+            "commanding"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "roman",
+            "signal-calls"
+          ]
+        },
+        {
+          "id": "cornu_lituus",
+          "name": "Lituus (J-shaped cavalry horn)",
+          "descriptors": [
+            "shrill",
+            "piercing",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "roman",
+            "high-register"
+          ]
+        },
+        {
+          "id": "cornu_bucina",
+          "name": "Bucina (shorter coiled herald horn)",
+          "descriptors": [
+            "compact",
+            "hard-edged",
+            "carrying"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "roman"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornu_material",
+      "surface": false,
+      "name": "Bore material",
+      "variants": [
+        {
+          "id": "cornu_bronze",
+          "default": true,
+          "name": "Hammered bronze",
+          "descriptors": [
+            "dark-brassy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bronze",
+            "natural-horn"
+          ]
+        },
+        {
+          "id": "cornu_brass_sheet",
+          "name": "Sheet brass reconstruction",
+          "descriptors": [
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reconstruction",
+            "natural-horn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornu_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "cornu_signal",
+          "default": true,
+          "name": "Battlefield signal calls",
+          "descriptors": [
+            "blaring",
+            "stark",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "signal-calls",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "cornu_arena",
+          "name": "Arena and procession fanfare",
+          "descriptors": [
+            "ceremonial",
+            "massed",
+            "triumphal"
+          ],
+          "match_tokens": [
+            "fanfare",
+            "roman"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cornu_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "cornu_military",
+          "default": true,
+          "name": "Legionary cornu (full G-curve with crossbar)",
+          "descriptors": [
+            "booming",
+            "brassy",
+            "commanding"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "roman",
+            "signal-calls"
+          ]
+        },
+        {
+          "id": "cornu_lituus",
+          "name": "Lituus (J-shaped cavalry horn)",
+          "descriptors": [
+            "shrill",
+            "piercing",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "roman",
+            "high-register"
+          ]
+        },
+        {
+          "id": "cornu_bucina",
+          "name": "Bucina (shorter coiled herald horn)",
+          "descriptors": [
+            "compact",
+            "hard-edged",
+            "carrying"
+          ],
+          "match_tokens": [
+            "natural-horn",
+            "roman"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornu_material",
+      "surface": false,
+      "name": "Bore material",
+      "variants": [
+        {
+          "id": "cornu_bronze",
+          "default": true,
+          "name": "Hammered bronze",
+          "descriptors": [
+            "dark-brassy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bronze",
+            "natural-horn"
+          ]
+        },
+        {
+          "id": "cornu_brass_sheet",
+          "name": "Sheet brass reconstruction",
+          "descriptors": [
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "reconstruction",
+            "natural-horn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornu_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "cornu_signal",
+          "default": true,
+          "name": "Battlefield signal calls",
+          "descriptors": [
+            "blaring",
+            "stark",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "signal-calls",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "cornu_arena",
+          "name": "Arena and procession fanfare",
+          "descriptors": [
+            "ceremonial",
+            "massed",
+            "triumphal"
+          ],
+          "match_tokens": [
+            "fanfare",
+            "roman"
+          ]
+        }
+      ]
+    }
+  ]
+}

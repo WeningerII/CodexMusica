@@ -1,0 +1,172 @@
+{
+  "id": "tar_karabakh",
+  "name": "Karabakh tar (Azerbaijani mugham double-bowl lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "karabakh tar",
+  "parts": [
+    {
+      "id": "tar_karabakh_style",
+      "name": "Performance role",
+      "variants": [
+        {
+          "id": "tar_karabakh_mugham",
+          "default": true,
+          "name": "Mugham accompaniment to khanende singer",
+          "descriptors": [
+            "bright-metallic",
+            "tremolo-rich",
+            "responsive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mugham",
+            "azerbaijani"
+          ]
+        },
+        {
+          "id": "tar_karabakh_rangi",
+          "name": "Instrumental rəng / dance piece",
+          "descriptors": [
+            "driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tar_karabakh_solo",
+          "name": "Solo virtuoso taxil",
+          "descriptors": [
+            "ornamented",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_karabakh_membrane",
+      "surface": false,
+      "name": "Belly membrane",
+      "variants": [
+        {
+          "id": "tar_karabakh_heart",
+          "default": true,
+          "name": "Ox-heart pericardium membrane",
+          "descriptors": [
+            "nasal",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "plucked",
+            "skin-belly-lute"
+          ]
+        },
+        {
+          "id": "tar_karabakh_fish",
+          "name": "Fish-skin membrane",
+          "descriptors": [
+            "softer",
+            "warmer"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tar_karabakh_style",
+      "name": "Performance role",
+      "variants": [
+        {
+          "id": "tar_karabakh_mugham",
+          "default": true,
+          "name": "Mugham accompaniment to khanende singer",
+          "descriptors": [
+            "bright-metallic",
+            "tremolo-rich",
+            "responsive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mugham",
+            "azerbaijani"
+          ]
+        },
+        {
+          "id": "tar_karabakh_rangi",
+          "name": "Instrumental rəng / dance piece",
+          "descriptors": [
+            "driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tar_karabakh_solo",
+          "name": "Solo virtuoso taxil",
+          "descriptors": [
+            "ornamented",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_karabakh_membrane",
+      "surface": false,
+      "name": "Belly membrane",
+      "variants": [
+        {
+          "id": "tar_karabakh_heart",
+          "default": true,
+          "name": "Ox-heart pericardium membrane",
+          "descriptors": [
+            "nasal",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "plucked",
+            "skin-belly-lute"
+          ]
+        },
+        {
+          "id": "tar_karabakh_fish",
+          "name": "Fish-skin membrane",
+          "descriptors": [
+            "softer",
+            "warmer"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

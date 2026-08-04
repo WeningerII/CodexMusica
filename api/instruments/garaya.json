@@ -1,0 +1,148 @@
+{
+  "id": "garaya",
+  "name": "Garaya (Hausa two-string Bori-cult plucked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "garaya",
+  "parts": [
+    {
+      "id": "garaya_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "garaya_standard",
+          "default": true,
+          "name": "Carved wooden bowl with hide table, two horsehair strings",
+          "descriptors": [
+            "dry-tone",
+            "buzzing-timbre",
+            "insistent"
+          ],
+          "match_tokens": [
+            "two-string-lute",
+            "hausa"
+          ]
+        },
+        {
+          "id": "garaya_large",
+          "name": "Large deep-bowl garaya",
+          "descriptors": [
+            "thumping",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "two-string-lute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garaya_context",
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "garaya_bori",
+          "default": true,
+          "name": "Bori spirit-possession ceremony",
+          "descriptors": [
+            "trance-inducing",
+            "cyclic",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "ritual-music",
+            "hausa"
+          ]
+        },
+        {
+          "id": "garaya_maroka",
+          "name": "Maroka praise-singing (hunters' songs)",
+          "descriptors": [
+            "declamatory",
+            "driving"
+          ],
+          "match_tokens": [
+            "praise-music"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "garaya_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "garaya_standard",
+          "default": true,
+          "name": "Carved wooden bowl with hide table, two horsehair strings",
+          "descriptors": [
+            "dry-tone",
+            "buzzing-timbre",
+            "insistent"
+          ],
+          "match_tokens": [
+            "two-string-lute",
+            "hausa"
+          ]
+        },
+        {
+          "id": "garaya_large",
+          "name": "Large deep-bowl garaya",
+          "descriptors": [
+            "thumping",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "two-string-lute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garaya_context",
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "garaya_bori",
+          "default": true,
+          "name": "Bori spirit-possession ceremony",
+          "descriptors": [
+            "trance-inducing",
+            "cyclic",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "ritual-music",
+            "hausa"
+          ]
+        },
+        {
+          "id": "garaya_maroka",
+          "name": "Maroka praise-singing (hunters' songs)",
+          "descriptors": [
+            "declamatory",
+            "driving"
+          ],
+          "match_tokens": [
+            "praise-music"
+          ]
+        }
+      ]
+    }
+  ]
+}

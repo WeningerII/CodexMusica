@@ -1,0 +1,214 @@
+{
+  "id": "celempung",
+  "name": "Celempung (Javanese large plucked box zither on legs)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "celempung",
+  "parts": [
+    {
+      "id": "celempung_body",
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "celempung_trapezoid_legs",
+          "default": true,
+          "name": "Trapezoidal resonating box on four legs, 26 wire strings in double courses (canonical)",
+          "descriptors": [
+            "resonant",
+            "shimmering",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "javanese"
+          ]
+        },
+        {
+          "id": "celempung_lacquered_ornate",
+          "name": "Ornate lacquered kraton build",
+          "descriptors": [
+            "warm",
+            "refined"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "celempung_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "celempung_pelog",
+          "default": true,
+          "name": "Pelog tuning",
+          "descriptors": [
+            "pelog-tuned",
+            "unequal-intervals"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        },
+        {
+          "id": "celempung_slendro",
+          "name": "Slendro tuning",
+          "descriptors": [
+            "slendro-tuned",
+            "even-spaced"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "celempung_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "celempung_klenengan",
+          "default": true,
+          "name": "Soft-style klenengan elaboration with gender and rebab (canonical)",
+          "descriptors": [
+            "ornamented",
+            "flowing",
+            "intimate"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        },
+        {
+          "id": "celempung_santiswaran",
+          "name": "Santiswaran / vocal accompaniment",
+          "descriptors": [
+            "supporting",
+            "sparse"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "celempung_body",
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "celempung_trapezoid_legs",
+          "default": true,
+          "name": "Trapezoidal resonating box on four legs, 26 wire strings in double courses (canonical)",
+          "descriptors": [
+            "resonant",
+            "shimmering",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "javanese"
+          ]
+        },
+        {
+          "id": "celempung_lacquered_ornate",
+          "name": "Ornate lacquered kraton build",
+          "descriptors": [
+            "warm",
+            "refined"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "celempung_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "celempung_pelog",
+          "default": true,
+          "name": "Pelog tuning",
+          "descriptors": [
+            "pelog-tuned",
+            "unequal-intervals"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        },
+        {
+          "id": "celempung_slendro",
+          "name": "Slendro tuning",
+          "descriptors": [
+            "slendro-tuned",
+            "even-spaced"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "celempung_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "celempung_klenengan",
+          "default": true,
+          "name": "Soft-style klenengan elaboration with gender and rebab (canonical)",
+          "descriptors": [
+            "ornamented",
+            "flowing",
+            "intimate"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        },
+        {
+          "id": "celempung_santiswaran",
+          "name": "Santiswaran / vocal accompaniment",
+          "descriptors": [
+            "supporting",
+            "sparse"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "javanese"
+          ]
+        }
+      ]
+    }
+  ]
+}

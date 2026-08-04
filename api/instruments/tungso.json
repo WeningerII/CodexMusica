@@ -1,0 +1,156 @@
+{
+  "id": "tungso",
+  "name": "Tungso (Korean notched end-blown flute with mirliton)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tungso",
+  "parts": [
+    {
+      "id": "tungso_membrane",
+      "name": "Mirliton membrane",
+      "variants": [
+        {
+          "id": "tungso_reed_membrane",
+          "default": true,
+          "name": "Reed-pith membrane over the cheonggong hole",
+          "descriptors": [
+            "buzzing-timbre",
+            "husky",
+            "nasal"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "mirliton",
+            "korean"
+          ]
+        },
+        {
+          "id": "tungso_nomembrane",
+          "name": "Membrane hole taped over (plain tone)",
+          "descriptors": [
+            "clean",
+            "breathy",
+            "hollow"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "airy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tungso_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tungso_bukchong",
+          "default": true,
+          "name": "Bukcheong saja noreum (lion mask dance)",
+          "descriptors": [
+            "raucous",
+            "dance-driving",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "folk",
+            "mask-dance"
+          ]
+        },
+        {
+          "id": "tungso_solo",
+          "name": "Solo lyrical playing",
+          "descriptors": [
+            "plaintive",
+            "rubato",
+            "breathy"
+          ],
+          "match_tokens": [
+            "flute",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tungso_membrane",
+      "name": "Mirliton membrane",
+      "variants": [
+        {
+          "id": "tungso_reed_membrane",
+          "default": true,
+          "name": "Reed-pith membrane over the cheonggong hole",
+          "descriptors": [
+            "buzzing-timbre",
+            "husky",
+            "nasal"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "mirliton",
+            "korean"
+          ]
+        },
+        {
+          "id": "tungso_nomembrane",
+          "name": "Membrane hole taped over (plain tone)",
+          "descriptors": [
+            "clean",
+            "breathy",
+            "hollow"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "airy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tungso_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tungso_bukchong",
+          "default": true,
+          "name": "Bukcheong saja noreum (lion mask dance)",
+          "descriptors": [
+            "raucous",
+            "dance-driving",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "folk",
+            "mask-dance"
+          ]
+        },
+        {
+          "id": "tungso_solo",
+          "name": "Solo lyrical playing",
+          "descriptors": [
+            "plaintive",
+            "rubato",
+            "breathy"
+          ],
+          "match_tokens": [
+            "flute",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

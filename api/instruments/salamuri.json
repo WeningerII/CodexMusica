@@ -1,0 +1,170 @@
+{
+  "id": "salamuri",
+  "name": "Salamuri (Georgian duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "salamuri",
+  "parts": [
+    {
+      "id": "salamuri_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "salamuri_sada",
+          "default": true,
+          "name": "Sada salamuri (plain six-hole duct flute)",
+          "descriptors": [
+            "sweet-toned",
+            "whistling",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "georgian"
+          ]
+        },
+        {
+          "id": "salamuri_eniani",
+          "name": "Eniani salamuri (tongued, buzzing membrane)",
+          "descriptors": [
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "buzzing"
+          ]
+        },
+        {
+          "id": "salamuri_bass",
+          "name": "Large low salamuri",
+          "descriptors": [
+            "breathy-tone",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salamuri_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "salamuri_solo",
+          "default": true,
+          "name": "Solo pastoral tune",
+          "descriptors": [
+            "lyrical",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "solo-melody"
+          ]
+        },
+        {
+          "id": "salamuri_ensemble",
+          "name": "Ensemble dance playing with panduri and doli",
+          "descriptors": [
+            "driving",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "salamuri_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "salamuri_sada",
+          "default": true,
+          "name": "Sada salamuri (plain six-hole duct flute)",
+          "descriptors": [
+            "sweet-toned",
+            "whistling",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "georgian"
+          ]
+        },
+        {
+          "id": "salamuri_eniani",
+          "name": "Eniani salamuri (tongued, buzzing membrane)",
+          "descriptors": [
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "buzzing"
+          ]
+        },
+        {
+          "id": "salamuri_bass",
+          "name": "Large low salamuri",
+          "descriptors": [
+            "breathy-tone",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salamuri_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "salamuri_solo",
+          "default": true,
+          "name": "Solo pastoral tune",
+          "descriptors": [
+            "lyrical",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "solo-melody"
+          ]
+        },
+        {
+          "id": "salamuri_ensemble",
+          "name": "Ensemble dance playing with panduri and doli",
+          "descriptors": [
+            "driving",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

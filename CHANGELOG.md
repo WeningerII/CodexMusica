@@ -6,6 +6,90 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — 229 more instruments, catalog now 1,392
+
+Wave 3, run as two concurrent workflows of eight agents each. The probe moved
+into the regions the first two waves had not touched — East and Southeast Asia,
+the Turkic and Caucasian belt, historical European, and the deep South Asian
+regional set — and the miss rate went **up**, not down: **466 candidates, 47
+present, 133 near-matches, 286 new (80% miss)**. After removing 51 of the
+probe's own qualifier artefacts, 235 genuine gaps.
+
+Six were rejected on merge: two on short-label collisions with existing entries
+(`qobyz`, `carnatic violin`) and four at the duplicate gate as the same
+instrument entered twice — `dan_bau_vietnam` against `dan_bau`, `piwang_bhutan`
+against `piwang_tibet`, `alghoza_punjabi` against `algoza`, and
+`sitar_surbahar_pair`, which is a pairing rather than an instrument. Net
+**+229**.
+
+What landed: the Chinese literati and opera families (`zhongruan`, `liuqin`,
+`konghou`, `xun`, `bawu`, `guanzi`, `yunluo`, `bianzhong`, `muyu`, `paigu`),
+the full Javanese and Balinese gamelan component sets (`gender barung`,
+`saron demung`, `jegogan`, `kantilan`, `ugal`, `selonding`), Thai, Khmer and
+Burmese court ensembles (`ranat thum`, `khong wong yai`, `taphon`, `roneat`,
+`kse diev`, `linkwin`), Japanese gagaku and narrative biwa (`komabue`,
+`nohkan`, `wagon`, `chikuzen biwa`, `heike biwa`), Korean court (`ajaeng`,
+`taepyeongso`, `pyeonjong`, `kkwaenggwari`), Turkic and Siberian
+(`doshpuluur`, `chadagan`, `shoor`, `satar`, `kalun`, `ghijek`), Caucasian
+(`panduri`, `chonguri`, `salamuri`, `chiboni`, `shichepshin`, `naghara`), and
+European early music (`rauschpfeife`, `kortholt`, `zink`, `clavicytherium`,
+`tangent piano`).
+
+### The instrument tail does not thin, and that is the finding
+
+| probe | catalog at the time | candidates | present | miss rate |
+| --- | --- | --- | --- | --- |
+| 1 | 871 | 401 | 97 | 55% |
+| 2 | 1,056 | 238 | 44 | 54% |
+| 3 | 1,163 | 466 | 47 | 80% |
+
+Three passes, each against a catalog that had absorbed the previous one, and
+the miss rate held or rose. These probes are sampling a much larger universe
+rather than exhausting a finite list, so **the remaining gap cannot be sized by
+probing** — it needs an external instrument list to supply a denominator, the
+way everynoise did for the genres.
+
+### Changed — re-froze the descriptor frequency table again
+
+229 new instruments pushed token coverage to 97.07%, one-hundredth above the
+97% floor with 496 tokens drifted. Re-froze rather than ship on the line:
+**9,742 tokens, back to 100%**. Recipe snapshots and published artifacts
+re-blessed in the same commit, as the freeze contract requires. This is now a
+predictable cost of roughly every 250 catalog additions.
+
+### Added — 107 more instruments, catalog now 1,163
+
+Wave 2 of the instrument backfill. A second obscure 238-name probe returned
+**44 present, 65 near-matches, 129 new**, of which 20 were the probe's own
+qualifier artefact — **109 genuine gaps**, authored by eight parallel agents
+and validated against the live catalog before insertion.
+
+Two records were dropped at the gate as the same instrument entered twice
+(`udu_igbo` against `udu`, `molo_hausa` against `molo`, which already carries a
+Hausa variant). Net **+107**.
+
+**The tail is not thinning.** Probe 1 missed at 55% against a 871-instrument
+catalog; probe 2 missed at 54% against a 1,056-instrument catalog that had just
+absorbed probe 1's additions. Two passes at a constant miss rate means these
+probes are sampling a much larger universe rather than exhausting a finite
+list, so the remaining gap cannot be sized by probing — it needs an external
+instrument list, the way everynoise supplied a denominator for the genres.
+
+`boula` and `boula_haitian` are ruled distinct: the Guadeloupean gwoka boula is
+the steady low pulse under the marqueur, the Haitian Vodou boula the smallest
+and highest of the three-drum battery. Same name across the Francophone
+Caribbean, different drums; the Haitian record prints as `vodou boula` to keep
+short labels unique.
+
+### Changed — re-froze the descriptor frequency table
+
+Adding 294 instruments across the two waves pushed token coverage to 95.61%,
+under the 97% floor, because every new descriptor was unknown to the frozen
+table and fell to df 999. `npm run freeze:df` re-counted from the live catalog
+(**9,457 tokens, back to 100%**), which reorders descriptor output, so the
+recipe snapshots and the published artifacts were re-blessed in this same
+commit as the freeze requires.
+
 ### Added — 185 instruments, catalog now 1,056
 
 The instrument catalog was not as complete as an earlier screen suggested. That

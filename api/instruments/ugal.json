@@ -1,0 +1,242 @@
+{
+  "id": "ugal",
+  "name": "Ugal (Balinese leading gangsa metallophone)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "ugal",
+  "parts": [
+    {
+      "id": "ugal_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "ugal_standard",
+          "default": true,
+          "name": "Standard ugal (gong kebyar lead, one octave)",
+          "descriptors": [
+            "shimmering",
+            "bright-attack",
+            "leading"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "ugal_jublag_range",
+          "name": "Low ugal (jegogan-range large keys)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "slow-decay"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "low-register"
+          ]
+        },
+        {
+          "id": "ugal_semar",
+          "name": "Semar pegulingan ugal (refined court form)",
+          "descriptors": [
+            "sweet-toned",
+            "refined",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ugal_tuning",
+      "name": "Tuning / paired detuning",
+      "variants": [
+        {
+          "id": "ugal_pengumbang",
+          "default": true,
+          "name": "Pengumbang–pengisep paired tuning (ombak beating)",
+          "descriptors": [
+            "shimmering-beats",
+            "pulsing",
+            "inharmonic"
+          ],
+          "match_tokens": [
+            "paired-tuning",
+            "balinese"
+          ]
+        },
+        {
+          "id": "ugal_unpaired",
+          "name": "Single unpaired instrument",
+          "descriptors": [
+            "clean-tone",
+            "steady"
+          ],
+          "match_tokens": [
+            "metallophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ugal_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ugal_melodic_lead",
+          "default": true,
+          "name": "Melodic lead with damping hand (ngugal)",
+          "descriptors": [
+            "cuing",
+            "phrase-shaping",
+            "damped"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "lead-voice"
+          ]
+        },
+        {
+          "id": "ugal_kotekan",
+          "name": "Interlocking kotekan figuration",
+          "descriptors": [
+            "rapid",
+            "interlocking",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "balinese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ugal_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "ugal_standard",
+          "default": true,
+          "name": "Standard ugal (gong kebyar lead, one octave)",
+          "descriptors": [
+            "shimmering",
+            "bright-attack",
+            "leading"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "ugal_jublag_range",
+          "name": "Low ugal (jegogan-range large keys)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "slow-decay"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "low-register"
+          ]
+        },
+        {
+          "id": "ugal_semar",
+          "name": "Semar pegulingan ugal (refined court form)",
+          "descriptors": [
+            "sweet-toned",
+            "refined",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ugal_tuning",
+      "name": "Tuning / paired detuning",
+      "variants": [
+        {
+          "id": "ugal_pengumbang",
+          "default": true,
+          "name": "Pengumbang–pengisep paired tuning (ombak beating)",
+          "descriptors": [
+            "shimmering-beats",
+            "pulsing",
+            "inharmonic"
+          ],
+          "match_tokens": [
+            "paired-tuning",
+            "balinese"
+          ]
+        },
+        {
+          "id": "ugal_unpaired",
+          "name": "Single unpaired instrument",
+          "descriptors": [
+            "clean-tone",
+            "steady"
+          ],
+          "match_tokens": [
+            "metallophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ugal_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ugal_melodic_lead",
+          "default": true,
+          "name": "Melodic lead with damping hand (ngugal)",
+          "descriptors": [
+            "cuing",
+            "phrase-shaping",
+            "damped"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "lead-voice"
+          ]
+        },
+        {
+          "id": "ugal_kotekan",
+          "name": "Interlocking kotekan figuration",
+          "descriptors": [
+            "rapid",
+            "interlocking",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "balinese"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "id": "sangu_conch",
+  "name": "Sangu (South Indian conch-shell ritual trumpet)",
+  "family": "wind",
+  "class": "ritual_trumpet",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "sangu",
+  "parts": [
+    {
+      "id": "sangu_shell",
+      "name": "Shell size / pitch",
+      "variants": [
+        {
+          "id": "sangu_large",
+          "default": true,
+          "name": "Large temple shell (low steady blast)",
+          "descriptors": [
+            "deep-toned",
+            "roaring",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "temple-ritual"
+          ]
+        },
+        {
+          "id": "sangu_small",
+          "name": "Small shell (higher call)",
+          "descriptors": [
+            "bright-toned",
+            "piercing"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "signal-call"
+          ]
+        },
+        {
+          "id": "sangu_valampuri",
+          "name": "Valampuri right-turning shell (auspicious)",
+          "descriptors": [
+            "hollow-tone",
+            "sacred"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "auspicious"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sangu_use",
+      "surface": false,
+      "name": "Ritual use",
+      "variants": [
+        {
+          "id": "sangu_puja",
+          "default": true,
+          "name": "Temple puja announcement blasts",
+          "descriptors": [
+            "announcing",
+            "sustained-blast"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "temple-ritual"
+          ]
+        },
+        {
+          "id": "sangu_wedding",
+          "name": "Wedding / procession auspicious call",
+          "descriptors": [
+            "festive",
+            "calling"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "procession"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sangu_shell",
+      "name": "Shell size / pitch",
+      "variants": [
+        {
+          "id": "sangu_large",
+          "default": true,
+          "name": "Large temple shell (low steady blast)",
+          "descriptors": [
+            "deep-toned",
+            "roaring",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "temple-ritual"
+          ]
+        },
+        {
+          "id": "sangu_small",
+          "name": "Small shell (higher call)",
+          "descriptors": [
+            "bright-toned",
+            "piercing"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "signal-call"
+          ]
+        },
+        {
+          "id": "sangu_valampuri",
+          "name": "Valampuri right-turning shell (auspicious)",
+          "descriptors": [
+            "hollow-tone",
+            "sacred"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "auspicious"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sangu_use",
+      "surface": false,
+      "name": "Ritual use",
+      "variants": [
+        {
+          "id": "sangu_puja",
+          "default": true,
+          "name": "Temple puja announcement blasts",
+          "descriptors": [
+            "announcing",
+            "sustained-blast"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "temple-ritual"
+          ]
+        },
+        {
+          "id": "sangu_wedding",
+          "name": "Wedding / procession auspicious call",
+          "descriptors": [
+            "festive",
+            "calling"
+          ],
+          "match_tokens": [
+            "conch-trumpet",
+            "procession"
+          ]
+        }
+      ]
+    }
+  ]
+}

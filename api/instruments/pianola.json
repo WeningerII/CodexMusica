@@ -1,0 +1,193 @@
+{
+  "id": "pianola",
+  "name": "Pianola (pneumatic player piano)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -1,
+    "dynamics": 1
+  },
+  "short": "pianola",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "pianola_type",
+      "name": "Player mechanism",
+      "variants": [
+        {
+          "id": "pianola_push_up",
+          "default": true,
+          "name": "Roll-driven upright player piano",
+          "descriptors": [
+            "mechanical",
+            "relentless",
+            "honky"
+          ],
+          "match_tokens": [
+            "player-piano",
+            "piano-roll"
+          ]
+        },
+        {
+          "id": "pianola_reproducing",
+          "name": "Reproducing piano (Duo-Art / Welte)",
+          "descriptors": [
+            "expressive",
+            "dynamically-shaded"
+          ],
+          "match_tokens": [
+            "player-piano",
+            "reproducing"
+          ]
+        },
+        {
+          "id": "pianola_pushup",
+          "name": "Push-up piano player cabinet",
+          "descriptors": [
+            "clattery",
+            "period-flavored"
+          ],
+          "match_tokens": [
+            "player-piano"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pianola_prep",
+      "surface": false,
+      "name": "String preparation",
+      "variants": [
+        {
+          "id": "pianola_normal",
+          "default": true,
+          "name": "Normal felted hammers",
+          "descriptors": [
+            "round",
+            "piano-toned"
+          ],
+          "match_tokens": [
+            "piano"
+          ]
+        },
+        {
+          "id": "pianola_tack",
+          "name": "Tack / saloon voicing",
+          "descriptors": [
+            "bright-attack",
+            "jangly"
+          ],
+          "match_tokens": [
+            "piano",
+            "honky-tonk"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pianola_type",
+      "name": "Player mechanism",
+      "variants": [
+        {
+          "id": "pianola_push_up",
+          "default": true,
+          "name": "Roll-driven upright player piano",
+          "descriptors": [
+            "mechanical",
+            "relentless",
+            "honky"
+          ],
+          "match_tokens": [
+            "player-piano",
+            "piano-roll"
+          ]
+        },
+        {
+          "id": "pianola_reproducing",
+          "name": "Reproducing piano (Duo-Art / Welte)",
+          "descriptors": [
+            "expressive",
+            "dynamically-shaded"
+          ],
+          "match_tokens": [
+            "player-piano",
+            "reproducing"
+          ]
+        },
+        {
+          "id": "pianola_pushup",
+          "name": "Push-up piano player cabinet",
+          "descriptors": [
+            "clattery",
+            "period-flavored"
+          ],
+          "match_tokens": [
+            "player-piano"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pianola_prep",
+      "surface": false,
+      "name": "String preparation",
+      "variants": [
+        {
+          "id": "pianola_normal",
+          "default": true,
+          "name": "Normal felted hammers",
+          "descriptors": [
+            "round",
+            "piano-toned"
+          ],
+          "match_tokens": [
+            "piano"
+          ]
+        },
+        {
+          "id": "pianola_tack",
+          "name": "Tack / saloon voicing",
+          "descriptors": [
+            "bright-attack",
+            "jangly"
+          ],
+          "match_tokens": [
+            "piano",
+            "honky-tonk"
+          ]
+        }
+      ]
+    }
+  ]
+}

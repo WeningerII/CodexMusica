@@ -1,0 +1,168 @@
+{
+  "id": "duggi",
+  "name": "Duggi (South Asian clay kettle bass drum)",
+  "family": "percussion",
+  "class": "clay_pot_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "duggi",
+  "parts": [
+    {
+      "id": "duggi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "duggi_bengal",
+          "default": true,
+          "name": "Bengali baul duggi (waist-slung clay bowl)",
+          "descriptors": [
+            "deep-thump",
+            "bending-pitch"
+          ],
+          "match_tokens": [
+            "clay-kettledrum",
+            "baul"
+          ]
+        },
+        {
+          "id": "duggi_punjab",
+          "name": "Punjabi duggi (paired with dhad/tumbi)",
+          "descriptors": [
+            "dry-boom",
+            "pulse-keeping"
+          ],
+          "match_tokens": [
+            "clay-kettledrum",
+            "punjab"
+          ]
+        },
+        {
+          "id": "duggi_metal",
+          "name": "Metal-shell duggi (louder stage form)",
+          "descriptors": [
+            "resonant-boom",
+            "projecting"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "metal-shell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duggi_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "duggi_heel_bend",
+          "default": true,
+          "name": "Palm strike with heel pressure bends",
+          "descriptors": [
+            "bending-pitch",
+            "elastic"
+          ],
+          "match_tokens": [
+            "clay-kettledrum",
+            "pitch-bend"
+          ]
+        },
+        {
+          "id": "duggi_open",
+          "name": "Open unbent bass strokes",
+          "descriptors": [
+            "deep-toned",
+            "steady"
+          ],
+          "match_tokens": [
+            "clay-kettledrum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "duggi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "duggi_bengal",
+          "default": true,
+          "name": "Bengali baul duggi (waist-slung clay bowl)",
+          "descriptors": [
+            "deep-thump",
+            "bending-pitch"
+          ],
+          "match_tokens": [
+            "clay-kettledrum",
+            "baul"
+          ]
+        },
+        {
+          "id": "duggi_punjab",
+          "name": "Punjabi duggi (paired with dhad/tumbi)",
+          "descriptors": [
+            "dry-boom",
+            "pulse-keeping"
+          ],
+          "match_tokens": [
+            "clay-kettledrum",
+            "punjab"
+          ]
+        },
+        {
+          "id": "duggi_metal",
+          "name": "Metal-shell duggi (louder stage form)",
+          "descriptors": [
+            "resonant-boom",
+            "projecting"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "metal-shell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duggi_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "duggi_heel_bend",
+          "default": true,
+          "name": "Palm strike with heel pressure bends",
+          "descriptors": [
+            "bending-pitch",
+            "elastic"
+          ],
+          "match_tokens": [
+            "clay-kettledrum",
+            "pitch-bend"
+          ]
+        },
+        {
+          "id": "duggi_open",
+          "name": "Open unbent bass strokes",
+          "descriptors": [
+            "deep-toned",
+            "steady"
+          ],
+          "match_tokens": [
+            "clay-kettledrum"
+          ]
+        }
+      ]
+    }
+  ]
+}

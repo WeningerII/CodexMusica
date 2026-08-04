@@ -1,0 +1,150 @@
+{
+  "id": "amyrga",
+  "name": "Amyrga (Tuvan hunter's natural horn)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "amyrga",
+  "parts": [
+    {
+      "id": "amyrga_body",
+      "name": "Horn construction",
+      "variants": [
+        {
+          "id": "amyrga_bark",
+          "default": true,
+          "name": "Cedar-bark wrapped conical horn",
+          "descriptors": [
+            "hollow",
+            "calling",
+            "raw"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "hunting-horn",
+            "tuvan"
+          ]
+        },
+        {
+          "id": "amyrga_wood",
+          "name": "Split-and-bound wooden horn",
+          "descriptors": [
+            "woody",
+            "husky"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "natural-horn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amyrga_use",
+      "name": "Sounding use",
+      "variants": [
+        {
+          "id": "amyrga_call",
+          "default": true,
+          "name": "Deer-call imitation (rutting stag)",
+          "descriptors": [
+            "moaning",
+            "glissando-laden"
+          ],
+          "match_tokens": [
+            "hunting-call",
+            "imitative"
+          ]
+        },
+        {
+          "id": "amyrga_signal",
+          "name": "Long signal blast",
+          "descriptors": [
+            "far-carrying",
+            "stark"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "amyrga_body",
+      "name": "Horn construction",
+      "variants": [
+        {
+          "id": "amyrga_bark",
+          "default": true,
+          "name": "Cedar-bark wrapped conical horn",
+          "descriptors": [
+            "hollow",
+            "calling",
+            "raw"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "hunting-horn",
+            "tuvan"
+          ]
+        },
+        {
+          "id": "amyrga_wood",
+          "name": "Split-and-bound wooden horn",
+          "descriptors": [
+            "woody",
+            "husky"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "natural-horn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amyrga_use",
+      "name": "Sounding use",
+      "variants": [
+        {
+          "id": "amyrga_call",
+          "default": true,
+          "name": "Deer-call imitation (rutting stag)",
+          "descriptors": [
+            "moaning",
+            "glissando-laden"
+          ],
+          "match_tokens": [
+            "hunting-call",
+            "imitative"
+          ]
+        },
+        {
+          "id": "amyrga_signal",
+          "name": "Long signal blast",
+          "descriptors": [
+            "far-carrying",
+            "stark"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

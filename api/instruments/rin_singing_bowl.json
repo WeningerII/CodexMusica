@@ -1,0 +1,216 @@
+{
+  "id": "rin_singing_bowl",
+  "name": "Rin (Japanese Buddhist standing bowl bell)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "rin",
+  "parts": [
+    {
+      "id": "rin_size",
+      "name": "Bowl size",
+      "variants": [
+        {
+          "id": "rin_small",
+          "default": true,
+          "name": "Small household rin (about 10 cm)",
+          "descriptors": [
+            "high-pitched",
+            "clear-ring",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "bowl-bell",
+            "buddhist",
+            "japanese"
+          ]
+        },
+        {
+          "id": "rin_large",
+          "name": "Large temple keisu (30 cm and up)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "enveloping"
+          ],
+          "match_tokens": [
+            "bowl-bell",
+            "temple"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rin_strike",
+      "name": "Striking method",
+      "variants": [
+        {
+          "id": "rin_struck_rim",
+          "default": true,
+          "name": "Struck on the rim with a padded mallet",
+          "descriptors": [
+            "pure-tone",
+            "slow-swelling",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "struck",
+            "bowl-bell"
+          ]
+        },
+        {
+          "id": "rin_rubbed",
+          "name": "Rim rubbed with the mallet",
+          "descriptors": [
+            "sustained-drone",
+            "singing",
+            "beating-overtones"
+          ],
+          "match_tokens": [
+            "friction",
+            "bowl-bell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rin_cushion",
+      "surface": false,
+      "name": "Cushion / mounting",
+      "variants": [
+        {
+          "id": "rin_zabuton",
+          "default": true,
+          "name": "On a ring cushion (zabuton)",
+          "descriptors": [
+            "free-ringing",
+            "undamped"
+          ],
+          "match_tokens": [
+            "bowl-bell"
+          ]
+        },
+        {
+          "id": "rin_handheld",
+          "name": "Held in the hand",
+          "descriptors": [
+            "damped",
+            "shorter-decay"
+          ],
+          "match_tokens": [
+            "bowl-bell"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rin_size",
+      "name": "Bowl size",
+      "variants": [
+        {
+          "id": "rin_small",
+          "default": true,
+          "name": "Small household rin (about 10 cm)",
+          "descriptors": [
+            "high-pitched",
+            "clear-ring",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "bowl-bell",
+            "buddhist",
+            "japanese"
+          ]
+        },
+        {
+          "id": "rin_large",
+          "name": "Large temple keisu (30 cm and up)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "enveloping"
+          ],
+          "match_tokens": [
+            "bowl-bell",
+            "temple"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rin_strike",
+      "name": "Striking method",
+      "variants": [
+        {
+          "id": "rin_struck_rim",
+          "default": true,
+          "name": "Struck on the rim with a padded mallet",
+          "descriptors": [
+            "pure-tone",
+            "slow-swelling",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "struck",
+            "bowl-bell"
+          ]
+        },
+        {
+          "id": "rin_rubbed",
+          "name": "Rim rubbed with the mallet",
+          "descriptors": [
+            "sustained-drone",
+            "singing",
+            "beating-overtones"
+          ],
+          "match_tokens": [
+            "friction",
+            "bowl-bell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rin_cushion",
+      "surface": false,
+      "name": "Cushion / mounting",
+      "variants": [
+        {
+          "id": "rin_zabuton",
+          "default": true,
+          "name": "On a ring cushion (zabuton)",
+          "descriptors": [
+            "free-ringing",
+            "undamped"
+          ],
+          "match_tokens": [
+            "bowl-bell"
+          ]
+        },
+        {
+          "id": "rin_handheld",
+          "name": "Held in the hand",
+          "descriptors": [
+            "damped",
+            "shorter-decay"
+          ],
+          "match_tokens": [
+            "bowl-bell"
+          ]
+        }
+      ]
+    }
+  ]
+}

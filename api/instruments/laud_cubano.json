@@ -1,0 +1,220 @@
+{
+  "id": "laud_cubano",
+  "name": "Laúd cubano (Cuban twelve-string lute)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "laud cubano",
+  "parts": [
+    {
+      "id": "laud_cubano_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "laud_cubano_standard",
+          "default": true,
+          "name": "Standard six-course laúd (bowl-less flat back)",
+          "descriptors": [
+            "bright-attack",
+            "metallic-shimmer",
+            "piercing"
+          ],
+          "match_tokens": [
+            "cuba",
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "laud_cubano_bandola",
+          "name": "Bandola-style shorter-scale laúd",
+          "descriptors": [
+            "compact",
+            "nasal",
+            "quick"
+          ],
+          "match_tokens": [
+            "cuba",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laud_cubano_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "laud_cubano_punto",
+          "default": true,
+          "name": "Punto guajiro melodic lead with tremolo",
+          "descriptors": [
+            "tremolo",
+            "ornamented",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "melodic",
+            "guajira"
+          ]
+        },
+        {
+          "id": "laud_cubano_descarga",
+          "name": "Descarga improvisation runs",
+          "descriptors": [
+            "virtuosic",
+            "fast-picked",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "improvised",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laud_cubano_pick",
+      "surface": false,
+      "name": "Plectrum",
+      "variants": [
+        {
+          "id": "laud_cubano_horn",
+          "default": true,
+          "name": "Horn / tortoiseshell-style plectrum",
+          "descriptors": [
+            "warm-attack",
+            "rounded"
+          ],
+          "match_tokens": [
+            "plectrum"
+          ]
+        },
+        {
+          "id": "laud_cubano_nylon_pick",
+          "name": "Stiff nylon pick",
+          "descriptors": [
+            "sharp-attack",
+            "clicky",
+            "bright"
+          ],
+          "match_tokens": [
+            "plectrum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "laud_cubano_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "laud_cubano_standard",
+          "default": true,
+          "name": "Standard six-course laúd (bowl-less flat back)",
+          "descriptors": [
+            "bright-attack",
+            "metallic-shimmer",
+            "piercing"
+          ],
+          "match_tokens": [
+            "cuba",
+            "plucked",
+            "twelve-string"
+          ]
+        },
+        {
+          "id": "laud_cubano_bandola",
+          "name": "Bandola-style shorter-scale laúd",
+          "descriptors": [
+            "compact",
+            "nasal",
+            "quick"
+          ],
+          "match_tokens": [
+            "cuba",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laud_cubano_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "laud_cubano_punto",
+          "default": true,
+          "name": "Punto guajiro melodic lead with tremolo",
+          "descriptors": [
+            "tremolo",
+            "ornamented",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "melodic",
+            "guajira"
+          ]
+        },
+        {
+          "id": "laud_cubano_descarga",
+          "name": "Descarga improvisation runs",
+          "descriptors": [
+            "virtuosic",
+            "fast-picked",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "improvised",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laud_cubano_pick",
+      "surface": false,
+      "name": "Plectrum",
+      "variants": [
+        {
+          "id": "laud_cubano_horn",
+          "default": true,
+          "name": "Horn / tortoiseshell-style plectrum",
+          "descriptors": [
+            "warm-attack",
+            "rounded"
+          ],
+          "match_tokens": [
+            "plectrum"
+          ]
+        },
+        {
+          "id": "laud_cubano_nylon_pick",
+          "name": "Stiff nylon pick",
+          "descriptors": [
+            "sharp-attack",
+            "clicky",
+            "bright"
+          ],
+          "match_tokens": [
+            "plectrum"
+          ]
+        }
+      ]
+    }
+  ]
+}

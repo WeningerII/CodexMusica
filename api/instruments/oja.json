@@ -1,0 +1,146 @@
+{
+  "id": "oja",
+  "name": "Oja (Igbo wooden notched vertical flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "oja",
+  "parts": [
+    {
+      "id": "oja_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "oja_standard",
+          "default": true,
+          "name": "Standard small oja (high, speech-imitating)",
+          "descriptors": [
+            "piercing",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "wooden-flute",
+            "igbo"
+          ]
+        },
+        {
+          "id": "oja_large",
+          "name": "Larger low oja",
+          "descriptors": [
+            "breathy",
+            "mellow"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "nigeria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oja_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "oja_praise",
+          "default": true,
+          "name": "Praise-name calling over the ensemble",
+          "descriptors": [
+            "declamatory",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "speech-surrogate",
+            "praise-song"
+          ]
+        },
+        {
+          "id": "oja_melodic",
+          "name": "Melodic lead line",
+          "descriptors": [
+            "fluid",
+            "trilling"
+          ],
+          "match_tokens": [
+            "flute",
+            "lead-melody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "oja_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "oja_standard",
+          "default": true,
+          "name": "Standard small oja (high, speech-imitating)",
+          "descriptors": [
+            "piercing",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "wooden-flute",
+            "igbo"
+          ]
+        },
+        {
+          "id": "oja_large",
+          "name": "Larger low oja",
+          "descriptors": [
+            "breathy",
+            "mellow"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "nigeria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oja_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "oja_praise",
+          "default": true,
+          "name": "Praise-name calling over the ensemble",
+          "descriptors": [
+            "declamatory",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "speech-surrogate",
+            "praise-song"
+          ]
+        },
+        {
+          "id": "oja_melodic",
+          "name": "Melodic lead line",
+          "descriptors": [
+            "fluid",
+            "trilling"
+          ],
+          "match_tokens": [
+            "flute",
+            "lead-melody"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "id": "diwdiw_as",
+  "name": "Diwdiw-as (Kalinga bamboo panpipe)",
+  "family": "wind",
+  "class": "raft_panpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "diwdiw-as",
+  "parts": [
+    {
+      "id": "diwdiw_as_pipes",
+      "name": "Pipe count",
+      "variants": [
+        {
+          "id": "diwdiw_as_five",
+          "default": true,
+          "name": "Five-pipe raft (standard)",
+          "descriptors": [
+            "breathy",
+            "airy",
+            "fluttering"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "kalinga"
+          ]
+        },
+        {
+          "id": "diwdiw_as_six",
+          "name": "Six or seven pipe set",
+          "descriptors": [
+            "wider-range",
+            "bright",
+            "whistling"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "philippines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diwdiw_as_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "diwdiw_as_sweep",
+          "default": true,
+          "name": "Sweeping across pipe mouths",
+          "descriptors": [
+            "gliding",
+            "breathy-attack"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "blown"
+          ]
+        },
+        {
+          "id": "diwdiw_as_single",
+          "name": "Single-pipe melodic blowing",
+          "descriptors": [
+            "focused",
+            "pure-toned",
+            "soft"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "blown"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "diwdiw_as_pipes",
+      "name": "Pipe count",
+      "variants": [
+        {
+          "id": "diwdiw_as_five",
+          "default": true,
+          "name": "Five-pipe raft (standard)",
+          "descriptors": [
+            "breathy",
+            "airy",
+            "fluttering"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "kalinga"
+          ]
+        },
+        {
+          "id": "diwdiw_as_six",
+          "name": "Six or seven pipe set",
+          "descriptors": [
+            "wider-range",
+            "bright",
+            "whistling"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "philippines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diwdiw_as_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "diwdiw_as_sweep",
+          "default": true,
+          "name": "Sweeping across pipe mouths",
+          "descriptors": [
+            "gliding",
+            "breathy-attack"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "blown"
+          ]
+        },
+        {
+          "id": "diwdiw_as_single",
+          "name": "Single-pipe melodic blowing",
+          "descriptors": [
+            "focused",
+            "pure-toned",
+            "soft"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "blown"
+          ]
+        }
+      ]
+    }
+  ]
+}

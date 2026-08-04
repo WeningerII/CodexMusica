@@ -1,0 +1,170 @@
+{
+  "id": "tabla_tarang",
+  "name": "Tabla tarang (melodic set of tuned dayan drums)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tabla tarang",
+  "parts": [
+    {
+      "id": "tabla_tarang_set",
+      "name": "Set size",
+      "variants": [
+        {
+          "id": "tabla_tarang_ten",
+          "default": true,
+          "name": "Ten to twelve dayan set (full raga scale)",
+          "descriptors": [
+            "bell-like",
+            "singing-tone"
+          ],
+          "match_tokens": [
+            "tuned-drum-set",
+            "hindustani"
+          ]
+        },
+        {
+          "id": "tabla_tarang_small",
+          "name": "Small six-drum set",
+          "descriptors": [
+            "focused",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "tuned-drum-set"
+          ]
+        },
+        {
+          "id": "tabla_tarang_wide",
+          "name": "Extended fifteen-drum concert set",
+          "descriptors": [
+            "wide-range",
+            "glissando-capable"
+          ],
+          "match_tokens": [
+            "tuned-drum-set",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tabla_tarang_style",
+      "surface": false,
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "tabla_tarang_gayaki",
+          "default": true,
+          "name": "Gayaki-ang melodic raga rendition",
+          "descriptors": [
+            "singing-tone",
+            "legato-runs"
+          ],
+          "match_tokens": [
+            "tuned-drum-set",
+            "raga-melody"
+          ]
+        },
+        {
+          "id": "tabla_tarang_laykari",
+          "name": "Rhythmic laykari display",
+          "descriptors": [
+            "percussive",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "tuned-drum-set",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tabla_tarang_set",
+      "name": "Set size",
+      "variants": [
+        {
+          "id": "tabla_tarang_ten",
+          "default": true,
+          "name": "Ten to twelve dayan set (full raga scale)",
+          "descriptors": [
+            "bell-like",
+            "singing-tone"
+          ],
+          "match_tokens": [
+            "tuned-drum-set",
+            "hindustani"
+          ]
+        },
+        {
+          "id": "tabla_tarang_small",
+          "name": "Small six-drum set",
+          "descriptors": [
+            "focused",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "tuned-drum-set"
+          ]
+        },
+        {
+          "id": "tabla_tarang_wide",
+          "name": "Extended fifteen-drum concert set",
+          "descriptors": [
+            "wide-range",
+            "glissando-capable"
+          ],
+          "match_tokens": [
+            "tuned-drum-set",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tabla_tarang_style",
+      "surface": false,
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "tabla_tarang_gayaki",
+          "default": true,
+          "name": "Gayaki-ang melodic raga rendition",
+          "descriptors": [
+            "singing-tone",
+            "legato-runs"
+          ],
+          "match_tokens": [
+            "tuned-drum-set",
+            "raga-melody"
+          ]
+        },
+        {
+          "id": "tabla_tarang_laykari",
+          "name": "Rhythmic laykari display",
+          "descriptors": [
+            "percussive",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "tuned-drum-set",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

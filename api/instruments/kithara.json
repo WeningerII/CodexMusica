@@ -1,0 +1,242 @@
+{
+  "id": "kithara",
+  "name": "Kithara (ancient Greek professional concert lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kithara",
+  "parts": [
+    {
+      "id": "kithara_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "kithara_concert",
+          "default": true,
+          "name": "Classical concert kithara (heavy boxwood arms)",
+          "descriptors": [
+            "resonant",
+            "full-bodied",
+            "projecting"
+          ],
+          "match_tokens": [
+            "lyre",
+            "ancient-greek",
+            "plucked"
+          ]
+        },
+        {
+          "id": "kithara_thracian",
+          "name": "Thracian / cradle kithara (lighter round-based)",
+          "descriptors": [
+            "airy",
+            "sweet",
+            "light"
+          ],
+          "match_tokens": [
+            "lyre",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "kithara_asiatic",
+          "name": "Asiatic kithara (broad-bodied, many strings)",
+          "descriptors": [
+            "deep-toned",
+            "rich",
+            "wide-ranged"
+          ],
+          "match_tokens": [
+            "lyre",
+            "east-mediterranean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kithara_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kithara_plektron",
+          "default": true,
+          "name": "Plektron strumming with left-hand damping",
+          "descriptors": [
+            "bright-attack",
+            "ringing",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plectrum",
+            "strummed"
+          ]
+        },
+        {
+          "id": "kithara_psilo",
+          "name": "Bare-finger plucking (psilokitharistike)",
+          "descriptors": [
+            "soft",
+            "intimate",
+            "rounded"
+          ],
+          "match_tokens": [
+            "finger-plucked",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kithara_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kithara_gut",
+          "default": true,
+          "name": "Sheep-gut strings",
+          "descriptors": [
+            "warm",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "kithara_sinew",
+          "name": "Twisted sinew / flax",
+          "descriptors": [
+            "dry",
+            "archaic"
+          ],
+          "match_tokens": [
+            "sinew-strung"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kithara_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "kithara_concert",
+          "default": true,
+          "name": "Classical concert kithara (heavy boxwood arms)",
+          "descriptors": [
+            "resonant",
+            "full-bodied",
+            "projecting"
+          ],
+          "match_tokens": [
+            "lyre",
+            "ancient-greek",
+            "plucked"
+          ]
+        },
+        {
+          "id": "kithara_thracian",
+          "name": "Thracian / cradle kithara (lighter round-based)",
+          "descriptors": [
+            "airy",
+            "sweet",
+            "light"
+          ],
+          "match_tokens": [
+            "lyre",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "kithara_asiatic",
+          "name": "Asiatic kithara (broad-bodied, many strings)",
+          "descriptors": [
+            "deep-toned",
+            "rich",
+            "wide-ranged"
+          ],
+          "match_tokens": [
+            "lyre",
+            "east-mediterranean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kithara_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kithara_plektron",
+          "default": true,
+          "name": "Plektron strumming with left-hand damping",
+          "descriptors": [
+            "bright-attack",
+            "ringing",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plectrum",
+            "strummed"
+          ]
+        },
+        {
+          "id": "kithara_psilo",
+          "name": "Bare-finger plucking (psilokitharistike)",
+          "descriptors": [
+            "soft",
+            "intimate",
+            "rounded"
+          ],
+          "match_tokens": [
+            "finger-plucked",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kithara_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kithara_gut",
+          "default": true,
+          "name": "Sheep-gut strings",
+          "descriptors": [
+            "warm",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "kithara_sinew",
+          "name": "Twisted sinew / flax",
+          "descriptors": [
+            "dry",
+            "archaic"
+          ],
+          "match_tokens": [
+            "sinew-strung"
+          ]
+        }
+      ]
+    }
+  ]
+}

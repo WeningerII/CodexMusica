@@ -1,0 +1,210 @@
+{
+  "id": "viola_de_cocho",
+  "name": "Viola de cocho (hollowed-log five-string lute of Mato Grosso)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "viola de cocho",
+  "parts": [
+    {
+      "id": "cocho_body",
+      "name": "Body wood (carved trough)",
+      "variants": [
+        {
+          "id": "cocho_ximbuva",
+          "default": true,
+          "name": "Ximbuva log body with sapwood soundboard",
+          "descriptors": [
+            "dry",
+            "nasal",
+            "rustic"
+          ],
+          "match_tokens": [
+            "carved-lute",
+            "pantanal",
+            "brazilian"
+          ]
+        },
+        {
+          "id": "cocho_cedro",
+          "name": "Cedro / other softwood body",
+          "descriptors": [
+            "softer",
+            "mellow"
+          ],
+          "match_tokens": [
+            "carved-lute",
+            "brazilian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocho_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cocho_nylon",
+          "default": true,
+          "name": "Nylon strings (modern)",
+          "descriptors": [
+            "muted",
+            "plunky"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cocho_gut",
+          "name": "Animal-gut / tucum fibre strings (traditional)",
+          "descriptors": [
+            "archaic",
+            "thuddy",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocho_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "cocho_siriri",
+          "default": true,
+          "name": "Siriri dance strumming",
+          "descriptors": [
+            "strummed",
+            "lilting"
+          ],
+          "match_tokens": [
+            "cururu-siriri",
+            "pantanal"
+          ]
+        },
+        {
+          "id": "cocho_cururu",
+          "name": "Cururu song accompaniment (with ganza)",
+          "descriptors": [
+            "declamatory",
+            "droning"
+          ],
+          "match_tokens": [
+            "cururu-siriri"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cocho_body",
+      "name": "Body wood (carved trough)",
+      "variants": [
+        {
+          "id": "cocho_ximbuva",
+          "default": true,
+          "name": "Ximbuva log body with sapwood soundboard",
+          "descriptors": [
+            "dry",
+            "nasal",
+            "rustic"
+          ],
+          "match_tokens": [
+            "carved-lute",
+            "pantanal",
+            "brazilian"
+          ]
+        },
+        {
+          "id": "cocho_cedro",
+          "name": "Cedro / other softwood body",
+          "descriptors": [
+            "softer",
+            "mellow"
+          ],
+          "match_tokens": [
+            "carved-lute",
+            "brazilian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocho_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cocho_nylon",
+          "default": true,
+          "name": "Nylon strings (modern)",
+          "descriptors": [
+            "muted",
+            "plunky"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "cocho_gut",
+          "name": "Animal-gut / tucum fibre strings (traditional)",
+          "descriptors": [
+            "archaic",
+            "thuddy",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocho_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "cocho_siriri",
+          "default": true,
+          "name": "Siriri dance strumming",
+          "descriptors": [
+            "strummed",
+            "lilting"
+          ],
+          "match_tokens": [
+            "cururu-siriri",
+            "pantanal"
+          ]
+        },
+        {
+          "id": "cocho_cururu",
+          "name": "Cururu song accompaniment (with ganza)",
+          "descriptors": [
+            "declamatory",
+            "droning"
+          ],
+          "match_tokens": [
+            "cururu-siriri"
+          ]
+        }
+      ]
+    }
+  ]
+}

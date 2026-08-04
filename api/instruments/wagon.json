@@ -1,0 +1,208 @@
+{
+  "id": "wagon",
+  "name": "Wagon (six-string Japanese court board zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "wagon",
+  "parts": [
+    {
+      "id": "wagon_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "wagon_kakite",
+          "default": true,
+          "name": "Kakite sweep with the kotsume plectrum",
+          "descriptors": [
+            "sweeping",
+            "shimmering",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither",
+            "gagaku"
+          ]
+        },
+        {
+          "id": "wagon_single_pluck",
+          "name": "Single-string plucking",
+          "descriptors": [
+            "sparse",
+            "clear-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wagon_bridges",
+      "name": "Bridges (koto-ji)",
+      "variants": [
+        {
+          "id": "wagon_forked_branch",
+          "default": true,
+          "name": "Natural forked-branch bridges (traditional)",
+          "descriptors": [
+            "woody",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "zither",
+            "archaic"
+          ]
+        },
+        {
+          "id": "wagon_carved_bridge",
+          "name": "Carved wooden bridges (modern court use)",
+          "descriptors": [
+            "focused",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wagon_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "wagon_silk_string",
+          "default": true,
+          "name": "Silk strings",
+          "descriptors": [
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "wagon_synthetic_string",
+          "name": "Synthetic strings",
+          "descriptors": [
+            "bright",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wagon_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "wagon_kakite",
+          "default": true,
+          "name": "Kakite sweep with the kotsume plectrum",
+          "descriptors": [
+            "sweeping",
+            "shimmering",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither",
+            "gagaku"
+          ]
+        },
+        {
+          "id": "wagon_single_pluck",
+          "name": "Single-string plucking",
+          "descriptors": [
+            "sparse",
+            "clear-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wagon_bridges",
+      "name": "Bridges (koto-ji)",
+      "variants": [
+        {
+          "id": "wagon_forked_branch",
+          "default": true,
+          "name": "Natural forked-branch bridges (traditional)",
+          "descriptors": [
+            "woody",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "zither",
+            "archaic"
+          ]
+        },
+        {
+          "id": "wagon_carved_bridge",
+          "name": "Carved wooden bridges (modern court use)",
+          "descriptors": [
+            "focused",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wagon_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "wagon_silk_string",
+          "default": true,
+          "name": "Silk strings",
+          "descriptors": [
+            "mellow",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "wagon_synthetic_string",
+          "name": "Synthetic strings",
+          "descriptors": [
+            "bright",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

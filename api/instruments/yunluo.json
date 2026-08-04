@@ -1,0 +1,142 @@
+{
+  "id": "yunluo",
+  "name": "Yunluo (Chinese framed gong-chime rack)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "yunluo",
+  "parts": [
+    {
+      "id": "yunluo_size",
+      "name": "Rack size",
+      "variants": [
+        {
+          "id": "yunluo_ten",
+          "default": true,
+          "name": "Ten-gong ritual rack",
+          "descriptors": [
+            "bell-like",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "gong-chime",
+            "chinese-percussion"
+          ]
+        },
+        {
+          "id": "yunluo_29",
+          "name": "Modern 29-gong orchestral rack",
+          "descriptors": [
+            "wide-range",
+            "glinting"
+          ],
+          "match_tokens": [
+            "gong-chime",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yunluo_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "yunluo_hardwood",
+          "default": true,
+          "name": "Hard wooden beater",
+          "descriptors": [
+            "bright-attack",
+            "pinging"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        },
+        {
+          "id": "yunluo_padded",
+          "name": "Padded beater",
+          "descriptors": [
+            "soft-attack",
+            "rounded"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "yunluo_size",
+      "name": "Rack size",
+      "variants": [
+        {
+          "id": "yunluo_ten",
+          "default": true,
+          "name": "Ten-gong ritual rack",
+          "descriptors": [
+            "bell-like",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "gong-chime",
+            "chinese-percussion"
+          ]
+        },
+        {
+          "id": "yunluo_29",
+          "name": "Modern 29-gong orchestral rack",
+          "descriptors": [
+            "wide-range",
+            "glinting"
+          ],
+          "match_tokens": [
+            "gong-chime",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yunluo_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "yunluo_hardwood",
+          "default": true,
+          "name": "Hard wooden beater",
+          "descriptors": [
+            "bright-attack",
+            "pinging"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        },
+        {
+          "id": "yunluo_padded",
+          "name": "Padded beater",
+          "descriptors": [
+            "soft-attack",
+            "rounded"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        }
+      ]
+    }
+  ]
+}

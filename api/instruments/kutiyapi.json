@@ -1,0 +1,274 @@
+{
+  "id": "kutiyapi",
+  "name": "Kutiyapi (Philippine two-string boat lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_boat_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kutiyapi",
+  "parts": [
+    {
+      "id": "kutiyapi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kutiyapi_maguindanao",
+          "default": true,
+          "name": "Maguindanao kutiyapi (long carved boat lute)",
+          "descriptors": [
+            "droning",
+            "nasal",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kutiyapi_kudyapi_tboli",
+          "name": "T'boli hegelung",
+          "descriptors": [
+            "delicate",
+            "buzzing-timbre",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "tboli"
+          ]
+        },
+        {
+          "id": "kutiyapi_manobo",
+          "name": "Manobo kudyapi",
+          "descriptors": [
+            "earthy",
+            "rhythmic",
+            "drone-heavy"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "manobo"
+          ]
+        },
+        {
+          "id": "kutiyapi_kudlong",
+          "name": "Bagobo kudlong",
+          "descriptors": [
+            "archaic",
+            "dry",
+            "narrow-toned"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "bagobo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kutiyapi_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kutiyapi_abaca",
+          "default": true,
+          "name": "Abaca fiber strings (traditional)",
+          "descriptors": [
+            "muted",
+            "thumpy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "fiber-strung"
+          ]
+        },
+        {
+          "id": "kutiyapi_wire",
+          "name": "Wire / nylon strings (modern)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kutiyapi_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kutiyapi_drone_melody",
+          "default": true,
+          "name": "Fretted melody string over open drone",
+          "descriptors": [
+            "drone-foundation",
+            "modal",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "kutiyapi_kulintang_imitation",
+          "name": "Kulintang-imitating figuration",
+          "descriptors": [
+            "rippling",
+            "gong-like",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kutiyapi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kutiyapi_maguindanao",
+          "default": true,
+          "name": "Maguindanao kutiyapi (long carved boat lute)",
+          "descriptors": [
+            "droning",
+            "nasal",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kutiyapi_kudyapi_tboli",
+          "name": "T'boli hegelung",
+          "descriptors": [
+            "delicate",
+            "buzzing-timbre",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "tboli"
+          ]
+        },
+        {
+          "id": "kutiyapi_manobo",
+          "name": "Manobo kudyapi",
+          "descriptors": [
+            "earthy",
+            "rhythmic",
+            "drone-heavy"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "manobo"
+          ]
+        },
+        {
+          "id": "kutiyapi_kudlong",
+          "name": "Bagobo kudlong",
+          "descriptors": [
+            "archaic",
+            "dry",
+            "narrow-toned"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "bagobo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kutiyapi_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kutiyapi_abaca",
+          "default": true,
+          "name": "Abaca fiber strings (traditional)",
+          "descriptors": [
+            "muted",
+            "thumpy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "fiber-strung"
+          ]
+        },
+        {
+          "id": "kutiyapi_wire",
+          "name": "Wire / nylon strings (modern)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kutiyapi_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kutiyapi_drone_melody",
+          "default": true,
+          "name": "Fretted melody string over open drone",
+          "descriptors": [
+            "drone-foundation",
+            "modal",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "kutiyapi_kulintang_imitation",
+          "name": "Kulintang-imitating figuration",
+          "descriptors": [
+            "rippling",
+            "gong-like",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "boat-lute",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

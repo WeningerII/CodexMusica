@@ -1,0 +1,232 @@
+{
+  "id": "ottu_drone",
+  "name": "Ottu (South Indian drone shawm for nagaswaram ensemble)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -2,
+    "articulation": -2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ottu",
+  "parts": [
+    {
+      "id": "ottu_drone_body",
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "ottu_drone_wood_wax",
+          "default": true,
+          "name": "Long aacha-wood body with wax-plugged finger holes (canonical)",
+          "descriptors": [
+            "steady-drone",
+            "reedy",
+            "nasal"
+          ],
+          "match_tokens": [
+            "drone-shawm",
+            "nagaswaram-ensemble"
+          ]
+        },
+        {
+          "id": "ottu_drone_metal_bell",
+          "name": "Metal-belled ottu",
+          "descriptors": [
+            "brighter",
+            "edgier",
+            "projecting"
+          ],
+          "match_tokens": [
+            "drone-shawm",
+            "south-indian"
+          ]
+        },
+        {
+          "id": "ottu_drone_short",
+          "name": "Short high-pitched ottu",
+          "descriptors": [
+            "thinner",
+            "higher-drone"
+          ],
+          "match_tokens": [
+            "drone-shawm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ottu_drone_technique",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "ottu_drone_circular",
+          "default": true,
+          "name": "Circular breathing for unbroken drone",
+          "descriptors": [
+            "unbroken",
+            "continuous",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "ottu_drone_phrased",
+          "name": "Phrased breath drone with tonic re-attacks",
+          "descriptors": [
+            "pulsing",
+            "punctuated"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ottu_drone_reed",
+      "surface": false,
+      "name": "Reed",
+      "variants": [
+        {
+          "id": "ottu_drone_palm_reed",
+          "default": true,
+          "name": "Palm-leaf double reed (seevali)",
+          "descriptors": [
+            "buzzing-timbre",
+            "raspy"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "ottu_drone_soft_reed",
+          "name": "Softened broad reed",
+          "descriptors": [
+            "mellow",
+            "rounder"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ottu_drone_body",
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "ottu_drone_wood_wax",
+          "default": true,
+          "name": "Long aacha-wood body with wax-plugged finger holes (canonical)",
+          "descriptors": [
+            "steady-drone",
+            "reedy",
+            "nasal"
+          ],
+          "match_tokens": [
+            "drone-shawm",
+            "nagaswaram-ensemble"
+          ]
+        },
+        {
+          "id": "ottu_drone_metal_bell",
+          "name": "Metal-belled ottu",
+          "descriptors": [
+            "brighter",
+            "edgier",
+            "projecting"
+          ],
+          "match_tokens": [
+            "drone-shawm",
+            "south-indian"
+          ]
+        },
+        {
+          "id": "ottu_drone_short",
+          "name": "Short high-pitched ottu",
+          "descriptors": [
+            "thinner",
+            "higher-drone"
+          ],
+          "match_tokens": [
+            "drone-shawm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ottu_drone_technique",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "ottu_drone_circular",
+          "default": true,
+          "name": "Circular breathing for unbroken drone",
+          "descriptors": [
+            "unbroken",
+            "continuous",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "ottu_drone_phrased",
+          "name": "Phrased breath drone with tonic re-attacks",
+          "descriptors": [
+            "pulsing",
+            "punctuated"
+          ],
+          "match_tokens": [
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ottu_drone_reed",
+      "surface": false,
+      "name": "Reed",
+      "variants": [
+        {
+          "id": "ottu_drone_palm_reed",
+          "default": true,
+          "name": "Palm-leaf double reed (seevali)",
+          "descriptors": [
+            "buzzing-timbre",
+            "raspy"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "ottu_drone_soft_reed",
+          "name": "Softened broad reed",
+          "descriptors": [
+            "mellow",
+            "rounder"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

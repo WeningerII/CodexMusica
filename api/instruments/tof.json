@@ -1,0 +1,232 @@
+{
+  "id": "tof",
+  "name": "Tof (biblical Hebrew frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tof",
+  "parts": [
+    {
+      "id": "tof_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "tof_shallow",
+          "default": true,
+          "name": "Shallow single-headed wooden frame (hand-held)",
+          "descriptors": [
+            "dry-thump",
+            "open-ringing"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "levantine"
+          ]
+        },
+        {
+          "id": "tof_deep",
+          "name": "Deep-shell frame drum",
+          "descriptors": [
+            "deep-toned",
+            "boomy"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tof_jingled",
+          "name": "Frame with jingling rings (adufe-like)",
+          "descriptors": [
+            "buzzing-timbre",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jingles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tof_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "tof_goat",
+          "default": true,
+          "name": "Goatskin head",
+          "descriptors": [
+            "warm-slap",
+            "papery"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "tof_calf",
+          "name": "Calfskin head",
+          "descriptors": [
+            "fuller-tone",
+            "round"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tof_style",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "tof_processional",
+          "default": true,
+          "name": "Processional dance pattern (hand and fingers)",
+          "descriptors": [
+            "driving",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tof_thumb_roll",
+          "name": "Thumb rolls and rim taps",
+          "descriptors": [
+            "shimmering",
+            "delicate"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tof_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "tof_shallow",
+          "default": true,
+          "name": "Shallow single-headed wooden frame (hand-held)",
+          "descriptors": [
+            "dry-thump",
+            "open-ringing"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "levantine"
+          ]
+        },
+        {
+          "id": "tof_deep",
+          "name": "Deep-shell frame drum",
+          "descriptors": [
+            "deep-toned",
+            "boomy"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tof_jingled",
+          "name": "Frame with jingling rings (adufe-like)",
+          "descriptors": [
+            "buzzing-timbre",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jingles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tof_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "tof_goat",
+          "default": true,
+          "name": "Goatskin head",
+          "descriptors": [
+            "warm-slap",
+            "papery"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "tof_calf",
+          "name": "Calfskin head",
+          "descriptors": [
+            "fuller-tone",
+            "round"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tof_style",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "tof_processional",
+          "default": true,
+          "name": "Processional dance pattern (hand and fingers)",
+          "descriptors": [
+            "driving",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tof_thumb_roll",
+          "name": "Thumb rolls and rim taps",
+          "descriptors": [
+            "shimmering",
+            "delicate"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ]
+}

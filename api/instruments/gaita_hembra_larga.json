@@ -1,0 +1,236 @@
+{
+  "id": "gaita_hembra_larga",
+  "name": "Gaita hembra (Colombian long female cactus-stem duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gaita hembra",
+  "parts": [
+    {
+      "id": "gaita_hembra_style",
+      "name": "Melodic role",
+      "variants": [
+        {
+          "id": "gaita_hembra_cumbia",
+          "default": true,
+          "name": "Cumbia melody lead",
+          "descriptors": [
+            "reedy",
+            "breathy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "cumbia",
+            "kuisi"
+          ]
+        },
+        {
+          "id": "gaita_hembra_gaita_corrida",
+          "name": "Gaita corrida (fast continuous melody)",
+          "descriptors": [
+            "fluid",
+            "ornamented",
+            "insistent"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "colombian-coast"
+          ]
+        },
+        {
+          "id": "gaita_hembra_porro",
+          "name": "Porro / merengue vallenato phrasing",
+          "descriptors": [
+            "lilting",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_hembra_build",
+      "name": "Tube and head construction",
+      "variants": [
+        {
+          "id": "gaita_hembra_cardon",
+          "default": true,
+          "name": "Cardón cactus stem with beeswax-and-charcoal head, turkey-quill mouthpiece",
+          "descriptors": [
+            "husky",
+            "earthy",
+            "air-rich"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "beeswax-head"
+          ]
+        },
+        {
+          "id": "gaita_hembra_pvc",
+          "name": "Modern PVC or wooden body",
+          "descriptors": [
+            "cleaner-toned",
+            "projecting",
+            "stable"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_hembra_holes",
+      "surface": false,
+      "name": "Finger-hole layout",
+      "variants": [
+        {
+          "id": "gaita_hembra_five",
+          "default": true,
+          "name": "Five finger holes (traditional)",
+          "descriptors": [
+            "modal",
+            "uneven-scale"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "gaita_hembra_four",
+          "name": "Four-hole archaic layout",
+          "descriptors": [
+            "narrow-range",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gaita_hembra_style",
+      "name": "Melodic role",
+      "variants": [
+        {
+          "id": "gaita_hembra_cumbia",
+          "default": true,
+          "name": "Cumbia melody lead",
+          "descriptors": [
+            "reedy",
+            "breathy",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "cumbia",
+            "kuisi"
+          ]
+        },
+        {
+          "id": "gaita_hembra_gaita_corrida",
+          "name": "Gaita corrida (fast continuous melody)",
+          "descriptors": [
+            "fluid",
+            "ornamented",
+            "insistent"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "colombian-coast"
+          ]
+        },
+        {
+          "id": "gaita_hembra_porro",
+          "name": "Porro / merengue vallenato phrasing",
+          "descriptors": [
+            "lilting",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_hembra_build",
+      "name": "Tube and head construction",
+      "variants": [
+        {
+          "id": "gaita_hembra_cardon",
+          "default": true,
+          "name": "Cardón cactus stem with beeswax-and-charcoal head, turkey-quill mouthpiece",
+          "descriptors": [
+            "husky",
+            "earthy",
+            "air-rich"
+          ],
+          "match_tokens": [
+            "duct-flute",
+            "beeswax-head"
+          ]
+        },
+        {
+          "id": "gaita_hembra_pvc",
+          "name": "Modern PVC or wooden body",
+          "descriptors": [
+            "cleaner-toned",
+            "projecting",
+            "stable"
+          ],
+          "match_tokens": [
+            "duct-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_hembra_holes",
+      "surface": false,
+      "name": "Finger-hole layout",
+      "variants": [
+        {
+          "id": "gaita_hembra_five",
+          "default": true,
+          "name": "Five finger holes (traditional)",
+          "descriptors": [
+            "modal",
+            "uneven-scale"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "gaita_hembra_four",
+          "name": "Four-hole archaic layout",
+          "descriptors": [
+            "narrow-range",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

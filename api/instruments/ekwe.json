@@ -1,0 +1,168 @@
+{
+  "id": "ekwe",
+  "name": "Ekwe (Igbo wooden slit drum)",
+  "family": "percussion",
+  "class": "slit_gong",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ekwe",
+  "parts": [
+    {
+      "id": "ekwe_size",
+      "name": "Log size",
+      "variants": [
+        {
+          "id": "ekwe_medium",
+          "default": true,
+          "name": "Medium hand-held ekwe (two tones)",
+          "descriptors": [
+            "woody-knock",
+            "dry-tone"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "igbo"
+          ]
+        },
+        {
+          "id": "ekwe_large",
+          "name": "Large village ikoro-sized log",
+          "descriptors": [
+            "deep-boom",
+            "carrying"
+          ],
+          "match_tokens": [
+            "slit-gong",
+            "signal-drum"
+          ]
+        },
+        {
+          "id": "ekwe_small",
+          "name": "Small ekwe",
+          "descriptors": [
+            "high-clack",
+            "tight"
+          ],
+          "match_tokens": [
+            "wooden-idiophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ekwe_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "ekwe_timeline",
+          "default": true,
+          "name": "Timeline pattern in dance ensemble",
+          "descriptors": [
+            "steady-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "timeline",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "ekwe_speech",
+          "name": "Speech-surrogate announcement",
+          "descriptors": [
+            "declamatory",
+            "two-tone"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "signal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ekwe_size",
+      "name": "Log size",
+      "variants": [
+        {
+          "id": "ekwe_medium",
+          "default": true,
+          "name": "Medium hand-held ekwe (two tones)",
+          "descriptors": [
+            "woody-knock",
+            "dry-tone"
+          ],
+          "match_tokens": [
+            "slit-drum",
+            "igbo"
+          ]
+        },
+        {
+          "id": "ekwe_large",
+          "name": "Large village ikoro-sized log",
+          "descriptors": [
+            "deep-boom",
+            "carrying"
+          ],
+          "match_tokens": [
+            "slit-gong",
+            "signal-drum"
+          ]
+        },
+        {
+          "id": "ekwe_small",
+          "name": "Small ekwe",
+          "descriptors": [
+            "high-clack",
+            "tight"
+          ],
+          "match_tokens": [
+            "wooden-idiophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ekwe_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "ekwe_timeline",
+          "default": true,
+          "name": "Timeline pattern in dance ensemble",
+          "descriptors": [
+            "steady-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "timeline",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "ekwe_speech",
+          "name": "Speech-surrogate announcement",
+          "descriptors": [
+            "declamatory",
+            "two-tone"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "signal"
+          ]
+        }
+      ]
+    }
+  ]
+}

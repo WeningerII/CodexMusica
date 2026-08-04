@@ -1,0 +1,148 @@
+{
+  "id": "dhumsa",
+  "name": "Dhumsa (large eastern Indian kettledrum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "dhumsa",
+  "parts": [
+    {
+      "id": "dhumsa_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "dhumsa_large",
+          "default": true,
+          "name": "Large festival dhumsa (hemispherical iron shell)",
+          "descriptors": [
+            "thunderous",
+            "deep-boom"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "jharkhand"
+          ]
+        },
+        {
+          "id": "dhumsa_medium",
+          "name": "Medium portable dhumsa",
+          "descriptors": [
+            "punchy",
+            "carrying"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "procession"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhumsa_context",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "dhumsa_chhau",
+          "default": true,
+          "name": "Chhau dance ensemble with dhol and shehnai",
+          "descriptors": [
+            "driving",
+            "martial"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "chhau"
+          ]
+        },
+        {
+          "id": "dhumsa_santal",
+          "name": "Santal / tribal festival drumming",
+          "descriptors": [
+            "hypnotic",
+            "rolling"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "tribal-festival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dhumsa_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "dhumsa_large",
+          "default": true,
+          "name": "Large festival dhumsa (hemispherical iron shell)",
+          "descriptors": [
+            "thunderous",
+            "deep-boom"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "jharkhand"
+          ]
+        },
+        {
+          "id": "dhumsa_medium",
+          "name": "Medium portable dhumsa",
+          "descriptors": [
+            "punchy",
+            "carrying"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "procession"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhumsa_context",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "dhumsa_chhau",
+          "default": true,
+          "name": "Chhau dance ensemble with dhol and shehnai",
+          "descriptors": [
+            "driving",
+            "martial"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "chhau"
+          ]
+        },
+        {
+          "id": "dhumsa_santal",
+          "name": "Santal / tribal festival drumming",
+          "descriptors": [
+            "hypnotic",
+            "rolling"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "tribal-festival"
+          ]
+        }
+      ]
+    }
+  ]
+}

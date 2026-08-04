@@ -1,0 +1,182 @@
+{
+  "id": "laud_filipino",
+  "name": "Laúd (Philippine rondalla lead lute)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "laud",
+  "parts": [
+    {
+      "id": "laud_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "laud_lead_tremolo",
+          "default": true,
+          "name": "Lead melody with plectrum tremolo",
+          "descriptors": [
+            "shimmering-tremolo",
+            "singing",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plectrum"
+          ]
+        },
+        {
+          "id": "laud_countermelody",
+          "name": "Countermelody / obbligato line",
+          "descriptors": [
+            "weaving",
+            "agile",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plucked"
+          ]
+        },
+        {
+          "id": "laud_bass_figuration",
+          "name": "Low-register figuration doubling bajo",
+          "descriptors": [
+            "deep-toned",
+            "punchy",
+            "supporting"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laud_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "laud_steel",
+          "default": true,
+          "name": "Steel strings (standard 14-string courses)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "steel-strung"
+          ]
+        },
+        {
+          "id": "laud_nylon_wound",
+          "name": "Nylon-core wound strings",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "laud_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "laud_lead_tremolo",
+          "default": true,
+          "name": "Lead melody with plectrum tremolo",
+          "descriptors": [
+            "shimmering-tremolo",
+            "singing",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plectrum"
+          ]
+        },
+        {
+          "id": "laud_countermelody",
+          "name": "Countermelody / obbligato line",
+          "descriptors": [
+            "weaving",
+            "agile",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plucked"
+          ]
+        },
+        {
+          "id": "laud_bass_figuration",
+          "name": "Low-register figuration doubling bajo",
+          "descriptors": [
+            "deep-toned",
+            "punchy",
+            "supporting"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laud_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "laud_steel",
+          "default": true,
+          "name": "Steel strings (standard 14-string courses)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "steel-strung"
+          ]
+        },
+        {
+          "id": "laud_nylon_wound",
+          "name": "Nylon-core wound strings",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

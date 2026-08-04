@@ -1,0 +1,210 @@
+{
+  "id": "narh_flute",
+  "name": "Narh (Rajasthani long end-blown desert flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "narh",
+  "parts": [
+    {
+      "id": "narh_body",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "narh_kangor",
+          "default": true,
+          "name": "Kangor reed tube (traditional Langa build)",
+          "descriptors": [
+            "breathy",
+            "airy",
+            "haunting"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "rajasthan"
+          ]
+        },
+        {
+          "id": "narh_bamboo",
+          "name": "Bamboo tube",
+          "descriptors": [
+            "fuller-tone",
+            "warm"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "bamboo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "narh_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "narh_throat_drone",
+          "default": true,
+          "name": "Sung throat drone under the blown melody",
+          "descriptors": [
+            "droning",
+            "raspy-undertone"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "throat-drone"
+          ]
+        },
+        {
+          "id": "narh_plain",
+          "name": "Plain blown melody without vocal drone",
+          "descriptors": [
+            "pure-tone",
+            "breathy"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "narh_length",
+      "surface": false,
+      "name": "Tube length / register",
+      "variants": [
+        {
+          "id": "narh_long",
+          "default": true,
+          "name": "Long tube (low, hollow register)",
+          "descriptors": [
+            "deep-toned",
+            "hollow"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "narh_short",
+          "name": "Short tube (higher, brighter)",
+          "descriptors": [
+            "bright-toned",
+            "piercing"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "high-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "narh_body",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "narh_kangor",
+          "default": true,
+          "name": "Kangor reed tube (traditional Langa build)",
+          "descriptors": [
+            "breathy",
+            "airy",
+            "haunting"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "rajasthan"
+          ]
+        },
+        {
+          "id": "narh_bamboo",
+          "name": "Bamboo tube",
+          "descriptors": [
+            "fuller-tone",
+            "warm"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "bamboo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "narh_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "narh_throat_drone",
+          "default": true,
+          "name": "Sung throat drone under the blown melody",
+          "descriptors": [
+            "droning",
+            "raspy-undertone"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "throat-drone"
+          ]
+        },
+        {
+          "id": "narh_plain",
+          "name": "Plain blown melody without vocal drone",
+          "descriptors": [
+            "pure-tone",
+            "breathy"
+          ],
+          "match_tokens": [
+            "end-blown-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "narh_length",
+      "surface": false,
+      "name": "Tube length / register",
+      "variants": [
+        {
+          "id": "narh_long",
+          "default": true,
+          "name": "Long tube (low, hollow register)",
+          "descriptors": [
+            "deep-toned",
+            "hollow"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "narh_short",
+          "name": "Short tube (higher, brighter)",
+          "descriptors": [
+            "bright-toned",
+            "piercing"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "high-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

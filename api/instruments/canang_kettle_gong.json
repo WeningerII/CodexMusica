@@ -1,0 +1,168 @@
+{
+  "id": "canang_kettle_gong",
+  "name": "Canang (Malay/Acehnese small kettle gongs)",
+  "family": "percussion",
+  "class": "tuned_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "canang",
+  "parts": [
+    {
+      "id": "canang_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "canang_malay_pair",
+          "default": true,
+          "name": "Malay canang pair on rack",
+          "descriptors": [
+            "ringing",
+            "colotomic",
+            "metallic"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "malay"
+          ]
+        },
+        {
+          "id": "canang_aceh",
+          "name": "Acehnese canang (single hand-held kettle)",
+          "descriptors": [
+            "clangorous",
+            "insistent"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "aceh"
+          ]
+        },
+        {
+          "id": "canang_kayu",
+          "name": "Canang kayu (wooden slat form)",
+          "descriptors": [
+            "dry-toned",
+            "clacking"
+          ],
+          "match_tokens": [
+            "struck-idiophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "canang_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "canang_padded",
+          "default": true,
+          "name": "Padded stick",
+          "descriptors": [
+            "warm-attack",
+            "sustained"
+          ],
+          "match_tokens": [
+            "kettle-gong"
+          ]
+        },
+        {
+          "id": "canang_bare_wood",
+          "name": "Bare wooden stick",
+          "descriptors": [
+            "bright-attack",
+            "clanging"
+          ],
+          "match_tokens": [
+            "kettle-gong"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "canang_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "canang_malay_pair",
+          "default": true,
+          "name": "Malay canang pair on rack",
+          "descriptors": [
+            "ringing",
+            "colotomic",
+            "metallic"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "malay"
+          ]
+        },
+        {
+          "id": "canang_aceh",
+          "name": "Acehnese canang (single hand-held kettle)",
+          "descriptors": [
+            "clangorous",
+            "insistent"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "aceh"
+          ]
+        },
+        {
+          "id": "canang_kayu",
+          "name": "Canang kayu (wooden slat form)",
+          "descriptors": [
+            "dry-toned",
+            "clacking"
+          ],
+          "match_tokens": [
+            "struck-idiophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "canang_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "canang_padded",
+          "default": true,
+          "name": "Padded stick",
+          "descriptors": [
+            "warm-attack",
+            "sustained"
+          ],
+          "match_tokens": [
+            "kettle-gong"
+          ]
+        },
+        {
+          "id": "canang_bare_wood",
+          "name": "Bare wooden stick",
+          "descriptors": [
+            "bright-attack",
+            "clanging"
+          ],
+          "match_tokens": [
+            "kettle-gong"
+          ]
+        }
+      ]
+    }
+  ]
+}

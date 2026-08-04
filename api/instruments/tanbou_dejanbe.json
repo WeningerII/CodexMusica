@@ -1,0 +1,240 @@
+{
+  "id": "tanbou_dejanbe",
+  "name": "Tanbou dejanbe (Haitian tall leg-straddled ritual hand drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "tanbou dejanbe",
+  "parts": [
+    {
+      "id": "tanbou_dejanbe_rite",
+      "name": "Ritual repertoire",
+      "variants": [
+        {
+          "id": "tanbou_dejanbe_rada",
+          "default": true,
+          "name": "Rada rite (manman voice, hand and baguette)",
+          "descriptors": [
+            "deep-toned",
+            "ceremonial",
+            "commanding"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "vodou",
+            "haitian"
+          ]
+        },
+        {
+          "id": "tanbou_dejanbe_petwo",
+          "name": "Petwo rite (hot, hands only)",
+          "descriptors": [
+            "fiery",
+            "cracking",
+            "urgent"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "vodou"
+          ]
+        },
+        {
+          "id": "tanbou_dejanbe_kongo",
+          "name": "Kongo / banda dance rhythms",
+          "descriptors": [
+            "rolling",
+            "festive",
+            "hip-driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbou_dejanbe_head",
+      "name": "Head lacing and skin",
+      "variants": [
+        {
+          "id": "tanbou_dejanbe_peg",
+          "default": true,
+          "name": "Cowhide head on peg-and-cord lacing",
+          "descriptors": [
+            "thick",
+            "booming",
+            "dark"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tanbou_dejanbe_goat",
+          "name": "Goatskin head (higher, more articulate)",
+          "descriptors": [
+            "articulate",
+            "bright-slap"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbou_dejanbe_shell",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "tanbou_dejanbe_mahogany",
+          "default": true,
+          "name": "Carved mahogany or acajou log shell",
+          "descriptors": [
+            "warm",
+            "dense",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tanbou_dejanbe_avocado",
+          "name": "Lighter avocado or breadfruit wood shell",
+          "descriptors": [
+            "airy",
+            "open-toned"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tanbou_dejanbe_rite",
+      "name": "Ritual repertoire",
+      "variants": [
+        {
+          "id": "tanbou_dejanbe_rada",
+          "default": true,
+          "name": "Rada rite (manman voice, hand and baguette)",
+          "descriptors": [
+            "deep-toned",
+            "ceremonial",
+            "commanding"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "vodou",
+            "haitian"
+          ]
+        },
+        {
+          "id": "tanbou_dejanbe_petwo",
+          "name": "Petwo rite (hot, hands only)",
+          "descriptors": [
+            "fiery",
+            "cracking",
+            "urgent"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "vodou"
+          ]
+        },
+        {
+          "id": "tanbou_dejanbe_kongo",
+          "name": "Kongo / banda dance rhythms",
+          "descriptors": [
+            "rolling",
+            "festive",
+            "hip-driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbou_dejanbe_head",
+      "name": "Head lacing and skin",
+      "variants": [
+        {
+          "id": "tanbou_dejanbe_peg",
+          "default": true,
+          "name": "Cowhide head on peg-and-cord lacing",
+          "descriptors": [
+            "thick",
+            "booming",
+            "dark"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tanbou_dejanbe_goat",
+          "name": "Goatskin head (higher, more articulate)",
+          "descriptors": [
+            "articulate",
+            "bright-slap"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbou_dejanbe_shell",
+      "surface": false,
+      "name": "Shell wood",
+      "variants": [
+        {
+          "id": "tanbou_dejanbe_mahogany",
+          "default": true,
+          "name": "Carved mahogany or acajou log shell",
+          "descriptors": [
+            "warm",
+            "dense",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tanbou_dejanbe_avocado",
+          "name": "Lighter avocado or breadfruit wood shell",
+          "descriptors": [
+            "airy",
+            "open-toned"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

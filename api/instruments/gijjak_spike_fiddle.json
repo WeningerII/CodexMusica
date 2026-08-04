@@ -1,0 +1,201 @@
+{
+  "id": "gijjak_spike_fiddle",
+  "name": "Gijjak (Uzbek-Tajik spherical spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gijjak",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gijjak_body",
+      "name": "Resonator body",
+      "variants": [
+        {
+          "id": "gijjak_gourd",
+          "default": true,
+          "name": "Gourd / coconut bowl with skin belly",
+          "descriptors": [
+            "nasal",
+            "penetrating",
+            "reedy"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed",
+            "central-asia"
+          ]
+        },
+        {
+          "id": "gijjak_metal",
+          "name": "Metal-bowl gijjak",
+          "descriptors": [
+            "metallic-ring",
+            "bright"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed"
+          ]
+        },
+        {
+          "id": "gijjak_wood_concert",
+          "name": "Standardized wooden concert gijjak",
+          "descriptors": [
+            "rounded",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gijjak_strings",
+      "surface": false,
+      "name": "String set",
+      "variants": [
+        {
+          "id": "gijjak_three_metal",
+          "default": true,
+          "name": "Three metal strings",
+          "descriptors": [
+            "bright-metallic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "gijjak_four_sympathetic",
+          "name": "Four strings with sympathetic resonance",
+          "descriptors": [
+            "ringing",
+            "halo-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gijjak_body",
+      "name": "Resonator body",
+      "variants": [
+        {
+          "id": "gijjak_gourd",
+          "default": true,
+          "name": "Gourd / coconut bowl with skin belly",
+          "descriptors": [
+            "nasal",
+            "penetrating",
+            "reedy"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed",
+            "central-asia"
+          ]
+        },
+        {
+          "id": "gijjak_metal",
+          "name": "Metal-bowl gijjak",
+          "descriptors": [
+            "metallic-ring",
+            "bright"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed"
+          ]
+        },
+        {
+          "id": "gijjak_wood_concert",
+          "name": "Standardized wooden concert gijjak",
+          "descriptors": [
+            "rounded",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gijjak_strings",
+      "surface": false,
+      "name": "String set",
+      "variants": [
+        {
+          "id": "gijjak_three_metal",
+          "default": true,
+          "name": "Three metal strings",
+          "descriptors": [
+            "bright-metallic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "gijjak_four_sympathetic",
+          "name": "Four strings with sympathetic resonance",
+          "descriptors": [
+            "ringing",
+            "halo-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        }
+      ]
+    }
+  ]
+}

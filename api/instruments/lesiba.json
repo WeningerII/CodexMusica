@@ -1,0 +1,142 @@
+{
+  "id": "lesiba",
+  "name": "Lesiba (Sotho quill-and-string mouth-blown bow)",
+  "family": "wind",
+  "class": "overtone_flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "lesiba",
+  "parts": [
+    {
+      "id": "lesiba_quill",
+      "name": "Quill type",
+      "variants": [
+        {
+          "id": "lesiba_feather_quill",
+          "default": true,
+          "name": "Bird-feather quill (traditional)",
+          "descriptors": [
+            "buzzing-timbre",
+            "fragile-tone"
+          ],
+          "match_tokens": [
+            "quill-bow",
+            "lesotho"
+          ]
+        },
+        {
+          "id": "lesiba_plastic",
+          "name": "Modern plastic quill",
+          "descriptors": [
+            "raspy",
+            "louder"
+          ],
+          "match_tokens": [
+            "quill-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesiba_technique",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "lesiba_inhale_exhale",
+          "default": true,
+          "name": "Alternating inhale-exhale calls",
+          "descriptors": [
+            "whispery",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "herding-call",
+            "overtone"
+          ]
+        },
+        {
+          "id": "lesiba_growl",
+          "name": "Low growled cattle-praise register",
+          "descriptors": [
+            "growling",
+            "guttural"
+          ],
+          "match_tokens": [
+            "growling"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lesiba_quill",
+      "name": "Quill type",
+      "variants": [
+        {
+          "id": "lesiba_feather_quill",
+          "default": true,
+          "name": "Bird-feather quill (traditional)",
+          "descriptors": [
+            "buzzing-timbre",
+            "fragile-tone"
+          ],
+          "match_tokens": [
+            "quill-bow",
+            "lesotho"
+          ]
+        },
+        {
+          "id": "lesiba_plastic",
+          "name": "Modern plastic quill",
+          "descriptors": [
+            "raspy",
+            "louder"
+          ],
+          "match_tokens": [
+            "quill-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesiba_technique",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "lesiba_inhale_exhale",
+          "default": true,
+          "name": "Alternating inhale-exhale calls",
+          "descriptors": [
+            "whispery",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "herding-call",
+            "overtone"
+          ]
+        },
+        {
+          "id": "lesiba_growl",
+          "name": "Low growled cattle-praise register",
+          "descriptors": [
+            "growling",
+            "guttural"
+          ],
+          "match_tokens": [
+            "growling"
+          ]
+        }
+      ]
+    }
+  ]
+}

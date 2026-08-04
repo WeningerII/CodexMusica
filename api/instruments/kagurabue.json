@@ -1,0 +1,146 @@
+{
+  "id": "kagurabue",
+  "name": "Kagurabue (Japanese mikagura ritual transverse flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kagurabue",
+  "parts": [
+    {
+      "id": "kagurabue_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kagurabue_mikagura",
+          "default": true,
+          "name": "Mikagura shrine ritual melody",
+          "descriptors": [
+            "solemn",
+            "sustained",
+            "ritual"
+          ],
+          "match_tokens": [
+            "shinto",
+            "transverse-flute"
+          ]
+        },
+        {
+          "id": "kagurabue_satokagura",
+          "name": "Sato-kagura folk performance",
+          "descriptors": [
+            "lively",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "kagura",
+            "folk-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kagurabue_holes",
+      "surface": false,
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "kagurabue_six_hole",
+          "default": true,
+          "name": "Six-hole long bamboo bore",
+          "descriptors": [
+            "mellow",
+            "low-breathy"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        },
+        {
+          "id": "kagurabue_shrine_short",
+          "name": "Shorter shrine flute",
+          "descriptors": [
+            "brighter",
+            "piercing"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kagurabue_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kagurabue_mikagura",
+          "default": true,
+          "name": "Mikagura shrine ritual melody",
+          "descriptors": [
+            "solemn",
+            "sustained",
+            "ritual"
+          ],
+          "match_tokens": [
+            "shinto",
+            "transverse-flute"
+          ]
+        },
+        {
+          "id": "kagurabue_satokagura",
+          "name": "Sato-kagura folk performance",
+          "descriptors": [
+            "lively",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "kagura",
+            "folk-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kagurabue_holes",
+      "surface": false,
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "kagurabue_six_hole",
+          "default": true,
+          "name": "Six-hole long bamboo bore",
+          "descriptors": [
+            "mellow",
+            "low-breathy"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        },
+        {
+          "id": "kagurabue_shrine_short",
+          "name": "Shorter shrine flute",
+          "descriptors": [
+            "brighter",
+            "piercing"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

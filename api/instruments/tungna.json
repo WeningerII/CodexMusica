@@ -1,0 +1,210 @@
+{
+  "id": "tungna",
+  "name": "Tungna (Nepali Tamang four-string plucked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tungna",
+  "parts": [
+    {
+      "id": "tungna_form",
+      "name": "Body and hide",
+      "variants": [
+        {
+          "id": "tungna_hide_top",
+          "default": true,
+          "name": "Carved wood body with goat/sheep hide soundboard",
+          "descriptors": [
+            "dry",
+            "buzzing-timbre",
+            "rustic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "tungna_wood_top",
+          "name": "All-wood soundboard variant",
+          "descriptors": [
+            "brighter",
+            "clearer"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tungna_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "tungna_selo",
+          "default": true,
+          "name": "Tamang selo song accompaniment (steady strum)",
+          "descriptors": [
+            "strummed",
+            "lilting",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "strummed",
+            "tamang"
+          ]
+        },
+        {
+          "id": "tungna_melodic",
+          "name": "Melodic plucking with drone strings",
+          "descriptors": [
+            "plucked",
+            "droning",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tungna_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tungna_nylon",
+          "default": true,
+          "name": "Nylon strings (modern)",
+          "descriptors": [
+            "soft",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        },
+        {
+          "id": "tungna_gut",
+          "name": "Gut / sinew strings (traditional)",
+          "descriptors": [
+            "dull",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tungna_form",
+      "name": "Body and hide",
+      "variants": [
+        {
+          "id": "tungna_hide_top",
+          "default": true,
+          "name": "Carved wood body with goat/sheep hide soundboard",
+          "descriptors": [
+            "dry",
+            "buzzing-timbre",
+            "rustic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "tungna_wood_top",
+          "name": "All-wood soundboard variant",
+          "descriptors": [
+            "brighter",
+            "clearer"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tungna_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "tungna_selo",
+          "default": true,
+          "name": "Tamang selo song accompaniment (steady strum)",
+          "descriptors": [
+            "strummed",
+            "lilting",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "strummed",
+            "tamang"
+          ]
+        },
+        {
+          "id": "tungna_melodic",
+          "name": "Melodic plucking with drone strings",
+          "descriptors": [
+            "plucked",
+            "droning",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tungna_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tungna_nylon",
+          "default": true,
+          "name": "Nylon strings (modern)",
+          "descriptors": [
+            "soft",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        },
+        {
+          "id": "tungna_gut",
+          "name": "Gut / sinew strings (traditional)",
+          "descriptors": [
+            "dull",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    }
+  ]
+}

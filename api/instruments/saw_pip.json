@@ -1,0 +1,171 @@
+{
+  "id": "saw_pip",
+  "name": "Saw pip (Thai tin-can bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "saw pip",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "saw_pip_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "saw_pip_tin_can",
+          "default": true,
+          "name": "Metal tin/kerosene can resonator (canonical folk build)",
+          "descriptors": [
+            "buzzing-timbre",
+            "nasal",
+            "raw-toned"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "thai-folk"
+          ]
+        },
+        {
+          "id": "saw_pip_coconut",
+          "name": "Coconut-shell resonator",
+          "descriptors": [
+            "warmer",
+            "rounder"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_pip_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saw_pip_steel",
+          "default": true,
+          "name": "Steel strings (modern folk)",
+          "descriptors": [
+            "bright",
+            "edgy"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "saw_pip_silk",
+          "name": "Silk strings",
+          "descriptors": [
+            "mellow",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saw_pip_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "saw_pip_tin_can",
+          "default": true,
+          "name": "Metal tin/kerosene can resonator (canonical folk build)",
+          "descriptors": [
+            "buzzing-timbre",
+            "nasal",
+            "raw-toned"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "thai-folk"
+          ]
+        },
+        {
+          "id": "saw_pip_coconut",
+          "name": "Coconut-shell resonator",
+          "descriptors": [
+            "warmer",
+            "rounder"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_pip_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saw_pip_steel",
+          "default": true,
+          "name": "Steel strings (modern folk)",
+          "descriptors": [
+            "bright",
+            "edgy"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "saw_pip_silk",
+          "name": "Silk strings",
+          "descriptors": [
+            "mellow",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

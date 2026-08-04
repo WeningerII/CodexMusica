@@ -1,0 +1,150 @@
+{
+  "id": "dobat",
+  "name": "Dobat (Burmese short double-headed folk drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "dobat",
+  "parts": [
+    {
+      "id": "dobat_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "dobat_slung_pair_heads",
+          "default": true,
+          "name": "Short barrel body slung at waist, both heads hand-struck (canonical)",
+          "descriptors": [
+            "dry-thump",
+            "snappy",
+            "driving"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "burmese"
+          ]
+        },
+        {
+          "id": "dobat_large",
+          "name": "Larger festival dobat",
+          "descriptors": [
+            "deep-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dobat_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dobat_byaw_village",
+          "default": true,
+          "name": "Village festival / dobat ensemble (canonical)",
+          "descriptors": [
+            "celebratory",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "burmese",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "dobat_procession",
+          "name": "Shinbyu procession",
+          "descriptors": [
+            "marching",
+            "insistent"
+          ],
+          "match_tokens": [
+            "burmese",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dobat_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "dobat_slung_pair_heads",
+          "default": true,
+          "name": "Short barrel body slung at waist, both heads hand-struck (canonical)",
+          "descriptors": [
+            "dry-thump",
+            "snappy",
+            "driving"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "burmese"
+          ]
+        },
+        {
+          "id": "dobat_large",
+          "name": "Larger festival dobat",
+          "descriptors": [
+            "deep-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dobat_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dobat_byaw_village",
+          "default": true,
+          "name": "Village festival / dobat ensemble (canonical)",
+          "descriptors": [
+            "celebratory",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "burmese",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "dobat_procession",
+          "name": "Shinbyu procession",
+          "descriptors": [
+            "marching",
+            "insistent"
+          ],
+          "match_tokens": [
+            "burmese",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ]
+}

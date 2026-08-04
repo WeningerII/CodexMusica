@@ -1,0 +1,261 @@
+{
+  "id": "matouqin",
+  "name": "Matouqin (Chinese-Mongolian horsehead bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "matouqin",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "matouqin_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "matouqin_horsehair",
+          "default": true,
+          "name": "Traditional horsehair bundle strings",
+          "descriptors": [
+            "husky",
+            "buzzing-timbre",
+            "breathy"
+          ],
+          "match_tokens": [
+            "horsehead-fiddle",
+            "inner-mongolia"
+          ]
+        },
+        {
+          "id": "matouqin_nylon",
+          "name": "Modern nylon strings (concert build)",
+          "descriptors": [
+            "clear",
+            "projecting",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "horsehead-fiddle",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "matouqin_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "matouqin_urtiin_duu",
+          "default": true,
+          "name": "Long-song (urtiin duu) accompaniment",
+          "descriptors": [
+            "rubato",
+            "voice-shadowing",
+            "legato"
+          ],
+          "match_tokens": [
+            "long-song",
+            "bowed"
+          ]
+        },
+        {
+          "id": "matouqin_bogino",
+          "name": "Short-song and dance tunes",
+          "descriptors": [
+            "driving",
+            "bouncing-bow"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "bowed"
+          ]
+        },
+        {
+          "id": "matouqin_orchestral",
+          "name": "Chinese-orchestra section playing",
+          "descriptors": [
+            "blended",
+            "broad-toned"
+          ],
+          "match_tokens": [
+            "chinese-orchestra",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "matouqin_soundboard",
+      "surface": false,
+      "name": "Soundbox face",
+      "variants": [
+        {
+          "id": "matouqin_hide",
+          "default": true,
+          "name": "Camel or goat hide face",
+          "descriptors": [
+            "nasal",
+            "earthy"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "matouqin_wood",
+          "name": "Wooden soundboard (modern)",
+          "descriptors": [
+            "louder",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "matouqin_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "matouqin_horsehair",
+          "default": true,
+          "name": "Traditional horsehair bundle strings",
+          "descriptors": [
+            "husky",
+            "buzzing-timbre",
+            "breathy"
+          ],
+          "match_tokens": [
+            "horsehead-fiddle",
+            "inner-mongolia"
+          ]
+        },
+        {
+          "id": "matouqin_nylon",
+          "name": "Modern nylon strings (concert build)",
+          "descriptors": [
+            "clear",
+            "projecting",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "horsehead-fiddle",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "matouqin_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "matouqin_urtiin_duu",
+          "default": true,
+          "name": "Long-song (urtiin duu) accompaniment",
+          "descriptors": [
+            "rubato",
+            "voice-shadowing",
+            "legato"
+          ],
+          "match_tokens": [
+            "long-song",
+            "bowed"
+          ]
+        },
+        {
+          "id": "matouqin_bogino",
+          "name": "Short-song and dance tunes",
+          "descriptors": [
+            "driving",
+            "bouncing-bow"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "bowed"
+          ]
+        },
+        {
+          "id": "matouqin_orchestral",
+          "name": "Chinese-orchestra section playing",
+          "descriptors": [
+            "blended",
+            "broad-toned"
+          ],
+          "match_tokens": [
+            "chinese-orchestra",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "matouqin_soundboard",
+      "surface": false,
+      "name": "Soundbox face",
+      "variants": [
+        {
+          "id": "matouqin_hide",
+          "default": true,
+          "name": "Camel or goat hide face",
+          "descriptors": [
+            "nasal",
+            "earthy"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "matouqin_wood",
+          "name": "Wooden soundboard (modern)",
+          "descriptors": [
+            "louder",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

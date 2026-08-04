@@ -1,0 +1,236 @@
+{
+  "id": "kotsuzumi",
+  "name": "Kotsuzumi (small hourglass shoulder drum of noh and kabuki)",
+  "family": "percussion",
+  "class": "hourglass_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kotsuzumi",
+  "parts": [
+    {
+      "id": "kotsuzumi_stroke",
+      "name": "Stroke type",
+      "variants": [
+        {
+          "id": "kotsuzumi_pon",
+          "default": true,
+          "name": "Pon (open ringing centre stroke)",
+          "descriptors": [
+            "ringing",
+            "bending-pitch",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "kotsuzumi_chi",
+          "name": "Chi (light fingertip tap)",
+          "descriptors": [
+            "dry-tap",
+            "delicate"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "noh"
+          ]
+        },
+        {
+          "id": "kotsuzumi_ta",
+          "name": "Ta / pu (squeezed damped stroke)",
+          "descriptors": [
+            "choked",
+            "muted",
+            "pitch-raised"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "squeezed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotsuzumi_head_moisture",
+      "name": "Head condition (moisture)",
+      "variants": [
+        {
+          "id": "kotsuzumi_damp",
+          "default": true,
+          "name": "Breath-moistened head (shime-gami applied)",
+          "descriptors": [
+            "mellow",
+            "full-toned",
+            "singing"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "horsehide"
+          ]
+        },
+        {
+          "id": "kotsuzumi_dry",
+          "name": "Dry head",
+          "descriptors": [
+            "hard-toned",
+            "clipped"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotsuzumi_cord",
+      "surface": false,
+      "name": "Shirabe cord tension",
+      "variants": [
+        {
+          "id": "kotsuzumi_loose_cord",
+          "default": true,
+          "name": "Slack cord (grip-modulated)",
+          "descriptors": [
+            "pitch-bending",
+            "expressive"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "kotsuzumi_tight_cord",
+          "name": "Tight cord",
+          "descriptors": [
+            "high-pitched",
+            "tense"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kotsuzumi_stroke",
+      "name": "Stroke type",
+      "variants": [
+        {
+          "id": "kotsuzumi_pon",
+          "default": true,
+          "name": "Pon (open ringing centre stroke)",
+          "descriptors": [
+            "ringing",
+            "bending-pitch",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "noh",
+            "japanese"
+          ]
+        },
+        {
+          "id": "kotsuzumi_chi",
+          "name": "Chi (light fingertip tap)",
+          "descriptors": [
+            "dry-tap",
+            "delicate"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "noh"
+          ]
+        },
+        {
+          "id": "kotsuzumi_ta",
+          "name": "Ta / pu (squeezed damped stroke)",
+          "descriptors": [
+            "choked",
+            "muted",
+            "pitch-raised"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "squeezed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotsuzumi_head_moisture",
+      "name": "Head condition (moisture)",
+      "variants": [
+        {
+          "id": "kotsuzumi_damp",
+          "default": true,
+          "name": "Breath-moistened head (shime-gami applied)",
+          "descriptors": [
+            "mellow",
+            "full-toned",
+            "singing"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "horsehide"
+          ]
+        },
+        {
+          "id": "kotsuzumi_dry",
+          "name": "Dry head",
+          "descriptors": [
+            "hard-toned",
+            "clipped"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotsuzumi_cord",
+      "surface": false,
+      "name": "Shirabe cord tension",
+      "variants": [
+        {
+          "id": "kotsuzumi_loose_cord",
+          "default": true,
+          "name": "Slack cord (grip-modulated)",
+          "descriptors": [
+            "pitch-bending",
+            "expressive"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "kotsuzumi_tight_cord",
+          "name": "Tight cord",
+          "descriptors": [
+            "high-pitched",
+            "tense"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

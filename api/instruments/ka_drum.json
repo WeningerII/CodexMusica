@@ -1,0 +1,274 @@
+{
+  "id": "ka_drum",
+  "name": "Ka (Guadeloupean gwo ka barrel drum)",
+  "family": "percussion",
+  "class": "barrel_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "ka drum",
+  "parts": [
+    {
+      "id": "ka_voice",
+      "name": "Ensemble voice",
+      "variants": [
+        {
+          "id": "ka_make",
+          "default": true,
+          "name": "Makè (lead drum, marking the dancer)",
+          "descriptors": [
+            "improvisatory",
+            "sharp-attack",
+            "conversational"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka",
+            "guadeloupe"
+          ]
+        },
+        {
+          "id": "ka_boula_voice",
+          "name": "Boula (supporting steady pulse)",
+          "descriptors": [
+            "deep-toned",
+            "repetitive",
+            "grounding"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka",
+            "bass-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ka_rhythm",
+      "name": "Gwo ka rhythm (of the seven)",
+      "variants": [
+        {
+          "id": "ka_lewoz",
+          "default": true,
+          "name": "Léwòz (fast, combative)",
+          "descriptors": [
+            "urgent",
+            "fiery",
+            "driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "lewoz"
+          ]
+        },
+        {
+          "id": "ka_kaladja",
+          "name": "Kaladja (slow, sorrowful)",
+          "descriptors": [
+            "heavy",
+            "mournful",
+            "broad"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka"
+          ]
+        },
+        {
+          "id": "ka_toumblak",
+          "name": "Toumblak (rolling, sensual)",
+          "descriptors": [
+            "rolling",
+            "lilting",
+            "warm"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka"
+          ]
+        },
+        {
+          "id": "ka_grage",
+          "name": "Graj (work-rhythm, brisk)",
+          "descriptors": [
+            "brisk",
+            "scrubbing",
+            "labor-paced"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ka_build",
+      "surface": false,
+      "name": "Shell construction",
+      "variants": [
+        {
+          "id": "ka_salt_barrel",
+          "default": true,
+          "name": "Salt-beef barrel staves with goatskin head",
+          "descriptors": [
+            "woody",
+            "resonant",
+            "rustic"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        },
+        {
+          "id": "ka_carved",
+          "name": "Carved single-log shell",
+          "descriptors": [
+            "dense",
+            "focused",
+            "dark"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ka_voice",
+      "name": "Ensemble voice",
+      "variants": [
+        {
+          "id": "ka_make",
+          "default": true,
+          "name": "Makè (lead drum, marking the dancer)",
+          "descriptors": [
+            "improvisatory",
+            "sharp-attack",
+            "conversational"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka",
+            "guadeloupe"
+          ]
+        },
+        {
+          "id": "ka_boula_voice",
+          "name": "Boula (supporting steady pulse)",
+          "descriptors": [
+            "deep-toned",
+            "repetitive",
+            "grounding"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka",
+            "bass-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ka_rhythm",
+      "name": "Gwo ka rhythm (of the seven)",
+      "variants": [
+        {
+          "id": "ka_lewoz",
+          "default": true,
+          "name": "Léwòz (fast, combative)",
+          "descriptors": [
+            "urgent",
+            "fiery",
+            "driving"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "lewoz"
+          ]
+        },
+        {
+          "id": "ka_kaladja",
+          "name": "Kaladja (slow, sorrowful)",
+          "descriptors": [
+            "heavy",
+            "mournful",
+            "broad"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka"
+          ]
+        },
+        {
+          "id": "ka_toumblak",
+          "name": "Toumblak (rolling, sensual)",
+          "descriptors": [
+            "rolling",
+            "lilting",
+            "warm"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "gwoka"
+          ]
+        },
+        {
+          "id": "ka_grage",
+          "name": "Graj (work-rhythm, brisk)",
+          "descriptors": [
+            "brisk",
+            "scrubbing",
+            "labor-paced"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ka_build",
+      "surface": false,
+      "name": "Shell construction",
+      "variants": [
+        {
+          "id": "ka_salt_barrel",
+          "default": true,
+          "name": "Salt-beef barrel staves with goatskin head",
+          "descriptors": [
+            "woody",
+            "resonant",
+            "rustic"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        },
+        {
+          "id": "ka_carved",
+          "name": "Carved single-log shell",
+          "descriptors": [
+            "dense",
+            "focused",
+            "dark"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

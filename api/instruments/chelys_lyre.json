@@ -1,0 +1,242 @@
+{
+  "id": "chelys_lyre",
+  "name": "Chelys (Greek tortoise-shell lyra of the schoolroom)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "chelys",
+  "parts": [
+    {
+      "id": "chelys_shell",
+      "name": "Soundbox",
+      "variants": [
+        {
+          "id": "chelys_tortoise",
+          "default": true,
+          "name": "Real tortoise carapace with hide soundboard",
+          "descriptors": [
+            "nasal",
+            "buzzing-timbre",
+            "soft"
+          ],
+          "match_tokens": [
+            "lyre",
+            "tortoise-shell",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "chelys_carved_wood",
+          "name": "Carved wooden imitation bowl",
+          "descriptors": [
+            "woody",
+            "rounder",
+            "warmer"
+          ],
+          "match_tokens": [
+            "lyre",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chelys_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "chelys_plectrum",
+          "default": true,
+          "name": "Plectrum sweep with finger damping",
+          "descriptors": [
+            "bright-attack",
+            "chordal",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "plectrum",
+            "strummed"
+          ]
+        },
+        {
+          "id": "chelys_fingers",
+          "name": "Finger-plucked melody",
+          "descriptors": [
+            "delicate",
+            "thin",
+            "intimate"
+          ],
+          "match_tokens": [
+            "finger-plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chelys_tuning",
+      "surface": false,
+      "name": "Tuning (harmonia)",
+      "variants": [
+        {
+          "id": "chelys_dorian",
+          "default": true,
+          "name": "Dorian harmonia",
+          "descriptors": [
+            "grave",
+            "steady"
+          ],
+          "match_tokens": [
+            "ancient-greek",
+            "modal"
+          ]
+        },
+        {
+          "id": "chelys_phrygian",
+          "name": "Phrygian harmonia",
+          "descriptors": [
+            "stirring",
+            "tense"
+          ],
+          "match_tokens": [
+            "ancient-greek",
+            "modal"
+          ]
+        },
+        {
+          "id": "chelys_lydian",
+          "name": "Lydian harmonia",
+          "descriptors": [
+            "soft",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "ancient-greek",
+            "modal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chelys_shell",
+      "name": "Soundbox",
+      "variants": [
+        {
+          "id": "chelys_tortoise",
+          "default": true,
+          "name": "Real tortoise carapace with hide soundboard",
+          "descriptors": [
+            "nasal",
+            "buzzing-timbre",
+            "soft"
+          ],
+          "match_tokens": [
+            "lyre",
+            "tortoise-shell",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "chelys_carved_wood",
+          "name": "Carved wooden imitation bowl",
+          "descriptors": [
+            "woody",
+            "rounder",
+            "warmer"
+          ],
+          "match_tokens": [
+            "lyre",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chelys_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "chelys_plectrum",
+          "default": true,
+          "name": "Plectrum sweep with finger damping",
+          "descriptors": [
+            "bright-attack",
+            "chordal",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "plectrum",
+            "strummed"
+          ]
+        },
+        {
+          "id": "chelys_fingers",
+          "name": "Finger-plucked melody",
+          "descriptors": [
+            "delicate",
+            "thin",
+            "intimate"
+          ],
+          "match_tokens": [
+            "finger-plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chelys_tuning",
+      "surface": false,
+      "name": "Tuning (harmonia)",
+      "variants": [
+        {
+          "id": "chelys_dorian",
+          "default": true,
+          "name": "Dorian harmonia",
+          "descriptors": [
+            "grave",
+            "steady"
+          ],
+          "match_tokens": [
+            "ancient-greek",
+            "modal"
+          ]
+        },
+        {
+          "id": "chelys_phrygian",
+          "name": "Phrygian harmonia",
+          "descriptors": [
+            "stirring",
+            "tense"
+          ],
+          "match_tokens": [
+            "ancient-greek",
+            "modal"
+          ]
+        },
+        {
+          "id": "chelys_lydian",
+          "name": "Lydian harmonia",
+          "descriptors": [
+            "soft",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "ancient-greek",
+            "modal"
+          ]
+        }
+      ]
+    }
+  ]
+}

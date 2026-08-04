@@ -1,0 +1,165 @@
+{
+  "id": "orphica",
+  "name": "Orphica (portable early-19th-century piano)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "orphica",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "orphica_form",
+      "name": "Size / stringing",
+      "variants": [
+        {
+          "id": "orphica_small",
+          "default": true,
+          "name": "Small strap-held orphica (three octaves)",
+          "descriptors": [
+            "thin-toned",
+            "delicate",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "portable-piano",
+            "fortepiano"
+          ]
+        },
+        {
+          "id": "orphica_large",
+          "name": "Larger table orphica (four+ octaves)",
+          "descriptors": [
+            "fuller",
+            "clearer-bass"
+          ],
+          "match_tokens": [
+            "portable-piano"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orphica_play",
+      "name": "Playing posture",
+      "variants": [
+        {
+          "id": "orphica_strapped",
+          "default": true,
+          "name": "Slung on a strap, played standing",
+          "descriptors": [
+            "intimate",
+            "serenade-like"
+          ],
+          "match_tokens": [
+            "portable-piano"
+          ]
+        },
+        {
+          "id": "orphica_table",
+          "name": "Rested on a table",
+          "descriptors": [
+            "resonant",
+            "steadier"
+          ],
+          "match_tokens": [
+            "portable-piano"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "orphica_form",
+      "name": "Size / stringing",
+      "variants": [
+        {
+          "id": "orphica_small",
+          "default": true,
+          "name": "Small strap-held orphica (three octaves)",
+          "descriptors": [
+            "thin-toned",
+            "delicate",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "portable-piano",
+            "fortepiano"
+          ]
+        },
+        {
+          "id": "orphica_large",
+          "name": "Larger table orphica (four+ octaves)",
+          "descriptors": [
+            "fuller",
+            "clearer-bass"
+          ],
+          "match_tokens": [
+            "portable-piano"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orphica_play",
+      "name": "Playing posture",
+      "variants": [
+        {
+          "id": "orphica_strapped",
+          "default": true,
+          "name": "Slung on a strap, played standing",
+          "descriptors": [
+            "intimate",
+            "serenade-like"
+          ],
+          "match_tokens": [
+            "portable-piano"
+          ]
+        },
+        {
+          "id": "orphica_table",
+          "name": "Rested on a table",
+          "descriptors": [
+            "resonant",
+            "steadier"
+          ],
+          "match_tokens": [
+            "portable-piano"
+          ]
+        }
+      ]
+    }
+  ]
+}

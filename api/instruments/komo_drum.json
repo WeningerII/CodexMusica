@@ -1,0 +1,146 @@
+{
+  "id": "komo_drum",
+  "name": "Komo (Bamana kòmò-society ritual single-headed drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "komo",
+  "parts": [
+    {
+      "id": "komo_body",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "komo_standard",
+          "default": true,
+          "name": "Carved hardwood shell, pegged goatskin head",
+          "descriptors": [
+            "dark-toned",
+            "cutting-slap"
+          ],
+          "match_tokens": [
+            "ritual-drum",
+            "bamana"
+          ]
+        },
+        {
+          "id": "komo_large",
+          "name": "Large bass shell",
+          "descriptors": [
+            "deep-toned",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "ritual-drum",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "komo_context",
+      "surface": false,
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "komo_masquerade",
+          "default": true,
+          "name": "Kòmò masquerade night ceremony",
+          "descriptors": [
+            "trance-inducing",
+            "relentless"
+          ],
+          "match_tokens": [
+            "ritual-music",
+            "mande"
+          ]
+        },
+        {
+          "id": "komo_initiation",
+          "name": "Initiation rite accompaniment",
+          "descriptors": [
+            "solemn",
+            "measured"
+          ],
+          "match_tokens": [
+            "ritual-music"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "komo_body",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "komo_standard",
+          "default": true,
+          "name": "Carved hardwood shell, pegged goatskin head",
+          "descriptors": [
+            "dark-toned",
+            "cutting-slap"
+          ],
+          "match_tokens": [
+            "ritual-drum",
+            "bamana"
+          ]
+        },
+        {
+          "id": "komo_large",
+          "name": "Large bass shell",
+          "descriptors": [
+            "deep-toned",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "ritual-drum",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "komo_context",
+      "surface": false,
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "komo_masquerade",
+          "default": true,
+          "name": "Kòmò masquerade night ceremony",
+          "descriptors": [
+            "trance-inducing",
+            "relentless"
+          ],
+          "match_tokens": [
+            "ritual-music",
+            "mande"
+          ]
+        },
+        {
+          "id": "komo_initiation",
+          "name": "Initiation rite accompaniment",
+          "descriptors": [
+            "solemn",
+            "measured"
+          ],
+          "match_tokens": [
+            "ritual-music"
+          ]
+        }
+      ]
+    }
+  ]
+}

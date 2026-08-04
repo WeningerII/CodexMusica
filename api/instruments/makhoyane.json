@@ -1,0 +1,140 @@
+{
+  "id": "makhoyane",
+  "name": "Makhoyane (Swazi braced gourd bow)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "makhoyane",
+  "parts": [
+    {
+      "id": "makhoyane_brace",
+      "name": "Bracing / tuning of the two segments",
+      "variants": [
+        {
+          "id": "makhoyane_whole_tone",
+          "default": true,
+          "name": "Segments a whole tone apart",
+          "descriptors": [
+            "two-tone-drone",
+            "shifting-harmonics"
+          ],
+          "match_tokens": [
+            "braced-bow",
+            "swazi"
+          ]
+        },
+        {
+          "id": "makhoyane_semitone",
+          "name": "Narrow semitone bracing",
+          "descriptors": [
+            "tight-interval",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "braced-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "makhoyane_stroke",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "makhoyane_grass_beater",
+          "default": true,
+          "name": "Struck with a light grass stalk",
+          "descriptors": [
+            "soft-attack",
+            "whispery"
+          ],
+          "match_tokens": [
+            "struck-bow"
+          ]
+        },
+        {
+          "id": "makhoyane_stick",
+          "name": "Struck with a firm stick",
+          "descriptors": [
+            "dry-attack",
+            "percussive"
+          ],
+          "match_tokens": [
+            "struck-bow"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "makhoyane_brace",
+      "name": "Bracing / tuning of the two segments",
+      "variants": [
+        {
+          "id": "makhoyane_whole_tone",
+          "default": true,
+          "name": "Segments a whole tone apart",
+          "descriptors": [
+            "two-tone-drone",
+            "shifting-harmonics"
+          ],
+          "match_tokens": [
+            "braced-bow",
+            "swazi"
+          ]
+        },
+        {
+          "id": "makhoyane_semitone",
+          "name": "Narrow semitone bracing",
+          "descriptors": [
+            "tight-interval",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "braced-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "makhoyane_stroke",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "makhoyane_grass_beater",
+          "default": true,
+          "name": "Struck with a light grass stalk",
+          "descriptors": [
+            "soft-attack",
+            "whispery"
+          ],
+          "match_tokens": [
+            "struck-bow"
+          ]
+        },
+        {
+          "id": "makhoyane_stick",
+          "name": "Struck with a firm stick",
+          "descriptors": [
+            "dry-attack",
+            "percussive"
+          ],
+          "match_tokens": [
+            "struck-bow"
+          ]
+        }
+      ]
+    }
+  ]
+}

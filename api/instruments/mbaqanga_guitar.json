@@ -1,0 +1,208 @@
+{
+  "id": "mbaqanga_guitar",
+  "name": "Mbaqanga guitar (South African township lead/rhythm guitar)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "short": "mbaqanga guitar",
+  "parts": [
+    {
+      "id": "mbaqanga_guitar_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "mbaqanga_lead",
+          "default": true,
+          "name": "Lead line (single-note treble riffing)",
+          "descriptors": [
+            "bright-attack",
+            "chiming",
+            "looping-riff"
+          ],
+          "match_tokens": [
+            "township-jive",
+            "lead-guitar"
+          ]
+        },
+        {
+          "id": "mbaqanga_rhythm",
+          "name": "Rhythm comping (chugging offbeats)",
+          "descriptors": [
+            "chugging",
+            "percussive-strum"
+          ],
+          "match_tokens": [
+            "township-jive",
+            "rhythm-guitar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbaqanga_guitar_tone",
+      "name": "Amplification / tone",
+      "variants": [
+        {
+          "id": "mbaqanga_clean_amp",
+          "default": true,
+          "name": "Clean valve-amp tone with spring reverb",
+          "descriptors": [
+            "twangy",
+            "springy"
+          ],
+          "match_tokens": [
+            "clean-tone",
+            "electric"
+          ]
+        },
+        {
+          "id": "mbaqanga_acoustic",
+          "name": "Unamplified acoustic guitar",
+          "descriptors": [
+            "woody",
+            "dry"
+          ],
+          "match_tokens": [
+            "acoustic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbaqanga_guitar_tuning",
+      "surface": false,
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "mbaqanga_standard_tuning",
+          "default": true,
+          "name": "Standard tuning",
+          "descriptors": [
+            "familiar",
+            "versatile"
+          ],
+          "match_tokens": [
+            "standard-tuning"
+          ]
+        },
+        {
+          "id": "mbaqanga_open_tuning",
+          "name": "Open / vamp tuning (marabi carryover)",
+          "descriptors": [
+            "ringing-open",
+            "droning"
+          ],
+          "match_tokens": [
+            "open-tuning",
+            "marabi"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mbaqanga_guitar_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "mbaqanga_lead",
+          "default": true,
+          "name": "Lead line (single-note treble riffing)",
+          "descriptors": [
+            "bright-attack",
+            "chiming",
+            "looping-riff"
+          ],
+          "match_tokens": [
+            "township-jive",
+            "lead-guitar"
+          ]
+        },
+        {
+          "id": "mbaqanga_rhythm",
+          "name": "Rhythm comping (chugging offbeats)",
+          "descriptors": [
+            "chugging",
+            "percussive-strum"
+          ],
+          "match_tokens": [
+            "township-jive",
+            "rhythm-guitar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbaqanga_guitar_tone",
+      "name": "Amplification / tone",
+      "variants": [
+        {
+          "id": "mbaqanga_clean_amp",
+          "default": true,
+          "name": "Clean valve-amp tone with spring reverb",
+          "descriptors": [
+            "twangy",
+            "springy"
+          ],
+          "match_tokens": [
+            "clean-tone",
+            "electric"
+          ]
+        },
+        {
+          "id": "mbaqanga_acoustic",
+          "name": "Unamplified acoustic guitar",
+          "descriptors": [
+            "woody",
+            "dry"
+          ],
+          "match_tokens": [
+            "acoustic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbaqanga_guitar_tuning",
+      "surface": false,
+      "name": "Tuning",
+      "variants": [
+        {
+          "id": "mbaqanga_standard_tuning",
+          "default": true,
+          "name": "Standard tuning",
+          "descriptors": [
+            "familiar",
+            "versatile"
+          ],
+          "match_tokens": [
+            "standard-tuning"
+          ]
+        },
+        {
+          "id": "mbaqanga_open_tuning",
+          "name": "Open / vamp tuning (marabi carryover)",
+          "descriptors": [
+            "ringing-open",
+            "droning"
+          ],
+          "match_tokens": [
+            "open-tuning",
+            "marabi"
+          ]
+        }
+      ]
+    }
+  ]
+}

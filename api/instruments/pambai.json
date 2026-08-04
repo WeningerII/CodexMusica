@@ -1,0 +1,258 @@
+{
+  "id": "pambai",
+  "name": "Pambai (Tamil paired cylindrical folk drums)",
+  "family": "percussion",
+  "class": "cylindrical_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pambai",
+  "parts": [
+    {
+      "id": "pambai_pair",
+      "name": "Drum pairing",
+      "variants": [
+        {
+          "id": "pambai_wood_metal_pair",
+          "default": true,
+          "name": "Wooden upper drum plus brass lower drum, strapped together (canonical)",
+          "descriptors": [
+            "contrasting-pitches",
+            "cracking-attack",
+            "metallic-ring"
+          ],
+          "match_tokens": [
+            "paired-drums",
+            "tamil-folk"
+          ]
+        },
+        {
+          "id": "pambai_both_wood",
+          "name": "Both shells wooden",
+          "descriptors": [
+            "woody",
+            "drier",
+            "warmer"
+          ],
+          "match_tokens": [
+            "paired-drums",
+            "tamil-folk"
+          ]
+        },
+        {
+          "id": "pambai_both_metal",
+          "name": "Both shells metal",
+          "descriptors": [
+            "clangy",
+            "sharp",
+            "ringing"
+          ],
+          "match_tokens": [
+            "paired-drums"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pambai_technique",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "pambai_stick_rolls",
+          "default": true,
+          "name": "Rapid thin-stick rolls in village ritual",
+          "descriptors": [
+            "rattling",
+            "driving",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "ritual-procession"
+          ]
+        },
+        {
+          "id": "pambai_accent_strokes",
+          "name": "Sparse accented signal strokes",
+          "descriptors": [
+            "punctuating",
+            "sharp"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "pambai_dance",
+          "name": "Dance-accompanying interlocking pattern",
+          "descriptors": [
+            "interlocking",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pambai_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "pambai_goat",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "crisp",
+            "bright-snap"
+          ],
+          "match_tokens": [
+            "paired-drums"
+          ]
+        },
+        {
+          "id": "pambai_cow",
+          "name": "Cowhide heads",
+          "descriptors": [
+            "thicker",
+            "lower-toned"
+          ],
+          "match_tokens": [
+            "paired-drums"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pambai_pair",
+      "name": "Drum pairing",
+      "variants": [
+        {
+          "id": "pambai_wood_metal_pair",
+          "default": true,
+          "name": "Wooden upper drum plus brass lower drum, strapped together (canonical)",
+          "descriptors": [
+            "contrasting-pitches",
+            "cracking-attack",
+            "metallic-ring"
+          ],
+          "match_tokens": [
+            "paired-drums",
+            "tamil-folk"
+          ]
+        },
+        {
+          "id": "pambai_both_wood",
+          "name": "Both shells wooden",
+          "descriptors": [
+            "woody",
+            "drier",
+            "warmer"
+          ],
+          "match_tokens": [
+            "paired-drums",
+            "tamil-folk"
+          ]
+        },
+        {
+          "id": "pambai_both_metal",
+          "name": "Both shells metal",
+          "descriptors": [
+            "clangy",
+            "sharp",
+            "ringing"
+          ],
+          "match_tokens": [
+            "paired-drums"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pambai_technique",
+      "name": "Stroke technique",
+      "variants": [
+        {
+          "id": "pambai_stick_rolls",
+          "default": true,
+          "name": "Rapid thin-stick rolls in village ritual",
+          "descriptors": [
+            "rattling",
+            "driving",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "ritual-procession"
+          ]
+        },
+        {
+          "id": "pambai_accent_strokes",
+          "name": "Sparse accented signal strokes",
+          "descriptors": [
+            "punctuating",
+            "sharp"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "pambai_dance",
+          "name": "Dance-accompanying interlocking pattern",
+          "descriptors": [
+            "interlocking",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pambai_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "pambai_goat",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "crisp",
+            "bright-snap"
+          ],
+          "match_tokens": [
+            "paired-drums"
+          ]
+        },
+        {
+          "id": "pambai_cow",
+          "name": "Cowhide heads",
+          "descriptors": [
+            "thicker",
+            "lower-toned"
+          ],
+          "match_tokens": [
+            "paired-drums"
+          ]
+        }
+      ]
+    }
+  ]
+}

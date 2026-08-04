@@ -1,0 +1,146 @@
+{
+  "id": "frikyiwa",
+  "name": "Frikyiwa (Akan finger-castanet bell)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "frikyiwa",
+  "parts": [
+    {
+      "id": "frikyiwa_metal",
+      "name": "Metal",
+      "variants": [
+        {
+          "id": "frikyiwa_iron",
+          "default": true,
+          "name": "Forged iron clapper and ring",
+          "descriptors": [
+            "piercing-click",
+            "metallic-ping"
+          ],
+          "match_tokens": [
+            "metal-idiophone",
+            "akan"
+          ]
+        },
+        {
+          "id": "frikyiwa_brass",
+          "name": "Brass body",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frikyiwa_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "frikyiwa_timeline",
+          "default": true,
+          "name": "Timeline / bell pattern support",
+          "descriptors": [
+            "steady-pulse",
+            "cutting"
+          ],
+          "match_tokens": [
+            "timeline",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "frikyiwa_adowa",
+          "name": "Adowa accompaniment",
+          "descriptors": [
+            "lilting",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "adowa",
+            "akan"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "frikyiwa_metal",
+      "name": "Metal",
+      "variants": [
+        {
+          "id": "frikyiwa_iron",
+          "default": true,
+          "name": "Forged iron clapper and ring",
+          "descriptors": [
+            "piercing-click",
+            "metallic-ping"
+          ],
+          "match_tokens": [
+            "metal-idiophone",
+            "akan"
+          ]
+        },
+        {
+          "id": "frikyiwa_brass",
+          "name": "Brass body",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frikyiwa_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "frikyiwa_timeline",
+          "default": true,
+          "name": "Timeline / bell pattern support",
+          "descriptors": [
+            "steady-pulse",
+            "cutting"
+          ],
+          "match_tokens": [
+            "timeline",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "frikyiwa_adowa",
+          "name": "Adowa accompaniment",
+          "descriptors": [
+            "lilting",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "adowa",
+            "akan"
+          ]
+        }
+      ]
+    }
+  ]
+}

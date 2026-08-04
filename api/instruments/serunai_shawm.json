@@ -1,0 +1,176 @@
+{
+  "id": "serunai_shawm",
+  "name": "Serunai (Malay double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "serunai",
+  "parts": [
+    {
+      "id": "serunai_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "serunai_kelantan",
+          "default": true,
+          "name": "Kelantan serunai (wayang kulit / mak yong)",
+          "descriptors": [
+            "piercing",
+            "nasal-timbre",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm",
+            "malay"
+          ]
+        },
+        {
+          "id": "serunai_minang",
+          "name": "Minangkabau sarunai (Sumatran)",
+          "descriptors": [
+            "reedy",
+            "plaintive",
+            "circular-breathed"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "sumatra"
+          ]
+        },
+        {
+          "id": "serunai_silat",
+          "name": "Serunai for silat / gendang keling",
+          "descriptors": [
+            "strident",
+            "driving",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "serunai_bell",
+      "surface": false,
+      "name": "Bell material",
+      "variants": [
+        {
+          "id": "serunai_bell_wood",
+          "default": true,
+          "name": "Carved hardwood flared bell",
+          "descriptors": [
+            "warm-edged",
+            "woody"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "serunai_bell_metal",
+          "name": "Metal bell",
+          "descriptors": [
+            "brassy",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "serunai_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "serunai_kelantan",
+          "default": true,
+          "name": "Kelantan serunai (wayang kulit / mak yong)",
+          "descriptors": [
+            "piercing",
+            "nasal-timbre",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm",
+            "malay"
+          ]
+        },
+        {
+          "id": "serunai_minang",
+          "name": "Minangkabau sarunai (Sumatran)",
+          "descriptors": [
+            "reedy",
+            "plaintive",
+            "circular-breathed"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "sumatra"
+          ]
+        },
+        {
+          "id": "serunai_silat",
+          "name": "Serunai for silat / gendang keling",
+          "descriptors": [
+            "strident",
+            "driving",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "serunai_bell",
+      "surface": false,
+      "name": "Bell material",
+      "variants": [
+        {
+          "id": "serunai_bell_wood",
+          "default": true,
+          "name": "Carved hardwood flared bell",
+          "descriptors": [
+            "warm-edged",
+            "woody"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "serunai_bell_metal",
+          "name": "Metal bell",
+          "descriptors": [
+            "brassy",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "id": "dozaleh",
+  "name": "Dozaleh (Kurdish double single-reed clarinet)",
+  "family": "wind",
+  "class": "single_reed_double_clarinet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dozaleh",
+  "parts": [
+    {
+      "id": "dozaleh_tuning",
+      "name": "Pipe tuning relationship",
+      "variants": [
+        {
+          "id": "dozaleh_unison",
+          "default": true,
+          "name": "Near-unison twin pipes (beating)",
+          "descriptors": [
+            "beating",
+            "buzzing-timbre",
+            "thick"
+          ],
+          "match_tokens": [
+            "double-pipe",
+            "kurdish",
+            "single-reed"
+          ]
+        },
+        {
+          "id": "dozaleh_drone",
+          "name": "Melody pipe over drone pipe",
+          "descriptors": [
+            "droning",
+            "continuous"
+          ],
+          "match_tokens": [
+            "double-pipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dozaleh_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "dozaleh_circular",
+          "default": true,
+          "name": "Circular breathing (unbroken line)",
+          "descriptors": [
+            "seamless",
+            "relentless"
+          ],
+          "match_tokens": [
+            "blown",
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "dozaleh_phrased",
+          "name": "Phrased with breath pauses",
+          "descriptors": [
+            "song-like",
+            "breathing-phrases"
+          ],
+          "match_tokens": [
+            "blown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dozaleh_cane",
+      "surface": false,
+      "name": "Cane and reed cut",
+      "variants": [
+        {
+          "id": "dozaleh_thin",
+          "default": true,
+          "name": "Thin cane, light idioglot reeds",
+          "descriptors": [
+            "reedy",
+            "bright",
+            "nasal"
+          ],
+          "match_tokens": [
+            "single-reed"
+          ]
+        },
+        {
+          "id": "dozaleh_thick",
+          "name": "Thick cane, heavy reeds",
+          "descriptors": [
+            "raspy",
+            "dark",
+            "loud"
+          ],
+          "match_tokens": [
+            "single-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dozaleh_tuning",
+      "name": "Pipe tuning relationship",
+      "variants": [
+        {
+          "id": "dozaleh_unison",
+          "default": true,
+          "name": "Near-unison twin pipes (beating)",
+          "descriptors": [
+            "beating",
+            "buzzing-timbre",
+            "thick"
+          ],
+          "match_tokens": [
+            "double-pipe",
+            "kurdish",
+            "single-reed"
+          ]
+        },
+        {
+          "id": "dozaleh_drone",
+          "name": "Melody pipe over drone pipe",
+          "descriptors": [
+            "droning",
+            "continuous"
+          ],
+          "match_tokens": [
+            "double-pipe",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dozaleh_breath",
+      "name": "Breath technique",
+      "variants": [
+        {
+          "id": "dozaleh_circular",
+          "default": true,
+          "name": "Circular breathing (unbroken line)",
+          "descriptors": [
+            "seamless",
+            "relentless"
+          ],
+          "match_tokens": [
+            "blown",
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "dozaleh_phrased",
+          "name": "Phrased with breath pauses",
+          "descriptors": [
+            "song-like",
+            "breathing-phrases"
+          ],
+          "match_tokens": [
+            "blown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dozaleh_cane",
+      "surface": false,
+      "name": "Cane and reed cut",
+      "variants": [
+        {
+          "id": "dozaleh_thin",
+          "default": true,
+          "name": "Thin cane, light idioglot reeds",
+          "descriptors": [
+            "reedy",
+            "bright",
+            "nasal"
+          ],
+          "match_tokens": [
+            "single-reed"
+          ]
+        },
+        {
+          "id": "dozaleh_thick",
+          "name": "Thick cane, heavy reeds",
+          "descriptors": [
+            "raspy",
+            "dark",
+            "loud"
+          ],
+          "match_tokens": [
+            "single-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

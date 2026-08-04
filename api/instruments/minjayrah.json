@@ -1,0 +1,176 @@
+{
+  "id": "minjayrah",
+  "name": "Minjayrah (Levantine open end-blown shepherd flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "minjayrah",
+  "parts": [
+    {
+      "id": "minjayrah_tube",
+      "name": "Cane length / register",
+      "variants": [
+        {
+          "id": "minjayrah_standard",
+          "default": true,
+          "name": "Standard cane minjayrah",
+          "descriptors": [
+            "breathy",
+            "rustic",
+            "airy"
+          ],
+          "match_tokens": [
+            "blown",
+            "levantine",
+            "shepherd-flute"
+          ]
+        },
+        {
+          "id": "minjayrah_long",
+          "name": "Long low-pitched cane",
+          "descriptors": [
+            "deep-toned",
+            "hollow"
+          ],
+          "match_tokens": [
+            "blown",
+            "low-register"
+          ]
+        },
+        {
+          "id": "minjayrah_short",
+          "name": "Short high cane",
+          "descriptors": [
+            "piercing",
+            "bright"
+          ],
+          "match_tokens": [
+            "blown",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minjayrah_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "minjayrah_mawwal",
+          "default": true,
+          "name": "Free mawwal-style solo",
+          "descriptors": [
+            "rubato",
+            "plaintive",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "blown",
+            "improvised"
+          ]
+        },
+        {
+          "id": "minjayrah_dabke",
+          "name": "Dabke dance tunes",
+          "descriptors": [
+            "driving",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "blown",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "minjayrah_tube",
+      "name": "Cane length / register",
+      "variants": [
+        {
+          "id": "minjayrah_standard",
+          "default": true,
+          "name": "Standard cane minjayrah",
+          "descriptors": [
+            "breathy",
+            "rustic",
+            "airy"
+          ],
+          "match_tokens": [
+            "blown",
+            "levantine",
+            "shepherd-flute"
+          ]
+        },
+        {
+          "id": "minjayrah_long",
+          "name": "Long low-pitched cane",
+          "descriptors": [
+            "deep-toned",
+            "hollow"
+          ],
+          "match_tokens": [
+            "blown",
+            "low-register"
+          ]
+        },
+        {
+          "id": "minjayrah_short",
+          "name": "Short high cane",
+          "descriptors": [
+            "piercing",
+            "bright"
+          ],
+          "match_tokens": [
+            "blown",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minjayrah_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "minjayrah_mawwal",
+          "default": true,
+          "name": "Free mawwal-style solo",
+          "descriptors": [
+            "rubato",
+            "plaintive",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "blown",
+            "improvised"
+          ]
+        },
+        {
+          "id": "minjayrah_dabke",
+          "name": "Dabke dance tunes",
+          "descriptors": [
+            "driving",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "blown",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

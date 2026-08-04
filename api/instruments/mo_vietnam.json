@@ -1,0 +1,170 @@
+{
+  "id": "mo_vietnam",
+  "name": "Mo (Vietnamese wooden fish slit-block)",
+  "family": "percussion",
+  "class": "slit_gong",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "mo vietnam",
+  "parts": [
+    {
+      "id": "mo_vietnam_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "mo_vietnam_temple_medium",
+          "default": true,
+          "name": "Medium temple wooden fish (canonical)",
+          "descriptors": [
+            "hollow-knock",
+            "dry-toned",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wood-block",
+            "buddhist-temple"
+          ]
+        },
+        {
+          "id": "mo_vietnam_large",
+          "name": "Large hall mo (deep-voiced)",
+          "descriptors": [
+            "deep-toned",
+            "resonant-knock"
+          ],
+          "match_tokens": [
+            "wood-block",
+            "low-register"
+          ]
+        },
+        {
+          "id": "mo_vietnam_small",
+          "name": "Small hand mo",
+          "descriptors": [
+            "bright-attack",
+            "clicking"
+          ],
+          "match_tokens": [
+            "wood-block",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mo_vietnam_wood",
+      "surface": false,
+      "name": "Wood",
+      "variants": [
+        {
+          "id": "mo_vietnam_jackfruit",
+          "default": true,
+          "name": "Jackfruit wood (canonical)",
+          "descriptors": [
+            "warm-knock",
+            "woody"
+          ],
+          "match_tokens": [
+            "wood-block"
+          ]
+        },
+        {
+          "id": "mo_vietnam_camphor",
+          "name": "Camphor wood",
+          "descriptors": [
+            "drier",
+            "harder-attack"
+          ],
+          "match_tokens": [
+            "wood-block"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mo_vietnam_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "mo_vietnam_temple_medium",
+          "default": true,
+          "name": "Medium temple wooden fish (canonical)",
+          "descriptors": [
+            "hollow-knock",
+            "dry-toned",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wood-block",
+            "buddhist-temple"
+          ]
+        },
+        {
+          "id": "mo_vietnam_large",
+          "name": "Large hall mo (deep-voiced)",
+          "descriptors": [
+            "deep-toned",
+            "resonant-knock"
+          ],
+          "match_tokens": [
+            "wood-block",
+            "low-register"
+          ]
+        },
+        {
+          "id": "mo_vietnam_small",
+          "name": "Small hand mo",
+          "descriptors": [
+            "bright-attack",
+            "clicking"
+          ],
+          "match_tokens": [
+            "wood-block",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mo_vietnam_wood",
+      "surface": false,
+      "name": "Wood",
+      "variants": [
+        {
+          "id": "mo_vietnam_jackfruit",
+          "default": true,
+          "name": "Jackfruit wood (canonical)",
+          "descriptors": [
+            "warm-knock",
+            "woody"
+          ],
+          "match_tokens": [
+            "wood-block"
+          ]
+        },
+        {
+          "id": "mo_vietnam_camphor",
+          "name": "Camphor wood",
+          "descriptors": [
+            "drier",
+            "harder-attack"
+          ],
+          "match_tokens": [
+            "wood-block"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "id": "himalayan_singing_bowl",
+  "name": "Singing bowl (Himalayan standing bell)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "singing bowl",
+  "parts": [
+    {
+      "id": "singing_bowl_form",
+      "name": "Bowl form",
+      "variants": [
+        {
+          "id": "singing_bowl_hand_hammered",
+          "default": true,
+          "name": "Hand-hammered thick-walled bowl (canonical)",
+          "descriptors": [
+            "beating-partials",
+            "warm-hum",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "standing-bell",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "singing_bowl_large_low",
+          "name": "Large low jambati bowl",
+          "descriptors": [
+            "deep-toned",
+            "enveloping",
+            "slow-swell"
+          ],
+          "match_tokens": [
+            "standing-bell",
+            "low-register"
+          ]
+        },
+        {
+          "id": "singing_bowl_small_high",
+          "name": "Small thick manipuri bowl",
+          "descriptors": [
+            "bright",
+            "clear-fundamental"
+          ],
+          "match_tokens": [
+            "standing-bell",
+            "high-pitched"
+          ]
+        },
+        {
+          "id": "singing_bowl_cast_modern",
+          "name": "Machine-cast modern bowl",
+          "descriptors": [
+            "pure-toned",
+            "even",
+            "clean"
+          ],
+          "match_tokens": [
+            "standing-bell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "singing_bowl_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "singing_bowl_rim_rubbed",
+          "default": true,
+          "name": "Rim-rubbed with wooden puja (continuous singing)",
+          "descriptors": [
+            "continuous-drone",
+            "swelling",
+            "glassy"
+          ],
+          "match_tokens": [
+            "friction-rubbed",
+            "meditative"
+          ]
+        },
+        {
+          "id": "singing_bowl_struck_padded",
+          "name": "Struck with padded mallet",
+          "descriptors": [
+            "soft-attack",
+            "bloom"
+          ],
+          "match_tokens": [
+            "standing-bell",
+            "meditative"
+          ]
+        },
+        {
+          "id": "singing_bowl_struck_hard",
+          "name": "Struck with bare wood",
+          "descriptors": [
+            "bright-attack",
+            "clangy"
+          ],
+          "match_tokens": [
+            "standing-bell"
+          ]
+        },
+        {
+          "id": "singing_bowl_water_filled",
+          "name": "Water-filled (pitch-bending)",
+          "descriptors": [
+            "wavering",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "standing-bell"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "singing_bowl_form",
+      "name": "Bowl form",
+      "variants": [
+        {
+          "id": "singing_bowl_hand_hammered",
+          "default": true,
+          "name": "Hand-hammered thick-walled bowl (canonical)",
+          "descriptors": [
+            "beating-partials",
+            "warm-hum",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "standing-bell",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "singing_bowl_large_low",
+          "name": "Large low jambati bowl",
+          "descriptors": [
+            "deep-toned",
+            "enveloping",
+            "slow-swell"
+          ],
+          "match_tokens": [
+            "standing-bell",
+            "low-register"
+          ]
+        },
+        {
+          "id": "singing_bowl_small_high",
+          "name": "Small thick manipuri bowl",
+          "descriptors": [
+            "bright",
+            "clear-fundamental"
+          ],
+          "match_tokens": [
+            "standing-bell",
+            "high-pitched"
+          ]
+        },
+        {
+          "id": "singing_bowl_cast_modern",
+          "name": "Machine-cast modern bowl",
+          "descriptors": [
+            "pure-toned",
+            "even",
+            "clean"
+          ],
+          "match_tokens": [
+            "standing-bell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "singing_bowl_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "singing_bowl_rim_rubbed",
+          "default": true,
+          "name": "Rim-rubbed with wooden puja (continuous singing)",
+          "descriptors": [
+            "continuous-drone",
+            "swelling",
+            "glassy"
+          ],
+          "match_tokens": [
+            "friction-rubbed",
+            "meditative"
+          ]
+        },
+        {
+          "id": "singing_bowl_struck_padded",
+          "name": "Struck with padded mallet",
+          "descriptors": [
+            "soft-attack",
+            "bloom"
+          ],
+          "match_tokens": [
+            "standing-bell",
+            "meditative"
+          ]
+        },
+        {
+          "id": "singing_bowl_struck_hard",
+          "name": "Struck with bare wood",
+          "descriptors": [
+            "bright-attack",
+            "clangy"
+          ],
+          "match_tokens": [
+            "standing-bell"
+          ]
+        },
+        {
+          "id": "singing_bowl_water_filled",
+          "name": "Water-filled (pitch-bending)",
+          "descriptors": [
+            "wavering",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "standing-bell"
+          ]
+        }
+      ]
+    }
+  ]
+}

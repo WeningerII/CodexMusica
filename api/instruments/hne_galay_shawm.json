@@ -1,0 +1,150 @@
+{
+  "id": "hne_galay_shawm",
+  "name": "Hne galay (Burmese small double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "hne galay",
+  "parts": [
+    {
+      "id": "hne_galay_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "hne_galay_small_wood",
+          "default": true,
+          "name": "Short conical wooden body with small metal bell (canonical)",
+          "descriptors": [
+            "high-pitched",
+            "piercing",
+            "bright"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "burmese"
+          ]
+        },
+        {
+          "id": "hne_galay_bamboo_reed",
+          "name": "Fine palm-leaf reed (soft setting)",
+          "descriptors": [
+            "thin-toned",
+            "nasal"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hne_galay_style",
+      "surface": false,
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "hne_galay_bent",
+          "default": true,
+          "name": "Bent-note ornamental style (canonical)",
+          "descriptors": [
+            "gliding",
+            "microtonal",
+            "expressive"
+          ],
+          "match_tokens": [
+            "burmese",
+            "pitch-bend"
+          ]
+        },
+        {
+          "id": "hne_galay_straight",
+          "name": "Straight melodic doubling",
+          "descriptors": [
+            "steady",
+            "supporting"
+          ],
+          "match_tokens": [
+            "burmese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hne_galay_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "hne_galay_small_wood",
+          "default": true,
+          "name": "Short conical wooden body with small metal bell (canonical)",
+          "descriptors": [
+            "high-pitched",
+            "piercing",
+            "bright"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "burmese"
+          ]
+        },
+        {
+          "id": "hne_galay_bamboo_reed",
+          "name": "Fine palm-leaf reed (soft setting)",
+          "descriptors": [
+            "thin-toned",
+            "nasal"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hne_galay_style",
+      "surface": false,
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "hne_galay_bent",
+          "default": true,
+          "name": "Bent-note ornamental style (canonical)",
+          "descriptors": [
+            "gliding",
+            "microtonal",
+            "expressive"
+          ],
+          "match_tokens": [
+            "burmese",
+            "pitch-bend"
+          ]
+        },
+        {
+          "id": "hne_galay_straight",
+          "name": "Straight melodic doubling",
+          "descriptors": [
+            "steady",
+            "supporting"
+          ],
+          "match_tokens": [
+            "burmese"
+          ]
+        }
+      ]
+    }
+  ]
+}

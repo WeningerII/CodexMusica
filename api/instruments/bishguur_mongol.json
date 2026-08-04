@@ -1,0 +1,174 @@
+{
+  "id": "bishguur_mongol",
+  "name": "Bishguur (Mongolian double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bishguur",
+  "parts": [
+    {
+      "id": "bishguur_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "bishguur_monastic",
+          "default": true,
+          "name": "Monastic ensemble bishguur (Gelug ritual)",
+          "descriptors": [
+            "piercing",
+            "reedy",
+            "droning"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "ritual",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "bishguur_folk",
+          "name": "Folk / outdoor bishguur",
+          "descriptors": [
+            "nasal",
+            "carrying",
+            "raw"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "bishguur_orchestral",
+          "name": "Standardized orchestral bishguur",
+          "descriptors": [
+            "focused",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bishguur_bore",
+      "surface": false,
+      "name": "Bore and bell material",
+      "variants": [
+        {
+          "id": "bishguur_wood_brass",
+          "default": true,
+          "name": "Wooden bore with brass bell",
+          "descriptors": [
+            "bright-attack",
+            "metallic-ring"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "bishguur_all_wood",
+          "name": "All-wood bore and bell",
+          "descriptors": [
+            "warm",
+            "softer-edged"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bishguur_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "bishguur_monastic",
+          "default": true,
+          "name": "Monastic ensemble bishguur (Gelug ritual)",
+          "descriptors": [
+            "piercing",
+            "reedy",
+            "droning"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "ritual",
+            "mongolian"
+          ]
+        },
+        {
+          "id": "bishguur_folk",
+          "name": "Folk / outdoor bishguur",
+          "descriptors": [
+            "nasal",
+            "carrying",
+            "raw"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "outdoor"
+          ]
+        },
+        {
+          "id": "bishguur_orchestral",
+          "name": "Standardized orchestral bishguur",
+          "descriptors": [
+            "focused",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bishguur_bore",
+      "surface": false,
+      "name": "Bore and bell material",
+      "variants": [
+        {
+          "id": "bishguur_wood_brass",
+          "default": true,
+          "name": "Wooden bore with brass bell",
+          "descriptors": [
+            "bright-attack",
+            "metallic-ring"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "bishguur_all_wood",
+          "name": "All-wood bore and bell",
+          "descriptors": [
+            "warm",
+            "softer-edged"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

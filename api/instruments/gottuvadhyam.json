@@ -1,0 +1,208 @@
+{
+  "id": "gottuvadhyam",
+  "name": "Gottuvadhyam (Carnatic fretless slide veena)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gottuvadhyam",
+  "parts": [
+    {
+      "id": "gottuvadhyam_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "gottuvadhyam_tanjore",
+          "default": true,
+          "name": "Older Tanjore gottuvadhyam (jackwood, six main strings)",
+          "descriptors": [
+            "gliding",
+            "vocal",
+            "resonant"
+          ],
+          "match_tokens": [
+            "slide-veena",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "gottuvadhyam_gourd",
+          "name": "Twin-gourd resonator form",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "sustained"
+          ],
+          "match_tokens": [
+            "slide-veena",
+            "gourd-resonated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gottuvadhyam_slide",
+      "name": "Slide / stopping object",
+      "variants": [
+        {
+          "id": "gottuvadhyam_ebony",
+          "default": true,
+          "name": "Ebony cylinder (gottu)",
+          "descriptors": [
+            "smooth-glide",
+            "warm"
+          ],
+          "match_tokens": [
+            "slide-played"
+          ]
+        },
+        {
+          "id": "gottuvadhyam_glass",
+          "name": "Glass / metal slide",
+          "descriptors": [
+            "bright-glide",
+            "singing"
+          ],
+          "match_tokens": [
+            "slide-played",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gottuvadhyam_sympathetic",
+      "surface": false,
+      "name": "Sympathetic strings",
+      "variants": [
+        {
+          "id": "gottuvadhyam_with_taraf",
+          "default": true,
+          "name": "With sympathetic taraf bank",
+          "descriptors": [
+            "halo-ringing",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "sympathetic-resonance"
+          ]
+        },
+        {
+          "id": "gottuvadhyam_without_taraf",
+          "name": "Without sympathetic strings",
+          "descriptors": [
+            "dry",
+            "direct"
+          ],
+          "match_tokens": [
+            "slide-veena"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gottuvadhyam_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "gottuvadhyam_tanjore",
+          "default": true,
+          "name": "Older Tanjore gottuvadhyam (jackwood, six main strings)",
+          "descriptors": [
+            "gliding",
+            "vocal",
+            "resonant"
+          ],
+          "match_tokens": [
+            "slide-veena",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "gottuvadhyam_gourd",
+          "name": "Twin-gourd resonator form",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "sustained"
+          ],
+          "match_tokens": [
+            "slide-veena",
+            "gourd-resonated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gottuvadhyam_slide",
+      "name": "Slide / stopping object",
+      "variants": [
+        {
+          "id": "gottuvadhyam_ebony",
+          "default": true,
+          "name": "Ebony cylinder (gottu)",
+          "descriptors": [
+            "smooth-glide",
+            "warm"
+          ],
+          "match_tokens": [
+            "slide-played"
+          ]
+        },
+        {
+          "id": "gottuvadhyam_glass",
+          "name": "Glass / metal slide",
+          "descriptors": [
+            "bright-glide",
+            "singing"
+          ],
+          "match_tokens": [
+            "slide-played",
+            "metallic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gottuvadhyam_sympathetic",
+      "surface": false,
+      "name": "Sympathetic strings",
+      "variants": [
+        {
+          "id": "gottuvadhyam_with_taraf",
+          "default": true,
+          "name": "With sympathetic taraf bank",
+          "descriptors": [
+            "halo-ringing",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "sympathetic-resonance"
+          ]
+        },
+        {
+          "id": "gottuvadhyam_without_taraf",
+          "name": "Without sympathetic strings",
+          "descriptors": [
+            "dry",
+            "direct"
+          ],
+          "match_tokens": [
+            "slide-veena"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "achamgur",
+  "name": "Achamgur (Abkhaz two-string plucked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "achamgur",
+  "parts": [
+    {
+      "id": "achamgur_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "achamgur_two",
+          "default": true,
+          "name": "Two-string boat-body achamgur",
+          "descriptors": [
+            "dry",
+            "plinking",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "abkhaz"
+          ]
+        },
+        {
+          "id": "achamgur_three",
+          "name": "Three-string achamgur (modernized)",
+          "descriptors": [
+            "fuller",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "achamgur_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "achamgur_strum",
+          "default": true,
+          "name": "Strummed song accompaniment",
+          "descriptors": [
+            "steady-strum",
+            "supporting"
+          ],
+          "match_tokens": [
+            "strummed",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "achamgur_pluck",
+          "name": "Plucked melodic figures",
+          "descriptors": [
+            "articulate",
+            "sparse"
+          ],
+          "match_tokens": [
+            "plucked",
+            "solo-melody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "achamgur_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "achamgur_two",
+          "default": true,
+          "name": "Two-string boat-body achamgur",
+          "descriptors": [
+            "dry",
+            "plinking",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked-lute",
+            "abkhaz"
+          ]
+        },
+        {
+          "id": "achamgur_three",
+          "name": "Three-string achamgur (modernized)",
+          "descriptors": [
+            "fuller",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "achamgur_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "achamgur_strum",
+          "default": true,
+          "name": "Strummed song accompaniment",
+          "descriptors": [
+            "steady-strum",
+            "supporting"
+          ],
+          "match_tokens": [
+            "strummed",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "achamgur_pluck",
+          "name": "Plucked melodic figures",
+          "descriptors": [
+            "articulate",
+            "sparse"
+          ],
+          "match_tokens": [
+            "plucked",
+            "solo-melody"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": "arghul_egyptian",
+  "name": "Argul (Egyptian single-reed pipe with long drone)",
+  "family": "wind",
+  "class": "single_reed_droned_pipe",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "argul",
+  "parts": [
+    {
+      "id": "arghul_egyptian_size",
+      "name": "Drone-pipe size",
+      "variants": [
+        {
+          "id": "arghul_egyptian_soghair",
+          "default": true,
+          "name": "Arghul al-soghair (small, short drone)",
+          "descriptors": [
+            "nasal",
+            "buzzing-timbre",
+            "nimble"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "egyptian",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "arghul_egyptian_kebir",
+          "name": "Arghul al-kebir (long drone, very low)",
+          "descriptors": [
+            "deep-drone",
+            "subterranean",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "low-register"
+          ]
+        },
+        {
+          "id": "arghul_egyptian_asghar",
+          "name": "Smallest arghul (high melody)",
+          "descriptors": [
+            "bright",
+            "piercing"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arghul_egyptian_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "arghul_egyptian_saidi",
+          "default": true,
+          "name": "Sa'idi village dance and song",
+          "descriptors": [
+            "earthy",
+            "driving"
+          ],
+          "match_tokens": [
+            "blown",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "arghul_egyptian_sufi",
+          "name": "Sufi / zikr accompaniment",
+          "descriptors": [
+            "trance-like",
+            "sustained"
+          ],
+          "match_tokens": [
+            "blown",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "arghul_egyptian_size",
+      "name": "Drone-pipe size",
+      "variants": [
+        {
+          "id": "arghul_egyptian_soghair",
+          "default": true,
+          "name": "Arghul al-soghair (small, short drone)",
+          "descriptors": [
+            "nasal",
+            "buzzing-timbre",
+            "nimble"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "egyptian",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "arghul_egyptian_kebir",
+          "name": "Arghul al-kebir (long drone, very low)",
+          "descriptors": [
+            "deep-drone",
+            "subterranean",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "low-register"
+          ]
+        },
+        {
+          "id": "arghul_egyptian_asghar",
+          "name": "Smallest arghul (high melody)",
+          "descriptors": [
+            "bright",
+            "piercing"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arghul_egyptian_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "arghul_egyptian_saidi",
+          "default": true,
+          "name": "Sa'idi village dance and song",
+          "descriptors": [
+            "earthy",
+            "driving"
+          ],
+          "match_tokens": [
+            "blown",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "arghul_egyptian_sufi",
+          "name": "Sufi / zikr accompaniment",
+          "descriptors": [
+            "trance-like",
+            "sustained"
+          ],
+          "match_tokens": [
+            "blown",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ]
+}

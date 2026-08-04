@@ -1,0 +1,208 @@
+{
+  "id": "kalangu",
+  "name": "Kalangu (Hausa hourglass talking drum)",
+  "family": "percussion",
+  "class": "hourglass_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kalangu",
+  "parts": [
+    {
+      "id": "kalangu_size",
+      "name": "Drum size / role",
+      "variants": [
+        {
+          "id": "kalangu_lead",
+          "default": true,
+          "name": "Lead kalangu (speech-imitating)",
+          "descriptors": [
+            "gliding-pitch",
+            "speech-toned",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "hausa"
+          ]
+        },
+        {
+          "id": "kalangu_dundufa",
+          "name": "Large supporting hourglass (dan kar'bi)",
+          "descriptors": [
+            "deep-toned",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalangu_tension",
+      "name": "Tension technique",
+      "variants": [
+        {
+          "id": "kalangu_squeeze",
+          "default": true,
+          "name": "Arm-squeezed pitch bending",
+          "descriptors": [
+            "pitch-bending",
+            "vocal-like"
+          ],
+          "match_tokens": [
+            "tension-drum",
+            "bending"
+          ]
+        },
+        {
+          "id": "kalangu_open",
+          "name": "Loose, fixed-tension strokes",
+          "descriptors": [
+            "dry-thud",
+            "stable-pitch"
+          ],
+          "match_tokens": [
+            "drum",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalangu_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "kalangu_curved",
+          "default": true,
+          "name": "Curved hooked stick",
+          "descriptors": [
+            "cracking-attack",
+            "bright"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "kalangu_hand",
+          "name": "Bare hand strokes",
+          "descriptors": [
+            "soft-attack",
+            "muted"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kalangu_size",
+      "name": "Drum size / role",
+      "variants": [
+        {
+          "id": "kalangu_lead",
+          "default": true,
+          "name": "Lead kalangu (speech-imitating)",
+          "descriptors": [
+            "gliding-pitch",
+            "speech-toned",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "hausa"
+          ]
+        },
+        {
+          "id": "kalangu_dundufa",
+          "name": "Large supporting hourglass (dan kar'bi)",
+          "descriptors": [
+            "deep-toned",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalangu_tension",
+      "name": "Tension technique",
+      "variants": [
+        {
+          "id": "kalangu_squeeze",
+          "default": true,
+          "name": "Arm-squeezed pitch bending",
+          "descriptors": [
+            "pitch-bending",
+            "vocal-like"
+          ],
+          "match_tokens": [
+            "tension-drum",
+            "bending"
+          ]
+        },
+        {
+          "id": "kalangu_open",
+          "name": "Loose, fixed-tension strokes",
+          "descriptors": [
+            "dry-thud",
+            "stable-pitch"
+          ],
+          "match_tokens": [
+            "drum",
+            "sahel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalangu_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "kalangu_curved",
+          "default": true,
+          "name": "Curved hooked stick",
+          "descriptors": [
+            "cracking-attack",
+            "bright"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "kalangu_hand",
+          "name": "Bare hand strokes",
+          "descriptors": [
+            "soft-attack",
+            "muted"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

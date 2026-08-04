@@ -1,0 +1,148 @@
+{
+  "id": "mongongo_mouth_bow",
+  "name": "Mongongo (Venda mouth-resonated musical bow)",
+  "family": "plucked_traditional",
+  "class": "stick_zither",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "mongongo",
+  "parts": [
+    {
+      "id": "mongongo_technique",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "mongongo_struck",
+          "default": true,
+          "name": "Tapped with a thin stick",
+          "descriptors": [
+            "thin-toned",
+            "overtone-rich",
+            "whispery"
+          ],
+          "match_tokens": [
+            "mouth-bow",
+            "musical-bow"
+          ]
+        },
+        {
+          "id": "mongongo_plucked",
+          "name": "Finger-plucked string",
+          "descriptors": [
+            "soft-pluck",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "venda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mongongo_resonance",
+      "name": "Mouth resonance shaping",
+      "variants": [
+        {
+          "id": "mongongo_vowel",
+          "default": true,
+          "name": "Vowel-shaped harmonic melody",
+          "descriptors": [
+            "formant-shifting",
+            "overtone-melody"
+          ],
+          "match_tokens": [
+            "mouth-resonated",
+            "southern-africa"
+          ]
+        },
+        {
+          "id": "mongongo_drone",
+          "name": "Fixed cavity drone",
+          "descriptors": [
+            "droning",
+            "narrow-range"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "musical-bow"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mongongo_technique",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "mongongo_struck",
+          "default": true,
+          "name": "Tapped with a thin stick",
+          "descriptors": [
+            "thin-toned",
+            "overtone-rich",
+            "whispery"
+          ],
+          "match_tokens": [
+            "mouth-bow",
+            "musical-bow"
+          ]
+        },
+        {
+          "id": "mongongo_plucked",
+          "name": "Finger-plucked string",
+          "descriptors": [
+            "soft-pluck",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "venda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mongongo_resonance",
+      "name": "Mouth resonance shaping",
+      "variants": [
+        {
+          "id": "mongongo_vowel",
+          "default": true,
+          "name": "Vowel-shaped harmonic melody",
+          "descriptors": [
+            "formant-shifting",
+            "overtone-melody"
+          ],
+          "match_tokens": [
+            "mouth-resonated",
+            "southern-africa"
+          ]
+        },
+        {
+          "id": "mongongo_drone",
+          "name": "Fixed cavity drone",
+          "descriptors": [
+            "droning",
+            "narrow-range"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "musical-bow"
+          ]
+        }
+      ]
+    }
+  ]
+}

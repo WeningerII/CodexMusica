@@ -1,0 +1,148 @@
+{
+  "id": "heike_biwa",
+  "name": "Heike biwa (small biwa for Heike monogatari chanting)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "heike biwa",
+  "parts": [
+    {
+      "id": "heike_biwa_role",
+      "name": "Musical role",
+      "variants": [
+        {
+          "id": "heike_biwa_interlude",
+          "default": true,
+          "name": "Between-phrase interlude punctuation",
+          "descriptors": [
+            "sparse",
+            "dry-toned",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "plucked",
+            "japanese",
+            "epic-chant"
+          ]
+        },
+        {
+          "id": "heike_biwa_scraped",
+          "name": "Scraped sweep across strings",
+          "descriptors": [
+            "rasping",
+            "gestural"
+          ],
+          "match_tokens": [
+            "plucked",
+            "scraped"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heike_biwa_bachi",
+      "name": "Plectrum and attack",
+      "variants": [
+        {
+          "id": "heike_biwa_wide_bachi",
+          "default": true,
+          "name": "Wide thin bachi struck near the bridge",
+          "descriptors": [
+            "percussive",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck-string"
+          ]
+        },
+        {
+          "id": "heike_biwa_soft_stroke",
+          "name": "Soft stroke over the belly",
+          "descriptors": [
+            "muted",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "heike_biwa_role",
+      "name": "Musical role",
+      "variants": [
+        {
+          "id": "heike_biwa_interlude",
+          "default": true,
+          "name": "Between-phrase interlude punctuation",
+          "descriptors": [
+            "sparse",
+            "dry-toned",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "plucked",
+            "japanese",
+            "epic-chant"
+          ]
+        },
+        {
+          "id": "heike_biwa_scraped",
+          "name": "Scraped sweep across strings",
+          "descriptors": [
+            "rasping",
+            "gestural"
+          ],
+          "match_tokens": [
+            "plucked",
+            "scraped"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heike_biwa_bachi",
+      "name": "Plectrum and attack",
+      "variants": [
+        {
+          "id": "heike_biwa_wide_bachi",
+          "default": true,
+          "name": "Wide thin bachi struck near the bridge",
+          "descriptors": [
+            "percussive",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck-string"
+          ]
+        },
+        {
+          "id": "heike_biwa_soft_stroke",
+          "name": "Soft stroke over the belly",
+          "descriptors": [
+            "muted",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

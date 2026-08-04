@@ -1,0 +1,174 @@
+{
+  "id": "ilu_yoruba",
+  "name": "Ìlù (Yoruba/Afro-Cuban single-headed conical drum)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "ilù",
+  "parts": [
+    {
+      "id": "ilu_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "ilu_yoruba_form",
+          "default": true,
+          "name": "Yoruba ìlù (carved conical shell, pegged skin)",
+          "descriptors": [
+            "deep-toned",
+            "speech-like",
+            "ritual"
+          ],
+          "match_tokens": [
+            "yoruba",
+            "hand-drum",
+            "west-african"
+          ]
+        },
+        {
+          "id": "ilu_lucumi",
+          "name": "Afro-Cuban ilú (Lucumí / Arará battery drum)",
+          "descriptors": [
+            "driving",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "afro-cuban",
+            "lucumi",
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "ilu_bata_set",
+          "name": "Ìlù bàtà (hourglass two-headed set)",
+          "descriptors": [
+            "tonal-pairing",
+            "talking",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bata",
+            "yoruba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ilu_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "ilu_hands",
+          "default": true,
+          "name": "Bare hands (open, slap, muted)",
+          "descriptors": [
+            "warm",
+            "slapping"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "ilu_stick_hand",
+          "name": "Curved stick plus hand",
+          "descriptors": [
+            "cracking",
+            "cutting"
+          ],
+          "match_tokens": [
+            "stick-and-hand"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ilu_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "ilu_yoruba_form",
+          "default": true,
+          "name": "Yoruba ìlù (carved conical shell, pegged skin)",
+          "descriptors": [
+            "deep-toned",
+            "speech-like",
+            "ritual"
+          ],
+          "match_tokens": [
+            "yoruba",
+            "hand-drum",
+            "west-african"
+          ]
+        },
+        {
+          "id": "ilu_lucumi",
+          "name": "Afro-Cuban ilú (Lucumí / Arará battery drum)",
+          "descriptors": [
+            "driving",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "afro-cuban",
+            "lucumi",
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "ilu_bata_set",
+          "name": "Ìlù bàtà (hourglass two-headed set)",
+          "descriptors": [
+            "tonal-pairing",
+            "talking",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bata",
+            "yoruba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ilu_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "ilu_hands",
+          "default": true,
+          "name": "Bare hands (open, slap, muted)",
+          "descriptors": [
+            "warm",
+            "slapping"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "ilu_stick_hand",
+          "name": "Curved stick plus hand",
+          "descriptors": [
+            "cracking",
+            "cutting"
+          ],
+          "match_tokens": [
+            "stick-and-hand"
+          ]
+        }
+      ]
+    }
+  ]
+}

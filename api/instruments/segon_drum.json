@@ -1,0 +1,148 @@
+{
+  "id": "segon_drum",
+  "name": "Segon (middle drum of the Haitian Rada battery)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "segon",
+  "parts": [
+    {
+      "id": "segon_rite",
+      "name": "Rite / ensemble context",
+      "variants": [
+        {
+          "id": "segon_rada",
+          "default": true,
+          "name": "Rada segon (mid-size peg-tuned drum)",
+          "descriptors": [
+            "mid-toned",
+            "interlocking",
+            "steady"
+          ],
+          "match_tokens": [
+            "haitian",
+            "vodou-drum",
+            "middle-drum"
+          ]
+        },
+        {
+          "id": "segon_petwo",
+          "name": "Petwo segon (rope-tuned)",
+          "descriptors": [
+            "tense",
+            "cutting"
+          ],
+          "match_tokens": [
+            "haitian",
+            "petwo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "segon_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "segon_stick_hand",
+          "default": true,
+          "name": "Stick and hand combination",
+          "descriptors": [
+            "crisp-attack",
+            "muted-slaps"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-and-hand"
+          ]
+        },
+        {
+          "id": "segon_open_slap",
+          "name": "Open-tone and slap patterning",
+          "descriptors": [
+            "ringing",
+            "sharp-slap"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "segon_rite",
+      "name": "Rite / ensemble context",
+      "variants": [
+        {
+          "id": "segon_rada",
+          "default": true,
+          "name": "Rada segon (mid-size peg-tuned drum)",
+          "descriptors": [
+            "mid-toned",
+            "interlocking",
+            "steady"
+          ],
+          "match_tokens": [
+            "haitian",
+            "vodou-drum",
+            "middle-drum"
+          ]
+        },
+        {
+          "id": "segon_petwo",
+          "name": "Petwo segon (rope-tuned)",
+          "descriptors": [
+            "tense",
+            "cutting"
+          ],
+          "match_tokens": [
+            "haitian",
+            "petwo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "segon_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "segon_stick_hand",
+          "default": true,
+          "name": "Stick and hand combination",
+          "descriptors": [
+            "crisp-attack",
+            "muted-slaps"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-and-hand"
+          ]
+        },
+        {
+          "id": "segon_open_slap",
+          "name": "Open-tone and slap patterning",
+          "descriptors": [
+            "ringing",
+            "sharp-slap"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

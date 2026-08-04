@@ -1,0 +1,216 @@
+{
+  "id": "chillador",
+  "name": "Chillador (Andean steel-strung charango)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "chillador",
+  "parts": [
+    {
+      "id": "chillador_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "chillador_flat",
+          "default": true,
+          "name": "Flat-backed wooden chillador",
+          "descriptors": [
+            "shrill",
+            "cutting",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "charango",
+            "andean",
+            "steel-strung"
+          ]
+        },
+        {
+          "id": "chillador_armadillo",
+          "name": "Armadillo-shell back (kirki form)",
+          "descriptors": [
+            "nasal",
+            "boxy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "charango",
+            "andean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chillador_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "chillador_rasgueo",
+          "default": true,
+          "name": "Rapid rasgueo strumming (huayno)",
+          "descriptors": [
+            "jangling",
+            "driving",
+            "dense-shimmer"
+          ],
+          "match_tokens": [
+            "strummed",
+            "huayno"
+          ]
+        },
+        {
+          "id": "chillador_punteo",
+          "name": "Punteo melodic picking",
+          "descriptors": [
+            "plucked-clarity",
+            "tinkling",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chillador_strings",
+      "surface": false,
+      "name": "String gauge",
+      "variants": [
+        {
+          "id": "chillador_steel_fine",
+          "default": true,
+          "name": "Fine steel strings (ten courses)",
+          "descriptors": [
+            "metallic-shimmer",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "steel-strung"
+          ]
+        },
+        {
+          "id": "chillador_mixed",
+          "name": "Mixed steel/nylon stringing",
+          "descriptors": [
+            "softened",
+            "warm-edge"
+          ],
+          "match_tokens": [
+            "nylon-strung"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chillador_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "chillador_flat",
+          "default": true,
+          "name": "Flat-backed wooden chillador",
+          "descriptors": [
+            "shrill",
+            "cutting",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "charango",
+            "andean",
+            "steel-strung"
+          ]
+        },
+        {
+          "id": "chillador_armadillo",
+          "name": "Armadillo-shell back (kirki form)",
+          "descriptors": [
+            "nasal",
+            "boxy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "charango",
+            "andean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chillador_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "chillador_rasgueo",
+          "default": true,
+          "name": "Rapid rasgueo strumming (huayno)",
+          "descriptors": [
+            "jangling",
+            "driving",
+            "dense-shimmer"
+          ],
+          "match_tokens": [
+            "strummed",
+            "huayno"
+          ]
+        },
+        {
+          "id": "chillador_punteo",
+          "name": "Punteo melodic picking",
+          "descriptors": [
+            "plucked-clarity",
+            "tinkling",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chillador_strings",
+      "surface": false,
+      "name": "String gauge",
+      "variants": [
+        {
+          "id": "chillador_steel_fine",
+          "default": true,
+          "name": "Fine steel strings (ten courses)",
+          "descriptors": [
+            "metallic-shimmer",
+            "high-pitched"
+          ],
+          "match_tokens": [
+            "steel-strung"
+          ]
+        },
+        {
+          "id": "chillador_mixed",
+          "name": "Mixed steel/nylon stringing",
+          "descriptors": [
+            "softened",
+            "warm-edge"
+          ],
+          "match_tokens": [
+            "nylon-strung"
+          ]
+        }
+      ]
+    }
+  ]
+}

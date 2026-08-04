@@ -1,0 +1,254 @@
+{
+  "id": "drilbu",
+  "name": "Drilbu (Tibetan Buddhist ritual handbell)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "drilbu",
+  "parts": [
+    {
+      "id": "drilbu_size",
+      "name": "Bell size",
+      "variants": [
+        {
+          "id": "drilbu_standard",
+          "default": true,
+          "name": "Standard hand size (approx. 15cm) with vajra handle",
+          "descriptors": [
+            "clear-ring",
+            "silvery",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "handbell",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "drilbu_large",
+          "name": "Large altar drilbu",
+          "descriptors": [
+            "deep-toned",
+            "lingering"
+          ],
+          "match_tokens": [
+            "handbell",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "drilbu_small",
+          "name": "Small travelling drilbu",
+          "descriptors": [
+            "high-pitched",
+            "tinkling"
+          ],
+          "match_tokens": [
+            "handbell",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drilbu_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "drilbu_shaken_pulse",
+          "default": true,
+          "name": "Shaken pulse in liturgy (paired with vajra)",
+          "descriptors": [
+            "pulsing",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "handbell",
+            "ritual-pulse"
+          ]
+        },
+        {
+          "id": "drilbu_single_stroke",
+          "name": "Single sustained stroke and let ring",
+          "descriptors": [
+            "isolated",
+            "meditative"
+          ],
+          "match_tokens": [
+            "handbell",
+            "meditative"
+          ]
+        },
+        {
+          "id": "drilbu_damped",
+          "name": "Hand-damped short strokes",
+          "descriptors": [
+            "clipped",
+            "dry"
+          ],
+          "match_tokens": [
+            "handbell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drilbu_alloy",
+      "surface": false,
+      "name": "Alloy",
+      "variants": [
+        {
+          "id": "drilbu_seven_metal",
+          "default": true,
+          "name": "Seven-metal ritual alloy",
+          "descriptors": [
+            "warm-inharmonic",
+            "beating-partials"
+          ],
+          "match_tokens": [
+            "handbell"
+          ]
+        },
+        {
+          "id": "drilbu_bronze",
+          "name": "Plain bronze",
+          "descriptors": [
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "handbell"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "drilbu_size",
+      "name": "Bell size",
+      "variants": [
+        {
+          "id": "drilbu_standard",
+          "default": true,
+          "name": "Standard hand size (approx. 15cm) with vajra handle",
+          "descriptors": [
+            "clear-ring",
+            "silvery",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "handbell",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "drilbu_large",
+          "name": "Large altar drilbu",
+          "descriptors": [
+            "deep-toned",
+            "lingering"
+          ],
+          "match_tokens": [
+            "handbell",
+            "tibetan-tradition"
+          ]
+        },
+        {
+          "id": "drilbu_small",
+          "name": "Small travelling drilbu",
+          "descriptors": [
+            "high-pitched",
+            "tinkling"
+          ],
+          "match_tokens": [
+            "handbell",
+            "tibetan-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drilbu_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "drilbu_shaken_pulse",
+          "default": true,
+          "name": "Shaken pulse in liturgy (paired with vajra)",
+          "descriptors": [
+            "pulsing",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "handbell",
+            "ritual-pulse"
+          ]
+        },
+        {
+          "id": "drilbu_single_stroke",
+          "name": "Single sustained stroke and let ring",
+          "descriptors": [
+            "isolated",
+            "meditative"
+          ],
+          "match_tokens": [
+            "handbell",
+            "meditative"
+          ]
+        },
+        {
+          "id": "drilbu_damped",
+          "name": "Hand-damped short strokes",
+          "descriptors": [
+            "clipped",
+            "dry"
+          ],
+          "match_tokens": [
+            "handbell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drilbu_alloy",
+      "surface": false,
+      "name": "Alloy",
+      "variants": [
+        {
+          "id": "drilbu_seven_metal",
+          "default": true,
+          "name": "Seven-metal ritual alloy",
+          "descriptors": [
+            "warm-inharmonic",
+            "beating-partials"
+          ],
+          "match_tokens": [
+            "handbell"
+          ]
+        },
+        {
+          "id": "drilbu_bronze",
+          "name": "Plain bronze",
+          "descriptors": [
+            "clean",
+            "focused"
+          ],
+          "match_tokens": [
+            "handbell"
+          ]
+        }
+      ]
+    }
+  ]
+}

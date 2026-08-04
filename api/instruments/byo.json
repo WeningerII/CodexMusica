@@ -1,0 +1,144 @@
+{
+  "id": "byo",
+  "name": "Byo (Burmese bronze plate-gong idiophone)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "byo",
+  "parts": [
+    {
+      "id": "byo_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "byo_flat_bronze_plate",
+          "default": true,
+          "name": "Flat bronze plate struck with wooden beater (canonical hsaing waing)",
+          "descriptors": [
+            "metallic-clang",
+            "shimmering-decay"
+          ],
+          "match_tokens": [
+            "struck-metal",
+            "burmese"
+          ]
+        },
+        {
+          "id": "byo_thick_heavy",
+          "name": "Thick heavy plate",
+          "descriptors": [
+            "deep-clang",
+            "long-ring"
+          ],
+          "match_tokens": [
+            "struck-metal",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byo_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "byo_wood",
+          "default": true,
+          "name": "Hard wooden beater",
+          "descriptors": [
+            "sharp-attack",
+            "bright-clang"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        },
+        {
+          "id": "byo_padded",
+          "name": "Padded beater",
+          "descriptors": [
+            "soft-attack",
+            "warm-ring"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "byo_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "byo_flat_bronze_plate",
+          "default": true,
+          "name": "Flat bronze plate struck with wooden beater (canonical hsaing waing)",
+          "descriptors": [
+            "metallic-clang",
+            "shimmering-decay"
+          ],
+          "match_tokens": [
+            "struck-metal",
+            "burmese"
+          ]
+        },
+        {
+          "id": "byo_thick_heavy",
+          "name": "Thick heavy plate",
+          "descriptors": [
+            "deep-clang",
+            "long-ring"
+          ],
+          "match_tokens": [
+            "struck-metal",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "byo_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "byo_wood",
+          "default": true,
+          "name": "Hard wooden beater",
+          "descriptors": [
+            "sharp-attack",
+            "bright-clang"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        },
+        {
+          "id": "byo_padded",
+          "name": "Padded beater",
+          "descriptors": [
+            "soft-attack",
+            "warm-ring"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        }
+      ]
+    }
+  ]
+}

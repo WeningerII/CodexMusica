@@ -1,0 +1,210 @@
+{
+  "id": "mohan_veena",
+  "name": "Mohan veena (Indian slide archtop guitar-veena)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mohan veena",
+  "parts": [
+    {
+      "id": "mohan_veena_setup",
+      "name": "String setup",
+      "variants": [
+        {
+          "id": "mohan_veena_20",
+          "default": true,
+          "name": "20-string setup (melody, drone, sympathetic)",
+          "descriptors": [
+            "shimmering",
+            "sustained",
+            "halo-ringing"
+          ],
+          "match_tokens": [
+            "slide-guitar",
+            "hindustani"
+          ]
+        },
+        {
+          "id": "mohan_veena_minimal",
+          "name": "Reduced sympathetic bank",
+          "descriptors": [
+            "dry",
+            "direct",
+            "focused"
+          ],
+          "match_tokens": [
+            "slide-guitar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mohan_veena_style",
+      "name": "Section",
+      "variants": [
+        {
+          "id": "mohan_veena_alap",
+          "default": true,
+          "name": "Alap meend and slow unfolding",
+          "descriptors": [
+            "gliding",
+            "rubato",
+            "vocal"
+          ],
+          "match_tokens": [
+            "slide-played",
+            "expressive"
+          ]
+        },
+        {
+          "id": "mohan_veena_jhala",
+          "name": "Jhala with chikari drone strumming",
+          "descriptors": [
+            "driving",
+            "glittering"
+          ],
+          "match_tokens": [
+            "strummed",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mohan_veena_slide",
+      "surface": false,
+      "name": "Slide bar",
+      "variants": [
+        {
+          "id": "mohan_veena_steel_bar",
+          "default": true,
+          "name": "Steel tone bar",
+          "descriptors": [
+            "bright-glide",
+            "metallic"
+          ],
+          "match_tokens": [
+            "slide-played"
+          ]
+        },
+        {
+          "id": "mohan_veena_glass_bar",
+          "name": "Glass bar",
+          "descriptors": [
+            "smooth",
+            "warm-glide"
+          ],
+          "match_tokens": [
+            "slide-played"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mohan_veena_setup",
+      "name": "String setup",
+      "variants": [
+        {
+          "id": "mohan_veena_20",
+          "default": true,
+          "name": "20-string setup (melody, drone, sympathetic)",
+          "descriptors": [
+            "shimmering",
+            "sustained",
+            "halo-ringing"
+          ],
+          "match_tokens": [
+            "slide-guitar",
+            "hindustani"
+          ]
+        },
+        {
+          "id": "mohan_veena_minimal",
+          "name": "Reduced sympathetic bank",
+          "descriptors": [
+            "dry",
+            "direct",
+            "focused"
+          ],
+          "match_tokens": [
+            "slide-guitar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mohan_veena_style",
+      "name": "Section",
+      "variants": [
+        {
+          "id": "mohan_veena_alap",
+          "default": true,
+          "name": "Alap meend and slow unfolding",
+          "descriptors": [
+            "gliding",
+            "rubato",
+            "vocal"
+          ],
+          "match_tokens": [
+            "slide-played",
+            "expressive"
+          ]
+        },
+        {
+          "id": "mohan_veena_jhala",
+          "name": "Jhala with chikari drone strumming",
+          "descriptors": [
+            "driving",
+            "glittering"
+          ],
+          "match_tokens": [
+            "strummed",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mohan_veena_slide",
+      "surface": false,
+      "name": "Slide bar",
+      "variants": [
+        {
+          "id": "mohan_veena_steel_bar",
+          "default": true,
+          "name": "Steel tone bar",
+          "descriptors": [
+            "bright-glide",
+            "metallic"
+          ],
+          "match_tokens": [
+            "slide-played"
+          ]
+        },
+        {
+          "id": "mohan_veena_glass_bar",
+          "name": "Glass bar",
+          "descriptors": [
+            "smooth",
+            "warm-glide"
+          ],
+          "match_tokens": [
+            "slide-played"
+          ]
+        }
+      ]
+    }
+  ]
+}

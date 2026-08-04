@@ -1,0 +1,150 @@
+{
+  "id": "song_lang",
+  "name": "Song lang (Vietnamese foot-operated wooden clapper)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "song lang",
+  "parts": [
+    {
+      "id": "song_lang_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "song_lang_toe_clapper",
+          "default": true,
+          "name": "Toe-operated wooden block with sprung striker (canonical cai luong)",
+          "descriptors": [
+            "dry-click",
+            "sharp-attack",
+            "wooden"
+          ],
+          "match_tokens": [
+            "wood-clapper",
+            "vietnamese"
+          ]
+        },
+        {
+          "id": "song_lang_handheld",
+          "name": "Hand-held clapper pair (chamber use)",
+          "descriptors": [
+            "light-click",
+            "crisp"
+          ],
+          "match_tokens": [
+            "wood-clapper",
+            "hand-percussion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "song_lang_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "song_lang_don_ca_tai_tu",
+          "default": true,
+          "name": "Don ca tai tu / cai luong beat marker",
+          "descriptors": [
+            "timeline-marking",
+            "sparse"
+          ],
+          "match_tokens": [
+            "vietnamese",
+            "time-keeper"
+          ]
+        },
+        {
+          "id": "song_lang_ca_hue",
+          "name": "Ca Hue chamber song accompaniment",
+          "descriptors": [
+            "understated",
+            "refined"
+          ],
+          "match_tokens": [
+            "vietnamese",
+            "chamber"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "song_lang_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "song_lang_toe_clapper",
+          "default": true,
+          "name": "Toe-operated wooden block with sprung striker (canonical cai luong)",
+          "descriptors": [
+            "dry-click",
+            "sharp-attack",
+            "wooden"
+          ],
+          "match_tokens": [
+            "wood-clapper",
+            "vietnamese"
+          ]
+        },
+        {
+          "id": "song_lang_handheld",
+          "name": "Hand-held clapper pair (chamber use)",
+          "descriptors": [
+            "light-click",
+            "crisp"
+          ],
+          "match_tokens": [
+            "wood-clapper",
+            "hand-percussion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "song_lang_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "song_lang_don_ca_tai_tu",
+          "default": true,
+          "name": "Don ca tai tu / cai luong beat marker",
+          "descriptors": [
+            "timeline-marking",
+            "sparse"
+          ],
+          "match_tokens": [
+            "vietnamese",
+            "time-keeper"
+          ]
+        },
+        {
+          "id": "song_lang_ca_hue",
+          "name": "Ca Hue chamber song accompaniment",
+          "descriptors": [
+            "understated",
+            "refined"
+          ],
+          "match_tokens": [
+            "vietnamese",
+            "chamber"
+          ]
+        }
+      ]
+    }
+  ]
+}

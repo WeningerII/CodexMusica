@@ -1,0 +1,168 @@
+{
+  "id": "danpigu",
+  "name": "Danpigu (Chinese single-headed opera drum, bangu)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "danpigu",
+  "parts": [
+    {
+      "id": "danpigu_stroke",
+      "name": "Strike position",
+      "variants": [
+        {
+          "id": "danpigu_center",
+          "default": true,
+          "name": "Center of the small aperture (guxin)",
+          "descriptors": [
+            "cracking",
+            "piercing",
+            "dry"
+          ],
+          "match_tokens": [
+            "opera-drum",
+            "conductor-drum"
+          ]
+        },
+        {
+          "id": "danpigu_edge",
+          "name": "Edge of the hide beyond the aperture",
+          "descriptors": [
+            "thinner",
+            "clicky"
+          ],
+          "match_tokens": [
+            "opera-drum"
+          ]
+        },
+        {
+          "id": "danpigu_roll",
+          "name": "Rapid two-stick roll (cuiban)",
+          "descriptors": [
+            "rattling",
+            "tension-building"
+          ],
+          "match_tokens": [
+            "drum-roll",
+            "opera-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "danpigu_context",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "danpigu_jingju",
+          "default": true,
+          "name": "Jingju percussion leader (with paiban)",
+          "descriptors": [
+            "directing",
+            "incisive"
+          ],
+          "match_tokens": [
+            "peking-opera"
+          ]
+        },
+        {
+          "id": "danpigu_kunqu",
+          "name": "Kunqu accompaniment",
+          "descriptors": [
+            "restrained",
+            "refined"
+          ],
+          "match_tokens": [
+            "kunqu-opera"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "danpigu_stroke",
+      "name": "Strike position",
+      "variants": [
+        {
+          "id": "danpigu_center",
+          "default": true,
+          "name": "Center of the small aperture (guxin)",
+          "descriptors": [
+            "cracking",
+            "piercing",
+            "dry"
+          ],
+          "match_tokens": [
+            "opera-drum",
+            "conductor-drum"
+          ]
+        },
+        {
+          "id": "danpigu_edge",
+          "name": "Edge of the hide beyond the aperture",
+          "descriptors": [
+            "thinner",
+            "clicky"
+          ],
+          "match_tokens": [
+            "opera-drum"
+          ]
+        },
+        {
+          "id": "danpigu_roll",
+          "name": "Rapid two-stick roll (cuiban)",
+          "descriptors": [
+            "rattling",
+            "tension-building"
+          ],
+          "match_tokens": [
+            "drum-roll",
+            "opera-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "danpigu_context",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "danpigu_jingju",
+          "default": true,
+          "name": "Jingju percussion leader (with paiban)",
+          "descriptors": [
+            "directing",
+            "incisive"
+          ],
+          "match_tokens": [
+            "peking-opera"
+          ]
+        },
+        {
+          "id": "danpigu_kunqu",
+          "name": "Kunqu accompaniment",
+          "descriptors": [
+            "restrained",
+            "refined"
+          ],
+          "match_tokens": [
+            "kunqu-opera"
+          ]
+        }
+      ]
+    }
+  ]
+}

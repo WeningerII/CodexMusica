@@ -1,0 +1,176 @@
+{
+  "id": "llamador",
+  "name": "Llamador (Colombian tambor llamador, small pulse drum)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "llamador",
+  "parts": [
+    {
+      "id": "llamador_pattern",
+      "name": "Pulse pattern",
+      "variants": [
+        {
+          "id": "llamador_offbeat",
+          "default": true,
+          "name": "Steady offbeat cumbia pulse",
+          "descriptors": [
+            "metronomic",
+            "clipped",
+            "offbeat"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "cumbia",
+            "timekeeping"
+          ]
+        },
+        {
+          "id": "llamador_puya",
+          "name": "Fast puya / porro pulse",
+          "descriptors": [
+            "urgent",
+            "tight",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "puya"
+          ]
+        },
+        {
+          "id": "llamador_chalupa",
+          "name": "Chalupa lilt",
+          "descriptors": [
+            "swung",
+            "lively"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "llamador_head",
+      "name": "Head tension",
+      "variants": [
+        {
+          "id": "llamador_tight",
+          "default": true,
+          "name": "Tight deerskin head (wedge-tuned)",
+          "descriptors": [
+            "high-pitched",
+            "popping",
+            "dry"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "bright-attack"
+          ]
+        },
+        {
+          "id": "llamador_slack",
+          "name": "Slacker goatskin head",
+          "descriptors": [
+            "rounder",
+            "softer-attack"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "llamador_pattern",
+      "name": "Pulse pattern",
+      "variants": [
+        {
+          "id": "llamador_offbeat",
+          "default": true,
+          "name": "Steady offbeat cumbia pulse",
+          "descriptors": [
+            "metronomic",
+            "clipped",
+            "offbeat"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "cumbia",
+            "timekeeping"
+          ]
+        },
+        {
+          "id": "llamador_puya",
+          "name": "Fast puya / porro pulse",
+          "descriptors": [
+            "urgent",
+            "tight",
+            "propulsive"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "puya"
+          ]
+        },
+        {
+          "id": "llamador_chalupa",
+          "name": "Chalupa lilt",
+          "descriptors": [
+            "swung",
+            "lively"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "llamador_head",
+      "name": "Head tension",
+      "variants": [
+        {
+          "id": "llamador_tight",
+          "default": true,
+          "name": "Tight deerskin head (wedge-tuned)",
+          "descriptors": [
+            "high-pitched",
+            "popping",
+            "dry"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "bright-attack"
+          ]
+        },
+        {
+          "id": "llamador_slack",
+          "name": "Slacker goatskin head",
+          "descriptors": [
+            "rounder",
+            "softer-attack"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

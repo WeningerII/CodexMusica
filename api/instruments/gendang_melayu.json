@@ -1,0 +1,202 @@
+{
+  "id": "gendang_melayu",
+  "name": "Gendang Melayu (Malay double-headed barrel drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "gendang melayu",
+  "parts": [
+    {
+      "id": "gendang_melayu_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "gendang_melayu_ibu",
+          "default": true,
+          "name": "Gendang ibu (mother drum, lead)",
+          "descriptors": [
+            "deep-toned",
+            "authoritative"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "malay"
+          ]
+        },
+        {
+          "id": "gendang_melayu_anak",
+          "name": "Gendang anak (child drum, interlocking)",
+          "descriptors": [
+            "bright-attack",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gendang_melayu_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gendang_melayu_hands",
+          "default": true,
+          "name": "Bare-hand strokes",
+          "descriptors": [
+            "snappy",
+            "hand-muted"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "gendang_melayu_stick",
+          "name": "Stick on one head",
+          "descriptors": [
+            "sharp-crack",
+            "projecting"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gendang_melayu_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "gendang_melayu_goat",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        },
+        {
+          "id": "gendang_melayu_buffalo",
+          "name": "Buffalo hide head",
+          "descriptors": [
+            "thick-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gendang_melayu_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "gendang_melayu_ibu",
+          "default": true,
+          "name": "Gendang ibu (mother drum, lead)",
+          "descriptors": [
+            "deep-toned",
+            "authoritative"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "malay"
+          ]
+        },
+        {
+          "id": "gendang_melayu_anak",
+          "name": "Gendang anak (child drum, interlocking)",
+          "descriptors": [
+            "bright-attack",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gendang_melayu_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gendang_melayu_hands",
+          "default": true,
+          "name": "Bare-hand strokes",
+          "descriptors": [
+            "snappy",
+            "hand-muted"
+          ],
+          "match_tokens": [
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "gendang_melayu_stick",
+          "name": "Stick on one head",
+          "descriptors": [
+            "sharp-crack",
+            "projecting"
+          ],
+          "match_tokens": [
+            "stick-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gendang_melayu_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "gendang_melayu_goat",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        },
+        {
+          "id": "gendang_melayu_buffalo",
+          "name": "Buffalo hide head",
+          "descriptors": [
+            "thick-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

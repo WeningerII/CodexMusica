@@ -1,0 +1,146 @@
+{
+  "id": "halgi",
+  "name": "Halgi (Maharashtrian small frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "halgi",
+  "parts": [
+    {
+      "id": "halgi_form",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "halgi_wood_hide",
+          "default": true,
+          "name": "Wooden hoop with tacked hide head",
+          "descriptors": [
+            "sharp-crack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "maharashtra"
+          ]
+        },
+        {
+          "id": "halgi_metal_hoop",
+          "name": "Metal hoop with tension screws",
+          "descriptors": [
+            "hard-attack",
+            "piercing"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "tension-tuned"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "halgi_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "halgi_stick_hand",
+          "default": true,
+          "name": "Stick in one hand, fingers damping with the other",
+          "descriptors": [
+            "rattling-rolls",
+            "snappy"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "halgi_fire_tuned",
+          "name": "Fire-heated head for maximum crack",
+          "descriptors": [
+            "brittle",
+            "screaming-attack"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "heat-tuned"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "halgi_form",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "halgi_wood_hide",
+          "default": true,
+          "name": "Wooden hoop with tacked hide head",
+          "descriptors": [
+            "sharp-crack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "maharashtra"
+          ]
+        },
+        {
+          "id": "halgi_metal_hoop",
+          "name": "Metal hoop with tension screws",
+          "descriptors": [
+            "hard-attack",
+            "piercing"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "tension-tuned"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "halgi_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "halgi_stick_hand",
+          "default": true,
+          "name": "Stick in one hand, fingers damping with the other",
+          "descriptors": [
+            "rattling-rolls",
+            "snappy"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "halgi_fire_tuned",
+          "name": "Fire-heated head for maximum crack",
+          "descriptors": [
+            "brittle",
+            "screaming-attack"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "heat-tuned"
+          ]
+        }
+      ]
+    }
+  ]
+}

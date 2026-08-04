@@ -1,0 +1,265 @@
+{
+  "id": "mamokhorong",
+  "name": "Mamokhorong (Basotho single-string bowed stick fiddle)",
+  "family": "bowed",
+  "class": "stick_zither",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "mamokhorong",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "mamokhorong_resonator",
+      "name": "Resonator / body form",
+      "variants": [
+        {
+          "id": "mamokhorong_tin",
+          "default": true,
+          "name": "Tin-can resonator stick fiddle",
+          "descriptors": [
+            "nasal-tone",
+            "reedy",
+            "rattling"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "lesotho"
+          ]
+        },
+        {
+          "id": "mamokhorong_gourd",
+          "name": "Gourd-resonated form",
+          "descriptors": [
+            "woody",
+            "warm",
+            "muted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gourd-resonator"
+          ]
+        },
+        {
+          "id": "mamokhorong_calabash_open",
+          "name": "Open-tube / unresonated stick",
+          "descriptors": [
+            "thin-toned",
+            "intimate",
+            "scratchy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mamokhorong_playing",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mamokhorong_herdboy",
+          "default": true,
+          "name": "Herdboy solo playing",
+          "descriptors": [
+            "lonesome",
+            "rubato",
+            "song-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo"
+          ]
+        },
+        {
+          "id": "mamokhorong_song",
+          "name": "Self-accompanied singing",
+          "descriptors": [
+            "voice-shadowing",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mamokhorong_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "mamokhorong_wire",
+          "default": true,
+          "name": "Steel wire string",
+          "descriptors": [
+            "bright",
+            "edgy"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "mamokhorong_hair",
+          "name": "Horsehair / sinew string",
+          "descriptors": [
+            "soft-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mamokhorong_resonator",
+      "name": "Resonator / body form",
+      "variants": [
+        {
+          "id": "mamokhorong_tin",
+          "default": true,
+          "name": "Tin-can resonator stick fiddle",
+          "descriptors": [
+            "nasal-tone",
+            "reedy",
+            "rattling"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "lesotho"
+          ]
+        },
+        {
+          "id": "mamokhorong_gourd",
+          "name": "Gourd-resonated form",
+          "descriptors": [
+            "woody",
+            "warm",
+            "muted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gourd-resonator"
+          ]
+        },
+        {
+          "id": "mamokhorong_calabash_open",
+          "name": "Open-tube / unresonated stick",
+          "descriptors": [
+            "thin-toned",
+            "intimate",
+            "scratchy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mamokhorong_playing",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mamokhorong_herdboy",
+          "default": true,
+          "name": "Herdboy solo playing",
+          "descriptors": [
+            "lonesome",
+            "rubato",
+            "song-like"
+          ],
+          "match_tokens": [
+            "bowed",
+            "solo"
+          ]
+        },
+        {
+          "id": "mamokhorong_song",
+          "name": "Self-accompanied singing",
+          "descriptors": [
+            "voice-shadowing",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mamokhorong_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "mamokhorong_wire",
+          "default": true,
+          "name": "Steel wire string",
+          "descriptors": [
+            "bright",
+            "edgy"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "mamokhorong_hair",
+          "name": "Horsehair / sinew string",
+          "descriptors": [
+            "soft-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

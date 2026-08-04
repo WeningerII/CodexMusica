@@ -1,0 +1,142 @@
+{
+  "id": "kenkeni_drum",
+  "name": "Kenkeni (smallest Mande dunun bass drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kenkeni",
+  "parts": [
+    {
+      "id": "kenkeni_head",
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "kenkeni_cowhide",
+          "default": true,
+          "name": "Cowhide heads, rope-tuned",
+          "descriptors": [
+            "warm",
+            "round-toned"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "mande"
+          ]
+        },
+        {
+          "id": "kenkeni_goatskin",
+          "name": "Goatskin heads (tighter, higher)",
+          "descriptors": [
+            "bright-attack",
+            "tight"
+          ],
+          "match_tokens": [
+            "bass-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kenkeni_bell",
+      "name": "Bell configuration",
+      "variants": [
+        {
+          "id": "kenkeni_with_bell",
+          "default": true,
+          "name": "With kenken bell (timekeeping pattern)",
+          "descriptors": [
+            "clanging",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "bell-on-shell",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "kenkeni_no_bell",
+          "name": "Without bell",
+          "descriptors": [
+            "pure-drum",
+            "steady"
+          ],
+          "match_tokens": [
+            "bass-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kenkeni_head",
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "kenkeni_cowhide",
+          "default": true,
+          "name": "Cowhide heads, rope-tuned",
+          "descriptors": [
+            "warm",
+            "round-toned"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "mande"
+          ]
+        },
+        {
+          "id": "kenkeni_goatskin",
+          "name": "Goatskin heads (tighter, higher)",
+          "descriptors": [
+            "bright-attack",
+            "tight"
+          ],
+          "match_tokens": [
+            "bass-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kenkeni_bell",
+      "name": "Bell configuration",
+      "variants": [
+        {
+          "id": "kenkeni_with_bell",
+          "default": true,
+          "name": "With kenken bell (timekeeping pattern)",
+          "descriptors": [
+            "clanging",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "bell-on-shell",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "kenkeni_no_bell",
+          "name": "Without bell",
+          "descriptors": [
+            "pure-drum",
+            "steady"
+          ],
+          "match_tokens": [
+            "bass-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

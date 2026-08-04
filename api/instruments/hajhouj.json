@@ -1,0 +1,250 @@
+{
+  "id": "hajhouj",
+  "name": "Hajhouj (Gnawa three-string bass lute, Moroccan)",
+  "family": "plucked_traditional",
+  "class": "bass_lamellophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "hajhouj",
+  "parts": [
+    {
+      "id": "hajhouj_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "hajhouj_marrakchi",
+          "default": true,
+          "name": "Marrakchi hajhouj (large camel-skin bass)",
+          "descriptors": [
+            "deep-toned",
+            "percussive-thump",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "bass-lute",
+            "plucked"
+          ]
+        },
+        {
+          "id": "hajhouj_essaouira",
+          "name": "Essaouira guembri (smaller, higher-strung)",
+          "descriptors": [
+            "punchy",
+            "nimble",
+            "dry"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "plucked",
+            "morocco"
+          ]
+        },
+        {
+          "id": "hajhouj_sudani",
+          "name": "Sintir sudani (long-bodied ritual form)",
+          "descriptors": [
+            "archaic",
+            "booming",
+            "trance-driving"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "ritual",
+            "bass-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hajhouj_sersal",
+      "name": "Resonator rattle (sersal)",
+      "variants": [
+        {
+          "id": "hajhouj_sersal_on",
+          "default": true,
+          "name": "Sersal ring-rattle fitted",
+          "descriptors": [
+            "buzzing-timbre",
+            "jangling",
+            "halo-attack"
+          ],
+          "match_tokens": [
+            "buzz",
+            "gnawa"
+          ]
+        },
+        {
+          "id": "hajhouj_sersal_off",
+          "name": "No rattle (clean neck)",
+          "descriptors": [
+            "clean-attack",
+            "dry",
+            "focused"
+          ],
+          "match_tokens": [
+            "plucked",
+            "dry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hajhouj_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "hajhouj_gut",
+          "default": true,
+          "name": "Goat-gut strings",
+          "descriptors": [
+            "warm",
+            "thumping",
+            "organic"
+          ],
+          "match_tokens": [
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "hajhouj_nylon",
+          "name": "Nylon / fishing-line strings",
+          "descriptors": [
+            "bright-attack",
+            "modern",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "nylon-strung"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hajhouj_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "hajhouj_marrakchi",
+          "default": true,
+          "name": "Marrakchi hajhouj (large camel-skin bass)",
+          "descriptors": [
+            "deep-toned",
+            "percussive-thump",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "bass-lute",
+            "plucked"
+          ]
+        },
+        {
+          "id": "hajhouj_essaouira",
+          "name": "Essaouira guembri (smaller, higher-strung)",
+          "descriptors": [
+            "punchy",
+            "nimble",
+            "dry"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "plucked",
+            "morocco"
+          ]
+        },
+        {
+          "id": "hajhouj_sudani",
+          "name": "Sintir sudani (long-bodied ritual form)",
+          "descriptors": [
+            "archaic",
+            "booming",
+            "trance-driving"
+          ],
+          "match_tokens": [
+            "gnawa",
+            "ritual",
+            "bass-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hajhouj_sersal",
+      "name": "Resonator rattle (sersal)",
+      "variants": [
+        {
+          "id": "hajhouj_sersal_on",
+          "default": true,
+          "name": "Sersal ring-rattle fitted",
+          "descriptors": [
+            "buzzing-timbre",
+            "jangling",
+            "halo-attack"
+          ],
+          "match_tokens": [
+            "buzz",
+            "gnawa"
+          ]
+        },
+        {
+          "id": "hajhouj_sersal_off",
+          "name": "No rattle (clean neck)",
+          "descriptors": [
+            "clean-attack",
+            "dry",
+            "focused"
+          ],
+          "match_tokens": [
+            "plucked",
+            "dry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hajhouj_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "hajhouj_gut",
+          "default": true,
+          "name": "Goat-gut strings",
+          "descriptors": [
+            "warm",
+            "thumping",
+            "organic"
+          ],
+          "match_tokens": [
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "hajhouj_nylon",
+          "name": "Nylon / fishing-line strings",
+          "descriptors": [
+            "bright-attack",
+            "modern",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "nylon-strung"
+          ]
+        }
+      ]
+    }
+  ]
+}

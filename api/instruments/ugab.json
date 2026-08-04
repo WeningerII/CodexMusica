@@ -1,0 +1,182 @@
+{
+  "id": "ugab",
+  "name": "Ugab (biblical Hebrew pipe/end-blown flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ugab",
+  "parts": [
+    {
+      "id": "ugab_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "ugab_reed_pipe",
+          "default": true,
+          "name": "Single cane end-blown pipe",
+          "descriptors": [
+            "breathy",
+            "plaintive",
+            "airy"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "hebrew",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "ugab_panpipe",
+          "name": "Bound multi-tube pipe (panpipe reading)",
+          "descriptors": [
+            "hollow",
+            "whistling",
+            "layered"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "breathy"
+          ]
+        },
+        {
+          "id": "ugab_bone",
+          "name": "Bone pipe",
+          "descriptors": [
+            "thin",
+            "piercing",
+            "hard-toned"
+          ],
+          "match_tokens": [
+            "bone-pipe",
+            "end-blown-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ugab_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ugab_pastoral",
+          "default": true,
+          "name": "Shepherd's solo playing",
+          "descriptors": [
+            "lonely",
+            "free-rhythm",
+            "rubato"
+          ],
+          "match_tokens": [
+            "pastoral",
+            "solo"
+          ]
+        },
+        {
+          "id": "ugab_lament",
+          "name": "Mourning and lament",
+          "descriptors": [
+            "mournful",
+            "keening",
+            "slow"
+          ],
+          "match_tokens": [
+            "lament",
+            "hebrew"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ugab_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "ugab_reed_pipe",
+          "default": true,
+          "name": "Single cane end-blown pipe",
+          "descriptors": [
+            "breathy",
+            "plaintive",
+            "airy"
+          ],
+          "match_tokens": [
+            "end-blown-flute",
+            "hebrew",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "ugab_panpipe",
+          "name": "Bound multi-tube pipe (panpipe reading)",
+          "descriptors": [
+            "hollow",
+            "whistling",
+            "layered"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "breathy"
+          ]
+        },
+        {
+          "id": "ugab_bone",
+          "name": "Bone pipe",
+          "descriptors": [
+            "thin",
+            "piercing",
+            "hard-toned"
+          ],
+          "match_tokens": [
+            "bone-pipe",
+            "end-blown-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ugab_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ugab_pastoral",
+          "default": true,
+          "name": "Shepherd's solo playing",
+          "descriptors": [
+            "lonely",
+            "free-rhythm",
+            "rubato"
+          ],
+          "match_tokens": [
+            "pastoral",
+            "solo"
+          ]
+        },
+        {
+          "id": "ugab_lament",
+          "name": "Mourning and lament",
+          "descriptors": [
+            "mournful",
+            "keening",
+            "slow"
+          ],
+          "match_tokens": [
+            "lament",
+            "hebrew"
+          ]
+        }
+      ]
+    }
+  ]
+}

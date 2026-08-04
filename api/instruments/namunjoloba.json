@@ -1,0 +1,146 @@
+{
+  "id": "namunjoloba",
+  "name": "Namunjoloba (Ganda small stick-beaten drum set)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "namunjoloba",
+  "parts": [
+    {
+      "id": "namunjoloba_set",
+      "name": "Set size",
+      "variants": [
+        {
+          "id": "namunjoloba_pair",
+          "default": true,
+          "name": "Pair of small tuned drums",
+          "descriptors": [
+            "tight-toned",
+            "crisp-attack"
+          ],
+          "match_tokens": [
+            "stick-drum",
+            "buganda"
+          ]
+        },
+        {
+          "id": "namunjoloba_four",
+          "name": "Four-drum tuned set",
+          "descriptors": [
+            "melodic-drumming",
+            "bright"
+          ],
+          "match_tokens": [
+            "tuned-drums",
+            "uganda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "namunjoloba_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "namunjoloba_stick",
+          "default": true,
+          "name": "Light wooden sticks",
+          "descriptors": [
+            "clicking-attack",
+            "dry"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "drum"
+          ]
+        },
+        {
+          "id": "namunjoloba_padded",
+          "name": "Padded beaters",
+          "descriptors": [
+            "rounder-attack",
+            "warm"
+          ],
+          "match_tokens": [
+            "drum",
+            "soft-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "namunjoloba_set",
+      "name": "Set size",
+      "variants": [
+        {
+          "id": "namunjoloba_pair",
+          "default": true,
+          "name": "Pair of small tuned drums",
+          "descriptors": [
+            "tight-toned",
+            "crisp-attack"
+          ],
+          "match_tokens": [
+            "stick-drum",
+            "buganda"
+          ]
+        },
+        {
+          "id": "namunjoloba_four",
+          "name": "Four-drum tuned set",
+          "descriptors": [
+            "melodic-drumming",
+            "bright"
+          ],
+          "match_tokens": [
+            "tuned-drums",
+            "uganda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "namunjoloba_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "namunjoloba_stick",
+          "default": true,
+          "name": "Light wooden sticks",
+          "descriptors": [
+            "clicking-attack",
+            "dry"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "drum"
+          ]
+        },
+        {
+          "id": "namunjoloba_padded",
+          "name": "Padded beaters",
+          "descriptors": [
+            "rounder-attack",
+            "warm"
+          ],
+          "match_tokens": [
+            "drum",
+            "soft-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

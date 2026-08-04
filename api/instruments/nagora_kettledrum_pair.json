@@ -1,0 +1,146 @@
+{
+  "id": "nagora_kettledrum_pair",
+  "name": "Nagora (Azerbaijani small paired kettledrums)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "nagora",
+  "parts": [
+    {
+      "id": "nagora_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "nagora_sticks",
+          "default": true,
+          "name": "Thin stick pair (qoša naġara)",
+          "descriptors": [
+            "crisp",
+            "clattering",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "paired-drums",
+            "azerbaijani"
+          ]
+        },
+        {
+          "id": "nagora_hands",
+          "name": "Bare-hand playing",
+          "descriptors": [
+            "muted",
+            "warm-thump"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagora_size",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "nagora_small_pair",
+          "default": true,
+          "name": "Small clay-bowl pair",
+          "descriptors": [
+            "high-pitched",
+            "dry"
+          ],
+          "match_tokens": [
+            "kettledrum"
+          ]
+        },
+        {
+          "id": "nagora_large_pair",
+          "name": "Larger wooden-bowl pair",
+          "descriptors": [
+            "deeper",
+            "booming"
+          ],
+          "match_tokens": [
+            "kettledrum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nagora_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "nagora_sticks",
+          "default": true,
+          "name": "Thin stick pair (qoša naġara)",
+          "descriptors": [
+            "crisp",
+            "clattering",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "paired-drums",
+            "azerbaijani"
+          ]
+        },
+        {
+          "id": "nagora_hands",
+          "name": "Bare-hand playing",
+          "descriptors": [
+            "muted",
+            "warm-thump"
+          ],
+          "match_tokens": [
+            "kettledrum",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nagora_size",
+      "name": "Shell size",
+      "variants": [
+        {
+          "id": "nagora_small_pair",
+          "default": true,
+          "name": "Small clay-bowl pair",
+          "descriptors": [
+            "high-pitched",
+            "dry"
+          ],
+          "match_tokens": [
+            "kettledrum"
+          ]
+        },
+        {
+          "id": "nagora_large_pair",
+          "name": "Larger wooden-bowl pair",
+          "descriptors": [
+            "deeper",
+            "booming"
+          ],
+          "match_tokens": [
+            "kettledrum"
+          ]
+        }
+      ]
+    }
+  ]
+}

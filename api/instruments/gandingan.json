@@ -1,0 +1,220 @@
+{
+  "id": "gandingan",
+  "name": "Gandingan (Maguindanao set of four hanging talking gongs)",
+  "family": "percussion",
+  "class": "tuned_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "gandingan",
+  "parts": [
+    {
+      "id": "gandingan_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "gandingan_ensemble",
+          "default": true,
+          "name": "Kulintang ensemble accompaniment",
+          "descriptors": [
+            "deep-toned",
+            "undulating",
+            "supporting"
+          ],
+          "match_tokens": [
+            "hanging-gongs",
+            "maguindanao"
+          ]
+        },
+        {
+          "id": "gandingan_apad",
+          "name": "Gandingan a apad (speech-imitating solo)",
+          "descriptors": [
+            "speech-like",
+            "conversational",
+            "expressive"
+          ],
+          "match_tokens": [
+            "talking-gong",
+            "maranao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gandingan_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "gandingan_rubber_balls",
+          "default": true,
+          "name": "Soft rubber-tipped balls (balus)",
+          "descriptors": [
+            "rounded",
+            "booming",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "hanging-gongs"
+          ]
+        },
+        {
+          "id": "gandingan_wrapped_wood",
+          "name": "Cloth-wrapped wooden mallets",
+          "descriptors": [
+            "firmer-attack",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "struck",
+            "hanging-gongs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gandingan_metal",
+      "surface": false,
+      "name": "Gong metal",
+      "variants": [
+        {
+          "id": "gandingan_bronze",
+          "default": true,
+          "name": "Cast bronze gongs",
+          "descriptors": [
+            "rich",
+            "long-decay",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bronze",
+            "gong"
+          ]
+        },
+        {
+          "id": "gandingan_brass",
+          "name": "Brass gongs (common modern)",
+          "descriptors": [
+            "brighter",
+            "thinner",
+            "metallic"
+          ],
+          "match_tokens": [
+            "brass",
+            "gong"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gandingan_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "gandingan_ensemble",
+          "default": true,
+          "name": "Kulintang ensemble accompaniment",
+          "descriptors": [
+            "deep-toned",
+            "undulating",
+            "supporting"
+          ],
+          "match_tokens": [
+            "hanging-gongs",
+            "maguindanao"
+          ]
+        },
+        {
+          "id": "gandingan_apad",
+          "name": "Gandingan a apad (speech-imitating solo)",
+          "descriptors": [
+            "speech-like",
+            "conversational",
+            "expressive"
+          ],
+          "match_tokens": [
+            "talking-gong",
+            "maranao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gandingan_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "gandingan_rubber_balls",
+          "default": true,
+          "name": "Soft rubber-tipped balls (balus)",
+          "descriptors": [
+            "rounded",
+            "booming",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "hanging-gongs"
+          ]
+        },
+        {
+          "id": "gandingan_wrapped_wood",
+          "name": "Cloth-wrapped wooden mallets",
+          "descriptors": [
+            "firmer-attack",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "struck",
+            "hanging-gongs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gandingan_metal",
+      "surface": false,
+      "name": "Gong metal",
+      "variants": [
+        {
+          "id": "gandingan_bronze",
+          "default": true,
+          "name": "Cast bronze gongs",
+          "descriptors": [
+            "rich",
+            "long-decay",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bronze",
+            "gong"
+          ]
+        },
+        {
+          "id": "gandingan_brass",
+          "name": "Brass gongs (common modern)",
+          "descriptors": [
+            "brighter",
+            "thinner",
+            "metallic"
+          ],
+          "match_tokens": [
+            "brass",
+            "gong"
+          ]
+        }
+      ]
+    }
+  ]
+}

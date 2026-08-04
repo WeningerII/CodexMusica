@@ -1,0 +1,152 @@
+{
+  "id": "buccin",
+  "name": "Buccin (dragon-belled ceremonial trombone)",
+  "family": "wind",
+  "class": "brass",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "buccin",
+  "parts": [
+    {
+      "id": "buccin_bell",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "buccin_dragon",
+          "default": true,
+          "name": "Painted zoomorphic dragon-head bell",
+          "descriptors": [
+            "blaring",
+            "brash",
+            "spectacular"
+          ],
+          "match_tokens": [
+            "trombone",
+            "lip-blown",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "buccin_plain",
+          "name": "Plain flared bell (transitional)",
+          "descriptors": [
+            "rounded",
+            "noble"
+          ],
+          "match_tokens": [
+            "trombone",
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buccin_context",
+      "name": "Use",
+      "variants": [
+        {
+          "id": "buccin_military",
+          "default": true,
+          "name": "Revolutionary-era military band",
+          "descriptors": [
+            "martial",
+            "outdoor",
+            "loud"
+          ],
+          "match_tokens": [
+            "band",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "buccin_funeral",
+          "name": "Funeral / processional part",
+          "descriptors": [
+            "solemn",
+            "sustained"
+          ],
+          "match_tokens": [
+            "trombone",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "buccin_bell",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "buccin_dragon",
+          "default": true,
+          "name": "Painted zoomorphic dragon-head bell",
+          "descriptors": [
+            "blaring",
+            "brash",
+            "spectacular"
+          ],
+          "match_tokens": [
+            "trombone",
+            "lip-blown",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "buccin_plain",
+          "name": "Plain flared bell (transitional)",
+          "descriptors": [
+            "rounded",
+            "noble"
+          ],
+          "match_tokens": [
+            "trombone",
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buccin_context",
+      "name": "Use",
+      "variants": [
+        {
+          "id": "buccin_military",
+          "default": true,
+          "name": "Revolutionary-era military band",
+          "descriptors": [
+            "martial",
+            "outdoor",
+            "loud"
+          ],
+          "match_tokens": [
+            "band",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "buccin_funeral",
+          "name": "Funeral / processional part",
+          "descriptors": [
+            "solemn",
+            "sustained"
+          ],
+          "match_tokens": [
+            "trombone",
+            "processional"
+          ]
+        }
+      ]
+    }
+  ]
+}

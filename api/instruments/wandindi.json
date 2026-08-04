@@ -1,0 +1,173 @@
+{
+  "id": "wandindi",
+  "name": "Wandindi (Kikuyu one-string bowed tube fiddle)",
+  "family": "bowed",
+  "class": "bowed_tube_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "wandindi",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "wandindi_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "wandindi_gourd",
+          "default": true,
+          "name": "Gourd resonator with hide membrane",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "vocal-like"
+          ],
+          "match_tokens": [
+            "one-string-fiddle",
+            "kikuyu"
+          ]
+        },
+        {
+          "id": "wandindi_tin",
+          "name": "Tin-can resonator (modern)",
+          "descriptors": [
+            "thin-toned",
+            "metallic-edge"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kenya"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wandindi_style",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "wandindi_narrative",
+          "default": true,
+          "name": "Self-accompanied narrative song",
+          "descriptors": [
+            "speech-following",
+            "sliding-pitch"
+          ],
+          "match_tokens": [
+            "bowed",
+            "voice-shadowing"
+          ]
+        },
+        {
+          "id": "wandindi_dance",
+          "name": "Dance-tune playing",
+          "descriptors": [
+            "driving",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wandindi_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "wandindi_gourd",
+          "default": true,
+          "name": "Gourd resonator with hide membrane",
+          "descriptors": [
+            "nasal",
+            "reedy",
+            "vocal-like"
+          ],
+          "match_tokens": [
+            "one-string-fiddle",
+            "kikuyu"
+          ]
+        },
+        {
+          "id": "wandindi_tin",
+          "name": "Tin-can resonator (modern)",
+          "descriptors": [
+            "thin-toned",
+            "metallic-edge"
+          ],
+          "match_tokens": [
+            "bowed",
+            "kenya"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wandindi_style",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "wandindi_narrative",
+          "default": true,
+          "name": "Self-accompanied narrative song",
+          "descriptors": [
+            "speech-following",
+            "sliding-pitch"
+          ],
+          "match_tokens": [
+            "bowed",
+            "voice-shadowing"
+          ]
+        },
+        {
+          "id": "wandindi_dance",
+          "name": "Dance-tune playing",
+          "descriptors": [
+            "driving",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

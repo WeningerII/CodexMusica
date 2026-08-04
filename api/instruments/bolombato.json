@@ -1,0 +1,146 @@
+{
+  "id": "bolombato",
+  "name": "Bolombato (Mandinka three-string arched bass harp)",
+  "family": "plucked_traditional",
+  "class": "arched_harp",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bolombato",
+  "parts": [
+    {
+      "id": "bolombato_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "bolombato_gambian",
+          "default": true,
+          "name": "Gambian Mandinka bolombato (large calabash, curved neck)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "ostinato-driven"
+          ],
+          "match_tokens": [
+            "bass-harp",
+            "mandinka"
+          ]
+        },
+        {
+          "id": "bolombato_bolon",
+          "name": "Malian/Guinean bolon war-harp form",
+          "descriptors": [
+            "martial",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "bass-harp",
+            "mande"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bolombato_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "bolombato_pluck_strike",
+          "default": true,
+          "name": "Plucked strings with calabash struck by rings",
+          "descriptors": [
+            "percussive-attack",
+            "clacking"
+          ],
+          "match_tokens": [
+            "bass-harp",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "bolombato_plucked",
+          "name": "Plucked only (melodic bass line)",
+          "descriptors": [
+            "round-toned",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bass-harp"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bolombato_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "bolombato_gambian",
+          "default": true,
+          "name": "Gambian Mandinka bolombato (large calabash, curved neck)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "ostinato-driven"
+          ],
+          "match_tokens": [
+            "bass-harp",
+            "mandinka"
+          ]
+        },
+        {
+          "id": "bolombato_bolon",
+          "name": "Malian/Guinean bolon war-harp form",
+          "descriptors": [
+            "martial",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "bass-harp",
+            "mande"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bolombato_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "bolombato_pluck_strike",
+          "default": true,
+          "name": "Plucked strings with calabash struck by rings",
+          "descriptors": [
+            "percussive-attack",
+            "clacking"
+          ],
+          "match_tokens": [
+            "bass-harp",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "bolombato_plucked",
+          "name": "Plucked only (melodic bass line)",
+          "descriptors": [
+            "round-toned",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bass-harp"
+          ]
+        }
+      ]
+    }
+  ]
+}

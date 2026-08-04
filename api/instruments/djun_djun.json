@@ -1,0 +1,204 @@
+{
+  "id": "djun_djun",
+  "name": "Djun djun (Mande cylindrical bass drum with bell)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "djun djun",
+  "parts": [
+    {
+      "id": "djun_djun_size",
+      "name": "Drum size",
+      "variants": [
+        {
+          "id": "djun_djun_dununba",
+          "default": true,
+          "name": "Dununba (largest, deepest bass)",
+          "descriptors": [
+            "thunderous",
+            "deep-toned",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "mande"
+          ]
+        },
+        {
+          "id": "djun_djun_sangban",
+          "name": "Sangban (mid-size, melodic phrases)",
+          "descriptors": [
+            "mid-toned",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "mande"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "djun_djun_bell",
+      "name": "Bell configuration",
+      "variants": [
+        {
+          "id": "djun_djun_with_bell",
+          "default": true,
+          "name": "With mounted kenken bell",
+          "descriptors": [
+            "clanging",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bell-on-shell"
+          ]
+        },
+        {
+          "id": "djun_djun_no_bell",
+          "name": "Without bell (older village style)",
+          "descriptors": [
+            "pure-drum",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bass-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "djun_djun_technique",
+      "surface": false,
+      "name": "Playing position",
+      "variants": [
+        {
+          "id": "djun_djun_upright",
+          "default": true,
+          "name": "Upright dunun-ba solo style (one player, drum and bell)",
+          "descriptors": [
+            "virtuosic",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "djun_djun_horizontal",
+          "name": "Horizontal ensemble style (drum on stand)",
+          "descriptors": [
+            "steady",
+            "foundational"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "djun_djun_size",
+      "name": "Drum size",
+      "variants": [
+        {
+          "id": "djun_djun_dununba",
+          "default": true,
+          "name": "Dununba (largest, deepest bass)",
+          "descriptors": [
+            "thunderous",
+            "deep-toned",
+            "grounding"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "mande"
+          ]
+        },
+        {
+          "id": "djun_djun_sangban",
+          "name": "Sangban (mid-size, melodic phrases)",
+          "descriptors": [
+            "mid-toned",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "mande"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "djun_djun_bell",
+      "name": "Bell configuration",
+      "variants": [
+        {
+          "id": "djun_djun_with_bell",
+          "default": true,
+          "name": "With mounted kenken bell",
+          "descriptors": [
+            "clanging",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "bell-on-shell"
+          ]
+        },
+        {
+          "id": "djun_djun_no_bell",
+          "name": "Without bell (older village style)",
+          "descriptors": [
+            "pure-drum",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bass-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "djun_djun_technique",
+      "surface": false,
+      "name": "Playing position",
+      "variants": [
+        {
+          "id": "djun_djun_upright",
+          "default": true,
+          "name": "Upright dunun-ba solo style (one player, drum and bell)",
+          "descriptors": [
+            "virtuosic",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "djun_djun_horizontal",
+          "name": "Horizontal ensemble style (drum on stand)",
+          "descriptors": [
+            "steady",
+            "foundational"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

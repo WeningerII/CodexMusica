@@ -1,0 +1,166 @@
+{
+  "id": "setinkane",
+  "name": "Setinkane (Sotho-Tswana lamellophone)",
+  "family": "percussion",
+  "class": "plucked_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "setinkane",
+  "parts": [
+    {
+      "id": "setinkane_body",
+      "name": "Body / resonator",
+      "variants": [
+        {
+          "id": "setinkane_board",
+          "default": true,
+          "name": "Plain wooden soundboard",
+          "descriptors": [
+            "dry-plink",
+            "intimate"
+          ],
+          "match_tokens": [
+            "thumb-piano",
+            "southern-african"
+          ]
+        },
+        {
+          "id": "setinkane_box",
+          "name": "Hollow resonating box",
+          "descriptors": [
+            "fuller-tone",
+            "sustained-hum"
+          ],
+          "match_tokens": [
+            "thumb-piano",
+            "resonant"
+          ]
+        },
+        {
+          "id": "setinkane_tin",
+          "name": "Tin-can resonator",
+          "descriptors": [
+            "tinny",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "thumb-piano",
+            "buzzing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setinkane_lamellae",
+      "name": "Lamella material",
+      "variants": [
+        {
+          "id": "setinkane_iron",
+          "default": true,
+          "name": "Forged iron tongues",
+          "descriptors": [
+            "clangy",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "lamellophone"
+          ]
+        },
+        {
+          "id": "setinkane_wire",
+          "name": "Recycled spring-wire tongues",
+          "descriptors": [
+            "thin-toned",
+            "zingy"
+          ],
+          "match_tokens": [
+            "lamellophone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "setinkane_body",
+      "name": "Body / resonator",
+      "variants": [
+        {
+          "id": "setinkane_board",
+          "default": true,
+          "name": "Plain wooden soundboard",
+          "descriptors": [
+            "dry-plink",
+            "intimate"
+          ],
+          "match_tokens": [
+            "thumb-piano",
+            "southern-african"
+          ]
+        },
+        {
+          "id": "setinkane_box",
+          "name": "Hollow resonating box",
+          "descriptors": [
+            "fuller-tone",
+            "sustained-hum"
+          ],
+          "match_tokens": [
+            "thumb-piano",
+            "resonant"
+          ]
+        },
+        {
+          "id": "setinkane_tin",
+          "name": "Tin-can resonator",
+          "descriptors": [
+            "tinny",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "thumb-piano",
+            "buzzing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "setinkane_lamellae",
+      "name": "Lamella material",
+      "variants": [
+        {
+          "id": "setinkane_iron",
+          "default": true,
+          "name": "Forged iron tongues",
+          "descriptors": [
+            "clangy",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "lamellophone"
+          ]
+        },
+        {
+          "id": "setinkane_wire",
+          "name": "Recycled spring-wire tongues",
+          "descriptors": [
+            "thin-toned",
+            "zingy"
+          ],
+          "match_tokens": [
+            "lamellophone"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "klong_that",
+  "name": "Klong that (Thai large barrel drum pair)",
+  "family": "percussion",
+  "class": "barrel_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "klong that",
+  "parts": [
+    {
+      "id": "klong_that_setup",
+      "name": "Setup",
+      "variants": [
+        {
+          "id": "klong_that_pair",
+          "default": true,
+          "name": "Tuned pair (high and low) on stand (canonical piphat)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "paired"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "thai-piphat"
+          ]
+        },
+        {
+          "id": "klong_that_single",
+          "name": "Single drum",
+          "descriptors": [
+            "deep-toned",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "klong_that_tuning",
+      "surface": false,
+      "name": "Head tuning",
+      "variants": [
+        {
+          "id": "klong_that_rice_paste",
+          "default": true,
+          "name": "Rice-paste tuning patch on head (canonical)",
+          "descriptors": [
+            "pitched-thump",
+            "damped-low"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "klong_that_untreated",
+          "name": "Untreated head",
+          "descriptors": [
+            "open-boom",
+            "ringing"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "klong_that_setup",
+      "name": "Setup",
+      "variants": [
+        {
+          "id": "klong_that_pair",
+          "default": true,
+          "name": "Tuned pair (high and low) on stand (canonical piphat)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "paired"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "thai-piphat"
+          ]
+        },
+        {
+          "id": "klong_that_single",
+          "name": "Single drum",
+          "descriptors": [
+            "deep-toned",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "klong_that_tuning",
+      "surface": false,
+      "name": "Head tuning",
+      "variants": [
+        {
+          "id": "klong_that_rice_paste",
+          "default": true,
+          "name": "Rice-paste tuning patch on head (canonical)",
+          "descriptors": [
+            "pitched-thump",
+            "damped-low"
+          ],
+          "match_tokens": [
+            "barrel-drum",
+            "low-register"
+          ]
+        },
+        {
+          "id": "klong_that_untreated",
+          "name": "Untreated head",
+          "descriptors": [
+            "open-boom",
+            "ringing"
+          ],
+          "match_tokens": [
+            "barrel-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

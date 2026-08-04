@@ -1,0 +1,216 @@
+{
+  "id": "mi_gyaung_kyam",
+  "name": "Kyam (Mon crocodile-form fretted zither, Thai-Burmese border)",
+  "family": "plucked_traditional",
+  "class": "fretboard_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kyam",
+  "parts": [
+    {
+      "id": "kyam_body",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "kyam_full_crocodile",
+          "default": true,
+          "name": "Full crocodile-carved hardwood body with head and legs (Mon canonical)",
+          "descriptors": [
+            "woody",
+            "buzzing-timbre",
+            "dry"
+          ],
+          "match_tokens": [
+            "crocodile-zither",
+            "mon"
+          ]
+        },
+        {
+          "id": "kyam_stylized",
+          "name": "Stylized shallow trough body (Thai Mon village form)",
+          "descriptors": [
+            "blunt",
+            "rustic",
+            "muted"
+          ],
+          "match_tokens": [
+            "crocodile-zither",
+            "thai-mon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyam_plectrum",
+      "name": "Plectrum / string set",
+      "variants": [
+        {
+          "id": "kyam_horn_plectrum_silk",
+          "default": true,
+          "name": "Horn plectrum, silk melody strings with brass drone",
+          "descriptors": [
+            "nasal",
+            "buzzing-timbre",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "crocodile-zither"
+          ]
+        },
+        {
+          "id": "kyam_wire_strings",
+          "name": "All-metal wire strings (modern)",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "crocodile-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyam_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "kyam_mon_ceremonial",
+          "default": true,
+          "name": "Mon ceremonial and spirit-rite ensemble (canonical)",
+          "descriptors": [
+            "cyclic",
+            "supporting"
+          ],
+          "match_tokens": [
+            "mon",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "kyam_solo_song",
+          "name": "Solo song self-accompaniment",
+          "descriptors": [
+            "sparse",
+            "intimate"
+          ],
+          "match_tokens": [
+            "mon",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kyam_body",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "kyam_full_crocodile",
+          "default": true,
+          "name": "Full crocodile-carved hardwood body with head and legs (Mon canonical)",
+          "descriptors": [
+            "woody",
+            "buzzing-timbre",
+            "dry"
+          ],
+          "match_tokens": [
+            "crocodile-zither",
+            "mon"
+          ]
+        },
+        {
+          "id": "kyam_stylized",
+          "name": "Stylized shallow trough body (Thai Mon village form)",
+          "descriptors": [
+            "blunt",
+            "rustic",
+            "muted"
+          ],
+          "match_tokens": [
+            "crocodile-zither",
+            "thai-mon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyam_plectrum",
+      "name": "Plectrum / string set",
+      "variants": [
+        {
+          "id": "kyam_horn_plectrum_silk",
+          "default": true,
+          "name": "Horn plectrum, silk melody strings with brass drone",
+          "descriptors": [
+            "nasal",
+            "buzzing-timbre",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "crocodile-zither"
+          ]
+        },
+        {
+          "id": "kyam_wire_strings",
+          "name": "All-metal wire strings (modern)",
+          "descriptors": [
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "crocodile-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyam_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "kyam_mon_ceremonial",
+          "default": true,
+          "name": "Mon ceremonial and spirit-rite ensemble (canonical)",
+          "descriptors": [
+            "cyclic",
+            "supporting"
+          ],
+          "match_tokens": [
+            "mon",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "kyam_solo_song",
+          "name": "Solo song self-accompaniment",
+          "descriptors": [
+            "sparse",
+            "intimate"
+          ],
+          "match_tokens": [
+            "mon",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

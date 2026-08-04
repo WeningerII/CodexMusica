@@ -1,0 +1,208 @@
+{
+  "id": "tama_talking_drum",
+  "name": "Tama (Wolof/Mandinka hourglass talking drum)",
+  "family": "percussion",
+  "class": "hourglass_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tama",
+  "parts": [
+    {
+      "id": "tama_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "tama_small",
+          "default": true,
+          "name": "Small underarm tama (high, chattering)",
+          "descriptors": [
+            "high-pitched",
+            "chattering",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "wolof"
+          ]
+        },
+        {
+          "id": "tama_large",
+          "name": "Larger tama / tamani (Mandinka, deeper)",
+          "descriptors": [
+            "mid-toned",
+            "singing-glissando"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "mande"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tama_head",
+      "name": "Head and tension cords",
+      "variants": [
+        {
+          "id": "tama_lizard_skin",
+          "default": true,
+          "name": "Lizard/goat skin heads with leather tension cords",
+          "descriptors": [
+            "bright-attack",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "talking-drum"
+          ]
+        },
+        {
+          "id": "tama_synthetic",
+          "name": "Synthetic head with nylon cords",
+          "descriptors": [
+            "crisp",
+            "projecting"
+          ],
+          "match_tokens": [
+            "talking-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tama_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "tama_solo",
+          "default": true,
+          "name": "Speech-surrogate solo calls",
+          "descriptors": [
+            "speech-like",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "praise-music"
+          ]
+        },
+        {
+          "id": "tama_mbalax",
+          "name": "Mbalax ensemble drive",
+          "descriptors": [
+            "driving",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "senegal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tama_size",
+      "name": "Size",
+      "variants": [
+        {
+          "id": "tama_small",
+          "default": true,
+          "name": "Small underarm tama (high, chattering)",
+          "descriptors": [
+            "high-pitched",
+            "chattering",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "wolof"
+          ]
+        },
+        {
+          "id": "tama_large",
+          "name": "Larger tama / tamani (Mandinka, deeper)",
+          "descriptors": [
+            "mid-toned",
+            "singing-glissando"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "mande"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tama_head",
+      "name": "Head and tension cords",
+      "variants": [
+        {
+          "id": "tama_lizard_skin",
+          "default": true,
+          "name": "Lizard/goat skin heads with leather tension cords",
+          "descriptors": [
+            "bright-attack",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "talking-drum"
+          ]
+        },
+        {
+          "id": "tama_synthetic",
+          "name": "Synthetic head with nylon cords",
+          "descriptors": [
+            "crisp",
+            "projecting"
+          ],
+          "match_tokens": [
+            "talking-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tama_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "tama_solo",
+          "default": true,
+          "name": "Speech-surrogate solo calls",
+          "descriptors": [
+            "speech-like",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "talking-drum",
+            "praise-music"
+          ]
+        },
+        {
+          "id": "tama_mbalax",
+          "name": "Mbalax ensemble drive",
+          "descriptors": [
+            "driving",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "dance-rhythm",
+            "senegal"
+          ]
+        }
+      ]
+    }
+  ]
+}

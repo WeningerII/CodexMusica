@@ -1,0 +1,210 @@
+{
+  "id": "embaire",
+  "name": "Embaire (Busoga large log xylophone)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "embaire",
+  "parts": [
+    {
+      "id": "embaire_size",
+      "name": "Instrument size",
+      "variants": [
+        {
+          "id": "embaire_large",
+          "default": true,
+          "name": "Large 15-21 key log xylophone (multiple players)",
+          "descriptors": [
+            "thunderous",
+            "deep-toned",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "log-xylophone",
+            "busoga"
+          ]
+        },
+        {
+          "id": "embaire_small",
+          "name": "Smaller portable set",
+          "descriptors": [
+            "bright",
+            "clattering"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "uganda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embaire_support",
+      "name": "Key support / resonance",
+      "variants": [
+        {
+          "id": "embaire_banana",
+          "default": true,
+          "name": "Keys laid over banana-stem pit resonance",
+          "descriptors": [
+            "boomy",
+            "earthy",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "log-xylophone",
+            "pit-resonated"
+          ]
+        },
+        {
+          "id": "embaire_frame",
+          "name": "Raised wooden frame",
+          "descriptors": [
+            "drier",
+            "clearer-attack"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "east-africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embaire_mallet",
+      "surface": false,
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "embaire_hardwood",
+          "default": true,
+          "name": "Hardwood sticks",
+          "descriptors": [
+            "hard-attack",
+            "woody"
+          ],
+          "match_tokens": [
+            "mallet-struck"
+          ]
+        },
+        {
+          "id": "embaire_rubber",
+          "name": "Rubber-tipped beaters",
+          "descriptors": [
+            "soft-attack",
+            "fuller-tone"
+          ],
+          "match_tokens": [
+            "mallet-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "embaire_size",
+      "name": "Instrument size",
+      "variants": [
+        {
+          "id": "embaire_large",
+          "default": true,
+          "name": "Large 15-21 key log xylophone (multiple players)",
+          "descriptors": [
+            "thunderous",
+            "deep-toned",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "log-xylophone",
+            "busoga"
+          ]
+        },
+        {
+          "id": "embaire_small",
+          "name": "Smaller portable set",
+          "descriptors": [
+            "bright",
+            "clattering"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "uganda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embaire_support",
+      "name": "Key support / resonance",
+      "variants": [
+        {
+          "id": "embaire_banana",
+          "default": true,
+          "name": "Keys laid over banana-stem pit resonance",
+          "descriptors": [
+            "boomy",
+            "earthy",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "log-xylophone",
+            "pit-resonated"
+          ]
+        },
+        {
+          "id": "embaire_frame",
+          "name": "Raised wooden frame",
+          "descriptors": [
+            "drier",
+            "clearer-attack"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "east-africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embaire_mallet",
+      "surface": false,
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "embaire_hardwood",
+          "default": true,
+          "name": "Hardwood sticks",
+          "descriptors": [
+            "hard-attack",
+            "woody"
+          ],
+          "match_tokens": [
+            "mallet-struck"
+          ]
+        },
+        {
+          "id": "embaire_rubber",
+          "name": "Rubber-tipped beaters",
+          "descriptors": [
+            "soft-attack",
+            "fuller-tone"
+          ],
+          "match_tokens": [
+            "mallet-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

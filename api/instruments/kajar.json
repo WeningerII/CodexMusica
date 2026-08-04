@@ -1,0 +1,180 @@
+{
+  "id": "kajar",
+  "name": "Kajar (Balinese damped pulse gong)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kajar",
+  "parts": [
+    {
+      "id": "kajar_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kajar_kebyar",
+          "default": true,
+          "name": "Gong kebyar kajar (damped hand-held)",
+          "descriptors": [
+            "choked",
+            "dry",
+            "pulse-keeping"
+          ],
+          "match_tokens": [
+            "knobbed-gong",
+            "balinese"
+          ]
+        },
+        {
+          "id": "kajar_angklung",
+          "name": "Gamelan angklung kajar (small, ringing)",
+          "descriptors": [
+            "ringing",
+            "bright",
+            "light"
+          ],
+          "match_tokens": [
+            "knobbed-gong",
+            "processional"
+          ]
+        },
+        {
+          "id": "kajar_gong_gede",
+          "name": "Gong gede kajar (large ceremonial)",
+          "descriptors": [
+            "deep-toned",
+            "resonant",
+            "stately"
+          ],
+          "match_tokens": [
+            "knobbed-gong",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kajar_technique",
+      "name": "Damping technique",
+      "variants": [
+        {
+          "id": "kajar_damped",
+          "default": true,
+          "name": "Fully damped on boss (kajar mati)",
+          "descriptors": [
+            "choked",
+            "percussive",
+            "dry"
+          ],
+          "match_tokens": [
+            "damped",
+            "timekeeping"
+          ]
+        },
+        {
+          "id": "kajar_open",
+          "name": "Open ringing strokes",
+          "descriptors": [
+            "ringing",
+            "sustained",
+            "metallic"
+          ],
+          "match_tokens": [
+            "struck",
+            "knobbed-gong"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kajar_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kajar_kebyar",
+          "default": true,
+          "name": "Gong kebyar kajar (damped hand-held)",
+          "descriptors": [
+            "choked",
+            "dry",
+            "pulse-keeping"
+          ],
+          "match_tokens": [
+            "knobbed-gong",
+            "balinese"
+          ]
+        },
+        {
+          "id": "kajar_angklung",
+          "name": "Gamelan angklung kajar (small, ringing)",
+          "descriptors": [
+            "ringing",
+            "bright",
+            "light"
+          ],
+          "match_tokens": [
+            "knobbed-gong",
+            "processional"
+          ]
+        },
+        {
+          "id": "kajar_gong_gede",
+          "name": "Gong gede kajar (large ceremonial)",
+          "descriptors": [
+            "deep-toned",
+            "resonant",
+            "stately"
+          ],
+          "match_tokens": [
+            "knobbed-gong",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kajar_technique",
+      "name": "Damping technique",
+      "variants": [
+        {
+          "id": "kajar_damped",
+          "default": true,
+          "name": "Fully damped on boss (kajar mati)",
+          "descriptors": [
+            "choked",
+            "percussive",
+            "dry"
+          ],
+          "match_tokens": [
+            "damped",
+            "timekeeping"
+          ]
+        },
+        {
+          "id": "kajar_open",
+          "name": "Open ringing strokes",
+          "descriptors": [
+            "ringing",
+            "sustained",
+            "metallic"
+          ],
+          "match_tokens": [
+            "struck",
+            "knobbed-gong"
+          ]
+        }
+      ]
+    }
+  ]
+}

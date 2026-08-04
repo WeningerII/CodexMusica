@@ -1,0 +1,146 @@
+{
+  "id": "opi",
+  "name": "Opi (Igbo side-blown wooden/horn trumpet)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "opi",
+  "parts": [
+    {
+      "id": "opi_material",
+      "name": "Material",
+      "variants": [
+        {
+          "id": "opi_wood",
+          "default": true,
+          "name": "Carved wooden tube with mouth hole",
+          "descriptors": [
+            "hoarse",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "side-blown-trumpet",
+            "igbo"
+          ]
+        },
+        {
+          "id": "opi_horn",
+          "name": "Animal horn (elephant tusk / antelope)",
+          "descriptors": [
+            "braying",
+            "raw"
+          ],
+          "match_tokens": [
+            "horn-trumpet",
+            "nigeria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "opi_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "opi_title_music",
+          "default": true,
+          "name": "Title / chieftaincy ceremonial calls",
+          "descriptors": [
+            "ceremonial",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "ritual-trumpet",
+            "praise-song"
+          ]
+        },
+        {
+          "id": "opi_ensemble",
+          "name": "Graded trumpet ensemble (interlocking hocket)",
+          "descriptors": [
+            "hocketing",
+            "layered"
+          ],
+          "match_tokens": [
+            "trumpet-ensemble",
+            "interlocking"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "opi_material",
+      "name": "Material",
+      "variants": [
+        {
+          "id": "opi_wood",
+          "default": true,
+          "name": "Carved wooden tube with mouth hole",
+          "descriptors": [
+            "hoarse",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "side-blown-trumpet",
+            "igbo"
+          ]
+        },
+        {
+          "id": "opi_horn",
+          "name": "Animal horn (elephant tusk / antelope)",
+          "descriptors": [
+            "braying",
+            "raw"
+          ],
+          "match_tokens": [
+            "horn-trumpet",
+            "nigeria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "opi_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "opi_title_music",
+          "default": true,
+          "name": "Title / chieftaincy ceremonial calls",
+          "descriptors": [
+            "ceremonial",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "ritual-trumpet",
+            "praise-song"
+          ]
+        },
+        {
+          "id": "opi_ensemble",
+          "name": "Graded trumpet ensemble (interlocking hocket)",
+          "descriptors": [
+            "hocketing",
+            "layered"
+          ],
+          "match_tokens": [
+            "trumpet-ensemble",
+            "interlocking"
+          ]
+        }
+      ]
+    }
+  ]
+}

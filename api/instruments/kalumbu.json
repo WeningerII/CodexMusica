@@ -1,0 +1,204 @@
+{
+  "id": "kalumbu",
+  "name": "Kalumbu (Tonga gourd-resonated musical bow)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kalumbu",
+  "parts": [
+    {
+      "id": "kalumbu_resonator",
+      "name": "Gourd resonator handling",
+      "variants": [
+        {
+          "id": "kalumbu_chest_open",
+          "default": true,
+          "name": "Gourd held open against chest",
+          "descriptors": [
+            "hollow-resonance",
+            "warm-boom"
+          ],
+          "match_tokens": [
+            "gourd-bow",
+            "zambian"
+          ]
+        },
+        {
+          "id": "kalumbu_chest_damped",
+          "name": "Gourd pressed closed (damped)",
+          "descriptors": [
+            "muted-thud",
+            "wah-shading"
+          ],
+          "match_tokens": [
+            "gourd-bow",
+            "muted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalumbu_stroke",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "kalumbu_stick_struck",
+          "default": true,
+          "name": "Struck with thin beater stick",
+          "descriptors": [
+            "dry-attack",
+            "percussive"
+          ],
+          "match_tokens": [
+            "struck-bow",
+            "tonga"
+          ]
+        },
+        {
+          "id": "kalumbu_plucked",
+          "name": "Finger-plucked string",
+          "descriptors": [
+            "soft-pluck",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalumbu_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kalumbu_wire",
+          "default": true,
+          "name": "Steel wire string",
+          "descriptors": [
+            "bright-partials",
+            "ringing"
+          ],
+          "match_tokens": [
+            "wire-string"
+          ]
+        },
+        {
+          "id": "kalumbu_sinew",
+          "name": "Twisted sinew / plant fibre",
+          "descriptors": [
+            "dull-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "fibre-string"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kalumbu_resonator",
+      "name": "Gourd resonator handling",
+      "variants": [
+        {
+          "id": "kalumbu_chest_open",
+          "default": true,
+          "name": "Gourd held open against chest",
+          "descriptors": [
+            "hollow-resonance",
+            "warm-boom"
+          ],
+          "match_tokens": [
+            "gourd-bow",
+            "zambian"
+          ]
+        },
+        {
+          "id": "kalumbu_chest_damped",
+          "name": "Gourd pressed closed (damped)",
+          "descriptors": [
+            "muted-thud",
+            "wah-shading"
+          ],
+          "match_tokens": [
+            "gourd-bow",
+            "muted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalumbu_stroke",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "kalumbu_stick_struck",
+          "default": true,
+          "name": "Struck with thin beater stick",
+          "descriptors": [
+            "dry-attack",
+            "percussive"
+          ],
+          "match_tokens": [
+            "struck-bow",
+            "tonga"
+          ]
+        },
+        {
+          "id": "kalumbu_plucked",
+          "name": "Finger-plucked string",
+          "descriptors": [
+            "soft-pluck",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalumbu_string",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kalumbu_wire",
+          "default": true,
+          "name": "Steel wire string",
+          "descriptors": [
+            "bright-partials",
+            "ringing"
+          ],
+          "match_tokens": [
+            "wire-string"
+          ]
+        },
+        {
+          "id": "kalumbu_sinew",
+          "name": "Twisted sinew / plant fibre",
+          "descriptors": [
+            "dull-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "fibre-string"
+          ]
+        }
+      ]
+    }
+  ]
+}

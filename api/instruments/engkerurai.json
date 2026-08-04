@@ -1,0 +1,188 @@
+{
+  "id": "engkerurai",
+  "name": "Engkerurai (Iban gourd mouth organ)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "engkerurai",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "engkerurai_pipes",
+      "name": "Pipe configuration",
+      "variants": [
+        {
+          "id": "engkerurai_six",
+          "default": true,
+          "name": "Six-pipe gourd mouth organ",
+          "descriptors": [
+            "droning",
+            "reedy",
+            "chordal"
+          ],
+          "match_tokens": [
+            "mouth-organ",
+            "borneo"
+          ]
+        },
+        {
+          "id": "engkerurai_four",
+          "name": "Four-pipe smaller form",
+          "descriptors": [
+            "thin-toned",
+            "intimate"
+          ],
+          "match_tokens": [
+            "mouth-organ",
+            "iban"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "engkerurai_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "engkerurai_dance",
+          "default": true,
+          "name": "Longhouse dance accompaniment",
+          "descriptors": [
+            "pulsing",
+            "drone-and-melody"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "engkerurai_solo",
+          "name": "Solo meditative playing",
+          "descriptors": [
+            "breathy",
+            "continuous"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "sustained"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "engkerurai_pipes",
+      "name": "Pipe configuration",
+      "variants": [
+        {
+          "id": "engkerurai_six",
+          "default": true,
+          "name": "Six-pipe gourd mouth organ",
+          "descriptors": [
+            "droning",
+            "reedy",
+            "chordal"
+          ],
+          "match_tokens": [
+            "mouth-organ",
+            "borneo"
+          ]
+        },
+        {
+          "id": "engkerurai_four",
+          "name": "Four-pipe smaller form",
+          "descriptors": [
+            "thin-toned",
+            "intimate"
+          ],
+          "match_tokens": [
+            "mouth-organ",
+            "iban"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "engkerurai_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "engkerurai_dance",
+          "default": true,
+          "name": "Longhouse dance accompaniment",
+          "descriptors": [
+            "pulsing",
+            "drone-and-melody"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "engkerurai_solo",
+          "name": "Solo meditative playing",
+          "descriptors": [
+            "breathy",
+            "continuous"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "sustained"
+          ]
+        }
+      ]
+    }
+  ]
+}

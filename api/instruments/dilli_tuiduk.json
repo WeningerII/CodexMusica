@@ -1,0 +1,148 @@
+{
+  "id": "dilli_tuiduk",
+  "name": "Dilli tüýdük (Turkmen idioglot single-reed pipe)",
+  "family": "wind",
+  "class": "single_reed_cylindrical",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "dilli tuiduk",
+  "parts": [
+    {
+      "id": "dilli_tube",
+      "name": "Pipe construction",
+      "variants": [
+        {
+          "id": "dilli_cane",
+          "default": true,
+          "name": "Short cane pipe with cut idioglot tongue",
+          "descriptors": [
+            "buzzing-timbre",
+            "reedy",
+            "nasal"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "turkmen",
+            "cane-pipe"
+          ]
+        },
+        {
+          "id": "dilli_wood",
+          "name": "Turned wooden pipe with inserted reed",
+          "descriptors": [
+            "fuller-toned",
+            "stable"
+          ],
+          "match_tokens": [
+            "single-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dilli_style",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "dilli_circular",
+          "default": true,
+          "name": "Circular breathing continuous melody",
+          "descriptors": [
+            "unbroken",
+            "droning"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dilli_dance",
+          "name": "Dance-tune articulation",
+          "descriptors": [
+            "chirping",
+            "driving"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dilli_tube",
+      "name": "Pipe construction",
+      "variants": [
+        {
+          "id": "dilli_cane",
+          "default": true,
+          "name": "Short cane pipe with cut idioglot tongue",
+          "descriptors": [
+            "buzzing-timbre",
+            "reedy",
+            "nasal"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "turkmen",
+            "cane-pipe"
+          ]
+        },
+        {
+          "id": "dilli_wood",
+          "name": "Turned wooden pipe with inserted reed",
+          "descriptors": [
+            "fuller-toned",
+            "stable"
+          ],
+          "match_tokens": [
+            "single-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dilli_style",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "dilli_circular",
+          "default": true,
+          "name": "Circular breathing continuous melody",
+          "descriptors": [
+            "unbroken",
+            "droning"
+          ],
+          "match_tokens": [
+            "circular-breathing",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "dilli_dance",
+          "name": "Dance-tune articulation",
+          "descriptors": [
+            "chirping",
+            "driving"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

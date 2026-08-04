@@ -1,0 +1,236 @@
+{
+  "id": "gaku_biwa",
+  "name": "Gaku biwa (four-string gagaku court biwa)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gaku biwa",
+  "parts": [
+    {
+      "id": "gaku_biwa_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gaku_biwa_arpeggio",
+          "default": true,
+          "name": "Broken-chord sweep (kakizume arpeggio)",
+          "descriptors": [
+            "arpeggiated",
+            "rasping-sweep",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gagaku",
+            "court-music"
+          ]
+        },
+        {
+          "id": "gaku_biwa_single_note",
+          "name": "Single-note punctuation",
+          "descriptors": [
+            "sparse",
+            "marking",
+            "dry-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gagaku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaku_biwa_tuning",
+      "name": "Tuning (choshi)",
+      "variants": [
+        {
+          "id": "gaku_biwa_hyojo",
+          "default": true,
+          "name": "Hyojo tuning",
+          "descriptors": [
+            "open-fifths",
+            "archaic"
+          ],
+          "match_tokens": [
+            "gagaku",
+            "tuning"
+          ]
+        },
+        {
+          "id": "gaku_biwa_oshikicho",
+          "name": "Oshikicho tuning",
+          "descriptors": [
+            "bright",
+            "court-modal"
+          ],
+          "match_tokens": [
+            "gagaku",
+            "tuning"
+          ]
+        },
+        {
+          "id": "gaku_biwa_banshikicho",
+          "name": "Banshikicho tuning",
+          "descriptors": [
+            "dark-toned",
+            "autumnal"
+          ],
+          "match_tokens": [
+            "gagaku",
+            "tuning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaku_biwa_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gaku_biwa_silk",
+          "default": true,
+          "name": "Silk strings",
+          "descriptors": [
+            "mellow",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "gaku_biwa_tetron",
+          "name": "Synthetic (tetron) strings",
+          "descriptors": [
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gaku_biwa_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "gaku_biwa_arpeggio",
+          "default": true,
+          "name": "Broken-chord sweep (kakizume arpeggio)",
+          "descriptors": [
+            "arpeggiated",
+            "rasping-sweep",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gagaku",
+            "court-music"
+          ]
+        },
+        {
+          "id": "gaku_biwa_single_note",
+          "name": "Single-note punctuation",
+          "descriptors": [
+            "sparse",
+            "marking",
+            "dry-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gagaku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaku_biwa_tuning",
+      "name": "Tuning (choshi)",
+      "variants": [
+        {
+          "id": "gaku_biwa_hyojo",
+          "default": true,
+          "name": "Hyojo tuning",
+          "descriptors": [
+            "open-fifths",
+            "archaic"
+          ],
+          "match_tokens": [
+            "gagaku",
+            "tuning"
+          ]
+        },
+        {
+          "id": "gaku_biwa_oshikicho",
+          "name": "Oshikicho tuning",
+          "descriptors": [
+            "bright",
+            "court-modal"
+          ],
+          "match_tokens": [
+            "gagaku",
+            "tuning"
+          ]
+        },
+        {
+          "id": "gaku_biwa_banshikicho",
+          "name": "Banshikicho tuning",
+          "descriptors": [
+            "dark-toned",
+            "autumnal"
+          ],
+          "match_tokens": [
+            "gagaku",
+            "tuning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaku_biwa_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "gaku_biwa_silk",
+          "default": true,
+          "name": "Silk strings",
+          "descriptors": [
+            "mellow",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "gaku_biwa_tetron",
+          "name": "Synthetic (tetron) strings",
+          "descriptors": [
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

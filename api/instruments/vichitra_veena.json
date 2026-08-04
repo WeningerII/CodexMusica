@@ -1,0 +1,210 @@
+{
+  "id": "vichitra_veena",
+  "name": "Vichitra veena (Hindustani fretless slide stick zither)",
+  "family": "plucked_traditional",
+  "class": "stick_zither",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "vichitra veena",
+  "parts": [
+    {
+      "id": "vichitra_slide",
+      "name": "Slide object (batta)",
+      "variants": [
+        {
+          "id": "vichitra_glass_egg",
+          "default": true,
+          "name": "Polished glass egg (batta)",
+          "descriptors": [
+            "gliding",
+            "glassy",
+            "singing"
+          ],
+          "match_tokens": [
+            "slide-zither",
+            "hindustani"
+          ]
+        },
+        {
+          "id": "vichitra_stone",
+          "name": "Stone / crystal slide",
+          "descriptors": [
+            "heavy-toned",
+            "sustained"
+          ],
+          "match_tokens": [
+            "slide-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vichitra_style",
+      "name": "Repertoire section",
+      "variants": [
+        {
+          "id": "vichitra_alap",
+          "default": true,
+          "name": "Slow alap meend exploration",
+          "descriptors": [
+            "rubato",
+            "gliding",
+            "meditative"
+          ],
+          "match_tokens": [
+            "slide-zither",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "vichitra_jhala",
+          "name": "Jhala with chikari strumming",
+          "descriptors": [
+            "driving",
+            "shimmering",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "strummed",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vichitra_gourds",
+      "surface": false,
+      "name": "Resonator gourds",
+      "variants": [
+        {
+          "id": "vichitra_twin_gourd",
+          "default": true,
+          "name": "Twin large gourds",
+          "descriptors": [
+            "booming",
+            "deep-resonance"
+          ],
+          "match_tokens": [
+            "gourd-resonated"
+          ]
+        },
+        {
+          "id": "vichitra_wood_bowl",
+          "name": "Carved wooden resonators",
+          "descriptors": [
+            "focused",
+            "tight"
+          ],
+          "match_tokens": [
+            "slide-zither"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vichitra_slide",
+      "name": "Slide object (batta)",
+      "variants": [
+        {
+          "id": "vichitra_glass_egg",
+          "default": true,
+          "name": "Polished glass egg (batta)",
+          "descriptors": [
+            "gliding",
+            "glassy",
+            "singing"
+          ],
+          "match_tokens": [
+            "slide-zither",
+            "hindustani"
+          ]
+        },
+        {
+          "id": "vichitra_stone",
+          "name": "Stone / crystal slide",
+          "descriptors": [
+            "heavy-toned",
+            "sustained"
+          ],
+          "match_tokens": [
+            "slide-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vichitra_style",
+      "name": "Repertoire section",
+      "variants": [
+        {
+          "id": "vichitra_alap",
+          "default": true,
+          "name": "Slow alap meend exploration",
+          "descriptors": [
+            "rubato",
+            "gliding",
+            "meditative"
+          ],
+          "match_tokens": [
+            "slide-zither",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "vichitra_jhala",
+          "name": "Jhala with chikari strumming",
+          "descriptors": [
+            "driving",
+            "shimmering",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "strummed",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vichitra_gourds",
+      "surface": false,
+      "name": "Resonator gourds",
+      "variants": [
+        {
+          "id": "vichitra_twin_gourd",
+          "default": true,
+          "name": "Twin large gourds",
+          "descriptors": [
+            "booming",
+            "deep-resonance"
+          ],
+          "match_tokens": [
+            "gourd-resonated"
+          ]
+        },
+        {
+          "id": "vichitra_wood_bowl",
+          "name": "Carved wooden resonators",
+          "descriptors": [
+            "focused",
+            "tight"
+          ],
+          "match_tokens": [
+            "slide-zither"
+          ]
+        }
+      ]
+    }
+  ]
+}

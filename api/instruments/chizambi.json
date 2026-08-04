@@ -1,0 +1,140 @@
+{
+  "id": "chizambi",
+  "name": "Chizambi (Shona scraped musical bow)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "chizambi",
+  "parts": [
+    {
+      "id": "chizambi_scraper",
+      "name": "Scraping implement",
+      "variants": [
+        {
+          "id": "chizambi_notched_stick",
+          "default": true,
+          "name": "Notched reed scraper on the bowstave",
+          "descriptors": [
+            "rasping",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "scraped-bow",
+            "shona"
+          ]
+        },
+        {
+          "id": "chizambi_rattle_ring",
+          "name": "Scraper with added rattle ring",
+          "descriptors": [
+            "shaker-halo",
+            "noisy"
+          ],
+          "match_tokens": [
+            "rattling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chizambi_resonance",
+      "name": "Mouth resonance use",
+      "variants": [
+        {
+          "id": "chizambi_mouth",
+          "default": true,
+          "name": "Mouth-resonated overtone shaping",
+          "descriptors": [
+            "overtone-rich",
+            "vowel-shifting"
+          ],
+          "match_tokens": [
+            "mouth-resonated"
+          ]
+        },
+        {
+          "id": "chizambi_open",
+          "name": "Played without mouth shaping",
+          "descriptors": [
+            "dry",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "musical-bow"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chizambi_scraper",
+      "name": "Scraping implement",
+      "variants": [
+        {
+          "id": "chizambi_notched_stick",
+          "default": true,
+          "name": "Notched reed scraper on the bowstave",
+          "descriptors": [
+            "rasping",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "scraped-bow",
+            "shona"
+          ]
+        },
+        {
+          "id": "chizambi_rattle_ring",
+          "name": "Scraper with added rattle ring",
+          "descriptors": [
+            "shaker-halo",
+            "noisy"
+          ],
+          "match_tokens": [
+            "rattling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chizambi_resonance",
+      "name": "Mouth resonance use",
+      "variants": [
+        {
+          "id": "chizambi_mouth",
+          "default": true,
+          "name": "Mouth-resonated overtone shaping",
+          "descriptors": [
+            "overtone-rich",
+            "vowel-shifting"
+          ],
+          "match_tokens": [
+            "mouth-resonated"
+          ]
+        },
+        {
+          "id": "chizambi_open",
+          "name": "Played without mouth shaping",
+          "descriptors": [
+            "dry",
+            "thin-toned"
+          ],
+          "match_tokens": [
+            "musical-bow"
+          ]
+        }
+      ]
+    }
+  ]
+}

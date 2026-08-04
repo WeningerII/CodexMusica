@@ -1,0 +1,210 @@
+{
+  "id": "sursringar",
+  "name": "Sursringar (metal-fingerboard bass plucked lute of dhrupad)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sursringar",
+  "parts": [
+    {
+      "id": "sursringar_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "sursringar_classic",
+          "default": true,
+          "name": "Classic form (twin gourds, wide metal fingerboard)",
+          "descriptors": [
+            "deep-toned",
+            "glassy-sustain",
+            "archaic"
+          ],
+          "match_tokens": [
+            "fretless-lute",
+            "dhrupad"
+          ]
+        },
+        {
+          "id": "sursringar_wood_bowl",
+          "name": "Wooden-bowl variant",
+          "descriptors": [
+            "tight",
+            "focused"
+          ],
+          "match_tokens": [
+            "fretless-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sursringar_style",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "sursringar_alap",
+          "default": true,
+          "name": "Dhrupad alap with long meend",
+          "descriptors": [
+            "gliding",
+            "stately",
+            "meditative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "expressive"
+          ]
+        },
+        {
+          "id": "sursringar_gat",
+          "name": "Rhythmic gat with plectrum strokes",
+          "descriptors": [
+            "clanging",
+            "pointed-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sursringar_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "sursringar_bronze",
+          "default": true,
+          "name": "Heavy bronze and steel strings",
+          "descriptors": [
+            "dark",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sursringar_brass",
+          "name": "Brass-wound strings",
+          "descriptors": [
+            "golden",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sursringar_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "sursringar_classic",
+          "default": true,
+          "name": "Classic form (twin gourds, wide metal fingerboard)",
+          "descriptors": [
+            "deep-toned",
+            "glassy-sustain",
+            "archaic"
+          ],
+          "match_tokens": [
+            "fretless-lute",
+            "dhrupad"
+          ]
+        },
+        {
+          "id": "sursringar_wood_bowl",
+          "name": "Wooden-bowl variant",
+          "descriptors": [
+            "tight",
+            "focused"
+          ],
+          "match_tokens": [
+            "fretless-lute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sursringar_style",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "sursringar_alap",
+          "default": true,
+          "name": "Dhrupad alap with long meend",
+          "descriptors": [
+            "gliding",
+            "stately",
+            "meditative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "expressive"
+          ]
+        },
+        {
+          "id": "sursringar_gat",
+          "name": "Rhythmic gat with plectrum strokes",
+          "descriptors": [
+            "clanging",
+            "pointed-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sursringar_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "sursringar_bronze",
+          "default": true,
+          "name": "Heavy bronze and steel strings",
+          "descriptors": [
+            "dark",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "sursringar_brass",
+          "name": "Brass-wound strings",
+          "descriptors": [
+            "golden",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

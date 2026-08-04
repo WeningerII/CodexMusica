@@ -1,0 +1,294 @@
+{
+  "id": "tumbadora",
+  "name": "Tumbadora (Cuban conga drum)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tumbadora",
+  "parts": [
+    {
+      "id": "tumbadora_size",
+      "name": "Drum size in the set",
+      "variants": [
+        {
+          "id": "tumbadora_conga",
+          "default": true,
+          "name": "Conga (middle, 11.75 in)",
+          "descriptors": [
+            "round-toned",
+            "warm",
+            "open-tone"
+          ],
+          "match_tokens": [
+            "conga",
+            "hand-drum",
+            "afro-cuban"
+          ]
+        },
+        {
+          "id": "tumbadora_tumba",
+          "name": "Tumba (largest, deepest)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "grounding"
+          ],
+          "match_tokens": [
+            "conga",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tumbadora_requinto",
+          "name": "Requinto (small high drum)",
+          "descriptors": [
+            "high-pitched",
+            "cutting",
+            "snappy"
+          ],
+          "match_tokens": [
+            "conga",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumbadora_technique",
+      "name": "Stroke vocabulary",
+      "variants": [
+        {
+          "id": "tumbadora_tumbao",
+          "default": true,
+          "name": "Tumbao pattern (heel-toe, open tones, slap)",
+          "descriptors": [
+            "swinging",
+            "driving",
+            "open-tone"
+          ],
+          "match_tokens": [
+            "afro-cuban",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tumbadora_rumba",
+          "name": "Rumba guaguancó accompaniment",
+          "descriptors": [
+            "conversational",
+            "slapping",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "rumba",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tumbadora_folkloric",
+          "name": "Folkloric bata-adjacent ritual patterns",
+          "descriptors": [
+            "ceremonial",
+            "interlocking",
+            "heavy"
+          ],
+          "match_tokens": [
+            "ritual",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumbadora_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "tumbadora_cowhide",
+          "default": true,
+          "name": "Natural cowhide head",
+          "descriptors": [
+            "warm",
+            "fat-toned",
+            "organic"
+          ],
+          "match_tokens": [
+            "cowhide"
+          ]
+        },
+        {
+          "id": "tumbadora_mule",
+          "name": "Mule skin (thin, high crack)",
+          "descriptors": [
+            "bright-attack",
+            "cracking"
+          ],
+          "match_tokens": [
+            "mule-skin"
+          ]
+        },
+        {
+          "id": "tumbadora_synthetic",
+          "name": "Synthetic head",
+          "descriptors": [
+            "consistent",
+            "punchy",
+            "dry"
+          ],
+          "match_tokens": [
+            "synthetic-head"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tumbadora_size",
+      "name": "Drum size in the set",
+      "variants": [
+        {
+          "id": "tumbadora_conga",
+          "default": true,
+          "name": "Conga (middle, 11.75 in)",
+          "descriptors": [
+            "round-toned",
+            "warm",
+            "open-tone"
+          ],
+          "match_tokens": [
+            "conga",
+            "hand-drum",
+            "afro-cuban"
+          ]
+        },
+        {
+          "id": "tumbadora_tumba",
+          "name": "Tumba (largest, deepest)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "grounding"
+          ],
+          "match_tokens": [
+            "conga",
+            "low-register"
+          ]
+        },
+        {
+          "id": "tumbadora_requinto",
+          "name": "Requinto (small high drum)",
+          "descriptors": [
+            "high-pitched",
+            "cutting",
+            "snappy"
+          ],
+          "match_tokens": [
+            "conga",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumbadora_technique",
+      "name": "Stroke vocabulary",
+      "variants": [
+        {
+          "id": "tumbadora_tumbao",
+          "default": true,
+          "name": "Tumbao pattern (heel-toe, open tones, slap)",
+          "descriptors": [
+            "swinging",
+            "driving",
+            "open-tone"
+          ],
+          "match_tokens": [
+            "afro-cuban",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tumbadora_rumba",
+          "name": "Rumba guaguancó accompaniment",
+          "descriptors": [
+            "conversational",
+            "slapping",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "rumba",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "tumbadora_folkloric",
+          "name": "Folkloric bata-adjacent ritual patterns",
+          "descriptors": [
+            "ceremonial",
+            "interlocking",
+            "heavy"
+          ],
+          "match_tokens": [
+            "ritual",
+            "interlocking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumbadora_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "tumbadora_cowhide",
+          "default": true,
+          "name": "Natural cowhide head",
+          "descriptors": [
+            "warm",
+            "fat-toned",
+            "organic"
+          ],
+          "match_tokens": [
+            "cowhide"
+          ]
+        },
+        {
+          "id": "tumbadora_mule",
+          "name": "Mule skin (thin, high crack)",
+          "descriptors": [
+            "bright-attack",
+            "cracking"
+          ],
+          "match_tokens": [
+            "mule-skin"
+          ]
+        },
+        {
+          "id": "tumbadora_synthetic",
+          "name": "Synthetic head",
+          "descriptors": [
+            "consistent",
+            "punchy",
+            "dry"
+          ],
+          "match_tokens": [
+            "synthetic-head"
+          ]
+        }
+      ]
+    }
+  ]
+}

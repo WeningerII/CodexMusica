@@ -1,0 +1,208 @@
+{
+  "id": "timbal_brasileiro",
+  "name": "Timbal (Bahian conical hand drum)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "timbal",
+  "parts": [
+    {
+      "id": "timbal_head",
+      "name": "Head type",
+      "variants": [
+        {
+          "id": "timbal_synthetic",
+          "default": true,
+          "name": "Thin synthetic head (high-tension)",
+          "descriptors": [
+            "piercing-slap",
+            "cracking",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "bahia",
+            "hand-drum",
+            "axe"
+          ]
+        },
+        {
+          "id": "timbal_skin",
+          "name": "Natural skin head",
+          "descriptors": [
+            "warmer",
+            "rounder"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "brazilian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbal_size",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "timbal_standard",
+          "default": true,
+          "name": "Standard 14\" conical aluminium body",
+          "descriptors": [
+            "punchy",
+            "loud"
+          ],
+          "match_tokens": [
+            "samba-reggae"
+          ]
+        },
+        {
+          "id": "timbal_slim",
+          "name": "Slim 10\"-12\" body",
+          "descriptors": [
+            "high-pitched",
+            "cutting"
+          ],
+          "match_tokens": [
+            "samba-reggae"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbal_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "timbal_samba_reggae",
+          "default": true,
+          "name": "Samba-reggae / axé phrasing",
+          "descriptors": [
+            "driving",
+            "virtuosic-fills"
+          ],
+          "match_tokens": [
+            "bahia",
+            "carnival"
+          ]
+        },
+        {
+          "id": "timbal_solo",
+          "name": "Solo virtuoso style (Timbalada school)",
+          "descriptors": [
+            "flashy",
+            "rapid-rolls"
+          ],
+          "match_tokens": [
+            "bahia",
+            "solo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "timbal_head",
+      "name": "Head type",
+      "variants": [
+        {
+          "id": "timbal_synthetic",
+          "default": true,
+          "name": "Thin synthetic head (high-tension)",
+          "descriptors": [
+            "piercing-slap",
+            "cracking",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "bahia",
+            "hand-drum",
+            "axe"
+          ]
+        },
+        {
+          "id": "timbal_skin",
+          "name": "Natural skin head",
+          "descriptors": [
+            "warmer",
+            "rounder"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "brazilian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbal_size",
+      "name": "Body size",
+      "variants": [
+        {
+          "id": "timbal_standard",
+          "default": true,
+          "name": "Standard 14\" conical aluminium body",
+          "descriptors": [
+            "punchy",
+            "loud"
+          ],
+          "match_tokens": [
+            "samba-reggae"
+          ]
+        },
+        {
+          "id": "timbal_slim",
+          "name": "Slim 10\"-12\" body",
+          "descriptors": [
+            "high-pitched",
+            "cutting"
+          ],
+          "match_tokens": [
+            "samba-reggae"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbal_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "timbal_samba_reggae",
+          "default": true,
+          "name": "Samba-reggae / axé phrasing",
+          "descriptors": [
+            "driving",
+            "virtuosic-fills"
+          ],
+          "match_tokens": [
+            "bahia",
+            "carnival"
+          ]
+        },
+        {
+          "id": "timbal_solo",
+          "name": "Solo virtuoso style (Timbalada school)",
+          "descriptors": [
+            "flashy",
+            "rapid-rolls"
+          ],
+          "match_tokens": [
+            "bahia",
+            "solo"
+          ]
+        }
+      ]
+    }
+  ]
+}

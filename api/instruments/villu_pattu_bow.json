@@ -1,0 +1,210 @@
+{
+  "id": "villu_pattu_bow",
+  "name": "Villu (Tamil villu paattu musical story-bow)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "villu",
+  "parts": [
+    {
+      "id": "villu_size",
+      "name": "Bow size",
+      "variants": [
+        {
+          "id": "villu_large",
+          "default": true,
+          "name": "Large performance bow with clay-pot resonator",
+          "descriptors": [
+            "deep-thump",
+            "jingling",
+            "driving"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "tamil-narrative"
+          ]
+        },
+        {
+          "id": "villu_small",
+          "name": "Small hand bow (village troupe)",
+          "descriptors": [
+            "dry-attack",
+            "light-jingle"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "folk-narrative"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "villu_attachments",
+      "surface": false,
+      "name": "Attached rattles",
+      "variants": [
+        {
+          "id": "villu_bells",
+          "default": true,
+          "name": "Brass bells strung along the stave",
+          "descriptors": [
+            "jingling",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "bell-jingle"
+          ]
+        },
+        {
+          "id": "villu_plain",
+          "name": "Plain stave without bells",
+          "descriptors": [
+            "dry-thud",
+            "bare"
+          ],
+          "match_tokens": [
+            "musical-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "villu_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "villu_sticks",
+          "default": true,
+          "name": "Two sticks beaten on the string",
+          "descriptors": [
+            "percussive",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "villu_pluck",
+          "name": "Plucked accents between narration",
+          "descriptors": [
+            "twanging",
+            "sparse"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "villu_size",
+      "name": "Bow size",
+      "variants": [
+        {
+          "id": "villu_large",
+          "default": true,
+          "name": "Large performance bow with clay-pot resonator",
+          "descriptors": [
+            "deep-thump",
+            "jingling",
+            "driving"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "tamil-narrative"
+          ]
+        },
+        {
+          "id": "villu_small",
+          "name": "Small hand bow (village troupe)",
+          "descriptors": [
+            "dry-attack",
+            "light-jingle"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "folk-narrative"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "villu_attachments",
+      "surface": false,
+      "name": "Attached rattles",
+      "variants": [
+        {
+          "id": "villu_bells",
+          "default": true,
+          "name": "Brass bells strung along the stave",
+          "descriptors": [
+            "jingling",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "bell-jingle"
+          ]
+        },
+        {
+          "id": "villu_plain",
+          "name": "Plain stave without bells",
+          "descriptors": [
+            "dry-thud",
+            "bare"
+          ],
+          "match_tokens": [
+            "musical-bow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "villu_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "villu_sticks",
+          "default": true,
+          "name": "Two sticks beaten on the string",
+          "descriptors": [
+            "percussive",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "stick-struck"
+          ]
+        },
+        {
+          "id": "villu_pluck",
+          "name": "Plucked accents between narration",
+          "descriptors": [
+            "twanging",
+            "sparse"
+          ],
+          "match_tokens": [
+            "musical-bow",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

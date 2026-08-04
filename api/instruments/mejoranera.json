@@ -1,0 +1,246 @@
+{
+  "id": "mejoranera",
+  "name": "Mejoranera (Panamanian five-string folk guitar)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "mejoranera",
+  "parts": [
+    {
+      "id": "mejoranera_tuning",
+      "name": "Traditional tuning (temple)",
+      "variants": [
+        {
+          "id": "mejoranera_por25",
+          "default": true,
+          "name": "Por veinticinco tuning",
+          "descriptors": [
+            "open-ringing",
+            "modal",
+            "folkloric"
+          ],
+          "match_tokens": [
+            "panama",
+            "five-string",
+            "strummed"
+          ]
+        },
+        {
+          "id": "mejoranera_porlomalto",
+          "name": "Por lo alto tuning",
+          "descriptors": [
+            "bright-tone",
+            "high-strung",
+            "festive"
+          ],
+          "match_tokens": [
+            "panama",
+            "strummed"
+          ]
+        },
+        {
+          "id": "mejoranera_porlobajo",
+          "name": "Por lo bajo tuning",
+          "descriptors": [
+            "dark-toned",
+            "grounded",
+            "droning"
+          ],
+          "match_tokens": [
+            "panama",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mejoranera_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "mejoranera_rasgueo",
+          "default": true,
+          "name": "Rasgueo strumming for mejorana song",
+          "descriptors": [
+            "percussive-strum",
+            "driving",
+            "rustic"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "mejoranera_punteo",
+          "name": "Punteo melodic picking (torrente)",
+          "descriptors": [
+            "plucked-clarity",
+            "lyrical",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mejoranera_body",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "mejoranera_cedro",
+          "default": true,
+          "name": "Cedar body (carved)",
+          "descriptors": [
+            "warm",
+            "woody",
+            "mellow"
+          ],
+          "match_tokens": [
+            "cedar"
+          ]
+        },
+        {
+          "id": "mejoranera_higueron",
+          "name": "Higuerón / local hardwood body",
+          "descriptors": [
+            "dry",
+            "punchy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "hardwood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mejoranera_tuning",
+      "name": "Traditional tuning (temple)",
+      "variants": [
+        {
+          "id": "mejoranera_por25",
+          "default": true,
+          "name": "Por veinticinco tuning",
+          "descriptors": [
+            "open-ringing",
+            "modal",
+            "folkloric"
+          ],
+          "match_tokens": [
+            "panama",
+            "five-string",
+            "strummed"
+          ]
+        },
+        {
+          "id": "mejoranera_porlomalto",
+          "name": "Por lo alto tuning",
+          "descriptors": [
+            "bright-tone",
+            "high-strung",
+            "festive"
+          ],
+          "match_tokens": [
+            "panama",
+            "strummed"
+          ]
+        },
+        {
+          "id": "mejoranera_porlobajo",
+          "name": "Por lo bajo tuning",
+          "descriptors": [
+            "dark-toned",
+            "grounded",
+            "droning"
+          ],
+          "match_tokens": [
+            "panama",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mejoranera_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "mejoranera_rasgueo",
+          "default": true,
+          "name": "Rasgueo strumming for mejorana song",
+          "descriptors": [
+            "percussive-strum",
+            "driving",
+            "rustic"
+          ],
+          "match_tokens": [
+            "strummed",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "mejoranera_punteo",
+          "name": "Punteo melodic picking (torrente)",
+          "descriptors": [
+            "plucked-clarity",
+            "lyrical",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mejoranera_body",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "mejoranera_cedro",
+          "default": true,
+          "name": "Cedar body (carved)",
+          "descriptors": [
+            "warm",
+            "woody",
+            "mellow"
+          ],
+          "match_tokens": [
+            "cedar"
+          ]
+        },
+        {
+          "id": "mejoranera_higueron",
+          "name": "Higuerón / local hardwood body",
+          "descriptors": [
+            "dry",
+            "punchy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "hardwood"
+          ]
+        }
+      ]
+    }
+  ]
+}

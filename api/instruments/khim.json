@@ -1,0 +1,206 @@
+{
+  "id": "khim",
+  "name": "Khim (Thai hammered trapezoidal dulcimer)",
+  "family": "acoustic_strings",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "khim",
+  "parts": [
+    {
+      "id": "khim_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "khim_thai",
+          "default": true,
+          "name": "Thai khim (butterfly body, triple-course brass strings)",
+          "descriptors": [
+            "shimmering",
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "thai"
+          ]
+        },
+        {
+          "id": "khim_khmer",
+          "name": "Khmer khim (Cambodian form)",
+          "descriptors": [
+            "bright",
+            "percussive-ring"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khim_mallets",
+      "name": "Beaters",
+      "variants": [
+        {
+          "id": "khim_bamboo_padded",
+          "default": true,
+          "name": "Flexible bamboo beaters with padded tips",
+          "descriptors": [
+            "soft-attack",
+            "sustained-ring"
+          ],
+          "match_tokens": [
+            "hammered",
+            "mellow"
+          ]
+        },
+        {
+          "id": "khim_bare_bamboo",
+          "name": "Bare bamboo beaters",
+          "descriptors": [
+            "hard-attack",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "hammered",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khim_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "khim_brass",
+          "default": true,
+          "name": "Brass strings (traditional)",
+          "descriptors": [
+            "warm-metallic"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer"
+          ]
+        },
+        {
+          "id": "khim_steel",
+          "name": "Steel strings (modern)",
+          "descriptors": [
+            "brilliant",
+            "loud"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "khim_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "khim_thai",
+          "default": true,
+          "name": "Thai khim (butterfly body, triple-course brass strings)",
+          "descriptors": [
+            "shimmering",
+            "bright-attack",
+            "ringing"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "thai"
+          ]
+        },
+        {
+          "id": "khim_khmer",
+          "name": "Khmer khim (Cambodian form)",
+          "descriptors": [
+            "bright",
+            "percussive-ring"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "khmer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khim_mallets",
+      "name": "Beaters",
+      "variants": [
+        {
+          "id": "khim_bamboo_padded",
+          "default": true,
+          "name": "Flexible bamboo beaters with padded tips",
+          "descriptors": [
+            "soft-attack",
+            "sustained-ring"
+          ],
+          "match_tokens": [
+            "hammered",
+            "mellow"
+          ]
+        },
+        {
+          "id": "khim_bare_bamboo",
+          "name": "Bare bamboo beaters",
+          "descriptors": [
+            "hard-attack",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "hammered",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khim_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "khim_brass",
+          "default": true,
+          "name": "Brass strings (traditional)",
+          "descriptors": [
+            "warm-metallic"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer"
+          ]
+        },
+        {
+          "id": "khim_steel",
+          "name": "Steel strings (modern)",
+          "descriptors": [
+            "brilliant",
+            "loud"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer"
+          ]
+        }
+      ]
+    }
+  ]
+}

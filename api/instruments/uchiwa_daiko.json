@@ -1,0 +1,170 @@
+{
+  "id": "uchiwa_daiko",
+  "name": "Uchiwa-daiko (Japanese handled fan frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "uchiwa-daiko",
+  "parts": [
+    {
+      "id": "uchiwa_daiko_use",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "uchiwa_daiko_nichiren",
+          "default": true,
+          "name": "Nichiren Buddhist chant drum",
+          "descriptors": [
+            "steady-pulse",
+            "hollow-toned",
+            "ritual"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "japanese",
+            "buddhist"
+          ]
+        },
+        {
+          "id": "uchiwa_daiko_ensemble",
+          "name": "Kumi-daiko marching use",
+          "descriptors": [
+            "bright-attack",
+            "mobile",
+            "cutting"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "taiko"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uchiwa_daiko_size",
+      "name": "Frame diameter",
+      "variants": [
+        {
+          "id": "uchiwa_daiko_small",
+          "name": "Small (about 25 cm)",
+          "descriptors": [
+            "high-pitched",
+            "papery"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "uchiwa_daiko_medium",
+          "default": true,
+          "name": "Medium (about 35 cm)",
+          "descriptors": [
+            "balanced",
+            "clear-toned"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "uchiwa_daiko_large",
+          "name": "Large (45 cm and up)",
+          "descriptors": [
+            "deeper-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "uchiwa_daiko_use",
+      "name": "Use context",
+      "variants": [
+        {
+          "id": "uchiwa_daiko_nichiren",
+          "default": true,
+          "name": "Nichiren Buddhist chant drum",
+          "descriptors": [
+            "steady-pulse",
+            "hollow-toned",
+            "ritual"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "japanese",
+            "buddhist"
+          ]
+        },
+        {
+          "id": "uchiwa_daiko_ensemble",
+          "name": "Kumi-daiko marching use",
+          "descriptors": [
+            "bright-attack",
+            "mobile",
+            "cutting"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "taiko"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uchiwa_daiko_size",
+      "name": "Frame diameter",
+      "variants": [
+        {
+          "id": "uchiwa_daiko_small",
+          "name": "Small (about 25 cm)",
+          "descriptors": [
+            "high-pitched",
+            "papery"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "uchiwa_daiko_medium",
+          "default": true,
+          "name": "Medium (about 35 cm)",
+          "descriptors": [
+            "balanced",
+            "clear-toned"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "uchiwa_daiko_large",
+          "name": "Large (45 cm and up)",
+          "descriptors": [
+            "deeper-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

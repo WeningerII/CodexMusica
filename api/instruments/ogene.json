@@ -1,0 +1,166 @@
+{
+  "id": "ogene",
+  "name": "Ogene (Igbo forged iron clapperless bell)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ogene",
+  "parts": [
+    {
+      "id": "ogene_form",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "ogene_single",
+          "default": true,
+          "name": "Single flat iron bell",
+          "descriptors": [
+            "clanging",
+            "metallic-ping"
+          ],
+          "match_tokens": [
+            "iron-bell",
+            "igbo"
+          ]
+        },
+        {
+          "id": "ogene_double",
+          "name": "Double bell (ogene mkpi, two pitches)",
+          "descriptors": [
+            "two-tone",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-bell",
+            "timeline"
+          ]
+        },
+        {
+          "id": "ogene_quartet",
+          "name": "Ogene ensemble set (four graded bells)",
+          "descriptors": [
+            "interlocking",
+            "chiming"
+          ],
+          "match_tokens": [
+            "bell-ensemble",
+            "nigeria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ogene_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "ogene_wood",
+          "default": true,
+          "name": "Wooden stick",
+          "descriptors": [
+            "bright-attack",
+            "dry-clank"
+          ],
+          "match_tokens": [
+            "struck-idiophone"
+          ]
+        },
+        {
+          "id": "ogene_metal",
+          "name": "Metal rod",
+          "descriptors": [
+            "piercing",
+            "ringing"
+          ],
+          "match_tokens": [
+            "metal-idiophone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ogene_form",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "ogene_single",
+          "default": true,
+          "name": "Single flat iron bell",
+          "descriptors": [
+            "clanging",
+            "metallic-ping"
+          ],
+          "match_tokens": [
+            "iron-bell",
+            "igbo"
+          ]
+        },
+        {
+          "id": "ogene_double",
+          "name": "Double bell (ogene mkpi, two pitches)",
+          "descriptors": [
+            "two-tone",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-bell",
+            "timeline"
+          ]
+        },
+        {
+          "id": "ogene_quartet",
+          "name": "Ogene ensemble set (four graded bells)",
+          "descriptors": [
+            "interlocking",
+            "chiming"
+          ],
+          "match_tokens": [
+            "bell-ensemble",
+            "nigeria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ogene_beater",
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "ogene_wood",
+          "default": true,
+          "name": "Wooden stick",
+          "descriptors": [
+            "bright-attack",
+            "dry-clank"
+          ],
+          "match_tokens": [
+            "struck-idiophone"
+          ]
+        },
+        {
+          "id": "ogene_metal",
+          "name": "Metal rod",
+          "descriptors": [
+            "piercing",
+            "ringing"
+          ],
+          "match_tokens": [
+            "metal-idiophone"
+          ]
+        }
+      ]
+    }
+  ]
+}

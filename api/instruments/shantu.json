@@ -1,0 +1,144 @@
+{
+  "id": "shantu",
+  "name": "Shantu (Hausa women's calabash tube stamping rattle)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "shantu",
+  "parts": [
+    {
+      "id": "shantu_gourd",
+      "name": "Gourd tube",
+      "variants": [
+        {
+          "id": "shantu_long_tube",
+          "default": true,
+          "name": "Long slender bottle-gourd tube",
+          "descriptors": [
+            "hollow-thump",
+            "dry-pop"
+          ],
+          "match_tokens": [
+            "gourd-tube",
+            "hausa"
+          ]
+        },
+        {
+          "id": "shantu_short",
+          "name": "Short wide gourd",
+          "descriptors": [
+            "deep-toned",
+            "muffled"
+          ],
+          "match_tokens": [
+            "stamping-idiophone",
+            "nigeria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shantu_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "shantu_thigh_stamp",
+          "default": true,
+          "name": "Stamped against thigh while seated",
+          "descriptors": [
+            "soft-attack",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "women-song",
+            "body-percussion"
+          ]
+        },
+        {
+          "id": "shantu_water",
+          "name": "Part-filled with water (pitch-shifted)",
+          "descriptors": [
+            "sloshing",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "water-gourd"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shantu_gourd",
+      "name": "Gourd tube",
+      "variants": [
+        {
+          "id": "shantu_long_tube",
+          "default": true,
+          "name": "Long slender bottle-gourd tube",
+          "descriptors": [
+            "hollow-thump",
+            "dry-pop"
+          ],
+          "match_tokens": [
+            "gourd-tube",
+            "hausa"
+          ]
+        },
+        {
+          "id": "shantu_short",
+          "name": "Short wide gourd",
+          "descriptors": [
+            "deep-toned",
+            "muffled"
+          ],
+          "match_tokens": [
+            "stamping-idiophone",
+            "nigeria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shantu_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "shantu_thigh_stamp",
+          "default": true,
+          "name": "Stamped against thigh while seated",
+          "descriptors": [
+            "soft-attack",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "women-song",
+            "body-percussion"
+          ]
+        },
+        {
+          "id": "shantu_water",
+          "name": "Part-filled with water (pitch-shifted)",
+          "descriptors": [
+            "sloshing",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "water-gourd"
+          ]
+        }
+      ]
+    }
+  ]
+}

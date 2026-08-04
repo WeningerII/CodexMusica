@@ -1,0 +1,178 @@
+{
+  "id": "vaksin",
+  "name": "Vaksin (Haitian single-note bamboo trumpet)",
+  "family": "wind",
+  "class": "ritual_trumpet",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "vaksin",
+  "parts": [
+    {
+      "id": "vaksin_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "vaksin_bamboo",
+          "default": true,
+          "name": "Bamboo tube with wooden mouthpiece",
+          "descriptors": [
+            "hollow-toned",
+            "buzzing-timbre",
+            "earthy"
+          ],
+          "match_tokens": [
+            "bamboo-trumpet",
+            "haitian"
+          ]
+        },
+        {
+          "id": "vaksin_metal",
+          "name": "Zinc / metal pipe vaksin (urban rara)",
+          "descriptors": [
+            "brassy",
+            "harsh",
+            "loud"
+          ],
+          "match_tokens": [
+            "metal-trumpet",
+            "rara"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vaksin_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "vaksin_hocket",
+          "default": true,
+          "name": "Hocketed rara set (interlocking one-note bank)",
+          "descriptors": [
+            "interlocking",
+            "processional",
+            "chugging"
+          ],
+          "match_tokens": [
+            "rara",
+            "hocket",
+            "haitian"
+          ]
+        },
+        {
+          "id": "vaksin_bas",
+          "name": "Bas (lowest, longest tube)",
+          "descriptors": [
+            "deep-toned",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bass-drone",
+            "rara"
+          ]
+        },
+        {
+          "id": "vaksin_perkisyon",
+          "name": "Struck-while-blown (stick on tube)",
+          "descriptors": [
+            "percussive",
+            "rattling"
+          ],
+          "match_tokens": [
+            "struck",
+            "rara"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vaksin_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "vaksin_bamboo",
+          "default": true,
+          "name": "Bamboo tube with wooden mouthpiece",
+          "descriptors": [
+            "hollow-toned",
+            "buzzing-timbre",
+            "earthy"
+          ],
+          "match_tokens": [
+            "bamboo-trumpet",
+            "haitian"
+          ]
+        },
+        {
+          "id": "vaksin_metal",
+          "name": "Zinc / metal pipe vaksin (urban rara)",
+          "descriptors": [
+            "brassy",
+            "harsh",
+            "loud"
+          ],
+          "match_tokens": [
+            "metal-trumpet",
+            "rara"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vaksin_role",
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "vaksin_hocket",
+          "default": true,
+          "name": "Hocketed rara set (interlocking one-note bank)",
+          "descriptors": [
+            "interlocking",
+            "processional",
+            "chugging"
+          ],
+          "match_tokens": [
+            "rara",
+            "hocket",
+            "haitian"
+          ]
+        },
+        {
+          "id": "vaksin_bas",
+          "name": "Bas (lowest, longest tube)",
+          "descriptors": [
+            "deep-toned",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bass-drone",
+            "rara"
+          ]
+        },
+        {
+          "id": "vaksin_perkisyon",
+          "name": "Struck-while-blown (stick on tube)",
+          "descriptors": [
+            "percussive",
+            "rattling"
+          ],
+          "match_tokens": [
+            "struck",
+            "rara"
+          ]
+        }
+      ]
+    }
+  ]
+}

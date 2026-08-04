@@ -1,0 +1,206 @@
+{
+  "id": "bianzhong",
+  "name": "Bianzhong (ancient Chinese tuned bronze bell chime)",
+  "family": "percussion",
+  "class": "tuned_idiophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bianzhong",
+  "parts": [
+    {
+      "id": "bianzhong_set",
+      "name": "Set size / register",
+      "variants": [
+        {
+          "id": "bianzhong_marquis_yi",
+          "default": true,
+          "name": "Full Marquis Yi-style 65-bell tiered set",
+          "descriptors": [
+            "cavernous",
+            "wide-range",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bronze-bells",
+            "ritual-chime"
+          ]
+        },
+        {
+          "id": "bianzhong_small",
+          "name": "Small upper-register bell set",
+          "descriptors": [
+            "bright-attack",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "bronze-bells",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bianzhong_strike",
+      "name": "Strike point",
+      "variants": [
+        {
+          "id": "bianzhong_zheng",
+          "default": true,
+          "name": "Center (zheng) tone strike",
+          "descriptors": [
+            "deep-toned",
+            "long-ringing"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        },
+        {
+          "id": "bianzhong_ce",
+          "name": "Side (ce) tone strike",
+          "descriptors": [
+            "sharper",
+            "secondary-pitch"
+          ],
+          "match_tokens": [
+            "struck-metal",
+            "two-tone-bell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bianzhong_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "bianzhong_mallet",
+          "default": true,
+          "name": "Wooden mallet on small bells",
+          "descriptors": [
+            "clean-attack"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        },
+        {
+          "id": "bianzhong_pole",
+          "name": "Log pole on large bells",
+          "descriptors": [
+            "thunderous",
+            "slow-decay"
+          ],
+          "match_tokens": [
+            "struck-metal",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bianzhong_set",
+      "name": "Set size / register",
+      "variants": [
+        {
+          "id": "bianzhong_marquis_yi",
+          "default": true,
+          "name": "Full Marquis Yi-style 65-bell tiered set",
+          "descriptors": [
+            "cavernous",
+            "wide-range",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bronze-bells",
+            "ritual-chime"
+          ]
+        },
+        {
+          "id": "bianzhong_small",
+          "name": "Small upper-register bell set",
+          "descriptors": [
+            "bright-attack",
+            "clangorous"
+          ],
+          "match_tokens": [
+            "bronze-bells",
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bianzhong_strike",
+      "name": "Strike point",
+      "variants": [
+        {
+          "id": "bianzhong_zheng",
+          "default": true,
+          "name": "Center (zheng) tone strike",
+          "descriptors": [
+            "deep-toned",
+            "long-ringing"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        },
+        {
+          "id": "bianzhong_ce",
+          "name": "Side (ce) tone strike",
+          "descriptors": [
+            "sharper",
+            "secondary-pitch"
+          ],
+          "match_tokens": [
+            "struck-metal",
+            "two-tone-bell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bianzhong_beater",
+      "surface": false,
+      "name": "Beater",
+      "variants": [
+        {
+          "id": "bianzhong_mallet",
+          "default": true,
+          "name": "Wooden mallet on small bells",
+          "descriptors": [
+            "clean-attack"
+          ],
+          "match_tokens": [
+            "struck-metal"
+          ]
+        },
+        {
+          "id": "bianzhong_pole",
+          "name": "Log pole on large bells",
+          "descriptors": [
+            "thunderous",
+            "slow-decay"
+          ],
+          "match_tokens": [
+            "struck-metal",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

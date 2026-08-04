@@ -1,0 +1,176 @@
+{
+  "id": "kubing",
+  "name": "Kubing (Philippine bamboo jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "kubing",
+  "parts": [
+    {
+      "id": "kubing_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kubing_maguindanao",
+          "default": true,
+          "name": "Maguindanao/Maranao kubing (bamboo lamella)",
+          "descriptors": [
+            "buzzing-timbre",
+            "breathy-overtones",
+            "intimate"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "philippines"
+          ]
+        },
+        {
+          "id": "kubing_kulaing",
+          "name": "Kulaing / kollibaw (Tiruray form)",
+          "descriptors": [
+            "nasal",
+            "twanging",
+            "soft"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kubing_metal",
+          "name": "Metal-tongued variant (aru-ding style)",
+          "descriptors": [
+            "brighter",
+            "ringing",
+            "metallic-buzz"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "metal-lamella"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubing_technique",
+      "name": "Excitation technique",
+      "variants": [
+        {
+          "id": "kubing_string_pull",
+          "default": true,
+          "name": "String-pulled lamella",
+          "descriptors": [
+            "rhythmic-pulses",
+            "supple"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "plucked"
+          ]
+        },
+        {
+          "id": "kubing_finger_struck",
+          "name": "Finger-struck frame",
+          "descriptors": [
+            "sharper-attack",
+            "percussive"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kubing_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kubing_maguindanao",
+          "default": true,
+          "name": "Maguindanao/Maranao kubing (bamboo lamella)",
+          "descriptors": [
+            "buzzing-timbre",
+            "breathy-overtones",
+            "intimate"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "philippines"
+          ]
+        },
+        {
+          "id": "kubing_kulaing",
+          "name": "Kulaing / kollibaw (Tiruray form)",
+          "descriptors": [
+            "nasal",
+            "twanging",
+            "soft"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kubing_metal",
+          "name": "Metal-tongued variant (aru-ding style)",
+          "descriptors": [
+            "brighter",
+            "ringing",
+            "metallic-buzz"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "metal-lamella"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubing_technique",
+      "name": "Excitation technique",
+      "variants": [
+        {
+          "id": "kubing_string_pull",
+          "default": true,
+          "name": "String-pulled lamella",
+          "descriptors": [
+            "rhythmic-pulses",
+            "supple"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "plucked"
+          ]
+        },
+        {
+          "id": "kubing_finger_struck",
+          "name": "Finger-struck frame",
+          "descriptors": [
+            "sharper-attack",
+            "percussive"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

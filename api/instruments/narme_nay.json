@@ -1,0 +1,174 @@
+{
+  "id": "narme_nay",
+  "name": "Narme nay (soft-toned Persian small reed flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": -2,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "narme nay",
+  "parts": [
+    {
+      "id": "narme_nay_size",
+      "name": "Tube size / key",
+      "variants": [
+        {
+          "id": "narme_nay_small",
+          "default": true,
+          "name": "Short high-keyed cane tube",
+          "descriptors": [
+            "soft-toned",
+            "airy",
+            "sweet"
+          ],
+          "match_tokens": [
+            "blown",
+            "persian",
+            "reed-flute"
+          ]
+        },
+        {
+          "id": "narme_nay_mid",
+          "name": "Medium tube (middle register)",
+          "descriptors": [
+            "breathy",
+            "warm"
+          ],
+          "match_tokens": [
+            "blown",
+            "cane-flute"
+          ]
+        },
+        {
+          "id": "narme_nay_thin_wall",
+          "name": "Thin-walled light cane",
+          "descriptors": [
+            "fragile",
+            "whispering"
+          ],
+          "match_tokens": [
+            "blown",
+            "intimate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "narme_nay_embouchure",
+      "name": "Blowing technique",
+      "variants": [
+        {
+          "id": "narme_nay_lip",
+          "default": true,
+          "name": "Lip-edge blowing (soft attack)",
+          "descriptors": [
+            "breath-noise",
+            "gentle-onset"
+          ],
+          "match_tokens": [
+            "blown"
+          ]
+        },
+        {
+          "id": "narme_nay_teeth",
+          "name": "Between-teeth Persian embouchure",
+          "descriptors": [
+            "focused",
+            "reedy",
+            "overblown-highs"
+          ],
+          "match_tokens": [
+            "blown",
+            "persian"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "narme_nay_size",
+      "name": "Tube size / key",
+      "variants": [
+        {
+          "id": "narme_nay_small",
+          "default": true,
+          "name": "Short high-keyed cane tube",
+          "descriptors": [
+            "soft-toned",
+            "airy",
+            "sweet"
+          ],
+          "match_tokens": [
+            "blown",
+            "persian",
+            "reed-flute"
+          ]
+        },
+        {
+          "id": "narme_nay_mid",
+          "name": "Medium tube (middle register)",
+          "descriptors": [
+            "breathy",
+            "warm"
+          ],
+          "match_tokens": [
+            "blown",
+            "cane-flute"
+          ]
+        },
+        {
+          "id": "narme_nay_thin_wall",
+          "name": "Thin-walled light cane",
+          "descriptors": [
+            "fragile",
+            "whispering"
+          ],
+          "match_tokens": [
+            "blown",
+            "intimate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "narme_nay_embouchure",
+      "name": "Blowing technique",
+      "variants": [
+        {
+          "id": "narme_nay_lip",
+          "default": true,
+          "name": "Lip-edge blowing (soft attack)",
+          "descriptors": [
+            "breath-noise",
+            "gentle-onset"
+          ],
+          "match_tokens": [
+            "blown"
+          ]
+        },
+        {
+          "id": "narme_nay_teeth",
+          "name": "Between-teeth Persian embouchure",
+          "descriptors": [
+            "focused",
+            "reedy",
+            "overblown-highs"
+          ],
+          "match_tokens": [
+            "blown",
+            "persian"
+          ]
+        }
+      ]
+    }
+  ]
+}

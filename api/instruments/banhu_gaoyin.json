@@ -1,0 +1,197 @@
+{
+  "id": "banhu_gaoyin",
+  "name": "Gaoyin banhu (high-pitched coconut-bodied Chinese fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "gaoyin banhu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "banhu_gaoyin_body",
+      "name": "Soundbox",
+      "variants": [
+        {
+          "id": "banhu_gaoyin_coconut",
+          "default": true,
+          "name": "Small coconut shell with thin paulownia face",
+          "descriptors": [
+            "piercing",
+            "bright-attack",
+            "nasal"
+          ],
+          "match_tokens": [
+            "banhu",
+            "high-register"
+          ]
+        },
+        {
+          "id": "banhu_gaoyin_wood",
+          "name": "Turned wooden bowl body",
+          "descriptors": [
+            "focused",
+            "harder-toned"
+          ],
+          "match_tokens": [
+            "banhu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banhu_gaoyin_style",
+      "name": "Regional style",
+      "variants": [
+        {
+          "id": "banhu_gaoyin_bangzi",
+          "default": true,
+          "name": "Bangzi opera lead (Qinqiang / Hebei)",
+          "descriptors": [
+            "wailing",
+            "cutting",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "opera-lead",
+            "bowed"
+          ]
+        },
+        {
+          "id": "banhu_gaoyin_solo",
+          "name": "Modern solo concert repertoire",
+          "descriptors": [
+            "virtuosic",
+            "glissando-rich"
+          ],
+          "match_tokens": [
+            "solo",
+            "bowed"
+          ]
+        },
+        {
+          "id": "banhu_gaoyin_folk",
+          "name": "Northern folk band melody line",
+          "descriptors": [
+            "raucous",
+            "festive"
+          ],
+          "match_tokens": [
+            "folk-band",
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "banhu_gaoyin_body",
+      "name": "Soundbox",
+      "variants": [
+        {
+          "id": "banhu_gaoyin_coconut",
+          "default": true,
+          "name": "Small coconut shell with thin paulownia face",
+          "descriptors": [
+            "piercing",
+            "bright-attack",
+            "nasal"
+          ],
+          "match_tokens": [
+            "banhu",
+            "high-register"
+          ]
+        },
+        {
+          "id": "banhu_gaoyin_wood",
+          "name": "Turned wooden bowl body",
+          "descriptors": [
+            "focused",
+            "harder-toned"
+          ],
+          "match_tokens": [
+            "banhu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banhu_gaoyin_style",
+      "name": "Regional style",
+      "variants": [
+        {
+          "id": "banhu_gaoyin_bangzi",
+          "default": true,
+          "name": "Bangzi opera lead (Qinqiang / Hebei)",
+          "descriptors": [
+            "wailing",
+            "cutting",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "opera-lead",
+            "bowed"
+          ]
+        },
+        {
+          "id": "banhu_gaoyin_solo",
+          "name": "Modern solo concert repertoire",
+          "descriptors": [
+            "virtuosic",
+            "glissando-rich"
+          ],
+          "match_tokens": [
+            "solo",
+            "bowed"
+          ]
+        },
+        {
+          "id": "banhu_gaoyin_folk",
+          "name": "Northern folk band melody line",
+          "descriptors": [
+            "raucous",
+            "festive"
+          ],
+          "match_tokens": [
+            "folk-band",
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

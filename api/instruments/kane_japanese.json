@@ -1,0 +1,214 @@
+{
+  "id": "kane_japanese",
+  "name": "Kane (Japanese small hand-held bronze gong, atarigane/chanchiki)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kane",
+  "parts": [
+    {
+      "id": "kane_japanese_stroke",
+      "name": "Striking position",
+      "variants": [
+        {
+          "id": "kane_japanese_rim",
+          "default": true,
+          "name": "Rim strike (chan)",
+          "descriptors": [
+            "clanging",
+            "piercing",
+            "metallic-shimmer"
+          ],
+          "match_tokens": [
+            "gong",
+            "japanese",
+            "matsuri"
+          ]
+        },
+        {
+          "id": "kane_japanese_inner",
+          "name": "Inner-bowl strike (chiki)",
+          "descriptors": [
+            "dampened",
+            "dull-clink"
+          ],
+          "match_tokens": [
+            "gong",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kane_japanese_beater",
+      "name": "Beater (shumoku)",
+      "variants": [
+        {
+          "id": "kane_japanese_antler",
+          "default": true,
+          "name": "Deer-antler tipped shumoku",
+          "descriptors": [
+            "hard-attack",
+            "bright-ring"
+          ],
+          "match_tokens": [
+            "struck",
+            "gong"
+          ]
+        },
+        {
+          "id": "kane_japanese_wood_beater",
+          "name": "Wooden beater",
+          "descriptors": [
+            "softer-attack",
+            "warmer"
+          ],
+          "match_tokens": [
+            "struck",
+            "gong"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kane_japanese_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "kane_japanese_matsuri",
+          "default": true,
+          "name": "Festival hayashi (matsuri-bayashi)",
+          "descriptors": [
+            "driving",
+            "time-marking",
+            "festive"
+          ],
+          "match_tokens": [
+            "japanese",
+            "festival"
+          ]
+        },
+        {
+          "id": "kane_japanese_nenbutsu",
+          "name": "Nenbutsu / kagura ritual use",
+          "descriptors": [
+            "sparse",
+            "solemn"
+          ],
+          "match_tokens": [
+            "japanese",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kane_japanese_stroke",
+      "name": "Striking position",
+      "variants": [
+        {
+          "id": "kane_japanese_rim",
+          "default": true,
+          "name": "Rim strike (chan)",
+          "descriptors": [
+            "clanging",
+            "piercing",
+            "metallic-shimmer"
+          ],
+          "match_tokens": [
+            "gong",
+            "japanese",
+            "matsuri"
+          ]
+        },
+        {
+          "id": "kane_japanese_inner",
+          "name": "Inner-bowl strike (chiki)",
+          "descriptors": [
+            "dampened",
+            "dull-clink"
+          ],
+          "match_tokens": [
+            "gong",
+            "japanese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kane_japanese_beater",
+      "name": "Beater (shumoku)",
+      "variants": [
+        {
+          "id": "kane_japanese_antler",
+          "default": true,
+          "name": "Deer-antler tipped shumoku",
+          "descriptors": [
+            "hard-attack",
+            "bright-ring"
+          ],
+          "match_tokens": [
+            "struck",
+            "gong"
+          ]
+        },
+        {
+          "id": "kane_japanese_wood_beater",
+          "name": "Wooden beater",
+          "descriptors": [
+            "softer-attack",
+            "warmer"
+          ],
+          "match_tokens": [
+            "struck",
+            "gong"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kane_japanese_context",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "kane_japanese_matsuri",
+          "default": true,
+          "name": "Festival hayashi (matsuri-bayashi)",
+          "descriptors": [
+            "driving",
+            "time-marking",
+            "festive"
+          ],
+          "match_tokens": [
+            "japanese",
+            "festival"
+          ]
+        },
+        {
+          "id": "kane_japanese_nenbutsu",
+          "name": "Nenbutsu / kagura ritual use",
+          "descriptors": [
+            "sparse",
+            "solemn"
+          ],
+          "match_tokens": [
+            "japanese",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ]
+}

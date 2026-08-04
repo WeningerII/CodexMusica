@@ -1,0 +1,152 @@
+{
+  "id": "pyeonjong",
+  "name": "Pyeonjong (Korean set of 16 tuned bronze bells)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "pyeonjong",
+  "parts": [
+    {
+      "id": "pyeonjong_set",
+      "name": "Bell set form",
+      "variants": [
+        {
+          "id": "pyeonjong_sixteen",
+          "default": true,
+          "name": "Sixteen bronze bells on a two-tier frame",
+          "descriptors": [
+            "clangorous",
+            "inharmonic",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bell-chime",
+            "bronze",
+            "korean"
+          ]
+        },
+        {
+          "id": "pyeonjong_teukjong",
+          "name": "Teukjong (single large bell)",
+          "descriptors": [
+            "deep-clang",
+            "solitary",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bell",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pyeonjong_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "pyeonjong_horn",
+          "default": true,
+          "name": "Ox-horn mallet on the bell's lower face",
+          "descriptors": [
+            "hard-strike",
+            "ringing"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic"
+          ]
+        },
+        {
+          "id": "pyeonjong_damped",
+          "name": "Damped strike (short ring)",
+          "descriptors": [
+            "choked",
+            "dry-clang"
+          ],
+          "match_tokens": [
+            "struck",
+            "muted"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pyeonjong_set",
+      "name": "Bell set form",
+      "variants": [
+        {
+          "id": "pyeonjong_sixteen",
+          "default": true,
+          "name": "Sixteen bronze bells on a two-tier frame",
+          "descriptors": [
+            "clangorous",
+            "inharmonic",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bell-chime",
+            "bronze",
+            "korean"
+          ]
+        },
+        {
+          "id": "pyeonjong_teukjong",
+          "name": "Teukjong (single large bell)",
+          "descriptors": [
+            "deep-clang",
+            "solitary",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bell",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pyeonjong_mallet",
+      "name": "Mallet",
+      "variants": [
+        {
+          "id": "pyeonjong_horn",
+          "default": true,
+          "name": "Ox-horn mallet on the bell's lower face",
+          "descriptors": [
+            "hard-strike",
+            "ringing"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic"
+          ]
+        },
+        {
+          "id": "pyeonjong_damped",
+          "name": "Damped strike (short ring)",
+          "descriptors": [
+            "choked",
+            "dry-clang"
+          ],
+          "match_tokens": [
+            "struck",
+            "muted"
+          ]
+        }
+      ]
+    }
+  ]
+}

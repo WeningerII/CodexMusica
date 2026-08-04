@@ -1,0 +1,150 @@
+{
+  "id": "chuk_box",
+  "name": "Chuk (Korean square wooden ritual box struck from within)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "chuk",
+  "parts": [
+    {
+      "id": "chuk_stroke",
+      "name": "Ritual stroke pattern",
+      "variants": [
+        {
+          "id": "chuk_triple",
+          "default": true,
+          "name": "Three strokes on the inner floor to open a piece",
+          "descriptors": [
+            "hollow-thump",
+            "boxy",
+            "announcing"
+          ],
+          "match_tokens": [
+            "struck-box",
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "chuk_single",
+          "name": "Single opening stroke",
+          "descriptors": [
+            "dull-knock",
+            "solitary"
+          ],
+          "match_tokens": [
+            "struck",
+            "cue-signal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chuk_box_size",
+      "name": "Box construction",
+      "variants": [
+        {
+          "id": "chuk_large",
+          "default": true,
+          "name": "Large painted wooden box (aak court size)",
+          "descriptors": [
+            "deep-thud",
+            "resonant-box"
+          ],
+          "match_tokens": [
+            "struck-box",
+            "court-music"
+          ]
+        },
+        {
+          "id": "chuk_small",
+          "name": "Smaller box",
+          "descriptors": [
+            "tighter-knock",
+            "drier"
+          ],
+          "match_tokens": [
+            "struck-box",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chuk_stroke",
+      "name": "Ritual stroke pattern",
+      "variants": [
+        {
+          "id": "chuk_triple",
+          "default": true,
+          "name": "Three strokes on the inner floor to open a piece",
+          "descriptors": [
+            "hollow-thump",
+            "boxy",
+            "announcing"
+          ],
+          "match_tokens": [
+            "struck-box",
+            "korean",
+            "ritual"
+          ]
+        },
+        {
+          "id": "chuk_single",
+          "name": "Single opening stroke",
+          "descriptors": [
+            "dull-knock",
+            "solitary"
+          ],
+          "match_tokens": [
+            "struck",
+            "cue-signal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chuk_box_size",
+      "name": "Box construction",
+      "variants": [
+        {
+          "id": "chuk_large",
+          "default": true,
+          "name": "Large painted wooden box (aak court size)",
+          "descriptors": [
+            "deep-thud",
+            "resonant-box"
+          ],
+          "match_tokens": [
+            "struck-box",
+            "court-music"
+          ]
+        },
+        {
+          "id": "chuk_small",
+          "name": "Smaller box",
+          "descriptors": [
+            "tighter-knock",
+            "drier"
+          ],
+          "match_tokens": [
+            "struck-box",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "id": "octavina_filipino",
+  "name": "Octavina (Philippine rondalla guitar-shaped lute)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "octavina",
+  "parts": [
+    {
+      "id": "octavina_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "octavina_harmony",
+          "default": true,
+          "name": "Inner harmony / arpeggiated accompaniment",
+          "descriptors": [
+            "warm",
+            "filling",
+            "rounded"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plucked"
+          ]
+        },
+        {
+          "id": "octavina_tremolo_melody",
+          "name": "Tremolo melodic doubling",
+          "descriptors": [
+            "shimmering-tremolo",
+            "singing"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plectrum"
+          ]
+        },
+        {
+          "id": "octavina_rasgueado",
+          "name": "Strummed chordal rhythm",
+          "descriptors": [
+            "strummed",
+            "driving",
+            "percussive"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octavina_body",
+      "surface": false,
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "octavina_guitar_shape",
+          "default": true,
+          "name": "Guitar-shaped flat-back body",
+          "descriptors": [
+            "woody",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plucked"
+          ]
+        },
+        {
+          "id": "octavina_deep_body",
+          "name": "Deep-bodied luthier build",
+          "descriptors": [
+            "fuller",
+            "darker",
+            "projecting"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "octavina_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "octavina_harmony",
+          "default": true,
+          "name": "Inner harmony / arpeggiated accompaniment",
+          "descriptors": [
+            "warm",
+            "filling",
+            "rounded"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plucked"
+          ]
+        },
+        {
+          "id": "octavina_tremolo_melody",
+          "name": "Tremolo melodic doubling",
+          "descriptors": [
+            "shimmering-tremolo",
+            "singing"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plectrum"
+          ]
+        },
+        {
+          "id": "octavina_rasgueado",
+          "name": "Strummed chordal rhythm",
+          "descriptors": [
+            "strummed",
+            "driving",
+            "percussive"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octavina_body",
+      "surface": false,
+      "name": "Body build",
+      "variants": [
+        {
+          "id": "octavina_guitar_shape",
+          "default": true,
+          "name": "Guitar-shaped flat-back body",
+          "descriptors": [
+            "woody",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plucked"
+          ]
+        },
+        {
+          "id": "octavina_deep_body",
+          "name": "Deep-bodied luthier build",
+          "descriptors": [
+            "fuller",
+            "darker",
+            "projecting"
+          ],
+          "match_tokens": [
+            "rondalla",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

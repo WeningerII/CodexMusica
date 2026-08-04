@@ -1,0 +1,180 @@
+{
+  "id": "tympanum_ancient",
+  "name": "Tympanum (ancient Greco-Roman ritual frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tympanum",
+  "parts": [
+    {
+      "id": "tympanum_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "tympanum_plain",
+          "default": true,
+          "name": "Plain single-headed wooden hoop",
+          "descriptors": [
+            "dull-thud",
+            "deep-toned",
+            "earthy"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "tympanum_jingled",
+          "name": "Hoop with bronze jingles or pellets",
+          "descriptors": [
+            "rattling",
+            "shimmering",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jingles"
+          ]
+        },
+        {
+          "id": "tympanum_large",
+          "name": "Large Cybele processional tympanum",
+          "descriptors": [
+            "booming",
+            "cavernous",
+            "imposing"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "low-register",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tympanum_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "tympanum_hand",
+          "default": true,
+          "name": "Open-hand slaps held upright",
+          "descriptors": [
+            "slapping",
+            "insistent"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tympanum_finger",
+          "name": "Fingertip rolls near rim",
+          "descriptors": [
+            "rustling",
+            "light",
+            "fast"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tympanum_form",
+      "name": "Frame form",
+      "variants": [
+        {
+          "id": "tympanum_plain",
+          "default": true,
+          "name": "Plain single-headed wooden hoop",
+          "descriptors": [
+            "dull-thud",
+            "deep-toned",
+            "earthy"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "hand-struck",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "tympanum_jingled",
+          "name": "Hoop with bronze jingles or pellets",
+          "descriptors": [
+            "rattling",
+            "shimmering",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "jingles"
+          ]
+        },
+        {
+          "id": "tympanum_large",
+          "name": "Large Cybele processional tympanum",
+          "descriptors": [
+            "booming",
+            "cavernous",
+            "imposing"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "low-register",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tympanum_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "tympanum_hand",
+          "default": true,
+          "name": "Open-hand slaps held upright",
+          "descriptors": [
+            "slapping",
+            "insistent"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tympanum_finger",
+          "name": "Fingertip rolls near rim",
+          "descriptors": [
+            "rustling",
+            "light",
+            "fast"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    }
+  ]
+}

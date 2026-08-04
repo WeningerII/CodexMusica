@@ -1,0 +1,193 @@
+{
+  "id": "claviorganum",
+  "name": "Claviorganum (combined harpsichord and chamber organ)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "claviorganum",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "claviorg_reg",
+      "name": "Registration",
+      "variants": [
+        {
+          "id": "claviorg_both",
+          "default": true,
+          "name": "Strings and pipes coupled",
+          "descriptors": [
+            "hybrid-tone",
+            "sustained-with-attack",
+            "rich"
+          ],
+          "match_tokens": [
+            "keyboard",
+            "organ-pipes"
+          ]
+        },
+        {
+          "id": "claviorg_strings",
+          "name": "Harpsichord strings alone",
+          "descriptors": [
+            "crisp-pluck",
+            "dry"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "claviorg_pipes",
+          "name": "Organ pipework alone",
+          "descriptors": [
+            "sustained",
+            "breathy-flue"
+          ],
+          "match_tokens": [
+            "organ-pipes",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "claviorg_pipes_kind",
+      "surface": false,
+      "name": "Pipe ranks",
+      "variants": [
+        {
+          "id": "claviorg_wood_flue",
+          "default": true,
+          "name": "Stopped wooden flutes",
+          "descriptors": [
+            "soft-toned",
+            "hollow"
+          ],
+          "match_tokens": [
+            "organ-pipes"
+          ]
+        },
+        {
+          "id": "claviorg_regal",
+          "name": "Regal reed rank",
+          "descriptors": [
+            "snarling",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "organ-pipes",
+            "reedy"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "claviorg_reg",
+      "name": "Registration",
+      "variants": [
+        {
+          "id": "claviorg_both",
+          "default": true,
+          "name": "Strings and pipes coupled",
+          "descriptors": [
+            "hybrid-tone",
+            "sustained-with-attack",
+            "rich"
+          ],
+          "match_tokens": [
+            "keyboard",
+            "organ-pipes"
+          ]
+        },
+        {
+          "id": "claviorg_strings",
+          "name": "Harpsichord strings alone",
+          "descriptors": [
+            "crisp-pluck",
+            "dry"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "claviorg_pipes",
+          "name": "Organ pipework alone",
+          "descriptors": [
+            "sustained",
+            "breathy-flue"
+          ],
+          "match_tokens": [
+            "organ-pipes",
+            "sustained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "claviorg_pipes_kind",
+      "surface": false,
+      "name": "Pipe ranks",
+      "variants": [
+        {
+          "id": "claviorg_wood_flue",
+          "default": true,
+          "name": "Stopped wooden flutes",
+          "descriptors": [
+            "soft-toned",
+            "hollow"
+          ],
+          "match_tokens": [
+            "organ-pipes"
+          ]
+        },
+        {
+          "id": "claviorg_regal",
+          "name": "Regal reed rank",
+          "descriptors": [
+            "snarling",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "organ-pipes",
+            "reedy"
+          ]
+        }
+      ]
+    }
+  ]
+}

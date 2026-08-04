@@ -1,0 +1,146 @@
+{
+  "id": "sanavr",
+  "name": "Sanavr (Pamiri Badakhshan long-necked plucked lute)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "sanavr",
+  "parts": [
+    {
+      "id": "sanavr_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "sanavr_mulberry",
+          "default": true,
+          "name": "Mulberry-body sanavr with sympathetic-free single course",
+          "descriptors": [
+            "dry",
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "long-neck-lute",
+            "pamiri"
+          ]
+        },
+        {
+          "id": "sanavr_large",
+          "name": "Large low-tuned sanavr",
+          "descriptors": [
+            "deep-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "long-neck-lute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanavr_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "sanavr_maddoh",
+          "default": true,
+          "name": "Maddoh devotional song accompaniment",
+          "descriptors": [
+            "hypnotic",
+            "steady-strum"
+          ],
+          "match_tokens": [
+            "devotional",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "sanavr_dance",
+          "name": "Falak / dance instrumental",
+          "descriptors": [
+            "driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sanavr_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "sanavr_mulberry",
+          "default": true,
+          "name": "Mulberry-body sanavr with sympathetic-free single course",
+          "descriptors": [
+            "dry",
+            "buzzing-timbre",
+            "reedy"
+          ],
+          "match_tokens": [
+            "long-neck-lute",
+            "pamiri"
+          ]
+        },
+        {
+          "id": "sanavr_large",
+          "name": "Large low-tuned sanavr",
+          "descriptors": [
+            "deep-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "long-neck-lute",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanavr_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "sanavr_maddoh",
+          "default": true,
+          "name": "Maddoh devotional song accompaniment",
+          "descriptors": [
+            "hypnotic",
+            "steady-strum"
+          ],
+          "match_tokens": [
+            "devotional",
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "sanavr_dance",
+          "name": "Falak / dance instrumental",
+          "descriptors": [
+            "driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

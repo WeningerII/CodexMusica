@@ -1,0 +1,239 @@
+{
+  "id": "rebaba_bedouin",
+  "name": "Rebaba (Bedouin one-string bowed spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "rebaba",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "rebaba_bedouin_body",
+      "name": "Soundbox covering",
+      "variants": [
+        {
+          "id": "rebaba_bedouin_skin",
+          "default": true,
+          "name": "Goatskin-covered wooden trapezoid box",
+          "descriptors": [
+            "nasal-tone",
+            "raspy",
+            "keening"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bedouin",
+            "one-string"
+          ]
+        },
+        {
+          "id": "rebaba_bedouin_tin",
+          "name": "Metal-tray soundbox",
+          "descriptors": [
+            "metallic",
+            "edgy",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebaba_bedouin_use",
+      "name": "Performance role",
+      "variants": [
+        {
+          "id": "rebaba_bedouin_poetry",
+          "default": true,
+          "name": "Accompaniment to sung poetry (shi'r nabati)",
+          "descriptors": [
+            "voice-shadowing",
+            "declamatory",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "poetry-accompaniment"
+          ]
+        },
+        {
+          "id": "rebaba_bedouin_solo",
+          "name": "Solo taqsim-like improvisation",
+          "descriptors": [
+            "melismatic",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "improvised"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebaba_bedouin_string",
+      "surface": false,
+      "name": "String and bow hair",
+      "variants": [
+        {
+          "id": "rebaba_bedouin_horsehair",
+          "default": true,
+          "name": "Horsehair string and horsehair bow",
+          "descriptors": [
+            "grainy",
+            "husky"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "rebaba_bedouin_gut",
+          "name": "Gut / nylon string",
+          "descriptors": [
+            "smoother",
+            "warmer"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rebaba_bedouin_body",
+      "name": "Soundbox covering",
+      "variants": [
+        {
+          "id": "rebaba_bedouin_skin",
+          "default": true,
+          "name": "Goatskin-covered wooden trapezoid box",
+          "descriptors": [
+            "nasal-tone",
+            "raspy",
+            "keening"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bedouin",
+            "one-string"
+          ]
+        },
+        {
+          "id": "rebaba_bedouin_tin",
+          "name": "Metal-tray soundbox",
+          "descriptors": [
+            "metallic",
+            "edgy",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebaba_bedouin_use",
+      "name": "Performance role",
+      "variants": [
+        {
+          "id": "rebaba_bedouin_poetry",
+          "default": true,
+          "name": "Accompaniment to sung poetry (shi'r nabati)",
+          "descriptors": [
+            "voice-shadowing",
+            "declamatory",
+            "rubato"
+          ],
+          "match_tokens": [
+            "bowed",
+            "poetry-accompaniment"
+          ]
+        },
+        {
+          "id": "rebaba_bedouin_solo",
+          "name": "Solo taqsim-like improvisation",
+          "descriptors": [
+            "melismatic",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "improvised"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebaba_bedouin_string",
+      "surface": false,
+      "name": "String and bow hair",
+      "variants": [
+        {
+          "id": "rebaba_bedouin_horsehair",
+          "default": true,
+          "name": "Horsehair string and horsehair bow",
+          "descriptors": [
+            "grainy",
+            "husky"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "rebaba_bedouin_gut",
+          "name": "Gut / nylon string",
+          "descriptors": [
+            "smoother",
+            "warmer"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

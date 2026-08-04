@@ -1,0 +1,202 @@
+{
+  "id": "xequere",
+  "name": "Xequerê (Afro-Brazilian beaded gourd rattle)",
+  "family": "percussion",
+  "class": "gourd_rattle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "xequerê",
+  "parts": [
+    {
+      "id": "xequere_size",
+      "name": "Gourd size",
+      "variants": [
+        {
+          "id": "xequere_medium",
+          "default": true,
+          "name": "Medium gourd (candomblé standard)",
+          "descriptors": [
+            "rustling",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "gourd-rattle",
+            "afro-brazilian"
+          ]
+        },
+        {
+          "id": "xequere_large",
+          "name": "Large gourd (deep-bodied)",
+          "descriptors": [
+            "boomy",
+            "thick-rattle"
+          ],
+          "match_tokens": [
+            "gourd-rattle",
+            "candomble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xequere_beads",
+      "name": "Bead netting material",
+      "variants": [
+        {
+          "id": "xequere_seed",
+          "default": true,
+          "name": "Seed / cowrie bead net",
+          "descriptors": [
+            "dry-rattle",
+            "organic"
+          ],
+          "match_tokens": [
+            "beaded-net"
+          ]
+        },
+        {
+          "id": "xequere_plastic",
+          "name": "Plastic bead net",
+          "descriptors": [
+            "bright",
+            "sharp-rattle"
+          ],
+          "match_tokens": [
+            "beaded-net"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xequere_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "xequere_toss",
+          "default": true,
+          "name": "Toss-and-slap (bass tone plus rattle)",
+          "descriptors": [
+            "punctuating",
+            "percussive-thump"
+          ],
+          "match_tokens": [
+            "shaken",
+            "struck"
+          ]
+        },
+        {
+          "id": "xequere_twist",
+          "name": "Continuous twisting shake",
+          "descriptors": [
+            "sustained-hiss",
+            "steady"
+          ],
+          "match_tokens": [
+            "shaken"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "xequere_size",
+      "name": "Gourd size",
+      "variants": [
+        {
+          "id": "xequere_medium",
+          "default": true,
+          "name": "Medium gourd (candomblé standard)",
+          "descriptors": [
+            "rustling",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "gourd-rattle",
+            "afro-brazilian"
+          ]
+        },
+        {
+          "id": "xequere_large",
+          "name": "Large gourd (deep-bodied)",
+          "descriptors": [
+            "boomy",
+            "thick-rattle"
+          ],
+          "match_tokens": [
+            "gourd-rattle",
+            "candomble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xequere_beads",
+      "name": "Bead netting material",
+      "variants": [
+        {
+          "id": "xequere_seed",
+          "default": true,
+          "name": "Seed / cowrie bead net",
+          "descriptors": [
+            "dry-rattle",
+            "organic"
+          ],
+          "match_tokens": [
+            "beaded-net"
+          ]
+        },
+        {
+          "id": "xequere_plastic",
+          "name": "Plastic bead net",
+          "descriptors": [
+            "bright",
+            "sharp-rattle"
+          ],
+          "match_tokens": [
+            "beaded-net"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xequere_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "xequere_toss",
+          "default": true,
+          "name": "Toss-and-slap (bass tone plus rattle)",
+          "descriptors": [
+            "punctuating",
+            "percussive-thump"
+          ],
+          "match_tokens": [
+            "shaken",
+            "struck"
+          ]
+        },
+        {
+          "id": "xequere_twist",
+          "name": "Continuous twisting shake",
+          "descriptors": [
+            "sustained-hiss",
+            "steady"
+          ],
+          "match_tokens": [
+            "shaken"
+          ]
+        }
+      ]
+    }
+  ]
+}

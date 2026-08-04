@@ -1,0 +1,176 @@
+{
+  "id": "yoochin",
+  "name": "Yoochin (Mongolian hammered dulcimer)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "yoochin",
+  "parts": [
+    {
+      "id": "yoochin_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "yoochin_trad",
+          "default": true,
+          "name": "Traditional trapezoid wire-strung yoochin",
+          "descriptors": [
+            "glassy",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "mongolian",
+            "wire-strung"
+          ]
+        },
+        {
+          "id": "yoochin_concert",
+          "name": "Enlarged concert yoochin (orchestral)",
+          "descriptors": [
+            "wide-range",
+            "brilliant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yoochin_touch",
+      "name": "Beater touch",
+      "variants": [
+        {
+          "id": "yoochin_bamboo",
+          "default": true,
+          "name": "Bamboo hammers, open ringing strokes",
+          "descriptors": [
+            "bright-attack",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-attack"
+          ]
+        },
+        {
+          "id": "yoochin_tremolo",
+          "name": "Tremolo rolls",
+          "descriptors": [
+            "continuous",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "struck"
+          ]
+        },
+        {
+          "id": "yoochin_damped",
+          "name": "Hand-damped short strokes",
+          "descriptors": [
+            "dry",
+            "percussive"
+          ],
+          "match_tokens": [
+            "struck",
+            "muted"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "yoochin_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "yoochin_trad",
+          "default": true,
+          "name": "Traditional trapezoid wire-strung yoochin",
+          "descriptors": [
+            "glassy",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "mongolian",
+            "wire-strung"
+          ]
+        },
+        {
+          "id": "yoochin_concert",
+          "name": "Enlarged concert yoochin (orchestral)",
+          "descriptors": [
+            "wide-range",
+            "brilliant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "hammered-dulcimer",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yoochin_touch",
+      "name": "Beater touch",
+      "variants": [
+        {
+          "id": "yoochin_bamboo",
+          "default": true,
+          "name": "Bamboo hammers, open ringing strokes",
+          "descriptors": [
+            "bright-attack",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-attack"
+          ]
+        },
+        {
+          "id": "yoochin_tremolo",
+          "name": "Tremolo rolls",
+          "descriptors": [
+            "continuous",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "tremolo",
+            "struck"
+          ]
+        },
+        {
+          "id": "yoochin_damped",
+          "name": "Hand-damped short strokes",
+          "descriptors": [
+            "dry",
+            "percussive"
+          ],
+          "match_tokens": [
+            "struck",
+            "muted"
+          ]
+        }
+      ]
+    }
+  ]
+}

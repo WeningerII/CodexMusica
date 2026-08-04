@@ -1,0 +1,272 @@
+{
+  "id": "gamelan_gong_kebyar",
+  "name": "Gamelan gong kebyar (Balinese virtuoso bronze orchestra)",
+  "family": "ensemble",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "gong kebyar",
+  "parts": [
+    {
+      "id": "gk_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "gk_kebyar_instrumental",
+          "default": true,
+          "name": "Kebyar instrumental (tabuh kreasi)",
+          "descriptors": [
+            "explosive",
+            "virtuosic",
+            "sudden-attack"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "balinese"
+          ]
+        },
+        {
+          "id": "gk_dance",
+          "name": "Dance accompaniment (legong, kebyar duduk)",
+          "descriptors": [
+            "cuing",
+            "angular",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "gk_lelambatan",
+          "name": "Lelambatan ceremonial (slow, stately)",
+          "descriptors": [
+            "stately",
+            "broad",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gk_texture",
+      "name": "Texture / technique",
+      "variants": [
+        {
+          "id": "gk_kotekan",
+          "default": true,
+          "name": "Kotekan interlocking (polos–sangsih)",
+          "descriptors": [
+            "interlocking",
+            "rapid",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "gamelan"
+          ]
+        },
+        {
+          "id": "gk_unison_kebyar",
+          "name": "Unison kebyar bursts",
+          "descriptors": [
+            "explosive",
+            "abrupt",
+            "unison"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "sudden-attack"
+          ]
+        },
+        {
+          "id": "gk_gineman",
+          "name": "Free gineman prelude (trompong / ugal solo)",
+          "descriptors": [
+            "rubato",
+            "sparse",
+            "meditative"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "free-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gk_ensemble_size",
+      "surface": false,
+      "name": "Ensemble size",
+      "variants": [
+        {
+          "id": "gk_full",
+          "default": true,
+          "name": "Full 25–30 player barungan",
+          "descriptors": [
+            "massive",
+            "dense",
+            "loud"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gk_reduced",
+          "name": "Reduced touring set",
+          "descriptors": [
+            "transparent",
+            "lean"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gk_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "gk_kebyar_instrumental",
+          "default": true,
+          "name": "Kebyar instrumental (tabuh kreasi)",
+          "descriptors": [
+            "explosive",
+            "virtuosic",
+            "sudden-attack"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "balinese"
+          ]
+        },
+        {
+          "id": "gk_dance",
+          "name": "Dance accompaniment (legong, kebyar duduk)",
+          "descriptors": [
+            "cuing",
+            "angular",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "gk_lelambatan",
+          "name": "Lelambatan ceremonial (slow, stately)",
+          "descriptors": [
+            "stately",
+            "broad",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gk_texture",
+      "name": "Texture / technique",
+      "variants": [
+        {
+          "id": "gk_kotekan",
+          "default": true,
+          "name": "Kotekan interlocking (polos–sangsih)",
+          "descriptors": [
+            "interlocking",
+            "rapid",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "gamelan"
+          ]
+        },
+        {
+          "id": "gk_unison_kebyar",
+          "name": "Unison kebyar bursts",
+          "descriptors": [
+            "explosive",
+            "abrupt",
+            "unison"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "sudden-attack"
+          ]
+        },
+        {
+          "id": "gk_gineman",
+          "name": "Free gineman prelude (trompong / ugal solo)",
+          "descriptors": [
+            "rubato",
+            "sparse",
+            "meditative"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "free-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gk_ensemble_size",
+      "surface": false,
+      "name": "Ensemble size",
+      "variants": [
+        {
+          "id": "gk_full",
+          "default": true,
+          "name": "Full 25–30 player barungan",
+          "descriptors": [
+            "massive",
+            "dense",
+            "loud"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "gk_reduced",
+          "name": "Reduced touring set",
+          "descriptors": [
+            "transparent",
+            "lean"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

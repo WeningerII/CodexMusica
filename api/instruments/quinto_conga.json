@@ -1,0 +1,180 @@
+{
+  "id": "quinto_conga",
+  "name": "Quinto (highest Cuban conga, lead rumba drum)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "quinto",
+  "parts": [
+    {
+      "id": "quinto_tuning",
+      "name": "Head tension",
+      "variants": [
+        {
+          "id": "quinto_high",
+          "default": true,
+          "name": "Cranked high for rumba lead",
+          "descriptors": [
+            "cutting",
+            "cracking-slap",
+            "piercing"
+          ],
+          "match_tokens": [
+            "rumba",
+            "conga",
+            "lead-drum"
+          ]
+        },
+        {
+          "id": "quinto_medium",
+          "name": "Medium tension (song accompaniment)",
+          "descriptors": [
+            "round-toned",
+            "balanced"
+          ],
+          "match_tokens": [
+            "conga",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quinto_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "quinto_guaguanco",
+          "default": true,
+          "name": "Guaguancó soloing over the ensemble",
+          "descriptors": [
+            "improvised",
+            "conversational",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "rumba",
+            "improvised"
+          ]
+        },
+        {
+          "id": "quinto_columbia",
+          "name": "Rumba columbia (fast, dancer-shadowing)",
+          "descriptors": [
+            "fast",
+            "angular",
+            "explosive"
+          ],
+          "match_tokens": [
+            "rumba",
+            "fast-rolls"
+          ]
+        },
+        {
+          "id": "quinto_comparsa",
+          "name": "Comparsa carnival lead",
+          "descriptors": [
+            "loud-projection",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "carnival",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "quinto_tuning",
+      "name": "Head tension",
+      "variants": [
+        {
+          "id": "quinto_high",
+          "default": true,
+          "name": "Cranked high for rumba lead",
+          "descriptors": [
+            "cutting",
+            "cracking-slap",
+            "piercing"
+          ],
+          "match_tokens": [
+            "rumba",
+            "conga",
+            "lead-drum"
+          ]
+        },
+        {
+          "id": "quinto_medium",
+          "name": "Medium tension (song accompaniment)",
+          "descriptors": [
+            "round-toned",
+            "balanced"
+          ],
+          "match_tokens": [
+            "conga",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quinto_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "quinto_guaguanco",
+          "default": true,
+          "name": "Guaguancó soloing over the ensemble",
+          "descriptors": [
+            "improvised",
+            "conversational",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "rumba",
+            "improvised"
+          ]
+        },
+        {
+          "id": "quinto_columbia",
+          "name": "Rumba columbia (fast, dancer-shadowing)",
+          "descriptors": [
+            "fast",
+            "angular",
+            "explosive"
+          ],
+          "match_tokens": [
+            "rumba",
+            "fast-rolls"
+          ]
+        },
+        {
+          "id": "quinto_comparsa",
+          "name": "Comparsa carnival lead",
+          "descriptors": [
+            "loud-projection",
+            "festive",
+            "driving"
+          ],
+          "match_tokens": [
+            "carnival",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

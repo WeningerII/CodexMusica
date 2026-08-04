@@ -1,0 +1,208 @@
+{
+  "id": "ranat_thum",
+  "name": "Ranat thum (Thai low bamboo-keyed xylophone)",
+  "family": "percussion",
+  "class": "bamboo_xylophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ranat thum",
+  "parts": [
+    {
+      "id": "ranat_thum_keys",
+      "name": "Key material",
+      "variants": [
+        {
+          "id": "ranat_thum_bamboo",
+          "default": true,
+          "name": "Bamboo keys with beeswax-lead tuning paste (canonical)",
+          "descriptors": [
+            "mellow",
+            "woody",
+            "rounded-attack"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "thai-piphat"
+          ]
+        },
+        {
+          "id": "ranat_thum_hardwood",
+          "name": "Rosewood keys",
+          "descriptors": [
+            "darker",
+            "fuller-toned"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ranat_thum_mallets",
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "ranat_thum_soft",
+          "default": true,
+          "name": "Soft padded mallets",
+          "descriptors": [
+            "soft-attack",
+            "warm"
+          ],
+          "match_tokens": [
+            "mallet",
+            "mellow"
+          ]
+        },
+        {
+          "id": "ranat_thum_hard",
+          "name": "Harder mallets",
+          "descriptors": [
+            "bright-attack",
+            "articulate"
+          ],
+          "match_tokens": [
+            "mallet",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ranat_thum_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "ranat_thum_variation",
+          "default": true,
+          "name": "Piphat counter-melody / variation part",
+          "descriptors": [
+            "syncopated",
+            "counter-melodic"
+          ],
+          "match_tokens": [
+            "thai-piphat"
+          ]
+        },
+        {
+          "id": "ranat_thum_unison",
+          "name": "Unison doubling",
+          "descriptors": [
+            "supporting",
+            "steady"
+          ],
+          "match_tokens": [
+            "thai-piphat"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ranat_thum_keys",
+      "name": "Key material",
+      "variants": [
+        {
+          "id": "ranat_thum_bamboo",
+          "default": true,
+          "name": "Bamboo keys with beeswax-lead tuning paste (canonical)",
+          "descriptors": [
+            "mellow",
+            "woody",
+            "rounded-attack"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "thai-piphat"
+          ]
+        },
+        {
+          "id": "ranat_thum_hardwood",
+          "name": "Rosewood keys",
+          "descriptors": [
+            "darker",
+            "fuller-toned"
+          ],
+          "match_tokens": [
+            "xylophone",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ranat_thum_mallets",
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "ranat_thum_soft",
+          "default": true,
+          "name": "Soft padded mallets",
+          "descriptors": [
+            "soft-attack",
+            "warm"
+          ],
+          "match_tokens": [
+            "mallet",
+            "mellow"
+          ]
+        },
+        {
+          "id": "ranat_thum_hard",
+          "name": "Harder mallets",
+          "descriptors": [
+            "bright-attack",
+            "articulate"
+          ],
+          "match_tokens": [
+            "mallet",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ranat_thum_role",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "ranat_thum_variation",
+          "default": true,
+          "name": "Piphat counter-melody / variation part",
+          "descriptors": [
+            "syncopated",
+            "counter-melodic"
+          ],
+          "match_tokens": [
+            "thai-piphat"
+          ]
+        },
+        {
+          "id": "ranat_thum_unison",
+          "name": "Unison doubling",
+          "descriptors": [
+            "supporting",
+            "steady"
+          ],
+          "match_tokens": [
+            "thai-piphat"
+          ]
+        }
+      ]
+    }
+  ]
+}

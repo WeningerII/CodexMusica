@@ -1,0 +1,238 @@
+{
+  "id": "pemade",
+  "name": "Pemade (mid-register Balinese gangsa metallophone)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pemade",
+  "parts": [
+    {
+      "id": "pemade_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "pemade_bronze_gangsa",
+          "default": true,
+          "name": "Ten bronze keys suspended over bamboo resonators (canonical gangsa)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic-shimmer"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "pemade_iron_keys",
+          "name": "Iron-keyed gangsa (angklung/village set)",
+          "descriptors": [
+            "dry",
+            "clangy"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pemade_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "pemade_kotekan_interlock",
+          "default": true,
+          "name": "Kotekan interlocking polos/sangsih with left-hand damping (canonical)",
+          "descriptors": [
+            "interlocking",
+            "crisp",
+            "driving"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        },
+        {
+          "id": "pemade_ubit_telu",
+          "name": "Ubit-telu three-note figuration",
+          "descriptors": [
+            "rippling",
+            "dense"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        },
+        {
+          "id": "pemade_byong_chord",
+          "name": "Byong / undamped struck clusters on kebyar attacks",
+          "descriptors": [
+            "clashing",
+            "sudden-attack",
+            "loud"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pemade_pairing",
+      "surface": false,
+      "name": "Tuning pairing",
+      "variants": [
+        {
+          "id": "pemade_pengumbang_pengisep",
+          "default": true,
+          "name": "Paired pengumbang/pengisep detuning (ombak beating)",
+          "descriptors": [
+            "beating-shimmer",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "balinese",
+            "paired-tuning"
+          ]
+        },
+        {
+          "id": "pemade_single",
+          "name": "Single unpaired instrument",
+          "descriptors": [
+            "clean",
+            "static"
+          ],
+          "match_tokens": [
+            "balinese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pemade_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "pemade_bronze_gangsa",
+          "default": true,
+          "name": "Ten bronze keys suspended over bamboo resonators (canonical gangsa)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic-shimmer"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "pemade_iron_keys",
+          "name": "Iron-keyed gangsa (angklung/village set)",
+          "descriptors": [
+            "dry",
+            "clangy"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pemade_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "pemade_kotekan_interlock",
+          "default": true,
+          "name": "Kotekan interlocking polos/sangsih with left-hand damping (canonical)",
+          "descriptors": [
+            "interlocking",
+            "crisp",
+            "driving"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        },
+        {
+          "id": "pemade_ubit_telu",
+          "name": "Ubit-telu three-note figuration",
+          "descriptors": [
+            "rippling",
+            "dense"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        },
+        {
+          "id": "pemade_byong_chord",
+          "name": "Byong / undamped struck clusters on kebyar attacks",
+          "descriptors": [
+            "clashing",
+            "sudden-attack",
+            "loud"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pemade_pairing",
+      "surface": false,
+      "name": "Tuning pairing",
+      "variants": [
+        {
+          "id": "pemade_pengumbang_pengisep",
+          "default": true,
+          "name": "Paired pengumbang/pengisep detuning (ombak beating)",
+          "descriptors": [
+            "beating-shimmer",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "balinese",
+            "paired-tuning"
+          ]
+        },
+        {
+          "id": "pemade_single",
+          "name": "Single unpaired instrument",
+          "descriptors": [
+            "clean",
+            "static"
+          ],
+          "match_tokens": [
+            "balinese"
+          ]
+        }
+      ]
+    }
+  ]
+}

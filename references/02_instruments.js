@@ -31614,4 +31614,6673 @@ const INSTRUMENTS = [
       ] },
     ]
   },
+  {
+    id: 'gonje',
+    name: 'Gonje (Dagbamba one-string bowed spike fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -2, sustain: 1, polyphony: -2, harmonicity: -1, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'gonje',
+    parts: [
+      { id: 'gonje_form', name: 'Regional form', variants: [
+        { id: 'gonje_dagbamba', default: true, name: 'Dagbamba gonje (Dagbon calabash-bodied, lizard-skin belly)', descriptors: ['nasal-tone', 'reedy', 'voice-shadowing'], match_tokens: ['spike-fiddle', 'northern-ghana'] },
+        { id: 'gonje_gonja', name: 'Gonja gonje (court praise form)', descriptors: ['declamatory', 'sustained'], match_tokens: ['spike-fiddle', 'praise-music'] },
+        { id: 'gonje_goge_hausa', name: 'Hausa-influenced goge form (larger gourd)', descriptors: ['buzzing-timbre', 'piercing'], match_tokens: ['spike-fiddle', 'hausa'] },
+      ] },
+      { id: 'gonje_string', name: 'String material', variants: [
+        { id: 'gonje_horsehair', default: true, name: 'Twisted horsehair string and horsehair bow', descriptors: ['grainy', 'rough-edged'], match_tokens: ['horsehair-string'] },
+        { id: 'gonje_nylon', name: 'Modern nylon string', descriptors: ['smooth', 'bright-tone'], match_tokens: ['nylon-string'] },
+      ] },
+      { id: 'gonje_role', surface: false, name: 'Ensemble role', variants: [
+        { id: 'gonje_praise', default: true, name: 'Praise-singing accompaniment (with singer)', descriptors: ['voice-shadowing', 'melismatic'], match_tokens: ['praise-music'] },
+        { id: 'gonje_ensemble', name: 'Gonje ensemble with gourd rattles', descriptors: ['driving', 'interlocking'], match_tokens: ['dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'molo',
+    name: 'Molo (Hausa/Songhai three-string plucked skin-faced lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: 0, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'molo',
+    parts: [
+      { id: 'molo_form', name: 'Regional form', variants: [
+        { id: 'molo_hausa', default: true, name: 'Hausa molo (boat-shaped wooden body, hide soundtable)', descriptors: ['dry-tone', 'percussive-attack', 'plangent'], match_tokens: ['skin-lute', 'hausa'] },
+        { id: 'molo_songhai', name: 'Songhai/Zarma molo (river-valley form)', descriptors: ['rolling', 'hypnotic'], match_tokens: ['skin-lute', 'niger-river'] },
+        { id: 'molo_fulani', name: 'Fulani herders\' molo (small travelling size)', descriptors: ['thin-toned', 'intimate'], match_tokens: ['skin-lute', 'sahel'] },
+      ] },
+      { id: 'molo_strings', name: 'String material', variants: [
+        { id: 'molo_gut', default: true, name: 'Gut / hide strings', descriptors: ['warm', 'muted'], match_tokens: ['gut-string'] },
+        { id: 'molo_nylon', name: 'Nylon fishing-line strings', descriptors: ['bright-attack', 'snappy'], match_tokens: ['nylon-string'] },
+      ] },
+    ]
+  },
+  {
+    id: 'hoddu',
+    name: 'Hoddu (Fulani/Haalpulaar plucked skin-faced lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: -1, polyphony: 0, harmonicity: 0, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'hoddu',
+    parts: [
+      { id: 'hoddu_strings', name: 'String count / tuning', variants: [
+        { id: 'hoddu_five', default: true, name: 'Five-string hoddu (standard Haalpulaar tuning)', descriptors: ['ostinato-driven', 'dry-tone'], match_tokens: ['skin-lute', 'fulani'] },
+        { id: 'hoddu_four', name: 'Four-string older form', descriptors: ['archaic', 'sparse'], match_tokens: ['skin-lute', 'sahel'] },
+      ] },
+      { id: 'hoddu_body', name: 'Body size', variants: [
+        { id: 'hoddu_standard', default: true, name: 'Standard carved wooden trough with cowhide table', descriptors: ['plangent', 'warm'], match_tokens: ['skin-lute'] },
+        { id: 'hoddu_large', name: 'Large low-tuned hoddu', descriptors: ['deep-toned', 'thumping'], match_tokens: ['skin-lute', 'low-register'] },
+      ] },
+      { id: 'hoddu_role', surface: false, name: 'Performance context', variants: [
+        { id: 'hoddu_griot', default: true, name: 'Griot (gawlo) praise and epic accompaniment', descriptors: ['declamatory', 'cyclic'], match_tokens: ['praise-music'] },
+        { id: 'hoddu_dance', name: 'Yela / dance accompaniment', descriptors: ['driving', 'percussive-attack'], match_tokens: ['dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gurmi',
+    name: 'Gurmi (Hausa two-string calabash-bodied plucked lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: -1, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'gurmi',
+    parts: [
+      { id: 'gurmi_body', name: 'Gourd size', variants: [
+        { id: 'gurmi_standard', default: true, name: 'Standard calabash body with goatskin table', descriptors: ['boomy', 'dry-tone', 'thumping'], match_tokens: ['calabash-lute', 'hausa'] },
+        { id: 'gurmi_large', name: 'Large gourd (deeper, drum-like)', descriptors: ['deep-toned', 'percussive-attack'], match_tokens: ['calabash-lute', 'low-register'] },
+      ] },
+      { id: 'gurmi_technique', name: 'Playing technique', variants: [
+        { id: 'gurmi_strum_tap', default: true, name: 'Plucked with gourd-tapping accompaniment', descriptors: ['percussive-attack', 'rhythm-driven'], match_tokens: ['calabash-lute', 'dance-rhythm'] },
+        { id: 'gurmi_plucked_only', name: 'Finger-plucked melodic only', descriptors: ['intimate', 'plangent'], match_tokens: ['calabash-lute'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kuntigi',
+    name: 'Kuntigi (Hausa single-string tin-resonator lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -2, harmonicity: -1, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'kuntigi',
+    parts: [
+      { id: 'kuntigi_resonator', name: 'Resonator', variants: [
+        { id: 'kuntigi_tin', default: true, name: 'Sardine-tin / metal can resonator with hide table', descriptors: ['nasal-tone', 'buzzing-timbre', 'thin-toned'], match_tokens: ['one-string-lute', 'hausa'] },
+        { id: 'kuntigi_gourd', name: 'Small gourd resonator (older form)', descriptors: ['woody', 'muted'], match_tokens: ['one-string-lute', 'sahel'] },
+      ] },
+      { id: 'kuntigi_style', surface: false, name: 'Performance style', variants: [
+        { id: 'kuntigi_praise', default: true, name: 'Solo praise-singer self-accompaniment', descriptors: ['fast-picked', 'voice-shadowing'], match_tokens: ['praise-music'] },
+        { id: 'kuntigi_dance', name: 'Dance-band lead line', descriptors: ['driving', 'bright-attack'], match_tokens: ['dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'garaya',
+    name: 'Garaya (Hausa two-string Bori-cult plucked lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: -1, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'garaya',
+    parts: [
+      { id: 'garaya_form', name: 'Body form', variants: [
+        { id: 'garaya_standard', default: true, name: 'Carved wooden bowl with hide table, two horsehair strings', descriptors: ['dry-tone', 'buzzing-timbre', 'insistent'], match_tokens: ['two-string-lute', 'hausa'] },
+        { id: 'garaya_large', name: 'Large deep-bowl garaya', descriptors: ['thumping', 'deep-toned'], match_tokens: ['two-string-lute', 'low-register'] },
+      ] },
+      { id: 'garaya_context', name: 'Ritual context', variants: [
+        { id: 'garaya_bori', default: true, name: 'Bori spirit-possession ceremony', descriptors: ['trance-inducing', 'cyclic', 'hypnotic'], match_tokens: ['ritual-music', 'hausa'] },
+        { id: 'garaya_maroka', name: 'Maroka praise-singing (hunters\' songs)', descriptors: ['declamatory', 'driving'], match_tokens: ['praise-music'] },
+      ] },
+    ]
+  },
+  {
+    id: 'komo_drum',
+    name: 'Komo (Bamana kòmò-society ritual single-headed drum)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'komo',
+    parts: [
+      { id: 'komo_body', name: 'Shell size', variants: [
+        { id: 'komo_standard', default: true, name: 'Carved hardwood shell, pegged goatskin head', descriptors: ['dark-toned', 'cutting-slap'], match_tokens: ['ritual-drum', 'bamana'] },
+        { id: 'komo_large', name: 'Large bass shell', descriptors: ['deep-toned', 'thunderous'], match_tokens: ['ritual-drum', 'low-register'] },
+      ] },
+      { id: 'komo_context', surface: false, name: 'Ritual context', variants: [
+        { id: 'komo_masquerade', default: true, name: 'Kòmò masquerade night ceremony', descriptors: ['trance-inducing', 'relentless'], match_tokens: ['ritual-music', 'mande'] },
+        { id: 'komo_initiation', name: 'Initiation rite accompaniment', descriptors: ['solemn', 'measured'], match_tokens: ['ritual-music'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mbung_mbung',
+    name: 'Mbung mbung (Wolof sabar-family single-headed drum)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'mbung mbung',
+    parts: [
+      { id: 'mbung_mbung_size', name: 'Size within sabar set', variants: [
+        { id: 'mbung_mbung_bal', default: true, name: 'Mbung-mbung bal (larger, accompaniment)', descriptors: ['deep-toned', 'rolling'], match_tokens: ['sabar-drum', 'wolof'] },
+        { id: 'mbung_mbung_tungune', name: 'Mbung-mbung tungune (smaller, higher)', descriptors: ['high-pitched', 'cutting-slap'], match_tokens: ['sabar-drum', 'wolof'] },
+      ] },
+      { id: 'mbung_mbung_technique', name: 'Playing technique', variants: [
+        { id: 'mbung_mbung_stick_hand', default: true, name: 'One stick (galan) and open hand', descriptors: ['sharp-attack', 'cracking'], match_tokens: ['stick-and-hand'] },
+        { id: 'mbung_mbung_hands', name: 'Both hands (softer accompaniment)', descriptors: ['muffled', 'warm'], match_tokens: ['hand-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tama_talking_drum',
+    name: 'Tama (Wolof/Mandinka hourglass talking drum)',
+    family: 'percussion',
+    class: 'hourglass_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'tama',
+    parts: [
+      { id: 'tama_size', name: 'Size', variants: [
+        { id: 'tama_small', default: true, name: 'Small underarm tama (high, chattering)', descriptors: ['high-pitched', 'chattering', 'speech-like'], match_tokens: ['talking-drum', 'wolof'] },
+        { id: 'tama_large', name: 'Larger tama / tamani (Mandinka, deeper)', descriptors: ['mid-toned', 'singing-glissando'], match_tokens: ['talking-drum', 'mande'] },
+      ] },
+      { id: 'tama_head', name: 'Head and tension cords', variants: [
+        { id: 'tama_lizard_skin', default: true, name: 'Lizard/goat skin heads with leather tension cords', descriptors: ['bright-attack', 'pitch-bending'], match_tokens: ['talking-drum'] },
+        { id: 'tama_synthetic', name: 'Synthetic head with nylon cords', descriptors: ['crisp', 'projecting'], match_tokens: ['talking-drum'] },
+      ] },
+      { id: 'tama_role', surface: false, name: 'Ensemble role', variants: [
+        { id: 'tama_solo', default: true, name: 'Speech-surrogate solo calls', descriptors: ['speech-like', 'declamatory'], match_tokens: ['talking-drum', 'praise-music'] },
+        { id: 'tama_mbalax', name: 'Mbalax ensemble drive', descriptors: ['driving', 'interlocking'], match_tokens: ['dance-rhythm', 'senegal'] },
+      ] },
+    ]
+  },
+  {
+    id: 'djun_djun',
+    name: 'Djun djun (Mande cylindrical bass drum with bell)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -1, harmonicity: -2, register: -2, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'djun djun',
+    parts: [
+      { id: 'djun_djun_size', name: 'Drum size', variants: [
+        { id: 'djun_djun_dununba', default: true, name: 'Dununba (largest, deepest bass)', descriptors: ['thunderous', 'deep-toned', 'grounding'], match_tokens: ['bass-drum', 'mande'] },
+        { id: 'djun_djun_sangban', name: 'Sangban (mid-size, melodic phrases)', descriptors: ['mid-toned', 'foundational'], match_tokens: ['bass-drum', 'mande'] },
+      ] },
+      { id: 'djun_djun_bell', name: 'Bell configuration', variants: [
+        { id: 'djun_djun_with_bell', default: true, name: 'With mounted kenken bell', descriptors: ['clanging', 'interlocking'], match_tokens: ['bell-on-shell'] },
+        { id: 'djun_djun_no_bell', name: 'Without bell (older village style)', descriptors: ['pure-drum', 'archaic'], match_tokens: ['bass-drum'] },
+      ] },
+      { id: 'djun_djun_technique', surface: false, name: 'Playing position', variants: [
+        { id: 'djun_djun_upright', default: true, name: 'Upright dunun-ba solo style (one player, drum and bell)', descriptors: ['virtuosic', 'syncopated'], match_tokens: ['dance-rhythm'] },
+        { id: 'djun_djun_horizontal', name: 'Horizontal ensemble style (drum on stand)', descriptors: ['steady', 'foundational'], match_tokens: ['ensemble'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kenkeni_drum',
+    name: 'Kenkeni (smallest Mande dunun bass drum)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -1, harmonicity: -2, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'kenkeni',
+    parts: [
+      { id: 'kenkeni_head', name: 'Head material', variants: [
+        { id: 'kenkeni_cowhide', default: true, name: 'Cowhide heads, rope-tuned', descriptors: ['warm', 'round-toned'], match_tokens: ['bass-drum', 'mande'] },
+        { id: 'kenkeni_goatskin', name: 'Goatskin heads (tighter, higher)', descriptors: ['bright-attack', 'tight'], match_tokens: ['bass-drum'] },
+      ] },
+      { id: 'kenkeni_bell', name: 'Bell configuration', variants: [
+        { id: 'kenkeni_with_bell', default: true, name: 'With kenken bell (timekeeping pattern)', descriptors: ['clanging', 'timekeeping'], match_tokens: ['bell-on-shell', 'ensemble'] },
+        { id: 'kenkeni_no_bell', name: 'Without bell', descriptors: ['pure-drum', 'steady'], match_tokens: ['bass-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'krin',
+    name: 'Krin (Guinean Malinke slit log drum)',
+    family: 'percussion',
+    class: 'slit_gong',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -2, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'krin',
+    parts: [
+      { id: 'krin_size', name: 'Log size', variants: [
+        { id: 'krin_standard', default: true, name: 'Standard hollowed log with two or three tongues', descriptors: ['woody', 'dry-tone', 'clacking'], match_tokens: ['slit-drum', 'malinke'] },
+        { id: 'krin_large', name: 'Large bass krin', descriptors: ['deep-toned', 'resonant'], match_tokens: ['slit-drum', 'low-register'] },
+        { id: 'krin_small', name: 'Small high krin (kolokolo)', descriptors: ['high-pitched', 'cutting'], match_tokens: ['slit-drum'] },
+      ] },
+      { id: 'krin_context', surface: false, name: 'Performance context', variants: [
+        { id: 'krin_forest', default: true, name: 'Forest-region dance and harvest rhythms', descriptors: ['interlocking', 'driving'], match_tokens: ['dance-rhythm', 'guinea'] },
+        { id: 'krin_signal', name: 'Signalling / announcement patterns', descriptors: ['speech-like', 'carrying'], match_tokens: ['slit-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'bolombato',
+    name: 'Bolombato (Mandinka three-string arched bass harp)',
+    family: 'plucked_traditional',
+    class: 'arched_harp',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -1, harmonicity: 0, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'bolombato',
+    parts: [
+      { id: 'bolombato_form', name: 'Regional form', variants: [
+        { id: 'bolombato_gambian', default: true, name: 'Gambian Mandinka bolombato (large calabash, curved neck)', descriptors: ['deep-toned', 'booming', 'ostinato-driven'], match_tokens: ['bass-harp', 'mandinka'] },
+        { id: 'bolombato_bolon', name: 'Malian/Guinean bolon war-harp form', descriptors: ['martial', 'thunderous'], match_tokens: ['bass-harp', 'mande'] },
+      ] },
+      { id: 'bolombato_technique', name: 'Playing technique', variants: [
+        { id: 'bolombato_pluck_strike', default: true, name: 'Plucked strings with calabash struck by rings', descriptors: ['percussive-attack', 'clacking'], match_tokens: ['bass-harp', 'dance-rhythm'] },
+        { id: 'bolombato_plucked', name: 'Plucked only (melodic bass line)', descriptors: ['round-toned', 'grounding'], match_tokens: ['bass-harp'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kese_kese',
+    name: 'Kese kese (Guinean woven basket rattle)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 2, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'kese kese',
+    parts: [
+      { id: 'kese_kese_fill', name: 'Seed fill', variants: [
+        { id: 'kese_kese_seeds', default: true, name: 'Dried seed fill in woven basket', descriptors: ['dry-rattle', 'hissing', 'crisp'], match_tokens: ['basket-rattle', 'guinea'] },
+        { id: 'kese_kese_pebbles', name: 'Pebble / shot fill', descriptors: ['sharp-attack', 'clattering'], match_tokens: ['basket-rattle'] },
+      ] },
+      { id: 'kese_kese_technique', name: 'Playing technique', variants: [
+        { id: 'kese_kese_shaken', default: true, name: 'Shaken with wrist snap (dance ensemble)', descriptors: ['driving', 'timekeeping'], match_tokens: ['shaken-rattle', 'dance-rhythm'] },
+        { id: 'kese_kese_slapped', name: 'Slapped against palm and thigh', descriptors: ['punchy', 'accented'], match_tokens: ['shaken-rattle'] },
+      ] },
+    ]
+  },
+  {
+    id: 'wassakumba',
+    name: 'Wassakumba (Mandinka calabash-and-net rattle)',
+    family: 'percussion',
+    class: 'gourd_rattle',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -1, harmonicity: -2, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'wassakumba',
+    parts: [
+      { id: 'wassakumba_netting', name: 'Bead netting', variants: [
+        { id: 'wassakumba_seed_net', default: true, name: 'Woven seed-bead net over calabash', descriptors: ['rustling-mass', 'dry-rattle'], match_tokens: ['gourd-rattle', 'west-african'] },
+        { id: 'wassakumba_shell_net', name: 'Cowrie / shell net', descriptors: ['clattering', 'bright-attack'], match_tokens: ['shaken-idiophone', 'mandinka'] },
+        { id: 'wassakumba_loose_net', name: 'Loose slack net (swung)', descriptors: ['washy', 'splashy-decay'], match_tokens: ['gourd-rattle'] },
+      ] },
+      { id: 'wassakumba_technique', name: 'Playing technique', variants: [
+        { id: 'wassakumba_slap', default: true, name: 'Slap-and-toss (net struck against palm)', descriptors: ['sharp-accent', 'percussive'], match_tokens: ['hand-percussion', 'dance-rhythm'] },
+        { id: 'wassakumba_shake', name: 'Continuous shake', descriptors: ['sustained-hiss', 'steady-pulse'], match_tokens: ['shaken-idiophone'] },
+      ] },
+    ]
+  },
+  {
+    id: 'axatse',
+    name: 'Axatse (Ewe gourd rattle, net-strung)',
+    family: 'percussion',
+    class: 'gourd_rattle',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'axatse',
+    parts: [
+      { id: 'axatse_size', name: 'Gourd size', variants: [
+        { id: 'axatse_medium', default: true, name: 'Medium calabash (standard Ewe axatse)', descriptors: ['dry-rattle', 'crisp-attack'], match_tokens: ['gourd-rattle', 'ewe'] },
+        { id: 'axatse_small', name: 'Small gourd', descriptors: ['tight', 'high-pitched'], match_tokens: ['shaken-idiophone'] },
+        { id: 'axatse_large', name: 'Large calabash', descriptors: ['broad-hiss', 'dark-rattle'], match_tokens: ['gourd-rattle'] },
+      ] },
+      { id: 'axatse_technique', name: 'Playing technique', variants: [
+        { id: 'axatse_thigh_hand', default: true, name: 'Thigh-and-hand alternation (seated)', descriptors: ['driving', 'interlocking'], match_tokens: ['dance-rhythm', 'hand-percussion'] },
+        { id: 'axatse_standing', name: 'Standing shake-and-strike', descriptors: ['loose', 'swinging'], match_tokens: ['shaken-idiophone'] },
+      ] },
+    ]
+  },
+  {
+    id: 'frikyiwa',
+    name: 'Frikyiwa (Akan finger-castanet bell)',
+    family: 'percussion',
+    class: 'concussion_idiophone',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: 2, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'frikyiwa',
+    parts: [
+      { id: 'frikyiwa_metal', name: 'Metal', variants: [
+        { id: 'frikyiwa_iron', default: true, name: 'Forged iron clapper and ring', descriptors: ['piercing-click', 'metallic-ping'], match_tokens: ['metal-idiophone', 'akan'] },
+        { id: 'frikyiwa_brass', name: 'Brass body', descriptors: ['bright-attack', 'ringing'], match_tokens: ['hand-percussion', 'ghana'] },
+      ] },
+      { id: 'frikyiwa_role', name: 'Ensemble role', variants: [
+        { id: 'frikyiwa_timeline', default: true, name: 'Timeline / bell pattern support', descriptors: ['steady-pulse', 'cutting'], match_tokens: ['timeline', 'dance-rhythm'] },
+        { id: 'frikyiwa_adowa', name: 'Adowa accompaniment', descriptors: ['lilting', 'ornamented'], match_tokens: ['adowa', 'akan'] },
+      ] },
+    ]
+  },
+  {
+    id: 'apentemma',
+    name: 'Apentemma (Akan small conical hand drum)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -1, register: 1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'apentemma',
+    parts: [
+      { id: 'apentemma_head', name: 'Head and tensioning', variants: [
+        { id: 'apentemma_peg', default: true, name: 'Antelope skin, peg-tensioned', descriptors: ['crisp-slap', 'ringing-tone'], match_tokens: ['hand-drum', 'akan'] },
+        { id: 'apentemma_goat', name: 'Goatskin head', descriptors: ['warm', 'open-toned'], match_tokens: ['membranophone', 'ghana'] },
+      ] },
+      { id: 'apentemma_technique', name: 'Playing technique', variants: [
+        { id: 'apentemma_hands', default: true, name: 'Bare hands (tone / slap / bass)', descriptors: ['articulate', 'conversational'], match_tokens: ['hand-percussion', 'adowa'] },
+        { id: 'apentemma_stick_hand', name: 'One stick and one hand', descriptors: ['sharp-attack', 'cutting'], match_tokens: ['stick-struck', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'petia',
+    name: 'Petia (Akan small supporting drum of the fontomfrom/adowa set)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'petia',
+    parts: [
+      { id: 'petia_size', name: 'Shell size', variants: [
+        { id: 'petia_standard', default: true, name: 'Standard narrow carved shell', descriptors: ['tight', 'high-pitched'], match_tokens: ['hand-drum', 'akan'] },
+        { id: 'petia_deep', name: 'Deeper shell', descriptors: ['fuller-tone', 'rounded'], match_tokens: ['membranophone', 'ghana'] },
+      ] },
+      { id: 'petia_role', name: 'Ensemble role', variants: [
+        { id: 'petia_ostinato', default: true, name: 'Fixed supporting ostinato', descriptors: ['steady-pulse', 'interlocking'], match_tokens: ['dance-rhythm', 'adowa'] },
+        { id: 'petia_fontomfrom', name: 'Fontomfrom ensemble part', descriptors: ['driving', 'ceremonial'], match_tokens: ['fontomfrom', 'royal-ensemble'] },
+      ] },
+    ]
+  },
+  {
+    id: 'brekete',
+    name: 'Brekete (Dagbamba/Ewe double-headed cylindrical bass drum)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -2, harmonicity: -2, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'brekete',
+    parts: [
+      { id: 'brekete_snare', name: 'Snare / buzz element', variants: [
+        { id: 'brekete_gut_snare', default: true, name: 'Gut snare across the head', descriptors: ['buzzing-timbre', 'dry-boom'], match_tokens: ['bass-drum', 'dagomba'] },
+        { id: 'brekete_plain', name: 'Plain unsnared heads', descriptors: ['deep-toned', 'round-thud'], match_tokens: ['double-headed-drum', 'ghana'] },
+      ] },
+      { id: 'brekete_technique', name: 'Playing technique', variants: [
+        { id: 'brekete_curved_stick', default: true, name: 'Curved stick with damping hand', descriptors: ['pitch-bending', 'thumping'], match_tokens: ['stick-struck', 'dance-rhythm'] },
+        { id: 'brekete_two_stick', name: 'Two straight sticks', descriptors: ['driving', 'hard-attack'], match_tokens: ['bass-drum'] },
+      ] },
+      { id: 'brekete_context', name: 'Ritual context', variants: [
+        { id: 'brekete_kunde', default: true, name: 'Kunde / Brekete shrine music', descriptors: ['trance-inducing', 'ceremonial'], match_tokens: ['ritual', 'northern-ghana'] },
+        { id: 'brekete_social', name: 'Social dance drumming', descriptors: ['propulsive', 'festive'], match_tokens: ['dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'adenkum',
+    name: 'Adenkum (Akan long-necked calabash vessel flute/percussion gourd)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: -1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'adenkum',
+    parts: [
+      { id: 'adenkum_gourd', name: 'Gourd form', variants: [
+        { id: 'adenkum_long_neck', default: true, name: 'Long-necked bottle calabash', descriptors: ['hollow-boom', 'breathy-resonance'], match_tokens: ['gourd', 'akan'] },
+        { id: 'adenkum_round', name: 'Rounder short-necked gourd', descriptors: ['deep-toned', 'muffled'], match_tokens: ['gourd', 'ghana'] },
+      ] },
+      { id: 'adenkum_technique', name: 'Playing technique', variants: [
+        { id: 'adenkum_struck', default: true, name: 'Struck with palm while women sing', descriptors: ['thumping', 'soft-attack'], match_tokens: ['hand-percussion', 'women-song'] },
+        { id: 'adenkum_blown', name: 'Blown across the neck opening', descriptors: ['airy', 'low-hoot'], match_tokens: ['vessel-flute', 'breathy'] },
+      ] },
+    ]
+  },
+  {
+    id: 'igba',
+    name: 'Igba (Igbo single-headed conical hand drum)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -1, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'igba',
+    parts: [
+      { id: 'igba_size', name: 'Size / register', variants: [
+        { id: 'igba_lead', default: true, name: 'Lead igba (medium, talking role)', descriptors: ['articulate', 'cutting'], match_tokens: ['hand-drum', 'igbo'] },
+        { id: 'igba_bass', name: 'Large bass igba', descriptors: ['deep-toned', 'thumping'], match_tokens: ['membranophone', 'nigeria'] },
+      ] },
+      { id: 'igba_technique', name: 'Playing technique', variants: [
+        { id: 'igba_hands', default: true, name: 'Bare hands', descriptors: ['warm-tone', 'conversational'], match_tokens: ['hand-percussion'] },
+        { id: 'igba_sticks', name: 'Sticks', descriptors: ['hard-attack', 'sharp'], match_tokens: ['stick-struck', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ekwe',
+    name: 'Ekwe (Igbo wooden slit drum)',
+    family: 'percussion',
+    class: 'slit_gong',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -1, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'ekwe',
+    parts: [
+      { id: 'ekwe_size', name: 'Log size', variants: [
+        { id: 'ekwe_medium', default: true, name: 'Medium hand-held ekwe (two tones)', descriptors: ['woody-knock', 'dry-tone'], match_tokens: ['slit-drum', 'igbo'] },
+        { id: 'ekwe_large', name: 'Large village ikoro-sized log', descriptors: ['deep-boom', 'carrying'], match_tokens: ['slit-gong', 'signal-drum'] },
+        { id: 'ekwe_small', name: 'Small ekwe', descriptors: ['high-clack', 'tight'], match_tokens: ['wooden-idiophone'] },
+      ] },
+      { id: 'ekwe_role', name: 'Ensemble role', variants: [
+        { id: 'ekwe_timeline', default: true, name: 'Timeline pattern in dance ensemble', descriptors: ['steady-pulse', 'interlocking'], match_tokens: ['timeline', 'dance-rhythm'] },
+        { id: 'ekwe_speech', name: 'Speech-surrogate announcement', descriptors: ['declamatory', 'two-tone'], match_tokens: ['talking-drum', 'signal'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ogene',
+    name: 'Ogene (Igbo forged iron clapperless bell)',
+    family: 'percussion',
+    class: 'metallophone',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -1, harmonicity: -2, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'ogene',
+    parts: [
+      { id: 'ogene_form', name: 'Bell form', variants: [
+        { id: 'ogene_single', default: true, name: 'Single flat iron bell', descriptors: ['clanging', 'metallic-ping'], match_tokens: ['iron-bell', 'igbo'] },
+        { id: 'ogene_double', name: 'Double bell (ogene mkpi, two pitches)', descriptors: ['two-tone', 'cutting'], match_tokens: ['double-bell', 'timeline'] },
+        { id: 'ogene_quartet', name: 'Ogene ensemble set (four graded bells)', descriptors: ['interlocking', 'chiming'], match_tokens: ['bell-ensemble', 'nigeria'] },
+      ] },
+      { id: 'ogene_beater', name: 'Beater', variants: [
+        { id: 'ogene_wood', default: true, name: 'Wooden stick', descriptors: ['bright-attack', 'dry-clank'], match_tokens: ['struck-idiophone'] },
+        { id: 'ogene_metal', name: 'Metal rod', descriptors: ['piercing', 'ringing'], match_tokens: ['metal-idiophone'] },
+      ] },
+    ]
+  },
+  {
+    id: 'oja',
+    name: 'Oja (Igbo wooden notched vertical flute)',
+    family: 'wind',
+    class: 'end_blown_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 2, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'oja',
+    parts: [
+      { id: 'oja_size', name: 'Size / register', variants: [
+        { id: 'oja_standard', default: true, name: 'Standard small oja (high, speech-imitating)', descriptors: ['piercing', 'speech-like'], match_tokens: ['wooden-flute', 'igbo'] },
+        { id: 'oja_large', name: 'Larger low oja', descriptors: ['breathy', 'mellow'], match_tokens: ['end-blown-flute', 'nigeria'] },
+      ] },
+      { id: 'oja_technique', name: 'Playing technique', variants: [
+        { id: 'oja_praise', default: true, name: 'Praise-name calling over the ensemble', descriptors: ['declamatory', 'ornamented'], match_tokens: ['speech-surrogate', 'praise-song'] },
+        { id: 'oja_melodic', name: 'Melodic lead line', descriptors: ['fluid', 'trilling'], match_tokens: ['flute', 'lead-melody'] },
+      ] },
+    ]
+  },
+  {
+    id: 'opi',
+    name: 'Opi (Igbo side-blown wooden/horn trumpet)',
+    family: 'wind',
+    class: 'natural_trumpet',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: -1, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'opi',
+    parts: [
+      { id: 'opi_material', name: 'Material', variants: [
+        { id: 'opi_wood', default: true, name: 'Carved wooden tube with mouth hole', descriptors: ['hoarse', 'buzzing-timbre'], match_tokens: ['side-blown-trumpet', 'igbo'] },
+        { id: 'opi_horn', name: 'Animal horn (elephant tusk / antelope)', descriptors: ['braying', 'raw'], match_tokens: ['horn-trumpet', 'nigeria'] },
+      ] },
+      { id: 'opi_role', name: 'Ensemble role', variants: [
+        { id: 'opi_title_music', default: true, name: 'Title / chieftaincy ceremonial calls', descriptors: ['ceremonial', 'declamatory'], match_tokens: ['ritual-trumpet', 'praise-song'] },
+        { id: 'opi_ensemble', name: 'Graded trumpet ensemble (interlocking hocket)', descriptors: ['hocketing', 'layered'], match_tokens: ['trumpet-ensemble', 'interlocking'] },
+      ] },
+    ]
+  },
+  {
+    id: 'shantu',
+    name: 'Shantu (Hausa women\'s calabash tube stamping rattle)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'shantu',
+    parts: [
+      { id: 'shantu_gourd', name: 'Gourd tube', variants: [
+        { id: 'shantu_long_tube', default: true, name: 'Long slender bottle-gourd tube', descriptors: ['hollow-thump', 'dry-pop'], match_tokens: ['gourd-tube', 'hausa'] },
+        { id: 'shantu_short', name: 'Short wide gourd', descriptors: ['deep-toned', 'muffled'], match_tokens: ['stamping-idiophone', 'nigeria'] },
+      ] },
+      { id: 'shantu_technique', name: 'Playing technique', variants: [
+        { id: 'shantu_thigh_stamp', default: true, name: 'Stamped against thigh while seated', descriptors: ['soft-attack', 'pulsing'], match_tokens: ['women-song', 'body-percussion'] },
+        { id: 'shantu_water', name: 'Part-filled with water (pitch-shifted)', descriptors: ['sloshing', 'pitch-bending'], match_tokens: ['water-gourd'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kuntukun_drum',
+    name: 'Kuntukun (Akan deep-toned funeral drum)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: -2, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'kuntukun',
+    parts: [
+      { id: 'kuntukun_size', name: 'Drum size', variants: [
+        { id: 'kuntukun_large', default: true, name: 'Large deep-shell kuntukun', descriptors: ['deep-toned', 'booming', 'solemn'], match_tokens: ['akan-drum', 'funeral-drum'] },
+        { id: 'kuntukun_medium', name: 'Medium supporting shell', descriptors: ['punchy', 'mid-toned'], match_tokens: ['akan-drum', 'ghana'] },
+      ] },
+      { id: 'kuntukun_stroke', name: 'Striking method', variants: [
+        { id: 'kuntukun_sticks', default: true, name: 'Curved wooden sticks', descriptors: ['hard-attack', 'resonant-boom'], match_tokens: ['stick-struck', 'drum'] },
+        { id: 'kuntukun_hand_stick', name: 'One hand, one stick', descriptors: ['mixed-attack', 'conversational'], match_tokens: ['hand-drum', 'ghana'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kalangu',
+    name: 'Kalangu (Hausa hourglass talking drum)',
+    family: 'percussion',
+    class: 'hourglass_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'kalangu',
+    parts: [
+      { id: 'kalangu_size', name: 'Drum size / role', variants: [
+        { id: 'kalangu_lead', default: true, name: 'Lead kalangu (speech-imitating)', descriptors: ['gliding-pitch', 'speech-toned', 'sharp-attack'], match_tokens: ['talking-drum', 'hausa'] },
+        { id: 'kalangu_dundufa', name: 'Large supporting hourglass (dan kar\'bi)', descriptors: ['deep-toned', 'steady-pulse'], match_tokens: ['talking-drum', 'low-register'] },
+      ] },
+      { id: 'kalangu_tension', name: 'Tension technique', variants: [
+        { id: 'kalangu_squeeze', default: true, name: 'Arm-squeezed pitch bending', descriptors: ['pitch-bending', 'vocal-like'], match_tokens: ['tension-drum', 'bending'] },
+        { id: 'kalangu_open', name: 'Loose, fixed-tension strokes', descriptors: ['dry-thud', 'stable-pitch'], match_tokens: ['drum', 'sahel'] },
+      ] },
+      { id: 'kalangu_beater', surface: false, name: 'Beater', variants: [
+        { id: 'kalangu_curved', default: true, name: 'Curved hooked stick', descriptors: ['cracking-attack', 'bright'], match_tokens: ['stick-struck'] },
+        { id: 'kalangu_hand', name: 'Bare hand strokes', descriptors: ['soft-attack', 'muted'], match_tokens: ['hand-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sanku_harp_lute',
+    name: 'Sanku (Akan seperewa-type harp-lute)',
+    family: 'plucked_traditional',
+    class: 'harp_lute',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'sanku',
+    parts: [
+      { id: 'sanku_strings', name: 'String count / tuning', variants: [
+        { id: 'sanku_six', default: true, name: 'Six-string double-rank tuning', descriptors: ['interlocking', 'gentle-pluck', 'warm'], match_tokens: ['harp-lute', 'akan'] },
+        { id: 'sanku_ten', name: 'Ten-string extended range', descriptors: ['wide-ranging', 'rippling'], match_tokens: ['harp-lute', 'ghana'] },
+      ] },
+      { id: 'sanku_resonator', name: 'Resonator', variants: [
+        { id: 'sanku_calabash', default: true, name: 'Calabash gourd with hide soundboard', descriptors: ['mellow', 'boxy-resonance'], match_tokens: ['gourd-resonator', 'plucked'] },
+        { id: 'sanku_wood', name: 'Carved wooden bowl', descriptors: ['fuller-toned', 'projecting'], match_tokens: ['plucked', 'harp-lute'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mongongo_mouth_bow',
+    name: 'Mongongo (Venda mouth-resonated musical bow)',
+    family: 'plucked_traditional',
+    class: 'stick_zither',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -2 },
+    short: 'mongongo',
+    parts: [
+      { id: 'mongongo_technique', name: 'Excitation', variants: [
+        { id: 'mongongo_struck', default: true, name: 'Tapped with a thin stick', descriptors: ['thin-toned', 'overtone-rich', 'whispery'], match_tokens: ['mouth-bow', 'musical-bow'] },
+        { id: 'mongongo_plucked', name: 'Finger-plucked string', descriptors: ['soft-pluck', 'buzzing-timbre'], match_tokens: ['musical-bow', 'venda'] },
+      ] },
+      { id: 'mongongo_resonance', name: 'Mouth resonance shaping', variants: [
+        { id: 'mongongo_vowel', default: true, name: 'Vowel-shaped harmonic melody', descriptors: ['formant-shifting', 'overtone-melody'], match_tokens: ['mouth-resonated', 'southern-africa'] },
+        { id: 'mongongo_drone', name: 'Fixed cavity drone', descriptors: ['droning', 'narrow-range'], match_tokens: ['drone-foundation', 'musical-bow'] },
+      ] },
+    ]
+  },
+  {
+    id: 'obokano',
+    name: 'Obokano (Gusii large bowl lyre)',
+    family: 'plucked_traditional',
+    class: 'plucked_lyre',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 0, register: -1, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'obokano',
+    parts: [
+      { id: 'obokano_bowl', name: 'Bowl and membrane', variants: [
+        { id: 'obokano_hide', default: true, name: 'Large wooden bowl with cowhide belly', descriptors: ['deep-toned', 'booming', 'buzzy'], match_tokens: ['bowl-lyre', 'gusii'] },
+        { id: 'obokano_small', name: 'Smaller travelling bowl', descriptors: ['mid-toned', 'punchy'], match_tokens: ['lyre', 'kenya'] },
+      ] },
+      { id: 'obokano_style', name: 'Playing style', variants: [
+        { id: 'obokano_strum', default: true, name: 'Strummed with self-accompanied song', descriptors: ['driving-strum', 'rhythmic'], match_tokens: ['strummed', 'lyre'] },
+        { id: 'obokano_pluck', name: 'Individually plucked ostinato', descriptors: ['interlocking', 'clear-pluck'], match_tokens: ['plucked', 'east-africa'] },
+      ] },
+      { id: 'obokano_strings', surface: false, name: 'String material', variants: [
+        { id: 'obokano_sinew', default: true, name: 'Cattle sinew strings', descriptors: ['thuddy', 'warm'], match_tokens: ['gut-string'] },
+        { id: 'obokano_nylon', name: 'Nylon strings', descriptors: ['bright-attack', 'sustaining'], match_tokens: ['nylon-string'] },
+      ] },
+    ]
+  },
+  {
+    id: 'litungu',
+    name: 'Litungu (Luhya seven-string lyre)',
+    family: 'plucked_traditional',
+    class: 'plucked_lyre',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'litungu',
+    parts: [
+      { id: 'litungu_form', name: 'Regional form', variants: [
+        { id: 'litungu_bukusu', default: true, name: 'Bukusu seven-string litungu', descriptors: ['bright-pluck', 'interlocking', 'dance-driving'], match_tokens: ['lyre', 'luhya'] },
+        { id: 'litungu_tiriki', name: 'Tiriki/Isukha smaller lyre', descriptors: ['light-toned', 'intimate'], match_tokens: ['lyre', 'kenya'] },
+      ] },
+      { id: 'litungu_technique', name: 'Damping technique', variants: [
+        { id: 'litungu_damped', default: true, name: 'Left-hand string damping (selective sounding)', descriptors: ['staccato', 'pattern-locked'], match_tokens: ['plucked', 'ostinato'] },
+        { id: 'litungu_open', name: 'Open strum across all strings', descriptors: ['ringing', 'full-chorded'], match_tokens: ['strummed', 'lyre'] },
+      ] },
+    ]
+  },
+  {
+    id: 'wandindi',
+    name: 'Wandindi (Kikuyu one-string bowed tube fiddle)',
+    family: 'bowed',
+    class: 'bowed_tube_fiddle',
+    axes: { pitchFix: -1, sustain: 2, polyphony: -2, harmonicity: 0, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'wandindi',
+    parts: [
+      { id: 'wandindi_resonator', name: 'Resonator', variants: [
+        { id: 'wandindi_gourd', default: true, name: 'Gourd resonator with hide membrane', descriptors: ['nasal', 'reedy', 'vocal-like'], match_tokens: ['one-string-fiddle', 'kikuyu'] },
+        { id: 'wandindi_tin', name: 'Tin-can resonator (modern)', descriptors: ['thin-toned', 'metallic-edge'], match_tokens: ['bowed', 'kenya'] },
+      ] },
+      { id: 'wandindi_style', name: 'Playing role', variants: [
+        { id: 'wandindi_narrative', default: true, name: 'Self-accompanied narrative song', descriptors: ['speech-following', 'sliding-pitch'], match_tokens: ['bowed', 'voice-shadowing'] },
+        { id: 'wandindi_dance', name: 'Dance-tune playing', descriptors: ['driving', 'repetitive'], match_tokens: ['bowed', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kayamba',
+    name: 'Kayamba (Swahili coast flat raft rattle)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 2, range: -2, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'kayamba',
+    parts: [
+      { id: 'kayamba_fill', name: 'Seed fill', variants: [
+        { id: 'kayamba_millet', default: true, name: 'Millet / mtama grain fill', descriptors: ['hissing', 'fine-grained', 'shimmering'], match_tokens: ['raft-rattle', 'swahili'] },
+        { id: 'kayamba_pebble', name: 'Small pebble or shot fill', descriptors: ['sharper-rattle', 'gritty'], match_tokens: ['shaker', 'mijikenda'] },
+      ] },
+      { id: 'kayamba_technique', name: 'Shaking technique', variants: [
+        { id: 'kayamba_shake', default: true, name: 'Two-handed lateral shake', descriptors: ['steady-hiss', 'dance-driving'], match_tokens: ['shaken', 'rattle'] },
+        { id: 'kayamba_slap', name: 'Accent slaps against the reed frame', descriptors: ['accented', 'crackling'], match_tokens: ['struck', 'rattle'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chivoti',
+    name: 'Chivoti (Mijikenda transverse bamboo flute)',
+    family: 'wind',
+    class: 'transverse_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 2, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'chivoti',
+    parts: [
+      { id: 'chivoti_bore', name: 'Tube material', variants: [
+        { id: 'chivoti_bamboo', default: true, name: 'Thin bamboo tube', descriptors: ['airy', 'piercing', 'bright-tone'], match_tokens: ['bamboo-flute', 'mijikenda'] },
+        { id: 'chivoti_reed', name: 'Reed / cane stalk tube', descriptors: ['breathy', 'soft-edged'], match_tokens: ['cane-flute', 'kenya'] },
+      ] },
+      { id: 'chivoti_style', name: 'Playing style', variants: [
+        { id: 'chivoti_ensemble', default: true, name: 'Ensemble lead over kayamba and drums', descriptors: ['ornamented', 'dance-driving'], match_tokens: ['flute', 'coastal-kenya'] },
+        { id: 'chivoti_solo', name: 'Solo herding melody', descriptors: ['rubato', 'plaintive'], match_tokens: ['flute', 'expressive'] },
+      ] },
+    ]
+  },
+  {
+    id: 'entongoli',
+    name: 'Entongoli (Ganda eight-string bowl lyre)',
+    family: 'plucked_traditional',
+    class: 'plucked_lyre',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'entongoli',
+    parts: [
+      { id: 'entongoli_body', name: 'Bowl and membrane', variants: [
+        { id: 'entongoli_cowhide', default: true, name: 'Wooden bowl with cowhide soundtable', descriptors: ['warm', 'dry-pluck', 'resonant'], match_tokens: ['bowl-lyre', 'buganda'] },
+        { id: 'entongoli_lizard', name: 'Monitor-lizard skin soundtable', descriptors: ['crisp', 'tight-toned'], match_tokens: ['lyre', 'uganda'] },
+      ] },
+      { id: 'entongoli_role', name: 'Musical role', variants: [
+        { id: 'entongoli_song', default: true, name: 'Self-accompanied court song', descriptors: ['interlocking', 'steady-ostinato'], match_tokens: ['plucked', 'ganda'] },
+        { id: 'entongoli_ensemble', name: 'Ensemble with endingidi and drums', descriptors: ['cyclic', 'supporting'], match_tokens: ['plucked', 'ensemble'] },
+      ] },
+    ]
+  },
+  {
+    id: 'engalabi',
+    name: 'Engalabi (Ganda long lizard-skin drum)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'engalabi',
+    parts: [
+      { id: 'engalabi_head', name: 'Drumhead', variants: [
+        { id: 'engalabi_lizard', default: true, name: 'Monitor-lizard skin head (nailed)', descriptors: ['cracking-attack', 'sharp', 'dry'], match_tokens: ['long-drum', 'buganda'] },
+        { id: 'engalabi_cowhide', name: 'Cowhide head', descriptors: ['fuller-toned', 'rounder-attack'], match_tokens: ['hand-drum', 'uganda'] },
+      ] },
+      { id: 'engalabi_technique', name: 'Hand technique', variants: [
+        { id: 'engalabi_open_slap', default: true, name: 'Open-and-slap baakisimba patterns', descriptors: ['driving', 'accented'], match_tokens: ['hand-drum', 'dance-rhythm'] },
+        { id: 'engalabi_muted', name: 'Heel-muted pressing strokes', descriptors: ['muted', 'bending-pitch'], match_tokens: ['hand-drum', 'muted'] },
+      ] },
+    ]
+  },
+  {
+    id: 'namunjoloba',
+    name: 'Namunjoloba (Ganda small stick-beaten drum set)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: 0, sustain: -2, polyphony: -1, harmonicity: -1, register: 1, range: 0, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'namunjoloba',
+    parts: [
+      { id: 'namunjoloba_set', name: 'Set size', variants: [
+        { id: 'namunjoloba_pair', default: true, name: 'Pair of small tuned drums', descriptors: ['tight-toned', 'crisp-attack'], match_tokens: ['stick-drum', 'buganda'] },
+        { id: 'namunjoloba_four', name: 'Four-drum tuned set', descriptors: ['melodic-drumming', 'bright'], match_tokens: ['tuned-drums', 'uganda'] },
+      ] },
+      { id: 'namunjoloba_beater', name: 'Beater', variants: [
+        { id: 'namunjoloba_stick', default: true, name: 'Light wooden sticks', descriptors: ['clicking-attack', 'dry'], match_tokens: ['stick-struck', 'drum'] },
+        { id: 'namunjoloba_padded', name: 'Padded beaters', descriptors: ['rounder-attack', 'warm'], match_tokens: ['drum', 'soft-attack'] },
+      ] },
+    ]
+  },
+  {
+    id: 'embaire',
+    name: 'Embaire (Busoga large log xylophone)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 2, harmonicity: 0, register: -1, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'embaire',
+    parts: [
+      { id: 'embaire_size', name: 'Instrument size', variants: [
+        { id: 'embaire_large', default: true, name: 'Large 15-21 key log xylophone (multiple players)', descriptors: ['thunderous', 'deep-toned', 'interlocking'], match_tokens: ['log-xylophone', 'busoga'] },
+        { id: 'embaire_small', name: 'Smaller portable set', descriptors: ['bright', 'clattering'], match_tokens: ['xylophone', 'uganda'] },
+      ] },
+      { id: 'embaire_support', name: 'Key support / resonance', variants: [
+        { id: 'embaire_banana', default: true, name: 'Keys laid over banana-stem pit resonance', descriptors: ['boomy', 'earthy', 'buzzing-timbre'], match_tokens: ['log-xylophone', 'pit-resonated'] },
+        { id: 'embaire_frame', name: 'Raised wooden frame', descriptors: ['drier', 'clearer-attack'], match_tokens: ['xylophone', 'east-africa'] },
+      ] },
+      { id: 'embaire_mallet', surface: false, name: 'Mallets', variants: [
+        { id: 'embaire_hardwood', default: true, name: 'Hardwood sticks', descriptors: ['hard-attack', 'woody'], match_tokens: ['mallet-struck'] },
+        { id: 'embaire_rubber', name: 'Rubber-tipped beaters', descriptors: ['soft-attack', 'fuller-tone'], match_tokens: ['mallet-struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kalumbu',
+    name: 'Kalumbu (Tonga gourd-resonated musical bow)',
+    family: 'plucked_traditional',
+    class: 'chordophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -1, harmonicity: 0, register: -1, range: -1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'kalumbu',
+    parts: [
+      { id: 'kalumbu_resonator', name: 'Gourd resonator handling', variants: [
+        { id: 'kalumbu_chest_open', default: true, name: 'Gourd held open against chest', descriptors: ['hollow-resonance', 'warm-boom'], match_tokens: ['gourd-bow', 'zambian'] },
+        { id: 'kalumbu_chest_damped', name: 'Gourd pressed closed (damped)', descriptors: ['muted-thud', 'wah-shading'], match_tokens: ['gourd-bow', 'muted'] },
+      ] },
+      { id: 'kalumbu_stroke', name: 'Striking technique', variants: [
+        { id: 'kalumbu_stick_struck', default: true, name: 'Struck with thin beater stick', descriptors: ['dry-attack', 'percussive'], match_tokens: ['struck-bow', 'tonga'] },
+        { id: 'kalumbu_plucked', name: 'Finger-plucked string', descriptors: ['soft-pluck', 'intimate'], match_tokens: ['plucked-bow'] },
+      ] },
+      { id: 'kalumbu_string', surface: false, name: 'String material', variants: [
+        { id: 'kalumbu_wire', default: true, name: 'Steel wire string', descriptors: ['bright-partials', 'ringing'], match_tokens: ['wire-string'] },
+        { id: 'kalumbu_sinew', name: 'Twisted sinew / plant fibre', descriptors: ['dull-toned', 'archaic'], match_tokens: ['fibre-string'] },
+      ] },
+    ]
+  },
+  {
+    id: 'babatoni_bass_bow',
+    name: 'Babatoni (South African one-string bass bow)',
+    family: 'plucked_traditional',
+    class: 'chordophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: 0, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'babatoni',
+    parts: [
+      { id: 'babatoni_resonator', name: 'Resonator type', variants: [
+        { id: 'babatoni_drum_tin', default: true, name: 'Oil-drum / paraffin-tin resonator', descriptors: ['deep-toned', 'metallic-boom'], match_tokens: ['bass-bow', 'township'] },
+        { id: 'babatoni_gourd', name: 'Large gourd resonator', descriptors: ['woody-boom', 'earthy'], match_tokens: ['gourd-bow', 'south-african'] },
+      ] },
+      { id: 'babatoni_role', name: 'Ensemble role', variants: [
+        { id: 'babatoni_bassline', default: true, name: 'Walking bass foundation', descriptors: ['thumping', 'groove-anchor'], match_tokens: ['bass-line', 'drone-foundation'] },
+        { id: 'babatoni_solo', name: 'Solo self-accompanied song', descriptors: ['sparse', 'voice-shadowing'], match_tokens: ['song-accompaniment'] },
+      ] },
+    ]
+  },
+  {
+    id: 'setinkane',
+    name: 'Setinkane (Sotho-Tswana lamellophone)',
+    family: 'percussion',
+    class: 'plucked_idiophone',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 0, harmonicity: -1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'setinkane',
+    parts: [
+      { id: 'setinkane_body', name: 'Body / resonator', variants: [
+        { id: 'setinkane_board', default: true, name: 'Plain wooden soundboard', descriptors: ['dry-plink', 'intimate'], match_tokens: ['thumb-piano', 'southern-african'] },
+        { id: 'setinkane_box', name: 'Hollow resonating box', descriptors: ['fuller-tone', 'sustained-hum'], match_tokens: ['thumb-piano', 'resonant'] },
+        { id: 'setinkane_tin', name: 'Tin-can resonator', descriptors: ['tinny', 'buzzing-timbre'], match_tokens: ['thumb-piano', 'buzzing'] },
+      ] },
+      { id: 'setinkane_lamellae', name: 'Lamella material', variants: [
+        { id: 'setinkane_iron', default: true, name: 'Forged iron tongues', descriptors: ['clangy', 'bright-attack'], match_tokens: ['lamellophone'] },
+        { id: 'setinkane_wire', name: 'Recycled spring-wire tongues', descriptors: ['thin-toned', 'zingy'], match_tokens: ['lamellophone'] },
+      ] },
+    ]
+  },
+  {
+    id: 'lekolulo',
+    name: 'Lekolulo (Sotho herdboy\'s end-blown flute)',
+    family: 'wind',
+    class: 'end_blown_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'lekolulo',
+    parts: [
+      { id: 'lekolulo_tube', name: 'Tube material', variants: [
+        { id: 'lekolulo_reed', default: true, name: 'River-reed tube', descriptors: ['airy', 'breathy-tone'], match_tokens: ['end-blown-flute', 'lesotho'] },
+        { id: 'lekolulo_metal', name: 'Metal pipe tube', descriptors: ['piercing', 'bright-tone'], match_tokens: ['end-blown-flute'] },
+      ] },
+      { id: 'lekolulo_style', name: 'Playing style', variants: [
+        { id: 'lekolulo_herding', default: true, name: 'Solo herding melody', descriptors: ['lonely', 'pastoral'], match_tokens: ['pastoral', 'solo-melody'] },
+        { id: 'lekolulo_overblown', name: 'Overblown harmonic calls', descriptors: ['shrill', 'overtone-rich'], match_tokens: ['overblown'] },
+      ] },
+    ]
+  },
+  {
+    id: 'lesiba',
+    name: 'Lesiba (Sotho quill-and-string mouth-blown bow)',
+    family: 'wind',
+    class: 'overtone_flute',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: 0, range: 1, articulation: -1, transduction: -2, dynamics: -2 },
+    short: 'lesiba',
+    parts: [
+      { id: 'lesiba_quill', name: 'Quill type', variants: [
+        { id: 'lesiba_feather_quill', default: true, name: 'Bird-feather quill (traditional)', descriptors: ['buzzing-timbre', 'fragile-tone'], match_tokens: ['quill-bow', 'lesotho'] },
+        { id: 'lesiba_plastic', name: 'Modern plastic quill', descriptors: ['raspy', 'louder'], match_tokens: ['quill-bow'] },
+      ] },
+      { id: 'lesiba_technique', name: 'Breath technique', variants: [
+        { id: 'lesiba_inhale_exhale', default: true, name: 'Alternating inhale-exhale calls', descriptors: ['whispery', 'speech-like'], match_tokens: ['herding-call', 'overtone'] },
+        { id: 'lesiba_growl', name: 'Low growled cattle-praise register', descriptors: ['growling', 'guttural'], match_tokens: ['growling'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mbila_mutondo',
+    name: 'Mbila mutondo (Venda large gourd-resonated xylophone)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: -1, register: -1, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'mbila mutondo',
+    parts: [
+      { id: 'mbila_mutondo_resonator', name: 'Resonator treatment', variants: [
+        { id: 'mbila_mutondo_mirliton', default: true, name: 'Gourd resonators with spider-web mirlitons', descriptors: ['buzzing-timbre', 'rasping-halo'], match_tokens: ['gourd-xylophone', 'venda'] },
+        { id: 'mbila_mutondo_plain', name: 'Plain unbuzzed gourds', descriptors: ['clean-tone', 'woody'], match_tokens: ['gourd-xylophone'] },
+      ] },
+      { id: 'mbila_mutondo_register', name: 'Instrument size in the set', variants: [
+        { id: 'mbila_mutondo_bass', default: true, name: 'Large bass mbila mutondo', descriptors: ['deep-toned', 'booming'], match_tokens: ['bass-xylophone'] },
+        { id: 'mbila_mutondo_treble', name: 'Smaller treble instrument', descriptors: ['bright-attack', 'chattering'], match_tokens: ['treble-xylophone'] },
+      ] },
+      { id: 'mbila_mutondo_role', name: 'Part in the ensemble', variants: [
+        { id: 'mbila_mutondo_ostinato', default: true, name: 'Interlocking ostinato part', descriptors: ['hocketing', 'cyclic'], match_tokens: ['interlocking', 'cyclic'] },
+        { id: 'mbila_mutondo_lead', name: 'Lead variation part', descriptors: ['virtuosic', 'rippling'], match_tokens: ['lead-melody'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chizambi',
+    name: 'Chizambi (Shona scraped musical bow)',
+    family: 'plucked_traditional',
+    class: 'chordophone',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -2, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: -2 },
+    short: 'chizambi',
+    parts: [
+      { id: 'chizambi_scraper', name: 'Scraping implement', variants: [
+        { id: 'chizambi_notched_stick', default: true, name: 'Notched reed scraper on the bowstave', descriptors: ['rasping', 'buzzing-timbre'], match_tokens: ['scraped-bow', 'shona'] },
+        { id: 'chizambi_rattle_ring', name: 'Scraper with added rattle ring', descriptors: ['shaker-halo', 'noisy'], match_tokens: ['rattling'] },
+      ] },
+      { id: 'chizambi_resonance', name: 'Mouth resonance use', variants: [
+        { id: 'chizambi_mouth', default: true, name: 'Mouth-resonated overtone shaping', descriptors: ['overtone-rich', 'vowel-shifting'], match_tokens: ['mouth-resonated'] },
+        { id: 'chizambi_open', name: 'Played without mouth shaping', descriptors: ['dry', 'thin-toned'], match_tokens: ['musical-bow'] },
+      ] },
+    ]
+  },
+  {
+    id: 'umrhubhe',
+    name: 'Umrhubhe (Xhosa mouth-resonated friction bow)',
+    family: 'bowed',
+    class: 'bowed',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -1, harmonicity: -1, register: 0, range: 0, articulation: -1, transduction: -2, dynamics: -2 },
+    short: 'umrhubhe',
+    parts: [
+      { id: 'umrhubhe_technique', name: 'Excitation technique', variants: [
+        { id: 'umrhubhe_friction_stick', default: true, name: 'Thin stick rubbed across the string', descriptors: ['whistling-overtones', 'breathy'], match_tokens: ['mouth-bow', 'xhosa'] },
+        { id: 'umrhubhe_bowed', name: 'Bowed with a hair bow', descriptors: ['sustained', 'singing'], match_tokens: ['bowed-bow'] },
+      ] },
+      { id: 'umrhubhe_use', name: 'Musical use', variants: [
+        { id: 'umrhubhe_song', default: true, name: 'Self-accompanied song with overtone melody', descriptors: ['ethereal', 'voice-shadowing'], match_tokens: ['overtone-singing', 'song-accompaniment'] },
+        { id: 'umrhubhe_solo', name: 'Solo overtone instrumental', descriptors: ['floating', 'harmonic-series'], match_tokens: ['overtone'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ugubhu',
+    name: 'Ugubhu (Zulu gourd-resonated struck bow)',
+    family: 'plucked_traditional',
+    class: 'chordophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -1, harmonicity: 0, register: -1, range: -1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'ugubhu',
+    parts: [
+      { id: 'ugubhu_gourd', name: 'Gourd position', variants: [
+        { id: 'ugubhu_open_gourd', default: true, name: 'Gourd held away from the chest (open)', descriptors: ['hollow-resonance', 'full-toned'], match_tokens: ['gourd-bow', 'zulu'] },
+        { id: 'ugubhu_closed_gourd', name: 'Gourd closed against the body', descriptors: ['muffled', 'wah-shading'], match_tokens: ['gourd-bow', 'muted'] },
+      ] },
+      { id: 'ugubhu_fundamentals', name: 'Fundamental technique', variants: [
+        { id: 'ugubhu_two_fundamentals', default: true, name: 'Two fundamentals (open and stopped string)', descriptors: ['two-tone-drone', 'harmonic-shifting'], match_tokens: ['musical-bow', 'drone-foundation'] },
+        { id: 'ugubhu_single', name: 'Single unstopped fundamental', descriptors: ['monotone-drone', 'archaic'], match_tokens: ['drone-foundation'] },
+      ] },
+    ]
+  },
+  {
+    id: 'isitolotolo',
+    name: 'Isitolotolo (Zulu jaw harp)',
+    family: 'plucked_traditional',
+    class: 'jaw_harp',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -1, harmonicity: -1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -2 },
+    short: 'isitolotolo',
+    parts: [
+      { id: 'isitolotolo_frame', name: 'Frame type', variants: [
+        { id: 'isitolotolo_imported_steel', default: true, name: 'Imported steel trade jaw harp', descriptors: ['twanging', 'buzzing-timbre'], match_tokens: ['jaw-harp', 'zulu'] },
+        { id: 'isitolotolo_handmade', name: 'Locally forged wire frame', descriptors: ['rough-toned', 'raspy'], match_tokens: ['jaw-harp'] },
+      ] },
+      { id: 'isitolotolo_style', name: 'Playing style', variants: [
+        { id: 'isitolotolo_speech', default: true, name: 'Speech-shaped courting melody', descriptors: ['vowel-shifting', 'talking'], match_tokens: ['mouth-resonated', 'courting'] },
+        { id: 'isitolotolo_rhythmic', name: 'Fast rhythmic pulsing', descriptors: ['driving', 'chattering'], match_tokens: ['rhythmic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'makhoyane',
+    name: 'Makhoyane (Swazi braced gourd bow)',
+    family: 'plucked_traditional',
+    class: 'chordophone',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -1, harmonicity: 0, register: -1, range: -1, articulation: 1, transduction: -2, dynamics: -2 },
+    short: 'makhoyane',
+    parts: [
+      { id: 'makhoyane_brace', name: 'Bracing / tuning of the two segments', variants: [
+        { id: 'makhoyane_whole_tone', default: true, name: 'Segments a whole tone apart', descriptors: ['two-tone-drone', 'shifting-harmonics'], match_tokens: ['braced-bow', 'swazi'] },
+        { id: 'makhoyane_semitone', name: 'Narrow semitone bracing', descriptors: ['tight-interval', 'shimmering'], match_tokens: ['braced-bow'] },
+      ] },
+      { id: 'makhoyane_stroke', name: 'Striking technique', variants: [
+        { id: 'makhoyane_grass_beater', default: true, name: 'Struck with a light grass stalk', descriptors: ['soft-attack', 'whispery'], match_tokens: ['struck-bow'] },
+        { id: 'makhoyane_stick', name: 'Struck with a firm stick', descriptors: ['dry-attack', 'percussive'], match_tokens: ['struck-bow'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kudu_horn',
+    name: 'Kudu horn (Southern African antelope-horn trumpet)',
+    family: 'wind',
+    class: 'natural_trumpet',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 0, register: -1, range: -2, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'kudu horn',
+    parts: [
+      { id: 'kudu_horn_embouchure', name: 'Blowing hole placement', variants: [
+        { id: 'kudu_horn_side_blown', default: true, name: 'Side-blown (lateral embouchure hole)', descriptors: ['raw-blast', 'husky'], match_tokens: ['antelope-horn', 'side-blown'] },
+        { id: 'kudu_horn_end_blown', name: 'End-blown tip embouchure', descriptors: ['focused', 'brassy'], match_tokens: ['antelope-horn', 'end-blown'] },
+      ] },
+      { id: 'kudu_horn_use', name: 'Signalling context', variants: [
+        { id: 'kudu_horn_call', default: true, name: 'Single ceremonial / rally call', descriptors: ['piercing', 'summoning'], match_tokens: ['ritual-call', 'signal-horn'] },
+        { id: 'kudu_horn_ensemble', name: 'Hocketing horn ensemble part', descriptors: ['interlocking', 'layered'], match_tokens: ['hocketing', 'horn-ensemble'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mbaqanga_guitar',
+    name: 'Mbaqanga guitar (South African township lead/rhythm guitar)',
+    family: 'acoustic_strings',
+    class: 'plucked_string_rhythm',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: 1, dynamics: 1 },
+    short: 'mbaqanga guitar',
+    parts: [
+      { id: 'mbaqanga_guitar_role', name: 'Ensemble role', variants: [
+        { id: 'mbaqanga_lead', default: true, name: 'Lead line (single-note treble riffing)', descriptors: ['bright-attack', 'chiming', 'looping-riff'], match_tokens: ['township-jive', 'lead-guitar'] },
+        { id: 'mbaqanga_rhythm', name: 'Rhythm comping (chugging offbeats)', descriptors: ['chugging', 'percussive-strum'], match_tokens: ['township-jive', 'rhythm-guitar'] },
+      ] },
+      { id: 'mbaqanga_guitar_tone', name: 'Amplification / tone', variants: [
+        { id: 'mbaqanga_clean_amp', default: true, name: 'Clean valve-amp tone with spring reverb', descriptors: ['twangy', 'springy'], match_tokens: ['clean-tone', 'electric'] },
+        { id: 'mbaqanga_acoustic', name: 'Unamplified acoustic guitar', descriptors: ['woody', 'dry'], match_tokens: ['acoustic'] },
+      ] },
+      { id: 'mbaqanga_guitar_tuning', surface: false, name: 'Tuning', variants: [
+        { id: 'mbaqanga_standard_tuning', default: true, name: 'Standard tuning', descriptors: ['familiar', 'versatile'], match_tokens: ['standard-tuning'] },
+        { id: 'mbaqanga_open_tuning', name: 'Open / vamp tuning (marabi carryover)', descriptors: ['ringing-open', 'droning'], match_tokens: ['open-tuning', 'marabi'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ramkie',
+    name: 'Ramkie (Khoi-Cape three-string tin-body lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'ramkie',
+    parts: [
+      { id: 'ramkie_body', name: 'Body construction', variants: [
+        { id: 'ramkie_tin', default: true, name: 'Paraffin-tin / oil-can body', descriptors: ['tinny', 'boxy-resonance'], match_tokens: ['tin-can-lute', 'cape'] },
+        { id: 'ramkie_gourd', name: 'Half-gourd body with skin belly', descriptors: ['earthy', 'muted-warmth'], match_tokens: ['gourd-lute', 'khoikhoi'] },
+      ] },
+      { id: 'ramkie_strings', name: 'String count and material', variants: [
+        { id: 'ramkie_three_gut', default: true, name: 'Three gut / fibre strings', descriptors: ['soft-toned', 'mellow'], match_tokens: ['three-string'] },
+        { id: 'ramkie_four_wire', name: 'Four steel wire strings', descriptors: ['bright-attack', 'jangly'], match_tokens: ['wire-strung'] },
+      ] },
+      { id: 'ramkie_style', name: 'Playing style', variants: [
+        { id: 'ramkie_strummed', default: true, name: 'Strummed song accompaniment', descriptors: ['driving-strum', 'dance-rhythm'], match_tokens: ['strummed', 'song-accompaniment'] },
+        { id: 'ramkie_picked', name: 'Finger-picked melodic style', descriptors: ['plinking', 'lyrical'], match_tokens: ['finger-picked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mamokhorong',
+    name: 'Mamokhorong (Basotho single-string bowed stick fiddle)',
+    family: 'bowed',
+    class: 'stick_zither',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: -1, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'mamokhorong',
+    parts: [
+      { id: 'mamokhorong_resonator', name: 'Resonator / body form', variants: [
+        { id: 'mamokhorong_tin', default: true, name: 'Tin-can resonator stick fiddle', descriptors: ['nasal-tone', 'reedy', 'rattling'], match_tokens: ['bowed', 'one-string', 'lesotho'] },
+        { id: 'mamokhorong_gourd', name: 'Gourd-resonated form', descriptors: ['woody', 'warm', 'muted'], match_tokens: ['bowed', 'gourd-resonator'] },
+        { id: 'mamokhorong_calabash_open', name: 'Open-tube / unresonated stick', descriptors: ['thin-toned', 'intimate', 'scratchy'], match_tokens: ['bowed', 'one-string'] },
+      ] },
+      { id: 'mamokhorong_playing', name: 'Playing context', variants: [
+        { id: 'mamokhorong_herdboy', default: true, name: 'Herdboy solo playing', descriptors: ['lonesome', 'rubato', 'song-like'], match_tokens: ['bowed', 'solo'] },
+        { id: 'mamokhorong_song', name: 'Self-accompanied singing', descriptors: ['voice-shadowing', 'droning'], match_tokens: ['bowed', 'drone-foundation'] },
+      ] },
+      { id: 'mamokhorong_string', surface: false, name: 'String material', variants: [
+        { id: 'mamokhorong_wire', default: true, name: 'Steel wire string', descriptors: ['bright', 'edgy'], match_tokens: ['bowed'] },
+        { id: 'mamokhorong_hair', name: 'Horsehair / sinew string', descriptors: ['soft-toned', 'archaic'], match_tokens: ['bowed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mangour_hoof_rattle',
+    name: 'Mangour (Sudanese goat-hoof dancer\'s rattle belt)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -1, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'mangour',
+    parts: [
+      { id: 'mangour_material', name: 'Rattle material', variants: [
+        { id: 'mangour_hoof', default: true, name: 'Goat-hoof belt (traditional)', descriptors: ['clattering', 'dry-rattle', 'husky'], match_tokens: ['rattle', 'sudanese', 'zar'] },
+        { id: 'mangour_shell', name: 'Shell / seed-pod belt', descriptors: ['shaker-like', 'hissing'], match_tokens: ['rattle', 'shaken'] },
+        { id: 'mangour_metal', name: 'Metal-jingle belt', descriptors: ['jangling', 'bright-attack'], match_tokens: ['rattle', 'jingling'] },
+      ] },
+      { id: 'mangour_motion', name: 'Dance motion', variants: [
+        { id: 'mangour_hip', default: true, name: 'Hip-shaking continuous pattern', descriptors: ['continuous', 'swishing'], match_tokens: ['shaken', 'dance-rhythm'] },
+        { id: 'mangour_accent', name: 'Accented stamping punctuation', descriptors: ['sharp-attack', 'punctuating'], match_tokens: ['shaken', 'accented'] },
+      ] },
+    ]
+  },
+  {
+    id: 'karkabas',
+    name: 'Karkabas (Gnawa iron double-castanets)',
+    family: 'percussion',
+    class: 'concussion_idiophone',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'karkabas',
+    parts: [
+      { id: 'karkabas_size', name: 'Size / weight', variants: [
+        { id: 'karkabas_standard', default: true, name: 'Standard forged-iron pair', descriptors: ['clanging', 'metallic', 'driving'], match_tokens: ['clashed', 'gnawa', 'morocco'] },
+        { id: 'karkabas_large', name: 'Large heavy pair (lila / deep clang)', descriptors: ['heavy', 'dark-metal', 'booming-clang'], match_tokens: ['clashed', 'low-register'] },
+        { id: 'karkabas_small', name: 'Small light pair', descriptors: ['bright-attack', 'crisp', 'chattering'], match_tokens: ['clashed', 'high-pitched'] },
+      ] },
+      { id: 'karkabas_pattern', name: 'Playing pattern', variants: [
+        { id: 'karkabas_trance', default: true, name: 'Continuous trance ostinato', descriptors: ['hypnotic', 'relentless'], match_tokens: ['clashed', 'ostinato'] },
+        { id: 'karkabas_triplet', name: 'Triplet shuffle roll', descriptors: ['rolling', 'shuffling'], match_tokens: ['clashed', 'dance-rhythm'] },
+        { id: 'karkabas_call', name: 'Sparse processional accents', descriptors: ['punctuating', 'open-spaced'], match_tokens: ['clashed', 'processional'] },
+      ] },
+    ]
+  },
+  {
+    id: 'nuggara',
+    name: 'Nuggara (Sudanese paired kettledrums)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: 0, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'nuggara',
+    parts: [
+      { id: 'nuggara_form', name: 'Bowl form / size', variants: [
+        { id: 'nuggara_pair', default: true, name: 'Paired clay/metal kettles (high and low)', descriptors: ['punchy', 'interlocking', 'dry'], match_tokens: ['struck', 'kettledrum', 'sudanese'] },
+        { id: 'nuggara_large', name: 'Large ceremonial royal kettle', descriptors: ['deep-toned', 'booming', 'stately'], match_tokens: ['struck', 'low-register'] },
+        { id: 'nuggara_small', name: 'Small hand-held kettle', descriptors: ['tight', 'high-pitched', 'clipped'], match_tokens: ['struck', 'high-pitched'] },
+      ] },
+      { id: 'nuggara_strike', name: 'Striking method', variants: [
+        { id: 'nuggara_sticks', default: true, name: 'Curved sticks', descriptors: ['sharp-attack', 'cracking'], match_tokens: ['struck', 'stick-struck'] },
+        { id: 'nuggara_hands', name: 'Bare hands', descriptors: ['muffled', 'warm-thud'], match_tokens: ['struck', 'hand-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dallouka',
+    name: 'Dallouka (Sudanese women\'s clay goblet drum)',
+    family: 'percussion',
+    class: 'clay_pot_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'dallouka',
+    parts: [
+      { id: 'dallouka_body', name: 'Body material', variants: [
+        { id: 'dallouka_clay', default: true, name: 'Fired clay body', descriptors: ['earthy', 'dry-slap', 'resonant-boom'], match_tokens: ['hand-drum', 'sudanese', 'clay-drum'] },
+        { id: 'dallouka_wood', name: 'Carved wood body', descriptors: ['woody', 'focused'], match_tokens: ['hand-drum'] },
+        { id: 'dallouka_aluminium', name: 'Aluminium / modern shell', descriptors: ['ringing', 'bright-attack'], match_tokens: ['hand-drum', 'modern'] },
+      ] },
+      { id: 'dallouka_head', name: 'Head and tuning', variants: [
+        { id: 'dallouka_goat_fire', default: true, name: 'Goatskin head tuned by fire', descriptors: ['snappy', 'warm', 'open-tone'], match_tokens: ['hand-drum', 'skin-head'] },
+        { id: 'dallouka_paste', name: 'Skin loaded with tuning paste', descriptors: ['deep-toned', 'thick', 'damped'], match_tokens: ['hand-drum', 'low-register'] },
+      ] },
+      { id: 'dallouka_rhythm', name: 'Rhythmic context', variants: [
+        { id: 'dallouka_dalayib', default: true, name: 'Wedding dalayib / tom-tom song rhythms', descriptors: ['swinging', 'celebratory'], match_tokens: ['hand-drum', 'dance-rhythm'] },
+        { id: 'dallouka_zar', name: 'Zar ceremonial cycles', descriptors: ['hypnotic', 'insistent'], match_tokens: ['hand-drum', 'ritual'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tabl_baladi',
+    name: 'Tabl baladi (Egyptian double-headed bass drum)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -2, range: 0, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'tabl baladi',
+    parts: [
+      { id: 'tabl_baladi_size', name: 'Shell size', variants: [
+        { id: 'tabl_baladi_standard', default: true, name: 'Standard slung baladi drum', descriptors: ['booming', 'outdoor', 'punchy'], match_tokens: ['struck', 'double-headed-drum', 'egyptian'] },
+        { id: 'tabl_baladi_large', name: 'Large processional shell', descriptors: ['deep-toned', 'thunderous', 'loud-projection'], match_tokens: ['struck', 'low-register'] },
+        { id: 'tabl_baladi_small', name: 'Small saidi-size shell', descriptors: ['tight', 'cracking'], match_tokens: ['struck', 'dance-rhythm'] },
+      ] },
+      { id: 'tabl_baladi_sticks', name: 'Beater pair', variants: [
+        { id: 'tabl_baladi_asaya_kirsh', default: true, name: 'Heavy stick (asaya) plus thin switch (kirsh)', descriptors: ['boom-and-crack', 'contrasting', 'driving'], match_tokens: ['struck', 'stick-struck'] },
+        { id: 'tabl_baladi_two_heavy', name: 'Two heavy mallets', descriptors: ['thudding', 'weighty'], match_tokens: ['struck', 'low-register'] },
+        { id: 'tabl_baladi_hand', name: 'Hand-and-stick mix', descriptors: ['muffled', 'nuanced'], match_tokens: ['struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'shimshal',
+    name: 'Shimshal (Kurdish end-blown shepherd\'s flute)',
+    family: 'wind',
+    class: 'end_blown_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'shimshal',
+    parts: [
+      { id: 'shimshal_tube', name: 'Tube material / length', variants: [
+        { id: 'shimshal_wood', default: true, name: 'Apricot-wood tube', descriptors: ['breathy', 'mellow', 'airy'], match_tokens: ['blown', 'kurdish', 'shepherd-flute'] },
+        { id: 'shimshal_reed', name: 'Cane tube', descriptors: ['thin-toned', 'rustic', 'hollow'], match_tokens: ['blown', 'cane-flute'] },
+        { id: 'shimshal_metal', name: 'Metal tube (modern)', descriptors: ['bright', 'piercing'], match_tokens: ['blown', 'high-pitched'] },
+      ] },
+      { id: 'shimshal_style', name: 'Playing style', variants: [
+        { id: 'shimshal_pastoral', default: true, name: 'Free-rhythm pastoral melody', descriptors: ['rubato', 'plaintive', 'ornamented'], match_tokens: ['blown', 'solo'] },
+        { id: 'shimshal_dance', name: 'Dance-tune playing (govend)', descriptors: ['driving', 'repetitive'], match_tokens: ['blown', 'dance-rhythm'] },
+        { id: 'shimshal_throat_drone', name: 'Hummed throat drone under melody', descriptors: ['droning', 'buzzing-timbre'], match_tokens: ['blown', 'drone-foundation'] },
+      ] },
+    ]
+  },
+  {
+    id: 'narme_nay',
+    name: 'Narme nay (soft-toned Persian small reed flute)',
+    family: 'wind',
+    class: 'end_blown_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: -2, transduction: -2, dynamics: -2 },
+    short: 'narme nay',
+    parts: [
+      { id: 'narme_nay_size', name: 'Tube size / key', variants: [
+        { id: 'narme_nay_small', default: true, name: 'Short high-keyed cane tube', descriptors: ['soft-toned', 'airy', 'sweet'], match_tokens: ['blown', 'persian', 'reed-flute'] },
+        { id: 'narme_nay_mid', name: 'Medium tube (middle register)', descriptors: ['breathy', 'warm'], match_tokens: ['blown', 'cane-flute'] },
+        { id: 'narme_nay_thin_wall', name: 'Thin-walled light cane', descriptors: ['fragile', 'whispering'], match_tokens: ['blown', 'intimate'] },
+      ] },
+      { id: 'narme_nay_embouchure', name: 'Blowing technique', variants: [
+        { id: 'narme_nay_lip', default: true, name: 'Lip-edge blowing (soft attack)', descriptors: ['breath-noise', 'gentle-onset'], match_tokens: ['blown'] },
+        { id: 'narme_nay_teeth', name: 'Between-teeth Persian embouchure', descriptors: ['focused', 'reedy', 'overblown-highs'], match_tokens: ['blown', 'persian'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dozaleh',
+    name: 'Dozaleh (Kurdish double single-reed clarinet)',
+    family: 'wind',
+    class: 'single_reed_double_clarinet',
+    axes: { pitchFix: 0, sustain: 2, polyphony: -1, harmonicity: 0, register: 1, range: -1, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'dozaleh',
+    parts: [
+      { id: 'dozaleh_tuning', name: 'Pipe tuning relationship', variants: [
+        { id: 'dozaleh_unison', default: true, name: 'Near-unison twin pipes (beating)', descriptors: ['beating', 'buzzing-timbre', 'thick'], match_tokens: ['double-pipe', 'kurdish', 'single-reed'] },
+        { id: 'dozaleh_drone', name: 'Melody pipe over drone pipe', descriptors: ['droning', 'continuous'], match_tokens: ['double-pipe', 'drone-foundation'] },
+      ] },
+      { id: 'dozaleh_breath', name: 'Breath technique', variants: [
+        { id: 'dozaleh_circular', default: true, name: 'Circular breathing (unbroken line)', descriptors: ['seamless', 'relentless'], match_tokens: ['blown', 'circular-breathing'] },
+        { id: 'dozaleh_phrased', name: 'Phrased with breath pauses', descriptors: ['song-like', 'breathing-phrases'], match_tokens: ['blown'] },
+      ] },
+      { id: 'dozaleh_cane', surface: false, name: 'Cane and reed cut', variants: [
+        { id: 'dozaleh_thin', default: true, name: 'Thin cane, light idioglot reeds', descriptors: ['reedy', 'bright', 'nasal'], match_tokens: ['single-reed'] },
+        { id: 'dozaleh_thick', name: 'Thick cane, heavy reeds', descriptors: ['raspy', 'dark', 'loud'], match_tokens: ['single-reed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'rebaba_bedouin',
+    name: 'Rebaba (Bedouin one-string bowed spike fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -1, sustain: 2, polyphony: -2, harmonicity: -1, register: 0, range: -1, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'rebaba',
+    parts: [
+      { id: 'rebaba_bedouin_body', name: 'Soundbox covering', variants: [
+        { id: 'rebaba_bedouin_skin', default: true, name: 'Goatskin-covered wooden trapezoid box', descriptors: ['nasal-tone', 'raspy', 'keening'], match_tokens: ['bowed', 'bedouin', 'one-string'] },
+        { id: 'rebaba_bedouin_tin', name: 'Metal-tray soundbox', descriptors: ['metallic', 'edgy', 'penetrating'], match_tokens: ['bowed', 'one-string'] },
+      ] },
+      { id: 'rebaba_bedouin_use', name: 'Performance role', variants: [
+        { id: 'rebaba_bedouin_poetry', default: true, name: 'Accompaniment to sung poetry (shi\'r nabati)', descriptors: ['voice-shadowing', 'declamatory', 'rubato'], match_tokens: ['bowed', 'poetry-accompaniment'] },
+        { id: 'rebaba_bedouin_solo', name: 'Solo taqsim-like improvisation', descriptors: ['melismatic', 'plaintive'], match_tokens: ['bowed', 'improvised'] },
+      ] },
+      { id: 'rebaba_bedouin_string', surface: false, name: 'String and bow hair', variants: [
+        { id: 'rebaba_bedouin_horsehair', default: true, name: 'Horsehair string and horsehair bow', descriptors: ['grainy', 'husky'], match_tokens: ['bowed'] },
+        { id: 'rebaba_bedouin_gut', name: 'Gut / nylon string', descriptors: ['smoother', 'warmer'], match_tokens: ['bowed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'minjayrah',
+    name: 'Minjayrah (Levantine open end-blown shepherd flute)',
+    family: 'wind',
+    class: 'end_blown_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'minjayrah',
+    parts: [
+      { id: 'minjayrah_tube', name: 'Cane length / register', variants: [
+        { id: 'minjayrah_standard', default: true, name: 'Standard cane minjayrah', descriptors: ['breathy', 'rustic', 'airy'], match_tokens: ['blown', 'levantine', 'shepherd-flute'] },
+        { id: 'minjayrah_long', name: 'Long low-pitched cane', descriptors: ['deep-toned', 'hollow'], match_tokens: ['blown', 'low-register'] },
+        { id: 'minjayrah_short', name: 'Short high cane', descriptors: ['piercing', 'bright'], match_tokens: ['blown', 'high-pitched'] },
+      ] },
+      { id: 'minjayrah_style', name: 'Playing style', variants: [
+        { id: 'minjayrah_mawwal', default: true, name: 'Free mawwal-style solo', descriptors: ['rubato', 'plaintive', 'ornamented'], match_tokens: ['blown', 'improvised'] },
+        { id: 'minjayrah_dabke', name: 'Dabke dance tunes', descriptors: ['driving', 'repetitive'], match_tokens: ['blown', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'zummara',
+    name: 'Zummara (Egyptian double single-reed pipe)',
+    family: 'wind',
+    class: 'single_reed_double_clarinet',
+    axes: { pitchFix: 0, sustain: 2, polyphony: -1, harmonicity: 0, register: 1, range: -1, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'zummara',
+    parts: [
+      { id: 'zummara_form', name: 'Pipe configuration', variants: [
+        { id: 'zummara_twin_melody', default: true, name: 'Twin equal melody pipes (parallel fingering)', descriptors: ['beating', 'reedy', 'thick'], match_tokens: ['double-pipe', 'egyptian', 'single-reed'] },
+        { id: 'zummara_melody_drone', name: 'Melody pipe with fewer-hole drone pipe', descriptors: ['droning', 'continuous'], match_tokens: ['double-pipe', 'drone-foundation'] },
+      ] },
+      { id: 'zummara_material', name: 'Pipe material', variants: [
+        { id: 'zummara_cane', default: true, name: 'Cane pipes', descriptors: ['rustic', 'buzzing-timbre'], match_tokens: ['single-reed', 'cane'] },
+        { id: 'zummara_metal', name: 'Metal-tube pipes (modern)', descriptors: ['bright', 'harsh', 'loud'], match_tokens: ['single-reed', 'modern'] },
+      ] },
+      { id: 'zummara_breath', name: 'Breath technique', variants: [
+        { id: 'zummara_circular', default: true, name: 'Circular breathing', descriptors: ['seamless', 'relentless'], match_tokens: ['blown', 'circular-breathing'] },
+        { id: 'zummara_phrased', name: 'Phrased breathing', descriptors: ['song-like', 'breathing-phrases'], match_tokens: ['blown'] },
+      ] },
+    ]
+  },
+  {
+    id: 'arghul_egyptian',
+    name: 'Argul (Egyptian single-reed pipe with long drone)',
+    family: 'wind',
+    class: 'single_reed_droned_pipe',
+    axes: { pitchFix: 0, sustain: 2, polyphony: 0, harmonicity: 0, register: 0, range: -1, articulation: -1, transduction: -2, dynamics: 0 },
+    short: 'argul',
+    parts: [
+      { id: 'arghul_egyptian_size', name: 'Drone-pipe size', variants: [
+        { id: 'arghul_egyptian_soghair', default: true, name: 'Arghul al-soghair (small, short drone)', descriptors: ['nasal', 'buzzing-timbre', 'nimble'], match_tokens: ['single-reed', 'egyptian', 'drone-foundation'] },
+        { id: 'arghul_egyptian_kebir', name: 'Arghul al-kebir (long drone, very low)', descriptors: ['deep-drone', 'subterranean', 'hypnotic'], match_tokens: ['single-reed', 'low-register'] },
+        { id: 'arghul_egyptian_asghar', name: 'Smallest arghul (high melody)', descriptors: ['bright', 'piercing'], match_tokens: ['single-reed', 'high-pitched'] },
+      ] },
+      { id: 'arghul_egyptian_context', name: 'Performance context', variants: [
+        { id: 'arghul_egyptian_saidi', default: true, name: 'Sa\'idi village dance and song', descriptors: ['earthy', 'driving'], match_tokens: ['blown', 'dance-rhythm'] },
+        { id: 'arghul_egyptian_sufi', name: 'Sufi / zikr accompaniment', descriptors: ['trance-like', 'sustained'], match_tokens: ['blown', 'ritual'] },
+      ] },
+    ]
+  },
+  {
+    id: 'zokra',
+    name: 'Zokra (Tunisian double-reed bagpipe)',
+    family: 'wind',
+    class: 'reed_bagpipe',
+    axes: { pitchFix: 0, sustain: 2, polyphony: 0, harmonicity: 0, register: 1, range: -1, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'zokra',
+    parts: [
+      { id: 'zokra_form', name: 'Regional form', variants: [
+        { id: 'zokra_tunisian', default: true, name: 'Tunisian zokra (bag-blown double chanter)', descriptors: ['nasal', 'strident', 'continuous'], match_tokens: ['bagpipe', 'tunisian', 'double-reed'] },
+        { id: 'zokra_libyan', name: 'Libyan zukra', descriptors: ['raspy', 'festive', 'loud-projection'], match_tokens: ['bagpipe', 'north-african'] },
+        { id: 'zokra_mouth_blown', name: 'Mouth-blown shawm form (no bag)', descriptors: ['piercing', 'phrased'], match_tokens: ['double-reed', 'shawm'] },
+      ] },
+      { id: 'zokra_context', name: 'Performance context', variants: [
+        { id: 'zokra_wedding', default: true, name: 'Wedding procession with bendir/tabla', descriptors: ['celebratory', 'outdoor', 'driving'], match_tokens: ['bagpipe', 'processional'] },
+        { id: 'zokra_sufi', name: 'Sufi brotherhood ceremony', descriptors: ['trance-like', 'insistent'], match_tokens: ['bagpipe', 'ritual'] },
+      ] },
+      { id: 'zokra_bag', surface: false, name: 'Bag material', variants: [
+        { id: 'zokra_goatskin', default: true, name: 'Whole goatskin bag', descriptors: ['breathy-drone', 'organic'], match_tokens: ['bagpipe'] },
+        { id: 'zokra_synthetic', name: 'Synthetic bag (modern)', descriptors: ['steady', 'even-pressure'], match_tokens: ['bagpipe', 'modern'] },
+      ] },
+    ]
+  },
+  {
+    id: 'hajhouj',
+    name: 'Hajhouj (Gnawa three-string bass lute, Moroccan)',
+    family: 'plucked_traditional',
+    class: 'bass_lamellophone',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: -1, register: -2, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'hajhouj',
+    parts: [
+      { id: 'hajhouj_form', name: 'Regional form', variants: [
+        { id: 'hajhouj_marrakchi', default: true, name: 'Marrakchi hajhouj (large camel-skin bass)', descriptors: ['deep-toned', 'percussive-thump', 'buzzing-timbre'], match_tokens: ['gnawa', 'bass-lute', 'plucked'] },
+        { id: 'hajhouj_essaouira', name: 'Essaouira guembri (smaller, higher-strung)', descriptors: ['punchy', 'nimble', 'dry'], match_tokens: ['gnawa', 'plucked', 'morocco'] },
+        { id: 'hajhouj_sudani', name: 'Sintir sudani (long-bodied ritual form)', descriptors: ['archaic', 'booming', 'trance-driving'], match_tokens: ['gnawa', 'ritual', 'bass-lute'] },
+      ] },
+      { id: 'hajhouj_sersal', name: 'Resonator rattle (sersal)', variants: [
+        { id: 'hajhouj_sersal_on', default: true, name: 'Sersal ring-rattle fitted', descriptors: ['buzzing-timbre', 'jangling', 'halo-attack'], match_tokens: ['buzz', 'gnawa'] },
+        { id: 'hajhouj_sersal_off', name: 'No rattle (clean neck)', descriptors: ['clean-attack', 'dry', 'focused'], match_tokens: ['plucked', 'dry'] },
+      ] },
+      { id: 'hajhouj_strings', surface: false, name: 'String material', variants: [
+        { id: 'hajhouj_gut', default: true, name: 'Goat-gut strings', descriptors: ['warm', 'thumping', 'organic'], match_tokens: ['gut-strung'] },
+        { id: 'hajhouj_nylon', name: 'Nylon / fishing-line strings', descriptors: ['bright-attack', 'modern', 'sustaining'], match_tokens: ['nylon-strung'] },
+      ] },
+    ]
+  },
+  {
+    id: 'taarija',
+    name: 'Taarija (small Moroccan clay goblet drum)',
+    family: 'percussion',
+    class: 'clay_pot_drum',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'taarija',
+    parts: [
+      { id: 'taarija_size', name: 'Size / pitch', variants: [
+        { id: 'taarija_small', default: true, name: 'Small taarija (high crack)', descriptors: ['sharp-attack', 'high-pitched', 'clacking'], match_tokens: ['clay-drum', 'morocco'] },
+        { id: 'taarija_large', name: 'Large taarija (deeper voice)', descriptors: ['round-toned', 'warm', 'mid-register'], match_tokens: ['clay-drum', 'hand-drum'] },
+      ] },
+      { id: 'taarija_technique', name: 'Playing technique', variants: [
+        { id: 'taarija_finger', default: true, name: 'Fingertip rolls and slaps', descriptors: ['crisp', 'rattling-fast', 'ornamented'], match_tokens: ['hand-struck', 'fast-rolls'] },
+        { id: 'taarija_palm', name: 'Open palm strokes', descriptors: ['thudding', 'broad', 'steady'], match_tokens: ['hand-struck'] },
+      ] },
+      { id: 'taarija_head', surface: false, name: 'Head skin', variants: [
+        { id: 'taarija_goat', default: true, name: 'Goatskin head', descriptors: ['dry', 'papery', 'bright-attack'], match_tokens: ['goatskin'] },
+        { id: 'taarija_fish', name: 'Fish-skin head (fine grain)', descriptors: ['glassy', 'tight', 'piercing'], match_tokens: ['fish-skin'] },
+      ] },
+    ]
+  },
+  {
+    id: 'deff_moroccan',
+    name: 'Deff (Moroccan square/round frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'deff',
+    parts: [
+      { id: 'deff_form', name: 'Frame form', variants: [
+        { id: 'deff_square', default: true, name: 'Square double-headed deff (Chaabi/Amazigh)', descriptors: ['dry-thump', 'boxy', 'driving'], match_tokens: ['frame-drum', 'morocco'] },
+        { id: 'deff_round', name: 'Round shallow deff', descriptors: ['open-toned', 'ringing', 'broad'], match_tokens: ['frame-drum', 'hand-struck'] },
+        { id: 'deff_jingled', name: 'Jingled deff (riqq-like rings)', descriptors: ['shimmering', 'jangling', 'bright-attack'], match_tokens: ['frame-drum', 'jingles'] },
+      ] },
+      { id: 'deff_technique', name: 'Stroke pattern', variants: [
+        { id: 'deff_dance', default: true, name: 'Wedding/dance ostinato', descriptors: ['driving', 'repetitive', 'punchy'], match_tokens: ['dance-rhythm', 'hand-struck'] },
+        { id: 'deff_accompaniment', name: 'Song accompaniment (soft edge taps)', descriptors: ['soft', 'supporting', 'pattering'], match_tokens: ['frame-drum', 'light-touch'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mejoranera',
+    name: 'Mejoranera (Panamanian five-string folk guitar)',
+    family: 'acoustic_strings',
+    class: 'plucked_string_rhythm',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'mejoranera',
+    parts: [
+      { id: 'mejoranera_tuning', name: 'Traditional tuning (temple)', variants: [
+        { id: 'mejoranera_por25', default: true, name: 'Por veinticinco tuning', descriptors: ['open-ringing', 'modal', 'folkloric'], match_tokens: ['panama', 'five-string', 'strummed'] },
+        { id: 'mejoranera_porlomalto', name: 'Por lo alto tuning', descriptors: ['bright-tone', 'high-strung', 'festive'], match_tokens: ['panama', 'strummed'] },
+        { id: 'mejoranera_porlobajo', name: 'Por lo bajo tuning', descriptors: ['dark-toned', 'grounded', 'droning'], match_tokens: ['panama', 'plucked'] },
+      ] },
+      { id: 'mejoranera_style', name: 'Playing style', variants: [
+        { id: 'mejoranera_rasgueo', default: true, name: 'Rasgueo strumming for mejorana song', descriptors: ['percussive-strum', 'driving', 'rustic'], match_tokens: ['strummed', 'dance-rhythm'] },
+        { id: 'mejoranera_punteo', name: 'Punteo melodic picking (torrente)', descriptors: ['plucked-clarity', 'lyrical', 'ornamented'], match_tokens: ['plucked', 'melodic'] },
+      ] },
+      { id: 'mejoranera_body', surface: false, name: 'Body wood', variants: [
+        { id: 'mejoranera_cedro', default: true, name: 'Cedar body (carved)', descriptors: ['warm', 'woody', 'mellow'], match_tokens: ['cedar'] },
+        { id: 'mejoranera_higueron', name: 'Higuerón / local hardwood body', descriptors: ['dry', 'punchy', 'rustic'], match_tokens: ['hardwood'] },
+      ] },
+    ]
+  },
+  {
+    id: 'socavon',
+    name: 'Socavón (Panamanian four-string bordón guitar)',
+    family: 'acoustic_strings',
+    class: 'plucked_string_rhythm',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 0, harmonicity: 1, register: -1, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'socavon',
+    parts: [
+      { id: 'socavon_form', name: 'Instrument form', variants: [
+        { id: 'socavon_bocona', default: true, name: 'Socavón bocón (deep four-string bass form)', descriptors: ['deep-toned', 'booming', 'grounding'], match_tokens: ['panama', 'bass-guitar', 'plucked'] },
+        { id: 'socavon_pequeno', name: 'Small socavón (higher four-string)', descriptors: ['compact', 'punchy', 'mid-register'], match_tokens: ['panama', 'plucked'] },
+      ] },
+      { id: 'socavon_role', name: 'Ensemble role', variants: [
+        { id: 'socavon_bordon', default: true, name: 'Bordón bass line under mejoranera', descriptors: ['walking-bass', 'steady', 'underpinning'], match_tokens: ['bass-line', 'panama'] },
+        { id: 'socavon_tamborito', name: 'Tamborito / cumbia accompaniment', descriptors: ['driving', 'syncopated', 'rustic'], match_tokens: ['dance-rhythm', 'strummed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'bordonua',
+    name: 'Bordonúa (Puerto Rican deep-bodied bass lute)',
+    family: 'acoustic_strings',
+    class: 'plucked_string_rhythm',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 1, register: -2, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'bordonua',
+    parts: [
+      { id: 'bordonua_form', name: 'Historical form', variants: [
+        { id: 'bordonua_moderna', default: true, name: 'Modern five-course bordonúa', descriptors: ['deep-toned', 'full-bodied', 'resonant'], match_tokens: ['puerto-rico', 'bass-lute', 'plucked'] },
+        { id: 'bordonua_antigua', name: 'Antique carved (bordonúa antigua)', descriptors: ['archaic', 'dry', 'woody'], match_tokens: ['puerto-rico', 'plucked'] },
+        { id: 'bordonua_ponce', name: 'Ponce large-body form', descriptors: ['booming', 'broad', 'warm'], match_tokens: ['puerto-rico', 'bass-lute'] },
+      ] },
+      { id: 'bordonua_role', name: 'Playing role', variants: [
+        { id: 'bordonua_bass', default: true, name: 'Bass and rhythmic foundation in jíbaro trio', descriptors: ['underpinning', 'steady', 'low-register'], match_tokens: ['bass-line', 'jibaro'] },
+        { id: 'bordonua_strum', name: 'Chordal strumming (seis / aguinaldo)', descriptors: ['strummed', 'festive', 'driving'], match_tokens: ['strummed', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'laud_cubano',
+    name: 'Laúd cubano (Cuban twelve-string lute)',
+    family: 'acoustic_strings',
+    class: 'plucked_string_lead',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 0, harmonicity: 1, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'laud cubano',
+    parts: [
+      { id: 'laud_cubano_form', name: 'Instrument form', variants: [
+        { id: 'laud_cubano_standard', default: true, name: 'Standard six-course laúd (bowl-less flat back)', descriptors: ['bright-attack', 'metallic-shimmer', 'piercing'], match_tokens: ['cuba', 'plucked', 'twelve-string'] },
+        { id: 'laud_cubano_bandola', name: 'Bandola-style shorter-scale laúd', descriptors: ['compact', 'nasal', 'quick'], match_tokens: ['cuba', 'plucked'] },
+      ] },
+      { id: 'laud_cubano_style', name: 'Playing style', variants: [
+        { id: 'laud_cubano_punto', default: true, name: 'Punto guajiro melodic lead with tremolo', descriptors: ['tremolo', 'ornamented', 'lyrical'], match_tokens: ['tremolo', 'melodic', 'guajira'] },
+        { id: 'laud_cubano_descarga', name: 'Descarga improvisation runs', descriptors: ['virtuosic', 'fast-picked', 'brilliant'], match_tokens: ['improvised', 'plucked'] },
+      ] },
+      { id: 'laud_cubano_pick', surface: false, name: 'Plectrum', variants: [
+        { id: 'laud_cubano_horn', default: true, name: 'Horn / tortoiseshell-style plectrum', descriptors: ['warm-attack', 'rounded'], match_tokens: ['plectrum'] },
+        { id: 'laud_cubano_nylon_pick', name: 'Stiff nylon pick', descriptors: ['sharp-attack', 'clicky', 'bright'], match_tokens: ['plectrum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chillador',
+    name: 'Chillador (Andean steel-strung charango)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 1, register: 2, range: 0, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'chillador',
+    parts: [
+      { id: 'chillador_body', name: 'Body construction', variants: [
+        { id: 'chillador_flat', default: true, name: 'Flat-backed wooden chillador', descriptors: ['shrill', 'cutting', 'bright-attack'], match_tokens: ['charango', 'andean', 'steel-strung'] },
+        { id: 'chillador_armadillo', name: 'Armadillo-shell back (kirki form)', descriptors: ['nasal', 'boxy', 'archaic'], match_tokens: ['charango', 'andean'] },
+      ] },
+      { id: 'chillador_style', name: 'Playing style', variants: [
+        { id: 'chillador_rasgueo', default: true, name: 'Rapid rasgueo strumming (huayno)', descriptors: ['jangling', 'driving', 'dense-shimmer'], match_tokens: ['strummed', 'huayno'] },
+        { id: 'chillador_punteo', name: 'Punteo melodic picking', descriptors: ['plucked-clarity', 'tinkling', 'lyrical'], match_tokens: ['plucked', 'melodic'] },
+      ] },
+      { id: 'chillador_strings', surface: false, name: 'String gauge', variants: [
+        { id: 'chillador_steel_fine', default: true, name: 'Fine steel strings (ten courses)', descriptors: ['metallic-shimmer', 'high-pitched'], match_tokens: ['steel-strung'] },
+        { id: 'chillador_mixed', name: 'Mixed steel/nylon stringing', descriptors: ['softened', 'warm-edge'], match_tokens: ['nylon-strung'] },
+      ] },
+    ]
+  },
+  {
+    id: 'maguare',
+    name: 'Maguaré (Amazonian Uitoto paired slit drums)',
+    family: 'percussion',
+    class: 'slit_gong',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -1, harmonicity: -1, register: -2, range: -1, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'maguare',
+    parts: [
+      { id: 'maguare_pair', name: 'Drum of the pair', variants: [
+        { id: 'maguare_male', default: true, name: 'Male drum (lower, larger trunk)', descriptors: ['booming', 'deep-toned', 'far-carrying'], match_tokens: ['slit-drum', 'amazon', 'signal-drum'] },
+        { id: 'maguare_female', name: 'Female drum (higher, smaller)', descriptors: ['mid-register', 'woody', 'clear-attack'], match_tokens: ['slit-drum', 'amazon'] },
+        { id: 'maguare_pair_both', name: 'Both drums played as a pair', descriptors: ['interlocking', 'talking-rhythm', 'resonant'], match_tokens: ['slit-drum', 'interlocking'] },
+      ] },
+      { id: 'maguare_function', name: 'Function', variants: [
+        { id: 'maguare_signal', default: true, name: 'Long-distance signalling (speech-surrogate)', descriptors: ['talking-rhythm', 'declamatory', 'far-carrying'], match_tokens: ['signal-drum', 'speech-surrogate'] },
+        { id: 'maguare_ritual', name: 'Ritual dance accompaniment', descriptors: ['driving', 'ceremonial', 'heavy'], match_tokens: ['ritual', 'dance-rhythm'] },
+      ] },
+      { id: 'maguare_beater', surface: false, name: 'Beater', variants: [
+        { id: 'maguare_rubber', default: true, name: 'Rubber-tipped hardwood mallet', descriptors: ['round-toned', 'full'], match_tokens: ['mallet-struck'] },
+        { id: 'maguare_bare', name: 'Bare hardwood stick', descriptors: ['hard-attack', 'clacking'], match_tokens: ['stick-struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tumbadora',
+    name: 'Tumbadora (Cuban conga drum)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: 0, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'tumbadora',
+    parts: [
+      { id: 'tumbadora_size', name: 'Drum size in the set', variants: [
+        { id: 'tumbadora_conga', default: true, name: 'Conga (middle, 11.75 in)', descriptors: ['round-toned', 'warm', 'open-tone'], match_tokens: ['conga', 'hand-drum', 'afro-cuban'] },
+        { id: 'tumbadora_tumba', name: 'Tumba (largest, deepest)', descriptors: ['deep-toned', 'booming', 'grounding'], match_tokens: ['conga', 'low-register'] },
+        { id: 'tumbadora_requinto', name: 'Requinto (small high drum)', descriptors: ['high-pitched', 'cutting', 'snappy'], match_tokens: ['conga', 'hand-drum'] },
+      ] },
+      { id: 'tumbadora_technique', name: 'Stroke vocabulary', variants: [
+        { id: 'tumbadora_tumbao', default: true, name: 'Tumbao pattern (heel-toe, open tones, slap)', descriptors: ['swinging', 'driving', 'open-tone'], match_tokens: ['afro-cuban', 'dance-rhythm'] },
+        { id: 'tumbadora_rumba', name: 'Rumba guaguancó accompaniment', descriptors: ['conversational', 'slapping', 'syncopated'], match_tokens: ['rumba', 'hand-struck'] },
+        { id: 'tumbadora_folkloric', name: 'Folkloric bata-adjacent ritual patterns', descriptors: ['ceremonial', 'interlocking', 'heavy'], match_tokens: ['ritual', 'interlocking'] },
+      ] },
+      { id: 'tumbadora_head', surface: false, name: 'Head material', variants: [
+        { id: 'tumbadora_cowhide', default: true, name: 'Natural cowhide head', descriptors: ['warm', 'fat-toned', 'organic'], match_tokens: ['cowhide'] },
+        { id: 'tumbadora_mule', name: 'Mule skin (thin, high crack)', descriptors: ['bright-attack', 'cracking'], match_tokens: ['mule-skin'] },
+        { id: 'tumbadora_synthetic', name: 'Synthetic head', descriptors: ['consistent', 'punchy', 'dry'], match_tokens: ['synthetic-head'] },
+      ] },
+    ]
+  },
+  {
+    id: 'quinto_conga',
+    name: 'Quinto (highest Cuban conga, lead rumba drum)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -2, harmonicity: 0, register: 1, range: 0, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'quinto',
+    parts: [
+      { id: 'quinto_tuning', name: 'Head tension', variants: [
+        { id: 'quinto_high', default: true, name: 'Cranked high for rumba lead', descriptors: ['cutting', 'cracking-slap', 'piercing'], match_tokens: ['rumba', 'conga', 'lead-drum'] },
+        { id: 'quinto_medium', name: 'Medium tension (song accompaniment)', descriptors: ['round-toned', 'balanced'], match_tokens: ['conga', 'hand-drum'] },
+      ] },
+      { id: 'quinto_style', name: 'Playing style', variants: [
+        { id: 'quinto_guaguanco', default: true, name: 'Guaguancó soloing over the ensemble', descriptors: ['improvised', 'conversational', 'virtuosic'], match_tokens: ['rumba', 'improvised'] },
+        { id: 'quinto_columbia', name: 'Rumba columbia (fast, dancer-shadowing)', descriptors: ['fast', 'angular', 'explosive'], match_tokens: ['rumba', 'fast-rolls'] },
+        { id: 'quinto_comparsa', name: 'Comparsa carnival lead', descriptors: ['loud-projection', 'festive', 'driving'], match_tokens: ['carnival', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'salidor',
+    name: 'Salidor (low conga marking the rumba pulse)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -2, harmonicity: 0, register: -2, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'salidor',
+    parts: [
+      { id: 'salidor_role', name: 'Ensemble role', variants: [
+        { id: 'salidor_marcha', default: true, name: 'Marcha / salida timekeeping pattern', descriptors: ['steady', 'grounding', 'deep-toned'], match_tokens: ['rumba', 'conga', 'timekeeping'] },
+        { id: 'salidor_tresdos', name: 'Paired with tres-dos (interlocking)', descriptors: ['interlocking', 'conversational', 'swinging'], match_tokens: ['rumba', 'interlocking'] },
+      ] },
+      { id: 'salidor_head', surface: false, name: 'Head material', variants: [
+        { id: 'salidor_cowhide', default: true, name: 'Thick cowhide head', descriptors: ['fat-toned', 'warm', 'thudding'], match_tokens: ['cowhide'] },
+        { id: 'salidor_synthetic', name: 'Synthetic head', descriptors: ['dry', 'punchy', 'consistent'], match_tokens: ['synthetic-head'] },
+      ] },
+    ]
+  },
+  {
+    id: 'cajita',
+    name: 'Cajita (Peruvian hinged-lid percussion box)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'cajita',
+    parts: [
+      { id: 'cajita_technique', name: 'Playing technique', variants: [
+        { id: 'cajita_lid_stick', default: true, name: 'Lid slam plus stick strike on side', descriptors: ['clacking', 'dry-snap', 'syncopated'], match_tokens: ['afro-peruvian', 'wood-box', 'struck'] },
+        { id: 'cajita_lid_only', name: 'Lid slams alone', descriptors: ['hollow-knock', 'sparse', 'percussive'], match_tokens: ['afro-peruvian', 'struck'] },
+      ] },
+      { id: 'cajita_build', name: 'Box construction', variants: [
+        { id: 'cajita_thin', default: true, name: 'Thin plywood alms-box form', descriptors: ['bright-crack', 'light', 'papery'], match_tokens: ['wood-box'] },
+        { id: 'cajita_hardwood', name: 'Hardwood box', descriptors: ['deeper-knock', 'solid', 'woody'], match_tokens: ['wood-box'] },
+      ] },
+    ]
+  },
+  {
+    id: 'checo',
+    name: 'Checo (Afro-Peruvian gourd drum of Zaña)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'checo',
+    parts: [
+      { id: 'checo_technique', name: 'Playing technique', variants: [
+        { id: 'checo_seated', default: true, name: 'Gourd on the ground, hands and heel muting the hole', descriptors: ['boomy', 'pitch-bending', 'earthy'], match_tokens: ['afro-peruvian', 'gourd-drum', 'hand-struck'] },
+        { id: 'checo_lap', name: 'Held on the lap, fingertip strokes', descriptors: ['dry', 'pattering', 'nimble'], match_tokens: ['gourd-drum', 'hand-struck'] },
+      ] },
+      { id: 'checo_size', name: 'Gourd size', variants: [
+        { id: 'checo_large', default: true, name: 'Large calabash (deep bass hole)', descriptors: ['deep-toned', 'booming', 'resonant'], match_tokens: ['gourd-drum', 'low-register'] },
+        { id: 'checo_small', name: 'Small calabash', descriptors: ['mid-register', 'punchy', 'tight'], match_tokens: ['gourd-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'alegre_drum',
+    name: 'Alegre (Colombian tambor alegre, conical hand drum)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'alegre',
+    parts: [
+      { id: 'alegre_role', name: 'Playing role / repertoire', variants: [
+        { id: 'alegre_cumbia', default: true, name: 'Cumbia improvising lead', descriptors: ['improvisatory', 'open-toned', 'driving'], match_tokens: ['hand-struck', 'colombian-coast', 'cumbia'] },
+        { id: 'alegre_porro', name: 'Porro / fandango ensemble part', descriptors: ['festive', 'interlocking', 'punchy'], match_tokens: ['hand-struck', 'porro'] },
+        { id: 'alegre_bullerengue', name: 'Bullerengue call-and-response', descriptors: ['responsive', 'sharp-slaps', 'ritual'], match_tokens: ['hand-struck', 'bullerengue'] },
+      ] },
+      { id: 'alegre_head', name: 'Head and tuning', variants: [
+        { id: 'alegre_deerskin', default: true, name: 'Deerskin head with wedge-and-ring (cuñas) tuning', descriptors: ['dry-attack', 'woody', 'traditional'], match_tokens: ['hand-struck', 'goat-skin'] },
+        { id: 'alegre_goatskin', name: 'Goatskin head', descriptors: ['bright-slap', 'tight', 'cutting'], match_tokens: ['hand-struck'] },
+        { id: 'alegre_fire_tuned', name: 'Fire-tuned slack head (open-air)', descriptors: ['loose', 'deep-toned', 'boomy'], match_tokens: ['hand-struck', 'low-register'] },
+      ] },
+      { id: 'alegre_shell', surface: false, name: 'Shell wood', variants: [
+        { id: 'alegre_banco', default: true, name: 'Hollowed banco / campano log shell', descriptors: ['warm', 'resonant'], match_tokens: ['hand-struck'] },
+        { id: 'alegre_ceiba', name: 'Ceiba or balsa-light shell', descriptors: ['airy', 'light-bodied'], match_tokens: ['hand-struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'llamador',
+    name: 'Llamador (Colombian tambor llamador, small pulse drum)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'llamador',
+    parts: [
+      { id: 'llamador_pattern', name: 'Pulse pattern', variants: [
+        { id: 'llamador_offbeat', default: true, name: 'Steady offbeat cumbia pulse', descriptors: ['metronomic', 'clipped', 'offbeat'], match_tokens: ['hand-struck', 'cumbia', 'timekeeping'] },
+        { id: 'llamador_puya', name: 'Fast puya / porro pulse', descriptors: ['urgent', 'tight', 'propulsive'], match_tokens: ['hand-struck', 'puya'] },
+        { id: 'llamador_chalupa', name: 'Chalupa lilt', descriptors: ['swung', 'lively'], match_tokens: ['hand-struck', 'dance-rhythm'] },
+      ] },
+      { id: 'llamador_head', name: 'Head tension', variants: [
+        { id: 'llamador_tight', default: true, name: 'Tight deerskin head (wedge-tuned)', descriptors: ['high-pitched', 'popping', 'dry'], match_tokens: ['hand-struck', 'bright-attack'] },
+        { id: 'llamador_slack', name: 'Slacker goatskin head', descriptors: ['rounder', 'softer-attack'], match_tokens: ['hand-struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gaita_hembra_larga',
+    name: 'Gaita hembra (Colombian long female cactus-stem duct flute)',
+    family: 'wind',
+    class: 'duct_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 0, range: 0, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'gaita hembra',
+    parts: [
+      { id: 'gaita_hembra_style', name: 'Melodic role', variants: [
+        { id: 'gaita_hembra_cumbia', default: true, name: 'Cumbia melody lead', descriptors: ['reedy', 'breathy', 'plaintive'], match_tokens: ['wind-driven', 'cumbia', 'kuisi'] },
+        { id: 'gaita_hembra_gaita_corrida', name: 'Gaita corrida (fast continuous melody)', descriptors: ['fluid', 'ornamented', 'insistent'], match_tokens: ['wind-driven', 'colombian-coast'] },
+        { id: 'gaita_hembra_porro', name: 'Porro / merengue vallenato phrasing', descriptors: ['lilting', 'festive'], match_tokens: ['wind-driven'] },
+      ] },
+      { id: 'gaita_hembra_build', name: 'Tube and head construction', variants: [
+        { id: 'gaita_hembra_cardon', default: true, name: 'Cardón cactus stem with beeswax-and-charcoal head, turkey-quill mouthpiece', descriptors: ['husky', 'earthy', 'air-rich'], match_tokens: ['duct-flute', 'beeswax-head'] },
+        { id: 'gaita_hembra_pvc', name: 'Modern PVC or wooden body', descriptors: ['cleaner-toned', 'projecting', 'stable'], match_tokens: ['duct-flute'] },
+      ] },
+      { id: 'gaita_hembra_holes', surface: false, name: 'Finger-hole layout', variants: [
+        { id: 'gaita_hembra_five', default: true, name: 'Five finger holes (traditional)', descriptors: ['modal', 'uneven-scale'], match_tokens: ['wind-driven'] },
+        { id: 'gaita_hembra_four', name: 'Four-hole archaic layout', descriptors: ['narrow-range', 'archaic'], match_tokens: ['wind-driven'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gaita_macho_corta',
+    name: 'Gaita macho (Colombian male drone-and-rhythm cactus flute)',
+    family: 'wind',
+    class: 'duct_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: -1, range: -2, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'gaita macho',
+    parts: [
+      { id: 'gaita_macho_role', name: 'Accompaniment role', variants: [
+        { id: 'gaita_macho_drone', default: true, name: 'Two-hole rhythmic drone with maraca in the free hand', descriptors: ['droning', 'pulsing', 'supportive'], match_tokens: ['wind-driven', 'drone-foundation', 'cumbia'] },
+        { id: 'gaita_macho_counter', name: 'Counter-melodic answering line', descriptors: ['interlocking', 'call-and-response'], match_tokens: ['wind-driven', 'colombian-coast'] },
+      ] },
+      { id: 'gaita_macho_build', name: 'Tube construction', variants: [
+        { id: 'gaita_macho_cardon', default: true, name: 'Cardón cactus stem with beeswax head and quill duct', descriptors: ['breathy', 'husky', 'earthy'], match_tokens: ['duct-flute', 'beeswax-head'] },
+        { id: 'gaita_macho_pvc', name: 'PVC or wood-bodied modern build', descriptors: ['steadier', 'focused'], match_tokens: ['duct-flute'] },
+      ] },
+    ]
+  },
+  {
+    id: 'carangano',
+    name: 'Carángano (Llanero bamboo idiochord struck tube zither)',
+    family: 'plucked_traditional',
+    class: 'tube_zither',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -1, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'carangano',
+    parts: [
+      { id: 'carangano_form', name: 'Regional form', variants: [
+        { id: 'carangano_llanero', default: true, name: 'Llanero bamboo tube with raised idiochord strips and gourd resonator', descriptors: ['buzzing-timbre', 'percussive', 'rustic'], match_tokens: ['struck-string', 'bamboo', 'llanos'] },
+        { id: 'carangano_ground_bow', name: 'Earth-resonated bow form (carángano de tierra)', descriptors: ['thumping', 'dull-toned', 'archaic'], match_tokens: ['struck-string', 'low-register'] },
+      ] },
+      { id: 'carangano_technique', name: 'Striking technique', variants: [
+        { id: 'carangano_sticks', default: true, name: 'Struck with two light sticks', descriptors: ['dry-attack', 'clattering', 'rhythmic'], match_tokens: ['struck', 'rhythm-driving'] },
+        { id: 'carangano_stick_and_scrape', name: 'Struck plus scraped tube notches', descriptors: ['rasping', 'gritty'], match_tokens: ['scraped', 'struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'furruco',
+    name: 'Furruco (Venezuelan friction drum of the aguinaldo)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -2, harmonicity: -2, register: -2, range: -1, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'furruco',
+    parts: [
+      { id: 'furruco_role', name: 'Repertoire role', variants: [
+        { id: 'furruco_aguinaldo', default: true, name: 'Aguinaldo / parranda navideña bass pulse', descriptors: ['growling', 'bass-heavy', 'pulsing'], match_tokens: ['friction-drum', 'venezuelan', 'bass-foundation'] },
+        { id: 'furruco_gaita_zuliana', name: 'Gaita zuliana groove', descriptors: ['throbbing', 'insistent', 'earthy'], match_tokens: ['friction-drum', 'gaita-zuliana'] },
+      ] },
+      { id: 'furruco_build', name: 'Body and stick', variants: [
+        { id: 'furruco_barrel', default: true, name: 'Wooden barrel body with waxed cane rubbing stick', descriptors: ['deep-toned', 'resonant', 'rough'], match_tokens: ['friction-drum'] },
+        { id: 'furruco_tin', name: 'Metal tin or drum-can body', descriptors: ['nasal', 'tinny', 'raw'], match_tokens: ['friction-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'pandereta_puertorriquena',
+    name: 'Pandereta (Puerto Rican plena handheld frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'pandereta',
+    parts: [
+      { id: 'pandereta_size', name: 'Size and ensemble voice', variants: [
+        { id: 'pandereta_seguidor', default: true, name: 'Seguidor (largest, bass pulse)', descriptors: ['deep-toned', 'steady', 'grounding'], match_tokens: ['frame-drum', 'plena', 'timekeeping'] },
+        { id: 'pandereta_segundo', name: 'Segundo / punteador (middle)', descriptors: ['mid-toned', 'syncopated'], match_tokens: ['frame-drum', 'plena'] },
+        { id: 'pandereta_requinto', name: 'Requinto (smallest, improvising lead)', descriptors: ['high-pitched', 'cutting', 'improvisatory'], match_tokens: ['frame-drum', 'plena', 'bright-attack'] },
+      ] },
+      { id: 'pandereta_head', surface: false, name: 'Head material', variants: [
+        { id: 'pandereta_goatskin', default: true, name: 'Goatskin head', descriptors: ['warm', 'papery', 'organic'], match_tokens: ['frame-drum'] },
+        { id: 'pandereta_synthetic', name: 'Synthetic head (modern street plena)', descriptors: ['loud', 'bright', 'weather-stable'], match_tokens: ['frame-drum', 'loud-projection'] },
+      ] },
+    ]
+  },
+  {
+    id: 'palitos',
+    name: 'Palitos (Afro-Caribbean sticks struck on a wooden body)',
+    family: 'percussion',
+    class: 'concussion_idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'palitos',
+    parts: [
+      { id: 'palitos_surface', name: 'Struck surface', variants: [
+        { id: 'palitos_drum_shell', default: true, name: 'Struck on the side of a drum shell (guagua)', descriptors: ['woody', 'clicking', 'cutting'], match_tokens: ['struck', 'clave-pattern', 'rumba'] },
+        { id: 'palitos_bamboo', name: 'Struck on a hollow bamboo tube', descriptors: ['hollow-toned', 'resonant-click'], match_tokens: ['struck', 'bamboo'] },
+        { id: 'palitos_bench', name: 'Struck on a bench or board', descriptors: ['dry', 'dead-toned', 'sharp'], match_tokens: ['struck', 'dry-attack'] },
+      ] },
+      { id: 'palitos_pattern', name: 'Pattern role', variants: [
+        { id: 'palitos_cascara', default: true, name: 'Cáscara / guagua timeline', descriptors: ['timeline', 'relentless', 'precise'], match_tokens: ['struck', 'timekeeping'] },
+        { id: 'palitos_clave', name: 'Clave-locked accent pattern', descriptors: ['skeletal', 'anchoring'], match_tokens: ['struck', 'clave-pattern'] },
+      ] },
+    ]
+  },
+  {
+    id: 'cua',
+    name: 'Cuá (Puerto Rican bomba stick-struck idiophone)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'cua',
+    parts: [
+      { id: 'cua_form', name: 'Instrument form', variants: [
+        { id: 'cua_hollow_log', default: true, name: 'Hollowed log mounted on a stand, struck with two sticks', descriptors: ['woody', 'cracking', 'penetrating'], match_tokens: ['struck', 'bomba', 'puerto-rican'] },
+        { id: 'cua_barril_side', name: 'Struck on the side of the barril de bomba', descriptors: ['dry', 'shell-toned', 'tight'], match_tokens: ['struck', 'bomba'] },
+      ] },
+      { id: 'cua_pattern', name: 'Rhythmic pattern', variants: [
+        { id: 'cua_sica', default: true, name: 'Sicá timeline', descriptors: ['steady', 'grooving'], match_tokens: ['struck', 'timekeeping'] },
+        { id: 'cua_yuba', name: 'Yubá / holandé pattern', descriptors: ['swung', 'lilting'], match_tokens: ['struck', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'subidor',
+    name: 'Subidor (Puerto Rican bomba lead barrel drum, primo)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'subidor',
+    parts: [
+      { id: 'subidor_role', name: 'Playing role', variants: [
+        { id: 'subidor_piquetes', default: true, name: 'Marking the dancer\'s piquetes (improvised repique)', descriptors: ['responsive', 'explosive', 'conversational'], match_tokens: ['hand-struck', 'bomba', 'improvisatory'] },
+        { id: 'subidor_sica', name: 'Sicá / holandé lead phrasing', descriptors: ['punchy', 'dance-driving'], match_tokens: ['hand-struck', 'bomba'] },
+        { id: 'subidor_yuba', name: 'Yubá slow ritual lead', descriptors: ['weighty', 'deliberate', 'ceremonial'], match_tokens: ['hand-struck', 'ritual'] },
+      ] },
+      { id: 'subidor_build', name: 'Shell and head', variants: [
+        { id: 'subidor_rum_barrel', default: true, name: 'Rum-barrel stave shell with goatskin head', descriptors: ['open-toned', 'punchy', 'resonant'], match_tokens: ['hand-struck', 'barrel-drum'] },
+        { id: 'subidor_tuned_hardware', name: 'Modern hardware-tuned barril', descriptors: ['tight', 'bright-slap', 'projecting'], match_tokens: ['hand-struck', 'loud-projection'] },
+      ] },
+    ]
+  },
+  {
+    id: 'boula',
+    name: 'Boula (Caribbean low steady-pulse hand drum)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'boula',
+    parts: [
+      { id: 'boula_tradition', name: 'Tradition and role', variants: [
+        { id: 'boula_gwoka', default: true, name: 'Guadeloupean gwoka boula (steady supporting pulse)', descriptors: ['deep-toned', 'hypnotic', 'grounding'], match_tokens: ['hand-struck', 'gwoka', 'bass-foundation'] },
+        { id: 'boula_haitian_rada', name: 'Haitian Rada boula (smallest of the three, stick-and-hand)', descriptors: ['tight', 'insistent', 'ritual'], match_tokens: ['hand-struck', 'vodou', 'ritual'] },
+        { id: 'boula_bele', name: 'Martinican bèlè bel-air pulse drum', descriptors: ['rolling', 'dance-driving'], match_tokens: ['hand-struck', 'bele'] },
+      ] },
+      { id: 'boula_head', surface: false, name: 'Head and tuning', variants: [
+        { id: 'boula_goatskin_rope', default: true, name: 'Goatskin head, rope-and-peg tensioned', descriptors: ['warm', 'earthy'], match_tokens: ['hand-struck'] },
+        { id: 'boula_fire_tuned', name: 'Fire-tuned slack skin', descriptors: ['boomy', 'loose', 'raw'], match_tokens: ['hand-struck', 'low-register'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ka_drum',
+    name: 'Ka (Guadeloupean gwo ka barrel drum)',
+    family: 'percussion',
+    class: 'barrel_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'ka drum',
+    parts: [
+      { id: 'ka_voice', name: 'Ensemble voice', variants: [
+        { id: 'ka_make', default: true, name: 'Makè (lead drum, marking the dancer)', descriptors: ['improvisatory', 'sharp-attack', 'conversational'], match_tokens: ['hand-struck', 'gwoka', 'guadeloupe'] },
+        { id: 'ka_boula_voice', name: 'Boula (supporting steady pulse)', descriptors: ['deep-toned', 'repetitive', 'grounding'], match_tokens: ['hand-struck', 'gwoka', 'bass-foundation'] },
+      ] },
+      { id: 'ka_rhythm', name: 'Gwo ka rhythm (of the seven)', variants: [
+        { id: 'ka_lewoz', default: true, name: 'Léwòz (fast, combative)', descriptors: ['urgent', 'fiery', 'driving'], match_tokens: ['hand-struck', 'lewoz'] },
+        { id: 'ka_kaladja', name: 'Kaladja (slow, sorrowful)', descriptors: ['heavy', 'mournful', 'broad'], match_tokens: ['hand-struck', 'gwoka'] },
+        { id: 'ka_toumblak', name: 'Toumblak (rolling, sensual)', descriptors: ['rolling', 'lilting', 'warm'], match_tokens: ['hand-struck', 'gwoka'] },
+        { id: 'ka_grage', name: 'Graj (work-rhythm, brisk)', descriptors: ['brisk', 'scrubbing', 'labor-paced'], match_tokens: ['hand-struck', 'work-song'] },
+      ] },
+      { id: 'ka_build', surface: false, name: 'Shell construction', variants: [
+        { id: 'ka_salt_barrel', default: true, name: 'Salt-beef barrel staves with goatskin head', descriptors: ['woody', 'resonant', 'rustic'], match_tokens: ['barrel-drum'] },
+        { id: 'ka_carved', name: 'Carved single-log shell', descriptors: ['dense', 'focused', 'dark'], match_tokens: ['barrel-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tanbou_ka',
+    name: 'Tanbou ka (Creole hand-played goatskin ka of the léwòz ceremony)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'tanbou ka',
+    parts: [
+      { id: 'tanbou_ka_seating', name: 'Playing posture', variants: [
+        { id: 'tanbou_ka_straddled', default: true, name: 'Straddled and played seated, heels damping the head', descriptors: ['pitch-bending', 'muted-and-open', 'expressive'], match_tokens: ['hand-struck', 'gwoka', 'creole'] },
+        { id: 'tanbou_ka_strapped', name: 'Strapped and played standing (street processional)', descriptors: ['projecting', 'marching', 'loud'], match_tokens: ['hand-struck', 'procession'] },
+      ] },
+      { id: 'tanbou_ka_tuning', name: 'Head tuning method', variants: [
+        { id: 'tanbou_ka_fire', default: true, name: 'Tuned over open fire before playing', descriptors: ['dry', 'crisp', 'raw'], match_tokens: ['hand-struck', 'fire-tuned'] },
+        { id: 'tanbou_ka_rope', name: 'Rope-and-wedge tensioned', descriptors: ['stable', 'even-toned'], match_tokens: ['hand-struck'] },
+        { id: 'tanbou_ka_slack', name: 'Left slack for a low ritual voice', descriptors: ['boomy', 'dark', 'ritual'], match_tokens: ['hand-struck', 'low-register'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tanbou_dejanbe',
+    name: 'Tanbou dejanbe (Haitian tall leg-straddled ritual hand drum)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: -2, range: 0, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'tanbou dejanbe',
+    parts: [
+      { id: 'tanbou_dejanbe_rite', name: 'Ritual repertoire', variants: [
+        { id: 'tanbou_dejanbe_rada', default: true, name: 'Rada rite (manman voice, hand and baguette)', descriptors: ['deep-toned', 'ceremonial', 'commanding'], match_tokens: ['hand-struck', 'vodou', 'haitian'] },
+        { id: 'tanbou_dejanbe_petwo', name: 'Petwo rite (hot, hands only)', descriptors: ['fiery', 'cracking', 'urgent'], match_tokens: ['hand-struck', 'vodou'] },
+        { id: 'tanbou_dejanbe_kongo', name: 'Kongo / banda dance rhythms', descriptors: ['rolling', 'festive', 'hip-driving'], match_tokens: ['hand-struck', 'dance-rhythm'] },
+      ] },
+      { id: 'tanbou_dejanbe_head', name: 'Head lacing and skin', variants: [
+        { id: 'tanbou_dejanbe_peg', default: true, name: 'Cowhide head on peg-and-cord lacing', descriptors: ['thick', 'booming', 'dark'], match_tokens: ['hand-struck', 'low-register'] },
+        { id: 'tanbou_dejanbe_goat', name: 'Goatskin head (higher, more articulate)', descriptors: ['articulate', 'bright-slap'], match_tokens: ['hand-struck'] },
+      ] },
+      { id: 'tanbou_dejanbe_shell', surface: false, name: 'Shell wood', variants: [
+        { id: 'tanbou_dejanbe_mahogany', default: true, name: 'Carved mahogany or acajou log shell', descriptors: ['warm', 'dense', 'resonant'], match_tokens: ['hand-struck'] },
+        { id: 'tanbou_dejanbe_avocado', name: 'Lighter avocado or breadfruit wood shell', descriptors: ['airy', 'open-toned'], match_tokens: ['hand-struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'manman_drum',
+    name: 'Manman (largest Haitian Rada drum)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: -2, range: 0, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'manman',
+    parts: [
+      { id: 'manman_rite', name: 'Rite / ensemble context', variants: [
+        { id: 'manman_rada', default: true, name: 'Rada rite manman (tall cord-and-peg drum)', descriptors: ['deep-toned', 'commanding', 'call-and-response'], match_tokens: ['haitian', 'vodou-drum', 'lead-drum'] },
+        { id: 'manman_petwo', name: 'Petwo rite manman (rope-tuned, hand-played)', descriptors: ['sharp-attack', 'hot', 'driving'], match_tokens: ['haitian', 'petwo', 'hand-drum'] },
+        { id: 'manman_kongo', name: 'Kongo rite manman', descriptors: ['rolling', 'dance-driving'], match_tokens: ['haitian', 'kongo-rite'] },
+      ] },
+      { id: 'manman_technique', name: 'Striking technique', variants: [
+        { id: 'manman_baget_hand', default: true, name: 'One stick (baget) plus bare hand', descriptors: ['cracking-accent', 'hand-muted'], match_tokens: ['struck', 'stick-and-hand'] },
+        { id: 'manman_hands', name: 'Both hands only', descriptors: ['warm', 'rounded-tone'], match_tokens: ['hand-struck'] },
+        { id: 'manman_kase', name: 'Kase break (ritual signal phrases)', descriptors: ['disruptive', 'syncopated', 'trance-inducing'], match_tokens: ['break', 'lead-drum'] },
+      ] },
+      { id: 'manman_head', surface: false, name: 'Head and shell', variants: [
+        { id: 'manman_cowhide', default: true, name: 'Cowhide head, carved hardwood shell', descriptors: ['thick-toned', 'resonant'], match_tokens: ['skin-head'] },
+        { id: 'manman_goatskin', name: 'Goatskin head', descriptors: ['brighter', 'snappier'], match_tokens: ['skin-head'] },
+      ] },
+    ]
+  },
+  {
+    id: 'segon_drum',
+    name: 'Segon (middle drum of the Haitian Rada battery)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'segon',
+    parts: [
+      { id: 'segon_rite', name: 'Rite / ensemble context', variants: [
+        { id: 'segon_rada', default: true, name: 'Rada segon (mid-size peg-tuned drum)', descriptors: ['mid-toned', 'interlocking', 'steady'], match_tokens: ['haitian', 'vodou-drum', 'middle-drum'] },
+        { id: 'segon_petwo', name: 'Petwo segon (rope-tuned)', descriptors: ['tense', 'cutting'], match_tokens: ['haitian', 'petwo'] },
+      ] },
+      { id: 'segon_technique', name: 'Striking technique', variants: [
+        { id: 'segon_stick_hand', default: true, name: 'Stick and hand combination', descriptors: ['crisp-attack', 'muted-slaps'], match_tokens: ['struck', 'stick-and-hand'] },
+        { id: 'segon_open_slap', name: 'Open-tone and slap patterning', descriptors: ['ringing', 'sharp-slap'], match_tokens: ['hand-struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'boula_haitian',
+    name: 'Boula (smallest Haitian Vodou drum)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'vodou boula',
+    parts: [
+      { id: 'boula_rite', name: 'Rite / ensemble context', variants: [
+        { id: 'boula_rada', default: true, name: 'Rada boula (small peg-tuned drum, two sticks)', descriptors: ['high-pitched', 'ostinato', 'relentless'], match_tokens: ['haitian', 'vodou-drum', 'timekeeper'] },
+        { id: 'boula_petwo', name: 'Petwo boula (rope-tuned, hand-played)', descriptors: ['dry', 'snappy'], match_tokens: ['haitian', 'petwo', 'hand-drum'] },
+      ] },
+      { id: 'boula_technique', name: 'Playing technique', variants: [
+        { id: 'boula_two_sticks', default: true, name: 'Two thin sticks (baget)', descriptors: ['clattering', 'tight-pulse'], match_tokens: ['stick-struck'] },
+        { id: 'boula_hands', name: 'Bare hands', descriptors: ['warm', 'rounded'], match_tokens: ['hand-struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'vaksin',
+    name: 'Vaksin (Haitian single-note bamboo trumpet)',
+    family: 'wind',
+    class: 'ritual_trumpet',
+    axes: { pitchFix: 2, sustain: 0, polyphony: -2, harmonicity: 1, register: -2, range: -2, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'vaksin',
+    parts: [
+      { id: 'vaksin_material', name: 'Tube material', variants: [
+        { id: 'vaksin_bamboo', default: true, name: 'Bamboo tube with wooden mouthpiece', descriptors: ['hollow-toned', 'buzzing-timbre', 'earthy'], match_tokens: ['bamboo-trumpet', 'haitian'] },
+        { id: 'vaksin_metal', name: 'Zinc / metal pipe vaksin (urban rara)', descriptors: ['brassy', 'harsh', 'loud'], match_tokens: ['metal-trumpet', 'rara'] },
+      ] },
+      { id: 'vaksin_role', name: 'Ensemble role', variants: [
+        { id: 'vaksin_hocket', default: true, name: 'Hocketed rara set (interlocking one-note bank)', descriptors: ['interlocking', 'processional', 'chugging'], match_tokens: ['rara', 'hocket', 'haitian'] },
+        { id: 'vaksin_bas', name: 'Bas (lowest, longest tube)', descriptors: ['deep-toned', 'foundational'], match_tokens: ['bass-drone', 'rara'] },
+        { id: 'vaksin_perkisyon', name: 'Struck-while-blown (stick on tube)', descriptors: ['percussive', 'rattling'], match_tokens: ['struck', 'rara'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tan_tan_drum',
+    name: 'Tan-tan (Brazilian samba hand tumbadora)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'tan-tan',
+    parts: [
+      { id: 'tan_tan_shell', name: 'Shell construction', variants: [
+        { id: 'tan_tan_wood', default: true, name: 'Wooden stave shell', descriptors: ['warm', 'woody', 'round-bass'], match_tokens: ['hand-drum', 'pagode', 'brazilian'] },
+        { id: 'tan_tan_aluminum', name: 'Aluminium shell (lightweight modern)', descriptors: ['bright', 'projecting'], match_tokens: ['hand-drum', 'samba'] },
+      ] },
+      { id: 'tan_tan_technique', name: 'Playing technique', variants: [
+        { id: 'tan_tan_pagode', default: true, name: 'Pagode groove (bass, slap, muffled tones)', descriptors: ['swinging', 'bass-driven'], match_tokens: ['pagode', 'hand-struck'] },
+        { id: 'tan_tan_partido', name: 'Partido-alto marking', descriptors: ['syncopated', 'conversational'], match_tokens: ['samba', 'hand-struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'timbal_brasileiro',
+    name: 'Timbal (Bahian conical hand drum)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'timbal',
+    parts: [
+      { id: 'timbal_head', name: 'Head type', variants: [
+        { id: 'timbal_synthetic', default: true, name: 'Thin synthetic head (high-tension)', descriptors: ['piercing-slap', 'cracking', 'bright-attack'], match_tokens: ['bahia', 'hand-drum', 'axe'] },
+        { id: 'timbal_skin', name: 'Natural skin head', descriptors: ['warmer', 'rounder'], match_tokens: ['hand-drum', 'brazilian'] },
+      ] },
+      { id: 'timbal_size', name: 'Body size', variants: [
+        { id: 'timbal_standard', default: true, name: 'Standard 14" conical aluminium body', descriptors: ['punchy', 'loud'], match_tokens: ['samba-reggae'] },
+        { id: 'timbal_slim', name: 'Slim 10"-12" body', descriptors: ['high-pitched', 'cutting'], match_tokens: ['samba-reggae'] },
+      ] },
+      { id: 'timbal_style', name: 'Playing style', variants: [
+        { id: 'timbal_samba_reggae', default: true, name: 'Samba-reggae / axé phrasing', descriptors: ['driving', 'virtuosic-fills'], match_tokens: ['bahia', 'carnival'] },
+        { id: 'timbal_solo', name: 'Solo virtuoso style (Timbalada school)', descriptors: ['flashy', 'rapid-rolls'], match_tokens: ['bahia', 'solo'] },
+      ] },
+    ]
+  },
+  {
+    id: 'viola_de_cocho',
+    name: 'Viola de cocho (hollowed-log five-string lute of Mato Grosso)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'viola de cocho',
+    parts: [
+      { id: 'cocho_body', name: 'Body wood (carved trough)', variants: [
+        { id: 'cocho_ximbuva', default: true, name: 'Ximbuva log body with sapwood soundboard', descriptors: ['dry', 'nasal', 'rustic'], match_tokens: ['carved-lute', 'pantanal', 'brazilian'] },
+        { id: 'cocho_cedro', name: 'Cedro / other softwood body', descriptors: ['softer', 'mellow'], match_tokens: ['carved-lute', 'brazilian'] },
+      ] },
+      { id: 'cocho_strings', name: 'String material', variants: [
+        { id: 'cocho_nylon', default: true, name: 'Nylon strings (modern)', descriptors: ['muted', 'plunky'], match_tokens: ['plucked'] },
+        { id: 'cocho_gut', name: 'Animal-gut / tucum fibre strings (traditional)', descriptors: ['archaic', 'thuddy', 'warm'], match_tokens: ['plucked', 'traditional'] },
+      ] },
+      { id: 'cocho_style', name: 'Playing style', variants: [
+        { id: 'cocho_siriri', default: true, name: 'Siriri dance strumming', descriptors: ['strummed', 'lilting'], match_tokens: ['cururu-siriri', 'pantanal'] },
+        { id: 'cocho_cururu', name: 'Cururu song accompaniment (with ganza)', descriptors: ['declamatory', 'droning'], match_tokens: ['cururu-siriri'] },
+      ] },
+    ]
+  },
+  {
+    id: 'bacurinha',
+    name: 'Bacurinha (small Pernambucan stick-played drum of cavalo-marinho and maracatu)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'bacurinha',
+    parts: [
+      { id: 'bacurinha_context', name: 'Ensemble context', variants: [
+        { id: 'bacurinha_cavalo_marinho', default: true, name: 'Cavalo-marinho ensemble (with rabeca and mineiro)', descriptors: ['dry', 'clattering', 'dance-driving'], match_tokens: ['pernambuco', 'stick-drum', 'brazilian'] },
+        { id: 'bacurinha_maracatu', name: 'Maracatu rural baque solto', descriptors: ['frenetic', 'cutting'], match_tokens: ['maracatu', 'pernambuco'] },
+      ] },
+      { id: 'bacurinha_head', name: 'Head and tensioning', variants: [
+        { id: 'bacurinha_goatskin', default: true, name: 'Goatskin heads, rope-tensioned', descriptors: ['papery', 'crisp'], match_tokens: ['skin-head'] },
+        { id: 'bacurinha_synthetic', name: 'Synthetic head, bolt-tuned', descriptors: ['sharp-attack', 'bright'], match_tokens: ['stick-struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'xequere',
+    name: 'Xequerê (Afro-Brazilian beaded gourd rattle)',
+    family: 'percussion',
+    class: 'gourd_rattle',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'xequerê',
+    parts: [
+      { id: 'xequere_size', name: 'Gourd size', variants: [
+        { id: 'xequere_medium', default: true, name: 'Medium gourd (candomblé standard)', descriptors: ['rustling', 'shimmering'], match_tokens: ['gourd-rattle', 'afro-brazilian'] },
+        { id: 'xequere_large', name: 'Large gourd (deep-bodied)', descriptors: ['boomy', 'thick-rattle'], match_tokens: ['gourd-rattle', 'candomble'] },
+      ] },
+      { id: 'xequere_beads', name: 'Bead netting material', variants: [
+        { id: 'xequere_seed', default: true, name: 'Seed / cowrie bead net', descriptors: ['dry-rattle', 'organic'], match_tokens: ['beaded-net'] },
+        { id: 'xequere_plastic', name: 'Plastic bead net', descriptors: ['bright', 'sharp-rattle'], match_tokens: ['beaded-net'] },
+      ] },
+      { id: 'xequere_technique', name: 'Playing technique', variants: [
+        { id: 'xequere_toss', default: true, name: 'Toss-and-slap (bass tone plus rattle)', descriptors: ['punctuating', 'percussive-thump'], match_tokens: ['shaken', 'struck'] },
+        { id: 'xequere_twist', name: 'Continuous twisting shake', descriptors: ['sustained-hiss', 'steady'], match_tokens: ['shaken'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ilu_yoruba',
+    name: 'Ìlù (Yoruba/Afro-Cuban single-headed conical drum)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'ilù',
+    parts: [
+      { id: 'ilu_form', name: 'Regional form', variants: [
+        { id: 'ilu_yoruba_form', default: true, name: 'Yoruba ìlù (carved conical shell, pegged skin)', descriptors: ['deep-toned', 'speech-like', 'ritual'], match_tokens: ['yoruba', 'hand-drum', 'west-african'] },
+        { id: 'ilu_lucumi', name: 'Afro-Cuban ilú (Lucumí / Arará battery drum)', descriptors: ['driving', 'ceremonial'], match_tokens: ['afro-cuban', 'lucumi', 'hand-drum'] },
+        { id: 'ilu_bata_set', name: 'Ìlù bàtà (hourglass two-headed set)', descriptors: ['tonal-pairing', 'talking', 'interlocking'], match_tokens: ['bata', 'yoruba'] },
+      ] },
+      { id: 'ilu_technique', name: 'Striking technique', variants: [
+        { id: 'ilu_hands', default: true, name: 'Bare hands (open, slap, muted)', descriptors: ['warm', 'slapping'], match_tokens: ['hand-struck'] },
+        { id: 'ilu_stick_hand', name: 'Curved stick plus hand', descriptors: ['cracking', 'cutting'], match_tokens: ['stick-and-hand'] },
+      ] },
+    ]
+  },
+  {
+    id: 'adja_bell',
+    name: 'Adja (Vodun handheld iron clapper bell)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -2, harmonicity: -2, register: 2, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'adja',
+    parts: [
+      { id: 'adja_form', name: 'Bell form', variants: [
+        { id: 'adja_single', default: true, name: 'Single tapered iron bell with internal clapper', descriptors: ['clanging', 'piercing', 'metallic'], match_tokens: ['hand-bell', 'vodun', 'fon'] },
+        { id: 'adja_double', name: 'Double-bell adja (paired cones)', descriptors: ['two-tone', 'jangling'], match_tokens: ['hand-bell', 'benin'] },
+      ] },
+      { id: 'adja_use', name: 'Ritual use', variants: [
+        { id: 'adja_invocation', default: true, name: 'Priest\'s invocation shaking (summoning spirits)', descriptors: ['insistent', 'ceremonial', 'trance-inducing'], match_tokens: ['shaken', 'ritual'] },
+        { id: 'adja_timeline', name: 'Timeline ostinato with drum battery', descriptors: ['steady-pulse', 'cutting-through'], match_tokens: ['timeline', 'shaken'] },
+      ] },
+    ]
+  },
+  {
+    id: 'zhongruan_lute',
+    name: 'Zhongruan (Chinese alto moon-shaped fretted lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'zhongruan',
+    parts: [
+      { id: 'zhongruan_lute_strings', name: 'String type', variants: [
+        { id: 'zhongruan_lute_steel', default: true, name: 'Modern steel-wound strings', descriptors: ['bright-attack', 'sustaining', 'projecting'], match_tokens: ['plucked', 'moon-lute'] },
+        { id: 'zhongruan_lute_silk', name: 'Silk strings (historical)', descriptors: ['mellow', 'soft-attack', 'dry'], match_tokens: ['plucked', 'silk-string'] },
+        { id: 'zhongruan_lute_nylon', name: 'Nylon-wound strings', descriptors: ['warm', 'rounded'], match_tokens: ['plucked', 'moon-lute'] },
+      ] },
+      { id: 'zhongruan_lute_technique', name: 'Playing technique', variants: [
+        { id: 'zhongruan_lute_lunzhi', default: true, name: 'Lunzhi tremolo roll (plectrum)', descriptors: ['shimmering', 'continuous-tone'], match_tokens: ['tremolo', 'plucked'] },
+        { id: 'zhongruan_lute_tan', name: 'Single-note tan/tiao picking', descriptors: ['clear-attack', 'articulate'], match_tokens: ['plucked', 'melodic-lead'] },
+        { id: 'zhongruan_lute_saoful', name: 'Sao/fu strumming (chordal)', descriptors: ['strummed', 'full-bodied'], match_tokens: ['strummed', 'accompaniment'] },
+      ] },
+      { id: 'zhongruan_lute_context', surface: false, name: 'Use context', variants: [
+        { id: 'zhongruan_lute_orchestra', default: true, name: 'Modern Chinese orchestra inner voice', descriptors: ['blended', 'mid-range-warm'], match_tokens: ['chinese-orchestra'] },
+        { id: 'zhongruan_lute_solo', name: 'Solo concert repertoire', descriptors: ['expressive', 'dynamic'], match_tokens: ['solo', 'plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'guanzi',
+    name: 'Guanzi (Chinese cylindrical double-reed pipe)',
+    family: 'wind',
+    class: 'double_reed',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 0, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'guanzi',
+    parts: [
+      { id: 'guanzi_size', name: 'Size / pitch class', variants: [
+        { id: 'guanzi_zhongyin', default: true, name: 'Medium (zhongyin) guanzi', descriptors: ['reedy', 'piercing', 'nasal'], match_tokens: ['double-reed', 'chinese-wind'] },
+        { id: 'guanzi_gaoyin', name: 'High (gaoyin) small guanzi', descriptors: ['shrill', 'bright-attack'], match_tokens: ['double-reed', 'high-register'] },
+        { id: 'guanzi_diyin', name: 'Bass (diyin) guanzi', descriptors: ['deep-toned', 'husky'], match_tokens: ['double-reed', 'low-register'] },
+      ] },
+      { id: 'guanzi_body', name: 'Body material', variants: [
+        { id: 'guanzi_hardwood', default: true, name: 'Hardwood body with brass ferrules', descriptors: ['focused', 'cutting'], match_tokens: ['double-reed'] },
+        { id: 'guanzi_bamboo', name: 'Bamboo body (older bili form)', descriptors: ['airy', 'archaic'], match_tokens: ['double-reed', 'bamboo-pipe'] },
+      ] },
+      { id: 'guanzi_style', surface: false, name: 'Regional playing style', variants: [
+        { id: 'guanzi_beijing', default: true, name: 'Beijing/Hebei ritual wind-and-percussion', descriptors: ['ornamented', 'wailing'], match_tokens: ['ritual-ensemble'] },
+        { id: 'guanzi_northeast', name: 'Northeastern folk band (with sheng and suona)', descriptors: ['raucous', 'festive'], match_tokens: ['folk-band'] },
+      ] },
+    ]
+  },
+  {
+    id: 'yunluo',
+    name: 'Yunluo (Chinese framed gong-chime rack)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 1, polyphony: -1, harmonicity: 0, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'yunluo',
+    parts: [
+      { id: 'yunluo_size', name: 'Rack size', variants: [
+        { id: 'yunluo_ten', default: true, name: 'Ten-gong ritual rack', descriptors: ['bell-like', 'shimmering'], match_tokens: ['gong-chime', 'chinese-percussion'] },
+        { id: 'yunluo_29', name: 'Modern 29-gong orchestral rack', descriptors: ['wide-range', 'glinting'], match_tokens: ['gong-chime', 'orchestral'] },
+      ] },
+      { id: 'yunluo_mallet', name: 'Mallet', variants: [
+        { id: 'yunluo_hardwood', default: true, name: 'Hard wooden beater', descriptors: ['bright-attack', 'pinging'], match_tokens: ['struck-metal'] },
+        { id: 'yunluo_padded', name: 'Padded beater', descriptors: ['soft-attack', 'rounded'], match_tokens: ['struck-metal'] },
+      ] },
+    ]
+  },
+  {
+    id: 'bianzhong',
+    name: 'Bianzhong (ancient Chinese tuned bronze bell chime)',
+    family: 'percussion',
+    class: 'tuned_idiophone',
+    axes: { pitchFix: 2, sustain: 2, polyphony: 0, harmonicity: -1, register: -1, range: 2, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'bianzhong',
+    parts: [
+      { id: 'bianzhong_set', name: 'Set size / register', variants: [
+        { id: 'bianzhong_marquis_yi', default: true, name: 'Full Marquis Yi-style 65-bell tiered set', descriptors: ['cavernous', 'wide-range', 'ceremonial'], match_tokens: ['bronze-bells', 'ritual-chime'] },
+        { id: 'bianzhong_small', name: 'Small upper-register bell set', descriptors: ['bright-attack', 'clangorous'], match_tokens: ['bronze-bells', 'high-register'] },
+      ] },
+      { id: 'bianzhong_strike', name: 'Strike point', variants: [
+        { id: 'bianzhong_zheng', default: true, name: 'Center (zheng) tone strike', descriptors: ['deep-toned', 'long-ringing'], match_tokens: ['struck-metal'] },
+        { id: 'bianzhong_ce', name: 'Side (ce) tone strike', descriptors: ['sharper', 'secondary-pitch'], match_tokens: ['struck-metal', 'two-tone-bell'] },
+      ] },
+      { id: 'bianzhong_beater', surface: false, name: 'Beater', variants: [
+        { id: 'bianzhong_mallet', default: true, name: 'Wooden mallet on small bells', descriptors: ['clean-attack'], match_tokens: ['struck-metal'] },
+        { id: 'bianzhong_pole', name: 'Log pole on large bells', descriptors: ['thunderous', 'slow-decay'], match_tokens: ['struck-metal', 'low-register'] },
+      ] },
+    ]
+  },
+  {
+    id: 'muyu',
+    name: 'Muyu (Chinese wooden fish temple block)',
+    family: 'percussion',
+    class: 'slit_gong',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'muyu',
+    parts: [
+      { id: 'muyu_size', name: 'Size', variants: [
+        { id: 'muyu_small', default: true, name: 'Small hand-held muyu', descriptors: ['dry-knock', 'clicky', 'high-pitched'], match_tokens: ['woodblock', 'buddhist-ritual'] },
+        { id: 'muyu_large', name: 'Large floor-standing temple muyu', descriptors: ['hollow', 'deep-toned', 'woody'], match_tokens: ['woodblock', 'temple-percussion'] },
+        { id: 'muyu_set', name: 'Graduated set (orchestral temple blocks)', descriptors: ['pitched-sequence', 'hollow'], match_tokens: ['woodblock', 'tuned-set'] },
+      ] },
+      { id: 'muyu_beater', name: 'Beater', variants: [
+        { id: 'muyu_wood_beater', default: true, name: 'Bare wooden stick', descriptors: ['sharp-attack', 'dry'], match_tokens: ['struck-wood'] },
+        { id: 'muyu_padded_beater', name: 'Cloth-wrapped beater', descriptors: ['soft-attack', 'muted'], match_tokens: ['struck-wood'] },
+      ] },
+    ]
+  },
+  {
+    id: 'paigu',
+    name: 'Paigu (Chinese tuned barrel-drum set)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: -1, register: -1, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'paigu',
+    parts: [
+      { id: 'paigu_set', name: 'Set size', variants: [
+        { id: 'paigu_five', default: true, name: 'Five-drum graduated set', descriptors: ['pitched-toms', 'rolling', 'punchy'], match_tokens: ['chinese-drums', 'tuned-drums'] },
+        { id: 'paigu_three', name: 'Three-drum compact set', descriptors: ['tight', 'focused'], match_tokens: ['chinese-drums'] },
+      ] },
+      { id: 'paigu_stroke', name: 'Stroke type', variants: [
+        { id: 'paigu_stick_head', default: true, name: 'Stick on head', descriptors: ['booming', 'full-toned'], match_tokens: ['struck-drum'] },
+        { id: 'paigu_rim', name: 'Rim / shell strike', descriptors: ['dry-knock', 'clacking'], match_tokens: ['struck-drum', 'rim-shot'] },
+        { id: 'paigu_roll', name: 'Sustained double-stick roll', descriptors: ['rumbling', 'crescendo'], match_tokens: ['drum-roll'] },
+      ] },
+    ]
+  },
+  {
+    id: 'danpigu',
+    name: 'Danpigu (Chinese single-headed opera drum, bangu)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 2, range: -2, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'danpigu',
+    parts: [
+      { id: 'danpigu_stroke', name: 'Strike position', variants: [
+        { id: 'danpigu_center', default: true, name: 'Center of the small aperture (guxin)', descriptors: ['cracking', 'piercing', 'dry'], match_tokens: ['opera-drum', 'conductor-drum'] },
+        { id: 'danpigu_edge', name: 'Edge of the hide beyond the aperture', descriptors: ['thinner', 'clicky'], match_tokens: ['opera-drum'] },
+        { id: 'danpigu_roll', name: 'Rapid two-stick roll (cuiban)', descriptors: ['rattling', 'tension-building'], match_tokens: ['drum-roll', 'opera-drum'] },
+      ] },
+      { id: 'danpigu_context', surface: false, name: 'Ensemble role', variants: [
+        { id: 'danpigu_jingju', default: true, name: 'Jingju percussion leader (with paiban)', descriptors: ['directing', 'incisive'], match_tokens: ['peking-opera'] },
+        { id: 'danpigu_kunqu', name: 'Kunqu accompaniment', descriptors: ['restrained', 'refined'], match_tokens: ['kunqu-opera'] },
+      ] },
+    ]
+  },
+  {
+    id: 'paiban',
+    name: 'Paiban (Chinese hardwood clapper)',
+    family: 'percussion',
+    class: 'concussion_idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'paiban',
+    parts: [
+      { id: 'paiban_form', name: 'Clapper form', variants: [
+        { id: 'paiban_three_slab', default: true, name: 'Three-slab hongmu clapper on cord', descriptors: ['sharp-clack', 'dry', 'cutting'], match_tokens: ['clapper', 'opera-percussion'] },
+        { id: 'paiban_kuaiban', name: 'Two-piece bamboo kuaiban', descriptors: ['clattering', 'rattling'], match_tokens: ['bamboo-clapper', 'narrative-song'] },
+        { id: 'paiban_pair_muyu', name: 'Clapper paired with wooden slat (nanbang)', descriptors: ['hollow-knock', 'brittle'], match_tokens: ['clapper'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chazi',
+    name: 'Chazi (small Chinese hand cymbals)',
+    family: 'percussion',
+    class: 'hand_cymbals',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -2, harmonicity: -2, register: 2, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'chazi',
+    parts: [
+      { id: 'chazi_stroke', name: 'Stroke technique', variants: [
+        { id: 'chazi_crash', default: true, name: 'Open crash (full face contact)', descriptors: ['shimmering', 'bright-attack'], match_tokens: ['small-cymbals', 'chinese-percussion'] },
+        { id: 'chazi_damped', name: 'Damped choke against the body', descriptors: ['clipped', 'dry'], match_tokens: ['small-cymbals', 'choked'] },
+        { id: 'chazi_edge', name: 'Edge-brush glancing stroke', descriptors: ['sizzling', 'thin'], match_tokens: ['small-cymbals'] },
+      ] },
+      { id: 'chazi_size', surface: false, name: 'Size', variants: [
+        { id: 'chazi_xiaocha', default: true, name: 'Xiaocha (very small pair)', descriptors: ['tinkling', 'high-pitched'], match_tokens: ['small-cymbals'] },
+        { id: 'chazi_zhongcha', name: 'Zhongcha (medium pair)', descriptors: ['fuller', 'ringing'], match_tokens: ['hand-cymbals'] },
+      ] },
+    ]
+  },
+  {
+    id: 'naobo',
+    name: 'Naobo (large Chinese clash cymbals)',
+    family: 'percussion',
+    class: 'hand_cymbals',
+    axes: { pitchFix: -2, sustain: 1, polyphony: -2, harmonicity: -2, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'naobo',
+    parts: [
+      { id: 'naobo_type', name: 'Cymbal type', variants: [
+        { id: 'naobo_dabo', default: true, name: 'Dabo (large flat-bossed pair)', descriptors: ['roaring', 'splashy', 'long-ringing'], match_tokens: ['clash-cymbals', 'chinese-percussion'] },
+        { id: 'naobo_nao', name: 'Nao (high-domed pair)', descriptors: ['clangorous', 'penetrating'], match_tokens: ['clash-cymbals'] },
+        { id: 'naobo_shuibo', name: 'Shuibo (thin water cymbals, swirling clash)', descriptors: ['washing', 'sizzling'], match_tokens: ['clash-cymbals', 'swirled'] },
+      ] },
+      { id: 'naobo_stroke', name: 'Stroke', variants: [
+        { id: 'naobo_open_clash', default: true, name: 'Open clash, held to ring', descriptors: ['sustained-crash', 'huge'], match_tokens: ['clash-cymbals'] },
+        { id: 'naobo_muffled', name: 'Clash damped instantly against robes', descriptors: ['choked', 'punchy'], match_tokens: ['clash-cymbals', 'choked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'daluo',
+    name: 'Daluo (large Chinese gong with descending pitch)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -1, sustain: 2, polyphony: -2, harmonicity: -2, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'daluo',
+    parts: [
+      { id: 'daluo_type', name: 'Gong type', variants: [
+        { id: 'daluo_jingluo', default: true, name: 'Jing daluo (Peking opera, falling pitch bend)', descriptors: ['descending-glide', 'crashing', 'shimmering-decay'], match_tokens: ['chinese-gong', 'opera-percussion'] },
+        { id: 'daluo_chaozhou', name: 'Chaozhou deep gong (shengluo)', descriptors: ['deep-toned', 'booming'], match_tokens: ['chinese-gong', 'low-register'] },
+        { id: 'daluo_fengluo', name: 'Fengluo / wind gong (flat, unpitched)', descriptors: ['washing', 'roaring'], match_tokens: ['chinese-gong', 'wash'] },
+      ] },
+      { id: 'daluo_beater', name: 'Beater', variants: [
+        { id: 'daluo_padded', default: true, name: 'Cloth-padded mallet', descriptors: ['full-swell', 'rounded-attack'], match_tokens: ['struck-metal'] },
+        { id: 'daluo_hard', name: 'Hard wooden beater', descriptors: ['sharp-attack', 'clangorous'], match_tokens: ['struck-metal'] },
+      ] },
+    ]
+  },
+  {
+    id: 'matouqin',
+    name: 'Matouqin (Chinese-Mongolian horsehead bowed fiddle)',
+    family: 'bowed',
+    class: 'bowed_fiddle',
+    axes: { pitchFix: -1, sustain: 2, polyphony: 0, harmonicity: 1, register: 0, range: 1, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'matouqin',
+    parts: [
+      { id: 'matouqin_strings', name: 'String material', variants: [
+        { id: 'matouqin_horsehair', default: true, name: 'Traditional horsehair bundle strings', descriptors: ['husky', 'buzzing-timbre', 'breathy'], match_tokens: ['horsehead-fiddle', 'inner-mongolia'] },
+        { id: 'matouqin_nylon', name: 'Modern nylon strings (concert build)', descriptors: ['clear', 'projecting', 'sustaining'], match_tokens: ['horsehead-fiddle', 'concert'] },
+      ] },
+      { id: 'matouqin_style', name: 'Playing style', variants: [
+        { id: 'matouqin_urtiin_duu', default: true, name: 'Long-song (urtiin duu) accompaniment', descriptors: ['rubato', 'voice-shadowing', 'legato'], match_tokens: ['long-song', 'bowed'] },
+        { id: 'matouqin_bogino', name: 'Short-song and dance tunes', descriptors: ['driving', 'bouncing-bow'], match_tokens: ['dance-rhythm', 'bowed'] },
+        { id: 'matouqin_orchestral', name: 'Chinese-orchestra section playing', descriptors: ['blended', 'broad-toned'], match_tokens: ['chinese-orchestra', 'bowed'] },
+      ] },
+      { id: 'matouqin_soundboard', surface: false, name: 'Soundbox face', variants: [
+        { id: 'matouqin_hide', default: true, name: 'Camel or goat hide face', descriptors: ['nasal', 'earthy'], match_tokens: ['bowed'] },
+        { id: 'matouqin_wood', name: 'Wooden soundboard (modern)', descriptors: ['louder', 'focused'], match_tokens: ['bowed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'banhu_gaoyin',
+    name: 'Gaoyin banhu (high-pitched coconut-bodied Chinese fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -1, harmonicity: 1, register: 2, range: 0, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'gaoyin banhu',
+    parts: [
+      { id: 'banhu_gaoyin_body', name: 'Soundbox', variants: [
+        { id: 'banhu_gaoyin_coconut', default: true, name: 'Small coconut shell with thin paulownia face', descriptors: ['piercing', 'bright-attack', 'nasal'], match_tokens: ['banhu', 'high-register'] },
+        { id: 'banhu_gaoyin_wood', name: 'Turned wooden bowl body', descriptors: ['focused', 'harder-toned'], match_tokens: ['banhu'] },
+      ] },
+      { id: 'banhu_gaoyin_style', name: 'Regional style', variants: [
+        { id: 'banhu_gaoyin_bangzi', default: true, name: 'Bangzi opera lead (Qinqiang / Hebei)', descriptors: ['wailing', 'cutting', 'ornamented'], match_tokens: ['opera-lead', 'bowed'] },
+        { id: 'banhu_gaoyin_solo', name: 'Modern solo concert repertoire', descriptors: ['virtuosic', 'glissando-rich'], match_tokens: ['solo', 'bowed'] },
+        { id: 'banhu_gaoyin_folk', name: 'Northern folk band melody line', descriptors: ['raucous', 'festive'], match_tokens: ['folk-band', 'bowed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dan_tam_thap_luc',
+    name: 'Đàn tam thập lục (Vietnamese 36-string hammered zither)',
+    family: 'plucked_traditional',
+    class: 'plucked_box_zither',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 1, harmonicity: 1, register: 1, range: 2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'dan tam thap luc',
+    parts: [
+      { id: 'dan_tam_thap_luc_beater', name: 'Beater type', variants: [
+        { id: 'dan_tam_bamboo', default: true, name: 'Flexible bamboo hammers', descriptors: ['bright-attack', 'shimmering'], match_tokens: ['hammered-zither', 'vietnamese'] },
+        { id: 'dan_tam_padded', name: 'Felt-tipped hammers', descriptors: ['soft-attack', 'warm'], match_tokens: ['hammered-zither'] },
+        { id: 'dan_tam_plucked', name: 'Finger-plucked (rare, harp-like)', descriptors: ['delicate', 'ringing'], match_tokens: ['plucked-zither'] },
+      ] },
+      { id: 'dan_tam_thap_luc_technique', name: 'Technique', variants: [
+        { id: 'dan_tam_tremolo', default: true, name: 'Rapid alternating tremolo', descriptors: ['continuous-tone', 'glittering'], match_tokens: ['tremolo'] },
+        { id: 'dan_tam_glissando', name: 'Sweeping glissando runs', descriptors: ['cascading', 'wide-range'], match_tokens: ['glissando'] },
+      ] },
+      { id: 'dan_tam_thap_luc_context', surface: false, name: 'Ensemble role', variants: [
+        { id: 'dan_tam_cheo', default: true, name: 'Chèo / cải lương theatre ensemble', descriptors: ['ornamented', 'supporting'], match_tokens: ['vietnamese-theatre'] },
+        { id: 'dan_tam_concert', name: 'Modernized national-music orchestra', descriptors: ['blended', 'polished'], match_tokens: ['orchestral'] },
+      ] },
+    ]
+  },
+  {
+    id: 'song_lang',
+    name: 'Song lang (Vietnamese foot-operated wooden clapper)',
+    family: 'percussion',
+    class: 'concussion_idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'song lang',
+    parts: [
+      { id: 'song_lang_form', name: 'Form', variants: [
+        { id: 'song_lang_toe_clapper', default: true, name: 'Toe-operated wooden block with sprung striker (canonical cai luong)', descriptors: ['dry-click', 'sharp-attack', 'wooden'], match_tokens: ['wood-clapper', 'vietnamese'] },
+        { id: 'song_lang_handheld', name: 'Hand-held clapper pair (chamber use)', descriptors: ['light-click', 'crisp'], match_tokens: ['wood-clapper', 'hand-percussion'] },
+      ] },
+      { id: 'song_lang_context', surface: false, name: 'Performance context', variants: [
+        { id: 'song_lang_don_ca_tai_tu', default: true, name: 'Don ca tai tu / cai luong beat marker', descriptors: ['timeline-marking', 'sparse'], match_tokens: ['vietnamese', 'time-keeper'] },
+        { id: 'song_lang_ca_hue', name: 'Ca Hue chamber song accompaniment', descriptors: ['understated', 'refined'], match_tokens: ['vietnamese', 'chamber'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sinh_tien',
+    name: 'Sinh tien (Vietnamese coin-clapper scraper)',
+    family: 'percussion',
+    class: 'concussion_idiophone',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -1, harmonicity: -2, register: 2, range: -1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'sinh tien',
+    parts: [
+      { id: 'sinh_tien_build', name: 'Build', variants: [
+        { id: 'sinh_tien_three_slat_coins', default: true, name: 'Three hardwood slats with jingling coin strings and serrated edge (canonical)', descriptors: ['jingling', 'rattling-coins', 'dry-attack'], match_tokens: ['coin-clapper', 'vietnamese'] },
+        { id: 'sinh_tien_heavy_coins', name: 'Heavy brass-coin set (ritual)', descriptors: ['bright-jingle', 'metallic-shimmer'], match_tokens: ['coin-clapper', 'ritual'] },
+      ] },
+      { id: 'sinh_tien_technique', name: 'Technique', variants: [
+        { id: 'sinh_tien_clap', default: true, name: 'Clapping the slats together', descriptors: ['sharp-clack', 'rhythmic'], match_tokens: ['clapper', 'rhythm'] },
+        { id: 'sinh_tien_scrape', name: 'Scraping the serrated edge', descriptors: ['raspy-scrape', 'buzzing-timbre'], match_tokens: ['scraper', 'texture'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mo_vietnam',
+    name: 'Mo (Vietnamese wooden fish slit-block)',
+    family: 'percussion',
+    class: 'slit_gong',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'mo vietnam',
+    parts: [
+      { id: 'mo_vietnam_size', name: 'Size', variants: [
+        { id: 'mo_vietnam_temple_medium', default: true, name: 'Medium temple wooden fish (canonical)', descriptors: ['hollow-knock', 'dry-toned', 'meditative'], match_tokens: ['wood-block', 'buddhist-temple'] },
+        { id: 'mo_vietnam_large', name: 'Large hall mo (deep-voiced)', descriptors: ['deep-toned', 'resonant-knock'], match_tokens: ['wood-block', 'low-register'] },
+        { id: 'mo_vietnam_small', name: 'Small hand mo', descriptors: ['bright-attack', 'clicking'], match_tokens: ['wood-block', 'high-register'] },
+      ] },
+      { id: 'mo_vietnam_wood', surface: false, name: 'Wood', variants: [
+        { id: 'mo_vietnam_jackfruit', default: true, name: 'Jackfruit wood (canonical)', descriptors: ['warm-knock', 'woody'], match_tokens: ['wood-block'] },
+        { id: 'mo_vietnam_camphor', name: 'Camphor wood', descriptors: ['drier', 'harder-attack'], match_tokens: ['wood-block'] },
+      ] },
+    ]
+  },
+  {
+    id: 'khim',
+    name: 'Khim (Thai hammered trapezoidal dulcimer)',
+    family: 'acoustic_strings',
+    class: 'plucked',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'khim',
+    parts: [
+      { id: 'khim_form', name: 'Regional form', variants: [
+        { id: 'khim_thai', default: true, name: 'Thai khim (butterfly body, triple-course brass strings)', descriptors: ['shimmering', 'bright-attack', 'ringing'], match_tokens: ['hammered-dulcimer', 'thai'] },
+        { id: 'khim_khmer', name: 'Khmer khim (Cambodian form)', descriptors: ['bright', 'percussive-ring'], match_tokens: ['hammered-dulcimer', 'khmer'] },
+      ] },
+      { id: 'khim_mallets', name: 'Beaters', variants: [
+        { id: 'khim_bamboo_padded', default: true, name: 'Flexible bamboo beaters with padded tips', descriptors: ['soft-attack', 'sustained-ring'], match_tokens: ['hammered', 'mellow'] },
+        { id: 'khim_bare_bamboo', name: 'Bare bamboo beaters', descriptors: ['hard-attack', 'clangorous'], match_tokens: ['hammered', 'bright-attack'] },
+      ] },
+      { id: 'khim_strings', surface: false, name: 'String material', variants: [
+        { id: 'khim_brass', default: true, name: 'Brass strings (traditional)', descriptors: ['warm-metallic'], match_tokens: ['hammered-dulcimer'] },
+        { id: 'khim_steel', name: 'Steel strings (modern)', descriptors: ['brilliant', 'loud'], match_tokens: ['hammered-dulcimer'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ranat_thum',
+    name: 'Ranat thum (Thai low bamboo-keyed xylophone)',
+    family: 'percussion',
+    class: 'bamboo_xylophone',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 1, harmonicity: 0, register: -1, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'ranat thum',
+    parts: [
+      { id: 'ranat_thum_keys', name: 'Key material', variants: [
+        { id: 'ranat_thum_bamboo', default: true, name: 'Bamboo keys with beeswax-lead tuning paste (canonical)', descriptors: ['mellow', 'woody', 'rounded-attack'], match_tokens: ['xylophone', 'thai-piphat'] },
+        { id: 'ranat_thum_hardwood', name: 'Rosewood keys', descriptors: ['darker', 'fuller-toned'], match_tokens: ['xylophone', 'low-register'] },
+      ] },
+      { id: 'ranat_thum_mallets', name: 'Mallets', variants: [
+        { id: 'ranat_thum_soft', default: true, name: 'Soft padded mallets', descriptors: ['soft-attack', 'warm'], match_tokens: ['mallet', 'mellow'] },
+        { id: 'ranat_thum_hard', name: 'Harder mallets', descriptors: ['bright-attack', 'articulate'], match_tokens: ['mallet', 'bright-attack'] },
+      ] },
+      { id: 'ranat_thum_role', surface: false, name: 'Ensemble role', variants: [
+        { id: 'ranat_thum_variation', default: true, name: 'Piphat counter-melody / variation part', descriptors: ['syncopated', 'counter-melodic'], match_tokens: ['thai-piphat'] },
+        { id: 'ranat_thum_unison', name: 'Unison doubling', descriptors: ['supporting', 'steady'], match_tokens: ['thai-piphat'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ranat_thum_lek',
+    name: 'Ranat thum lek (Thai low metal-keyed xylophone)',
+    family: 'percussion',
+    class: 'metallophone',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 1, harmonicity: 0, register: -1, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'ranat thum lek',
+    parts: [
+      { id: 'ranat_thum_lek_keys', name: 'Key metal', variants: [
+        { id: 'ranat_thum_lek_iron', default: true, name: 'Iron/steel keys (canonical)', descriptors: ['ringing', 'metallic', 'sustained'], match_tokens: ['metallophone', 'thai-piphat'] },
+        { id: 'ranat_thum_lek_bronze', name: 'Bronze keys', descriptors: ['warm-metallic', 'gong-like'], match_tokens: ['metallophone', 'low-register'] },
+      ] },
+      { id: 'ranat_thum_lek_mallets', name: 'Mallets', variants: [
+        { id: 'ranat_thum_lek_padded', default: true, name: 'Padded leather mallets', descriptors: ['soft-attack', 'warm-ring'], match_tokens: ['mallet', 'mellow'] },
+        { id: 'ranat_thum_lek_hard', name: 'Hard mallets', descriptors: ['clangorous', 'bright-attack'], match_tokens: ['mallet', 'bright-attack'] },
+      ] },
+    ]
+  },
+  {
+    id: 'klong_that',
+    name: 'Klong that (Thai large barrel drum pair)',
+    family: 'percussion',
+    class: 'barrel_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -2, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'klong that',
+    parts: [
+      { id: 'klong_that_setup', name: 'Setup', variants: [
+        { id: 'klong_that_pair', default: true, name: 'Tuned pair (high and low) on stand (canonical piphat)', descriptors: ['deep-toned', 'booming', 'paired'], match_tokens: ['barrel-drum', 'thai-piphat'] },
+        { id: 'klong_that_single', name: 'Single drum', descriptors: ['deep-toned', 'punctuating'], match_tokens: ['barrel-drum'] },
+      ] },
+      { id: 'klong_that_tuning', surface: false, name: 'Head tuning', variants: [
+        { id: 'klong_that_rice_paste', default: true, name: 'Rice-paste tuning patch on head (canonical)', descriptors: ['pitched-thump', 'damped-low'], match_tokens: ['barrel-drum', 'low-register'] },
+        { id: 'klong_that_untreated', name: 'Untreated head', descriptors: ['open-boom', 'ringing'], match_tokens: ['barrel-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'klong_khaek',
+    name: 'Klong khaek (Thai long double-headed drum pair)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'klong khaek',
+    parts: [
+      { id: 'klong_khaek_pair', name: 'Drum of the pair', variants: [
+        { id: 'klong_khaek_tua_phu', default: true, name: 'Tua phu (male, lower-pitched)', descriptors: ['deep-toned', 'punchy'], match_tokens: ['hand-drum', 'thai'] },
+        { id: 'klong_khaek_tua_mia', name: 'Tua mia (female, higher-pitched)', descriptors: ['high-pitched', 'snappy'], match_tokens: ['hand-drum', 'thai'] },
+      ] },
+      { id: 'klong_khaek_context', surface: false, name: 'Playing context', variants: [
+        { id: 'klong_khaek_piphat', default: true, name: 'Piphat / dance-drama accompaniment (canonical)', descriptors: ['interlocking', 'driving'], match_tokens: ['thai', 'dance-rhythm'] },
+        { id: 'klong_khaek_boxing', name: 'Muay Thai boxing ensemble', descriptors: ['accelerating', 'insistent'], match_tokens: ['thai', 'processional'] },
+      ] },
+    ]
+  },
+  {
+    id: 'pi_mon',
+    name: 'Pi mon (Mon-Thai large double-reed shawm)',
+    family: 'wind',
+    class: 'double_reed_shawm',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: 0, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'pi mon',
+    parts: [
+      { id: 'pi_mon_build', name: 'Build', variants: [
+        { id: 'pi_mon_wood_metal_bell', default: true, name: 'Wooden body with detached flaring metal bell on cord (canonical)', descriptors: ['nasal-reedy', 'piercing', 'plaintive'], match_tokens: ['double-reed', 'mon-tradition'] },
+        { id: 'pi_mon_all_wood', name: 'All-wood bell', descriptors: ['mellower', 'woody-reed'], match_tokens: ['double-reed', 'shawm'] },
+      ] },
+      { id: 'pi_mon_context', name: 'Playing context', variants: [
+        { id: 'pi_mon_funeral', default: true, name: 'Piphat mon funeral ensemble lead (canonical)', descriptors: ['mournful', 'melismatic', 'sustained'], match_tokens: ['mon-tradition', 'lament'] },
+        { id: 'pi_mon_circular', name: 'Circular-breathing continuous solo', descriptors: ['unbroken-line', 'droning'], match_tokens: ['double-reed', 'sustained'] },
+      ] },
+    ]
+  },
+  {
+    id: 'saw_pip',
+    name: 'Saw pip (Thai tin-can bowed fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -1, harmonicity: -1, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'saw pip',
+    parts: [
+      { id: 'saw_pip_resonator', name: 'Resonator', variants: [
+        { id: 'saw_pip_tin_can', default: true, name: 'Metal tin/kerosene can resonator (canonical folk build)', descriptors: ['buzzing-timbre', 'nasal', 'raw-toned'], match_tokens: ['spike-fiddle', 'thai-folk'] },
+        { id: 'saw_pip_coconut', name: 'Coconut-shell resonator', descriptors: ['warmer', 'rounder'], match_tokens: ['spike-fiddle', 'folk'] },
+      ] },
+      { id: 'saw_pip_strings', surface: false, name: 'String material', variants: [
+        { id: 'saw_pip_steel', default: true, name: 'Steel strings (modern folk)', descriptors: ['bright', 'edgy'], match_tokens: ['bowed'] },
+        { id: 'saw_pip_silk', name: 'Silk strings', descriptors: ['mellow', 'soft-toned'], match_tokens: ['bowed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'hne_gyi_shawm',
+    name: 'Hne gyi (Burmese large double-reed shawm)',
+    family: 'wind',
+    class: 'double_reed_shawm',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: 0, register: -1, range: 1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'hne gyi',
+    parts: [
+      { id: 'hne_gyi_build', name: 'Build', variants: [
+        { id: 'hne_gyi_wood_metal_bell', default: true, name: 'Conical wooden body with flared metal bell (canonical)', descriptors: ['deep-voiced', 'full-bodied', 'reedy'], match_tokens: ['double-reed', 'burmese'] },
+        { id: 'hne_gyi_lacquered', name: 'Lacquered ceremonial body', descriptors: ['commanding', 'projecting'], match_tokens: ['double-reed', 'ceremonial'] },
+      ] },
+      { id: 'hne_gyi_context', name: 'Playing context', variants: [
+        { id: 'hne_gyi_hsaing', default: true, name: 'Hsaing waing melodic lead (canonical)', descriptors: ['ornamented', 'ensemble-lead'], match_tokens: ['burmese', 'hsaing-waing'] },
+        { id: 'hne_gyi_nat_pwe', name: 'Nat pwe processional', descriptors: ['loud', 'outdoor', 'celebratory'], match_tokens: ['burmese', 'processional'] },
+      ] },
+    ]
+  },
+  {
+    id: 'hne_galay_shawm',
+    name: 'Hne galay (Burmese small double-reed shawm)',
+    family: 'wind',
+    class: 'double_reed_shawm',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: 0, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'hne galay',
+    parts: [
+      { id: 'hne_galay_build', name: 'Build', variants: [
+        { id: 'hne_galay_small_wood', default: true, name: 'Short conical wooden body with small metal bell (canonical)', descriptors: ['high-pitched', 'piercing', 'bright'], match_tokens: ['double-reed', 'burmese'] },
+        { id: 'hne_galay_bamboo_reed', name: 'Fine palm-leaf reed (soft setting)', descriptors: ['thin-toned', 'nasal'], match_tokens: ['double-reed', 'high-register'] },
+      ] },
+      { id: 'hne_galay_style', surface: false, name: 'Playing style', variants: [
+        { id: 'hne_galay_bent', default: true, name: 'Bent-note ornamental style (canonical)', descriptors: ['gliding', 'microtonal', 'expressive'], match_tokens: ['burmese', 'pitch-bend'] },
+        { id: 'hne_galay_straight', name: 'Straight melodic doubling', descriptors: ['steady', 'supporting'], match_tokens: ['burmese'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ozi_drum',
+    name: 'Ozi (Burmese long goblet drum)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'ozi',
+    parts: [
+      { id: 'ozi_form', name: 'Form', variants: [
+        { id: 'ozi_long_goblet', default: true, name: 'Long carved wooden goblet body, shoulder-slung (canonical)', descriptors: ['deep-thump', 'ringing-slap'], match_tokens: ['goblet-drum', 'burmese'] },
+        { id: 'ozi_short', name: 'Shorter village ozi', descriptors: ['punchy', 'mid-toned'], match_tokens: ['goblet-drum', 'folk'] },
+      ] },
+      { id: 'ozi_head', surface: false, name: 'Head treatment', variants: [
+        { id: 'ozi_pat_sa', default: true, name: 'Rice-paste tuning patch (pat sa)', descriptors: ['pitched-thump', 'damped'], match_tokens: ['hand-drum', 'tuned-head'] },
+        { id: 'ozi_plain', name: 'Plain hide head', descriptors: ['open-toned', 'bright-slap'], match_tokens: ['hand-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dobat',
+    name: 'Dobat (Burmese short double-headed folk drum)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'dobat',
+    parts: [
+      { id: 'dobat_form', name: 'Form', variants: [
+        { id: 'dobat_slung_pair_heads', default: true, name: 'Short barrel body slung at waist, both heads hand-struck (canonical)', descriptors: ['dry-thump', 'snappy', 'driving'], match_tokens: ['double-headed-drum', 'burmese'] },
+        { id: 'dobat_large', name: 'Larger festival dobat', descriptors: ['deep-toned', 'booming'], match_tokens: ['double-headed-drum', 'processional'] },
+      ] },
+      { id: 'dobat_context', surface: false, name: 'Playing context', variants: [
+        { id: 'dobat_byaw_village', default: true, name: 'Village festival / dobat ensemble (canonical)', descriptors: ['celebratory', 'interlocking'], match_tokens: ['burmese', 'dance-rhythm'] },
+        { id: 'dobat_procession', name: 'Shinbyu procession', descriptors: ['marching', 'insistent'], match_tokens: ['burmese', 'processional'] },
+      ] },
+    ]
+  },
+  {
+    id: 'byo',
+    name: 'Byo (Burmese bronze plate-gong idiophone)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: -1, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'byo',
+    parts: [
+      { id: 'byo_form', name: 'Form', variants: [
+        { id: 'byo_flat_bronze_plate', default: true, name: 'Flat bronze plate struck with wooden beater (canonical hsaing waing)', descriptors: ['metallic-clang', 'shimmering-decay'], match_tokens: ['struck-metal', 'burmese'] },
+        { id: 'byo_thick_heavy', name: 'Thick heavy plate', descriptors: ['deep-clang', 'long-ring'], match_tokens: ['struck-metal', 'low-register'] },
+      ] },
+      { id: 'byo_beater', surface: false, name: 'Beater', variants: [
+        { id: 'byo_wood', default: true, name: 'Hard wooden beater', descriptors: ['sharp-attack', 'bright-clang'], match_tokens: ['struck-metal'] },
+        { id: 'byo_padded', name: 'Padded beater', descriptors: ['soft-attack', 'warm-ring'], match_tokens: ['struck-metal'] },
+      ] },
+    ]
+  },
+  {
+    id: 'linkwin',
+    name: 'Linkwin (Burmese bronze hand cymbals)',
+    family: 'percussion',
+    class: 'hand_cymbals',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -2, harmonicity: -2, register: 2, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'linkwin',
+    parts: [
+      { id: 'linkwin_size', name: 'Cymbal size', variants: [
+        { id: 'linkwin_small_ceremonial', default: true, name: 'Small thick bronze pair (hsaing waing timekeeping)', descriptors: ['bright-attack', 'shimmering', 'piercing'], match_tokens: ['hand-cymbals', 'burmese'] },
+        { id: 'linkwin_large', name: 'Larger cymbal pair (louder outdoor ensemble)', descriptors: ['clangorous', 'broad-decay'], match_tokens: ['hand-cymbals', 'burmese'] },
+      ] },
+      { id: 'linkwin_stroke', name: 'Striking technique', variants: [
+        { id: 'linkwin_open_clash', default: true, name: 'Open clash (ringing \'lin\')', descriptors: ['ringing', 'open-decay'], match_tokens: ['hand-cymbals', 'colotomic'] },
+        { id: 'linkwin_damped', name: 'Damped closed clash (paired with wa clapper)', descriptors: ['choked', 'dry-tick'], match_tokens: ['hand-cymbals', 'colotomic'] },
+      ] },
+      { id: 'linkwin_context', surface: false, name: 'Performance context', variants: [
+        { id: 'linkwin_hsaing_waing', default: true, name: 'Hsaing waing ensemble timekeeping (canonical)', descriptors: ['cyclic', 'timekeeping'], match_tokens: ['burmese', 'ensemble'] },
+        { id: 'linkwin_vocal', name: 'Solo song accompaniment with singer', descriptors: ['sparse', 'supporting'], match_tokens: ['burmese'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kyey_naung',
+    name: 'Kyey naung (Burmese tuned bronze gong circle)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 1, polyphony: -1, harmonicity: -1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'kyey naung',
+    parts: [
+      { id: 'kyey_naung_set', name: 'Gong set size', variants: [
+        { id: 'kyey_naung_kyi_waing', default: true, name: 'Kyi waing circle (18-19 bossed bronze gongs in circular frame)', descriptors: ['bell-like', 'metallic-shimmer', 'clangorous'], match_tokens: ['gong-circle', 'burmese'] },
+        { id: 'kyey_naung_maung_saing', name: 'Maung saing rack of flat gongs (lower, fewer)', descriptors: ['deep-toned', 'broad-decay'], match_tokens: ['gong-rack', 'burmese'] },
+      ] },
+      { id: 'kyey_naung_mallet', name: 'Mallet', variants: [
+        { id: 'kyey_naung_hard_wood', default: true, name: 'Hard wooden beaters (canonical)', descriptors: ['bright-attack', 'clear-strike'], match_tokens: ['gong-circle', 'struck'] },
+        { id: 'kyey_naung_padded', name: 'Cloth-padded beaters', descriptors: ['mellow', 'soft-attack'], match_tokens: ['gong-circle', 'struck'] },
+      ] },
+      { id: 'kyey_naung_role', surface: false, name: 'Ensemble role', variants: [
+        { id: 'kyey_naung_melodic_lead', default: true, name: 'Melodic outline over hsaing waing (canonical)', descriptors: ['ornamented', 'interlocking'], match_tokens: ['burmese', 'ensemble'] },
+        { id: 'kyey_naung_punctuating', name: 'Punctuating colotomic strokes', descriptors: ['sparse', 'marking'], match_tokens: ['burmese', 'colotomic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mi_gyaung_kyam',
+    name: 'Kyam (Mon crocodile-form fretted zither, Thai-Burmese border)',
+    family: 'plucked_traditional',
+    class: 'fretboard_zither',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 0, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'kyam',
+    parts: [
+      { id: 'kyam_body', name: 'Body form', variants: [
+        { id: 'kyam_full_crocodile', default: true, name: 'Full crocodile-carved hardwood body with head and legs (Mon canonical)', descriptors: ['woody', 'buzzing-timbre', 'dry'], match_tokens: ['crocodile-zither', 'mon'] },
+        { id: 'kyam_stylized', name: 'Stylized shallow trough body (Thai Mon village form)', descriptors: ['blunt', 'rustic', 'muted'], match_tokens: ['crocodile-zither', 'thai-mon'] },
+      ] },
+      { id: 'kyam_plectrum', name: 'Plectrum / string set', variants: [
+        { id: 'kyam_horn_plectrum_silk', default: true, name: 'Horn plectrum, silk melody strings with brass drone', descriptors: ['nasal', 'buzzing-timbre', 'soft-decay'], match_tokens: ['plucked', 'crocodile-zither'] },
+        { id: 'kyam_wire_strings', name: 'All-metal wire strings (modern)', descriptors: ['bright-attack', 'ringing'], match_tokens: ['plucked', 'crocodile-zither'] },
+      ] },
+      { id: 'kyam_context', surface: false, name: 'Playing context', variants: [
+        { id: 'kyam_mon_ceremonial', default: true, name: 'Mon ceremonial and spirit-rite ensemble (canonical)', descriptors: ['cyclic', 'supporting'], match_tokens: ['mon', 'ceremonial'] },
+        { id: 'kyam_solo_song', name: 'Solo song self-accompaniment', descriptors: ['sparse', 'intimate'], match_tokens: ['mon', 'plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chapey_veng',
+    name: 'Chapey dang veng (Cambodian long-necked lute)',
+    family: 'plucked_traditional',
+    class: 'long_neck_lute',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 0, harmonicity: 1, register: -1, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'chapey veng',
+    parts: [
+      { id: 'chapey_veng_body', name: 'Body and neck', variants: [
+        { id: 'chapey_veng_long_neck_canonical', default: true, name: 'Long fretted neck with flat wooden soundbox (canonical)', descriptors: ['woody', 'dry', 'percussive-pluck'], match_tokens: ['long-neck-lute', 'khmer'] },
+        { id: 'chapey_veng_amplified', name: 'Contact-miked modern stage build', descriptors: ['projecting', 'bright-attack'], match_tokens: ['long-neck-lute', 'khmer'] },
+      ] },
+      { id: 'chapey_veng_strings', name: 'String material', variants: [
+        { id: 'chapey_veng_nylon', default: true, name: 'Nylon strings (modern standard)', descriptors: ['mellow', 'warm'], match_tokens: ['plucked', 'khmer'] },
+        { id: 'chapey_veng_silk', name: 'Silk strings (older practice)', descriptors: ['soft-decay', 'archaic'], match_tokens: ['plucked', 'khmer'] },
+      ] },
+      { id: 'chapey_veng_style', name: 'Repertoire', variants: [
+        { id: 'chapey_veng_bard', default: true, name: 'Sung narrative bardic repertoire (canonical)', descriptors: ['declamatory', 'call-response', 'sparse'], match_tokens: ['khmer', 'storytelling'] },
+        { id: 'chapey_veng_wedding', name: 'Phleng kar wedding ensemble part', descriptors: ['cyclic', 'supporting'], match_tokens: ['khmer', 'ensemble'] },
+      ] },
+    ]
+  },
+  {
+    id: 'skor_daey',
+    name: 'Skor daey (Cambodian pair of small hand drums)',
+    family: 'percussion',
+    class: 'single_headed_hand_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'skor daey',
+    parts: [
+      { id: 'skor_daey_body', name: 'Shell', variants: [
+        { id: 'skor_daey_hardwood_pair', default: true, name: 'Hollowed hardwood shells, single tacked calfskin head, played as a pair (canonical)', descriptors: ['dry', 'woody', 'tight-slap'], match_tokens: ['hand-drum', 'khmer'] },
+        { id: 'skor_daey_clay', name: 'Fired-clay shell (older village build)', descriptors: ['dark-toned', 'dull-thud'], match_tokens: ['hand-drum', 'khmer'] },
+      ] },
+      { id: 'skor_daey_stroke', name: 'Playing technique', variants: [
+        { id: 'skor_daey_bare_hands', default: true, name: 'Bare-hand open and slap strokes', descriptors: ['bright-attack', 'crisp'], match_tokens: ['hand-drum', 'khmer'] },
+        { id: 'skor_daey_damped_fingers', name: 'Damped fingertip patterning', descriptors: ['muted', 'dry-tick'], match_tokens: ['hand-drum', 'khmer'] },
+      ] },
+      { id: 'skor_daey_context', surface: false, name: 'Ensemble context', variants: [
+        { id: 'skor_daey_mohori', default: true, name: 'Mohori / phleng kar entertainment ensemble (canonical)', descriptors: ['cyclic', 'timekeeping'], match_tokens: ['khmer', 'ensemble'] },
+        { id: 'skor_daey_ayai', name: 'Ayai repartee-song accompaniment', descriptors: ['sparse', 'responsive'], match_tokens: ['khmer'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kse_diev',
+    name: 'Kse diev (Khmer gourd-resonated monochord stick zither)',
+    family: 'plucked_traditional',
+    class: 'stick_zither',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: 0, register: -1, range: 0, articulation: 1, transduction: -2, dynamics: -2 },
+    short: 'kse diev',
+    parts: [
+      { id: 'kse_diev_resonator', name: 'Resonator', variants: [
+        { id: 'kse_diev_half_gourd', default: true, name: 'Half-gourd resonator pressed against the player\'s chest (canonical)', descriptors: ['hollow', 'breathy-resonance', 'overtone-rich'], match_tokens: ['monochord', 'khmer'] },
+        { id: 'kse_diev_coconut', name: 'Coconut-shell resonator (substitute build)', descriptors: ['tight', 'dry'], match_tokens: ['monochord', 'khmer'] },
+      ] },
+      { id: 'kse_diev_string', name: 'String and touch', variants: [
+        { id: 'kse_diev_brass_harmonics', default: true, name: 'Single brass string sounded in harmonics', descriptors: ['flute-like', 'glassy', 'quiet'], match_tokens: ['monochord', 'harmonics'] },
+        { id: 'kse_diev_stopped', name: 'Stopped fundamental plucking', descriptors: ['nasal', 'plucked-decay'], match_tokens: ['monochord', 'plucked'] },
+      ] },
+      { id: 'kse_diev_context', surface: false, name: 'Performance context', variants: [
+        { id: 'kse_diev_ritual', default: true, name: 'Sacred/ritual solo and ancestral song (canonical)', descriptors: ['meditative', 'rubato'], match_tokens: ['khmer', 'ritual'] },
+        { id: 'kse_diev_courtship', name: 'Courtship serenade', descriptors: ['intimate', 'lyrical'], match_tokens: ['khmer'] },
+      ] },
+    ]
+  },
+  {
+    id: 'angkuoch',
+    name: 'Angkuoch (Khmer bamboo/metal jaw harp)',
+    family: 'plucked_traditional',
+    class: 'jaw_harp',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -1, harmonicity: -1, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: -2 },
+    short: 'angkuoch',
+    parts: [
+      { id: 'angkuoch_material', name: 'Lamella material', variants: [
+        { id: 'angkuoch_bamboo', default: true, name: 'Split bamboo idioglot tongue (canonical village form)', descriptors: ['buzzing-timbre', 'dry', 'soft-attack'], match_tokens: ['jaw-harp', 'khmer'] },
+        { id: 'angkuoch_brass', name: 'Brass/bronze framed tongue', descriptors: ['metallic-twang', 'ringing'], match_tokens: ['jaw-harp', 'khmer'] },
+      ] },
+      { id: 'angkuoch_technique', name: 'Excitation and shaping', variants: [
+        { id: 'angkuoch_cord_pull', default: true, name: 'Cord-jerk excitation with vowel shaping', descriptors: ['pulsing', 'overtone-rich'], match_tokens: ['jaw-harp', 'plucked'] },
+        { id: 'angkuoch_finger_flick', name: 'Direct finger flick', descriptors: ['sharp-attack', 'clipped'], match_tokens: ['jaw-harp', 'plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kempyang',
+    name: 'Kempyang (Javanese small horizontal kettle gong)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 0, polyphony: -2, harmonicity: -1, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'kempyang',
+    parts: [
+      { id: 'kempyang_build', name: 'Kettle build', variants: [
+        { id: 'kempyang_bronze', default: true, name: 'Forged bronze kettle on cord-strung rack (canonical)', descriptors: ['bright-ping', 'bell-like', 'short-decay'], match_tokens: ['kettle-gong', 'javanese'] },
+        { id: 'kempyang_iron', name: 'Iron kettle (village gamelan)', descriptors: ['dull', 'clangy'], match_tokens: ['kettle-gong', 'javanese'] },
+      ] },
+      { id: 'kempyang_tuning', name: 'Tuning system', variants: [
+        { id: 'kempyang_pelog', default: true, name: 'Pelog tuning', descriptors: ['pelog-tuned', 'unequal-intervals'], match_tokens: ['gamelan', 'javanese'] },
+        { id: 'kempyang_slendro', name: 'Slendro tuning (paired with kethuk)', descriptors: ['slendro-tuned', 'even-spaced'], match_tokens: ['gamelan', 'javanese'] },
+      ] },
+      { id: 'kempyang_role', surface: false, name: 'Colotomic role', variants: [
+        { id: 'kempyang_interpunctuating', default: true, name: 'Interpunctuating off-beat marker (canonical)', descriptors: ['marking', 'cyclic'], match_tokens: ['gamelan', 'colotomic'] },
+        { id: 'kempyang_dense_ladrang', name: 'Dense subdivision in fast ladrang', descriptors: ['driving', 'repetitive'], match_tokens: ['gamelan', 'colotomic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'siter',
+    name: 'Siter (Javanese small plucked box zither)',
+    family: 'plucked_traditional',
+    class: 'plucked_box_zither',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'siter',
+    parts: [
+      { id: 'siter_form', name: 'Instrument form', variants: [
+        { id: 'siter_standard_box', default: true, name: 'Small rectangular resonating box, wire strings both faces (canonical)', descriptors: ['bright-attack', 'shimmering', 'fast-decay'], match_tokens: ['box-zither', 'javanese'] },
+        { id: 'siter_penerus', name: 'Siter penerus (smaller, higher, faster)', descriptors: ['high-pitched', 'glittering'], match_tokens: ['box-zither', 'javanese'] },
+        { id: 'siter_slenthem_size', name: 'Large low siter (clempung-sized frame)', descriptors: ['deep-toned', 'resonant'], match_tokens: ['box-zither', 'javanese'] },
+      ] },
+      { id: 'siter_tuning', name: 'Tuning system', variants: [
+        { id: 'siter_slendro', default: true, name: 'Slendro face', descriptors: ['slendro-tuned', 'even-spaced'], match_tokens: ['gamelan', 'javanese'] },
+        { id: 'siter_pelog', name: 'Pelog face', descriptors: ['pelog-tuned', 'unequal-intervals'], match_tokens: ['gamelan', 'javanese'] },
+      ] },
+      { id: 'siter_technique', surface: false, name: 'Playing technique', variants: [
+        { id: 'siter_thumbnail_damped', default: true, name: 'Thumbnail pluck with immediate finger damping (canonical cengkok)', descriptors: ['crisp', 'damped', 'ornamented'], match_tokens: ['plucked', 'gamelan'] },
+        { id: 'siter_undamped', name: 'Ringing undamped strumming', descriptors: ['ringing', 'blurred'], match_tokens: ['plucked', 'gamelan'] },
+      ] },
+    ]
+  },
+  {
+    id: 'celempung',
+    name: 'Celempung (Javanese large plucked box zither on legs)',
+    family: 'plucked_traditional',
+    class: 'plucked_box_zither',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'celempung',
+    parts: [
+      { id: 'celempung_body', name: 'Body build', variants: [
+        { id: 'celempung_trapezoid_legs', default: true, name: 'Trapezoidal resonating box on four legs, 26 wire strings in double courses (canonical)', descriptors: ['resonant', 'shimmering', 'overtone-rich'], match_tokens: ['box-zither', 'javanese'] },
+        { id: 'celempung_lacquered_ornate', name: 'Ornate lacquered kraton build', descriptors: ['warm', 'refined'], match_tokens: ['box-zither', 'javanese'] },
+      ] },
+      { id: 'celempung_tuning', name: 'Tuning system', variants: [
+        { id: 'celempung_pelog', default: true, name: 'Pelog tuning', descriptors: ['pelog-tuned', 'unequal-intervals'], match_tokens: ['gamelan', 'javanese'] },
+        { id: 'celempung_slendro', name: 'Slendro tuning', descriptors: ['slendro-tuned', 'even-spaced'], match_tokens: ['gamelan', 'javanese'] },
+      ] },
+      { id: 'celempung_role', surface: false, name: 'Ensemble role', variants: [
+        { id: 'celempung_klenengan', default: true, name: 'Soft-style klenengan elaboration with gender and rebab (canonical)', descriptors: ['ornamented', 'flowing', 'intimate'], match_tokens: ['gamelan', 'javanese'] },
+        { id: 'celempung_santiswaran', name: 'Santiswaran / vocal accompaniment', descriptors: ['supporting', 'sparse'], match_tokens: ['gamelan', 'javanese'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gambang_bali',
+    name: 'Gambang Bali (Balinese sacred wooden-keyed xylophone)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: -1, polyphony: 1, harmonicity: 0, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'gambang bali',
+    parts: [
+      { id: 'gambang_bali_keys', name: 'Key material', variants: [
+        { id: 'gambang_bali_bamboo_keys', default: true, name: 'Fourteen bamboo keys over a carved wooden trough (canonical gamelan gambang)', descriptors: ['woody', 'dry', 'hollow'], match_tokens: ['xylophone', 'balinese'] },
+        { id: 'gambang_bali_hardwood_keys', name: 'Hardwood (jackfruit) keys', descriptors: ['clear-strike', 'brighter'], match_tokens: ['xylophone', 'balinese'] },
+      ] },
+      { id: 'gambang_bali_mallet', name: 'Mallet', variants: [
+        { id: 'gambang_bali_forked_panggul', default: true, name: 'Paired two-pronged forked panggul (octave kempyung strokes)', descriptors: ['clattering', 'interlocking', 'percussive'], match_tokens: ['xylophone', 'balinese'] },
+        { id: 'gambang_bali_single_mallet', name: 'Single-headed wooden mallets', descriptors: ['clean-attack', 'sparse'], match_tokens: ['xylophone', 'balinese'] },
+      ] },
+      { id: 'gambang_bali_context', surface: false, name: 'Ritual context', variants: [
+        { id: 'gambang_bali_pitra_yadnya', default: true, name: 'Pitra yadnya cremation-rite ensemble (canonical)', descriptors: ['ceremonial', 'archaic', 'cyclic'], match_tokens: ['balinese', 'ritual'] },
+        { id: 'gambang_bali_temple', name: 'Temple odalan performance', descriptors: ['flowing', 'meditative'], match_tokens: ['balinese', 'ritual'] },
+      ] },
+    ]
+  },
+  {
+    id: 'jegogan',
+    name: 'Jegogan (lowest bronze metallophone of the Balinese gong kebyar)',
+    family: 'percussion',
+    class: 'metallophone',
+    axes: { pitchFix: 2, sustain: 2, polyphony: -1, harmonicity: -1, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'jegogan',
+    parts: [
+      { id: 'jegogan_build', name: 'Build', variants: [
+        { id: 'jegogan_bronze_bamboo_resonators', default: true, name: 'Five thick bronze keys over tall bamboo tube resonators, carved frame (canonical)', descriptors: ['deep-toned', 'booming', 'long-decay'], match_tokens: ['metallophone', 'balinese'] },
+        { id: 'jegogan_iron_keys', name: 'Iron keys (village or budget set)', descriptors: ['dull', 'short-bloom'], match_tokens: ['metallophone', 'balinese'] },
+      ] },
+      { id: 'jegogan_mallet', name: 'Mallet', variants: [
+        { id: 'jegogan_padded_disc', default: true, name: 'Large padded disc panggul', descriptors: ['soft-attack', 'round', 'swelling'], match_tokens: ['struck', 'balinese'] },
+        { id: 'jegogan_hard_wood', name: 'Harder wooden panggul', descriptors: ['defined-attack', 'clangy'], match_tokens: ['struck', 'balinese'] },
+      ] },
+      { id: 'jegogan_role', surface: false, name: 'Ensemble role', variants: [
+        { id: 'jegogan_pokok_skeleton', default: true, name: 'Skeletal pokok reinforcement every fourth beat (canonical)', descriptors: ['sparse', 'anchoring', 'sustained'], match_tokens: ['gong-kebyar', 'balinese'] },
+        { id: 'jegogan_paired_ombak', name: 'Paired pengumbang/pengisep beating (ombak shimmer)', descriptors: ['beating-shimmer', 'pulsing'], match_tokens: ['gong-kebyar', 'balinese'] },
+      ] },
+    ]
+  },
+  {
+    id: 'jublag',
+    name: 'Jublag (mid-low Balinese metallophone, calung)',
+    family: 'percussion',
+    class: 'metallophone',
+    axes: { pitchFix: 2, sustain: 1, polyphony: -1, harmonicity: -1, register: -1, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'jublag',
+    parts: [
+      { id: 'jublag_build', name: 'Build', variants: [
+        { id: 'jublag_bronze_calung', default: true, name: 'Five bronze keys over bamboo resonators, one octave above jegogan (canonical)', descriptors: ['warm', 'resonant', 'round'], match_tokens: ['metallophone', 'balinese'] },
+        { id: 'jublag_iron_keys', name: 'Iron-keyed set', descriptors: ['dull', 'dry'], match_tokens: ['metallophone', 'balinese'] },
+      ] },
+      { id: 'jublag_mallet', name: 'Mallet', variants: [
+        { id: 'jublag_padded', default: true, name: 'Padded wooden disc panggul', descriptors: ['soft-attack', 'mellow'], match_tokens: ['struck', 'balinese'] },
+        { id: 'jublag_bare_wood', name: 'Bare wooden panggul', descriptors: ['bright-attack', 'clear-strike'], match_tokens: ['struck', 'balinese'] },
+      ] },
+      { id: 'jublag_role', surface: false, name: 'Ensemble role', variants: [
+        { id: 'jublag_pokok', default: true, name: 'Core pokok melody, damped on each new stroke (canonical)', descriptors: ['steady', 'anchoring', 'damped'], match_tokens: ['gong-kebyar', 'balinese'] },
+        { id: 'jublag_gender_wayang_pairing', name: 'Semar pegulingan soft-style part', descriptors: ['gentle', 'flowing'], match_tokens: ['balinese', 'ensemble'] },
+      ] },
+    ]
+  },
+  {
+    id: 'pemade',
+    name: 'Pemade (mid-register Balinese gangsa metallophone)',
+    family: 'percussion',
+    class: 'metallophone',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 0, harmonicity: -1, register: 1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'pemade',
+    parts: [
+      { id: 'pemade_build', name: 'Build', variants: [
+        { id: 'pemade_bronze_gangsa', default: true, name: 'Ten bronze keys suspended over bamboo resonators (canonical gangsa)', descriptors: ['bright', 'ringing', 'metallic-shimmer'], match_tokens: ['metallophone', 'balinese'] },
+        { id: 'pemade_iron_keys', name: 'Iron-keyed gangsa (angklung/village set)', descriptors: ['dry', 'clangy'], match_tokens: ['metallophone', 'balinese'] },
+      ] },
+      { id: 'pemade_technique', name: 'Playing technique', variants: [
+        { id: 'pemade_kotekan_interlock', default: true, name: 'Kotekan interlocking polos/sangsih with left-hand damping (canonical)', descriptors: ['interlocking', 'crisp', 'driving'], match_tokens: ['gong-kebyar', 'balinese'] },
+        { id: 'pemade_ubit_telu', name: 'Ubit-telu three-note figuration', descriptors: ['rippling', 'dense'], match_tokens: ['gong-kebyar', 'balinese'] },
+        { id: 'pemade_byong_chord', name: 'Byong / undamped struck clusters on kebyar attacks', descriptors: ['clashing', 'sudden-attack', 'loud'], match_tokens: ['gong-kebyar', 'balinese'] },
+      ] },
+      { id: 'pemade_pairing', surface: false, name: 'Tuning pairing', variants: [
+        { id: 'pemade_pengumbang_pengisep', default: true, name: 'Paired pengumbang/pengisep detuning (ombak beating)', descriptors: ['beating-shimmer', 'pulsing'], match_tokens: ['balinese', 'paired-tuning'] },
+        { id: 'pemade_single', name: 'Single unpaired instrument', descriptors: ['clean', 'static'], match_tokens: ['balinese'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kantilan',
+    name: 'Kantilan (highest Balinese gangsa metallophone)',
+    family: 'percussion',
+    class: 'metallophone',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 0, harmonicity: -1, register: 2, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'kantilan',
+    parts: [
+      { id: 'kantilan_build', name: 'Build', variants: [
+        { id: 'kantilan_bronze_octave_above', default: true, name: 'Ten small bronze keys, one octave above pemade (canonical)', descriptors: ['high-pitched', 'glittering', 'piercing'], match_tokens: ['metallophone', 'balinese'] },
+        { id: 'kantilan_iron_keys', name: 'Iron-keyed set', descriptors: ['thin', 'dry'], match_tokens: ['metallophone', 'balinese'] },
+      ] },
+      { id: 'kantilan_technique', name: 'Playing technique', variants: [
+        { id: 'kantilan_kotekan', default: true, name: 'Fast kotekan interlocking with damping (canonical)', descriptors: ['rippling', 'crisp', 'rapid'], match_tokens: ['gong-kebyar', 'balinese'] },
+        { id: 'kantilan_norot', name: 'Norot neighbour-tone figuration', descriptors: ['flowing', 'shimmering'], match_tokens: ['gong-kebyar', 'balinese'] },
+      ] },
+      { id: 'kantilan_pairing', surface: false, name: 'Tuning pairing', variants: [
+        { id: 'kantilan_paired_ombak', default: true, name: 'Paired pengumbang/pengisep detuning', descriptors: ['beating-shimmer', 'pulsing'], match_tokens: ['balinese', 'paired-tuning'] },
+        { id: 'kantilan_single', name: 'Single unpaired instrument', descriptors: ['clean', 'static'], match_tokens: ['balinese'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ugal',
+    name: 'Ugal (Balinese leading gangsa metallophone)',
+    family: 'percussion',
+    class: 'metallophone',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 0, harmonicity: -1, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'ugal',
+    parts: [
+      { id: 'ugal_size', name: 'Size / register', variants: [
+        { id: 'ugal_standard', default: true, name: 'Standard ugal (gong kebyar lead, one octave)', descriptors: ['shimmering', 'bright-attack', 'leading'], match_tokens: ['metallophone', 'balinese'] },
+        { id: 'ugal_jublag_range', name: 'Low ugal (jegogan-range large keys)', descriptors: ['deep-toned', 'booming', 'slow-decay'], match_tokens: ['metallophone', 'low-register'] },
+        { id: 'ugal_semar', name: 'Semar pegulingan ugal (refined court form)', descriptors: ['sweet-toned', 'refined', 'soft-attack'], match_tokens: ['metallophone', 'balinese'] },
+      ] },
+      { id: 'ugal_tuning', name: 'Tuning / paired detuning', variants: [
+        { id: 'ugal_pengumbang', default: true, name: 'Pengumbang–pengisep paired tuning (ombak beating)', descriptors: ['shimmering-beats', 'pulsing', 'inharmonic'], match_tokens: ['paired-tuning', 'balinese'] },
+        { id: 'ugal_unpaired', name: 'Single unpaired instrument', descriptors: ['clean-tone', 'steady'], match_tokens: ['metallophone'] },
+      ] },
+      { id: 'ugal_technique', name: 'Playing technique', variants: [
+        { id: 'ugal_melodic_lead', default: true, name: 'Melodic lead with damping hand (ngugal)', descriptors: ['cuing', 'phrase-shaping', 'damped'], match_tokens: ['metallophone', 'lead-voice'] },
+        { id: 'ugal_kotekan', name: 'Interlocking kotekan figuration', descriptors: ['rapid', 'interlocking', 'brilliant'], match_tokens: ['interlocking', 'balinese'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kempli',
+    name: 'Kempli (Balinese timekeeping knobbed gong)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 1, sustain: -1, polyphony: -2, harmonicity: -1, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'kempli',
+    parts: [
+      { id: 'kempli_form', name: 'Form', variants: [
+        { id: 'kempli_horizontal', default: true, name: 'Horizontal knobbed kempli on rack', descriptors: ['dry-thud', 'damped', 'metallic-click'], match_tokens: ['knobbed-gong', 'balinese'] },
+        { id: 'kempli_kajar_style', name: 'Kempli held on lap, damped by hand', descriptors: ['choked', 'tight', 'pulse-keeping'], match_tokens: ['knobbed-gong', 'timekeeping'] },
+      ] },
+      { id: 'kempli_beater', name: 'Beater', variants: [
+        { id: 'kempli_wood_mallet', default: true, name: 'Hard wooden mallet', descriptors: ['bright-attack', 'clicky'], match_tokens: ['struck', 'knobbed-gong'] },
+        { id: 'kempli_padded', name: 'Cloth-padded beater', descriptors: ['rounded', 'mellow'], match_tokens: ['struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kajar',
+    name: 'Kajar (Balinese damped pulse gong)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: 1, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'kajar',
+    parts: [
+      { id: 'kajar_form', name: 'Regional form', variants: [
+        { id: 'kajar_kebyar', default: true, name: 'Gong kebyar kajar (damped hand-held)', descriptors: ['choked', 'dry', 'pulse-keeping'], match_tokens: ['knobbed-gong', 'balinese'] },
+        { id: 'kajar_angklung', name: 'Gamelan angklung kajar (small, ringing)', descriptors: ['ringing', 'bright', 'light'], match_tokens: ['knobbed-gong', 'processional'] },
+        { id: 'kajar_gong_gede', name: 'Gong gede kajar (large ceremonial)', descriptors: ['deep-toned', 'resonant', 'stately'], match_tokens: ['knobbed-gong', 'ceremonial'] },
+      ] },
+      { id: 'kajar_technique', name: 'Damping technique', variants: [
+        { id: 'kajar_damped', default: true, name: 'Fully damped on boss (kajar mati)', descriptors: ['choked', 'percussive', 'dry'], match_tokens: ['damped', 'timekeeping'] },
+        { id: 'kajar_open', name: 'Open ringing strokes', descriptors: ['ringing', 'sustained', 'metallic'], match_tokens: ['struck', 'knobbed-gong'] },
+      ] },
+    ]
+  },
+  {
+    id: 'selonding',
+    name: 'Selonding (Balinese sacred iron-keyed metallophone)',
+    family: 'percussion',
+    class: 'metallophone',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 0, harmonicity: -1, register: -1, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'selonding',
+    parts: [
+      { id: 'selonding_form', name: 'Village form', variants: [
+        { id: 'selonding_tenganan', default: true, name: 'Tenganan Pegringsingan selonding (Bali Aga sacred set)', descriptors: ['archaic', 'dark-toned', 'sacred'], match_tokens: ['iron-keyed', 'bali-aga'] },
+        { id: 'selonding_bugbug', name: 'Bugbug / Asak village selonding', descriptors: ['austere', 'ritual', 'muted'], match_tokens: ['iron-keyed', 'balinese'] },
+        { id: 'selonding_wayang', name: 'Selonding wayang (theater quartet form)', descriptors: ['intimate', 'shimmering', 'narrative'], match_tokens: ['iron-keyed', 'wayang'] },
+      ] },
+      { id: 'selonding_keys', name: 'Key material', variants: [
+        { id: 'selonding_iron', default: true, name: 'Forged iron keys (traditional)', descriptors: ['dark-toned', 'clangorous', 'inharmonic'], match_tokens: ['iron-keyed', 'archaic'] },
+        { id: 'selonding_bronze', name: 'Bronze keys (rare modern set)', descriptors: ['bright', 'ringing', 'sweet-toned'], match_tokens: ['bronze-keyed', 'metallophone'] },
+      ] },
+      { id: 'selonding_tuning', name: 'Tuning system', variants: [
+        { id: 'selonding_pelog_seven', default: true, name: 'Seven-tone pelog (saih pitu)', descriptors: ['archaic-tuning', 'modal'], match_tokens: ['pelog', 'balinese'] },
+        { id: 'selonding_selisir', name: 'Five-tone selisir subset', descriptors: ['pentatonic', 'bright'], match_tokens: ['pelog', 'balinese'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gamelan_gong_kebyar',
+    name: 'Gamelan gong kebyar (Balinese virtuoso bronze orchestra)',
+    family: 'ensemble',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 2, harmonicity: -1, register: 0, range: 2, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'gong kebyar',
+    parts: [
+      { id: 'gk_repertoire', name: 'Repertoire', variants: [
+        { id: 'gk_kebyar_instrumental', default: true, name: 'Kebyar instrumental (tabuh kreasi)', descriptors: ['explosive', 'virtuosic', 'sudden-attack'], match_tokens: ['gamelan', 'balinese'] },
+        { id: 'gk_dance', name: 'Dance accompaniment (legong, kebyar duduk)', descriptors: ['cuing', 'angular', 'dramatic'], match_tokens: ['gamelan', 'dance-rhythm'] },
+        { id: 'gk_lelambatan', name: 'Lelambatan ceremonial (slow, stately)', descriptors: ['stately', 'broad', 'ceremonial'], match_tokens: ['gamelan', 'ceremonial'] },
+      ] },
+      { id: 'gk_texture', name: 'Texture / technique', variants: [
+        { id: 'gk_kotekan', default: true, name: 'Kotekan interlocking (polos–sangsih)', descriptors: ['interlocking', 'rapid', 'shimmering'], match_tokens: ['interlocking', 'gamelan'] },
+        { id: 'gk_unison_kebyar', name: 'Unison kebyar bursts', descriptors: ['explosive', 'abrupt', 'unison'], match_tokens: ['gamelan', 'sudden-attack'] },
+        { id: 'gk_gineman', name: 'Free gineman prelude (trompong / ugal solo)', descriptors: ['rubato', 'sparse', 'meditative'], match_tokens: ['gamelan', 'free-rhythm'] },
+      ] },
+      { id: 'gk_ensemble_size', surface: false, name: 'Ensemble size', variants: [
+        { id: 'gk_full', default: true, name: 'Full 25–30 player barungan', descriptors: ['massive', 'dense', 'loud'], match_tokens: ['gamelan', 'ensemble'] },
+        { id: 'gk_reduced', name: 'Reduced touring set', descriptors: ['transparent', 'lean'], match_tokens: ['gamelan', 'ensemble'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gandingan',
+    name: 'Gandingan (Maguindanao set of four hanging talking gongs)',
+    family: 'percussion',
+    class: 'tuned_idiophone',
+    axes: { pitchFix: 1, sustain: 2, polyphony: 0, harmonicity: -1, register: -1, range: 0, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'gandingan',
+    parts: [
+      { id: 'gandingan_role', name: 'Playing role', variants: [
+        { id: 'gandingan_ensemble', default: true, name: 'Kulintang ensemble accompaniment', descriptors: ['deep-toned', 'undulating', 'supporting'], match_tokens: ['hanging-gongs', 'maguindanao'] },
+        { id: 'gandingan_apad', name: 'Gandingan a apad (speech-imitating solo)', descriptors: ['speech-like', 'conversational', 'expressive'], match_tokens: ['talking-gong', 'maranao'] },
+      ] },
+      { id: 'gandingan_beater', name: 'Beater', variants: [
+        { id: 'gandingan_rubber_balls', default: true, name: 'Soft rubber-tipped balls (balus)', descriptors: ['rounded', 'booming', 'warm'], match_tokens: ['struck', 'hanging-gongs'] },
+        { id: 'gandingan_wrapped_wood', name: 'Cloth-wrapped wooden mallets', descriptors: ['firmer-attack', 'clangorous'], match_tokens: ['struck', 'hanging-gongs'] },
+      ] },
+      { id: 'gandingan_metal', surface: false, name: 'Gong metal', variants: [
+        { id: 'gandingan_bronze', default: true, name: 'Cast bronze gongs', descriptors: ['rich', 'long-decay', 'shimmering'], match_tokens: ['bronze', 'gong'] },
+        { id: 'gandingan_brass', name: 'Brass gongs (common modern)', descriptors: ['brighter', 'thinner', 'metallic'], match_tokens: ['brass', 'gong'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dabakan',
+    name: 'Dabakan (Maguindanao goblet drum of the kulintang ensemble)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'dabakan',
+    parts: [
+      { id: 'dabakan_head', name: 'Drumhead skin', variants: [
+        { id: 'dabakan_lizard', default: true, name: 'Bayawak (monitor lizard) skin head', descriptors: ['crisp', 'dry-crack', 'papery'], match_tokens: ['goblet-drum', 'maguindanao'] },
+        { id: 'dabakan_goat', name: 'Goatskin head', descriptors: ['warmer', 'fuller', 'rounded'], match_tokens: ['goblet-drum', 'skin-head'] },
+        { id: 'dabakan_synthetic', name: 'Synthetic head (modern)', descriptors: ['bright', 'consistent', 'tight'], match_tokens: ['goblet-drum', 'modern'] },
+      ] },
+      { id: 'dabakan_technique', name: 'Playing technique', variants: [
+        { id: 'dabakan_sticks', default: true, name: 'Struck with two thin bamboo/rattan sticks', descriptors: ['sharp-attack', 'rattling', 'driving'], match_tokens: ['stick-struck', 'kulintang'] },
+        { id: 'dabakan_hand', name: 'Hand-struck strokes', descriptors: ['softer', 'muted', 'fleshy'], match_tokens: ['hand-struck', 'goblet-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kubing',
+    name: 'Kubing (Philippine bamboo jaw harp)',
+    family: 'plucked_traditional',
+    class: 'jaw_harp',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -1, harmonicity: -1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -2 },
+    short: 'kubing',
+    parts: [
+      { id: 'kubing_form', name: 'Regional form', variants: [
+        { id: 'kubing_maguindanao', default: true, name: 'Maguindanao/Maranao kubing (bamboo lamella)', descriptors: ['buzzing-timbre', 'breathy-overtones', 'intimate'], match_tokens: ['jaw-harp', 'philippines'] },
+        { id: 'kubing_kulaing', name: 'Kulaing / kollibaw (Tiruray form)', descriptors: ['nasal', 'twanging', 'soft'], match_tokens: ['jaw-harp', 'mindanao'] },
+        { id: 'kubing_metal', name: 'Metal-tongued variant (aru-ding style)', descriptors: ['brighter', 'ringing', 'metallic-buzz'], match_tokens: ['jaw-harp', 'metal-lamella'] },
+      ] },
+      { id: 'kubing_technique', name: 'Excitation technique', variants: [
+        { id: 'kubing_string_pull', default: true, name: 'String-pulled lamella', descriptors: ['rhythmic-pulses', 'supple'], match_tokens: ['jaw-harp', 'plucked'] },
+        { id: 'kubing_finger_struck', name: 'Finger-struck frame', descriptors: ['sharper-attack', 'percussive'], match_tokens: ['jaw-harp', 'plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tongali',
+    name: 'Tongali (Kalinga nose flute)',
+    family: 'wind',
+    class: 'nose_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: -1, transduction: -2, dynamics: -2 },
+    short: 'tongali',
+    parts: [
+      { id: 'tongali_size', name: 'Tube size / register', variants: [
+        { id: 'tongali_standard', default: true, name: 'Standard four-hole bamboo tongali', descriptors: ['breathy', 'airy', 'soft-attack'], match_tokens: ['nose-flute', 'kalinga'] },
+        { id: 'tongali_long', name: 'Long large-bore tongali', descriptors: ['low-toned', 'hollow', 'wide-breath'], match_tokens: ['nose-flute', 'low-register'] },
+        { id: 'tongali_short', name: 'Short small-bore tongali', descriptors: ['high-pitched', 'thin', 'whistling'], match_tokens: ['nose-flute', 'bright-tone'] },
+      ] },
+      { id: 'tongali_context', name: 'Playing context', variants: [
+        { id: 'tongali_courtship', default: true, name: 'Courtship / evening serenade', descriptors: ['intimate', 'lyrical', 'breathy'], match_tokens: ['nose-flute', 'solo'] },
+        { id: 'tongali_ritual', name: 'Rice-ritual playing', descriptors: ['meditative', 'sparse', 'ceremonial'], match_tokens: ['nose-flute', 'ritual'] },
+      ] },
+    ]
+  },
+  {
+    id: 'diwdiw_as',
+    name: 'Diwdiw-as (Kalinga bamboo panpipe)',
+    family: 'wind',
+    class: 'raft_panpipe',
+    axes: { pitchFix: 1, sustain: 0, polyphony: -1, harmonicity: 1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'diwdiw-as',
+    parts: [
+      { id: 'diwdiw_as_pipes', name: 'Pipe count', variants: [
+        { id: 'diwdiw_as_five', default: true, name: 'Five-pipe raft (standard)', descriptors: ['breathy', 'airy', 'fluttering'], match_tokens: ['panpipe', 'kalinga'] },
+        { id: 'diwdiw_as_six', name: 'Six or seven pipe set', descriptors: ['wider-range', 'bright', 'whistling'], match_tokens: ['panpipe', 'philippines'] },
+      ] },
+      { id: 'diwdiw_as_technique', name: 'Playing technique', variants: [
+        { id: 'diwdiw_as_sweep', default: true, name: 'Sweeping across pipe mouths', descriptors: ['gliding', 'breathy-attack'], match_tokens: ['panpipe', 'blown'] },
+        { id: 'diwdiw_as_single', name: 'Single-pipe melodic blowing', descriptors: ['focused', 'pure-toned', 'soft'], match_tokens: ['panpipe', 'blown'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gabbang',
+    name: 'Gabbang (Sama-Tausug bamboo xylophone)',
+    family: 'percussion',
+    class: 'bamboo_xylophone',
+    axes: { pitchFix: 1, sustain: -1, polyphony: 0, harmonicity: -1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'gabbang',
+    parts: [
+      { id: 'gabbang_form', name: 'Regional form', variants: [
+        { id: 'gabbang_tausug', default: true, name: 'Tausug gabbang (Sulu, song accompaniment)', descriptors: ['dry', 'woody', 'rippling'], match_tokens: ['bamboo-xylophone', 'sulu'] },
+        { id: 'gabbang_sama', name: 'Sama/Badjao gabbang', descriptors: ['light', 'clattering', 'dance-driving'], match_tokens: ['bamboo-xylophone', 'sama'] },
+        { id: 'gabbang_yakan', name: 'Yakan gabbang (Basilan)', descriptors: ['hollow', 'resonant', 'lilting'], match_tokens: ['bamboo-xylophone', 'yakan'] },
+      ] },
+      { id: 'gabbang_keys', name: 'Key count / range', variants: [
+        { id: 'gabbang_sixteen', default: true, name: 'Fourteen–seventeen bamboo slabs', descriptors: ['wide-range', 'rippling'], match_tokens: ['bamboo-xylophone', 'struck'] },
+        { id: 'gabbang_small', name: 'Small five–nine slab gabbang', descriptors: ['narrow-range', 'compact', 'dry'], match_tokens: ['bamboo-xylophone', 'struck'] },
+      ] },
+      { id: 'gabbang_mallets', surface: false, name: 'Mallets', variants: [
+        { id: 'gabbang_bare_wood', default: true, name: 'Bare wooden beaters', descriptors: ['clicky', 'bright-attack'], match_tokens: ['struck', 'woody'] },
+        { id: 'gabbang_padded', name: 'Rubber/cloth-tipped beaters', descriptors: ['mellow', 'rounded'], match_tokens: ['struck', 'woody'] },
+      ] },
+    ]
+  },
+  {
+    id: 'laud_filipino',
+    name: 'Laúd (Philippine rondalla lead lute)',
+    family: 'acoustic_strings',
+    class: 'plucked_string_lead',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'laud',
+    parts: [
+      { id: 'laud_role', name: 'Playing role', variants: [
+        { id: 'laud_lead_tremolo', default: true, name: 'Lead melody with plectrum tremolo', descriptors: ['shimmering-tremolo', 'singing', 'bright-attack'], match_tokens: ['rondalla', 'plectrum'] },
+        { id: 'laud_countermelody', name: 'Countermelody / obbligato line', descriptors: ['weaving', 'agile', 'mid-register'], match_tokens: ['rondalla', 'plucked'] },
+        { id: 'laud_bass_figuration', name: 'Low-register figuration doubling bajo', descriptors: ['deep-toned', 'punchy', 'supporting'], match_tokens: ['rondalla', 'low-register'] },
+      ] },
+      { id: 'laud_strings', surface: false, name: 'String material', variants: [
+        { id: 'laud_steel', default: true, name: 'Steel strings (standard 14-string courses)', descriptors: ['bright', 'ringing', 'metallic'], match_tokens: ['rondalla', 'steel-strung'] },
+        { id: 'laud_nylon_wound', name: 'Nylon-core wound strings', descriptors: ['warm', 'mellow', 'soft-attack'], match_tokens: ['rondalla', 'plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'octavina_filipino',
+    name: 'Octavina (Philippine rondalla guitar-shaped lute)',
+    family: 'acoustic_strings',
+    class: 'plucked_string_rhythm',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 1, harmonicity: 1, register: -1, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'octavina',
+    parts: [
+      { id: 'octavina_role', name: 'Playing role', variants: [
+        { id: 'octavina_harmony', default: true, name: 'Inner harmony / arpeggiated accompaniment', descriptors: ['warm', 'filling', 'rounded'], match_tokens: ['rondalla', 'plucked'] },
+        { id: 'octavina_tremolo_melody', name: 'Tremolo melodic doubling', descriptors: ['shimmering-tremolo', 'singing'], match_tokens: ['rondalla', 'plectrum'] },
+        { id: 'octavina_rasgueado', name: 'Strummed chordal rhythm', descriptors: ['strummed', 'driving', 'percussive'], match_tokens: ['rondalla', 'strummed'] },
+      ] },
+      { id: 'octavina_body', surface: false, name: 'Body build', variants: [
+        { id: 'octavina_guitar_shape', default: true, name: 'Guitar-shaped flat-back body', descriptors: ['woody', 'warm', 'resonant'], match_tokens: ['rondalla', 'plucked'] },
+        { id: 'octavina_deep_body', name: 'Deep-bodied luthier build', descriptors: ['fuller', 'darker', 'projecting'], match_tokens: ['rondalla', 'plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kutiyapi',
+    name: 'Kutiyapi (Philippine two-string boat lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_boat_lute',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -1, harmonicity: 0, register: -1, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'kutiyapi',
+    parts: [
+      { id: 'kutiyapi_form', name: 'Regional form', variants: [
+        { id: 'kutiyapi_maguindanao', default: true, name: 'Maguindanao kutiyapi (long carved boat lute)', descriptors: ['droning', 'nasal', 'hypnotic'], match_tokens: ['boat-lute', 'mindanao'] },
+        { id: 'kutiyapi_kudyapi_tboli', name: 'T\'boli hegelung', descriptors: ['delicate', 'buzzing-timbre', 'ornamented'], match_tokens: ['boat-lute', 'tboli'] },
+        { id: 'kutiyapi_manobo', name: 'Manobo kudyapi', descriptors: ['earthy', 'rhythmic', 'drone-heavy'], match_tokens: ['boat-lute', 'manobo'] },
+        { id: 'kutiyapi_kudlong', name: 'Bagobo kudlong', descriptors: ['archaic', 'dry', 'narrow-toned'], match_tokens: ['boat-lute', 'bagobo'] },
+      ] },
+      { id: 'kutiyapi_strings', name: 'String material', variants: [
+        { id: 'kutiyapi_abaca', default: true, name: 'Abaca fiber strings (traditional)', descriptors: ['muted', 'thumpy', 'archaic'], match_tokens: ['boat-lute', 'fiber-strung'] },
+        { id: 'kutiyapi_wire', name: 'Wire / nylon strings (modern)', descriptors: ['bright', 'ringing', 'sustaining'], match_tokens: ['boat-lute', 'modern'] },
+      ] },
+      { id: 'kutiyapi_technique', surface: false, name: 'Playing technique', variants: [
+        { id: 'kutiyapi_drone_melody', default: true, name: 'Fretted melody string over open drone', descriptors: ['drone-foundation', 'modal', 'hypnotic'], match_tokens: ['boat-lute', 'drone-foundation'] },
+        { id: 'kutiyapi_kulintang_imitation', name: 'Kulintang-imitating figuration', descriptors: ['rippling', 'gong-like', 'rhythmic'], match_tokens: ['boat-lute', 'plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sarunay',
+    name: 'Sarunay (Philippine small metal-keyed kulintang saronay)',
+    family: 'percussion',
+    class: 'metallophone',
+    axes: { pitchFix: 1, sustain: 0, polyphony: -1, harmonicity: -1, register: 1, range: 0, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'sarunay',
+    parts: [
+      { id: 'sarunay_keys', name: 'Key material', variants: [
+        { id: 'sarunay_brass', default: true, name: 'Brass plate keys in wooden box', descriptors: ['bright', 'clangy', 'short-decay'], match_tokens: ['metallophone', 'maranao'] },
+        { id: 'sarunay_tin', name: 'Tin / sheet-metal keys (folk build)', descriptors: ['thin', 'tinny', 'buzzing-timbre'], match_tokens: ['metallophone', 'philippines'] },
+        { id: 'sarunay_bronze', name: 'Bronze keys (finer build)', descriptors: ['rounder', 'ringing', 'sweeter'], match_tokens: ['metallophone', 'philippines'] },
+      ] },
+      { id: 'sarunay_role', name: 'Playing role', variants: [
+        { id: 'sarunay_kulintang_substitute', default: true, name: 'Portable kulintang substitute (melodic lead)', descriptors: ['gong-like', 'rippling', 'leading'], match_tokens: ['kulintang', 'struck'] },
+        { id: 'sarunay_teaching', name: 'Teaching / practice instrument', descriptors: ['light', 'simple', 'dry'], match_tokens: ['metallophone', 'struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'serunai_shawm',
+    name: 'Serunai (Malay double-reed shawm)',
+    family: 'wind',
+    class: 'double_reed_shawm',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 0, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'serunai',
+    parts: [
+      { id: 'serunai_form', name: 'Regional form', variants: [
+        { id: 'serunai_kelantan', default: true, name: 'Kelantan serunai (wayang kulit / mak yong)', descriptors: ['piercing', 'nasal-timbre', 'ornamented'], match_tokens: ['double-reed', 'shawm', 'malay'] },
+        { id: 'serunai_minang', name: 'Minangkabau sarunai (Sumatran)', descriptors: ['reedy', 'plaintive', 'circular-breathed'], match_tokens: ['double-reed', 'sumatra'] },
+        { id: 'serunai_silat', name: 'Serunai for silat / gendang keling', descriptors: ['strident', 'driving', 'outdoor'], match_tokens: ['double-reed', 'processional'] },
+      ] },
+      { id: 'serunai_bell', surface: false, name: 'Bell material', variants: [
+        { id: 'serunai_bell_wood', default: true, name: 'Carved hardwood flared bell', descriptors: ['warm-edged', 'woody'], match_tokens: ['double-reed'] },
+        { id: 'serunai_bell_metal', name: 'Metal bell', descriptors: ['brassy', 'cutting'], match_tokens: ['double-reed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gendang_melayu',
+    name: 'Gendang Melayu (Malay double-headed barrel drum)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'gendang melayu',
+    parts: [
+      { id: 'gendang_melayu_role', name: 'Ensemble role', variants: [
+        { id: 'gendang_melayu_ibu', default: true, name: 'Gendang ibu (mother drum, lead)', descriptors: ['deep-toned', 'authoritative'], match_tokens: ['double-headed-drum', 'malay'] },
+        { id: 'gendang_melayu_anak', name: 'Gendang anak (child drum, interlocking)', descriptors: ['bright-attack', 'interlocking'], match_tokens: ['double-headed-drum', 'interlocking'] },
+      ] },
+      { id: 'gendang_melayu_stroke', name: 'Playing technique', variants: [
+        { id: 'gendang_melayu_hands', default: true, name: 'Bare-hand strokes', descriptors: ['snappy', 'hand-muted'], match_tokens: ['hand-drum'] },
+        { id: 'gendang_melayu_stick', name: 'Stick on one head', descriptors: ['sharp-crack', 'projecting'], match_tokens: ['stick-struck'] },
+      ] },
+      { id: 'gendang_melayu_head', surface: false, name: 'Head skin', variants: [
+        { id: 'gendang_melayu_goat', default: true, name: 'Goatskin heads', descriptors: ['warm', 'resonant'], match_tokens: ['double-headed-drum'] },
+        { id: 'gendang_melayu_buffalo', name: 'Buffalo hide head', descriptors: ['thick-toned', 'booming'], match_tokens: ['double-headed-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'rebana_ubi',
+    name: 'Rebana Ubi (large Malay signal frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -2, harmonicity: -2, register: -2, range: -1, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'rebana ubi',
+    parts: [
+      { id: 'rebana_ubi_size', name: 'Drum size', variants: [
+        { id: 'rebana_ubi_giant', default: true, name: 'Giant ceremonial rebana ubi', descriptors: ['booming', 'thunderous', 'deep-toned'], match_tokens: ['frame-drum', 'kelantan'] },
+        { id: 'rebana_ubi_medium', name: 'Medium competition drum', descriptors: ['punchy', 'full-bodied'], match_tokens: ['frame-drum', 'malay'] },
+      ] },
+      { id: 'rebana_ubi_style', name: 'Playing style', variants: [
+        { id: 'rebana_ubi_ensemble', default: true, name: 'Interlocking ensemble beating', descriptors: ['interlocking', 'driving'], match_tokens: ['frame-drum', 'ensemble-rhythm'] },
+        { id: 'rebana_ubi_signal', name: 'Long-distance signalling strokes', descriptors: ['sparse', 'resounding'], match_tokens: ['frame-drum', 'signal-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kompang_frame_drum',
+    name: 'Kompang (Malay hand-held frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'kompang',
+    parts: [
+      { id: 'kompang_stroke', name: 'Stroke type', variants: [
+        { id: 'kompang_bung', default: true, name: 'Bung (open low stroke)', descriptors: ['open-toned', 'round'], match_tokens: ['frame-drum', 'malay'] },
+        { id: 'kompang_pak', name: 'Pak (slap edge stroke)', descriptors: ['sharp-slap', 'cracking'], match_tokens: ['frame-drum', 'slap'] },
+        { id: 'kompang_melalu', name: 'Melalu / interlocking group pattern', descriptors: ['interlocking', 'processional'], match_tokens: ['frame-drum', 'procession'] },
+      ] },
+      { id: 'kompang_size', surface: false, name: 'Frame size', variants: [
+        { id: 'kompang_standard', default: true, name: 'Standard 12-inch frame', descriptors: ['bright', 'tight'], match_tokens: ['frame-drum'] },
+        { id: 'kompang_large', name: 'Large frame (lower pitch)', descriptors: ['deeper', 'fuller'], match_tokens: ['frame-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'canang_kettle_gong',
+    name: 'Canang (Malay/Acehnese small kettle gongs)',
+    family: 'percussion',
+    class: 'tuned_idiophone',
+    axes: { pitchFix: 1, sustain: 1, polyphony: -1, harmonicity: -1, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'canang',
+    parts: [
+      { id: 'canang_form', name: 'Regional form', variants: [
+        { id: 'canang_malay_pair', default: true, name: 'Malay canang pair on rack', descriptors: ['ringing', 'colotomic', 'metallic'], match_tokens: ['kettle-gong', 'malay'] },
+        { id: 'canang_aceh', name: 'Acehnese canang (single hand-held kettle)', descriptors: ['clangorous', 'insistent'], match_tokens: ['kettle-gong', 'aceh'] },
+        { id: 'canang_kayu', name: 'Canang kayu (wooden slat form)', descriptors: ['dry-toned', 'clacking'], match_tokens: ['struck-idiophone'] },
+      ] },
+      { id: 'canang_beater', surface: false, name: 'Beater', variants: [
+        { id: 'canang_padded', default: true, name: 'Padded stick', descriptors: ['warm-attack', 'sustained'], match_tokens: ['kettle-gong'] },
+        { id: 'canang_bare_wood', name: 'Bare wooden stick', descriptors: ['bright-attack', 'clanging'], match_tokens: ['kettle-gong'] },
+      ] },
+    ]
+  },
+  {
+    id: 'geduk_drum',
+    name: 'Geduk (Kelantan barrel drum struck with sticks)',
+    family: 'percussion',
+    class: 'barrel_drum',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'geduk',
+    parts: [
+      { id: 'geduk_pair', name: 'Drum of the pair', variants: [
+        { id: 'geduk_ibu', default: true, name: 'Geduk ibu (larger, lower)', descriptors: ['deep-toned', 'thudding'], match_tokens: ['barrel-drum', 'kelantan'] },
+        { id: 'geduk_anak', name: 'Geduk anak (smaller, higher)', descriptors: ['sharp-crack', 'bright'], match_tokens: ['barrel-drum', 'interlocking'] },
+      ] },
+      { id: 'geduk_context', name: 'Performance context', variants: [
+        { id: 'geduk_wayang', default: true, name: 'Wayang kulit accompaniment', descriptors: ['punctuating', 'dramatic'], match_tokens: ['shadow-play', 'struck'] },
+        { id: 'geduk_silat', name: 'Silat / martial display', descriptors: ['driving', 'martial'], match_tokens: ['struck', 'procession'] },
+      ] },
+    ]
+  },
+  {
+    id: 'nafiri_trumpet',
+    name: 'Nafiri (Malay court long natural trumpet)',
+    family: 'wind',
+    class: 'natural_trumpet',
+    axes: { pitchFix: 1, sustain: 2, polyphony: -2, harmonicity: 2, register: 0, range: -1, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'nafiri',
+    parts: [
+      { id: 'nafiri_form', name: 'Instrument form', variants: [
+        { id: 'nafiri_straight', default: true, name: 'Straight silver court nafiri (nobat)', descriptors: ['regal', 'overtone-based', 'sustained'], match_tokens: ['natural-trumpet', 'nobat'] },
+        { id: 'nafiri_short', name: 'Shorter brass nafiri', descriptors: ['brassy', 'brighter'], match_tokens: ['natural-trumpet', 'malay'] },
+      ] },
+      { id: 'nafiri_style', name: 'Playing style', variants: [
+        { id: 'nafiri_ceremonial', default: true, name: 'Ceremonial sustained calls', descriptors: ['solemn', 'long-tones'], match_tokens: ['ceremonial', 'drone-foundation'] },
+        { id: 'nafiri_signal', name: 'Signal fanfare bursts', descriptors: ['declamatory', 'piercing'], match_tokens: ['fanfare', 'natural-trumpet'] },
+      ] },
+    ]
+  },
+  {
+    id: 'engkerurai',
+    name: 'Engkerurai (Iban gourd mouth organ)',
+    family: 'free_reed',
+    class: 'free_reed',
+    axes: { pitchFix: 1, sustain: 2, polyphony: 2, harmonicity: 1, register: 0, range: 0, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'engkerurai',
+    parts: [
+      { id: 'engkerurai_pipes', name: 'Pipe configuration', variants: [
+        { id: 'engkerurai_six', default: true, name: 'Six-pipe gourd mouth organ', descriptors: ['droning', 'reedy', 'chordal'], match_tokens: ['mouth-organ', 'borneo'] },
+        { id: 'engkerurai_four', name: 'Four-pipe smaller form', descriptors: ['thin-toned', 'intimate'], match_tokens: ['mouth-organ', 'iban'] },
+      ] },
+      { id: 'engkerurai_style', name: 'Playing style', variants: [
+        { id: 'engkerurai_dance', default: true, name: 'Longhouse dance accompaniment', descriptors: ['pulsing', 'drone-and-melody'], match_tokens: ['free-reed', 'dance-rhythm'] },
+        { id: 'engkerurai_solo', name: 'Solo meditative playing', descriptors: ['breathy', 'continuous'], match_tokens: ['free-reed', 'sustained'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tawak_gong',
+    name: 'Tawak (Bornean large hanging bossed gong)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 0, sustain: 2, polyphony: -2, harmonicity: -2, register: -2, range: -2, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'tawak',
+    parts: [
+      { id: 'tawak_size', name: 'Gong size', variants: [
+        { id: 'tawak_large', default: true, name: 'Large deep-rimmed tawak', descriptors: ['booming', 'long-decay', 'shimmering'], match_tokens: ['hanging-gong', 'borneo'] },
+        { id: 'tawak_medium', name: 'Medium tawak / bebendai', descriptors: ['clangorous', 'mid-toned'], match_tokens: ['hanging-gong', 'sarawak'] },
+      ] },
+      { id: 'tawak_beater', surface: false, name: 'Beater', variants: [
+        { id: 'tawak_padded', default: true, name: 'Cloth-padded mallet', descriptors: ['soft-attack', 'swelling'], match_tokens: ['gong'] },
+        { id: 'tawak_hard', name: 'Hard wooden beater', descriptors: ['crashing', 'bright-attack'], match_tokens: ['gong'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tagunggak',
+    name: 'Tagunggak (Sabah bamboo stamping tubes)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: 0, sustain: -2, polyphony: -1, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'tagunggak',
+    parts: [
+      { id: 'tagunggak_set', name: 'Set position', variants: [
+        { id: 'tagunggak_low', default: true, name: 'Long low tubes (bass line)', descriptors: ['hollow', 'deep-thud'], match_tokens: ['bamboo', 'stamping-tubes'] },
+        { id: 'tagunggak_high', name: 'Short high tubes', descriptors: ['clacking', 'bright'], match_tokens: ['bamboo', 'interlocking'] },
+      ] },
+      { id: 'tagunggak_technique', name: 'Technique', variants: [
+        { id: 'tagunggak_struck', default: true, name: 'Struck with wooden stick while walking', descriptors: ['processional', 'interlocking'], match_tokens: ['bamboo', 'procession'] },
+        { id: 'tagunggak_stamped', name: 'Stamped on the ground', descriptors: ['thumping', 'earthy'], match_tokens: ['stamping-tubes'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sundatang',
+    name: 'Sundatang (Kadazan-Dusun two-string boat lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_boat_lute',
+    axes: { pitchFix: 0, sustain: 0, polyphony: 0, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'sundatang',
+    parts: [
+      { id: 'sundatang_form', name: 'Regional form', variants: [
+        { id: 'sundatang_rungus', default: true, name: 'Rungus sundatang (fretted, two strings)', descriptors: ['dry-toned', 'drone-and-melody'], match_tokens: ['boat-lute', 'sabah'] },
+        { id: 'sundatang_kadazan', name: 'Kadazan gagayan-style sundatang', descriptors: ['mellow', 'lyrical'], match_tokens: ['plucked-lute', 'borneo'] },
+      ] },
+      { id: 'sundatang_strings', surface: false, name: 'String material', variants: [
+        { id: 'sundatang_wire', default: true, name: 'Brass wire strings', descriptors: ['twangy', 'ringing'], match_tokens: ['plucked'] },
+        { id: 'sundatang_fibre', name: 'Plant-fibre strings', descriptors: ['muted', 'soft-toned'], match_tokens: ['plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'komabue',
+    name: 'Komabue (Japanese gagaku komagaku transverse flute)',
+    family: 'wind',
+    class: 'transverse_flute',
+    axes: { pitchFix: 1, sustain: 1, polyphony: -2, harmonicity: 1, register: 2, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'komabue',
+    parts: [
+      { id: 'komabue_style', name: 'Playing style', variants: [
+        { id: 'komabue_komagaku', default: true, name: 'Komagaku ensemble melody', descriptors: ['high-pitched', 'ceremonial', 'ornamented'], match_tokens: ['gagaku', 'transverse-flute'] },
+        { id: 'komabue_solo', name: 'Solo netori prelude', descriptors: ['breathy', 'free-rhythm'], match_tokens: ['gagaku', 'rubato'] },
+      ] },
+      { id: 'komabue_bore', surface: false, name: 'Bamboo and lacquer', variants: [
+        { id: 'komabue_lacquered', default: true, name: 'Cherry-bark bound lacquered bamboo', descriptors: ['focused', 'bright'], match_tokens: ['transverse-flute'] },
+        { id: 'komabue_plain', name: 'Plain aged bamboo', descriptors: ['airy', 'soft-edged'], match_tokens: ['transverse-flute'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kagurabue',
+    name: 'Kagurabue (Japanese mikagura ritual transverse flute)',
+    family: 'wind',
+    class: 'transverse_flute',
+    axes: { pitchFix: 1, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'kagurabue',
+    parts: [
+      { id: 'kagurabue_style', name: 'Playing style', variants: [
+        { id: 'kagurabue_mikagura', default: true, name: 'Mikagura shrine ritual melody', descriptors: ['solemn', 'sustained', 'ritual'], match_tokens: ['shinto', 'transverse-flute'] },
+        { id: 'kagurabue_satokagura', name: 'Sato-kagura folk performance', descriptors: ['lively', 'dance-driving'], match_tokens: ['kagura', 'folk-flute'] },
+      ] },
+      { id: 'kagurabue_holes', surface: false, name: 'Instrument form', variants: [
+        { id: 'kagurabue_six_hole', default: true, name: 'Six-hole long bamboo bore', descriptors: ['mellow', 'low-breathy'], match_tokens: ['transverse-flute'] },
+        { id: 'kagurabue_shrine_short', name: 'Shorter shrine flute', descriptors: ['brighter', 'piercing'], match_tokens: ['transverse-flute'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mukkuri',
+    name: 'Mukkuri (Ainu bamboo string-pulled jaw harp)',
+    family: 'plucked_traditional',
+    class: 'jaw_harp',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -1, harmonicity: -1, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: -2 },
+    short: 'mukkuri',
+    parts: [
+      { id: 'mukkuri_technique', name: 'Playing technique', variants: [
+        { id: 'mukkuri_rhythmic', default: true, name: 'Rhythmic cord pulling', descriptors: ['buzzing-timbre', 'pulsing', 'twanging'], match_tokens: ['jaw-harp', 'ainu'] },
+        { id: 'mukkuri_imitative', name: 'Imitative nature sounds', descriptors: ['whirring', 'vocal-formant'], match_tokens: ['jaw-harp', 'imitative'] },
+      ] },
+      { id: 'mukkuri_lamella', surface: false, name: 'Bamboo tongue', variants: [
+        { id: 'mukkuri_thin', default: true, name: 'Thin supple tongue', descriptors: ['bright-buzz', 'quick-decay'], match_tokens: ['jaw-harp'] },
+        { id: 'mukkuri_thick', name: 'Thick tongue', descriptors: ['low-buzz', 'heavy'], match_tokens: ['jaw-harp'] },
+      ] },
+    ]
+  },
+  {
+    id: 'biwa_satsuma',
+    name: 'Satsuma-biwa (Japanese narrative lute of the Satsuma tradition)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: 0, polyphony: 0, harmonicity: -1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'satsuma biwa',
+    parts: [
+      { id: 'biwa_satsuma_style', name: 'Performance style', variants: [
+        { id: 'biwa_satsuma_narrative', default: true, name: 'Narrative chant accompaniment (katarimono)', descriptors: ['declamatory', 'percussive-attack', 'dramatic'], match_tokens: ['plucked-lute', 'japan'] },
+        { id: 'biwa_satsuma_solo', name: 'Solo instrumental interlude', descriptors: ['buzzing-timbre', 'virtuosic'], match_tokens: ['plucked-lute', 'sawari'] },
+      ] },
+      { id: 'biwa_satsuma_plectrum', name: 'Bachi plectrum', variants: [
+        { id: 'biwa_satsuma_wide_bachi', default: true, name: 'Wide fan-shaped bachi (struck across strings and body)', descriptors: ['slapping', 'explosive-attack'], match_tokens: ['plucked', 'struck-body'] },
+        { id: 'biwa_satsuma_narrow_bachi', name: 'Narrower bachi', descriptors: ['cleaner-attack', 'controlled'], match_tokens: ['plucked'] },
+      ] },
+      { id: 'biwa_satsuma_strings', surface: false, name: 'String material', variants: [
+        { id: 'biwa_satsuma_silk', default: true, name: 'Silk strings', descriptors: ['dry', 'gritty'], match_tokens: ['plucked'] },
+        { id: 'biwa_satsuma_tetron', name: 'Tetron strings', descriptors: ['brighter', 'durable'], match_tokens: ['plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chikuzen_biwa',
+    name: 'Chikuzen biwa (four/five-string narrative biwa of Fukuoka)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 0, harmonicity: -1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'chikuzen biwa',
+    parts: [
+      { id: 'chikuzen_biwa_stringing', name: 'Stringing / course count', variants: [
+        { id: 'chikuzen_biwa_five_string', default: true, name: 'Five-string chikuzen biwa (modern concert)', descriptors: ['bright-attack', 'buzzing-timbre', 'wide-ranged'], match_tokens: ['plucked', 'japanese', 'narrative-lute'] },
+        { id: 'chikuzen_biwa_four_string', name: 'Four-string chikuzen biwa (older form)', descriptors: ['dry-toned', 'archaic', 'voice-supporting'], match_tokens: ['plucked', 'japanese'] },
+      ] },
+      { id: 'chikuzen_biwa_plectrum', name: 'Plectrum (bachi) size', variants: [
+        { id: 'chikuzen_biwa_small_bachi', default: true, name: 'Small boxwood bachi (chikuzen style)', descriptors: ['nimble', 'crisp-attack'], match_tokens: ['plucked', 'struck-string'] },
+        { id: 'chikuzen_biwa_large_bachi', name: 'Broad bachi (satsuma-influenced striking)', descriptors: ['percussive', 'body-slapping', 'forceful'], match_tokens: ['plucked', 'percussive-attack'] },
+      ] },
+      { id: 'chikuzen_biwa_context', name: 'Performance context', variants: [
+        { id: 'chikuzen_biwa_katarimono', default: true, name: 'Sung narrative (katarimono) accompaniment', descriptors: ['declamatory', 'sparse', 'voice-shadowing'], match_tokens: ['japanese', 'narrative'] },
+        { id: 'chikuzen_biwa_solo', name: 'Instrumental solo (shirabe)', descriptors: ['ornamented', 'tremolo-rich'], match_tokens: ['plucked', 'solo'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gaku_biwa',
+    name: 'Gaku biwa (four-string gagaku court biwa)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 1, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'gaku biwa',
+    parts: [
+      { id: 'gaku_biwa_technique', name: 'Playing technique', variants: [
+        { id: 'gaku_biwa_arpeggio', default: true, name: 'Broken-chord sweep (kakizume arpeggio)', descriptors: ['arpeggiated', 'rasping-sweep', 'punctuating'], match_tokens: ['plucked', 'gagaku', 'court-music'] },
+        { id: 'gaku_biwa_single_note', name: 'Single-note punctuation', descriptors: ['sparse', 'marking', 'dry-toned'], match_tokens: ['plucked', 'gagaku'] },
+      ] },
+      { id: 'gaku_biwa_tuning', name: 'Tuning (choshi)', variants: [
+        { id: 'gaku_biwa_hyojo', default: true, name: 'Hyojo tuning', descriptors: ['open-fifths', 'archaic'], match_tokens: ['gagaku', 'tuning'] },
+        { id: 'gaku_biwa_oshikicho', name: 'Oshikicho tuning', descriptors: ['bright', 'court-modal'], match_tokens: ['gagaku', 'tuning'] },
+        { id: 'gaku_biwa_banshikicho', name: 'Banshikicho tuning', descriptors: ['dark-toned', 'autumnal'], match_tokens: ['gagaku', 'tuning'] },
+      ] },
+      { id: 'gaku_biwa_strings', surface: false, name: 'String material', variants: [
+        { id: 'gaku_biwa_silk', default: true, name: 'Silk strings', descriptors: ['mellow', 'soft-decay'], match_tokens: ['plucked'] },
+        { id: 'gaku_biwa_tetron', name: 'Synthetic (tetron) strings', descriptors: ['bright', 'projecting'], match_tokens: ['plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'heike_biwa',
+    name: 'Heike biwa (small biwa for Heike monogatari chanting)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 1, sustain: -1, polyphony: 0, harmonicity: -1, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'heike biwa',
+    parts: [
+      { id: 'heike_biwa_role', name: 'Musical role', variants: [
+        { id: 'heike_biwa_interlude', default: true, name: 'Between-phrase interlude punctuation', descriptors: ['sparse', 'dry-toned', 'buzzing-timbre'], match_tokens: ['plucked', 'japanese', 'epic-chant'] },
+        { id: 'heike_biwa_scraped', name: 'Scraped sweep across strings', descriptors: ['rasping', 'gestural'], match_tokens: ['plucked', 'scraped'] },
+      ] },
+      { id: 'heike_biwa_bachi', name: 'Plectrum and attack', variants: [
+        { id: 'heike_biwa_wide_bachi', default: true, name: 'Wide thin bachi struck near the bridge', descriptors: ['percussive', 'sharp-attack'], match_tokens: ['plucked', 'struck-string'] },
+        { id: 'heike_biwa_soft_stroke', name: 'Soft stroke over the belly', descriptors: ['muted', 'intimate'], match_tokens: ['plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'wagon',
+    name: 'Wagon (six-string Japanese court board zither)',
+    family: 'plucked_traditional',
+    class: 'plucked_box_zither',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'wagon',
+    parts: [
+      { id: 'wagon_technique', name: 'Playing technique', variants: [
+        { id: 'wagon_kakite', default: true, name: 'Kakite sweep with the kotsume plectrum', descriptors: ['sweeping', 'shimmering', 'ceremonial'], match_tokens: ['plucked', 'zither', 'gagaku'] },
+        { id: 'wagon_single_pluck', name: 'Single-string plucking', descriptors: ['sparse', 'clear-toned'], match_tokens: ['plucked', 'zither'] },
+      ] },
+      { id: 'wagon_bridges', name: 'Bridges (koto-ji)', variants: [
+        { id: 'wagon_forked_branch', default: true, name: 'Natural forked-branch bridges (traditional)', descriptors: ['woody', 'soft-attack'], match_tokens: ['zither', 'archaic'] },
+        { id: 'wagon_carved_bridge', name: 'Carved wooden bridges (modern court use)', descriptors: ['focused', 'even-toned'], match_tokens: ['zither'] },
+      ] },
+      { id: 'wagon_strings', surface: false, name: 'String material', variants: [
+        { id: 'wagon_silk_string', default: true, name: 'Silk strings', descriptors: ['mellow', 'warm'], match_tokens: ['plucked'] },
+        { id: 'wagon_synthetic_string', name: 'Synthetic strings', descriptors: ['bright', 'sustaining'], match_tokens: ['plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'yamatogoto',
+    name: 'Yamatogoto (azumagoto; the wagon under its ritual Shinto name)',
+    family: 'plucked_traditional',
+    class: 'plucked_box_zither',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -2 },
+    short: 'yamatogoto',
+    parts: [
+      { id: 'yamatogoto_context', name: 'Ritual context', variants: [
+        { id: 'yamatogoto_mikagura', default: true, name: 'Mikagura shrine ritual accompaniment', descriptors: ['solemn', 'sparse', 'ceremonial'], match_tokens: ['shinto', 'zither', 'ritual'] },
+        { id: 'yamatogoto_azuma_asobi', name: 'Azuma-asobi dance accompaniment', descriptors: ['lilting', 'dance-supporting'], match_tokens: ['zither', 'court-music'] },
+      ] },
+      { id: 'yamatogoto_plectrum', name: 'Plectrum', variants: [
+        { id: 'yamatogoto_kotsume', default: true, name: 'Kotsume (horn or bamboo sliver)', descriptors: ['thin-toned', 'brushed'], match_tokens: ['plucked', 'zither'] },
+        { id: 'yamatogoto_fingers', name: 'Bare fingers', descriptors: ['soft-attack', 'intimate'], match_tokens: ['plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'hyoshigi',
+    name: 'Hyoshigi (Japanese hardwood clapper sticks)',
+    family: 'percussion',
+    class: 'concussion_idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -1, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'hyoshigi',
+    parts: [
+      { id: 'hyoshigi_wood', name: 'Wood', variants: [
+        { id: 'hyoshigi_oak', default: true, name: 'White oak (kashi) blocks', descriptors: ['sharp-crack', 'hard-toned', 'penetrating'], match_tokens: ['clappers', 'wood-block', 'japanese'] },
+        { id: 'hyoshigi_bamboo', name: 'Bamboo clappers', descriptors: ['dry-click', 'lighter-toned'], match_tokens: ['clappers', 'bamboo'] },
+      ] },
+      { id: 'hyoshigi_stroke', name: 'Stroke pattern', variants: [
+        { id: 'hyoshigi_ki', default: true, name: 'Ki single announcing strike (kabuki cue)', descriptors: ['punctuating', 'startling'], match_tokens: ['clappers', 'kabuki'] },
+        { id: 'hyoshigi_kizami', name: 'Accelerating roll (kizami / batabata)', descriptors: ['accelerating', 'clattering', 'dramatic'], match_tokens: ['clappers', 'kabuki'] },
+        { id: 'hyoshigi_yobawari', name: 'Slow night-watch beats (yobawari)', descriptors: ['spaced', 'stark'], match_tokens: ['clappers', 'street'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kotsuzumi',
+    name: 'Kotsuzumi (small hourglass shoulder drum of noh and kabuki)',
+    family: 'percussion',
+    class: 'hourglass_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'kotsuzumi',
+    parts: [
+      { id: 'kotsuzumi_stroke', name: 'Stroke type', variants: [
+        { id: 'kotsuzumi_pon', default: true, name: 'Pon (open ringing centre stroke)', descriptors: ['ringing', 'bending-pitch', 'resonant'], match_tokens: ['hand-drum', 'noh', 'japanese'] },
+        { id: 'kotsuzumi_chi', name: 'Chi (light fingertip tap)', descriptors: ['dry-tap', 'delicate'], match_tokens: ['hand-drum', 'noh'] },
+        { id: 'kotsuzumi_ta', name: 'Ta / pu (squeezed damped stroke)', descriptors: ['choked', 'muted', 'pitch-raised'], match_tokens: ['hand-drum', 'squeezed'] },
+      ] },
+      { id: 'kotsuzumi_head_moisture', name: 'Head condition (moisture)', variants: [
+        { id: 'kotsuzumi_damp', default: true, name: 'Breath-moistened head (shime-gami applied)', descriptors: ['mellow', 'full-toned', 'singing'], match_tokens: ['hand-drum', 'horsehide'] },
+        { id: 'kotsuzumi_dry', name: 'Dry head', descriptors: ['hard-toned', 'clipped'], match_tokens: ['hand-drum'] },
+      ] },
+      { id: 'kotsuzumi_cord', surface: false, name: 'Shirabe cord tension', variants: [
+        { id: 'kotsuzumi_loose_cord', default: true, name: 'Slack cord (grip-modulated)', descriptors: ['pitch-bending', 'expressive'], match_tokens: ['hand-drum'] },
+        { id: 'kotsuzumi_tight_cord', name: 'Tight cord', descriptors: ['high-pitched', 'tense'], match_tokens: ['hand-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'otsuzumi',
+    name: 'Otsuzumi (okawa; large hip hourglass drum of noh)',
+    family: 'percussion',
+    class: 'hourglass_drum',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'otsuzumi',
+    parts: [
+      { id: 'otsuzumi_stroke', name: 'Stroke type', variants: [
+        { id: 'otsuzumi_chon', default: true, name: 'Chon (hard cracking strike with thimbled fingers)', descriptors: ['cracking', 'dry-attack', 'piercing'], match_tokens: ['hand-drum', 'noh', 'japanese'] },
+        { id: 'otsuzumi_tsu', name: 'Tsu (soft light stroke)', descriptors: ['soft-tap', 'spacious'], match_tokens: ['hand-drum', 'noh'] },
+      ] },
+      { id: 'otsuzumi_head_prep', name: 'Head preparation', variants: [
+        { id: 'otsuzumi_fire_dried', default: true, name: 'Charcoal-dried head (traditional pre-performance)', descriptors: ['bone-dry', 'brittle-toned', 'sharp'], match_tokens: ['hand-drum', 'horsehide'] },
+        { id: 'otsuzumi_untreated', name: 'Untreated head', descriptors: ['fuller-toned', 'softer'], match_tokens: ['hand-drum'] },
+      ] },
+      { id: 'otsuzumi_finger_guards', surface: false, name: 'Finger guards (yubikawa)', variants: [
+        { id: 'otsuzumi_hard_guard', default: true, name: 'Hardened papier-mache thimbles', descriptors: ['hard-attack', 'loud'], match_tokens: ['hand-drum'] },
+        { id: 'otsuzumi_bare_finger', name: 'Bare fingers', descriptors: ['softer-attack', 'warm'], match_tokens: ['hand-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'odaiko',
+    name: 'Odaiko (great nailed-head Japanese barrel drum)',
+    family: 'percussion',
+    class: 'barrel_drum',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -2, harmonicity: -1, register: -2, range: 0, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'odaiko',
+    parts: [
+      { id: 'odaiko_mounting', name: 'Mounting / orientation', variants: [
+        { id: 'odaiko_yagura', default: true, name: 'Yagura-mounted, struck side-on', descriptors: ['thunderous', 'deep-toned', 'full-body'], match_tokens: ['taiko', 'japanese', 'big-drum'] },
+        { id: 'odaiko_miyadaiko_stand', name: 'Slanted miyadaiko stand', descriptors: ['booming', 'ensemble-anchoring'], match_tokens: ['taiko', 'japanese'] },
+        { id: 'odaiko_suspended', name: 'Rope-suspended temple drum', descriptors: ['ceremonial', 'enveloping', 'slow-decaying'], match_tokens: ['taiko', 'temple'] },
+      ] },
+      { id: 'odaiko_bachi', name: 'Bachi (beater)', variants: [
+        { id: 'odaiko_heavy_bachi', default: true, name: 'Heavy hinoki/kashi bachi', descriptors: ['deep-impact', 'weighty'], match_tokens: ['struck', 'taiko'] },
+        { id: 'odaiko_padded_bachi', name: 'Padded / felt-wrapped beater', descriptors: ['soft-attack', 'rumbling'], match_tokens: ['struck', 'taiko'] },
+      ] },
+      { id: 'odaiko_shell', surface: false, name: 'Shell construction', variants: [
+        { id: 'odaiko_keyaki', default: true, name: 'Single hollowed keyaki (zelkova) log', descriptors: ['rich-overtoned', 'resonant'], match_tokens: ['taiko'] },
+        { id: 'odaiko_stave', name: 'Stave-built shell', descriptors: ['focused', 'drier'], match_tokens: ['taiko'] },
+      ] },
+    ]
+  },
+  {
+    id: 'shime_daiko',
+    name: 'Shime-daiko (rope-tensioned high-pitched Japanese drum)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'shime-daiko',
+    parts: [
+      { id: 'shime_daiko_tension', name: 'Tension grade', variants: [
+        { id: 'shime_daiko_namitsuke', default: true, name: 'Namitsuke (standard tension, hayashi use)', descriptors: ['crisp', 'cutting', 'dry-attack'], match_tokens: ['taiko', 'japanese', 'rope-tensioned'] },
+        { id: 'shime_daiko_gochou', name: 'Go-chou (heavy tension, kumi-daiko)', descriptors: ['very-high-pitched', 'snapping', 'penetrating'], match_tokens: ['taiko', 'ensemble'] },
+        { id: 'shime_daiko_noh', name: 'Taiko of the noh hayashi (loose, patch-headed)', descriptors: ['dry', 'hollow', 'ritualized'], match_tokens: ['taiko', 'noh'] },
+      ] },
+      { id: 'shime_daiko_hardware', name: 'Tensioning hardware', variants: [
+        { id: 'shime_daiko_rope', default: true, name: 'Rope-laced tension', descriptors: ['organic', 'subtly-uneven'], match_tokens: ['taiko', 'rope-tensioned'] },
+        { id: 'shime_daiko_bolt', name: 'Bolt-tuned shell', descriptors: ['consistent', 'tight', 'modern'], match_tokens: ['taiko'] },
+      ] },
+    ]
+  },
+  {
+    id: 'uchiwa_daiko',
+    name: 'Uchiwa-daiko (Japanese handled fan frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'uchiwa-daiko',
+    parts: [
+      { id: 'uchiwa_daiko_use', name: 'Use context', variants: [
+        { id: 'uchiwa_daiko_nichiren', default: true, name: 'Nichiren Buddhist chant drum', descriptors: ['steady-pulse', 'hollow-toned', 'ritual'], match_tokens: ['frame-drum', 'japanese', 'buddhist'] },
+        { id: 'uchiwa_daiko_ensemble', name: 'Kumi-daiko marching use', descriptors: ['bright-attack', 'mobile', 'cutting'], match_tokens: ['frame-drum', 'taiko'] },
+      ] },
+      { id: 'uchiwa_daiko_size', name: 'Frame diameter', variants: [
+        { id: 'uchiwa_daiko_small', name: 'Small (about 25 cm)', descriptors: ['high-pitched', 'papery'], match_tokens: ['frame-drum'] },
+        { id: 'uchiwa_daiko_medium', default: true, name: 'Medium (about 35 cm)', descriptors: ['balanced', 'clear-toned'], match_tokens: ['frame-drum'] },
+        { id: 'uchiwa_daiko_large', name: 'Large (45 cm and up)', descriptors: ['deeper-toned', 'booming'], match_tokens: ['frame-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'den_den_daiko',
+    name: 'Den-den daiko (Japanese two-headed pellet swivel drum)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -1, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'den-den daiko',
+    parts: [
+      { id: 'den_den_daiko_size', name: 'Size / type', variants: [
+        { id: 'den_den_daiko_toy', default: true, name: 'Small toy pellet drum', descriptors: ['clicking', 'rapid-patter', 'light-toned'], match_tokens: ['pellet-drum', 'japanese', 'rattle-drum'] },
+        { id: 'den_den_daiko_furi', name: 'Large furi-tsuzumi ritual pellet drum', descriptors: ['fuller-toned', 'ceremonial', 'thudding'], match_tokens: ['pellet-drum', 'ritual'] },
+      ] },
+      { id: 'den_den_daiko_beads', name: 'Striker beads', variants: [
+        { id: 'den_den_daiko_wood_bead', default: true, name: 'Wooden knotted beads', descriptors: ['woody-click', 'dry'], match_tokens: ['pellet-drum'] },
+        { id: 'den_den_daiko_knotted_cord', name: 'Knotted cord ends only', descriptors: ['soft-patter', 'muted'], match_tokens: ['pellet-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kane_japanese',
+    name: 'Kane (Japanese small hand-held bronze gong, atarigane/chanchiki)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: -2, register: 2, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'kane',
+    parts: [
+      { id: 'kane_japanese_stroke', name: 'Striking position', variants: [
+        { id: 'kane_japanese_rim', default: true, name: 'Rim strike (chan)', descriptors: ['clanging', 'piercing', 'metallic-shimmer'], match_tokens: ['gong', 'japanese', 'matsuri'] },
+        { id: 'kane_japanese_inner', name: 'Inner-bowl strike (chiki)', descriptors: ['dampened', 'dull-clink'], match_tokens: ['gong', 'japanese'] },
+      ] },
+      { id: 'kane_japanese_beater', name: 'Beater (shumoku)', variants: [
+        { id: 'kane_japanese_antler', default: true, name: 'Deer-antler tipped shumoku', descriptors: ['hard-attack', 'bright-ring'], match_tokens: ['struck', 'gong'] },
+        { id: 'kane_japanese_wood_beater', name: 'Wooden beater', descriptors: ['softer-attack', 'warmer'], match_tokens: ['struck', 'gong'] },
+      ] },
+      { id: 'kane_japanese_context', name: 'Ensemble context', variants: [
+        { id: 'kane_japanese_matsuri', default: true, name: 'Festival hayashi (matsuri-bayashi)', descriptors: ['driving', 'time-marking', 'festive'], match_tokens: ['japanese', 'festival'] },
+        { id: 'kane_japanese_nenbutsu', name: 'Nenbutsu / kagura ritual use', descriptors: ['sparse', 'solemn'], match_tokens: ['japanese', 'ritual'] },
+      ] },
+    ]
+  },
+  {
+    id: 'rin_singing_bowl',
+    name: 'Rin (Japanese Buddhist standing bowl bell)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 1, sustain: 2, polyphony: -1, harmonicity: -1, register: 1, range: -2, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'rin',
+    parts: [
+      { id: 'rin_size', name: 'Bowl size', variants: [
+        { id: 'rin_small', default: true, name: 'Small household rin (about 10 cm)', descriptors: ['high-pitched', 'clear-ring', 'long-decay'], match_tokens: ['bowl-bell', 'buddhist', 'japanese'] },
+        { id: 'rin_large', name: 'Large temple keisu (30 cm and up)', descriptors: ['deep-toned', 'booming', 'enveloping'], match_tokens: ['bowl-bell', 'temple'] },
+      ] },
+      { id: 'rin_strike', name: 'Striking method', variants: [
+        { id: 'rin_struck_rim', default: true, name: 'Struck on the rim with a padded mallet', descriptors: ['pure-tone', 'slow-swelling', 'shimmering'], match_tokens: ['struck', 'bowl-bell'] },
+        { id: 'rin_rubbed', name: 'Rim rubbed with the mallet', descriptors: ['sustained-drone', 'singing', 'beating-overtones'], match_tokens: ['friction', 'bowl-bell'] },
+      ] },
+      { id: 'rin_cushion', surface: false, name: 'Cushion / mounting', variants: [
+        { id: 'rin_zabuton', default: true, name: 'On a ring cushion (zabuton)', descriptors: ['free-ringing', 'undamped'], match_tokens: ['bowl-bell'] },
+        { id: 'rin_handheld', name: 'Held in the hand', descriptors: ['damped', 'shorter-decay'], match_tokens: ['bowl-bell'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mokugyo',
+    name: 'Mokugyo (Japanese carved wooden fish slit drum)',
+    family: 'percussion',
+    class: 'slit_gong',
+    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -2, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'mokugyo',
+    parts: [
+      { id: 'mokugyo_size', name: 'Size', variants: [
+        { id: 'mokugyo_medium', default: true, name: 'Medium temple mokugyo (about 20 cm)', descriptors: ['hollow-thud', 'woody', 'dry'], match_tokens: ['slit-drum', 'buddhist', 'japanese'] },
+        { id: 'mokugyo_small', name: 'Small hand mokugyo', descriptors: ['high-clop', 'clicking'], match_tokens: ['slit-drum', 'buddhist'] },
+        { id: 'mokugyo_large', name: 'Large hall mokugyo (50 cm and up)', descriptors: ['deep-thud', 'cavernous'], match_tokens: ['slit-drum', 'temple'] },
+      ] },
+      { id: 'mokugyo_beater', name: 'Beater head', variants: [
+        { id: 'mokugyo_padded', default: true, name: 'Leather/cloth-padded mallet', descriptors: ['soft-attack', 'rounded'], match_tokens: ['struck', 'slit-drum'] },
+        { id: 'mokugyo_bare_wood', name: 'Bare wooden mallet', descriptors: ['hard-clack', 'sharp'], match_tokens: ['struck', 'slit-drum'] },
+      ] },
+      { id: 'mokugyo_tempo', name: 'Chanting tempo', variants: [
+        { id: 'mokugyo_steady', default: true, name: 'Steady sutra pulse', descriptors: ['hypnotic', 'even-pulse'], match_tokens: ['buddhist', 'chant'] },
+        { id: 'mokugyo_accelerating', name: 'Accelerating close of a sutra', descriptors: ['accelerating', 'intensifying'], match_tokens: ['buddhist', 'chant'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kucho_fiddle',
+    name: 'Kucho (Mongolian khuuchir four-string spike fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -1, harmonicity: 0, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'kucho',
+    parts: [
+      { id: 'kucho_body', name: 'Resonator construction', variants: [
+        { id: 'kucho_snakeskin', default: true, name: 'Snakeskin-faced cylindrical resonator', descriptors: ['nasal-tone', 'penetrating', 'reedy'], match_tokens: ['bowed', 'spike-fiddle', 'mongolian'] },
+        { id: 'kucho_wood', name: 'Wood-faced hexagonal resonator', descriptors: ['woody', 'warm', 'rounded'], match_tokens: ['bowed', 'spike-fiddle'] },
+        { id: 'kucho_metal', name: 'Metal-shell resonator (modern)', descriptors: ['bright', 'edgy', 'projecting'], match_tokens: ['bowed', 'bright-tone'] },
+      ] },
+      { id: 'kucho_style', name: 'Playing style', variants: [
+        { id: 'kucho_ensemble', default: true, name: 'Ensemble melodic line', descriptors: ['singing', 'ornamented'], match_tokens: ['bowed', 'melodic-lead'] },
+        { id: 'kucho_urtiin', name: 'Urtiin duu song accompaniment', descriptors: ['rubato', 'voice-shadowing', 'melismatic'], match_tokens: ['bowed', 'expressive'] },
+        { id: 'kucho_dance', name: 'Dance / short-song playing', descriptors: ['driving', 'crisp-bowing'], match_tokens: ['bowed', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'paranku',
+    name: 'Paranku (Jeju Island small handheld frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -1, register: 0, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'paranku',
+    parts: [
+      { id: 'paranku_size', name: 'Frame size', variants: [
+        { id: 'paranku_small', default: true, name: 'Small hand-held frame (approx. 25 cm)', descriptors: ['dry-thud', 'light', 'nimble'], match_tokens: ['frame-drum', 'jeju', 'handheld'] },
+        { id: 'paranku_large', name: 'Larger frame (approx. 35 cm)', descriptors: ['fuller-tone', 'resonant'], match_tokens: ['frame-drum', 'korean'] },
+      ] },
+      { id: 'paranku_stroke', name: 'Striking technique', variants: [
+        { id: 'paranku_stick', default: true, name: 'Thin bamboo beater strokes', descriptors: ['bright-attack', 'clicking'], match_tokens: ['struck', 'frame-drum'] },
+        { id: 'paranku_hand', name: 'Bare-hand slapping', descriptors: ['soft-thud', 'muted'], match_tokens: ['hand-struck', 'frame-drum'] },
+        { id: 'paranku_rim', name: 'Rim-and-head alternation', descriptors: ['clacking', 'rhythmic-contrast'], match_tokens: ['struck', 'rim-shot'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sogeum',
+    name: 'Sogeum (small Korean transverse bamboo flute)',
+    family: 'wind',
+    class: 'transverse_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 2, range: 0, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'sogeum',
+    parts: [
+      { id: 'sogeum_bore', name: 'Instrument form', variants: [
+        { id: 'sogeum_trad', default: true, name: 'Traditional bamboo sogeum (six finger holes)', descriptors: ['bright', 'airy', 'piercing'], match_tokens: ['transverse-flute', 'korean', 'high-register'] },
+        { id: 'sogeum_gaeryang', name: 'Gaeryang (improved) keyed sogeum', descriptors: ['even-toned', 'chromatic', 'modern'], match_tokens: ['transverse-flute', 'korean'] },
+      ] },
+      { id: 'sogeum_style', name: 'Playing style', variants: [
+        { id: 'sogeum_jeongak', default: true, name: 'Jeongak court style (sustained, restrained)', descriptors: ['serene', 'long-breathed'], match_tokens: ['flute', 'court-music'] },
+        { id: 'sogeum_sinawi', name: 'Sinawi / folk style (heavy nonghyeon vibrato)', descriptors: ['wide-vibrato', 'expressive', 'bending'], match_tokens: ['flute', 'folk'] },
+      ] },
+    ]
+  },
+  {
+    id: 'junggeum',
+    name: 'Junggeum (medium Korean transverse bamboo flute)',
+    family: 'wind',
+    class: 'transverse_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'junggeum',
+    parts: [
+      { id: 'junggeum_form', name: 'Instrument form', variants: [
+        { id: 'junggeum_trad', default: true, name: 'Traditional bamboo junggeum (middle of the samjuk trio)', descriptors: ['mellow', 'reedy', 'mid-register'], match_tokens: ['transverse-flute', 'korean', 'samjuk'] },
+        { id: 'junggeum_gaeryang', name: 'Gaeryang (improved) junggeum', descriptors: ['even-toned', 'modern', 'chromatic'], match_tokens: ['transverse-flute', 'korean'] },
+      ] },
+      { id: 'junggeum_role', name: 'Ensemble role', variants: [
+        { id: 'junggeum_court', default: true, name: 'Court ensemble inner voice', descriptors: ['blending', 'sustained'], match_tokens: ['flute', 'court-music'] },
+        { id: 'junggeum_solo', name: 'Solo melodic line', descriptors: ['singing', 'ornamented'], match_tokens: ['flute', 'melodic-lead'] },
+      ] },
+    ]
+  },
+  {
+    id: 'nagak',
+    name: 'Nagak (Korean conch-shell trumpet)',
+    family: 'wind',
+    class: 'ritual_trumpet',
+    axes: { pitchFix: 1, sustain: 2, polyphony: -2, harmonicity: 0, register: -2, range: -2, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'nagak',
+    parts: [
+      { id: 'nagak_shell', name: 'Shell size', variants: [
+        { id: 'nagak_large', default: true, name: 'Large conch shell (deep signal tone)', descriptors: ['booming', 'monotone', 'foghorn-like'], match_tokens: ['conch', 'ritual-trumpet', 'korean'] },
+        { id: 'nagak_small', name: 'Smaller shell (higher signal tone)', descriptors: ['cutting', 'hoarse'], match_tokens: ['conch', 'signal-call'] },
+      ] },
+      { id: 'nagak_use', name: 'Playing context', variants: [
+        { id: 'nagak_daechwita', default: true, name: 'Daechwita military procession', descriptors: ['processional', 'sustained-drone', 'ceremonial'], match_tokens: ['procession', 'military-band'] },
+        { id: 'nagak_signal', name: 'Isolated signal blast', descriptors: ['single-blast', 'announcing'], match_tokens: ['signal-call', 'ritual'] },
+      ] },
+    ]
+  },
+  {
+    id: 'saenghwang',
+    name: 'Saenghwang (Korean gourd mouth organ)',
+    family: 'free_reed',
+    class: 'free_reed',
+    axes: { pitchFix: 2, sustain: 2, polyphony: 2, harmonicity: 1, register: 1, range: 1, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'saenghwang',
+    parts: [
+      { id: 'saenghwang_windchest', name: 'Wind chest material', variants: [
+        { id: 'saenghwang_gourd', default: true, name: 'Traditional gourd wind chest', descriptors: ['breathy', 'sweet', 'organ-like'], match_tokens: ['mouth-organ', 'free-reed', 'korean'] },
+        { id: 'saenghwang_wood', name: 'Lacquered wood/metal wind chest (modern)', descriptors: ['clean', 'stable', 'projecting'], match_tokens: ['mouth-organ', 'free-reed'] },
+      ] },
+      { id: 'saenghwang_texture', name: 'Playing texture', variants: [
+        { id: 'saenghwang_cluster', default: true, name: 'Sustained multi-pipe clusters', descriptors: ['shimmering', 'chordal', 'sustained'], match_tokens: ['free-reed', 'drone-foundation'] },
+        { id: 'saenghwang_single', name: 'Single-pipe melodic line', descriptors: ['thin', 'pure', 'reedy'], match_tokens: ['free-reed', 'melodic-lead'] },
+        { id: 'saenghwang_saengso', name: 'Saengso duet with danso flute', descriptors: ['airy', 'interlocking', 'refined'], match_tokens: ['free-reed', 'duet'] },
+      ] },
+    ]
+  },
+  {
+    id: 'yanggeum',
+    name: 'Yanggeum (Korean hammered box zither)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'yanggeum',
+    parts: [
+      { id: 'yanggeum_form', name: 'Instrument form', variants: [
+        { id: 'yanggeum_trad', default: true, name: 'Traditional 14-course wire yanggeum', descriptors: ['glassy', 'metallic', 'ringing'], match_tokens: ['hammered-dulcimer', 'korean', 'wire-strung'] },
+        { id: 'yanggeum_gaeryang', name: 'Gaeryang (enlarged, chromatic) yanggeum', descriptors: ['wide-range', 'bright', 'modern'], match_tokens: ['hammered-dulcimer', 'chromatic'] },
+      ] },
+      { id: 'yanggeum_beater', name: 'Beater / touch', variants: [
+        { id: 'yanggeum_bamboo', default: true, name: 'Thin bamboo strike stick', descriptors: ['crisp-attack', 'tinkling'], match_tokens: ['struck', 'bright-attack'] },
+        { id: 'yanggeum_damped', name: 'Damped / muted strokes', descriptors: ['dry', 'short-decay'], match_tokens: ['struck', 'muted'] },
+        { id: 'yanggeum_tremolo', name: 'Rapid tremolo rolls', descriptors: ['shimmering', 'continuous'], match_tokens: ['tremolo', 'struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'bak_clapper',
+    name: 'Bak (Korean six-slat wooden clapper)',
+    family: 'percussion',
+    class: 'concussion_idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'bak',
+    parts: [
+      { id: 'bak_wood', name: 'Slat wood', variants: [
+        { id: 'bak_birch', default: true, name: 'Hardwood (birch/boxwood) slats', descriptors: ['sharp-crack', 'dry', 'woody'], match_tokens: ['clapper', 'concussion', 'korean'] },
+        { id: 'bak_sandalwood', name: 'Sandalwood slats (court instrument)', descriptors: ['resonant-crack', 'refined'], match_tokens: ['clapper', 'court-music'] },
+      ] },
+      { id: 'bak_use', name: 'Ritual function', variants: [
+        { id: 'bak_start', default: true, name: 'Single opening clap (piece start)', descriptors: ['single-strike', 'announcing'], match_tokens: ['clapper', 'cue-signal'] },
+        { id: 'bak_triple', name: 'Triple clap ending signal', descriptors: ['three-strokes', 'closing'], match_tokens: ['clapper', 'cue-signal'] },
+      ] },
+    ]
+  },
+  {
+    id: 'pyeongyeong',
+    name: 'Pyeongyeong (Korean set of 16 tuned stone chimes)',
+    family: 'percussion',
+    class: 'tuned_idiophone',
+    axes: { pitchFix: 2, sustain: 0, polyphony: -1, harmonicity: -1, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'pyeongyeong',
+    parts: [
+      { id: 'pyeongyeong_stone', name: 'Chime stone', variants: [
+        { id: 'pyeongyeong_jade', default: true, name: 'L-shaped jade/limestone slabs (16, two rows)', descriptors: ['glassy-ping', 'cold', 'clear'], match_tokens: ['stone-chime', 'korean', 'court-music'] },
+        { id: 'pyeongyeong_teukgyeong', name: 'Teukgyeong (single large stone chime)', descriptors: ['solitary', 'deep-ping', 'ceremonial'], match_tokens: ['stone-chime', 'ritual'] },
+      ] },
+      { id: 'pyeongyeong_mallet', name: 'Mallet', variants: [
+        { id: 'pyeongyeong_horn', default: true, name: 'Ox-horn mallet', descriptors: ['hard-attack', 'pure-ping'], match_tokens: ['struck', 'bright-attack'] },
+        { id: 'pyeongyeong_soft', name: 'Softer padded mallet', descriptors: ['rounded-attack', 'mellow'], match_tokens: ['struck', 'soft-attack'] },
+      ] },
+    ]
+  },
+  {
+    id: 'pyeonjong',
+    name: 'Pyeonjong (Korean set of 16 tuned bronze bells)',
+    family: 'percussion',
+    class: 'metallophone',
+    axes: { pitchFix: 2, sustain: 1, polyphony: -1, harmonicity: -2, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'pyeonjong',
+    parts: [
+      { id: 'pyeonjong_set', name: 'Bell set form', variants: [
+        { id: 'pyeonjong_sixteen', default: true, name: 'Sixteen bronze bells on a two-tier frame', descriptors: ['clangorous', 'inharmonic', 'solemn'], match_tokens: ['bell-chime', 'bronze', 'korean'] },
+        { id: 'pyeonjong_teukjong', name: 'Teukjong (single large bell)', descriptors: ['deep-clang', 'solitary', 'ceremonial'], match_tokens: ['bell', 'ritual'] },
+      ] },
+      { id: 'pyeonjong_mallet', name: 'Mallet', variants: [
+        { id: 'pyeonjong_horn', default: true, name: 'Ox-horn mallet on the bell\'s lower face', descriptors: ['hard-strike', 'ringing'], match_tokens: ['struck', 'metallic'] },
+        { id: 'pyeonjong_damped', name: 'Damped strike (short ring)', descriptors: ['choked', 'dry-clang'], match_tokens: ['struck', 'muted'] },
+      ] },
+    ]
+  },
+  {
+    id: 'eo_scraper',
+    name: 'Eo (Korean tiger-shaped wooden scraper)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'eo',
+    parts: [
+      { id: 'eo_stroke', name: 'Ritual stroke pattern', variants: [
+        { id: 'eo_scrape', default: true, name: 'Three head-strikes then a scrape down the 27 serrations', descriptors: ['rattling-scrape', 'dry', 'ratcheting'], match_tokens: ['scraper', 'korean', 'ritual'] },
+        { id: 'eo_headonly', name: 'Head strikes only', descriptors: ['hollow-knock', 'woody'], match_tokens: ['struck', 'woodblock'] },
+      ] },
+      { id: 'eo_beater', name: 'Beater (jin)', variants: [
+        { id: 'eo_split_bamboo', default: true, name: 'Split-bamboo whisk beater', descriptors: ['brushy', 'buzzing-rasp'], match_tokens: ['scraped', 'bamboo'] },
+        { id: 'eo_stick', name: 'Plain wooden stick', descriptors: ['clacking', 'coarse'], match_tokens: ['scraped', 'woody'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chuk_box',
+    name: 'Chuk (Korean square wooden ritual box struck from within)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'chuk',
+    parts: [
+      { id: 'chuk_stroke', name: 'Ritual stroke pattern', variants: [
+        { id: 'chuk_triple', default: true, name: 'Three strokes on the inner floor to open a piece', descriptors: ['hollow-thump', 'boxy', 'announcing'], match_tokens: ['struck-box', 'korean', 'ritual'] },
+        { id: 'chuk_single', name: 'Single opening stroke', descriptors: ['dull-knock', 'solitary'], match_tokens: ['struck', 'cue-signal'] },
+      ] },
+      { id: 'chuk_box_size', name: 'Box construction', variants: [
+        { id: 'chuk_large', default: true, name: 'Large painted wooden box (aak court size)', descriptors: ['deep-thud', 'resonant-box'], match_tokens: ['struck-box', 'court-music'] },
+        { id: 'chuk_small', name: 'Smaller box', descriptors: ['tighter-knock', 'drier'], match_tokens: ['struck-box', 'woody'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tungso',
+    name: 'Tungso (Korean notched end-blown flute with mirliton)',
+    family: 'wind',
+    class: 'end_blown_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 0, register: 0, range: 0, articulation: -1, transduction: -2, dynamics: 0 },
+    short: 'tungso',
+    parts: [
+      { id: 'tungso_membrane', name: 'Mirliton membrane', variants: [
+        { id: 'tungso_reed_membrane', default: true, name: 'Reed-pith membrane over the cheonggong hole', descriptors: ['buzzing-timbre', 'husky', 'nasal'], match_tokens: ['end-blown-flute', 'mirliton', 'korean'] },
+        { id: 'tungso_nomembrane', name: 'Membrane hole taped over (plain tone)', descriptors: ['clean', 'breathy', 'hollow'], match_tokens: ['end-blown-flute', 'airy'] },
+      ] },
+      { id: 'tungso_context', name: 'Playing context', variants: [
+        { id: 'tungso_bukchong', default: true, name: 'Bukcheong saja noreum (lion mask dance)', descriptors: ['raucous', 'dance-driving', 'outdoor'], match_tokens: ['folk', 'mask-dance'] },
+        { id: 'tungso_solo', name: 'Solo lyrical playing', descriptors: ['plaintive', 'rubato', 'breathy'], match_tokens: ['flute', 'expressive'] },
+      ] },
+    ]
+  },
+  {
+    id: 'yoochin',
+    name: 'Yoochin (Mongolian hammered dulcimer)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'yoochin',
+    parts: [
+      { id: 'yoochin_form', name: 'Instrument form', variants: [
+        { id: 'yoochin_trad', default: true, name: 'Traditional trapezoid wire-strung yoochin', descriptors: ['glassy', 'ringing', 'metallic'], match_tokens: ['hammered-dulcimer', 'mongolian', 'wire-strung'] },
+        { id: 'yoochin_concert', name: 'Enlarged concert yoochin (orchestral)', descriptors: ['wide-range', 'brilliant', 'projecting'], match_tokens: ['hammered-dulcimer', 'orchestral'] },
+      ] },
+      { id: 'yoochin_touch', name: 'Beater touch', variants: [
+        { id: 'yoochin_bamboo', default: true, name: 'Bamboo hammers, open ringing strokes', descriptors: ['bright-attack', 'shimmering'], match_tokens: ['struck', 'bright-attack'] },
+        { id: 'yoochin_tremolo', name: 'Tremolo rolls', descriptors: ['continuous', 'shimmering'], match_tokens: ['tremolo', 'struck'] },
+        { id: 'yoochin_damped', name: 'Hand-damped short strokes', descriptors: ['dry', 'percussive'], match_tokens: ['struck', 'muted'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ever_buree',
+    name: 'Ever buree (Mongolian ox-horn signal trumpet)',
+    family: 'wind',
+    class: 'natural_trumpet',
+    axes: { pitchFix: 1, sustain: 1, polyphony: -2, harmonicity: 0, register: -1, range: -2, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'ever buree',
+    parts: [
+      { id: 'ever_buree_horn', name: 'Horn body', variants: [
+        { id: 'ever_buree_ox', default: true, name: 'Natural ox-horn body', descriptors: ['raw', 'braying', 'hoarse'], match_tokens: ['horn-trumpet', 'mongolian', 'signal-call'] },
+        { id: 'ever_buree_wood', name: 'Wood-and-horn composite body', descriptors: ['fuller-toned', 'rounded'], match_tokens: ['horn-trumpet', 'natural-trumpet'] },
+      ] },
+      { id: 'ever_buree_use', name: 'Playing context', variants: [
+        { id: 'ever_buree_signal', default: true, name: 'Herding / hunting signal blasts', descriptors: ['single-blast', 'far-carrying', 'outdoor'], match_tokens: ['signal-call', 'loud-projection'] },
+        { id: 'ever_buree_ritual', name: 'Ritual / procession sustained calls', descriptors: ['sustained', 'solemn', 'droning'], match_tokens: ['ritual', 'procession'] },
+      ] },
+    ]
+  },
+  {
+    id: 'bishguur_mongol',
+    name: 'Bishguur (Mongolian double-reed shawm)',
+    family: 'wind',
+    class: 'double_reed_shawm',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'bishguur',
+    parts: [
+      { id: 'bishguur_context', name: 'Playing context', variants: [
+        { id: 'bishguur_monastic', default: true, name: 'Monastic ensemble bishguur (Gelug ritual)', descriptors: ['piercing', 'reedy', 'droning'], match_tokens: ['double-reed', 'ritual', 'mongolian'] },
+        { id: 'bishguur_folk', name: 'Folk / outdoor bishguur', descriptors: ['nasal', 'carrying', 'raw'], match_tokens: ['double-reed', 'outdoor'] },
+        { id: 'bishguur_orchestral', name: 'Standardized orchestral bishguur', descriptors: ['focused', 'even-toned'], match_tokens: ['double-reed', 'orchestral'] },
+      ] },
+      { id: 'bishguur_bore', surface: false, name: 'Bore and bell material', variants: [
+        { id: 'bishguur_wood_brass', default: true, name: 'Wooden bore with brass bell', descriptors: ['bright-attack', 'metallic-ring'], match_tokens: ['double-reed'] },
+        { id: 'bishguur_all_wood', name: 'All-wood bore and bell', descriptors: ['warm', 'softer-edged'], match_tokens: ['double-reed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'denshig_cymbals',
+    name: 'Denshig (Mongolian small ritual hand cymbals)',
+    family: 'percussion',
+    class: 'hand_cymbals',
+    axes: { pitchFix: -1, sustain: 2, polyphony: -2, harmonicity: -1, register: 2, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'denshig',
+    parts: [
+      { id: 'denshig_size', name: 'Size / form', variants: [
+        { id: 'denshig_small', default: true, name: 'Small flat denshig (tingsha-type)', descriptors: ['shimmering', 'long-decay', 'high-pitched'], match_tokens: ['cymbal', 'ritual', 'tibetan-buddhist'] },
+        { id: 'denshig_domed', name: 'Domed bossed denshig', descriptors: ['clangorous', 'splashy'], match_tokens: ['cymbal', 'ritual'] },
+      ] },
+      { id: 'denshig_stroke', name: 'Striking technique', variants: [
+        { id: 'denshig_edge_tap', default: true, name: 'Vertical edge tap (let ring)', descriptors: ['bell-like', 'sustained-shimmer'], match_tokens: ['cymbal', 'ritual'] },
+        { id: 'denshig_damped', name: 'Damped clash (choked)', descriptors: ['dry-clash', 'short'], match_tokens: ['cymbal'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tsam_ritual_drum',
+    name: 'Tsam drum (Mongolian masked-dance ritual frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -2, harmonicity: -1, register: -1, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'tsam drum',
+    parts: [
+      { id: 'tsam_drum_form', name: 'Drum form', variants: [
+        { id: 'tsam_drum_handled', default: true, name: 'Handled frame drum on staff (khengereg-type)', descriptors: ['booming', 'hollow', 'processional'], match_tokens: ['frame-drum', 'ritual', 'mongolian'] },
+        { id: 'tsam_drum_damaru', name: 'Small double-headed damaru pair', descriptors: ['rattling', 'dry', 'fluttering'], match_tokens: ['ritual', 'hand-drum'] },
+      ] },
+      { id: 'tsam_drum_beater', name: 'Beater', variants: [
+        { id: 'tsam_drum_curved', default: true, name: 'Curved padded ritual beater', descriptors: ['deep-toned', 'soft-attack'], match_tokens: ['frame-drum', 'ritual'] },
+        { id: 'tsam_drum_bare', name: 'Bare cane stick', descriptors: ['sharp-attack', 'cracking'], match_tokens: ['frame-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kyl_kyiak_fiddle',
+    name: 'Kyl kyiak (Kyrgyz two-string horsehair bowed fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -2, sustain: 2, polyphony: 0, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'kyl kyiak',
+    parts: [
+      { id: 'kyl_kyiak_body', name: 'Body and skin belly', variants: [
+        { id: 'kyl_kyiak_camel', default: true, name: 'Apricot-wood bowl with camel-skin belly', descriptors: ['breathy', 'husky', 'overtone-rich'], match_tokens: ['bowed', 'horsehair-string', 'kyrgyz'] },
+        { id: 'kyl_kyiak_goat', name: 'Goat-skin belly', descriptors: ['thinner', 'nasal'], match_tokens: ['bowed', 'kyrgyz'] },
+      ] },
+      { id: 'kyl_kyiak_style', name: 'Playing style', variants: [
+        { id: 'kyl_kyiak_kuu', default: true, name: 'Küü instrumental narrative', descriptors: ['droning', 'expressive', 'rubato'], match_tokens: ['bowed', 'drone-foundation'] },
+        { id: 'kyl_kyiak_imitative', name: 'Imitative (horse, birdcall) technique', descriptors: ['whinnying', 'glissando', 'raw'], match_tokens: ['bowed', 'imitative'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gijjak_spike_fiddle',
+    name: 'Gijjak (Uzbek-Tajik spherical spike fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: 0, sustain: 2, polyphony: 0, harmonicity: 1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'gijjak',
+    parts: [
+      { id: 'gijjak_body', name: 'Resonator body', variants: [
+        { id: 'gijjak_gourd', default: true, name: 'Gourd / coconut bowl with skin belly', descriptors: ['nasal', 'penetrating', 'reedy'], match_tokens: ['spike-fiddle', 'bowed', 'central-asia'] },
+        { id: 'gijjak_metal', name: 'Metal-bowl gijjak', descriptors: ['metallic-ring', 'bright'], match_tokens: ['spike-fiddle', 'bowed'] },
+        { id: 'gijjak_wood_concert', name: 'Standardized wooden concert gijjak', descriptors: ['rounded', 'even-toned'], match_tokens: ['spike-fiddle', 'bowed', 'orchestral'] },
+      ] },
+      { id: 'gijjak_strings', surface: false, name: 'String set', variants: [
+        { id: 'gijjak_three_metal', default: true, name: 'Three metal strings', descriptors: ['bright-metallic', 'sustained'], match_tokens: ['bowed'] },
+        { id: 'gijjak_four_sympathetic', name: 'Four strings with sympathetic resonance', descriptors: ['ringing', 'halo-like'], match_tokens: ['bowed', 'sympathetic-strings'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chang_uzbek_dulcimer',
+    name: 'Chang (Uzbek struck box dulcimer)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: 1, register: 1, range: 2, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'uzbek chang',
+    parts: [
+      { id: 'chang_uzbek_mallets', name: 'Mallet type', variants: [
+        { id: 'chang_uzbek_bare_cane', default: true, name: 'Bare cane sticks', descriptors: ['bright-attack', 'glassy', 'shimmering'], match_tokens: ['hammered-dulcimer', 'struck-strings', 'central-asia'] },
+        { id: 'chang_uzbek_felted', name: 'Felt-tipped hammers', descriptors: ['mellow', 'rounded'], match_tokens: ['hammered-dulcimer'] },
+      ] },
+      { id: 'chang_uzbek_size', name: 'Instrument size / range', variants: [
+        { id: 'chang_uzbek_standard', default: true, name: 'Standard maqom chang', descriptors: ['ringing', 'ornamented'], match_tokens: ['hammered-dulcimer', 'maqom'] },
+        { id: 'chang_uzbek_bass', name: 'Extended bass chang (orchestral)', descriptors: ['deep-toned', 'broad'], match_tokens: ['hammered-dulcimer', 'orchestral'] },
+      ] },
+    ]
+  },
+  {
+    id: 'doira_frame_drum',
+    name: 'Doira (Central Asian jingle frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -1, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'doira',
+    parts: [
+      { id: 'doira_jingles', name: 'Jingle ring loading', variants: [
+        { id: 'doira_heavy_rings', default: true, name: 'Heavy interior ring chains (Uzbek/Tajik)', descriptors: ['jingling', 'sizzling', 'crisp'], match_tokens: ['frame-drum', 'jingle-rings', 'central-asia'] },
+        { id: 'doira_light_rings', name: 'Light ring loading', descriptors: ['dry', 'articulate'], match_tokens: ['frame-drum'] },
+        { id: 'doira_ringless', name: 'Ringless doira', descriptors: ['clean-tone', 'punchy'], match_tokens: ['frame-drum'] },
+      ] },
+      { id: 'doira_technique', name: 'Playing technique', variants: [
+        { id: 'doira_usul', default: true, name: 'Usul cycle (bak/bum finger patterns)', descriptors: ['driving', 'intricate'], match_tokens: ['frame-drum', 'rhythm-cycle'] },
+        { id: 'doira_roll', name: 'Rapid finger roll / shake', descriptors: ['shimmering', 'continuous'], match_tokens: ['frame-drum'] },
+      ] },
+      { id: 'doira_head', surface: false, name: 'Head material', variants: [
+        { id: 'doira_goatskin', default: true, name: 'Goatskin head (heat-tuned)', descriptors: ['warm', 'resonant'], match_tokens: ['frame-drum'] },
+        { id: 'doira_synthetic', name: 'Synthetic head', descriptors: ['bright', 'stable'], match_tokens: ['frame-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'nagora_kettledrum_pair',
+    name: 'Nagora (Azerbaijani small paired kettledrums)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: 0, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'nagora',
+    parts: [
+      { id: 'nagora_technique', name: 'Striking technique', variants: [
+        { id: 'nagora_sticks', default: true, name: 'Thin stick pair (qoša naġara)', descriptors: ['crisp', 'clattering', 'sharp-attack'], match_tokens: ['kettledrum', 'paired-drums', 'azerbaijani'] },
+        { id: 'nagora_hands', name: 'Bare-hand playing', descriptors: ['muted', 'warm-thump'], match_tokens: ['kettledrum', 'hand-drum'] },
+      ] },
+      { id: 'nagora_size', name: 'Shell size', variants: [
+        { id: 'nagora_small_pair', default: true, name: 'Small clay-bowl pair', descriptors: ['high-pitched', 'dry'], match_tokens: ['kettledrum'] },
+        { id: 'nagora_large_pair', name: 'Larger wooden-bowl pair', descriptors: ['deeper', 'booming'], match_tokens: ['kettledrum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'rawap_kashgar',
+    name: 'Kashgar rawap (Uyghur long-neck skin-belly lute)',
+    family: 'plucked_traditional',
+    class: 'long_neck_lute',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 0, harmonicity: 0, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'kashgar rawap',
+    parts: [
+      { id: 'rawap_kashgar_form', name: 'Regional form', variants: [
+        { id: 'rawap_kashgar_classic', default: true, name: 'Kashgar rawap with horn side-projections and sympathetic strings', descriptors: ['twangy', 'ringing', 'nasal'], match_tokens: ['plucked', 'uyghur', 'skin-belly-lute'] },
+        { id: 'rawap_qumul', name: 'Qumul (Hami) rawap', descriptors: ['darker', 'folk-toned'], match_tokens: ['plucked', 'uyghur'] },
+        { id: 'rawap_concert', name: 'Standardized concert rawap', descriptors: ['bright', 'projecting'], match_tokens: ['plucked', 'orchestral'] },
+      ] },
+      { id: 'rawap_kashgar_plectrum', name: 'Plectrum', variants: [
+        { id: 'rawap_horn_pick', default: true, name: 'Horn plectrum', descriptors: ['bright-attack', 'percussive'], match_tokens: ['plucked'] },
+        { id: 'rawap_finger', name: 'Fingernail plucking', descriptors: ['softer', 'intimate'], match_tokens: ['plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dap_uyghur',
+    name: 'Dap (Uyghur ring-jingle frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -1, harmonicity: -1, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'uyghur dap',
+    parts: [
+      { id: 'dap_uyghur_size', name: 'Frame size', variants: [
+        { id: 'dap_uyghur_large', default: true, name: 'Large muqam dap (wide shallow hoop)', descriptors: ['booming', 'jingling', 'resonant'], match_tokens: ['frame-drum', 'uyghur', 'muqam'] },
+        { id: 'dap_uyghur_small', name: 'Small dance dap', descriptors: ['crisp', 'high-pitched'], match_tokens: ['frame-drum', 'uyghur'] },
+      ] },
+      { id: 'dap_uyghur_technique', name: 'Playing technique', variants: [
+        { id: 'dap_uyghur_center_rim', default: true, name: 'Center/rim alternation with finger rolls', descriptors: ['driving', 'rattling'], match_tokens: ['frame-drum', 'rhythm-cycle'] },
+        { id: 'dap_uyghur_shake', name: 'Shaken jingle tremolo', descriptors: ['sizzling', 'continuous'], match_tokens: ['frame-drum', 'jingle-rings'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sapayi_ring_idiophone',
+    name: 'Sapayi (Uyghur ringed shaken stick idiophone)',
+    family: 'percussion',
+    class: 'concussion_idiophone',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'sapayi',
+    parts: [
+      { id: 'sapayi_material', name: 'Stick material / ring loading', variants: [
+        { id: 'sapayi_wood_iron', default: true, name: 'Wooden sticks with iron rings', descriptors: ['clattering', 'jangling', 'dry'], match_tokens: ['shaken-idiophone', 'uyghur', 'jingle-rings'] },
+        { id: 'sapayi_horn', name: 'Horn sticks with brass rings', descriptors: ['bright-clatter', 'metallic'], match_tokens: ['shaken-idiophone'] },
+      ] },
+      { id: 'sapayi_technique', name: 'Playing technique', variants: [
+        { id: 'sapayi_body_strike', default: true, name: 'Struck against shoulder and thigh while dancing', descriptors: ['accented', 'syncopated'], match_tokens: ['shaken-idiophone', 'dance-rhythm'] },
+        { id: 'sapayi_shake', name: 'Continuous shake', descriptors: ['rattling', 'sustained-buzz'], match_tokens: ['shaken-idiophone'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kalun_uyghur_zither',
+    name: 'Kalun (Uyghur plucked and slid box zither)',
+    family: 'plucked_traditional',
+    class: 'plucked_box_zither',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 1, harmonicity: 1, register: 0, range: 2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'kalun',
+    parts: [
+      { id: 'kalun_technique', name: 'Playing technique', variants: [
+        { id: 'kalun_pluck_slide', default: true, name: 'Plucked with pick while sliding a rod for pitch bends', descriptors: ['sliding', 'ringing', 'microtonal'], match_tokens: ['zither', 'uyghur', 'muqam'] },
+        { id: 'kalun_plain_pluck', name: 'Plain plucking, no slide', descriptors: ['clear', 'harp-like'], match_tokens: ['zither', 'plucked'] },
+      ] },
+      { id: 'kalun_strings', surface: false, name: 'String courses', variants: [
+        { id: 'kalun_double_course', default: true, name: 'Doubled metal courses', descriptors: ['shimmering', 'chorused'], match_tokens: ['zither'] },
+        { id: 'kalun_single_course', name: 'Single metal strings', descriptors: ['focused', 'dry'], match_tokens: ['zither'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ghijek_uyghur',
+    name: 'Ghijek (Uyghur sympathetic-string spike fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: 0, sustain: 2, polyphony: 0, harmonicity: 1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'ghijek',
+    parts: [
+      { id: 'ghijek_form', name: 'Regional form', variants: [
+        { id: 'ghijek_kashgar', default: true, name: 'Kashgar ghijek with sympathetic strings', descriptors: ['ringing', 'nasal', 'halo-like'], match_tokens: ['spike-fiddle', 'uyghur', 'sympathetic-strings'] },
+        { id: 'ghijek_qobuz', name: 'Archaic bowl-bodied qobuz-type ghijek', descriptors: ['husky', 'raw'], match_tokens: ['spike-fiddle', 'bowed'] },
+        { id: 'ghijek_alto', name: 'Alto/bass concert ghijek', descriptors: ['deep-toned', 'broad'], match_tokens: ['spike-fiddle', 'orchestral'] },
+      ] },
+      { id: 'ghijek_bow', name: 'Bow pressure', variants: [
+        { id: 'ghijek_light', default: true, name: 'Light ornamented muqam bowing', descriptors: ['ornamented', 'singing'], match_tokens: ['bowed', 'muqam'] },
+        { id: 'ghijek_heavy', name: 'Heavy pressed bowing', descriptors: ['gritty', 'intense'], match_tokens: ['bowed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tar_karabakh',
+    name: 'Karabakh tar (Azerbaijani mugham double-bowl lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 1, sustain: -1, polyphony: 0, harmonicity: 1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'karabakh tar',
+    parts: [
+      { id: 'tar_karabakh_style', name: 'Performance role', variants: [
+        { id: 'tar_karabakh_mugham', default: true, name: 'Mugham accompaniment to khanende singer', descriptors: ['bright-metallic', 'tremolo-rich', 'responsive'], match_tokens: ['plucked', 'mugham', 'azerbaijani'] },
+        { id: 'tar_karabakh_rangi', name: 'Instrumental rəng / dance piece', descriptors: ['driving', 'rhythmic'], match_tokens: ['plucked', 'dance-rhythm'] },
+        { id: 'tar_karabakh_solo', name: 'Solo virtuoso taxil', descriptors: ['ornamented', 'declamatory'], match_tokens: ['plucked'] },
+      ] },
+      { id: 'tar_karabakh_membrane', surface: false, name: 'Belly membrane', variants: [
+        { id: 'tar_karabakh_heart', default: true, name: 'Ox-heart pericardium membrane', descriptors: ['nasal', 'penetrating'], match_tokens: ['plucked', 'skin-belly-lute'] },
+        { id: 'tar_karabakh_fish', name: 'Fish-skin membrane', descriptors: ['softer', 'warmer'], match_tokens: ['plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'naghara_azerbaijani',
+    name: 'Naghara (Azerbaijani cylindrical double-headed drum)',
+    family: 'percussion',
+    class: 'cylindrical_drum',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'naghara',
+    parts: [
+      { id: 'naghara_size', name: 'Drum size', variants: [
+        { id: 'naghara_bash', default: true, name: 'Baş naghara (lead mid-size)', descriptors: ['punchy', 'cracking', 'carrying'], match_tokens: ['double-headed-drum', 'azerbaijani'] },
+        { id: 'naghara_boyuk', name: 'Böyük naghara (large bass)', descriptors: ['booming', 'deep-toned'], match_tokens: ['double-headed-drum', 'low-register'] },
+        { id: 'naghara_cura', name: 'Cürə naghara (small high)', descriptors: ['tight', 'high-pitched'], match_tokens: ['double-headed-drum'] },
+      ] },
+      { id: 'naghara_technique', name: 'Playing technique', variants: [
+        { id: 'naghara_hands', default: true, name: 'Bare-hand playing (ensemble/indoor)', descriptors: ['articulate', 'warm-thump'], match_tokens: ['hand-drum'] },
+        { id: 'naghara_sticks', name: 'Stick playing with zurna (outdoor)', descriptors: ['loud', 'sharp-attack'], match_tokens: ['double-headed-drum', 'outdoor'] },
+      ] },
+    ]
+  },
+  {
+    id: 'blul',
+    name: 'Blul (Armenian shepherd\'s end-blown flute)',
+    family: 'wind',
+    class: 'end_blown_flute',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'blul',
+    parts: [
+      { id: 'blul_form', name: 'Regional form', variants: [
+        { id: 'blul_apricot', default: true, name: 'Apricot-wood blul (standard shepherd\'s flute)', descriptors: ['breathy-tone', 'plaintive', 'airy'], match_tokens: ['end-blown-flute', 'armenian'] },
+        { id: 'blul_pku', name: 'Pku-style short blul (higher, brighter)', descriptors: ['bright-attack', 'piercing'], match_tokens: ['end-blown-flute', 'high-register'] },
+        { id: 'blul_cane', name: 'Cane / reed-tube blul (archaic pastoral)', descriptors: ['rustic', 'hissing-air'], match_tokens: ['end-blown-flute', 'pastoral'] },
+      ] },
+      { id: 'blul_style', name: 'Playing style', variants: [
+        { id: 'blul_pastoral', default: true, name: 'Free-rhythm pastoral melody', descriptors: ['rubato', 'melismatic'], match_tokens: ['solo-melody', 'armenian'] },
+        { id: 'blul_dance', name: 'Dance-tune playing', descriptors: ['driving', 'ornamented'], match_tokens: ['dance-rhythm'] },
+        { id: 'blul_breath', name: 'Breath-vibrato lament', descriptors: ['quavering', 'mournful'], match_tokens: ['lament', 'expressive'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chonguri',
+    name: 'Chonguri (Georgian four-string fretless lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: 0, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'chonguri',
+    parts: [
+      { id: 'chonguri_form', name: 'Regional form', variants: [
+        { id: 'chonguri_guria', default: true, name: 'Gurian chonguri (deep bowl, song accompaniment)', descriptors: ['warm', 'strummed', 'soft-voiced'], match_tokens: ['plucked-lute', 'georgian'] },
+        { id: 'chonguri_samegrelo', name: 'Megrelian chonguri (shallower, brighter)', descriptors: ['bright-tone', 'ringing'], match_tokens: ['plucked-lute', 'georgian'] },
+        { id: 'chonguri_adjara', name: 'Adjarian chonguri (small, high-tuned)', descriptors: ['high-pitched', 'delicate'], match_tokens: ['plucked-lute', 'high-register'] },
+      ] },
+      { id: 'chonguri_technique', name: 'Playing technique', variants: [
+        { id: 'chonguri_strum', default: true, name: 'Strummed chordal accompaniment with drone zili string', descriptors: ['droning', 'chordal'], match_tokens: ['strummed', 'drone-foundation'] },
+        { id: 'chonguri_pluck', name: 'Finger-plucked melodic line', descriptors: ['intimate', 'articulate'], match_tokens: ['plucked', 'solo-melody'] },
+      ] },
+      { id: 'chonguri_strings', surface: false, name: 'String material', variants: [
+        { id: 'chonguri_silk', default: true, name: 'Silk / gut strings (traditional)', descriptors: ['mellow', 'soft-attack'], match_tokens: ['plucked'] },
+        { id: 'chonguri_nylon', name: 'Nylon strings (modern)', descriptors: ['bright', 'clean'], match_tokens: ['plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'salamuri',
+    name: 'Salamuri (Georgian duct flute)',
+    family: 'wind',
+    class: 'duct_flute',
+    axes: { pitchFix: 1, sustain: 0, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'salamuri',
+    parts: [
+      { id: 'salamuri_form', name: 'Form', variants: [
+        { id: 'salamuri_sada', default: true, name: 'Sada salamuri (plain six-hole duct flute)', descriptors: ['sweet-toned', 'whistling', 'pastoral'], match_tokens: ['duct-flute', 'georgian'] },
+        { id: 'salamuri_eniani', name: 'Eniani salamuri (tongued, buzzing membrane)', descriptors: ['buzzing-timbre', 'reedy'], match_tokens: ['duct-flute', 'buzzing'] },
+        { id: 'salamuri_bass', name: 'Large low salamuri', descriptors: ['breathy-tone', 'deep-toned'], match_tokens: ['duct-flute', 'low-register'] },
+      ] },
+      { id: 'salamuri_style', name: 'Playing context', variants: [
+        { id: 'salamuri_solo', default: true, name: 'Solo pastoral tune', descriptors: ['lyrical', 'free-rhythm'], match_tokens: ['solo-melody'] },
+        { id: 'salamuri_ensemble', name: 'Ensemble dance playing with panduri and doli', descriptors: ['driving', 'bright-attack'], match_tokens: ['dance-rhythm', 'ensemble'] },
+      ] },
+    ]
+  },
+  {
+    id: 'duduki_georgian',
+    name: 'Duduki (Georgian double-reed, Tbilisi urban form)',
+    family: 'wind',
+    class: 'double_reed',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 0, range: 0, articulation: -1, transduction: -2, dynamics: 0 },
+    short: 'duduki',
+    parts: [
+      { id: 'duduki_role', name: 'Ensemble role', variants: [
+        { id: 'duduki_lead', default: true, name: 'Lead duduki (melody voice)', descriptors: ['plaintive', 'voice-like', 'warm'], match_tokens: ['double-reed', 'georgian'] },
+        { id: 'duduki_dam', name: 'Dam duduki (continuous drone)', descriptors: ['droning', 'sustained'], match_tokens: ['double-reed', 'drone-foundation'] },
+      ] },
+      { id: 'duduki_size', name: 'Size / tuning', variants: [
+        { id: 'duduki_a', default: true, name: 'Standard A duduki (apricot wood)', descriptors: ['mellow', 'dark-toned'], match_tokens: ['double-reed'] },
+        { id: 'duduki_small', name: 'Small high duduki', descriptors: ['bright-tone', 'penetrating'], match_tokens: ['double-reed', 'high-register'] },
+        { id: 'duduki_bass', name: 'Large low duduki', descriptors: ['deep-toned', 'breathy-tone'], match_tokens: ['double-reed', 'low-register'] },
+      ] },
+      { id: 'duduki_style', surface: false, name: 'Repertoire', variants: [
+        { id: 'duduki_urban', default: true, name: 'Tbilisi urban song / shakhruli', descriptors: ['sentimental', 'ornamented'], match_tokens: ['urban', 'georgian'] },
+        { id: 'duduki_lament', name: 'Funeral lament', descriptors: ['mournful', 'rubato'], match_tokens: ['lament'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chiboni',
+    name: 'Chiboni (Georgian Adjarian mouth-blown bagpipe)',
+    family: 'wind',
+    class: 'mouth_blown_bagpipe',
+    axes: { pitchFix: 1, sustain: 2, polyphony: 1, harmonicity: 0, register: 0, range: -1, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'chiboni',
+    parts: [
+      { id: 'chiboni_form', name: 'Regional form', variants: [
+        { id: 'chiboni_adjara', default: true, name: 'Adjarian chiboni (twin chanter in goatskin bag)', descriptors: ['droning', 'reedy', 'continuous'], match_tokens: ['bagpipe', 'georgian'] },
+        { id: 'chiboni_gudastviri', name: 'Racha gudastviri (highland form)', descriptors: ['archaic', 'buzzing-timbre'], match_tokens: ['bagpipe', 'highland'] },
+      ] },
+      { id: 'chiboni_style', name: 'Playing context', variants: [
+        { id: 'chiboni_dance', default: true, name: 'Dance accompaniment (gandagana)', descriptors: ['driving', 'circling'], match_tokens: ['dance-rhythm'] },
+        { id: 'chiboni_song', name: 'Song accompaniment / heterophony', descriptors: ['voice-shadowing', 'sustained'], match_tokens: ['drone-foundation'] },
+      ] },
+    ]
+  },
+  {
+    id: 'doli',
+    name: 'Doli (Georgian double-headed hand drum)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'doli',
+    parts: [
+      { id: 'doli_form', name: 'Form / size', variants: [
+        { id: 'doli_standard', default: true, name: 'Standard doli (hand-played, wooden shell)', descriptors: ['crisp-attack', 'dry'], match_tokens: ['hand-drum', 'georgian'] },
+        { id: 'doli_large', name: 'Large outdoor doli (stick-played)', descriptors: ['booming', 'deep-toned'], match_tokens: ['struck', 'loud-projection'] },
+        { id: 'doli_small', name: 'Small high-tuned doli', descriptors: ['tight', 'snappy'], match_tokens: ['hand-drum', 'high-register'] },
+      ] },
+      { id: 'doli_head', surface: false, name: 'Head material', variants: [
+        { id: 'doli_skin', default: true, name: 'Goat / calfskin heads', descriptors: ['warm', 'organic'], match_tokens: ['hand-drum'] },
+        { id: 'doli_plastic', name: 'Synthetic heads', descriptors: ['bright-attack', 'even'], match_tokens: ['hand-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'shichepshin',
+    name: 'Shichepshin (Circassian/Adyghe bowed fiddle)',
+    family: 'bowed',
+    class: 'bowed_fiddle',
+    axes: { pitchFix: -1, sustain: 2, polyphony: 0, harmonicity: 0, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'shichepshin',
+    parts: [
+      { id: 'shichepshin_form', name: 'Form', variants: [
+        { id: 'shichepshin_two', default: true, name: 'Two-string boat-shaped shichepshin', descriptors: ['nasal', 'rasping', 'archaic'], match_tokens: ['bowed-fiddle', 'circassian'] },
+        { id: 'shichepshin_three', name: 'Three-string modern shichepshin', descriptors: ['fuller', 'resonant'], match_tokens: ['bowed-fiddle'] },
+      ] },
+      { id: 'shichepshin_style', name: 'Playing context', variants: [
+        { id: 'shichepshin_epic', default: true, name: 'Nart epic song accompaniment', descriptors: ['declamatory', 'drone-heavy'], match_tokens: ['drone-foundation', 'epic'] },
+        { id: 'shichepshin_dance', name: 'Dance tune (zafak / islamey)', descriptors: ['driving', 'fast-ornamented'], match_tokens: ['dance-rhythm'] },
+      ] },
+      { id: 'shichepshin_strings', surface: false, name: 'String material', variants: [
+        { id: 'shichepshin_horsehair', default: true, name: 'Horsehair strings', descriptors: ['rasping', 'husky'], match_tokens: ['bowed'] },
+        { id: 'shichepshin_gut', name: 'Gut strings', descriptors: ['warm', 'smooth'], match_tokens: ['bowed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'aiumaa',
+    name: 'Aiumaa (Abkhaz arched harp)',
+    family: 'plucked_traditional',
+    class: 'arched_harp',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'aiumaa',
+    parts: [
+      { id: 'aiumaa_size', name: 'Size / string count', variants: [
+        { id: 'aiumaa_14', default: true, name: 'Fourteen-string aiumaa (traditional)', descriptors: ['shimmering', 'soft-plucked', 'archaic'], match_tokens: ['arched-harp', 'abkhaz'] },
+        { id: 'aiumaa_small', name: 'Small six-string aiumaa', descriptors: ['intimate', 'dry'], match_tokens: ['arched-harp'] },
+      ] },
+      { id: 'aiumaa_style', name: 'Playing context', variants: [
+        { id: 'aiumaa_song', default: true, name: 'Heroic song accompaniment', descriptors: ['supporting', 'rippling'], match_tokens: ['accompaniment', 'epic'] },
+        { id: 'aiumaa_solo', name: 'Solo instrumental piece', descriptors: ['lyrical', 'sparse'], match_tokens: ['solo-melody'] },
+      ] },
+    ]
+  },
+  {
+    id: 'achamgur',
+    name: 'Achamgur (Abkhaz two-string plucked lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: -1, polyphony: 0, harmonicity: 0, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'achamgur',
+    parts: [
+      { id: 'achamgur_form', name: 'Form', variants: [
+        { id: 'achamgur_two', default: true, name: 'Two-string boat-body achamgur', descriptors: ['dry', 'plinking', 'archaic'], match_tokens: ['plucked-lute', 'abkhaz'] },
+        { id: 'achamgur_three', name: 'Three-string achamgur (modernized)', descriptors: ['fuller', 'ringing'], match_tokens: ['plucked-lute'] },
+      ] },
+      { id: 'achamgur_technique', name: 'Playing technique', variants: [
+        { id: 'achamgur_strum', default: true, name: 'Strummed song accompaniment', descriptors: ['steady-strum', 'supporting'], match_tokens: ['strummed', 'accompaniment'] },
+        { id: 'achamgur_pluck', name: 'Plucked melodic figures', descriptors: ['articulate', 'sparse'], match_tokens: ['plucked', 'solo-melody'] },
+      ] },
+    ]
+  },
+  {
+    id: 'phandyr',
+    name: 'Phandyr (Nakh three-string plucked lute, dechig-pondar)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: -1, polyphony: 0, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'phandyr',
+    parts: [
+      { id: 'phandyr_form', name: 'Form', variants: [
+        { id: 'phandyr_dechig', default: true, name: 'Carved wooden dechig-pondar (fretless)', descriptors: ['dry', 'woody', 'archaic'], match_tokens: ['plucked-lute', 'chechen'] },
+        { id: 'phandyr_fretted', name: 'Fretted modern pondar', descriptors: ['clean', 'even'], match_tokens: ['plucked-lute'] },
+      ] },
+      { id: 'phandyr_style', name: 'Playing style', variants: [
+        { id: 'phandyr_illi', default: true, name: 'Illi heroic-song accompaniment', descriptors: ['declamatory', 'steady-strum'], match_tokens: ['accompaniment', 'epic'] },
+        { id: 'phandyr_dance', name: 'Lezginka dance figures', descriptors: ['driving', 'snappy'], match_tokens: ['dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dala_fandyr',
+    name: 'Dala-fandyr (Ossetian plucked three-string lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: -1, polyphony: 0, harmonicity: 0, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'dala-fandyr',
+    parts: [
+      { id: 'dala_fandyr_form', name: 'Form', variants: [
+        { id: 'dala_fandyr_carved', default: true, name: 'Single-block carved dala-fandyr with skin belly', descriptors: ['dry', 'muted', 'archaic'], match_tokens: ['plucked-lute', 'ossetian'] },
+        { id: 'dala_fandyr_wood', name: 'Wood-bellied concert dala-fandyr', descriptors: ['ringing', 'projecting'], match_tokens: ['plucked-lute'] },
+      ] },
+      { id: 'dala_fandyr_style', name: 'Playing context', variants: [
+        { id: 'dala_fandyr_song', default: true, name: 'Nart-saga song accompaniment', descriptors: ['supporting', 'recitative'], match_tokens: ['accompaniment', 'epic'] },
+        { id: 'dala_fandyr_solo', name: 'Solo instrumental tune', descriptors: ['plinking', 'lyrical'], match_tokens: ['solo-melody'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kissyn_fandyr',
+    name: 'Kissyn-fandyr (Ossetian bowed spike fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -1, sustain: 2, polyphony: 0, harmonicity: -1, register: 1, range: -1, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'kissyn-fandyr',
+    parts: [
+      { id: 'kissyn_fandyr_form', name: 'Form', variants: [
+        { id: 'kissyn_fandyr_two', default: true, name: 'Two-string bowl-body kissyn-fandyr with skin belly', descriptors: ['nasal', 'rasping', 'archaic'], match_tokens: ['bowed-fiddle', 'ossetian'] },
+        { id: 'kissyn_fandyr_three', name: 'Three-string modernized kissyn-fandyr', descriptors: ['fuller', 'smoother'], match_tokens: ['bowed-fiddle'] },
+      ] },
+      { id: 'kissyn_fandyr_strings', name: 'String material', variants: [
+        { id: 'kissyn_fandyr_horsehair', default: true, name: 'Horsehair strings', descriptors: ['husky', 'grainy'], match_tokens: ['bowed'] },
+        { id: 'kissyn_fandyr_gut', name: 'Gut strings', descriptors: ['warm', 'singing'], match_tokens: ['bowed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sanavr',
+    name: 'Sanavr (Pamiri Badakhshan long-necked plucked lute)',
+    family: 'plucked_traditional',
+    class: 'long_neck_lute',
+    axes: { pitchFix: 0, sustain: 0, polyphony: 0, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'sanavr',
+    parts: [
+      { id: 'sanavr_form', name: 'Form', variants: [
+        { id: 'sanavr_mulberry', default: true, name: 'Mulberry-body sanavr with sympathetic-free single course', descriptors: ['dry', 'buzzing-timbre', 'reedy'], match_tokens: ['long-neck-lute', 'pamiri'] },
+        { id: 'sanavr_large', name: 'Large low-tuned sanavr', descriptors: ['deep-toned', 'resonant'], match_tokens: ['long-neck-lute', 'low-register'] },
+      ] },
+      { id: 'sanavr_style', name: 'Playing context', variants: [
+        { id: 'sanavr_maddoh', default: true, name: 'Maddoh devotional song accompaniment', descriptors: ['hypnotic', 'steady-strum'], match_tokens: ['devotional', 'accompaniment'] },
+        { id: 'sanavr_dance', name: 'Falak / dance instrumental', descriptors: ['driving', 'ornamented'], match_tokens: ['dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ghijak_pamiri',
+    name: 'Ghijak pamiri (Pamiri spike fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -1, sustain: 2, polyphony: 0, harmonicity: 0, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'pamiri ghijak',
+    parts: [
+      { id: 'ghijak_pamiri_body', name: 'Body / resonator', variants: [
+        { id: 'ghijak_pamiri_gourd', default: true, name: 'Gourd body with skin belly', descriptors: ['nasal', 'buzzing-timbre', 'archaic'], match_tokens: ['spike-fiddle', 'pamiri'] },
+        { id: 'ghijak_pamiri_tin', name: 'Metal-can resonator (highland improvised)', descriptors: ['metallic', 'edgy'], match_tokens: ['spike-fiddle'] },
+        { id: 'ghijak_pamiri_wood', name: 'Carved wooden bowl body', descriptors: ['warm', 'rounded'], match_tokens: ['spike-fiddle'] },
+      ] },
+      { id: 'ghijak_pamiri_style', name: 'Playing context', variants: [
+        { id: 'ghijak_pamiri_falak', default: true, name: 'Falak lament melody', descriptors: ['mournful', 'melismatic'], match_tokens: ['lament', 'solo-melody'] },
+        { id: 'ghijak_pamiri_ensemble', name: 'Ensemble with rubab and daf', descriptors: ['droning', 'voice-shadowing'], match_tokens: ['ensemble', 'drone-foundation'] },
+      ] },
+    ]
+  },
+  {
+    id: 'nay_tajik',
+    name: 'Nay tajik (Tajik/Badakhshan reed flute)',
+    family: 'wind',
+    class: 'end_blown_flute',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -2, harmonicity: 1, register: 1, range: 1, articulation: -1, transduction: -2, dynamics: 0 },
+    short: 'tajik nay',
+    parts: [
+      { id: 'nay_tajik_form', name: 'Form', variants: [
+        { id: 'nay_tajik_reed', default: true, name: 'Cane reed nay (end-blown, oblique embouchure)', descriptors: ['breathy-tone', 'airy', 'plaintive'], match_tokens: ['end-blown-flute', 'tajik'] },
+        { id: 'nay_tajik_wood', name: 'Wooden nay (turned, sturdier)', descriptors: ['focused', 'warm'], match_tokens: ['end-blown-flute'] },
+        { id: 'nay_tajik_metal', name: 'Metal-tube nay (modern)', descriptors: ['bright-tone', 'clean'], match_tokens: ['end-blown-flute'] },
+      ] },
+      { id: 'nay_tajik_style', name: 'Playing context', variants: [
+        { id: 'nay_tajik_falak', default: true, name: 'Falak / free-rhythm mountain melody', descriptors: ['rubato', 'mournful'], match_tokens: ['solo-melody', 'lament'] },
+        { id: 'nay_tajik_shashmaqom', name: 'Shashmaqom ensemble line', descriptors: ['ornamented', 'sustained'], match_tokens: ['ensemble', 'classical'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gijak_turkmen',
+    name: 'Gijak (Turkmen spike fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -1, sustain: 2, polyphony: -1, harmonicity: 0, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'gijak',
+    parts: [
+      { id: 'gijak_body', name: 'Resonator body', variants: [
+        { id: 'gijak_gourd', default: true, name: 'Gourd resonator with skin belly', descriptors: ['nasal', 'buzzing-timbre', 'reedy'], match_tokens: ['bowed', 'spike-fiddle', 'central-asian'] },
+        { id: 'gijak_wood', name: 'Carved wooden bowl resonator', descriptors: ['warm', 'rounded'], match_tokens: ['bowed', 'spike-fiddle'] },
+        { id: 'gijak_tin', name: 'Metal tin resonator (village form)', descriptors: ['metallic', 'piercing'], match_tokens: ['bowed', 'bright-attack'] },
+      ] },
+      { id: 'gijak_strings', name: 'String setup', variants: [
+        { id: 'gijak_three', default: true, name: 'Three metal strings with sympathetic ring', descriptors: ['shimmering', 'sustained'], match_tokens: ['bowed', 'metal-strung'] },
+        { id: 'gijak_four', name: 'Four-string concert gijak', descriptors: ['full-toned', 'projecting'], match_tokens: ['bowed', 'concert'] },
+        { id: 'gijak_gut', name: 'Gut/silk strings (archaic)', descriptors: ['mellow', 'archaic'], match_tokens: ['bowed', 'gut-strung'] },
+      ] },
+      { id: 'gijak_style', name: 'Playing style', variants: [
+        { id: 'gijak_bagshy', default: true, name: 'Bagshy song accompaniment', descriptors: ['voice-shadowing', 'ornamented'], match_tokens: ['bowed', 'turkmen'] },
+        { id: 'gijak_solo', name: 'Solo instrumental mukam', descriptors: ['rubato', 'melismatic'], match_tokens: ['bowed', 'expressive'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tuiduk',
+    name: 'Tüýdük (Turkmen end-blown reed flute)',
+    family: 'wind',
+    class: 'end_blown_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'tuiduk',
+    parts: [
+      { id: 'tuiduk_tube', name: 'Tube material', variants: [
+        { id: 'tuiduk_cane', default: true, name: 'Apricot-wood or cane tube', descriptors: ['breathy', 'airy', 'pastoral'], match_tokens: ['end-blown-flute', 'turkmen'] },
+        { id: 'tuiduk_metal', name: 'Metal-lined modern tube', descriptors: ['bright', 'focused'], match_tokens: ['end-blown-flute'] },
+      ] },
+      { id: 'tuiduk_technique', name: 'Blowing technique', variants: [
+        { id: 'tuiduk_throat', default: true, name: 'Throat-hum with flute tone (shepherd style)', descriptors: ['droning', 'overtone-rich', 'haunting'], match_tokens: ['overblown', 'drone-foundation'] },
+        { id: 'tuiduk_plain', name: 'Plain melodic blowing', descriptors: ['clear', 'lyrical'], match_tokens: ['end-blown-flute'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dilli_tuiduk',
+    name: 'Dilli tüýdük (Turkmen idioglot single-reed pipe)',
+    family: 'wind',
+    class: 'single_reed_cylindrical',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: -1, register: 1, range: -1, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'dilli tuiduk',
+    parts: [
+      { id: 'dilli_tube', name: 'Pipe construction', variants: [
+        { id: 'dilli_cane', default: true, name: 'Short cane pipe with cut idioglot tongue', descriptors: ['buzzing-timbre', 'reedy', 'nasal'], match_tokens: ['single-reed', 'turkmen', 'cane-pipe'] },
+        { id: 'dilli_wood', name: 'Turned wooden pipe with inserted reed', descriptors: ['fuller-toned', 'stable'], match_tokens: ['single-reed'] },
+      ] },
+      { id: 'dilli_style', name: 'Playing technique', variants: [
+        { id: 'dilli_circular', default: true, name: 'Circular breathing continuous melody', descriptors: ['unbroken', 'droning'], match_tokens: ['circular-breathing', 'drone-foundation'] },
+        { id: 'dilli_dance', name: 'Dance-tune articulation', descriptors: ['chirping', 'driving'], match_tokens: ['single-reed', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gopuz',
+    name: 'Gopuz (Turkmen/Azerbaijani jaw harp)',
+    family: 'plucked_traditional',
+    class: 'jaw_harp',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -1, harmonicity: -1, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: -2 },
+    short: 'gopuz',
+    parts: [
+      { id: 'gopuz_material', name: 'Frame material', variants: [
+        { id: 'gopuz_iron', default: true, name: 'Forged iron frame with steel tongue', descriptors: ['twanging', 'buzzing-timbre', 'metallic'], match_tokens: ['jaw-harp', 'plucked-lamella'] },
+        { id: 'gopuz_brass', name: 'Brass frame', descriptors: ['softer-toned', 'warm-buzz'], match_tokens: ['jaw-harp'] },
+      ] },
+      { id: 'gopuz_technique', name: 'Playing technique', variants: [
+        { id: 'gopuz_vowel', default: true, name: 'Vowel-shaping overtone melody', descriptors: ['overtone-rich', 'talking'], match_tokens: ['jaw-harp', 'overtone'] },
+        { id: 'gopuz_rhythmic', name: 'Rapid rhythmic plucking', descriptors: ['pulsing', 'percussive'], match_tokens: ['jaw-harp', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'shan_koobyz',
+    name: 'Shan-qobyz (Kazakh metal jaw harp)',
+    family: 'plucked_traditional',
+    class: 'jaw_harp',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -1, harmonicity: -2, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: -2 },
+    short: 'shan-qobyz',
+    parts: [
+      { id: 'shan_material', name: 'Frame material', variants: [
+        { id: 'shan_steel', default: true, name: 'Forged steel bow-frame harp', descriptors: ['twanging', 'metallic', 'buzzing-timbre'], match_tokens: ['jaw-harp', 'kazakh'] },
+        { id: 'shan_bronze', name: 'Bronze frame', descriptors: ['mellow-buzz', 'dark'], match_tokens: ['jaw-harp'] },
+      ] },
+      { id: 'shan_technique', name: 'Technique', variants: [
+        { id: 'shan_breath', default: true, name: 'Breath-and-vowel overtone shaping', descriptors: ['overtone-rich', 'whispery'], match_tokens: ['jaw-harp', 'overtone'] },
+        { id: 'shan_gallop', name: 'Galloping-horse imitation', descriptors: ['pulsing', 'imitative'], match_tokens: ['jaw-harp', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'doshpuluur',
+    name: 'Doshpuluur (Tuvan long-necked plucked lute)',
+    family: 'plucked_traditional',
+    class: 'long_neck_lute',
+    axes: { pitchFix: 0, sustain: 0, polyphony: 0, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'doshpuluur',
+    parts: [
+      { id: 'dosh_belly', name: 'Soundboard', variants: [
+        { id: 'dosh_skin', default: true, name: 'Goatskin-covered box body', descriptors: ['dry', 'thudding', 'buzzing-timbre'], match_tokens: ['plucked', 'tuvan', 'skin-belly'] },
+        { id: 'dosh_wood', name: 'Wooden-topped body', descriptors: ['brighter', 'sustained'], match_tokens: ['plucked', 'long-neck-lute'] },
+      ] },
+      { id: 'dosh_style', name: 'Playing style', variants: [
+        { id: 'dosh_strum', default: true, name: 'Strummed throat-singing accompaniment', descriptors: ['driving', 'steady-pulse'], match_tokens: ['strummed', 'drone-foundation'] },
+        { id: 'dosh_pluck', name: 'Finger-plucked lyrical style', descriptors: ['delicate', 'intimate'], match_tokens: ['plucked', 'tuvan'] },
+      ] },
+      { id: 'dosh_strings', surface: false, name: 'String material', variants: [
+        { id: 'dosh_nylon', default: true, name: 'Nylon strings', descriptors: ['bright', 'modern'], match_tokens: ['plucked'] },
+        { id: 'dosh_horsehair', name: 'Twisted horsehair strings', descriptors: ['muted', 'archaic'], match_tokens: ['plucked', 'horsehair-strung'] },
+      ] },
+    ]
+  },
+  {
+    id: 'amyrga',
+    name: 'Amyrga (Tuvan hunter\'s natural horn)',
+    family: 'wind',
+    class: 'natural_trumpet',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: 0, register: -1, range: -2, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'amyrga',
+    parts: [
+      { id: 'amyrga_body', name: 'Horn construction', variants: [
+        { id: 'amyrga_bark', default: true, name: 'Cedar-bark wrapped conical horn', descriptors: ['hollow', 'calling', 'raw'], match_tokens: ['lip-blown', 'hunting-horn', 'tuvan'] },
+        { id: 'amyrga_wood', name: 'Split-and-bound wooden horn', descriptors: ['woody', 'husky'], match_tokens: ['lip-blown', 'natural-horn'] },
+      ] },
+      { id: 'amyrga_use', name: 'Sounding use', variants: [
+        { id: 'amyrga_call', default: true, name: 'Deer-call imitation (rutting stag)', descriptors: ['moaning', 'glissando-laden'], match_tokens: ['hunting-call', 'imitative'] },
+        { id: 'amyrga_signal', name: 'Long signal blast', descriptors: ['far-carrying', 'stark'], match_tokens: ['lip-blown', 'loud-projection'] },
+      ] },
+    ]
+  },
+  {
+    id: 'pommer',
+    name: 'Pommer (Renaissance bass shawm)',
+    family: 'wind',
+    class: 'double_reed_shawm',
+    axes: { pitchFix: 1, sustain: 1, polyphony: -2, harmonicity: 0, register: -2, range: 0, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'pommer',
+    parts: [
+      { id: 'pommer_size', name: 'Size / pitch', variants: [
+        { id: 'pommer_bass', default: true, name: 'Bass pommer (bombard in F)', descriptors: ['buzzy', 'deep-toned', 'raucous'], match_tokens: ['double-reed', 'shawm', 'renaissance'] },
+        { id: 'pommer_tenor', name: 'Tenor pommer (nicolo)', descriptors: ['reedy', 'full-toned'], match_tokens: ['double-reed', 'shawm'] },
+        { id: 'pommer_great', name: 'Great bass pommer with extension keys', descriptors: ['growling', 'ponderous'], match_tokens: ['double-reed', 'low-register'] },
+      ] },
+      { id: 'pommer_context', name: 'Ensemble context', variants: [
+        { id: 'pommer_alta', default: true, name: 'Alta capella loud band', descriptors: ['outdoor', 'blaring', 'ceremonial'], match_tokens: ['shawm', 'loud-projection'] },
+        { id: 'pommer_consort', name: 'Indoor shawm consort', descriptors: ['blended', 'chorale-like'], match_tokens: ['double-reed', 'consort'] },
+      ] },
+    ]
+  },
+  {
+    id: 'zink',
+    name: 'Zink (cornett, lip-blown wooden horn)',
+    family: 'wind',
+    class: 'brass',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'zink',
+    parts: [
+      { id: 'zink_type', name: 'Instrument type', variants: [
+        { id: 'zink_curved', default: true, name: 'Curved treble cornett (leather-covered)', descriptors: ['vocal', 'bright-attack', 'singing'], match_tokens: ['cornett', 'lip-blown', 'renaissance'] },
+        { id: 'zink_mute', name: 'Mute cornett (straight, integral mouthpiece)', descriptors: ['veiled', 'soft-toned'], match_tokens: ['cornett', 'muted'] },
+        { id: 'zink_tenor', name: 'Tenor cornett (lysard)', descriptors: ['mellow', 'reedy'], match_tokens: ['cornett', 'low-register'] },
+        { id: 'zink_serpent', name: 'Serpent (bass member)', descriptors: ['woolly', 'deep-toned'], match_tokens: ['serpent', 'lip-blown'] },
+      ] },
+      { id: 'zink_context', name: 'Playing context', variants: [
+        { id: 'zink_church', default: true, name: 'Church cori spezzati / doubling voices', descriptors: ['blended', 'liturgical'], match_tokens: ['cornett', 'sacred'] },
+        { id: 'zink_virtuoso', name: 'Virtuoso diminution solo', descriptors: ['agile', 'ornamented'], match_tokens: ['cornett', 'expressive'] },
+      ] },
+    ]
+  },
+  {
+    id: 'buccin',
+    name: 'Buccin (dragon-belled ceremonial trombone)',
+    family: 'wind',
+    class: 'brass',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: -1, range: 1, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'buccin',
+    parts: [
+      { id: 'buccin_bell', name: 'Bell form', variants: [
+        { id: 'buccin_dragon', default: true, name: 'Painted zoomorphic dragon-head bell', descriptors: ['blaring', 'brash', 'spectacular'], match_tokens: ['trombone', 'lip-blown', 'ceremonial'] },
+        { id: 'buccin_plain', name: 'Plain flared bell (transitional)', descriptors: ['rounded', 'noble'], match_tokens: ['trombone', 'brass'] },
+      ] },
+      { id: 'buccin_context', name: 'Use', variants: [
+        { id: 'buccin_military', default: true, name: 'Revolutionary-era military band', descriptors: ['martial', 'outdoor', 'loud'], match_tokens: ['band', 'loud-projection'] },
+        { id: 'buccin_funeral', name: 'Funeral / processional part', descriptors: ['solemn', 'sustained'], match_tokens: ['trombone', 'processional'] },
+      ] },
+    ]
+  },
+  {
+    id: 'cornopean',
+    name: 'Cornopean (early valved cornet à pistons)',
+    family: 'wind',
+    class: 'brass',
+    axes: { pitchFix: 1, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'cornopean',
+    parts: [
+      { id: 'cornopean_valves', name: 'Valve system', variants: [
+        { id: 'cornopean_stolzel', default: true, name: 'Stölzel valves with shepherd\'s-crook wrap', descriptors: ['mellow', 'veiled', 'conical'], match_tokens: ['cornet', 'valved-brass', 'victorian'] },
+        { id: 'cornopean_clapper', name: 'Clapper-key / disc-valve variant', descriptors: ['quirky', 'uneven-tone'], match_tokens: ['valved-brass', 'early'] },
+      ] },
+      { id: 'cornopean_shanks', name: 'Crooks and shanks', variants: [
+        { id: 'cornopean_bflat', default: true, name: 'B-flat shank (standard)', descriptors: ['warm', 'singing'], match_tokens: ['cornet', 'brass'] },
+        { id: 'cornopean_a', name: 'A crook', descriptors: ['darker', 'rounder'], match_tokens: ['cornet'] },
+        { id: 'cornopean_c', name: 'C shank', descriptors: ['brighter', 'forward'], match_tokens: ['cornet', 'bright-attack'] },
+      ] },
+    ]
+  },
+  {
+    id: 'posthorn',
+    name: 'Posthorn (coiled natural signal horn)',
+    family: 'wind',
+    class: 'natural_trumpet',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 2, register: 1, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'posthorn',
+    parts: [
+      { id: 'posthorn_form', name: 'Tubing form', variants: [
+        { id: 'posthorn_coiled', default: true, name: 'Small coiled brass posthorn', descriptors: ['bright-attack', 'piercing', 'fanfare-like'], match_tokens: ['natural-horn', 'signal-horn'] },
+        { id: 'posthorn_straight', name: 'Straight long coach horn', descriptors: ['far-carrying', 'stark'], match_tokens: ['natural-horn', 'loud-projection'] },
+        { id: 'posthorn_valved', name: 'Valved posthorn (concert solo type)', descriptors: ['agile', 'chromatic', 'showy'], match_tokens: ['valved-brass', 'virtuosic'] },
+      ] },
+      { id: 'posthorn_use', name: 'Signalling use', variants: [
+        { id: 'posthorn_signal', default: true, name: 'Mail-coach arrival signal', descriptors: ['calling', 'clipped'], match_tokens: ['signal-horn', 'fanfare'] },
+        { id: 'posthorn_galop', name: 'Orchestral galop / posthorn solo', descriptors: ['jaunty', 'brilliant'], match_tokens: ['brass', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tromba_da_tirarsi',
+    name: 'Tromba da tirarsi (Baroque slide trumpet)',
+    family: 'wind',
+    class: 'brass',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 2, register: 1, range: 1, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'tromba da tirarsi',
+    parts: [
+      { id: 'tdt_slide', name: 'Slide mechanism', variants: [
+        { id: 'tdt_single', default: true, name: 'Single telescoping mouthpipe slide', descriptors: ['noble', 'vocal', 'smooth'], match_tokens: ['slide-trumpet', 'baroque', 'lip-blown'] },
+        { id: 'tdt_double', name: 'Double (English) flat trumpet slide', descriptors: ['agile', 'chromatic'], match_tokens: ['slide-trumpet', 'brass'] },
+      ] },
+      { id: 'tdt_context', name: 'Repertoire', variants: [
+        { id: 'tdt_chorale', default: true, name: 'Cantata chorale-melody doubling', descriptors: ['sustained', 'hymnic', 'blended'], match_tokens: ['baroque', 'sacred'] },
+        { id: 'tdt_obbligato', name: 'Obbligato aria line', descriptors: ['singing', 'ornamented'], match_tokens: ['brass', 'expressive'] },
+      ] },
+    ]
+  },
+  {
+    id: 'lituus',
+    name: 'Lituus (Roman/Baroque long J-shaped natural trumpet)',
+    family: 'wind',
+    class: 'ritual_trumpet',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: 2, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'lituus',
+    parts: [
+      { id: 'lituus_form', name: 'Historical form', variants: [
+        { id: 'lituus_roman', default: true, name: 'Roman bronze lituus (upturned J bell)', descriptors: ['shrill', 'martial', 'archaic'], match_tokens: ['natural-trumpet', 'ritual', 'roman'] },
+        { id: 'lituus_baroque', name: 'Baroque long lituus (Bach, ~2.7 m)', descriptors: ['mellow', 'hollow', 'distant'], match_tokens: ['natural-trumpet', 'baroque'] },
+      ] },
+      { id: 'lituus_use', name: 'Sounding use', variants: [
+        { id: 'lituus_signal', default: true, name: 'Military / augural signal calls', descriptors: ['clipped', 'far-carrying'], match_tokens: ['signal-horn', 'fanfare'] },
+        { id: 'lituus_funeral', name: 'Funerary motet part', descriptors: ['solemn', 'sustained', 'veiled'], match_tokens: ['ritual', 'processional'] },
+      ] },
+    ]
+  },
+  {
+    id: 'cornu_roman',
+    name: 'Cornu (Roman G-shaped military horn)',
+    family: 'wind',
+    class: 'natural_trumpet',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'cornu',
+    parts: [
+      { id: 'cornu_form', name: 'Instrument form', variants: [
+        { id: 'cornu_military', default: true, name: 'Legionary cornu (full G-curve with crossbar)', descriptors: ['booming', 'brassy', 'commanding'], match_tokens: ['natural-horn', 'roman', 'signal-calls'] },
+        { id: 'cornu_lituus', name: 'Lituus (J-shaped cavalry horn)', descriptors: ['shrill', 'piercing', 'bright-attack'], match_tokens: ['natural-horn', 'roman', 'high-register'] },
+        { id: 'cornu_bucina', name: 'Bucina (shorter coiled herald horn)', descriptors: ['compact', 'hard-edged', 'carrying'], match_tokens: ['natural-horn', 'roman'] },
+      ] },
+      { id: 'cornu_material', surface: false, name: 'Bore material', variants: [
+        { id: 'cornu_bronze', default: true, name: 'Hammered bronze', descriptors: ['dark-brassy', 'resonant'], match_tokens: ['bronze', 'natural-horn'] },
+        { id: 'cornu_brass_sheet', name: 'Sheet brass reconstruction', descriptors: ['bright', 'projecting'], match_tokens: ['reconstruction', 'natural-horn'] },
+      ] },
+      { id: 'cornu_context', name: 'Playing context', variants: [
+        { id: 'cornu_signal', default: true, name: 'Battlefield signal calls', descriptors: ['blaring', 'stark', 'rhythmic'], match_tokens: ['signal-calls', 'loud-projection'] },
+        { id: 'cornu_arena', name: 'Arena and procession fanfare', descriptors: ['ceremonial', 'massed', 'triumphal'], match_tokens: ['fanfare', 'roman'] },
+      ] },
+    ]
+  },
+  {
+    id: 'salpinx',
+    name: 'Salpinx (ancient Greek straight war trumpet)',
+    family: 'wind',
+    class: 'natural_trumpet',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -2, harmonicity: 1, register: 0, range: -2, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'salpinx',
+    parts: [
+      { id: 'salpinx_build', name: 'Tube construction', variants: [
+        { id: 'salpinx_bone_bronze', default: true, name: 'Bronze tube with bone segments and flared kodon bell', descriptors: ['harsh', 'blaring', 'raw'], match_tokens: ['straight-trumpet', 'greek', 'loud-projection'] },
+        { id: 'salpinx_all_bronze', name: 'All-bronze tube', descriptors: ['metallic', 'cutting', 'bright-attack'], match_tokens: ['straight-trumpet', 'bronze'] },
+      ] },
+      { id: 'salpinx_use', name: 'Playing context', variants: [
+        { id: 'salpinx_war', default: true, name: 'Battle signal (polemikon)', descriptors: ['strident', 'abrupt', 'alarm-like'], match_tokens: ['signal-calls', 'greek'] },
+        { id: 'salpinx_games', name: 'Olympic herald / contest blast', descriptors: ['sustained', 'forceful', 'announcing'], match_tokens: ['fanfare', 'greek'] },
+        { id: 'salpinx_rite', name: 'Sacrificial and processional use', descriptors: ['solemn', 'ritual', 'stark'], match_tokens: ['ritual', 'greek'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tibia_roman',
+    name: 'Tibia (Roman paired double-reed pipes)',
+    family: 'wind',
+    class: 'double_reed',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -1, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'tibia',
+    parts: [
+      { id: 'tibia_pairing', name: 'Pipe pairing', variants: [
+        { id: 'tibia_pares', default: true, name: 'Tibiae pares (equal pipes, unison/heterophonic)', descriptors: ['reedy', 'nasal', 'beating-unison'], match_tokens: ['double-pipes', 'roman', 'double-reed'] },
+        { id: 'tibia_impares', name: 'Tibiae impares (unequal pipes, melody plus drone)', descriptors: ['droning', 'plaintive', 'layered'], match_tokens: ['double-pipes', 'drone-foundation'] },
+        { id: 'tibia_phrygiae', name: 'Tibiae Phrygiae (one pipe with upturned horn bell)', descriptors: ['wailing', 'exotic', 'ecstatic'], match_tokens: ['double-pipes', 'cult-music'] },
+      ] },
+      { id: 'tibia_material', surface: false, name: 'Pipe material', variants: [
+        { id: 'tibia_bone', default: true, name: 'Bone or ivory with bronze sleeves', descriptors: ['hard-toned', 'piercing'], match_tokens: ['bone-pipe', 'roman'] },
+        { id: 'tibia_cane', name: 'Cane / reed tube', descriptors: ['soft-edged', 'earthy'], match_tokens: ['cane-pipe', 'double-reed'] },
+      ] },
+      { id: 'tibia_context', name: 'Performance context', variants: [
+        { id: 'tibia_theatre', default: true, name: 'Theatre accompaniment (comedy and mime)', descriptors: ['lively', 'declamatory', 'supporting'], match_tokens: ['theatre', 'roman'] },
+        { id: 'tibia_funeral', name: 'Funeral procession playing', descriptors: ['mournful', 'keening', 'slow'], match_tokens: ['lament', 'roman'] },
+        { id: 'tibia_cult', name: 'Cybele / Bacchic rite', descriptors: ['frenzied', 'shrill', 'driving'], match_tokens: ['ritual', 'ecstatic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'hydraulis',
+    name: 'Hydraulis (ancient Greco-Roman water organ)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 2, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'hydraulis',
+    parts: [
+      { id: 'hydraulis_ranks', name: 'Pipe ranks', variants: [
+        { id: 'hydraulis_single', default: true, name: 'Single rank of open bronze flue pipes', descriptors: ['pure-toned', 'steady', 'flutey'], match_tokens: ['water-organ', 'pipe-organ', 'ancient-greek'] },
+        { id: 'hydraulis_multi', name: 'Multiple ranks with stop sliders', descriptors: ['full-toned', 'layered', 'bright'], match_tokens: ['water-organ', 'pipe-organ'] },
+        { id: 'hydraulis_reed', name: 'Added reed rank', descriptors: ['buzzing-timbre', 'nasal', 'biting'], match_tokens: ['water-organ', 'reed-rank'] },
+      ] },
+      { id: 'hydraulis_wind', surface: false, name: 'Wind supply', variants: [
+        { id: 'hydraulis_pnigeus', default: true, name: 'Water-regulated pnigeus with hand pumps', descriptors: ['rock-steady', 'unwavering'], match_tokens: ['water-organ'] },
+        { id: 'hydraulis_bellows', name: 'Later bellows organ (pneumatic)', descriptors: ['breathing', 'slightly-uneven'], match_tokens: ['pipe-organ', 'late-antique'] },
+      ] },
+      { id: 'hydraulis_context', name: 'Playing context', variants: [
+        { id: 'hydraulis_arena', default: true, name: 'Amphitheatre and games', descriptors: ['blaring', 'festive', 'loud'], match_tokens: ['roman', 'loud-projection'] },
+        { id: 'hydraulis_banquet', name: 'Banquet and villa entertainment', descriptors: ['mellow', 'ornamented', 'intimate'], match_tokens: ['roman', 'chamber'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kithara',
+    name: 'Kithara (ancient Greek professional concert lyre)',
+    family: 'plucked_traditional',
+    class: 'plucked_lyre',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'kithara',
+    parts: [
+      { id: 'kithara_form', name: 'Instrument form', variants: [
+        { id: 'kithara_concert', default: true, name: 'Classical concert kithara (heavy boxwood arms)', descriptors: ['resonant', 'full-bodied', 'projecting'], match_tokens: ['lyre', 'ancient-greek', 'plucked'] },
+        { id: 'kithara_thracian', name: 'Thracian / cradle kithara (lighter round-based)', descriptors: ['airy', 'sweet', 'light'], match_tokens: ['lyre', 'ancient-greek'] },
+        { id: 'kithara_asiatic', name: 'Asiatic kithara (broad-bodied, many strings)', descriptors: ['deep-toned', 'rich', 'wide-ranged'], match_tokens: ['lyre', 'east-mediterranean'] },
+      ] },
+      { id: 'kithara_technique', name: 'Playing technique', variants: [
+        { id: 'kithara_plektron', default: true, name: 'Plektron strumming with left-hand damping', descriptors: ['bright-attack', 'ringing', 'rhythmic'], match_tokens: ['plectrum', 'strummed'] },
+        { id: 'kithara_psilo', name: 'Bare-finger plucking (psilokitharistike)', descriptors: ['soft', 'intimate', 'rounded'], match_tokens: ['finger-plucked', 'plucked'] },
+      ] },
+      { id: 'kithara_strings', surface: false, name: 'String material', variants: [
+        { id: 'kithara_gut', default: true, name: 'Sheep-gut strings', descriptors: ['warm', 'quick-decay'], match_tokens: ['gut-strung'] },
+        { id: 'kithara_sinew', name: 'Twisted sinew / flax', descriptors: ['dry', 'archaic'], match_tokens: ['sinew-strung'] },
+      ] },
+    ]
+  },
+  {
+    id: 'barbiton',
+    name: 'Barbiton (ancient Greek long-armed bass lyre)',
+    family: 'plucked_traditional',
+    class: 'plucked_lyre',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 1, harmonicity: 1, register: -1, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'barbiton',
+    parts: [
+      { id: 'barbiton_form', name: 'Instrument form', variants: [
+        { id: 'barbiton_tortoise', default: true, name: 'Tortoise-shell bowl with elongated curving arms', descriptors: ['deep-toned', 'husky', 'mellow'], match_tokens: ['lyre', 'ancient-greek', 'low-register'] },
+        { id: 'barbiton_wooden', name: 'Wooden-bowl barbiton (Italic form)', descriptors: ['woody', 'dry', 'warm'], match_tokens: ['lyre', 'plucked'] },
+      ] },
+      { id: 'barbiton_context', name: 'Performance context', variants: [
+        { id: 'barbiton_symposium', default: true, name: 'Symposium song accompaniment', descriptors: ['languid', 'supporting', 'intimate'], match_tokens: ['song-accompaniment', 'ancient-greek'] },
+        { id: 'barbiton_dionysiac', name: 'Dionysiac revel (komos)', descriptors: ['swaying', 'loose', 'exuberant'], match_tokens: ['strummed', 'ritual'] },
+      ] },
+    ]
+  },
+  {
+    id: 'phorminx',
+    name: 'Phorminx (Homeric bard\'s round-based lyre)',
+    family: 'plucked_traditional',
+    class: 'plucked_lyre',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 0, harmonicity: 1, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'phorminx',
+    parts: [
+      { id: 'phorminx_form', name: 'Instrument form', variants: [
+        { id: 'phorminx_crescent', default: true, name: 'Crescent-based four-string phorminx', descriptors: ['archaic', 'plain-toned', 'ringing'], match_tokens: ['lyre', 'ancient-greek', 'epic-recitation'] },
+        { id: 'phorminx_round', name: 'Round-based seven-string phorminx (kitharis)', descriptors: ['fuller', 'brighter', 'wider-ranged'], match_tokens: ['lyre', 'ancient-greek'] },
+      ] },
+      { id: 'phorminx_use', name: 'Playing role', variants: [
+        { id: 'phorminx_aoidos', default: true, name: 'Bardic epic recitation (aoidos)', descriptors: ['declamatory', 'sparse', 'formulaic'], match_tokens: ['epic-recitation', 'song-accompaniment'] },
+        { id: 'phorminx_dance', name: 'Dance and paean accompaniment', descriptors: ['lilting', 'rhythmic', 'bright-attack'], match_tokens: ['strummed', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chelys_lyre',
+    name: 'Chelys (Greek tortoise-shell lyra of the schoolroom)',
+    family: 'plucked_traditional',
+    class: 'plucked_lyre',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 0, harmonicity: 0, register: 1, range: -1, articulation: 1, transduction: -2, dynamics: -2 },
+    short: 'chelys',
+    parts: [
+      { id: 'chelys_shell', name: 'Soundbox', variants: [
+        { id: 'chelys_tortoise', default: true, name: 'Real tortoise carapace with hide soundboard', descriptors: ['nasal', 'buzzing-timbre', 'soft'], match_tokens: ['lyre', 'tortoise-shell', 'ancient-greek'] },
+        { id: 'chelys_carved_wood', name: 'Carved wooden imitation bowl', descriptors: ['woody', 'rounder', 'warmer'], match_tokens: ['lyre', 'plucked'] },
+      ] },
+      { id: 'chelys_technique', name: 'Playing technique', variants: [
+        { id: 'chelys_plectrum', default: true, name: 'Plectrum sweep with finger damping', descriptors: ['bright-attack', 'chordal', 'quick-decay'], match_tokens: ['plectrum', 'strummed'] },
+        { id: 'chelys_fingers', name: 'Finger-plucked melody', descriptors: ['delicate', 'thin', 'intimate'], match_tokens: ['finger-plucked'] },
+      ] },
+      { id: 'chelys_tuning', surface: false, name: 'Tuning (harmonia)', variants: [
+        { id: 'chelys_dorian', default: true, name: 'Dorian harmonia', descriptors: ['grave', 'steady'], match_tokens: ['ancient-greek', 'modal'] },
+        { id: 'chelys_phrygian', name: 'Phrygian harmonia', descriptors: ['stirring', 'tense'], match_tokens: ['ancient-greek', 'modal'] },
+        { id: 'chelys_lydian', name: 'Lydian harmonia', descriptors: ['soft', 'plaintive'], match_tokens: ['ancient-greek', 'modal'] },
+      ] },
+    ]
+  },
+  {
+    id: 'epigonion',
+    name: 'Epigonion (ancient forty-string plucked psaltery)',
+    family: 'plucked_traditional',
+    class: 'plucked_box_zither',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: 1, register: 0, range: 2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'epigonion',
+    parts: [
+      { id: 'epigonion_stringing', name: 'Stringing', variants: [
+        { id: 'epigonion_forty', default: true, name: 'Forty gut strings in courses', descriptors: ['shimmering', 'dense', 'harp-like'], match_tokens: ['psaltery', 'plucked', 'ancient-greek'] },
+        { id: 'epigonion_enharmonic', name: 'Enharmonic/chromatic dense stringing', descriptors: ['microtonal', 'glinting', 'complex'], match_tokens: ['psaltery', 'microtonal'] },
+      ] },
+      { id: 'epigonion_technique', name: 'Playing technique', variants: [
+        { id: 'epigonion_fingers', default: true, name: 'Both hands finger-plucked', descriptors: ['rippling', 'arpeggiated', 'clear'], match_tokens: ['finger-plucked', 'plucked'] },
+        { id: 'epigonion_plectra', name: 'Twin plectra', descriptors: ['bright-attack', 'percussive', 'incisive'], match_tokens: ['plectrum', 'plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sambuca_ancient',
+    name: 'Sambuca (ancient angular harp of Near Eastern origin)',
+    family: 'plucked_traditional',
+    class: 'arched_harp',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'sambuca',
+    parts: [
+      { id: 'sambuca_form', name: 'Frame form', variants: [
+        { id: 'sambuca_angular', default: true, name: 'Angular harp with horizontal soundbox', descriptors: ['silvery', 'high-pitched', 'shimmering'], match_tokens: ['angular-harp', 'plucked', 'near-eastern'] },
+        { id: 'sambuca_arched', name: 'Arched (bow) harp form', descriptors: ['mellow', 'rounded', 'archaic'], match_tokens: ['arched-harp', 'plucked'] },
+      ] },
+      { id: 'sambuca_context', name: 'Performance context', variants: [
+        { id: 'sambuca_courtesan', default: true, name: 'Sambucistria solo entertainment', descriptors: ['ornate', 'florid', 'light'], match_tokens: ['plucked', 'chamber'] },
+        { id: 'sambuca_ensemble', name: 'Hellenistic ensemble with pipes', descriptors: ['blending', 'supporting', 'glinting'], match_tokens: ['plucked', 'ensemble'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tympanum_ancient',
+    name: 'Tympanum (ancient Greco-Roman ritual frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'tympanum',
+    parts: [
+      { id: 'tympanum_form', name: 'Frame form', variants: [
+        { id: 'tympanum_plain', default: true, name: 'Plain single-headed wooden hoop', descriptors: ['dull-thud', 'deep-toned', 'earthy'], match_tokens: ['frame-drum', 'hand-struck', 'ancient-greek'] },
+        { id: 'tympanum_jingled', name: 'Hoop with bronze jingles or pellets', descriptors: ['rattling', 'shimmering', 'buzzing-timbre'], match_tokens: ['frame-drum', 'jingles'] },
+        { id: 'tympanum_large', name: 'Large Cybele processional tympanum', descriptors: ['booming', 'cavernous', 'imposing'], match_tokens: ['frame-drum', 'low-register', 'ritual'] },
+      ] },
+      { id: 'tympanum_technique', name: 'Striking technique', variants: [
+        { id: 'tympanum_hand', default: true, name: 'Open-hand slaps held upright', descriptors: ['slapping', 'insistent'], match_tokens: ['hand-struck', 'dance-rhythm'] },
+        { id: 'tympanum_finger', name: 'Fingertip rolls near rim', descriptors: ['rustling', 'light', 'fast'], match_tokens: ['hand-struck'] },
+      ] },
+    ]
+  },
+  {
+    id: 'lyre_of_ur',
+    name: 'Lyre of Ur (Sumerian bull-headed court lyre)',
+    family: 'plucked_traditional',
+    class: 'plucked_lyre',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 1, harmonicity: 1, register: -1, range: 0, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'lyre of ur',
+    parts: [
+      { id: 'ur_form', name: 'Instrument size', variants: [
+        { id: 'ur_great', default: true, name: 'Great bull lyre (large standing soundbox)', descriptors: ['deep-toned', 'resonant', 'majestic'], match_tokens: ['lyre', 'sumerian', 'low-register'] },
+        { id: 'ur_silver', name: 'Silver lyre (boat-shaped)', descriptors: ['bright', 'metallic-sheen', 'clear'], match_tokens: ['lyre', 'sumerian'] },
+        { id: 'ur_queens', name: 'Queen\'s lyre (smaller portable)', descriptors: ['sweet', 'intimate', 'light'], match_tokens: ['lyre', 'plucked'] },
+      ] },
+      { id: 'ur_strings', surface: false, name: 'String material', variants: [
+        { id: 'ur_gut', default: true, name: 'Gut strings', descriptors: ['warm', 'soft-decay'], match_tokens: ['gut-strung'] },
+        { id: 'ur_silk_flax', name: 'Twisted flax strings', descriptors: ['dry', 'muted', 'archaic'], match_tokens: ['plucked'] },
+      ] },
+      { id: 'ur_context', name: 'Playing context', variants: [
+        { id: 'ur_temple', default: true, name: 'Temple hymn accompaniment', descriptors: ['solemn', 'droning', 'ceremonial'], match_tokens: ['ritual', 'song-accompaniment'] },
+        { id: 'ur_banquet', name: 'Royal banquet music', descriptors: ['ornate', 'lilting', 'festive'], match_tokens: ['plucked', 'chamber'] },
+      ] },
+    ]
+  },
+  {
+    id: 'nevel',
+    name: 'Nevel (biblical Hebrew harp/large lyre)',
+    family: 'acoustic_strings',
+    class: 'plucked_harp',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 1, harmonicity: 1, register: -1, range: 1, articulation: 0, transduction: -2, dynamics: -1 },
+    short: 'nevel',
+    parts: [
+      { id: 'nevel_form', name: 'Instrument form', variants: [
+        { id: 'nevel_harp', default: true, name: 'Angular harp form with skin-covered belly', descriptors: ['deep-toned', 'sonorous', 'full'], match_tokens: ['harp', 'hebrew', 'temple-music'] },
+        { id: 'nevel_bass_lyre', name: 'Large bass lyre form', descriptors: ['woody', 'booming', 'archaic'], match_tokens: ['lyre', 'hebrew'] },
+        { id: 'nevel_asor', name: 'Nevel asor (ten-string)', descriptors: ['ringing', 'open-toned', 'psalmodic'], match_tokens: ['ten-string', 'plucked'] },
+      ] },
+      { id: 'nevel_context', name: 'Performance context', variants: [
+        { id: 'nevel_temple', default: true, name: 'Levite temple psalmody', descriptors: ['solemn', 'sustaining', 'antiphonal'], match_tokens: ['temple-music', 'song-accompaniment'] },
+        { id: 'nevel_procession', name: 'Festal procession', descriptors: ['joyful', 'strummed', 'carrying'], match_tokens: ['procession', 'plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kinnor',
+    name: 'Kinnor (biblical Hebrew lyre of David)',
+    family: 'plucked_traditional',
+    class: 'plucked_lyre',
+    axes: { pitchFix: 1, sustain: 0, polyphony: 0, harmonicity: 1, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'kinnor',
+    parts: [
+      { id: 'kinnor_form', name: 'Instrument form', variants: [
+        { id: 'kinnor_asymmetric', default: true, name: 'Asymmetric-armed Levantine lyre', descriptors: ['clear', 'ringing', 'archaic'], match_tokens: ['lyre', 'hebrew', 'plucked'] },
+        { id: 'kinnor_symmetric', name: 'Symmetric box lyre (Judean coin type)', descriptors: ['even-toned', 'bright', 'balanced'], match_tokens: ['lyre', 'hebrew'] },
+      ] },
+      { id: 'kinnor_technique', name: 'Playing technique', variants: [
+        { id: 'kinnor_plectrum', default: true, name: 'Plectrum strum with damping', descriptors: ['bright-attack', 'chordal', 'rhythmic'], match_tokens: ['plectrum', 'strummed'] },
+        { id: 'kinnor_fingers', name: 'Finger-plucked psalm accompaniment', descriptors: ['gentle', 'intimate', 'speech-following'], match_tokens: ['finger-plucked', 'song-accompaniment'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ugab',
+    name: 'Ugab (biblical Hebrew pipe/end-blown flute)',
+    family: 'wind',
+    class: 'end_blown_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'ugab',
+    parts: [
+      { id: 'ugab_form', name: 'Instrument form', variants: [
+        { id: 'ugab_reed_pipe', default: true, name: 'Single cane end-blown pipe', descriptors: ['breathy', 'plaintive', 'airy'], match_tokens: ['end-blown-flute', 'hebrew', 'pastoral'] },
+        { id: 'ugab_panpipe', name: 'Bound multi-tube pipe (panpipe reading)', descriptors: ['hollow', 'whistling', 'layered'], match_tokens: ['panpipe', 'breathy'] },
+        { id: 'ugab_bone', name: 'Bone pipe', descriptors: ['thin', 'piercing', 'hard-toned'], match_tokens: ['bone-pipe', 'end-blown-flute'] },
+      ] },
+      { id: 'ugab_context', name: 'Playing context', variants: [
+        { id: 'ugab_pastoral', default: true, name: 'Shepherd\'s solo playing', descriptors: ['lonely', 'free-rhythm', 'rubato'], match_tokens: ['pastoral', 'solo'] },
+        { id: 'ugab_lament', name: 'Mourning and lament', descriptors: ['mournful', 'keening', 'slow'], match_tokens: ['lament', 'hebrew'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tof',
+    name: 'Tof (biblical Hebrew frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'tof',
+    parts: [
+      { id: 'tof_form', name: 'Frame form', variants: [
+        { id: 'tof_shallow', default: true, name: 'Shallow single-headed wooden frame (hand-held)', descriptors: ['dry-thump', 'open-ringing'], match_tokens: ['frame-drum', 'hand-struck', 'levantine'] },
+        { id: 'tof_deep', name: 'Deep-shell frame drum', descriptors: ['deep-toned', 'boomy'], match_tokens: ['frame-drum', 'low-register'] },
+        { id: 'tof_jingled', name: 'Frame with jingling rings (adufe-like)', descriptors: ['buzzing-timbre', 'shimmering'], match_tokens: ['frame-drum', 'jingles'] },
+      ] },
+      { id: 'tof_head', surface: false, name: 'Head skin', variants: [
+        { id: 'tof_goat', default: true, name: 'Goatskin head', descriptors: ['warm-slap', 'papery'], match_tokens: ['frame-drum'] },
+        { id: 'tof_calf', name: 'Calfskin head', descriptors: ['fuller-tone', 'round'], match_tokens: ['frame-drum'] },
+      ] },
+      { id: 'tof_style', name: 'Playing technique', variants: [
+        { id: 'tof_processional', default: true, name: 'Processional dance pattern (hand and fingers)', descriptors: ['driving', 'celebratory'], match_tokens: ['hand-struck', 'dance-rhythm'] },
+        { id: 'tof_thumb_roll', name: 'Thumb rolls and rim taps', descriptors: ['shimmering', 'delicate'], match_tokens: ['frame-drum', 'ornamented'] },
+      ] },
+    ]
+  },
+  {
+    id: 'metziltayim',
+    name: 'Metziltayim (biblical Hebrew hand cymbals)',
+    family: 'percussion',
+    class: 'hand_cymbals',
+    axes: { pitchFix: -2, sustain: 1, polyphony: -2, harmonicity: -2, register: 2, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'metziltayim',
+    parts: [
+      { id: 'metz_size', name: 'Cymbal size', variants: [
+        { id: 'metz_small', default: true, name: 'Small bronze plates (finger-held)', descriptors: ['bright-attack', 'tinkling'], match_tokens: ['cymbals', 'bronze'] },
+        { id: 'metz_large', name: 'Large clashed plates (temple ensemble)', descriptors: ['crashing', 'long-ringing'], match_tokens: ['cymbals', 'loud-projection'] },
+      ] },
+      { id: 'metz_stroke', name: 'Stroke type', variants: [
+        { id: 'metz_clash', default: true, name: 'Vertical clash (open ring)', descriptors: ['splashy', 'sustained-shimmer'], match_tokens: ['cymbals', 'struck'] },
+        { id: 'metz_choke', name: 'Damped clash (choked)', descriptors: ['clipped', 'dry-accent'], match_tokens: ['cymbals', 'accent'] },
+      ] },
+    ]
+  },
+  {
+    id: 'paamonim',
+    name: 'Paamonim (biblical Hebrew ritual bells)',
+    family: 'percussion',
+    class: 'idiophone',
+    axes: { pitchFix: 1, sustain: 1, polyphony: -1, harmonicity: -1, register: 2, range: -1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'paamonim',
+    parts: [
+      { id: 'paam_form', name: 'Bell form', variants: [
+        { id: 'paam_hem', default: true, name: 'Small gold bells on priestly hem', descriptors: ['tinkling', 'glinting'], match_tokens: ['bells', 'ritual'] },
+        { id: 'paam_cluster', name: 'Clustered bell string (shaken)', descriptors: ['jangling', 'dense-shimmer'], match_tokens: ['bells', 'shaken'] },
+      ] },
+      { id: 'paam_metal', surface: false, name: 'Metal', variants: [
+        { id: 'paam_gold', default: true, name: 'Gold / brass alloy', descriptors: ['sweet-ring', 'bright'], match_tokens: ['bells'] },
+        { id: 'paam_bronze', name: 'Bronze', descriptors: ['darker-ring', 'clangorous'], match_tokens: ['bells'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chalil',
+    name: 'Chalil (biblical Hebrew reed pipe)',
+    family: 'wind',
+    class: 'double_reed',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 0, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'chalil',
+    parts: [
+      { id: 'chalil_form', name: 'Pipe configuration', variants: [
+        { id: 'chalil_single', default: true, name: 'Single reed-blown pipe', descriptors: ['reedy', 'plaintive'], match_tokens: ['double-reed', 'levantine'] },
+        { id: 'chalil_double', name: 'Paired divergent pipes (melody plus drone)', descriptors: ['droning', 'buzzing-timbre'], match_tokens: ['double-pipe', 'drone-foundation'] },
+      ] },
+      { id: 'chalil_context', name: 'Playing context', variants: [
+        { id: 'chalil_festal', default: true, name: 'Festal / pilgrimage playing', descriptors: ['piercing', 'celebratory'], match_tokens: ['double-reed', 'loud-projection'] },
+        { id: 'chalil_lament', name: 'Funeral lament', descriptors: ['wailing', 'melismatic'], match_tokens: ['double-reed', 'expressive'] },
+      ] },
+      { id: 'chalil_bore', surface: false, name: 'Body material', variants: [
+        { id: 'chalil_cane', default: true, name: 'Cane body', descriptors: ['breathy', 'rustic'], match_tokens: ['double-reed'] },
+        { id: 'chalil_bone', name: 'Bone or boxwood body', descriptors: ['focused', 'hard-edged'], match_tokens: ['double-reed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dulce_melos',
+    name: 'Dulce melos (15th-century struck-string keyboard)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 2, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'dulce melos',
+    parts: [
+      { id: 'dulce_action', name: 'Action type', variants: [
+        { id: 'dulce_hammer', default: true, name: 'Free-hammer (jack-thrown) action', descriptors: ['percussive', 'clavichord-like'], match_tokens: ['struck-string', 'early-keyboard'] },
+        { id: 'dulce_bridged', name: 'Bridged fretted variant', descriptors: ['soft-toned', 'intimate'], match_tokens: ['struck-string', 'quiet'] },
+      ] },
+      { id: 'dulce_strings', surface: false, name: 'Stringing', variants: [
+        { id: 'dulce_brass', default: true, name: 'Brass wire', descriptors: ['warm', 'short-sustain'], match_tokens: ['struck-string'] },
+        { id: 'dulce_iron', name: 'Iron wire', descriptors: ['bright', 'clear'], match_tokens: ['struck-string'] },
+      ] },
+    ]
+  },
+  {
+    id: 'clavicytherium',
+    name: 'Clavicytherium (upright harpsichord)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 2, harmonicity: 1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'clavicytherium',
+    parts: [
+      { id: 'clavicyth_size', name: 'Instrument scale', variants: [
+        { id: 'clavicyth_single', default: true, name: 'Single-manual upright (8\' choir)', descriptors: ['bright-attack', 'forward-projecting'], match_tokens: ['plucked-keyboard', 'harpsichord'] },
+        { id: 'clavicyth_double', name: 'Large upright with 8\'+4\' choirs', descriptors: ['brilliant', 'full-toned'], match_tokens: ['plucked-keyboard', 'harpsichord'] },
+      ] },
+      { id: 'clavicyth_plectra', surface: false, name: 'Plectrum material', variants: [
+        { id: 'clavicyth_quill', default: true, name: 'Raven quill plectra', descriptors: ['crisp-pluck', 'incisive'], match_tokens: ['plucked-keyboard'] },
+        { id: 'clavicyth_leather', name: 'Leather plectra', descriptors: ['rounder', 'softer-attack'], match_tokens: ['plucked-keyboard'] },
+      ] },
+    ]
+  },
+  {
+    id: 'virginal_keyboard',
+    name: 'Virginal (rectangular single-strung harpsichord)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 2, harmonicity: 1, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'virginal',
+    parts: [
+      { id: 'virginal_form', name: 'National form', variants: [
+        { id: 'virginal_english', default: true, name: 'English virginal (centre-left keyboard)', descriptors: ['silvery', 'clear-pluck'], match_tokens: ['plucked-keyboard', 'english'] },
+        { id: 'virginal_flemish_spinett', name: 'Flemish spinett virginal (right-of-centre)', descriptors: ['bright', 'nasal'], match_tokens: ['plucked-keyboard', 'flemish'] },
+        { id: 'virginal_double', name: 'Mother-and-child double virginal', descriptors: ['octave-doubled', 'glittering'], match_tokens: ['plucked-keyboard', 'flemish'] },
+      ] },
+      { id: 'virginal_plectra', surface: false, name: 'Plectrum material', variants: [
+        { id: 'virginal_quill', default: true, name: 'Quill plectra', descriptors: ['crisp-pluck', 'bright'], match_tokens: ['plucked-keyboard'] },
+        { id: 'virginal_delrin', name: 'Delrin plectra (modern build)', descriptors: ['even', 'robust'], match_tokens: ['plucked-keyboard'] },
+      ] },
+    ]
+  },
+  {
+    id: 'muselar',
+    name: 'Muselar (Flemish right-plucking virginal)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 2, harmonicity: 1, register: -1, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'muselar',
+    parts: [
+      { id: 'muselar_form', name: 'Build', variants: [
+        { id: 'muselar_ruckers', default: true, name: 'Ruckers-type muselar (plucked near string centre)', descriptors: ['flutey', 'round-toned', 'warm-bass'], match_tokens: ['plucked-keyboard', 'flemish'] },
+        { id: 'muselar_ottavino_pair', name: 'Muselar with ottavino child instrument', descriptors: ['octave-doubled', 'sparkling'], match_tokens: ['plucked-keyboard', 'flemish'] },
+      ] },
+      { id: 'muselar_stop', name: 'Stop / effect', variants: [
+        { id: 'muselar_plain', default: true, name: 'Plain registration', descriptors: ['mellow', 'hollow'], match_tokens: ['plucked-keyboard'] },
+        { id: 'muselar_arpichordum', name: 'Arpichordum buzzing stop engaged', descriptors: ['buzzing-timbre', 'nasal-rasp'], match_tokens: ['plucked-keyboard', 'buzz'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ottavino_virginal',
+    name: 'Ottavino (octave virginal at 4\' pitch)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: -1, polyphony: 2, harmonicity: 1, register: 2, range: -1, articulation: 2, transduction: -2, dynamics: -2 },
+    short: 'ottavino virginal',
+    parts: [
+      { id: 'ottavino_form', name: 'Form', variants: [
+        { id: 'ottavino_standalone', default: true, name: 'Standalone Italian ottavino', descriptors: ['tinkling', 'brilliant', 'short-decay'], match_tokens: ['plucked-keyboard', 'octave-pitch'] },
+        { id: 'ottavino_child', name: 'Child instrument of a double virginal', descriptors: ['glittering', 'coupled'], match_tokens: ['plucked-keyboard', 'flemish'] },
+      ] },
+      { id: 'ottavino_case', surface: false, name: 'Case construction', variants: [
+        { id: 'ottavino_cypress', default: true, name: 'Thin cypress case (Italian)', descriptors: ['quick-speaking', 'bright'], match_tokens: ['plucked-keyboard'] },
+        { id: 'ottavino_poplar', name: 'Poplar case with painted lid', descriptors: ['rounder', 'softer'], match_tokens: ['plucked-keyboard'] },
+      ] },
+    ]
+  },
+  {
+    id: 'spinet_keyboard',
+    name: 'Spinet (bentside plucked keyboard)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 2, harmonicity: 1, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'spinet',
+    parts: [
+      { id: 'spinet_form', name: 'Form', variants: [
+        { id: 'spinet_bentside', default: true, name: 'English bentside spinet', descriptors: ['clear-pluck', 'light-toned'], match_tokens: ['plucked-keyboard', 'domestic'] },
+        { id: 'spinet_italian', name: 'Italian polygonal spinetta', descriptors: ['nasal', 'quick-speaking'], match_tokens: ['plucked-keyboard', 'italian'] },
+      ] },
+      { id: 'spinet_plectra', surface: false, name: 'Plectrum material', variants: [
+        { id: 'spinet_quill', default: true, name: 'Quill plectra', descriptors: ['crisp-pluck', 'incisive'], match_tokens: ['plucked-keyboard'] },
+        { id: 'spinet_leather', name: 'Leather plectra', descriptors: ['mellow', 'soft-attack'], match_tokens: ['plucked-keyboard'] },
+      ] },
+    ]
+  },
+  {
+    id: 'claviorganum',
+    name: 'Claviorganum (combined harpsichord and chamber organ)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 2, polyphony: 2, harmonicity: 2, register: 0, range: 2, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'claviorganum',
+    parts: [
+      { id: 'claviorg_reg', name: 'Registration', variants: [
+        { id: 'claviorg_both', default: true, name: 'Strings and pipes coupled', descriptors: ['hybrid-tone', 'sustained-with-attack', 'rich'], match_tokens: ['keyboard', 'organ-pipes'] },
+        { id: 'claviorg_strings', name: 'Harpsichord strings alone', descriptors: ['crisp-pluck', 'dry'], match_tokens: ['plucked-keyboard'] },
+        { id: 'claviorg_pipes', name: 'Organ pipework alone', descriptors: ['sustained', 'breathy-flue'], match_tokens: ['organ-pipes', 'sustained'] },
+      ] },
+      { id: 'claviorg_pipes_kind', surface: false, name: 'Pipe ranks', variants: [
+        { id: 'claviorg_wood_flue', default: true, name: 'Stopped wooden flutes', descriptors: ['soft-toned', 'hollow'], match_tokens: ['organ-pipes'] },
+        { id: 'claviorg_regal', name: 'Regal reed rank', descriptors: ['snarling', 'buzzing-timbre'], match_tokens: ['organ-pipes', 'reedy'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tangent_piano',
+    name: 'Tangent piano (Tangentenflügel)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'tangent piano',
+    parts: [
+      { id: 'tangent_stops', name: 'Stops / moderators', variants: [
+        { id: 'tangent_plain', default: true, name: 'Bare wooden tangents, undamped', descriptors: ['silvery', 'percussive', 'harpsichord-like'], match_tokens: ['struck-string', 'early-keyboard'] },
+        { id: 'tangent_moderator', name: 'Cloth moderator engaged', descriptors: ['veiled', 'gentle'], match_tokens: ['struck-string', 'soft'] },
+        { id: 'tangent_damper_lift', name: 'Dampers lifted (harp effect)', descriptors: ['ringing', 'halo-like'], match_tokens: ['struck-string', 'sustained'] },
+      ] },
+      { id: 'tangent_size', name: 'Case size', variants: [
+        { id: 'tangent_wing', default: true, name: 'Wing-shaped grand case', descriptors: ['projecting', 'clear'], match_tokens: ['early-keyboard'] },
+        { id: 'tangent_square', name: 'Square-cased tangent instrument', descriptors: ['intimate', 'compact'], match_tokens: ['early-keyboard'] },
+      ] },
+    ]
+  },
+  {
+    id: 'square_piano',
+    name: 'Square piano (rectangular early fortepiano)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: 1, register: 0, range: 1, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'square piano',
+    parts: [
+      { id: 'square_era', name: 'Period / action', variants: [
+        { id: 'square_english_18c', default: true, name: 'English single-action square (c.1770-1800)', descriptors: ['silvery', 'fast-decay', 'intimate'], match_tokens: ['fortepiano', 'struck-string'] },
+        { id: 'square_double_action', name: 'Broadwood double-action square (c.1800-1820)', descriptors: ['fuller', 'warmer'], match_tokens: ['fortepiano'] },
+        { id: 'square_american_19c', name: 'Heavy American square grand (mid-19th c.)', descriptors: ['thick-toned', 'robust'], match_tokens: ['piano', 'struck-string'] },
+      ] },
+      { id: 'square_stops', name: 'Stops / pedals', variants: [
+        { id: 'square_damper_lift', default: true, name: 'Damper lift (hand stop or pedal)', descriptors: ['ringing', 'blended'], match_tokens: ['sustained'] },
+        { id: 'square_buff', name: 'Buff / lute stop', descriptors: ['muted', 'pizzicato-like'], match_tokens: ['damped'] },
+      ] },
+    ]
+  },
+  {
+    id: 'pianola',
+    name: 'Pianola (pneumatic player piano)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: 1, register: 0, range: 2, articulation: 1, transduction: -1, dynamics: 1 },
+    short: 'pianola',
+    parts: [
+      { id: 'pianola_type', name: 'Player mechanism', variants: [
+        { id: 'pianola_push_up', default: true, name: 'Roll-driven upright player piano', descriptors: ['mechanical', 'relentless', 'honky'], match_tokens: ['player-piano', 'piano-roll'] },
+        { id: 'pianola_reproducing', name: 'Reproducing piano (Duo-Art / Welte)', descriptors: ['expressive', 'dynamically-shaded'], match_tokens: ['player-piano', 'reproducing'] },
+        { id: 'pianola_pushup', name: 'Push-up piano player cabinet', descriptors: ['clattery', 'period-flavored'], match_tokens: ['player-piano'] },
+      ] },
+      { id: 'pianola_prep', surface: false, name: 'String preparation', variants: [
+        { id: 'pianola_normal', default: true, name: 'Normal felted hammers', descriptors: ['round', 'piano-toned'], match_tokens: ['piano'] },
+        { id: 'pianola_tack', name: 'Tack / saloon voicing', descriptors: ['bright-attack', 'jangly'], match_tokens: ['piano', 'honky-tonk'] },
+      ] },
+    ]
+  },
+  {
+    id: 'orphica',
+    name: 'Orphica (portable early-19th-century piano)',
+    family: 'keyboard',
+    class: 'keyboard_acoustic',
+    axes: { pitchFix: 2, sustain: 0, polyphony: 1, harmonicity: 1, register: 1, range: -1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'orphica',
+    parts: [
+      { id: 'orphica_form', name: 'Size / stringing', variants: [
+        { id: 'orphica_small', default: true, name: 'Small strap-held orphica (three octaves)', descriptors: ['thin-toned', 'delicate', 'quick-decay'], match_tokens: ['portable-piano', 'fortepiano'] },
+        { id: 'orphica_large', name: 'Larger table orphica (four+ octaves)', descriptors: ['fuller', 'clearer-bass'], match_tokens: ['portable-piano'] },
+      ] },
+      { id: 'orphica_play', name: 'Playing posture', variants: [
+        { id: 'orphica_strapped', default: true, name: 'Slung on a strap, played standing', descriptors: ['intimate', 'serenade-like'], match_tokens: ['portable-piano'] },
+        { id: 'orphica_table', name: 'Rested on a table', descriptors: ['resonant', 'steadier'], match_tokens: ['portable-piano'] },
+      ] },
+    ]
+  },
+  {
+    id: 'american_reed_organ',
+    name: 'American reed organ (pump organ / parlor harmonium)',
+    family: 'keyboard',
+    class: 'free_reed',
+    axes: { pitchFix: 2, sustain: 2, polyphony: 2, harmonicity: 1, register: 0, range: 1, articulation: -1, transduction: -2, dynamics: 0 },
+    short: 'reed organ',
+    parts: [
+      { id: 'reed_organ_form', name: 'Instrument form', variants: [
+        { id: 'reed_organ_parlor', default: true, name: 'Parlor suction reed organ (two-manual-less, knee swell)', descriptors: ['reedy', 'warm-sustain', 'breathy'], match_tokens: ['free-reed', 'pump-organ', 'parlor'] },
+        { id: 'reed_organ_chapel', name: 'Chapel / vocalion model (larger case, multiple ranks)', descriptors: ['full-toned', 'churchy', 'layered'], match_tokens: ['free-reed', 'chapel-organ'] },
+        { id: 'reed_organ_folding', name: 'Folding field / missionary organ', descriptors: ['thin-toned', 'nasal', 'portable'], match_tokens: ['free-reed', 'portable'] },
+      ] },
+      { id: 'reed_organ_stops', name: 'Stop registration', variants: [
+        { id: 'reed_organ_diapason', default: true, name: '8\' diapason single rank', descriptors: ['plain', 'singing'], match_tokens: ['free-reed', 'sustained'] },
+        { id: 'reed_organ_full', name: 'Full organ (coupled 4\'+8\'+16\')', descriptors: ['thick', 'buzzing-timbre', 'reedy'], match_tokens: ['free-reed', 'full-registration'] },
+        { id: 'reed_organ_vox', name: 'Vox humana / tremolo fan', descriptors: ['wavering', 'tremulant', 'haunting'], match_tokens: ['free-reed', 'tremolo'] },
+      ] },
+      { id: 'reed_organ_bellows', surface: false, name: 'Bellows technique', variants: [
+        { id: 'reed_organ_steady', default: true, name: 'Steady pedaling', descriptors: ['even', 'sustained'], match_tokens: ['free-reed'] },
+        { id: 'reed_organ_pumped', name: 'Hard-pumped swell', descriptors: ['surging', 'dynamic'], match_tokens: ['free-reed', 'expressive'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sruti_pandal',
+    name: 'Sruti pandal (large Carnatic multi-reed drone box)',
+    family: 'free_reed',
+    class: 'free_reed',
+    axes: { pitchFix: 2, sustain: 2, polyphony: 1, harmonicity: 1, register: -1, range: -2, articulation: -2, transduction: -2, dynamics: -1 },
+    short: 'sruti pandal',
+    parts: [
+      { id: 'sruti_pandal_tuning', name: 'Drone tuning', variants: [
+        { id: 'sruti_pandal_sa_pa', default: true, name: 'Sa-Pa drone (tonic and fifth)', descriptors: ['droning', 'stable', 'warm'], match_tokens: ['drone-foundation', 'free-reed'] },
+        { id: 'sruti_pandal_sa_ma', name: 'Sa-Ma drone (tonic and fourth)', descriptors: ['droning', 'open'], match_tokens: ['drone-foundation', 'free-reed'] },
+        { id: 'sruti_pandal_sa_only', name: 'Tonic-only drone', descriptors: ['plain', 'unwavering'], match_tokens: ['drone-foundation'] },
+      ] },
+      { id: 'sruti_pandal_size', name: 'Box size / reed bank', variants: [
+        { id: 'sruti_pandal_large', default: true, name: 'Large concert pandal (wide reed bank)', descriptors: ['full-bodied', 'enveloping', 'beating'], match_tokens: ['drone-foundation', 'concert'] },
+        { id: 'sruti_pandal_small', name: 'Small portable sruti box', descriptors: ['thin-toned', 'reedy', 'intimate'], match_tokens: ['drone-foundation', 'portable'] },
+      ] },
+      { id: 'sruti_pandal_bellows', surface: false, name: 'Air supply', variants: [
+        { id: 'sruti_pandal_hand', default: true, name: 'Hand-pumped bellows', descriptors: ['breathing', 'subtly-pulsing'], match_tokens: ['free-reed'] },
+        { id: 'sruti_pandal_electric', name: 'Electric blower (electronic sruti unit)', descriptors: ['unwavering', 'mechanical'], match_tokens: ['drone-foundation', 'electric'] },
+      ] },
+    ]
+  },
+  {
+    id: 'swarmandal',
+    name: 'Swarmandal (Hindustani vocalist\'s box zither)',
+    family: 'plucked_traditional',
+    class: 'plucked_box_zither',
+    axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: 1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'swarmandal',
+    parts: [
+      { id: 'swarmandal_tuning', name: 'Raga tuning', variants: [
+        { id: 'swarmandal_raga_scale', default: true, name: 'Tuned to the raga\'s scale (30-40 strings)', descriptors: ['shimmering', 'cascading', 'raga-coloured'], match_tokens: ['strummed-zither', 'hindustani'] },
+        { id: 'swarmandal_pentatonic', name: 'Pentatonic / audava raga tuning', descriptors: ['open', 'ringing'], match_tokens: ['strummed-zither'] },
+      ] },
+      { id: 'swarmandal_stroke', name: 'Stroke technique', variants: [
+        { id: 'swarmandal_glissando', default: true, name: 'Thumb glissando sweep between vocal phrases', descriptors: ['cascading', 'glittering'], match_tokens: ['strummed-zither', 'ornamental'] },
+        { id: 'swarmandal_plectrum', name: 'Wire plectrum single-note picking', descriptors: ['bright-attack', 'pointed'], match_tokens: ['plucked-zither'] },
+      ] },
+      { id: 'swarmandal_strings', surface: false, name: 'String material', variants: [
+        { id: 'swarmandal_steel', default: true, name: 'Steel wire strings', descriptors: ['bright', 'metallic'], match_tokens: ['plucked-zither'] },
+        { id: 'swarmandal_brass', name: 'Brass wire strings', descriptors: ['warm', 'golden'], match_tokens: ['plucked-zither'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gottuvadhyam',
+    name: 'Gottuvadhyam (Carnatic fretless slide veena)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: -1, sustain: 2, polyphony: 0, harmonicity: 1, register: 0, range: 1, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'gottuvadhyam',
+    parts: [
+      { id: 'gottuvadhyam_form', name: 'Instrument form', variants: [
+        { id: 'gottuvadhyam_tanjore', default: true, name: 'Older Tanjore gottuvadhyam (jackwood, six main strings)', descriptors: ['gliding', 'vocal', 'resonant'], match_tokens: ['slide-veena', 'carnatic'] },
+        { id: 'gottuvadhyam_gourd', name: 'Twin-gourd resonator form', descriptors: ['deep-toned', 'booming', 'sustained'], match_tokens: ['slide-veena', 'gourd-resonated'] },
+      ] },
+      { id: 'gottuvadhyam_slide', name: 'Slide / stopping object', variants: [
+        { id: 'gottuvadhyam_ebony', default: true, name: 'Ebony cylinder (gottu)', descriptors: ['smooth-glide', 'warm'], match_tokens: ['slide-played'] },
+        { id: 'gottuvadhyam_glass', name: 'Glass / metal slide', descriptors: ['bright-glide', 'singing'], match_tokens: ['slide-played', 'metallic'] },
+      ] },
+      { id: 'gottuvadhyam_sympathetic', surface: false, name: 'Sympathetic strings', variants: [
+        { id: 'gottuvadhyam_with_taraf', default: true, name: 'With sympathetic taraf bank', descriptors: ['halo-ringing', 'shimmering'], match_tokens: ['sympathetic-resonance'] },
+        { id: 'gottuvadhyam_without_taraf', name: 'Without sympathetic strings', descriptors: ['dry', 'direct'], match_tokens: ['slide-veena'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chitravina',
+    name: 'Chitravina (modern 21-string Carnatic slide lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: -1, sustain: 2, polyphony: 1, harmonicity: 1, register: 0, range: 2, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'chitravina',
+    parts: [
+      { id: 'chitravina_stringing', name: 'String complement', variants: [
+        { id: 'chitravina_21', default: true, name: 'Standard 21-string (6 main, 3 tala, 12 taraf)', descriptors: ['shimmering', 'vocal', 'sustained'], match_tokens: ['slide-lute', 'carnatic'] },
+        { id: 'chitravina_20', name: '20-string concert setup', descriptors: ['balanced', 'ringing'], match_tokens: ['slide-lute'] },
+      ] },
+      { id: 'chitravina_style', name: 'Playing approach', variants: [
+        { id: 'chitravina_gamaka', default: true, name: 'Continuous gamaka slide phrasing', descriptors: ['gliding', 'melismatic', 'vocal'], match_tokens: ['slide-played', 'ornamental'] },
+        { id: 'chitravina_tanam', name: 'Tanam rhythmic plucking with tala strings', descriptors: ['pulsing', 'percussive-attack'], match_tokens: ['plucked', 'rhythmic'] },
+      ] },
+      { id: 'chitravina_body', surface: false, name: 'Body wood', variants: [
+        { id: 'chitravina_jackwood', default: true, name: 'Jackwood body', descriptors: ['warm', 'resonant'], match_tokens: ['slide-lute'] },
+        { id: 'chitravina_rosewood', name: 'Rosewood body', descriptors: ['dense', 'bright-sustain'], match_tokens: ['slide-lute'] },
+      ] },
+    ]
+  },
+  {
+    id: 'vichitra_veena',
+    name: 'Vichitra veena (Hindustani fretless slide stick zither)',
+    family: 'plucked_traditional',
+    class: 'stick_zither',
+    axes: { pitchFix: -1, sustain: 2, polyphony: 1, harmonicity: 1, register: 0, range: 2, articulation: -1, transduction: -2, dynamics: 0 },
+    short: 'vichitra veena',
+    parts: [
+      { id: 'vichitra_slide', name: 'Slide object (batta)', variants: [
+        { id: 'vichitra_glass_egg', default: true, name: 'Polished glass egg (batta)', descriptors: ['gliding', 'glassy', 'singing'], match_tokens: ['slide-zither', 'hindustani'] },
+        { id: 'vichitra_stone', name: 'Stone / crystal slide', descriptors: ['heavy-toned', 'sustained'], match_tokens: ['slide-zither'] },
+      ] },
+      { id: 'vichitra_style', name: 'Repertoire section', variants: [
+        { id: 'vichitra_alap', default: true, name: 'Slow alap meend exploration', descriptors: ['rubato', 'gliding', 'meditative'], match_tokens: ['slide-zither', 'drone-foundation'] },
+        { id: 'vichitra_jhala', name: 'Jhala with chikari strumming', descriptors: ['driving', 'shimmering', 'rhythmic'], match_tokens: ['strummed', 'rhythmic'] },
+      ] },
+      { id: 'vichitra_gourds', surface: false, name: 'Resonator gourds', variants: [
+        { id: 'vichitra_twin_gourd', default: true, name: 'Twin large gourds', descriptors: ['booming', 'deep-resonance'], match_tokens: ['gourd-resonated'] },
+        { id: 'vichitra_wood_bowl', name: 'Carved wooden resonators', descriptors: ['focused', 'tight'], match_tokens: ['slide-zither'] },
+      ] },
+    ]
+  },
+  {
+    id: 'saraswati_veena',
+    name: 'Saraswati veena (South Indian fretted concert veena)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'saraswati veena',
+    parts: [
+      { id: 'saraswati_construction', name: 'Construction', variants: [
+        { id: 'saraswati_ekanda', default: true, name: 'Ekanda veena (carved from single jackwood block)', descriptors: ['rich', 'even-sustain', 'full-bodied'], match_tokens: ['fretted-veena', 'carnatic'] },
+        { id: 'saraswati_jointed', name: 'Jointed (sada) veena', descriptors: ['bright', 'articulate'], match_tokens: ['fretted-veena'] },
+        { id: 'saraswati_tanjore', name: 'Tanjore-style with fiberglass resonator', descriptors: ['projecting', 'modern'], match_tokens: ['fretted-veena', 'concert'] },
+      ] },
+      { id: 'saraswati_style', name: 'Playing style (bani)', variants: [
+        { id: 'saraswati_thanjavur', default: true, name: 'Thanjavur bani (gamaka-heavy pulling)', descriptors: ['gamaka-rich', 'vocal', 'sinuous'], match_tokens: ['plucked', 'ornamental'] },
+        { id: 'saraswati_mysore', name: 'Mysore bani (clean plucking, less pulling)', descriptors: ['clear', 'crisp-attack'], match_tokens: ['plucked'] },
+      ] },
+      { id: 'saraswati_frets', surface: false, name: 'Fret and string setup', variants: [
+        { id: 'saraswati_24_fret', default: true, name: '24 brass frets in wax', descriptors: ['metallic-ring', 'precise'], match_tokens: ['fretted-veena'] },
+        { id: 'saraswati_steel_top', name: 'Heavier steel-gauge main strings', descriptors: ['deep-toned', 'powerful'], match_tokens: ['plucked', 'low-register'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mohan_veena',
+    name: 'Mohan veena (Indian slide archtop guitar-veena)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: -1, sustain: 2, polyphony: 1, harmonicity: 1, register: 0, range: 2, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'mohan veena',
+    parts: [
+      { id: 'mohan_veena_setup', name: 'String setup', variants: [
+        { id: 'mohan_veena_20', default: true, name: '20-string setup (melody, drone, sympathetic)', descriptors: ['shimmering', 'sustained', 'halo-ringing'], match_tokens: ['slide-guitar', 'hindustani'] },
+        { id: 'mohan_veena_minimal', name: 'Reduced sympathetic bank', descriptors: ['dry', 'direct', 'focused'], match_tokens: ['slide-guitar'] },
+      ] },
+      { id: 'mohan_veena_style', name: 'Section', variants: [
+        { id: 'mohan_veena_alap', default: true, name: 'Alap meend and slow unfolding', descriptors: ['gliding', 'rubato', 'vocal'], match_tokens: ['slide-played', 'expressive'] },
+        { id: 'mohan_veena_jhala', name: 'Jhala with chikari drone strumming', descriptors: ['driving', 'glittering'], match_tokens: ['strummed', 'rhythmic'] },
+      ] },
+      { id: 'mohan_veena_slide', surface: false, name: 'Slide bar', variants: [
+        { id: 'mohan_veena_steel_bar', default: true, name: 'Steel tone bar', descriptors: ['bright-glide', 'metallic'], match_tokens: ['slide-played'] },
+        { id: 'mohan_veena_glass_bar', name: 'Glass bar', descriptors: ['smooth', 'warm-glide'], match_tokens: ['slide-played'] },
+      ] },
+    ]
+  },
+  {
+    id: 'surbahar',
+    name: 'Surbahar (Hindustani bass sitar)',
+    family: 'plucked_traditional',
+    class: 'long_neck_lute',
+    axes: { pitchFix: 0, sustain: 2, polyphony: 1, harmonicity: 1, register: -1, range: 2, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'surbahar',
+    parts: [
+      { id: 'surbahar_tuning', name: 'Tuning depth', variants: [
+        { id: 'surbahar_fifth_below', default: true, name: 'Tuned a fifth below sitar', descriptors: ['deep-toned', 'sonorous', 'brooding'], match_tokens: ['bass-sitar', 'low-register'] },
+        { id: 'surbahar_octave_below', name: 'Tuned an octave below sitar', descriptors: ['cavernous', 'slow-speaking'], match_tokens: ['bass-sitar', 'low-register'] },
+      ] },
+      { id: 'surbahar_style', name: 'Repertoire', variants: [
+        { id: 'surbahar_dhrupad_alap', default: true, name: 'Dhrupad-ang alap (slow meend, no tabla)', descriptors: ['meditative', 'gliding', 'austere'], match_tokens: ['plucked', 'drone-foundation'] },
+        { id: 'surbahar_jor_jhala', name: 'Jor and jhala', descriptors: ['pulsing', 'driving'], match_tokens: ['plucked', 'rhythmic'] },
+      ] },
+      { id: 'surbahar_gourd', surface: false, name: 'Resonator', variants: [
+        { id: 'surbahar_large_tumba', default: true, name: 'Very large gourd tumba', descriptors: ['booming', 'deep-resonance'], match_tokens: ['gourd-resonated'] },
+        { id: 'surbahar_twin_tumba', name: 'With secondary upper gourd', descriptors: ['enveloping', 'extra-sustain'], match_tokens: ['gourd-resonated'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sursringar',
+    name: 'Sursringar (metal-fingerboard bass plucked lute of dhrupad)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: -1, sustain: 2, polyphony: 0, harmonicity: 1, register: -1, range: 1, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'sursringar',
+    parts: [
+      { id: 'sursringar_form', name: 'Instrument form', variants: [
+        { id: 'sursringar_classic', default: true, name: 'Classic form (twin gourds, wide metal fingerboard)', descriptors: ['deep-toned', 'glassy-sustain', 'archaic'], match_tokens: ['fretless-lute', 'dhrupad'] },
+        { id: 'sursringar_wood_bowl', name: 'Wooden-bowl variant', descriptors: ['tight', 'focused'], match_tokens: ['fretless-lute'] },
+      ] },
+      { id: 'sursringar_style', name: 'Playing approach', variants: [
+        { id: 'sursringar_alap', default: true, name: 'Dhrupad alap with long meend', descriptors: ['gliding', 'stately', 'meditative'], match_tokens: ['plucked', 'expressive'] },
+        { id: 'sursringar_gat', name: 'Rhythmic gat with plectrum strokes', descriptors: ['clanging', 'pointed-attack'], match_tokens: ['plucked', 'rhythmic'] },
+      ] },
+      { id: 'sursringar_strings', surface: false, name: 'String material', variants: [
+        { id: 'sursringar_bronze', default: true, name: 'Heavy bronze and steel strings', descriptors: ['dark', 'ringing'], match_tokens: ['plucked', 'low-register'] },
+        { id: 'sursringar_brass', name: 'Brass-wound strings', descriptors: ['golden', 'mellow'], match_tokens: ['plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mukharshank',
+    name: 'Mukharshank (South Indian conch-belled reed pipe)',
+    family: 'wind',
+    class: 'double_reed',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 0, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'mukharshank',
+    parts: [
+      { id: 'mukharshank_bell', name: 'Bell form', variants: [
+        { id: 'mukharshank_conch_bell', default: true, name: 'Conch-shell bell', descriptors: ['nasal', 'piercing', 'ritual'], match_tokens: ['double-reed', 'temple-wind'] },
+        { id: 'mukharshank_metal_bell', name: 'Metal flared bell', descriptors: ['brassy', 'cutting'], match_tokens: ['double-reed', 'loud-projection'] },
+      ] },
+      { id: 'mukharshank_context', name: 'Playing context', variants: [
+        { id: 'mukharshank_temple', default: true, name: 'Temple ritual signalling', descriptors: ['ceremonial', 'sustained', 'droning'], match_tokens: ['temple-wind', 'ritual'] },
+        { id: 'mukharshank_procession', name: 'Procession melody with drums', descriptors: ['driving', 'festive', 'loud'], match_tokens: ['double-reed', 'procession'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dhamsa',
+    name: 'Dhamsa (large East Indian kettle drum of Jharkhand and Bengal)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: -2, range: -1, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'dhamsa',
+    parts: [
+      { id: 'dhamsa_size', name: 'Shell size', variants: [
+        { id: 'dhamsa_large', default: true, name: 'Large iron kettle (chhau festival size)', descriptors: ['booming', 'thunderous', 'deep-toned'], match_tokens: ['kettle-drum', 'chhau'] },
+        { id: 'dhamsa_small', name: 'Smaller portable dhamsa', descriptors: ['punchy', 'tight'], match_tokens: ['kettle-drum'] },
+      ] },
+      { id: 'dhamsa_technique', name: 'Beating technique', variants: [
+        { id: 'dhamsa_two_sticks', default: true, name: 'Two heavy sticks (rolling ostinato)', descriptors: ['rolling', 'driving', 'thunderous'], match_tokens: ['struck', 'rhythmic'] },
+        { id: 'dhamsa_single_stick', name: 'Single stick with hand damping', descriptors: ['muted', 'articulate'], match_tokens: ['struck'] },
+      ] },
+      { id: 'dhamsa_head', surface: false, name: 'Head', variants: [
+        { id: 'dhamsa_buffalo', default: true, name: 'Buffalo hide head', descriptors: ['thick', 'dark'], match_tokens: ['struck', 'membranophone'] },
+        { id: 'dhamsa_goat', name: 'Goatskin head', descriptors: ['brighter', 'snappy'], match_tokens: ['struck', 'membranophone'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tungna',
+    name: 'Tungna (Nepali Tamang four-string plucked lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: 0, polyphony: 0, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'tungna',
+    parts: [
+      { id: 'tungna_form', name: 'Body and hide', variants: [
+        { id: 'tungna_hide_top', default: true, name: 'Carved wood body with goat/sheep hide soundboard', descriptors: ['dry', 'buzzing-timbre', 'rustic'], match_tokens: ['plucked-lute', 'himalayan'] },
+        { id: 'tungna_wood_top', name: 'All-wood soundboard variant', descriptors: ['brighter', 'clearer'], match_tokens: ['plucked-lute'] },
+      ] },
+      { id: 'tungna_style', name: 'Playing style', variants: [
+        { id: 'tungna_selo', default: true, name: 'Tamang selo song accompaniment (steady strum)', descriptors: ['strummed', 'lilting', 'dance-rhythm'], match_tokens: ['strummed', 'tamang'] },
+        { id: 'tungna_melodic', name: 'Melodic plucking with drone strings', descriptors: ['plucked', 'droning', 'plaintive'], match_tokens: ['plucked-lute', 'drone-foundation'] },
+      ] },
+      { id: 'tungna_strings', surface: false, name: 'String material', variants: [
+        { id: 'tungna_nylon', default: true, name: 'Nylon strings (modern)', descriptors: ['soft', 'mellow'], match_tokens: ['plucked-lute'] },
+        { id: 'tungna_gut', name: 'Gut / sinew strings (traditional)', descriptors: ['dull', 'archaic'], match_tokens: ['plucked-lute'] },
+      ] },
+    ]
+  },
+  {
+    id: 'piwang_tibet',
+    name: 'Piwang (Tibetan two-string spike fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -1, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'piwang',
+    parts: [
+      { id: 'piwang_tibet_resonator', name: 'Resonator body', variants: [
+        { id: 'piwang_tibet_wood_skin', default: true, name: 'Cylindrical wood body with snakeskin or goatskin belly (canonical)', descriptors: ['nasal-tone', 'reedy', 'penetrating'], match_tokens: ['spike-fiddle', 'tibetan-tradition'] },
+        { id: 'piwang_tibet_yakhorn', name: 'Yak-horn or hollowed-horn resonator', descriptors: ['thin-toned', 'rasping', 'archaic'], match_tokens: ['spike-fiddle', 'tibetan-tradition'] },
+        { id: 'piwang_tibet_metal_can', name: 'Metal-can resonator (folk improvised)', descriptors: ['brittle', 'clangy', 'bright-attack'], match_tokens: ['spike-fiddle', 'folk-build'] },
+      ] },
+      { id: 'piwang_tibet_repertoire', name: 'Playing context', variants: [
+        { id: 'piwang_tibet_nangma', default: true, name: 'Nangma / toeshey court-song accompaniment', descriptors: ['lilting', 'song-shadowing', 'ornamented'], match_tokens: ['bowed', 'lhasa-nangma'] },
+        { id: 'piwang_tibet_lhamo', name: 'Ache Lhamo opera accompaniment', descriptors: ['declamatory', 'piercing', 'theatrical'], match_tokens: ['bowed', 'tibetan-opera'] },
+        { id: 'piwang_tibet_solo', name: 'Solo rubato melodic playing', descriptors: ['rubato', 'sliding-portamento'], match_tokens: ['bowed', 'expressive'] },
+      ] },
+      { id: 'piwang_tibet_strings', surface: false, name: 'String material', variants: [
+        { id: 'piwang_tibet_silk', default: true, name: 'Silk or gut strings', descriptors: ['warm', 'soft-edged'], match_tokens: ['spike-fiddle'] },
+        { id: 'piwang_tibet_steel', name: 'Steel strings (modern)', descriptors: ['bright', 'projecting'], match_tokens: ['spike-fiddle'] },
+      ] },
+    ]
+  },
+  {
+    id: 'silnyen',
+    name: 'Sil nyen (Tibetan flat ritual cymbals)',
+    family: 'percussion',
+    class: 'hand_cymbals',
+    axes: { pitchFix: -2, sustain: 2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'silnyen',
+    parts: [
+      { id: 'silnyen_form', name: 'Cymbal form', variants: [
+        { id: 'silnyen_flat_shallow', default: true, name: 'Flat wide-rimmed sil nyen with small boss (canonical)', descriptors: ['shimmering', 'long-decay', 'inharmonic'], match_tokens: ['ritual-cymbals', 'tibetan-tradition'] },
+        { id: 'silnyen_large', name: 'Large monastery pair (35cm+)', descriptors: ['roaring', 'enveloping', 'deep-shimmer'], match_tokens: ['ritual-cymbals', 'tibetan-tradition'] },
+        { id: 'silnyen_small', name: 'Small pair (portable ritual)', descriptors: ['bright', 'tight-shimmer'], match_tokens: ['ritual-cymbals', 'tibetan-tradition'] },
+      ] },
+      { id: 'silnyen_stroke', name: 'Striking technique', variants: [
+        { id: 'silnyen_vertical_ring', default: true, name: 'Vertical held, sustained open ring', descriptors: ['sustained', 'washing'], match_tokens: ['ritual-cymbals', 'peaceful-rite'] },
+        { id: 'silnyen_damped', name: 'Damped clash against robe', descriptors: ['choked', 'dry-attack'], match_tokens: ['ritual-cymbals'] },
+        { id: 'silnyen_wrathful', name: 'Wrathful-rite fast crashing pattern', descriptors: ['crashing', 'urgent'], match_tokens: ['ritual-cymbals', 'wrathful-rite'] },
+      ] },
+      { id: 'silnyen_alloy', surface: false, name: 'Alloy', variants: [
+        { id: 'silnyen_bell_bronze', default: true, name: 'High-tin bell bronze', descriptors: ['ringing', 'complex-spectrum'], match_tokens: ['ritual-cymbals'] },
+        { id: 'silnyen_brass', name: 'Brass (lower-grade)', descriptors: ['duller', 'short-decay'], match_tokens: ['ritual-cymbals'] },
+      ] },
+    ]
+  },
+  {
+    id: 'drilbu',
+    name: 'Drilbu (Tibetan Buddhist ritual handbell)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: 1, sustain: 2, polyphony: -2, harmonicity: -1, register: 1, range: -2, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'drilbu',
+    parts: [
+      { id: 'drilbu_size', name: 'Bell size', variants: [
+        { id: 'drilbu_standard', default: true, name: 'Standard hand size (approx. 15cm) with vajra handle', descriptors: ['clear-ring', 'silvery', 'long-decay'], match_tokens: ['handbell', 'tibetan-tradition'] },
+        { id: 'drilbu_large', name: 'Large altar drilbu', descriptors: ['deep-toned', 'lingering'], match_tokens: ['handbell', 'tibetan-tradition'] },
+        { id: 'drilbu_small', name: 'Small travelling drilbu', descriptors: ['high-pitched', 'tinkling'], match_tokens: ['handbell', 'tibetan-tradition'] },
+      ] },
+      { id: 'drilbu_technique', name: 'Playing technique', variants: [
+        { id: 'drilbu_shaken_pulse', default: true, name: 'Shaken pulse in liturgy (paired with vajra)', descriptors: ['pulsing', 'shimmering'], match_tokens: ['handbell', 'ritual-pulse'] },
+        { id: 'drilbu_single_stroke', name: 'Single sustained stroke and let ring', descriptors: ['isolated', 'meditative'], match_tokens: ['handbell', 'meditative'] },
+        { id: 'drilbu_damped', name: 'Hand-damped short strokes', descriptors: ['clipped', 'dry'], match_tokens: ['handbell'] },
+      ] },
+      { id: 'drilbu_alloy', surface: false, name: 'Alloy', variants: [
+        { id: 'drilbu_seven_metal', default: true, name: 'Seven-metal ritual alloy', descriptors: ['warm-inharmonic', 'beating-partials'], match_tokens: ['handbell'] },
+        { id: 'drilbu_bronze', name: 'Plain bronze', descriptors: ['clean', 'focused'], match_tokens: ['handbell'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dung_dkar',
+    name: 'Dung dkar (Tibetan conch-shell trumpet)',
+    family: 'wind',
+    class: 'ritual_trumpet',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: 0, register: 0, range: -2, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'dung dkar',
+    parts: [
+      { id: 'dung_dkar_shell', name: 'Shell and mount', variants: [
+        { id: 'dung_dkar_plain', default: true, name: 'Plain white conch, side-blown hole (canonical)', descriptors: ['hollow-toned', 'calling', 'breathy-edge'], match_tokens: ['conch-trumpet', 'tibetan-tradition'] },
+        { id: 'dung_dkar_silver_mounted', name: 'Silver-and-turquoise mounted conch with flared wing', descriptors: ['broad-toned', 'ceremonial', 'projecting'], match_tokens: ['conch-trumpet', 'tibetan-tradition'] },
+        { id: 'dung_dkar_right_spiral', name: 'Rare right-spiralling conch (sacred)', descriptors: ['clear-toned', 'auspicious'], match_tokens: ['conch-trumpet', 'ritual'] },
+      ] },
+      { id: 'dung_dkar_call', name: 'Blowing pattern', variants: [
+        { id: 'dung_dkar_assembly', default: true, name: 'Long assembly call (summoning monks)', descriptors: ['sustained', 'carrying'], match_tokens: ['conch-trumpet', 'summoning-call'] },
+        { id: 'dung_dkar_pulsed', name: 'Pulsed triple-blast ritual signal', descriptors: ['punctuating', 'declamatory'], match_tokens: ['conch-trumpet'] },
+        { id: 'dung_dkar_overblown', name: 'Overblown upper-partial cry', descriptors: ['strained', 'piercing'], match_tokens: ['conch-trumpet'] },
+      ] },
+    ]
+  },
+  {
+    id: 'nga_chen',
+    name: 'Nga chen (Tibetan large monastic frame drum on pole)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -2, harmonicity: -2, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'nga chen',
+    parts: [
+      { id: 'nga_chen_mount', name: 'Mounting', variants: [
+        { id: 'nga_chen_pole', default: true, name: 'Large double-headed drum on carved pole stand (canonical)', descriptors: ['booming', 'deep-toned', 'cavernous'], match_tokens: ['monastic-drum', 'tibetan-tradition'] },
+        { id: 'nga_chen_hanging', name: 'Hung in wooden frame in assembly hall', descriptors: ['resonant', 'hall-filling'], match_tokens: ['monastic-drum', 'tibetan-tradition'] },
+        { id: 'nga_chen_processional', name: 'Carried processional nga', descriptors: ['thudding', 'marching'], match_tokens: ['monastic-drum', 'procession'] },
+      ] },
+      { id: 'nga_chen_beater', name: 'Beater and stroke', variants: [
+        { id: 'nga_chen_curved_stick', default: true, name: 'Long curved stick (nga rgyug), slow ritual strokes', descriptors: ['slow-swelling', 'ominous'], match_tokens: ['monastic-drum', 'ritual-pulse'] },
+        { id: 'nga_chen_roll', name: 'Accelerating roll into cadence', descriptors: ['rolling', 'building'], match_tokens: ['monastic-drum'] },
+        { id: 'nga_chen_rim', name: 'Rim and body strikes', descriptors: ['woody', 'dry-clack'], match_tokens: ['monastic-drum'] },
+      ] },
+      { id: 'nga_chen_head', surface: false, name: 'Head skin', variants: [
+        { id: 'nga_chen_yak', default: true, name: 'Yak or ox hide head', descriptors: ['thick', 'low-fundamental'], match_tokens: ['monastic-drum'] },
+        { id: 'nga_chen_goat', name: 'Goatskin head', descriptors: ['tighter', 'more-attack'], match_tokens: ['monastic-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'gandi',
+    name: 'Gandi (Buddhist monastic wooden beam gong)',
+    family: 'percussion',
+    class: 'slit_gong',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: -1, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'gandi',
+    parts: [
+      { id: 'gandi_beam', name: 'Beam form', variants: [
+        { id: 'gandi_long_beam', default: true, name: 'Long hardwood beam struck by monastic timekeeper (canonical)', descriptors: ['woody', 'hollow-knock', 'dry-attack'], match_tokens: ['wooden-beam', 'monastic-signal'] },
+        { id: 'gandi_short_slab', name: 'Short thick slab (small vihara)', descriptors: ['clipped', 'tight-knock'], match_tokens: ['wooden-beam', 'monastic-signal'] },
+        { id: 'gandi_hung', name: 'Suspended beam (free-ringing)', descriptors: ['ringing-wood', 'longer-decay'], match_tokens: ['wooden-beam'] },
+      ] },
+      { id: 'gandi_pattern', name: 'Striking pattern', variants: [
+        { id: 'gandi_uposatha', default: true, name: 'Uposatha assembly signal (accelerating strokes)', descriptors: ['accelerating', 'announcing'], match_tokens: ['wooden-beam', 'monastic-signal'] },
+        { id: 'gandi_single', name: 'Isolated single strokes marking hours', descriptors: ['sparse', 'punctuating'], match_tokens: ['wooden-beam'] },
+      ] },
+      { id: 'gandi_wood', surface: false, name: 'Wood', variants: [
+        { id: 'gandi_hard_dense', default: true, name: 'Dense hardwood (sandal, teak)', descriptors: ['bright-knock', 'pitched-wood'], match_tokens: ['wooden-beam'] },
+        { id: 'gandi_soft', name: 'Softer local wood', descriptors: ['dull', 'thudding'], match_tokens: ['wooden-beam'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tingsha',
+    name: 'Tingsha (Himalayan paired ritual chimes)',
+    family: 'percussion',
+    class: 'concussion_idiophone',
+    axes: { pitchFix: 1, sustain: 2, polyphony: -2, harmonicity: -1, register: 2, range: -2, articulation: 2, transduction: -2, dynamics: -1 },
+    short: 'tingsha',
+    parts: [
+      { id: 'tingsha_form', name: 'Cymbal form', variants: [
+        { id: 'tingsha_thick_small', default: true, name: 'Small thick discs on leather thong (canonical)', descriptors: ['piercing-ping', 'long-sustain', 'beating-partials'], match_tokens: ['ritual-chimes', 'tibetan-tradition'] },
+        { id: 'tingsha_thin_wide', name: 'Wider thin discs', descriptors: ['shimmering', 'airy', 'softer-attack'], match_tokens: ['ritual-chimes', 'himalayan'] },
+        { id: 'tingsha_embossed', name: 'Embossed dragon / mantra relief discs', descriptors: ['complex-overtones', 'slightly-detuned'], match_tokens: ['ritual-chimes'] },
+      ] },
+      { id: 'tingsha_strike', name: 'Strike technique', variants: [
+        { id: 'tingsha_edge_clash', default: true, name: 'Edge-to-edge clash, let ring', descriptors: ['clear-ping', 'fading-shimmer'], match_tokens: ['ritual-chimes', 'meditative'] },
+        { id: 'tingsha_flat_clash', name: 'Flat face clash (damped)', descriptors: ['short', 'clicky'], match_tokens: ['ritual-chimes'] },
+        { id: 'tingsha_rolling', name: 'Rolling repeated strikes', descriptors: ['dense-beating', 'hypnotic'], match_tokens: ['ritual-chimes'] },
+      ] },
+    ]
+  },
+  {
+    id: 'himalayan_singing_bowl',
+    name: 'Singing bowl (Himalayan standing bell)',
+    family: 'percussion',
+    class: 'struck_idiophone',
+    axes: { pitchFix: 0, sustain: 2, polyphony: -1, harmonicity: -1, register: -1, range: -1, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'singing bowl',
+    parts: [
+      { id: 'singing_bowl_form', name: 'Bowl form', variants: [
+        { id: 'singing_bowl_hand_hammered', default: true, name: 'Hand-hammered thick-walled bowl (canonical)', descriptors: ['beating-partials', 'warm-hum', 'long-decay'], match_tokens: ['standing-bell', 'himalayan'] },
+        { id: 'singing_bowl_large_low', name: 'Large low jambati bowl', descriptors: ['deep-toned', 'enveloping', 'slow-swell'], match_tokens: ['standing-bell', 'low-register'] },
+        { id: 'singing_bowl_small_high', name: 'Small thick manipuri bowl', descriptors: ['bright', 'clear-fundamental'], match_tokens: ['standing-bell', 'high-pitched'] },
+        { id: 'singing_bowl_cast_modern', name: 'Machine-cast modern bowl', descriptors: ['pure-toned', 'even', 'clean'], match_tokens: ['standing-bell'] },
+      ] },
+      { id: 'singing_bowl_technique', name: 'Technique', variants: [
+        { id: 'singing_bowl_rim_rubbed', default: true, name: 'Rim-rubbed with wooden puja (continuous singing)', descriptors: ['continuous-drone', 'swelling', 'glassy'], match_tokens: ['friction-rubbed', 'meditative'] },
+        { id: 'singing_bowl_struck_padded', name: 'Struck with padded mallet', descriptors: ['soft-attack', 'bloom'], match_tokens: ['standing-bell', 'meditative'] },
+        { id: 'singing_bowl_struck_hard', name: 'Struck with bare wood', descriptors: ['bright-attack', 'clangy'], match_tokens: ['standing-bell'] },
+        { id: 'singing_bowl_water_filled', name: 'Water-filled (pitch-bending)', descriptors: ['wavering', 'pitch-bending'], match_tokens: ['standing-bell'] },
+      ] },
+    ]
+  },
+  {
+    id: 'venu_carnatic',
+    name: 'Venu (Carnatic bamboo transverse flute)',
+    family: 'wind',
+    class: 'transverse_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 2, register: 1, range: 1, articulation: -1, transduction: -2, dynamics: 0 },
+    short: 'venu',
+    parts: [
+      { id: 'venu_carnatic_size', name: 'Flute size / pitch', variants: [
+        { id: 'venu_carnatic_eight_hole', default: true, name: 'Eight-hole Carnatic venu, medium pitch (canonical)', descriptors: ['sweet-toned', 'breathy', 'gamaka-fluid'], match_tokens: ['bamboo-flute', 'carnatic'] },
+        { id: 'venu_carnatic_long_low', name: 'Long low-pitched venu', descriptors: ['mellow', 'deep-toned', 'airy'], match_tokens: ['bamboo-flute', 'low-register'] },
+        { id: 'venu_carnatic_short_high', name: 'Short high-pitched venu', descriptors: ['piercing', 'bright', 'agile'], match_tokens: ['bamboo-flute', 'high-pitched'] },
+      ] },
+      { id: 'venu_carnatic_technique', name: 'Technique', variants: [
+        { id: 'venu_carnatic_gamaka', default: true, name: 'Finger-slide gamaka phrasing (Mali school)', descriptors: ['oscillating', 'vocal-imitative', 'legato'], match_tokens: ['bamboo-flute', 'gamaka'] },
+        { id: 'venu_carnatic_alapana', name: 'Free alapana exposition', descriptors: ['rubato', 'meditative', 'breath-shaped'], match_tokens: ['bamboo-flute', 'raga-exposition'] },
+        { id: 'venu_carnatic_kalpana', name: 'Fast kalpanaswara passages', descriptors: ['rapid', 'articulate', 'rhythmic'], match_tokens: ['bamboo-flute', 'rhythmic'] },
+      ] },
+      { id: 'venu_carnatic_bamboo', surface: false, name: 'Bamboo bore', variants: [
+        { id: 'venu_carnatic_thin_wall', default: true, name: 'Thin-walled seasoned bamboo', descriptors: ['responsive', 'bright'], match_tokens: ['bamboo-flute'] },
+        { id: 'venu_carnatic_thick_wall', name: 'Thick-walled bamboo', descriptors: ['round', 'fuller-tone'], match_tokens: ['bamboo-flute'] },
+      ] },
+    ]
+  },
+  {
+    id: 'pullanguzhal',
+    name: 'Pullanguzhal (Tamil bamboo flute of Carnatic music)',
+    family: 'wind',
+    class: 'transverse_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 2, register: 1, range: 1, articulation: -1, transduction: -2, dynamics: 0 },
+    short: 'pullanguzhal',
+    parts: [
+      { id: 'pullanguzhal_holes', name: 'Hole configuration', variants: [
+        { id: 'pullanguzhal_eight_hole', default: true, name: 'Eight finger-hole Tamil pullanguzhal (canonical)', descriptors: ['sweet-toned', 'fluid', 'breathy'], match_tokens: ['bamboo-flute', 'tamil'] },
+        { id: 'pullanguzhal_seven_hole', name: 'Older seven-hole form', descriptors: ['archaic', 'softer', 'limited-range'], match_tokens: ['bamboo-flute', 'tamil'] },
+        { id: 'pullanguzhal_nine_hole', name: 'Extended nine-hole (low-range extension)', descriptors: ['wide-range', 'deep-lower-octave'], match_tokens: ['bamboo-flute'] },
+      ] },
+      { id: 'pullanguzhal_context', name: 'Playing context', variants: [
+        { id: 'pullanguzhal_temple', default: true, name: 'Temple and devotional playing', descriptors: ['plaintive', 'devotional', 'sustained'], match_tokens: ['bamboo-flute', 'devotional'] },
+        { id: 'pullanguzhal_concert', name: 'Concert Carnatic solo', descriptors: ['gamaka-rich', 'virtuosic'], match_tokens: ['bamboo-flute', 'carnatic'] },
+        { id: 'pullanguzhal_folk', name: 'Tamil folk / pastoral tunes', descriptors: ['simple', 'lilting', 'open-toned'], match_tokens: ['bamboo-flute', 'folk-melody'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ottu_drone',
+    name: 'Ottu (South Indian drone shawm for nagaswaram ensemble)',
+    family: 'wind',
+    class: 'double_reed_shawm',
+    axes: { pitchFix: 1, sustain: 2, polyphony: -2, harmonicity: 1, register: -1, range: -2, articulation: -2, transduction: -2, dynamics: -1 },
+    short: 'ottu',
+    parts: [
+      { id: 'ottu_drone_body', name: 'Body build', variants: [
+        { id: 'ottu_drone_wood_wax', default: true, name: 'Long aacha-wood body with wax-plugged finger holes (canonical)', descriptors: ['steady-drone', 'reedy', 'nasal'], match_tokens: ['drone-shawm', 'nagaswaram-ensemble'] },
+        { id: 'ottu_drone_metal_bell', name: 'Metal-belled ottu', descriptors: ['brighter', 'edgier', 'projecting'], match_tokens: ['drone-shawm', 'south-indian'] },
+        { id: 'ottu_drone_short', name: 'Short high-pitched ottu', descriptors: ['thinner', 'higher-drone'], match_tokens: ['drone-shawm'] },
+      ] },
+      { id: 'ottu_drone_technique', name: 'Breath technique', variants: [
+        { id: 'ottu_drone_circular', default: true, name: 'Circular breathing for unbroken drone', descriptors: ['unbroken', 'continuous', 'hypnotic'], match_tokens: ['drone-foundation', 'circular-breathing'] },
+        { id: 'ottu_drone_phrased', name: 'Phrased breath drone with tonic re-attacks', descriptors: ['pulsing', 'punctuated'], match_tokens: ['drone-foundation'] },
+      ] },
+      { id: 'ottu_drone_reed', surface: false, name: 'Reed', variants: [
+        { id: 'ottu_drone_palm_reed', default: true, name: 'Palm-leaf double reed (seevali)', descriptors: ['buzzing-timbre', 'raspy'], match_tokens: ['double-reed'] },
+        { id: 'ottu_drone_soft_reed', name: 'Softened broad reed', descriptors: ['mellow', 'rounder'], match_tokens: ['double-reed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mukhavina',
+    name: 'Mukhavina (South Indian small double-reed shawm)',
+    family: 'wind',
+    class: 'double_reed_shawm',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'mukhavina',
+    parts: [
+      { id: 'mukhavina_size', name: 'Size / pitch', variants: [
+        { id: 'mukhavina_small_high', default: true, name: 'Small high-pitched mukhavina (canonical temple form)', descriptors: ['piercing', 'nasal', 'penetrating'], match_tokens: ['shawm', 'south-indian'] },
+        { id: 'mukhavina_medium', name: 'Medium-bore mukhavina', descriptors: ['rounder', 'fuller', 'reedy'], match_tokens: ['shawm', 'south-indian'] },
+      ] },
+      { id: 'mukhavina_context', name: 'Playing context', variants: [
+        { id: 'mukhavina_temple', default: true, name: 'Temple procession and ritual melody', descriptors: ['outdoor-loud', 'ceremonial', 'carrying'], match_tokens: ['shawm', 'temple-procession'] },
+        { id: 'mukhavina_dance', name: 'Bharatanatyam / dance accompaniment', descriptors: ['rhythmic', 'articulate', 'phrased'], match_tokens: ['shawm', 'dance-accompaniment'] },
+        { id: 'mukhavina_raga', name: 'Carnatic raga exposition', descriptors: ['gamaka-rich', 'melismatic'], match_tokens: ['shawm', 'carnatic'] },
+      ] },
+      { id: 'mukhavina_reed', surface: false, name: 'Reed', variants: [
+        { id: 'mukhavina_palm_reed', default: true, name: 'Palm-leaf double reed', descriptors: ['buzzing-timbre', 'bright-edge'], match_tokens: ['double-reed'] },
+        { id: 'mukhavina_cane_reed', name: 'Cane double reed', descriptors: ['softer', 'warmer'], match_tokens: ['double-reed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sruti_upanga',
+    name: 'Sruti upanga (South Indian bellows-blown drone bagpipe)',
+    family: 'wind',
+    class: 'bellows_bagpipe',
+    axes: { pitchFix: 2, sustain: 2, polyphony: 0, harmonicity: 1, register: -1, range: -2, articulation: -2, transduction: -2, dynamics: -2 },
+    short: 'sruti upanga',
+    parts: [
+      { id: 'sruti_upanga_bag', name: 'Bag and bellows', variants: [
+        { id: 'sruti_upanga_hide_bag', default: true, name: 'Leather bag with hand-pumped bellows (canonical)', descriptors: ['unbroken-drone', 'reedy', 'steady'], match_tokens: ['drone-bagpipe', 'south-indian'] },
+        { id: 'sruti_upanga_mouth_blown', name: 'Mouth-blown bag variant', descriptors: ['breath-modulated', 'slightly-wavering'], match_tokens: ['drone-bagpipe'] },
+      ] },
+      { id: 'sruti_upanga_tuning', name: 'Drone tuning', variants: [
+        { id: 'sruti_upanga_sa_pa', default: true, name: 'Tonic and fifth (sa-pa) double drone', descriptors: ['open-fifth', 'grounding'], match_tokens: ['drone-foundation', 'tonic-fifth'] },
+        { id: 'sruti_upanga_sa_ma', name: 'Tonic and fourth (sa-ma) drone', descriptors: ['darker', 'suspended'], match_tokens: ['drone-foundation'] },
+        { id: 'sruti_upanga_single', name: 'Single tonic drone pipe', descriptors: ['plain', 'focused'], match_tokens: ['drone-foundation'] },
+      ] },
+    ]
+  },
+  {
+    id: 'pambai',
+    name: 'Pambai (Tamil paired cylindrical folk drums)',
+    family: 'percussion',
+    class: 'cylindrical_drum',
+    axes: { pitchFix: -2, sustain: -1, polyphony: -1, harmonicity: -2, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'pambai',
+    parts: [
+      { id: 'pambai_pair', name: 'Drum pairing', variants: [
+        { id: 'pambai_wood_metal_pair', default: true, name: 'Wooden upper drum plus brass lower drum, strapped together (canonical)', descriptors: ['contrasting-pitches', 'cracking-attack', 'metallic-ring'], match_tokens: ['paired-drums', 'tamil-folk'] },
+        { id: 'pambai_both_wood', name: 'Both shells wooden', descriptors: ['woody', 'drier', 'warmer'], match_tokens: ['paired-drums', 'tamil-folk'] },
+        { id: 'pambai_both_metal', name: 'Both shells metal', descriptors: ['clangy', 'sharp', 'ringing'], match_tokens: ['paired-drums'] },
+      ] },
+      { id: 'pambai_technique', name: 'Stroke technique', variants: [
+        { id: 'pambai_stick_rolls', default: true, name: 'Rapid thin-stick rolls in village ritual', descriptors: ['rattling', 'driving', 'trance-inducing'], match_tokens: ['stick-struck', 'ritual-procession'] },
+        { id: 'pambai_accent_strokes', name: 'Sparse accented signal strokes', descriptors: ['punctuating', 'sharp'], match_tokens: ['stick-struck'] },
+        { id: 'pambai_dance', name: 'Dance-accompanying interlocking pattern', descriptors: ['interlocking', 'propulsive'], match_tokens: ['stick-struck', 'dance-rhythm'] },
+      ] },
+      { id: 'pambai_head', surface: false, name: 'Head skin', variants: [
+        { id: 'pambai_goat', default: true, name: 'Goatskin heads', descriptors: ['crisp', 'bright-snap'], match_tokens: ['paired-drums'] },
+        { id: 'pambai_cow', name: 'Cowhide heads', descriptors: ['thicker', 'lower-toned'], match_tokens: ['paired-drums'] },
+      ] },
+    ]
+  },
+  {
+    id: 'udukkai',
+    name: 'Udukkai (Tamil hourglass tension drum)',
+    family: 'percussion',
+    class: 'hourglass_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'udukkai',
+    parts: [
+      { id: 'udukkai_form', name: 'Regional form', variants: [
+        { id: 'udukkai_temple', default: true, name: 'Temple udukkai (wooden hourglass shell)', descriptors: ['bending-pitch', 'ritual', 'sharp-attack'], match_tokens: ['hourglass-drum', 'tamil'] },
+        { id: 'udukkai_folk', name: 'Folk village udukkai (smaller, brass shell)', descriptors: ['bright-attack', 'cutting'], match_tokens: ['hourglass-drum', 'folk-drum'] },
+        { id: 'udukkai_udukku', name: 'Kerala udukku (thin-waisted variant)', descriptors: ['nasal-timbre', 'talkative'], match_tokens: ['hourglass-drum', 'kerala'] },
+      ] },
+      { id: 'udukkai_head', surface: false, name: 'Head and lacing', variants: [
+        { id: 'udukkai_goat_cord', default: true, name: 'Goatskin heads with cotton tension cord', descriptors: ['warm-attack', 'pitch-bending'], match_tokens: ['hourglass-drum'] },
+        { id: 'udukkai_lizard', name: 'Thin reptile-skin heads (archaic)', descriptors: ['dry-tone', 'piercing'], match_tokens: ['hourglass-drum'] },
+      ] },
+      { id: 'udukkai_technique', name: 'Playing technique', variants: [
+        { id: 'udukkai_squeeze', default: true, name: 'Squeeze-and-strike glissando patterns', descriptors: ['bending-pitch', 'speech-like'], match_tokens: ['hourglass-drum', 'tension-squeeze'] },
+        { id: 'udukkai_steady', name: 'Steady accompaniment stroke for song', descriptors: ['driving', 'pulse-keeping'], match_tokens: ['hourglass-drum', 'dance-rhythm'] },
+      ] },
+    ]
+  },
+  {
+    id: 'kuzhitalam',
+    name: 'Kuzhitalam (Kerala heavy bronze temple cymbals)',
+    family: 'percussion',
+    class: 'hand_cymbals',
+    axes: { pitchFix: -1, sustain: 1, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'kuzhitalam',
+    parts: [
+      { id: 'kuzhitalam_size', name: 'Cymbal size', variants: [
+        { id: 'kuzhitalam_large', default: true, name: 'Large thick temple pair (panchavadyam)', descriptors: ['clangorous', 'long-ringing', 'piercing'], match_tokens: ['bronze-cymbals', 'kerala'] },
+        { id: 'kuzhitalam_small', name: 'Small pair (kathakali time-keeping)', descriptors: ['bright-attack', 'tight-ring'], match_tokens: ['bronze-cymbals', 'time-keeping'] },
+      ] },
+      { id: 'kuzhitalam_context', surface: false, name: 'Ensemble context', variants: [
+        { id: 'kuzhitalam_panchavadyam', default: true, name: 'Panchavadyam / melam cycle keeping', descriptors: ['ceremonial', 'driving'], match_tokens: ['bronze-cymbals', 'temple-ensemble'] },
+        { id: 'kuzhitalam_kathakali', name: 'Kathakali dance-drama accompaniment', descriptors: ['accenting', 'dramatic'], match_tokens: ['bronze-cymbals', 'dance-drama'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sangu_conch',
+    name: 'Sangu (South Indian conch-shell ritual trumpet)',
+    family: 'wind',
+    class: 'ritual_trumpet',
+    axes: { pitchFix: 2, sustain: 1, polyphony: -2, harmonicity: 0, register: 0, range: -2, articulation: 0, transduction: -2, dynamics: 1 },
+    short: 'sangu',
+    parts: [
+      { id: 'sangu_shell', name: 'Shell size / pitch', variants: [
+        { id: 'sangu_large', default: true, name: 'Large temple shell (low steady blast)', descriptors: ['deep-toned', 'roaring', 'ceremonial'], match_tokens: ['conch-trumpet', 'temple-ritual'] },
+        { id: 'sangu_small', name: 'Small shell (higher call)', descriptors: ['bright-toned', 'piercing'], match_tokens: ['conch-trumpet', 'signal-call'] },
+        { id: 'sangu_valampuri', name: 'Valampuri right-turning shell (auspicious)', descriptors: ['hollow-tone', 'sacred'], match_tokens: ['conch-trumpet', 'auspicious'] },
+      ] },
+      { id: 'sangu_use', surface: false, name: 'Ritual use', variants: [
+        { id: 'sangu_puja', default: true, name: 'Temple puja announcement blasts', descriptors: ['announcing', 'sustained-blast'], match_tokens: ['conch-trumpet', 'temple-ritual'] },
+        { id: 'sangu_wedding', name: 'Wedding / procession auspicious call', descriptors: ['festive', 'calling'], match_tokens: ['conch-trumpet', 'procession'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tudi_drum',
+    name: 'Tudi (Tamil small hourglass waist drum)',
+    family: 'percussion',
+    class: 'hourglass_drum',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: 0, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'tudi',
+    parts: [
+      { id: 'tudi_form', name: 'Form', variants: [
+        { id: 'tudi_folk', default: true, name: 'Village folk tudi (small wooden waist)', descriptors: ['dry-crack', 'talkative'], match_tokens: ['hourglass-drum', 'tamil-folk'] },
+        { id: 'tudi_thudi_kerala', name: 'Kerala thudi (temple ritual form)', descriptors: ['ritual', 'sharp-attack'], match_tokens: ['hourglass-drum', 'temple-ritual'] },
+      ] },
+      { id: 'tudi_technique', name: 'Playing technique', variants: [
+        { id: 'tudi_stick', default: true, name: 'Curved stick on one head', descriptors: ['sharp-attack', 'clicking'], match_tokens: ['hourglass-drum', 'stick-struck'] },
+        { id: 'tudi_hand_squeeze', name: 'Hand strike with waist squeeze', descriptors: ['bending-pitch', 'speech-like'], match_tokens: ['hourglass-drum', 'tension-squeeze'] },
+      ] },
+    ]
+  },
+  {
+    id: 'nanthuni',
+    name: 'Nanthuni (Kerala Pulluvan stick-struck lute)',
+    family: 'plucked_traditional',
+    class: 'chordophone',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: 0, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'nanthuni',
+    parts: [
+      { id: 'nanthuni_form', name: 'Body form', variants: [
+        { id: 'nanthuni_jackwood', default: true, name: 'Jackwood body with parchment belly', descriptors: ['nasal-timbre', 'buzzing-timbre'], match_tokens: ['stick-struck-lute', 'kerala'] },
+        { id: 'nanthuni_bamboo', name: 'Light bamboo-necked village build', descriptors: ['thin-toned', 'rustic'], match_tokens: ['stick-struck-lute', 'folk-chordophone'] },
+      ] },
+      { id: 'nanthuni_context', surface: false, name: 'Ritual repertoire', variants: [
+        { id: 'nanthuni_pulluvan', default: true, name: 'Pulluvan paattu serpent-grove song', descriptors: ['droning', 'incantatory'], match_tokens: ['ritual-song', 'kerala'] },
+        { id: 'nanthuni_thottam', name: 'Thottam paattu invocation', descriptors: ['recitative', 'hypnotic'], match_tokens: ['ritual-song', 'invocation'] },
+      ] },
+    ]
+  },
+  {
+    id: 'villu_pattu_bow',
+    name: 'Villu (Tamil villu paattu musical story-bow)',
+    family: 'plucked_traditional',
+    class: 'chordophone',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'villu',
+    parts: [
+      { id: 'villu_size', name: 'Bow size', variants: [
+        { id: 'villu_large', default: true, name: 'Large performance bow with clay-pot resonator', descriptors: ['deep-thump', 'jingling', 'driving'], match_tokens: ['musical-bow', 'tamil-narrative'] },
+        { id: 'villu_small', name: 'Small hand bow (village troupe)', descriptors: ['dry-attack', 'light-jingle'], match_tokens: ['musical-bow', 'folk-narrative'] },
+      ] },
+      { id: 'villu_attachments', surface: false, name: 'Attached rattles', variants: [
+        { id: 'villu_bells', default: true, name: 'Brass bells strung along the stave', descriptors: ['jingling', 'shimmering'], match_tokens: ['musical-bow', 'bell-jingle'] },
+        { id: 'villu_plain', name: 'Plain stave without bells', descriptors: ['dry-thud', 'bare'], match_tokens: ['musical-bow'] },
+      ] },
+      { id: 'villu_technique', name: 'Striking technique', variants: [
+        { id: 'villu_sticks', default: true, name: 'Two sticks beaten on the string', descriptors: ['percussive', 'sharp-attack'], match_tokens: ['musical-bow', 'stick-struck'] },
+        { id: 'villu_pluck', name: 'Plucked accents between narration', descriptors: ['twanging', 'sparse'], match_tokens: ['musical-bow', 'plucked'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tasha',
+    name: 'Tasha (South Asian shallow kettledrum played with canes)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 2 },
+    short: 'tasha',
+    parts: [
+      { id: 'tasha_shell', name: 'Shell material', variants: [
+        { id: 'tasha_clay', default: true, name: 'Fired clay bowl shell', descriptors: ['dry-crack', 'cutting'], match_tokens: ['kettledrum', 'procession'] },
+        { id: 'tasha_metal', name: 'Steel or brass bowl shell', descriptors: ['ringing-crack', 'brash'], match_tokens: ['kettledrum', 'metal-shell'] },
+        { id: 'tasha_synthetic', name: 'Modern synthetic-head tasha (tassa)', descriptors: ['piercing', 'hard-tuned'], match_tokens: ['kettledrum', 'tassa'] },
+      ] },
+      { id: 'tasha_context', surface: false, name: 'Ensemble role', variants: [
+        { id: 'tasha_dhol_tasha', default: true, name: 'Dhol-tasha procession ensemble', descriptors: ['driving', 'festival-loud'], match_tokens: ['procession', 'dhol-tasha'] },
+        { id: 'tasha_muharram', name: 'Muharram / tassa drumming ensemble', descriptors: ['solemn', 'rolling'], match_tokens: ['procession', 'muharram'] },
+      ] },
+    ]
+  },
+  {
+    id: 'naal_drum',
+    name: 'Naal (Maharashtrian barrel drum with paste-loaded heads)',
+    family: 'percussion',
+    class: 'double_headed_drum',
+    axes: { pitchFix: 0, sustain: -1, polyphony: -2, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'naal',
+    parts: [
+      { id: 'naal_form', name: 'Build', variants: [
+        { id: 'naal_wood', default: true, name: 'Wooden barrel shell with paste-tuned bass head', descriptors: ['warm-boom', 'crisp-slap'], match_tokens: ['barrel-drum', 'maharashtra'] },
+        { id: 'naal_fiber', name: 'Modern fiberglass shell', descriptors: ['bright-attack', 'projecting'], match_tokens: ['barrel-drum', 'stage-drum'] },
+      ] },
+      { id: 'naal_tuning', surface: false, name: 'Head loading', variants: [
+        { id: 'naal_syahi', default: true, name: 'Syahi-loaded treble head', descriptors: ['ringing-tone', 'pitched-slap'], match_tokens: ['barrel-drum', 'tuned-head'] },
+        { id: 'naal_plain', name: 'Plain untreated heads', descriptors: ['dry-tone', 'open'], match_tokens: ['barrel-drum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'duggi',
+    name: 'Duggi (South Asian clay kettle bass drum)',
+    family: 'percussion',
+    class: 'clay_pot_drum',
+    axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'duggi',
+    parts: [
+      { id: 'duggi_form', name: 'Regional form', variants: [
+        { id: 'duggi_bengal', default: true, name: 'Bengali baul duggi (waist-slung clay bowl)', descriptors: ['deep-thump', 'bending-pitch'], match_tokens: ['clay-kettledrum', 'baul'] },
+        { id: 'duggi_punjab', name: 'Punjabi duggi (paired with dhad/tumbi)', descriptors: ['dry-boom', 'pulse-keeping'], match_tokens: ['clay-kettledrum', 'punjab'] },
+        { id: 'duggi_metal', name: 'Metal-shell duggi (louder stage form)', descriptors: ['resonant-boom', 'projecting'], match_tokens: ['kettledrum', 'metal-shell'] },
+      ] },
+      { id: 'duggi_technique', name: 'Playing technique', variants: [
+        { id: 'duggi_heel_bend', default: true, name: 'Palm strike with heel pressure bends', descriptors: ['bending-pitch', 'elastic'], match_tokens: ['clay-kettledrum', 'pitch-bend'] },
+        { id: 'duggi_open', name: 'Open unbent bass strokes', descriptors: ['deep-toned', 'steady'], match_tokens: ['clay-kettledrum'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tabla_tarang',
+    name: 'Tabla tarang (melodic set of tuned dayan drums)',
+    family: 'percussion',
+    class: 'tuned_percussion',
+    axes: { pitchFix: 2, sustain: 1, polyphony: -1, harmonicity: 2, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'tabla tarang',
+    parts: [
+      { id: 'tabla_tarang_set', name: 'Set size', variants: [
+        { id: 'tabla_tarang_ten', default: true, name: 'Ten to twelve dayan set (full raga scale)', descriptors: ['bell-like', 'singing-tone'], match_tokens: ['tuned-drum-set', 'hindustani'] },
+        { id: 'tabla_tarang_small', name: 'Small six-drum set', descriptors: ['focused', 'pentatonic'], match_tokens: ['tuned-drum-set'] },
+        { id: 'tabla_tarang_wide', name: 'Extended fifteen-drum concert set', descriptors: ['wide-range', 'glissando-capable'], match_tokens: ['tuned-drum-set', 'concert'] },
+      ] },
+      { id: 'tabla_tarang_style', surface: false, name: 'Playing style', variants: [
+        { id: 'tabla_tarang_gayaki', default: true, name: 'Gayaki-ang melodic raga rendition', descriptors: ['singing-tone', 'legato-runs'], match_tokens: ['tuned-drum-set', 'raga-melody'] },
+        { id: 'tabla_tarang_laykari', name: 'Rhythmic laykari display', descriptors: ['percussive', 'virtuosic'], match_tokens: ['tuned-drum-set', 'rhythmic'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ghumot',
+    name: 'Ghumot (Goan clay pot drum)',
+    family: 'percussion',
+    class: 'clay_pot_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'ghumot',
+    parts: [
+      { id: 'ghumot_head', name: 'Head material', variants: [
+        { id: 'ghumot_goat', default: true, name: 'Goatskin head (modern legal standard)', descriptors: ['warm-thump', 'round-tone'], match_tokens: ['pot-drum', 'goa'] },
+        { id: 'ghumot_lizard', name: 'Traditional monitor-lizard skin (historic)', descriptors: ['dry-crack', 'sharp-attack'], match_tokens: ['pot-drum', 'historic-build'] },
+      ] },
+      { id: 'ghumot_technique', name: 'Playing technique', variants: [
+        { id: 'ghumot_open_hand', default: true, name: 'Hand strokes with open rear mouth', descriptors: ['boomy', 'resonant'], match_tokens: ['pot-drum', 'hand-struck'] },
+        { id: 'ghumot_muted', name: 'Rear mouth muted against the body', descriptors: ['muted-thump', 'tight'], match_tokens: ['pot-drum', 'muted'] },
+      ] },
+      { id: 'ghumot_context', surface: false, name: 'Repertoire', variants: [
+        { id: 'ghumot_mando', default: true, name: 'Mando and Goan folk song accompaniment', descriptors: ['lilting', 'supporting'], match_tokens: ['pot-drum', 'goan-folk'] },
+        { id: 'ghumot_temple', name: 'Temple aarti accompaniment', descriptors: ['devotional', 'steady'], match_tokens: ['pot-drum', 'devotional'] },
+      ] },
+    ]
+  },
+  {
+    id: 'dhumsa',
+    name: 'Dhumsa (large eastern Indian kettledrum)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -2, sustain: 0, polyphony: -2, harmonicity: -2, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'dhumsa',
+    parts: [
+      { id: 'dhumsa_size', name: 'Size', variants: [
+        { id: 'dhumsa_large', default: true, name: 'Large festival dhumsa (hemispherical iron shell)', descriptors: ['thunderous', 'deep-boom'], match_tokens: ['kettledrum', 'jharkhand'] },
+        { id: 'dhumsa_medium', name: 'Medium portable dhumsa', descriptors: ['punchy', 'carrying'], match_tokens: ['kettledrum', 'procession'] },
+      ] },
+      { id: 'dhumsa_context', surface: false, name: 'Ensemble role', variants: [
+        { id: 'dhumsa_chhau', default: true, name: 'Chhau dance ensemble with dhol and shehnai', descriptors: ['driving', 'martial'], match_tokens: ['kettledrum', 'chhau'] },
+        { id: 'dhumsa_santal', name: 'Santal / tribal festival drumming', descriptors: ['hypnotic', 'rolling'], match_tokens: ['kettledrum', 'tribal-festival'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sambal_drum',
+    name: 'Sambal (Maharashtrian paired stick-beaten drums)',
+    family: 'percussion',
+    class: 'single_headed_drum',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'sambal',
+    parts: [
+      { id: 'sambal_form', name: 'Build', variants: [
+        { id: 'sambal_wood', default: true, name: 'Paired wooden shells, one bass one treble', descriptors: ['dry-crack', 'punchy'], match_tokens: ['paired-drums', 'maharashtra'] },
+        { id: 'sambal_metal', name: 'Metal-shelled village pair', descriptors: ['clanging', 'brash'], match_tokens: ['paired-drums', 'folk-drum'] },
+      ] },
+      { id: 'sambal_context', surface: false, name: 'Repertoire', variants: [
+        { id: 'sambal_gondhal', default: true, name: 'Gondhal ritual invocation', descriptors: ['incantatory', 'driving'], match_tokens: ['paired-drums', 'gondhal'] },
+        { id: 'sambal_procession', name: 'Village deity procession', descriptors: ['loud', 'marching'], match_tokens: ['paired-drums', 'procession'] },
+      ] },
+    ]
+  },
+  {
+    id: 'halgi',
+    name: 'Halgi (Maharashtrian small frame drum)',
+    family: 'percussion',
+    class: 'frame_drum',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 1 },
+    short: 'halgi',
+    parts: [
+      { id: 'halgi_form', name: 'Build', variants: [
+        { id: 'halgi_wood_hide', default: true, name: 'Wooden hoop with tacked hide head', descriptors: ['sharp-crack', 'cutting'], match_tokens: ['frame-drum', 'maharashtra'] },
+        { id: 'halgi_metal_hoop', name: 'Metal hoop with tension screws', descriptors: ['hard-attack', 'piercing'], match_tokens: ['frame-drum', 'tension-tuned'] },
+      ] },
+      { id: 'halgi_technique', name: 'Playing technique', variants: [
+        { id: 'halgi_stick_hand', default: true, name: 'Stick in one hand, fingers damping with the other', descriptors: ['rattling-rolls', 'snappy'], match_tokens: ['frame-drum', 'stick-struck'] },
+        { id: 'halgi_fire_tuned', name: 'Fire-heated head for maximum crack', descriptors: ['brittle', 'screaming-attack'], match_tokens: ['frame-drum', 'heat-tuned'] },
+      ] },
+    ]
+  },
+  {
+    id: 'narh_flute',
+    name: 'Narh (Rajasthani long end-blown desert flute)',
+    family: 'wind',
+    class: 'end_blown_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -1, harmonicity: 1, register: -1, range: 1, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'narh',
+    parts: [
+      { id: 'narh_body', name: 'Tube material', variants: [
+        { id: 'narh_kangor', default: true, name: 'Kangor reed tube (traditional Langa build)', descriptors: ['breathy', 'airy', 'haunting'], match_tokens: ['end-blown-flute', 'rajasthan'] },
+        { id: 'narh_bamboo', name: 'Bamboo tube', descriptors: ['fuller-tone', 'warm'], match_tokens: ['end-blown-flute', 'bamboo'] },
+      ] },
+      { id: 'narh_technique', name: 'Playing technique', variants: [
+        { id: 'narh_throat_drone', default: true, name: 'Sung throat drone under the blown melody', descriptors: ['droning', 'raspy-undertone'], match_tokens: ['end-blown-flute', 'throat-drone'] },
+        { id: 'narh_plain', name: 'Plain blown melody without vocal drone', descriptors: ['pure-tone', 'breathy'], match_tokens: ['end-blown-flute'] },
+      ] },
+      { id: 'narh_length', surface: false, name: 'Tube length / register', variants: [
+        { id: 'narh_long', default: true, name: 'Long tube (low, hollow register)', descriptors: ['deep-toned', 'hollow'], match_tokens: ['end-blown-flute', 'low-register'] },
+        { id: 'narh_short', name: 'Short tube (higher, brighter)', descriptors: ['bright-toned', 'piercing'], match_tokens: ['end-blown-flute', 'high-register'] },
+      ] },
+    ]
+  },
+  {
+    id: 'surando',
+    name: 'Surando (Sindhi bowed lute)',
+    family: 'bowed',
+    class: 'bowed_lute',
+    axes: { pitchFix: -1, sustain: 2, polyphony: 1, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'surando',
+    parts: [
+      { id: 'surando_form', name: 'Regional form', variants: [
+        { id: 'surando_thar', default: true, name: 'Tharparkar surando (five melody strings, sympathetic set)', descriptors: ['droning', 'reedy-resonant', 'sympathetic-shimmer'], match_tokens: ['bowed', 'sindhi', 'folk-fiddle'] },
+        { id: 'surando_kachchh', name: 'Kachchhi surando (Rajasthan/Kutch border form)', descriptors: ['nasal-tone', 'rustic'], match_tokens: ['bowed', 'kutch'] },
+      ] },
+      { id: 'surando_face', name: 'Soundboard covering', variants: [
+        { id: 'surando_skin', default: true, name: 'Goatskin belly over carved bowl', descriptors: ['warm', 'buzzy-edge'], match_tokens: ['bowed', 'skin-belly'] },
+        { id: 'surando_wood', name: 'Wooden soundboard', descriptors: ['focused', 'brighter'], match_tokens: ['bowed'] },
+      ] },
+      { id: 'surando_context', surface: false, name: 'Playing context', variants: [
+        { id: 'surando_sufi', default: true, name: 'Sufi devotional song accompaniment', descriptors: ['voice-shadowing', 'droning'], match_tokens: ['bowed', 'sufi'] },
+        { id: 'surando_ballad', name: 'Solo folk-ballad interlude', descriptors: ['rubato', 'melismatic'], match_tokens: ['bowed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'borrindo',
+    name: 'Borrindo (Sindhi clay globular flute)',
+    family: 'wind',
+    class: 'flute',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -2, harmonicity: 2, register: 1, range: -2, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'borrindo',
+    parts: [
+      { id: 'borrindo_size', name: 'Ball size', variants: [
+        { id: 'borrindo_small', default: true, name: 'Small clay ball (three or four holes, high voice)', descriptors: ['pure-toned', 'breathy', 'hollow'], match_tokens: ['vessel-flute', 'sindhi'] },
+        { id: 'borrindo_large', name: 'Large clay ball (lower, softer)', descriptors: ['deep-toned', 'muffled'], match_tokens: ['vessel-flute', 'low-register'] },
+      ] },
+      { id: 'borrindo_clay', surface: false, name: 'Clay and firing', variants: [
+        { id: 'borrindo_unfired', default: true, name: 'Sun-dried unfired river clay (village-made)', descriptors: ['soft-toned', 'earthy'], match_tokens: ['vessel-flute'] },
+        { id: 'borrindo_fired', name: 'Kiln-fired terracotta', descriptors: ['ringing', 'clearer'], match_tokens: ['vessel-flute'] },
+      ] },
+    ]
+  },
+  {
+    id: 'yaktaro',
+    name: 'Yaktaro (Sindhi one-string drone lute)',
+    family: 'plucked_traditional',
+    class: 'plucked_lute',
+    axes: { pitchFix: 0, sustain: 0, polyphony: -2, harmonicity: 0, register: -1, range: -2, articulation: 1, transduction: -2, dynamics: -1 },
+    short: 'yaktaro',
+    parts: [
+      { id: 'yaktaro_resonator', name: 'Resonator', variants: [
+        { id: 'yaktaro_gourd', default: true, name: 'Dried gourd resonator with skin face', descriptors: ['droning', 'thumpy', 'earthy'], match_tokens: ['one-string', 'drone-foundation', 'sindhi'] },
+        { id: 'yaktaro_wood', name: 'Turned wooden bowl resonator', descriptors: ['dry', 'clipped'], match_tokens: ['one-string', 'plucked'] },
+      ] },
+      { id: 'yaktaro_string', surface: false, name: 'String material', variants: [
+        { id: 'yaktaro_steel', default: true, name: 'Steel wire string', descriptors: ['bright-attack', 'twanging'], match_tokens: ['plucked'] },
+        { id: 'yaktaro_gut', name: 'Gut / cotton twist string', descriptors: ['mellow', 'archaic'], match_tokens: ['plucked'] },
+      ] },
+      { id: 'yaktaro_context', name: 'Playing context', variants: [
+        { id: 'yaktaro_faqir', default: true, name: 'Wandering faqir song accompaniment', descriptors: ['hypnotic', 'pulse-keeping'], match_tokens: ['drone-foundation', 'sufi'] },
+        { id: 'yaktaro_kafi', name: 'Kafi / Shah Jo Raag repertoire', descriptors: ['devotional', 'steady'], match_tokens: ['drone-foundation'] },
+      ] },
+    ]
+  },
+  {
+    id: 'chapri',
+    name: 'Chapri (Sindhi wooden clappers)',
+    family: 'percussion',
+    class: 'concussion_idiophone',
+    axes: { pitchFix: -2, sustain: -2, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'chapri',
+    parts: [
+      { id: 'chapri_form', name: 'Clapper form', variants: [
+        { id: 'chapri_plain', default: true, name: 'Plain hardwood pair (chapri / chappar)', descriptors: ['dry-click', 'sharp-attack', 'woody'], match_tokens: ['clappers', 'sindhi', 'hand-percussion'] },
+        { id: 'chapri_jingled', name: 'Jingle-fitted clappers (small brass discs)', descriptors: ['rattling', 'bright-attack'], match_tokens: ['clappers', 'jingling'] },
+      ] },
+      { id: 'chapri_technique', surface: false, name: 'Playing technique', variants: [
+        { id: 'chapri_single', default: true, name: 'One pair per hand, dance-rhythm clatter', descriptors: ['driving', 'fast-clattering'], match_tokens: ['clappers', 'dance-rhythm'] },
+        { id: 'chapri_roll', name: 'Rolled tremolo between fingers', descriptors: ['buzzing-timbre', 'continuous'], match_tokens: ['clappers'] },
+      ] },
+    ]
+  },
+  {
+    id: 'sapera_been',
+    name: 'Sapera been (snake-charmer\'s gourd double clarinet)',
+    family: 'wind',
+    class: 'single_reed_double_clarinet',
+    axes: { pitchFix: 0, sustain: 2, polyphony: 1, harmonicity: -1, register: 1, range: -1, articulation: 0, transduction: -2, dynamics: 0 },
+    short: 'sapera been',
+    parts: [
+      { id: 'sapera_been_form', name: 'Regional form', variants: [
+        { id: 'sapera_been_rajasthani', default: true, name: 'Rajasthani sapera been (gourd chamber, melody + drone pipe)', descriptors: ['nasal', 'droning', 'circular-breathed'], match_tokens: ['gourd-clarinet', 'snake-charmer', 'double-pipe'] },
+        { id: 'sapera_been_sindhi', name: 'Sindhi murli form', descriptors: ['reedy', 'piercing'], match_tokens: ['gourd-clarinet', 'sindhi'] },
+      ] },
+      { id: 'sapera_been_pipe', surface: false, name: 'Pipe material', variants: [
+        { id: 'sapera_been_cane', default: true, name: 'Cane pipes with cut idioglot reeds', descriptors: ['buzzing-timbre', 'raw'], match_tokens: ['single-reed'] },
+        { id: 'sapera_been_bamboo', name: 'Thin bamboo pipes', descriptors: ['thinner', 'brighter'], match_tokens: ['single-reed'] },
+      ] },
+    ]
+  },
+  {
+    id: 'mangey',
+    name: 'Mangey (Sindhi clay-pot percussion pair)',
+    family: 'percussion',
+    class: 'clay_pot_drum',
+    axes: { pitchFix: -1, sustain: -1, polyphony: -2, harmonicity: -1, register: -1, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
+    short: 'mangey',
+    parts: [
+      { id: 'mangey_pot', name: 'Pot size', variants: [
+        { id: 'mangey_large', default: true, name: 'Large water pot (deep boom, open mouth)', descriptors: ['deep-toned', 'hollow-boom'], match_tokens: ['clay-pot', 'sindhi', 'hand-percussion'] },
+        { id: 'mangey_small', name: 'Small pot (higher, tighter)', descriptors: ['popping', 'tight'], match_tokens: ['clay-pot'] },
+      ] },
+      { id: 'mangey_technique', surface: false, name: 'Striking technique', variants: [
+        { id: 'mangey_palm_mouth', default: true, name: 'Palm slapped over the mouth plus finger strokes on the belly', descriptors: ['bassy-thump', 'pitch-bending'], match_tokens: ['clay-pot', 'hand-struck'] },
+        { id: 'mangey_ring', name: 'Fingertip and ring strokes on the shoulder', descriptors: ['clicking', 'bright-attack'], match_tokens: ['clay-pot'] },
+      ] },
+    ]
+  },
+  {
+    id: 'ghichak',
+    name: 'Ghichak (Afghan/Baluchi bowed spike fiddle)',
+    family: 'bowed',
+    class: 'bowed_spike_fiddle',
+    axes: { pitchFix: -1, sustain: 2, polyphony: 0, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: 0 },
+    short: 'ghichak',
+    parts: [
+      { id: 'ghichak_resonator', name: 'Resonator', variants: [
+        { id: 'ghichak_tin', default: true, name: 'Metal tin/can resonator with skin face (village build)', descriptors: ['nasal', 'buzzy', 'penetrating'], match_tokens: ['spike-fiddle', 'afghan', 'bowed'] },
+        { id: 'ghichak_gourd', name: 'Gourd resonator with skin face', descriptors: ['woody', 'warm'], match_tokens: ['spike-fiddle', 'bowed'] },
+        { id: 'ghichak_wood', name: 'Carved wooden bowl (Herat concert form)', descriptors: ['focused', 'refined'], match_tokens: ['spike-fiddle', 'bowed'] },
+      ] },
+      { id: 'ghichak_strings', name: 'String set', variants: [
+        { id: 'ghichak_sympathetic', default: true, name: 'Melody strings plus sympathetic strings', descriptors: ['shimmering', 'sympathetic-resonance'], match_tokens: ['bowed', 'sympathetic-strings'] },
+        { id: 'ghichak_plain', name: 'Two plain melody strings (Baluchi form)', descriptors: ['raw', 'direct'], match_tokens: ['bowed', 'baluchi'] },
+      ] },
+      { id: 'ghichak_context', surface: false, name: 'Playing context', variants: [
+        { id: 'ghichak_kabuli', default: true, name: 'Kabuli ensemble melody line', descriptors: ['ornamented', 'lyrical'], match_tokens: ['bowed', 'afghan'] },
+        { id: 'ghichak_trance', name: 'Baluchi guati healing trance', descriptors: ['hypnotic', 'repetitive'], match_tokens: ['bowed', 'baluchi'] },
+      ] },
+    ]
+  },
+  {
+    id: 'tula_pashtun_flute',
+    name: 'Tula (Pashtun side-blown wooden flute)',
+    family: 'wind',
+    class: 'transverse_flute',
+    axes: { pitchFix: 0, sustain: 1, polyphony: -2, harmonicity: 2, register: 1, range: 0, articulation: -1, transduction: -2, dynamics: -1 },
+    short: 'tula',
+    parts: [
+      { id: 'tula_material', name: 'Tube material', variants: [
+        { id: 'tula_wood', default: true, name: 'Turned hardwood tube (traditional Pashtun build)', descriptors: ['woody', 'round-toned'], match_tokens: ['transverse-flute', 'pashtun', 'afghan'] },
+        { id: 'tula_bamboo', name: 'Bamboo tube', descriptors: ['airy', 'breathy'], match_tokens: ['transverse-flute'] },
+        { id: 'tula_metal', name: 'Metal tube (bazaar-made)', descriptors: ['bright', 'cutting'], match_tokens: ['transverse-flute'] },
+      ] },
+      { id: 'tula_context', surface: false, name: 'Playing context', variants: [
+        { id: 'tula_attan', default: true, name: 'Attan dance melody over dhol', descriptors: ['driving', 'dance-rhythm'], match_tokens: ['transverse-flute', 'dance-rhythm'] },
+        { id: 'tula_shepherd', name: 'Solo shepherd air', descriptors: ['plaintive', 'rubato'], match_tokens: ['transverse-flute'] },
+      ] },
+    ]
+  },
+  {
+    id: 'surnai_afghan',
+    name: 'Surnai (Afghan double-reed shawm)',
+    family: 'wind',
+    class: 'double_reed_shawm',
+    axes: { pitchFix: 0, sustain: 2, polyphony: -2, harmonicity: -1, register: 1, range: 0, articulation: 1, transduction: -2, dynamics: 2 },
+    short: 'surnai',
+    parts: [
+      { id: 'surnai_afghan_size', name: 'Size / register', variants: [
+        { id: 'surnai_afghan_standard', default: true, name: 'Standard surnai (outdoor festival register)', descriptors: ['piercing', 'reedy', 'loud-projection'], match_tokens: ['shawm', 'afghan', 'double-reed'] },
+        { id: 'surnai_afghan_large', name: 'Large low surnai', descriptors: ['deep-toned', 'broad'], match_tokens: ['shawm', 'low-register'] },
+      ] },
+      { id: 'surnai_afghan_technique', name: 'Breathing technique', variants: [
+        { id: 'surnai_afghan_circular', default: true, name: 'Continuous circular breathing over dhol', descriptors: ['unbroken', 'droning', 'ceremonial'], match_tokens: ['shawm', 'circular-breathing'] },
+        { id: 'surnai_afghan_phrased', name: 'Phrased blowing, solo maqam-style airs', descriptors: ['ornamented', 'expressive'], match_tokens: ['shawm'] },
+      ] },
+      { id: 'surnai_afghan_body', surface: false, name: 'Body wood', variants: [
+        { id: 'surnai_afghan_mulberry', default: true, name: 'Mulberry or apricot wood body', descriptors: ['warm-edged', 'resonant'], match_tokens: ['shawm'] },
+        { id: 'surnai_afghan_walnut', name: 'Walnut body', descriptors: ['harder-toned', 'bright'], match_tokens: ['shawm'] },
+      ] },
+    ]
+  },
 ];

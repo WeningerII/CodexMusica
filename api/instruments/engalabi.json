@@ -1,0 +1,148 @@
+{
+  "id": "engalabi",
+  "name": "Engalabi (Ganda long lizard-skin drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "engalabi",
+  "parts": [
+    {
+      "id": "engalabi_head",
+      "name": "Drumhead",
+      "variants": [
+        {
+          "id": "engalabi_lizard",
+          "default": true,
+          "name": "Monitor-lizard skin head (nailed)",
+          "descriptors": [
+            "cracking-attack",
+            "sharp",
+            "dry"
+          ],
+          "match_tokens": [
+            "long-drum",
+            "buganda"
+          ]
+        },
+        {
+          "id": "engalabi_cowhide",
+          "name": "Cowhide head",
+          "descriptors": [
+            "fuller-toned",
+            "rounder-attack"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "uganda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "engalabi_technique",
+      "name": "Hand technique",
+      "variants": [
+        {
+          "id": "engalabi_open_slap",
+          "default": true,
+          "name": "Open-and-slap baakisimba patterns",
+          "descriptors": [
+            "driving",
+            "accented"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "engalabi_muted",
+          "name": "Heel-muted pressing strokes",
+          "descriptors": [
+            "muted",
+            "bending-pitch"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "muted"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "engalabi_head",
+      "name": "Drumhead",
+      "variants": [
+        {
+          "id": "engalabi_lizard",
+          "default": true,
+          "name": "Monitor-lizard skin head (nailed)",
+          "descriptors": [
+            "cracking-attack",
+            "sharp",
+            "dry"
+          ],
+          "match_tokens": [
+            "long-drum",
+            "buganda"
+          ]
+        },
+        {
+          "id": "engalabi_cowhide",
+          "name": "Cowhide head",
+          "descriptors": [
+            "fuller-toned",
+            "rounder-attack"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "uganda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "engalabi_technique",
+      "name": "Hand technique",
+      "variants": [
+        {
+          "id": "engalabi_open_slap",
+          "default": true,
+          "name": "Open-and-slap baakisimba patterns",
+          "descriptors": [
+            "driving",
+            "accented"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "engalabi_muted",
+          "name": "Heel-muted pressing strokes",
+          "descriptors": [
+            "muted",
+            "bending-pitch"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "muted"
+          ]
+        }
+      ]
+    }
+  ]
+}

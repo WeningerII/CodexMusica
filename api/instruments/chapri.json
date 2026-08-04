@@ -1,0 +1,150 @@
+{
+  "id": "chapri",
+  "name": "Chapri (Sindhi wooden clappers)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "chapri",
+  "parts": [
+    {
+      "id": "chapri_form",
+      "name": "Clapper form",
+      "variants": [
+        {
+          "id": "chapri_plain",
+          "default": true,
+          "name": "Plain hardwood pair (chapri / chappar)",
+          "descriptors": [
+            "dry-click",
+            "sharp-attack",
+            "woody"
+          ],
+          "match_tokens": [
+            "clappers",
+            "sindhi",
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "chapri_jingled",
+          "name": "Jingle-fitted clappers (small brass discs)",
+          "descriptors": [
+            "rattling",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "clappers",
+            "jingling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapri_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "chapri_single",
+          "default": true,
+          "name": "One pair per hand, dance-rhythm clatter",
+          "descriptors": [
+            "driving",
+            "fast-clattering"
+          ],
+          "match_tokens": [
+            "clappers",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "chapri_roll",
+          "name": "Rolled tremolo between fingers",
+          "descriptors": [
+            "buzzing-timbre",
+            "continuous"
+          ],
+          "match_tokens": [
+            "clappers"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chapri_form",
+      "name": "Clapper form",
+      "variants": [
+        {
+          "id": "chapri_plain",
+          "default": true,
+          "name": "Plain hardwood pair (chapri / chappar)",
+          "descriptors": [
+            "dry-click",
+            "sharp-attack",
+            "woody"
+          ],
+          "match_tokens": [
+            "clappers",
+            "sindhi",
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "chapri_jingled",
+          "name": "Jingle-fitted clappers (small brass discs)",
+          "descriptors": [
+            "rattling",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "clappers",
+            "jingling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapri_technique",
+      "surface": false,
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "chapri_single",
+          "default": true,
+          "name": "One pair per hand, dance-rhythm clatter",
+          "descriptors": [
+            "driving",
+            "fast-clattering"
+          ],
+          "match_tokens": [
+            "clappers",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "chapri_roll",
+          "name": "Rolled tremolo between fingers",
+          "descriptors": [
+            "buzzing-timbre",
+            "continuous"
+          ],
+          "match_tokens": [
+            "clappers"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "id": "chivoti",
+  "name": "Chivoti (Mijikenda transverse bamboo flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "chivoti",
+  "parts": [
+    {
+      "id": "chivoti_bore",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "chivoti_bamboo",
+          "default": true,
+          "name": "Thin bamboo tube",
+          "descriptors": [
+            "airy",
+            "piercing",
+            "bright-tone"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "mijikenda"
+          ]
+        },
+        {
+          "id": "chivoti_reed",
+          "name": "Reed / cane stalk tube",
+          "descriptors": [
+            "breathy",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "cane-flute",
+            "kenya"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chivoti_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "chivoti_ensemble",
+          "default": true,
+          "name": "Ensemble lead over kayamba and drums",
+          "descriptors": [
+            "ornamented",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "flute",
+            "coastal-kenya"
+          ]
+        },
+        {
+          "id": "chivoti_solo",
+          "name": "Solo herding melody",
+          "descriptors": [
+            "rubato",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "flute",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chivoti_bore",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "chivoti_bamboo",
+          "default": true,
+          "name": "Thin bamboo tube",
+          "descriptors": [
+            "airy",
+            "piercing",
+            "bright-tone"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "mijikenda"
+          ]
+        },
+        {
+          "id": "chivoti_reed",
+          "name": "Reed / cane stalk tube",
+          "descriptors": [
+            "breathy",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "cane-flute",
+            "kenya"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chivoti_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "chivoti_ensemble",
+          "default": true,
+          "name": "Ensemble lead over kayamba and drums",
+          "descriptors": [
+            "ornamented",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "flute",
+            "coastal-kenya"
+          ]
+        },
+        {
+          "id": "chivoti_solo",
+          "name": "Solo herding melody",
+          "descriptors": [
+            "rubato",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "flute",
+            "expressive"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+{
+  "id": "manman_drum",
+  "name": "Manman (largest Haitian Rada drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "manman",
+  "parts": [
+    {
+      "id": "manman_rite",
+      "name": "Rite / ensemble context",
+      "variants": [
+        {
+          "id": "manman_rada",
+          "default": true,
+          "name": "Rada rite manman (tall cord-and-peg drum)",
+          "descriptors": [
+            "deep-toned",
+            "commanding",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "haitian",
+            "vodou-drum",
+            "lead-drum"
+          ]
+        },
+        {
+          "id": "manman_petwo",
+          "name": "Petwo rite manman (rope-tuned, hand-played)",
+          "descriptors": [
+            "sharp-attack",
+            "hot",
+            "driving"
+          ],
+          "match_tokens": [
+            "haitian",
+            "petwo",
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "manman_kongo",
+          "name": "Kongo rite manman",
+          "descriptors": [
+            "rolling",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "haitian",
+            "kongo-rite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manman_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "manman_baget_hand",
+          "default": true,
+          "name": "One stick (baget) plus bare hand",
+          "descriptors": [
+            "cracking-accent",
+            "hand-muted"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-and-hand"
+          ]
+        },
+        {
+          "id": "manman_hands",
+          "name": "Both hands only",
+          "descriptors": [
+            "warm",
+            "rounded-tone"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "manman_kase",
+          "name": "Kase break (ritual signal phrases)",
+          "descriptors": [
+            "disruptive",
+            "syncopated",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "break",
+            "lead-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manman_head",
+      "surface": false,
+      "name": "Head and shell",
+      "variants": [
+        {
+          "id": "manman_cowhide",
+          "default": true,
+          "name": "Cowhide head, carved hardwood shell",
+          "descriptors": [
+            "thick-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "skin-head"
+          ]
+        },
+        {
+          "id": "manman_goatskin",
+          "name": "Goatskin head",
+          "descriptors": [
+            "brighter",
+            "snappier"
+          ],
+          "match_tokens": [
+            "skin-head"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "manman_rite",
+      "name": "Rite / ensemble context",
+      "variants": [
+        {
+          "id": "manman_rada",
+          "default": true,
+          "name": "Rada rite manman (tall cord-and-peg drum)",
+          "descriptors": [
+            "deep-toned",
+            "commanding",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "haitian",
+            "vodou-drum",
+            "lead-drum"
+          ]
+        },
+        {
+          "id": "manman_petwo",
+          "name": "Petwo rite manman (rope-tuned, hand-played)",
+          "descriptors": [
+            "sharp-attack",
+            "hot",
+            "driving"
+          ],
+          "match_tokens": [
+            "haitian",
+            "petwo",
+            "hand-drum"
+          ]
+        },
+        {
+          "id": "manman_kongo",
+          "name": "Kongo rite manman",
+          "descriptors": [
+            "rolling",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "haitian",
+            "kongo-rite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manman_technique",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "manman_baget_hand",
+          "default": true,
+          "name": "One stick (baget) plus bare hand",
+          "descriptors": [
+            "cracking-accent",
+            "hand-muted"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-and-hand"
+          ]
+        },
+        {
+          "id": "manman_hands",
+          "name": "Both hands only",
+          "descriptors": [
+            "warm",
+            "rounded-tone"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "manman_kase",
+          "name": "Kase break (ritual signal phrases)",
+          "descriptors": [
+            "disruptive",
+            "syncopated",
+            "trance-inducing"
+          ],
+          "match_tokens": [
+            "break",
+            "lead-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manman_head",
+      "surface": false,
+      "name": "Head and shell",
+      "variants": [
+        {
+          "id": "manman_cowhide",
+          "default": true,
+          "name": "Cowhide head, carved hardwood shell",
+          "descriptors": [
+            "thick-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "skin-head"
+          ]
+        },
+        {
+          "id": "manman_goatskin",
+          "name": "Goatskin head",
+          "descriptors": [
+            "brighter",
+            "snappier"
+          ],
+          "match_tokens": [
+            "skin-head"
+          ]
+        }
+      ]
+    }
+  ]
+}

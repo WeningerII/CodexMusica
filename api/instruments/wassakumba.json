@@ -1,0 +1,166 @@
+{
+  "id": "wassakumba",
+  "name": "Wassakumba (Mandinka calabash-and-net rattle)",
+  "family": "percussion",
+  "class": "gourd_rattle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "wassakumba",
+  "parts": [
+    {
+      "id": "wassakumba_netting",
+      "name": "Bead netting",
+      "variants": [
+        {
+          "id": "wassakumba_seed_net",
+          "default": true,
+          "name": "Woven seed-bead net over calabash",
+          "descriptors": [
+            "rustling-mass",
+            "dry-rattle"
+          ],
+          "match_tokens": [
+            "gourd-rattle",
+            "west-african"
+          ]
+        },
+        {
+          "id": "wassakumba_shell_net",
+          "name": "Cowrie / shell net",
+          "descriptors": [
+            "clattering",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "shaken-idiophone",
+            "mandinka"
+          ]
+        },
+        {
+          "id": "wassakumba_loose_net",
+          "name": "Loose slack net (swung)",
+          "descriptors": [
+            "washy",
+            "splashy-decay"
+          ],
+          "match_tokens": [
+            "gourd-rattle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wassakumba_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "wassakumba_slap",
+          "default": true,
+          "name": "Slap-and-toss (net struck against palm)",
+          "descriptors": [
+            "sharp-accent",
+            "percussive"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "wassakumba_shake",
+          "name": "Continuous shake",
+          "descriptors": [
+            "sustained-hiss",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "shaken-idiophone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wassakumba_netting",
+      "name": "Bead netting",
+      "variants": [
+        {
+          "id": "wassakumba_seed_net",
+          "default": true,
+          "name": "Woven seed-bead net over calabash",
+          "descriptors": [
+            "rustling-mass",
+            "dry-rattle"
+          ],
+          "match_tokens": [
+            "gourd-rattle",
+            "west-african"
+          ]
+        },
+        {
+          "id": "wassakumba_shell_net",
+          "name": "Cowrie / shell net",
+          "descriptors": [
+            "clattering",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "shaken-idiophone",
+            "mandinka"
+          ]
+        },
+        {
+          "id": "wassakumba_loose_net",
+          "name": "Loose slack net (swung)",
+          "descriptors": [
+            "washy",
+            "splashy-decay"
+          ],
+          "match_tokens": [
+            "gourd-rattle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wassakumba_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "wassakumba_slap",
+          "default": true,
+          "name": "Slap-and-toss (net struck against palm)",
+          "descriptors": [
+            "sharp-accent",
+            "percussive"
+          ],
+          "match_tokens": [
+            "hand-percussion",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "wassakumba_shake",
+          "name": "Continuous shake",
+          "descriptors": [
+            "sustained-hiss",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "shaken-idiophone"
+          ]
+        }
+      ]
+    }
+  ]
+}

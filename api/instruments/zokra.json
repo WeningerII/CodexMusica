@@ -1,0 +1,240 @@
+{
+  "id": "zokra",
+  "name": "Zokra (Tunisian double-reed bagpipe)",
+  "family": "wind",
+  "class": "reed_bagpipe",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "zokra",
+  "parts": [
+    {
+      "id": "zokra_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "zokra_tunisian",
+          "default": true,
+          "name": "Tunisian zokra (bag-blown double chanter)",
+          "descriptors": [
+            "nasal",
+            "strident",
+            "continuous"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "tunisian",
+            "double-reed"
+          ]
+        },
+        {
+          "id": "zokra_libyan",
+          "name": "Libyan zukra",
+          "descriptors": [
+            "raspy",
+            "festive",
+            "loud-projection"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "north-african"
+          ]
+        },
+        {
+          "id": "zokra_mouth_blown",
+          "name": "Mouth-blown shawm form (no bag)",
+          "descriptors": [
+            "piercing",
+            "phrased"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zokra_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "zokra_wedding",
+          "default": true,
+          "name": "Wedding procession with bendir/tabla",
+          "descriptors": [
+            "celebratory",
+            "outdoor",
+            "driving"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "processional"
+          ]
+        },
+        {
+          "id": "zokra_sufi",
+          "name": "Sufi brotherhood ceremony",
+          "descriptors": [
+            "trance-like",
+            "insistent"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zokra_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "zokra_goatskin",
+          "default": true,
+          "name": "Whole goatskin bag",
+          "descriptors": [
+            "breathy-drone",
+            "organic"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "zokra_synthetic",
+          "name": "Synthetic bag (modern)",
+          "descriptors": [
+            "steady",
+            "even-pressure"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zokra_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "zokra_tunisian",
+          "default": true,
+          "name": "Tunisian zokra (bag-blown double chanter)",
+          "descriptors": [
+            "nasal",
+            "strident",
+            "continuous"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "tunisian",
+            "double-reed"
+          ]
+        },
+        {
+          "id": "zokra_libyan",
+          "name": "Libyan zukra",
+          "descriptors": [
+            "raspy",
+            "festive",
+            "loud-projection"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "north-african"
+          ]
+        },
+        {
+          "id": "zokra_mouth_blown",
+          "name": "Mouth-blown shawm form (no bag)",
+          "descriptors": [
+            "piercing",
+            "phrased"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "shawm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zokra_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "zokra_wedding",
+          "default": true,
+          "name": "Wedding procession with bendir/tabla",
+          "descriptors": [
+            "celebratory",
+            "outdoor",
+            "driving"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "processional"
+          ]
+        },
+        {
+          "id": "zokra_sufi",
+          "name": "Sufi brotherhood ceremony",
+          "descriptors": [
+            "trance-like",
+            "insistent"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zokra_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "zokra_goatskin",
+          "default": true,
+          "name": "Whole goatskin bag",
+          "descriptors": [
+            "breathy-drone",
+            "organic"
+          ],
+          "match_tokens": [
+            "bagpipe"
+          ]
+        },
+        {
+          "id": "zokra_synthetic",
+          "name": "Synthetic bag (modern)",
+          "descriptors": [
+            "steady",
+            "even-pressure"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "id": "dan_tam_thap_luc",
+  "name": "Đàn tam thập lục (Vietnamese 36-string hammered zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dan tam thap luc",
+  "parts": [
+    {
+      "id": "dan_tam_thap_luc_beater",
+      "name": "Beater type",
+      "variants": [
+        {
+          "id": "dan_tam_bamboo",
+          "default": true,
+          "name": "Flexible bamboo hammers",
+          "descriptors": [
+            "bright-attack",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "hammered-zither",
+            "vietnamese"
+          ]
+        },
+        {
+          "id": "dan_tam_padded",
+          "name": "Felt-tipped hammers",
+          "descriptors": [
+            "soft-attack",
+            "warm"
+          ],
+          "match_tokens": [
+            "hammered-zither"
+          ]
+        },
+        {
+          "id": "dan_tam_plucked",
+          "name": "Finger-plucked (rare, harp-like)",
+          "descriptors": [
+            "delicate",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tam_thap_luc_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "dan_tam_tremolo",
+          "default": true,
+          "name": "Rapid alternating tremolo",
+          "descriptors": [
+            "continuous-tone",
+            "glittering"
+          ],
+          "match_tokens": [
+            "tremolo"
+          ]
+        },
+        {
+          "id": "dan_tam_glissando",
+          "name": "Sweeping glissando runs",
+          "descriptors": [
+            "cascading",
+            "wide-range"
+          ],
+          "match_tokens": [
+            "glissando"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tam_thap_luc_context",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "dan_tam_cheo",
+          "default": true,
+          "name": "Chèo / cải lương theatre ensemble",
+          "descriptors": [
+            "ornamented",
+            "supporting"
+          ],
+          "match_tokens": [
+            "vietnamese-theatre"
+          ]
+        },
+        {
+          "id": "dan_tam_concert",
+          "name": "Modernized national-music orchestra",
+          "descriptors": [
+            "blended",
+            "polished"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dan_tam_thap_luc_beater",
+      "name": "Beater type",
+      "variants": [
+        {
+          "id": "dan_tam_bamboo",
+          "default": true,
+          "name": "Flexible bamboo hammers",
+          "descriptors": [
+            "bright-attack",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "hammered-zither",
+            "vietnamese"
+          ]
+        },
+        {
+          "id": "dan_tam_padded",
+          "name": "Felt-tipped hammers",
+          "descriptors": [
+            "soft-attack",
+            "warm"
+          ],
+          "match_tokens": [
+            "hammered-zither"
+          ]
+        },
+        {
+          "id": "dan_tam_plucked",
+          "name": "Finger-plucked (rare, harp-like)",
+          "descriptors": [
+            "delicate",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked-zither"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tam_thap_luc_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "dan_tam_tremolo",
+          "default": true,
+          "name": "Rapid alternating tremolo",
+          "descriptors": [
+            "continuous-tone",
+            "glittering"
+          ],
+          "match_tokens": [
+            "tremolo"
+          ]
+        },
+        {
+          "id": "dan_tam_glissando",
+          "name": "Sweeping glissando runs",
+          "descriptors": [
+            "cascading",
+            "wide-range"
+          ],
+          "match_tokens": [
+            "glissando"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_tam_thap_luc_context",
+      "surface": false,
+      "name": "Ensemble role",
+      "variants": [
+        {
+          "id": "dan_tam_cheo",
+          "default": true,
+          "name": "Chèo / cải lương theatre ensemble",
+          "descriptors": [
+            "ornamented",
+            "supporting"
+          ],
+          "match_tokens": [
+            "vietnamese-theatre"
+          ]
+        },
+        {
+          "id": "dan_tam_concert",
+          "name": "Modernized national-music orchestra",
+          "descriptors": [
+            "blended",
+            "polished"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ]
+}

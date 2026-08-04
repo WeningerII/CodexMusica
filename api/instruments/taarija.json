@@ -1,0 +1,216 @@
+{
+  "id": "taarija",
+  "name": "Taarija (small Moroccan clay goblet drum)",
+  "family": "percussion",
+  "class": "clay_pot_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "taarija",
+  "parts": [
+    {
+      "id": "taarija_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "taarija_small",
+          "default": true,
+          "name": "Small taarija (high crack)",
+          "descriptors": [
+            "sharp-attack",
+            "high-pitched",
+            "clacking"
+          ],
+          "match_tokens": [
+            "clay-drum",
+            "morocco"
+          ]
+        },
+        {
+          "id": "taarija_large",
+          "name": "Large taarija (deeper voice)",
+          "descriptors": [
+            "round-toned",
+            "warm",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "clay-drum",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taarija_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "taarija_finger",
+          "default": true,
+          "name": "Fingertip rolls and slaps",
+          "descriptors": [
+            "crisp",
+            "rattling-fast",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "fast-rolls"
+          ]
+        },
+        {
+          "id": "taarija_palm",
+          "name": "Open palm strokes",
+          "descriptors": [
+            "thudding",
+            "broad",
+            "steady"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taarija_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "taarija_goat",
+          "default": true,
+          "name": "Goatskin head",
+          "descriptors": [
+            "dry",
+            "papery",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "taarija_fish",
+          "name": "Fish-skin head (fine grain)",
+          "descriptors": [
+            "glassy",
+            "tight",
+            "piercing"
+          ],
+          "match_tokens": [
+            "fish-skin"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "taarija_size",
+      "name": "Size / pitch",
+      "variants": [
+        {
+          "id": "taarija_small",
+          "default": true,
+          "name": "Small taarija (high crack)",
+          "descriptors": [
+            "sharp-attack",
+            "high-pitched",
+            "clacking"
+          ],
+          "match_tokens": [
+            "clay-drum",
+            "morocco"
+          ]
+        },
+        {
+          "id": "taarija_large",
+          "name": "Large taarija (deeper voice)",
+          "descriptors": [
+            "round-toned",
+            "warm",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "clay-drum",
+            "hand-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taarija_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "taarija_finger",
+          "default": true,
+          "name": "Fingertip rolls and slaps",
+          "descriptors": [
+            "crisp",
+            "rattling-fast",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "hand-struck",
+            "fast-rolls"
+          ]
+        },
+        {
+          "id": "taarija_palm",
+          "name": "Open palm strokes",
+          "descriptors": [
+            "thudding",
+            "broad",
+            "steady"
+          ],
+          "match_tokens": [
+            "hand-struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taarija_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "taarija_goat",
+          "default": true,
+          "name": "Goatskin head",
+          "descriptors": [
+            "dry",
+            "papery",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "taarija_fish",
+          "name": "Fish-skin head (fine grain)",
+          "descriptors": [
+            "glassy",
+            "tight",
+            "piercing"
+          ],
+          "match_tokens": [
+            "fish-skin"
+          ]
+        }
+      ]
+    }
+  ]
+}

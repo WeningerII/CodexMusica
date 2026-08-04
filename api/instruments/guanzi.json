@@ -1,0 +1,230 @@
+{
+  "id": "guanzi",
+  "name": "Guanzi (Chinese cylindrical double-reed pipe)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "guanzi",
+  "parts": [
+    {
+      "id": "guanzi_size",
+      "name": "Size / pitch class",
+      "variants": [
+        {
+          "id": "guanzi_zhongyin",
+          "default": true,
+          "name": "Medium (zhongyin) guanzi",
+          "descriptors": [
+            "reedy",
+            "piercing",
+            "nasal"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "chinese-wind"
+          ]
+        },
+        {
+          "id": "guanzi_gaoyin",
+          "name": "High (gaoyin) small guanzi",
+          "descriptors": [
+            "shrill",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "high-register"
+          ]
+        },
+        {
+          "id": "guanzi_diyin",
+          "name": "Bass (diyin) guanzi",
+          "descriptors": [
+            "deep-toned",
+            "husky"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guanzi_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "guanzi_hardwood",
+          "default": true,
+          "name": "Hardwood body with brass ferrules",
+          "descriptors": [
+            "focused",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "guanzi_bamboo",
+          "name": "Bamboo body (older bili form)",
+          "descriptors": [
+            "airy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "bamboo-pipe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guanzi_style",
+      "surface": false,
+      "name": "Regional playing style",
+      "variants": [
+        {
+          "id": "guanzi_beijing",
+          "default": true,
+          "name": "Beijing/Hebei ritual wind-and-percussion",
+          "descriptors": [
+            "ornamented",
+            "wailing"
+          ],
+          "match_tokens": [
+            "ritual-ensemble"
+          ]
+        },
+        {
+          "id": "guanzi_northeast",
+          "name": "Northeastern folk band (with sheng and suona)",
+          "descriptors": [
+            "raucous",
+            "festive"
+          ],
+          "match_tokens": [
+            "folk-band"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "guanzi_size",
+      "name": "Size / pitch class",
+      "variants": [
+        {
+          "id": "guanzi_zhongyin",
+          "default": true,
+          "name": "Medium (zhongyin) guanzi",
+          "descriptors": [
+            "reedy",
+            "piercing",
+            "nasal"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "chinese-wind"
+          ]
+        },
+        {
+          "id": "guanzi_gaoyin",
+          "name": "High (gaoyin) small guanzi",
+          "descriptors": [
+            "shrill",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "high-register"
+          ]
+        },
+        {
+          "id": "guanzi_diyin",
+          "name": "Bass (diyin) guanzi",
+          "descriptors": [
+            "deep-toned",
+            "husky"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guanzi_body",
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "guanzi_hardwood",
+          "default": true,
+          "name": "Hardwood body with brass ferrules",
+          "descriptors": [
+            "focused",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ]
+        },
+        {
+          "id": "guanzi_bamboo",
+          "name": "Bamboo body (older bili form)",
+          "descriptors": [
+            "airy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "bamboo-pipe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guanzi_style",
+      "surface": false,
+      "name": "Regional playing style",
+      "variants": [
+        {
+          "id": "guanzi_beijing",
+          "default": true,
+          "name": "Beijing/Hebei ritual wind-and-percussion",
+          "descriptors": [
+            "ornamented",
+            "wailing"
+          ],
+          "match_tokens": [
+            "ritual-ensemble"
+          ]
+        },
+        {
+          "id": "guanzi_northeast",
+          "name": "Northeastern folk band (with sheng and suona)",
+          "descriptors": [
+            "raucous",
+            "festive"
+          ],
+          "match_tokens": [
+            "folk-band"
+          ]
+        }
+      ]
+    }
+  ]
+}

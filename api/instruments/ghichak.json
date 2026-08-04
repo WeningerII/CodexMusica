@@ -1,0 +1,263 @@
+{
+  "id": "ghichak",
+  "name": "Ghichak (Afghan/Baluchi bowed spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ghichak",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "ghichak_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "ghichak_tin",
+          "default": true,
+          "name": "Metal tin/can resonator with skin face (village build)",
+          "descriptors": [
+            "nasal",
+            "buzzy",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "afghan",
+            "bowed"
+          ]
+        },
+        {
+          "id": "ghichak_gourd",
+          "name": "Gourd resonator with skin face",
+          "descriptors": [
+            "woody",
+            "warm"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed"
+          ]
+        },
+        {
+          "id": "ghichak_wood",
+          "name": "Carved wooden bowl (Herat concert form)",
+          "descriptors": [
+            "focused",
+            "refined"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghichak_strings",
+      "name": "String set",
+      "variants": [
+        {
+          "id": "ghichak_sympathetic",
+          "default": true,
+          "name": "Melody strings plus sympathetic strings",
+          "descriptors": [
+            "shimmering",
+            "sympathetic-resonance"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "ghichak_plain",
+          "name": "Two plain melody strings (Baluchi form)",
+          "descriptors": [
+            "raw",
+            "direct"
+          ],
+          "match_tokens": [
+            "bowed",
+            "baluchi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghichak_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ghichak_kabuli",
+          "default": true,
+          "name": "Kabuli ensemble melody line",
+          "descriptors": [
+            "ornamented",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "afghan"
+          ]
+        },
+        {
+          "id": "ghichak_trance",
+          "name": "Baluchi guati healing trance",
+          "descriptors": [
+            "hypnotic",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "baluchi"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ghichak_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "ghichak_tin",
+          "default": true,
+          "name": "Metal tin/can resonator with skin face (village build)",
+          "descriptors": [
+            "nasal",
+            "buzzy",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "afghan",
+            "bowed"
+          ]
+        },
+        {
+          "id": "ghichak_gourd",
+          "name": "Gourd resonator with skin face",
+          "descriptors": [
+            "woody",
+            "warm"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed"
+          ]
+        },
+        {
+          "id": "ghichak_wood",
+          "name": "Carved wooden bowl (Herat concert form)",
+          "descriptors": [
+            "focused",
+            "refined"
+          ],
+          "match_tokens": [
+            "spike-fiddle",
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghichak_strings",
+      "name": "String set",
+      "variants": [
+        {
+          "id": "ghichak_sympathetic",
+          "default": true,
+          "name": "Melody strings plus sympathetic strings",
+          "descriptors": [
+            "shimmering",
+            "sympathetic-resonance"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sympathetic-strings"
+          ]
+        },
+        {
+          "id": "ghichak_plain",
+          "name": "Two plain melody strings (Baluchi form)",
+          "descriptors": [
+            "raw",
+            "direct"
+          ],
+          "match_tokens": [
+            "bowed",
+            "baluchi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghichak_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "ghichak_kabuli",
+          "default": true,
+          "name": "Kabuli ensemble melody line",
+          "descriptors": [
+            "ornamented",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "afghan"
+          ]
+        },
+        {
+          "id": "ghichak_trance",
+          "name": "Baluchi guati healing trance",
+          "descriptors": [
+            "hypnotic",
+            "repetitive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "baluchi"
+          ]
+        }
+      ]
+    }
+  ]
+}

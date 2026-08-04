@@ -1,0 +1,170 @@
+{
+  "id": "rawap_kashgar",
+  "name": "Kashgar rawap (Uyghur long-neck skin-belly lute)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kashgar rawap",
+  "parts": [
+    {
+      "id": "rawap_kashgar_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "rawap_kashgar_classic",
+          "default": true,
+          "name": "Kashgar rawap with horn side-projections and sympathetic strings",
+          "descriptors": [
+            "twangy",
+            "ringing",
+            "nasal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "uyghur",
+            "skin-belly-lute"
+          ]
+        },
+        {
+          "id": "rawap_qumul",
+          "name": "Qumul (Hami) rawap",
+          "descriptors": [
+            "darker",
+            "folk-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "uyghur"
+          ]
+        },
+        {
+          "id": "rawap_concert",
+          "name": "Standardized concert rawap",
+          "descriptors": [
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rawap_kashgar_plectrum",
+      "name": "Plectrum",
+      "variants": [
+        {
+          "id": "rawap_horn_pick",
+          "default": true,
+          "name": "Horn plectrum",
+          "descriptors": [
+            "bright-attack",
+            "percussive"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "rawap_finger",
+          "name": "Fingernail plucking",
+          "descriptors": [
+            "softer",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rawap_kashgar_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "rawap_kashgar_classic",
+          "default": true,
+          "name": "Kashgar rawap with horn side-projections and sympathetic strings",
+          "descriptors": [
+            "twangy",
+            "ringing",
+            "nasal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "uyghur",
+            "skin-belly-lute"
+          ]
+        },
+        {
+          "id": "rawap_qumul",
+          "name": "Qumul (Hami) rawap",
+          "descriptors": [
+            "darker",
+            "folk-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "uyghur"
+          ]
+        },
+        {
+          "id": "rawap_concert",
+          "name": "Standardized concert rawap",
+          "descriptors": [
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rawap_kashgar_plectrum",
+      "name": "Plectrum",
+      "variants": [
+        {
+          "id": "rawap_horn_pick",
+          "default": true,
+          "name": "Horn plectrum",
+          "descriptors": [
+            "bright-attack",
+            "percussive"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "rawap_finger",
+          "name": "Fingernail plucking",
+          "descriptors": [
+            "softer",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

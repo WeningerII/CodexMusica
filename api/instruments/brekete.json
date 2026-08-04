@@ -1,0 +1,204 @@
+{
+  "id": "brekete",
+  "name": "Brekete (Dagbamba/Ewe double-headed cylindrical bass drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "brekete",
+  "parts": [
+    {
+      "id": "brekete_snare",
+      "name": "Snare / buzz element",
+      "variants": [
+        {
+          "id": "brekete_gut_snare",
+          "default": true,
+          "name": "Gut snare across the head",
+          "descriptors": [
+            "buzzing-timbre",
+            "dry-boom"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "dagomba"
+          ]
+        },
+        {
+          "id": "brekete_plain",
+          "name": "Plain unsnared heads",
+          "descriptors": [
+            "deep-toned",
+            "round-thud"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brekete_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "brekete_curved_stick",
+          "default": true,
+          "name": "Curved stick with damping hand",
+          "descriptors": [
+            "pitch-bending",
+            "thumping"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "brekete_two_stick",
+          "name": "Two straight sticks",
+          "descriptors": [
+            "driving",
+            "hard-attack"
+          ],
+          "match_tokens": [
+            "bass-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brekete_context",
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "brekete_kunde",
+          "default": true,
+          "name": "Kunde / Brekete shrine music",
+          "descriptors": [
+            "trance-inducing",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ritual",
+            "northern-ghana"
+          ]
+        },
+        {
+          "id": "brekete_social",
+          "name": "Social dance drumming",
+          "descriptors": [
+            "propulsive",
+            "festive"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "brekete_snare",
+      "name": "Snare / buzz element",
+      "variants": [
+        {
+          "id": "brekete_gut_snare",
+          "default": true,
+          "name": "Gut snare across the head",
+          "descriptors": [
+            "buzzing-timbre",
+            "dry-boom"
+          ],
+          "match_tokens": [
+            "bass-drum",
+            "dagomba"
+          ]
+        },
+        {
+          "id": "brekete_plain",
+          "name": "Plain unsnared heads",
+          "descriptors": [
+            "deep-toned",
+            "round-thud"
+          ],
+          "match_tokens": [
+            "double-headed-drum",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brekete_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "brekete_curved_stick",
+          "default": true,
+          "name": "Curved stick with damping hand",
+          "descriptors": [
+            "pitch-bending",
+            "thumping"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "brekete_two_stick",
+          "name": "Two straight sticks",
+          "descriptors": [
+            "driving",
+            "hard-attack"
+          ],
+          "match_tokens": [
+            "bass-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brekete_context",
+      "name": "Ritual context",
+      "variants": [
+        {
+          "id": "brekete_kunde",
+          "default": true,
+          "name": "Kunde / Brekete shrine music",
+          "descriptors": [
+            "trance-inducing",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ritual",
+            "northern-ghana"
+          ]
+        },
+        {
+          "id": "brekete_social",
+          "name": "Social dance drumming",
+          "descriptors": [
+            "propulsive",
+            "festive"
+          ],
+          "match_tokens": [
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

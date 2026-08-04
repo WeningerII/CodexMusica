@@ -1,0 +1,169 @@
+{
+  "id": "muselar",
+  "name": "Muselar (Flemish right-plucking virginal)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "muselar",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "muselar_form",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "muselar_ruckers",
+          "default": true,
+          "name": "Ruckers-type muselar (plucked near string centre)",
+          "descriptors": [
+            "flutey",
+            "round-toned",
+            "warm-bass"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "flemish"
+          ]
+        },
+        {
+          "id": "muselar_ottavino_pair",
+          "name": "Muselar with ottavino child instrument",
+          "descriptors": [
+            "octave-doubled",
+            "sparkling"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "flemish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muselar_stop",
+      "name": "Stop / effect",
+      "variants": [
+        {
+          "id": "muselar_plain",
+          "default": true,
+          "name": "Plain registration",
+          "descriptors": [
+            "mellow",
+            "hollow"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "muselar_arpichordum",
+          "name": "Arpichordum buzzing stop engaged",
+          "descriptors": [
+            "buzzing-timbre",
+            "nasal-rasp"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "buzz"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "muselar_form",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "muselar_ruckers",
+          "default": true,
+          "name": "Ruckers-type muselar (plucked near string centre)",
+          "descriptors": [
+            "flutey",
+            "round-toned",
+            "warm-bass"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "flemish"
+          ]
+        },
+        {
+          "id": "muselar_ottavino_pair",
+          "name": "Muselar with ottavino child instrument",
+          "descriptors": [
+            "octave-doubled",
+            "sparkling"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "flemish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "muselar_stop",
+      "name": "Stop / effect",
+      "variants": [
+        {
+          "id": "muselar_plain",
+          "default": true,
+          "name": "Plain registration",
+          "descriptors": [
+            "mellow",
+            "hollow"
+          ],
+          "match_tokens": [
+            "plucked-keyboard"
+          ]
+        },
+        {
+          "id": "muselar_arpichordum",
+          "name": "Arpichordum buzzing stop engaged",
+          "descriptors": [
+            "buzzing-timbre",
+            "nasal-rasp"
+          ],
+          "match_tokens": [
+            "plucked-keyboard",
+            "buzz"
+          ]
+        }
+      ]
+    }
+  ]
+}

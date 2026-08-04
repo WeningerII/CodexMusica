@@ -1,0 +1,148 @@
+{
+  "id": "kuntukun_drum",
+  "name": "Kuntukun (Akan deep-toned funeral drum)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kuntukun",
+  "parts": [
+    {
+      "id": "kuntukun_size",
+      "name": "Drum size",
+      "variants": [
+        {
+          "id": "kuntukun_large",
+          "default": true,
+          "name": "Large deep-shell kuntukun",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "solemn"
+          ],
+          "match_tokens": [
+            "akan-drum",
+            "funeral-drum"
+          ]
+        },
+        {
+          "id": "kuntukun_medium",
+          "name": "Medium supporting shell",
+          "descriptors": [
+            "punchy",
+            "mid-toned"
+          ],
+          "match_tokens": [
+            "akan-drum",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kuntukun_stroke",
+      "name": "Striking method",
+      "variants": [
+        {
+          "id": "kuntukun_sticks",
+          "default": true,
+          "name": "Curved wooden sticks",
+          "descriptors": [
+            "hard-attack",
+            "resonant-boom"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "drum"
+          ]
+        },
+        {
+          "id": "kuntukun_hand_stick",
+          "name": "One hand, one stick",
+          "descriptors": [
+            "mixed-attack",
+            "conversational"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "ghana"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kuntukun_size",
+      "name": "Drum size",
+      "variants": [
+        {
+          "id": "kuntukun_large",
+          "default": true,
+          "name": "Large deep-shell kuntukun",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "solemn"
+          ],
+          "match_tokens": [
+            "akan-drum",
+            "funeral-drum"
+          ]
+        },
+        {
+          "id": "kuntukun_medium",
+          "name": "Medium supporting shell",
+          "descriptors": [
+            "punchy",
+            "mid-toned"
+          ],
+          "match_tokens": [
+            "akan-drum",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kuntukun_stroke",
+      "name": "Striking method",
+      "variants": [
+        {
+          "id": "kuntukun_sticks",
+          "default": true,
+          "name": "Curved wooden sticks",
+          "descriptors": [
+            "hard-attack",
+            "resonant-boom"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "drum"
+          ]
+        },
+        {
+          "id": "kuntukun_hand_stick",
+          "name": "One hand, one stick",
+          "descriptors": [
+            "mixed-attack",
+            "conversational"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "ghana"
+          ]
+        }
+      ]
+    }
+  ]
+}

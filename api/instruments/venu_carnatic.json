@@ -1,0 +1,266 @@
+{
+  "id": "venu_carnatic",
+  "name": "Venu (Carnatic bamboo transverse flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "venu",
+  "parts": [
+    {
+      "id": "venu_carnatic_size",
+      "name": "Flute size / pitch",
+      "variants": [
+        {
+          "id": "venu_carnatic_eight_hole",
+          "default": true,
+          "name": "Eight-hole Carnatic venu, medium pitch (canonical)",
+          "descriptors": [
+            "sweet-toned",
+            "breathy",
+            "gamaka-fluid"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "venu_carnatic_long_low",
+          "name": "Long low-pitched venu",
+          "descriptors": [
+            "mellow",
+            "deep-toned",
+            "airy"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "venu_carnatic_short_high",
+          "name": "Short high-pitched venu",
+          "descriptors": [
+            "piercing",
+            "bright",
+            "agile"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "venu_carnatic_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "venu_carnatic_gamaka",
+          "default": true,
+          "name": "Finger-slide gamaka phrasing (Mali school)",
+          "descriptors": [
+            "oscillating",
+            "vocal-imitative",
+            "legato"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "gamaka"
+          ]
+        },
+        {
+          "id": "venu_carnatic_alapana",
+          "name": "Free alapana exposition",
+          "descriptors": [
+            "rubato",
+            "meditative",
+            "breath-shaped"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "raga-exposition"
+          ]
+        },
+        {
+          "id": "venu_carnatic_kalpana",
+          "name": "Fast kalpanaswara passages",
+          "descriptors": [
+            "rapid",
+            "articulate",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "venu_carnatic_bamboo",
+      "surface": false,
+      "name": "Bamboo bore",
+      "variants": [
+        {
+          "id": "venu_carnatic_thin_wall",
+          "default": true,
+          "name": "Thin-walled seasoned bamboo",
+          "descriptors": [
+            "responsive",
+            "bright"
+          ],
+          "match_tokens": [
+            "bamboo-flute"
+          ]
+        },
+        {
+          "id": "venu_carnatic_thick_wall",
+          "name": "Thick-walled bamboo",
+          "descriptors": [
+            "round",
+            "fuller-tone"
+          ],
+          "match_tokens": [
+            "bamboo-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "venu_carnatic_size",
+      "name": "Flute size / pitch",
+      "variants": [
+        {
+          "id": "venu_carnatic_eight_hole",
+          "default": true,
+          "name": "Eight-hole Carnatic venu, medium pitch (canonical)",
+          "descriptors": [
+            "sweet-toned",
+            "breathy",
+            "gamaka-fluid"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "venu_carnatic_long_low",
+          "name": "Long low-pitched venu",
+          "descriptors": [
+            "mellow",
+            "deep-toned",
+            "airy"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "low-register"
+          ]
+        },
+        {
+          "id": "venu_carnatic_short_high",
+          "name": "Short high-pitched venu",
+          "descriptors": [
+            "piercing",
+            "bright",
+            "agile"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "high-pitched"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "venu_carnatic_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "venu_carnatic_gamaka",
+          "default": true,
+          "name": "Finger-slide gamaka phrasing (Mali school)",
+          "descriptors": [
+            "oscillating",
+            "vocal-imitative",
+            "legato"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "gamaka"
+          ]
+        },
+        {
+          "id": "venu_carnatic_alapana",
+          "name": "Free alapana exposition",
+          "descriptors": [
+            "rubato",
+            "meditative",
+            "breath-shaped"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "raga-exposition"
+          ]
+        },
+        {
+          "id": "venu_carnatic_kalpana",
+          "name": "Fast kalpanaswara passages",
+          "descriptors": [
+            "rapid",
+            "articulate",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bamboo-flute",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "venu_carnatic_bamboo",
+      "surface": false,
+      "name": "Bamboo bore",
+      "variants": [
+        {
+          "id": "venu_carnatic_thin_wall",
+          "default": true,
+          "name": "Thin-walled seasoned bamboo",
+          "descriptors": [
+            "responsive",
+            "bright"
+          ],
+          "match_tokens": [
+            "bamboo-flute"
+          ]
+        },
+        {
+          "id": "venu_carnatic_thick_wall",
+          "name": "Thick-walled bamboo",
+          "descriptors": [
+            "round",
+            "fuller-tone"
+          ],
+          "match_tokens": [
+            "bamboo-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

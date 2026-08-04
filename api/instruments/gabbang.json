@@ -1,0 +1,242 @@
+{
+  "id": "gabbang",
+  "name": "Gabbang (Sama-Tausug bamboo xylophone)",
+  "family": "percussion",
+  "class": "bamboo_xylophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "gabbang",
+  "parts": [
+    {
+      "id": "gabbang_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "gabbang_tausug",
+          "default": true,
+          "name": "Tausug gabbang (Sulu, song accompaniment)",
+          "descriptors": [
+            "dry",
+            "woody",
+            "rippling"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "sulu"
+          ]
+        },
+        {
+          "id": "gabbang_sama",
+          "name": "Sama/Badjao gabbang",
+          "descriptors": [
+            "light",
+            "clattering",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "sama"
+          ]
+        },
+        {
+          "id": "gabbang_yakan",
+          "name": "Yakan gabbang (Basilan)",
+          "descriptors": [
+            "hollow",
+            "resonant",
+            "lilting"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "yakan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gabbang_keys",
+      "name": "Key count / range",
+      "variants": [
+        {
+          "id": "gabbang_sixteen",
+          "default": true,
+          "name": "Fourteen–seventeen bamboo slabs",
+          "descriptors": [
+            "wide-range",
+            "rippling"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "struck"
+          ]
+        },
+        {
+          "id": "gabbang_small",
+          "name": "Small five–nine slab gabbang",
+          "descriptors": [
+            "narrow-range",
+            "compact",
+            "dry"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gabbang_mallets",
+      "surface": false,
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "gabbang_bare_wood",
+          "default": true,
+          "name": "Bare wooden beaters",
+          "descriptors": [
+            "clicky",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "woody"
+          ]
+        },
+        {
+          "id": "gabbang_padded",
+          "name": "Rubber/cloth-tipped beaters",
+          "descriptors": [
+            "mellow",
+            "rounded"
+          ],
+          "match_tokens": [
+            "struck",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gabbang_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "gabbang_tausug",
+          "default": true,
+          "name": "Tausug gabbang (Sulu, song accompaniment)",
+          "descriptors": [
+            "dry",
+            "woody",
+            "rippling"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "sulu"
+          ]
+        },
+        {
+          "id": "gabbang_sama",
+          "name": "Sama/Badjao gabbang",
+          "descriptors": [
+            "light",
+            "clattering",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "sama"
+          ]
+        },
+        {
+          "id": "gabbang_yakan",
+          "name": "Yakan gabbang (Basilan)",
+          "descriptors": [
+            "hollow",
+            "resonant",
+            "lilting"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "yakan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gabbang_keys",
+      "name": "Key count / range",
+      "variants": [
+        {
+          "id": "gabbang_sixteen",
+          "default": true,
+          "name": "Fourteen–seventeen bamboo slabs",
+          "descriptors": [
+            "wide-range",
+            "rippling"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "struck"
+          ]
+        },
+        {
+          "id": "gabbang_small",
+          "name": "Small five–nine slab gabbang",
+          "descriptors": [
+            "narrow-range",
+            "compact",
+            "dry"
+          ],
+          "match_tokens": [
+            "bamboo-xylophone",
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gabbang_mallets",
+      "surface": false,
+      "name": "Mallets",
+      "variants": [
+        {
+          "id": "gabbang_bare_wood",
+          "default": true,
+          "name": "Bare wooden beaters",
+          "descriptors": [
+            "clicky",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "woody"
+          ]
+        },
+        {
+          "id": "gabbang_padded",
+          "name": "Rubber/cloth-tipped beaters",
+          "descriptors": [
+            "mellow",
+            "rounded"
+          ],
+          "match_tokens": [
+            "struck",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ]
+}

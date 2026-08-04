@@ -1,0 +1,232 @@
+{
+  "id": "udukkai",
+  "name": "Udukkai (Tamil hourglass tension drum)",
+  "family": "percussion",
+  "class": "hourglass_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "udukkai",
+  "parts": [
+    {
+      "id": "udukkai_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "udukkai_temple",
+          "default": true,
+          "name": "Temple udukkai (wooden hourglass shell)",
+          "descriptors": [
+            "bending-pitch",
+            "ritual",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "tamil"
+          ]
+        },
+        {
+          "id": "udukkai_folk",
+          "name": "Folk village udukkai (smaller, brass shell)",
+          "descriptors": [
+            "bright-attack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "folk-drum"
+          ]
+        },
+        {
+          "id": "udukkai_udukku",
+          "name": "Kerala udukku (thin-waisted variant)",
+          "descriptors": [
+            "nasal-timbre",
+            "talkative"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "kerala"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "udukkai_head",
+      "surface": false,
+      "name": "Head and lacing",
+      "variants": [
+        {
+          "id": "udukkai_goat_cord",
+          "default": true,
+          "name": "Goatskin heads with cotton tension cord",
+          "descriptors": [
+            "warm-attack",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "hourglass-drum"
+          ]
+        },
+        {
+          "id": "udukkai_lizard",
+          "name": "Thin reptile-skin heads (archaic)",
+          "descriptors": [
+            "dry-tone",
+            "piercing"
+          ],
+          "match_tokens": [
+            "hourglass-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "udukkai_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "udukkai_squeeze",
+          "default": true,
+          "name": "Squeeze-and-strike glissando patterns",
+          "descriptors": [
+            "bending-pitch",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "tension-squeeze"
+          ]
+        },
+        {
+          "id": "udukkai_steady",
+          "name": "Steady accompaniment stroke for song",
+          "descriptors": [
+            "driving",
+            "pulse-keeping"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "udukkai_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "udukkai_temple",
+          "default": true,
+          "name": "Temple udukkai (wooden hourglass shell)",
+          "descriptors": [
+            "bending-pitch",
+            "ritual",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "tamil"
+          ]
+        },
+        {
+          "id": "udukkai_folk",
+          "name": "Folk village udukkai (smaller, brass shell)",
+          "descriptors": [
+            "bright-attack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "folk-drum"
+          ]
+        },
+        {
+          "id": "udukkai_udukku",
+          "name": "Kerala udukku (thin-waisted variant)",
+          "descriptors": [
+            "nasal-timbre",
+            "talkative"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "kerala"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "udukkai_head",
+      "surface": false,
+      "name": "Head and lacing",
+      "variants": [
+        {
+          "id": "udukkai_goat_cord",
+          "default": true,
+          "name": "Goatskin heads with cotton tension cord",
+          "descriptors": [
+            "warm-attack",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "hourglass-drum"
+          ]
+        },
+        {
+          "id": "udukkai_lizard",
+          "name": "Thin reptile-skin heads (archaic)",
+          "descriptors": [
+            "dry-tone",
+            "piercing"
+          ],
+          "match_tokens": [
+            "hourglass-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "udukkai_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "udukkai_squeeze",
+          "default": true,
+          "name": "Squeeze-and-strike glissando patterns",
+          "descriptors": [
+            "bending-pitch",
+            "speech-like"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "tension-squeeze"
+          ]
+        },
+        {
+          "id": "udukkai_steady",
+          "name": "Steady accompaniment stroke for song",
+          "descriptors": [
+            "driving",
+            "pulse-keeping"
+          ],
+          "match_tokens": [
+            "hourglass-drum",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

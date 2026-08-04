@@ -1,0 +1,210 @@
+{
+  "id": "linkwin",
+  "name": "Linkwin (Burmese bronze hand cymbals)",
+  "family": "percussion",
+  "class": "hand_cymbals",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "linkwin",
+  "parts": [
+    {
+      "id": "linkwin_size",
+      "name": "Cymbal size",
+      "variants": [
+        {
+          "id": "linkwin_small_ceremonial",
+          "default": true,
+          "name": "Small thick bronze pair (hsaing waing timekeeping)",
+          "descriptors": [
+            "bright-attack",
+            "shimmering",
+            "piercing"
+          ],
+          "match_tokens": [
+            "hand-cymbals",
+            "burmese"
+          ]
+        },
+        {
+          "id": "linkwin_large",
+          "name": "Larger cymbal pair (louder outdoor ensemble)",
+          "descriptors": [
+            "clangorous",
+            "broad-decay"
+          ],
+          "match_tokens": [
+            "hand-cymbals",
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linkwin_stroke",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "linkwin_open_clash",
+          "default": true,
+          "name": "Open clash (ringing 'lin')",
+          "descriptors": [
+            "ringing",
+            "open-decay"
+          ],
+          "match_tokens": [
+            "hand-cymbals",
+            "colotomic"
+          ]
+        },
+        {
+          "id": "linkwin_damped",
+          "name": "Damped closed clash (paired with wa clapper)",
+          "descriptors": [
+            "choked",
+            "dry-tick"
+          ],
+          "match_tokens": [
+            "hand-cymbals",
+            "colotomic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linkwin_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "linkwin_hsaing_waing",
+          "default": true,
+          "name": "Hsaing waing ensemble timekeeping (canonical)",
+          "descriptors": [
+            "cyclic",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "burmese",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "linkwin_vocal",
+          "name": "Solo song accompaniment with singer",
+          "descriptors": [
+            "sparse",
+            "supporting"
+          ],
+          "match_tokens": [
+            "burmese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "linkwin_size",
+      "name": "Cymbal size",
+      "variants": [
+        {
+          "id": "linkwin_small_ceremonial",
+          "default": true,
+          "name": "Small thick bronze pair (hsaing waing timekeeping)",
+          "descriptors": [
+            "bright-attack",
+            "shimmering",
+            "piercing"
+          ],
+          "match_tokens": [
+            "hand-cymbals",
+            "burmese"
+          ]
+        },
+        {
+          "id": "linkwin_large",
+          "name": "Larger cymbal pair (louder outdoor ensemble)",
+          "descriptors": [
+            "clangorous",
+            "broad-decay"
+          ],
+          "match_tokens": [
+            "hand-cymbals",
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linkwin_stroke",
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "linkwin_open_clash",
+          "default": true,
+          "name": "Open clash (ringing 'lin')",
+          "descriptors": [
+            "ringing",
+            "open-decay"
+          ],
+          "match_tokens": [
+            "hand-cymbals",
+            "colotomic"
+          ]
+        },
+        {
+          "id": "linkwin_damped",
+          "name": "Damped closed clash (paired with wa clapper)",
+          "descriptors": [
+            "choked",
+            "dry-tick"
+          ],
+          "match_tokens": [
+            "hand-cymbals",
+            "colotomic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linkwin_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "linkwin_hsaing_waing",
+          "default": true,
+          "name": "Hsaing waing ensemble timekeeping (canonical)",
+          "descriptors": [
+            "cyclic",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "burmese",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "linkwin_vocal",
+          "name": "Solo song accompaniment with singer",
+          "descriptors": [
+            "sparse",
+            "supporting"
+          ],
+          "match_tokens": [
+            "burmese"
+          ]
+        }
+      ]
+    }
+  ]
+}

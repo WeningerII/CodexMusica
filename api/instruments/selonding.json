@@ -1,0 +1,242 @@
+{
+  "id": "selonding",
+  "name": "Selonding (Balinese sacred iron-keyed metallophone)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "selonding",
+  "parts": [
+    {
+      "id": "selonding_form",
+      "name": "Village form",
+      "variants": [
+        {
+          "id": "selonding_tenganan",
+          "default": true,
+          "name": "Tenganan Pegringsingan selonding (Bali Aga sacred set)",
+          "descriptors": [
+            "archaic",
+            "dark-toned",
+            "sacred"
+          ],
+          "match_tokens": [
+            "iron-keyed",
+            "bali-aga"
+          ]
+        },
+        {
+          "id": "selonding_bugbug",
+          "name": "Bugbug / Asak village selonding",
+          "descriptors": [
+            "austere",
+            "ritual",
+            "muted"
+          ],
+          "match_tokens": [
+            "iron-keyed",
+            "balinese"
+          ]
+        },
+        {
+          "id": "selonding_wayang",
+          "name": "Selonding wayang (theater quartet form)",
+          "descriptors": [
+            "intimate",
+            "shimmering",
+            "narrative"
+          ],
+          "match_tokens": [
+            "iron-keyed",
+            "wayang"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "selonding_keys",
+      "name": "Key material",
+      "variants": [
+        {
+          "id": "selonding_iron",
+          "default": true,
+          "name": "Forged iron keys (traditional)",
+          "descriptors": [
+            "dark-toned",
+            "clangorous",
+            "inharmonic"
+          ],
+          "match_tokens": [
+            "iron-keyed",
+            "archaic"
+          ]
+        },
+        {
+          "id": "selonding_bronze",
+          "name": "Bronze keys (rare modern set)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "bronze-keyed",
+            "metallophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "selonding_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "selonding_pelog_seven",
+          "default": true,
+          "name": "Seven-tone pelog (saih pitu)",
+          "descriptors": [
+            "archaic-tuning",
+            "modal"
+          ],
+          "match_tokens": [
+            "pelog",
+            "balinese"
+          ]
+        },
+        {
+          "id": "selonding_selisir",
+          "name": "Five-tone selisir subset",
+          "descriptors": [
+            "pentatonic",
+            "bright"
+          ],
+          "match_tokens": [
+            "pelog",
+            "balinese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "selonding_form",
+      "name": "Village form",
+      "variants": [
+        {
+          "id": "selonding_tenganan",
+          "default": true,
+          "name": "Tenganan Pegringsingan selonding (Bali Aga sacred set)",
+          "descriptors": [
+            "archaic",
+            "dark-toned",
+            "sacred"
+          ],
+          "match_tokens": [
+            "iron-keyed",
+            "bali-aga"
+          ]
+        },
+        {
+          "id": "selonding_bugbug",
+          "name": "Bugbug / Asak village selonding",
+          "descriptors": [
+            "austere",
+            "ritual",
+            "muted"
+          ],
+          "match_tokens": [
+            "iron-keyed",
+            "balinese"
+          ]
+        },
+        {
+          "id": "selonding_wayang",
+          "name": "Selonding wayang (theater quartet form)",
+          "descriptors": [
+            "intimate",
+            "shimmering",
+            "narrative"
+          ],
+          "match_tokens": [
+            "iron-keyed",
+            "wayang"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "selonding_keys",
+      "name": "Key material",
+      "variants": [
+        {
+          "id": "selonding_iron",
+          "default": true,
+          "name": "Forged iron keys (traditional)",
+          "descriptors": [
+            "dark-toned",
+            "clangorous",
+            "inharmonic"
+          ],
+          "match_tokens": [
+            "iron-keyed",
+            "archaic"
+          ]
+        },
+        {
+          "id": "selonding_bronze",
+          "name": "Bronze keys (rare modern set)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "bronze-keyed",
+            "metallophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "selonding_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "selonding_pelog_seven",
+          "default": true,
+          "name": "Seven-tone pelog (saih pitu)",
+          "descriptors": [
+            "archaic-tuning",
+            "modal"
+          ],
+          "match_tokens": [
+            "pelog",
+            "balinese"
+          ]
+        },
+        {
+          "id": "selonding_selisir",
+          "name": "Five-tone selisir subset",
+          "descriptors": [
+            "pentatonic",
+            "bright"
+          ],
+          "match_tokens": [
+            "pelog",
+            "balinese"
+          ]
+        }
+      ]
+    }
+  ]
+}

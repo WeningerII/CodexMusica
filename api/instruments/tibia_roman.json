@@ -1,0 +1,272 @@
+{
+  "id": "tibia_roman",
+  "name": "Tibia (Roman paired double-reed pipes)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tibia",
+  "parts": [
+    {
+      "id": "tibia_pairing",
+      "name": "Pipe pairing",
+      "variants": [
+        {
+          "id": "tibia_pares",
+          "default": true,
+          "name": "Tibiae pares (equal pipes, unison/heterophonic)",
+          "descriptors": [
+            "reedy",
+            "nasal",
+            "beating-unison"
+          ],
+          "match_tokens": [
+            "double-pipes",
+            "roman",
+            "double-reed"
+          ]
+        },
+        {
+          "id": "tibia_impares",
+          "name": "Tibiae impares (unequal pipes, melody plus drone)",
+          "descriptors": [
+            "droning",
+            "plaintive",
+            "layered"
+          ],
+          "match_tokens": [
+            "double-pipes",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tibia_phrygiae",
+          "name": "Tibiae Phrygiae (one pipe with upturned horn bell)",
+          "descriptors": [
+            "wailing",
+            "exotic",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "double-pipes",
+            "cult-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tibia_material",
+      "surface": false,
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "tibia_bone",
+          "default": true,
+          "name": "Bone or ivory with bronze sleeves",
+          "descriptors": [
+            "hard-toned",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bone-pipe",
+            "roman"
+          ]
+        },
+        {
+          "id": "tibia_cane",
+          "name": "Cane / reed tube",
+          "descriptors": [
+            "soft-edged",
+            "earthy"
+          ],
+          "match_tokens": [
+            "cane-pipe",
+            "double-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tibia_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "tibia_theatre",
+          "default": true,
+          "name": "Theatre accompaniment (comedy and mime)",
+          "descriptors": [
+            "lively",
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "theatre",
+            "roman"
+          ]
+        },
+        {
+          "id": "tibia_funeral",
+          "name": "Funeral procession playing",
+          "descriptors": [
+            "mournful",
+            "keening",
+            "slow"
+          ],
+          "match_tokens": [
+            "lament",
+            "roman"
+          ]
+        },
+        {
+          "id": "tibia_cult",
+          "name": "Cybele / Bacchic rite",
+          "descriptors": [
+            "frenzied",
+            "shrill",
+            "driving"
+          ],
+          "match_tokens": [
+            "ritual",
+            "ecstatic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tibia_pairing",
+      "name": "Pipe pairing",
+      "variants": [
+        {
+          "id": "tibia_pares",
+          "default": true,
+          "name": "Tibiae pares (equal pipes, unison/heterophonic)",
+          "descriptors": [
+            "reedy",
+            "nasal",
+            "beating-unison"
+          ],
+          "match_tokens": [
+            "double-pipes",
+            "roman",
+            "double-reed"
+          ]
+        },
+        {
+          "id": "tibia_impares",
+          "name": "Tibiae impares (unequal pipes, melody plus drone)",
+          "descriptors": [
+            "droning",
+            "plaintive",
+            "layered"
+          ],
+          "match_tokens": [
+            "double-pipes",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tibia_phrygiae",
+          "name": "Tibiae Phrygiae (one pipe with upturned horn bell)",
+          "descriptors": [
+            "wailing",
+            "exotic",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "double-pipes",
+            "cult-music"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tibia_material",
+      "surface": false,
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "tibia_bone",
+          "default": true,
+          "name": "Bone or ivory with bronze sleeves",
+          "descriptors": [
+            "hard-toned",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bone-pipe",
+            "roman"
+          ]
+        },
+        {
+          "id": "tibia_cane",
+          "name": "Cane / reed tube",
+          "descriptors": [
+            "soft-edged",
+            "earthy"
+          ],
+          "match_tokens": [
+            "cane-pipe",
+            "double-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tibia_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "tibia_theatre",
+          "default": true,
+          "name": "Theatre accompaniment (comedy and mime)",
+          "descriptors": [
+            "lively",
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "theatre",
+            "roman"
+          ]
+        },
+        {
+          "id": "tibia_funeral",
+          "name": "Funeral procession playing",
+          "descriptors": [
+            "mournful",
+            "keening",
+            "slow"
+          ],
+          "match_tokens": [
+            "lament",
+            "roman"
+          ]
+        },
+        {
+          "id": "tibia_cult",
+          "name": "Cybele / Bacchic rite",
+          "descriptors": [
+            "frenzied",
+            "shrill",
+            "driving"
+          ],
+          "match_tokens": [
+            "ritual",
+            "ecstatic"
+          ]
+        }
+      ]
+    }
+  ]
+}

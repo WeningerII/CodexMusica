@@ -1,0 +1,166 @@
+{
+  "id": "paigu",
+  "name": "Paigu (Chinese tuned barrel-drum set)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "paigu",
+  "parts": [
+    {
+      "id": "paigu_set",
+      "name": "Set size",
+      "variants": [
+        {
+          "id": "paigu_five",
+          "default": true,
+          "name": "Five-drum graduated set",
+          "descriptors": [
+            "pitched-toms",
+            "rolling",
+            "punchy"
+          ],
+          "match_tokens": [
+            "chinese-drums",
+            "tuned-drums"
+          ]
+        },
+        {
+          "id": "paigu_three",
+          "name": "Three-drum compact set",
+          "descriptors": [
+            "tight",
+            "focused"
+          ],
+          "match_tokens": [
+            "chinese-drums"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paigu_stroke",
+      "name": "Stroke type",
+      "variants": [
+        {
+          "id": "paigu_stick_head",
+          "default": true,
+          "name": "Stick on head",
+          "descriptors": [
+            "booming",
+            "full-toned"
+          ],
+          "match_tokens": [
+            "struck-drum"
+          ]
+        },
+        {
+          "id": "paigu_rim",
+          "name": "Rim / shell strike",
+          "descriptors": [
+            "dry-knock",
+            "clacking"
+          ],
+          "match_tokens": [
+            "struck-drum",
+            "rim-shot"
+          ]
+        },
+        {
+          "id": "paigu_roll",
+          "name": "Sustained double-stick roll",
+          "descriptors": [
+            "rumbling",
+            "crescendo"
+          ],
+          "match_tokens": [
+            "drum-roll"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "paigu_set",
+      "name": "Set size",
+      "variants": [
+        {
+          "id": "paigu_five",
+          "default": true,
+          "name": "Five-drum graduated set",
+          "descriptors": [
+            "pitched-toms",
+            "rolling",
+            "punchy"
+          ],
+          "match_tokens": [
+            "chinese-drums",
+            "tuned-drums"
+          ]
+        },
+        {
+          "id": "paigu_three",
+          "name": "Three-drum compact set",
+          "descriptors": [
+            "tight",
+            "focused"
+          ],
+          "match_tokens": [
+            "chinese-drums"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paigu_stroke",
+      "name": "Stroke type",
+      "variants": [
+        {
+          "id": "paigu_stick_head",
+          "default": true,
+          "name": "Stick on head",
+          "descriptors": [
+            "booming",
+            "full-toned"
+          ],
+          "match_tokens": [
+            "struck-drum"
+          ]
+        },
+        {
+          "id": "paigu_rim",
+          "name": "Rim / shell strike",
+          "descriptors": [
+            "dry-knock",
+            "clacking"
+          ],
+          "match_tokens": [
+            "struck-drum",
+            "rim-shot"
+          ]
+        },
+        {
+          "id": "paigu_roll",
+          "name": "Sustained double-stick roll",
+          "descriptors": [
+            "rumbling",
+            "crescendo"
+          ],
+          "match_tokens": [
+            "drum-roll"
+          ]
+        }
+      ]
+    }
+  ]
+}

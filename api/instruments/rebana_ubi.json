@@ -1,0 +1,148 @@
+{
+  "id": "rebana_ubi",
+  "name": "Rebana Ubi (large Malay signal frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "rebana ubi",
+  "parts": [
+    {
+      "id": "rebana_ubi_size",
+      "name": "Drum size",
+      "variants": [
+        {
+          "id": "rebana_ubi_giant",
+          "default": true,
+          "name": "Giant ceremonial rebana ubi",
+          "descriptors": [
+            "booming",
+            "thunderous",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "kelantan"
+          ]
+        },
+        {
+          "id": "rebana_ubi_medium",
+          "name": "Medium competition drum",
+          "descriptors": [
+            "punchy",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "malay"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebana_ubi_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "rebana_ubi_ensemble",
+          "default": true,
+          "name": "Interlocking ensemble beating",
+          "descriptors": [
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "ensemble-rhythm"
+          ]
+        },
+        {
+          "id": "rebana_ubi_signal",
+          "name": "Long-distance signalling strokes",
+          "descriptors": [
+            "sparse",
+            "resounding"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "signal-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rebana_ubi_size",
+      "name": "Drum size",
+      "variants": [
+        {
+          "id": "rebana_ubi_giant",
+          "default": true,
+          "name": "Giant ceremonial rebana ubi",
+          "descriptors": [
+            "booming",
+            "thunderous",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "kelantan"
+          ]
+        },
+        {
+          "id": "rebana_ubi_medium",
+          "name": "Medium competition drum",
+          "descriptors": [
+            "punchy",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "malay"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebana_ubi_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "rebana_ubi_ensemble",
+          "default": true,
+          "name": "Interlocking ensemble beating",
+          "descriptors": [
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "ensemble-rhythm"
+          ]
+        },
+        {
+          "id": "rebana_ubi_signal",
+          "name": "Long-distance signalling strokes",
+          "descriptors": [
+            "sparse",
+            "resounding"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "signal-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

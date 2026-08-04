@@ -1,0 +1,200 @@
+{
+  "id": "mbila_mutondo",
+  "name": "Mbila mutondo (Venda large gourd-resonated xylophone)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mbila mutondo",
+  "parts": [
+    {
+      "id": "mbila_mutondo_resonator",
+      "name": "Resonator treatment",
+      "variants": [
+        {
+          "id": "mbila_mutondo_mirliton",
+          "default": true,
+          "name": "Gourd resonators with spider-web mirlitons",
+          "descriptors": [
+            "buzzing-timbre",
+            "rasping-halo"
+          ],
+          "match_tokens": [
+            "gourd-xylophone",
+            "venda"
+          ]
+        },
+        {
+          "id": "mbila_mutondo_plain",
+          "name": "Plain unbuzzed gourds",
+          "descriptors": [
+            "clean-tone",
+            "woody"
+          ],
+          "match_tokens": [
+            "gourd-xylophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbila_mutondo_register",
+      "name": "Instrument size in the set",
+      "variants": [
+        {
+          "id": "mbila_mutondo_bass",
+          "default": true,
+          "name": "Large bass mbila mutondo",
+          "descriptors": [
+            "deep-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "bass-xylophone"
+          ]
+        },
+        {
+          "id": "mbila_mutondo_treble",
+          "name": "Smaller treble instrument",
+          "descriptors": [
+            "bright-attack",
+            "chattering"
+          ],
+          "match_tokens": [
+            "treble-xylophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbila_mutondo_role",
+      "name": "Part in the ensemble",
+      "variants": [
+        {
+          "id": "mbila_mutondo_ostinato",
+          "default": true,
+          "name": "Interlocking ostinato part",
+          "descriptors": [
+            "hocketing",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "mbila_mutondo_lead",
+          "name": "Lead variation part",
+          "descriptors": [
+            "virtuosic",
+            "rippling"
+          ],
+          "match_tokens": [
+            "lead-melody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mbila_mutondo_resonator",
+      "name": "Resonator treatment",
+      "variants": [
+        {
+          "id": "mbila_mutondo_mirliton",
+          "default": true,
+          "name": "Gourd resonators with spider-web mirlitons",
+          "descriptors": [
+            "buzzing-timbre",
+            "rasping-halo"
+          ],
+          "match_tokens": [
+            "gourd-xylophone",
+            "venda"
+          ]
+        },
+        {
+          "id": "mbila_mutondo_plain",
+          "name": "Plain unbuzzed gourds",
+          "descriptors": [
+            "clean-tone",
+            "woody"
+          ],
+          "match_tokens": [
+            "gourd-xylophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbila_mutondo_register",
+      "name": "Instrument size in the set",
+      "variants": [
+        {
+          "id": "mbila_mutondo_bass",
+          "default": true,
+          "name": "Large bass mbila mutondo",
+          "descriptors": [
+            "deep-toned",
+            "booming"
+          ],
+          "match_tokens": [
+            "bass-xylophone"
+          ]
+        },
+        {
+          "id": "mbila_mutondo_treble",
+          "name": "Smaller treble instrument",
+          "descriptors": [
+            "bright-attack",
+            "chattering"
+          ],
+          "match_tokens": [
+            "treble-xylophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mbila_mutondo_role",
+      "name": "Part in the ensemble",
+      "variants": [
+        {
+          "id": "mbila_mutondo_ostinato",
+          "default": true,
+          "name": "Interlocking ostinato part",
+          "descriptors": [
+            "hocketing",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "interlocking",
+            "cyclic"
+          ]
+        },
+        {
+          "id": "mbila_mutondo_lead",
+          "name": "Lead variation part",
+          "descriptors": [
+            "virtuosic",
+            "rippling"
+          ],
+          "match_tokens": [
+            "lead-melody"
+          ]
+        }
+      ]
+    }
+  ]
+}

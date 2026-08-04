@@ -1,0 +1,148 @@
+{
+  "id": "sinh_tien",
+  "name": "Sinh tien (Vietnamese coin-clapper scraper)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "sinh tien",
+  "parts": [
+    {
+      "id": "sinh_tien_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "sinh_tien_three_slat_coins",
+          "default": true,
+          "name": "Three hardwood slats with jingling coin strings and serrated edge (canonical)",
+          "descriptors": [
+            "jingling",
+            "rattling-coins",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "coin-clapper",
+            "vietnamese"
+          ]
+        },
+        {
+          "id": "sinh_tien_heavy_coins",
+          "name": "Heavy brass-coin set (ritual)",
+          "descriptors": [
+            "bright-jingle",
+            "metallic-shimmer"
+          ],
+          "match_tokens": [
+            "coin-clapper",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sinh_tien_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "sinh_tien_clap",
+          "default": true,
+          "name": "Clapping the slats together",
+          "descriptors": [
+            "sharp-clack",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "clapper",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "sinh_tien_scrape",
+          "name": "Scraping the serrated edge",
+          "descriptors": [
+            "raspy-scrape",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "scraper",
+            "texture"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sinh_tien_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "sinh_tien_three_slat_coins",
+          "default": true,
+          "name": "Three hardwood slats with jingling coin strings and serrated edge (canonical)",
+          "descriptors": [
+            "jingling",
+            "rattling-coins",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "coin-clapper",
+            "vietnamese"
+          ]
+        },
+        {
+          "id": "sinh_tien_heavy_coins",
+          "name": "Heavy brass-coin set (ritual)",
+          "descriptors": [
+            "bright-jingle",
+            "metallic-shimmer"
+          ],
+          "match_tokens": [
+            "coin-clapper",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sinh_tien_technique",
+      "name": "Technique",
+      "variants": [
+        {
+          "id": "sinh_tien_clap",
+          "default": true,
+          "name": "Clapping the slats together",
+          "descriptors": [
+            "sharp-clack",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "clapper",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "sinh_tien_scrape",
+          "name": "Scraping the serrated edge",
+          "descriptors": [
+            "raspy-scrape",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "scraper",
+            "texture"
+          ]
+        }
+      ]
+    }
+  ]
+}

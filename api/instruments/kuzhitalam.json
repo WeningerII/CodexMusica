@@ -1,0 +1,150 @@
+{
+  "id": "kuzhitalam",
+  "name": "Kuzhitalam (Kerala heavy bronze temple cymbals)",
+  "family": "percussion",
+  "class": "hand_cymbals",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "kuzhitalam",
+  "parts": [
+    {
+      "id": "kuzhitalam_size",
+      "name": "Cymbal size",
+      "variants": [
+        {
+          "id": "kuzhitalam_large",
+          "default": true,
+          "name": "Large thick temple pair (panchavadyam)",
+          "descriptors": [
+            "clangorous",
+            "long-ringing",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bronze-cymbals",
+            "kerala"
+          ]
+        },
+        {
+          "id": "kuzhitalam_small",
+          "name": "Small pair (kathakali time-keeping)",
+          "descriptors": [
+            "bright-attack",
+            "tight-ring"
+          ],
+          "match_tokens": [
+            "bronze-cymbals",
+            "time-keeping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kuzhitalam_context",
+      "surface": false,
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "kuzhitalam_panchavadyam",
+          "default": true,
+          "name": "Panchavadyam / melam cycle keeping",
+          "descriptors": [
+            "ceremonial",
+            "driving"
+          ],
+          "match_tokens": [
+            "bronze-cymbals",
+            "temple-ensemble"
+          ]
+        },
+        {
+          "id": "kuzhitalam_kathakali",
+          "name": "Kathakali dance-drama accompaniment",
+          "descriptors": [
+            "accenting",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "bronze-cymbals",
+            "dance-drama"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kuzhitalam_size",
+      "name": "Cymbal size",
+      "variants": [
+        {
+          "id": "kuzhitalam_large",
+          "default": true,
+          "name": "Large thick temple pair (panchavadyam)",
+          "descriptors": [
+            "clangorous",
+            "long-ringing",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bronze-cymbals",
+            "kerala"
+          ]
+        },
+        {
+          "id": "kuzhitalam_small",
+          "name": "Small pair (kathakali time-keeping)",
+          "descriptors": [
+            "bright-attack",
+            "tight-ring"
+          ],
+          "match_tokens": [
+            "bronze-cymbals",
+            "time-keeping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kuzhitalam_context",
+      "surface": false,
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "kuzhitalam_panchavadyam",
+          "default": true,
+          "name": "Panchavadyam / melam cycle keeping",
+          "descriptors": [
+            "ceremonial",
+            "driving"
+          ],
+          "match_tokens": [
+            "bronze-cymbals",
+            "temple-ensemble"
+          ]
+        },
+        {
+          "id": "kuzhitalam_kathakali",
+          "name": "Kathakali dance-drama accompaniment",
+          "descriptors": [
+            "accenting",
+            "dramatic"
+          ],
+          "match_tokens": [
+            "bronze-cymbals",
+            "dance-drama"
+          ]
+        }
+      ]
+    }
+  ]
+}

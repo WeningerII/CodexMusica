@@ -373,6 +373,12 @@
       "pair": ["torban", "tiorba"],
       "verdict": "distinct",
       "note": "the Ukrainian torban is a bass lute with off-fingerboard treble strings played in Cossack court music; the tiorba (theorbo) is the Italian extended-neck continuo lute. Same family and class because both are large plucked lutes, but different instruments, repertoire and tuning."
+    },
+    {
+      "kind": "instrument",
+      "pair": ["boula", "boula_haitian"],
+      "verdict": "distinct",
+      "note": "two different drums that share a name across the Francophone Caribbean. The Guadeloupean gwoka boula is the steady low pulse under the marqueur; the Haitian Vodou boula is the smallest and highest of the three-drum battery. Different size, register and role, so the shared name is a coincidence of language rather than a duplicate. The Haitian record prints as \"vodou boula\" to keep short labels unique."
     }
   ]
 }

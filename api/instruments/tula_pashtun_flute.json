@@ -1,0 +1,168 @@
+{
+  "id": "tula_pashtun_flute",
+  "name": "Tula (Pashtun side-blown wooden flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "tula",
+  "parts": [
+    {
+      "id": "tula_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "tula_wood",
+          "default": true,
+          "name": "Turned hardwood tube (traditional Pashtun build)",
+          "descriptors": [
+            "woody",
+            "round-toned"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "pashtun",
+            "afghan"
+          ]
+        },
+        {
+          "id": "tula_bamboo",
+          "name": "Bamboo tube",
+          "descriptors": [
+            "airy",
+            "breathy"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        },
+        {
+          "id": "tula_metal",
+          "name": "Metal tube (bazaar-made)",
+          "descriptors": [
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tula_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tula_attan",
+          "default": true,
+          "name": "Attan dance melody over dhol",
+          "descriptors": [
+            "driving",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tula_shepherd",
+          "name": "Solo shepherd air",
+          "descriptors": [
+            "plaintive",
+            "rubato"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tula_material",
+      "name": "Tube material",
+      "variants": [
+        {
+          "id": "tula_wood",
+          "default": true,
+          "name": "Turned hardwood tube (traditional Pashtun build)",
+          "descriptors": [
+            "woody",
+            "round-toned"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "pashtun",
+            "afghan"
+          ]
+        },
+        {
+          "id": "tula_bamboo",
+          "name": "Bamboo tube",
+          "descriptors": [
+            "airy",
+            "breathy"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        },
+        {
+          "id": "tula_metal",
+          "name": "Metal tube (bazaar-made)",
+          "descriptors": [
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tula_context",
+      "surface": false,
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tula_attan",
+          "default": true,
+          "name": "Attan dance melody over dhol",
+          "descriptors": [
+            "driving",
+            "dance-rhythm"
+          ],
+          "match_tokens": [
+            "transverse-flute",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "tula_shepherd",
+          "name": "Solo shepherd air",
+          "descriptors": [
+            "plaintive",
+            "rubato"
+          ],
+          "match_tokens": [
+            "transverse-flute"
+          ]
+        }
+      ]
+    }
+  ]
+}

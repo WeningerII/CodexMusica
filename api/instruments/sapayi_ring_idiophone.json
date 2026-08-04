@@ -1,0 +1,146 @@
+{
+  "id": "sapayi_ring_idiophone",
+  "name": "Sapayi (Uyghur ringed shaken stick idiophone)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sapayi",
+  "parts": [
+    {
+      "id": "sapayi_material",
+      "name": "Stick material / ring loading",
+      "variants": [
+        {
+          "id": "sapayi_wood_iron",
+          "default": true,
+          "name": "Wooden sticks with iron rings",
+          "descriptors": [
+            "clattering",
+            "jangling",
+            "dry"
+          ],
+          "match_tokens": [
+            "shaken-idiophone",
+            "uyghur",
+            "jingle-rings"
+          ]
+        },
+        {
+          "id": "sapayi_horn",
+          "name": "Horn sticks with brass rings",
+          "descriptors": [
+            "bright-clatter",
+            "metallic"
+          ],
+          "match_tokens": [
+            "shaken-idiophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sapayi_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "sapayi_body_strike",
+          "default": true,
+          "name": "Struck against shoulder and thigh while dancing",
+          "descriptors": [
+            "accented",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "shaken-idiophone",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "sapayi_shake",
+          "name": "Continuous shake",
+          "descriptors": [
+            "rattling",
+            "sustained-buzz"
+          ],
+          "match_tokens": [
+            "shaken-idiophone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sapayi_material",
+      "name": "Stick material / ring loading",
+      "variants": [
+        {
+          "id": "sapayi_wood_iron",
+          "default": true,
+          "name": "Wooden sticks with iron rings",
+          "descriptors": [
+            "clattering",
+            "jangling",
+            "dry"
+          ],
+          "match_tokens": [
+            "shaken-idiophone",
+            "uyghur",
+            "jingle-rings"
+          ]
+        },
+        {
+          "id": "sapayi_horn",
+          "name": "Horn sticks with brass rings",
+          "descriptors": [
+            "bright-clatter",
+            "metallic"
+          ],
+          "match_tokens": [
+            "shaken-idiophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sapayi_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "sapayi_body_strike",
+          "default": true,
+          "name": "Struck against shoulder and thigh while dancing",
+          "descriptors": [
+            "accented",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "shaken-idiophone",
+            "dance-rhythm"
+          ]
+        },
+        {
+          "id": "sapayi_shake",
+          "name": "Continuous shake",
+          "descriptors": [
+            "rattling",
+            "sustained-buzz"
+          ],
+          "match_tokens": [
+            "shaken-idiophone"
+          ]
+        }
+      ]
+    }
+  ]
+}

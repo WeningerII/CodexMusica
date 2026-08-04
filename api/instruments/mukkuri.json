@@ -1,0 +1,146 @@
+{
+  "id": "mukkuri",
+  "name": "Mukkuri (Ainu bamboo string-pulled jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "mukkuri",
+  "parts": [
+    {
+      "id": "mukkuri_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "mukkuri_rhythmic",
+          "default": true,
+          "name": "Rhythmic cord pulling",
+          "descriptors": [
+            "buzzing-timbre",
+            "pulsing",
+            "twanging"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "ainu"
+          ]
+        },
+        {
+          "id": "mukkuri_imitative",
+          "name": "Imitative nature sounds",
+          "descriptors": [
+            "whirring",
+            "vocal-formant"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "imitative"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mukkuri_lamella",
+      "surface": false,
+      "name": "Bamboo tongue",
+      "variants": [
+        {
+          "id": "mukkuri_thin",
+          "default": true,
+          "name": "Thin supple tongue",
+          "descriptors": [
+            "bright-buzz",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        },
+        {
+          "id": "mukkuri_thick",
+          "name": "Thick tongue",
+          "descriptors": [
+            "low-buzz",
+            "heavy"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mukkuri_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "mukkuri_rhythmic",
+          "default": true,
+          "name": "Rhythmic cord pulling",
+          "descriptors": [
+            "buzzing-timbre",
+            "pulsing",
+            "twanging"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "ainu"
+          ]
+        },
+        {
+          "id": "mukkuri_imitative",
+          "name": "Imitative nature sounds",
+          "descriptors": [
+            "whirring",
+            "vocal-formant"
+          ],
+          "match_tokens": [
+            "jaw-harp",
+            "imitative"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mukkuri_lamella",
+      "surface": false,
+      "name": "Bamboo tongue",
+      "variants": [
+        {
+          "id": "mukkuri_thin",
+          "default": true,
+          "name": "Thin supple tongue",
+          "descriptors": [
+            "bright-buzz",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        },
+        {
+          "id": "mukkuri_thick",
+          "name": "Thick tongue",
+          "descriptors": [
+            "low-buzz",
+            "heavy"
+          ],
+          "match_tokens": [
+            "jaw-harp"
+          ]
+        }
+      ]
+    }
+  ]
+}

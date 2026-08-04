@@ -1,0 +1,182 @@
+{
+  "id": "pandereta_puertorriquena",
+  "name": "Pandereta (Puerto Rican plena handheld frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pandereta",
+  "parts": [
+    {
+      "id": "pandereta_size",
+      "name": "Size and ensemble voice",
+      "variants": [
+        {
+          "id": "pandereta_seguidor",
+          "default": true,
+          "name": "Seguidor (largest, bass pulse)",
+          "descriptors": [
+            "deep-toned",
+            "steady",
+            "grounding"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "plena",
+            "timekeeping"
+          ]
+        },
+        {
+          "id": "pandereta_segundo",
+          "name": "Segundo / punteador (middle)",
+          "descriptors": [
+            "mid-toned",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "plena"
+          ]
+        },
+        {
+          "id": "pandereta_requinto",
+          "name": "Requinto (smallest, improvising lead)",
+          "descriptors": [
+            "high-pitched",
+            "cutting",
+            "improvisatory"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "plena",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pandereta_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "pandereta_goatskin",
+          "default": true,
+          "name": "Goatskin head",
+          "descriptors": [
+            "warm",
+            "papery",
+            "organic"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "pandereta_synthetic",
+          "name": "Synthetic head (modern street plena)",
+          "descriptors": [
+            "loud",
+            "bright",
+            "weather-stable"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pandereta_size",
+      "name": "Size and ensemble voice",
+      "variants": [
+        {
+          "id": "pandereta_seguidor",
+          "default": true,
+          "name": "Seguidor (largest, bass pulse)",
+          "descriptors": [
+            "deep-toned",
+            "steady",
+            "grounding"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "plena",
+            "timekeeping"
+          ]
+        },
+        {
+          "id": "pandereta_segundo",
+          "name": "Segundo / punteador (middle)",
+          "descriptors": [
+            "mid-toned",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "plena"
+          ]
+        },
+        {
+          "id": "pandereta_requinto",
+          "name": "Requinto (smallest, improvising lead)",
+          "descriptors": [
+            "high-pitched",
+            "cutting",
+            "improvisatory"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "plena",
+            "bright-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pandereta_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "pandereta_goatskin",
+          "default": true,
+          "name": "Goatskin head",
+          "descriptors": [
+            "warm",
+            "papery",
+            "organic"
+          ],
+          "match_tokens": [
+            "frame-drum"
+          ]
+        },
+        {
+          "id": "pandereta_synthetic",
+          "name": "Synthetic head (modern street plena)",
+          "descriptors": [
+            "loud",
+            "bright",
+            "weather-stable"
+          ],
+          "match_tokens": [
+            "frame-drum",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

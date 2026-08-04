@@ -1,0 +1,144 @@
+{
+  "id": "igba",
+  "name": "Igba (Igbo single-headed conical hand drum)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "igba",
+  "parts": [
+    {
+      "id": "igba_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "igba_lead",
+          "default": true,
+          "name": "Lead igba (medium, talking role)",
+          "descriptors": [
+            "articulate",
+            "cutting"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "igbo"
+          ]
+        },
+        {
+          "id": "igba_bass",
+          "name": "Large bass igba",
+          "descriptors": [
+            "deep-toned",
+            "thumping"
+          ],
+          "match_tokens": [
+            "membranophone",
+            "nigeria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "igba_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "igba_hands",
+          "default": true,
+          "name": "Bare hands",
+          "descriptors": [
+            "warm-tone",
+            "conversational"
+          ],
+          "match_tokens": [
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "igba_sticks",
+          "name": "Sticks",
+          "descriptors": [
+            "hard-attack",
+            "sharp"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "igba_size",
+      "name": "Size / register",
+      "variants": [
+        {
+          "id": "igba_lead",
+          "default": true,
+          "name": "Lead igba (medium, talking role)",
+          "descriptors": [
+            "articulate",
+            "cutting"
+          ],
+          "match_tokens": [
+            "hand-drum",
+            "igbo"
+          ]
+        },
+        {
+          "id": "igba_bass",
+          "name": "Large bass igba",
+          "descriptors": [
+            "deep-toned",
+            "thumping"
+          ],
+          "match_tokens": [
+            "membranophone",
+            "nigeria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "igba_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "igba_hands",
+          "default": true,
+          "name": "Bare hands",
+          "descriptors": [
+            "warm-tone",
+            "conversational"
+          ],
+          "match_tokens": [
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "igba_sticks",
+          "name": "Sticks",
+          "descriptors": [
+            "hard-attack",
+            "sharp"
+          ],
+          "match_tokens": [
+            "stick-struck",
+            "dance-rhythm"
+          ]
+        }
+      ]
+    }
+  ]
+}

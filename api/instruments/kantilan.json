@@ -1,0 +1,212 @@
+{
+  "id": "kantilan",
+  "name": "Kantilan (highest Balinese gangsa metallophone)",
+  "family": "percussion",
+  "class": "metallophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kantilan",
+  "parts": [
+    {
+      "id": "kantilan_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "kantilan_bronze_octave_above",
+          "default": true,
+          "name": "Ten small bronze keys, one octave above pemade (canonical)",
+          "descriptors": [
+            "high-pitched",
+            "glittering",
+            "piercing"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "kantilan_iron_keys",
+          "name": "Iron-keyed set",
+          "descriptors": [
+            "thin",
+            "dry"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kantilan_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kantilan_kotekan",
+          "default": true,
+          "name": "Fast kotekan interlocking with damping (canonical)",
+          "descriptors": [
+            "rippling",
+            "crisp",
+            "rapid"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        },
+        {
+          "id": "kantilan_norot",
+          "name": "Norot neighbour-tone figuration",
+          "descriptors": [
+            "flowing",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kantilan_pairing",
+      "surface": false,
+      "name": "Tuning pairing",
+      "variants": [
+        {
+          "id": "kantilan_paired_ombak",
+          "default": true,
+          "name": "Paired pengumbang/pengisep detuning",
+          "descriptors": [
+            "beating-shimmer",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "balinese",
+            "paired-tuning"
+          ]
+        },
+        {
+          "id": "kantilan_single",
+          "name": "Single unpaired instrument",
+          "descriptors": [
+            "clean",
+            "static"
+          ],
+          "match_tokens": [
+            "balinese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kantilan_build",
+      "name": "Build",
+      "variants": [
+        {
+          "id": "kantilan_bronze_octave_above",
+          "default": true,
+          "name": "Ten small bronze keys, one octave above pemade (canonical)",
+          "descriptors": [
+            "high-pitched",
+            "glittering",
+            "piercing"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        },
+        {
+          "id": "kantilan_iron_keys",
+          "name": "Iron-keyed set",
+          "descriptors": [
+            "thin",
+            "dry"
+          ],
+          "match_tokens": [
+            "metallophone",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kantilan_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "kantilan_kotekan",
+          "default": true,
+          "name": "Fast kotekan interlocking with damping (canonical)",
+          "descriptors": [
+            "rippling",
+            "crisp",
+            "rapid"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        },
+        {
+          "id": "kantilan_norot",
+          "name": "Norot neighbour-tone figuration",
+          "descriptors": [
+            "flowing",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "gong-kebyar",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kantilan_pairing",
+      "surface": false,
+      "name": "Tuning pairing",
+      "variants": [
+        {
+          "id": "kantilan_paired_ombak",
+          "default": true,
+          "name": "Paired pengumbang/pengisep detuning",
+          "descriptors": [
+            "beating-shimmer",
+            "pulsing"
+          ],
+          "match_tokens": [
+            "balinese",
+            "paired-tuning"
+          ]
+        },
+        {
+          "id": "kantilan_single",
+          "name": "Single unpaired instrument",
+          "descriptors": [
+            "clean",
+            "static"
+          ],
+          "match_tokens": [
+            "balinese"
+          ]
+        }
+      ]
+    }
+  ]
+}

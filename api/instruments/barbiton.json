@@ -1,0 +1,156 @@
+{
+  "id": "barbiton",
+  "name": "Barbiton (ancient Greek long-armed bass lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "barbiton",
+  "parts": [
+    {
+      "id": "barbiton_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "barbiton_tortoise",
+          "default": true,
+          "name": "Tortoise-shell bowl with elongated curving arms",
+          "descriptors": [
+            "deep-toned",
+            "husky",
+            "mellow"
+          ],
+          "match_tokens": [
+            "lyre",
+            "ancient-greek",
+            "low-register"
+          ]
+        },
+        {
+          "id": "barbiton_wooden",
+          "name": "Wooden-bowl barbiton (Italic form)",
+          "descriptors": [
+            "woody",
+            "dry",
+            "warm"
+          ],
+          "match_tokens": [
+            "lyre",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "barbiton_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "barbiton_symposium",
+          "default": true,
+          "name": "Symposium song accompaniment",
+          "descriptors": [
+            "languid",
+            "supporting",
+            "intimate"
+          ],
+          "match_tokens": [
+            "song-accompaniment",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "barbiton_dionysiac",
+          "name": "Dionysiac revel (komos)",
+          "descriptors": [
+            "swaying",
+            "loose",
+            "exuberant"
+          ],
+          "match_tokens": [
+            "strummed",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "barbiton_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "barbiton_tortoise",
+          "default": true,
+          "name": "Tortoise-shell bowl with elongated curving arms",
+          "descriptors": [
+            "deep-toned",
+            "husky",
+            "mellow"
+          ],
+          "match_tokens": [
+            "lyre",
+            "ancient-greek",
+            "low-register"
+          ]
+        },
+        {
+          "id": "barbiton_wooden",
+          "name": "Wooden-bowl barbiton (Italic form)",
+          "descriptors": [
+            "woody",
+            "dry",
+            "warm"
+          ],
+          "match_tokens": [
+            "lyre",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "barbiton_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "barbiton_symposium",
+          "default": true,
+          "name": "Symposium song accompaniment",
+          "descriptors": [
+            "languid",
+            "supporting",
+            "intimate"
+          ],
+          "match_tokens": [
+            "song-accompaniment",
+            "ancient-greek"
+          ]
+        },
+        {
+          "id": "barbiton_dionysiac",
+          "name": "Dionysiac revel (komos)",
+          "descriptors": [
+            "swaying",
+            "loose",
+            "exuberant"
+          ],
+          "match_tokens": [
+            "strummed",
+            "ritual"
+          ]
+        }
+      ]
+    }
+  ]
+}

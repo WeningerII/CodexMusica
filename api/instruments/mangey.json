@@ -1,0 +1,146 @@
+{
+  "id": "mangey",
+  "name": "Mangey (Sindhi clay-pot percussion pair)",
+  "family": "percussion",
+  "class": "clay_pot_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "mangey",
+  "parts": [
+    {
+      "id": "mangey_pot",
+      "name": "Pot size",
+      "variants": [
+        {
+          "id": "mangey_large",
+          "default": true,
+          "name": "Large water pot (deep boom, open mouth)",
+          "descriptors": [
+            "deep-toned",
+            "hollow-boom"
+          ],
+          "match_tokens": [
+            "clay-pot",
+            "sindhi",
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "mangey_small",
+          "name": "Small pot (higher, tighter)",
+          "descriptors": [
+            "popping",
+            "tight"
+          ],
+          "match_tokens": [
+            "clay-pot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mangey_technique",
+      "surface": false,
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "mangey_palm_mouth",
+          "default": true,
+          "name": "Palm slapped over the mouth plus finger strokes on the belly",
+          "descriptors": [
+            "bassy-thump",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "clay-pot",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "mangey_ring",
+          "name": "Fingertip and ring strokes on the shoulder",
+          "descriptors": [
+            "clicking",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "clay-pot"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mangey_pot",
+      "name": "Pot size",
+      "variants": [
+        {
+          "id": "mangey_large",
+          "default": true,
+          "name": "Large water pot (deep boom, open mouth)",
+          "descriptors": [
+            "deep-toned",
+            "hollow-boom"
+          ],
+          "match_tokens": [
+            "clay-pot",
+            "sindhi",
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "mangey_small",
+          "name": "Small pot (higher, tighter)",
+          "descriptors": [
+            "popping",
+            "tight"
+          ],
+          "match_tokens": [
+            "clay-pot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mangey_technique",
+      "surface": false,
+      "name": "Striking technique",
+      "variants": [
+        {
+          "id": "mangey_palm_mouth",
+          "default": true,
+          "name": "Palm slapped over the mouth plus finger strokes on the belly",
+          "descriptors": [
+            "bassy-thump",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "clay-pot",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "mangey_ring",
+          "name": "Fingertip and ring strokes on the shoulder",
+          "descriptors": [
+            "clicking",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "clay-pot"
+          ]
+        }
+      ]
+    }
+  ]
+}

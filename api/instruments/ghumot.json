@@ -1,0 +1,210 @@
+{
+  "id": "ghumot",
+  "name": "Ghumot (Goan clay pot drum)",
+  "family": "percussion",
+  "class": "clay_pot_drum",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ghumot",
+  "parts": [
+    {
+      "id": "ghumot_head",
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "ghumot_goat",
+          "default": true,
+          "name": "Goatskin head (modern legal standard)",
+          "descriptors": [
+            "warm-thump",
+            "round-tone"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "goa"
+          ]
+        },
+        {
+          "id": "ghumot_lizard",
+          "name": "Traditional monitor-lizard skin (historic)",
+          "descriptors": [
+            "dry-crack",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "historic-build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghumot_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ghumot_open_hand",
+          "default": true,
+          "name": "Hand strokes with open rear mouth",
+          "descriptors": [
+            "boomy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "ghumot_muted",
+          "name": "Rear mouth muted against the body",
+          "descriptors": [
+            "muted-thump",
+            "tight"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "muted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghumot_context",
+      "surface": false,
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "ghumot_mando",
+          "default": true,
+          "name": "Mando and Goan folk song accompaniment",
+          "descriptors": [
+            "lilting",
+            "supporting"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "goan-folk"
+          ]
+        },
+        {
+          "id": "ghumot_temple",
+          "name": "Temple aarti accompaniment",
+          "descriptors": [
+            "devotional",
+            "steady"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "devotional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ghumot_head",
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "ghumot_goat",
+          "default": true,
+          "name": "Goatskin head (modern legal standard)",
+          "descriptors": [
+            "warm-thump",
+            "round-tone"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "goa"
+          ]
+        },
+        {
+          "id": "ghumot_lizard",
+          "name": "Traditional monitor-lizard skin (historic)",
+          "descriptors": [
+            "dry-crack",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "historic-build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghumot_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ghumot_open_hand",
+          "default": true,
+          "name": "Hand strokes with open rear mouth",
+          "descriptors": [
+            "boomy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "hand-struck"
+          ]
+        },
+        {
+          "id": "ghumot_muted",
+          "name": "Rear mouth muted against the body",
+          "descriptors": [
+            "muted-thump",
+            "tight"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "muted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ghumot_context",
+      "surface": false,
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "ghumot_mando",
+          "default": true,
+          "name": "Mando and Goan folk song accompaniment",
+          "descriptors": [
+            "lilting",
+            "supporting"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "goan-folk"
+          ]
+        },
+        {
+          "id": "ghumot_temple",
+          "name": "Temple aarti accompaniment",
+          "descriptors": [
+            "devotional",
+            "steady"
+          ],
+          "match_tokens": [
+            "pot-drum",
+            "devotional"
+          ]
+        }
+      ]
+    }
+  ]
+}

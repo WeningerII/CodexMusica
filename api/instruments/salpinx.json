@@ -1,0 +1,182 @@
+{
+  "id": "salpinx",
+  "name": "Salpinx (ancient Greek straight war trumpet)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "salpinx",
+  "parts": [
+    {
+      "id": "salpinx_build",
+      "name": "Tube construction",
+      "variants": [
+        {
+          "id": "salpinx_bone_bronze",
+          "default": true,
+          "name": "Bronze tube with bone segments and flared kodon bell",
+          "descriptors": [
+            "harsh",
+            "blaring",
+            "raw"
+          ],
+          "match_tokens": [
+            "straight-trumpet",
+            "greek",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "salpinx_all_bronze",
+          "name": "All-bronze tube",
+          "descriptors": [
+            "metallic",
+            "cutting",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "straight-trumpet",
+            "bronze"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salpinx_use",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "salpinx_war",
+          "default": true,
+          "name": "Battle signal (polemikon)",
+          "descriptors": [
+            "strident",
+            "abrupt",
+            "alarm-like"
+          ],
+          "match_tokens": [
+            "signal-calls",
+            "greek"
+          ]
+        },
+        {
+          "id": "salpinx_games",
+          "name": "Olympic herald / contest blast",
+          "descriptors": [
+            "sustained",
+            "forceful",
+            "announcing"
+          ],
+          "match_tokens": [
+            "fanfare",
+            "greek"
+          ]
+        },
+        {
+          "id": "salpinx_rite",
+          "name": "Sacrificial and processional use",
+          "descriptors": [
+            "solemn",
+            "ritual",
+            "stark"
+          ],
+          "match_tokens": [
+            "ritual",
+            "greek"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "salpinx_build",
+      "name": "Tube construction",
+      "variants": [
+        {
+          "id": "salpinx_bone_bronze",
+          "default": true,
+          "name": "Bronze tube with bone segments and flared kodon bell",
+          "descriptors": [
+            "harsh",
+            "blaring",
+            "raw"
+          ],
+          "match_tokens": [
+            "straight-trumpet",
+            "greek",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "salpinx_all_bronze",
+          "name": "All-bronze tube",
+          "descriptors": [
+            "metallic",
+            "cutting",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "straight-trumpet",
+            "bronze"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salpinx_use",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "salpinx_war",
+          "default": true,
+          "name": "Battle signal (polemikon)",
+          "descriptors": [
+            "strident",
+            "abrupt",
+            "alarm-like"
+          ],
+          "match_tokens": [
+            "signal-calls",
+            "greek"
+          ]
+        },
+        {
+          "id": "salpinx_games",
+          "name": "Olympic herald / contest blast",
+          "descriptors": [
+            "sustained",
+            "forceful",
+            "announcing"
+          ],
+          "match_tokens": [
+            "fanfare",
+            "greek"
+          ]
+        },
+        {
+          "id": "salpinx_rite",
+          "name": "Sacrificial and processional use",
+          "descriptors": [
+            "solemn",
+            "ritual",
+            "stark"
+          ],
+          "match_tokens": [
+            "ritual",
+            "greek"
+          ]
+        }
+      ]
+    }
+  ]
+}
