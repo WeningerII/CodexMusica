@@ -1,0 +1,235 @@
+{
+  "id": "regal",
+  "name": "Regal (portable Renaissance beating-reed organ)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "regal",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "regal_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "regal_bible",
+          "default": true,
+          "name": "Bible regal (folding bellows, table-top)",
+          "descriptors": [
+            "snarling-reed",
+            "nasal",
+            "buzzing-timbre",
+            "portable"
+          ],
+          "match_tokens": [
+            "reed-organ",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "regal_stationary",
+          "name": "Stationary chest regal (larger case)",
+          "descriptors": [
+            "fuller-toned",
+            "reedy",
+            "church-continuo"
+          ],
+          "match_tokens": [
+            "reed-organ",
+            "continuo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regal_resonator",
+      "name": "Reed resonator shape",
+      "variants": [
+        {
+          "id": "regal_short_boot",
+          "default": true,
+          "name": "Short boot resonators (canonical snarl)",
+          "descriptors": [
+            "rasping",
+            "piercing",
+            "harmonically-dense"
+          ],
+          "match_tokens": [
+            "beating-reed"
+          ]
+        },
+        {
+          "id": "regal_funnel",
+          "name": "Funnel/cup resonators",
+          "descriptors": [
+            "rounder",
+            "hollow-toned"
+          ],
+          "match_tokens": [
+            "beating-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regal_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "regal_continuo",
+          "default": true,
+          "name": "Basso continuo in early-Baroque consort",
+          "descriptors": [
+            "continuo-support",
+            "cutting"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "continuo"
+          ]
+        },
+        {
+          "id": "regal_processional",
+          "name": "Processional/ceremonial use",
+          "descriptors": [
+            "outdoor-projecting",
+            "strident"
+          ],
+          "match_tokens": [
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "regal_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "regal_bible",
+          "default": true,
+          "name": "Bible regal (folding bellows, table-top)",
+          "descriptors": [
+            "snarling-reed",
+            "nasal",
+            "buzzing-timbre",
+            "portable"
+          ],
+          "match_tokens": [
+            "reed-organ",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "regal_stationary",
+          "name": "Stationary chest regal (larger case)",
+          "descriptors": [
+            "fuller-toned",
+            "reedy",
+            "church-continuo"
+          ],
+          "match_tokens": [
+            "reed-organ",
+            "continuo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regal_resonator",
+      "name": "Reed resonator shape",
+      "variants": [
+        {
+          "id": "regal_short_boot",
+          "default": true,
+          "name": "Short boot resonators (canonical snarl)",
+          "descriptors": [
+            "rasping",
+            "piercing",
+            "harmonically-dense"
+          ],
+          "match_tokens": [
+            "beating-reed"
+          ]
+        },
+        {
+          "id": "regal_funnel",
+          "name": "Funnel/cup resonators",
+          "descriptors": [
+            "rounder",
+            "hollow-toned"
+          ],
+          "match_tokens": [
+            "beating-reed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regal_context",
+      "surface": false,
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "regal_continuo",
+          "default": true,
+          "name": "Basso continuo in early-Baroque consort",
+          "descriptors": [
+            "continuo-support",
+            "cutting"
+          ],
+          "match_tokens": [
+            "renaissance",
+            "continuo"
+          ]
+        },
+        {
+          "id": "regal_processional",
+          "name": "Processional/ceremonial use",
+          "descriptors": [
+            "outdoor-projecting",
+            "strident"
+          ],
+          "match_tokens": [
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ]
+}

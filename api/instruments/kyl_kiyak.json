@@ -1,0 +1,239 @@
+{
+  "id": "kyl_kiyak",
+  "name": "Kyl kiyak (Kyrgyz Naryn-highland horsehair bowed fiddle, kiyak form)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kiyak",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kyl_kiyak_belly",
+      "name": "Belly membrane",
+      "variants": [
+        {
+          "id": "kyl_kiyak_camel_skin",
+          "default": true,
+          "name": "Camel-skin belly on juniper bowl (highland build)",
+          "descriptors": [
+            "husky",
+            "breathy",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "horsehair-bow",
+            "kyrgyz"
+          ]
+        },
+        {
+          "id": "kyl_kiyak_horse_skin",
+          "name": "Horse-hide belly",
+          "descriptors": [
+            "darker",
+            "dry-toned"
+          ],
+          "match_tokens": [
+            "horsehair-bow",
+            "kyrgyz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyl_kiyak_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kyl_kiyak_kuu",
+          "default": true,
+          "name": "Küü instrumental narrative",
+          "descriptors": [
+            "droning",
+            "rubato",
+            "mournful"
+          ],
+          "match_tokens": [
+            "kyrgyz",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "kyl_kiyak_epic",
+          "name": "Manas epic recitation accompaniment",
+          "descriptors": [
+            "declamatory",
+            "sustained",
+            "archaic"
+          ],
+          "match_tokens": [
+            "kyrgyz",
+            "epic-accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyl_kiyak_strings",
+      "surface": false,
+      "name": "String bundle",
+      "variants": [
+        {
+          "id": "kyl_kiyak_horsehair",
+          "default": true,
+          "name": "Twisted horsehair strings (traditional)",
+          "descriptors": [
+            "raspy",
+            "noisy-bow",
+            "organic"
+          ],
+          "match_tokens": [
+            "horsehair-string"
+          ]
+        },
+        {
+          "id": "kyl_kiyak_nylon",
+          "name": "Nylon replacement strings (modern)",
+          "descriptors": [
+            "smoother",
+            "cleaner"
+          ],
+          "match_tokens": [
+            "kyrgyz"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kyl_kiyak_belly",
+      "name": "Belly membrane",
+      "variants": [
+        {
+          "id": "kyl_kiyak_camel_skin",
+          "default": true,
+          "name": "Camel-skin belly on juniper bowl (highland build)",
+          "descriptors": [
+            "husky",
+            "breathy",
+            "overtone-rich"
+          ],
+          "match_tokens": [
+            "horsehair-bow",
+            "kyrgyz"
+          ]
+        },
+        {
+          "id": "kyl_kiyak_horse_skin",
+          "name": "Horse-hide belly",
+          "descriptors": [
+            "darker",
+            "dry-toned"
+          ],
+          "match_tokens": [
+            "horsehair-bow",
+            "kyrgyz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyl_kiyak_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "kyl_kiyak_kuu",
+          "default": true,
+          "name": "Küü instrumental narrative",
+          "descriptors": [
+            "droning",
+            "rubato",
+            "mournful"
+          ],
+          "match_tokens": [
+            "kyrgyz",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "kyl_kiyak_epic",
+          "name": "Manas epic recitation accompaniment",
+          "descriptors": [
+            "declamatory",
+            "sustained",
+            "archaic"
+          ],
+          "match_tokens": [
+            "kyrgyz",
+            "epic-accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyl_kiyak_strings",
+      "surface": false,
+      "name": "String bundle",
+      "variants": [
+        {
+          "id": "kyl_kiyak_horsehair",
+          "default": true,
+          "name": "Twisted horsehair strings (traditional)",
+          "descriptors": [
+            "raspy",
+            "noisy-bow",
+            "organic"
+          ],
+          "match_tokens": [
+            "horsehair-string"
+          ]
+        },
+        {
+          "id": "kyl_kiyak_nylon",
+          "name": "Nylon replacement strings (modern)",
+          "descriptors": [
+            "smoother",
+            "cleaner"
+          ],
+          "match_tokens": [
+            "kyrgyz"
+          ]
+        }
+      ]
+    }
+  ]
+}

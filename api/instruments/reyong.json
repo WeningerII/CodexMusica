@@ -1,0 +1,272 @@
+{
+  "id": "reyong",
+  "name": "Reyong (Balinese row of tuned kettle gongs)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "reyong",
+  "parts": [
+    {
+      "id": "reyong_form",
+      "name": "Instrument form / gong row",
+      "variants": [
+        {
+          "id": "reyong_gong_kebyar_twelve",
+          "default": true,
+          "name": "Twelve-kettle gong kebyar reyong (four players)",
+          "descriptors": [
+            "bright-attack",
+            "interlocking",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "balinese",
+            "gamelan"
+          ]
+        },
+        {
+          "id": "reyong_angklung_four",
+          "name": "Four-kettle reyong angklung (single player)",
+          "descriptors": [
+            "compact",
+            "chiming",
+            "light"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "balinese"
+          ]
+        },
+        {
+          "id": "reyong_trompong",
+          "name": "Trompong-style solo row (lyrical, single player)",
+          "descriptors": [
+            "singing",
+            "melodic",
+            "open-ringing"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reyong_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "reyong_norot",
+          "default": true,
+          "name": "Interlocking kotekan / norot figuration",
+          "descriptors": [
+            "interlocking",
+            "rapid",
+            "glittering"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "interlocking"
+          ]
+        },
+        {
+          "id": "reyong_byong",
+          "name": "Byong dampened cluster chords",
+          "descriptors": [
+            "clangorous",
+            "crashing",
+            "noisy"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "percussive"
+          ]
+        },
+        {
+          "id": "reyong_kecek",
+          "name": "Kecek rim-striking ostinato (panggul on boss rim)",
+          "descriptors": [
+            "dry-click",
+            "rattling",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "rim-strike"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reyong_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "reyong_pelog_selisir",
+          "default": true,
+          "name": "Pelog selisir five-tone",
+          "descriptors": [
+            "pelog-tuned",
+            "beating-pairs"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "pelog"
+          ]
+        },
+        {
+          "id": "reyong_slendro",
+          "name": "Slendro tuning (angklung/gender wayang sets)",
+          "descriptors": [
+            "slendro-tuned",
+            "even-spaced"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "slendro"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "reyong_form",
+      "name": "Instrument form / gong row",
+      "variants": [
+        {
+          "id": "reyong_gong_kebyar_twelve",
+          "default": true,
+          "name": "Twelve-kettle gong kebyar reyong (four players)",
+          "descriptors": [
+            "bright-attack",
+            "interlocking",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "balinese",
+            "gamelan"
+          ]
+        },
+        {
+          "id": "reyong_angklung_four",
+          "name": "Four-kettle reyong angklung (single player)",
+          "descriptors": [
+            "compact",
+            "chiming",
+            "light"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "balinese"
+          ]
+        },
+        {
+          "id": "reyong_trompong",
+          "name": "Trompong-style solo row (lyrical, single player)",
+          "descriptors": [
+            "singing",
+            "melodic",
+            "open-ringing"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "balinese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reyong_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "reyong_norot",
+          "default": true,
+          "name": "Interlocking kotekan / norot figuration",
+          "descriptors": [
+            "interlocking",
+            "rapid",
+            "glittering"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "interlocking"
+          ]
+        },
+        {
+          "id": "reyong_byong",
+          "name": "Byong dampened cluster chords",
+          "descriptors": [
+            "clangorous",
+            "crashing",
+            "noisy"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "percussive"
+          ]
+        },
+        {
+          "id": "reyong_kecek",
+          "name": "Kecek rim-striking ostinato (panggul on boss rim)",
+          "descriptors": [
+            "dry-click",
+            "rattling",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "rim-strike"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reyong_tuning",
+      "surface": false,
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "reyong_pelog_selisir",
+          "default": true,
+          "name": "Pelog selisir five-tone",
+          "descriptors": [
+            "pelog-tuned",
+            "beating-pairs"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "pelog"
+          ]
+        },
+        {
+          "id": "reyong_slendro",
+          "name": "Slendro tuning (angklung/gender wayang sets)",
+          "descriptors": [
+            "slendro-tuned",
+            "even-spaced"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "slendro"
+          ]
+        }
+      ]
+    }
+  ]
+}

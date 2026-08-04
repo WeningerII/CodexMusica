@@ -1,0 +1,309 @@
+{
+  "id": "prepared_piano",
+  "name": "Prepared piano (piano with objects placed on the strings)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "prepared piano",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "prepared_piano_object",
+      "name": "Preparation object",
+      "variants": [
+        {
+          "id": "prepared_piano_bolts",
+          "default": true,
+          "name": "Bolts and screws between strings (Cage canonical)",
+          "descriptors": [
+            "metallic-clang",
+            "gamelan-like",
+            "inharmonic",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "prepared-piano",
+            "percussive-keyboard"
+          ]
+        },
+        {
+          "id": "prepared_piano_rubber",
+          "name": "Rubber wedges and erasers",
+          "descriptors": [
+            "muted-thud",
+            "dry",
+            "damped"
+          ],
+          "match_tokens": [
+            "prepared-piano",
+            "muted"
+          ]
+        },
+        {
+          "id": "prepared_piano_felt",
+          "name": "Felt strips / cloth mute",
+          "descriptors": [
+            "soft-toned",
+            "hushed",
+            "warm"
+          ],
+          "match_tokens": [
+            "felt-piano",
+            "intimate"
+          ]
+        },
+        {
+          "id": "prepared_piano_paper",
+          "name": "Paper, plastic and coins on strings",
+          "descriptors": [
+            "buzzing-timbre",
+            "rattling",
+            "noisy"
+          ],
+          "match_tokens": [
+            "prepared-piano",
+            "buzzing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prepared_piano_zone",
+      "name": "Prepared register zone",
+      "variants": [
+        {
+          "id": "prepared_piano_middle",
+          "default": true,
+          "name": "Middle-register octaves prepared only",
+          "descriptors": [
+            "mixed-timbre",
+            "contrasting"
+          ],
+          "match_tokens": [
+            "prepared-piano"
+          ]
+        },
+        {
+          "id": "prepared_piano_full",
+          "name": "Full compass prepared",
+          "descriptors": [
+            "uniformly-percussive",
+            "inharmonic"
+          ],
+          "match_tokens": [
+            "prepared-piano"
+          ]
+        },
+        {
+          "id": "prepared_piano_bass",
+          "name": "Bass strings prepared",
+          "descriptors": [
+            "deep-toned",
+            "gong-like",
+            "booming"
+          ],
+          "match_tokens": [
+            "prepared-piano",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prepared_piano_instrument",
+      "surface": false,
+      "name": "Host instrument",
+      "variants": [
+        {
+          "id": "prepared_piano_grand",
+          "default": true,
+          "name": "Concert grand",
+          "descriptors": [
+            "resonant",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "piano"
+          ]
+        },
+        {
+          "id": "prepared_piano_upright",
+          "name": "Upright piano",
+          "descriptors": [
+            "boxy",
+            "close-toned"
+          ],
+          "match_tokens": [
+            "piano"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "prepared_piano_object",
+      "name": "Preparation object",
+      "variants": [
+        {
+          "id": "prepared_piano_bolts",
+          "default": true,
+          "name": "Bolts and screws between strings (Cage canonical)",
+          "descriptors": [
+            "metallic-clang",
+            "gamelan-like",
+            "inharmonic",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "prepared-piano",
+            "percussive-keyboard"
+          ]
+        },
+        {
+          "id": "prepared_piano_rubber",
+          "name": "Rubber wedges and erasers",
+          "descriptors": [
+            "muted-thud",
+            "dry",
+            "damped"
+          ],
+          "match_tokens": [
+            "prepared-piano",
+            "muted"
+          ]
+        },
+        {
+          "id": "prepared_piano_felt",
+          "name": "Felt strips / cloth mute",
+          "descriptors": [
+            "soft-toned",
+            "hushed",
+            "warm"
+          ],
+          "match_tokens": [
+            "felt-piano",
+            "intimate"
+          ]
+        },
+        {
+          "id": "prepared_piano_paper",
+          "name": "Paper, plastic and coins on strings",
+          "descriptors": [
+            "buzzing-timbre",
+            "rattling",
+            "noisy"
+          ],
+          "match_tokens": [
+            "prepared-piano",
+            "buzzing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prepared_piano_zone",
+      "name": "Prepared register zone",
+      "variants": [
+        {
+          "id": "prepared_piano_middle",
+          "default": true,
+          "name": "Middle-register octaves prepared only",
+          "descriptors": [
+            "mixed-timbre",
+            "contrasting"
+          ],
+          "match_tokens": [
+            "prepared-piano"
+          ]
+        },
+        {
+          "id": "prepared_piano_full",
+          "name": "Full compass prepared",
+          "descriptors": [
+            "uniformly-percussive",
+            "inharmonic"
+          ],
+          "match_tokens": [
+            "prepared-piano"
+          ]
+        },
+        {
+          "id": "prepared_piano_bass",
+          "name": "Bass strings prepared",
+          "descriptors": [
+            "deep-toned",
+            "gong-like",
+            "booming"
+          ],
+          "match_tokens": [
+            "prepared-piano",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prepared_piano_instrument",
+      "surface": false,
+      "name": "Host instrument",
+      "variants": [
+        {
+          "id": "prepared_piano_grand",
+          "default": true,
+          "name": "Concert grand",
+          "descriptors": [
+            "resonant",
+            "long-decay"
+          ],
+          "match_tokens": [
+            "piano"
+          ]
+        },
+        {
+          "id": "prepared_piano_upright",
+          "name": "Upright piano",
+          "descriptors": [
+            "boxy",
+            "close-toned"
+          ],
+          "match_tokens": [
+            "piano"
+          ]
+        }
+      ]
+    }
+  ]
+}

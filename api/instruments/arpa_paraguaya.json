@@ -1,0 +1,234 @@
+{
+  "id": "arpa_paraguaya",
+  "name": "Arpa paraguaya (Paraguayan diatonic folk harp)",
+  "family": "acoustic_strings",
+  "class": "plucked_harp",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "arpa paraguaya",
+  "parts": [
+    {
+      "id": "arpa_paraguaya_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "arpa_paraguaya_nylon",
+          "default": true,
+          "name": "Nylon strings (modern canonical)",
+          "descriptors": [
+            "silvery",
+            "clear",
+            "ringing"
+          ],
+          "match_tokens": [
+            "folk-harp",
+            "paraguayan"
+          ]
+        },
+        {
+          "id": "arpa_paraguaya_gut",
+          "name": "Gut strings (older builds)",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "folk-harp",
+            "paraguayan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_paraguaya_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "arpa_paraguaya_fingernail",
+          "default": true,
+          "name": "Fingernail plucking (uña) with glissando runs",
+          "descriptors": [
+            "bright-attack",
+            "cascading",
+            "percussive-pluck"
+          ],
+          "match_tokens": [
+            "folk-harp",
+            "glissando"
+          ]
+        },
+        {
+          "id": "arpa_paraguaya_pulp",
+          "name": "Fingertip pulp plucking",
+          "descriptors": [
+            "soft-toned",
+            "rounded"
+          ],
+          "match_tokens": [
+            "folk-harp"
+          ]
+        },
+        {
+          "id": "arpa_paraguaya_trino",
+          "name": "Trino / tremolo repeated-note style",
+          "descriptors": [
+            "shimmering",
+            "fluttering"
+          ],
+          "match_tokens": [
+            "folk-harp",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_paraguaya_body",
+      "surface": false,
+      "name": "Soundbox wood",
+      "variants": [
+        {
+          "id": "arpa_paraguaya_cedar",
+          "default": true,
+          "name": "Cedar soundboard, light build",
+          "descriptors": [
+            "resonant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "folk-harp"
+          ]
+        },
+        {
+          "id": "arpa_paraguaya_pine",
+          "name": "Pine soundboard",
+          "descriptors": [
+            "bright",
+            "crisp"
+          ],
+          "match_tokens": [
+            "folk-harp"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "arpa_paraguaya_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "arpa_paraguaya_nylon",
+          "default": true,
+          "name": "Nylon strings (modern canonical)",
+          "descriptors": [
+            "silvery",
+            "clear",
+            "ringing"
+          ],
+          "match_tokens": [
+            "folk-harp",
+            "paraguayan"
+          ]
+        },
+        {
+          "id": "arpa_paraguaya_gut",
+          "name": "Gut strings (older builds)",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "folk-harp",
+            "paraguayan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_paraguaya_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "arpa_paraguaya_fingernail",
+          "default": true,
+          "name": "Fingernail plucking (uña) with glissando runs",
+          "descriptors": [
+            "bright-attack",
+            "cascading",
+            "percussive-pluck"
+          ],
+          "match_tokens": [
+            "folk-harp",
+            "glissando"
+          ]
+        },
+        {
+          "id": "arpa_paraguaya_pulp",
+          "name": "Fingertip pulp plucking",
+          "descriptors": [
+            "soft-toned",
+            "rounded"
+          ],
+          "match_tokens": [
+            "folk-harp"
+          ]
+        },
+        {
+          "id": "arpa_paraguaya_trino",
+          "name": "Trino / tremolo repeated-note style",
+          "descriptors": [
+            "shimmering",
+            "fluttering"
+          ],
+          "match_tokens": [
+            "folk-harp",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arpa_paraguaya_body",
+      "surface": false,
+      "name": "Soundbox wood",
+      "variants": [
+        {
+          "id": "arpa_paraguaya_cedar",
+          "default": true,
+          "name": "Cedar soundboard, light build",
+          "descriptors": [
+            "resonant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "folk-harp"
+          ]
+        },
+        {
+          "id": "arpa_paraguaya_pine",
+          "name": "Pine soundboard",
+          "descriptors": [
+            "bright",
+            "crisp"
+          ],
+          "match_tokens": [
+            "folk-harp"
+          ]
+        }
+      ]
+    }
+  ]
+}

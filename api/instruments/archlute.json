@@ -1,0 +1,268 @@
+{
+  "id": "archlute",
+  "name": "Archlute (extended-neck baroque lute with unstopped basses)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "archlute",
+  "parts": [
+    {
+      "id": "archlute_courses",
+      "name": "Course layout",
+      "variants": [
+        {
+          "id": "archlute_fourteen",
+          "default": true,
+          "name": "Fourteen courses (six stopped, eight diapasons)",
+          "descriptors": [
+            "resonant-basses",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "lute",
+            "baroque",
+            "plucked"
+          ]
+        },
+        {
+          "id": "archlute_thirteen",
+          "name": "Thirteen-course Italian arciliuto",
+          "descriptors": [
+            "balanced",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "lute",
+            "italian"
+          ]
+        },
+        {
+          "id": "archlute_liuto_attiorbato",
+          "name": "Liuto attiorbato (short extension, on-body basses)",
+          "descriptors": [
+            "compact",
+            "warm",
+            "intimate"
+          ],
+          "match_tokens": [
+            "lute",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archlute_stringing",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "archlute_gut",
+          "default": true,
+          "name": "Plain and loaded gut strings",
+          "descriptors": [
+            "mellow",
+            "period-authentic",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "gut-strung",
+            "baroque"
+          ]
+        },
+        {
+          "id": "archlute_wound_bass",
+          "name": "Wound bass courses (late baroque)",
+          "descriptors": [
+            "deep-toned",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "lute",
+            "wound-strings"
+          ]
+        },
+        {
+          "id": "archlute_nylgut",
+          "name": "Modern synthetic (nylgut) stringing",
+          "descriptors": [
+            "bright-attack",
+            "projecting"
+          ],
+          "match_tokens": [
+            "lute",
+            "modern-strung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archlute_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "archlute_continuo",
+          "default": true,
+          "name": "Basso continuo realization",
+          "descriptors": [
+            "chordal",
+            "supporting",
+            "arpeggiated"
+          ],
+          "match_tokens": [
+            "continuo",
+            "baroque",
+            "plucked"
+          ]
+        },
+        {
+          "id": "archlute_solo",
+          "name": "Solo repertoire (suites, toccatas)",
+          "descriptors": [
+            "contrapuntal",
+            "delicate",
+            "expressive"
+          ],
+          "match_tokens": [
+            "lute",
+            "solo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "archlute_courses",
+      "name": "Course layout",
+      "variants": [
+        {
+          "id": "archlute_fourteen",
+          "default": true,
+          "name": "Fourteen courses (six stopped, eight diapasons)",
+          "descriptors": [
+            "resonant-basses",
+            "full-bodied"
+          ],
+          "match_tokens": [
+            "lute",
+            "baroque",
+            "plucked"
+          ]
+        },
+        {
+          "id": "archlute_thirteen",
+          "name": "Thirteen-course Italian arciliuto",
+          "descriptors": [
+            "balanced",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "lute",
+            "italian"
+          ]
+        },
+        {
+          "id": "archlute_liuto_attiorbato",
+          "name": "Liuto attiorbato (short extension, on-body basses)",
+          "descriptors": [
+            "compact",
+            "warm",
+            "intimate"
+          ],
+          "match_tokens": [
+            "lute",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archlute_stringing",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "archlute_gut",
+          "default": true,
+          "name": "Plain and loaded gut strings",
+          "descriptors": [
+            "mellow",
+            "period-authentic",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "gut-strung",
+            "baroque"
+          ]
+        },
+        {
+          "id": "archlute_wound_bass",
+          "name": "Wound bass courses (late baroque)",
+          "descriptors": [
+            "deep-toned",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "lute",
+            "wound-strings"
+          ]
+        },
+        {
+          "id": "archlute_nylgut",
+          "name": "Modern synthetic (nylgut) stringing",
+          "descriptors": [
+            "bright-attack",
+            "projecting"
+          ],
+          "match_tokens": [
+            "lute",
+            "modern-strung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "archlute_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "archlute_continuo",
+          "default": true,
+          "name": "Basso continuo realization",
+          "descriptors": [
+            "chordal",
+            "supporting",
+            "arpeggiated"
+          ],
+          "match_tokens": [
+            "continuo",
+            "baroque",
+            "plucked"
+          ]
+        },
+        {
+          "id": "archlute_solo",
+          "name": "Solo repertoire (suites, toccatas)",
+          "descriptors": [
+            "contrapuntal",
+            "delicate",
+            "expressive"
+          ],
+          "match_tokens": [
+            "lute",
+            "solo"
+          ]
+        }
+      ]
+    }
+  ]
+}

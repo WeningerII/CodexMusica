@@ -1,5 +1,5 @@
 {
-  "count": 1392,
+  "count": 1406,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8352,6 +8352,90 @@
       "name": "Surnai (Afghan double-reed shawm)",
       "family": "wind",
       "href": "instruments/surnai_afghan.json"
+    },
+    {
+      "id": "reyong",
+      "name": "Reyong (Balinese row of tuned kettle gongs)",
+      "family": "percussion",
+      "href": "instruments/reyong.json"
+    },
+    {
+      "id": "kempul",
+      "name": "Kempul (Javanese hanging colotomic gong)",
+      "family": "percussion",
+      "href": "instruments/kempul.json"
+    },
+    {
+      "id": "kethuk",
+      "name": "Kethuk (small Javanese kettle gong)",
+      "family": "percussion",
+      "href": "instruments/kethuk.json"
+    },
+    {
+      "id": "ceng_ceng",
+      "name": "Ceng-ceng (Balinese cymbal set)",
+      "family": "percussion",
+      "href": "instruments/ceng_ceng.json"
+    },
+    {
+      "id": "tololoche",
+      "name": "Tololoche (Mexican norteño three-quarter upright bass)",
+      "family": "acoustic_strings",
+      "href": "instruments/tololoche.json"
+    },
+    {
+      "id": "archlute",
+      "name": "Archlute (extended-neck baroque lute with unstopped basses)",
+      "family": "plucked_traditional",
+      "href": "instruments/archlute.json"
+    },
+    {
+      "id": "regal",
+      "name": "Regal (portable Renaissance beating-reed organ)",
+      "family": "keyboard",
+      "href": "instruments/regal.json"
+    },
+    {
+      "id": "prepared_piano",
+      "name": "Prepared piano (piano with objects placed on the strings)",
+      "family": "keyboard",
+      "href": "instruments/prepared_piano.json"
+    },
+    {
+      "id": "chamberlin",
+      "name": "Chamberlin (tape-replay keyboard, precursor of the Mellotron)",
+      "family": "keyboard",
+      "href": "instruments/chamberlin.json"
+    },
+    {
+      "id": "schwyzerorgeli",
+      "name": "Schwyzerörgeli (Swiss diatonic button accordion)",
+      "family": "free_reed",
+      "href": "instruments/schwyzerorgeli.json"
+    },
+    {
+      "id": "arpa_paraguaya",
+      "name": "Arpa paraguaya (Paraguayan diatonic folk harp)",
+      "family": "acoustic_strings",
+      "href": "instruments/arpa_paraguaya.json"
+    },
+    {
+      "id": "arpa_grande",
+      "name": "Arpa grande (Mexican Tierra Caliente large folk harp)",
+      "family": "acoustic_strings",
+      "href": "instruments/arpa_grande.json"
+    },
+    {
+      "id": "kyl_kiyak",
+      "name": "Kyl kiyak (Kyrgyz Naryn-highland horsehair bowed fiddle, kiyak form)",
+      "family": "bowed",
+      "href": "instruments/kyl_kiyak.json"
+    },
+    {
+      "id": "trung_bamboo_xylophone",
+      "name": "T'rung (Vietnamese Central Highlands bamboo tube xylophone)",
+      "family": "percussion",
+      "href": "instruments/trung_bamboo_xylophone.json"
     }
   ]
 }

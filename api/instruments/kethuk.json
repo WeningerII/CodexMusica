@@ -1,0 +1,236 @@
+{
+  "id": "kethuk",
+  "name": "Kethuk (small Javanese kettle gong)",
+  "family": "percussion",
+  "class": "tuned_idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kethuk",
+  "parts": [
+    {
+      "id": "kethuk_build",
+      "name": "Kettle build",
+      "variants": [
+        {
+          "id": "kethuk_bronze",
+          "default": true,
+          "name": "Forged bronze kettle on cord-strung rack, damped strike (canonical)",
+          "descriptors": [
+            "dry-thock",
+            "damped",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "javanese"
+          ]
+        },
+        {
+          "id": "kethuk_iron",
+          "name": "Iron kettle (village gamelan)",
+          "descriptors": [
+            "dull",
+            "clangy"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "javanese"
+          ]
+        },
+        {
+          "id": "kethuk_kempyang_pair",
+          "name": "Paired with kempyang on one rack",
+          "descriptors": [
+            "alternating",
+            "interlocked-ping"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "gamelan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kethuk_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "kethuk_slendro",
+          "default": true,
+          "name": "Slendro tuning",
+          "descriptors": [
+            "slendro-tuned",
+            "even-spaced"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "slendro"
+          ]
+        },
+        {
+          "id": "kethuk_pelog",
+          "name": "Pelog tuning",
+          "descriptors": [
+            "pelog-tuned",
+            "unequal-intervals"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "pelog"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kethuk_role",
+      "surface": false,
+      "name": "Colotomic density",
+      "variants": [
+        {
+          "id": "kethuk_kerep",
+          "default": true,
+          "name": "Kethuk kerep (frequent subdivision)",
+          "descriptors": [
+            "ticking",
+            "steady"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "colotomic"
+          ]
+        },
+        {
+          "id": "kethuk_arang",
+          "name": "Kethuk arang (sparse, long-form gendhing)",
+          "descriptors": [
+            "sparse",
+            "meditative"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "colotomic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kethuk_build",
+      "name": "Kettle build",
+      "variants": [
+        {
+          "id": "kethuk_bronze",
+          "default": true,
+          "name": "Forged bronze kettle on cord-strung rack, damped strike (canonical)",
+          "descriptors": [
+            "dry-thock",
+            "damped",
+            "short-decay"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "javanese"
+          ]
+        },
+        {
+          "id": "kethuk_iron",
+          "name": "Iron kettle (village gamelan)",
+          "descriptors": [
+            "dull",
+            "clangy"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "javanese"
+          ]
+        },
+        {
+          "id": "kethuk_kempyang_pair",
+          "name": "Paired with kempyang on one rack",
+          "descriptors": [
+            "alternating",
+            "interlocked-ping"
+          ],
+          "match_tokens": [
+            "kettle-gong",
+            "gamelan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kethuk_tuning",
+      "name": "Tuning system",
+      "variants": [
+        {
+          "id": "kethuk_slendro",
+          "default": true,
+          "name": "Slendro tuning",
+          "descriptors": [
+            "slendro-tuned",
+            "even-spaced"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "slendro"
+          ]
+        },
+        {
+          "id": "kethuk_pelog",
+          "name": "Pelog tuning",
+          "descriptors": [
+            "pelog-tuned",
+            "unequal-intervals"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "pelog"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kethuk_role",
+      "surface": false,
+      "name": "Colotomic density",
+      "variants": [
+        {
+          "id": "kethuk_kerep",
+          "default": true,
+          "name": "Kethuk kerep (frequent subdivision)",
+          "descriptors": [
+            "ticking",
+            "steady"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "colotomic"
+          ]
+        },
+        {
+          "id": "kethuk_arang",
+          "name": "Kethuk arang (sparse, long-form gendhing)",
+          "descriptors": [
+            "sparse",
+            "meditative"
+          ],
+          "match_tokens": [
+            "gamelan",
+            "colotomic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "id": "tololoche",
+  "name": "Tololoche (Mexican norteño three-quarter upright bass)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tololoche",
+  "parts": [
+    {
+      "id": "tololoche_size",
+      "name": "Body size / stringing",
+      "variants": [
+        {
+          "id": "tololoche_three_string",
+          "default": true,
+          "name": "Three-string 3/4 tololoche (traditional norteño)",
+          "descriptors": [
+            "thumping",
+            "woody",
+            "dry-bass"
+          ],
+          "match_tokens": [
+            "upright-bass",
+            "norteno",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tololoche_four_string",
+          "name": "Four-string half-size upright",
+          "descriptors": [
+            "fuller-range",
+            "round-toned"
+          ],
+          "match_tokens": [
+            "upright-bass",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tololoche_gut_strung",
+          "name": "Gut-strung antique tololoche",
+          "descriptors": [
+            "muted",
+            "archaic",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "upright-bass",
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tololoche_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "tololoche_polka_pump",
+          "default": true,
+          "name": "Root-fifth polka pumping bass",
+          "descriptors": [
+            "pumping",
+            "danceable",
+            "steady"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-line",
+            "norteno"
+          ]
+        },
+        {
+          "id": "tololoche_slap",
+          "name": "Slapped percussive bass",
+          "descriptors": [
+            "slapping",
+            "percussive",
+            "snappy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slap-bass"
+          ]
+        },
+        {
+          "id": "tololoche_bowed",
+          "name": "Bowed sustained bass (rare, ranchera ballads)",
+          "descriptors": [
+            "sustained",
+            "dark",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tololoche_size",
+      "name": "Body size / stringing",
+      "variants": [
+        {
+          "id": "tololoche_three_string",
+          "default": true,
+          "name": "Three-string 3/4 tololoche (traditional norteño)",
+          "descriptors": [
+            "thumping",
+            "woody",
+            "dry-bass"
+          ],
+          "match_tokens": [
+            "upright-bass",
+            "norteno",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tololoche_four_string",
+          "name": "Four-string half-size upright",
+          "descriptors": [
+            "fuller-range",
+            "round-toned"
+          ],
+          "match_tokens": [
+            "upright-bass",
+            "plucked"
+          ]
+        },
+        {
+          "id": "tololoche_gut_strung",
+          "name": "Gut-strung antique tololoche",
+          "descriptors": [
+            "muted",
+            "archaic",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "upright-bass",
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tololoche_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "tololoche_polka_pump",
+          "default": true,
+          "name": "Root-fifth polka pumping bass",
+          "descriptors": [
+            "pumping",
+            "danceable",
+            "steady"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-line",
+            "norteno"
+          ]
+        },
+        {
+          "id": "tololoche_slap",
+          "name": "Slapped percussive bass",
+          "descriptors": [
+            "slapping",
+            "percussive",
+            "snappy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "slap-bass"
+          ]
+        },
+        {
+          "id": "tololoche_bowed",
+          "name": "Bowed sustained bass (rare, ranchera ballads)",
+          "descriptors": [
+            "sustained",
+            "dark",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

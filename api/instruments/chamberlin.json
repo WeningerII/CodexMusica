@@ -1,0 +1,287 @@
+{
+  "id": "chamberlin",
+  "name": "Chamberlin (tape-replay keyboard, precursor of the Mellotron)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 1,
+    "dynamics": 0
+  },
+  "short": "chamberlin",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "chamberlin_voice",
+      "name": "Tape voice bank",
+      "variants": [
+        {
+          "id": "chamberlin_strings",
+          "default": true,
+          "name": "String section tapes",
+          "descriptors": [
+            "wavering",
+            "lo-fi",
+            "warm",
+            "tape-saturated"
+          ],
+          "match_tokens": [
+            "tape-keyboard",
+            "string-pad"
+          ]
+        },
+        {
+          "id": "chamberlin_flute",
+          "name": "Flute tapes",
+          "descriptors": [
+            "breathy",
+            "hollow",
+            "nostalgic"
+          ],
+          "match_tokens": [
+            "tape-keyboard",
+            "flute-pad"
+          ]
+        },
+        {
+          "id": "chamberlin_brass",
+          "name": "Brass tapes",
+          "descriptors": [
+            "brash",
+            "compressed",
+            "vintage"
+          ],
+          "match_tokens": [
+            "tape-keyboard",
+            "brass-pad"
+          ]
+        },
+        {
+          "id": "chamberlin_rhythm",
+          "name": "Rhythm/drum loop tapes",
+          "descriptors": [
+            "lo-fi",
+            "shuffling",
+            "dated"
+          ],
+          "match_tokens": [
+            "tape-keyboard",
+            "loop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chamberlin_model",
+      "name": "Model",
+      "variants": [
+        {
+          "id": "chamberlin_m1",
+          "default": true,
+          "name": "Music Master 600 (two-manual)",
+          "descriptors": [
+            "vintage",
+            "unstable-pitch"
+          ],
+          "match_tokens": [
+            "tape-keyboard"
+          ]
+        },
+        {
+          "id": "chamberlin_m4",
+          "name": "M-4 later single-manual",
+          "descriptors": [
+            "cleaner",
+            "refined"
+          ],
+          "match_tokens": [
+            "tape-keyboard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chamberlin_condition",
+      "surface": false,
+      "name": "Tape condition",
+      "variants": [
+        {
+          "id": "chamberlin_worn",
+          "default": true,
+          "name": "Aged tapes with wow and flutter",
+          "descriptors": [
+            "wobbling",
+            "dropout-prone",
+            "haunted"
+          ],
+          "match_tokens": [
+            "tape-keyboard",
+            "lo-fi"
+          ]
+        },
+        {
+          "id": "chamberlin_fresh",
+          "name": "Freshly re-loaded tape frames",
+          "descriptors": [
+            "clearer",
+            "stable"
+          ],
+          "match_tokens": [
+            "tape-keyboard"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chamberlin_voice",
+      "name": "Tape voice bank",
+      "variants": [
+        {
+          "id": "chamberlin_strings",
+          "default": true,
+          "name": "String section tapes",
+          "descriptors": [
+            "wavering",
+            "lo-fi",
+            "warm",
+            "tape-saturated"
+          ],
+          "match_tokens": [
+            "tape-keyboard",
+            "string-pad"
+          ]
+        },
+        {
+          "id": "chamberlin_flute",
+          "name": "Flute tapes",
+          "descriptors": [
+            "breathy",
+            "hollow",
+            "nostalgic"
+          ],
+          "match_tokens": [
+            "tape-keyboard",
+            "flute-pad"
+          ]
+        },
+        {
+          "id": "chamberlin_brass",
+          "name": "Brass tapes",
+          "descriptors": [
+            "brash",
+            "compressed",
+            "vintage"
+          ],
+          "match_tokens": [
+            "tape-keyboard",
+            "brass-pad"
+          ]
+        },
+        {
+          "id": "chamberlin_rhythm",
+          "name": "Rhythm/drum loop tapes",
+          "descriptors": [
+            "lo-fi",
+            "shuffling",
+            "dated"
+          ],
+          "match_tokens": [
+            "tape-keyboard",
+            "loop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chamberlin_model",
+      "name": "Model",
+      "variants": [
+        {
+          "id": "chamberlin_m1",
+          "default": true,
+          "name": "Music Master 600 (two-manual)",
+          "descriptors": [
+            "vintage",
+            "unstable-pitch"
+          ],
+          "match_tokens": [
+            "tape-keyboard"
+          ]
+        },
+        {
+          "id": "chamberlin_m4",
+          "name": "M-4 later single-manual",
+          "descriptors": [
+            "cleaner",
+            "refined"
+          ],
+          "match_tokens": [
+            "tape-keyboard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chamberlin_condition",
+      "surface": false,
+      "name": "Tape condition",
+      "variants": [
+        {
+          "id": "chamberlin_worn",
+          "default": true,
+          "name": "Aged tapes with wow and flutter",
+          "descriptors": [
+            "wobbling",
+            "dropout-prone",
+            "haunted"
+          ],
+          "match_tokens": [
+            "tape-keyboard",
+            "lo-fi"
+          ]
+        },
+        {
+          "id": "chamberlin_fresh",
+          "name": "Freshly re-loaded tape frames",
+          "descriptors": [
+            "clearer",
+            "stable"
+          ],
+          "match_tokens": [
+            "tape-keyboard"
+          ]
+        }
+      ]
+    }
+  ]
+}
