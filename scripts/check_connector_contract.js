@@ -123,7 +123,6 @@ function scanSchema(toolName, schema) {
   await Promise.all([server.connect(serverSide), client.connect(clientSide)]);
 
   const { tools } = await client.listTools();
-  const byName = new Map(tools.map((t) => [t.name, t]));
 
   // ── the advertised surface ────────────────────────────────────────────────
   console.log('\n=== Advertised tool surface ===');
@@ -179,8 +178,8 @@ function scanSchema(toolName, schema) {
   let seedPayload = null;
   try {
     seedPayload = JSON.parse(seeded.text);
-  } catch (e) {
-    /* reported by the next check */
+  } catch {
+    // Left null on purpose: the `result parses as JSON` check below reports it.
   }
   check('result parses as JSON', !!seedPayload);
   check(
