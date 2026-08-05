@@ -267,6 +267,29 @@ function scanSchema(toolName, schema) {
     );
   }
 
+  // set_preface is the action the connector instructions push hardest — every
+  // mood word routes through it — and it was the one with no confirmation. It
+  // shipped looking covered because a preface usually re-derives parts and the
+  // parts diff stood in for it; when it re-derived none, `changed` was absent
+  // and the response said "nothing changed" about an edit that landed.
+  //
+  // The preface id comes from the live search_prefaces round-trip, not a literal
+  // and not the local catalog: this gate's whole premise is reading what the
+  // server actually serves, and a hardcoded id would rot into a silent no-op the
+  // first time the lexicon moved.
+  const pfRes = await call('search_prefaces', { query: 'haunted' });
+  const prefaceId = pfRes.isError ? null : JSON.parse(pfRes.text).items?.[0]?.id;
+  check('search_prefaces yields a preface id to set', !!prefaceId, pfRes.text?.slice(0, 80));
+  if (prefaceId) {
+    const pRes = await edited([{ action: 'set_preface', card, preface: prefaceId }]);
+    const pRow = pRes.cards?.find((c) => c.card === card);
+    check(
+      'set_preface is reported in `changed`',
+      pRow?.changed?.preface === prefaceId,
+      JSON.stringify(pRow?.changed)
+    );
+  }
+
   const untouched = envRes.cards?.filter((c) => c.card !== card) || [];
   check(
     'cards nobody edited carry no `changed` key',

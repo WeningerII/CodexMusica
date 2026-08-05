@@ -106,11 +106,22 @@ function baselineForCard(card) {
   return inst ? { parts: defaultParts(inst), room: null, tuning: null, chain: {} } : null;
 }
 
-// Report every field an edit action can write — parts, room, tuning and each
-// chain stage. Covering parts alone would make the summary look authoritative
-// while still hiding the result of set_environment, which is a worse contract
-// than saying nothing. Omitted entirely for an untouched card, so an unedited
-// workspace costs nothing.
+// Report every field an edit action can write — parts, room, tuning, each chain
+// stage, and the preface. Covering parts alone would make the summary look
+// authoritative while still hiding the result of set_environment, which is a
+// worse contract than saying nothing. Omitted entirely for an untouched card, so
+// an unedited workspace costs nothing.
+//
+// `preface` is here because leaving it out reproduced the exact defect this
+// function exists to prevent, on the single most-used action. set_preface writes
+// preface/prefaceAuto/prefaceLock; none was reported, so a preface that
+// re-derived no parts returned NO `changed` key — "did my edit land?" answered
+// with "nothing changed" on an edit that landed. It only looked covered because
+// a preface usually moves parts too, and the parts diff stood in for it.
+//
+// The two flags stay out on purpose: prefaceAuto and prefaceLock are how the
+// engine remembers the pick was explicit, not something the caller chose or can
+// act on. The answerable question is "which preface is on this card now".
 function changedForCard(card) {
   const base = baselineForCard(card);
   if (!base) return null;
@@ -124,6 +135,7 @@ function changedForCard(card) {
 
   if ((card.room || null) !== (base.room || null)) out.room = card.room || null;
   if ((card.tuning || null) !== (base.tuning || null)) out.tuning = card.tuning || null;
+  if ((card.preface || null) !== (base.preface || null)) out.preface = card.preface || null;
 
   const chain = {};
   const stages = new Set([...Object.keys(card.chain || {}), ...Object.keys(base.chain || {})]);
@@ -149,7 +161,7 @@ function cardsSummary(ws) {
   // assigns prefaces on its own clone.
   const view = ws.cards.map((c) => ({ ...c }));
   assignDedupedPrefaces(view);
-  return view.map((c) => {
+  return view.map((c, i) => {
     const row = {
       card: c.id,
       instrument: c.instrumentId,
@@ -158,7 +170,12 @@ function cardsSummary(ws) {
       preface: c.preface || null,
       preface_locked: !!c.prefaceLock,
     };
-    const changed = changedForCard(c);
+    // Diff the STORED card, not this display clone. `view` has had auto prefaces
+    // assigned onto it, so diffing it would compare a rendered preface against a
+    // stored one and report a change on every card of an untouched seed. What
+    // `changed` answers is "what did my edit write", and only the stored card
+    // knows that.
+    const changed = changedForCard(ws.cards[i]);
     if (changed) row.changed = changed;
     return row;
   });
