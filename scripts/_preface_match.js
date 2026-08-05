@@ -68,17 +68,48 @@ function rank(cardDescriptorSet, lexicon) {
     const tokens = tokensOf(entry);
     const s = score(tokens, cardDescriptorSet);
     if (s === 0) continue;
-    out.push({ entry, i, score: s });
+    // `shared` is carried because the app's tiebreak needs it and recomputing it
+    // downstream means re-walking every token of every surviving preface. It was
+    // already being recomputed that way in _recipe_stack.js; see byAppRanking.
+    out.push({
+      entry,
+      i,
+      score: s,
+      shared: tokens.filter((t) => cardDescriptorSet.has(t)).length,
+    });
   }
   out.sort((a, b) => b.score - a.score || _cmp(a.entry.id, b.entry.id));
   return out;
 }
 
-// Pick the single best-scoring preface id for a card, or null if none score.
-// Convenience wrapper for callers that don't need the full ranked list.
-function suggest(cardDescriptorSet, lexicon) {
-  const r = rank(cardDescriptorSet, lexicon);
-  return r.length > 0 ? r[0].entry.id : null;
+// The app's ranking order, exactly: score desc, then raw SHARED-TOKEN COUNT
+// desc, then id. src/app.js:suggestPrefaceForCard documents why the middle key
+// exists — "prefers more-specific cultural matches" — and without it two
+// prefaces at equal precision are separated alphabetically instead, which is a
+// different answer, not a cosmetically different one.
+//
+// rank()'s own sort is deliberately left as score→id. It is consumed by
+// _recipe_stack.js's dedup, whose output is gated byte-for-byte against the
+// browser across all 2503 traditions and 4 formats (check_app_parity.js), and
+// re-ordering underneath a passing catalog-wide gate to fix a different caller
+// is how you trade a known bug for an unknown one. Callers that need the app's
+// order ask for it.
+function byAppRanking(a, b) {
+  return b.score - a.score || b.shared - a.shared || _cmp(a.entry.id, b.entry.id);
 }
 
-module.exports = { tokensOf, rank, suggest };
+// Pick the single best-scoring preface id for a card, or null if none score.
+// The Node twin of src/app.js:suggestPrefaceForCard, and equivalence.js gates
+// that they agree — so it has to use the app's THREE-key tiebreak. It used to
+// take rank()'s first row (score→id), which silently disagreed with the browser
+// whenever the top two tied on precision: on a cimbalova_muzika fiddle, the app
+// answers `erhuang` and this answered `elementary`, both at 0.5. Nothing caught
+// it because a tie needs an edited card to surface and the fixtures are all
+// freshly-seeded ones.
+function suggest(cardDescriptorSet, lexicon) {
+  const r = rank(cardDescriptorSet, lexicon);
+  if (r.length === 0) return null;
+  return r.slice().sort(byAppRanking)[0].entry.id;
+}
+
+module.exports = { tokensOf, rank, suggest, byAppRanking };

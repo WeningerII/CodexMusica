@@ -25,7 +25,7 @@
 // for any realistic blend.
 
 const C = require('./_loader.js');
-const { rank, tokensOf } = require('./_preface_match.js');
+const { rank, byAppRanking } = require('./_preface_match.js');
 const { cardDescriptors } = require('./_card_descriptors.js');
 const { SIGS } = require('./_inverse_configure.js');
 
@@ -498,9 +498,10 @@ function assignDedupedPrefaces(cards) {
       // equal precision at different shared counts (e.g. sufi_sama voice:
       // qawwali-flying 5/5 vs yaaburnee 9/9 — both precision 1.0, the app keeps
       // the more-specific 9-shared one).
-      ranked = rank(descSet, C.PREFACE_LEXICON)
-        .map((r) => ({ ...r, shared: tokensOf(r.entry).filter((t) => descSet.has(t)).length }))
-        .sort((a, b) => b.score - a.score || b.shared - a.shared || _cmp(a.entry.id, b.entry.id));
+      // `shared` now comes back from rank() and the comparator is the shared
+      // `byAppRanking`, so this tiebreak and suggest()'s are one definition
+      // rather than two copies that can drift apart.
+      ranked = rank(descSet, C.PREFACE_LEXICON).slice().sort(byAppRanking);
     } catch {
       ranked = [];
     }

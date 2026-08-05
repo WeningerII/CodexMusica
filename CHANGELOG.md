@@ -6,6 +6,83 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — `set_environment` without a `card` targets the primary card
+
+The rendered recipe takes its tuning, room and signal chain from `cards[0]` and
+no other — every format, in both `_recipe_stack.js` and `src/app.js`
+(`buildStackParts(cards[0])`), which is why the app calls that card primary.
+Instruments come from every card; the environment comes from one.
+
+Measured on a 15-card `ethio_jazz` seed: setting room + tuning on a non-primary
+card leaves the recipe BYTE-IDENTICAL. The same edit on card 1 changes the
+environment line. A non-primary card's environment is very nearly inert — over 70
+probes it moved the recipe 14 times, and only ever indirectly, by nudging that
+one card's auto-derived preface label.
+
+So "record the whole thing in a cathedral" has exactly one correct target, and
+demanding the caller name it bought nothing: a missing `card` on
+`set_environment` was the single most common recoverable error in the probe
+suite, and the recovery reached for was usually to repeat the edit across every
+instrument — nineteen writes, eighteen of which never reach the output. It now
+defaults to the primary card. `set_preface` and `set_variant` are genuinely
+per-instrument and still require an explicit card, because an omitted one there
+is a real ambiguity rather than a single obvious target.
+
+The rule is documented in AGENTS.md, both tool descriptions state it, and
+`mcp/test.mjs` asserts the default moves the RECIPE (not merely that a field was
+written — a default aimed at the wrong card would write successfully and change
+nothing visible) while the per-instrument actions keep raising.
+
+### Fixed — `set_variant` now edits like the app, and a gate proves it
+
+Picking a variant in the browser runs an inverse cascade: the rest of the card
+reshapes toward the preface the new sound implies, with the edited part PINNED so
+the choice is never reverted (`src/app.js:reconfigureAfterPartEdit`). The
+connector's `set_variant` was a bare field assignment. Same user action, two
+different recipes — against a README that calls the connector "the headless twin
+of the browser app".
+
+The difference was not even hidden. `_inverse_configure.js` carried it in a
+comment: *"the browser passes pin when a material edit triggers the cascade; the
+connector/CLI don't pin today."* It survived because no gate covered it —
+`check_app_parity.js` compares SEED + RENDER across all 2503 traditions and 4
+formats, so anything that diverges strictly *between* a seed and a render is
+invisible to it, and `tandem.js` compares artifacts (source / zip / HTML), not
+edit semantics.
+
+So `scripts/check_edit_parity.js` runs the browser's own
+`reconfigureAfterPartEdit` against the connector's `setVariant` over a strided
+catalog sample and requires parts, tuning, room, chain and preface to match. It
+refuses to pass when no sampled case actually exercised the cascade — agreement
+between two no-ops proves nothing. `faults.js` cuts the cascade back out and
+confirms it goes red.
+
+The headless app loader moved to `scripts/_load_app.js` so this gate and
+`check_app_parity.js` share one way of running `src/app.js`; two copies of a
+parity harness can drift, which is the failure the harness exists to catch.
+
+### Fixed — `_preface_match.suggest` disagreed with the browser on ties
+
+Writing the gate surfaced a second, older divergence. `suggestPrefaceForCard`
+breaks score ties by raw shared-token count — "prefers more-specific cultural
+matches" — then by id. The Node `suggest()` took `rank()`'s first row, which
+tiebreaks score → id only, and did not even carry `shared`. On a
+`cimbalova_muzika` fiddle the browser answers `erhuang` and Node answered
+`elementary`, both at precision 0.5.
+
+`equivalence.js` gates exactly this equality and never caught it, because a tie
+needs an edited card to surface and every fixture is a freshly seeded one — the
+defect was unreachable until `set_variant` started calling `suggest()`.
+
+`rank()` now returns `shared`, the app's three-key comparator is exported as
+`byAppRanking`, and `suggest()` uses it. `_recipe_stack.js` had already
+hand-rolled that same tiebreak locally for the dedup path (with a comment
+explaining why `rank()` alone was wrong); it now uses the shared comparator
+instead of a second copy. `rank()`'s own order is deliberately unchanged — its
+output is gated byte-for-byte against the browser catalog-wide, and reordering
+underneath a passing gate to fix a different caller trades a known bug for an
+unknown one.
+
 ### Changed — new mark, and the icon set is now derived instead of hand-exported
 
 The favicon is a slash and an eighth note — `/♪`, which reads as a slash command

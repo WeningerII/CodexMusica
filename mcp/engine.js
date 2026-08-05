@@ -252,20 +252,37 @@ const EDIT_ACTIONS = [
 // TYPE and try again with a different value; naming the cards says what the
 // field is for and which values are in range.
 //
-// The sentence is deliberately action-agnostic. An earlier version said "room,
-// tuning and chain are per instrument", which is true of set_environment and
-// simply wrong on the set_preface and set_variant that share this path — and it
-// was a set_preface that surfaced it. A hint that misdescribes the call it is
-// attached to is worse than none, because it is read as authoritative.
+// SET_ENVIRONMENT GETS ITS OWN SENTENCE, because the generic one was expensive.
+//
+// The rendered recipe takes its tuning, room and signal chain from the FIRST
+// card and no other — every format does it (`buildStackParts(cards[0])` in
+// _recipe_stack.js, mirrored in src/app.js), which is why the app calls that
+// card primary. So "record it in a cathedral" is ONE edit on the first card, not
+// one edit per instrument.
+//
+// A previous version of this hint said "each edit targets one instrument — pass
+// one edit per card", which pushed a caller toward nineteen edits where one
+// would do. Measured on the probe suite, that is what a nineteen-card roster
+// then spent its step budget on. Setting the environment on a non-primary card
+// is not merely wasteful, it is very nearly a no-op: it never reaches the
+// environment line, and can only surface at all by nudging that one card's
+// auto-derived preface label.
+//
+// The other card-taking actions really are per instrument, so they keep the
+// generic sentence. An earlier revision used one sentence for all of them and
+// misdescribed whichever call it was attached to; a hint read as authoritative
+// has to be true of the call that raised it.
 function req(ws, e, k) {
   if (e[k] == null || e[k] === '') {
     const cards = ws && Array.isArray(ws.cards) ? ws.cards : null;
-    const hint =
-      k === 'card' && cards
-        ? ` Each edit targets one instrument — pass one edit per card. Cards: ${cards
-            .map((c) => c.instrumentId || c.id)
-            .join(', ')}.`
-        : '';
+    let hint = '';
+    if (k === 'card' && cards && cards.length) {
+      const names = cards.map((c) => c.instrumentId || c.id);
+      hint =
+        e.action === 'set_environment'
+          ? ` The recipe's tuning, room and chain all come from the FIRST card, so set them there: card: "${names[0]}". Cards: ${names.join(', ')}.`
+          : ` Each edit targets one instrument — pass one edit per card. Cards: ${names.join(', ')}.`;
+    }
     throw new EngineError(`edit "${e.action}" requires "${k}".${hint}`);
   }
   return e[k];
@@ -283,12 +300,35 @@ function applyEdit(ws, e) {
       return W.removeInstrument(ws, req(ws, e, 'card'));
     case 'set_variant':
       return W.setVariant(ws, req(ws, e, 'card'), req(ws, e, 'part'), req(ws, e, 'variant'));
-    case 'set_environment':
-      return W.setEnvironment(ws, req(ws, e, 'card'), {
+    case 'set_environment': {
+      // AN OMITTED `card` MEANS THE PRIMARY CARD, because there is only one
+      // answer it could sensibly mean.
+      //
+      // The rendered recipe takes its tuning, room and signal chain from
+      // cards[0] and no other — every format, in both the connector renderer
+      // (_recipe_stack.js) and the browser (src/app.js). So "record it in a
+      // cathedral" has exactly one correct target, and requiring the caller to
+      // name it bought nothing: it was the single most common recoverable error
+      // in the probe suite, and the recovery a caller reached for was usually to
+      // repeat the edit across every instrument — nineteen writes, eighteen of
+      // which never reach the output.
+      //
+      // Deliberately NOT applied to the other card-taking actions. set_preface
+      // and set_variant really are per-instrument: each one changes only the
+      // card it names, so an omitted card there is a genuine ambiguity and still
+      // raises (with the roster listed, see req()).
+      const ref =
+        e.card == null || e.card === ''
+          ? ws.cards && ws.cards.length
+            ? ws.cards[0].id
+            : req(ws, e, 'card') // no cards at all — raise the guiding error
+          : e.card;
+      return W.setEnvironment(ws, ref, {
         room: e.room,
         tuning: e.tuning,
         chain: e.chain,
       });
+    }
     case 'set_preface':
       return W.setPreface(ws, req(ws, e, 'card'), req(ws, e, 'preface'));
     default:

@@ -68,6 +68,19 @@ out, so thread the returned `workspace` into the next call.
 - `render_recipe` takes `format`: `rich` (default), `tags`, `prose`, `compact`. Every one of
   them returns the byte-identical string the app shows for the same workspace.
   <!-- @promise: connector-render-parity -->
+- **The recipe's environment comes from the FIRST card.** Tuning, room and every signal-chain
+  stage are rendered from `cards[0]` alone — in all four formats, in both the connector renderer
+  and the browser (`buildStackParts(cards[0])`), which is why the app calls that card primary.
+  Instruments come from every card; the environment comes from one. So "record the whole thing in
+  a cathedral" is a SINGLE `set_environment` edit, and `card` is optional there — omit it and it
+  targets the primary. Setting an environment on any other card writes fields nothing renders; it
+  can only surface at all by nudging that one card's auto-derived preface label.
+- `set_variant` **reshapes the rest of the card**, exactly as picking a variant does in the app:
+  the same inverse cascade a preface pick runs, pinning the part you set so your choice is never
+  reverted while the other axes move toward the preface the new sound implies. On a card whose
+  preface is still auto-derived, that can change which preface the card is heading toward. It is
+  not a bare field write — batch a `set_preface` first if you want to steer the cascade.
+  <!-- @promise: connector-edit-parity -->
 - Every tool is **read-only, idempotent and closed-world**: state is passed in and out, nothing is
   stored server-side, and every answer comes from the bundled catalog. Thread the returned
   `workspace` into the next call — there is no session to resume and no handle to hold.

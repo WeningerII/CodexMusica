@@ -121,6 +121,13 @@ module.exports = [
       'a chain id is usable without guessing: search returns the stage that accepts it, and a real id offered to the wrong stage is refused with the stage that would take it',
   },
   {
+    id: 'connector-edit-parity',
+    doc: 'AGENTS.md',
+    gate: 'check_edit_parity.js',
+    claim:
+      'a part edit reshapes the card identically in the connector and the app — the same inverse cascade, pinning the edited part',
+  },
+  {
     id: 'connector-render-parity',
     doc: 'AGENTS.md',
     gate: 'check_app_parity.js',

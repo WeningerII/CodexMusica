@@ -21,8 +21,10 @@
 // around it. Further edits layer on top.
 
 const C = require('./_loader.js');
-const { inverseConfigure } = require('./_inverse_configure.js');
+const { inverseConfigure, SIGS } = require('./_inverse_configure.js');
 const { seedTraditionCards, renderWorkspace, makeCard } = require('./_seed_workspace.js');
+const { cardDescriptors } = require('./_card_descriptors.js');
+const { suggest } = require('./_preface_match.js');
 
 class WorkspaceError extends Error {}
 
@@ -139,6 +141,48 @@ function setVariant(ws, cardRef, partId, variantId) {
     throw new WorkspaceError(`${card.instrumentId}.${partId} has no variant "${variantId}"`);
   }
   card.parts[partId] = variantId;
+
+  // A material edit RESHAPES THE REST OF THE CARD, exactly as it does in the app.
+  //
+  // This is a port of src/app.js:reconfigureAfterPartEdit, which is what runs
+  // when a human picks a variant in the browser: the same inverse cascade a
+  // preface pick runs, but PINNING the edited part so the user's choice is never
+  // reverted while everything else moves toward the preface the new sound
+  // implies. Without it, `set_variant` was a bare field assignment — the two
+  // surfaces produced different recipes from the same action, which contradicts
+  // the connector's stated purpose ("the headless twin of the browser app").
+  // _inverse_configure.js carried the discrepancy as a comment ("the connector/
+  // CLI don't pin today"); check_app_parity.js never caught it because it gates
+  // SEED + RENDER parity, and nothing gated EDIT parity.
+  //
+  // Auto vs locked, same rule as the app: a card whose preface is still
+  // auto-derived (prefaceAuto !== false) re-derives its target from the NEW
+  // descriptor set, so changing a material can legitimately change which preface
+  // the card is heading toward. A card whose preface was chosen re-shapes toward
+  // that one instead.
+  //
+  // `prefaceLock` is deliberately NOT set here. The app's apply() writes
+  // preface + prefaceAuto and nothing else, and prefaceLock is what tells the
+  // renderer to surface a preface verbatim rather than dedup it — a variant edit
+  // is not an explicit preface choice, so claiming the lock would make the
+  // connector render something the app does not.
+  const auto = card.prefaceAuto !== false;
+  const target = auto ? suggest(cardDescriptors(card, C, SIGS), C.PREFACE_LEXICON) : card.preface;
+  if (!target) return next; // no token signature to steer by; the bare edit stands
+
+  const res = inverseConfigure(card, target, { pin: [partId] });
+  if (!res) {
+    // Free-form / no-token target: keep the re-derived label, no reshape
+    // possible. Mirrors the app's null-result branch.
+    if (auto) card.preface = target;
+    return next;
+  }
+  card.parts = { ...res.config.parts };
+  card.tuning = res.config.tuning;
+  card.room = res.config.room;
+  card.chain = { ...res.config.chain };
+  card.preface = target;
+  card.prefaceAuto = false;
   return next;
 }
 

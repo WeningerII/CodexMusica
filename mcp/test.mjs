@@ -140,6 +140,47 @@ check('edit_recipe set_variant applies + chains multiple edits', () => {
   assert.ok(!r.cards.some((c) => c.instrument === 'tonewheel_organ'));
 });
 
+check('set_environment with no card targets the primary (and only it)', () => {
+  // The recipe renders its tuning/room/chain from cards[0] alone, so an omitted
+  // `card` has one correct meaning. Asserting the recipe MOVED (not just that a
+  // field was written) is the point: a default that wrote to some other card
+  // would leave the output identical and look like it had worked.
+  const s = E.startRecipe({ traditions: ['ethio_jazz'] });
+  const r = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [{ action: 'set_environment', room: 'cathedral', tuning: 'gamelan_pelog' }],
+  });
+  assert.notEqual(r.recipe, s.recipe, 'recipe did not change');
+  assert.match(r.recipe, /cathedral/);
+  assert.equal(r.workspace.cards[0].room, 'cathedral');
+  assert.equal(
+    r.cards.filter((c) => c.changed).length,
+    1,
+    'the default must touch exactly one card, not the whole roster'
+  );
+  // The per-instrument actions keep requiring an explicit card — an omitted one
+  // there is a real ambiguity, not a single obvious target.
+  for (const bad of [
+    { action: 'set_preface', preface: 'woozy' },
+    { action: 'set_variant', part: 'body_wood', variant: 'mahogany' },
+  ]) {
+    assert.throws(
+      () => E.editRecipe({ workspace: thread(s.workspace), edits: [bad] }),
+      /requires "card"/,
+      `${bad.action} should still require a card`
+    );
+  }
+  // No cards at all is still an error, with the guiding message.
+  assert.throws(
+    () =>
+      E.editRecipe({
+        workspace: { cards: [] },
+        edits: [{ action: 'set_environment', room: 'cathedral' }],
+      }),
+    /requires "card"/
+  );
+});
+
 check('render_recipe re-renders threaded state', () => {
   const s = E.startRecipe({ traditions: ['bluegrass'] });
   const r = E.renderRecipe({ workspace: thread(s.workspace), max_chars: 250 });

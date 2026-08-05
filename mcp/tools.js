@@ -78,8 +78,12 @@ export function registerTools(server) {
       description:
         "The main tool — push the scaffold toward the user's words with an ordered batch of edits in ONE call. Edits: set_preface " +
         "(mood/aesthetic words land here — re-derives that instrument's variants/tuning/room/chain toward the preface, then labels " +
-        'it verbatim; apply per instrument, not just once), set_variant (swap one part: material, build, technique), ' +
-        'set_environment (any room/tuning/chain — freely across eras and regions; no combination is fenced), add_instrument / ' +
+        'it verbatim; apply per instrument, not just once), set_variant (set one part — material, build, technique — which then ' +
+        'RESHAPES the rest of that card toward its preface, exactly as picking a variant does in the app; your part is pinned and ' +
+        'never reverted, but the other axes may move, so set_preface FIRST if you want to steer where they land), ' +
+        'set_environment (any room/tuning/chain — freely across eras and regions; no combination is fenced. The recipe renders its ' +
+        'environment from the FIRST card only, so this is ONE edit for the whole recording — omit `card` and it lands there; ' +
+        'repeating it per instrument writes fields nothing renders), add_instrument / ' +
         'remove_instrument (any instrument into any tradition), add_tradition / remove_tradition. Pass the `workspace` from the ' +
         'previous call; get back the edited workspace + new recipe. Iterate until the recipe reflects every word the user said, ' +
         'then present the final `recipe` string VERBATIM.',
