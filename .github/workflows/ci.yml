@@ -22,7 +22,45 @@ on:
     - cron: '0 6 * * 1'
 
 jobs:
+  # Cheap, fast-failing gates, run FIRST and alone so an expensive job never
+  # burns a runner proving something that is about to be thrown away.
+  #
+  # These four completed in 41 seconds combined on the run that motivated this
+  # job — and one of them FAILED there, at the 35-second mark. Because nothing
+  # declared `needs:`, `freshness` and `catalog` had already started and went on
+  # to spend 30 and 18 minutes producing results the failure guaranteed would be
+  # discarded; the one-line fix then cost a second full round. Gating on this job
+  # turns that 53 minutes of wasted runner time into 46 seconds.
+  #
+  # Only put a check here if it is fast AND its failure invalidates the slow jobs.
+  # Anything needing Chromium, a fresh build, or minutes of CPU belongs below.
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Formatting (prettier --check)
+        run: npm run format:check
+
+      - name: Validate references
+        run: npm run validate
+
+      - name: Docs drift + documented-command validity
+        run: npm run check-docs
+
   verify:
+    needs: gate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -48,17 +86,8 @@ jobs:
       - name: Install Chromium (for UI reachability)
         run: npx playwright install --with-deps chromium
 
-      - name: Lint
-        run: npm run lint
-
-      - name: Formatting (prettier --check)
-        run: npm run format:check
-
-      - name: Validate references
-        run: npm run validate
-
-      - name: Docs drift + documented-command validity
-        run: npm run check-docs
+      # lint / format / validate / check-docs now run in the `gate` job above,
+      # which this job depends on — repeating them here would just re-spend 41s.
 
       - name: Static API contract (committed api/ honors promises)
         run: npm run check:api
@@ -98,9 +127,15 @@ jobs:
       - name: UI reachability
         run: npm run reachability
 
-  # Reproducibility + two-sided gates. Separate job so the ~6-min fresh rebuild
-  # runs in parallel with `verify`, and still gates the merge (runs on PRs).
+  # Reproducibility + two-sided gates. Separate job so the fresh rebuild runs in
+  # parallel with `verify`, and still gates the merge (runs on PRs).
+  #
+  # The rebuild dominates this job: ~30 min of its ~34 min at 2,503 traditions,
+  # against <1s for the byte-comparison it exists to enable. It is linear in
+  # catalog size (19 min at 1,426), so treat any figure quoted here as a
+  # measurement with a shelf life, not a constant.
   freshness:
+    needs: gate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -143,10 +178,23 @@ jobs:
   # but only smoke.js exercises EVERY tradition, blend and axis-target through the
   # live search → score → translate pipeline (5,879 assertions). It used to run
   # nowhere automatic: build.js called it, CI did not, so the broadest check in the
-  # repo depended on someone remembering. It is slow (~16 min) but it is a third
-  # PARALLEL job, so it costs wall-clock only, not the other two jobs.
+  # repo depended on someone remembering.
+  #
+  # Sharded across 4 runners because its cost is linear in catalog size and the
+  # catalog grew 76% in one import: it was ~16 min at 1,426 traditions and ~31 min
+  # at 2,503. smoke.js --shard=i/n deals traditions round-robin, so the four shards
+  # partition the catalog exactly — the union is an unsharded run, with no
+  # assertion dropped or double-counted. The fixed-size sections (blends, axis
+  # targets, multi-tradition scenarios) run on shard 1 only, since they do not
+  # grow with the catalog.
   catalog:
+    needs: gate
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    name: catalog (shard ${{ matrix.shard }}/4)
     steps:
       - uses: actions/checkout@v5
 
@@ -159,7 +207,7 @@ jobs:
         run: npm ci
 
       - name: Catalog-wide smoke (every tradition through the live pipeline)
-        run: npm run smoke
+        run: node scripts/smoke.js --shard=${{ matrix.shard }}/4
 
   # tandem.js — the cross-artifact meta-test. Weekly and on demand, not per-PR.
   #
