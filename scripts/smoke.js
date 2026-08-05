@@ -10,14 +10,17 @@
 // outside the regression fixture set.
 //
 // Runs in-process so it can share the catalog load + buildContext cache
-// across the whole catalog. End-to-end runtime ~16 minutes after the
-// 2026-05 perf work (parse cache + skip-signals + sumLookupWeight neighbor-
-// bias memoization in score.js). Profile if it regresses.
+// across the whole catalog. Runtime is linear in catalog size: ~16 min at
+// 1,426 traditions after the 2026-05 perf work (parse cache + skip-signals +
+// sumLookupWeight neighbor-bias memoization in score.js), ~31 min at 2,503.
+// CI shards it 4 ways (see --shard below); an unsharded local run pays the
+// full figure. Profile if it regresses faster than the catalog grows.
 //
 // Usage:
 //   node scripts/smoke.js
 //   node scripts/smoke.js --verbose       (per-tradition status)
 //   node scripts/smoke.js --max-chars=1000  (ceiling override; default 1000)
+//   node scripts/smoke.js --shard=2/4      (this shard only; default 1/1 = all)
 
 const C = require('./_loader.js');
 const { search, seedFromTradition, findClosestTraditionByAxis } = require('./search.js');
@@ -34,6 +37,39 @@ for (const a of args) {
 }
 const VERBOSE = !!flags.verbose;
 const CEILING = parseInt(flags['max-chars']) || 1000;
+
+// --shard=i/n splits the two per-tradition sweeps (sections 1 and 4) across n
+// runners so catalog-wide breadth costs wall-clock proportional to 1/n. The
+// sweeps are what grow with the catalog — they were ~31 min at 2,503 traditions
+// and rise linearly from here.
+//
+// Traditions are dealt round-robin by index rather than sliced into contiguous
+// blocks: the catalog is authored in themed batches, so contiguous slices would
+// hand one shard all the dense global-tradition records and another all the
+// sparse electronic ones. Round-robin keeps shard cost even and, being a pure
+// function of index, keeps each shard's membership stable across runs.
+//
+// The fixed-size sections (blends, axis targets, multi-tradition scenarios, the
+// stress case) do NOT scale with the catalog, so they run on shard 1 only. That
+// keeps the union of shards equal to an unsharded run — no assertion is dropped,
+// none is duplicated n times. Running unsharded stays the default.
+let SHARD_IDX = 1;
+let SHARD_N = 1;
+if (flags.shard) {
+  const m = String(flags.shard).match(/^(\d+)\/(\d+)$/);
+  if (!m) {
+    console.error(`smoke: --shard must look like i/n (got "${flags.shard}")`);
+    process.exit(2);
+  }
+  SHARD_IDX = parseInt(m[1]);
+  SHARD_N = parseInt(m[2]);
+  if (SHARD_N < 1 || SHARD_IDX < 1 || SHARD_IDX > SHARD_N) {
+    console.error(`smoke: --shard=${flags.shard} out of range (need 1 <= i <= n)`);
+    process.exit(2);
+  }
+}
+const IS_FIRST_SHARD = SHARD_IDX === 1;
+const SHARD_TRADITIONS = C.TRADITIONS.filter((_, i) => i % SHARD_N === SHARD_IDX - 1);
 
 const failures = [];
 const stats = { traditions: 0, blends: 0, axisTargets: 0, total: 0, ok: 0, skipped: 0 };
@@ -94,11 +130,15 @@ function smokeOne(scope, seedFn) {
   ok(scope);
 }
 
-console.error(`smoke: ${C.TRADITIONS.length} traditions, ceiling ${CEILING}`);
+console.error(
+  `smoke: ${SHARD_TRADITIONS.length}/${C.TRADITIONS.length} traditions` +
+    (SHARD_N > 1 ? ` (shard ${SHARD_IDX}/${SHARD_N})` : '') +
+    `, ceiling ${CEILING}`
+);
 
 // === 1. Every tradition produces a recipe ===
 console.error('\n[1] All single-tradition recipes:');
-for (const t of C.TRADITIONS) {
+for (const t of SHARD_TRADITIONS) {
   stats.traditions++;
   smokeOne(`tradition:${t.id}`, () => seedFromTradition(t.id));
 }
@@ -128,7 +168,7 @@ const BLEND_PAIRS = [
   ['fado', 'chanson_classique', 'angloSingerSong_cancion_iberica'],
 ];
 console.error('\n[2] Multi-tradition blends:');
-for (const ids of BLEND_PAIRS) {
+for (const ids of IS_FIRST_SHARD ? BLEND_PAIRS : []) {
   stats.blends++;
   // Skip blends referencing unknown traditions (keeps test resilient as catalog evolves)
   const unknown = ids.find((id) => !C.TRADITION_EXTRAS[id]);
@@ -161,7 +201,7 @@ const AXIS_TARGETS = [
   { meter: -2, cyclicity: 2 }, // free-meter cyclic
 ];
 console.error('\n[3] Axis-target seeding:');
-for (const target of AXIS_TARGETS) {
+for (const target of IS_FIRST_SHARD ? AXIS_TARGETS : []) {
   stats.axisTargets++;
   const desc = Object.entries(target)
     .map(([k, v]) => `${k}:${v}`)
@@ -182,7 +222,10 @@ const { HTML_OUT } = require('./_paths.js');
 // reported on in place of the real artifact, so the gate could pass while
 // saying nothing about what this repo actually builds.
 const htmlPath = fs.existsSync(HTML_OUT) ? HTML_OUT : null;
-if (!htmlPath) {
+if (!IS_FIRST_SHARD) {
+  // Fixed-cost check that does not scale with the catalog: shard 1 owns it, so
+  // the union of shards stays equal to an unsharded run.
+} else if (!htmlPath) {
   // build.js runs smoke BEFORE build_html, so a missing artifact is legitimately
   // "not yet", not "broken". Record it as a SKIP — visible in the summary and
   // excluded from the denominator. It used to bank stats.ok++, which meant a
@@ -276,7 +319,7 @@ function buildDefaultCardsForTradition(t) {
 }
 
 const FORMATS = ['prose', 'tags', 'rich', 'compact'];
-for (const t of C.TRADITIONS) {
+for (const t of SHARD_TRADITIONS) {
   const cards = buildDefaultCardsForTradition(t);
   if (cards.length === 0) continue;
   for (const fmt of FORMATS) {
@@ -342,7 +385,7 @@ const MULTI_TRAD_SCENARIOS = [
   },
 ];
 
-for (const scenario of MULTI_TRAD_SCENARIOS) {
+for (const scenario of IS_FIRST_SHARD ? MULTI_TRAD_SCENARIOS : []) {
   const cards = [];
   for (const tid of scenario.traditions) {
     const t = C.TRADITIONS.find((x) => x.id === tid);
@@ -375,7 +418,8 @@ for (const scenario of MULTI_TRAD_SCENARIOS) {
 
 // Pathological stress — every card duplicated. Verifies Phase C +
 // defensive truncate hold under loads no real user would compose.
-{
+// Fixed cost, so shard 1 owns it (see the --shard note at the top).
+if (IS_FIRST_SHARD) {
   const t1 = C.TRADITIONS.find((x) => x.id === 'freak_folk_2000s');
   const t2 = C.TRADITIONS.find((x) => x.id === 'hindustani');
   if (t1 && t2) {
