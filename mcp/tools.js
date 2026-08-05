@@ -17,8 +17,17 @@ import { TOOL_SCHEMAS } from './schemas.js';
 // schemas.js, which does not import the MCP SDK.
 export { renderShape, workspaceSchema, editSchema, TOOL_SCHEMAS } from './schemas.js';
 
+// No tool declares an outputSchema and none returns structuredContent, so this
+// text block is opaque to the protocol — a client is entitled to assume nothing
+// about its whitespace, which is what makes the formatting free to change.
+//
+// It is not merely cosmetic. The payload carries the `recipe` string the caller
+// is asked to reproduce verbatim, and indenting the JSON around it spent about a
+// quarter of the response on leading spaces — context competing with the one
+// part of the answer that has to survive intact. Pretty-printing only ever
+// helped a human reading a transcript; the model is the only real consumer.
 function jsonResult(value) {
-  return { content: [{ type: 'text', text: JSON.stringify(value, null, 2) }] };
+  return { content: [{ type: 'text', text: JSON.stringify(value) }] };
 }
 
 // Every tool is read-only, idempotent, and closed-world: state-passing and
