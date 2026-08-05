@@ -63,6 +63,23 @@ const STRUCTURAL = [
 //     additionalProperties anyway, so the only honest options are an empty node
 //     or closing functionality. It stays empty.
 //
+//     Measured, so this stops being a judgment call anyone re-litigates. A card
+//     is {id, instrumentId, parts, tuning, room, chain, traditionId, preface,
+//     prefaceAuto, prefaceLock} — that union is stable across seeding all 2503
+//     traditions and exercising every edit action, and `prefaceLock` appears
+//     ONLY after set_preface, which is precisely the field a hand-written type
+//     drops on the floor. Every scalar there is typeable. `chain` is typeable,
+//     and is typed (CHAIN_STAGE_IDS, eight named stages).
+//
+//     `parts` is what makes it impossible: a map from part id to variant id,
+//     and the catalog holds 4051 distinct part ids across 1406 instruments.
+//     The trick that fixed `chain` — enumerate the stages as named properties
+//     derived from the catalog — does not survive four thousand of them, and
+//     anything else (z.record, passthrough, catchall) emits the very keywords
+//     STRUCTURAL forbids. So the empty node is not a shortcut anyone took; it
+//     is the arithmetic. A consumer that cannot read an empty node must carry
+//     the workspace itself rather than route it through the model.
+//
 //   edits.items.chain.additionalProperties — false, from strictObject, and
 //     deliberate: a plain z.object silently swallows a typo'd stage, which is
 //     the exact silent-failure class the chain validation exists to prevent.
