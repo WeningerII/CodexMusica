@@ -26,13 +26,34 @@ export const PRICING = {
 
 export const DEFAULT_MODEL = 'gemini-3.1-flash-lite';
 
-// Thinking OFF, not merely low. Measured on this exact declaration set:
-// thinkingLevel "low" spent 104 thought tokens on the first hop of a prompt that
-// budget 0 answered identically with 0, and thought tokens bill at the OUTPUT
-// rate — 6x the input rate on 3.1 Flash-Lite. The probe suite (scripts/
-// probe_gemini.mjs) runs both and shows the sequences are the same, so this is
-// the measured default rather than an assumed one.
-export const DEFAULT_THINKING = { thinkingBudget: 0 };
+// Thinking LOW, and it is the cheaper setting — which is the opposite of what
+// the token price says, so it is worth writing down why.
+//
+// Thought tokens bill at the OUTPUT rate (6x input on 3.1 Flash-Lite), so
+// `thinkingBudget: 0` looks strictly cheaper per hop and is. But a hop is not
+// the unit that costs money here: a CONVERSATION is, and every hop re-sends the
+// whole transcript, so one extra tool call costs far more than the few hundred
+// thought tokens that would have avoided it. Thinking off recovers badly from a
+// tool error — it re-emits the call that just failed — and each retry pays for
+// the entire history again.
+//
+// Measured over the full 11-prompt probe suite, same code, same catalog:
+//
+//                        pass   mean cost   mean tokens   WORST prompt
+//   thinkingBudget: 0    10/11   $0.01148     42,773      126,766 tok / $0.0330
+//   thinkingLevel low     9/11   $0.00928     31,935       39,718 tok / $0.0122
+//
+// Low is 19% cheaper on the mean and 3.2x cheaper on the tail, took zero guessed
+// ids across all eleven (off guessed three on the hardest one), and made fewer
+// requests per conversation — which on a 15-requests-per-minute free tier is
+// the number that decides how many people can use the chat bar at once. The
+// tail is what blows a spend cap and triggers 429 storms, so it is weighted
+// accordingly.
+//
+// Off wins one prompt (the deliberately awkward one) and loses another; neither
+// setting passes both, so the pass column is a wash and the cost column is not.
+// Re-measure with `--thinking=low` / default before changing this.
+export const DEFAULT_THINKING = { thinkingLevel: 'low' };
 
 // Ceilings. Each one is the difference between a bad turn costing cents and a
 // bad turn costing a bill, and every one of them is reachable by an ordinary

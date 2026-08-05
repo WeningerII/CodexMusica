@@ -1,0 +1,299 @@
+// chat.js — the public chat bar's backend: page → here → Gemini → the engine.
+//
+// WHY A BACKEND AT ALL. codex.html is served by GitHub Pages, which is static.
+// A Gemini key in the page is a key anyone can read out of the page, so the
+// browser cannot call Google directly and something server-side has to hold the
+// credential. This is that something, mounted on the MCP service that already
+// has the engine and the catalog in memory.
+//
+// STILL NOTHING STORED. The conversation and the workspace live in the browser
+// and are posted back each turn; this process keeps no transcript, no session
+// and no handle (`connector-tools-read-only`, gated). What it does keep is
+// counters — rate-limit buckets and a spend total — which are about the SERVER,
+// not about any user, and are the only reason the endpoint can be open.
+//
+// THE ENVELOPE IS SIGNED. The client returns `history` verbatim, so without a
+// signature anyone could post a fabricated transcript — including invented model
+// turns — and use our key as a general-purpose completion proxy. The HMAC means
+// a caller may only ever EXTEND a transcript this server wrote, by one user
+// message. They can still say anything in that message; that is what a chat bar
+// is. What they cannot do is choose the other half of the conversation.
+
+import crypto from 'node:crypto';
+import express from 'express';
+import { buildSurface, runTurn, DEFAULT_MODEL, PRICING, costOf } from './gemini_agent.js';
+
+// ── limits ───────────────────────────────────────────────────────────────────
+//
+// Every number here is a real ceiling with a real reason, and all of them are
+// env-overridable so the deploy can tighten without a code change.
+//
+// THE BINDING CONSTRAINT IS GOOGLE'S, NOT OURS: the key this runs on is on the
+// free tier — 15 requests per MINUTE for gemini-3.1-flash-lite — and one
+// conversation spends one request per tool hop, measured at 4-7. So the service
+// supports roughly two concurrent conversations before Google starts refusing,
+// which is why CONCURRENCY exists and why a 429 is reported to the user as
+// "busy" rather than retried: a chat bar that silently stalls for 38 seconds
+// reads as broken, and retrying inside the request just moves the queue.
+const num = (name, fallback) => {
+  const v = Number(process.env[name]);
+  return Number.isFinite(v) && v > 0 ? v : fallback;
+};
+
+export const CHAT_LIMITS = {
+  perIpPerMinute: num('CHAT_IP_RPM', 4),
+  perIpPerHour: num('CHAT_IP_RPH', 30),
+  concurrency: num('CHAT_CONCURRENCY', 2),
+  dailyUsd: num('CHAT_DAILY_USD', 2),
+  maxMessageChars: num('CHAT_MAX_MESSAGE', 600),
+  maxHistoryBytes: num('CHAT_MAX_HISTORY_BYTES', 400_000),
+  maxTurns: num('CHAT_MAX_TURNS', 12),
+};
+
+// ── rate limiting ────────────────────────────────────────────────────────────
+//
+// Fixed windows over an in-process Map. Deliberately not Redis: this is one
+// Render instance, and a limiter that needs a second service to boot is a
+// limiter that is off the first time the second service is down.
+//
+// KNOWN LIMITATION, stated rather than hidden: process-local. A redeploy or a
+// crash resets both the buckets and the day's spend total, and a second instance
+// (autoscale) would keep its own. Google's own per-key quota is the backstop
+// underneath this, and it is the one that cannot be reset by restarting us.
+class Windows {
+  constructor() {
+    this.buckets = new Map();
+  }
+
+  hit(key, windowMs, limit, now) {
+    const slot = Math.floor(now / windowMs);
+    const id = `${key}:${windowMs}:${slot}`;
+    const count = (this.buckets.get(id) || 0) + 1;
+    this.buckets.set(id, count);
+    // Opportunistic sweep: without it this Map is an unbounded leak keyed by
+    // client IP, which is the sort of thing that stays invisible until an
+    // instance has been up for a month.
+    if (this.buckets.size > 5000) {
+      for (const k of this.buckets.keys()) {
+        const [, w, s] = k.split(':');
+        if (Math.floor(now / Number(w)) !== Number(s)) this.buckets.delete(k);
+      }
+    }
+    return { ok: count <= limit, count, retryAfter: Math.ceil((slot + 1) * windowMs - now) };
+  }
+}
+
+// The client IP, taken from the proxy header Render sets. Trusting XFF is only
+// safe BEHIND a proxy that overwrites it — which Render does — so the leftmost
+// entry is the real client. Direct-to-node deploys must not use this.
+function clientIp(req) {
+  const xff = req.headers['x-forwarded-for'];
+  if (typeof xff === 'string' && xff.length) return xff.split(',')[0].trim();
+  return req.ip || req.socket?.remoteAddress || 'unknown';
+}
+
+// ── envelope signing ─────────────────────────────────────────────────────────
+//
+// The secret is generated at boot when unset, which means a redeploy invalidates
+// open conversations: the next message gets a fresh start rather than an error,
+// which is the right failure for a chat bar. Set CHAT_SECRET to survive deploys.
+const SECRET = process.env.CHAT_SECRET || crypto.randomBytes(32).toString('hex');
+
+function sign(payload) {
+  return crypto.createHmac('sha256', SECRET).update(JSON.stringify(payload)).digest('hex');
+}
+
+function verify(payload, signature) {
+  if (typeof signature !== 'string' || signature.length !== 64) return false;
+  const expected = sign(payload);
+  // Constant-time: a length-checked compare that returns early leaks the prefix.
+  return crypto.timingSafeEqual(Buffer.from(expected, 'hex'), Buffer.from(signature, 'hex'));
+}
+
+/**
+ * @param {object} opts
+ * @param {Function} opts.buildServer  the real MCP server factory (mcp/tools.js)
+ * @param {Function} opts.Client       MCP SDK client class
+ * @param {Function} opts.InMemoryTransport MCP SDK in-memory transport
+ */
+export async function createChatRouter({
+  buildServer,
+  Client,
+  InMemoryTransport,
+  apiKey = process.env.GEMINI_API_KEY,
+  model = process.env.GEMINI_MODEL || DEFAULT_MODEL,
+  limits = CHAT_LIMITS,
+}) {
+  const router = express.Router();
+
+  if (!apiKey) {
+    // A chat bar that 500s on every message is worse than one that says it is
+    // off. This is the deploy-without-a-key case, and it should be legible.
+    router.post('/chat', (_req, res) =>
+      res.status(503).json({ error: 'The chat bar is not configured on this deployment.' })
+    );
+    router.get('/chat/status', (_req, res) => res.json({ ok: false, reason: 'no-key' }));
+    return router;
+  }
+
+  // ONE long-lived in-memory client, not one per request. Every tool is
+  // read-only, idempotent and closed-world (the annotations say so and the
+  // contract gate proves it), so there is no cross-request state to leak through
+  // it — the workspace arrives in the request and leaves in the response.
+  //
+  // Tools are executed THROUGH the MCP client rather than by calling engine.js:
+  // that is the path the zod schemas validate, and schemas.js is explicit that
+  // reaching the engine another way inherits none of it and degrades silently
+  // instead of throwing.
+  const server = buildServer();
+  const [clientSide, serverSide] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'codex-musica-chat', version: '1.0.0' }, { capabilities: {} });
+  await Promise.all([server.connect(serverSide), client.connect(clientSide)]);
+  const surface = await buildSurface(client);
+  const callTool = (name, args) => client.callTool({ name, arguments: args });
+
+  const windows = new Windows();
+  const spend = { day: null, usd: 0, turns: 0 };
+  let inFlight = 0;
+
+  const today = () => new Date().toISOString().slice(0, 10);
+  function rollDay() {
+    const d = today();
+    if (spend.day !== d) {
+      spend.day = d;
+      spend.usd = 0;
+      spend.turns = 0;
+    }
+  }
+
+  router.get('/chat/status', (_req, res) => {
+    rollDay();
+    res.json({
+      ok: true,
+      model,
+      // Published list price, so the page can be honest about what it is
+      // spending rather than describing itself as free and hoping.
+      pricePer1M: PRICING[model] || null,
+      spentUsdToday: Number(spend.usd.toFixed(4)),
+      dailyCapUsd: limits.dailyUsd,
+      turnsToday: spend.turns,
+      tools: surface.declarations.length,
+    });
+  });
+
+  router.post('/chat', async (req, res) => {
+    rollDay();
+    const now = Date.now();
+    const ip = clientIp(req);
+
+    const minute = windows.hit(ip, 60_000, limits.perIpPerMinute, now);
+    if (!minute.ok) {
+      res.set('Retry-After', String(Math.ceil(minute.retryAfter / 1000)));
+      return res.status(429).json({
+        error: `That is a lot of recipes at once — try again in ${Math.ceil(minute.retryAfter / 1000)}s.`,
+      });
+    }
+    const hour = windows.hit(ip, 3_600_000, limits.perIpPerHour, now);
+    if (!hour.ok) {
+      res.set('Retry-After', String(Math.ceil(hour.retryAfter / 1000)));
+      return res
+        .status(429)
+        .json({ error: 'Hourly limit reached for this address. Back shortly.' });
+    }
+    if (spend.usd >= limits.dailyUsd) {
+      return res
+        .status(503)
+        .json({ error: "The chat bar has hit today's budget. It resets at midnight UTC." });
+    }
+    if (inFlight >= limits.concurrency) {
+      return res
+        .status(503)
+        .json({ error: 'Busy — a couple of recipes are already cooking. Try again in a moment.' });
+    }
+
+    const { message, history, workspace, sig } = req.body || {};
+    if (typeof message !== 'string' || !message.trim()) {
+      return res.status(400).json({ error: 'Say something first.' });
+    }
+    if (message.length > limits.maxMessageChars) {
+      return res.status(400).json({ error: `Keep it under ${limits.maxMessageChars} characters.` });
+    }
+
+    // An envelope is either absent (a new conversation) or signed by us.
+    let priorHistory = [];
+    let priorWorkspace = null;
+    if (history !== undefined || workspace !== undefined || sig !== undefined) {
+      const envelope = { history: history || [], workspace: workspace ?? null };
+      if (!verify(envelope, sig)) {
+        return res
+          .status(400)
+          .json({ error: 'That conversation could not be verified — start a new one.' });
+      }
+      if (JSON.stringify(envelope).length > limits.maxHistoryBytes) {
+        return res
+          .status(413)
+          .json({ error: 'This conversation has grown too long — start a new one.' });
+      }
+      priorHistory = envelope.history;
+      priorWorkspace = envelope.workspace;
+      const userTurns = priorHistory.filter(
+        (c) => c.role === 'user' && (c.parts || []).some((p) => typeof p.text === 'string')
+      ).length;
+      if (userTurns >= limits.maxTurns) {
+        return res.status(429).json({
+          error: `That is ${limits.maxTurns} messages — start a new recipe to keep going.`,
+        });
+      }
+    }
+
+    inFlight++;
+    try {
+      const run = await runTurn({
+        apiKey,
+        model,
+        surface,
+        callTool,
+        history: priorHistory,
+        workspace: priorWorkspace,
+        userText: message,
+        // Not retried here. The user is waiting on this request, and the free
+        // tier's retry hint is routinely tens of seconds; a 429 they can act on
+        // beats a request that appears to hang.
+        retries: 0,
+      });
+      spend.usd += run.cost || costOf(run.usage, model) || 0;
+      spend.turns += 1;
+
+      const envelope = { history: run.history, workspace: run.workspace };
+      const lastRecipe = [...run.calls].reverse().find((c) => c.recipe && !c.isError);
+      res.json({
+        reply: run.reply,
+        // The recipe string is returned SEPARATELY as well as inside the reply.
+        // The connector instructions ask the model to reproduce it verbatim, and
+        // "asked to" is not "did" — the page renders this copy, so a recipe the
+        // model paraphrased is still shown exactly.
+        recipe: lastRecipe?.recipe || null,
+        cards: lastRecipe?.cards || null,
+        tools: run.calls.map((c) => ({ name: c.name, error: c.isError ? c.error : null })),
+        stopped: run.stopped,
+        ...envelope,
+        sig: sign(envelope),
+      });
+    } catch (err) {
+      const status = err.status === 429 ? 429 : 502;
+      // The upstream message can carry quota detail; the user gets the shape of
+      // the problem, and the log gets the rest.
+      console.error('[chat] ', err.message);
+      res.status(status).json({
+        error:
+          status === 429
+            ? 'The engine is over its rate limit for the moment — try again in a minute.'
+            : 'The engine could not answer that one. Try rephrasing?',
+      });
+    } finally {
+      inFlight--;
+    }
+  });
+
+  return router;
+}

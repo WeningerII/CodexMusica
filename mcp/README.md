@@ -98,6 +98,44 @@ milliseconds of CPU and a few KB of JSON, and results are deterministic (cacheab
 At personal usage it's effectively free; even at scale the dominant lever is response
 size + caching, not compute.
 
+That is true of `/mcp`, where the CALLER brings the model. It is not true of `/chat`
+below, which is the one surface here that spends money.
+
+## `/chat` — driving the tools for a caller with no MCP client
+
+The published catalog page is static and cannot hold a model key, so its chat bar posts
+here and this service calls Gemini. Same nine tools, same engine, same determinism; the
+only difference is who pays for the inference.
+
+- `POST /chat` — `{message, history?, workspace?, sig?}` → `{reply, recipe, cards, tools,
+  history, workspace, sig}`. Stateless: the transcript and the workspace live in the
+  caller and round-trip on every turn, so this endpoint keeps no session (the same
+  promise `/mcp` makes). `sig` is an HMAC over the envelope — a caller can extend a
+  transcript this server wrote, and cannot fabricate one.
+- `GET /chat/status` — model, published price, spend against today's cap. The page calls
+  this before it shows the bar, so a deployment without a key renders no dead UI.
+
+The workspace is **removed from the function declarations** rather than reformatted: it
+is a part-id → variant-id map over 4051 part ids and cannot be typed, so it reaches the
+wire as an empty node, which restricted function-calling clients reject. The server holds
+it and injects it. `mcp/gemini_tools.js` carries the arithmetic; `connector-gemini-legal`
+gates the result off a live `tools/list`.
+
+Configuration (all optional except the key):
+
+| Env | Default | What it bounds |
+|---|---|---|
+| `GEMINI_API_KEY` | — | Unset disables `/chat` entirely; `/mcp` is unaffected. |
+| `GEMINI_MODEL` | `gemini-3.1-flash-lite` | Measured at ~$0.009 and ~32k tokens per conversation. |
+| `CHAT_SECRET` | random per boot | Envelope HMAC. Unset means a redeploy starts conversations fresh. |
+| `CHAT_IP_RPM` / `CHAT_IP_RPH` | 4 / 30 | Per-IP request ceilings. |
+| `CHAT_CONCURRENCY` | 2 | Simultaneous conversations. The free Gemini tier allows 15 requests/minute and one conversation spends 4–7, so this is the binding constraint. |
+| `CHAT_DAILY_USD` | 2 | Estimated spend before the endpoint refuses. Resets at midnight UTC. |
+| `CHAT_MAX_TURNS` | 12 | Messages per conversation. |
+
+The counters are process-local, so a redeploy resets them; Google's own per-key quota is
+the backstop that cannot be reset by restarting this service.
+
 ## Privacy & support
 
 See [PRIVACY.md](./PRIVACY.md) — in short: no accounts, no auth, no personal
@@ -121,5 +159,8 @@ For submission to Anthropic's [Connectors Directory](https://claude.com/docs/con
 - `engine.js` — the deterministic workspace surface (start/edit/render + discovery) over `scripts/_workspace_ops.js`; validation + state-passing response shaping.
 - `tools.js` — MCP tool definitions (zod schemas) + `buildServer()`.
 - `server_stdio.js` — stdio entry (local).
-- `server_http.js` — Streamable HTTP entry (hosted connector).
+- `server_http.js` — Streamable HTTP entry (hosted connector) + the `/chat` mount.
+- `gemini_tools.js` — live `tools/list` → Gemini function declarations (pure; no SDK).
+- `gemini_agent.js` — one conversational turn: the tool loop, usage and measured cost.
+- `chat.js` — the `/chat` router: rate limits, spend cap, signed envelope.
 - `test.mjs` — `npm test`.

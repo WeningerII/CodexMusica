@@ -83,6 +83,26 @@ deterministic.
 - Registry manifest: root `server.json` (publish to the official MCP registry with `mcp-publisher publish`)
 - Transport, privacy, and the tool contract: see `mcp/README.md` and `mcp/PRIVACY.md`.
 
+## Ask the engine (chat, no MCP client needed)
+
+The published page carries a chat bar that drives the same nine tools in plain language —
+no connector setup, no account. Type a request, get the recipe back verbatim, with the
+tool calls that produced it listed underneath.
+
+The page is static, so it cannot hold a model key: the bar posts to `/chat` on the same
+Render service that hosts the connector, and that service calls Gemini. The conversation
+and the recipe workspace live in the browser and are posted back each turn — the server
+stores nothing, the same promise the connector makes. The envelope is HMAC-signed so a
+caller can only extend a transcript the server itself wrote.
+
+- The model never sees the workspace. It is stripped from the function declarations and
+  injected server-side (`mcp/gemini_tools.js` explains why it cannot be typed).
+- Rate-limited per IP, capped on daily spend, and bounded in tool calls per message.
+  Every limit is env-overridable; see `CHAT_LIMITS` in `mcp/chat.js`.
+- `node scripts/probe_gemini.mjs` drives eleven prompts through the real MCP server and
+  reports pass/fail, tokens and measured cost per conversation. It calls the live API, so
+  it needs `GEMINI_API_KEY` and is deliberately not part of `npm test`.
+
 ## Repository map
 
 - `references/` — the catalog data (`01_…`–`08_…`) plus base/vocabulary JSON. Data only.

@@ -1461,6 +1461,155 @@ body.is-dnd-active * { cursor: grabbing !important; }
 [data-tooltip-pos="left"]:focus-visible::after {
   transform: translateY(-50%) translateX(0);
 }
+
+/* ── Ask-the-engine chat dock ──────────────────────────────────────────────
+   Docked bottom-right on desktop, full-width above the pinned recipe bar on a
+   phone. It sits at z-index 25 — under the app bar (30) and under modals, so
+   it can never cover a control the app already owns.
+
+   The transcript panel is a SEPARATE element above the input row rather than a
+   scrolling region the bar sits inside, because the bar has to stay at a fixed
+   height and reachable while the log grows. */
+.chat-dock {
+  position: fixed;
+  z-index: 25;
+  right: var(--s5);
+  bottom: var(--s5);
+  width: min(440px, calc(100vw - 2 * var(--s5)));
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+/* `display: flex` above outranks the UA's `[hidden] { display: none }`, so both
+   of these would render while still marked hidden — the dock before the backend
+   had been reached at all, and an empty transcript panel before the first
+   message. The attribute is the state; these two rules are what make it mean
+   anything once the elements are laid out as flex containers. */
+.chat-dock[hidden],
+.chat-panel[hidden] { display: none; }
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+  overflow: hidden;
+  max-height: min(60vh, 520px);
+}
+.chat-panel-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) var(--s2) var(--s2) var(--s3);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+  flex: 0 0 auto;
+}
+.chat-panel-title { font-weight: var(--fw-semibold); font-size: var(--fs-body); white-space: nowrap; flex: 0 0 auto; }
+/* min-width:0 so this is the element that gives when the head is narrow — the
+   title wrapped to two lines on a 390px phone otherwise, because a flex item
+   will not shrink below its content without it. */
+.chat-panel-meta { flex: 1 1 auto; min-width: 0; color: var(--text-3); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chat-reset { padding: 4px 8px; font-size: 12px; }
+.chat-log {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: var(--s3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+.chat-msg { font-size: var(--fs-body); line-height: var(--lh-normal); }
+.chat-msg-you { align-self: flex-end; max-width: 85%; background: var(--surface-3); border-radius: 10px 10px 2px 10px; padding: var(--s2) var(--s3); }
+.chat-msg-engine { align-self: flex-start; max-width: 100%; color: var(--text); }
+.chat-msg-error { align-self: stretch; color: var(--accent); border-left: 2px solid var(--accent); padding-left: var(--s3); }
+.chat-msg-note { align-self: stretch; color: var(--text-3); font-size: 12px; }
+
+/* The recipe is the deliverable, so it gets a block of its own rather than
+   living inside the prose: monospace, selectable, and copyable in one action.
+   `white-space: pre-wrap` because the recipe string is reproduced VERBATIM and
+   collapsing its spaces would silently alter the thing the whole tool exists
+   to produce. */
+.chat-recipe {
+  margin-top: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+.chat-recipe-text {
+  margin: 0;
+  padding: var(--s3);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 240px;
+  overflow-y: auto;
+}
+.chat-recipe-foot {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) var(--s3);
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-3);
+}
+.chat-recipe-foot .btn { padding: 3px 8px; font-size: 12px; margin-left: auto; }
+
+/* The tool trace. Shown because this app's whole claim is that the recipe is
+   derived, not invented — naming the calls that produced it is the cheapest
+   possible evidence, and it is what makes a wrong answer diagnosable. */
+.chat-tools { display: flex; flex-wrap: wrap; gap: 4px; margin-top: var(--s2); }
+.chat-tool {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  color: var(--text-2);
+}
+.chat-tool.is-error { background: var(--accent); color: #fff; }
+
+.chat-bar {
+  display: flex;
+  gap: var(--s2);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  padding: var(--s1) var(--s1) var(--s1) var(--s4);
+  align-items: center;
+}
+.chat-input {
+  flex: 1 1 auto;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: var(--fs-body);
+  color: var(--text);
+  padding: 8px 0;
+  min-width: 0;
+}
+.chat-input:focus { outline: none; }
+.chat-input::placeholder { color: var(--text-3); }
+.chat-send { border-radius: 999px; padding: 8px 16px; flex: 0 0 auto; }
+.chat-dock.is-busy .chat-input { color: var(--text-3); }
+
+@media (max-width: 900px) {
+  /* Full width, and ABOVE the pinned recipe bar — which is itself fixed to the
+     bottom edge on a phone. Overlapping it would bury the recipe the user just
+     asked for behind the box they asked in. */
+  .chat-dock {
+    left: var(--s3);
+    right: var(--s3);
+    width: auto;
+    bottom: calc(var(--recipe-bar-height, 0px) + var(--s3));
+  }
+  .chat-panel { max-height: 50vh; }
+}
 </style>
 </head>
 <body>
@@ -1636,6 +1785,30 @@ body.is-dnd-active * { cursor: grabbing !important; }
     </div>
   </div>
 </div>
+
+<!-- Ask-the-engine chat dock.
+     Starts `hidden` and is revealed at boot ONLY if the backend answers
+     /chat/status — the page is static (GitHub Pages) and cannot hold a model
+     key, so the whole feature depends on a service that may be down, off, or
+     unconfigured. Rendering the bar first and failing on submit would promise
+     something the page cannot check; asking first costs one request. -->
+<section class="chat-dock" id="chat-dock" hidden aria-label="Ask the engine">
+  <div class="chat-panel" id="chat-panel" hidden>
+    <div class="chat-panel-head">
+      <span class="chat-panel-title">Ask the engine</span>
+      <span class="chat-panel-meta" id="chat-meta"></span>
+      <button class="btn btn-ghost chat-reset" id="chat-reset" type="button"><span class="btn-label">New recipe</span></button>
+      <button class="icon-btn" id="chat-collapse" aria-label="Collapse conversation"><span data-icon="x" data-size="14"></span></button>
+    </div>
+    <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
+  </div>
+  <form class="chat-bar" id="chat-form" autocomplete="off">
+    <input class="chat-input" id="chat-input" type="text" maxlength="600"
+           aria-label="Describe the recording you want"
+           placeholder="Describe a recording — “haunted Appalachian murder ballad, banjo like it’s underwater”">
+    <button class="btn btn-primary chat-send" id="chat-send" type="submit"><span class="btn-label">Ask</span></button>
+  </form>
+</section>
 
 <!-- Datalist for preface autocomplete; populated at boot from PREFACE_LEXICON -->
 <datalist id="preface-options"></datalist>

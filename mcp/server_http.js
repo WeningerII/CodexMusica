@@ -14,8 +14,11 @@
 
 import express from 'express';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
+import { Client } from '@modelcontextprotocol/sdk/client/index.js';
+import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { counts } from './engine.js';
+import { createChatRouter } from './chat.js';
 
 const PORT = process.env.PORT || 3000;
 const MCP_PATH = process.env.MCP_PATH || '/mcp';
@@ -125,6 +128,22 @@ app.use((req, res, next) => {
   if (req.method === 'OPTIONS') return res.sendStatus(204);
   next();
 });
+
+// The chat bar's backend, mounted on this service because it already holds the
+// engine and the catalog in memory. It is a SEPARATE surface from /mcp: /mcp is
+// the open, unauthenticated, read-only connector, while /chat spends money on a
+// Gemini key and is therefore rate-limited and capped. Mounting it here rather
+// than in its own service is what keeps one deploy and one catalog load.
+//
+// Awaited before listen() so the in-memory MCP client it drives is connected
+// before the first request can arrive.
+app.use(
+  await createChatRouter({
+    buildServer,
+    Client,
+    InMemoryTransport,
+  })
+);
 
 app.get('/health', (_req, res) => res.json({ ok: true, service: 'codex-musica-mcp' }));
 
