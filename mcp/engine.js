@@ -245,18 +245,24 @@ const EDIT_ACTIONS = [
   'set_preface',
 ];
 
-// A missing `card` is not a typo, it is a misunderstanding of the model: room,
-// tuning and chain are per-INSTRUMENT here, so "record it in a cathedral" is one
-// edit per card and not one edit. Saying only that the field is required leaves
-// a caller to conclude it passed the wrong TYPE and try again with a different
-// value; naming the cards says what the field is for and what may go in it.
+// A missing `card` is not a typo, it is a misunderstanding of the model: every
+// per-card action here targets ONE instrument, so "record it in a cathedral" or
+// "make it all sound bitter" is one edit per card and not one edit. Saying only
+// that the field is required leaves a caller to conclude it passed the wrong
+// TYPE and try again with a different value; naming the cards says what the
+// field is for and which values are in range.
+//
+// The sentence is deliberately action-agnostic. An earlier version said "room,
+// tuning and chain are per instrument", which is true of set_environment and
+// simply wrong on the set_preface and set_variant that share this path — and it
+// was a set_preface that surfaced it. A hint that misdescribes the call it is
+// attached to is worse than none, because it is read as authoritative.
 function req(ws, e, k) {
   if (e[k] == null || e[k] === '') {
+    const cards = ws && Array.isArray(ws.cards) ? ws.cards : null;
     const hint =
-      k === 'card' && ws
-        ? ` Room, tuning and chain are per instrument — pass one edit per card. Cards: ${(
-            ws.cards || []
-          )
+      k === 'card' && cards
+        ? ` Each edit targets one instrument — pass one edit per card. Cards: ${cards
             .map((c) => c.instrumentId || c.id)
             .join(', ')}.`
         : '';

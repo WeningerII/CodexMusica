@@ -322,7 +322,11 @@ function scanSchema(toolName, schema) {
   );
   const illegal = scanGeminiIllegal(declarations);
   for (const hit of illegal) console.log(`  ✗ GEMINI-ILLEGAL ${hit}`);
-  check('no keyword Gemini rejects survives into the declarations', illegal.length === 0, `${illegal.length} found`);
+  check(
+    'no keyword Gemini rejects survives into the declarations',
+    illegal.length === 0,
+    `${illegal.length} found`
+  );
 
   // The workspace must be GONE, not merely tolerated. It is the one node that
   // cannot be typed (see EXEMPT above), so if it ever reaches a declaration the
@@ -353,8 +357,13 @@ function scanSchema(toolName, schema) {
   // 93k-token failure loop on a prompt that now resolves in 5 calls.
   console.log('\n=== Chain ids carry the stage that accepts them ===');
   const chainHits = JSON.parse(
-    (await call('search_catalog', { query: 'tape ribbon fuzz underwater', types: ['chain'], limit: 25 }))
-      .text
+    (
+      await call('search_catalog', {
+        query: 'tape ribbon fuzz underwater',
+        types: ['chain'],
+        limit: 25,
+      })
+    ).text
   ).items;
   check('search_catalog returns chain hits to check', chainHits.length > 0, `${chainHits.length}`);
   const sections = JSON.parse((await call('list_options', { kind: 'chain_sections' })).text).items;

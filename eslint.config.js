@@ -92,6 +92,25 @@ module.exports = [
     },
   },
   {
+    // ESM tooling under scripts/. The block above covers scripts/**/*.js as
+    // CommonJS, and .mjs there matched NOTHING — so a file like
+    // probe_gemini.mjs was linted against the bare recommended config with no
+    // Node globals at all, which reports every `process` and `console` as
+    // undefined. Same environment as the CJS scripts, different module system.
+    files: ['scripts/**/*.mjs'],
+    languageOptions: {
+      ecmaVersion: 2023,
+      sourceType: 'module',
+      globals: { ...globals.node },
+    },
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      eqeqeq: ['error', 'smart'],
+      'no-console': 'off',
+      'no-empty': ['error', { allowEmptyCatch: true }],
+    },
+  },
+  {
     ignores: ['node_modules/**', 'references/**', 'tests/**', '**/*.min.js'],
   },
 ];

@@ -209,7 +209,7 @@ function setEnvironment(ws, cardRef, { room, tuning, chain } = {}) {
         return new WorkspaceError(
           other
             ? `Unknown ${stage} id: "${candidate}" — that id belongs to the "${other}" stage. ` +
-              `Pass it as chain: {"${other}": "${candidate}"}.`
+                `Pass it as chain: {"${other}": "${candidate}"}.`
             : `Unknown ${stage} id: "${candidate}" (search_catalog types=["chain"] returns each id with the stage that accepts it).`
         );
       };

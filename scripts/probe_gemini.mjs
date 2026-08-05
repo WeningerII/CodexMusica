@@ -51,7 +51,11 @@ const THINKING =
 // class apiece, because a model can be good at mood words and bad at roster
 // edits and a three-prompt suite would never show it.
 const PROMPTS = [
-  { id: 1, lane: 'baseline', text: "haunted Appalachian murder ballad, banjo like it's underwater" },
+  {
+    id: 1,
+    lane: 'baseline',
+    text: "haunted Appalachian murder ballad, banjo like it's underwater",
+  },
   {
     id: 2,
     lane: 'baseline',
@@ -101,11 +105,15 @@ const suite = PROMPTS.filter((p) => !only || only.has(p.id));
 
 const apiKey = process.env.GEMINI_API_KEY;
 if (!apiKey) {
-  console.error('GEMINI_API_KEY is not set. This probe calls the real API; there is no offline mode.');
+  console.error(
+    'GEMINI_API_KEY is not set. This probe calls the real API; there is no offline mode.'
+  );
   process.exit(2);
 }
 if (!PRICING[MODEL]) {
-  console.error(`No published price on record for ${MODEL}; refusing to report a cost I cannot compute.`);
+  console.error(
+    `No published price on record for ${MODEL}; refusing to report a cost I cannot compute.`
+  );
   process.exit(2);
 }
 
@@ -139,7 +147,8 @@ function editsHold(run) {
   const ws = run.workspace;
   if (!ws) return false;
   const card = (ref) =>
-    (ws.cards || []).find((c) => c.id === ref) || (ws.cards || []).find((c) => c.instrumentId === ref);
+    (ws.cards || []).find((c) => c.id === ref) ||
+    (ws.cards || []).find((c) => c.instrumentId === ref);
   for (const call of run.calls) {
     if (call.name !== 'edit_recipe' || call.isError) continue;
     for (const e of call.args?.edits || []) {
@@ -261,7 +270,12 @@ for (const prompt of suite) {
   results.push({
     ...prompt,
     verdict,
-    calls: run.calls.map((c) => ({ name: c.name, args: c.args, isError: c.isError, error: c.error })),
+    calls: run.calls.map((c) => ({
+      name: c.name,
+      args: c.args,
+      isError: c.isError,
+      error: c.error,
+    })),
     usage: run.usage,
     cost: run.cost,
     stopped: run.stopped,
@@ -277,7 +291,8 @@ for (const prompt of suite) {
 }
 
 // ── report ───────────────────────────────────────────────────────────────────
-const totalTokens = (u) => (u.promptTokens || 0) + (u.candidatesTokens || 0) + (u.thoughtsTokens || 0);
+const totalTokens = (u) =>
+  (u.promptTokens || 0) + (u.candidatesTokens || 0) + (u.thoughtsTokens || 0);
 const passed = results.filter((r) => r.verdict.pass).length;
 const totalCost = results.reduce((a, r) => a + (r.cost || 0), 0);
 
@@ -313,7 +328,10 @@ for (const r of results) {
 }
 
 if (flags.json) {
-  fs.writeFileSync(path.resolve(ROOT, String(flags.json)), JSON.stringify({ model: MODEL, thinking: THINKING, results }, null, 2));
+  fs.writeFileSync(
+    path.resolve(ROOT, String(flags.json)),
+    JSON.stringify({ model: MODEL, thinking: THINKING, results }, null, 2)
+  );
   console.log(`\nwrote ${flags.json}`);
 }
 
