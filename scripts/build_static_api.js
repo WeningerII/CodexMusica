@@ -10,9 +10,18 @@
 //   node scripts/build_static_api.js              # full build (all traditions)
 //   node scripts/build_static_api.js --limit=20   # sample build (timing/preview)
 //   node scripts/build_static_api.js --out=api    # output dir (default: api/)
+//   node scripts/build_static_api.js --jobs=1     # force the serial path
+//
+// PARALLELISM: the per-tradition compile is ~93% of this build's runtime (see
+// scripts/_compile_worker.js for the profile) and each tradition is independent,
+// so by default the compiles are spread across worker threads. `--jobs=1`
+// forces the original serial path — keep it working, it is the reference
+// implementation the parallel path must match byte-for-byte.
 
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
+const { Worker } = require('worker_threads');
 
 const C = require('./_loader.js');
 const { search, seedFromTradition } = require('./search.js');
@@ -37,6 +46,12 @@ for (const a of process.argv.slice(2)) {
 // while a relative one still resolves against the repo root — matches build_html.
 const OUT = path.resolve(__dirname, '..', flags.out || 'api');
 const LIMIT = flags.limit ? parseInt(flags.limit, 10) : Infinity;
+// Leave one core for the parent thread and the OS. CI runners are small, so
+// cap rather than assume: an over-subscribed pool just thrashes, and each
+// worker holds its own catalog copy, so the pool is not free in memory either.
+const JOBS = flags.jobs
+  ? Math.max(1, parseInt(flags.jobs, 10))
+  : Math.max(1, Math.min(8, (os.cpus() || []).length - 1 || 1));
 
 const EMPTY_OPTS = {
   exclude: new Set(),
@@ -94,7 +109,44 @@ function compileTradition(t) {
   };
 }
 
-function main() {
+// Compile every tradition in `list` across JOBS worker threads.
+//
+// Returns a dense array parallel to `list`: entry k is { rec } or { rec: null,
+// err } for list[k]. Reassembly is by original index, so the result is
+// independent of which worker finished first — see the determinism note in
+// _compile_worker.js.
+function compileAllParallel(list) {
+  // Round-robin rather than contiguous blocks. Contiguous slices would be
+  // badly unbalanced: the catalog is authored in themed batches, so one worker
+  // would get a run of instrument-dense global traditions while another got
+  // sparse electronic ones, and the pool would finish at the speed of the
+  // slowest block.
+  const buckets = Array.from({ length: JOBS }, () => []);
+  list.forEach((_, k) => buckets[k % JOBS].push(k));
+
+  const results = new Array(list.length);
+  return Promise.all(
+    buckets.map(
+      (indices, w) =>
+        new Promise((resolve, reject) => {
+          if (indices.length === 0) return resolve();
+          const worker = new Worker(path.join(__dirname, '_compile_worker.js'), {
+            workerData: { indices },
+          });
+          worker.on('message', (batch) => {
+            for (const { i, rec, err } of batch) results[i] = { rec, err };
+          });
+          worker.on('error', reject);
+          worker.on('exit', (code) => {
+            if (code !== 0) reject(new Error(`compile worker ${w} exited with code ${code}`));
+            else resolve();
+          });
+        })
+    )
+  ).then(() => results);
+}
+
+async function main() {
   const t0 = Date.now();
   mkdir(OUT);
   mkdir(path.join(OUT, 'traditions'));
@@ -116,13 +168,25 @@ function main() {
   const browseItems = []; // Tier-1 index for the lazy-loaded app (light data only)
   let ok = 0,
     fail = 0;
-  for (const t of traditions) {
+  // `traditions` is a PREFIX of C.TRADITIONS (slice(0, LIMIT)), so a position in
+  // this list is the same position in the catalog — which is what the worker
+  // indexes into. Keep it a prefix if this ever gains a filter.
+  const compiled = JOBS > 1 ? await compileAllParallel(traditions) : null;
+
+  for (let k = 0; k < traditions.length; k++) {
+    const t = traditions[k];
     let rec;
-    try {
-      rec = compileTradition(t);
-    } catch (e) {
-      rec = null;
-      failures.push({ id: t.id, err: e.message });
+    if (compiled) {
+      const r = compiled[k] || { rec: null, err: 'worker returned no result' };
+      rec = r.rec;
+      if (r.err) failures.push({ id: t.id, err: r.err });
+    } else {
+      try {
+        rec = compileTradition(t);
+      } catch (e) {
+        rec = null;
+        failures.push({ id: t.id, err: e.message });
+      }
     }
     if (!rec) {
       fail++;
@@ -262,4 +326,7 @@ function main() {
   return { tindex, iindex };
 }
 
-main();
+main().catch((e) => {
+  process.stderr.write(`\nAPI BUILD FAILED — ${e && e.stack ? e.stack : e}\n`);
+  process.exit(1);
+});
