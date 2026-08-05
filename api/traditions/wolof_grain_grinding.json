@@ -5,7 +5,7 @@
   "lineage": "Wolof-Senegambian women's grain-grinding song tradition continuous from premodern Senegambian domestic-grain-processing labor practice through colonial-era continuous performance into modern Senegambian continuous practice",
   "recipe": "classic East African modern wolof-senegambian grain-grinding women's song, domestic Rhythm, sub saharan African branch, south Asian domestic rhythm, sub saharan African field work, sub saharan African praise song mande-wolof west-african harvest-and-field song yoruba oríkì. vocal fry, declaimed, straight onset, interlocked note trading. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 437,
-  "score": 178.369,
+  "score": 177.842,
   "config": {
     "traditions": [
       "wolof_grain_grinding",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 1.365,
-          "voice_quality": 12.863749999999994,
+          "voice_quality": 12.567499999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2500000000000004,
@@ -46,8 +46,8 @@
           "voice_estill_quality": 1.7549999999999994,
           "voice_speech_song": 19.889999999999997,
           "voice_ensemble_config": 11.049999999999995,
-          "voice_ornament_system": 26.487499999999997,
-          "voice_pitch_organization": 10.099999999999998,
+          "voice_ornament_system": 26.152499999999996,
+          "voice_pitch_organization": 10.204999999999997,
           "voice_processing_chain": 1.2349999999999999,
           "voice_multitrack_stack": 2.145
         }

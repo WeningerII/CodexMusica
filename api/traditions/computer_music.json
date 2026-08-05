@@ -1,0 +1,156 @@
+{
+  "id": "computer_music",
+  "name": "Computer Music",
+  "family": "classical",
+  "lineage": "Institutional art-music practice begun at Bell Labs in 1957 with Max Mathews's MUSIC I and extended at Stanford CCRMA, IRCAM and CCRMA-adjacent centres by John Chowning, Jean-Claude Risset and Barry Truax — sound synthesised or algorithmically composed by computer, using FM and granular techniques, spectral analysis-resynthesis, non-tempered frequency structures and fixed-media multichannel diffusion rather than live instrumental performance.",
+  "recipe": "classic Asian late-1950s computer music, art Music, western modern branch, musique concrete experimental electric, ambient experimental electric compositional ambient dark ambient. thick, breath veiled tone, slow rate, interlocked note trading. yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity pad fm sustained pad granular sustained pad wavetable sustained pad modular synth, prepared piano. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 586,
+  "score": 214.729,
+  "config": {
+    "traditions": [
+      "computer_music",
+      "compositional_ambient",
+      "dark_ambient"
+    ],
+    "instruments": [
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 10.725,
+          "fm_algorithm": 2.11,
+          "fm_modulator_ratio": 0.8,
+          "fm_polyphony": 0.31977272727272726,
+          "fm_model_lineage": 4.930000000000001
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 10.725,
+          "granular_use": 0.047045454545454536,
+          "granular_synth_source": 5.720000000000001
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": 10.725,
+          "wt_position": 2.4050000000000002,
+          "wt_family": 2.7949810606060606,
+          "wt_polyphony": 0.31977272727272726
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 10.725,
+          "mod_voltage_source": 0.195,
+          "mod_patch_density": 5.494375,
+          "mod_lineage": 0.195
+        }
+      },
+      {
+        "id": "prepared_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "prepared_piano_object": "prepared_piano_bolts",
+          "prepared_piano_zone": "prepared_piano_bass",
+          "prepared_piano_instrument": "prepared_piano_grand"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "prepared_piano_object": 0.9,
+          "prepared_piano_zone": 0.65,
+          "prepared_piano_instrument": 1.8481250000000002
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 5.995,
+          "voice_quality": 4.160000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.4591666666666665,
+          "voice_articulation": 19.369999999999997,
+          "voice_microtone": 18.71999999999999,
+          "voice_tradition": 13,
+          "voice_mechanism_compound": 4.81,
+          "voice_estill_quality": 4.885000000000001,
+          "voice_speech_song": 23.789999999999996,
+          "voice_ensemble_config": 19.109999999999992,
+          "voice_ornament_system": 4.65,
+          "voice_pitch_organization": 5.8933333333333335,
+          "voice_processing_chain": 3.575,
+          "voice_multitrack_stack": 3.9325000000000006
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_hk_cantopop_ballad_factory",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "treated_studio",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

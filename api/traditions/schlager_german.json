@@ -5,7 +5,7 @@
   "lineage": "German-language popular sentimental song genre with 1920s Weimar cabaret roots, mid-century commercial extension (Heino, Roy Black, Freddy Quinn), and modern continuation (Helene Fischer, Andrea Berg) — major-key sentimental melodies, accordion-and-strings-and-occasional-yodel arrangements, lyrical content concerning love, home country (Heimat), nostalgia, holidays, alpine landscapes; distinct from Liedermacher (politically engaged literary-cabaret tradition)",
   "recipe": "classic Central European mid-1920s schlager, functional Song, europop branch, crooners functional song brill building pop adult standards. thick, close mic intimate, wide pitch sway, interlocked note trading. weltmeister east German mid tier vintage volk accordion, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth. german liedermacher kabarett berlin. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 553,
-  "score": 227.535,
+  "score": 227.625,
   "config": {
     "traditions": [
       "schlager_german",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 13.586624999999996,
+          "voice_register": 13.550624999999997,
           "voice_quality": 9.3275,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.486625,
+          "voice_vibrato": 3.450625,
           "voice_articulation": 19.434999999999995,
           "voice_microtone": 20.539999999999996,
-          "voice_tradition": 13.145125000000002,
+          "voice_tradition": 12.953125000000002,
           "voice_mechanism_compound": 3.965,
-          "voice_estill_quality": 6.901625,
+          "voice_estill_quality": 6.745625,
           "voice_speech_song": 27.884999999999998,
           "voice_ensemble_config": 18.914999999999996,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 2.15,
-          "voice_processing_chain": 5.392625000000001,
+          "voice_pitch_organization": 2.195,
+          "voice_processing_chain": 5.665625,
           "voice_multitrack_stack": 3.575
         }
       },
@@ -70,7 +70,7 @@
           "reed_config": 0.45499999999999996,
           "bellows": 0.65,
           "voicing_chamber": 0.15,
-          "accordion_maker_school": 6.021625
+          "accordion_maker_school": 5.985625
         }
       },
       {
@@ -103,7 +103,7 @@
         },
         "scores": {
           "drum_technique": 19.304999999999996,
-          "drumhead": 9.33,
+          "drumhead": 9.629999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,12 +113,12 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
           "electronic_technique": 7.395000000000001,
           "poly_archetypes": 1.885,
-          "poly_voices": 0.372,
+          "poly_voices": 0.3,
           "poly_maker_lineage": -0.035
         }
       }

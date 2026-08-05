@@ -5,7 +5,7 @@
   "lineage": "Early-1990s UK electronic subgenre developed in 1990-1993 London through synthesis of Belgian new-beat, Detroit techno, and US house with chopped-Amen-break percussion, ragga-MC vocal-sampling, and rapidly-accelerating tempo (138-150 BPM and rising toward jungle's 170+). The 1991 Acen \"Trip to the Moon\", 1992 SL2 \"On a Ragga Tip\", and the broader Production House and Suburban Base label rosters consolidated the canonical sound. Direct ancestor of jungle and drum-and-bass.",
   "recipe": "classic British 1990-1993 uk hardcore, bass System, bass descendants branch, eurodance electronic dance freestyle music hi-nrg. thick, breath veiled tone, straight note core, interlocked note trading. TR-808, chopped sampler, low sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 471,
-  "score": 246.822,
+  "score": 244.677,
   "config": {
     "traditions": [
       "uk_hardcore_breakbeat",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 5.8515000000000015,
+          "voice_register": 6.0150000000000015,
           "voice_quality": 10.789999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.9899999999999998,
           "voice_articulation": 19.044999999999998,
           "voice_microtone": 18.264999999999997,
-          "voice_tradition": 6.142499999999999,
+          "voice_tradition": 6.1049999999999995,
           "voice_mechanism_compound": 3.5100000000000002,
-          "voice_estill_quality": 3.6715000000000004,
+          "voice_estill_quality": 4,
           "voice_speech_song": 19.305,
           "voice_ensemble_config": 18.784999999999997,
           "voice_ornament_system": 1.95,
           "voice_pitch_organization": 4.030000000000001,
-          "voice_processing_chain": 20.0115,
+          "voice_processing_chain": 20.07,
           "voice_multitrack_stack": 5.265
         }
       },
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 9.3925,
-          "drum_machine_808_context": 8.709999999999999,
+          "tr808_voice": 8.77,
+          "drum_machine_808_context": 8.29,
           "tr808_production_origin": 0.39
         }
       },
@@ -75,10 +75,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.05475,
-          "sampler_archetypes": 2.29675,
+          "electronic_technique": 1.865,
+          "sampler_archetypes": 2.275,
           "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 11.054749999999999,
+          "sampler_workflow": 10.864999999999998,
           "sampler_classic_context": 35.035000000000004
         }
       },
@@ -88,14 +88,14 @@
           "electronic_technique": "electronic_bass_sub",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
-          "envelope": "gated_env",
+          "envelope": "pad_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 9.4575,
-          "oscillator": 8.905,
-          "filter_topology": 9.099999999999998,
-          "envelope": 0.21675,
+          "electronic_technique": 8.91,
+          "oscillator": 8.485,
+          "filter_topology": 8.875,
+          "envelope": 0.195,
           "modulation": 0.195
         }
       }

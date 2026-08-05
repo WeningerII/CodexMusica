@@ -5,7 +5,7 @@
   "lineage": "2000s jazz substyle integrating electronic-production techniques, sample-and-loop-based composition, and broader club-music-influenced rhythmic vocabulary with jazz harmonic-melodic content. Norwegian Jaga Jazzist, German Jazzanova, and Swedish Esbjörn Svensson Trio anchored the European canonical sound; American counterparts including The Bad Plus and Robert Glasper extended the style into American jazz mainstream.",
   "recipe": "classic mid-2000s nu jazz / electro-jazz, improv On Frame, fusion branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth. no single room 2015-present distributed distributed production. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 675,
-  "score": 219.91,
+  "score": 209.48,
   "config": {
     "traditions": [
       "nu_jazz_2000s",
@@ -26,12 +26,12 @@
         },
         "scores": {
           "wind_articulation": 3.8500000000000005,
-          "sax_size": 1.3865,
-          "sax_reed": 1.4365,
+          "sax_size": 1.25,
+          "sax_reed": 1.3,
           "sax_body_alloy": 21.795,
-          "sax_mouthpiece": 1.4365,
+          "sax_mouthpiece": 1.3,
           "sax_technique": 21,
-          "sax_maker_school": 26.03875
+          "sax_maker_school": 22.57
         }
       },
       {
@@ -50,13 +50,13 @@
         "scores": {
           "keyboard_technique": 5.450000000000001,
           "grand_piano_size": 0.845,
-          "grand_piano_brand": 1.4365,
-          "piano_hammer": 4.785,
-          "piano_rim": 4.7535,
-          "piano_soundboard": 1.25,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 4.245,
+          "piano_rim": 4.245,
+          "piano_soundboard": 1.55,
           "piano_pinblock": -0.05,
-          "piano_plate": 1.56,
-          "piano_pitch_standard": 1.38525
+          "piano_plate": 1.395,
+          "piano_pitch_standard": 1.56
         }
       },
       {
@@ -67,16 +67,16 @@
           "pickup_config": "humbucker_mm",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 10.385,
+          "amp_make": 10.594999999999999,
           "body_wood": 1.69,
           "pickup_config": 0.845,
-          "string_type": 24.0555,
+          "string_type": 21.09,
           "scale_length_b": 0.845,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.045,
           "bass_technique": 21
         }
       },
@@ -89,7 +89,7 @@
         },
         "scores": {
           "drum_technique": 29.249999999999996,
-          "drumhead": 24.0055,
+          "drumhead": 21.040000000000003,
           "drum_kit_kick_pedal": 0
         }
       },

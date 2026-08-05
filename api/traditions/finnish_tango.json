@@ -1,0 +1,194 @@
+{
+  "id": "finnish_tango",
+  "name": "Finnish tango",
+  "family": "pop",
+  "lineage": "Finland's national dance-hall genre, arriving from Argentina in the 1910s and reshaped after 1945 by Toivo Kärki and Unto Mononen into a minor-key, 4/4, moderately slow form with a heavy first-beat accent, plain accordion and string-led arrangements, no bandoneón, and lyrics of yearning for an unreachable homeland — Mononen's 'Satumaa' (1955) and Olavi Virta's recordings fixed the style, sustained since 1985 by the annual Seinäjoki Tangomarkkinat contest.",
+  "recipe": "classic British mid-1910s finnish tango, functional Song, europop branch, crooners functional song, chanson fado ballad poetry, European drinking song cape verdean batuko of santiago island adult standards. thick, breath veiled tone, slow rate, interlocked note trading. petosa seattle American premium bellows articulated accordion, silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, silver wound lamb gut core Baroque setup lighter bass bar no endpin double bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pre muffled edge muffled brushes-and-sticks drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 812,
+  "score": 300.897,
+  "config": {
+    "traditions": [
+      "finnish_tango",
+      "cape_verdean_batuko",
+      "adult_standards"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 7.4700000000000015,
+          "voice_quality": 29.415,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.185,
+          "voice_articulation": 27.104999999999997,
+          "voice_microtone": 29.639999999999997,
+          "voice_tradition": 15.664999999999996,
+          "voice_mechanism_compound": 6.54,
+          "voice_estill_quality": 6.040000000000001,
+          "voice_speech_song": 35.1,
+          "voice_ensemble_config": 26.91,
+          "voice_ornament_system": 2.6,
+          "voice_pitch_organization": 2.4450000000000007,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 4.9399999999999995
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "machine_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lm_only",
+          "bellows": "all_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_petosa_seattle"
+        },
+        "scores": {
+          "free_reed_technique": 4.8500000000000005,
+          "accordion_reed_material": 1,
+          "musette_offset": 1.3,
+          "reed_config": 0.45499999999999996,
+          "bellows": 0.65,
+          "voicing_chamber": 0.15,
+          "accordion_maker_school": 1.3
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "pizz_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.995,
+          "orch_strings": 1.69,
+          "orch_top_wood": 4.549999999999999,
+          "orch_back_wood": 2.8600000000000003,
+          "orch_varnish": -0.035,
+          "orch_setup_period": 2.8600000000000003,
+          "orch_bow": 2.33,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 1.15,
+          "orch_rosin": 0.585
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_seven_eighth",
+          "bass_strings": "silver_wound_lamb_gut_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.995,
+          "bass_size": 0.6950000000000001,
+          "bass_strings": 1.69,
+          "bass_top_wood": 0.6499999999999999,
+          "bass_back_wood": 0.6899999999999998,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 2.8600000000000003,
+          "bass_play": 1.5699999999999998,
+          "bass_rosin": 2.4375,
+          "bass_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 4.815,
+          "grand_piano_size": 0.65,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 3.27,
+          "piano_rim": 6.415,
+          "piano_soundboard": 4.575,
+          "piano_pinblock": 0.4,
+          "piano_plate": 0.06499999999999999,
+          "piano_pitch_standard": 8.475
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 25.48,
+          "drumhead": 6.205,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "tango_4_4_with_compas",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tango_4_4_with_compas",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

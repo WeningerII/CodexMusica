@@ -1,0 +1,149 @@
+{
+  "id": "trap_latino",
+  "name": "Trap Latino (pan-Hispanic trap)",
+  "family": "hip_hop",
+  "lineage": "Coalesced across San Juan, Medellín and Miami between 2014 and 2017 through Bad Bunny, Anuel AA, Bryant Myers, Ozuna and producers DJ Luian, Mambo Kingz and Hi Music Hi Flow, taking Atlanta trap's 130-150 BPM half-time 808 template and adding sung Spanish melodic hooks, heavy Auto-Tune, reggaeton-adjacent dembow fills, minor-key pad and plucked-synth loops, and romantic or street lyric in Caribbean Spanish.",
+  "recipe": "classic mid-2010s trap latino, mc Rhythm, intl hip hop branch, reggaeton MC rhythm, us hip hop southern dirty south rap atl trap. thick, rap, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass analog poly synth, heavy bus compression glue post 2010 multitrack vocal stack, live room natural hand clap. no single room 2015-present distributed distributed production. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 572,
+  "score": 243.994,
+  "config": {
+    "traditions": [
+      "trap_latino",
+      "dirty_south_rap",
+      "atl_trap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 1.5399999999999998,
+          "voice_quality": 20.142500000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.275,
+          "voice_articulation": 27.105,
+          "voice_microtone": 33.214999999999996,
+          "voice_tradition": 8.071250000000001,
+          "voice_mechanism_compound": 3.445000000000001,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 27.105,
+          "voice_ensemble_config": 24.830000000000002,
+          "voice_ornament_system": 7.085000000000001,
+          "voice_pitch_organization": 2.275,
+          "voice_processing_chain": 9.620000000000001,
+          "voice_multitrack_stack": 4.615
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 10.775,
+          "drum_machine_808_context": 4.095,
+          "tr808_production_origin": 1.105
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 6.9700000000000015,
+          "sample_bitdepth": 4.29,
+          "sample_swing": 11.5075,
+          "sample_processing": 1.4299999999999997
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 20.474999999999998,
+          "poly_archetypes": 1.345,
+          "poly_voices": 1.045,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_unison_double",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.65,
+          "multitrack_stack_era_aesthetic": 0.22749999999999998,
+          "multitrack_stack_processing": 2.515
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.225,
+          "clap_capture": 1.04
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_san_juan_reggaeton_mixtape",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

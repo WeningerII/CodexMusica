@@ -1,0 +1,115 @@
+{
+  "id": "ainu_upopo",
+  "name": "Ainu upopo and rimse (song and dance)",
+  "family": "global",
+  "lineage": "Communal song-and-dance repertoire of the Ainu of Hokkaido and formerly Sakhalin, performed seated in a circle around a lidded shintoko container beaten as a drum for upopo round-songs sung in short overlapping canon, and standing for rimse circle dances such as the crane dance sarorun rimse and the sword dance emush rimse, with tonkori zither and mukkuri bamboo jaw harp providing instrumental colour; documented in Pilsudski's 1902-1905 cylinders and revived from the 1960s through preservation societies at Shiraoi and Akan.",
+  "recipe": "classic East Asian 1902-1905 ainu upopo and rimse, ritual Devotional, arctic branch, arctic hunting song, east Asian arctic domestic rhythm katajjaq sami yoik — animal-tracking and hunting song. vocal fry, breath veiled tone, straight note core, interlocked note trading. revival build epic accompaniment drone and melody nylon strung tonkori, mukkuri, snappy to palm hand clap. ainu cise wooden interior. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 468,
+  "score": 226.05,
+  "config": {
+    "traditions": [
+      "ainu_upopo",
+      "inuit_katajjaq",
+      "sami_yoik_tracking"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 1.4300000000000002,
+          "voice_quality": 14.559999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2999999999999998,
+          "voice_articulation": 18.85,
+          "voice_microtone": 18.459999999999997,
+          "voice_tradition": 27.302,
+          "voice_mechanism_compound": 20.569000000000003,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 27.235,
+          "voice_ensemble_config": 20.474999999999998,
+          "voice_ornament_system": 20.7475,
+          "voice_pitch_organization": 2.0799999999999996,
+          "voice_processing_chain": 4.485000000000001,
+          "voice_multitrack_stack": 2.7300000000000004
+        }
+      },
+      {
+        "id": "tonkori",
+        "slots": {
+          "tonkori_form": "tonkori_form_hokkaido_revival",
+          "tonkori_setting": "tonkori_setting_yukar",
+          "tonkori_build": "tonkori_build_nylon"
+        },
+        "scores": {
+          "tonkori_form": 13.312,
+          "tonkori_setting": 31.177,
+          "tonkori_build": 1.6065
+        }
+      },
+      {
+        "id": "mukkuri",
+        "slots": {
+          "mukkuri_technique": "mukkuri_imitative",
+          "mukkuri_lamella": "mukkuri_thick"
+        },
+        "scores": {
+          "mukkuri_technique": 1.4300000000000002,
+          "mukkuri_lamella": 0.0315
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.6899999999999997,
+          "clap_capture": 0.65
+        }
+      }
+    ],
+    "room": "ainu_cise_wooden_interior",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "ainu_cise_wooden_interior",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

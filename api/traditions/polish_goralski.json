@@ -3,14 +3,14 @@
   "name": "Polish góralski (Tatra highlander)",
   "family": "global",
   "lineage": "Polish góralski Tatra-Mountain highlander music-and-dance tradition of the Podhale region in southern Poland, performed by the Polish góral mountain-folk community. The kapela góralska ensemble centers on the prymista (lead violinist) accompanied by sekund (second-violin) and basy (three-string Tatra-style upright-bass), with characteristic open-string drone-and-shifted-tonal-center modal vocabulary distinct from broader Polish lowland folk-music. Performance contexts span village-festival celebrations, wedding ceremonies, and (since 1968) the international Folk-Music Festival in Zakopane. The post-1980 Tatra-cultural-revival under the local Highlander Union has consolidated institutional preservation. Distinguished from Slovak fujara solo and Czech moravian folk by Polish góralski Podhale-Tatra specific stylistic-conventions.",
-  "recipe": "classic late-1960s polish góralski, functional Song, europop branch, Celtic balladic ballad poetry sean-nós solo singing cape breton milling-frolic. thick, breath veiled tone, straight note core, interlocked note trading. half rectified French Polish shellac pad Baroque setup short neck violin orchestral. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 386,
-  "score": 218.169,
+  "recipe": "classic late-1960s polish góralski, functional Song, europop branch, Celtic balladic ballad poetry sean-nós solo singing sean-nós singing. thick, breath veiled tone, straight note core, interlocked note trading. half rectified French Polish shellac pad Baroque setup short neck violin orchestral. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 376,
+  "score": 223.694,
   "config": {
     "traditions": [
       "polish_goralski",
       "sean_nos_solo",
-      "cape_breton_milling"
+      "sean_nos_singing"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.219999999999995,
-          "voice_quality": 15.534999999999997,
+          "voice_register": 13.294999999999996,
+          "voice_quality": 16.509999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2025,
-          "voice_articulation": 15.014999999999992,
-          "voice_microtone": 17.15999999999999,
-          "voice_tradition": 44.8825,
-          "voice_mechanism_compound": 5.46,
-          "voice_estill_quality": 4.42,
-          "voice_speech_song": 17.74499999999999,
-          "voice_ensemble_config": 15.50249999999999,
-          "voice_ornament_system": 30.566249999999993,
-          "voice_pitch_organization": 3.640000000000001,
-          "voice_processing_chain": 7.279999999999999,
-          "voice_multitrack_stack": 7.8
+          "voice_vibrato": 1.69,
+          "voice_articulation": 16.769999999999992,
+          "voice_microtone": 19.56499999999999,
+          "voice_tradition": 40.1375,
+          "voice_mechanism_compound": 7.02,
+          "voice_estill_quality": 5.495,
+          "voice_speech_song": 20.604999999999993,
+          "voice_ensemble_config": 16.70499999999999,
+          "voice_ornament_system": 30.71625,
+          "voice_pitch_organization": 3.445000000000001,
+          "voice_processing_chain": 6.499999999999999,
+          "voice_multitrack_stack": 6.825
         }
       },
       {
@@ -67,15 +67,15 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 5.6450000000000005,
-          "orch_strings": 7.145,
-          "orch_top_wood": 0.325,
-          "orch_back_wood": -0.035,
+          "bowed_technique": 8.77,
+          "orch_strings": 6.645,
+          "orch_top_wood": 0.975,
+          "orch_back_wood": 0.12999999999999998,
           "orch_varnish": 6.1499999999999995,
-          "orch_setup_period": 2.105,
-          "orch_bow": 1.885,
+          "orch_setup_period": 2.0300000000000002,
+          "orch_bow": 1.69,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.39,
+          "orch_articulation": 0.195,
           "orch_rosin": 0.7149999999999999
         }
       }

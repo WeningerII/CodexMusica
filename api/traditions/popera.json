@@ -1,0 +1,192 @@
+{
+  "id": "popera",
+  "name": "Popera (classical crossover)",
+  "family": "pop",
+  "lineage": "Classical-crossover repertoire consolidated in Britain and Italy from the late 1980s — Sarah Brightman with Andrew Lloyd Webber, then Andrea Bocelli, Il Divo assembled by Simon Cowell in 2003, Katherine Jenkins and Josh Groban — pairing conservatory-trained operatic and legit-musical vocal production, sustained high tessitura and portamento, with pop ballad forms at 60-80 BPM, DAW-assembled orchestral and synth-orchestral beds, wide plate reverb and multitrack choir, sung largely in Italian and Spanish regardless of the singers' origins.",
+  "recipe": "classic British 1987-1989 popera, functional Song, crooners branch, western common practice art music, europop functional song requiem mass operatic pop. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core Italian alpine spruce val di fiemme European maple violin orchestral, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, concert harp, mixed satb canonical 4 part western polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, mallets timpani, cedar carbon fiber strummed open chord ringing overtones classical nylon-string guitar. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 890,
+  "score": 472.334,
+  "config": {
+    "traditions": [
+      "popera",
+      "requiem_mass",
+      "operatic_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 16.974999999999994,
+          "voice_quality": 12.544999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 10.594999999999999,
+          "voice_articulation": 21.514999999999997,
+          "voice_microtone": 23.163749999999997,
+          "voice_tradition": 17.158749999999998,
+          "voice_mechanism_compound": 6.899999999999999,
+          "voice_estill_quality": 12.58375,
+          "voice_speech_song": 26.2275,
+          "voice_ensemble_config": 24.7975,
+          "voice_ornament_system": 14.2,
+          "voice_pitch_organization": 7.947499999999999,
+          "voice_processing_chain": 10.627499999999998,
+          "voice_multitrack_stack": 9.046249999999997
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "italian_alpine_spruce_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 14.999999999999998,
+          "orch_strings": 2.0799999999999996,
+          "orch_top_wood": 8.612499999999999,
+          "orch_back_wood": 8.655,
+          "orch_varnish": 7.374999999999999,
+          "orch_setup_period": 8.038749999999999,
+          "orch_bow": 1.17,
+          "orch_bow_stick": 9.522499999999999,
+          "orch_articulation": 1.3,
+          "orch_rosin": 8.188749999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 13.144999999999998,
+          "grand_piano_size": 5.459999999999999,
+          "grand_piano_brand": 1.95,
+          "piano_hammer": 14.143749999999999,
+          "piano_rim": 14.484999999999998,
+          "piano_soundboard": 13.374999999999998,
+          "piano_pinblock": 8.1875,
+          "piano_plate": 11.206249999999999,
+          "piano_pitch_standard": 14.934999999999999
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 8.644999999999998,
+          "harp_pedals": 3.6399999999999997
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 4.9399999999999995,
+          "choir_polyphonic_configuration": 3.4450000000000003,
+          "choir_regional_canonical_configuration": 2.8425,
+          "choir_ensemble_repertoire": 7.474999999999999
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_synthetic"
+        },
+        "scores": {
+          "percussion_technique": 7.999999999999998,
+          "timpani_size": 7.799999999999999,
+          "timpani_head": 0.195
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 13.34,
+          "string_tuning": 0,
+          "top_wood_classical": 6.978750000000001,
+          "bracing_classical": 3.6399999999999997,
+          "string_classical": 3.8349999999999995,
+          "attack_technique_cl": 9.044999999999998
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_british_class_a_commercial",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

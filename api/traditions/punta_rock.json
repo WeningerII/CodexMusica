@@ -1,0 +1,197 @@
+{
+  "id": "punta_rock",
+  "name": "Punta Rock",
+  "family": "global",
+  "lineage": "Created in Dangriga, Belize in the late 1970s-80s by Pen Cayetano and developed by Andy Palacio, Chico Ramos and the Garifuna Kids, electrifying the Garifuna punta rhythm — a fast duple 2/4 with the primero drum's improvised lead over the segunda's steady pulse — by adding electric guitar, bass, turtle-shell idiophones, shakers and drum machine, with call-and-response Garifuna-language vocals at roughly 120-140 BPM for carnival and dance-hall use.",
+  "recipe": "classic North American 1977-1979 punta rock, groove Percussion, Caribbean branch, Caribbean carnival processional gaita zuliana grenada soca. thick, breath veiled tone, slow rate, interlocked note trading. fast decay low resonance ebony single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, drum machine analog, foundational bass rhythm calabash shekere, lead open slap hand drum congas, maracas, ride-driven brushes-and-sticks drum kit. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 670,
+  "score": 189.042,
+  "config": {
+    "traditions": [
+      "punta_rock",
+      "gaita_zuliana",
+      "grenada_soca"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 2.45,
+          "amp_make": 2.2950000000000004,
+          "body_wood": 0.585,
+          "neck_wood": 0.585,
+          "fretboard": 1.3,
+          "pickup_magnet": 0,
+          "string_material": 0.27,
+          "string_gauge": 0.585,
+          "bridge": 1.3,
+          "scale_length": 0.585,
+          "finish": 0.15,
+          "string_tuning": 1.885
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 3.5000000000000004,
+          "body_wood": 1.885,
+          "pickup_config": 1.3,
+          "string_type": 3.25,
+          "scale_length_b": 0.63,
+          "fretted_or_not": 0,
+          "bass_technique": 3.29
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 0.585,
+          "snare_voice": 0.585,
+          "hat_voice": 0.045,
+          "shuffle_quantize": 0.585
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_large",
+          "shekere_beads": "shekere_glass"
+        },
+        "scores": {
+          "shekere_size": 3.16,
+          "shekere_beads": 0.585
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_synthetic_head",
+          "conga_shell_wood": "conga_fiberglass"
+        },
+        "scores": {
+          "percussion_technique": 4.39,
+          "conga_set": 2.34,
+          "conga_skin": 0.63,
+          "conga_shell_wood": 0.585
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 2.7950000000000017,
+          "voice_quality": 12.024999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 17.09499999999999,
+          "voice_microtone": 16.24999999999999,
+          "voice_tradition": 6.175000000000001,
+          "voice_mechanism_compound": 6.825,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 18.459999999999994,
+          "voice_ensemble_config": 17.61499999999999,
+          "voice_ornament_system": 1.5250000000000001,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 6.125,
+          "voice_multitrack_stack": 6.040000000000001
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_plastic",
+          "maracas_filling": "maracas_beads"
+        },
+        "scores": {
+          "maracas_construction": 0.675,
+          "maracas_filling": 0.63
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 17.159999999999993,
+          "drumhead": 0.585,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "port_of_spain_community_studio",
+    "archetype": "arch_trinidad_carnival_soca",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_uk_community_studio_80s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "trinidad_calypso_soca_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "trinidad_calypso_soca_2_4",
+    "room": "port_of_spain_community_studio",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_uk_community_studio_80s"
+  }
+}

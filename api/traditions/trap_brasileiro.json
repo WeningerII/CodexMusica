@@ -1,0 +1,163 @@
+{
+  "id": "trap_brasileiro",
+  "name": "Trap Brasileiro",
+  "family": "hip_hop",
+  "lineage": "Formed in São Paulo and Rio between 2016 and 2019 out of the rap-battle and YouTube-cypher circuit, codified by Matuê, Teto, Derek, WIU and producers Papatinho and Sidoka's circle, applying 130-150 BPM half-time 808 trap production with dark plucked-synth and piano loops to Brazilian Portuguese flows, plus periodic funk-carioca tamborzão or samba percussion inserts and sung Auto-Tuned refrains.",
+  "recipe": "classic mid-2010s trap brasileiro, mc Rhythm, intl hip hop branch, Afro-diasporic MC rhythm, Brazilian groove percussion pagode samba rock. thick, breath veiled tone, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampler drum machine, low sub bass analog poly synth, multi rod cluster canonical samba aluminum canonical rio escola tamborim, nylon canonical rio carnival aluminum canonical modern rio escola surdo, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 811,
+  "score": 221.573,
+  "config": {
+    "traditions": [
+      "trap_brasileiro",
+      "pagode",
+      "samba_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.095000000000002,
+          "voice_quality": 26.12499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.7224999999999997,
+          "voice_articulation": 23.724999999999994,
+          "voice_microtone": 24.83,
+          "voice_tradition": 8.71,
+          "voice_mechanism_compound": 3.3149999999999995,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 25.154999999999998,
+          "voice_ensemble_config": 23.854999999999997,
+          "voice_ornament_system": 3.3150000000000013,
+          "voice_pitch_organization": 1.4299999999999997,
+          "voice_processing_chain": 7.300000000000001,
+          "voice_multitrack_stack": 7.8
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 3.815,
+          "drum_machine_808_context": 3.2825000000000006,
+          "tr808_production_origin": 1.15
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 2.74,
+          "sample_bitdepth": 0.44999999999999996,
+          "sample_swing": 3.3449999999999998,
+          "sample_processing": 2.22
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 10.504999999999999,
+          "poly_archetypes": 1.8200000000000003,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.875
+        }
+      },
+      {
+        "id": "tamborim",
+        "slots": {
+          "tamborim_skin": "tamborim_nylon",
+          "tamborim_striker": "tamborim_cluster",
+          "tamborim_shell": "tamborim_aluminum_canonical"
+        },
+        "scores": {
+          "tamborim_skin": 0.845,
+          "tamborim_striker": 7.344999999999999,
+          "tamborim_shell": 3.185
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_segunda",
+          "surdo_skin": "surdo_nylon",
+          "surdo_shell": "surdo_aluminum_canonical"
+        },
+        "scores": {
+          "surdo_size": 0.195,
+          "surdo_skin": 4.03,
+          "surdo_shell": 3.185
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.435,
+          "multitrack_stack_era_aesthetic": 3.7375,
+          "multitrack_stack_processing": 1.685
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

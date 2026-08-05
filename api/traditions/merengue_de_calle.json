@@ -1,0 +1,175 @@
+{
+  "id": "merengue_de_calle",
+  "name": "Merengue de Calle",
+  "family": "global",
+  "lineage": "Santo Domingo street style that emerged around 2003-2008 through Omega y su Mambo Violento, Silvio Mora, El Sujeto and Fulanito's orbit, accelerating merengue's tambora-and-güira 2/4 to 140-170 BPM, replacing the horn section with sampled synth stabs and 808 kick reinforcement, and swapping sung verses for shouted, chanted, call-and-response urban vocals.",
+  "recipe": "classic Caribbean mid-2000s merengue de calle, mc Rhythm, Afro-diasporic branch, reggaeton MC rhythm, tropical song functional song, Caribbean groove percussion punta rock cumbia argentina. breath veiled tone, slow rate, interlocked note trading, neutral third half flat. wood merengue tradition tambora locked with tambora fast scrape guira dominicana, TR-808, sampler, analog poly synth, heavy gauge flatwound la bella flats Detroit soul bass canon electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 643,
+  "score": 183.84,
+  "config": {
+    "traditions": [
+      "merengue_de_calle",
+      "punta_rock",
+      "cumbia_argentina"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.4225,
+          "voice_quality": 9.685000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.335,
+          "voice_articulation": 18.069999999999993,
+          "voice_microtone": 17.87499999999999,
+          "voice_tradition": 4.94,
+          "voice_mechanism_compound": 5.525,
+          "voice_estill_quality": 4.485000000000001,
+          "voice_speech_song": 22.294999999999995,
+          "voice_ensemble_config": 18.394999999999992,
+          "voice_ornament_system": 3.1200000000000014,
+          "voice_pitch_organization": 0.5925,
+          "voice_processing_chain": 3.0700000000000003,
+          "voice_multitrack_stack": 1.6899999999999997
+        }
+      },
+      {
+        "id": "tambora_dominicana",
+        "slots": {
+          "tambora_shell": "tambora_carved_wood_two_heads",
+          "tambora_technique": "tambora_hand_and_stick",
+          "tambora_dominicana_shell_wood": "tambora_dominicana_avocado",
+          "tambora_dominicana_heads": "tambora_dominicana_male_female"
+        },
+        "scores": {
+          "tambora_shell": 4.887499999999999,
+          "tambora_technique": 3.749999999999999,
+          "tambora_dominicana_shell_wood": 0.39,
+          "tambora_dominicana_heads": 0.38999999999999996
+        }
+      },
+      {
+        "id": "guira_dominicana",
+        "slots": {
+          "guira_dominicana_form": "guira_dominicana_tipico",
+          "guira_dominicana_pattern": "guira_dominicana_merengue_drive",
+          "guira_dominicana_sheet": "guira_dominicana_steel"
+        },
+        "scores": {
+          "guira_dominicana_form": 5.4,
+          "guira_dominicana_pattern": 15.499999999999998,
+          "guira_dominicana_sheet": 0.975
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 2.275,
+          "drum_machine_808_context": 1.69,
+          "tr808_production_origin": 0.3325
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.595,
+          "sampler_archetypes": 0.795,
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": 0.975,
+          "sampler_classic_context": 21.644999999999992
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 2.145,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.045,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 1.8199999999999998,
+          "body_wood": 0.95,
+          "pickup_config": 1.23,
+          "string_type": 2.21,
+          "scale_length_b": 0.49499999999999994,
+          "fretted_or_not": 0.045,
+          "bass_technique": 0.585
+        }
+      }
+    ],
+    "room": "dominican_capital_studio_80s",
+    "archetype": "arch_san_juan_reggaeton_mixtape",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "merengue_2_4_perico_ripiao",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "merengue_2_4_perico_ripiao",
+    "room": "dominican_capital_studio_80s",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

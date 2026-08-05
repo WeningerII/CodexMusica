@@ -3,20 +3,21 @@
   "name": "Cape Breton milling-frolic",
   "family": "global",
   "lineage": "Atlantic Canadian (Cape Breton, Nova Scotia) Scottish Gaelic balladic continuation tradition — milling frolics (òrain luaidh) sung by groups of women while pounding (waulking) wool tweed cloth, with call-and-response solo-and-chorus structure in Scottish Gaelic language; preserved through the Cape Breton Gaelic community and the Beaton family tradition",
-  "recipe": "classic Northern European early-1940s cape breton milling-frolic, ballad Poetry, cape breton Gaelic branch, christian gospel sacred harp sacred harp singing. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. connemara kitchen sean nos. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 502,
-  "score": 119.282,
+  "recipe": "classic Northern European early-1940s cape breton milling-frolic, ballad Poetry, cape breton Gaelic branch, christian gospel sacred harp sacred harp singing shape-note singing. thick, declaimed, straight note core, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. connemara kitchen sean nos. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 512,
+  "score": 176.445,
   "config": {
     "traditions": [
       "cape_breton_milling",
-      "sacred_harp_singing"
+      "sacred_harp_singing",
+      "shape_note"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
@@ -28,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 3.125000000000001,
-          "voice_quality": 8.8695,
+          "voice_register": 7.500000000000002,
+          "voice_quality": 14.927750000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.6899999999999997,
-          "voice_articulation": 8.24675,
-          "voice_microtone": 7.281750000000001,
-          "voice_tradition": 24.709750000000003,
-          "voice_mechanism_compound": 3.53725,
-          "voice_estill_quality": 3.4250000000000003,
-          "voice_speech_song": 8.6455,
-          "voice_ensemble_config": 9.4225,
-          "voice_ornament_system": 22.466499999999996,
-          "voice_pitch_organization": 1.68525,
-          "voice_processing_chain": 4.66475,
-          "voice_multitrack_stack": 1.1699999999999993
+          "voice_articulation": 14.223249999999998,
+          "voice_microtone": 13.444249999999997,
+          "voice_tradition": 27.888000000000005,
+          "voice_mechanism_compound": 5.402749999999999,
+          "voice_estill_quality": 8.459,
+          "voice_speech_song": 16.379999999999995,
+          "voice_ensemble_config": 18.161,
+          "voice_ornament_system": 22.708,
+          "voice_pitch_organization": 2.990000000000001,
+          "voice_processing_chain": 4.8622499999999995,
+          "voice_multitrack_stack": 3.6299999999999994
         }
       },
       {
@@ -56,14 +57,14 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
-          "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 2.871,
+          "choir_size": 7.41,
           "choir_polyphonic_configuration": 3.8537500000000002,
-          "choir_regional_canonical_configuration": 2.9000000000000004,
-          "choir_ensemble_repertoire": 4.0675
+          "choir_regional_canonical_configuration": 3.9,
+          "choir_ensemble_repertoire": 6.539999999999999
         }
       }
     ],

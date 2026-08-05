@@ -3,53 +3,53 @@
   "name": "Sigilkore",
   "family": "electronic",
   "lineage": "Internet-native microgenre that emerged on SoundCloud and Discord around 2020 out of the digicore and hyperpop scenes, associated with Ravenna Golden, Kurtains and the occult-imagery corner of underground rap — typically 140-165 BPM half-time trap skeletons with distorted and clipped 808 glides, detuned wavetable or bell leads, granular and reversed vocal fragments, and heavily pitch-shifted, formant-warped vocals delivered in short whispered or screamed phrases over sigil-and-occult lyric imagery.",
-  "recipe": "classic early-2020s sigilkore, experimental Elec, pop experimental branch, us hip hop modern, lofi experimental electric cloud rap pittsburgh rap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, field textural sampler, sub bass wavetable glitched textural granular synth, sub bass monosynth acid bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 467,
-  "score": 295.867,
+  "recipe": "classic early-2020s sigilkore, experimental Elec, pop experimental branch, us hip hop modern, lofi experimental electric dark plugg detroit trap. extended whistle, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, field textural sampler, glitched textural wavetable glitched textural granular synth, low sub bass monosynth acid bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 490,
+  "score": 279.603,
   "config": {
     "traditions": [
       "sigilkore",
-      "cloud_rap",
-      "pittsburgh_rap"
+      "dark_plugg",
+      "detroit_trap"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.445000000000001,
-          "voice_quality": 16.615000000000002,
+          "voice_register": 5.565,
+          "voice_quality": 14.740000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.289999999999999,
-          "voice_articulation": 20.54,
-          "voice_microtone": 23.139999999999997,
-          "voice_tradition": 13.55,
-          "voice_mechanism_compound": 5.135,
-          "voice_estill_quality": 4.745,
-          "voice_speech_song": 22.620000000000005,
-          "voice_ensemble_config": 20.669999999999998,
-          "voice_ornament_system": 4.225000000000001,
-          "voice_pitch_organization": 1.89,
-          "voice_processing_chain": 14.06,
-          "voice_multitrack_stack": 8.525
+          "voice_vibrato": 3.575,
+          "voice_articulation": 20.865000000000002,
+          "voice_microtone": 22.164999999999996,
+          "voice_tradition": 13.170000000000002,
+          "voice_mechanism_compound": 5.720000000000001,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 21.904999999999998,
+          "voice_ensemble_config": 21.189999999999998,
+          "voice_ornament_system": 3.8350000000000013,
+          "voice_pitch_organization": 2.4700000000000006,
+          "voice_processing_chain": 9.64,
+          "voice_multitrack_stack": 7.3774999999999995
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 6.074999999999999,
-          "drum_machine_808_context": 2.8600000000000003,
+          "tr808_voice": 4.545000000000001,
+          "drum_machine_808_context": 3.055,
           "tr808_production_origin": 2.8600000000000003
         }
       },
@@ -69,32 +69,32 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_hiphop"
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 10.450000000000001,
-          "sampler_archetypes": 9.36,
-          "sampler_bit_depth": 2.8600000000000003,
-          "sampler_workflow": 11.14,
-          "sampler_classic_context": 29.0875
+          "electronic_technique": 10.950000000000001,
+          "sampler_archetypes": 7.15,
+          "sampler_bit_depth": 3.5100000000000002,
+          "sampler_workflow": 11.43,
+          "sampler_classic_context": 27.43
         }
       },
       {
         "id": "wavetable_synth",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_glitch_textural",
           "wt_position": "wt_chaotic",
           "wt_family": "wt_industrial",
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 12.069999999999999,
+          "electronic_technique": 10.950000000000001,
           "wt_position": 2.8600000000000003,
           "wt_family": 2.8600000000000003,
-          "wt_polyphony": 0.15
+          "wt_polyphony": 0
         }
       },
       {
@@ -105,9 +105,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 10.450000000000001,
-          "granular_use": 0.135,
-          "granular_synth_source": 5.46
+          "electronic_technique": 10.950000000000001,
+          "granular_use": 0.65,
+          "granular_synth_source": 5.720000000000001
         }
       },
       {
@@ -116,13 +116,13 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "open_acid",
-          "accent_acid": "heavy_accent_acid"
+          "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 12.069999999999999,
-          "wave_acid": 0.65,
+          "electronic_technique": 10.315000000000001,
+          "wave_acid": 0.435,
           "filter_acid": 0.24,
-          "accent_acid": 0.12999999999999998
+          "accent_acid": 0.195
         }
       }
     ],

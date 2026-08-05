@@ -5,7 +5,7 @@
   "lineage": "Regional Mexican string tradition of the hot lowlands of Michoacán, Guerrero, and the Balsas basin, professionalized on record from the 1950s through conjuntos de arpa grande and later the Tierra Caliente banda-and-tamborita ensembles — 6/8 sones and gustos in sesquialtera hemiola, a large arpa grande played with percussive cajón-of-the-soundbox tapping, twin violins in parallel thirds, vihuela and guitarra de golpe rhythm, and high nasal duet singing.",
   "recipe": "classic Southwestern American mid-1950s tierra caliente, functional Song, Mexican branch, tejano border ranchera, tejano border corrido, Latin am groove percussion corridos tumbados. sygyt, full chest belt, wide pitch sway, interlocked note trading. arpa grande, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana, cedar caoba paracho mixed string set guitarron mexicano, dark singing sustained tololoche. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 736,
-  "score": 207.692,
+  "score": 206.597,
   "config": {
     "traditions": [
       "tierra_caliente",
@@ -21,7 +21,7 @@
           "arpa_grande_strings": "arpa_grande_gut"
         },
         "scores": {
-          "arpa_grande_role": 1.3,
+          "arpa_grande_role": 1.15,
           "arpa_grande_form": 0.195,
           "arpa_grande_strings": 0
         }
@@ -43,12 +43,12 @@
         "scores": {
           "bowed_technique": 0.42,
           "orch_strings": 0.195,
-          "orch_top_wood": 3.74,
-          "orch_back_wood": 2.24,
-          "orch_varnish": 3.35,
+          "orch_top_wood": 3.59,
+          "orch_back_wood": 2.285,
+          "orch_varnish": 3.2,
           "orch_setup_period": 1.3975000000000002,
-          "orch_bow": 0.855,
-          "orch_bow_stick": 1.77,
+          "orch_bow": 0.615,
+          "orch_bow_stick": 1.6199999999999999,
           "orch_articulation": 1,
           "orch_rosin": 1.625
         }
@@ -109,7 +109,7 @@
         },
         "scores": {
           "voice_register": 2.405,
-          "voice_quality": 20.01499999999999,
+          "voice_quality": 19.86499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.9099999999999999,
@@ -117,7 +117,7 @@
           "voice_microtone": 20.929999999999993,
           "voice_tradition": 8.515,
           "voice_mechanism_compound": 5.459999999999999,
-          "voice_estill_quality": 14.139999999999997,
+          "voice_estill_quality": 13.989999999999998,
           "voice_speech_song": 31.7525,
           "voice_ensemble_config": 21.904999999999994,
           "voice_ornament_system": 5.005000000000002,

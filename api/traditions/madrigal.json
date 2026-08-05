@@ -1,0 +1,154 @@
+{
+  "id": "madrigal",
+  "name": "Madrigal",
+  "family": "classical",
+  "lineage": "Secular vocal polyphony that emerged in Italian courts around 1530 (Verdelot, Arcadelt) and peaked with Marenzio, Wert and Monteverdi by 1600 — three to six unaccompanied voices, one singer per part, setting Petrarchan and pastoral verse in through-composed sections where each poetic image gets its own point of imitation, with word-painting, chromatic cross-relations and unmeasured declamatory freedom over a flexible duple tactus.",
+  "recipe": "classic European early-1530s madrigal, art Music, western early branch, western common practice art music, christian gospel anglican choral chamber music. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part heterophonic same melody variant ornament per voice sardinian cantu a tenore oche mesu contra bassu choir ensemble, renaissance soloistic ayre and lieder yew ribs Italian brescian alpine spruce Italian lute renaissance, sustained legato viola da gamba, Italian cristofori grimaldi canonical late 16th 17th century single 8 foot soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 815,
+  "score": 265.202,
+  "config": {
+    "traditions": [
+      "madrigal",
+      "choral",
+      "chamber_music"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "operatic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 7.425000000000001,
+          "voice_quality": 7.215000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.89,
+          "voice_articulation": 20.474999999999998,
+          "voice_microtone": 18.784999999999993,
+          "voice_tradition": 12.4,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 12.854999999999999,
+          "voice_speech_song": 21.15749999999999,
+          "voice_ensemble_config": 21.904999999999998,
+          "voice_ornament_system": 8.2,
+          "voice_pitch_organization": 6.695,
+          "voice_processing_chain": 4.55,
+          "voice_multitrack_stack": 4.335000000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_heterophonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 15.145,
+          "choir_polyphonic_configuration": 2.3899999999999997,
+          "choir_regional_canonical_configuration": 4.6899999999999995,
+          "choir_ensemble_repertoire": 2.795
+        }
+      },
+      {
+        "id": "lute_renaissance",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "lute_courses": "lute_6_courses",
+          "lute_renaissance_context": "lute_renaissance_song",
+          "lute_renaissance_ribs": "lute_yew_ribs",
+          "lute_renaissance_soundboard": "lute_alpine_spruce",
+          "lute_renaissance_strings": "lute_fluorocarbon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5,
+          "lute_courses": 1.3299999999999998,
+          "lute_renaissance_context": 17.225,
+          "lute_renaissance_ribs": 1.69,
+          "lute_renaissance_soundboard": 1.69,
+          "lute_renaissance_strings": 0.45499999999999996
+        }
+      },
+      {
+        "id": "viola_da_gamba",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "gamba_size": "gamba_treble",
+          "viola_da_gamba_context": "viola_da_gamba_basse",
+          "gamba_strings": "gamba_aquila_nylgut",
+          "gamba_frets": "gamba_gut_tied_frets",
+          "gamba_bow_stick": "gamba_ironwood_modern_replica",
+          "gamba_lineage": "gamba_william_lawes"
+        },
+        "scores": {
+          "bowed_technique": 5,
+          "gamba_size": 0.345,
+          "viola_da_gamba_context": 16.770000000000003,
+          "gamba_strings": 0,
+          "gamba_frets": -0.035,
+          "gamba_bow_stick": 0.45499999999999996,
+          "gamba_lineage": 0.78
+        }
+      },
+      {
+        "id": "harpsichord",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "harpsichord_register": "harpsi_8_foot",
+          "harpsichord_context": "harpsichord_solo",
+          "harpsichord_maker_school": "harpsichord_italian_cristofori",
+          "harpsichord_plectrum": "harpsichord_leather_french",
+          "harpsichord_temperament": "harpsichord_meantone_quarter"
+        },
+        "scores": {
+          "keyboard_technique": 5.65,
+          "harpsichord_register": 2.6,
+          "harpsichord_context": 14.430000000000001,
+          "harpsichord_maker_school": 3.1849999999999996,
+          "harpsichord_plectrum": 1.3,
+          "harpsichord_temperament": 3.9
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "meantone",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "meantone",
+    "room": "stone_parish_church",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

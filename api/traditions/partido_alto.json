@@ -1,0 +1,186 @@
+{
+  "id": "partido_alto",
+  "name": "Partido-Alto",
+  "family": "vernacular",
+  "lineage": "Rio de Janeiro samba subgenre of Afro-Bahian descent that crystallized in the morro communities in the 1930s-70s, built on a fixed responsorial refrain answered by improvised sung verses (partido-alto improvisation duels), a syncopated pandeiro-and-hand-percussion clave, and cavaquinho/violão accompaniment at around 100 BPM, codified in recordings by Candeia, Martinho da Vila and Wilson Moreira.",
+  "recipe": "classic Southern American mid-1930s partido-alto, groove Percussion, Brazilian branch, pagode Brazilian, Latin am troubadour ballad poetry, Brazilian song functional song brega paraense roda de samba. vocal fry, breath veiled tone, interlocked note trading, neutral third half flat. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, samba foundation mahogany samba canon cavaquinho, choro tradition nylon Brazilian rosewood pre 1992 choro accompaniment violao 7 cordas, multi rod cluster canonical samba aluminum canonical rio escola tamborim, nylon canonical rio carnival surdo, snappy to palm hand clap, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu choir ensemble. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 961,
+  "score": 213.477,
+  "config": {
+    "traditions": [
+      "partido_alto",
+      "brega_paraense",
+      "roda_de_samba"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 0.845,
+          "voice_quality": 22.294999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.195,
+          "voice_articulation": 16.054999999999996,
+          "voice_microtone": 15.209999999999992,
+          "voice_tradition": 7.605,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 20.994999999999994,
+          "voice_ensemble_config": 16.31499999999999,
+          "voice_ornament_system": 0.9399999999999998,
+          "voice_pitch_organization": 1.7,
+          "voice_processing_chain": 4.335,
+          "voice_multitrack_stack": 2.52
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_capoeira",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": 5.125,
+          "pandeiro_size": 3.9,
+          "pandeiro_context": 0.78,
+          "pandeiro_head": 7.4,
+          "pandeiro_shell_wood": 7.4,
+          "pandeiro_jingles": 7.4
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_brazilian",
+          "cavaquinho_context": "cavaquinho_choro",
+          "cavaquinho_body_wood": "cavaquinho_mahogany",
+          "cavaquinho_strings": "cavaquinho_steel"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.585,
+          "cavaquinho_origin": 3.9,
+          "cavaquinho_context": 22.879999999999995,
+          "cavaquinho_body_wood": 3.9,
+          "cavaquinho_strings": -1.05
+        }
+      },
+      {
+        "id": "violao_7_cordas",
+        "slots": {
+          "violao_7_string7": "violao_7_low_B",
+          "violao_7_strings": "violao_7_nylon",
+          "violao_7_body_wood": "violao_7_brazilian_rosewood",
+          "violao_7_top_wood": "violao_7_cedar_top",
+          "violao_7_role": "violao_7_chord_accompaniment"
+        },
+        "scores": {
+          "violao_7_string7": 0.8700000000000001,
+          "violao_7_strings": 2.565,
+          "violao_7_body_wood": 4.745,
+          "violao_7_top_wood": 0.7799999999999999,
+          "violao_7_role": 1.24
+        }
+      },
+      {
+        "id": "tamborim",
+        "slots": {
+          "tamborim_skin": "tamborim_nylon",
+          "tamborim_striker": "tamborim_cluster",
+          "tamborim_shell": "tamborim_aluminum_canonical"
+        },
+        "scores": {
+          "tamborim_skin": 0.45499999999999996,
+          "tamborim_striker": 4.355,
+          "tamborim_shell": 2.535
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_segunda",
+          "surdo_skin": "surdo_nylon",
+          "surdo_shell": "surdo_aluminum_canonical"
+        },
+        "scores": {
+          "surdo_size": 0.195,
+          "surdo_skin": 2.99,
+          "surdo_shell": 0.5850000000000002
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.2149999999999999,
+          "clap_capture": 0.045
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 6.954999999999999,
+          "choir_polyphonic_configuration": 2.1449999999999996,
+          "choir_regional_canonical_configuration": 6.26,
+          "choir_ensemble_repertoire": 2.9099999999999993
+        }
+      }
+    ],
+    "room": "phonogram_brasil_studio",
+    "archetype": "arch_odeon_bossa_mpb",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "samba_2_4_telecoteco",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "samba_2_4_telecoteco",
+    "room": "phonogram_brasil_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

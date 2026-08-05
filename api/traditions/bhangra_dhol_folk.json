@@ -1,0 +1,158 @@
+{
+  "id": "bhangra_dhol_folk",
+  "name": "Bhangra (Punjabi harvest dhol dance)",
+  "family": "global",
+  "lineage": "Harvest dance of the Majha and Doaba districts of Punjab, restaged as a national folk form in post-1947 Indian Punjab through Patiala's Punjabi University troupes and Manohar Deepak's choreography — built on the dhol's chaal pattern struck with dagga and tilli sticks at roughly 130–150 BPM, tumbi's single-string ostinato, algoza double-flute drone and chimta jingles, with shouted boliyan couplets answered by the dancing circle in a high open-throated Punjabi register.",
+  "recipe": "classic South Asian late-1940s bhangra, carnival Processional, south Asian branch, south Asian field work, south Asian pop functional song, south Asian wedding indian folk bhojpuri pop. thick, breath veiled tone, slow rate, interlocked note trading. dhol, steel single string canonical Punjabi ornamented tumbi, algoza, jingle studded driving groove chimta, dholak, kartal rajasthani. punjab village bhangra dhol outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 484,
+  "score": 267.483,
+  "config": {
+    "traditions": [
+      "bhangra_dhol_folk",
+      "indian_folk_lok_geet",
+      "bhojpuri_pop"
+    ],
+    "instruments": [
+      {
+        "id": "dhol",
+        "slots": {
+          "dhol_form": "dhol_punjabi",
+          "dhol_repertoire": "dhol_bhangra_chaal",
+          "dhol_shell": "dhol_mango"
+        },
+        "scores": {
+          "dhol_form": 33.67000000000001,
+          "dhol_repertoire": 10.21,
+          "dhol_shell": -0.035
+        }
+      },
+      {
+        "id": "tumbi",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "tumbi_construction": "tumbi_synthetic",
+          "tumbi_context": "tumbi_film",
+          "tumbi_string": "tumbi_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.649999999999999,
+          "tumbi_construction": 0.845,
+          "tumbi_context": 0.78,
+          "tumbi_string": 6.5
+        }
+      },
+      {
+        "id": "algoza",
+        "slots": {
+          "algoza_pair": "algoza_melody_drone",
+          "algoza_breath": "algoza_pulsed"
+        },
+        "scores": {
+          "algoza_pair": 0,
+          "algoza_breath": 2.6
+        }
+      },
+      {
+        "id": "chimta",
+        "slots": {
+          "chimta_form": "chimta_form_bhangra_jingle",
+          "chimta_stroke": "chimta_stroke_clash_shake",
+          "chimta_build": "chimta_build_iron_forged"
+        },
+        "scores": {
+          "chimta_form": 11.685,
+          "chimta_stroke": 4.205,
+          "chimta_build": -0.05
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 12.27,
+          "voice_quality": 10.789999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5025,
+          "voice_articulation": 21.84,
+          "voice_microtone": 21.644999999999996,
+          "voice_tradition": 24.9,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 5.785,
+          "voice_speech_song": 26.259999999999998,
+          "voice_ensemble_config": 22.425,
+          "voice_ornament_system": 12.09,
+          "voice_pitch_organization": 11.715,
+          "voice_processing_chain": 5.655000000000001,
+          "voice_multitrack_stack": 3.7050000000000005
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_synthetic",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 1.11,
+          "dholak_construction": 0.54,
+          "dholak_head": 0.9299999999999999,
+          "dholak_tensioning": 0.9299999999999999
+        }
+      },
+      {
+        "id": "kartal_rajasthani",
+        "slots": {
+          "kartal_form": "kartal_jingle",
+          "kartal_style": "kartal_bhajan"
+        },
+        "scores": {
+          "kartal_form": 0.15,
+          "kartal_style": 0.195
+        }
+      }
+    ],
+    "room": "punjab_village_bhangra_dhol_outdoor",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "punjab_village_bhangra_dhol_outdoor",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

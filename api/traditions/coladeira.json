@@ -1,0 +1,199 @@
+{
+  "id": "coladeira",
+  "name": "Coladeira",
+  "family": "global",
+  "lineage": "Cape Verdean urban dance genre that crystallised on São Vicente and in Mindelo in the 1930s-40s as morna's up-tempo counterpart and was carried to Lisbon, Rotterdam and Boston diaspora studios from the 1960s — brisk duple-time 120-160 BPM guitar-and-cavaquinho strumming with an offbeat accompaniment stroke, walking bass, satirical or topical Kriolu lyrics, and later horn sections and drum machines in the funaná-adjacent coladeira-zouk hybrid.",
+  "recipe": "classic Western European mid-1930s coladeira, functional Song, tropical song branch, chanson fado morna, Caribbean groove percussion cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. cape verdean cavaquinho, cedar fingerpicked classical nylon-string guitar, la bella flats Detroit soul bass canon walking fingerstyle electric bass, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, gold brass warmer tone saxophone, open slap hand drum congas. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+  "recipe_chars": 752,
+  "score": 280.137,
+  "config": {
+    "traditions": [
+      "coladeira",
+      "cape_verdean_batuko",
+      "morna"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 3.6399999999999997,
+          "voice_quality": 30.81,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9575,
+          "voice_articulation": 29.770000000000003,
+          "voice_microtone": 30.875000000000004,
+          "voice_tradition": 15.014999999999997,
+          "voice_mechanism_compound": 6.175,
+          "voice_estill_quality": 6.2725,
+          "voice_speech_song": 37.375,
+          "voice_ensemble_config": 28.665,
+          "voice_ornament_system": 1.3,
+          "voice_pitch_organization": 3.185000000000001,
+          "voice_processing_chain": 5.84,
+          "voice_multitrack_stack": 5.359999999999999
+        }
+      },
+      {
+        "id": "cape_verdean_cavaquinho",
+        "slots": {
+          "cv_cavaquinho_construction": "cv_cavaquinho_traditional",
+          "cv_cavaquinho_strings": "cv_cavaquinho_steel_reentrant",
+          "cv_cavaquinho_wood": "cv_cavaquinho_mahogany",
+          "cv_cavaquinho_technique": "cv_cavaquinho_strummed_arpeggio"
+        },
+        "scores": {
+          "cv_cavaquinho_construction": 0.585,
+          "cv_cavaquinho_strings": 0.975,
+          "cv_cavaquinho_wood": 0.195,
+          "cv_cavaquinho_technique": 11.844999999999999
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 6.72,
+          "string_tuning": 0,
+          "top_wood_classical": 11.765,
+          "bracing_classical": 0.195,
+          "string_classical": 0.6824999999999999,
+          "attack_technique_cl": 1.96
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 2.4050000000000002,
+          "body_wood": 0.39,
+          "pickup_config": 0.3,
+          "string_type": 2.9250000000000007,
+          "scale_length_b": 0.24,
+          "fretted_or_not": 1.4949999999999999,
+          "bass_technique": 1.4449999999999998
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_chopped_old_time",
+          "orch_strings": "rectified_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "pizz_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.52,
+          "orch_strings": 0.78,
+          "orch_top_wood": 5.004999999999999,
+          "orch_back_wood": 0.9099999999999999,
+          "orch_varnish": 0.325,
+          "orch_setup_period": 2.34,
+          "orch_bow": 3.38,
+          "orch_bow_stick": 0.7099999999999999,
+          "orch_articulation": 1.4949999999999999,
+          "orch_rosin": 0.4875
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_split_tone_overblown",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 2.34,
+          "sax_size": 0.845,
+          "sax_reed": 0.15,
+          "sax_body_alloy": 1.4625,
+          "sax_mouthpiece": 0.15,
+          "sax_technique": 0.78,
+          "sax_maker_school": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 8.184999999999999,
+          "conga_set": 0.845,
+          "conga_skin": 0.195,
+          "conga_shell_wood": 0.045
+        }
+      }
+    ],
+    "room": "paris_pathe_marconi_african_diaspora",
+    "archetype": "arch_antilles_creole_analog",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "paris_pathe_marconi_african_diaspora",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

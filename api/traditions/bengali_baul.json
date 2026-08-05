@@ -3,21 +3,21 @@
   "name": "Bengali baul (mystic-itinerant song)",
   "family": "global",
   "lineage": "Lalon-Shah-lineage Bengali mystic-itinerant tradition, studio-recorded 1970-1990 (Lalon Fakir, c. 1774-1890, the foundational figure) — codified through the Kenduli Mela annual Baul gathering, the Bardhaman district teaching lineages, and the 20th-century preservation work of Purna Das Baul; characterized by ektara-or-dotara-and-khamak accompaniment, Sufi-Vaishnav-Tantric syncretic philosophy, and the wandering-mendicant performance context",
-  "recipe": "classic mid-1980s bengali baul, ballad Poetry, indian bard branch, Sufi ritual devotional, med east poetic ballad poetry sufi inshad qawwali. vocal fry, declaimed, slow rate, interlocked note trading. drone like modal dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ektara, baul pitch bending wood goat skin canonical bengali gut canonical bengali baul khamak, tun indian cedar gut pre modern bengali sikh microtonal esraj. adobe room. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 532,
-  "score": 254.965,
+  "recipe": "classic Eastern European mid-1980s bengali baul, ballad Poetry, indian bard branch, Sufi ritual devotional, med east poetic ballad poetry mevlevi ayin sindhi. vocal fry, breath veiled tone, slow rate, interlocked note trading. dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ektara, baul pitch bending wood goat skin canonical bengali gut canonical bengali baul khamak, tun indian cedar gut pre modern bengali sikh esraj. adobe room. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 609,
+  "score": 207.655,
   "config": {
     "traditions": [
       "bengali_baul",
-      "sufi_inshad_egyptian",
-      "qawwali"
+      "mevlevi_ayin",
+      "sindhi"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.3,
-          "voice_quality": 17.549999999999997,
+          "voice_register": 1.4849999999999999,
+          "voice_quality": 15.079999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.7375,
-          "voice_articulation": 16.184999999999995,
-          "voice_microtone": 27.8525,
-          "voice_tradition": 33.9,
-          "voice_mechanism_compound": 3.1999999999999997,
-          "voice_estill_quality": 5.2975,
-          "voice_speech_song": 20.799999999999997,
-          "voice_ensemble_config": 16.314999999999998,
-          "voice_ornament_system": 14.325,
-          "voice_pitch_organization": 5.8950000000000005,
-          "voice_processing_chain": 4.485,
-          "voice_multitrack_stack": 1.4949999999999999
+          "voice_vibrato": 3.6075,
+          "voice_articulation": 15.339999999999996,
+          "voice_microtone": 18.037499999999994,
+          "voice_tradition": 18.3625,
+          "voice_mechanism_compound": 3.9,
+          "voice_estill_quality": 4.9725,
+          "voice_speech_song": 19.109999999999992,
+          "voice_ensemble_config": 17.159999999999993,
+          "voice_ornament_system": 6.725,
+          "voice_pitch_organization": 5.584999999999999,
+          "voice_processing_chain": 6.5,
+          "voice_multitrack_stack": 4.485000000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "dotara_context": "dotara_folk"
         },
         "scores": {
-          "plucked_traditional_technique": 4.3875,
-          "dotara_strings": 0.39,
-          "dotara_context": 15.989999999999998
+          "plucked_traditional_technique": 2.2099999999999995,
+          "dotara_strings": 0.3,
+          "dotara_context": 15.144999999999998
         }
       },
       {
@@ -74,10 +74,10 @@
           "ektara_string": "ektara_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 0.875,
-          "ektara_use": 11.844999999999997,
-          "ektara_body": 5.0249999999999995,
-          "ektara_string": 2.8949999999999996
+          "plucked_traditional_technique": 0.42499999999999993,
+          "ektara_use": 12.389999999999999,
+          "ektara_body": 3.3799999999999994,
+          "ektara_string": 3.045
         }
       },
       {
@@ -89,32 +89,32 @@
           "khamak_string": "khamak_gut_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 0.875,
-          "khamak_use": 11.754999999999997,
-          "khamak_body": 5.0249999999999995,
-          "khamak_string": 8.575
+          "plucked_traditional_technique": 0.42499999999999993,
+          "khamak_use": 12.795,
+          "khamak_body": 3.3799999999999994,
+          "khamak_string": 7.2749999999999995
         }
       },
       {
         "id": "esraj",
         "slots": {
-          "bowed_technique": "bowed_microtonal_inflected",
+          "bowed_technique": "bowed_legato_classical",
           "esraj_strings": "esraj_15_taraf",
           "esraj_use": "esraj_kirtan",
           "esraj_body_wood": "esraj_tun",
           "esraj_main_strings": "esraj_gut_historical"
         },
         "scores": {
-          "bowed_technique": 3.625,
+          "bowed_technique": 2.125,
           "esraj_strings": 0,
-          "esraj_use": 7.93,
-          "esraj_body_wood": 5.135,
-          "esraj_main_strings": 2.6999999999999997
+          "esraj_use": 3.25,
+          "esraj_body_wood": 2.8600000000000003,
+          "esraj_main_strings": 2.8499999999999996
         }
       }
     ],
     "room": "adobe_room",
-    "archetype": "arch_hmv_dumdum_raga",
+    "archetype": "arch_jugoton_yugoslav",
     "inline_chain": {
       "mic": "ribbon_passive",
       "pre": "tube_pre",

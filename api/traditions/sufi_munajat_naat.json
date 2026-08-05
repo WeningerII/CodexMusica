@@ -3,27 +3,27 @@
   "name": "Sufi munajat and naat (praise of God and Prophet)",
   "family": "global",
   "lineage": "Sufi devotional praise-song tradition continuous from medieval Sufi-poetic era (13th-15th century Rumi, Hafez, Saadi era) through Indo-Persian-Mughal-era continuous performance into modern Sufi-and-Muslim-diaspora practice; munajat (intimate-supplication praise of God) and naat (praise of the Prophet Muhammad) are the canonical Sufi praise-forms",
-  "recipe": "classic South Asian early-1940s sufi munajat and naat, praise Song, middle east n African branch, indian subcontinent praise song, Sufi ritual devotional, middle eastern classical art music andalusī nūba persian dastgāh. vocal fry, declaimed, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
-  "recipe_chars": 522,
-  "score": 276.577,
+  "recipe": "classic South Asian early-1940s sufi munajat and naat, praise Song, middle east n African branch, indian subcontinent praise song, Sufi ritual devotional, middle eastern classical art music andalusī nūba persian traditional music. thick, declaimed, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 528,
+  "score": 258.315,
   "config": {
     "traditions": [
       "sufi_munajat_naat",
       "andalusi_nuba",
-      "persian_dastgah"
+      "persian_traditional"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "persian_dastgah_tradition",
+          "voice_tradition": "qawwali_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.47,
+          "voice_register": 1.6345,
           "voice_quality": 30.284,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.4655,
-          "voice_articulation": 11.894999999999992,
-          "voice_microtone": 24.082499999999992,
-          "voice_tradition": 32.1605,
-          "voice_mechanism_compound": 24.69,
-          "voice_estill_quality": 15.239499999999998,
-          "voice_speech_song": 19.239999999999995,
-          "voice_ensemble_config": 12.219999999999994,
-          "voice_ornament_system": 25.425,
-          "voice_pitch_organization": 25.755,
-          "voice_processing_chain": 3.9,
-          "voice_multitrack_stack": 5.005000000000001
+          "voice_vibrato": 12.485499999999998,
+          "voice_articulation": 12.674999999999995,
+          "voice_microtone": 23.854999999999993,
+          "voice_tradition": 31.8825,
+          "voice_mechanism_compound": 20.95,
+          "voice_estill_quality": 12.894499999999997,
+          "voice_speech_song": 20.214999999999996,
+          "voice_ensemble_config": 13.649999999999995,
+          "voice_ornament_system": 21.445,
+          "voice_pitch_organization": 22.44,
+          "voice_processing_chain": 4.745,
+          "voice_multitrack_stack": 4.9945
         }
       },
       {
@@ -61,10 +61,10 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 0.19500000000000003,
-          "harmonium_action": 2.8600000000000003,
-          "harmonium_voicing": 2.47,
-          "harmonium_use": 9.295
+          "free_reed_technique": 0.8449999999999999,
+          "harmonium_action": 1.8200000000000003,
+          "harmonium_voicing": 1.4300000000000002,
+          "harmonium_use": 7.099499999999999
         }
       },
       {
@@ -75,9 +75,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 7.67,
-          "tabla_bayan": 6.825,
-          "tabla_syahi": 2.0799999999999996
+          "tabla_dayan": 6.629999999999999,
+          "tabla_bayan": 5.465499999999999,
+          "tabla_syahi": 4.225
         }
       }
     ],

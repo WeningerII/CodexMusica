@@ -1,0 +1,153 @@
+{
+  "id": "organetto_italiano",
+  "name": "Organetto (Italian Diatonic Accordion Music)",
+  "family": "vernacular",
+  "lineage": "Central and southern Italian dance repertoire built on the diatonic button accordion that spread through Abruzzo, Lazio, Marche and Campania after 1870, driving saltarello, tarantella and quadriglia at fast 6/8 and 2/4 tempi with continuous bellows-shake drive, left-hand bass-chord alternation, and tammorra or tamburello frame drum marking the beat under call-and-response village singing.",
+  "recipe": "classic Southern European early-1870s organetto, carnival Processional, European branch, European drinking song, European wedding trikiti ländler. breath veiled tone, fast rate, interlocked note trading, neutral third half flat. organetto abruzzese, central Italian healing rite tammorra, tambourine orch, marranzano, bowl back Italian German spruce classical leaning European maple loar canon mandolin. outdoor dalmatian square. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 504,
+  "score": 203.893,
+  "config": {
+    "traditions": [
+      "organetto_italiano",
+      "trikiti",
+      "landler"
+    ],
+    "instruments": [
+      {
+        "id": "organetto_abruzzese",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "organetto_rows": "organetto_two_row",
+          "organetto_tremolo": "organetto_wet",
+          "organetto_style": "organetto_saltarello"
+        },
+        "scores": {
+          "free_reed_technique": 0.35750000000000004,
+          "organetto_rows": 1.45,
+          "organetto_tremolo": 0,
+          "organetto_style": 1.45
+        }
+      },
+      {
+        "id": "tammorra",
+        "slots": {
+          "tammorra_form": "tammorra_tamburello_ciociaro",
+          "tammorra_context": "tammorra_pizzica_tarantata",
+          "tammorra_head": "tammorra_pelle_capra"
+        },
+        "scores": {
+          "tammorra_form": 12.364999999999998,
+          "tammorra_context": 9.175,
+          "tammorra_head": 0.25
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_mixed",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.195,
+          "tambourine_orch_context": 0.25
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "bel_canto_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 0.35,
+          "voice_quality": 12.739999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.545,
+          "voice_articulation": 21.709999999999994,
+          "voice_microtone": 19.889999999999993,
+          "voice_tradition": 7.139999999999999,
+          "voice_mechanism_compound": 4.52,
+          "voice_estill_quality": 7.869999999999999,
+          "voice_speech_song": 23.659999999999993,
+          "voice_ensemble_config": 19.564999999999998,
+          "voice_ornament_system": 6.0249999999999995,
+          "voice_pitch_organization": 1.95,
+          "voice_processing_chain": 3.205,
+          "voice_multitrack_stack": 2.145
+        }
+      },
+      {
+        "id": "marranzano",
+        "slots": {
+          "marranzano_tuning": "marranzano_standard",
+          "marranzano_use": "marranzano_accompaniment"
+        },
+        "scores": {
+          "marranzano_tuning": 0.35,
+          "marranzano_use": 0.3
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "german_spruce_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "martin_m_mandolin",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 2.05,
+          "mandolin_shape": 10.465,
+          "mandolin_top": 8.515000000000002,
+          "mandolin_back": 7.020000000000001,
+          "mandolin_bracing": 0.495,
+          "mandolin_strings": 0.18,
+          "mandolin_fingerboard": 1.5,
+          "mandolin_pickup": 19.435
+        }
+      }
+    ],
+    "room": "outdoor_dalmatian_square",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "outdoor_dalmatian_square",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

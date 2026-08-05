@@ -1,0 +1,131 @@
+{
+  "id": "power_noise",
+  "name": "Power Noise",
+  "family": "electronic",
+  "lineage": "Rhythmic-noise style codified in Germany from 1994 onward by Ant-Zen, Hymen and acts such as Converter and Winterkälte, applying distorted 4/4 kick-drum sequencing and clipped percussive loops at 130-160 BPM to noise source material, with layered granular texture, no vocals, and hardware-plus-DAW production aimed at industrial dancefloors.",
+  "recipe": "classic Central European mid-1990s power noise, experimental Elec, industrial noise branch, techno electronic dance, hardstyle electronic dance, idm glitch experimental electric live coding. roland tr 8s modern aira digital recreation TR-909, sampler drum machine, sub bass analog evolving modular modular evolving modular granular glitched textural wavetable synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
+  "recipe_chars": 626,
+  "score": 92.116,
+  "config": {
+    "traditions": [
+      "power_noise",
+      "live_coding",
+      "glitch_hop"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.65,
+          "tr909_production_origin": 1.3
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.5375,
+          "sample_bitdepth": 0.75,
+          "sample_swing": 10.530000000000001,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 3.193125,
+          "oscillator": 1.755,
+          "filter_topology": 2.145,
+          "envelope": 2.34375,
+          "modulation": 0.195
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 18.425,
+          "mod_voltage_source": 2.49375,
+          "mod_patch_density": 1.5618750000000001,
+          "mod_lineage": 0.7987500000000001
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 18.425,
+          "granular_use": 0.16249999999999998,
+          "granular_synth_source": 6.73975
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 18.125,
+          "wt_position": 5.46,
+          "wt_family": 0.8449999999999999,
+          "wt_polyphony": 0.24
+        }
+      }
+    ],
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_berlin_dub_techno_dm",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "berlin_techno_kreuzberg_studio",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

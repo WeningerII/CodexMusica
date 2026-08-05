@@ -1,0 +1,226 @@
+{
+  "id": "appalachian_black_metal",
+  "name": "Appalachian Black Metal",
+  "family": "rock_punk",
+  "lineage": "American regional black-metal strain from the southern Appalachian mountains, emerging late 2000s through Panopticon (Austin Lunn, Kentucky, 2012), Nechochwen and Twilight Fauna — grafting tremolo-picked minor-modal riffing, blast beats at 180-240 BPM and shrieked vocals onto banjo, fiddle and mountain-dulcimer passages and old-time modal tunes, with lyrics on coal extraction, union violence and land loss, and long tracks alternating full-band assault with unaccompanied acoustic string interludes.",
+  "recipe": "classic 2007-2009 appalachian black metal, distorted Rock, black branch, appalachian drone modal, folk metal metal pagan metal. thick, false fold engaged, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric cedar koa phosphor bronze modern martin travis picked dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit, wood walnut warmer than maple mid tier scruggs stelling banjo 5 string, drone like fiddle, walnut canonical appalachian fingerpicked mountain dulcimer. isolated rural 2005-present isolation diy isolation cabin diy. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 814,
+  "score": 546.175,
+  "config": {
+    "traditions": [
+      "appalachian_black_metal",
+      "pagan_metal",
+      "folk_metal_european"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "false_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 27.974999999999994,
+          "voice_quality": 8.711499999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 18.719999999999995,
+          "voice_microtone": 23.984999999999992,
+          "voice_tradition": 29.706999999999997,
+          "voice_mechanism_compound": 42.4585,
+          "voice_estill_quality": 5.654999999999999,
+          "voice_speech_song": 18.069999999999997,
+          "voice_ensemble_config": 19.889999999999993,
+          "voice_ornament_system": 5.102500000000001,
+          "voice_pitch_organization": 1.1699999999999995,
+          "voice_processing_chain": 2.925,
+          "voice_multitrack_stack": 5.471
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 42.599999999999994,
+          "amp_make": 20.214999999999996,
+          "body_wood": 20.605,
+          "neck_wood": 2.0799999999999996,
+          "fretboard": 2.0149999999999997,
+          "pickup_magnet": 0.37649999999999995,
+          "pickup_winding": 0.09,
+          "string_material": 0.1995,
+          "bridge": 2.0799999999999996,
+          "scale_length": 18.72,
+          "string_gauge": 2.0799999999999996,
+          "finish": 0.378,
+          "string_tuning": 25.48
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 6.500000000000001,
+          "body_wood": 2.0799999999999996,
+          "pickup_config": 1.427125,
+          "string_type": 14.889624999999999,
+          "scale_length_b": 2.0799999999999996,
+          "fretted_or_not": 0.195,
+          "bass_technique": 13.9995
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 17.289999999999996,
+          "drumhead": 2.5349999999999997,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "resonator",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.2445,
+          "tone_ring": 3.3271249999999997,
+          "banjo_head": 17.419999999999998,
+          "banjo_pot": 0.195,
+          "banjo_play": 3.065,
+          "banjo_rim_wood": 1.8199999999999998,
+          "banjo_neck_wood": 1.8849999999999996,
+          "banjo_strings": 0.39,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 17.354999999999997
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 19.778374999999997,
+          "fiddle_strings": 0.1995,
+          "fiddle_bow": 1.04,
+          "fiddle_mute": 1.605,
+          "fiddle_articulation": 2.390625
+        }
+      },
+      {
+        "id": "mountain_dulcimer",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "dulcimer_strings": "dulcimer_4",
+          "dulcimer_tuning": "mixolydian_tuning",
+          "dulcimer_body_wood": "dulcimer_walnut_canonical",
+          "dulcimer_string_material": "dulcimer_steel_modern"
+        },
+        "scores": {
+          "acoustic_technique": 16.529999999999998,
+          "dulcimer_strings": 8.384999999999998,
+          "dulcimer_tuning": 5.85,
+          "dulcimer_body_wood": 3.9,
+          "dulcimer_string_material": 0.09
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "dadgad",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 18.4545,
+          "string_tuning": 2.77,
+          "top_wood": 2.0799999999999996,
+          "back_sides": 1,
+          "string_acoustic": 3.3799999999999994
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "gothic_americana_minor_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "gothic_americana_minor_modal",
+    "room": "studio_isolation_cabin_diy",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

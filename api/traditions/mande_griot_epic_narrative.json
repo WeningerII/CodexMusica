@@ -5,7 +5,7 @@
   "lineage": "The spoken narrative art of the Mande jeli (griot) of West Africa (Mali, Guinea, Senegal, The Gambia), focused here on the recited-and-declaimed telling of the great epic of Sunjata Keita, founder of the thirteenth-century Mali Empire, as distinct from the griot's sung and kora-accompanied music. A hereditary caste of oral historians, genealogists and spokespersons, the jeliw transmit the Sunjata cycle through generations, canonically documented in Djibril Tamsir Niane's rendering of the telling by Mamadou Kouyate of Djeliba Koro. Delivery is heightened, cadenced narration, often supported by a naamu-namina respondent who punctuates the teller with affirmations.",
   "recipe": "classic West African early-1940s mande griot narrative epic recitation, ballad Poetry, west African griot branch jeju haenyeo songs swedish kulning herding-call. thick, breath veiled tone, wide pitch sway, interlocked note trading. bamako griot jeli compound. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 334,
-  "score": 262.078,
+  "score": 262.154,
   "config": {
     "traditions": [
       "mande_griot_epic_narrative",
@@ -47,7 +47,7 @@
           "voice_speech_song": 36.92000000000001,
           "voice_ensemble_config": 26.390000000000004,
           "voice_ornament_system": 6.0775,
-          "voice_pitch_organization": 2.2000000000000006,
+          "voice_pitch_organization": 2.2765000000000004,
           "voice_processing_chain": 14.105000000000004,
           "voice_multitrack_stack": 3.7050000000000005
         }

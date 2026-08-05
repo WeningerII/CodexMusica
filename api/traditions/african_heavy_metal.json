@@ -1,0 +1,163 @@
+{
+  "id": "african_heavy_metal",
+  "name": "African Heavy Metal",
+  "family": "rock",
+  "lineage": "Continental African metal scenes formed from the late 1980s onward in Botswana, Angola, Kenya, Madagascar and South Africa, codified by Wrust, Skinflint, Overthrust and the Gaborone leather-cowboy subculture — NWOBHM and thrash templates at 120-190 BPM with downtuned humbucker guitars and double-kick drumming, but with Setswana, Swahili or Portuguese lyrics, local praise-song melodic contours and occasional talking drum or call-and-response chant layered over the riff.",
+  "recipe": "classic Southern African 1987-1989 african heavy metal, distorted Rock, metal branch, thrash metal, regional distorted rock crossover thrash groove metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 715,
+  "score": 403.764,
+  "config": {
+    "traditions": [
+      "african_heavy_metal",
+      "crossover_thrash",
+      "groove_metal"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 43.2225,
+          "amp_make": 24.439999999999998,
+          "body_wood": 18.915,
+          "neck_wood": 1.04,
+          "fretboard": 0.975,
+          "pickup_magnet": 0.54,
+          "pickup_winding": 0.39,
+          "string_material": 0.195,
+          "bridge": 1.04,
+          "scale_length": 17.875,
+          "string_gauge": 1.04,
+          "finish": 0,
+          "string_tuning": 27.495000000000005
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 8.71,
+          "body_wood": 1.04,
+          "pickup_config": 0.435,
+          "string_type": 21.9375,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0.3,
+          "bass_technique": 19.42
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 19.305,
+          "drumhead": 1.04,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 16.569999999999993,
+          "voice_quality": 7.735,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6000000000000005,
+          "voice_articulation": 19.24,
+          "voice_microtone": 19.044999999999995,
+          "voice_tradition": 15.438749999999999,
+          "voice_mechanism_compound": 44.0775,
+          "voice_estill_quality": 3.4450000000000003,
+          "voice_speech_song": 20.54,
+          "voice_ensemble_config": 20.15,
+          "voice_ornament_system": 0.9099999999999999,
+          "voice_pitch_organization": 1.6899999999999995,
+          "voice_processing_chain": 5.888750000000001,
+          "voice_multitrack_stack": 7.67
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 0.195,
+          "talking_drum_context": 0.5525,
+          "talking_drum_shell_wood": 3.7112499999999993,
+          "talking_drum_head": 3.1849999999999996
+        }
+      }
+    ],
+    "room": "johannesburg_gallo_african_studios",
+    "archetype": "arch_sa_township_digital",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "johannesburg_gallo_african_studios",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "id": "salsa_urbana",
+  "name": "Salsa urbana",
+  "family": "global",
+  "lineage": "Late-1990s–2010s Puerto Rican and New York studio hybrid, codified by Víctor Manuelle's crossovers, N'Klabe and Marc Anthony's urban collaborations — salsa montuno and mambo sections at 95–105 BPM cut against reggaeton dembow, rap verses, sampled loops and heavily compressed programmed percussion alongside a live rhythm section.",
+  "recipe": "classic Caribbean 1997-1999 salsa urbana, groove Percussion, son salsa branch, reggaeton MC rhythm, tropical song functional song cubatón. extended whistle, rap, straight onset, interlocked note trading. mule hide canonical Cuban premium oak staved canonical Cuban congas, pre modern classic salsa brass timbales, pyramid pure nickel bass British mid 60s era sub heavy electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, student commercial trombone, TR-808, sampler, mule hide canonical Cuban son premium oak staved canonical Cuban bongos. live tracking. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 721,
+  "score": 203.36,
+  "config": {
+    "traditions": [
+      "salsa_urbana",
+      "cubaton",
+      "reggaeton"
+    ],
+    "instruments": [
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "tumba",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 1.5,
+          "conga_set": 0.845,
+          "conga_skin": 2.39,
+          "conga_shell_wood": 2.39
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "percussion_technique": 1.5,
+          "timbales_shell": 5.754999999999999,
+          "timbales_context": 1.15
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 1.4299999999999995,
+          "body_wood": 0,
+          "pickup_config": 0.975,
+          "string_type": 1.755,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.045,
+          "bass_technique": 1.8199999999999998
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.475,
+          "grand_piano_size": 0.44999999999999996,
+          "grand_piano_brand": 0.195,
+          "piano_hammer": 3.4699999999999998,
+          "piano_rim": 3.125,
+          "piano_soundboard": 3.125,
+          "piano_pinblock": 1.755,
+          "piano_plate": 1.75,
+          "piano_pitch_standard": 3.7049999999999996
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 1.8999999999999997,
+          "trombone_type": 0.845,
+          "trombone_mouthpiece": 2.9549999999999996,
+          "trombone_mute": 0.44999999999999996,
+          "trombone_technique": 2.14,
+          "trombone_bell_metal": 0.845,
+          "trombone_maker_school": 0.39
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 2.0799999999999996,
+          "drum_machine_808_context": 3.185,
+          "tr808_production_origin": 0.39
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.595,
+          "sampler_archetypes": 2.5,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 0.325,
+          "sampler_classic_context": 21.384999999999994
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.0225,
+          "voice_quality": 8.060000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.45,
+          "voice_articulation": 15.404999999999994,
+          "voice_microtone": 15.014999999999992,
+          "voice_tradition": 5.3625,
+          "voice_mechanism_compound": 3.445,
+          "voice_estill_quality": 3.2500000000000004,
+          "voice_speech_song": 17.484999999999992,
+          "voice_ensemble_config": 15.404999999999992,
+          "voice_ornament_system": 5.005000000000002,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 3.845,
+          "voice_multitrack_stack": 8.515
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_son",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 1.5,
+          "bongos_skin": 9.015,
+          "bongos_context": 0.195,
+          "bongos_shell_wood": 2.39
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_san_juan_reggaeton_mixtape",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "son_clave_2_3",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "son_clave_2_3",
+    "room": "live_room",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

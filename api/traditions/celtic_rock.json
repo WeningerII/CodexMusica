@@ -5,7 +5,7 @@
   "lineage": "Ireland and Scotland, 1970-1985, codified by Horslips, Moving Hearts, Runrig and the Pogues — traditional reel and jig melodies in Dorian and Mixolydian modes transferred to distorted twin electric guitars and uilleann pipes or fiddle in unison, bodhrán doubling a rock kit in cut-time 4/4 and 6/8 at 120-160 BPM, Hammond-style combo organ pads, and unornamented shouted-chorus singing of Irish- and Scots-language or ballad-derived texts.",
   "recipe": "classic Northern European mid-1970s celtic rock, distorted Rock, regional branch, Celtic traditional improv on frame, pop rock folk rock, Celtic balladic ballad poetry asturian gaita. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp mahogany maple soft down tuning humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, drone like fiddle, cane arundo donax canonical Irish leather canonical Irish bellows fed taylor egan philadelphia canonical wide bore Irish American melodic uilleann pipes, goat skin canonical Irish ash pre modern traditional Irish bodhran, brass tube plastic fipple canonical generation feadog clarke melodic tin whistle, psychedelic foregrounded organ driven rock block chord combo organ, bowl back Italian redwood hard rock maple phosphor bronze bronze mandolin.",
   "recipe_chars": 946,
-  "score": 594.765,
+  "score": 583.482,
   "config": {
     "traditions": [
       "celtic_rock",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 48.37000000000002,
+          "voice_register": 48.475000000000016,
           "voice_quality": 12.415,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.885000000000001,
+          "voice_vibrato": 5.140000000000001,
           "voice_articulation": 22.229999999999997,
           "voice_microtone": 31.424999999999997,
-          "voice_tradition": 38.739999999999995,
+          "voice_tradition": 34.51,
           "voice_mechanism_compound": 2.6500000000000004,
           "voice_estill_quality": 4.517500000000001,
           "voice_speech_song": 25.349999999999994,
           "voice_ensemble_config": 23.20499999999999,
-          "voice_ornament_system": 17.194999999999997,
+          "voice_ornament_system": 18.11,
           "voice_pitch_organization": 2.6699999999999995,
-          "voice_processing_chain": 5.470000000000001,
-          "voice_multitrack_stack": 5.015000000000001
+          "voice_processing_chain": 5.3950000000000005,
+          "voice_multitrack_stack": 5.037500000000001
         }
       },
       {
@@ -60,7 +60,7 @@
           "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "pickup_magnet": "alnico_4_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": 4.7,
-          "amp_make": 13.039999999999997,
+          "amp_make": 11.989999999999998,
           "body_wood": 2.34,
           "neck_wood": 1.04,
           "fretboard": 0.975,
-          "pickup_magnet": 0.195,
-          "pickup_winding": 0.135,
-          "string_material": 0.195,
+          "pickup_magnet": 0.21,
+          "pickup_winding": 0.18,
+          "string_material": 0.15,
           "bridge": 1.04,
           "scale_length": 1.04,
           "string_gauge": 1.04,
-          "finish": 0,
-          "string_tuning": 16.334999999999997
+          "finish": 0.21,
+          "string_tuning": 14.174999999999999
         }
       },
       {
@@ -97,10 +97,10 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 13.039999999999997,
+          "amp_make": 11.989999999999998,
           "body_wood": 1.04,
-          "pickup_config": 0.045,
-          "string_type": 28.915,
+          "pickup_config": 0.18,
+          "string_type": 27.715,
           "scale_length_b": 1.04,
           "fretted_or_not": 1.3,
           "bass_technique": 27.77
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 27.625,
-          "drumhead": 4.34,
+          "drumhead": 4.4,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -129,11 +129,11 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 14.079999999999997,
-          "fiddle_strings": 0.6950000000000001,
-          "fiddle_bow": 0.045,
-          "fiddle_mute": 0.65,
-          "fiddle_articulation": 0.285
+          "bowed_technique": 14.139999999999995,
+          "fiddle_strings": 0.65,
+          "fiddle_bow": 0.15,
+          "fiddle_mute": 0.5,
+          "fiddle_articulation": 0.3
         }
       },
       {
@@ -148,9 +148,9 @@
           "uilleann_lineage": "uilleann_taylor_egan"
         },
         "scores": {
-          "wind_articulation": 24.989999999999995,
+          "wind_articulation": 24.899999999999995,
           "uilleann_set": 2.21,
-          "uilleann_pipes_pitch": 0.845,
+          "uilleann_pipes_pitch": 0.65,
           "uilleann_chanter_wood": 0.9749999999999996,
           "uilleann_reed": 2.9899999999999998,
           "uilleann_bag": 2.9899999999999998,
@@ -179,9 +179,9 @@
           "whistle_body_material": "whistle_brass_canonical"
         },
         "scores": {
-          "wind_articulation": 24.989999999999995,
-          "whistle_key": 2.8899999999999997,
-          "whistle_ornament": 6.6949999999999985,
+          "wind_articulation": 24.899999999999995,
+          "whistle_key": 2.695,
+          "whistle_ornament": 5.419999999999998,
           "whistle_body_material": 1.2999999999999998
         }
       },
@@ -192,14 +192,14 @@
           "combo_organ_model": "farfisa_compact",
           "combo_organ_voicing": "combo_organ_vibrato_on",
           "combo_organ_context": "combo_organ_doors_psych",
-          "amp_make": "amp_british_60s_vox_ac"
+          "amp_make": "amp_british_60s_selmer"
         },
         "scores": {
           "keyboard_technique": 4.45,
-          "combo_organ_model": 4.300000000000001,
-          "combo_organ_voicing": 6.520000000000001,
-          "combo_organ_context": 13.924999999999999,
-          "amp_make": 0.9749999999999999
+          "combo_organ_model": 4.615,
+          "combo_organ_voicing": 6.295000000000001,
+          "combo_organ_context": 13.37,
+          "amp_make": 0.8449999999999999
         }
       },
       {
@@ -215,10 +215,10 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 14.36,
+          "acoustic_technique": 14.584999999999999,
           "mandolin_shape": 8.904999999999998,
           "mandolin_top": 1.04,
-          "mandolin_back": 12.294999999999998,
+          "mandolin_back": 11.29,
           "mandolin_bracing": 0.9450000000000001,
           "mandolin_strings": 1.04,
           "mandolin_fingerboard": 0.975,

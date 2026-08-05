@@ -3,14 +3,14 @@
   "name": "Lebanese tarab-pop",
   "family": "global",
   "lineage": "Beirut-centered modern Arabic-pop with classical-tarab roots, melismatic-ornate praise-and-devotional vocal style emerging from 1950s-onward post-Egyptian-classical Levantine regional expansion. The 1960s-1970s Lebanese-orchestral-style integrated rahbani-school theatrical-musical compositional vocabulary with classical maqam modal-foundation (Rast, Hijaz, Bayati, Nahawand), tarab ecstatic-vocal listener-state aesthetic, and Western-string-section-and-electric-instrumentation arrangement-modernization. The 1980s-civil-war-period diaspora-expansion took Beirut-tarab to Paris-and-London recording-studios, transformed in the 2000s-onward via electronic-arabic-pop and house-influenced-arabic-pop into the modern khaleeji-and-shami pan-Arab pop-mainstream.",
-  "recipe": "classic mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music andalusī nūba turkish makam. thick, breath veiled tone, slow rate, interlocked note trading. maple ribs Turkish school Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks rosewood body arab premium synthetic bridge plate qanun, mahogany rosewood clean strummed single coil electric guitar, plucked short envelope analog poly synth, pre muffled edge muffled brushes-and-sticks drum kit. live tracking. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
-  "recipe_chars": 691,
-  "score": 572.705,
+  "recipe": "classic mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music khaleeji-iraqi song tajik traditional music. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks rosewood body arab premium synthetic bridge plate qanun, mahogany rosewood open string slide resonance clean strummed single coil electric guitar, roland jupiter lineage canonical jupiter 8 1981 osaka short envelope analog poly synth, pre muffled edge muffled brushes-and-sticks drum kit. live tracking. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
+  "recipe_chars": 786,
+  "score": 531.492,
   "config": {
     "traditions": [
       "lebanese_pop_tarab",
-      "andalusi_nuba",
-      "turkish_makam"
+      "khaleeji_iraqi",
+      "tajik_traditional"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 25.199999999999992,
-          "voice_quality": 10.334999999999997,
+          "voice_register": 24.524999999999988,
+          "voice_quality": 11.374999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 27.404999999999998,
-          "voice_articulation": 15.209999999999997,
-          "voice_microtone": 56.404999999999994,
-          "voice_tradition": 45.175000000000004,
-          "voice_mechanism_compound": 28.334999999999997,
-          "voice_estill_quality": 24.874999999999996,
-          "voice_speech_song": 22.229999999999997,
-          "voice_ensemble_config": 14.689999999999996,
-          "voice_ornament_system": 39.93499999999999,
-          "voice_pitch_organization": 40.370000000000005,
-          "voice_processing_chain": 7.59,
-          "voice_multitrack_stack": 7.184999999999999
+          "voice_vibrato": 20.199999999999996,
+          "voice_articulation": 17.484999999999996,
+          "voice_microtone": 56,
+          "voice_tradition": 36.754999999999995,
+          "voice_mechanism_compound": 22.894999999999996,
+          "voice_estill_quality": 17.429999999999996,
+          "voice_speech_song": 25.479999999999997,
+          "voice_ensemble_config": 18.459999999999997,
+          "voice_ornament_system": 35.32,
+          "voice_pitch_organization": 35.515,
+          "voice_processing_chain": 8.695,
+          "voice_multitrack_stack": 6.625
         }
       },
       {
@@ -59,18 +59,18 @@
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
-          "oud_body_wood": "oud_maple_body",
+          "oud_body_wood": "oud_walnut_body",
           "oud_soundboard_wood": "oud_lebanese_cedar_face",
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 21.375,
-          "oud_school": 11.915,
-          "oud_strings": 11.309999999999999,
-          "oud_pick": 1.635,
-          "oud_body_wood": 3.3149999999999995,
-          "oud_soundboard_wood": 5.46,
-          "oud_string_material": 4.745
+          "plucked_traditional_technique": 15.014999999999997,
+          "oud_school": 11.5,
+          "oud_strings": 7.6049999999999995,
+          "oud_pick": 3.055,
+          "oud_body_wood": 2.935,
+          "oud_soundboard_wood": 5.39,
+          "oud_string_material": 4.355
         }
       },
       {
@@ -85,59 +85,59 @@
           "qanun_string_material": "qanun_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 21.375,
-          "qanun_strings": 11.114999999999998,
-          "qanun_levers": 1.6899999999999997,
-          "qanun_pick": 11.309999999999999,
-          "qanun_body_wood": 3.38,
-          "qanun_bridge_skin": 1.6899999999999997,
-          "qanun_string_material": 1.8849999999999996
+          "plucked_traditional_technique": 15.014999999999997,
+          "qanun_strings": 7.6049999999999995,
+          "qanun_levers": 1.0399999999999998,
+          "qanun_pick": 7.6049999999999995,
+          "qanun_body_wood": 2.99,
+          "qanun_bridge_skin": 1.0399999999999998,
+          "qanun_string_material": 1.0399999999999998
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_mesa_dual_rectifier",
+          "amp_make": "amp_british_orange",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "dadgad"
+          "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": 19.25,
-          "amp_make": 2.73,
-          "body_wood": 1.59,
-          "neck_wood": 1.59,
-          "fretboard": 1.54,
-          "pickup_magnet": 0.195,
-          "string_material": 0.195,
-          "string_gauge": 1.785,
-          "bridge": 1.6899999999999997,
-          "scale_length": 1.68,
-          "finish": 0.495,
-          "string_tuning": 2.9899999999999998
+          "electric_technique": 22.249999999999996,
+          "amp_make": 2.7800000000000007,
+          "body_wood": 2.935,
+          "neck_wood": 2.935,
+          "fretboard": 2.8850000000000002,
+          "pickup_magnet": 0.15,
+          "string_material": 0.15,
+          "string_gauge": 3.025,
+          "bridge": 1.0399999999999998,
+          "scale_length": 3.055,
+          "finish": 0.15,
+          "string_tuning": 1.3
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pluck_short",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 19.304999999999996,
+          "electronic_technique": 20.365,
           "poly_archetypes": 0.195,
           "poly_voices": 0.195,
-          "poly_maker_lineage": 0.12999999999999998
+          "poly_maker_lineage": 1.295
         }
       },
       {
@@ -148,8 +148,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.624999999999998,
-          "drumhead": 26.16,
+          "drum_technique": 17.549999999999997,
+          "drumhead": 25.65,
           "drum_kit_kick_pedal": 0
         }
       }

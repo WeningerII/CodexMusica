@@ -1,0 +1,147 @@
+{
+  "id": "space_house",
+  "name": "Space House",
+  "family": "electronic",
+  "lineage": "French and Belgian house variant of the mid-to-late 1990s associated with Alan Braxe, Stardust, I:Cube and the Roule and Versatile labels, characterized by 118-126 BPM disco-derived kicks, cosmic analogue synth arpeggios and phaser-swept pads over filtered loops, sustained vocoder or heavily processed vocal fragments, and slow-evolving one-chord builds owing more to 70s space disco than to Chicago tracks.",
+  "recipe": "classic Western European 1997-1999 space house, electronic Dance, house branch, deep house house, continental electronic dance, retro aesthetic experimental electric float house tropical house. analog poly synth, monosynth acid fast-attack-transient mid rich alder electric bass, TR-909, field sampler, vocoder, turntable. intimate paris small studio. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
+  "recipe_chars": 481,
+  "score": 111.02,
+  "config": {
+    "traditions": [
+      "space_house",
+      "float_house",
+      "tropical_house"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 2.52,
+          "poly_archetypes": 1.695,
+          "poly_voices": 1.695,
+          "poly_maker_lineage": -1.085
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": -9.714451465470119e-18,
+          "wave_acid": 0.35999999999999993,
+          "filter_acid": 0.195,
+          "accent_acid": 0.78
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 27.264999999999997,
+          "drum_machine_909_context": 2.145,
+          "tr909_production_origin": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.5749999999999993,
+          "sampler_archetypes": 0.585,
+          "sampler_bit_depth": 1.8199999999999998,
+          "sampler_workflow": 2.905,
+          "sampler_classic_context": 52.032499999999985
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_few_bands",
+          "voc_carrier": "voc_noise_carrier",
+          "voc_modulator": "voc_drum_mod"
+        },
+        "scores": {
+          "voc_band_count": 0,
+          "voc_carrier": 0.845,
+          "voc_modulator": 0.045
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "half_round",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 1.4299999999999995,
+          "body_wood": 2.145,
+          "pickup_config": 0.845,
+          "string_type": 1.4949999999999999,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0.105,
+          "bass_technique": 0.12999999999999998
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "turntable_technique": 0.105
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_french_touch_filter_house",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformer_solid_state",
+      "console": "clean",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

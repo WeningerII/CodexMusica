@@ -3,9 +3,9 @@
   "name": "Funk paulista (São Paulo funk)",
   "family": "electronic",
   "lineage": "São Paulo's branch of Brazilian funk emerged in the city's periferia from roughly 2008, running from funk ostentação (Mc Guimê, Mc Boy do Charmes) into the mandelão and bruxaria styles of DJ Kevin, DJ Arana and Mc GW — 128-135 BPM, a single distorted tamborzão or beat-mandela kick-and-atabaque pattern, extreme sub-bass, pitched siren stabs, chopped and reversed vocal snippets and shouted MC ad-libs produced entirely on cracked DAWs.",
-  "recipe": "classic late-2000s funk paulista, electronic Dance, Latin electric branch, Afro-diasporic electric groove percussion, Brazilian groove percussion funk viral deboxe. vocal fry, breath veiled tone, straight note core, interlocked note trading. sampler drum machine, TR-808, sub bass monosynth acid bass, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 501,
-  "score": 173.329,
+  "recipe": "classic late-2000s funk paulista, electronic Dance, Latin electric branch, Afro-diasporic electric groove percussion, Brazilian groove percussion funk viral deboxe. vocal fry, rap, fast rate, interlocked note trading. sampled chopped sampler drum machine, TR-808, sub bass monosynth acid bass, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 493,
+  "score": 174.394,
   "config": {
     "traditions": [
       "funk_paulista",
@@ -17,14 +17,14 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 2.27625,
-          "voice_quality": 8.32,
+          "voice_register": 2.36875,
+          "voice_quality": 8.915000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.7799999999999998,
+          "voice_vibrato": 0.9425000000000002,
           "voice_articulation": 17.224999999999994,
           "voice_microtone": 17.029999999999994,
           "voice_tradition": 8.872500000000002,
-          "voice_mechanism_compound": 1.755,
+          "voice_mechanism_compound": 1.7499999999999998,
           "voice_estill_quality": 1.1049999999999998,
           "voice_speech_song": 17.614999999999995,
           "voice_ensemble_config": 18.199999999999996,
           "voice_ornament_system": 3.185000000000001,
           "voice_pitch_organization": 3.34875,
-          "voice_processing_chain": 16.854999999999997,
+          "voice_processing_chain": 16.705,
           "voice_multitrack_stack": 5.07
         }
       },
@@ -61,7 +61,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 2.96875,
+          "electronic_technique": 3.3474999999999997,
           "sample_bitdepth": 0.195,
           "sample_swing": 10.5,
           "sample_processing": 0.195
@@ -75,8 +75,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 6.251249999999999,
-          "drum_machine_808_context": 5.915,
+          "tr808_voice": 6.303749999999999,
+          "drum_machine_808_context": 5.86875,
           "tr808_production_origin": 0.045
         }
       },
@@ -89,8 +89,8 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 6.196249999999999,
-          "wave_acid": 0.585,
+          "electronic_technique": 6.203749999999999,
+          "wave_acid": 0.345,
           "filter_acid": 3.575,
           "accent_acid": 0.585
         }
@@ -104,8 +104,8 @@
         },
         "scores": {
           "timbal_head": 0.3,
-          "timbal_size": 1.59,
-          "timbal_style": 0.4025
+          "timbal_size": 1.5,
+          "timbal_style": 0.6875
         }
       },
       {
@@ -116,7 +116,7 @@
           "surdo_shell": "surdo_aluminum_canonical"
         },
         "scores": {
-          "surdo_size": 3.3574999999999995,
+          "surdo_size": 3.3799999999999994,
           "surdo_skin": 3.3149999999999995,
           "surdo_shell": 3.3149999999999995
         }

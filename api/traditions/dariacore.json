@@ -1,0 +1,137 @@
+{
+  "id": "dariacore",
+  "name": "Dariacore",
+  "family": "electronic",
+  "lineage": "Invented by New Jersey producer Leroy (Kaitlyn 'dltzk' Bee) with the 2021 album Dariacore, the style is maximalist mashup music at roughly 150-170 BPM that stacks dozens of instantly recognizable pop, rap and meme samples into rapid Jersey-club-derived triplet kick patterns, air-horns, crowd noise and abrupt key-shifting cuts, sequenced so that no idea lasts more than a few bars.",
+  "recipe": "classic early-2020s dariacore, experimental Elec, pop experimental branch, footwork electronic dance, experimental MC rhythm hexd rage. thick, rap, fast rate, interlocked note trading. field textural sampler, sampler drum machine, TR-808, turntable. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 357,
+  "score": 183.142,
+  "config": {
+    "traditions": [
+      "dariacore",
+      "hexd",
+      "rage_rap"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 13.870000000000003,
+          "sampler_archetypes": 2.2425,
+          "sampler_bit_depth": 0.845,
+          "sampler_workflow": 14.740000000000002,
+          "sampler_classic_context": 17.549999999999997
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 2.925,
+          "sample_bitdepth": 0.585,
+          "sample_swing": 5.5,
+          "sample_processing": 0.7799999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 3.35,
+          "drum_machine_808_context": 3.4450000000000003,
+          "tr808_production_origin": 0.39
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 9.464999999999993,
+          "voice_quality": 12.025,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 11.049999999999995,
+          "voice_microtone": 10.854999999999993,
+          "voice_tradition": 16.020000000000003,
+          "voice_mechanism_compound": 4.535,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 13.064999999999998,
+          "voice_ensemble_config": 12.934999999999995,
+          "voice_ornament_system": 3.120000000000001,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 7.985000000000001,
+          "voice_multitrack_stack": 7.67
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 2.925,
+          "turntable_technique": 2.145
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

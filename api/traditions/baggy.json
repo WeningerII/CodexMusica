@@ -1,0 +1,208 @@
+{
+  "id": "baggy",
+  "name": "Baggy (Indie-Dance)",
+  "family": "rock",
+  "lineage": "British indie-dance sound of 1989-1992, exported from Manchester by The Stone Roses, Happy Mondays, The Charlatans and Flowered Up, marrying loose swung breakbeat drumming and wah-inflected funk guitar to jangling indie melody at 105-120 BPM, with drawled deadpan lead vocals, prominent congas and tambourine, and dub-length grooving outros.",
+  "recipe": "classic British 1989-1992 baggy, distorted Rock, alternative branch, chicago house house, art rock distorted rock motorpop art punk. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, lead water buffalo premium alternative congas, tambourine orch, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, field textural sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 850,
+  "score": 418.01,
+  "config": {
+    "traditions": [
+      "baggy",
+      "motorpop",
+      "art_punk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 28.919999999999995,
+          "voice_quality": 10.529999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.575,
+          "voice_articulation": 17.419999999999998,
+          "voice_microtone": 27.705,
+          "voice_tradition": 5.655000000000001,
+          "voice_mechanism_compound": 6.890000000000001,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 17.809999999999995,
+          "voice_ensemble_config": 16.054999999999996,
+          "voice_ornament_system": 2.1449999999999996,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 5.655,
+          "voice_multitrack_stack": 2.145
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 9.450000000000001,
+          "amp_make": 18.785,
+          "body_wood": 0.65,
+          "neck_wood": 1.04,
+          "fretboard": 1.4949999999999999,
+          "pickup_magnet": 1.04,
+          "string_material": 1.04,
+          "string_gauge": 0.65,
+          "bridge": 0.495,
+          "scale_length": 0.65,
+          "finish": 0.045,
+          "string_tuning": 14.625
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 14.9825,
+          "body_wood": 0.65,
+          "pickup_config": 0.65,
+          "string_type": 28.53,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0,
+          "bass_technique": 28.29
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 23.25,
+          "drumhead": 3.7,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_water_buffalo",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 0.9099999999999999,
+          "conga_set": 2.13,
+          "conga_skin": 1.5,
+          "conga_shell_wood": 0.65
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_film"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0,
+          "tambourine_orch_context": 0.195
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 5.65,
+          "drawbar_setting": 24.290000000000003,
+          "rotary_speed": 23.5,
+          "percussion_setting": 12.09,
+          "tonewheel_model": 9.295000000000002,
+          "leslie_cabinet_model": 0.1949999999999999
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.869999999999999,
+          "sampler_archetypes": 2.045,
+          "sampler_bit_depth": 0.52,
+          "sampler_workflow": 5.395,
+          "sampler_classic_context": 22.814999999999998
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "studio_british_class_a_commercial",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

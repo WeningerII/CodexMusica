@@ -5,7 +5,7 @@
   "lineage": "Mid-1950s rhythm-and-blues into rock-and-roll transitional zone — codified through Bill Haley and His Comets (\"Rock Around the Clock\" 1954), Chuck Berry (\"Maybellene\" 1955), Elvis Presley’s Sun Records sessions (1954-55) and RCA crossover (1956), Little Richard (\"Tutti Frutti\" 1955), Fats Domino, and Jerry Lee Lewis — characterized by 12-bar-blues form adapted to teen-pop subject matter, electric-guitar-led instrumentation, and the Sun / Chess / Specialty / Atlantic indie-label distribution ecosystem",
   "recipe": "classic North American early rock-and-roll, distorted Rock, classic branch, blues electric functional song chicago blues jump blues. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup dearmond vintage jazz archtop, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 690,
-  "score": 241.835,
+  "score": 242.16,
   "config": {
     "traditions": [
       "early_rock_and_roll_50s",
@@ -25,29 +25,29 @@
           "voice_microtone": "bend_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 38.88150000000001,
+          "voice_register": 38.74500000000001,
           "voice_quality": 12.544999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 23.96775,
+          "voice_vibrato": 24.555,
           "voice_articulation": 14.169999999999998,
-          "voice_microtone": 21.851499999999998,
+          "voice_microtone": 22.044999999999998,
           "voice_tradition": 10.984999999999996,
           "voice_mechanism_compound": 2.4699999999999998,
-          "voice_estill_quality": 2.2749999999999995,
+          "voice_estill_quality": 2.34,
           "voice_speech_song": 17.614999999999995,
           "voice_ensemble_config": 14.364999999999997,
-          "voice_ornament_system": 1.6734999999999998,
-          "voice_pitch_organization": 1.755,
+          "voice_ornament_system": 1.8849999999999996,
+          "voice_pitch_organization": 1.6899999999999997,
           "voice_processing_chain": 5.3950000000000005,
           "voice_multitrack_stack": 2.2099999999999995
         }
@@ -58,17 +58,17 @@
           "amp_make": "amp_american_fender_tweed",
           "archtop_body": "archtop_full_hollow",
           "archtop_pickup": "archtop_dearmond_rhythm_chief",
-          "archtop_top_wood": "archtop_carved_spruce",
+          "archtop_top_wood": "archtop_laminated_maple",
           "archtop_strings": "thomastik_jazz_flat",
           "archtop_technique": "archtop_comp_swing"
         },
         "scores": {
           "amp_make": 5.135,
-          "archtop_body": 3.400499999999999,
+          "archtop_body": 3.3349999999999995,
           "archtop_pickup": 3.12,
-          "archtop_top_wood": 2.9415,
-          "archtop_strings": 2.0965,
-          "archtop_technique": 3.0805
+          "archtop_top_wood": 2.6399999999999997,
+          "archtop_strings": 2.2749999999999995,
+          "archtop_technique": 3.385
         }
       },
       {
@@ -109,12 +109,12 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 2.8760000000000003,
+          "keyboard_technique": 3.035,
           "grand_piano_size": 1.885,
           "grand_piano_brand": 1.885,
-          "piano_hammer": 6.695,
-          "piano_rim": 6.890000000000001,
-          "piano_soundboard": 2.573,
+          "piano_hammer": 5.99,
+          "piano_rim": 6.530000000000001,
+          "piano_soundboard": 2.495,
           "piano_pinblock": 0.26,
           "piano_plate": -0.035,
           "piano_pitch_standard": -0.035
@@ -127,7 +127,7 @@
           "sax_size": "baritone_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
-          "sax_mouthpiece": "metal_mp",
+          "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
@@ -135,10 +135,10 @@
           "wind_articulation": 0.39,
           "sax_size": 1.4949999999999999,
           "sax_reed": 0.39,
-          "sax_body_alloy": 1.7499999999999998,
-          "sax_mouthpiece": 0.1395,
+          "sax_body_alloy": 1.7949999999999997,
+          "sax_mouthpiece": 0.045,
           "sax_technique": 1.7499999999999998,
-          "sax_maker_school": 5.483
+          "sax_maker_school": 5.87
         }
       }
     ],

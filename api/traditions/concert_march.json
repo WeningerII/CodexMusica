@@ -1,0 +1,172 @@
+{
+  "id": "concert_march",
+  "name": "March (concert and military band)",
+  "family": "classical",
+  "lineage": "The European and American wind-band march, standardized in 19th-century military service bands and codified for the concert stage by John Philip Sousa's US Marine Band from 1880 and by Kenneth Alford in Britain — duple time at 112-120 BPM, an unvarying alternating-bass snare-and-bass-drum tread, multi-strain AABBCC form with a modulating trio and a piccolo or cornet obbligato descant, scored for cornets, clarinets, low brass, and sousaphone with no strings.",
+  "recipe": "classic North American early-1880s march, groove Percussion, American marching branch, European carnival processional, western common practice art music concert band pasodoble. yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, grenadilla African blackwood traditional continuous-airflow legato clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato bass leaning trombone, eb bass brass band sousaphone, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, nickel silver nickel silver continuous-airflow legato piccolo, double bass rapid double strokes bass drum, cutting projecting brass glockenspiel, brass marching band full. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 1000,
+  "score": 152.276,
+  "config": {
+    "traditions": [
+      "concert_march",
+      "concert_band",
+      "pasodoble"
+    ],
+    "instruments": [
+      {
+        "id": "cornet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "cornet_pitch": "cornet_bb",
+          "cornet_context": "cornet_solo",
+          "cornet_bell_metal": "cornet_yellow_brass",
+          "cornet_maker_school": "cornet_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 4.54,
+          "cornet_pitch": 9.773749999999998,
+          "cornet_context": 2.9899999999999998,
+          "cornet_bell_metal": 9.737499999999999,
+          "cornet_maker_school": 9.407499999999999
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 4.54,
+          "clarinet_body": 4.750000000000001,
+          "clarinet_size": 1.65,
+          "clarinet_reed": 0.195,
+          "clarinet_articulation": 0.15
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_3g",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 4.54,
+          "trombone_type": 0,
+          "trombone_mouthpiece": 8.31375,
+          "trombone_mute": 1.9012499999999999,
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 2.73,
+          "trombone_maker_school": 4.34
+        }
+      },
+      {
+        "id": "sousaphone",
+        "slots": {
+          "sousaphone_bore": "sousaphone_eb_bass",
+          "sousaphone_context": "sousaphone_nola_brass_band"
+        },
+        "scores": {
+          "sousaphone_bore": 3.7787499999999996,
+          "sousaphone_context": 8.6725
+        }
+      },
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "euph_use": "euph_orchestral",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_yellow_brass",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": 4.54,
+          "euph_use": 8.44375,
+          "euphonium_pitch": 9.122499999999999,
+          "euphonium_bell_metal": 10.187499999999998,
+          "euphonium_maker_school": 9.407499999999999
+        }
+      },
+      {
+        "id": "piccolo",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "piccolo_material": "piccolo_metal",
+          "piccolo_context": "piccolo_orch"
+        },
+        "scores": {
+          "wind_articulation": 4.54,
+          "piccolo_material": 2.59625,
+          "piccolo_context": 3.4949999999999997
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 1.2062499999999998,
+          "bass_drum_beater": 3.8349999999999995
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_25",
+          "glockenspiel_mallet": "glockenspiel_brass"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 3.4949999999999997,
+          "glockenspiel_mallet": 2.6650000000000005
+        }
+      },
+      {
+        "id": "marching_band_full",
+        "slots": {
+          "sections": "mb_brass",
+          "school_style": "corps_style"
+        },
+        "scores": {
+          "sections": 2.73,
+          "school_style": 3.4875
+        }
+      }
+    ],
+    "room": "us_uk_civic_amateur_band_hall",
+    "archetype": "arch_network_radio_broadcast",
+    "inline_chain": {
+      "mic": "mic_coles_4038_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "us_uk_civic_amateur_band_hall",
+    "chain_mic": "mic_coles_4038_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

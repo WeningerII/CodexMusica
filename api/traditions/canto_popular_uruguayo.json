@@ -1,0 +1,163 @@
+{
+  "id": "canto_popular_uruguayo",
+  "name": "Canto popular uruguayo",
+  "family": "global",
+  "lineage": "Montevideo song movement of the late 1960s through the 1985 return to democracy, built by Alfredo Zitarrosa, Daniel Viglietti and Los Olimareños on milonga and candombe rather than Andean sources: guitar-led 2/4 milonga ostinato or candombe tamboril patterns behind a grave low-register baritone, spoken-sung recitation, and censorship-evading allusive lyrics carried on long strophic forms.",
+  "recipe": "classic South American 1967-1969 canto popular uruguayo, ballad Poetry, Latin am troubadour branch, Latin am troubadour milonga, iberian Latin protest song nueva canción. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, low bass melodic foundation song accompaniment groove candombe tamboriles, norway spruce European alpine kolstein bass specific double bass, bellows articulated piano accordion, guiro. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 606,
+  "score": 183.192,
+  "config": {
+    "traditions": [
+      "canto_popular_uruguayo",
+      "nueva_cancion",
+      "milonga"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 4.359999999999999,
+          "voice_quality": 9.36,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.1774999999999998,
+          "voice_articulation": 18.524999999999995,
+          "voice_microtone": 18.32999999999999,
+          "voice_tradition": 10.3675,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 6.025000000000001,
+          "voice_speech_song": 25.544999999999995,
+          "voice_ensemble_config": 16.509999999999994,
+          "voice_ornament_system": 8.092500000000001,
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 5.1025
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 8.56,
+          "string_tuning": 0,
+          "top_wood_classical": 3.38,
+          "bracing_classical": 0.845,
+          "string_classical": 1.8199999999999998,
+          "attack_technique_cl": 1.69
+        }
+      },
+      {
+        "id": "candombe_tamboriles",
+        "slots": {
+          "candombe_tamboriles_drum": "candombe_tamboriles_piano",
+          "candombe_tamboriles_context": "candombe_tamboriles_cancion",
+          "candombe_tamboriles_build": "candombe_tamboriles_wood_cowhide"
+        },
+        "scores": {
+          "candombe_tamboriles_drum": 6.28,
+          "candombe_tamboriles_context": 12.1875,
+          "candombe_tamboriles_build": -0.05
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "plain_sheep_gut_bass",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.4875,
+          "bass_size": 0.045,
+          "bass_strings": 0.585,
+          "bass_top_wood": 1.7225,
+          "bass_back_wood": 0.4225,
+          "bass_varnish": 0.325,
+          "bass_setup_period": 0.52,
+          "bass_play": 0.49,
+          "bass_rosin": 1.0725,
+          "bass_bow_stick": 0.32
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 7.4499999999999975,
+          "pa_size": 1.625,
+          "pa_use": 1.625
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_comb"
+        },
+        "scores": {
+          "guiro_origin": 0.09,
+          "guiro_striker": 0.39
+        }
+      }
+    ],
+    "room": "odeon_rca_buenos_aires",
+    "archetype": "arch_ba_tango_radio_orquesta",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_american_op_amp",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "milonga_2_4_ostinato",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "milonga_2_4_ostinato",
+    "room": "odeon_rca_buenos_aires",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

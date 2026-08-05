@@ -1,0 +1,210 @@
+{
+  "id": "muzica_lautareasca",
+  "name": "Muzică lăutărească",
+  "family": "global",
+  "lineage": "Professional Romanian Roma wedding-musician repertory carried by the lăutari guilds of Wallachia and Moldavia since the eighteenth century and passed patrilineally within families such as the Gore and Neacșu lines, played by taraf ensembles of violin, cobza or guitar, țambal cimbalom, nai panpipe, accordion and double bass, mixing free-rhythm doina preludes, Ottoman-derived modal manele and hard-driving 2/4 sârba and 7/16 geampara dances above 160 BPM under declaimed, ornament-saturated solo singing.",
+  "recipe": "classic Southern European mid-1980s muzică lăutărească, wedding, European branch, europop functional song, klezmer improv improv on frame, Mediterranean ballad ballad poetry hungarian magyar nóta bal-folk. thick, breath veiled tone, interlocked note trading, neutral third half flat. carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, concert pedal cimbalom large frame pedal damper hard wood bright percussive cimbalom, driving staccato nai romanian, folk revival free rhythm cobza, brass castagnari Italian premium folk music straight accordion, lyon twisted plain carpathian spruce European maple bosnian source double bass, ebonite hard rubber klezmer tradition clarinet. balkan sevdalinka kafana tavern. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 843,
+  "score": 283.814,
+  "config": {
+    "traditions": [
+      "muzica_lautareasca",
+      "hungarian_magyar_nota",
+      "bal_folk_revival_french"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.6628125000000007,
+          "orch_strings": 0.047812499999999994,
+          "orch_top_wood": 1.885,
+          "orch_back_wood": 3.575,
+          "orch_varnish": 2.4699999999999998,
+          "orch_setup_period": 2.0149999999999997,
+          "orch_bow": 3.769999999999999,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.28500000000000003,
+          "orch_rosin": 2.4699999999999998
+        }
+      },
+      {
+        "id": "cimbalom",
+        "slots": {
+          "cimbalom_size": "cimbalom_concert_pedal",
+          "cimbalom_mallet": "cimbalom_hard_wood"
+        },
+        "scores": {
+          "cimbalom_size": 22.879999999999995,
+          "cimbalom_mallet": 1.195
+        }
+      },
+      {
+        "id": "nai_romanian",
+        "slots": {
+          "nai_romanian_form": "nai_romanian_traditional",
+          "nai_romanian_repertoire": "nai_romanian_hora",
+          "nai_romanian_pipe_material": "nai_romanian_ebonite"
+        },
+        "scores": {
+          "nai_romanian_form": 10.105000000000002,
+          "nai_romanian_repertoire": 10.945,
+          "nai_romanian_pipe_material": -0.035
+        }
+      },
+      {
+        "id": "cobza",
+        "slots": {
+          "cobza_form": "cobza_transylvanian_koboz",
+          "cobza_role": "cobza_doina_free",
+          "cobza_strings": "cobza_gut_nylon"
+        },
+        "scores": {
+          "cobza_form": 18.215,
+          "cobza_role": 2.685,
+          "cobza_strings": 8.124999999999998
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 14.854999999999999,
+          "accordion_reed_material": 1.17,
+          "musette_offset": 0.845,
+          "reed_config": 3.3799999999999994,
+          "bellows": 0,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 8.84
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_sul_tasto",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "lyon_gut_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_slap",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "bass_size": 0.045,
+          "bass_strings": 2.4699999999999998,
+          "bass_top_wood": 1.885,
+          "bass_back_wood": 1.8199999999999998,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 2.0149999999999997,
+          "bass_play": 0.195,
+          "bass_rosin": 2.0799999999999996,
+          "bass_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 15.17,
+          "voice_quality": 8.84,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.195,
+          "voice_articulation": 14.624999999999995,
+          "voice_microtone": 16.574999999999992,
+          "voice_tradition": 23.770625,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 22.164999999999996,
+          "voice_ensemble_config": 17.549999999999997,
+          "voice_ornament_system": 3.3600000000000008,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 5.135,
+          "voice_multitrack_stack": 2.34
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "glissando_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.26,
+          "clarinet_body": 3.51,
+          "clarinet_size": 7.605,
+          "clarinet_reed": 0.047812499999999994,
+          "clarinet_articulation": 1.7499999999999998
+        }
+      }
+    ],
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "broken",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "balkan_odd_meter_aksak",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "balkan_odd_meter_aksak",
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "American easy-listening instrumental style codified in Los Angeles and New York 1954-1965 by Martin Denny, Les Baxter, Esquivel and Henry Mancini for the new stereo hi-fi market — 80-120 BPM cocktail-tempo arrangements of standards and originals for vibraphone, muted brass, bongos and wordless choir, lush non-functional added-note harmony, exaggerated stereo ping-pong panning and bird calls or novelty percussion as ornament",
   "recipe": "classic Los Angeles mid-1960s lounge, functional Song, crooners branch, American jazz smooth vocal, europop functional song torch song. vibraphone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, bongos, growly gut upright bass, brass yellow brass couesnon vintage canonical pre 1970 breath tone airy low dynamic level flugelhorn, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, block chord celesta, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 843,
-  "score": 219.88,
+  "score": 220.12,
   "config": {
     "traditions": [
       "lounge_exotica",
@@ -22,7 +22,7 @@
         },
         "scores": {
           "percussion_technique": 0.375,
-          "vibe_motor": 19.44,
+          "vibe_motor": 19.5,
           "vibe_mallets": 17.75
         }
       },
@@ -88,9 +88,9 @@
         },
         "scores": {
           "wind_articulation": 4.175000000000001,
-          "flugel_use": 2.73,
+          "flugel_use": 2.58,
           "flugelhorn_pitch": 0,
-          "flugelhorn_bell_metal": 2.145,
+          "flugelhorn_bell_metal": 1.995,
           "flugelhorn_maker_school": 17.7
         }
       },
@@ -106,7 +106,7 @@
           "choir_size": 5.004999999999999,
           "choir_polyphonic_configuration": 3.7049999999999996,
           "choir_regional_canonical_configuration": 3.7049999999999996,
-          "choir_ensemble_repertoire": 1.2
+          "choir_ensemble_repertoire": 1.05
         }
       },
       {
@@ -137,7 +137,7 @@
           "drawbar_setting": 20.505,
           "rotary_speed": 0.8249999999999998,
           "percussion_setting": 18.095,
-          "tonewheel_model": 22.169999999999995,
+          "tonewheel_model": 22.799999999999997,
           "leslie_cabinet_model": 0.845
         }
       }

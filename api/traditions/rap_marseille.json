@@ -3,14 +3,14 @@
   "name": "Rap Marseillais",
   "family": "hip_hop",
   "lineage": "French hip-hop regional school formed in Marseille's northern quartiers from 1989 onward — IAM and the Chourmo/Fonky Family circle, later Psy 4 de la Rime, SCH and Jul — pairing Egyptological and Mediterranean sample sources (Arabic strings, Italo-film soundtracks, raï) with heavy 88-96 BPM boom-bap breaks, Provençal-accented rolled-r delivery, and dense internal-rhyme wordplay sung over sung-hook choruses.",
-  "recipe": "classic Western European late-1980s rap marseillais, mc Rhythm, intl hip hop branch, us hip hop east coast, drill MC rhythm, mid east n African pop functional song boom bap new york city rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, low sub bass analog poly synth. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 713,
-  "score": 322.185,
+  "recipe": "classic Western European late-1980s rap marseillais, mc Rhythm, intl hip hop branch, us hip hop east coast, drill MC rhythm, mid east n African pop functional song mafioso rap golden age hip hop. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, TR-909, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, sub bass analog poly synth. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 632,
+  "score": 323.638,
   "config": {
     "traditions": [
       "rap_marseille",
-      "boom_bap",
-      "nyc_rap"
+      "mafioso_rap",
+      "golden_age_hip_hop"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.79,
-          "voice_quality": 25.925,
+          "voice_register": 8.24,
+          "voice_quality": 28.575000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.565,
-          "voice_articulation": 15.924999999999995,
-          "voice_microtone": 20.409999999999993,
-          "voice_tradition": 11.34,
-          "voice_mechanism_compound": 4.159999999999999,
-          "voice_estill_quality": 4.705,
-          "voice_speech_song": 24.345,
-          "voice_ensemble_config": 16.444999999999997,
-          "voice_ornament_system": 6.240000000000002,
+          "voice_vibrato": 3.6900000000000004,
+          "voice_articulation": 17.289999999999992,
+          "voice_microtone": 21.774999999999995,
+          "voice_tradition": 11.842499999999998,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 4.2250000000000005,
+          "voice_speech_song": 27.305,
+          "voice_ensemble_config": 16.574999999999992,
+          "voice_ornament_system": 6.695000000000002,
           "voice_pitch_organization": 3.1500000000000004,
-          "voice_processing_chain": 18.119999999999997,
-          "voice_multitrack_stack": 5.004999999999999
+          "voice_processing_chain": 20.2,
+          "voice_multitrack_stack": 3.9650000000000007
         }
       },
       {
@@ -62,11 +62,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 11.765,
-          "sampler_archetypes": 17.29,
+          "electronic_technique": 11.042499999999997,
+          "sampler_archetypes": 17.419999999999998,
           "sampler_bit_depth": 3.9000000000000004,
-          "sampler_workflow": 14.67,
-          "sampler_classic_context": 32.07749999999999
+          "sampler_workflow": 14.245,
+          "sampler_classic_context": 33.084999999999994
         }
       },
       {
@@ -76,28 +76,28 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 11.765,
-          "turntable_technique": 15.42
+          "electronic_technique": 11.042499999999997,
+          "turntable_technique": 14.37
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_hat",
-          "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_roland_osaka_canonical"
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
           "tr909_voice": 0,
-          "drum_machine_909_context": 1.005,
-          "tr909_production_origin": 1.1049999999999998
+          "drum_machine_909_context": 0.65,
+          "tr909_production_origin": 0.39
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
@@ -105,13 +105,13 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 6.89,
-          "body_wood": 1.4949999999999999,
+          "amp_make": 5.2725,
+          "body_wood": 2.145,
           "pickup_config": 0.39,
-          "string_type": 8.9375,
-          "scale_length_b": 1.435,
-          "fretted_or_not": 0.48,
-          "bass_technique": 5.964999999999999
+          "string_type": 8.45,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 0.65,
+          "bass_technique": 5.215
         }
       },
       {
@@ -123,9 +123,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 13.169999999999998,
-          "poly_archetypes": 0.65,
-          "poly_voices": 0.65,
+          "electronic_technique": 11.882499999999999,
+          "poly_archetypes": 0.69,
+          "poly_voices": 0.345,
           "poly_maker_lineage": -1.225
         }
       }

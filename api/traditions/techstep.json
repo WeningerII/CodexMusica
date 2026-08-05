@@ -1,0 +1,129 @@
+{
+  "id": "techstep",
+  "name": "Techstep",
+  "family": "electronic",
+  "lineage": "London 1995-97, codified by Ed Rush, Trace, Nico and No U-Turn Records with Optical and Bad Company following — 170-175 BPM drum and bass stripped of samples and rebuilt from distorted Reese and Hoover synthesis, two-step drum patterns with heavily compressed processed snares, and bleak industrial-metallic sound design mixed loud onto DAT.",
+  "recipe": "classic mid-1990s techstep, bass System, bass descendants branch, uk soundsystem bass system, techno electronic dance, industrial noise experimental electric darkside jungle oldschool jungle. sampler drum machine, low sub bass analog poly low sub bass wavetable doepfer eurorack canonical 1995 present small format standardization sub bass modular synth, low sub bass monosynth acid bass, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 576,
+  "score": 61.759,
+  "config": {
+    "traditions": [
+      "techstep",
+      "darkside_jungle",
+      "oldschool_jungle"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 0.9099999999999999,
+          "sample_bitdepth": 0.195,
+          "sample_swing": 9.1,
+          "sample_processing": 1.845
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 10.399999999999999,
+          "poly_archetypes": 0.15,
+          "poly_voices": 0,
+          "poly_maker_lineage": -1.085
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 10.399999999999999,
+          "wave_acid": 0.345,
+          "filter_acid": 1.3,
+          "accent_acid": 0.345
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 10.399999999999999,
+          "wt_position": 4.42,
+          "wt_family": 1.3,
+          "wt_polyphony": 0.045
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 10.399999999999999,
+          "mod_voltage_source": 0.63,
+          "mod_patch_density": 0.3495,
+          "mod_lineage": 1.3
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "scores": {
+          "electronic_technique": 0.9099999999999999,
+          "turntable_technique": 0
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_uk_jungle_dubplate",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

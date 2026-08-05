@@ -3,14 +3,14 @@
   "name": "Deboxe (Brazilian eletrofunk)",
   "family": "electronic",
   "lineage": "Southern-Brazilian eletrofunk stream named for the Rio Grande do Sul party-and-label brand Deboxe, consolidated from roughly 2018 onward out of gaúcho DJ crews reworking Rio funk montagem practice — 130-150 BPM four-on-the-floor with hard-clipped distorted 808 sub-kicks, gunshot and vocal-chop stabs, radically pitched-down or sped-up MC acapellas, and long automated build-and-drop edits made entirely in the DAW for sound-car and open-air baile playback.",
-  "recipe": "classic Southern American late-2010s deboxe, groove Percussion, Brazilian branch, Latin electric electronic dance, reggaeton MC rhythm dembow neoperreo. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-808, sampler drum machine, low sub bass monosynth acid bass, low sub bass digital subtractive. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 454,
-  "score": 184.504,
+  "recipe": "classic Southern American late-2010s deboxe, groove Percussion, Brazilian branch, Latin electric electronic dance, reggaeton MC rhythm dembow. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-808, sampler drum machine, low sub bass monosynth acid bass, low sub bass digital subtractive. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 444,
+  "score": 178.927,
   "config": {
     "traditions": [
       "deboxe",
       "dembow",
-      "neoperreo"
+      "rkt"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 2.145,
-          "voice_quality": 12.154999999999992,
+          "voice_quality": 11.959999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 19.824999999999996,
-          "voice_microtone": 19.629999999999995,
+          "voice_articulation": 19.109999999999996,
+          "voice_microtone": 20.47499999999999,
           "voice_tradition": 5.622499999999999,
-          "voice_mechanism_compound": 4.095,
-          "voice_estill_quality": 5.200000000000001,
-          "voice_speech_song": 20.669999999999998,
-          "voice_ensemble_config": 21.839999999999996,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 5.3950000000000005,
+          "voice_speech_song": 20.474999999999994,
+          "voice_ensemble_config": 20.734999999999992,
           "voice_ornament_system": 2.925000000000001,
           "voice_pitch_organization": 2.73,
-          "voice_processing_chain": 6.82125,
-          "voice_multitrack_stack": 5.6875
+          "voice_processing_chain": 6.354999999999999,
+          "voice_multitrack_stack": 4.68
         }
       },
       {
@@ -62,21 +62,21 @@
         "scores": {
           "tr808_voice": 4.452500000000001,
           "drum_machine_808_context": 3.7700000000000005,
-          "tr808_production_origin": 0.65
+          "tr808_production_origin": 0.6150000000000001
         }
       },
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
+          "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
           "electronic_technique": 1.8524999999999998,
-          "sample_bitdepth": 0.845,
-          "sample_swing": 5.125,
+          "sample_bitdepth": 0.585,
+          "sample_swing": 5.17,
           "sample_processing": 0.39
         }
       },
@@ -89,10 +89,10 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 5.07,
+          "electronic_technique": 4.517500000000001,
           "wave_acid": 0.045,
           "filter_acid": 3.12,
-          "accent_acid": 1.1575
+          "accent_acid": 1.04
         }
       },
       {
@@ -103,9 +103,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 5.07,
+          "electronic_technique": 4.517500000000001,
           "va_archetypes": 0,
-          "digital_subtractive_context": 19.63
+          "digital_subtractive_context": 18.525
         }
       }
     ],

@@ -1,0 +1,182 @@
+{
+  "id": "porro",
+  "name": "Porro",
+  "family": "global",
+  "lineage": "Colombian Caribbean savanna dance form from Sucre and Córdoba, carried both by rural banda pelayera brass and by 1940s-60s Barranquilla and Medellín orquestas on Discos Fuentes, marked by a 2/4 cut-time bombo-and-redoblante pulse, clarinet-led melody over trumpets and bombardino, and the bozá section where brass riffs answer the drums.",
+  "recipe": "classic South American mid-1940s porro, carnival Processional, Caribbean branch, tropical song functional song, Latin am groove percussion cumbia chilena kaseko. clarinet, yellow brass canonical 70 30 bach stradivarius shallow cup lead trumpet ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bass trombone trombone, brass yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, brass yellow brass canonical orchestral besson sovereign British brass band tuba, double bass rapid double strokes bass drum, low mouthed timbale mounted mambo section montuno lift coro section cencerro, rose brass darker warmer saxophone. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 859,
+  "score": 75.045,
+  "config": {
+    "traditions": [
+      "porro",
+      "cumbia_chilena",
+      "kaseko"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.635,
+          "clarinet_body": 0.26,
+          "clarinet_size": 0.435,
+          "clarinet_reed": 0.435,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.085,
+          "brass_size": 0.435,
+          "trumpet_mouthpiece": 1.8199999999999998,
+          "brass_mute": 0.195,
+          "trumpet_technique": 2.085,
+          "trumpet_bell_metal": 4.984999999999999,
+          "trumpet_maker_school": 0.7799999999999998
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "valve_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.085,
+          "trombone_type": 0.195,
+          "trombone_mouthpiece": 2.015,
+          "trombone_mute": 0,
+          "trombone_technique": 1.885,
+          "trombone_bell_metal": 4.984999999999999,
+          "trombone_maker_school": 0.8249999999999998
+        }
+      },
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "euph_use": "euph_brass_band",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_yellow_brass",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "euph_use": 4.550000000000001,
+          "euphonium_pitch": 5,
+          "euphonium_bell_metal": 5.734999999999999,
+          "euphonium_maker_school": 5.584999999999999
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "tuba_pitch": 0.75,
+          "tuba_context": 6.5649999999999995,
+          "tuba_bell_metal": 4.984999999999999,
+          "tuba_valve_system": 0.7799999999999999,
+          "tuba_maker_school": 5.584999999999999
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.3,
+          "bass_drum_beater": 1.04
+        }
+      },
+      {
+        "id": "cencerro",
+        "slots": {
+          "cencerro_bell_type": "cencerro_mambo_bell",
+          "cencerro_context": "cencerro_montuno",
+          "cencerro_build": "cencerro_cattle_bell"
+        },
+        "scores": {
+          "cencerro_bell_type": 1.6900000000000002,
+          "cencerro_context": 1.4949999999999999,
+          "cencerro_build": 0.5
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 2.085,
+          "sax_size": 0.195,
+          "sax_reed": 0.435,
+          "sax_body_alloy": 4.3500000000000005,
+          "sax_mouthpiece": 0.435,
+          "sax_technique": -1.3877787807814457e-17,
+          "sax_maker_school": 0.195
+        }
+      }
+    ],
+    "room": "discos_fuentes_medellin",
+    "archetype": "arch_discos_fuentes_tropical",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "cumbia_4_4_paseo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cumbia_4_4_paseo",
+    "room": "discos_fuentes_medellin",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

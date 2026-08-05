@@ -1,0 +1,181 @@
+{
+  "id": "neue_deutsche_haerte",
+  "name": "Neue Deutsche Härte",
+  "family": "rock",
+  "lineage": "German fusion of industrial dance and metal codified by Rammstein's Herzeleid (1995) after Oomph!'s early-1990s template, built on mid-tempo 90-120 BPM four-on-the-floor kick patterns, downtuned palm-muted single-note guitar riffs doubled by synth stabs, orchestral or choir samples, and declaimed rolled-R German vocals in a low baritone, produced with heavy compression and grid-tight editing.",
+  "recipe": "classic British 1990-1993 neue deutsche härte, distorted Rock, metal branch, thrash metal, industrial noise experimental electric, late analog major distorted rock crossover thrash djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit, analog poly synth, sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 732,
+  "score": 387.469,
+  "config": {
+    "traditions": [
+      "neue_deutsche_haerte",
+      "crossover_thrash",
+      "djent"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_sob",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 16.265624999999996,
+          "voice_quality": 8.905000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.745,
+          "voice_articulation": 14.299999999999995,
+          "voice_microtone": 16.029999999999998,
+          "voice_tradition": 2.7950000000000004,
+          "voice_mechanism_compound": 37.486875,
+          "voice_estill_quality": 4.115,
+          "voice_speech_song": 12.999999999999995,
+          "voice_ensemble_config": 17.289999999999992,
+          "voice_ornament_system": 0.9099999999999997,
+          "voice_pitch_organization": 3.0550000000000006,
+          "voice_processing_chain": 7.800000000000001,
+          "voice_multitrack_stack": 5.98
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 30.764375,
+          "amp_make": 18.752499999999998,
+          "body_wood": 17.29,
+          "neck_wood": 4.180000000000001,
+          "fretboard": 4.130000000000001,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 2.3,
+          "string_material": 1,
+          "bridge": 4.180000000000001,
+          "scale_length": 15.015,
+          "string_gauge": 5.025000000000001,
+          "finish": 0.045,
+          "string_tuning": 21.19
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 7.865000000000001,
+          "body_wood": 4.42,
+          "pickup_config": 0.845,
+          "string_type": 17.515,
+          "scale_length_b": 4.180000000000001,
+          "fretted_or_not": 0.845,
+          "bass_technique": 17.75
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 16.379999999999995,
+          "drumhead": 4.180000000000001,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 1.4949999999999999,
+          "poly_archetypes": 7.930000000000001,
+          "poly_voices": 0.7,
+          "poly_maker_lineage": -0.875
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 1.6999999999999997,
+          "sampler_archetypes": 0.9799999999999999,
+          "sampler_bit_depth": 4.48,
+          "sampler_workflow": 2.955,
+          "sampler_classic_context": 13.324999999999998
+        }
+      }
+    ],
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_british_class_a_commercial",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "digital_high",
+    "chain_console": "console_british_inline_80s"
+  }
+}

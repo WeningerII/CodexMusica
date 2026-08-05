@@ -1,0 +1,160 @@
+{
+  "id": "brega_funk",
+  "name": "Brega Funk",
+  "family": "global",
+  "lineage": "Recife hybrid formed around 2015-2018 by Shevchenko e Elloco, MC Troia and Japãozin, fusing Pernambucan brega with Rio funk — 128-135 BPM tamborzão-derived programmed beat with a swung, off-grid snare, cheap sampled brass and synth stabs, deep 808 sub, and rapid-fire half-sung MC delivery over two- or four-bar loops, choreographed for viral passinho dance videos.",
+  "recipe": "classic South American 2015-2018 brega funk, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm, Brazilian song functional song arrochadeira brega and tecnobrega. kargyraa, breath veiled tone, slow rate, interlocked note trading. melodic pitched sampler, TR-808, sub bass analog poly synth, timbal brasileiro, alder pyramid pure nickel bass British mid 60s era electric bass. recife brazilian northeast forro house. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 529,
+  "score": 166.132,
+  "config": {
+    "traditions": [
+      "brega_funk",
+      "arrochadeira",
+      "brega_tecnobrega"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.0956249999999998,
+          "voice_quality": 6.825000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.015,
+          "voice_articulation": 13.194999999999993,
+          "voice_microtone": 13.649999999999991,
+          "voice_tradition": 3.185000000000001,
+          "voice_mechanism_compound": 5.719999999999999,
+          "voice_estill_quality": 5.525,
+          "voice_speech_song": 18.459999999999994,
+          "voice_ensemble_config": 15.404999999999992,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 1.6300000000000001,
+          "voice_processing_chain": 11.149999999999995,
+          "voice_multitrack_stack": 7.767500000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.3075,
+          "sampler_archetypes": 4.01,
+          "sampler_bit_depth": 2.27,
+          "sampler_workflow": 1.5599999999999998,
+          "sampler_classic_context": 15.274999999999995
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 3.4125,
+          "drum_machine_808_context": 3.965,
+          "tr808_production_origin": 0.245625
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 3.2825000000000006,
+          "poly_archetypes": 0.845,
+          "poly_voices": 0.15,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "timbal_brasileiro",
+        "slots": {
+          "timbal_head": "timbal_synthetic",
+          "timbal_size": "timbal_standard",
+          "timbal_style": "timbal_solo"
+        },
+        "scores": {
+          "timbal_head": 0.545,
+          "timbal_size": 0,
+          "timbal_style": 1.15
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "amp_make": 1.625,
+          "body_wood": 2.8256250000000005,
+          "pickup_config": 1.0006249999999999,
+          "string_type": 2.7950000000000004,
+          "scale_length_b": 1.8850000000000002,
+          "fretted_or_not": 0.15,
+          "bass_technique": 10.749999999999996
+        }
+      }
+    ],
+    "room": "recife_brazilian_northeast_forro_house",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "recife_brazilian_northeast_forro_house",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

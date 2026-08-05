@@ -3,9 +3,9 @@
   "name": "Free improvisation (non-idiomatic)",
   "family": "global",
   "lineage": "Post-1960s European and American non-idiomatic improvisation tradition — codified through Derek Bailey’s Improvisation: Its Nature and Practice in Music (1980) as theoretical foundation, the Spontaneous Music Ensemble (London 1966 onward), AMM, Music Improvisation Company, the Globe Unity Orchestra, and the Bay Area / Knitting Factory NYC American scenes — characterized by genre-disavowal posture, no-pre-arranged-material premise, and timbre-and-extended-technique-foreground performance",
-  "recipe": "classic European mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète electroacoustic composition. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel plywood laminate European maple sycamore maple double bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural granular synth, whale song waterphone. treated studio. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
-  "recipe_chars": 586,
-  "score": 135.592,
+  "recipe": "classic European mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète electroacoustic composition. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel carpathian spruce European maple sycamore maple spirit varnish double bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural granular synth, whale song waterphone. treated studio. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 602,
+  "score": 138.432,
   "config": {
     "traditions": [
       "free_improvisation",
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_falsetto",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.56,
+          "voice_register": 1.545,
           "voice_quality": 7.3450000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4382307692307692,
+          "voice_vibrato": 1.3,
           "voice_articulation": 10.205,
-          "voice_microtone": 12.50965588578088,
-          "voice_tradition": 8.373704836829837,
+          "voice_microtone": 12.999999999999993,
+          "voice_tradition": 8.84,
           "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.1975,
+          "voice_estill_quality": 0.195,
           "voice_speech_song": 10.594999999999995,
           "voice_ensemble_config": 10.529999999999994,
-          "voice_ornament_system": 2.943798076923078,
-          "voice_pitch_organization": 0.6134615384615384,
-          "voice_processing_chain": 3.715113636363637,
-          "voice_multitrack_stack": 5.072889277389279
+          "voice_ornament_system": 2.921875000000001,
+          "voice_pitch_organization": 0.78,
+          "voice_processing_chain": 3.835000000000001,
+          "voice_multitrack_stack": 5.232500000000002
         }
       },
       {
@@ -64,11 +64,11 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 0.8574999999999998,
-          "sax_size": 1.3882307692307692,
-          "sax_reed": 1.4382307692307692,
-          "sax_body_alloy": 1.9182342657342655,
-          "sax_mouthpiece": 1.4382307692307692,
+          "wind_articulation": 0.8499999999999999,
+          "sax_size": 1.25,
+          "sax_reed": 1.3,
+          "sax_body_alloy": 2.2099999999999995,
+          "sax_mouthpiece": 1.3,
           "sax_technique": 0.7,
           "sax_maker_school": 0.9099999999999999
         }
@@ -79,7 +79,7 @@
           "bowed_technique": "bowed_sul_ponticello",
           "bass_size": "bass_three_quarter",
           "bass_strings": "bass_steel",
-          "bass_top_wood": "plywood_bass_top",
+          "bass_top_wood": "carpathian_spruce_bass",
           "bass_back_wood": "european_maple_bass_back",
           "bass_varnish": "spirit_varnish_bass",
           "bass_setup_period": "modern_setup_bass",
@@ -89,15 +89,15 @@
         },
         "scores": {
           "bowed_technique": 0.75,
-          "bass_size": 0.0025,
-          "bass_strings": 2.3530034965034967,
-          "bass_top_wood": 1.7499999999999998,
-          "bass_back_wood": 3.0051923076923077,
+          "bass_size": 0,
+          "bass_strings": 2.5297727272727273,
+          "bass_top_wood": 1.8199999999999998,
+          "bass_back_wood": 3,
           "bass_varnish": 1.7499999999999998,
-          "bass_setup_period": 1.9514650349650347,
-          "bass_play": 0.4538782051282052,
-          "bass_rosin": 1.7384230769230766,
-          "bass_bow_stick": 1.965833333333333
+          "bass_setup_period": 2.2099999999999995,
+          "bass_play": 0.5612499999999999,
+          "bass_rosin": 1.8499999999999996,
+          "bass_bow_stick": 2.0999999999999996
         }
       },
       {
@@ -109,7 +109,7 @@
         },
         "scores": {
           "drum_technique": 10.27,
-          "drumhead": 4.123814102564102,
+          "drumhead": 4.95125,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -135,9 +135,9 @@
           "waterphone_construction": "waterphone_bronze_stainless"
         },
         "scores": {
-          "waterphone_model": 4.273833333333332,
-          "waterphone_excitation": 0.30596153846153845,
-          "waterphone_context": 6.833230769230768,
+          "waterphone_model": 4.395,
+          "waterphone_excitation": 0.39,
+          "waterphone_context": 6.694999999999999,
           "waterphone_construction": 0.195
         }
       }

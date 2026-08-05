@@ -3,14 +3,14 @@
   "name": "Salsa romántica (80s romantic)",
   "family": "pop",
   "lineage": "Softer-romantic style of salsa developed in mid-1980s Miami and New York from older salsa dura. Reduced rhythmic-aggression, simpler arrangements, slower-mid-tempo, explicit romantic-love-and-relationship lyric content. Emerged through Latin-Caribbean commercial-radio-targeting and became dominant late-1980s-and-1990s salsa-mainstream. RMM Records and producer Sergio George consolidated canonical sound.",
-  "recipe": "classic North American 1984-1986 salsa romántica, groove Percussion, son salsa branch, Latin am troubadour ballad poetry milonga cueca. thick, close mic intimate, slow rate, interlocked note trading. cold pressed weikert felt birch laminated maple laminated Asian spruce grand piano, orange amp British heavy crunch alder pyramid pure nickel bass electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 773,
-  "score": 209.632,
+  "recipe": "classic North American 1984-1986 salsa romántica, groove Percussion, son salsa branch, Latin am troubadour ballad poetry milonga folklore surero. thick, close mic intimate, slow rate, interlocked note trading. cold pressed weikert felt birch laminated maple laminated Asian spruce grand piano, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 826,
+  "score": 219.652,
   "config": {
     "traditions": [
       "salsa_romantica",
       "milonga",
-      "cueca_chilena"
+      "folklore_surero"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 8.240000000000002,
-          "voice_quality": 9.555,
+          "voice_register": 6.265000000000001,
+          "voice_quality": 8.8725,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.102499999999999,
-          "voice_articulation": 16.509999999999998,
-          "voice_microtone": 15.469999999999994,
-          "voice_tradition": 7.995,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.38,
-          "voice_speech_song": 17.809999999999995,
-          "voice_ensemble_config": 15.144999999999996,
-          "voice_ornament_system": 0.8449999999999998,
-          "voice_pitch_organization": 2.0474999999999994,
-          "voice_processing_chain": 8.71,
-          "voice_multitrack_stack": 7.234999999999999
+          "voice_vibrato": 5.752499999999999,
+          "voice_articulation": 19.304999999999993,
+          "voice_microtone": 19.304999999999993,
+          "voice_tradition": 6.532500000000001,
+          "voice_mechanism_compound": 2.5349999999999997,
+          "voice_estill_quality": 3.5425,
+          "voice_speech_song": 22.359999999999992,
+          "voice_ensemble_config": 19.174999999999994,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 8.059999999999999,
+          "voice_multitrack_stack": 8.035
         }
       },
       {
@@ -62,59 +62,59 @@
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_415_baroque"
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 2.45,
-          "grand_piano_size": 4.029999999999999,
-          "grand_piano_brand": 8.064999999999998,
-          "piano_hammer": 4.404999999999999,
+          "keyboard_technique": 2.95,
+          "grand_piano_size": 3.8799999999999994,
+          "grand_piano_brand": 7.914999999999999,
+          "piano_hammer": 3.7549999999999994,
           "piano_rim": 4.8100000000000005,
           "piano_soundboard": 2.45,
           "piano_pinblock": 0.7149999999999999,
-          "piano_plate": 0.325,
-          "piano_pitch_standard": 2.16
+          "piano_plate": 0.45,
+          "piano_pitch_standard": 1.96
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_orange",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_motown"
+          "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 3.83,
-          "body_wood": 4.829999999999999,
-          "pickup_config": 0.845,
+          "amp_make": 3.68,
+          "body_wood": 4.419999999999999,
+          "pickup_config": 0.345,
           "string_type": 5.329999999999999,
-          "scale_length_b": 4.029999999999999,
+          "scale_length_b": 3.8799999999999994,
           "fretted_or_not": 0.435,
-          "bass_technique": -0.035
+          "bass_technique": 0.12999999999999998
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_continuous_legato",
           "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
-          "brass_mute": "straight_mute",
+          "brass_mute": "bucket_mute",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.6499999999999999,
+          "wind_articulation": 0.52,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 0.6824999999999999,
-          "brass_mute": 0.375,
-          "trumpet_technique": 0.6499999999999999,
+          "trumpet_mouthpiece": 1.0725,
+          "brass_mute": 0.65,
+          "trumpet_technique": 0.45500000000000007,
           "trumpet_bell_metal": 1.69,
           "trumpet_maker_school": 1.69
         }
@@ -127,7 +127,7 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 10.435,
+          "percussion_technique": 12.185,
           "timbales_shell": 5.589999999999999,
           "timbales_context": 0.195
         }
@@ -141,7 +141,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 10.435,
+          "percussion_technique": 12.185,
           "conga_set": 0.24,
           "conga_skin": 4.29,
           "conga_shell_wood": 4.29

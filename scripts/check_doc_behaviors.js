@@ -112,7 +112,7 @@ assert(
 // ── §8 — nearest-neighbor top hits the docs cite as "Verified" ──
 assert(
   '§8',
-  'nearest_neighbor top neighbor: instrument voice→griot_voice, tradition delta_blues→jug_band',
+  'nearest_neighbor top neighbor: instrument voice→griot_voice, tradition delta_blues→hill_country_blues',
   () => {
     const firstNeighbor = (out) => {
       const m = out.match(/^\s+([a-z0-9_]+)\s+score=/m);
@@ -121,7 +121,7 @@ assert(
     const a = firstNeighbor(run([NN, '--type', 'instrument', '--id', 'voice']).out);
     const b = firstNeighbor(run([NN, '--type', 'tradition', '--id', 'delta_blues']).out);
     return {
-      ok: a === 'griot_voice' && b === 'jug_band',
+      ok: a === 'griot_voice' && b === 'hill_country_blues',
       detail: `instrument→${a}, tradition→${b}`,
     };
   }

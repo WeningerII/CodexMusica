@@ -3,14 +3,14 @@
   "name": "Arabic tahwidah (تهويدة, cradle song)",
   "family": "global",
   "lineage": "Pan-Arab lullaby tradition (the term tahwidah cognate with the Arabic verb hawwada, 'to lull/soothe'), regional variants across Levantine, Maghrebi, Egyptian, Yemeni, and Gulf-Arabian traditions. Sung by mothers-and-grandmothers in informal domestic-context with no instrumental accompaniment, the tahwidah employs free-rhythm slow-tempo melismatic-ornamentation drawing on classical-maqam modal-vocabulary (Bayati, Rast, and Hijaz being the most common for lullabies). Lyrics typically address the child directly (often with regional-dialectal diminutives) and reference religious-protection invocations, mother's-and-grandmother's wishes-for-the-child, and pastoral imagery. The tradition has been disproportionately preserved by ethnomusicological field-recordings since the 1960s due to its private-domestic context being underrepresented in commercial-recording.",
-  "recipe": "classic mid-1960s arabic tahwidah, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry persian dastgāh andalusī nūba. vocal fry, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 331,
-  "score": 314.77,
+  "recipe": "classic mid-1960s arabic tahwidah, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry persian dastgāh persian traditional music. vocal fry, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 343,
+  "score": 311.435,
   "config": {
     "traditions": [
       "arabic_tahwidah",
       "persian_dastgah",
-      "andalusi_nuba"
+      "persian_traditional"
     ],
     "instruments": [
       {
@@ -23,10 +23,10 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "arabic_maqam_tradition",
+          "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.365,
-          "voice_quality": 16.639999999999997,
+          "voice_register": 2.73,
+          "voice_quality": 16.769999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.587499999999995,
-          "voice_articulation": 13.714999999999995,
-          "voice_microtone": 51.89,
-          "voice_tradition": 41.91,
-          "voice_mechanism_compound": 25.44,
-          "voice_estill_quality": 20.079999999999995,
-          "voice_speech_song": 18.259999999999994,
-          "voice_ensemble_config": 13.649999999999993,
-          "voice_ornament_system": 36.41499999999999,
-          "voice_pitch_organization": 37.345,
-          "voice_processing_chain": 6.174999999999999,
-          "voice_multitrack_stack": 6.11
+          "voice_vibrato": 20.279999999999998,
+          "voice_articulation": 15.274999999999995,
+          "voice_microtone": 52.49,
+          "voice_tradition": 40.23499999999999,
+          "voice_mechanism_compound": 24.84,
+          "voice_estill_quality": 17.804999999999996,
+          "voice_speech_song": 18.589999999999993,
+          "voice_ensemble_config": 15.859999999999994,
+          "voice_ornament_system": 35.28999999999999,
+          "voice_pitch_organization": 36.07,
+          "voice_processing_chain": 7.279999999999999,
+          "voice_multitrack_stack": 7.0200000000000005
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Zulu South African male-vocal-and-guitar tradition that emerged in the mid-20th century from rural KwaZulu-Natal migrant-labour culture — characterized by the izibongo praise-poetry vocal opening, the maskandi guitar style with characteristic open-chord strumming and finger-picking patterns, and Zulu-language lyrical content addressing rural-urban migration, romantic longing, and traditional social commentary; figures Phuzekhemisi, Ihhashi Elimhlophe, Bhekumuzi Luthuli, Mfaz Omnyama",
   "recipe": "classic Southern African early-1950s maskandi, drone Modal, string branch, central east south African groove percussion chimurenga soukous. vocal fry, breath veiled tone, slow rate, interlocked note trading. cedar phosphor bronze bronze strummed open chord ringing overtones parlor acoustic guitar. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
   "recipe_chars": 484,
-  "score": 132.636,
+  "score": 132.27,
   "config": {
     "traditions": [
       "maskandi",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "southern_african_bantu_vocal_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.907249999999999,
+          "voice_register": 3.8442499999999993,
           "voice_quality": 12.804999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.275,
           "voice_articulation": 12.544999999999993,
           "voice_microtone": 14.94999999999999,
-          "voice_tradition": 26.809499999999993,
+          "voice_tradition": 26.909999999999993,
           "voice_mechanism_compound": 7.15,
           "voice_estill_quality": 5.460000000000001,
           "voice_speech_song": 13.584999999999994,
           "voice_ensemble_config": 13.064999999999994,
           "voice_ornament_system": 0.7749999999999999,
-          "voice_pitch_organization": 3.3600000000000008,
+          "voice_pitch_organization": 3.150000000000001,
           "voice_processing_chain": 5.915000000000001,
-          "voice_multitrack_stack": 4.428874999999999
+          "voice_multitrack_stack": 4.305874999999999
         }
       },
       {
@@ -62,8 +62,8 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 3.431,
-          "string_tuning": 1.17,
+          "acoustic_technique": 3.3995,
+          "string_tuning": 1.131,
           "top_wood_parlor": 2.1221249999999996,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 2.0321249999999997

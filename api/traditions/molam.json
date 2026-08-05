@@ -1,0 +1,171 @@
+{
+  "id": "molam",
+  "name": "Molam",
+  "family": "global",
+  "lineage": "Lao-Isan sung poetry of northeast Thailand and Laos, traditionally performed by a mo lam expert declaiming rhymed klon verse in rapid syllabic patter against the free-reed khaen mouth organ, and modernized from the 1960s-70s into lam sing and the electrified molam band with phin lute, electric bass, kit and ching timekeeping, running fast anhemitonic pentatonic lines over a driving cyclic groove in the khaen's near-equal heptatonic tuning.",
+  "recipe": "classic Southeast Asian mid-1960s molam, functional Song, east Asian pop branch, indian bard ballad poetry, wind pipe drone modal greek clarinet lok dohori. thick, breath veiled tone, fast rate, interlocked note trading. khaen, phin, lao ching chap open and damped ching, saw u, alder pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+  "recipe_chars": 618,
+  "score": 233.098,
+  "config": {
+    "traditions": [
+      "molam",
+      "greek_clarinet",
+      "lok_dohori"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 7.450000000000002,
+          "voice_quality": 12.544999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 15.404999999999998,
+          "voice_microtone": 18.752499999999998,
+          "voice_tradition": 13,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 18.654999999999998,
+          "voice_ensemble_config": 16.834999999999997,
+          "voice_ornament_system": 2.6975000000000002,
+          "voice_pitch_organization": 3.7475000000000005,
+          "voice_processing_chain": 4.4,
+          "voice_multitrack_stack": 2.7675
+        }
+      },
+      {
+        "id": "khaen",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "khaen_size": "khaen_paet",
+          "khaen_context": "khaen_mor_lam"
+        },
+        "scores": {
+          "free_reed_technique": 2.9200000000000004,
+          "khaen_size": 3.6399999999999997,
+          "khaen_context": 3.445
+        }
+      },
+      {
+        "id": "phin",
+        "slots": {
+          "phin_form": "phin_song_sai",
+          "phin_repertoire": "phin_lam_accompaniment",
+          "phin_construction": "phin_jackfruit_carved"
+        },
+        "scores": {
+          "phin_form": 22.944999999999997,
+          "phin_repertoire": 13.555,
+          "phin_construction": 3.895
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_lao",
+          "ching_stroke": "ching_open_closed",
+          "ching_alloy": "ching_bronze"
+        },
+        "scores": {
+          "ching_form": 4.57,
+          "ching_stroke": 17.225,
+          "ching_alloy": -0.035
+        }
+      },
+      {
+        "id": "saw_u",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "saw_u_membrane": "saw_u_cowhide",
+          "saw_u_strings": "saw_u_silk",
+          "saw_u_ensemble": "saw_u_khrueang_sai",
+          "saw_u_ornament": "saw_u_sparse_sustained"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "saw_u_membrane": 0.06499999999999999,
+          "saw_u_strings": -0.07,
+          "saw_u_ensemble": 0.9749999999999999,
+          "saw_u_ornament": 0.585
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "amp_make": 1.445,
+          "body_wood": 1.885,
+          "pickup_config": 1.885,
+          "string_type": 2.0925,
+          "scale_length_b": 0.15,
+          "fretted_or_not": 0.195,
+          "bass_technique": -0.035
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 15.079999999999997,
+          "drumhead": 5.789999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_oran_pop_rai_cassette",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "equal_heptatonic_thai_khmer",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_thai_khmer",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

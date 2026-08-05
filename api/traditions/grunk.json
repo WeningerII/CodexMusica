@@ -1,0 +1,178 @@
+{
+  "id": "grunk",
+  "name": "Grunk",
+  "family": "hip_hop",
+  "lineage": "Mid-2000s American crossover coinage for grunge-plus-crunk, surfacing in Southern rap-rock crossovers around 2004-2007, welding downtuned distorted power-chord riffs and live drums to crunk's 70-80 BPM half-time 808 kick, snapping triple hi-hats and shouted call-and-response chant hooks, with rap verses traded against sludgy sung choruses.",
+  "recipe": "classic 2004-2007 grunk, mc Rhythm, southern branch, metal distorted rock, alternative distorted rock viking metal post-metal. thick, rap, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, TR-808, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 640,
+  "score": 404.77,
+  "config": {
+    "traditions": [
+      "grunk",
+      "viking_metal",
+      "post_metal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 22.529999999999994,
+          "voice_quality": 9.5,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.77,
+          "voice_articulation": 15.469999999999995,
+          "voice_microtone": 20.549999999999997,
+          "voice_tradition": 5.005,
+          "voice_mechanism_compound": 31.83,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 16.249999999999996,
+          "voice_ensemble_config": 17.484999999999992,
+          "voice_ornament_system": 1.6349999999999998,
+          "voice_pitch_organization": 1.6249999999999998,
+          "voice_processing_chain": 8.040000000000001,
+          "voice_multitrack_stack": 6.565000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 34.985,
+          "amp_make": 14.364999999999997,
+          "body_wood": 14.559999999999999,
+          "neck_wood": 2.9899999999999998,
+          "fretboard": 2.925,
+          "pickup_magnet": 0.585,
+          "pickup_winding": 0.585,
+          "string_material": 1.69,
+          "bridge": 2.9899999999999998,
+          "scale_length": 13.260000000000002,
+          "string_gauge": 3.8349999999999995,
+          "finish": 0.09,
+          "string_tuning": 27.95
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 10.335,
+          "body_wood": 2.9899999999999998,
+          "pickup_config": 1.885,
+          "string_type": 26.65,
+          "scale_length_b": 2.9899999999999998,
+          "fretted_or_not": 0.09,
+          "bass_technique": 20.325
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20,
+          "drumhead": 2.9899999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.625,
+          "drum_machine_808_context": 0.5199999999999999,
+          "tr808_production_origin": 0.3
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 2.2,
+          "sampler_archetypes": 3.12,
+          "sampler_bit_depth": 2.8600000000000003,
+          "sampler_workflow": 2.82,
+          "sampler_classic_context": 17.939999999999998
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

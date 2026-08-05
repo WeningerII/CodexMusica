@@ -3,14 +3,14 @@
   "name": "Rap conscient (French conscious rap)",
   "family": "hip_hop",
   "lineage": "Francophone conscious rap consolidated in Paris and the Île-de-France banlieues circa 1990-1998 through IAM, Assassin, La Rumeur and Kery James, setting dense literary alexandrine-leaning French flows and anti-colonial, anti-police lyric argument at 88-96 BPM over boom-bap breaks, jazz and North African string samples, filtered contrabass loops and heavily scratched hooks.",
-  "recipe": "classic Western European mid-1990s rap conscient, mc Rhythm, intl hip hop branch, us hip hop conscious rap, urban American protest song conscious hip-hop american political hip-hop and conscious rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, TR-808, growly gut upright bass, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 630,
-  "score": 370.762,
+  "recipe": "classic Western European mid-1990s rap conscient, mc Rhythm, intl hip hop branch, us hip hop conscious rap, urban American protest song conscious hip-hop jazz rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, TR-808, growly gut upright bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 591,
+  "score": 384.079,
   "config": {
     "traditions": [
       "rap_conscient",
       "conscious_hip_hop",
-      "american_political_hip_hop"
+      "jazz_rap"
     ],
     "instruments": [
       {
@@ -24,49 +24,49 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 12.043624999999997,
-          "voice_quality": 39.961749999999995,
+          "voice_register": 14.918624999999995,
+          "voice_quality": 39.73024999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.193,
-          "voice_articulation": 20.8,
-          "voice_microtone": 20.994999999999997,
-          "voice_tradition": 10.755374999999999,
-          "voice_mechanism_compound": 2.209999999999999,
-          "voice_estill_quality": 4.719499999999999,
-          "voice_speech_song": 37.859375,
-          "voice_ensemble_config": 21.125,
-          "voice_ornament_system": 5.005000000000002,
-          "voice_pitch_organization": 0.9749999999999996,
-          "voice_processing_chain": 30.536499999999997,
-          "voice_multitrack_stack": 6.305000000000001
+          "voice_vibrato": 10.44375,
+          "voice_articulation": 23.075,
+          "voice_microtone": 22.619999999999997,
+          "voice_tradition": 11.150374999999999,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 6.344499999999999,
+          "voice_speech_song": 37.004999999999995,
+          "voice_ensemble_config": 22.294999999999998,
+          "voice_ornament_system": 6.435000000000001,
+          "voice_pitch_organization": 0.8999999999999997,
+          "voice_processing_chain": 30.011499999999998,
+          "voice_multitrack_stack": 3.802500000000001
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_archetypes": "emu_sp1200",
           "sampler_bit_depth": "sampler_twelve_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 10.273749999999998,
-          "sampler_archetypes": 17.679999999999996,
-          "sampler_bit_depth": 1.9500000000000002,
-          "sampler_workflow": 12.524999999999999,
-          "sampler_classic_context": 37.321875000000006
+          "electronic_technique": 10.623749999999998,
+          "sampler_archetypes": 17.4525,
+          "sampler_bit_depth": 2.9250000000000003,
+          "sampler_workflow": 13.2,
+          "sampler_classic_context": 37.789500000000004
         }
       },
       {
@@ -76,8 +76,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 10.273749999999998,
-          "turntable_technique": 12.313
+          "electronic_technique": 10.623749999999998,
+          "turntable_technique": 12.350874999999998
         }
       },
       {
@@ -88,8 +88,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 11.262875,
-          "drum_machine_808_context": 5.26125,
+          "tr808_voice": 11.334124999999998,
+          "drum_machine_808_context": 2.9575000000000005,
           "tr808_production_origin": 0.45499999999999996
         }
       },
@@ -100,27 +100,27 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 7.249999999999999,
-          "upright_play": 7.249999999999999
+          "upright_strings": 8.874999999999998,
+          "upright_play": 8.874999999999998
         }
       },
       {
         "id": "rhodes_electric",
         "slots": {
-          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "keyboard_technique": "keyboard_ostinato_groove",
           "rhodes_model": "rhodes_mark1_stage",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
-          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
+          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 4.411624999999999,
-          "rhodes_model": 7.729624999999999,
-          "rhodes_use": 0.78,
-          "rhodes_tine_material": 0.65,
-          "rhodes_hammer_tip": -0.765,
-          "rhodes_pickup_position": 1.4299999999999997
+          "keyboard_technique": 6.375,
+          "rhodes_model": 9.425875,
+          "rhodes_use": 0.39,
+          "rhodes_tine_material": 0.45499999999999996,
+          "rhodes_hammer_tip": -0.665,
+          "rhodes_pickup_position": 1.04
         }
       }
     ],

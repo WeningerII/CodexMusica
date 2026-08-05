@@ -1,0 +1,169 @@
+{
+  "id": "lemko_folk",
+  "name": "Lemko folk (Łemkowszczyzna song tradition)",
+  "family": "global",
+  "lineage": "Song tradition of the Lemko Rusyn communities of the Beskid Niski range on the Polish-Slovak watershed, documented from the late nineteenth century and largely preserved in diaspora after the 1947 Akcja Wisła deportations, centred on unaccompanied or fiddle-and-cimbalom-accompanied strophic lyric and wedding songs in a narrow modal ambitus, sung in tight two- and three-part harmony with parallel thirds, slow parlando-rubato ballads alternating with brisk duple kolomyika dances at roughly 130 BPM.",
+  "recipe": "classic Northern European late-1940s lemko folk, ballad Poetry, Slavic bard branch, Slavic balkan field work, Slavic baltic domestic rhythm, European funeral lament lithuanian folk music russian zhnitvenye pesni. thick, breath veiled tone, fast rate, interlocked note trading. drone like fiddle, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, half rectified carpathian spruce European maple sycamore maple spirit varnish double bass, castagnari Italian premium folk music straight accordion, folk diatonic dance driving sopilka. baltic outdoor village. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 681,
+  "score": 216.694,
+  "config": {
+    "traditions": [
+      "lemko_folk",
+      "lithuanian_folk_music",
+      "russian_zhnitvenye"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 6.92,
+          "voice_quality": 13.064999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 19.24,
+          "voice_microtone": 20.084999999999994,
+          "voice_tradition": 20.832499999999992,
+          "voice_mechanism_compound": 5.9799999999999995,
+          "voice_estill_quality": 2.9899999999999998,
+          "voice_speech_song": 22.164999999999996,
+          "voice_ensemble_config": 18.655,
+          "voice_ornament_system": 2.990000000000001,
+          "voice_pitch_organization": 6.077500000000001,
+          "voice_processing_chain": 2.535,
+          "voice_multitrack_stack": 4.894
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "plain_lamb_gut_fiddle",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 9.195,
+          "fiddle_strings": 0.25,
+          "fiddle_bow": 0.16250000000000014,
+          "fiddle_mute": 0.105,
+          "fiddle_articulation": 0.39
+        }
+      },
+      {
+        "id": "cimbalom",
+        "slots": {
+          "cimbalom_size": "cimbalom_concert_pedal",
+          "cimbalom_mallet": "cimbalom_cotton_wound"
+        },
+        "scores": {
+          "cimbalom_size": 22.035,
+          "cimbalom_mallet": 0.15
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "half_rectified_gut_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.04999999999999999,
+          "bass_size": 2.085,
+          "bass_strings": 2.25,
+          "bass_top_wood": 2.145,
+          "bass_back_wood": 3.8675,
+          "bass_varnish": 1.625,
+          "bass_setup_period": 0.09750000000000009,
+          "bass_play": 0.12999999999999998,
+          "bass_rosin": 1.9200000000000002,
+          "bass_bow_stick": 1.625
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "machine_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 6.444999999999999,
+          "accordion_reed_material": 0.3,
+          "musette_offset": 0.5,
+          "reed_config": 0.135,
+          "bellows": 0,
+          "voicing_chamber": 0.105,
+          "accordion_maker_school": 4.81
+        }
+      },
+      {
+        "id": "sopilka",
+        "slots": {
+          "sopilka_form": "sopilka_form_six_hole",
+          "sopilka_setting": "sopilka_setting_solo_kolomyika",
+          "sopilka_body": "sopilka_body_elder"
+        },
+        "scores": {
+          "sopilka_form": 3.25,
+          "sopilka_setting": 3.0224999999999995,
+          "sopilka_body": 0.12999999999999998
+        }
+      }
+    ],
+    "room": "baltic_outdoor_village",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "baltic_outdoor_village",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Reggaetón colombiano",
   "family": "pop",
   "lineage": "Medellín-centred variant that took over the reggaetón mainstream between 2010 and 2020 through producers Sky Rompiendo, Ovy on the Drums and Mosty working with J Balvin, Maluma and Karol G — softening the Puerto Rican dembow into a lighter 90-96 BPM pattern with brushed shaker and rim-click layers, foregrounding major-key or bright-minor synth and plucked-guitar loops, and replacing hard rapped delivery with melodic paisa-accented crooning and airy stacked hooks",
-  "recipe": "classic early-2010s reggaetón colombiano, mc Rhythm, reggaeton branch, Latin electric electronic dance, tropical song functional song barbadian pop cumbia 420. thick, breath veiled tone, slow rate, interlocked note trading. polychordal major seven nine eleven stack 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack, TR-808, sampler drum machine, plucked short envelope analog poly synth, cedar nylon strummed open chord ringing overtones classical nylon-string guitar, mahogany sub heavy electric bass, bright flat sharp hand clap. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 769,
-  "score": 211.305,
+  "recipe": "classic early-2010s reggaetón colombiano, mc Rhythm, reggaeton branch, Latin electric electronic dance, tropical song functional song freestyle barbadian pop. thick, breath veiled tone, slow rate, interlocked note trading. polychordal major seven nine eleven stack 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack, roland tr 8s modern aira digital recreation TR-808, sampler drum machine, singing lead analog poly synth, cedar nylon strummed open chord ringing overtones classical nylon-string guitar, low mid rich spectrum low-mid-thick mahogany electric bass, bright flat sharp hand clap. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 828,
+  "score": 229.259,
   "config": {
     "traditions": [
       "reggaeton_colombiano",
-      "barbadian_pop",
-      "cumbia_420"
+      "freestyle",
+      "barbadian_pop"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 8.879999999999997,
-          "voice_quality": 10.399999999999995,
+          "voice_register": 11.804999999999994,
+          "voice_quality": 10.464999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 21.449999999999996,
-          "voice_microtone": 25.089999999999996,
-          "voice_tradition": 10.161124999999998,
-          "voice_mechanism_compound": 5.525,
-          "voice_estill_quality": 4.940000000000001,
-          "voice_speech_song": 26.714999999999996,
-          "voice_ensemble_config": 22.489999999999995,
-          "voice_ornament_system": 2.2099999999999995,
-          "voice_pitch_organization": 3.250000000000001,
-          "voice_processing_chain": 6.668999999999999,
-          "voice_multitrack_stack": 3.315000000000001
+          "voice_articulation": 23.854999999999997,
+          "voice_microtone": 27.494999999999994,
+          "voice_tradition": 11.852999999999998,
+          "voice_mechanism_compound": 6.175,
+          "voice_estill_quality": 5.590000000000001,
+          "voice_speech_song": 29.769999999999996,
+          "voice_ensemble_config": 24.244999999999994,
+          "voice_ornament_system": 1.5599999999999996,
+          "voice_pitch_organization": 3.6550000000000007,
+          "voice_processing_chain": 6.7139999999999995,
+          "voice_multitrack_stack": 2.8274999999999997
         }
       },
       {
@@ -61,49 +61,49 @@
         },
         "scores": {
           "multitrack_stack_density": 1.3,
-          "multitrack_stack_era_aesthetic": 2.0475,
-          "multitrack_stack_processing": 2.989
+          "multitrack_stack_era_aesthetic": 1.56,
+          "multitrack_stack_processing": 2.8390000000000004
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 1.6249999999999998,
-          "drum_machine_808_context": 1.6899999999999997,
-          "tr808_production_origin": 0.65
+          "tr808_voice": 0.39,
+          "drum_machine_808_context": 1.4300000000000002,
+          "tr808_production_origin": 1.4949999999999999
         }
       },
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
+          "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
           "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sample_bitdepth": 0.845,
+          "sample_bitdepth": 0.24,
           "sample_swing": 5.75,
-          "sample_processing": 2.145
+          "sample_processing": 1.4949999999999999
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pluck_short",
+          "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 8.769999999999998,
-          "poly_archetypes": 0.195,
+          "electronic_technique": 11.228999999999997,
+          "poly_archetypes": 0.554,
           "poly_voices": 0,
           "poly_maker_lineage": -1.225
         }
@@ -119,33 +119,33 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 7.754999999999999,
+          "acoustic_technique": 10.754999999999999,
           "string_tuning": 0,
           "top_wood_classical": 4.355,
           "bracing_classical": 0.24,
-          "string_classical": 1.4299999999999997,
-          "attack_technique_cl": 1.4949999999999999
+          "string_classical": 1.295,
+          "attack_technique_cl": 1.345
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "half_round",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "sub_bass_synth_blend"
+          "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 2.0799999999999996,
+          "amp_make": 2.4374999999999996,
           "body_wood": 1.4949999999999999,
-          "pickup_config": 0.845,
-          "string_type": 2.8775,
-          "scale_length_b": 1.6899999999999997,
+          "pickup_config": 0.435,
+          "string_type": 2.8899999999999997,
+          "scale_length_b": 1.4949999999999999,
           "fretted_or_not": 0,
-          "bass_technique": 1.625
+          "bass_technique": 1.325
         }
       },
       {
@@ -155,8 +155,8 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 1.545625,
-          "clap_capture": 0.195
+          "clap_technique": 1.4949999999999999,
+          "clap_capture": 0.48
         }
       }
     ],

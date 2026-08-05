@@ -5,7 +5,7 @@
   "lineage": "Antioquian cantina song tradition grown from carrilera and Mexican ranchera in the Medellin and Eje Cafetero bars of the 1970s-80s and codified by Dario Gomez, the 'rey del despecho' — moderate 2/4 and 3/4 ranchera-derived rhythms, nylon guitar and requinto with mariachi-style trumpet fills, plain electric bass and kit, and a strained tenor delivering first-person songs of betrayal, drink and rural loss",
   "recipe": "classic South American mid-1970s musica popular colombiana, drinking Song, americas branch, tejano border ranchera, Mexican functional song grupera. thick, full chest belt, slow rate, interlocked note trading. nylon alternative tiple, cedar plain gut lamb gut whole lamb method classical nylon-string guitar, pyramid pure nickel bass British mid 60s era sub heavy electric bass, schilke chicago lead bright unison shallow cup lead trumpet trumpet, pre muffled edge muffled brushes-and-sticks drum kit. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
   "recipe_chars": 684,
-  "score": 262.297,
+  "score": 262.228,
   "config": {
     "traditions": [
       "musica_popular_colombiana",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 1.7199999999999995,
-          "voice_quality": 32.35571428571428,
+          "voice_quality": 32.34499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.0725,
@@ -43,12 +43,12 @@
           "voice_microtone": 23.790000000000006,
           "voice_tradition": 7.605000000000002,
           "voice_mechanism_compound": 5.265,
-          "voice_estill_quality": 20.111428571428572,
+          "voice_estill_quality": 20.105,
           "voice_speech_song": 36.75750000000001,
           "voice_ensemble_config": 24.765000000000004,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 8.594642857142858,
+          "voice_processing_chain": 8.570000000000002,
           "voice_multitrack_stack": 7.962500000000002
         }
       },
@@ -80,7 +80,7 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 1.4882142857142855,
+          "acoustic_technique": 1.4849999999999999,
           "string_tuning": 0,
           "top_wood_classical": 4.355,
           "bracing_classical": 0.195,
@@ -106,7 +106,7 @@
           "string_type": 2.8600000000000003,
           "scale_length_b": 0.24,
           "fretted_or_not": 0.195,
-          "bass_technique": 1.9107142857142856
+          "bass_technique": 1.9
         }
       },
       {
@@ -139,7 +139,7 @@
         },
         "scores": {
           "drum_technique": 24.050000000000008,
-          "drumhead": 1.7089285714285714,
+          "drumhead": 1.695,
           "drum_kit_kick_pedal": 0
         }
       }

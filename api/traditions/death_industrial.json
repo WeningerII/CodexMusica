@@ -1,0 +1,143 @@
+{
+  "id": "death_industrial",
+  "name": "Death Industrial",
+  "family": "electronic",
+  "lineage": "Swedish and British offshoot of power electronics codified around 1987-1995 by Brighter Death Now, Cold Meat Industry and Megaptera, defined by slow or beatless heaving low-frequency drones, tape-loop churn, metallic scrape and clang, and buried distorted or whispered vocals — texturally dense, funereal in pace, and constructed on four-track cassette rather than mixed for clarity.",
+  "recipe": "classic European mid-1990s death industrial, experimental Elec, industrial noise branch, ambient experimental electric, musique concrete experimental electric, drone metal dark ambient. thick, breath veiled tone, slow rate, interlocked note trading. doepfer eurorack canonical 1995 present small format standardization textural modular pad like pad analog synth, overtone rich sustained brass tape replay keyboard, field textural sampler. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 545,
+  "score": 254.298,
+  "config": {
+    "traditions": [
+      "death_industrial",
+      "dark_ambient",
+      "drone_metal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.260000000000001,
+          "voice_quality": 7.085000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.045000000000002,
+          "voice_articulation": 19.11,
+          "voice_microtone": 17.484999999999992,
+          "voice_tradition": 14.464583333333334,
+          "voice_mechanism_compound": 17.7685,
+          "voice_estill_quality": 3.278083333333334,
+          "voice_speech_song": 19.759999999999998,
+          "voice_ensemble_config": 19.759999999999998,
+          "voice_ornament_system": 0.65,
+          "voice_pitch_organization": 6.0125,
+          "voice_processing_chain": 8.593083333333333,
+          "voice_multitrack_stack": 4.940000000000001
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 11.44,
+          "mod_voltage_source": 0.09,
+          "mod_patch_density": 3.705,
+          "mod_lineage": 1.3
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "saw_super",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 9.306,
+          "oscillator": 3.4449999999999994,
+          "filter_topology": 3.575,
+          "envelope": 3.3150000000000004,
+          "modulation": 1.397
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "brass_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": 0.9099999999999999,
+          "tape_voice": 3.509999999999999,
+          "tape_state": 0.845
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 11.44,
+          "sampler_archetypes": 0.4591666666666667,
+          "sampler_bit_depth": 3.12,
+          "sampler_workflow": 13.379249999999999,
+          "sampler_classic_context": 27.625
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "broken",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

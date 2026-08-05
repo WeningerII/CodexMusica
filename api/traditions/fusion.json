@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s jazz-rock hybrid genre electrifying jazz instrumentation and incorporating rock rhythms, funk grooves, modal harmonic language, and extended improvised form — codified through Miles Davis (In a Silent Way 1969, Bitches Brew 1970), Weather Report (Heavy Weather 1977), Mahavishnu Orchestra (Inner Mounting Flame 1971), Return to Forever, Herbie Hancock (Head Hunters 1973)",
   "recipe": "classic Los Angeles 1967-1969 fusion, improv On Frame, fusion branch, American jazz bop bebop modal jazz. pocket ostinato electric piano tine, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, raymac steel tine premium 1970s vintage replacement harder neoprene late 1970s bark grit ostinato rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon ostinato wurlitzer ep, five string extended low range warm low c fusion lead electric violin. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ.",
   "recipe_chars": 991,
-  "score": 415.653,
+  "score": 428.218,
   "config": {
     "traditions": [
       "fusion",
@@ -22,14 +22,14 @@
         },
         "scores": {
           "keyboard_technique": 4.7,
-          "tine_voicing": 0.22499999999999998,
+          "tine_voicing": 0.315,
           "tine_effect": 4.75
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_wah_funk",
+          "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
@@ -37,26 +37,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
-          "finish": "oil_satin_hum",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 4.7545,
-          "amp_make": 11.092125000000001,
-          "body_wood": 1.1216249999999999,
-          "neck_wood": 1.65475,
-          "fretboard": 1.65475,
+          "electric_technique": 4.995,
+          "amp_make": 11.830000000000002,
+          "body_wood": 1.5825000000000002,
+          "neck_wood": 1.885,
+          "fretboard": 1.885,
           "pickup_magnet": 0.39,
-          "pickup_winding": 0.21075000000000002,
-          "string_material": 1.65475,
-          "bridge": 0.195,
+          "pickup_winding": 0.24,
+          "string_material": 1.885,
+          "bridge": 0.2265,
           "scale_length": 2.0799999999999996,
-          "string_gauge": 0.155625,
-          "finish": 0.0045,
-          "string_tuning": 8.820375
+          "string_gauge": 0.5265,
+          "finish": 0,
+          "string_tuning": 8.905
         }
       },
       {
@@ -72,12 +72,12 @@
         },
         "scores": {
           "amp_make": 6.630000000000002,
-          "body_wood": 0.31125,
-          "pickup_config": 0.22499999999999998,
-          "string_type": 35.734625,
+          "body_wood": 0.453,
+          "pickup_config": 0.315,
+          "string_type": 37.509499999999996,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.0045,
-          "bass_technique": 30.125
+          "fretted_or_not": 0,
+          "bass_technique": 30.275
         }
       },
       {
@@ -89,7 +89,7 @@
         },
         "scores": {
           "drum_technique": 35.35999999999999,
-          "drumhead": 35.7585,
+          "drumhead": 37.65449999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -97,15 +97,15 @@
         "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "oscillator": "triangle_osc",
+          "oscillator": "saw_single",
           "filter_topology": "svf",
           "envelope": "gated_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 0.7623749999999998,
-          "oscillator": 1.77775,
-          "filter_topology": 1,
+          "electronic_technique": 0.7799999999999998,
+          "oscillator": 1.885,
+          "filter_topology": 1.045,
           "envelope": 1.04,
           "modulation": 0.65
         }
@@ -123,12 +123,12 @@
         },
         "scores": {
           "wind_articulation": 2.75,
-          "sax_size": 4.410375,
-          "sax_reed": 1.65475,
+          "sax_size": 4.6365,
+          "sax_reed": 1.885,
           "sax_body_alloy": 30.323749999999997,
-          "sax_mouthpiece": 1.65475,
+          "sax_mouthpiece": 1.885,
           "sax_technique": 30.125,
-          "sax_maker_school": 34.43687499999999
+          "sax_maker_school": 36.3505
         }
       },
       {
@@ -144,8 +144,8 @@
         },
         "scores": {
           "wind_articulation": 2.75,
-          "brass_size": 1.65475,
-          "trumpet_mouthpiece": 35.734625,
+          "brass_size": 1.885,
+          "trumpet_mouthpiece": 37.509499999999996,
           "brass_mute": 0.39,
           "trumpet_technique": 2.75,
           "trumpet_bell_metal": 0.7410000000000001,
@@ -164,9 +164,9 @@
         },
         "scores": {
           "keyboard_technique": 4.7,
-          "rhodes_model": 30.280625,
-          "rhodes_use": 0.260625,
-          "rhodes_tine_material": 1.2349999999999999,
+          "rhodes_model": 30.3515,
+          "rhodes_use": 0.3315,
+          "rhodes_tine_material": 1.2229999999999999,
           "rhodes_hammer_tip": 3.25,
           "rhodes_pickup_position": 0.39
         }
@@ -183,7 +183,7 @@
         "scores": {
           "keyboard_technique": 4.7,
           "wurlitzer_use": 0,
-          "wurlitzer_ep_voice": 4.056499999999999,
+          "wurlitzer_ep_voice": 4.087999999999999,
           "wurlitzer_model": 4.874999999999999,
           "wurlitzer_reed_material": 0.39
         }
@@ -193,12 +193,12 @@
         "slots": {
           "electric_violin_form": "electric_violin_form_five_string",
           "electric_violin_context": "electric_violin_context_fusion_lead",
-          "electric_violin_pickup": "electric_violin_pickup_magnetic"
+          "electric_violin_pickup": "electric_violin_pickup_piezo"
         },
         "scores": {
-          "electric_violin_form": 2.0687499999999996,
-          "electric_violin_context": 8.5535,
-          "electric_violin_pickup": 0.469
+          "electric_violin_form": 2.2749999999999995,
+          "electric_violin_context": 9.145249999999999,
+          "electric_violin_pickup": 0.5199999999999999
         }
       }
     ],

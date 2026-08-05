@@ -896,7 +896,7 @@ data; run from the repo root. Add `--json` where noted for machine-readable outp
 | Neighbors of a variant / tree-node / chain-item / room | `--type variant\|tree-node\|chain-item\|room --id <id>` |
 
 Verified: `nearest_neighbor.js --type instrument --id voice` → top neighbor `griot_voice`
-(score 0.80); `--type tradition --id delta_blues` → `jug_band` (0.31).
+(score 0.80); `--type tradition --id delta_blues` → `hill_country_blues` (1.35).
 
 ### Compare & diagnose
 

@@ -1,0 +1,127 @@
+{
+  "id": "dream_trance",
+  "name": "Dream Trance",
+  "family": "electronic",
+  "lineage": "Italian variant launched 1995-1997 by Robert Miles, Gigi D'Agostino, DJ Dado and the BXR/Media label axis in Brescia and Rome, defined by a foregrounded acoustic or sampled grand-piano melody over 132-140 BPM four-on-floor with soft-attack strings and pads, minimal percussion, frequent absence of vocals, and an arrangement designed as a chill-out closer for Italian clubs.",
+  "recipe": "classic 1995-1997 dream trance, electronic Dance, trance branch, italo house house, eurodance electronic dance hi-nrg. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead analog poly singing lead analog mono singing lead wavetable synth, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 506,
+  "score": 63.182,
+  "config": {
+    "traditions": [
+      "dream_trance",
+      "italo_house_piano",
+      "hi_nrg"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.645,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 4.42,
+          "piano_hammer": 2.6300000000000003,
+          "piano_rim": 3.145,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.7550000000000001,
+          "piano_pitch_standard": 4.9399999999999995
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 4.225,
+          "poly_archetypes": 0.45499999999999996,
+          "poly_voices": 0.045,
+          "poly_maker_lineage": -0.875
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 14.17,
+          "drum_machine_909_context": 1.235,
+          "tr909_production_origin": 0.24
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 4.225,
+          "mono_oscillator": 0,
+          "mono_filter": -0.245,
+          "mono_archetypes": 1.24,
+          "mono_maker_lineage": -1.375
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 4.225,
+          "wt_position": 8.97,
+          "wt_family": 0.195,
+          "wt_polyphony": 1.04
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "clean",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "clean"
+  }
+}

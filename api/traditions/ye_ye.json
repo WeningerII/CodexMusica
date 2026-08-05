@@ -1,0 +1,201 @@
+{
+  "id": "ye_ye",
+  "name": "Yé-yé",
+  "family": "pop",
+  "lineage": "French and francophone teen-pop of roughly 1962-1968 named from the English 'yeah yeah', promoted by Salut les copains radio and centred on Françoise Hardy, France Gall, Sylvie Vartan and Jacques Dutronc with Serge Gainsbourg supplying material, combining Brill Building and beat-group templates — 120-160 BPM shuffle or straight backbeat, tambourine and hand claps, twangy reverbed guitar, walking or eighth-note bass — with light untrained girlish French vocals and small string or horn overdubs cut at Pathé-Marconi and Barclay.",
+  "recipe": "classic Western European mid-1960s yé-yé, functional Song, girl group branch, europop functional song, pop rock functional song yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, tambourine orch, hard rock maple acer saccharum French Polish shellac pad Baroque setup violin orchestral, psychedelic foregrounded organ driven rock block chord combo organ. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 741,
+  "score": 508.369,
+  "config": {
+    "traditions": [
+      "ye_ye",
+      "yacht_rock",
+      "folk_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 57.795000000000016,
+          "voice_quality": 9.62,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.343,
+          "voice_articulation": 22.685,
+          "voice_microtone": 46.29500000000001,
+          "voice_tradition": 22.524,
+          "voice_mechanism_compound": 4.355,
+          "voice_estill_quality": 7.272,
+          "voice_speech_song": 27.365000000000002,
+          "voice_ensemble_config": 21.319999999999997,
+          "voice_ornament_system": 1.3704999999999996,
+          "voice_pitch_organization": 1.045,
+          "voice_processing_chain": 8.2555,
+          "voice_multitrack_stack": 7.2010000000000005
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 19.625,
+          "amp_make": 11.641499999999997,
+          "body_wood": 2.14,
+          "neck_wood": 2.14,
+          "fretboard": 2.09,
+          "pickup_magnet": 0.3,
+          "string_material": 0.44999999999999996,
+          "string_gauge": 2.185,
+          "bridge": 0.195,
+          "scale_length": 2.275,
+          "finish": 0,
+          "string_tuning": 12.740499999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 13.186499999999999,
+          "body_wood": 2.275,
+          "pickup_config": 0,
+          "string_type": 26.450499999999995,
+          "scale_length_b": 2.185,
+          "fretted_or_not": 0.195,
+          "bass_technique": 25.176499999999994
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 26.514499999999998,
+          "drumhead": 18.6,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.325,
+          "tambourine_orch_context": 0.4875
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.8200000000000003,
+          "orch_strings": 0.44999999999999996,
+          "orch_top_wood": 0.325,
+          "orch_back_wood": 12.271999999999998,
+          "orch_varnish": 3.3149999999999995,
+          "orch_setup_period": 1.755,
+          "orch_bow": 1.6095,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.3615,
+          "orch_rosin": 2.925
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_vox_ac"
+        },
+        "scores": {
+          "keyboard_technique": 19.400000000000002,
+          "combo_organ_model": 18.9515,
+          "combo_organ_voicing": 21.38,
+          "combo_organ_context": 12.443499999999997,
+          "amp_make": 0.585
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_paris_chanson_orchestral",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "console_german_tube_50s",
+      "comp": "comp_fairchild_670_tube",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

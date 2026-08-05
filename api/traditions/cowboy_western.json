@@ -1,0 +1,193 @@
+{
+  "id": "cowboy_western",
+  "name": "Cowboy Western (singing-cowboy style)",
+  "family": "country",
+  "lineage": "Commercial Western music codified in Hollywood and on network radio from the early 1930s through the late 1940s by Gene Autry, Roy Rogers and the Sons of the Pioneers (Bob Nolan, Tim Spencer, the Farr brothers), taking frontier ballad texts and setting them in slow 3/4 waltzes and easy 4/4 canters at 80-110 BPM over close three- and four-part male harmony, smooth crooned lead, nylon and steel-string guitar, hot jazz-inflected fiddle and, from the 1940s, accordion and light bass, all cut for 78 release and radio transcription.",
+  "recipe": "classic tropical 1930-1933 cowboy western, functional Song, pre commercial branch, western swing country, crooners functional song classic oklahoma country. thick, breath veiled tone, straight note core, interlocked note trading. cedar steel silk travis picked dreadnought acoustic cedar nylon travis picked classical nylon-string guitar, steel double stops fiddle, venice catlin high twist renaissance bass cremonese pre 1750 four layer system double bass, steel castagnari Italian premium folk music straight accordion, steel c6 lap steel. am radio booth. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 667,
+  "score": 404.365,
+  "config": {
+    "traditions": [
+      "cowboy_western",
+      "western_music",
+      "classic_oklahoma_country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 26.494999999999994,
+          "voice_quality": 17.484999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 24,
+          "voice_articulation": 24.830000000000002,
+          "voice_microtone": 25.09,
+          "voice_tradition": 6.5,
+          "voice_mechanism_compound": 1.04,
+          "voice_estill_quality": 23.18,
+          "voice_speech_song": 32.760000000000005,
+          "voice_ensemble_config": 28.6,
+          "voice_ornament_system": 1.3649999999999998,
+          "voice_pitch_organization": 1.4449999999999998,
+          "voice_processing_chain": 7.025,
+          "voice_multitrack_stack": 7.279999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "eb_standard",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 21.2,
+          "string_tuning": 0.52,
+          "top_wood": 1.04,
+          "back_sides": 0.09,
+          "string_acoustic": 4.68
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 33.775,
+          "fiddle_strings": 4.185,
+          "fiddle_bow": 0.045,
+          "fiddle_mute": 0.65,
+          "fiddle_articulation": 0.045
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_seven_eighth",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "plywood_bass_back",
+          "bass_varnish": "cremonese_pre_1750_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.25,
+          "bass_size": 0.9099999999999999,
+          "bass_strings": 1.8199999999999998,
+          "bass_top_wood": -0.05,
+          "bass_back_wood": -0.05,
+          "bass_varnish": 2.2099999999999995,
+          "bass_setup_period": 3.7700000000000005,
+          "bass_play": 5.09,
+          "bass_rosin": 8.385,
+          "bass_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lm_only",
+          "bellows": "all_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 21.15,
+          "accordion_reed_material": 4.185,
+          "musette_offset": 0.345,
+          "reed_config": 2.6,
+          "bellows": 0.15,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 2.9899999999999998
+        }
+      },
+      {
+        "id": "lap_steel",
+        "slots": {
+          "lap_steel_tuning": "lap_steel_c6",
+          "lap_steel_style": "lap_steel_western_swing"
+        },
+        "scores": {
+          "lap_steel_tuning": 16.965,
+          "lap_steel_style": 13.584999999999999
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 21.2,
+          "string_tuning": 0,
+          "top_wood_classical": 4.809999999999999,
+          "bracing_classical": 1.3,
+          "string_classical": 1.885,
+          "attack_technique_cl": 1.04
+        }
+      }
+    ],
+    "room": "am_radio_booth",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "country_nashville_three_chord_train_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "country_nashville_three_chord_train_beat",
+    "room": "am_radio_booth",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

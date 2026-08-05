@@ -3,14 +3,14 @@
   "name": "Makossa",
   "family": "global",
   "lineage": "Cameroonian (Douala / Bantu coastal) popular music genre codified by Manu Dibango from 1972 onward (Soul Makossa, the international breakthrough that established the genre name in the global pop vocabulary) — built on a fusion of Douala traditional drumming, jazz horn-section vocabulary, and Cameroonian Catholic-mission church music; tracked extensively at Paris Pathé-Marconi studios for European distribution and recurring back to Yaoundé and Douala studios",
-  "recipe": "classic Western European early-1970s makossa, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, mule hide canonical Cuban premium oak staved canonical Cuban congas, ensemble student commercial trombone, ensemble shallow cup lead trumpet trumpet. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 954,
-  "score": 359.982,
+  "recipe": "classic Western European early-1970s makossa, groove Percussion, west African branch, African pop functional song isicathamiya sungura. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, high pitched lead congas, ensemble student commercial trombone, schilke chicago lead bright ensemble shallow cup lead trumpet trumpet. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 945,
+  "score": 303.015,
   "config": {
     "traditions": [
       "makossa",
-      "congolese_rumba",
-      "isicathamiya"
+      "isicathamiya",
+      "sungura"
     ],
     "instruments": [
       {
@@ -20,10 +20,10 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 21.369999999999997,
-          "voice_quality": 18.654999999999994,
+          "voice_register": 17.72,
+          "voice_quality": 16.185,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.865,
-          "voice_articulation": 17.939999999999998,
-          "voice_microtone": 17.549999999999997,
-          "voice_tradition": 30.9075,
-          "voice_mechanism_compound": 2.5349999999999997,
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 15.404999999999992,
+          "voice_microtone": 15.01499999999999,
+          "voice_tradition": 26.58,
+          "voice_mechanism_compound": 2.795,
           "voice_estill_quality": 4.545000000000001,
-          "voice_speech_song": 24.049999999999997,
-          "voice_ensemble_config": 19.662499999999998,
+          "voice_speech_song": 20.279999999999994,
+          "voice_ensemble_config": 16.28249999999999,
           "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 1.8250000000000002,
-          "voice_processing_chain": 5.07,
-          "voice_multitrack_stack": 3.7375000000000016
+          "voice_pitch_organization": 2.35,
+          "voice_processing_chain": 5.785000000000001,
+          "voice_multitrack_stack": 4.452500000000002
         }
       },
       {
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
+          "body_wood": "pine",
+          "neck_wood": "maple",
           "fretboard": "maple_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
@@ -69,16 +69,16 @@
           "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 12.32,
+          "electric_technique": 14.069999999999999,
           "amp_make": 3.545000000000001,
-          "body_wood": 0.585,
-          "neck_wood": 0.585,
-          "fretboard": 0.69,
-          "pickup_magnet": 0.3,
-          "string_material": 0.3,
+          "body_wood": 0.21,
+          "neck_wood": 0.44999999999999996,
+          "fretboard": 0.5399999999999999,
+          "pickup_magnet": 0.44999999999999996,
+          "string_material": 0.44999999999999996,
           "string_gauge": 0.585,
           "bridge": 0.195,
-          "scale_length": 0.585,
+          "scale_length": 0.195,
           "finish": 0,
           "string_tuning": 0.78
         }
@@ -89,19 +89,19 @@
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
-          "string_type": "thomastik_jazz_bass_flat",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 6.355,
-          "body_wood": 0.585,
+          "amp_make": 6.705,
+          "body_wood": 0.195,
           "pickup_config": 0.195,
-          "string_type": 7.294999999999999,
-          "scale_length_b": 0.975,
+          "string_type": 6.265000000000001,
+          "scale_length_b": 1.235,
           "fretted_or_not": 0.195,
-          "bass_technique": 6.424999999999999
+          "bass_technique": 3.95
         }
       },
       {
@@ -112,8 +112,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.35,
-          "drumhead": 11.629999999999999,
+          "drum_technique": 20.734999999999992,
+          "drumhead": 11.754999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -125,32 +125,32 @@
           "sax_reed": "soft_reed",
           "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_continuous_legato",
+          "sax_technique": "sax_honking_attack",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 7.33,
-          "sax_size": 4.705,
-          "sax_reed": 0.3,
-          "sax_body_alloy": 6.5,
+          "wind_articulation": 7.18,
+          "sax_size": 4.355,
+          "sax_reed": 0.44999999999999996,
+          "sax_body_alloy": 2.875,
           "sax_mouthpiece": 1.63,
-          "sax_technique": 6.125,
-          "sax_maker_school": 6.544999999999999
+          "sax_technique": 3.95,
+          "sax_maker_school": 1.885
         }
       },
       {
         "id": "congas",
         "slots": {
-          "percussion_technique": "percussion_open_slap",
+          "percussion_technique": "percussion_hands_layered",
           "conga_set": "quinto",
           "conga_skin": "conga_mule_hide",
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 1.8199999999999998,
-          "conga_set": 0.78,
-          "conga_skin": 2.2749999999999995,
-          "conga_shell_wood": 2.2749999999999995
+          "percussion_technique": 1.1249999999999998,
+          "conga_set": 1.4299999999999997,
+          "conga_skin": 0.9149999999999998,
+          "conga_shell_wood": 0.9149999999999998
         }
       },
       {
@@ -165,11 +165,11 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 7.33,
-          "trombone_type": 6.215,
-          "trombone_mouthpiece": 17.23,
+          "wind_articulation": 7.18,
+          "trombone_type": 2.59,
+          "trombone_mouthpiece": 13.73,
           "trombone_mute": 0.5849999999999999,
-          "trombone_technique": 3.1149999999999993,
+          "trombone_technique": 2.5149999999999997,
           "trombone_bell_metal": 0.39,
           "trombone_maker_school": 0.8849999999999998
         }
@@ -186,13 +186,13 @@
           "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 7.33,
-          "brass_size": 0.3,
-          "trumpet_mouthpiece": 8.045,
+          "wind_articulation": 7.18,
+          "brass_size": 0.44999999999999996,
+          "trumpet_mouthpiece": 4.77,
           "brass_mute": 0.5849999999999999,
-          "trumpet_technique": 7.33,
+          "trumpet_technique": 7.18,
           "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 0.78
+          "trumpet_maker_school": 1.2349999999999999
         }
       }
     ],

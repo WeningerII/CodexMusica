@@ -5,7 +5,7 @@
   "lineage": "Depressive suicidal black-metal sub-style — codified through Bethlehem (Dictius Te Necare 1996), Forgotten Tomb, Shining (Swedish, V: Halmstad 2007), Silencer (Death - Pierce Me 2001), and Xasthur — characterized by slow-to-mid-tempo dirges, atmospheric-and-melancholic guitar work, false-fold ventricular shrieked vocals, and depressive-themed lyrical content centered on isolation and self-destruction",
   "recipe": "classic North American mid-1990s dsbm, distorted Rock, black branch, doom metal traditional doom funeral doom. thick, false fold engaged, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 571,
-  "score": 274.616,
+  "score": 277.854,
   "config": {
     "traditions": [
       "dsbm_black_metal",
@@ -42,7 +42,7 @@
           "voice_articulation": 8.905,
           "voice_microtone": 10.249999999999998,
           "voice_tradition": 3.640000000000001,
-          "voice_mechanism_compound": 30.632071428571425,
+          "voice_mechanism_compound": 31.476571428571425,
           "voice_estill_quality": 1.885,
           "voice_speech_song": 9.294999999999998,
           "voice_ensemble_config": 8.45,
@@ -70,14 +70,14 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 27.374999999999996,
-          "amp_make": 15.682821428571428,
+          "electric_technique": 28.6425,
+          "amp_make": 16.19517857142857,
           "body_wood": 11.83,
           "neck_wood": 1.3,
           "fretboard": 1.2349999999999999,
           "pickup_magnet": 0.2265,
           "pickup_winding": 0.3165,
-          "string_material": 0.5745,
+          "string_material": 0.6795,
           "bridge": 1.4949999999999999,
           "scale_length": 10.92,
           "string_gauge": 3.6399999999999997,
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 15.682821428571428,
+          "amp_make": 16.19517857142857,
           "body_wood": 1.3,
           "pickup_config": 0.39,
           "string_type": 14.95,
           "scale_length_b": 1.3,
           "fretted_or_not": 0.045,
-          "bass_technique": 10.952714285714285
+          "bass_technique": 10.949499999999999
         }
       },
       {

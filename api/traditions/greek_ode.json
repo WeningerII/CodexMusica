@@ -1,0 +1,136 @@
+{
+  "id": "greek_ode",
+  "name": "Ode (ancient Greek sung ode)",
+  "family": "classical",
+  "lineage": "Sung strophic poetry of archaic and classical Greece — Sappho's monodic lyric on Lesbos in the 7th century BC and Pindar's choral victory odes in the 5th — reconstructed from the Delphic hymns and Mesomedes fragments as syllabic melody in Pythagorean-tuned diatonic and enharmonic genera, voice doubled heterophonically by kithara or lyre with aulos, phrase shape governed by quantitative poetic metre rather than a drum pulse.",
+  "recipe": "classic European early-1950s ode, ballad Poetry, Mediterranean ballad branch, western early art music, vocal drone modal, christian gospel anglican choral lithuanian sutartinės multipart estonian setu leelo polyphonic song. thick, breath veiled tone, slow rate, interlocked note trading. kithara, chelys lyre, fifths and octaves bone built ivory aulos, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 605,
+  "score": 309.581,
+  "config": {
+    "traditions": [
+      "greek_ode",
+      "lithuanian_sutartines",
+      "estonian_setu_leelo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.7375,
+          "voice_quality": 26.519999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.8,
+          "voice_articulation": 24.049999999999997,
+          "voice_microtone": 26.714999999999986,
+          "voice_tradition": 19.22,
+          "voice_mechanism_compound": 12.616874999999999,
+          "voice_estill_quality": 9.163125,
+          "voice_speech_song": 27.429999999999996,
+          "voice_ensemble_config": 24.244999999999997,
+          "voice_ornament_system": 4.9506250000000005,
+          "voice_pitch_organization": 6.597500000000001,
+          "voice_processing_chain": 10.204999999999998,
+          "voice_multitrack_stack": 7.344999999999999
+        }
+      },
+      {
+        "id": "kithara",
+        "slots": {
+          "kithara_form": "kithara_asiatic",
+          "kithara_technique": "kithara_plektron",
+          "kithara_strings": "kithara_sinew"
+        },
+        "scores": {
+          "kithara_form": 0.65,
+          "kithara_technique": 0.9749999999999999,
+          "kithara_strings": 2.3
+        }
+      },
+      {
+        "id": "chelys_lyre",
+        "slots": {
+          "chelys_shell": "chelys_tortoise",
+          "chelys_technique": "chelys_plectrum",
+          "chelys_tuning": "chelys_dorian"
+        },
+        "scores": {
+          "chelys_shell": 0,
+          "chelys_technique": 0,
+          "chelys_tuning": 0
+        }
+      },
+      {
+        "id": "aulos",
+        "slots": {
+          "aulos_pipe_relation": "aulos_parallel_fifths",
+          "aulos_build": "aulos_bone_ivory",
+          "aulos_size": "aulos_kitharisterios",
+          "aulos_context": "aulos_theatre_chorus"
+        },
+        "scores": {
+          "aulos_pipe_relation": 27.235,
+          "aulos_build": 5.99,
+          "aulos_size": 6.4,
+          "aulos_context": 5.75
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 10.4,
+          "choir_polyphonic_configuration": 13.325,
+          "choir_regional_canonical_configuration": 17.68,
+          "choir_ensemble_repertoire": 7.93
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pythagorean",
+    "room": "stone_parish_church",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

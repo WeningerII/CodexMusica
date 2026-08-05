@@ -3,27 +3,27 @@
   "name": "Turkish Trap",
   "family": "hip_hop",
   "lineage": "Istanbul and Berlin-diaspora Turkish-language trap that broke through around 2017 with Ezhel's Müptezhel and the Kabus Kerim / Uzi generation — 130-145 BPM half-time 808 productions, triplet hi-hats and rolled snares, minor-key loops frequently sampling or replaying bağlama, kanun, and arabesk string lines, and Turkish verses that alternate melodic Auto-Tuned hooks with fast rapped bars.",
-  "recipe": "classic late-2010s turkish trap, mc Rhythm, intl hip hop branch, drill MC rhythm, us hip hop southern, mid east n African pop functional song dirty south rap trap queen. extended whistle, rap, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass wavetable synth, strummed saz baglama, kanun tortoiseshell traditional kanun, heavy bus compression glue post 2010 multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 649,
-  "score": 292.863,
+  "recipe": "classic late-2010s turkish trap, mc Rhythm, intl hip hop branch, drill MC rhythm, us hip hop southern, mid east n African pop functional song country rap afro drill. thick, rap, straight note core, interlocked note trading. TR-808, sampled chopped sampler drum machine, sub bass wavetable synth, rhythmic dance rhythm strummed saz baglama, kanun tortoiseshell traditional kanun, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 622,
+  "score": 268.04,
   "config": {
     "traditions": [
       "turkish_trap",
-      "dirty_south_rap",
-      "trap_queen"
+      "country_rap",
+      "afro_drill"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.185,
-          "voice_quality": 20.182500000000005,
+          "voice_register": 6.295000000000001,
+          "voice_quality": 17.81,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5100000000000002,
-          "voice_articulation": 26,
-          "voice_microtone": 44.915000000000006,
-          "voice_tradition": 8.545000000000002,
-          "voice_mechanism_compound": 4.874999999999999,
-          "voice_estill_quality": 4.68,
-          "voice_speech_song": 26.259999999999998,
-          "voice_ensemble_config": 24.894999999999996,
-          "voice_ornament_system": 8.775000000000002,
+          "voice_vibrato": 8.435,
+          "voice_articulation": 21.319999999999997,
+          "voice_microtone": 38.934999999999995,
+          "voice_tradition": 6.695,
+          "voice_mechanism_compound": 5.914999999999998,
+          "voice_estill_quality": 9.679999999999996,
+          "voice_speech_song": 21.58,
+          "voice_ensemble_config": 21.254999999999992,
+          "voice_ornament_system": 7.020000000000001,
           "voice_pitch_organization": 12.279999999999996,
-          "voice_processing_chain": 10.690000000000001,
-          "voice_multitrack_stack": 4.485
+          "voice_processing_chain": 9.020000000000001,
+          "voice_multitrack_stack": 3.575
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 10.11,
-          "drum_machine_808_context": 2.795,
-          "tr808_production_origin": 1.105
+          "tr808_voice": 7.61,
+          "drum_machine_808_context": 1.4949999999999999,
+          "tr808_production_origin": 0.45499999999999996
         }
       },
       {
@@ -74,10 +74,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 7.165000000000001,
-          "sample_bitdepth": 2.9899999999999998,
-          "sample_swing": 11.830000000000002,
-          "sample_processing": 2.84
+          "electronic_technique": 6.04,
+          "sample_bitdepth": 1.6899999999999997,
+          "sample_swing": 10.27,
+          "sample_processing": 2.54
         }
       },
       {
@@ -85,13 +85,13 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "wt_position": "wt_chaotic",
-          "wt_family": "wt_industrial",
+          "wt_family": "wt_vocal",
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 18.904999999999998,
+          "electronic_technique": 15.28,
           "wt_position": 0.45499999999999996,
-          "wt_family": 0.45499999999999996,
+          "wt_family": 0.65,
           "wt_polyphony": 0
         }
       },
@@ -99,15 +99,15 @@
         "id": "saz_baglama",
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
-          "saz_size": "divan_sazi",
+          "saz_size": "baglama_med",
           "saz_frets": "saz_chromatic_frets",
           "saz_body_wood": "saz_mulberry_body",
           "saz_strings": "saz_steel_modern",
           "saz_tradition": "saz_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": 7.0200000000000005,
-          "saz_size": 0.045,
+          "plucked_traditional_technique": 8.06,
+          "saz_size": 0,
           "saz_frets": 0.45499999999999996,
           "saz_body_wood": 0.3,
           "saz_strings": 0.45499999999999996,
@@ -117,27 +117,27 @@
       {
         "id": "kanun",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
+          "plucked_traditional_technique": "plucked_drone_modal",
           "kanun_school": "kanun_turkish",
           "kanun_articulation": "kanun_tortoiseshell_pick"
         },
         "scores": {
-          "plucked_traditional_technique": -0.05,
+          "plucked_traditional_technique": 0.52,
           "kanun_school": 13.299999999999997,
-          "kanun_articulation": 2.7
+          "kanun_articulation": 2.535
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_octave_double",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
-          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 0.74,
-          "multitrack_stack_era_aesthetic": 0.945,
-          "multitrack_stack_processing": 3.22
+          "multitrack_stack_density": 0.65,
+          "multitrack_stack_era_aesthetic": 0.5199999999999999,
+          "multitrack_stack_processing": 1.915
         }
       }
     ],

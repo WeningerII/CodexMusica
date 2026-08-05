@@ -1,0 +1,192 @@
+{
+  "id": "trot_revival",
+  "name": "Trot (contemporary revival)",
+  "family": "pop",
+  "lineage": "Twenty-first-century Korean revival of trot triggered by Hong Jin-young and Jang Yoon-jeong's crossover hits and detonated commercially by TV Chosun's Miss Trot (2019) and Mr. Trot (2020), keeping the genre's duple ppongjjak backbeat, minor pentatonic melodies and heavily inflected kkeokk-neun vocal breaks while replacing the analog band with programmed drums, synth bass, EDM-adjacent risers and semi-trot arrangements that borrow K-pop production gloss at 110-135 BPM.",
+  "recipe": "classic Asian late-2010s trot, functional Song, east Asian pop branch, east Asian pop enka, crooners functional song baladas y boleros. extended whistle, breath veiled tone, straight onset, interlocked note trading. plucked short envelope analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity short envelope fm synth, TR-909, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, mahogany rosewood open string slide resonance clean strummed single coil electric guitar, piano accordion. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 750,
+  "score": 299.383,
+  "config": {
+    "traditions": [
+      "trot_revival",
+      "enka",
+      "baladas_y_boleros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 21.829999999999995,
+          "voice_quality": 12.34999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.785,
+          "voice_articulation": 21.320000000000004,
+          "voice_microtone": 23.269999999999996,
+          "voice_tradition": 25.059999999999995,
+          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 32.760000000000005,
+          "voice_ensemble_config": 21.71,
+          "voice_ornament_system": 7.675000000000001,
+          "voice_pitch_organization": 2.620000000000001,
+          "voice_processing_chain": 5.26,
+          "voice_multitrack_stack": 7.085000000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 21.874999999999996,
+          "poly_archetypes": 0.545,
+          "poly_voices": 1,
+          "poly_maker_lineage": -0.875
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 21.874999999999996,
+          "fm_algorithm": 0.4799999999999999,
+          "fm_modulator_ratio": 0.3,
+          "fm_polyphony": 0.585,
+          "fm_model_lineage": 10.335
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 3.33,
+          "tr909_production_origin": 0.39
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 3.0225,
+          "body_wood": 1.2349999999999999,
+          "pickup_config": 1.04,
+          "string_type": 4.42,
+          "scale_length_b": 1.625,
+          "fretted_or_not": 0.3,
+          "bass_technique": 1.0499999999999998
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "oil_satin",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 20.124999999999996,
+          "amp_make": 1.6249999999999998,
+          "body_wood": 1.2349999999999999,
+          "neck_wood": 1.2349999999999999,
+          "fretboard": 1.17,
+          "pickup_magnet": 0.15,
+          "string_material": 0.15,
+          "string_gauge": 1.885,
+          "bridge": 0.39,
+          "scale_length": 1.69,
+          "finish": 0.65,
+          "string_tuning": 1.4949999999999999
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_french_chanson"
+        },
+        "scores": {
+          "free_reed_technique": 1.315,
+          "pa_size": 0.195,
+          "pa_use": 0.89
+        }
+      }
+    ],
+    "room": "studio_kpop_idol_complex",
+    "archetype": "arch_seoul_kpop_idol",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_kpop_idol_complex",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "id": "setar_persian_solo",
+  "name": "Setar (Persian Solo Lute)",
+  "family": "global",
+  "lineage": "Intimate solo tradition for the small four-string Iranian long-necked lute plucked with the nail of the right index finger, historically the instrument of Sufi khaneqah practice and of private radif study, brought to the concert stage by Ahmad Ebadi, Dariush Talai and Mohammad Reza Lotfi in 20th-century Tehran — extremely low volume, sympathetic-resonating open strings, a continuous nail tremolo for sustain, and long unmetred avaz explorations of a single dastgah with minimal metric material.",
+  "recipe": "classic European early-1970s setar, drone Modal, string branch, Sufi ritual devotional, Persian arab improv improv on frame, heterophonic drone modal ney taksim oud taqsim. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut bowl canonical Persian gut historical pre modern radif radif setar persian, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, Sufi mystical arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif continuous-airflow legato ney. parlor. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 670,
+  "score": 266.272,
+  "config": {
+    "traditions": [
+      "setar_persian_solo",
+      "ney_taksim",
+      "oud_taqsim"
+    ],
+    "instruments": [
+      {
+        "id": "setar_persian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "setar_strings": "setar_4",
+          "setar_pluck": "setar_index_nail",
+          "setar_body_wood": "setar_walnut_body",
+          "setar_string_material": "setar_gut_historical",
+          "setar_tradition": "setar_radif_canonical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 8.553214285714287,
+          "setar_strings": 4.910714285714286,
+          "setar_pluck": 2.9899999999999998,
+          "setar_body_wood": 4.745,
+          "setar_string_material": 2.2749999999999995,
+          "setar_tradition": 5.9906250000000005
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.95,
+          "voice_quality": 15.794999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.2,
+          "voice_articulation": 16.314999999999998,
+          "voice_microtone": 26.877499999999998,
+          "voice_tradition": 21.609821428571426,
+          "voice_mechanism_compound": 12.675,
+          "voice_estill_quality": 6.955000000000001,
+          "voice_speech_song": 18.687499999999996,
+          "voice_ensemble_config": 16.509999999999994,
+          "voice_ornament_system": 13.969821428571429,
+          "voice_pitch_organization": 15.764285714285714,
+          "voice_processing_chain": 4.874999999999999,
+          "voice_multitrack_stack": 5.655000000000001
+        }
+      },
+      {
+        "id": "tombak",
+        "slots": {
+          "tombak_wood": "tombak_walnut",
+          "tombak_school": "tombak_tehran"
+        },
+        "scores": {
+          "tombak_wood": 1.2999999999999998,
+          "tombak_school": 2.795
+        }
+      },
+      {
+        "id": "daf",
+        "slots": {
+          "daf_rings": "daf_with_rings",
+          "daf_context": "daf_classical",
+          "daf_shell_wood": "daf_walnut_canonical",
+          "daf_head_material": "daf_synthetic_modern",
+          "daf_jingle_metal": "daf_brass_rings"
+        },
+        "scores": {
+          "daf_rings": 3.055,
+          "daf_context": 6.11,
+          "daf_shell_wood": 7.6049999999999995,
+          "daf_head_material": 0.845,
+          "daf_jingle_metal": 1.69
+        }
+      },
+      {
+        "id": "ney",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "ney_use": "ney_sufi",
+          "ney_pitch": "ney_kerdaniye",
+          "ney_body_material": "ney_arundo_canonical",
+          "ney_lineage": "ney_hassan_kassai"
+        },
+        "scores": {
+          "wind_articulation": 3.6932142857142853,
+          "ney_use": 3.055,
+          "ney_pitch": 1.2999999999999998,
+          "ney_body_material": 4.745,
+          "ney_lineage": 10.725
+        }
+      }
+    ],
+    "room": "parlor",
+    "archetype": "arch_ecm_kongshaug",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "dastgah_persian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "dastgah_persian",
+    "room": "parlor",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

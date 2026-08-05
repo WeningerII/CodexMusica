@@ -1,0 +1,122 @@
+{
+  "id": "nyckelharpa_tradition",
+  "name": "Nyckelharpa (keyed-fiddle tradition)",
+  "family": "global",
+  "lineage": "Uppland-centred Swedish keyed-fiddle tradition attested since the 14th century and rebuilt in the 20th by Eric Sahlström, who standardized the chromatic three-row instrument in the 1930s-40s — bowed melody strings stopped by wooden key tangents over twelve sympathetic strings, playing polska, schottis and gånglåt in moderate 3/4 and 2/4, with legato bowing across drone strings and a soft, reverberant, organ-like sustain.",
+  "recipe": "classic North American mid-1930s nyckelharpa, drone Modal, string branch, string improv improv on frame, heterophonic drone modal swedish fiddle tradition armenian folk music. traditional spruce maple canonical Swedish gut pre modern Swedish 3 row chromatic sahlstrom modernized 1925 nyckelharpa, moraharpa, dance rhythm deep drone silverbasharpa, sustained drone heavy kontrabasharpa, double stops fiddle. hexham head studio pa chamber folk. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 550,
+  "score": 57.513,
+  "config": {
+    "traditions": [
+      "nyckelharpa_tradition",
+      "swedish_fiddle",
+      "armenian_folk"
+    ],
+    "instruments": [
+      {
+        "id": "nyckelharpa",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "nyckel_keys": "traditional_silverbas",
+          "nyckel_strings": "nyckel_12_sympathetic",
+          "nyckel_body_wood": "nyckel_spruce_maple",
+          "nyckel_string_material": "nyckel_gut_historical",
+          "nyckel_mechanism": "nyckel_3_row_chromatic"
+        },
+        "scores": {
+          "bowed_technique": 1.4449999999999998,
+          "nyckel_keys": 2.6089285714285713,
+          "nyckel_strings": 0.6749999999999999,
+          "nyckel_body_wood": 2.6089285714285713,
+          "nyckel_string_material": 2.8589285714285717,
+          "nyckel_mechanism": 2.34
+        }
+      },
+      {
+        "id": "moraharpa",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "moraharpa_build": "moraharpa_1526",
+          "moraharpa_tuning": "moraharpa_drone",
+          "moraharpa_bow": "moraharpa_shortbow"
+        },
+        "scores": {
+          "bowed_technique": 1.4449999999999998,
+          "moraharpa_build": 0.8,
+          "moraharpa_tuning": 5.557499999999999,
+          "moraharpa_bow": 0.37499999999999994
+        }
+      },
+      {
+        "id": "silverbasharpa",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "silverbas_form": "silverbas_revival",
+          "silverbas_style": "silverbas_polska",
+          "silverbas_drone": "silverbas_bassdrone"
+        },
+        "scores": {
+          "bowed_technique": 1.4449999999999998,
+          "silverbas_form": 0.195,
+          "silverbas_style": 3.092142857142857,
+          "silverbas_drone": 5.676428571428572
+        }
+      },
+      {
+        "id": "kontrabasharpa",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kbharpa_form": "kbharpa_uppland",
+          "kbharpa_role": "kbharpa_bass",
+          "kbharpa_strings": "kbharpa_gut"
+        },
+        "scores": {
+          "bowed_technique": 1.4449999999999998,
+          "kbharpa_form": 0.8,
+          "kbharpa_role": 6.787142857142857,
+          "kbharpa_strings": 1.045
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 12.36285714285714,
+          "fiddle_strings": 0.38999999999999996,
+          "fiddle_bow": 0.345,
+          "fiddle_mute": 0.345,
+          "fiddle_articulation": 1.4949999999999999
+        }
+      }
+    ],
+    "room": "hexham_head_studio_pa_chamber_folk",
+    "archetype": "arch_ecm_kongshaug",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "nordic_modal_drone_double_stops",
+    "room": "hexham_head_studio_pa_chamber_folk",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

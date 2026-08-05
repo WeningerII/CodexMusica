@@ -1,0 +1,180 @@
+{
+  "id": "arrocha",
+  "name": "Arrocha",
+  "family": "global",
+  "lineage": "Bahian romantic dance song that emerged in Itabuna and Salvador around 1999-2003 through Zé Maria, Silvano Sales and the Pagode/brega circuit — slow to mid-tempo 4/4 at roughly 75-100 BPM with a lurching offbeat keyboard-and-bass push, cheap romantic synth strings and organ, clean guitar arpeggios, programmed drums, and an unadorned, sob-inflected male lead voice singing plain-spoken heartbreak lyrics for close partner dancing.",
+  "recipe": "classic 1999-2003 arrocha, functional Song, Brazilian song branch, tropical song functional song coladeira barbadian pop. extended whistle, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, mahogany rosewood clean strummed single coil electric cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, drum machine analog. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 666,
+  "score": 198.327,
+  "config": {
+    "traditions": [
+      "arrocha",
+      "coladeira",
+      "barbadian_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 4.647499999999999,
+          "voice_quality": 10.919999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.8100000000000005,
+          "voice_articulation": 19.109999999999992,
+          "voice_microtone": 19.499999999999993,
+          "voice_tradition": 5.2975,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 2.1449999999999996,
+          "voice_speech_song": 32.175,
+          "voice_ensemble_config": 21.384999999999994,
+          "voice_ornament_system": 1.14,
+          "voice_pitch_organization": 0.8949999999999999,
+          "voice_processing_chain": 4.160000000000001,
+          "voice_multitrack_stack": 3.1200000000000006
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 6.64,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 4.92,
+          "amp_make": 2.7300000000000004,
+          "body_wood": 2.9899999999999998,
+          "neck_wood": 2.9899999999999998,
+          "fretboard": 2.925,
+          "pickup_magnet": 0.435,
+          "string_material": 0.435,
+          "string_gauge": 4.485,
+          "bridge": 0.49499999999999994,
+          "scale_length": 2.9899999999999998,
+          "finish": 0,
+          "string_tuning": 0.78
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 4.7125,
+          "body_wood": 2.9899999999999998,
+          "pickup_config": 0.345,
+          "string_type": 5.655000000000001,
+          "scale_length_b": 3.1849999999999996,
+          "fretted_or_not": 1,
+          "bass_technique": 0.8249999999999998
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 0.345,
+          "snare_voice": 0.345,
+          "hat_voice": 0.15,
+          "shuffle_quantize": 0.345
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "eb_standard",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 4.204999999999999,
+          "string_tuning": 0.06499999999999999,
+          "top_wood": 2.9899999999999998,
+          "back_sides": 0.435,
+          "string_acoustic": 2.9899999999999998
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -3,13 +3,13 @@
   "name": "Lo-fi beats",
   "family": "electronic",
   "lineage": "Internet-native instrumental hip-hop descended from J Dilla and Nujabes and consolidated 2015-2020 around YouTube livestreams and Bandcamp labels — 70-90 BPM unquantized boom-bap drums with pushed-back snares, dusty filtered jazz-piano and Rhodes samples, vinyl crackle and tape-wow layers, sub-heavy but soft-transient bass, ambient field-recording and anime dialogue interludes, arranged as 90-second loop-based sketches with almost no vocal or harmonic development.",
-  "recipe": "classic mid-2010s lo-fi beats, experimental Elec, lofi branch, ambient experimental electric, us hip hop east coast, retro aesthetic experimental electric vapor twitch drumless hip hop. field textural sampler, sampled chopped sampler drum machine, electric piano tine, prepared upright piano, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, sampled chopped turntable, sub bass analog poly synth, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ebonite continuous-airflow saxophone. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 652,
-  "score": 144.903,
+  "recipe": "classic mid-2010s lo-fi beats, experimental Elec, lofi branch, ambient experimental electric, us hip hop east coast, retro aesthetic experimental electric vaporhop drumless hip hop. field textural sampler, sampled chopped sampler drum machine, electric piano tine, prepared upright piano, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, sampled chopped turntable, low sub bass analog poly synth, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 651,
+  "score": 150.154,
   "config": {
     "traditions": [
       "lofi_beats",
-      "vapor_twitch",
+      "vaporhop",
       "drumless_hip_hop"
     ],
     "instruments": [
@@ -18,16 +18,16 @@
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "emu_sp1200",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_twelve_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 12.865,
-          "sampler_archetypes": 8.535,
-          "sampler_bit_depth": 3.4900000000000007,
-          "sampler_workflow": 13.615,
-          "sampler_classic_context": 24.1475
+          "electronic_technique": 11.065,
+          "sampler_archetypes": 11.793125000000002,
+          "sampler_bit_depth": 3.9000000000000004,
+          "sampler_workflow": 12.695,
+          "sampler_classic_context": 23.725
         }
       },
       {
@@ -39,23 +39,23 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 5.715,
-          "sample_bitdepth": 2.9250000000000003,
-          "sample_swing": 7.385,
-          "sample_processing": 0.39
+          "electronic_technique": 7.137812500000001,
+          "sample_bitdepth": 3.9000000000000004,
+          "sample_swing": 10.418125000000002,
+          "sample_processing": 0.585
         }
       },
       {
         "id": "electric_piano_tine",
         "slots": {
-          "keyboard_technique": "keyboard_ostinato_groove",
+          "keyboard_technique": "keyboard_gospel_chord_runs",
           "tine_voicing": "aggressive_tine",
-          "tine_effect": "phaser_tine"
+          "tine_effect": "overdrive_tine"
         },
         "scores": {
-          "keyboard_technique": 2.375,
-          "tine_voicing": 0.255,
-          "tine_effect": 0.75
+          "keyboard_technique": 1.5750000000000002,
+          "tine_voicing": 0.15,
+          "tine_effect": 0.21
         }
       },
       {
@@ -66,8 +66,8 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 11.700000000000001,
-          "upright_use": 0.39,
+          "keyboard_technique": 10.825,
+          "upright_use": 0.585,
           "upright_piano_size": 0.15
         }
       },
@@ -83,13 +83,13 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 3.1050000000000004,
+          "amp_make": 3.3506250000000004,
           "body_wood": 1.69,
-          "pickup_config": 1.5550000000000002,
-          "string_type": 4.914999999999999,
-          "scale_length_b": 0.39,
+          "pickup_config": 1.6478125,
+          "string_type": 4.4628125,
+          "scale_length_b": 0.585,
           "fretted_or_not": 0,
-          "bass_technique": 3.75
+          "bass_technique": 2.875
         }
       },
       {
@@ -99,8 +99,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 5.715,
-          "turntable_technique": 8.09
+          "electronic_technique": 7.137812500000001,
+          "turntable_technique": 10.34
         }
       },
       {
@@ -112,10 +112,10 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 8.735,
+          "electronic_technique": 9.2284375,
           "poly_archetypes": 0.32999999999999996,
           "poly_voices": 0.32999999999999996,
-          "poly_maker_lineage": -0.875
+          "poly_maker_lineage": -0.525
         }
       },
       {
@@ -125,18 +125,18 @@
           "sax_size": "tenor_sax",
           "sax_reed": "hard_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
-          "sax_mouthpiece": "ebonite_vintage",
+          "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 2.57,
+          "wind_articulation": 2.525,
           "sax_size": 1.5250000000000001,
           "sax_reed": 1.11,
-          "sax_body_alloy": 3.84,
-          "sax_mouthpiece": 1.155,
-          "sax_technique": 3.75,
-          "sax_maker_school": 2.21
+          "sax_body_alloy": 2.965,
+          "sax_mouthpiece": 0.39,
+          "sax_technique": 2.875,
+          "sax_maker_school": 1.0724999999999996
         }
       }
     ],

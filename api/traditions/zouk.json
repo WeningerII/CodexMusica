@@ -1,0 +1,218 @@
+{
+  "id": "zouk",
+  "name": "Zouk",
+  "family": "global",
+  "lineage": "Guadeloupean-Martinican dance music codified in Paris in 1984 by Kassav' (Pierre-Édouard Décimus, Jacob Desvarieux, Jocelyne Béroard), fusing gwo ka and biguine rhythmic cells with Haitian kompa's guitar and Dominican cadence-lypso into a 120-130 BPM machine-driven groove featuring DX7 electric-piano pads, slap or synth bass, staccato horn hits, and multi-tracked Kréyòl lead-and-chorus vocals.",
+  "recipe": "classic Western European mid-1980s zouk, functional Song, tropical song branch, Caribbean groove percussion, African pop functional song south african pop rumba congolaise. thick, breath veiled tone, straight onset, interlocked note trading. yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, mahogany clean strummed single coil electric guitar, schilke chicago lead bright ensemble shallow cup lead trumpet trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, lead plus third fifth 3 part stack late 1980s reverb saturated bus stack chorus detuned thickener across stack multitrack vocal stack. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, transformerless solid-state pre.",
+  "recipe_chars": 970,
+  "score": 248.117,
+  "config": {
+    "traditions": [
+      "zouk",
+      "south_african_pop",
+      "rumba_congolaise"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 17.784999999999993,
+          "voice_quality": 7.344999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.73,
+          "voice_articulation": 17.03,
+          "voice_microtone": 16.834999999999997,
+          "voice_tradition": 14.425,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 26.65,
+          "voice_ensemble_config": 18.849999999999998,
+          "voice_ornament_system": 0.8299999999999996,
+          "voice_pitch_organization": 0.8499999999999999,
+          "voice_processing_chain": 4.669999999999999,
+          "voice_multitrack_stack": 4.9
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_simple",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 14.43,
+          "fm_algorithm": 0.65,
+          "fm_modulator_ratio": 0.3,
+          "fm_polyphony": 1.74,
+          "fm_model_lineage": 8.48
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0.09999999999999999,
+          "drum_machine_909_context": 0.39,
+          "tr909_production_origin": 0.38999999999999996
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 3.8150000000000004,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0.65,
+          "string_type": 4.61,
+          "scale_length_b": 1.39,
+          "fretted_or_not": 0.39,
+          "bass_technique": 3
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 15.524999999999999,
+          "amp_make": 1.9499999999999997,
+          "body_wood": 1.345,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
+          "pickup_magnet": 0.15,
+          "string_material": 0.15,
+          "string_gauge": 1.6449999999999998,
+          "bridge": 0.39,
+          "scale_length": 1.4949999999999999,
+          "finish": 0,
+          "string_tuning": 0.8
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 3.6650000000000005,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 5.839999999999999,
+          "brass_mute": 0,
+          "trumpet_technique": 3.6650000000000005,
+          "trumpet_bell_metal": 0.42,
+          "trumpet_maker_school": 2.04
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 3.6650000000000005,
+          "sax_size": 1.345,
+          "sax_reed": 0.15,
+          "sax_body_alloy": 2.75,
+          "sax_mouthpiece": 0.15,
+          "sax_technique": 2.695,
+          "sax_maker_school": 2.05
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+        },
+        "scores": {
+          "multitrack_stack_density": 2.54,
+          "multitrack_stack_era_aesthetic": 3.46,
+          "multitrack_stack_processing": 1.045
+        }
+      }
+    ],
+    "room": "paris_pathe_marconi_african_diaspora",
+    "archetype": "arch_antilles_zouk_digital",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_british_inline_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "haitian_kompa_meringue",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "haitian_kompa_meringue",
+    "room": "paris_pathe_marconi_african_diaspora",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

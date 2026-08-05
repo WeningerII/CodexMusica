@@ -1,0 +1,183 @@
+{
+  "id": "seemannslieder",
+  "name": "Seemannslieder",
+  "family": "pop",
+  "lineage": "German-language sailor song as a commercial and choral genre, rooted in nineteenth-century Hamburg and Bremen harbour repertoire and in the 1930s-40s Hans Albers film songs (La Paloma, Auf der Reeperbahn nachts um halb eins), then dominated by Freddy Quinn's Polydor recordings from 1956 onward; typically moderate 3/4 or 4/4, orchestrated with strings, accordion and light rhythm section, sung in a warm baritone with a nostalgic Fernweh lyric and an anthemic male-chorus refrain, alongside an amateur Shanty-Chor branch singing the same material a cappella in four parts.",
+  "recipe": "classic European mid-1930s seemannslieder, sea Shanty, north Southeast Asian baltic branch, europop functional song, chanson fado classic chanson iskelmä. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part homophonic chordal rhythm aligned sardinian cantu a tenore oche mesu contra bassu choir ensemble, brass weltmeister east German mid tier vintage volk accordion, rosewood parlor classic steel silk strummed parlor acoustic guitar, French renaissance lyon twisted plain double bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet. shoebox concert hall. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 794,
+  "score": 224.135,
+  "config": {
+    "traditions": [
+      "seemannslieder",
+      "chanson",
+      "iskelma"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 7.767500000000001,
+          "voice_quality": 10.399999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6650000000000005,
+          "voice_articulation": 21.45,
+          "voice_microtone": 20.604999999999993,
+          "voice_tradition": 11.244999999999996,
+          "voice_mechanism_compound": 6.825,
+          "voice_estill_quality": 6.538125000000001,
+          "voice_speech_song": 28.86,
+          "voice_ensemble_config": 23.789999999999996,
+          "voice_ornament_system": 3.1037500000000007,
+          "voice_pitch_organization": 2.24,
+          "voice_processing_chain": 4.779375000000001,
+          "voice_multitrack_stack": 3.575
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 13.186875,
+          "choir_polyphonic_configuration": 2.7087499999999998,
+          "choir_regional_canonical_configuration": 8.168125,
+          "choir_ensemble_repertoire": 4.029999999999999
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "french_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 2.5587500000000003,
+          "accordion_reed_material": 1.17,
+          "musette_offset": 1.25,
+          "reed_config": 3.055,
+          "bellows": 0,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 2.73
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "eb_standard",
+          "top_wood_parlor": "sitka_p",
+          "back_sides_parlor": "rosewood_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
+        },
+        "scores": {
+          "acoustic_technique": 5.825000000000001,
+          "string_tuning": 0.175,
+          "top_wood_parlor": 0.65,
+          "back_sides_parlor": 1.6949999999999998,
+          "string_acoustic_parlor": 3.91375
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "lyon_gut_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 1.5750000000000002,
+          "bass_size": 1.36375,
+          "bass_strings": 1.4299999999999997,
+          "bass_top_wood": 0.39,
+          "bass_back_wood": 0.325,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 0.9099999999999999,
+          "bass_play": 0.845,
+          "bass_rosin": 0.585,
+          "bass_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.34,
+          "brass_size": 1.045,
+          "trumpet_mouthpiece": 0.975,
+          "brass_mute": 1.86875,
+          "trumpet_technique": 2.34,
+          "trumpet_bell_metal": 1.7549999999999997,
+          "trumpet_maker_school": 1.04
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_paris_chanson_orchestral",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

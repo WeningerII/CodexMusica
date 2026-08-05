@@ -5,7 +5,7 @@
   "lineage": "International intermedia-art movement (1962-1978 active period, lingering influences thereafter) founded by George Maciunas, including composer-artists George Brecht, La Monte Young, Yoko Ono, Nam June Paik, and Alison Knowles. Compositional output centered on event-scores (brief text-instructions for actions), conceptual-musical-performance, and the deliberate dissolution of boundaries between music, theatre, visual art, and life-art. Brecht's Drip Music (1959) and Young's Compositions 1960 series constitute the canonical type-specimens.",
   "recipe": "classic Asian mid-1970s fluxus intermedia composition, art Music, western modern branch, musique concrete experimental electric soundscape composition acousmatic music. thick, breath veiled tone, slow rate, interlocked note trading. shoebox concert hall. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 388,
-  "score": 98.601,
+  "score": 99.387,
   "config": {
     "traditions": [
       "fluxus_intermedia",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 4.05,
+          "voice_register": 4.245,
           "voice_quality": 7.215000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.004625,
+          "voice_vibrato": 6.064625,
           "voice_articulation": 11.634999999999996,
           "voice_microtone": 11.439999999999994,
-          "voice_tradition": 8.826500000000001,
+          "voice_tradition": 9.425,
           "voice_mechanism_compound": 4.9,
-          "voice_estill_quality": 6.360375,
+          "voice_estill_quality": 5.995875000000001,
           "voice_speech_song": 14.624999999999998,
           "voice_ensemble_config": 9.879999999999999,
-          "voice_ornament_system": 5.0680000000000005,
-          "voice_pitch_organization": 5.0365,
-          "voice_processing_chain": 2.34,
-          "voice_multitrack_stack": 0.845
+          "voice_ornament_system": 4.9,
+          "voice_pitch_organization": 5.53,
+          "voice_processing_chain": 2.155875,
+          "voice_multitrack_stack": 1.0008750000000002
         }
       }
     ],

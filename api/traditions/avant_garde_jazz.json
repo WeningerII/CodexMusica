@@ -1,0 +1,197 @@
+{
+  "id": "avant_garde_jazz",
+  "name": "Avant-Garde Jazz",
+  "family": "jazz",
+  "lineage": "Formed in New York and Chicago from 1959 onward through Ornette Coleman, Cecil Taylor, late Coltrane, Albert Ayler and the AACM, it abandons fixed chord changes and often steady tempo — collective simultaneous improvisation, saxophone in the altissimo and overblown register, arco and pizzicato bass freed from walking, drums playing pulse-free wash, and pieces framed by short unison heads or open notated cells.",
+  "recipe": "classic North American late-1950s avant-garde jazz, improv On Frame, avant branch, jam free improv on frame, industrial noise experimental electric japanoise noise music. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, bach stradivarius 180 canonical American orchestral multiphonic lead trumpet trumpet, venice catlin high twist renaissance bass carpathian spruce European maple double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, expressive clarinet jazz bass clarinet, bach 42 canonical American orchestral tenor multiphonic student commercial trombone, powell boston canonical American orchestral multiphonic flute. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 966,
+  "score": 292.547,
+  "config": {
+    "traditions": [
+      "avant_garde_jazz",
+      "japanoise",
+      "noise_music"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_multiphonic_avant",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 24.724999999999994,
+          "sax_size": 0.15,
+          "sax_reed": 0.585,
+          "sax_body_alloy": 10.549999999999999,
+          "sax_mouthpiece": 0.585,
+          "sax_technique": 21.499999999999996,
+          "sax_maker_school": 8.485
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_mariachi_unison",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 24.724999999999994,
+          "brass_size": 0.585,
+          "trumpet_mouthpiece": 11.639999999999999,
+          "brass_mute": 0.8,
+          "trumpet_technique": 0.95,
+          "trumpet_bell_metal": 0.24,
+          "trumpet_maker_school": 2.795
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_sul_ponticello",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 6.999999999999999,
+          "bass_size": 0,
+          "bass_strings": 2.015,
+          "bass_top_wood": 1.3649999999999998,
+          "bass_back_wood": 1.2999999999999998,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 3.5100000000000002,
+          "bass_play": 10.639999999999999,
+          "bass_rosin": 12.874999999999998,
+          "bass_bow_stick": 0.45500000000000007
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 21.77499999999999,
+          "drumhead": 10.895,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 17.67,
+          "grand_piano_size": 0.8,
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 2.73,
+          "piano_rim": 3.38,
+          "piano_soundboard": 1.8199999999999998,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 2.015
+        }
+      },
+      {
+        "id": "bass_clarinet",
+        "slots": {
+          "bass_clarinet_range": "bass_clarinet_to_low_c",
+          "bass_clarinet_style": "bass_clarinet_jazz"
+        },
+        "scores": {
+          "bass_clarinet_range": 0.7350000000000001,
+          "bass_clarinet_style": 4.145
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 24.724999999999994,
+          "trombone_type": 10.25,
+          "trombone_mouthpiece": 10.35,
+          "trombone_mute": 0,
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 0.24,
+          "trombone_maker_school": 2.795
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "flute_size": "piccolo_flute",
+          "flute_material": "platinum_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": 24.724999999999994,
+          "flute_size": 0.585,
+          "flute_material": 0.3,
+          "flute_technique": 0.39,
+          "flute_maker_school": 2.795
+        }
+      }
+    ],
+    "room": "strata_east_loft_nyc",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_american_op_amp",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "free_jazz_no_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "free_jazz_no_changes",
+    "room": "strata_east_loft_nyc",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

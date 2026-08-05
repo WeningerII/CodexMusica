@@ -5,7 +5,7 @@
   "lineage": "Mongolian-and-Tuvan hunting-khoomei (throat-singing) tradition continuous from premodern Central-Asian-steppe hunter-and-herder practice through 20th-century Soviet-era continuous performance into modern Mongolian-and-Tuvan continuous practice",
   "recipe": "classic Northeast Asian modern mongolian hunting-khoomei, hunting Song, central Asian branch, arctic hunting song, indigenous hunting song, middle east n African praise song arabic madh and qasida sami yoik — animal-tracking and hunting song. sygyt, false fold engaged, slow rate, interlocked note trading. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 390,
-  "score": 217.169,
+  "score": 223.82,
   "config": {
     "traditions": [
       "mongolian_hunting_khoomei",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 21.499999999999996,
+          "voice_register": 22.434499999999996,
           "voice_quality": 18.915,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.927999999999999,
+          "voice_vibrato": 6.361499999999999,
           "voice_articulation": 12.219999999999994,
-          "voice_microtone": 19.211124999999992,
-          "voice_tradition": 29.888999999999992,
-          "voice_mechanism_compound": 25.475,
-          "voice_estill_quality": 6.423125,
+          "voice_microtone": 20.14999999999999,
+          "voice_tradition": 31.159499999999994,
+          "voice_mechanism_compound": 26.735,
+          "voice_estill_quality": 6.8645,
           "voice_speech_song": 25.7725,
           "voice_ensemble_config": 12.544999999999993,
-          "voice_ornament_system": 11.069999999999999,
-          "voice_pitch_organization": 21.398249999999997,
+          "voice_ornament_system": 11.114999999999998,
+          "voice_pitch_organization": 22.725499999999997,
           "voice_processing_chain": 2.4699999999999998,
           "voice_multitrack_stack": 2.34
         }

@@ -1,0 +1,126 @@
+{
+  "id": "kyrgyz_traditional",
+  "name": "Kyrgyz Traditional Music",
+  "family": "global",
+  "lineage": "Tien Shan mountain-nomad tradition of Kyrgyzstan, transmitted by manaschy epic reciters of the Manas cycle and by küü composers such as Toktogul Satylganov, Karamoldo Orozov and Muratali Kurenkeev — unaccompanied hypnotic recitation in fast trochaic verse alternating with three-string fretless komuz pieces whose right hand throws the instrument in the air mid-phrase, plus kyl kyiak horsehair fiddle laments and temir komuz jaw-harp overtone melodies.",
+  "recipe": "classic Central Asian modern kyrgyz traditional music, hunting Song, central Asian branch, overtone drone modal, string drone modal, Slavic bard ballad poetry kazakh traditional music yodel. sygyt, breath veiled tone, breath pulsed, interlocked note trading. apricot juniper wood three gut strings canonical kyrgyz song accompaniment secondary epic tellers komuz, temir komuz, kyl kyiak fiddle, sybyzgy. kyrgyz manaschi outdoor or state theater. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 508,
+  "score": 196.41,
+  "config": {
+    "traditions": [
+      "kyrgyz_traditional",
+      "kazakh_traditional",
+      "yodel"
+    ],
+    "instruments": [
+      {
+        "id": "komuz",
+        "slots": {
+          "komuz_body": "komuz_apricot_three_string_canonical",
+          "komuz_tradition": "komuz_song_accompaniment"
+        },
+        "scores": {
+          "komuz_body": 4.195,
+          "komuz_tradition": 6.4350000000000005
+        }
+      },
+      {
+        "id": "kyl_kyiak_fiddle",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kyl_kyiak_body": "kyl_kyiak_camel",
+          "kyl_kyiak_style": "kyl_kyiak_kuu"
+        },
+        "scores": {
+          "bowed_technique": 1.3324999999999998,
+          "kyl_kyiak_body": 5.785,
+          "kyl_kyiak_style": 0.3
+        }
+      },
+      {
+        "id": "temir_komuz",
+        "slots": {
+          "temir_komuz_size": "temir_komuz_large",
+          "temir_komuz_technique": "temir_komuz_rhythmic"
+        },
+        "scores": {
+          "temir_komuz_size": 0.7350000000000001,
+          "temir_komuz_technique": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 9.847500000000002,
+          "voice_quality": 16.18499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.720000000000001,
+          "voice_articulation": 17.614999999999995,
+          "voice_microtone": 21.352499999999992,
+          "voice_tradition": 11.764999999999997,
+          "voice_mechanism_compound": 12.025,
+          "voice_estill_quality": 4.907500000000001,
+          "voice_speech_song": 21.449999999999996,
+          "voice_ensemble_config": 18.654999999999994,
+          "voice_ornament_system": 1.3949999999999998,
+          "voice_pitch_organization": 16.217499999999998,
+          "voice_processing_chain": 8.515,
+          "voice_multitrack_stack": 3.5750000000000006
+        }
+      },
+      {
+        "id": "sybyzgy",
+        "slots": {
+          "sybyzgy_material": "sybyzgy_reed",
+          "sybyzgy_technique": "sybyzgy_plain"
+        },
+        "scores": {
+          "sybyzgy_material": 5.785,
+          "sybyzgy_technique": 4.68
+        }
+      }
+    ],
+    "room": "kyrgyz_manaschi_outdoor_or_state_theater",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_pentatonic_long_song",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mongolian_pentatonic_long_song",
+    "room": "kyrgyz_manaschi_outdoor_or_state_theater",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

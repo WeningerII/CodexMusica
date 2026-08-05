@@ -3,14 +3,14 @@
   "name": "Afrofuturismo brasileiro",
   "family": "global",
   "lineage": "São Paulo–Salvador movement of the 2010s in which Black Brazilian artists — Rincon Sapiência, Xênia França, Jup do Bairro, BaianaSystem — set candomblé and samba-reggae percussion patterns (atabaque toques, timbau and surdo, berimbau figures) against 808 sub-bass, modular synth pads and sampled Afro-diasporic archive material at 90–110 BPM, with Portuguese lyrics that route Yoruba cosmology and quilombo history through a science-fictional register.",
-  "recipe": "classic mid-2010s afrofuturismo brasileiro, groove Percussion, Afro-diasporic electric branch, Brazilian song functional song, Afro-diasporic ritual devotional pagode brega and tecnobrega. thick, breath veiled tone, straight onset, interlocked note trading. atabaque, berimbau, nylon canonical rio carnival aluminum canonical modern rio escola surdo, TR-808, low sub bass analog poly synth, sampler, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 681,
-  "score": 204.81,
+  "recipe": "classic mid-2010s afrofuturismo brasileiro, groove Percussion, Afro-diasporic electric branch, Brazilian song functional song, Afro-diasporic ritual devotional rasin pagode. thick, breath veiled tone, straight onset, interlocked note trading. lead atabaque, berimbau, nylon canonical rio carnival aluminum canonical modern rio escola surdo, TR-808, low sub bass analog poly synth, sampler, pyramid pure nickel bass British mid 60s era thumb muted electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 665,
+  "score": 228.8,
   "config": {
     "traditions": [
       "afrofuturismo_brasileiro",
-      "pagode",
-      "brega_tecnobrega"
+      "rasin",
+      "pagode"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.7899999999999994,
-          "voice_quality": 20.734999999999996,
+          "voice_register": 1.7449999999999994,
+          "voice_quality": 23.009999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.625,
-          "voice_articulation": 18.589999999999993,
-          "voice_microtone": 18.00499999999999,
-          "voice_tradition": 5.654999999999999,
+          "voice_articulation": 22.619999999999994,
+          "voice_microtone": 21.384999999999994,
+          "voice_tradition": 8.1575,
           "voice_mechanism_compound": 4.159999999999999,
-          "voice_estill_quality": 3.9650000000000003,
-          "voice_speech_song": 22.879999999999992,
-          "voice_ensemble_config": 17.93999999999999,
-          "voice_ornament_system": 2.9900000000000007,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 24.764999999999997,
+          "voice_ensemble_config": 21.514999999999993,
+          "voice_ornament_system": 4.265000000000001,
           "voice_pitch_organization": 3.4400000000000004,
-          "voice_processing_chain": 5.365,
-          "voice_multitrack_stack": 9.620000000000001
+          "voice_processing_chain": 6.765000000000001,
+          "voice_multitrack_stack": 8.775
         }
       },
       {
@@ -60,9 +60,9 @@
           "atabaque_shell_wood": "atabaque_cedrillo"
         },
         "scores": {
-          "atabaque_role": 0.39,
-          "atabaque_skin": 0.845,
-          "atabaque_shell_wood": 0.845
+          "atabaque_role": 1.2349999999999999,
+          "atabaque_skin": 0.39,
+          "atabaque_shell_wood": 0.65
         }
       },
       {
@@ -72,20 +72,20 @@
           "berimbau_use": "berimbau_capoeira"
         },
         "scores": {
-          "berimbau_size": 1.8399999999999999,
-          "berimbau_use": 12.61
+          "berimbau_size": 2.34,
+          "berimbau_use": 10.92
         }
       },
       {
         "id": "surdo",
         "slots": {
-          "surdo_size": "surdo_terceira",
+          "surdo_size": "surdo_segunda",
           "surdo_skin": "surdo_nylon",
           "surdo_shell": "surdo_aluminum_canonical"
         },
         "scores": {
-          "surdo_size": 0.15,
-          "surdo_skin": 1.4300000000000002,
+          "surdo_size": 0.3,
+          "surdo_skin": 2.08,
           "surdo_shell": 1.235
         }
       },
@@ -97,8 +97,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 3.285,
-          "drum_machine_808_context": 4.42,
+          "tr808_voice": 4.135,
+          "drum_machine_808_context": 4.875,
           "tr808_production_origin": 0.39
         }
       },
@@ -111,8 +111,8 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 3.3350000000000004,
-          "poly_archetypes": 1.8199999999999998,
+          "electronic_technique": 4.1850000000000005,
+          "poly_archetypes": 0.975,
           "poly_voices": 0.195,
           "poly_maker_lineage": -0.7350000000000001
         }
@@ -123,35 +123,35 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "fairlight_cmi",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 0.8999999999999999,
           "sampler_archetypes": 0.39,
           "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 0.7149999999999999,
-          "sampler_classic_context": 21.64499999999999
+          "sampler_workflow": 0.09999999999999999,
+          "sampler_classic_context": 23.72499999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 2.2099999999999995,
-          "body_wood": 1.69,
-          "pickup_config": 0.845,
-          "string_type": 2.6000000000000005,
-          "scale_length_b": 1.04,
-          "fretted_or_not": 0.3,
+          "amp_make": 2.8975,
+          "body_wood": 0.845,
+          "pickup_config": 0.195,
+          "string_type": 3.2500000000000004,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 0.65,
           "bass_technique": 3.245
         }
       }

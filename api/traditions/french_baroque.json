@@ -1,0 +1,217 @@
+{
+  "id": "french_baroque",
+  "name": "French Baroque",
+  "family": "classical",
+  "lineage": "Music of the French court from Lully at Versailles in the 1670s through Couperin and Rameau to c.1760 — the ouverture with dotted grand rhythm and fugal fast section, tragedie lyrique with recitative bent to French prosody, dance suites of allemande, courante, sarabande and gigue, notes inegales performance of even quavers, a dense codified agrement ornament table, and a wind-rich orchestra of transverse flutes, oboes and bassoons over string band.",
+  "recipe": "classic European mid-1670s french baroque, art Music, western common practice branch, western early art music german baroque concerto grosso. thick, breath veiled tone, slow rate, interlocked note trading. French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord, plain lamb gut canonical period performance snakewood underhand grip canonical Baroque viol viola da gamba, grenadilla cocus yamaha modern Japanese mid to premium legato flute, boxwood canonical Baroque classical pre 1850 marigaux French legato oboe, French orchestra glotin var French cane legato bassoon, yew ribs Italian Baroque alpine spruce Italian pistoy bass gut plain gut treble historical canonical Baroque theorbo, gut Italian alpine spruce val di fiemme European maple bosnian source violin orchestral. shoebox concert hall. blumlein stereo pair, ultra-clean solid-state pre.",
+  "recipe_chars": 998,
+  "score": 421.957,
+  "config": {
+    "traditions": [
+      "french_baroque",
+      "german_baroque",
+      "concerto_grosso"
+    ],
+    "instruments": [
+      {
+        "id": "harpsichord",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "harpsichord_register": "harpsi_double_8",
+          "harpsichord_context": "harpsichord_solo",
+          "harpsichord_maker_school": "harpsichord_french_blanchet_taskin",
+          "harpsichord_plectrum": "harpsichord_leather_french",
+          "harpsichord_temperament": "harpsichord_meantone_quarter"
+        },
+        "scores": {
+          "keyboard_technique": 5.375,
+          "harpsichord_register": 3.0549999999999997,
+          "harpsichord_context": 14.95,
+          "harpsichord_maker_school": 6.76,
+          "harpsichord_plectrum": 6.11,
+          "harpsichord_temperament": 6.175
+        }
+      },
+      {
+        "id": "viola_da_gamba",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "gamba_size": "gamba_bass",
+          "viola_da_gamba_context": "viola_da_gamba_basse",
+          "gamba_strings": "gamba_plain_lamb_gut",
+          "gamba_frets": "gamba_gut_tied_frets",
+          "gamba_bow_stick": "gamba_snakewood_underhand",
+          "gamba_lineage": "gamba_marais_french_baroque"
+        },
+        "scores": {
+          "bowed_technique": 5.375,
+          "gamba_size": 1.8850000000000002,
+          "viola_da_gamba_context": 14.95,
+          "gamba_strings": 2.535,
+          "gamba_frets": 0.975,
+          "gamba_bow_stick": 8.6125,
+          "gamba_lineage": 9.36
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "flute_size": "concert_flute",
+          "flute_material": "wooden_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 5.57,
+          "flute_size": 0.65,
+          "flute_material": 5.200000000000001,
+          "flute_technique": 0.9099999999999999,
+          "flute_maker_school": 5.135
+        }
+      },
+      {
+        "id": "oboe",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "oboe_reed": "oboe_european_scrape",
+          "oboe_class": "oboe_baroque",
+          "oboe_body_wood": "oboe_boxwood_baroque",
+          "oboe_maker_school": "oboe_marigaux"
+        },
+        "scores": {
+          "wind_articulation": 5.57,
+          "oboe_reed": 4.5337499999999995,
+          "oboe_class": 1.6625,
+          "oboe_body_wood": 3.5100000000000002,
+          "oboe_maker_school": 4.33875
+        }
+      },
+      {
+        "id": "bassoon",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "bassoon_school": "bassoon_french",
+          "bassoon_body_wood": "bassoon_maple_canonical",
+          "bassoon_reed": "bassoon_glotin_cane",
+          "bassoon_context": "bassoon_orch"
+        },
+        "scores": {
+          "wind_articulation": 5.57,
+          "bassoon_school": 5.33875,
+          "bassoon_body_wood": 0.9749999999999999,
+          "bassoon_reed": 5.265,
+          "bassoon_context": 0.845
+        }
+      },
+      {
+        "id": "theorbo",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "theorbo_config": "theorbo_14_course",
+          "theorbo_context": "theorbo_french_solo",
+          "theorbo_ribs": "theorbo_yew_ribs",
+          "theorbo_soundboard": "theorbo_alpine_spruce",
+          "theorbo_strings": "theorbo_pistoy_bass_gut"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.42,
+          "theorbo_config": 3.3150000000000004,
+          "theorbo_context": 3.9650000000000003,
+          "theorbo_ribs": 4.745,
+          "theorbo_soundboard": 1.4300000000000002,
+          "theorbo_strings": 4.745
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "gut_strings_orch",
+          "orch_top_wood": "italian_alpine_spruce_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 7,
+          "orch_strings": 2.5675000000000003,
+          "orch_top_wood": 14.435000000000002,
+          "orch_back_wood": 12.815,
+          "orch_varnish": 12.12625,
+          "orch_setup_period": 8.666250000000002,
+          "orch_bow": 3.575,
+          "orch_bow_stick": 8.06,
+          "orch_articulation": 3.575,
+          "orch_rosin": 13.805
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 5.01,
+          "voice_quality": 9.684999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 10.5625,
+          "voice_articulation": 19.564999999999998,
+          "voice_microtone": 18.979999999999993,
+          "voice_tradition": 15.30125,
+          "voice_mechanism_compound": 5.2749999999999995,
+          "voice_estill_quality": 15.192499999999999,
+          "voice_speech_song": 21.352499999999996,
+          "voice_ensemble_config": 19.694999999999997,
+          "voice_ornament_system": 8.075,
+          "voice_pitch_organization": 10.335,
+          "voice_processing_chain": 5.915000000000001,
+          "voice_multitrack_stack": 2.339999999999999
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "meantone",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "meantone",
+    "room": "concert_hall_shoebox",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

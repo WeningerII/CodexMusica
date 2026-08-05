@@ -5,7 +5,7 @@
   "lineage": "Praise-oratory of the imbongi (plural iimbongi), the Xhosa praise-poet of the Eastern Cape of South Africa, who delivers izibongo — improvised, high-energy declamatory praises of chiefs, ancestors and, in the modern era, political leaders — often clad in animal skins and carrying spears, appearing at installations, funerals and public gatherings. A living tradition documented by scholars such as Jeff Opland and embodied by figures like S.E.K. Mqhayi and, in the democratic era, the praise-poet at Nelson Mandela's 1994 inauguration. Delivery is rapid, loud, rhythmically-surging spoken praise, rich in metaphor and delivered in a single sustained breath-driven flow.",
   "recipe": "classic Southern African mid-1990s xhosa iimbongi praise oratory, praise Song, sub saharan African branch arabic madh and qasida zulu izibongo. extended whistle, declaimed, slow rate, interlocked note trading. eastern cape outdoor grassland. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 304,
-  "score": 218.713,
+  "score": 221.44,
   "config": {
     "traditions": [
       "xhosa_iimbongi",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.3015000000000003,
-          "voice_quality": 42.21750000000002,
+          "voice_register": 3.8025,
+          "voice_quality": 42.502500000000026,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.37,
+          "voice_vibrato": 6.3375,
           "voice_articulation": 13.844999999999995,
           "voice_microtone": 23.042499999999993,
           "voice_tradition": 40.4625,
-          "voice_mechanism_compound": 6.52,
-          "voice_estill_quality": 6.465999999999999,
+          "voice_mechanism_compound": 6.475,
+          "voice_estill_quality": 7.442499999999999,
           "voice_speech_song": 25.707499999999996,
           "voice_ensemble_config": 14.169999999999996,
           "voice_ornament_system": 13.845,
-          "voice_pitch_organization": 12.194999999999999,
-          "voice_processing_chain": 8.061,
-          "voice_multitrack_stack": 4.397
+          "voice_pitch_organization": 12.149999999999999,
+          "voice_processing_chain": 8.0925,
+          "voice_multitrack_stack": 4.4525
         }
       }
     ],

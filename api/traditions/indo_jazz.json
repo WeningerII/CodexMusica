@@ -1,0 +1,188 @@
+{
+  "id": "indo_jazz",
+  "name": "Indo Jazz",
+  "family": "jazz",
+  "lineage": "Fusion of Hindustani and Carnatic classical practice with modern jazz, formalized in London 1965-1968 by composer John Mayer and Jamaican altoist Joe Harriott on the Indo-Jazz Suite recordings and extended by John McLaughlin's Shakti from 1975 — raga-derived modal frames and tala cycles of 7, 10 and 16 beats, sitar, tabla and Carnatic violin scored against jazz reeds and rhythm section, alap-style rubato openings, and alternating written Indian-idiom passages with jazz solo choruses.",
+  "recipe": "classic British 1965-1968 indo jazz, improv On Frame, fusion branch, indian classical improv improv on frame, south Asian art music carnatic kacheri telugu kirtana. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cedar bone maihar gharana instrumental concert lineage classical trained lineage sitar, indian rosewood rosewood copper tabla, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, powell boston canonical American orchestral continuous-airflow legato flute, carpathian spruce European maple sycamore maple oil varnish amber tinted double bass, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 936,
+  "score": 428.87,
+  "config": {
+    "traditions": [
+      "indo_jazz",
+      "carnatic_kacheri",
+      "telugu_kirtana"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 12.144999999999998,
+          "sax_size": 2.0949999999999998,
+          "sax_reed": 1.345,
+          "sax_body_alloy": 24.25,
+          "sax_mouthpiece": 1.345,
+          "sax_technique": 21.795,
+          "sax_maker_school": 20.35
+        }
+      },
+      {
+        "id": "sitar",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sitar_neck": "tun",
+          "sitar_resonator": "with_tumba",
+          "sitar_jawari": "camel_bone",
+          "sitar_taraf": "taraf_11",
+          "sitar_frets": "tied_gut_parda",
+          "sitar_pluck": "wire_mizrab",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_jawari_style": "sitar_jawari_closed",
+          "sitar_gharana": "sitar_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 11.319999999999999,
+          "sitar_neck": 1.345,
+          "sitar_resonator": 0.195,
+          "sitar_jawari": 1.345,
+          "sitar_taraf": 0,
+          "sitar_frets": 0.045,
+          "sitar_pluck": 5.784999999999999,
+          "sitar_main_strings": -0.35,
+          "sitar_jawari_style": 0.75,
+          "sitar_gharana": 7.864999999999998
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 10.009999999999998,
+          "tabla_bayan": 5.784999999999999,
+          "tabla_syahi": 3.575
+        }
+      },
+      {
+        "id": "violin_carnatic",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "violin_carnatic_tuning": "violin_carnatic_carnatic",
+          "violin_carnatic_posture": "violin_carnatic_seated_south",
+          "violin_carnatic_strings": "violin_carnatic_gut_historical",
+          "violin_carnatic_lineage": "violin_carnatic_lalgudi"
+        },
+        "scores": {
+          "bowed_technique": 11.319999999999999,
+          "violin_carnatic_tuning": 26.78000000000001,
+          "violin_carnatic_posture": 5.46,
+          "violin_carnatic_strings": 6.174999999999999,
+          "violin_carnatic_lineage": 7.865
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "piccolo_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": 12.144999999999998,
+          "flute_size": 1.345,
+          "flute_material": 0.8449999999999999,
+          "flute_technique": 0.1949999999999999,
+          "flute_maker_school": 2.15
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "bass_steel",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 11.359999999999998,
+          "bass_size": 0,
+          "bass_strings": 0.8449999999999999,
+          "bass_top_wood": 11.124999999999998,
+          "bass_back_wood": 14.364999999999998,
+          "bass_varnish": 13.624999999999998,
+          "bass_setup_period": 12.469999999999999,
+          "bass_play": 22.65,
+          "bass_rosin": 21.9,
+          "bass_bow_stick": 17.647499999999997
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 11.124999999999998,
+          "grand_piano_size": 0.195,
+          "grand_piano_brand": 1.345,
+          "piano_hammer": 17.7125,
+          "piano_rim": 16.184999999999995,
+          "piano_soundboard": 14.314999999999998,
+          "piano_pinblock": 14.774999999999999,
+          "piano_plate": 13.774999999999999,
+          "piano_pitch_standard": 15.829999999999997
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_uk_small_commercial",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_emi_redd",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_emi_redd"
+  }
+}

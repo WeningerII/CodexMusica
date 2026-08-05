@@ -1,0 +1,156 @@
+{
+  "id": "utopian_virtual",
+  "name": "Utopian virtual",
+  "family": "electronic",
+  "lineage": "Vaporwave-adjacent aesthetic named after James Ferraro's Far Side Virtual (2011) and extended by Vektroid, Dan Mason and INTERNET CLUB, using unaltered General MIDI patches, FM bells, Windows startup jingles and corporate-demo sound design at moderate tempos with clipped rhythmic phrases, ad-copy spoken text and no analog warmth at all.",
+  "recipe": "classic early-2010s utopian virtual, experimental Elec, retro aesthetic branch, pop experimental experimental electric, idm glitch experimental electric indietronica. extended whistle, breath veiled tone, fast rate, interlocked note trading. yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm analog drift character textural wavetable synth, singing lead digital subtractive, glitched textural sampler, treble-extended articulate rubber vibraphone. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 644,
+  "score": 284.672,
+  "config": {
+    "traditions": [
+      "utopian_virtual",
+      "glitch_pop",
+      "indietronica"
+    ],
+    "instruments": [
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 8.694999999999999,
+          "fm_algorithm": 3.7714285714285714,
+          "fm_modulator_ratio": 0.39,
+          "fm_polyphony": 0.65,
+          "fm_model_lineage": 2.6649999999999996
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 8.694999999999999,
+          "va_archetypes": 1.65,
+          "digital_subtractive_context": 16.835
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_emax",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 22.889999999999997,
+          "sampler_archetypes": 1.65,
+          "sampler_bit_depth": 1.7932142857142854,
+          "sampler_workflow": 24.005714285714284,
+          "sampler_classic_context": 19.629999999999995
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_analog_emul",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 22.889999999999997,
+          "wt_position": 3.9,
+          "wt_family": 1.695,
+          "wt_polyphony": 0.65
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 11.309999999999999,
+          "voice_quality": 6.565000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.09,
+          "voice_articulation": 17.029999999999998,
+          "voice_microtone": 15.989999999999995,
+          "voice_tradition": 24.76464285714286,
+          "voice_mechanism_compound": 4.419999999999999,
+          "voice_estill_quality": 3.835,
+          "voice_speech_song": 19.564999999999998,
+          "voice_ensemble_config": 16.314999999999998,
+          "voice_ornament_system": 1.69,
+          "voice_pitch_organization": 1.2349999999999999,
+          "voice_processing_chain": 13.864642857142856,
+          "voice_multitrack_stack": 3.607500000000001
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_slow",
+          "vibe_mallets": "vibe_hard_mallets"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "vibe_motor": 0.39,
+          "vibe_mallets": 1.195
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

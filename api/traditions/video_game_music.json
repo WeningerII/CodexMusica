@@ -3,31 +3,31 @@
   "name": "Video game music",
   "family": "electronic",
   "lineage": "Interactive score composed for game hardware, from the 1980 arcade and 1983-1994 console chip era — Koichi Sugiyama, Nobuo Uematsu, Koji Kondo and Yuzo Koshiro writing three-to-eight-voice PSG and FM parts under strict polyphony and memory limits — through the CD and streamed-audio era after 1995; the persistent markers are short seamlessly loopable cues, fast arpeggiated pseudo-chords standing in for missing voices, wide leaps and rapid modal modulation to stay memorable at 120-160 BPM, and layered or branching arrangements that respond to player state.",
-  "recipe": "classic Asian mid-1980s video game music, experimental Elec, retro aesthetic branch, pop rock synthpop, western modern art music soundtrack metropopolis. yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead wavetable oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, singing lead digital subtractive, field textural sampler, plain gut lamb gut whole lamb method sitka spruce hard rock maple violin orchestral, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese heavy one piece matched to monette horn legato trumpet, synthetic timpani, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 948,
-  "score": 242.041,
+  "recipe": "classic Asian mid-1980s video game music, experimental Elec, retro aesthetic branch, pop rock synthpop, western modern art music metropopolis post-minimalism. yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead wavetable oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, singing lead digital subtractive, field textural sampler, plain gut lamb gut whole lamb method sitka spruce hard rock maple violin orchestral, yamaha xeno modern Japanese heavy one piece matched to monette horn legato trumpet, synthetic timpani, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 906,
+  "score": 229.57,
   "config": {
     "traditions": [
       "video_game_music",
-      "screen_soundtrack_hybrid",
-      "metropopolis"
+      "metropopolis",
+      "post_minimalism"
     ],
     "instruments": [
       {
         "id": "fm_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "fm_algorithm": "fm_complex",
+          "fm_algorithm": "fm_simple",
           "fm_modulator_ratio": "fm_harmonic",
           "fm_polyphony": "fm_mono",
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 9.78,
-          "fm_algorithm": 2.63925,
-          "fm_modulator_ratio": 0.195,
-          "fm_polyphony": 0.65,
-          "fm_model_lineage": 9.23
+          "electronic_technique": 9.959999999999999,
+          "fm_algorithm": 2.145,
+          "fm_modulator_ratio": 0,
+          "fm_polyphony": 1.3,
+          "fm_model_lineage": 8.775000000000002
         }
       },
       {
@@ -39,10 +39,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 9.78,
+          "electronic_technique": 9.959999999999999,
           "wt_position": 2.4050000000000002,
-          "wt_family": 2.0799999999999996,
-          "wt_polyphony": 0.65
+          "wt_family": 2.08,
+          "wt_polyphony": 1.3
         }
       },
       {
@@ -50,27 +50,27 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 9.78,
-          "poly_archetypes": 4.095000000000001,
-          "poly_voices": 0.65,
-          "poly_maker_lineage": 3.835
+          "electronic_technique": 9.959999999999999,
+          "poly_archetypes": 5.2,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": 2.535
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "nord_lead",
+          "va_archetypes": "novation_supernova",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 9.78,
-          "va_archetypes": 0.65,
-          "digital_subtractive_context": 23.075
+          "electronic_technique": 9.959999999999999,
+          "va_archetypes": 0.45499999999999996,
+          "digital_subtractive_context": 21.97
         }
       },
       {
@@ -84,10 +84,10 @@
         },
         "scores": {
           "electronic_technique": 4.575,
-          "sampler_archetypes": 5.2,
-          "sampler_bit_depth": 3.769999999999999,
-          "sampler_workflow": 5.4045000000000005,
-          "sampler_classic_context": 25.479999999999997
+          "sampler_archetypes": 4.765,
+          "sampler_bit_depth": 3.575,
+          "sampler_workflow": 5.25,
+          "sampler_classic_context": 25.024999999999995
         }
       },
       {
@@ -101,26 +101,26 @@
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
-          "orch_articulation": "sul_pont_orch",
+          "orch_articulation": "arco_orch",
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
           "bowed_technique": 2.375,
-          "orch_strings": 1.5844999999999998,
-          "orch_top_wood": 10.723999999999998,
-          "orch_back_wood": 9.165000000000001,
-          "orch_varnish": 5.289750000000001,
-          "orch_setup_period": 8.503,
-          "orch_bow": 0.7349999999999999,
-          "orch_bow_stick": 6.1075,
-          "orch_articulation": 1.3,
-          "orch_rosin": 7.279999999999999
+          "orch_strings": 1.4299999999999997,
+          "orch_top_wood": 8.379999999999999,
+          "orch_back_wood": 10.27,
+          "orch_varnish": 5.325,
+          "orch_setup_period": 7.49,
+          "orch_bow": 0.65,
+          "orch_bow_stick": 5.65,
+          "orch_articulation": 0.65,
+          "orch_rosin": 7.540000000000001
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_ska_skank_stab",
+          "wind_articulation": "wind_classical_legato",
           "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "straight_mute",
@@ -129,13 +129,13 @@
           "trumpet_maker_school": "trumpet_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 1.2944999999999998,
+          "wind_articulation": 1.25,
           "brass_size": 0.65,
-          "trumpet_mouthpiece": 7.928999999999999,
+          "trumpet_mouthpiece": 5.87,
           "brass_mute": 1.25,
           "trumpet_technique": 1.25,
-          "trumpet_bell_metal": 1.215,
-          "trumpet_maker_school": 2.7299999999999995
+          "trumpet_bell_metal": 0.63,
+          "trumpet_maker_school": 2.73
         }
       },
       {
@@ -146,9 +146,9 @@
           "timpani_head": "timpani_synthetic"
         },
         "scores": {
-          "percussion_technique": 1.125,
+          "percussion_technique": 1.625,
           "timpani_size": 1.2349999999999999,
-          "timpani_head": 2.2749999999999995
+          "timpani_head": 2.08
         }
       },
       {
@@ -160,9 +160,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 10.659999999999998,
-          "choir_polyphonic_configuration": 3.82975,
-          "choir_regional_canonical_configuration": 3.835,
+          "choir_size": 8.58,
+          "choir_polyphonic_configuration": 2.9899999999999998,
+          "choir_regional_canonical_configuration": 3.6399999999999997,
           "choir_ensemble_repertoire": 2.795
         }
       }

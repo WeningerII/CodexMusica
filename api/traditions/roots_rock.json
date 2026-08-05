@@ -1,0 +1,218 @@
+{
+  "id": "roots_rock",
+  "name": "Roots Rock",
+  "family": "rock",
+  "lineage": "Late-1960s American reaction against psychedelia, formed around Woodstock and the Bay Area with The Band's Music from Big Pink (1968), Creedence Clearwater Revival and Bob Dylan's John Wesley Harding — moderate 90-120 BPM backbeats, unaffected guitar tones, piano and Hammond organ, gospel-derived group harmony and country, blues and R&B forms recorded with minimal overdubbing.",
+  "recipe": "classic Southern American 1967-1969 roots rock, distorted Rock, classic branch, country rock country, blues electric functional song british blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric open e tuning steel silk travis picked dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs fast tremolo tonewheel organ, upright piano, bowl back Italian hard rock maple thomastik flatwound jazz mandolin mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 979,
+  "score": 620.202,
+  "config": {
+    "traditions": [
+      "roots_rock",
+      "country_rock",
+      "british_blues"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 66.87,
+          "voice_quality": 11.309999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 31.584999999999994,
+          "voice_articulation": 19.304999999999993,
+          "voice_microtone": 28.224999999999998,
+          "voice_tradition": 11.83,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 23.254999999999995,
+          "voice_speech_song": 25.154999999999998,
+          "voice_ensemble_config": 20.019999999999996,
+          "voice_ornament_system": 0.5849999999999997,
+          "voice_pitch_organization": 0.845,
+          "voice_processing_chain": 7.04,
+          "voice_multitrack_stack": 4.875000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "swamp_ash",
+          "neck_wood": "roasted_maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_short",
+          "finish": "oil_satin",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 18.379999999999992,
+          "amp_make": 23.179999999999996,
+          "body_wood": 0.24,
+          "neck_wood": 0.3,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.195,
+          "string_material": 0.975,
+          "string_gauge": 0.845,
+          "bridge": 0.045,
+          "scale_length": 0.65,
+          "finish": 0.045,
+          "string_tuning": 20.345
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "swamp_ash_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 22.659999999999993,
+          "body_wood": 0.24,
+          "pickup_config": 0,
+          "string_type": 28.275,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 0.09,
+          "bass_technique": 26.785
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 26.445,
+          "drumhead": 1.2,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 4.4,
+          "drawbar_setting": 26.835,
+          "rotary_speed": 30.79,
+          "percussion_setting": 12.33,
+          "tonewheel_model": 17.865000000000002,
+          "leslie_cabinet_model": 1.445
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_honky_tonk",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 18.074999999999996,
+          "upright_use": 0.195,
+          "upright_piano_size": 0.585
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "open_e",
+          "top_wood": "adirondack",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 20.124999999999993,
+          "string_tuning": 10.12,
+          "top_wood": 0.3,
+          "back_sides": 0.3,
+          "string_acoustic": 1.4300000000000002
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 2.8850000000000002,
+          "mandolin_shape": 1.235,
+          "mandolin_top": 0.6824999999999999,
+          "mandolin_back": 12.525,
+          "mandolin_bracing": 0.6149999999999999,
+          "mandolin_strings": 1.1374999999999997,
+          "mandolin_fingerboard": 0.12999999999999998,
+          "mandolin_pickup": 21.125
+        }
+      }
+    ],
+    "room": "studio_in_the_country_bogalusa",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "americana_train_beat_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "americana_train_beat_4_4",
+    "room": "studio_in_the_country_bogalusa",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "id": "russian_chanson",
+  "name": "Russian Chanson (Blatnyak)",
+  "family": "global",
+  "lineage": "Soviet and post-Soviet outlaw-song genre grown from prison and Odessa blatnaya pesnya, circulated on magnitizdat reel tapes from the late 1950s through Arkady Severny and Vladimir Vysotsky and commercialized by Radio Chanson from 1998 with Mikhail Krug and Alexander Novikov, using strophic minor-key verses at 90-130 BPM over strummed seven-string guitar, bayan and later cheap synth-and-drum-machine backing, sung in a hoarse chest-voiced criminal-argot narration.",
+  "recipe": "classic Eastern European 1957-1959 russian chanson, ballad Poetry, Slavic bard branch, anglo singer song country folk story, European protest song texas country-folk storyteller liedermacher. thick, breath veiled tone, straight note core, interlocked note trading. cedar fingerpicked classical nylon-string guitar, b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, drum machine analog, analog poly synth, castagnari Italian premium folk music straight accordion. bedroom. dynamic moving-coil, tube pre. Walkman cassette.",
+  "recipe_chars": 647,
+  "score": 239.475,
+  "config": {
+    "traditions": [
+      "russian_chanson",
+      "texas_country_folk_storyteller",
+      "liedermacher"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 12.869999999999997,
+          "voice_quality": 6.825000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.279999999999999,
+          "voice_articulation": 17.68,
+          "voice_microtone": 18.784999999999997,
+          "voice_tradition": 13.001499999999997,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 9.351499999999998,
+          "voice_speech_song": 25.285,
+          "voice_ensemble_config": 17.419999999999998,
+          "voice_ornament_system": 2.3099999999999996,
+          "voice_pitch_organization": 2.1000000000000005,
+          "voice_processing_chain": 4.55,
+          "voice_multitrack_stack": 2.5025000000000004
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 17.499999999999996,
+          "string_tuning": 0,
+          "top_wood_classical": 5.115,
+          "bracing_classical": 0.585,
+          "string_classical": 0.63,
+          "attack_technique_cl": 0.195
+        }
+      },
+      {
+        "id": "bayan_russian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "bayan_russian_model": "bayan_russian_tula_standard",
+          "bayan_russian_context": "bayan_russian_folk_song_dance",
+          "bayan_russian_reed_voicing": "bayan_russian_dry_unison"
+        },
+        "scores": {
+          "free_reed_technique": 15.419999999999998,
+          "bayan_russian_model": 4.355,
+          "bayan_russian_context": 8.45,
+          "bayan_russian_reed_voicing": 0.585
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_s",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 6.734999999999999,
+          "body_wood": 0.195,
+          "pickup_config": 0.585,
+          "string_type": 0.65,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.045,
+          "bass_technique": 8.95
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 1.0399999999999998,
+          "snare_voice": 0.585,
+          "hat_voice": 0.45499999999999996,
+          "shuffle_quantize": 0.585
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": -9.714451465470119e-18,
+          "poly_archetypes": 0.45499999999999996,
+          "poly_voices": 0.585,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 15.419999999999998,
+          "accordion_reed_material": 0.65,
+          "musette_offset": 1,
+          "reed_config": 0.45499999999999996,
+          "bellows": 0.3,
+          "voicing_chamber": 0.105,
+          "accordion_maker_school": 3.509999999999999
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_soviet_magnitizdat",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "russian_minor_estrada_chanson",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "russian_minor_estrada_chanson",
+    "room": "untreated_bedroom",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

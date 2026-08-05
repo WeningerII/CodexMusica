@@ -1,0 +1,160 @@
+{
+  "id": "fuji_music",
+  "name": "Fújì Music (Yoruba Muslim percussion pop)",
+  "family": "global",
+  "lineage": "Yoruba Muslim popular style formalized in Lagos and Ibadan in the late 1960s–70s by Sikiru Ayinde Barrister and Ayinla Kollington out of wéré/ajísáàrì Ramadan wake-up music, built on interlocking dùndùn and sákárà drum batteries with omele accents at roughly 100–130 BPM, no guitars in its classical form, and a declamatory praise-singing lead answered by a chanting chorus over open-ended twenty-minute medleys.",
+  "recipe": "classic West African 1967-1969 fújì music, praise Song, sub saharan African branch, islamic ritual devotional, west African groove percussion balafon music indonesian jaipongan. thick, declaimed, slow rate, interlocked note trading. vocal pitch bending dundun talking iroko alternative west African talking deep toned lead voice pitch bending talking bent pitch sakara drum, shekere, thumb plucked found metal agidigbo, singing lead analog poly synth. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 674,
+  "score": 248.605,
+  "config": {
+    "traditions": [
+      "fuji_music",
+      "balafon_mande",
+      "indonesian_jaipongan"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 5.995000000000001,
+          "voice_quality": 12.594999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.3999999999999995,
+          "voice_articulation": 17.029999999999998,
+          "voice_microtone": 15.989999999999995,
+          "voice_tradition": 37.945,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 5.51,
+          "voice_speech_song": 19.955,
+          "voice_ensemble_config": 16.509999999999998,
+          "voice_ornament_system": 8.315,
+          "voice_pitch_organization": 9.024999999999997,
+          "voice_processing_chain": 5.719999999999999,
+          "voice_multitrack_stack": 5.54
+        }
+      },
+      {
+        "id": "dundun_talking_drum",
+        "slots": {
+          "dundun_role": "dundun_iyaalu",
+          "dundun_technique": "dundun_squeeze"
+        },
+        "scores": {
+          "dundun_role": 0.78,
+          "dundun_technique": 2.8149999999999995
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_praise",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 0.39,
+          "talking_drum_context": 2.145,
+          "talking_drum_shell_wood": 8.934999999999999,
+          "talking_drum_head": 0.39
+        }
+      },
+      {
+        "id": "sakara_drum",
+        "slots": {
+          "sakara_form": "sakara_form_lead",
+          "sakara_stroke": "sakara_stroke_talking",
+          "sakara_frame": "sakara_frame_clay"
+        },
+        "scores": {
+          "sakara_form": 12.209999999999999,
+          "sakara_stroke": 8.805,
+          "sakara_frame": 7.375
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_medium",
+          "shekere_beads": "shekere_cowrie"
+        },
+        "scores": {
+          "shekere_size": 1.69,
+          "shekere_beads": 6.3999999999999995
+        }
+      },
+      {
+        "id": "agidigbo",
+        "slots": {
+          "agidigbo_tradition": "agidigbo_palm_wine",
+          "agidigbo_playing": "agidigbo_thumb_ostinato",
+          "agidigbo_lamella": "agidigbo_recycled_metal"
+        },
+        "scores": {
+          "agidigbo_tradition": 5.7,
+          "agidigbo_playing": 6.85,
+          "agidigbo_lamella": 6.35
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 5.08,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.035
+        }
+      }
+    ],
+    "room": "lagos_decca_west_african_studio",
+    "archetype": "arch_emi_lagos_african_70s",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "room": "lagos_decca_west_african_studio",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

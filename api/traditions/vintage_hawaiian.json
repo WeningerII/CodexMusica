@@ -1,0 +1,146 @@
+{
+  "id": "vintage_hawaiian",
+  "name": "Vintage Hawaiian (hapa haole steel-guitar era)",
+  "family": "pop",
+  "lineage": "Mainland-facing Hawaiian popular style running from the 1915 Panama-Pacific Exposition craze through the 1920s-40s Victor and Columbia sides and the Hawaii Calls broadcasts — Joseph Kekuku's bar-slid steel guitar carrying the melody with wide portamento and tremolo, ukulele and tenor guitar chording a gentle two-beat, string bass on the downbeats, English-and-Hawaiian hapa haole lyrics in close crooned harmony, at leisurely 70-100 BPM.",
+  "recipe": "classic mid-1920s vintage hawaiian, functional Song, tropical song branch, crooners functional song, American jazz early british dance band continental jazz. thick, breath veiled tone, straight onset, interlocked note trading. steel c6 hawaiian slack lap steel, fingerpicked koa ukulele, mahogany parlor classic steel silk parlor acoustic guitar topped tenor guitar, growly gut upright bass. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 529,
+  "score": 253.337,
+  "config": {
+    "traditions": [
+      "vintage_hawaiian",
+      "british_dance_band",
+      "continental_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "lap_steel",
+        "slots": {
+          "lap_steel_tuning": "lap_steel_c6",
+          "lap_steel_style": "lap_steel_hawaiian_slack"
+        },
+        "scores": {
+          "lap_steel_tuning": 4.803214285714285,
+          "lap_steel_style": 3.9449999999999994
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_tenor",
+          "ukulele_style": "ukulele_fingerstyle",
+          "ukulele_wood": "ukulele_koa"
+        },
+        "scores": {
+          "ukulele_size": 9.045,
+          "ukulele_style": 10.743214285714284,
+          "ukulele_wood": 9.344999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "drop_d",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
+        },
+        "scores": {
+          "acoustic_technique": 2.7071428571428573,
+          "string_tuning": 0.12499999999999999,
+          "top_wood_parlor": 0.195,
+          "back_sides_parlor": 1.3,
+          "string_acoustic_parlor": 3.1399999999999997
+        }
+      },
+      {
+        "id": "tenor_guitar",
+        "slots": {
+          "tenor_guitar_form": "tenor_guitar_form_chicago",
+          "tenor_guitar_style": "tenor_guitar_style_celtic_lead",
+          "tenor_guitar_build": "tenor_guitar_build_flattop"
+        },
+        "scores": {
+          "tenor_guitar_form": 5.602142857142858,
+          "tenor_guitar_style": 0.9099999999999999,
+          "tenor_guitar_build": 0.06499999999999999
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 12.999999999999998,
+          "upright_play": 12.999999999999998
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 15.744999999999996,
+          "voice_quality": 13.844999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 12.70642857142857,
+          "voice_articulation": 23.79,
+          "voice_microtone": 22.749999999999996,
+          "voice_tradition": 14.454999999999998,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 31.134999999999998,
+          "voice_ensemble_config": 23.009999999999998,
+          "voice_ornament_system": 2.5250000000000004,
+          "voice_pitch_organization": 3.3450000000000006,
+          "voice_processing_chain": 4.355,
+          "voice_multitrack_stack": 4.2250000000000005
+        }
+      }
+    ],
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_electrical_era_office",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

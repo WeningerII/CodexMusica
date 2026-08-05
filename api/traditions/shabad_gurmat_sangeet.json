@@ -1,0 +1,171 @@
+{
+  "id": "shabad_gurmat_sangeet",
+  "name": "Shabad (Gurmat sangeet raga-set hymn)",
+  "family": "global",
+  "lineage": "Sikh hymn form set to the raga headings of the Guru Granth Sahib, formalised by Guru Nanak and Guru Arjan in 16th–17th century Punjab and revived as Gurmat Sangeet by 20th-century scholars such as Bhai Avtar Singh and Gurnam Singh — sung by a ragi jatha of two harmoniums and a tabla (historically rabab, taus and dilruba with jori), in medium-slow teental or ektaal, with the sthai/rahao line as a returning refrain and plain syllabic delivery favouring textual clarity over Hindustani ornament.",
+  "recipe": "classic South Asian mid-1980s shabad, praise Song, indian subcontinent branch, hindu ritual devotional, south Asian art music carnatic kacheri afghan traditional. kargyraa, breath veiled tone, slow rate, interlocked note trading. harmonium indian, indian rosewood rosewood copper tabla, carved ensemble blend steel legato taus, tun indian cedar gut pre modern sikh canon legato dilruba, modal legato rabab maghribi, nathdwara temple tradition pakhawaj. golden temple amritsar gurdwara. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 624,
+  "score": 219.712,
+  "config": {
+    "traditions": [
+      "shabad_gurmat_sangeet",
+      "carnatic_kacheri",
+      "afghan_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 14.299999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.37,
+          "voice_articulation": 16.509999999999994,
+          "voice_microtone": 18.069999999999993,
+          "voice_tradition": 18.825000000000003,
+          "voice_mechanism_compound": 5.59,
+          "voice_estill_quality": 7.280000000000001,
+          "voice_speech_song": 18.654999999999994,
+          "voice_ensemble_config": 16.639999999999993,
+          "voice_ornament_system": 12.96,
+          "voice_pitch_organization": 9.915,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 2.7300000000000004
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_foot_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 0.35750000000000004,
+          "harmonium_action": 1.69,
+          "harmonium_voicing": 0.885,
+          "harmonium_use": 1.95
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 5.785,
+          "tabla_bayan": 2.535,
+          "tabla_syahi": 7.734999999999998
+        }
+      },
+      {
+        "id": "taus",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "taus_form": "taus_form_peacock_carved",
+          "taus_context": "taus_context_revival_ensemble",
+          "taus_build": "taus_build_steel_full_taraf"
+        },
+        "scores": {
+          "bowed_technique": 3.75,
+          "taus_form": 4.525,
+          "taus_context": 5.225,
+          "taus_build": 2.25
+        }
+      },
+      {
+        "id": "dilruba",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "dilruba_neck": "long_dilruba",
+          "dilruba_use": "dilruba_classical",
+          "dilruba_body_wood": "dilruba_tun",
+          "dilruba_strings": "dilruba_gut_historical"
+        },
+        "scores": {
+          "bowed_technique": 3.75,
+          "dilruba_neck": 1.95,
+          "dilruba_use": 5.615,
+          "dilruba_body_wood": 3.9,
+          "dilruba_strings": 1.2349999999999999
+        }
+      },
+      {
+        "id": "rabab_maghribi",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "rabab_maghribi_form": "rabab_maghribi_andalusi",
+          "rabab_maghribi_role": "rabab_maghribi_istikhbar",
+          "rabab_maghribi_strings": "rabab_maghribi_gut"
+        },
+        "scores": {
+          "bowed_technique": 3.75,
+          "rabab_maghribi_form": 0.9749999999999999,
+          "rabab_maghribi_role": 1.01,
+          "rabab_maghribi_strings": 0.09999999999999999
+        }
+      },
+      {
+        "id": "pakhawaj",
+        "slots": {
+          "pakhawaj_context": "pakhawaj_qawwali",
+          "pakhawaj_construction": "pakhawaj_jackwood",
+          "pakhawaj_head": "pakhawaj_goat_skin",
+          "pakhawaj_lineage": "pakhawaj_nathdwara"
+        },
+        "scores": {
+          "pakhawaj_context": 0.845,
+          "pakhawaj_construction": 0.15,
+          "pakhawaj_head": 0.78,
+          "pakhawaj_lineage": 3.3749999999999996
+        }
+      }
+    ],
+    "room": "golden_temple_amritsar_gurdwara",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "golden_temple_amritsar_gurdwara",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "tube_pre",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

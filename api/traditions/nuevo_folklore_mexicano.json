@@ -1,0 +1,189 @@
+{
+  "id": "nuevo_folklore_mexicano",
+  "name": "Nuevo folklore mexicano",
+  "family": "global",
+  "lineage": "Art-song reinterpretation of Mexican regional repertoire that took shape in Mexico City and Oaxaca from the late 1990s through the 2010s, in which conservatory- and rock-trained songwriters rebuild son jarocho, huapango, bolero ranchero and Oaxacan folk material with jarana and requinto alongside chamber strings and sparse studio production, at slower tempos, in through-composed forms, with restrained close-miked vocals in place of the traditional shouted delivery.",
+  "recipe": "classic 1997-1999 nuevo folklore mexicano, ballad Poetry, Latin am troubadour branch, Mexican functional song, iberian Latin protest song bolero mexicano latin ballad. thick, breath veiled tone, slow rate, interlocked note trading. palo escrito Mexican rosewood nylon modern strummed jarana diatonic only son jarocho tradition gut pre modern son jarocho bass and harmony arpa jarocha, son jarocho standard strummed requinto jarocho, cedar nylon fingerpicked classical nylon-string guitar, sitka spruce hard rock maple acer saccharum magic rosin modern acrylic base violin orchestral, tehuana sones hormigo tonewood box resonated buzzing tela marimba centroamericana. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 870,
+  "score": 230.87,
+  "config": {
+    "traditions": [
+      "nuevo_folklore_mexicano",
+      "bolero_mexicano",
+      "latin_ballad"
+    ],
+    "instruments": [
+      {
+        "id": "jarana_jarocha",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "jarana_size": "jarana_segunda",
+          "jarana_jarocha_context": "jarana_jarocha_revival",
+          "jarana_jarocha_body_wood": "jarana_palo_escrito",
+          "jarana_jarocha_strings": "jarana_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.98,
+          "jarana_size": 2.645,
+          "jarana_jarocha_context": 1.69,
+          "jarana_jarocha_body_wood": 7.02,
+          "jarana_jarocha_strings": 1.69
+        }
+      },
+      {
+        "id": "requinto_jarocho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "requinto_jarocho_pluck": "requinto_jarocho_horn",
+          "requinto_jarocho_tuning": "requinto_jarocho_high",
+          "requinto_jarocho_body_wood": "requinto_cedrillo",
+          "requinto_jarocho_strings": "requinto_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.98,
+          "requinto_jarocho_pluck": 3.6449999999999996,
+          "requinto_jarocho_tuning": 2.145,
+          "requinto_jarocho_body_wood": 0.845,
+          "requinto_jarocho_strings": 0.845
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 6.945,
+          "string_tuning": 0,
+          "top_wood_classical": 8.71,
+          "bracing_classical": 1.15,
+          "string_classical": 1.49,
+          "attack_technique_cl": 0.845
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_chopped_old_time",
+          "orch_strings": "plain_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.7149999999999999,
+          "orch_strings": 0.12999999999999998,
+          "orch_top_wood": 1.365,
+          "orch_back_wood": 1.775,
+          "orch_varnish": 0.995,
+          "orch_setup_period": 0.52,
+          "orch_bow": 1.4949999999999999,
+          "orch_bow_stick": 0.09999999999999999,
+          "orch_articulation": 0.545,
+          "orch_rosin": 1.145
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 9.67,
+          "voice_quality": 11.309999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.47,
+          "voice_articulation": 16.835,
+          "voice_microtone": 16.639999999999997,
+          "voice_tradition": 6.760000000000002,
+          "voice_mechanism_compound": 5.329999999999999,
+          "voice_estill_quality": 5.135,
+          "voice_speech_song": 24.244999999999997,
+          "voice_ensemble_config": 18.46,
+          "voice_ornament_system": 1.6999999999999997,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 6.4350000000000005,
+          "voice_multitrack_stack": 4.290000000000001
+        }
+      },
+      {
+        "id": "arpa_jarocha",
+        "slots": {
+          "arpa_jarocha_strings": "arpa_jarocha_36",
+          "arpa_jarocha_body_wood": "arpa_jarocha_cedrillo",
+          "arpa_jarocha_string_material": "arpa_jarocha_gut_historical",
+          "arpa_jarocha_role": "arpa_jarocha_bass_and_arpeggio"
+        },
+        "scores": {
+          "arpa_jarocha_strings": 5.07,
+          "arpa_jarocha_body_wood": 0.845,
+          "arpa_jarocha_string_material": 2.79,
+          "arpa_jarocha_role": 20.410000000000004
+        }
+      },
+      {
+        "id": "marimba_centroamericana",
+        "slots": {
+          "marimba_centroamericana_form": "marimba_centroamericana_chiapaneca",
+          "marimba_centroamericana_ensemble": "marimba_centroamericana_son_istmeno",
+          "marimba_centroamericana_material": "marimba_centroamericana_hormigo"
+        },
+        "scores": {
+          "marimba_centroamericana_form": 3.945,
+          "marimba_centroamericana_ensemble": 2.6,
+          "marimba_centroamericana_material": 2.5
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mariachi_son_6_8_3_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mariachi_son_6_8_3_4",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

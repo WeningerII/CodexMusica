@@ -1,0 +1,157 @@
+{
+  "id": "asturian_folk",
+  "name": "Asturian folk",
+  "family": "global",
+  "lineage": "Traditional music of Asturias in northern Spain, documented by Eduardo Martínez Torner's 1920 Cancionero musical and revived from the 1980s by Llan de Cubel and the Xixón folk scene — the single-drone gaita asturiana in B-flat playing giraldillas and muñeiras against snare-and-bass-drum tamboriteru, and the tonada or asturianada, a solo unmetred song delivered at full chest voice with long melismatic ornaments and heavy portamento.",
+  "recipe": "classic Northern European mid-1980s asturian folk, functional Song, iberian branch, wind pipe drone modal, Mediterranean ballad ballad poetry greek clarinet greek nisiotika. thick, breath veiled tone, slow rate, interlocked note trading. thick drone rubato gaita asturiana, double bass rapid double strokes bass drum, pandeiro, cedar phosphor bronze bronze fingerpicked acoustic guitar, drone like fiddle. scottish galician piping outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 502,
+  "score": 209.665,
+  "config": {
+    "traditions": [
+      "asturian_folk",
+      "greek_clarinet",
+      "greek_nisiotika"
+    ],
+    "instruments": [
+      {
+        "id": "gaita_asturiana",
+        "slots": {
+          "gaita_ast_tuning": "gaita_ast_do",
+          "gaita_ast_drone": "gaita_ast_ronquillo",
+          "gaita_ast_style": "gaita_ast_asturianada"
+        },
+        "scores": {
+          "gaita_ast_tuning": 0,
+          "gaita_ast_drone": 4.875,
+          "gaita_ast_style": 1.45
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 7.375,
+          "voice_quality": 14.68999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.275,
+          "voice_articulation": 18.589999999999996,
+          "voice_microtone": 23.432499999999994,
+          "voice_tradition": 29.334999999999994,
+          "voice_mechanism_compound": 5.07,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 22.034999999999993,
+          "voice_ensemble_config": 21.124999999999996,
+          "voice_ornament_system": 4.225000000000001,
+          "voice_pitch_organization": 4.680000000000001,
+          "voice_processing_chain": 4.9399999999999995,
+          "voice_multitrack_stack": 5.07
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.15,
+          "bass_drum_beater": 1.3
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_pequeno",
+          "pandeiro_context": "pandeiro_samba",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "pandeiro_size": 0.135,
+          "pandeiro_context": 1.81,
+          "pandeiro_head": 0.65,
+          "pandeiro_shell_wood": 0.65,
+          "pandeiro_jingles": 0.65
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 1.04,
+          "back_sides": 0.9950000000000001,
+          "string_acoustic": 2.295,
+          "acoustic_om_technique": 10.424999999999999
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 15.0475,
+          "fiddle_strings": 0.15,
+          "fiddle_bow": 1.2999999999999998,
+          "fiddle_mute": 1.4949999999999999,
+          "fiddle_articulation": 1.4949999999999999
+        }
+      }
+    ],
+    "room": "scottish_galician_piping_outdoor",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "scottish_galician_piping_outdoor",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

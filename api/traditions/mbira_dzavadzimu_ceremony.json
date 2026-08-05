@@ -1,0 +1,128 @@
+{
+  "id": "mbira_dzavadzimu_ceremony",
+  "name": "Mbira dzaVadzimu Ceremonial Music",
+  "family": "global",
+  "lineage": "Shona ancestral-possession music of the Zimbabwean plateau, documented from the 1930s and studied in depth by Paul Berliner and Hugh Tracey in the mid-twentieth century — one to three mbira dzavadzimu inside deze gourd resonators playing interlocking kushaura and kutsinhira parts in 48-pulse cyclic pieces such as Nhemamusasa and Nyamaropa, driven by hosho rattles in a steady triplet pattern with women's yodelled huro and low mahon'era singing across an all-night bira.",
+  "recipe": "classic mid-1930s mbira dzavadzimu ceremonial music, ritual Devotional, indigenous branch, overtone drone modal, sub saharan African praise song apala didgeridoo drone practice. sygyt, declaimed, slow rate, interlocked note trading. mbira dzavadzimu, plain pulse single hosho, snappy to palm hand clap, foundational low fundamental tuning deep calabash inverted calabash. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 463,
+  "score": 194.837,
+  "config": {
+    "traditions": [
+      "mbira_dzavadzimu_ceremony",
+      "apala",
+      "didgeridoo_drone_practice"
+    ],
+    "instruments": [
+      {
+        "id": "mbira_dzavadzimu",
+        "slots": {
+          "mbira_dza_resonator": "mbira_dza_bare",
+          "mbira_dza_tuning": "mbira_dza_nyamaropa",
+          "mbira_dza_buzzers": "mbira_dza_clean"
+        },
+        "scores": {
+          "mbira_dza_resonator": 0.435,
+          "mbira_dza_tuning": 1,
+          "mbira_dza_buzzers": 0.74
+        }
+      },
+      {
+        "id": "hosho",
+        "slots": {
+          "hosho_form": "hosho_single",
+          "hosho_groove": "hosho_mbira_lock",
+          "hosho_filler": "hosho_hota_seeds"
+        },
+        "scores": {
+          "hosho_form": 5.375,
+          "hosho_groove": 11.3,
+          "hosho_filler": 3.295
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 4.160000000000001,
+          "voice_quality": 15.339999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.3950000000000005,
+          "voice_articulation": 19.565,
+          "voice_microtone": 21.06,
+          "voice_tradition": 20.7025,
+          "voice_mechanism_compound": 6.825,
+          "voice_estill_quality": 5.7200000000000015,
+          "voice_speech_song": 21.644999999999996,
+          "voice_ensemble_config": 19.435,
+          "voice_ornament_system": 7.345000000000001,
+          "voice_pitch_organization": 7.54,
+          "voice_processing_chain": 5.719999999999999,
+          "voice_multitrack_stack": 4.42
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 3.38,
+          "clap_capture": 0.345
+        }
+      },
+      {
+        "id": "inverted_calabash",
+        "slots": {
+          "inverted_calabash_size": "inverted_calabash_large",
+          "inverted_calabash_technique": "inverted_calabash_hands"
+        },
+        "scores": {
+          "inverted_calabash_size": 4.615,
+          "inverted_calabash_technique": 1.6049999999999998
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mbira_seven_tone",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mbira_seven_tone",
+    "room": "field_recording",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Fado de Coimbra",
   "family": "global",
   "lineage": "Academic male-student fado tradition centered on the University of Coimbra (Portugals oldest university, founded in the 13th century) — distinct from fado de Lisboa in vocal register (male tenor/baritone), repertoire (poetry-set songs, student songs, serenata), and performance context (outdoor stone-paved quadrangle and Sé Velha cathedral steps rather than intimate tavern); performers wear the traditional black student capa-e-batina cape",
-  "recipe": "classic Iberian mid-1930s fado de coimbra, ballad Poetry, fado coimbra branch, chanson fado fado lisboa, chanson fado classic chanson chanson classique. vocal fry, lament wail, slow rate, interlocked note trading. bowl back Italian German spruce classical leaning European maple loar canon mandolin, cedar nylon fingerpicked classical nylon-string guitar, lower tuned fado coimbra tradition jacaranda Portuguese rosewood spruce canonical fado steel canonical Portuguese guitarra portuguesa. coimbra university outdoor quad. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 596,
-  "score": 209.244,
+  "recipe": "classic Iberian mid-1930s fado de coimbra, ballad Poetry, fado coimbra branch, chanson fado fado lisboa, chanson fado classic chanson fado antigo. vocal fry, lament wail, slow rate, interlocked note trading. bowl back Italian German spruce classical leaning k and k twin internal mounted mandolin, cedar fingerpicked classical nylon-string guitar, lower tuned fado coimbra tradition jacaranda Portuguese rosewood spruce canonical fado steel canonical Portuguese guitarra portuguesa. coimbra university outdoor quad. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 588,
+  "score": 242.54,
   "config": {
     "traditions": [
       "fado_coimbra_university",
       "fado",
-      "chanson_classique"
+      "fado_antigo"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 3.23375,
-          "voice_quality": 32.800000000000004,
+          "voice_register": 3.73375,
+          "voice_quality": 43.80000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9575,
-          "voice_articulation": 10.828999999999995,
-          "voice_microtone": 10.940249999999992,
-          "voice_tradition": 9.720125000000001,
-          "voice_mechanism_compound": 2.05875,
-          "voice_estill_quality": 2.9575000000000005,
-          "voice_speech_song": 13.617499999999994,
-          "voice_ensemble_config": 11.231499999999993,
+          "voice_vibrato": 2.7625,
+          "voice_articulation": 11.049999999999995,
+          "voice_microtone": 10.919999999999991,
+          "voice_tradition": 10.692500000000003,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 3.0225,
+          "voice_speech_song": 13.032499999999995,
+          "voice_ensemble_config": 11.244999999999994,
           "voice_ornament_system": 1.6749999999999996,
-          "voice_pitch_organization": 1.5087499999999996,
-          "voice_processing_chain": 5.061875000000001,
-          "voice_multitrack_stack": 3.640625
+          "voice_pitch_organization": 2.4437500000000005,
+          "voice_processing_chain": 4.745,
+          "voice_multitrack_stack": 4.683750000000001
         }
       },
       {
@@ -65,14 +65,14 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 1.8456249999999998,
-          "mandolin_shape": 2.3081249999999995,
+          "acoustic_technique": 1.0074999999999998,
+          "mandolin_shape": 2.9581249999999994,
           "mandolin_top": 1.6249999999999998,
-          "mandolin_back": 1.2349999999999999,
+          "mandolin_back": 0.39,
           "mandolin_bracing": 0.12999999999999998,
-          "mandolin_strings": 1.4949999999999999,
-          "mandolin_fingerboard": 1.4299999999999997,
-          "mandolin_pickup": 10.970874999999998
+          "mandolin_strings": 0.65,
+          "mandolin_fingerboard": 0.585,
+          "mandolin_pickup": 10.854999999999997
         }
       },
       {
@@ -83,15 +83,15 @@
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
           "string_classical": "nylon_normal_cl",
-          "attack_technique_cl": "fingertip_only_cl"
+          "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 9.536875,
+          "acoustic_technique": 9.981875,
           "string_tuning": 0,
-          "top_wood_classical": 5.409,
-          "bracing_classical": 2.01125,
-          "string_classical": 1.4299999999999997,
-          "attack_technique_cl": 1.4949999999999999
+          "top_wood_classical": 6.175,
+          "bracing_classical": 2.85625,
+          "string_classical": 0.585,
+          "attack_technique_cl": 1.275
         }
       },
       {
@@ -104,11 +104,11 @@
           "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
         },
         "scores": {
-          "guitarra_tuning_school": 24.420125000000002,
+          "guitarra_tuning_school": 32.555125000000004,
           "guitarra_body_wood": 3.3199999999999994,
-          "guitarra_top_wood": 13.858125000000003,
+          "guitarra_top_wood": 21.588125000000005,
           "guitarra_strings": 3.759999999999999,
-          "guitarra_technique": 13.681875000000003
+          "guitarra_technique": 21.591875000000005
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Future bass (mid-2010s Australian chopped-vocal electronic)",
   "family": "electronic",
   "lineage": "Mid-2010s Australian electronic subgenre developed by Flume (Harley Streten, Sydney) characterized by chopped-pitched-vocal sampling, metallic-wobble synth-bass leads, half-time drum-machine programming, and emotional-melodic content. Flume's self-titled debut (2012) and Skin (2016) inaugurated the canonical sound; Cashmere Cat, San Holo, Marshmello, and the broader Mad Decent and OWSLA label rosters extended the genre.",
-  "recipe": "classic future bass, bass System, bass descendants branch, house electronic dance fidget house latin house. vocal fry, breath veiled tone, slow rate, interlocked note trading. sub bass analog synth, TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 400,
-  "score": 178.19,
+  "recipe": "classic future bass, bass System, bass descendants branch, house electronic dance fidget house us garage. vocal fry, breath veiled tone, slow rate, interlocked note trading. sub bass analog synth, TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 398,
+  "score": 187.847,
   "config": {
     "traditions": [
       "future_bass",
       "fidget_house",
-      "latin_house_percussion"
+      "us_garage"
     ],
     "instruments": [
       {
@@ -24,7 +24,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.265,
-          "voice_quality": 8.807500000000001,
+          "voice_register": 3.8349999999999995,
+          "voice_quality": 9.879999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.925,
-          "voice_articulation": 17.354999999999997,
-          "voice_microtone": 19.694999999999993,
-          "voice_tradition": 7.93,
-          "voice_mechanism_compound": 2.440000000000001,
-          "voice_estill_quality": 1.0399999999999998,
-          "voice_speech_song": 17.354999999999997,
-          "voice_ensemble_config": 18.329999999999995,
-          "voice_ornament_system": 1.895,
+          "voice_vibrato": 3.575,
+          "voice_articulation": 18.199999999999996,
+          "voice_microtone": 20.539999999999996,
+          "voice_tradition": 4.81,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 2.6000000000000005,
+          "voice_speech_song": 18.394999999999996,
+          "voice_ensemble_config": 18.784999999999997,
+          "voice_ornament_system": 2.245,
           "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 16.365,
-          "voice_multitrack_stack": 13.129999999999997
+          "voice_processing_chain": 19.865,
+          "voice_multitrack_stack": 12.544999999999996
         }
       },
       {
@@ -62,9 +62,9 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 6.965625000000001,
-          "oscillator": 7.1156250000000005,
-          "filter_topology": 9.545,
+          "electronic_technique": 7.815625000000001,
+          "oscillator": 7.965625,
+          "filter_topology": 10.545,
           "envelope": 0.845,
           "modulation": 0.65
         }
@@ -77,8 +77,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.065625000000001,
-          "drum_machine_808_context": 7.1606250000000005,
+          "tr808_voice": 7.915625,
+          "drum_machine_808_context": 8.010625,
           "tr808_production_origin": 0.375
         }
       }

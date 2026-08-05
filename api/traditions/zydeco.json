@@ -5,7 +5,7 @@
   "lineage": "Black Creole French Louisiana dance-music tradition codified through Clifton Chenier (the King of Zydeco, the Houston-based bandleader from the 1950s through his death in 1987), Boozoo Chavis (the originator of the genre name with his 1954 Paper in My Shoe), Buckwheat Zydeco, Rockin Dopsie, Beau Jocque, Geno Delafose; characterized by piano accordion (the larger more harmonically capable cousin of the Cajun single-row accordion) plus frottoir rubboard (the metal washboard-derived percussion worn over the shoulders, the Clifton Chenier and welder Willie Landry innovation (c. 1946), popularized by Cleveland Chenier), distinct from Cajun (which is white Acadian French Louisiana with single-row diatonic accordion)",
   "recipe": "classic Southern American mid-1950s zydeco, groove Percussion, Caribbean branch, blues electric functional song chicago blues jump blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. petosa seattle American premium chordal accordion, frottoir. lafayette louisiana zydeco dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 402,
-  "score": 160.751,
+  "score": 161.87,
   "config": {
     "traditions": [
       "zydeco",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 18.881499999999992,
+          "voice_register": 18.744999999999994,
           "voice_quality": 20.15,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.019999999999998,
+          "voice_vibrato": 15.754999999999997,
           "voice_articulation": 8.319999999999999,
-          "voice_microtone": 15.214999999999998,
+          "voice_microtone": 15.544999999999998,
           "voice_tradition": 8.320000000000002,
-          "voice_mechanism_compound": 5.684999999999999,
-          "voice_estill_quality": 8.754999999999997,
+          "voice_mechanism_compound": 5.849999999999999,
+          "voice_estill_quality": 8.649999999999997,
           "voice_speech_song": 12.544999999999996,
           "voice_ensemble_config": 11.894999999999996,
-          "voice_ornament_system": 1.2675,
-          "voice_pitch_organization": 0.845,
+          "voice_ornament_system": 1.26,
+          "voice_pitch_organization": 0.8899999999999999,
           "voice_processing_chain": 5.395,
           "voice_multitrack_stack": 3.3799999999999994
         }
@@ -64,12 +64,12 @@
           "accordion_maker_school": "accordion_petosa_seattle"
         },
         "scores": {
-          "free_reed_technique": 9.258624999999997,
+          "free_reed_technique": 9.324999999999996,
           "accordion_reed_material": 0.195,
-          "musette_offset": 2.6449999999999996,
-          "reed_config": 3.8366249999999997,
-          "bellows": 0.03712499999999999,
-          "voicing_chamber": 0.15,
+          "musette_offset": 2.9899999999999998,
+          "reed_config": 3.6449999999999996,
+          "bellows": 0.09,
+          "voicing_chamber": 0.045,
           "accordion_maker_school": 2.34
         }
       },
@@ -81,7 +81,7 @@
         },
         "scores": {
           "frottoir_construction": 9.139999999999997,
-          "frottoir_striker": 0.37424999999999997
+          "frottoir_striker": 0.3
         }
       }
     ],

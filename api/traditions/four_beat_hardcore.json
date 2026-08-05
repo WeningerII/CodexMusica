@@ -1,0 +1,154 @@
+{
+  "id": "four_beat_hardcore",
+  "name": "4-Beat (UK Hardcore)",
+  "family": "electronic",
+  "lineage": "UK hardcore variant named for its steady four-on-the-floor kick, consolidated 1996-2002 around Slammin' Vinyl, Hardcore Heaven and producers Brisk, Ham, Sy & Unknown and Force & Styles — 165-180 BPM distorted or reverse-bass kick on every beat, pitched-up diva or MC vocal hooks, piano-riff breakdowns and offbeat Hoover stabs, with breakbeats reduced to fills rather than the main pulse.",
+  "recipe": "classic mid-1990s 4-beat, bass System, uk soundsystem branch, hardstyle electronic dance, bass descendants bass system, eurodance electronic dance hardbag. vocal fry, breath veiled tone, slow rate, interlocked note trading. melodic pitched sampler, TR-909, sub bass analog poly synth, sub bass monosynth acid bass, upright piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 506,
+  "score": 204.966,
+  "config": {
+    "traditions": [
+      "four_beat_hardcore",
+      "hard_dance",
+      "hardbag"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.1049999999999998,
+          "sampler_archetypes": 2.535,
+          "sampler_bit_depth": 0.4395,
+          "sampler_workflow": 1.4299999999999997,
+          "sampler_classic_context": 33.735
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 10,
+          "drum_machine_909_context": 1.4949999999999999,
+          "tr909_production_origin": 0.135
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 6.955000000000002,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": -1.7199999999999998
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.77,
+          "voice_quality": 10.205,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 17.03,
+          "voice_microtone": 17.029999999999998,
+          "voice_tradition": 7.994999999999999,
+          "voice_mechanism_compound": 12.307499999999997,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 17.225,
+          "voice_ensemble_config": 20.539999999999996,
+          "voice_ornament_system": 2.563,
+          "voice_pitch_organization": 1.585,
+          "voice_processing_chain": 18.305749999999996,
+          "voice_multitrack_stack": 5.265
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 6.955000000000002,
+          "wave_acid": 0.09,
+          "filter_acid": 0.65,
+          "accent_acid": 1
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 0.7,
+          "upright_use": 0.195,
+          "upright_piano_size": 0.24
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_uk_jungle_dubplate",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Axé",
   "family": "global",
   "lineage": "Bahian carnival pop crossover tradition centered on Salvador, Bahia, from the 1980s onward — codified through Margareth Menezes (Elegibo 1989), Daniela Mercury, Banda Mel, and the trio-elétrico amplified-truck performance tradition; characterized by samba-reggae and ijexá Afro-Brazilian rhythmic foundation, pop-rock-band instrumentation, and Bahian-Salvador carnival-circuit canonical context",
-  "recipe": "classic mid-1980s axé, groove Percussion, Brazilian branch, Caribbean groove percussion, Afro-diasporic ritual devotional bomba soca soul. thick, breath veiled tone, breath pulsed, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright pine clean single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, nylon canonical rio carnival aluminum canonical modern rio escola surdo, agogo, open slap hand drum timbales, samba bateria. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 738,
-  "score": 179.859,
+  "recipe": "classic mid-1980s axé, groove Percussion, Brazilian branch, Caribbean groove percussion, Afro-diasporic ritual devotional rasin bomba. thick, breath veiled tone, straight onset, interlocked note trading. lower tension down tuning clean strummed single coil electric guitar, ernie ball slinky thumb muted electric bass, pre muffled edge muffled brushes-and-sticks drum kit, nylon canonical rio carnival aluminum canonical modern rio escola surdo, agogo, open slap hand drum timbales, samba bateria. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 642,
+  "score": 210.978,
   "config": {
     "traditions": [
       "axe_music",
-      "bomba_puertorican",
-      "soca_soul"
+      "rasin",
+      "bomba_puertorican"
     ],
     "instruments": [
       {
@@ -20,87 +20,87 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 11.921249999999993,
+          "voice_register": 8.996249999999993,
           "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.28625,
-          "voice_articulation": 10.919999999999996,
-          "voice_microtone": 10.724999999999993,
-          "voice_tradition": 15.209999999999999,
-          "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 2.6,
-          "voice_speech_song": 11.764999999999997,
-          "voice_ensemble_config": 11.504999999999995,
-          "voice_ornament_system": 3.5249999999999995,
+          "voice_vibrato": 1.3649999999999998,
+          "voice_articulation": 16.835,
+          "voice_microtone": 15.989999999999997,
+          "voice_tradition": 16.378749999999997,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 17.03,
+          "voice_ensemble_config": 16.965,
+          "voice_ornament_system": 5.4,
           "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 4.894375,
-          "voice_multitrack_stack": 4.80375
+          "voice_processing_chain": 7.969374999999999,
+          "voice_multitrack_stack": 4.615000000000001
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_blackface",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "pine",
           "neck_wood": "mahogany_neck",
-          "fretboard": "pau_ferro_fb",
+          "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 6.824999999999998,
-          "amp_make": 3.3106250000000004,
-          "body_wood": 1.28625,
-          "neck_wood": 0.200625,
-          "fretboard": 0.15,
+          "electric_technique": 6.449999999999999,
+          "amp_make": 1.1049999999999998,
+          "body_wood": 0.9099999999999999,
+          "neck_wood": 0.65,
+          "fretboard": 0.585,
           "pickup_magnet": 0.15,
           "string_material": 0.15,
-          "string_gauge": 1.3312499999999998,
+          "string_gauge": 1.105,
           "bridge": 0.65,
-          "scale_length": 0.40125,
+          "scale_length": 0.65,
           "finish": 0,
-          "string_tuning": 2.3562499999999997
+          "string_tuning": 2.285
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 3.835000000000001,
-          "body_wood": 0.40125,
-          "pickup_config": 0.65,
-          "string_type": 4.485,
+          "amp_make": 2.0799999999999996,
+          "body_wood": 0.65,
+          "pickup_config": 0.845,
+          "string_type": 2.6875,
           "scale_length_b": 0.65,
-          "fretted_or_not": 0.195,
+          "fretted_or_not": 0.74,
           "bass_technique": 3.245
         }
       },
@@ -112,21 +112,21 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.984999999999996,
-          "drumhead": 8.169999999999998,
+          "drum_technique": 16.25,
+          "drumhead": 7.794999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "surdo",
         "slots": {
-          "surdo_size": "surdo_primeira",
+          "surdo_size": "surdo_segunda",
           "surdo_skin": "surdo_nylon",
           "surdo_shell": "surdo_aluminum_canonical"
         },
         "scores": {
-          "surdo_size": 0,
-          "surdo_skin": 5.347499999999999,
+          "surdo_size": 0.15,
+          "surdo_skin": 5.547499999999999,
           "surdo_shell": 1.850625
         }
       },
@@ -134,11 +134,11 @@
         "id": "agogo",
         "slots": {
           "agogo_bell": "agogo_single",
-          "agogo_context": "agogo_bateria"
+          "agogo_context": "agogo_candomble"
         },
         "scores": {
-          "agogo_bell": 3.4475,
-          "agogo_context": 4.159999999999999
+          "agogo_bell": 3.2974999999999994,
+          "agogo_context": 6.050000000000001
         }
       },
       {
@@ -149,7 +149,7 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 11.130624999999997,
+          "percussion_technique": 13.805625,
           "timbales_shell": 0.65,
           "timbales_context": 0.045
         }
@@ -157,11 +157,11 @@
       {
         "id": "samba_bateria",
         "slots": {
-          "sections": "sb_cuicas",
+          "sections": "sb_repiniques",
           "context": "sb_carnaval"
         },
         "scores": {
-          "sections": 0.39,
+          "sections": 0.845,
           "context": 0
         }
       }

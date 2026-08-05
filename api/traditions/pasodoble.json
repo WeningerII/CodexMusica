@@ -1,0 +1,178 @@
+{
+  "id": "pasodoble",
+  "name": "Pasodoble",
+  "family": "global",
+  "lineage": "Spanish two-step march that crystallized in early-nineteenth-century military bands and became the fixed music of the bullring paseíllo and of village banda repertoire, codified by Pascual Marquina ('España Cañí', 1921) and Santiago Lope — brisk 2/4 at roughly 110-130 BPM, bass drum and cymbal on the beat with off-beat brass punches, a strident cornet or trumpet melody often in Phrygian-inflected minor, dulzaina or clarinet counterlines, and a contrasting trio in the parallel major.",
+  "recipe": "classic North American early-1920s pasodoble, carnival Processional, European branch, iberian functional song, European drinking song rondalla blaskapelle. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral shallow cup lead trumpet ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, grenadilla African blackwood traditional clarinet, tenor gold brass warmer tone saxophone, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, double bass rapid double strokes bass drum, processional cane double reed canonical arundo donax raw outdoor dulzaina, traditional mellow brass tambourine orch. us uk civic amateur band hall. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 916,
+  "score": 68.578,
+  "config": {
+    "traditions": [
+      "pasodoble",
+      "rondalla",
+      "blaskapelle"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "cornet",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.2999999999999998,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 1.8439999999999999,
+          "brass_mute": 0.3,
+          "trumpet_technique": 1.2999999999999998,
+          "trumpet_bell_metal": 2.08,
+          "trumpet_maker_school": 1.11
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "valve_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 1.2999999999999998,
+          "trombone_type": 0.195,
+          "trombone_mouthpiece": 3.0549999999999997,
+          "trombone_mute": 0.39,
+          "trombone_technique": 0.345,
+          "trombone_bell_metal": 2.08,
+          "trombone_maker_school": 1.4949999999999999
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.2,
+          "clarinet_body": 1.4949999999999999,
+          "clarinet_size": 1.2349999999999999,
+          "clarinet_reed": 0.3,
+          "clarinet_articulation": 0.38999999999999996
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": 1.2999999999999998,
+          "sax_size": 1.2999999999999998,
+          "sax_reed": 0.3,
+          "sax_body_alloy": 3.04,
+          "sax_mouthpiece": 0.49949999999999994,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.195
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "tuba_pitch": 2.919,
+          "tuba_context": 6.11,
+          "tuba_bell_metal": 2.08,
+          "tuba_valve_system": 0.375,
+          "tuba_maker_school": 4.355
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.39,
+          "bass_drum_beater": 2.7350000000000003
+        }
+      },
+      {
+        "id": "dulzaina",
+        "slots": {
+          "dulzaina_form": "dulzaina_castellana",
+          "dulzaina_context": "dulzaina_tabalet_duo",
+          "dulzaina_reed": "dulzaina_hard_scrape",
+          "dulzaina_body_wood": "dulzaina_boj_boxwood"
+        },
+        "scores": {
+          "dulzaina_form": 11.025,
+          "dulzaina_context": 6.405500000000001,
+          "dulzaina_reed": 1.04,
+          "dulzaina_body_wood": 4.235
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_film"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 2.21,
+          "tambourine_orch_context": 0.65
+        }
+      }
+    ],
+    "room": "us_uk_civic_amateur_band_hall",
+    "archetype": "arch_madrid_flamenco_tape",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "us_uk_civic_amateur_band_hall",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

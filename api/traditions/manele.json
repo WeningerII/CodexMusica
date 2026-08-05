@@ -3,14 +3,14 @@
   "name": "Manele",
   "family": "global",
   "lineage": "Romanian Romani party-pop risen from the lăutari wedding circuit through 1990s dedicații cassette culture to streaming-era dominance (Florin Salam, Adrian Minune, Dani Mocanu) — melismatic Turkish-tinged vocal lines over arranger-keyboard orientale grooves and programmed dembow-leaning percussion",
-  "recipe": "classic mid-1990s manele, functional Song, europop branch, mid east n African pop functional song, European wedding egyptian pop israeli pop. extended whistle, breath veiled tone, slow rate, interlocked note trading. korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, weltmeister east German mid tier vintage volk accordion, dense hardwood grenadilla African blackwood traditional clarinet, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 722,
-  "score": 213.37,
+  "recipe": "classic mid-1990s manele, functional Song, europop branch, mid east n African pop functional song, European wedding egyptian pop chaabi marocain. extended whistle, breath veiled tone, slow rate, interlocked note trading. korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, weltmeister east German mid tier vintage volk accordion, dense hardwood grenadilla African blackwood traditional clarinet, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 726,
+  "score": 211.952,
   "config": {
     "traditions": [
       "manele",
       "egyptian_pop",
-      "israeli_pop"
+      "chaabi_marocain"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 18.134999999999998,
-          "voice_quality": 6.435000000000001,
+          "voice_register": 15.534999999999998,
+          "voice_quality": 5.85,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7950000000000004,
-          "voice_articulation": 10.399999999999997,
-          "voice_microtone": 23.042499999999997,
-          "voice_tradition": 18.784999999999997,
-          "voice_mechanism_compound": 1.4949999999999999,
-          "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 18.394999999999992,
-          "voice_ensemble_config": 12.674999999999995,
-          "voice_ornament_system": 4.94,
-          "voice_pitch_organization": 4.925000000000001,
-          "voice_processing_chain": 3.640000000000001,
-          "voice_multitrack_stack": 2.73
+          "voice_vibrato": 3.9975,
+          "voice_articulation": 12.349999999999994,
+          "voice_microtone": 23.367499999999996,
+          "voice_tradition": 15.534999999999998,
+          "voice_mechanism_compound": 1.4199999999999995,
+          "voice_estill_quality": 2.3075,
+          "voice_speech_song": 19.304999999999996,
+          "voice_ensemble_config": 15.014999999999997,
+          "voice_ornament_system": 4.0625,
+          "voice_pitch_organization": 5.215,
+          "voice_processing_chain": 3.7050000000000005,
+          "voice_multitrack_stack": 3.477500000000001
         }
       },
       {
@@ -61,10 +61,10 @@
           "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
-          "electronic_technique": 13.949999999999998,
-          "rompler_preset_bank": 14.454999999999998,
-          "rompler_context": 14.344999999999997,
-          "rompler_lineage": 6.629999999999999
+          "electronic_technique": 11.95,
+          "rompler_preset_bank": 12.454999999999998,
+          "rompler_context": 12.194999999999999,
+          "rompler_lineage": 8.35
         }
       },
       {
@@ -79,13 +79,13 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 0.5524999999999999,
+          "free_reed_technique": 1.2025,
           "accordion_reed_material": 2.8600000000000003,
           "musette_offset": 0.9099999999999999,
-          "reed_config": 0.39,
+          "reed_config": 0.585,
           "bellows": 0.045,
           "voicing_chamber": 0.195,
-          "accordion_maker_school": 6.175
+          "accordion_maker_school": 6.630000000000001
         }
       },
       {
@@ -93,14 +93,14 @@
         "slots": {
           "wind_articulation": "wind_classical_legato",
           "clarinet_body": "grenadilla_clarinet",
-          "clarinet_size": "a_clarinet",
+          "clarinet_size": "e_flat_clarinet",
           "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 0.8449999999999999,
-          "clarinet_body": 3.0550000000000006,
-          "clarinet_size": 1.23,
+          "wind_articulation": 1.285,
+          "clarinet_body": 4.2575,
+          "clarinet_size": 0.39,
           "clarinet_reed": 0.195,
           "clarinet_articulation": 0.9099999999999999
         }
@@ -114,10 +114,10 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 0.7149999999999999,
+          "percussion_technique": 1.3649999999999998,
           "darbuka_material": 1.4949999999999999,
-          "darbuka_skin": 3.38,
-          "darbuka_regional_style": 7.67
+          "darbuka_skin": 2.535,
+          "darbuka_regional_style": 8.125
         }
       }
     ],

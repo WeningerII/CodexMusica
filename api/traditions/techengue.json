@@ -1,0 +1,184 @@
+{
+  "id": "techengue",
+  "name": "Techengue (Uruguayan cumbia plena)",
+  "family": "global",
+  "lineage": "Montevideo cumbia dialect of the 2000s-2010s grown out of Uruguayan plena and cumbia villera in the barrios and marginal-neighbourhood sound systems: 4/4 cumbia at roughly 95-105 BPM built on a hard synthetic kick-and-güira pattern, cheap sampled brass and organ stabs, MIDI accordion and timbale fills, and gang-chanted refrains delivered in raspy street register over minimal two-chord loops.",
+  "recipe": "classic mid-2000s techengue, functional Song, tropical song branch, Latin electric electronic dance, reggaeton MC rhythm neoperreo. kargyraa, full chest belt, slow rate, interlocked note trading. sampler drum machine, analog poly synth, locked with tambora fast scrape guira dominicana, la bella flats Detroit soul bass canon sub heavy electric bass, brass open slap hand drum timbales, piano accordion, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 584,
+  "score": 177.861,
+  "config": {
+    "traditions": [
+      "techengue",
+      "rkt",
+      "neoperreo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.96875,
+          "voice_quality": 15.974999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 22.229999999999993,
+          "voice_microtone": 23.984999999999992,
+          "voice_tradition": 3.5100000000000007,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 27.039999999999996,
+          "voice_ensemble_config": 21.384999999999994,
+          "voice_ornament_system": 2.470000000000001,
+          "voice_pitch_organization": 1.9499999999999997,
+          "voice_processing_chain": 4.35375,
+          "voice_multitrack_stack": 7.1825
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.56,
+          "sample_bitdepth": 0.65,
+          "sample_swing": 3.4999999999999996,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 2.4374999999999996,
+          "poly_archetypes": 0.3,
+          "poly_voices": 0.052500000000000005,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "guira_dominicana",
+        "slots": {
+          "guira_dominicana_form": "guira_dominicana_tipico",
+          "guira_dominicana_pattern": "guira_dominicana_merengue_drive",
+          "guira_dominicana_sheet": "guira_dominicana_steel"
+        },
+        "scores": {
+          "guira_dominicana_form": 0.40062499999999995,
+          "guira_dominicana_pattern": 3.640000000000001,
+          "guira_dominicana_sheet": -0.035
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 2.2206249999999996,
+          "body_wood": 0.39,
+          "pickup_config": 0.845,
+          "string_type": 2.0149999999999997,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0.3525,
+          "bass_technique": 3.7700000000000005
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_son"
+        },
+        "scores": {
+          "percussion_technique": 4.284374999999999,
+          "timbales_shell": 1.675,
+          "timbales_context": 1.95
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "pa_size": "pa_120_bass",
+          "pa_use": "pa_french_chanson"
+        },
+        "scores": {
+          "free_reed_technique": 2.665000000000001,
+          "pa_size": 0,
+          "pa_use": 0.103125
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.6945,
+          "tr909_production_origin": 0.65
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "cumbia_4_4_paseo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cumbia_4_4_paseo",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

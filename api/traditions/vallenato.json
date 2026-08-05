@@ -3,14 +3,14 @@
   "name": "Vallenato",
   "family": "global",
   "lineage": "Colombian-Caribbean accordion-led song-form codified 1940s-onward in Valledupar (Cesar-department, northeastern Colombia) from earlier 19th-century rural-troubadour traditions of the Magdalena-basin cattle-ranch lineage. The canonical ensemble: button-accordion (the diatonic Hohner-3-row accordion imported via 1880s-onward German maritime-trade with Caribbean-port-cities), caja-vallenata small two-headed drum, guacharaca grooved-bamboo scraper. The four canonical vallenato airs: paseo moderate-tempo-narrative, merengue (different from Dominican) faster-6/8, son slower-double-meter, and puya fastest-rural-virtuosic. The lyric-tradition is heavily narrative-storytelling, often improvised, and the Vallenato-Festival-de-la-Leyenda annual competition (since 1968) codifies regional standards.",
-  "recipe": "classic South American mid-1940s vallenato, groove Percussion, Latin am branch, Latin am troubadour ballad poetry milonga cueca. thick, breath veiled tone, slow rate, interlocked note trading. button accordion three row hohner legato acordeon vallenato, wood vallenato tradition fastest puya carreto canonical colombian Caribbean coast goat skin canonical vallenato caja vallenata, vallenato tradition wood metal fork guacharaca, alder la bella flats Detroit soul bass canon fingerpicked electric bass. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
-  "recipe_chars": 685,
-  "score": 151.535,
+  "recipe": "classic South American mid-1940s vallenato, groove Percussion, Latin am branch, Latin am troubadour ballad poetry milonga folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. button accordion three row hohner legato acordeon vallenato, wood vallenato tradition fastest puya carreto canonical colombian Caribbean coast goat skin canonical vallenato caja vallenata, vallenato tradition wood metal fork guacharaca, mahogany la bella flats Detroit soul bass canon fingerpicked electric bass. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 698,
+  "score": 157.675,
   "config": {
     "traditions": [
       "vallenato",
       "milonga",
-      "cueca_chilena"
+      "folklore_surero"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 5.69,
+          "voice_register": 3.7150000000000003,
           "voice_quality": 7.410000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.7224999999999997,
-          "voice_articulation": 11.049999999999995,
-          "voice_microtone": 10.009999999999998,
-          "voice_tradition": 10.985000000000001,
-          "voice_mechanism_compound": 5.069999999999999,
-          "voice_estill_quality": 6.369999999999999,
-          "voice_speech_song": 14.039999999999994,
-          "voice_ensemble_config": 11.374999999999995,
-          "voice_ornament_system": 0.8449999999999998,
-          "voice_pitch_organization": 2.9575000000000005,
-          "voice_processing_chain": 4.8100000000000005,
-          "voice_multitrack_stack": 3.770000000000001
+          "voice_vibrato": 2.3724999999999996,
+          "voice_articulation": 13.844999999999994,
+          "voice_microtone": 13.844999999999992,
+          "voice_tradition": 8.2225,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 18.589999999999993,
+          "voice_ensemble_config": 15.404999999999992,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 2.6000000000000005,
+          "voice_processing_chain": 5.265000000000001,
+          "voice_multitrack_stack": 2.9299999999999997
         }
       },
       {
@@ -90,8 +90,8 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_orange",
-          "body_wood": "alder_b",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
@@ -99,13 +99,13 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 0.9749999999999996,
-          "body_wood": 2.08,
-          "pickup_config": 0.845,
-          "string_type": 2.4699999999999998,
-          "scale_length_b": 1.2349999999999999,
+          "amp_make": 1.8849999999999996,
+          "body_wood": 1.04,
+          "pickup_config": 0.345,
+          "string_type": 3.9650000000000003,
+          "scale_length_b": 1.04,
           "fretted_or_not": 0.435,
-          "bass_technique": 2.5949999999999998
+          "bass_technique": 2.7449999999999997
         }
       }
     ],

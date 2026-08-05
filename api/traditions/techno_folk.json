@@ -1,0 +1,198 @@
+{
+  "id": "techno_folk",
+  "name": "Techno-Folk",
+  "family": "electronic",
+  "lineage": "European fusion consolidated in Scotland and London in the early-to-mid 1990s through Martyn Bennett, Shooglenifty and Afro Celt Sound System, laying live fiddle, Highland pipes and whistle over programmed 125-140 BPM breakbeat and four-on-floor sequencer grooves, with modal jigs and reels looped as riffs, sampled Gaelic waulking and puirt-a-beul vocals, and sub-bass replacing the traditional drone.",
+  "recipe": "classic 1994-1996 techno-folk, electronic Dance, continental branch, Celtic traditional improv on frame, deep house house céilí / ceilidh band music celtic folk. thick, breath veiled tone, slow rate, interlocked note trading. fiddle, cane drone reeds traditional arundo donax sheepskin cowhide traditional pre modern melodic highland bagpipes, melodic tin whistle, sound design field sampler, sub bass analog poly synth, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 706,
+  "score": 305.77,
+  "config": {
+    "traditions": [
+      "techno_folk",
+      "ceilidh",
+      "celtic_folk_revival"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 9.995,
+          "fiddle_strings": 0.09,
+          "fiddle_bow": 0.15,
+          "fiddle_mute": 0.45499999999999996,
+          "fiddle_articulation": 0.65
+        }
+      },
+      {
+        "id": "highland_bagpipes",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "highland_drones": "highland_3_drones",
+          "highland_chanter": "highland_blackwood",
+          "highland_drone_reeds": "highland_cane_drone_reeds",
+          "highland_chanter_reed": "highland_cane_chanter_reed",
+          "highland_bag": "highland_hide_bag"
+        },
+        "scores": {
+          "wind_articulation": 15.950000000000001,
+          "highland_drones": 0,
+          "highland_chanter": 0.78,
+          "highland_drone_reeds": 5.915000000000001,
+          "highland_chanter_reed": 0.38999999999999996,
+          "highland_bag": 4.355
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "c_whistle",
+          "whistle_ornament": "cut_ornament",
+          "whistle_body_material": "whistle_wood_premium"
+        },
+        "scores": {
+          "wind_articulation": 15.950000000000001,
+          "whistle_key": 0.975,
+          "whistle_ornament": 4.16,
+          "whistle_body_material": 0.12999999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.8999999999999999,
+          "sampler_archetypes": 0.585,
+          "sampler_bit_depth": 1.9399999999999997,
+          "sampler_workflow": 1.2,
+          "sampler_classic_context": 27.3
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 3.3850000000000007,
+          "poly_archetypes": 0.99,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -1.7649999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 3.1300000000000003,
+          "body_wood": 1.95,
+          "pickup_config": 0.195,
+          "string_type": 4.085000000000001,
+          "scale_length_b": 1.935,
+          "fretted_or_not": 0.65,
+          "bass_technique": 2.245
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 3.6799999999999997,
+          "drum_machine_909_context": 0.845,
+          "tr909_production_origin": 0.09
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 8.25,
+          "voice_quality": 9.814999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.885,
+          "voice_articulation": 23.074999999999996,
+          "voice_microtone": 24.439999999999998,
+          "voice_tradition": 31.285000000000004,
+          "voice_mechanism_compound": 5.9799999999999995,
+          "voice_estill_quality": 3.835000000000001,
+          "voice_speech_song": 23.725,
+          "voice_ensemble_config": 23.009999999999998,
+          "voice_ornament_system": 17.634999999999998,
+          "voice_pitch_organization": 2.0149999999999997,
+          "voice_processing_chain": 11.409999999999998,
+          "voice_multitrack_stack": 2.9250000000000007
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

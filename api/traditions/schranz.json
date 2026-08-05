@@ -1,0 +1,117 @@
+{
+  "id": "schranz",
+  "name": "Schranz",
+  "family": "electronic",
+  "lineage": "German hard-techno subgenre named by Chris Liebing in Frankfurt around 1997 and developed by Liebing, Arkus P. and the Wavescape/Bonzai hard circuit — 140-160 BPM, a distorted rolling kick with heavy sidechain pumping, aggressive looped saw and metallic percussion stabs, near-total absence of melody or vocal, and three-deck vinyl mixing that layers tool tracks into a continuous grinding wall.",
+  "recipe": "classic Central European late-1990s schranz, electronic Dance, techno branch, hardstyle electronic dance, industrial noise experimental electric power noise uk hard house. TR-909, analog mono modular synth, sampler drum machine, monosynth acid bass. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 480,
+  "score": 53.2,
+  "config": {
+    "traditions": [
+      "schranz",
+      "power_noise",
+      "uk_hard_house"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 1.25,
+          "drum_machine_909_context": 0.825,
+          "tr909_production_origin": 0.1382142857142857
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 9.325,
+          "mono_oscillator": 0,
+          "mono_filter": -0.14,
+          "mono_archetypes": 0.39,
+          "mono_maker_lineage": -1.7167857142857141
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 0.7149999999999999,
+          "sample_bitdepth": 0.41142857142857137,
+          "sample_swing": 16.0745,
+          "sample_processing": 0.95
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 9.325,
+          "wave_acid": 0.09,
+          "filter_acid": 0.39,
+          "accent_acid": 1
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 9.325,
+          "mod_voltage_source": 0.845,
+          "mod_patch_density": 0.845,
+          "mod_lineage": -1.1425
+        }
+      }
+    ],
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "berlin_techno_kreuzberg_studio",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_std",
+    "chain_console": "colored"
+  }
+}

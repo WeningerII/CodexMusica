@@ -5,7 +5,7 @@
   "lineage": "Indie-electronic hybrid formed circa 1999-2008 around Morr Music (Berlin), Ghostly International (Ann Arbor) and the early Postal Service axis — laptop-sequenced glitch and click percussion under live guitar, bass and analog synth, 100-130 BPM 4/4 grids with deliberately quantized micro-edits, soft untrained indie lead vocals mixed level with the beat, and sample-and-hold or granular textures used as counter-melody rather than effect",
   "recipe": "classic mid-2000s indietronica, experimental Elec, pop experimental branch, idm glitch experimental electric, alternative distorted rock permanent wave shimmer pop. thick, breath veiled tone, straight note core, interlocked note trading. glitched textural sampler, singing lead analog poly glitched textural granular synth, marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, tremolo close pickup gap more bark dirt arpeggiated sustain rich overtones rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 875,
-  "score": 354.69,
+  "score": 346.55,
   "config": {
     "traditions": [
       "indietronica",
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 23.579999999999995,
+          "voice_register": 22.799999999999994,
           "voice_quality": 11.179999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.375,
+          "voice_vibrato": 3.045,
           "voice_articulation": 18.589999999999993,
-          "voice_microtone": 22.595,
-          "voice_tradition": 12.504999999999997,
+          "voice_microtone": 22.699999999999996,
+          "voice_tradition": 13.1625,
           "voice_mechanism_compound": 4.874999999999999,
           "voice_estill_quality": 4.485,
           "voice_speech_song": 20.019999999999992,
           "voice_ensemble_config": 17.354999999999993,
-          "voice_ornament_system": 0.3,
-          "voice_pitch_organization": 2.0599999999999996,
-          "voice_processing_chain": 10.78,
-          "voice_multitrack_stack": 2.9899999999999998
+          "voice_ornament_system": 0.66,
+          "voice_pitch_organization": 2.1125,
+          "voice_processing_chain": 10.674999999999999,
+          "voice_multitrack_stack": 2.9299999999999997
         }
       },
       {
@@ -62,9 +62,9 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 13.209999999999999,
+          "electronic_technique": 13.12,
           "sampler_archetypes": 2,
-          "sampler_bit_depth": 3.8350000000000004,
+          "sampler_bit_depth": 3.9850000000000003,
           "sampler_workflow": 13.924999999999999,
           "sampler_classic_context": 18.784999999999993
         }
@@ -78,8 +78,8 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 11.499999999999998,
-          "poly_archetypes": 6.759999999999999,
+          "electronic_technique": 11.394999999999998,
+          "poly_archetypes": 5.305,
           "poly_voices": 2,
           "poly_maker_lineage": -0.6300000000000001
         }
@@ -101,18 +101,18 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 12.040000000000001,
-          "amp_make": 6.629999999999999,
+          "electric_technique": 11.8,
+          "amp_make": 5.3999999999999995,
           "body_wood": 2.145,
           "neck_wood": 2.145,
           "fretboard": 2.0799999999999996,
           "pickup_magnet": 0.195,
-          "string_material": 0.65,
+          "string_material": 0.59,
           "string_gauge": 2.34,
           "bridge": 0.39,
           "scale_length": 2.145,
           "finish": 0,
-          "string_tuning": 8.45
+          "string_tuning": 7.729999999999999
         }
       },
       {
@@ -123,16 +123,16 @@
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 8.84,
+          "amp_make": 8.254999999999999,
           "body_wood": 2.145,
-          "pickup_config": 0.435,
-          "string_type": 16.9,
+          "pickup_config": 0.48,
+          "string_type": 13.104999999999999,
           "scale_length_b": 2.145,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.045,
           "bass_technique": 12.949999999999998
         }
       },
@@ -144,8 +144,8 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 13.209999999999999,
-          "granular_use": 0.39,
+          "electronic_technique": 13.12,
+          "granular_use": 0.585,
           "granular_synth_source": 5.46
         }
       },
@@ -174,11 +174,11 @@
         },
         "scores": {
           "keyboard_technique": 10.425,
-          "rhodes_model": 2.795,
-          "rhodes_use": 2.535,
+          "rhodes_model": 2.69,
+          "rhodes_use": 2.49,
           "rhodes_tine_material": 0.845,
           "rhodes_hammer_tip": -0.35,
-          "rhodes_pickup_position": 1.4
+          "rhodes_pickup_position": 1.445
         }
       }
     ],

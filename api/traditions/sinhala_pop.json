@@ -1,0 +1,203 @@
+{
+  "id": "sinhala_pop",
+  "name": "Sinhala Pop (Sri Lankan)",
+  "family": "pop",
+  "lineage": "Colombo-centred Sinhala-language popular song codified from the late 1960s by Clarence Wijewardena's Moonstones and Super Golden Chimes and carried into the 1980s cassette era by Milton Mallawarachchi, Sunil Perera's Gypsies and Bathiya & Santhush, welding Portuguese-descended baila's 6/8 kaffrinha lilt and rabana-derived hand-drum patterns to electric guitar-bass-kit combo instrumentation, 100-130 BPM, diatonic major-key refrains and a light nasal-forward tenor delivery with Hindi-filmi-influenced string sweetening.",
+  "recipe": "classic Southeast Asian 1967-1969 sinhala pop, functional Song, south Asian pop branch, europop functional song, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, cowhide mid tier siam oak mid tier modern congas, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, rectified machine polished sitka spruce hard rock maple acer saccharum violin orchestral. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 906,
+  "score": 496.013,
+  "config": {
+    "traditions": [
+      "sinhala_pop",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 51.670000000000016,
+          "voice_quality": 12.642499999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.14,
+          "voice_articulation": 17.224999999999994,
+          "voice_microtone": 49.544999999999995,
+          "voice_tradition": 30.601249999999997,
+          "voice_mechanism_compound": 3.445,
+          "voice_estill_quality": 4.355,
+          "voice_speech_song": 27.88499999999999,
+          "voice_ensemble_config": 16.964999999999993,
+          "voice_ornament_system": 2.6,
+          "voice_pitch_organization": 3.2500000000000004,
+          "voice_processing_chain": 14.628125,
+          "voice_multitrack_stack": 12.184999999999999
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 27.024999999999995,
+          "amp_make": 13.644374999999997,
+          "body_wood": 2.14,
+          "neck_wood": 2.14,
+          "fretboard": 2.09,
+          "pickup_magnet": 0.44999999999999996,
+          "string_material": 0.44999999999999996,
+          "string_gauge": 2.64,
+          "bridge": 0.65,
+          "scale_length": 2.275,
+          "finish": 0.3,
+          "string_tuning": 11.764999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 11.089374999999999,
+          "body_wood": 2.275,
+          "pickup_config": 0.195,
+          "string_type": 22.205,
+          "scale_length_b": 2.185,
+          "fretted_or_not": 0.195,
+          "bass_technique": 25.125
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 21.344375,
+          "drumhead": 26.14999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 2.82,
+          "conga_set": 0.3,
+          "conga_skin": 2.14,
+          "conga_shell_wood": 2.4699999999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 25.919999999999998,
+          "poly_archetypes": 10.1,
+          "poly_voices": 0.5,
+          "poly_maker_lineage": 2.795
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_chopped_old_time",
+          "orch_strings": "rectified_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.06499999999999999,
+          "orch_strings": 1.0949999999999998,
+          "orch_top_wood": 1.9825,
+          "orch_back_wood": 11.149999999999999,
+          "orch_varnish": 1.2675,
+          "orch_setup_period": 1.7224999999999997,
+          "orch_bow": 2.000625,
+          "orch_bow_stick": 1.3324999999999998,
+          "orch_articulation": 0.195,
+          "orch_rosin": 0.4875
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_emi_pakistan_lollywood",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "id": "irish_banjo",
+  "name": "Irish tenor banjo playing",
+  "family": "global",
+  "lineage": "Melody style developed on the four-string tenor banjo in Irish-American dance bands of the 1920s (Mike Flanagan of the Flanagan Brothers) and brought back into Irish session play by Barney McKenna of The Dubliners in the 1960s — the instrument tuned GDAE an octave below the fiddle, played with a plectrum in single-note lines with tight triplet ornamentation replacing the fiddle's rolls, short sustain from the skin head, and reels and jigs taken at full session tempo as a percussive lead voice.",
+  "recipe": "classic Northern European mid-1920s irish tenor banjo playing, improv On Frame, Celtic traditional branch, string improv improv on frame, bluegrass improv on frame instrumental bluegrass neo-traditional bluegrass. short-scale single string tenor banjo irish, plain gut sheep gut magic rosin modern acrylic base double stops fiddle, flat back gdad tuned triplet ornamented carved arched irish bouzouki, goat skin canonical Irish ash pre modern traditional Irish bodhran, leather petosa seattle American premium straight accordion, breathy dance driving durable irish wooden flute. irish pub doolin clare session. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 674,
+  "score": 101.153,
+  "config": {
+    "traditions": [
+      "irish_banjo",
+      "instrumental_bluegrass",
+      "neo_traditional_bluegrass"
+    ],
+    "instruments": [
+      {
+        "id": "tenor_banjo_irish",
+        "slots": {
+          "tenor_banjo_irish_form": "tenor_banjo_irish_17fret",
+          "tenor_banjo_irish_style": "tenor_banjo_irish_reels",
+          "tenor_banjo_irish_head": "tenor_banjo_irish_calfskin"
+        },
+        "scores": {
+          "tenor_banjo_irish_form": 14.194999999999999,
+          "tenor_banjo_irish_style": 9.847499999999998,
+          "tenor_banjo_irish_head": 1.65
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "plain_sheep_gut_fiddle",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "pizz"
+        },
+        "scores": {
+          "bowed_technique": 22.869999999999997,
+          "fiddle_strings": 1.5500000000000003,
+          "fiddle_bow": 1.595,
+          "fiddle_mute": 2.045,
+          "fiddle_articulation": 1.69
+        }
+      },
+      {
+        "id": "irish_bouzouki",
+        "slots": {
+          "irish_bouzouki_form": "irish_bouzouki_standard",
+          "irish_bouzouki_playing": "irish_bouzouki_countermelody",
+          "irish_bouzouki_top_wood": "irish_bouzouki_carved_top"
+        },
+        "scores": {
+          "irish_bouzouki_form": 2.34,
+          "irish_bouzouki_playing": 1.2349999999999999,
+          "irish_bouzouki_top_wood": 1
+        }
+      },
+      {
+        "id": "bodhran",
+        "slots": {
+          "bodhran_play": "bodhran_kerry",
+          "bodhran_skin": "bodhran_goatskin",
+          "bodhran_shell_wood": "bodhran_ash_traditional"
+        },
+        "scores": {
+          "bodhran_play": 1.65,
+          "bodhran_skin": 6.984999999999999,
+          "bodhran_shell_wood": 6.25
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_petosa_seattle"
+        },
+        "scores": {
+          "free_reed_technique": 4.674999999999999,
+          "accordion_reed_material": 0.65,
+          "musette_offset": 1.695,
+          "reed_config": 1.24,
+          "bellows": 1.65,
+          "voicing_chamber": 0.65,
+          "accordion_maker_school": 1.69
+        }
+      },
+      {
+        "id": "irish_wooden_flute",
+        "slots": {
+          "irish_wooden_flute_pattern": "irish_wooden_flute_keyless_folk",
+          "irish_wooden_flute_keys": "irish_wooden_flute_four_key",
+          "irish_wooden_flute_idiom": "irish_wooden_flute_sligo",
+          "irish_wooden_flute_material": "irish_wooden_flute_delrin"
+        },
+        "scores": {
+          "irish_wooden_flute_pattern": 8.5,
+          "irish_wooden_flute_keys": 2.175,
+          "irish_wooden_flute_idiom": 4.505,
+          "irish_wooden_flute_material": 1.545
+        }
+      }
+    ],
+    "room": "irish_pub_doolin_clare_session",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "irish_pub_doolin_clare_session",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

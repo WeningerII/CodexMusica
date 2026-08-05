@@ -3,14 +3,14 @@
   "name": "Rock uruguayo",
   "family": "rock",
   "lineage": "Montevideo rock lineage running from the Beatlesque Los Shakers and Los Mockers of 1964-68 through the post-dictatorship boom of 1985 onward, codified by Los Estómagos, Los Traidores and El Cuarteto de Nos and continued by La Vela Puerca and No Te Va Gustar — guitar-bass-drums power trio or quartet format, mid-tempo 100-140 BPM, frequent candombe tambor patterns displaced onto the drum kit, and Rioplatense Spanish lyrics ranging from post-punk political bite to absurdist wordplay.",
-  "recipe": "classic North American mid-1960s rock uruguayo, distorted Rock, regional branch, river plate carnival processional, punk distorted rock post-punk crust punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, lighter regional goatskin cedrillo mid tier atabaque. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 862,
-  "score": 512.065,
+  "recipe": "classic North American mid-1960s rock uruguayo, distorted Rock, regional branch, river plate carnival processional, punk distorted rock crack rock steady. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, soft felt lacquer voiced 17 ply hard rock maple gray iron grand piano, lighter regional goatskin cedrillo mid tier atabaque. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 850,
+  "score": 470.829,
   "config": {
     "traditions": [
       "rock_uruguayo",
-      "post_punk",
-      "crust_punk"
+      "crack_rock_steady",
+      "ska_punk"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "sean_nos_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 26.33999999999999,
-          "voice_quality": 10.984999999999992,
+          "voice_register": 23.394999999999992,
+          "voice_quality": 10.854999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.47,
-          "voice_articulation": 19.304999999999996,
-          "voice_microtone": 26.049999999999997,
-          "voice_tradition": 2.7400000000000007,
-          "voice_mechanism_compound": 13.4875,
-          "voice_estill_quality": 2.1449999999999996,
-          "voice_speech_song": 20.084999999999997,
-          "voice_ensemble_config": 20.734999999999992,
-          "voice_ornament_system": 1,
-          "voice_pitch_organization": 1.2999999999999998,
-          "voice_processing_chain": 6.825,
-          "voice_multitrack_stack": 5.1674999999999995
+          "voice_vibrato": 3.1200000000000006,
+          "voice_articulation": 17.484999999999992,
+          "voice_microtone": 23.299999999999997,
+          "voice_tradition": 3.9650000000000003,
+          "voice_mechanism_compound": 11.54375,
+          "voice_estill_quality": 3.4450000000000003,
+          "voice_speech_song": 18.069999999999993,
+          "voice_ensemble_config": 18.459999999999994,
+          "voice_ornament_system": 1.933625,
+          "voice_pitch_organization": 1.04,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 3.1850000000000014
         }
       },
       {
@@ -64,25 +64,25 @@
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_gibson_h",
           "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 20,
-          "amp_make": 33.88999999999999,
-          "body_wood": 5.330000000000001,
-          "neck_wood": 2.535,
-          "fretboard": 2.47,
-          "pickup_magnet": 0.845,
-          "pickup_winding": 1,
-          "string_material": 0.39,
-          "bridge": 2.535,
-          "scale_length": 3.38,
-          "string_gauge": 2.535,
+          "electric_technique": 17.25,
+          "amp_make": 29.964875,
+          "body_wood": 4.485,
+          "neck_wood": 3.185,
+          "fretboard": 3.1200000000000006,
+          "pickup_magnet": 0.09,
+          "pickup_winding": 1.195,
+          "string_material": 0.09,
+          "bridge": 3.185,
+          "scale_length": 3.185,
+          "string_gauge": 3.185,
           "finish": 0.39,
-          "string_tuning": 18.72
+          "string_tuning": 14.754999999999999
         }
       },
       {
@@ -93,27 +93,27 @@
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "hardtail",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 20,
-          "amp_make": 33.88999999999999,
-          "body_wood": 2.535,
-          "neck_wood": 2.535,
-          "fretboard": 2.47,
-          "pickup_magnet": 0.39,
-          "string_material": 0.39,
-          "string_gauge": 2.535,
-          "bridge": 0.845,
-          "scale_length": 2.535,
+          "electric_technique": 17.25,
+          "amp_make": 29.964875,
+          "body_wood": 3.185,
+          "neck_wood": 3.185,
+          "fretboard": 3.1200000000000006,
+          "pickup_magnet": 0.195,
+          "string_material": 0.09,
+          "string_gauge": 3.185,
+          "bridge": 0.24,
+          "scale_length": 3.185,
           "finish": 0.39,
-          "string_tuning": 16.77
+          "string_tuning": 13.455
         }
       },
       {
@@ -121,20 +121,20 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 16.575,
-          "body_wood": 3.38,
-          "pickup_config": 0.845,
-          "string_type": 30.674999999999997,
-          "scale_length_b": 2.535,
+          "amp_make": 15.209999999999999,
+          "body_wood": 3.185,
+          "pickup_config": 0.39,
+          "string_type": 26.364874999999998,
+          "scale_length_b": 3.185,
           "fretted_or_not": 0.045,
-          "bass_technique": 42.17
+          "bass_technique": 37.42
         }
       },
       {
@@ -145,8 +145,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.875,
-          "drumhead": 2.535,
+          "drum_technique": 22.625,
+          "drumhead": 3.185,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -157,22 +157,22 @@
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 1.0074999999999998,
-          "grand_piano_size": 2.535,
-          "grand_piano_brand": 2.73,
-          "piano_hammer": 13.324999999999998,
-          "piano_rim": 14.169999999999998,
-          "piano_soundboard": 1.4299999999999997,
+          "keyboard_technique": 1.0724999999999998,
+          "grand_piano_size": 3.185,
+          "grand_piano_brand": 3.185,
+          "piano_hammer": 11.634999999999996,
+          "piano_rim": 12.284999999999997,
+          "piano_soundboard": 0.825,
           "piano_pinblock": -0.05,
-          "piano_plate": 0.7799999999999998,
-          "piano_pitch_standard": 2.0799999999999996
+          "piano_plate": 1.17,
+          "piano_pitch_standard": 3.9
         }
       },
       {
@@ -183,9 +183,9 @@
           "atabaque_shell_wood": "atabaque_cedrillo"
         },
         "scores": {
-          "atabaque_role": 0,
-          "atabaque_skin": 1.71,
-          "atabaque_shell_wood": 2.535
+          "atabaque_role": 0.65,
+          "atabaque_skin": 1.605,
+          "atabaque_shell_wood": 3.185
         }
       }
     ],

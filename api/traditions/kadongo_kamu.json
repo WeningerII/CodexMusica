@@ -1,0 +1,175 @@
+{
+  "id": "kadongo_kamu",
+  "name": "Kadongo Kamu",
+  "family": "global",
+  "lineage": "Ugandan Luganda-language narrative song style whose name means 'one little guitar', formed in Kampala in the 1960s with Elly Wamala and Fred Masagazi and codified by Christopher Sebaduka, Herman Basudde and Paulo Kafeero — moderate 90-110 BPM rolling guitar arpeggios in a repeated two- or three-chord loop, a light kick-and-shaker groove, and long strophic verses of proverb-laden storytelling delivered in a conversational near-spoken tenor.",
+  "recipe": "classic mid-1960s kadongo kamu, functional Song, African pop branch, west African griot ballad poetry musique soninke wassoulou. thick, declaimed, straight onset, interlocked note trading. coated nanoweb strummed open chord ringing overtones dreadnought acoustic clean strummed single coil electric guitar, coated elixir nanoweb sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, adungu. no single room 2015-present distributed distributed production. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 571,
+  "score": 201.108,
+  "config": {
+    "traditions": [
+      "kadongo_kamu",
+      "soninke_music",
+      "wassoulou"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.625000000000002,
+          "voice_quality": 12.749999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.105,
+          "voice_articulation": 15.599999999999994,
+          "voice_microtone": 15.404999999999992,
+          "voice_tradition": 33.28,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 3.5750000000000006,
+          "voice_speech_song": 21.839999999999996,
+          "voice_ensemble_config": 16.964999999999993,
+          "voice_ornament_system": 4.0625,
+          "voice_pitch_organization": 1.0499999999999998,
+          "voice_processing_chain": 4.842500000000001,
+          "voice_multitrack_stack": 3.9325000000000006
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "d_standard",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "coated_nano_acoustic"
+        },
+        "scores": {
+          "acoustic_technique": 6.450000000000001,
+          "string_tuning": 0.2,
+          "top_wood": 0.195,
+          "back_sides": 0.195,
+          "string_acoustic": 1.98
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "mahogany",
+          "neck_wood": "roasted_maple",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 5.45,
+          "amp_make": 1.105,
+          "body_wood": 0.195,
+          "neck_wood": 0.3,
+          "fretboard": 0,
+          "pickup_magnet": 0.195,
+          "string_material": 0,
+          "string_gauge": 0.9950000000000001,
+          "bridge": 1.235,
+          "scale_length": 0.39,
+          "finish": 0.3,
+          "string_tuning": 1.5150000000000003
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "coated_nano_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 1.105,
+          "body_wood": 0.39,
+          "pickup_config": 1.235,
+          "string_type": 1.98,
+          "scale_length_b": 1.235,
+          "fretted_or_not": 0.195,
+          "bass_technique": 2.875
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 15.794999999999995,
+          "drumhead": 8.610000000000001,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "adungu",
+        "slots": {
+          "adungu_size": "adungu_size_alto",
+          "adungu_setting": "adungu_setting_church",
+          "adungu_stringing": "adungu_stringing_nylon_hide"
+        },
+        "scores": {
+          "adungu_size": 0.06499999999999999,
+          "adungu_setting": 3.5700000000000003,
+          "adungu_stringing": -0.15000000000000002
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_uk_community_studio_80s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_uk_community_studio_80s"
+  }
+}

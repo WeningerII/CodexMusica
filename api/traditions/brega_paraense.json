@@ -1,0 +1,178 @@
+{
+  "id": "brega_paraense",
+  "name": "Brega paraense (guitar-led Pará brega)",
+  "family": "global",
+  "lineage": "Guitar-driven brega of Belém and the Pará interior, formed in the 1970s-90s around Vieira, Teddy Max and Pinduca and the region's Caribbean radio reception — 100-130 BPM 4/4 lambada-and-merengue-inflected beats with a bright, tremolo- and chorus-treated single-coil lead guitar that answers every vocal phrase, cavaquinho or keyboard comping, congas and shaker, and a high, clipped tenor lead.",
+  "recipe": "classic Southern American mid-1970s brega paraense, functional Song, Brazilian song branch, tropical song functional song, Latin electric electronic dance tecnobrega cumbia 420. vocal fry, breath veiled tone, straight note core, interlocked note trading. single coil electric guitar, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass, lead open slap hand drum congas, ride-driven brushes-and-sticks drum kit, dance rhythm strummed cavaquinho. estudio rozenblit recife. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+  "recipe_chars": 626,
+  "score": 226.775,
+  "config": {
+    "traditions": [
+      "brega_paraense",
+      "tecnobrega",
+      "cumbia_420"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_soldano_slo100",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 1.67,
+          "amp_make": 1.9949999999999999,
+          "body_wood": 0.39,
+          "neck_wood": 0.435,
+          "fretboard": 0.435,
+          "pickup_magnet": 0.435,
+          "string_material": 0.435,
+          "string_gauge": 0.39,
+          "bridge": 0.345,
+          "scale_length": 0.39,
+          "finish": 0,
+          "string_tuning": 1.5
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.185,
+          "voice_quality": 10.854999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2349999999999997,
+          "voice_articulation": 21.904999999999998,
+          "voice_microtone": 22.359999999999992,
+          "voice_tradition": 6.240000000000001,
+          "voice_mechanism_compound": 3.1200000000000006,
+          "voice_estill_quality": 2.925000000000001,
+          "voice_speech_song": 28.535,
+          "voice_ensemble_config": 22.814999999999998,
+          "voice_ornament_system": 1.65,
+          "voice_pitch_organization": 1.2299999999999998,
+          "voice_processing_chain": 12.625,
+          "voice_multitrack_stack": 5.13375
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 3.185,
+          "body_wood": 0.78,
+          "pickup_config": 0.345,
+          "string_type": 2.6650000000000005,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": 1.445
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 9.004999999999999,
+          "conga_set": 5.395,
+          "conga_skin": 0.8756249999999999,
+          "conga_shell_wood": 0.8756249999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.685,
+          "drumhead": 0.7,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_portuguese",
+          "cavaquinho_context": "cavaquinho_choro",
+          "cavaquinho_body_wood": "cavaquinho_mahogany",
+          "cavaquinho_strings": "cavaquinho_steel"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.095000000000001,
+          "cavaquinho_origin": 1.125,
+          "cavaquinho_context": 24.7,
+          "cavaquinho_body_wood": 0.15,
+          "cavaquinho_strings": -1.05
+        }
+      }
+    ],
+    "room": "estudio_rozenblit_recife",
+    "archetype": "arch_antilles_creole_analog",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformer_solid_state",
+      "console": "clean",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "estudio_rozenblit_recife",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "clean"
+  }
+}

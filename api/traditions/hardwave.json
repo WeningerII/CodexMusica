@@ -3,14 +3,14 @@
   "name": "Hardwave",
   "family": "electronic",
   "lineage": "Online-native offshoot of the wave and trap scenes formed roughly 2018-2021 across SoundCloud and Discord through Sidewalks and Skeletons, Hyperforms, Aire Atlantica and Kanuto, pairing 140-160 BPM half-time trap drums and 808 slides with towering distorted supersaw leads, sidechained shoegaze-scale reverb walls, and pitched-up or wordless vocal fragments used as texture rather than lyric.",
-  "recipe": "classic 2018-2021 hardwave, bass System, bass descendants branch, retro aesthetic experimental electric, hardstyle electronic dance vapor twitch rawstyle. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. sub bass analog poly sub bass wavetable glitched textural granular synth, TR-808, soft down tuning feedback humbucker electric guitar. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 524,
-  "score": 202.649,
+  "recipe": "classic 2018-2021 hardwave, bass System, bass descendants branch, retro aesthetic experimental electric, hardstyle electronic dance vapor twitch j-core. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. sub bass analog poly sub bass wavetable modular granular synth, TR-808, classic rock hard rock soft down tuning humbucker electric guitar. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 526,
+  "score": 204.915,
   "config": {
     "traditions": [
       "hardwave",
       "vapor_twitch",
-      "rawstyle"
+      "j_core"
     ],
     "instruments": [
       {
@@ -19,13 +19,13 @@
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 14.196250000000001,
-          "poly_archetypes": 0.40499999999999997,
-          "poly_voices": 0.345,
-          "poly_maker_lineage": -1.6284999999999998
+          "electronic_technique": 12.038749999999999,
+          "poly_archetypes": 0.765,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -1.355
         }
       },
       {
@@ -37,10 +37,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 14.196250000000001,
+          "electronic_technique": 12.038749999999999,
           "wt_position": 5.590000000000001,
-          "wt_family": 0.345,
-          "wt_polyphony": 0.39
+          "wt_family": 0.39,
+          "wt_polyphony": 0.3
         }
       },
       {
@@ -48,23 +48,23 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 5.265,
-          "drum_machine_808_context": 5.329999999999999,
-          "tr808_production_origin": 0.585
+          "tr808_voice": 3.77875,
+          "drum_machine_808_context": 4.12875,
+          "tr808_production_origin": 0.195
         }
       },
       {
         "id": "granular_synth",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
+          "electronic_technique": "electronic_modular_patch",
           "granular_use": "granular_idm",
           "granular_synth_source": "granular_synth_synthesized"
         },
         "scores": {
-          "electronic_technique": 7.156500000000002,
+          "electronic_technique": 8.000000000000002,
           "granular_use": 0.65,
           "granular_synth_source": 5.590000000000001
         }
@@ -72,9 +72,9 @@
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_feedback_drone",
+          "electric_technique": "electric_tremolo_picking",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
@@ -83,23 +83,23 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 3.7199999999999998,
-          "amp_make": 2.0149999999999997,
+          "electric_technique": 2.75,
+          "amp_make": 2.2099999999999995,
           "body_wood": 0.39,
-          "neck_wood": 0.39,
-          "fretboard": 0.303,
-          "pickup_magnet": 0.318,
-          "pickup_winding": 0.31249999999999994,
+          "neck_wood": 0.18,
+          "fretboard": 0.65,
+          "pickup_magnet": 0.65,
+          "pickup_winding": 0.6425,
           "string_material": 0.26749999999999996,
-          "bridge": 0.603,
-          "scale_length": 1.04,
-          "string_gauge": 0.6614999999999999,
-          "finish": 0,
-          "string_tuning": 3.185
+          "bridge": 0.65,
+          "scale_length": 0.39,
+          "string_gauge": 0.57,
+          "finish": 0.045,
+          "string_tuning": 1.04
         }
       },
       {
@@ -113,7 +113,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -123,22 +123,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.6,
-          "voice_quality": 5.850000000000001,
+          "voice_register": 2.795,
+          "voice_quality": 4.810000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0437499999999997,
-          "voice_articulation": 19.759999999999998,
-          "voice_microtone": 21.059999999999995,
-          "voice_tradition": 7.756250000000001,
-          "voice_mechanism_compound": 5.291500000000001,
-          "voice_estill_quality": 2.990000000000001,
-          "voice_speech_song": 19.759999999999998,
-          "voice_ensemble_config": 18.264999999999997,
-          "voice_ornament_system": 2.4699999999999998,
+          "voice_vibrato": 3.22375,
+          "voice_articulation": 21.71,
+          "voice_microtone": 23.205,
+          "voice_tradition": 8.125000000000002,
+          "voice_mechanism_compound": 7.434999999999999,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 21.904999999999998,
+          "voice_ensemble_config": 19.955,
+          "voice_ornament_system": 2.4475,
           "voice_pitch_organization": 1.755,
-          "voice_processing_chain": 14.071250000000001,
-          "voice_multitrack_stack": 6.630000000000001
+          "voice_processing_chain": 15.111250000000002,
+          "voice_multitrack_stack": 6.4350000000000005
         }
       }
     ],

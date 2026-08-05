@@ -1,0 +1,157 @@
+{
+  "id": "hardtekk",
+  "name": "Hardtekk",
+  "family": "electronic",
+  "lineage": "A Leipzig- and Chemnitz-centred German revival of tekk that broke widely between 2019 and 2023 through Rakete, Sonikku-adjacent producers, Nakkarin and Aria (Aria Grande), plus TikTok circulation — 150-170 BPM built on a short punchy distorted kick with an offbeat rumble bass, 1990s rave hoover and piano stabs, sped-up pop and hip-hop vocal samples, and abrupt drop-heavy edits made almost entirely in FL Studio.",
+  "recipe": "classic mid-1990s hardtekk, electronic Dance, continental branch, hardstyle electronic dance, techno electronic dance electro backbeat xtra raw. thick, rap, straight onset, interlocked note trading. TR-909, sub bass digital subtractive, melodic pitched sampler, sub bass wavetable sub bass analog mono synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 481,
+  "score": 222.217,
+  "config": {
+    "traditions": [
+      "hardtekk",
+      "electro_backbeat",
+      "xtra_raw"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_clap",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 4,
+          "drum_machine_909_context": 2.275,
+          "tr909_production_origin": 0.635
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 7.312500000000001,
+          "va_archetypes": 0.33,
+          "digital_subtractive_context": 19.759999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 2.3200000000000003,
+          "sampler_archetypes": 2.5050000000000003,
+          "sampler_bit_depth": 0.195,
+          "sampler_workflow": 3.2175000000000007,
+          "sampler_classic_context": 21.7425
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 5.450000000000002,
+          "voice_quality": 4.085,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 20.409999999999997,
+          "voice_microtone": 22.554999999999993,
+          "voice_tradition": 7.215000000000001,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 21.254999999999995,
+          "voice_ensemble_config": 21.97,
+          "voice_ornament_system": 0.6499999999999999,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 18.2,
+          "voice_multitrack_stack": 5.07
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 7.312500000000001,
+          "wt_position": 8.775,
+          "wt_family": 0.195,
+          "wt_polyphony": 0.65
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 7.312500000000001,
+          "mono_oscillator": 0,
+          "mono_filter": -0.35,
+          "mono_archetypes": 0.65,
+          "mono_maker_lineage": -1.22
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

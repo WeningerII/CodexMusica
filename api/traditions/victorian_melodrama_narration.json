@@ -5,7 +5,7 @@
   "lineage": "Heightened declamatory stage narration of 19th-century British melodrama and pantomime, the dominant popular theatre of Victorian London houses such as the Adelphi and Drury Lane. The form takes its name from melos plus drama: spoken text delivered over and between orchestral incidental-music cues, with 'melos' stings underscoring villain entrances, agitatos for chases, and tremolando strings beneath emotional speeches, so the narrator-actor's projected, rhetorically exaggerated delivery is timed against the pit. Dion Boucicault's plays and Henry Irving's celebrated vehicle The Bells (1871) exemplify the style, and the earliest sound recordings of veteran Victorian-trained actors preserve its swooping, oratorical cadence.",
   "recipe": "classic early-1870s victorian melodrama narration, art Music, western early branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. shoebox concert hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 282,
-  "score": 245.153,
+  "score": 245.195,
   "config": {
     "traditions": [
       "victorian_melodrama_narration",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.9781875,
+          "voice_register": 4.634499999999999,
           "voice_quality": 31.200000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.041089285714282,
+          "voice_vibrato": 16.119999999999997,
           "voice_articulation": 27.625000000000004,
           "voice_microtone": 27.235,
           "voice_tradition": 24.309999999999995,
           "voice_mechanism_compound": 12.799999999999997,
-          "voice_estill_quality": 19.624374999999993,
+          "voice_estill_quality": 19.931499999999993,
           "voice_speech_song": 28.470000000000002,
           "voice_ensemble_config": 28.86,
           "voice_ornament_system": 13.824999999999996,

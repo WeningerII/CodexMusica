@@ -1,0 +1,144 @@
+{
+  "id": "estonian_folk_music",
+  "name": "Estonian folk music",
+  "family": "vernacular",
+  "lineage": "Estonian village music divided between the archaic regilaul — Kalevala-meter runic song in eight-syllable trochaic lines with a lead singer and echoing chorus over a narrow four-or-five-note range, preserved longest among the Setu and on the western islands — and the newer end-rhymed strophic songs and dance repertoire played on torupill bagpipe, kannel zither, fiddle and, after 1850, the accordion; documented by Jakob Hurt's mass collection from 1888 and by the Estonian Folklore Archives from 1927.",
+  "recipe": "classic Northern European early-1850s estonian folk music, domestic Rhythm, Slavic baltic branch, wind pipe drone modal, Slavic bard ballad poetry, north Southeast Asian baltic Southeast Asian shanty lemko folk zampogna. thick, breath veiled tone, straight note core, interlocked note trading. archaic kannel, twin drone archaic runic synthetic bag torupill, drone like fiddle, castagnari Italian premium folk music accordion. setu farmhouse wood. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 522,
+  "score": 187.44,
+  "config": {
+    "traditions": [
+      "estonian_folk_music",
+      "lemko_folk",
+      "zampogna"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 2.9250000000000003,
+          "voice_quality": 18.199999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.7950000000000004,
+          "voice_articulation": 19.499999999999996,
+          "voice_microtone": 20.47499999999999,
+          "voice_tradition": 13.584999999999999,
+          "voice_mechanism_compound": 8.58,
+          "voice_estill_quality": 5.915000000000001,
+          "voice_speech_song": 20.734999999999992,
+          "voice_ensemble_config": 19.759999999999998,
+          "voice_ornament_system": 4.615000000000002,
+          "voice_pitch_organization": 3.1750000000000007,
+          "voice_processing_chain": 6.109999999999999,
+          "voice_multitrack_stack": 3.34
+        }
+      },
+      {
+        "id": "kannel",
+        "slots": {
+          "kannel_form": "kannel_hiiu_style",
+          "kannel_technique": "kannel_strum_damp",
+          "kannel_strings": "kannel_gut"
+        },
+        "scores": {
+          "kannel_form": 3.12,
+          "kannel_technique": 0.345,
+          "kannel_strings": 1.135
+        }
+      },
+      {
+        "id": "torupill",
+        "slots": {
+          "torupill_form": "torupill_form_double_drone",
+          "torupill_setting": "torupill_setting_runosong",
+          "torupill_bag": "torupill_bag_synthetic"
+        },
+        "scores": {
+          "torupill_form": 3.25,
+          "torupill_setting": 12.155,
+          "torupill_bag": 2.015
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 5.265,
+          "fiddle_strings": 0.15,
+          "fiddle_bow": 0.15,
+          "fiddle_mute": 0.45499999999999996,
+          "fiddle_articulation": 1.0999999999999999
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 2.895,
+          "accordion_reed_material": 0.195,
+          "musette_offset": 0.795,
+          "reed_config": 0.3,
+          "bellows": 0.51,
+          "voicing_chamber": 0.15,
+          "accordion_maker_school": 4.745
+        }
+      }
+    ],
+    "room": "setu_farmhouse_wood",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "nordic_modal_drone_double_stops",
+    "room": "setu_farmhouse_wood",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Palo (Las Reglas de Congo), of which Mayombe is a principal branch, is the Afro-Cuban religion derived from Kikongo-speaking Bantu peoples of Central Africa, brought to Cuba under slavery and centered on the nganga (prenda) spirit-vessel and the dead (nfumbi). Its ritual songs, called mambos, are call-and-response chants in a Kikongo-derived liturgical language (habla congo) led by a soloist and answered by the chorus over Palo drums (ngoma) and iron, to summon, praise, and work with the mpungu forces and the spirits. Delivery is metrical, percussive, and communal, driving the ceremony toward possession. The tradition is documented in the ethnographic work of Lydia Cabrera (El Monte) and later scholars of Afro-Cuban religion.",
   "recipe": "classic South American modern palo mayombe kongo mambo ritual chant, ritual Devotional, Afro-diasporic branch black gospel shipibo-conibo icaros healing songs. thick, breath veiled tone, wide pitch sway, interlocked note trading. terreiro outdoor yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 315,
-  "score": 254.3,
+  "score": 254.028,
   "config": {
     "traditions": [
       "palo_mayombe_mambo",
@@ -41,14 +41,14 @@
           "voice_vibrato": 2.325,
           "voice_articulation": 27.495000000000008,
           "voice_microtone": 27.885000000000005,
-          "voice_tradition": 21.475875000000006,
+          "voice_tradition": 21.429000000000006,
           "voice_mechanism_compound": 6.1049999999999995,
-          "voice_estill_quality": 13.947500000000002,
+          "voice_estill_quality": 13.610000000000001,
           "voice_speech_song": 30.03000000000001,
           "voice_ensemble_config": 32.305,
           "voice_ornament_system": 10.900000000000002,
           "voice_pitch_organization": 3.0550000000000006,
-          "voice_processing_chain": 16.378874999999997,
+          "voice_processing_chain": 16.491,
           "voice_multitrack_stack": 6.890000000000001
         }
       }

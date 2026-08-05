@@ -1,0 +1,215 @@
+{
+  "id": "zhongguo_feng",
+  "name": "Zhongguo Feng (China Wind Mandopop)",
+  "family": "pop",
+  "lineage": "Taiwanese-led Mandopop substyle codified 2003-2008 by Jay Chou with lyricist Vincent Fang and arranger Chung Hsing-min, setting gong-mode pentatonic melodies and guzheng, erhu, pipa and dizi timbres over 80-100 BPM R&B and hip-hop programmed drums, with breathy half-sung Mandarin delivery, classical-allusion lyrics, and string-pad arrangements that fold Chinese instrumental heterophony into Western pop verse-chorus form.",
+  "recipe": "classic mid-2000s zhongguo feng, functional Song, east Asian pop branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. low mid rich spectrum traditional shell guzheng, python skin snake skin bamboo silk steel modern erhu, no membrane buzz bangdi northern sharp opera percussive continuous-airflow legato dizi, low mid rich spectrum vocal imitating silk pipa, birch laminated maple laminated Asian spruce hokkaido source 7 ply grand piano, narrative fingerpicked electric bass, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 723,
+  "score": 439.39,
+  "config": {
+    "traditions": [
+      "zhongguo_feng",
+      "beijing_opera",
+      "tibetan_ache_lhamo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 13.519999999999992,
+          "voice_quality": 14.104999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 13.065000000000001,
+          "voice_articulation": 22.749999999999996,
+          "voice_microtone": 24.82999999999999,
+          "voice_tradition": 41.785,
+          "voice_mechanism_compound": 10.3,
+          "voice_estill_quality": 22.4,
+          "voice_speech_song": 25.349999999999994,
+          "voice_ensemble_config": 25.154999999999994,
+          "voice_ornament_system": 16.999999999999996,
+          "voice_pitch_organization": 10.909999999999998,
+          "voice_processing_chain": 4.42,
+          "voice_multitrack_stack": 5.655000000000001
+        }
+      },
+      {
+        "id": "guzheng",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "guzheng_strings": "guzheng_21",
+          "guzheng_picks": "guzheng_tortoise",
+          "guzheng_top_wood": "guzheng_wutong_paulownia",
+          "guzheng_frame": "guzheng_rosewood_frame",
+          "guzheng_string_material": "guzheng_steel_wound_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.84,
+          "guzheng_strings": 5.265,
+          "guzheng_picks": 1.1049999999999998,
+          "guzheng_top_wood": 0.845,
+          "guzheng_frame": 0.78,
+          "guzheng_string_material": 0.525
+        }
+      },
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_jiangnan",
+          "erhu_body_wood": "erhu_red_sandalwood",
+          "erhu_strings": "erhu_steel_modern",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": 9.84,
+          "erhu_skin": 7.215,
+          "erhu_use": 1.885,
+          "erhu_body_wood": 0.78,
+          "erhu_strings": 1.2349999999999999,
+          "erhu_bow": 0.845
+        }
+      },
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "dizi_membrane": "dizi_without",
+          "dizi_pitch": "dizi_cd",
+          "dizi_body_material": "dizi_purple_bamboo",
+          "dizi_regional_style": "dizi_bangdi_northern"
+        },
+        "scores": {
+          "wind_articulation": 9.969999999999999,
+          "dizi_membrane": 5.720000000000001,
+          "dizi_pitch": 6.305,
+          "dizi_body_material": 0.93,
+          "dizi_regional_style": 3.6399999999999992
+        }
+      },
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_modern_frets",
+          "pipa_strings": "pipa_silk",
+          "pipa_pick": "pipa_fingernail",
+          "pipa_body_wood": "pipa_red_sandalwood"
+        },
+        "scores": {
+          "plucked_traditional_technique": 9.84,
+          "pipa_frets": 0.32999999999999996,
+          "pipa_strings": 7.215,
+          "pipa_pick": 0.195,
+          "pipa_body_wood": 0.78
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 9.75,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 12.51,
+          "piano_rim": 16.444999999999997,
+          "piano_soundboard": 17.68,
+          "piano_pinblock": 10.545,
+          "piano_plate": 11.87,
+          "piano_pitch_standard": 12.825
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_hiwatt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "coated_nano_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 0.5449999999999999,
+          "body_wood": 0.39,
+          "pickup_config": 0.39,
+          "string_type": 0.65,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.845,
+          "bass_technique": 1.4899999999999998
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.9000000000000001,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 2.6,
+          "sample_processing": 0.39
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "treated_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

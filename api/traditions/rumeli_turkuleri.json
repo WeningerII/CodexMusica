@@ -1,0 +1,205 @@
+{
+  "id": "rumeli_turkuleri",
+  "name": "Rumeli Türküleri",
+  "family": "global",
+  "lineage": "Turkish-language folk repertoire of the Balkan Ottoman lands — Thrace, Macedonia, Kosovo, Bulgaria — carried into Turkey by muhacir populations after 1878 and 1923 and codified in the TRT repertoire by collectors such as Muzaffer Sarısözen, marked by 9/8 karşılama and 7/8 meters, clarinet and accordion lead over davul and darbuka, major-leaning makams like hicaz and rast, and lyrical march-tempo strophic songs.",
+  "recipe": "classic Southern European late-1870s rumeli türküleri, ballad Poetry, med east poetic branch, middle eastern wedding, balkan drinking song macedonian-serbian kafana drinking song dabke. thick, breath veiled tone, fast rate, interlocked note trading. grenadilla African blackwood traditional clarinet, weltmeister east German mid tier vintage volk accordion, davul, clay pre modern traditional goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, kanun drone like modal synthetic kanun, carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, saz loud aluminum rim zeynel abidin skin head modern banjo like synthetic modern stable cumbus. balkan sevdalinka kafana tavern. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 827,
+  "score": 260.915,
+  "config": {
+    "traditions": [
+      "rumeli_turkuleri",
+      "macedonian_kafana_drinking",
+      "dabke"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 1.5599999999999996,
+          "clarinet_body": 2.925,
+          "clarinet_size": 2.085,
+          "clarinet_reed": 0.845,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "italian_tuning",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 2.6850000000000005,
+          "accordion_reed_material": 0.845,
+          "musette_offset": 1,
+          "reed_config": 0.3,
+          "bellows": 0,
+          "voicing_chamber": 0.845,
+          "accordion_maker_school": 2.8600000000000003
+        }
+      },
+      {
+        "id": "davul",
+        "slots": {
+          "davul_form": "davul_anatolian",
+          "davul_context": "davul_zurna_pairing",
+          "davul_head_material": "davul_synthetic"
+        },
+        "scores": {
+          "davul_form": 4.39,
+          "davul_context": 30.9725,
+          "davul_head_material": 2
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_clay_traditional",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": 0.06499999999999999,
+          "darbuka_material": 1.04,
+          "darbuka_skin": 2.93,
+          "darbuka_regional_style": 3.055
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "kanun_school": "kanun_turkish",
+          "kanun_articulation": "kanun_synthetic_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.16,
+          "kanun_school": 3.245,
+          "kanun_articulation": 1.04
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 5.12,
+          "voice_quality": 6.890000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.04,
+          "voice_articulation": 19.434999999999995,
+          "voice_microtone": 29.574999999999996,
+          "voice_tradition": 22.494999999999997,
+          "voice_mechanism_compound": 2.075,
+          "voice_estill_quality": 0.8449999999999999,
+          "voice_speech_song": 26.974999999999994,
+          "voice_ensemble_config": 20.149999999999995,
+          "voice_ornament_system": 3.3475,
+          "voice_pitch_organization": 5.95,
+          "voice_processing_chain": 5.329999999999999,
+          "voice_multitrack_stack": 4.29
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_klezmer_ornamented",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.885,
+          "orch_strings": 0.845,
+          "orch_top_wood": 3.5100000000000002,
+          "orch_back_wood": 4.875,
+          "orch_varnish": 2.24,
+          "orch_setup_period": 2.535,
+          "orch_bow": 2.73,
+          "orch_bow_stick": 2.6,
+          "orch_articulation": 0.195,
+          "orch_rosin": 2.6
+        }
+      },
+      {
+        "id": "cumbus",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cumbus_neck": "cumbus_saz_neck",
+          "cumbus_context": "cumbus_balkan",
+          "cumbus_body": "cumbus_aluminum_rim",
+          "cumbus_head_skin": "cumbus_synthetic_head",
+          "cumbus_strings": "cumbus_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.68,
+          "cumbus_neck": 1.345,
+          "cumbus_context": 1.69,
+          "cumbus_body": 2.34,
+          "cumbus_head_skin": 1.04,
+          "cumbus_strings": 1.04
+        }
+      }
+    ],
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "balkan_odd_meter_aksak",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "balkan_odd_meter_aksak",
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

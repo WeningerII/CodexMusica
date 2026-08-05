@@ -3,14 +3,14 @@
   "name": "Czech pijácká píseň (drinking song)",
   "family": "global",
   "lineage": "Czech drinking-song (pijácká píseň) tradition continuous from medieval Bohemian-tavern-song origins through 19th-century Czech-Republican-era Smetana-and-Dvořák-folk-collection era continuous through 20th-century Czechoslovak-and-Czech continuous pub-practice; foundational repertoire includes \"Pivo, pivo, pivo\" (Beer, beer, beer)",
-  "recipe": "classic modern czech pijácká píseň, drinking Song, European branch, balkan drinking song, iberian functional song, Slavic bard ballad poetry georgian supra feast-singing macedonian-serbian kafana drinking song. thick, breath veiled tone, fast rate, interlocked note trading. steel castagnari Italian premium folk music straight accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 412,
-  "score": 135.585,
+  "recipe": "classic modern czech pijácká píseň, drinking Song, European branch, balkan drinking song, iberian functional song, Slavic bard ballad poetry asturian folk catalan folk. thick, breath veiled tone, slow rate, interlocked note trading. leather castagnari Italian premium folk music straight accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 372,
+  "score": 156.34,
   "config": {
     "traditions": [
       "czech_pijacka",
-      "georgian_supra_drinking",
-      "macedonian_kafana_drinking"
+      "asturian_folk",
+      "catalan_folk"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.505000000000001,
-          "voice_quality": 7.995,
+          "voice_register": 6.9300000000000015,
+          "voice_quality": 9.88,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 11.439999999999994,
-          "voice_microtone": 12.47999999999999,
-          "voice_tradition": 26.814999999999998,
-          "voice_mechanism_compound": 0.78,
-          "voice_estill_quality": 0.585,
-          "voice_speech_song": 26.389999999999993,
-          "voice_ensemble_config": 17.02,
-          "voice_ornament_system": 2.8149999999999995,
-          "voice_pitch_organization": 8.17,
-          "voice_processing_chain": 0.9749999999999996,
-          "voice_multitrack_stack": 1.754999999999999
+          "voice_vibrato": 0.585,
+          "voice_articulation": 17.68,
+          "voice_microtone": 19.239999999999995,
+          "voice_tradition": 16.85,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 29.379999999999995,
+          "voice_ensemble_config": 19.11,
+          "voice_ornament_system": 6.5649999999999995,
+          "voice_pitch_organization": 4.964999999999999,
+          "voice_processing_chain": 3.2350000000000003,
+          "voice_multitrack_stack": 2.925000000000001
         }
       },
       {
@@ -57,20 +57,20 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "steel_reeds",
-          "musette_offset": "scottish_musette",
-          "reed_config": "lmmh",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "no_cassotto",
+          "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 5.885000000000001,
-          "accordion_reed_material": 1.69,
-          "musette_offset": 1.69,
-          "reed_config": 0.345,
-          "bellows": 0.09,
-          "voicing_chamber": 1.69,
-          "accordion_maker_school": 4.03
+          "free_reed_technique": 7.465000000000002,
+          "accordion_reed_material": 0.195,
+          "musette_offset": 1.24,
+          "reed_config": 0.605,
+          "bellows": 1.09,
+          "voicing_chamber": 0.9099999999999999,
+          "accordion_maker_school": 6.855
         }
       }
     ],

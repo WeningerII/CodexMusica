@@ -1,0 +1,194 @@
+{
+  "id": "jovem_guarda",
+  "name": "Jovem Guarda",
+  "family": "pop_rock",
+  "lineage": "Brazilian rock-and-roll-derived pop movement launched by the São Paulo TV Record program Jovem Guarda (1965-1968) and led by Roberto Carlos, Erasmo Carlos and Wanderléa, translating Anglo-American beat and rockabilly into Portuguese with clean single-coil electric guitar, simple electric bass and drum-kit backbeat at 110-140 BPM, ié-ié teen-romance lyrics and light reverbed baritone-tenor lead vocals.",
+  "recipe": "classic Southern American 1965-1968 jovem guarda, functional Song, pop rock branch, Brazilian song functional song, regional distorted rock german rock group sounds. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation pine single coil electric strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, traditional mellow brass tambourine orch. estudios scatena sp. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 790,
+  "score": 367.703,
+  "config": {
+    "traditions": [
+      "jovem_guarda",
+      "german_rock",
+      "group_sounds"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 32.315000000000005,
+          "voice_quality": 9.035,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.7,
+          "voice_articulation": 18.134999999999994,
+          "voice_microtone": 29.450000000000003,
+          "voice_tradition": 9.15,
+          "voice_mechanism_compound": 2.9000000000000004,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 23.919999999999995,
+          "voice_ensemble_config": 19.174999999999994,
+          "voice_ornament_system": 0.8449999999999999,
+          "voice_pitch_organization": 1.4399999999999997,
+          "voice_processing_chain": 5.525,
+          "voice_multitrack_stack": 3.495
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "pine",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 11.3,
+          "amp_make": 11.655,
+          "body_wood": 1.15,
+          "neck_wood": 0.39,
+          "fretboard": 0.65,
+          "pickup_magnet": 0.09,
+          "string_material": 0.09,
+          "string_gauge": 0.45499999999999996,
+          "bridge": 0.65,
+          "scale_length": 0.39,
+          "finish": 0,
+          "string_tuning": 9.590000000000002
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 10.344999999999999,
+          "body_wood": 1.04,
+          "pickup_config": 0.65,
+          "string_type": 21.05,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.3,
+          "bass_technique": 24
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.900000000000002,
+          "drumhead": 8.895,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 8.895,
+          "drawbar_setting": 20.75,
+          "rotary_speed": 21.395,
+          "percussion_setting": 8.99,
+          "tonewheel_model": 9.424999999999999,
+          "leslie_cabinet_model": 0.845
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "eb_standard",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "thomastik_flat_top"
+        },
+        "scores": {
+          "acoustic_technique": 8.895,
+          "string_tuning": 0.6749999999999999,
+          "top_wood": 0.39,
+          "back_sides": 0.43999999999999995,
+          "string_acoustic": 0.28500000000000003
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_film"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 1.3324999999999998,
+          "tambourine_orch_context": 0.195
+        }
+      }
+    ],
+    "room": "estudios_scatena_sp",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "estudios_scatena_sp",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

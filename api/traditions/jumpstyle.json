@@ -1,0 +1,141 @@
+{
+  "id": "jumpstyle",
+  "name": "Jumpstyle",
+  "family": "electronic",
+  "lineage": "Belgian and Dutch dance-and-music style codified in Flanders in the early 2000s and mainstreamed by Patrick Jumpen and Kartoon Jumpen around 2006-2008, built at 140-150 BPM on a hard four-on-the-floor kick with a detuned offbeat bass stab, simple minor-key square-wave riffs, hoover accents and shouted or sampled vocal hooks, all keyed to the scissor-kick footwork dance.",
+  "recipe": "classic 2006-2008 jumpstyle, electronic Dance, hardstyle branch, eurodance electronic dance, continental electronic dance, trance electronic dance tekk tech trance. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-909, low sub bass analog mono synth, low sub bass digital subtractive, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 497,
+  "score": 199.82,
+  "config": {
+    "traditions": [
+      "jumpstyle",
+      "tekk",
+      "tech_trance"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_clap",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0.375,
+          "drum_machine_909_context": 0.195,
+          "tr909_production_origin": 0.24
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 3.3150000000000004,
+          "mono_oscillator": 0,
+          "mono_filter": 0.39,
+          "mono_archetypes": 1.74,
+          "mono_maker_lineage": -1.7199999999999998
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 3.3150000000000004,
+          "va_archetypes": 4.744999999999999,
+          "digital_subtractive_context": 18.33
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "fairlight_cmi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.29,
+          "sampler_archetypes": 0.39,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 0.245,
+          "sampler_classic_context": 21.77499999999999
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 3.965,
+          "voice_quality": 9.295000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.21,
+          "voice_articulation": 18.524999999999995,
+          "voice_microtone": 21.12499999999999,
+          "voice_tradition": 8.84,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 17.939999999999994,
+          "voice_ensemble_config": 19.174999999999994,
+          "voice_ornament_system": 1.04,
+          "voice_pitch_organization": 3.9000000000000004,
+          "voice_processing_chain": 22.884999999999998,
+          "voice_multitrack_stack": 5.655000000000001
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

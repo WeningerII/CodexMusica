@@ -1,5 +1,5 @@
 {
-  "count": 1426,
+  "count": 2503,
   "items": [
     {
       "id": "honky_tonk",
@@ -7442,12 +7442,6 @@
       "href": "traditions/arrochadeira.json"
     },
     {
-      "id": "neue_deutsche_harte",
-      "name": "Neue Deutsche Harte",
-      "family": "rock",
-      "href": "traditions/neue_deutsche_harte.json"
-    },
-    {
       "id": "swamp_rock",
       "name": "Swamp rock",
       "family": "rock",
@@ -8556,6 +8550,6474 @@
       "name": "Melbourne Bounce",
       "family": "electronic",
       "href": "traditions/melbourne_bounce.json"
+    },
+    {
+      "id": "art_punk",
+      "name": "Art Punk",
+      "family": "rock_punk",
+      "href": "traditions/art_punk.json"
+    },
+    {
+      "id": "britpunk",
+      "name": "Britpunk",
+      "family": "rock_punk",
+      "href": "traditions/britpunk.json"
+    },
+    {
+      "id": "college_rock",
+      "name": "College Rock",
+      "family": "rock",
+      "href": "traditions/college_rock.json"
+    },
+    {
+      "id": "crossover_thrash",
+      "name": "Crossover Thrash",
+      "family": "rock_punk",
+      "href": "traditions/crossover_thrash.json"
+    },
+    {
+      "id": "emotional_hardcore",
+      "name": "Emotional Hardcore",
+      "family": "rock_punk",
+      "href": "traditions/emotional_hardcore.json"
+    },
+    {
+      "id": "emocore",
+      "name": "Emocore",
+      "family": "rock_punk",
+      "href": "traditions/emocore.json"
+    },
+    {
+      "id": "experimental_rock",
+      "name": "Experimental Rock",
+      "family": "rock",
+      "href": "traditions/experimental_rock.json"
+    },
+    {
+      "id": "goth",
+      "name": "Goth",
+      "family": "rock",
+      "href": "traditions/goth.json"
+    },
+    {
+      "id": "steampunk",
+      "name": "Steampunk",
+      "family": "rock",
+      "href": "traditions/steampunk.json"
+    },
+    {
+      "id": "acoustic_blues",
+      "name": "Acoustic Blues",
+      "family": "blues_gospel",
+      "href": "traditions/acoustic_blues.json"
+    },
+    {
+      "id": "african_blues",
+      "name": "African Blues",
+      "family": "global",
+      "href": "traditions/african_blues.json"
+    },
+    {
+      "id": "blues_shouter",
+      "name": "Blues Shouter",
+      "family": "blues_gospel",
+      "href": "traditions/blues_shouter.json"
+    },
+    {
+      "id": "classic_female_blues",
+      "name": "Classic Female Blues",
+      "family": "blues_gospel",
+      "href": "traditions/classic_female_blues.json"
+    },
+    {
+      "id": "country_blues",
+      "name": "Country Blues",
+      "family": "blues_gospel",
+      "href": "traditions/country_blues.json"
+    },
+    {
+      "id": "detroit_blues",
+      "name": "Detroit Blues",
+      "family": "blues_gospel",
+      "href": "traditions/detroit_blues.json"
+    },
+    {
+      "id": "doom_blues",
+      "name": "Doom Blues",
+      "family": "rock",
+      "href": "traditions/doom_blues.json"
+    },
+    {
+      "id": "folk_blues",
+      "name": "Folk Blues",
+      "family": "blues_gospel",
+      "href": "traditions/folk_blues.json"
+    },
+    {
+      "id": "gospel_blues",
+      "name": "Gospel Blues",
+      "family": "blues_gospel",
+      "href": "traditions/gospel_blues.json"
+    },
+    {
+      "id": "harmonica_blues",
+      "name": "Harmonica Blues",
+      "family": "blues_gospel",
+      "href": "traditions/harmonica_blues.json"
+    },
+    {
+      "id": "hill_country_blues",
+      "name": "Hill Country Blues",
+      "family": "blues_gospel",
+      "href": "traditions/hill_country_blues.json"
+    },
+    {
+      "id": "kansas_city_blues",
+      "name": "Kansas City Blues",
+      "family": "blues_gospel",
+      "href": "traditions/kansas_city_blues.json"
+    },
+    {
+      "id": "louisiana_blues",
+      "name": "Louisiana Blues",
+      "family": "blues_gospel",
+      "href": "traditions/louisiana_blues.json"
+    },
+    {
+      "id": "memphis_blues",
+      "name": "Memphis Blues",
+      "family": "blues_gospel",
+      "href": "traditions/memphis_blues.json"
+    },
+    {
+      "id": "new_orleans_blues",
+      "name": "New Orleans Blues",
+      "family": "blues_gospel",
+      "href": "traditions/new_orleans_blues.json"
+    },
+    {
+      "id": "piano_blues",
+      "name": "Piano Blues",
+      "family": "blues_gospel",
+      "href": "traditions/piano_blues.json"
+    },
+    {
+      "id": "punk_blues",
+      "name": "Punk Blues",
+      "family": "rock_punk",
+      "href": "traditions/punk_blues.json"
+    },
+    {
+      "id": "ragtime_blues",
+      "name": "Ragtime Blues",
+      "family": "blues_gospel",
+      "href": "traditions/ragtime_blues.json"
+    },
+    {
+      "id": "soul_blues",
+      "name": "Soul Blues",
+      "family": "blues_gospel",
+      "href": "traditions/soul_blues.json"
+    },
+    {
+      "id": "st_louis_blues",
+      "name": "St. Louis Blues (piano-led Mississippi River blues)",
+      "family": "blues_gospel",
+      "href": "traditions/st_louis_blues.json"
+    },
+    {
+      "id": "swamp_blues",
+      "name": "Swamp Blues",
+      "family": "blues_gospel",
+      "href": "traditions/swamp_blues.json"
+    },
+    {
+      "id": "texas_blues",
+      "name": "Texas Blues",
+      "family": "blues_gospel",
+      "href": "traditions/texas_blues.json"
+    },
+    {
+      "id": "urban_blues",
+      "name": "Urban Blues",
+      "family": "blues_gospel",
+      "href": "traditions/urban_blues.json"
+    },
+    {
+      "id": "west_coast_blues",
+      "name": "West Coast Blues",
+      "family": "blues_gospel",
+      "href": "traditions/west_coast_blues.json"
+    },
+    {
+      "id": "sing_along",
+      "name": "Sing-Along",
+      "family": "vernacular",
+      "href": "traditions/sing_along.json"
+    },
+    {
+      "id": "cantata",
+      "name": "Cantata",
+      "family": "classical",
+      "href": "traditions/cantata.json"
+    },
+    {
+      "id": "chamber_music",
+      "name": "Chamber Music",
+      "family": "classical",
+      "href": "traditions/chamber_music.json"
+    },
+    {
+      "id": "choral",
+      "name": "Choral (Western art choral singing)",
+      "family": "classical",
+      "href": "traditions/choral.json"
+    },
+    {
+      "id": "concerto_grosso",
+      "name": "Concerto Grosso",
+      "family": "classical",
+      "href": "traditions/concerto_grosso.json"
+    },
+    {
+      "id": "early_music",
+      "name": "Early Music",
+      "family": "classical",
+      "href": "traditions/early_music.json"
+    },
+    {
+      "id": "expressionist_art_music",
+      "name": "Expressionist (Art Music)",
+      "family": "classical",
+      "href": "traditions/expressionist_art_music.json"
+    },
+    {
+      "id": "impressionist_art_music",
+      "name": "Impressionist (Art Music)",
+      "family": "classical",
+      "href": "traditions/impressionist_art_music.json"
+    },
+    {
+      "id": "requiem_mass",
+      "name": "Requiem Mass",
+      "family": "classical",
+      "href": "traditions/requiem_mass.json"
+    },
+    {
+      "id": "organum",
+      "name": "Organum",
+      "family": "classical",
+      "href": "traditions/organum.json"
+    },
+    {
+      "id": "oratorio",
+      "name": "Oratorio",
+      "family": "classical",
+      "href": "traditions/oratorio.json"
+    },
+    {
+      "id": "sonata_form",
+      "name": "Sonata (Classical Instrumental Form)",
+      "family": "classical",
+      "href": "traditions/sonata_form.json"
+    },
+    {
+      "id": "twelve_tone",
+      "name": "Twelve-tone (Dodecaphony)",
+      "family": "classical",
+      "href": "traditions/twelve_tone.json"
+    },
+    {
+      "id": "novelty_song",
+      "name": "Novelty Song",
+      "family": "pop",
+      "href": "traditions/novelty_song.json"
+    },
+    {
+      "id": "vaudeville",
+      "name": "Vaudeville",
+      "family": "pop",
+      "href": "traditions/vaudeville.json"
+    },
+    {
+      "id": "advertising_jingle",
+      "name": "Jingles (Advertising)",
+      "family": "pop",
+      "href": "traditions/advertising_jingle.json"
+    },
+    {
+      "id": "tv_theme",
+      "name": "TV Themes",
+      "family": "pop",
+      "href": "traditions/tv_theme.json"
+    },
+    {
+      "id": "bakersfield_sound",
+      "name": "Bakersfield Sound",
+      "family": "country",
+      "href": "traditions/bakersfield_sound.json"
+    },
+    {
+      "id": "progressive_bluegrass",
+      "name": "Progressive Bluegrass",
+      "family": "country",
+      "href": "traditions/progressive_bluegrass.json"
+    },
+    {
+      "id": "reactionary_bluegrass",
+      "name": "Reactionary Bluegrass",
+      "family": "country",
+      "href": "traditions/reactionary_bluegrass.json"
+    },
+    {
+      "id": "cajun_fiddle_tunes",
+      "name": "Cajun Fiddle Tunes",
+      "family": "vernacular",
+      "href": "traditions/cajun_fiddle_tunes.json"
+    },
+    {
+      "id": "christian_country",
+      "name": "Christian Country",
+      "family": "country",
+      "href": "traditions/christian_country.json"
+    },
+    {
+      "id": "close_harmony",
+      "name": "Close Harmony (Country Brother Duet)",
+      "family": "country",
+      "href": "traditions/close_harmony.json"
+    },
+    {
+      "id": "country_gospel",
+      "name": "Country Gospel",
+      "family": "country",
+      "href": "traditions/country_gospel.json"
+    },
+    {
+      "id": "country_rap",
+      "name": "Country Rap",
+      "family": "hip_hop",
+      "href": "traditions/country_rap.json"
+    },
+    {
+      "id": "country_soul",
+      "name": "Country Soul",
+      "family": "blues_gospel",
+      "href": "traditions/country_soul.json"
+    },
+    {
+      "id": "cowboy_song",
+      "name": "Cowboy",
+      "family": "country",
+      "href": "traditions/cowboy_song.json"
+    },
+    {
+      "id": "western_music",
+      "name": "Western",
+      "family": "country",
+      "href": "traditions/western_music.json"
+    },
+    {
+      "id": "cowpunk",
+      "name": "Cowpunk",
+      "family": "rock_punk",
+      "href": "traditions/cowpunk.json"
+    },
+    {
+      "id": "dansband",
+      "name": "Dansband",
+      "family": "pop",
+      "href": "traditions/dansband.json"
+    },
+    {
+      "id": "franco_country",
+      "name": "Franco-Country",
+      "family": "country",
+      "href": "traditions/franco_country.json"
+    },
+    {
+      "id": "gulf_and_western",
+      "name": "Gulf and Western (Trop Rock)",
+      "family": "country",
+      "href": "traditions/gulf_and_western.json"
+    },
+    {
+      "id": "hellbilly",
+      "name": "Hellbilly Music",
+      "family": "country",
+      "href": "traditions/hellbilly.json"
+    },
+    {
+      "id": "instrumental_country",
+      "name": "Instrumental Country",
+      "family": "country",
+      "href": "traditions/instrumental_country.json"
+    },
+    {
+      "id": "lubbock_sound",
+      "name": "Lubbock Sound",
+      "family": "country",
+      "href": "traditions/lubbock_sound.json"
+    },
+    {
+      "id": "neotraditional_country",
+      "name": "Neotraditional Country",
+      "family": "country",
+      "href": "traditions/neotraditional_country.json"
+    },
+    {
+      "id": "psychobilly",
+      "name": "Psychobilly",
+      "family": "rock_punk",
+      "href": "traditions/psychobilly.json"
+    },
+    {
+      "id": "punkabilly",
+      "name": "Punkabilly",
+      "family": "rock_punk",
+      "href": "traditions/punkabilly.json"
+    },
+    {
+      "id": "truck_driving_country",
+      "name": "Truck-Driving Country",
+      "family": "country",
+      "href": "traditions/truck_driving_country.json"
+    },
+    {
+      "id": "urban_cowboy",
+      "name": "Urban Cowboy (Country-Pop)",
+      "family": "country",
+      "href": "traditions/urban_cowboy.json"
+    },
+    {
+      "id": "four_beat_hardcore",
+      "name": "4-Beat (UK Hardcore)",
+      "family": "electronic",
+      "href": "traditions/four_beat_hardcore.json"
+    },
+    {
+      "id": "acid_breaks",
+      "name": "Acid Breaks",
+      "family": "electronic",
+      "href": "traditions/acid_breaks.json"
+    },
+    {
+      "id": "breakbeat_hardcore",
+      "name": "Breakbeat Hardcore",
+      "family": "electronic",
+      "href": "traditions/breakbeat_hardcore.json"
+    },
+    {
+      "id": "florida_breaks",
+      "name": "Florida Breaks",
+      "family": "electronic",
+      "href": "traditions/florida_breaks.json"
+    },
+    {
+      "id": "nu_skool_breaks",
+      "name": "Nu Skool Breaks",
+      "family": "electronic",
+      "href": "traditions/nu_skool_breaks.json"
+    },
+    {
+      "id": "chillstep",
+      "name": "Chillstep",
+      "family": "electronic",
+      "href": "traditions/chillstep.json"
+    },
+    {
+      "id": "electroswing",
+      "name": "Electro Swing",
+      "family": "electronic",
+      "href": "traditions/electroswing.json"
+    },
+    {
+      "id": "glitch_hop",
+      "name": "Glitch Hop",
+      "family": "electronic",
+      "href": "traditions/glitch_hop.json"
+    },
+    {
+      "id": "glitch_pop",
+      "name": "Glitch Pop",
+      "family": "electronic",
+      "href": "traditions/glitch_pop.json"
+    },
+    {
+      "id": "bouncy_house",
+      "name": "Bouncy House",
+      "family": "electronic",
+      "href": "traditions/bouncy_house.json"
+    },
+    {
+      "id": "bouncy_techno",
+      "name": "Bouncy Techno",
+      "family": "electronic",
+      "href": "traditions/bouncy_techno.json"
+    },
+    {
+      "id": "doomcore",
+      "name": "Doomcore",
+      "family": "electronic",
+      "href": "traditions/doomcore.json"
+    },
+    {
+      "id": "dubstyle",
+      "name": "Dubstyle",
+      "family": "electronic",
+      "href": "traditions/dubstyle.json"
+    },
+    {
+      "id": "jumpstyle",
+      "name": "Jumpstyle",
+      "family": "electronic",
+      "href": "traditions/jumpstyle.json"
+    },
+    {
+      "id": "makina",
+      "name": "Makina",
+      "family": "electronic",
+      "href": "traditions/makina.json"
+    },
+    {
+      "id": "terrorcore",
+      "name": "Terrorcore",
+      "family": "electronic",
+      "href": "traditions/terrorcore.json"
+    },
+    {
+      "id": "hard_dance",
+      "name": "Hard Dance",
+      "family": "electronic",
+      "href": "traditions/hard_dance.json"
+    },
+    {
+      "id": "diva_house",
+      "name": "Diva House",
+      "family": "electronic",
+      "href": "traditions/diva_house.json"
+    },
+    {
+      "id": "dutch_house",
+      "name": "Dutch House",
+      "family": "electronic",
+      "href": "traditions/dutch_house.json"
+    },
+    {
+      "id": "freestyle_house",
+      "name": "Freestyle House",
+      "family": "electronic",
+      "href": "traditions/freestyle_house.json"
+    },
+    {
+      "id": "french_house",
+      "name": "French House",
+      "family": "electronic",
+      "href": "traditions/french_house.json"
+    },
+    {
+      "id": "funky_house",
+      "name": "Funky House",
+      "family": "electronic",
+      "href": "traditions/funky_house.json"
+    },
+    {
+      "id": "hardbag",
+      "name": "Hardbag",
+      "family": "electronic",
+      "href": "traditions/hardbag.json"
+    },
+    {
+      "id": "hip_house",
+      "name": "Hip House",
+      "family": "electronic",
+      "href": "traditions/hip_house.json"
+    },
+    {
+      "id": "progressive_house",
+      "name": "Progressive House",
+      "family": "electronic",
+      "href": "traditions/progressive_house.json"
+    },
+    {
+      "id": "swing_house",
+      "name": "Swing House",
+      "family": "electronic",
+      "href": "traditions/swing_house.json"
+    },
+    {
+      "id": "tropical_house",
+      "name": "Tropical House",
+      "family": "electronic",
+      "href": "traditions/tropical_house.json"
+    },
+    {
+      "id": "uk_hard_house",
+      "name": "UK Hard House",
+      "family": "electronic",
+      "href": "traditions/uk_hard_house.json"
+    },
+    {
+      "id": "us_garage",
+      "name": "US Garage",
+      "family": "electronic",
+      "href": "traditions/us_garage.json"
+    },
+    {
+      "id": "vocal_house",
+      "name": "Vocal House",
+      "family": "electronic",
+      "href": "traditions/vocal_house.json"
+    },
+    {
+      "id": "liquid_dub",
+      "name": "Liquid Dub",
+      "family": "electronic",
+      "href": "traditions/liquid_dub.json"
+    },
+    {
+      "id": "free_tekno",
+      "name": "Free Tekno",
+      "family": "electronic",
+      "href": "traditions/free_tekno.json"
+    },
+    {
+      "id": "ghettotech",
+      "name": "Ghettotech",
+      "family": "electronic",
+      "href": "traditions/ghettotech.json"
+    },
+    {
+      "id": "nortec",
+      "name": "Nortec",
+      "family": "electronic",
+      "href": "traditions/nortec.json"
+    },
+    {
+      "id": "schranz",
+      "name": "Schranz",
+      "family": "electronic",
+      "href": "traditions/schranz.json"
+    },
+    {
+      "id": "toytown_techno",
+      "name": "Toytown Techno",
+      "family": "electronic",
+      "href": "traditions/toytown_techno.json"
+    },
+    {
+      "id": "acid_trance",
+      "name": "Acid Trance",
+      "family": "electronic",
+      "href": "traditions/acid_trance.json"
+    },
+    {
+      "id": "classic_trance",
+      "name": "Classic Trance",
+      "family": "electronic",
+      "href": "traditions/classic_trance.json"
+    },
+    {
+      "id": "dream_trance",
+      "name": "Dream Trance",
+      "family": "electronic",
+      "href": "traditions/dream_trance.json"
+    },
+    {
+      "id": "dark_psytrance",
+      "name": "Dark Psytrance",
+      "family": "electronic",
+      "href": "traditions/dark_psytrance.json"
+    },
+    {
+      "id": "full_on",
+      "name": "Full On (Psytrance)",
+      "family": "electronic",
+      "href": "traditions/full_on.json"
+    },
+    {
+      "id": "psybreaks",
+      "name": "Psybreaks",
+      "family": "electronic",
+      "href": "traditions/psybreaks.json"
+    },
+    {
+      "id": "psyprog",
+      "name": "Progressive Psytrance",
+      "family": "electronic",
+      "href": "traditions/psyprog.json"
+    },
+    {
+      "id": "suomisaundi",
+      "name": "Suomisaundi",
+      "family": "electronic",
+      "href": "traditions/suomisaundi.json"
+    },
+    {
+      "id": "hard_trance",
+      "name": "Hard Trance",
+      "family": "electronic",
+      "href": "traditions/hard_trance.json"
+    },
+    {
+      "id": "tech_trance",
+      "name": "Tech Trance",
+      "family": "electronic",
+      "href": "traditions/tech_trance.json"
+    },
+    {
+      "id": "elevator_music",
+      "name": "Elevator Music (Muzak functional background programming)",
+      "family": "pop",
+      "href": "traditions/elevator_music.json"
+    },
+    {
+      "id": "furniture_music",
+      "name": "Furniture Music (musique d'ameublement)",
+      "family": "classical",
+      "href": "traditions/furniture_music.json"
+    },
+    {
+      "id": "lounge_music",
+      "name": "Lounge (cocktail-bar mood music)",
+      "family": "pop",
+      "href": "traditions/lounge_music.json"
+    },
+    {
+      "id": "middle_of_the_road",
+      "name": "Middle of the Road (MOR adult radio pop)",
+      "family": "pop_rock",
+      "href": "traditions/middle_of_the_road.json"
+    },
+    {
+      "id": "ambient_dub",
+      "name": "Ambient Dub",
+      "family": "electronic",
+      "href": "traditions/ambient_dub.json"
+    },
+    {
+      "id": "ambient_house",
+      "name": "Ambient House",
+      "family": "electronic",
+      "href": "traditions/ambient_house.json"
+    },
+    {
+      "id": "ambient_techno",
+      "name": "Ambient Techno",
+      "family": "electronic",
+      "href": "traditions/ambient_techno.json"
+    },
+    {
+      "id": "dark_ambient",
+      "name": "Dark Ambient (cavernous ritual drone)",
+      "family": "electronic",
+      "href": "traditions/dark_ambient.json"
+    },
+    {
+      "id": "illbient",
+      "name": "Illbient",
+      "family": "electronic",
+      "href": "traditions/illbient.json"
+    },
+    {
+      "id": "isolationism",
+      "name": "Isolationism",
+      "family": "electronic",
+      "href": "traditions/isolationism.json"
+    },
+    {
+      "id": "lowercase_music",
+      "name": "Lowercase",
+      "family": "electronic",
+      "href": "traditions/lowercase_music.json"
+    },
+    {
+      "id": "asian_underground",
+      "name": "Asian Underground",
+      "family": "electronic",
+      "href": "traditions/asian_underground.json"
+    },
+    {
+      "id": "bassline",
+      "name": "Bassline",
+      "family": "electronic",
+      "href": "traditions/bassline.json"
+    },
+    {
+      "id": "bitpop",
+      "name": "Bitpop",
+      "family": "electronic",
+      "href": "traditions/bitpop.json"
+    },
+    {
+      "id": "nintendocore",
+      "name": "Nintendocore",
+      "family": "rock_punk",
+      "href": "traditions/nintendocore.json"
+    },
+    {
+      "id": "yorkshire_bleeps_and_bass",
+      "name": "Yorkshire Bleeps and Bass",
+      "family": "electronic",
+      "href": "traditions/yorkshire_bleeps_and_bass.json"
+    },
+    {
+      "id": "balearic_beat",
+      "name": "Balearic Beat",
+      "family": "electronic",
+      "href": "traditions/balearic_beat.json"
+    },
+    {
+      "id": "dubtronica",
+      "name": "Dubtronica",
+      "family": "electronic",
+      "href": "traditions/dubtronica.json"
+    },
+    {
+      "id": "darkcore",
+      "name": "Darkcore",
+      "family": "electronic",
+      "href": "traditions/darkcore.json"
+    },
+    {
+      "id": "darkstep",
+      "name": "Darkstep",
+      "family": "electronic",
+      "href": "traditions/darkstep.json"
+    },
+    {
+      "id": "drumfunk",
+      "name": "Drumfunk",
+      "family": "electronic",
+      "href": "traditions/drumfunk.json"
+    },
+    {
+      "id": "drumstep",
+      "name": "Drumstep",
+      "family": "electronic",
+      "href": "traditions/drumstep.json"
+    },
+    {
+      "id": "hardstep",
+      "name": "Hardstep",
+      "family": "electronic",
+      "href": "traditions/hardstep.json"
+    },
+    {
+      "id": "jump_up",
+      "name": "Jump-Up",
+      "family": "electronic",
+      "href": "traditions/jump_up.json"
+    },
+    {
+      "id": "oldschool_jungle",
+      "name": "Oldschool Jungle",
+      "family": "electronic",
+      "href": "traditions/oldschool_jungle.json"
+    },
+    {
+      "id": "darkside_jungle",
+      "name": "Darkside Jungle",
+      "family": "electronic",
+      "href": "traditions/darkside_jungle.json"
+    },
+    {
+      "id": "raggacore",
+      "name": "Raggacore",
+      "family": "electronic",
+      "href": "traditions/raggacore.json"
+    },
+    {
+      "id": "sambass",
+      "name": "Sambass",
+      "family": "electronic",
+      "href": "traditions/sambass.json"
+    },
+    {
+      "id": "techstep",
+      "name": "Techstep",
+      "family": "electronic",
+      "href": "traditions/techstep.json"
+    },
+    {
+      "id": "electro_backbeat",
+      "name": "Electro Backbeat",
+      "family": "electronic",
+      "href": "traditions/electro_backbeat.json"
+    },
+    {
+      "id": "electro_grime",
+      "name": "Electro-Grime",
+      "family": "electronic",
+      "href": "traditions/electro_grime.json"
+    },
+    {
+      "id": "computer_music",
+      "name": "Computer Music",
+      "family": "classical",
+      "href": "traditions/computer_music.json"
+    },
+    {
+      "id": "field_recording",
+      "name": "Field Recording (Phonographic Practice)",
+      "family": "electronic",
+      "href": "traditions/field_recording.json"
+    },
+    {
+      "id": "live_coding",
+      "name": "Live Coding",
+      "family": "electronic",
+      "href": "traditions/live_coding.json"
+    },
+    {
+      "id": "live_electronics",
+      "name": "Live Electronics",
+      "family": "classical",
+      "href": "traditions/live_electronics.json"
+    },
+    {
+      "id": "tape_music",
+      "name": "Tape Music",
+      "family": "classical",
+      "href": "traditions/tape_music.json"
+    },
+    {
+      "id": "berlin_school",
+      "name": "Berlin School",
+      "family": "electronic",
+      "href": "traditions/berlin_school.json"
+    },
+    {
+      "id": "folktronica",
+      "name": "Folktronica",
+      "family": "electronic",
+      "href": "traditions/folktronica.json"
+    },
+    {
+      "id": "laptronica",
+      "name": "Laptronica",
+      "family": "electronic",
+      "href": "traditions/laptronica.json"
+    },
+    {
+      "id": "skweee",
+      "name": "Skweee",
+      "family": "electronic",
+      "href": "traditions/skweee.json"
+    },
+    {
+      "id": "sound_art",
+      "name": "Sound Art",
+      "family": "electronic",
+      "href": "traditions/sound_art.json"
+    },
+    {
+      "id": "synthcore",
+      "name": "Synthcore",
+      "family": "rock_punk",
+      "href": "traditions/synthcore.json"
+    },
+    {
+      "id": "baggy",
+      "name": "Baggy (Indie-Dance)",
+      "family": "rock",
+      "href": "traditions/baggy.json"
+    },
+    {
+      "id": "madchester",
+      "name": "Madchester (Manchester Scene)",
+      "family": "rock",
+      "href": "traditions/madchester.json"
+    },
+    {
+      "id": "dance_punk",
+      "name": "Dance-Punk",
+      "family": "rock_punk",
+      "href": "traditions/dance_punk.json"
+    },
+    {
+      "id": "electroclash",
+      "name": "Electroclash",
+      "family": "electronic",
+      "href": "traditions/electroclash.json"
+    },
+    {
+      "id": "electronicore",
+      "name": "Electronicore (Metalcore Hybrid)",
+      "family": "rock_punk",
+      "href": "traditions/electronicore.json"
+    },
+    {
+      "id": "electropunk",
+      "name": "Electropunk",
+      "family": "rock_punk",
+      "href": "traditions/electropunk.json"
+    },
+    {
+      "id": "ethereal_wave",
+      "name": "Ethereal Wave",
+      "family": "rock",
+      "href": "traditions/ethereal_wave.json"
+    },
+    {
+      "id": "new_rave",
+      "name": "New Rave",
+      "family": "electronic",
+      "href": "traditions/new_rave.json"
+    },
+    {
+      "id": "synthpunk",
+      "name": "Synthpunk",
+      "family": "rock_punk",
+      "href": "traditions/synthpunk.json"
+    },
+    {
+      "id": "bubblegum_dance",
+      "name": "Bubblegum Dance",
+      "family": "pop",
+      "href": "traditions/bubblegum_dance.json"
+    },
+    {
+      "id": "eurobeat",
+      "name": "Eurobeat",
+      "family": "electronic",
+      "href": "traditions/eurobeat.json"
+    },
+    {
+      "id": "hard_nrg",
+      "name": "Hard NRG",
+      "family": "electronic",
+      "href": "traditions/hard_nrg.json"
+    },
+    {
+      "id": "new_beat",
+      "name": "New Beat",
+      "family": "electronic",
+      "href": "traditions/new_beat.json"
+    },
+    {
+      "id": "vaportrap",
+      "name": "Vaportrap",
+      "family": "electronic",
+      "href": "traditions/vaportrap.json"
+    },
+    {
+      "id": "vaporhop",
+      "name": "Vaporhop",
+      "family": "electronic",
+      "href": "traditions/vaporhop.json"
+    },
+    {
+      "id": "protovapor",
+      "name": "Protovapor",
+      "family": "electronic",
+      "href": "traditions/protovapor.json"
+    },
+    {
+      "id": "british_folk_revival",
+      "name": "British Folk Revival",
+      "family": "vernacular",
+      "href": "traditions/british_folk_revival.json"
+    },
+    {
+      "id": "filk_music",
+      "name": "Filk Music",
+      "family": "vernacular",
+      "href": "traditions/filk_music.json"
+    },
+    {
+      "id": "industrial_folk",
+      "name": "Industrial Folk",
+      "family": "vernacular",
+      "href": "traditions/industrial_folk.json"
+    },
+    {
+      "id": "neofolk",
+      "name": "Neofolk",
+      "family": "vernacular",
+      "href": "traditions/neofolk.json"
+    },
+    {
+      "id": "progressive_folk",
+      "name": "Progressive Folk",
+      "family": "pop_rock",
+      "href": "traditions/progressive_folk.json"
+    },
+    {
+      "id": "sung_poetry",
+      "name": "Sung Poetry (Poezja Śpiewana)",
+      "family": "vernacular",
+      "href": "traditions/sung_poetry.json"
+    },
+    {
+      "id": "techno_folk",
+      "name": "Techno-Folk",
+      "family": "electronic",
+      "href": "traditions/techno_folk.json"
+    },
+    {
+      "id": "german_folk",
+      "name": "German Folk (Volksmusik)",
+      "family": "vernacular",
+      "href": "traditions/german_folk.json"
+    },
+    {
+      "id": "chap_hop",
+      "name": "Chap Hop",
+      "family": "hip_hop",
+      "href": "traditions/chap_hop.json"
+    },
+    {
+      "id": "grunk",
+      "name": "Grunk",
+      "family": "hip_hop",
+      "href": "traditions/grunk.json"
+    },
+    {
+      "id": "crunkcore",
+      "name": "Crunkcore",
+      "family": "rock_punk",
+      "href": "traditions/crunkcore.json"
+    },
+    {
+      "id": "cumbia_rap",
+      "name": "Cumbia Rap",
+      "family": "hip_hop",
+      "href": "traditions/cumbia_rap.json"
+    },
+    {
+      "id": "brick_city_club",
+      "name": "Brick City Club",
+      "family": "electronic",
+      "href": "traditions/brick_city_club.json"
+    },
+    {
+      "id": "mafioso_rap",
+      "name": "Mafioso Rap",
+      "family": "hip_hop",
+      "href": "traditions/mafioso_rap.json"
+    },
+    {
+      "id": "freestyle_rap",
+      "name": "Freestyle Rap",
+      "family": "hip_hop",
+      "href": "traditions/freestyle_rap.json"
+    },
+    {
+      "id": "low_bap",
+      "name": "Low Bap",
+      "family": "hip_hop",
+      "href": "traditions/low_bap.json"
+    },
+    {
+      "id": "merenrap",
+      "name": "Merenrap",
+      "family": "hip_hop",
+      "href": "traditions/merenrap.json"
+    },
+    {
+      "id": "motswako",
+      "name": "Motswako",
+      "family": "hip_hop",
+      "href": "traditions/motswako.json"
+    },
+    {
+      "id": "nerdcore",
+      "name": "Nerdcore",
+      "family": "hip_hop",
+      "href": "traditions/nerdcore.json"
+    },
+    {
+      "id": "turntablism",
+      "name": "Turntablism",
+      "family": "hip_hop",
+      "href": "traditions/turntablism.json"
+    },
+    {
+      "id": "aggrotech",
+      "name": "Aggrotech",
+      "family": "electronic",
+      "href": "traditions/aggrotech.json"
+    },
+    {
+      "id": "coldwave",
+      "name": "Coldwave",
+      "family": "rock",
+      "href": "traditions/coldwave.json"
+    },
+    {
+      "id": "cybergrind",
+      "name": "Cybergrind",
+      "family": "rock_punk",
+      "href": "traditions/cybergrind.json"
+    },
+    {
+      "id": "death_industrial",
+      "name": "Death Industrial",
+      "family": "electronic",
+      "href": "traditions/death_industrial.json"
+    },
+    {
+      "id": "electro_industrial",
+      "name": "Electro-Industrial",
+      "family": "electronic",
+      "href": "traditions/electro_industrial.json"
+    },
+    {
+      "id": "futurepop",
+      "name": "Futurepop",
+      "family": "electronic",
+      "href": "traditions/futurepop.json"
+    },
+    {
+      "id": "neue_deutsche_haerte",
+      "name": "Neue Deutsche Härte",
+      "family": "rock",
+      "href": "traditions/neue_deutsche_haerte.json"
+    },
+    {
+      "id": "japanoise",
+      "name": "Japanoise",
+      "family": "electronic",
+      "href": "traditions/japanoise.json"
+    },
+    {
+      "id": "power_electronics",
+      "name": "Power Electronics",
+      "family": "electronic",
+      "href": "traditions/power_electronics.json"
+    },
+    {
+      "id": "power_noise",
+      "name": "Power Noise",
+      "family": "electronic",
+      "href": "traditions/power_noise.json"
+    },
+    {
+      "id": "praise_and_worship",
+      "name": "Praise and Worship",
+      "family": "blues_gospel",
+      "href": "traditions/praise_and_worship.json"
+    },
+    {
+      "id": "concert_march",
+      "name": "March (concert and military band)",
+      "family": "classical",
+      "href": "traditions/concert_march.json"
+    },
+    {
+      "id": "j_synth",
+      "name": "J-Synth (Japanese technopop)",
+      "family": "electronic",
+      "href": "traditions/j_synth.json"
+    },
+    {
+      "id": "blue_note",
+      "name": "Blue Note (hard bop house style)",
+      "family": "jazz",
+      "href": "traditions/blue_note.json"
+    },
+    {
+      "id": "british_dance_band",
+      "name": "British Dance Band",
+      "family": "jazz",
+      "href": "traditions/british_dance_band.json"
+    },
+    {
+      "id": "cape_jazz",
+      "name": "Cape Jazz",
+      "family": "jazz",
+      "href": "traditions/cape_jazz.json"
+    },
+    {
+      "id": "chamber_jazz",
+      "name": "Chamber Jazz",
+      "family": "jazz",
+      "href": "traditions/chamber_jazz.json"
+    },
+    {
+      "id": "continental_jazz",
+      "name": "Continental Jazz",
+      "family": "jazz",
+      "href": "traditions/continental_jazz.json"
+    },
+    {
+      "id": "dark_jazz",
+      "name": "Dark Jazz",
+      "family": "jazz",
+      "href": "traditions/dark_jazz.json"
+    },
+    {
+      "id": "dixieland",
+      "name": "Dixieland",
+      "family": "jazz",
+      "href": "traditions/dixieland.json"
+    },
+    {
+      "id": "free_funk",
+      "name": "Free Funk",
+      "family": "jazz",
+      "href": "traditions/free_funk.json"
+    },
+    {
+      "id": "indo_jazz",
+      "name": "Indo Jazz",
+      "family": "jazz",
+      "href": "traditions/indo_jazz.json"
+    },
+    {
+      "id": "mbase_jazz",
+      "name": "M-Base Jazz",
+      "family": "jazz",
+      "href": "traditions/mbase_jazz.json"
+    },
+    {
+      "id": "neo_bop",
+      "name": "Neo-Bop",
+      "family": "jazz",
+      "href": "traditions/neo_bop.json"
+    },
+    {
+      "id": "neo_swing",
+      "name": "Neo-Swing",
+      "family": "jazz",
+      "href": "traditions/neo_swing.json"
+    },
+    {
+      "id": "orchestral_jazz",
+      "name": "Orchestral Jazz",
+      "family": "jazz",
+      "href": "traditions/orchestral_jazz.json"
+    },
+    {
+      "id": "ska_jazz",
+      "name": "Ska Jazz",
+      "family": "jazz",
+      "href": "traditions/ska_jazz.json"
+    },
+    {
+      "id": "straight_ahead_jazz",
+      "name": "Straight-Ahead Jazz",
+      "family": "jazz",
+      "href": "traditions/straight_ahead_jazz.json"
+    },
+    {
+      "id": "baithak_gana",
+      "name": "Baithak Gana",
+      "family": "global",
+      "href": "traditions/baithak_gana.json"
+    },
+    {
+      "id": "baladas_y_boleros",
+      "name": "Baladas y Boleros",
+      "family": "pop",
+      "href": "traditions/baladas_y_boleros.json"
+    },
+    {
+      "id": "lambada",
+      "name": "Lambada",
+      "family": "global",
+      "href": "traditions/lambada.json"
+    },
+    {
+      "id": "samba_rock",
+      "name": "Samba Rock",
+      "family": "global",
+      "href": "traditions/samba_rock.json"
+    },
+    {
+      "id": "zouk_lambada",
+      "name": "Zouk-Lambada",
+      "family": "global",
+      "href": "traditions/zouk_lambada.json"
+    },
+    {
+      "id": "criolla",
+      "name": "Criolla",
+      "family": "global",
+      "href": "traditions/criolla.json"
+    },
+    {
+      "id": "nuevo_flamenco",
+      "name": "Nuevo Flamenco",
+      "family": "global",
+      "href": "traditions/nuevo_flamenco.json"
+    },
+    {
+      "id": "punta_rock",
+      "name": "Punta Rock",
+      "family": "global",
+      "href": "traditions/punta_rock.json"
+    },
+    {
+      "id": "raices",
+      "name": "Raíces",
+      "family": "global",
+      "href": "traditions/raices.json"
+    },
+    {
+      "id": "rasin",
+      "name": "Rasin",
+      "family": "global",
+      "href": "traditions/rasin.json"
+    },
+    {
+      "id": "timba",
+      "name": "Timba",
+      "family": "global",
+      "href": "traditions/timba.json"
+    },
+    {
+      "id": "pagan_metal",
+      "name": "Pagan Metal",
+      "family": "rock",
+      "href": "traditions/pagan_metal.json"
+    },
+    {
+      "id": "viking_metal",
+      "name": "Viking Metal",
+      "family": "rock",
+      "href": "traditions/viking_metal.json"
+    },
+    {
+      "id": "glam_metal",
+      "name": "Glam Metal",
+      "family": "rock",
+      "href": "traditions/glam_metal.json"
+    },
+    {
+      "id": "neoclassical_metal",
+      "name": "Neoclassical Metal",
+      "family": "rock",
+      "href": "traditions/neoclassical_metal.json"
+    },
+    {
+      "id": "sludge",
+      "name": "Sludge",
+      "family": "rock",
+      "href": "traditions/sludge.json"
+    },
+    {
+      "id": "kawaii_metal",
+      "name": "Kawaii Metal",
+      "family": "rock",
+      "href": "traditions/kawaii_metal.json"
+    },
+    {
+      "id": "pirate_metal",
+      "name": "Pirate Metal",
+      "family": "rock",
+      "href": "traditions/pirate_metal.json"
+    },
+    {
+      "id": "math_metal",
+      "name": "Math Metal",
+      "family": "rock",
+      "href": "traditions/math_metal.json"
+    },
+    {
+      "id": "environmental_music",
+      "name": "Environmental (Kankyō Ongaku)",
+      "family": "electronic",
+      "href": "traditions/environmental_music.json"
+    },
+    {
+      "id": "chanson",
+      "name": "Chanson",
+      "family": "pop",
+      "href": "traditions/chanson.json"
+    },
+    {
+      "id": "austropop",
+      "name": "Austropop",
+      "family": "pop_rock",
+      "href": "traditions/austropop.json"
+    },
+    {
+      "id": "balkan_pop",
+      "name": "Balkan Pop",
+      "family": "pop",
+      "href": "traditions/balkan_pop.json"
+    },
+    {
+      "id": "laiko_modern",
+      "name": "Laïkó (modern Greek popular song)",
+      "family": "pop",
+      "href": "traditions/laiko_modern.json"
+    },
+    {
+      "id": "nederpop",
+      "name": "Nederpop",
+      "family": "pop_rock",
+      "href": "traditions/nederpop.json"
+    },
+    {
+      "id": "latin_ballad",
+      "name": "Latin Ballad (balada romántica)",
+      "family": "pop",
+      "href": "traditions/latin_ballad.json"
+    },
+    {
+      "id": "swamp_pop",
+      "name": "Louisiana Swamp Pop",
+      "family": "pop_rock",
+      "href": "traditions/swamp_pop.json"
+    },
+    {
+      "id": "motorpop",
+      "name": "Motorpop",
+      "family": "rock",
+      "href": "traditions/motorpop.json"
+    },
+    {
+      "id": "new_romantic",
+      "name": "New Romanticism (New Romantic)",
+      "family": "pop",
+      "href": "traditions/new_romantic.json"
+    },
+    {
+      "id": "orchestral_pop",
+      "name": "Orchestral Pop",
+      "family": "pop",
+      "href": "traditions/orchestral_pop.json"
+    },
+    {
+      "id": "popera",
+      "name": "Popera (classical crossover)",
+      "family": "pop",
+      "href": "traditions/popera.json"
+    },
+    {
+      "id": "psychedelic_pop",
+      "name": "Psychedelic Pop",
+      "family": "pop_rock",
+      "href": "traditions/psychedelic_pop.json"
+    },
+    {
+      "id": "space_age_pop",
+      "name": "Space Age Pop",
+      "family": "pop",
+      "href": "traditions/space_age_pop.json"
+    },
+    {
+      "id": "surf_pop",
+      "name": "Surf Pop (vocal surf)",
+      "family": "pop_rock",
+      "href": "traditions/surf_pop.json"
+    },
+    {
+      "id": "traditional_pop_music",
+      "name": "Traditional Pop Music",
+      "family": "pop",
+      "href": "traditions/traditional_pop_music.json"
+    },
+    {
+      "id": "vispop",
+      "name": "Vispop",
+      "family": "pop",
+      "href": "traditions/vispop.json"
+    },
+    {
+      "id": "wonky_pop",
+      "name": "Wonky Pop",
+      "family": "pop",
+      "href": "traditions/wonky_pop.json"
+    },
+    {
+      "id": "boogie_post_disco",
+      "name": "Boogie (Post-Disco)",
+      "family": "pop",
+      "href": "traditions/boogie_post_disco.json"
+    },
+    {
+      "id": "dream_house",
+      "name": "Dream House",
+      "family": "electronic",
+      "href": "traditions/dream_house.json"
+    },
+    {
+      "id": "space_house",
+      "name": "Space House",
+      "family": "electronic",
+      "href": "traditions/space_house.json"
+    },
+    {
+      "id": "scouse_house",
+      "name": "Scouse House",
+      "family": "electronic",
+      "href": "traditions/scouse_house.json"
+    },
+    {
+      "id": "progressive_breaks",
+      "name": "Progressive Breaks",
+      "family": "electronic",
+      "href": "traditions/progressive_breaks.json"
+    },
+    {
+      "id": "beach_music_carolina",
+      "name": "Beach Music (Carolina)",
+      "family": "pop_rock",
+      "href": "traditions/beach_music_carolina.json"
+    },
+    {
+      "id": "modern_soul",
+      "name": "Modern Soul",
+      "family": "pop",
+      "href": "traditions/modern_soul.json"
+    },
+    {
+      "id": "northern_soul",
+      "name": "Northern Soul",
+      "family": "pop",
+      "href": "traditions/northern_soul.json"
+    },
+    {
+      "id": "psychedelic_soul",
+      "name": "Psychedelic Soul",
+      "family": "pop",
+      "href": "traditions/psychedelic_soul.json"
+    },
+    {
+      "id": "two_tone_ska",
+      "name": "2-Tone",
+      "family": "rock_punk",
+      "href": "traditions/two_tone_ska.json"
+    },
+    {
+      "id": "reggae_bultron",
+      "name": "Reggae Bultrón",
+      "family": "global",
+      "href": "traditions/reggae_bultron.json"
+    },
+    {
+      "id": "ragga",
+      "name": "Ragga",
+      "family": "global",
+      "href": "traditions/ragga.json"
+    },
+    {
+      "id": "raggamuffin",
+      "name": "Raggamuffin",
+      "family": "global",
+      "href": "traditions/raggamuffin.json"
+    },
+    {
+      "id": "rocksteady",
+      "name": "Rocksteady",
+      "family": "global",
+      "href": "traditions/rocksteady.json"
+    },
+    {
+      "id": "afro_punk",
+      "name": "Afro-Punk",
+      "family": "rock_punk",
+      "href": "traditions/afro_punk.json"
+    },
+    {
+      "id": "anatolian_rock",
+      "name": "Anatolian Rock",
+      "family": "rock",
+      "href": "traditions/anatolian_rock.json"
+    },
+    {
+      "id": "british_invasion",
+      "name": "British Invasion",
+      "family": "pop_rock",
+      "href": "traditions/british_invasion.json"
+    },
+    {
+      "id": "jam_bands",
+      "name": "Jam Bands (festival circuit)",
+      "family": "rock",
+      "href": "traditions/jam_bands.json"
+    },
+    {
+      "id": "roots_rock",
+      "name": "Roots Rock",
+      "family": "rock",
+      "href": "traditions/roots_rock.json"
+    },
+    {
+      "id": "spazzcore",
+      "name": "Spazzcore",
+      "family": "rock_punk",
+      "href": "traditions/spazzcore.json"
+    },
+    {
+      "id": "surf_music",
+      "name": "Surf Music",
+      "family": "rock_punk",
+      "href": "traditions/surf_music.json"
+    },
+    {
+      "id": "tex_mex",
+      "name": "Tex-Mex",
+      "family": "country",
+      "href": "traditions/tex_mex.json"
+    },
+    {
+      "id": "time_lord_rock",
+      "name": "Time Lord Rock",
+      "family": "pop_rock",
+      "href": "traditions/time_lord_rock.json"
+    },
+    {
+      "id": "new_acoustic",
+      "name": "New Acoustic",
+      "family": "vernacular",
+      "href": "traditions/new_acoustic.json"
+    },
+    {
+      "id": "original_score",
+      "name": "Original Score (Film & Media)",
+      "family": "classical",
+      "href": "traditions/original_score.json"
+    },
+    {
+      "id": "chicano",
+      "name": "Chicano Rock",
+      "family": "rock",
+      "href": "traditions/chicano.json"
+    },
+    {
+      "id": "conjunto",
+      "name": "Conjunto (Tejano)",
+      "family": "vernacular",
+      "href": "traditions/conjunto.json"
+    },
+    {
+      "id": "new_mexico_music",
+      "name": "New Mexico Music",
+      "family": "vernacular",
+      "href": "traditions/new_mexico_music.json"
+    },
+    {
+      "id": "a_cappella",
+      "name": "A Cappella (Contemporary Vocal)",
+      "family": "pop",
+      "href": "traditions/a_cappella.json"
+    },
+    {
+      "id": "barbershop",
+      "name": "Barbershop Harmony",
+      "family": "vernacular",
+      "href": "traditions/barbershop.json"
+    },
+    {
+      "id": "cantique",
+      "name": "Cantique",
+      "family": "vernacular",
+      "href": "traditions/cantique.json"
+    },
+    {
+      "id": "gregorian_chant",
+      "name": "Gregorian Chant",
+      "family": "classical",
+      "href": "traditions/gregorian_chant.json"
+    },
+    {
+      "id": "standards",
+      "name": "Standards (Great American Songbook)",
+      "family": "jazz",
+      "href": "traditions/standards.json"
+    },
+    {
+      "id": "yodel",
+      "name": "Yodel",
+      "family": "global",
+      "href": "traditions/yodel.json"
+    },
+    {
+      "id": "african_heavy_metal",
+      "name": "African Heavy Metal",
+      "family": "rock",
+      "href": "traditions/african_heavy_metal.json"
+    },
+    {
+      "id": "apala",
+      "name": "Apala",
+      "family": "global",
+      "href": "traditions/apala.json"
+    },
+    {
+      "id": "fuji_music",
+      "name": "Fújì Music (Yoruba Muslim percussion pop)",
+      "family": "global",
+      "href": "traditions/fuji_music.json"
+    },
+    {
+      "id": "sakara_music",
+      "name": "Sákárà (Lagos sakara-drum praise song)",
+      "family": "global",
+      "href": "traditions/sakara_music.json"
+    },
+    {
+      "id": "kwela",
+      "name": "Kwela",
+      "family": "global",
+      "href": "traditions/kwela.json"
+    },
+    {
+      "id": "rumba_lingala",
+      "name": "Rumba Lingala",
+      "family": "global",
+      "href": "traditions/rumba_lingala.json"
+    },
+    {
+      "id": "maloya",
+      "name": "Maloya",
+      "family": "global",
+      "href": "traditions/maloya.json"
+    },
+    {
+      "id": "sega",
+      "name": "Séga (Mauritian creole dance song)",
+      "family": "global",
+      "href": "traditions/sega.json"
+    },
+    {
+      "id": "seggae",
+      "name": "Seggae",
+      "family": "global",
+      "href": "traditions/seggae.json"
+    },
+    {
+      "id": "museve",
+      "name": "Museve",
+      "family": "global",
+      "href": "traditions/museve.json"
+    },
+    {
+      "id": "negro_spiritual",
+      "name": "Negro Spiritual (concert arrangement)",
+      "family": "blues_gospel",
+      "href": "traditions/negro_spiritual.json"
+    },
+    {
+      "id": "anison",
+      "name": "Anison (Japanese anime theme song)",
+      "family": "pop",
+      "href": "traditions/anison.json"
+    },
+    {
+      "id": "fann_at_tanbura",
+      "name": "Fann at-Tanbura",
+      "family": "global",
+      "href": "traditions/fann_at_tanbura.json"
+    },
+    {
+      "id": "fijiri",
+      "name": "Fijiri",
+      "family": "global",
+      "href": "traditions/fijiri.json"
+    },
+    {
+      "id": "khaliji",
+      "name": "Khalījī (Gulf dance song)",
+      "family": "global",
+      "href": "traditions/khaliji.json"
+    },
+    {
+      "id": "liwa_swahili",
+      "name": "Liwa (Swahili-Omani coastal dance)",
+      "family": "global",
+      "href": "traditions/liwa_swahili.json"
+    },
+    {
+      "id": "onkyokei",
+      "name": "Onkyokei (Japanese onkyo improvisation)",
+      "family": "electronic",
+      "href": "traditions/onkyokei.json"
+    },
+    {
+      "id": "sawt_khaliji",
+      "name": "Sawt (Gulf khaliji urban song)",
+      "family": "global",
+      "href": "traditions/sawt_khaliji.json"
+    },
+    {
+      "id": "chutney_bhojpuri",
+      "name": "Chutney (Trinidad-Guyana Bhojpuri dance song)",
+      "family": "global",
+      "href": "traditions/chutney_bhojpuri.json"
+    },
+    {
+      "id": "chutney_soca",
+      "name": "Chutney Soca",
+      "family": "global",
+      "href": "traditions/chutney_soca.json"
+    },
+    {
+      "id": "compas_direk",
+      "name": "Compas (Haitian konpa dirèk)",
+      "family": "global",
+      "href": "traditions/compas_direk.json"
+    },
+    {
+      "id": "meringue_haitian",
+      "name": "Méringue (Haitian salon and carnival)",
+      "family": "global",
+      "href": "traditions/meringue_haitian.json"
+    },
+    {
+      "id": "carnatic_kacheri",
+      "name": "Carnatic kacheri (South Indian concert practice)",
+      "family": "classical",
+      "href": "traditions/carnatic_kacheri.json"
+    },
+    {
+      "id": "celtic_folk_revival",
+      "name": "Celtic Folk (pan-Celtic revival)",
+      "family": "global",
+      "href": "traditions/celtic_folk_revival.json"
+    },
+    {
+      "id": "greek_ode",
+      "name": "Ode (ancient Greek sung ode)",
+      "family": "classical",
+      "href": "traditions/greek_ode.json"
+    },
+    {
+      "id": "piphat_ceremonial",
+      "name": "Piphat (Thai-Khmer ceremonial ensemble)",
+      "family": "classical",
+      "href": "traditions/piphat_ceremonial.json"
+    },
+    {
+      "id": "polka_dance",
+      "name": "Polka (Central European dance)",
+      "family": "vernacular",
+      "href": "traditions/polka_dance.json"
+    },
+    {
+      "id": "worldbeat_80s",
+      "name": "Worldbeat",
+      "family": "pop_rock",
+      "href": "traditions/worldbeat_80s.json"
+    },
+    {
+      "id": "baila",
+      "name": "Baila (Sri Lankan)",
+      "family": "global",
+      "href": "traditions/baila.json"
+    },
+    {
+      "id": "bhojpuri_lok_geet",
+      "name": "Bhojpuri Lok Geet (village folk song)",
+      "family": "global",
+      "href": "traditions/bhojpuri_lok_geet.json"
+    },
+    {
+      "id": "luk_krung",
+      "name": "Luk Krung (Bangkok dance-band lineage)",
+      "family": "global",
+      "href": "traditions/luk_krung.json"
+    },
+    {
+      "id": "pop_sunda",
+      "name": "Pop Sunda",
+      "family": "global",
+      "href": "traditions/pop_sunda.json"
+    },
+    {
+      "id": "ragini",
+      "name": "Ragini (Hindustani feminine-mode repertoire)",
+      "family": "classical",
+      "href": "traditions/ragini.json"
+    },
+    {
+      "id": "arrocha",
+      "name": "Arrocha",
+      "family": "global",
+      "href": "traditions/arrocha.json"
+    },
+    {
+      "id": "batidao_romantico",
+      "name": "Batidão Romântico",
+      "family": "global",
+      "href": "traditions/batidao_romantico.json"
+    },
+    {
+      "id": "brega_funk",
+      "name": "Brega Funk",
+      "family": "global",
+      "href": "traditions/brega_funk.json"
+    },
+    {
+      "id": "funk_mandelao",
+      "name": "Funk Mandelão",
+      "family": "electronic",
+      "href": "traditions/funk_mandelao.json"
+    },
+    {
+      "id": "funk_capixaba",
+      "name": "Funk Capixaba",
+      "family": "electronic",
+      "href": "traditions/funk_capixaba.json"
+    },
+    {
+      "id": "funk_mtg",
+      "name": "Funk MTG (Montagem)",
+      "family": "electronic",
+      "href": "traditions/funk_mtg.json"
+    },
+    {
+      "id": "mega_funk",
+      "name": "Mega Funk",
+      "family": "electronic",
+      "href": "traditions/mega_funk.json"
+    },
+    {
+      "id": "funk_melody",
+      "name": "Funk Melody",
+      "family": "electronic",
+      "href": "traditions/funk_melody.json"
+    },
+    {
+      "id": "samba_enredo",
+      "name": "Samba-Enredo (escola de samba competition theme samba)",
+      "family": "vernacular",
+      "href": "traditions/samba_enredo.json"
+    },
+    {
+      "id": "samba_de_roda",
+      "name": "Samba de Roda (Recôncavo Baiano circle samba, rural practice)",
+      "family": "vernacular",
+      "href": "traditions/samba_de_roda.json"
+    },
+    {
+      "id": "roda_de_samba",
+      "name": "Roda de Samba",
+      "family": "vernacular",
+      "href": "traditions/roda_de_samba.json"
+    },
+    {
+      "id": "partido_alto",
+      "name": "Partido-Alto",
+      "family": "vernacular",
+      "href": "traditions/partido_alto.json"
+    },
+    {
+      "id": "jovem_guarda",
+      "name": "Jovem Guarda",
+      "family": "pop_rock",
+      "href": "traditions/jovem_guarda.json"
+    },
+    {
+      "id": "forro_de_favela",
+      "name": "Forró de Favela (forró eletrônico das periferias)",
+      "family": "global",
+      "href": "traditions/forro_de_favela.json"
+    },
+    {
+      "id": "forro_tradicional",
+      "name": "Forró Tradicional (trio nordestino forró)",
+      "family": "vernacular",
+      "href": "traditions/forro_tradicional.json"
+    },
+    {
+      "id": "forro_gospel",
+      "name": "Forró Gospel",
+      "family": "blues_gospel",
+      "href": "traditions/forro_gospel.json"
+    },
+    {
+      "id": "coco",
+      "name": "Coco de Roda (Northeastern Brazilian circle coco)",
+      "family": "vernacular",
+      "href": "traditions/coco.json"
+    },
+    {
+      "id": "carimbo",
+      "name": "Carimbó (Pará Amazonian carimbó)",
+      "family": "vernacular",
+      "href": "traditions/carimbo.json"
+    },
+    {
+      "id": "vaqueiro",
+      "name": "Aboio de Vaqueiro (Brazilian cattle-herder call-song)",
+      "family": "vernacular",
+      "href": "traditions/vaqueiro.json"
+    },
+    {
+      "id": "viola_caipira",
+      "name": "Viola Caipira (música caipira, moda de viola)",
+      "family": "vernacular",
+      "href": "traditions/viola_caipira.json"
+    },
+    {
+      "id": "rock_caipira",
+      "name": "Rock Caipira",
+      "family": "rock",
+      "href": "traditions/rock_caipira.json"
+    },
+    {
+      "id": "lambadao",
+      "name": "Lambadão (Cuiabá)",
+      "family": "global",
+      "href": "traditions/lambadao.json"
+    },
+    {
+      "id": "paracana",
+      "name": "Paracaná (batidão paraense)",
+      "family": "global",
+      "href": "traditions/paracana.json"
+    },
+    {
+      "id": "umbanda",
+      "name": "Umbanda ritual music (pontos cantados)",
+      "family": "global",
+      "href": "traditions/umbanda.json"
+    },
+    {
+      "id": "candomble",
+      "name": "Candomblé ritual music",
+      "family": "global",
+      "href": "traditions/candomble.json"
+    },
+    {
+      "id": "capoeira",
+      "name": "Capoeira roda music",
+      "family": "global",
+      "href": "traditions/capoeira.json"
+    },
+    {
+      "id": "bloco_afro",
+      "name": "Bloco afro (Salvador carnival)",
+      "family": "global",
+      "href": "traditions/bloco_afro.json"
+    },
+    {
+      "id": "violao_brasileiro",
+      "name": "Violão brasileiro (solo Brazilian guitar)",
+      "family": "global",
+      "href": "traditions/violao_brasileiro.json"
+    },
+    {
+      "id": "sanfona_nordestina",
+      "name": "Sanfona nordestina (Brazilian accordion tradition)",
+      "family": "global",
+      "href": "traditions/sanfona_nordestina.json"
+    },
+    {
+      "id": "tecnobrega",
+      "name": "Tecnobrega (Belém aparelhagem style)",
+      "family": "global",
+      "href": "traditions/tecnobrega.json"
+    },
+    {
+      "id": "brega_romantico",
+      "name": "Brega romântico (1970s-80s Brazilian romantic brega)",
+      "family": "global",
+      "href": "traditions/brega_romantico.json"
+    },
+    {
+      "id": "brega_saudade",
+      "name": "Brega saudade (slow nostalgic Belém brega)",
+      "family": "global",
+      "href": "traditions/brega_saudade.json"
+    },
+    {
+      "id": "brega_paraense",
+      "name": "Brega paraense (guitar-led Pará brega)",
+      "family": "global",
+      "href": "traditions/brega_paraense.json"
+    },
+    {
+      "id": "nova_musica_pernambucana",
+      "name": "Nova Música Pernambucana",
+      "family": "global",
+      "href": "traditions/nova_musica_pernambucana.json"
+    },
+    {
+      "id": "nu_cumbia",
+      "name": "Nu-Cumbia",
+      "family": "electronic",
+      "href": "traditions/nu_cumbia.json"
+    },
+    {
+      "id": "cumbia_amazonica",
+      "name": "Cumbia amazónica",
+      "family": "global",
+      "href": "traditions/cumbia_amazonica.json"
+    },
+    {
+      "id": "cumbia_andina_mexicana",
+      "name": "Cumbia andina mexicana",
+      "family": "global",
+      "href": "traditions/cumbia_andina_mexicana.json"
+    },
+    {
+      "id": "cumbia_ranchera",
+      "name": "Cumbia ranchera",
+      "family": "global",
+      "href": "traditions/cumbia_ranchera.json"
+    },
+    {
+      "id": "cumbia_editada",
+      "name": "Cumbia editada",
+      "family": "electronic",
+      "href": "traditions/cumbia_editada.json"
+    },
+    {
+      "id": "cumbia_paraguaya",
+      "name": "Cumbia paraguaya",
+      "family": "global",
+      "href": "traditions/cumbia_paraguaya.json"
+    },
+    {
+      "id": "cumbia_boliviana",
+      "name": "Cumbia boliviana",
+      "family": "global",
+      "href": "traditions/cumbia_boliviana.json"
+    },
+    {
+      "id": "cumbia_surena",
+      "name": "Cumbia sureña",
+      "family": "global",
+      "href": "traditions/cumbia_surena.json"
+    },
+    {
+      "id": "salsa_choke",
+      "name": "Salsa choke",
+      "family": "global",
+      "href": "traditions/salsa_choke.json"
+    },
+    {
+      "id": "salsa_urbana",
+      "name": "Salsa urbana",
+      "family": "global",
+      "href": "traditions/salsa_urbana.json"
+    },
+    {
+      "id": "cuban_rumba",
+      "name": "Cuban Rumba (guaguancó, yambú, columbia complex)",
+      "family": "global",
+      "href": "traditions/cuban_rumba.json"
+    },
+    {
+      "id": "rumba_catalana",
+      "name": "Rumba catalana",
+      "family": "global",
+      "href": "traditions/rumba_catalana.json"
+    },
+    {
+      "id": "rumba_congolaise",
+      "name": "Rumba congolaise (Kinshasa golden age)",
+      "family": "global",
+      "href": "traditions/rumba_congolaise.json"
+    },
+    {
+      "id": "sebene",
+      "name": "Sebene (soukous guitar section)",
+      "family": "global",
+      "href": "traditions/sebene.json"
+    },
+    {
+      "id": "boogaloo",
+      "name": "Boogaloo (Latin boogaloo)",
+      "family": "global",
+      "href": "traditions/boogaloo.json"
+    },
+    {
+      "id": "bolero_cubano",
+      "name": "Bolero cubano",
+      "family": "global",
+      "href": "traditions/bolero_cubano.json"
+    },
+    {
+      "id": "trova",
+      "name": "Trova (Cuban troubadour song)",
+      "family": "global",
+      "href": "traditions/trova.json"
+    },
+    {
+      "id": "nueva_cancion",
+      "name": "Nueva canción (pan-Latin American)",
+      "family": "global",
+      "href": "traditions/nueva_cancion.json"
+    },
+    {
+      "id": "nueva_trova_chilena",
+      "name": "Nueva trova chilena",
+      "family": "global",
+      "href": "traditions/nueva_trova_chilena.json"
+    },
+    {
+      "id": "canto_popular_uruguayo",
+      "name": "Canto popular uruguayo",
+      "family": "global",
+      "href": "traditions/canto_popular_uruguayo.json"
+    },
+    {
+      "id": "murga_portena",
+      "name": "Murga porteña (Buenos Aires carnival murga)",
+      "family": "global",
+      "href": "traditions/murga_portena.json"
+    },
+    {
+      "id": "candombe_tamboril",
+      "name": "Candombe (tamboril llamada)",
+      "family": "global",
+      "href": "traditions/candombe_tamboril.json"
+    },
+    {
+      "id": "techengue",
+      "name": "Techengue (Uruguayan cumbia plena)",
+      "family": "global",
+      "href": "traditions/techengue.json"
+    },
+    {
+      "id": "rkt",
+      "name": "RKT (Argentine reggaetón-cumbia)",
+      "family": "hip_hop",
+      "href": "traditions/rkt.json"
+    },
+    {
+      "id": "zamba_folklorica",
+      "name": "Zamba (Argentine folklore pañuelo dance)",
+      "family": "global",
+      "href": "traditions/zamba_folklorica.json"
+    },
+    {
+      "id": "chacarera_doble",
+      "name": "Chacarera (doble, Santiago del Estero core form)",
+      "family": "global",
+      "href": "traditions/chacarera_doble.json"
+    },
+    {
+      "id": "folklore_surero",
+      "name": "Folklore surero (Argentine pampa)",
+      "family": "global",
+      "href": "traditions/folklore_surero.json"
+    },
+    {
+      "id": "folclore_salteno",
+      "name": "Folclore salteño",
+      "family": "global",
+      "href": "traditions/folclore_salteno.json"
+    },
+    {
+      "id": "folclore_santiagueno",
+      "name": "Folclore santiagueño",
+      "family": "global",
+      "href": "traditions/folclore_santiagueno.json"
+    },
+    {
+      "id": "folclore_jujeno",
+      "name": "Folclore jujeño",
+      "family": "global",
+      "href": "traditions/folclore_jujeno.json"
+    },
+    {
+      "id": "folclore_tucumano",
+      "name": "Folclore tucumano",
+      "family": "global",
+      "href": "traditions/folclore_tucumano.json"
+    },
+    {
+      "id": "folclore_cuyano",
+      "name": "Folclore cuyano",
+      "family": "global",
+      "href": "traditions/folclore_cuyano.json"
+    },
+    {
+      "id": "tinku_bolivia",
+      "name": "Tinku (Bolivian Norte Potosí)",
+      "family": "global",
+      "href": "traditions/tinku_bolivia.json"
+    },
+    {
+      "id": "huayno_peruano",
+      "name": "Huayno peruano",
+      "family": "global",
+      "href": "traditions/huayno_peruano.json"
+    },
+    {
+      "id": "huayno_popular",
+      "name": "Huayno popular (electrified commercial huayno)",
+      "family": "global",
+      "href": "traditions/huayno_popular.json"
+    },
+    {
+      "id": "tunantada_jauja",
+      "name": "Tunantada (Jauja, Junín)",
+      "family": "global",
+      "href": "traditions/tunantada_jauja.json"
+    },
+    {
+      "id": "musica_criolla_peru",
+      "name": "Música criolla peruana",
+      "family": "global",
+      "href": "traditions/musica_criolla_peru.json"
+    },
+    {
+      "id": "musica_afroperuana",
+      "name": "Música afroperuana",
+      "family": "global",
+      "href": "traditions/musica_afroperuana.json"
+    },
+    {
+      "id": "festejo",
+      "name": "Festejo (Lima criollo cajón dance)",
+      "family": "global",
+      "href": "traditions/festejo.json"
+    },
+    {
+      "id": "musica_llanera",
+      "name": "Música llanera",
+      "family": "global",
+      "href": "traditions/musica_llanera.json"
+    },
+    {
+      "id": "gaita_zuliana",
+      "name": "Gaita zuliana",
+      "family": "global",
+      "href": "traditions/gaita_zuliana.json"
+    },
+    {
+      "id": "cuatro_venezolano",
+      "name": "Cuatro venezolano (solo concert tradition)",
+      "family": "global",
+      "href": "traditions/cuatro_venezolano.json"
+    },
+    {
+      "id": "porro",
+      "name": "Porro",
+      "family": "global",
+      "href": "traditions/porro.json"
+    },
+    {
+      "id": "folclor_afrocolombiano",
+      "name": "Folclor afrocolombiano (Pacific and Atlantic Afro-Colombian folklore)",
+      "family": "global",
+      "href": "traditions/folclor_afrocolombiano.json"
+    },
+    {
+      "id": "musica_costena",
+      "name": "Música costeña (Colombian Caribbean coastal popular)",
+      "family": "global",
+      "href": "traditions/musica_costena.json"
+    },
+    {
+      "id": "champeta",
+      "name": "Champeta (Colombian Caribbean picó style)",
+      "family": "global",
+      "href": "traditions/champeta.json"
+    },
+    {
+      "id": "chicha",
+      "name": "Chicha (Peruvian Amazonian psychedelic cumbia)",
+      "family": "global",
+      "href": "traditions/chicha.json"
+    },
+    {
+      "id": "musica_andina",
+      "name": "Música andina (pan-Andean folkloric)",
+      "family": "global",
+      "href": "traditions/musica_andina.json"
+    },
+    {
+      "id": "musica_andina_chilena",
+      "name": "Música andina chilena (Norte Grande / nueva canción Andean)",
+      "family": "global",
+      "href": "traditions/musica_andina_chilena.json"
+    },
+    {
+      "id": "chilena",
+      "name": "Chilena (Costa Chica)",
+      "family": "global",
+      "href": "traditions/chilena.json"
+    },
+    {
+      "id": "tonada",
+      "name": "Tonada chilena",
+      "family": "global",
+      "href": "traditions/tonada.json"
+    },
+    {
+      "id": "musica_mapuche",
+      "name": "Música Mapuche",
+      "family": "global",
+      "href": "traditions/musica_mapuche.json"
+    },
+    {
+      "id": "folklore_chileno",
+      "name": "Folklore Chileno",
+      "family": "global",
+      "href": "traditions/folklore_chileno.json"
+    },
+    {
+      "id": "polca_paraguaya",
+      "name": "Polca Paraguaya",
+      "family": "global",
+      "href": "traditions/polca_paraguaya.json"
+    },
+    {
+      "id": "arpa_paraguaya",
+      "name": "Arpa Paraguaya (Paraguayan Harp Tradition)",
+      "family": "global",
+      "href": "traditions/arpa_paraguaya.json"
+    },
+    {
+      "id": "folklore_paraguayo",
+      "name": "Folklore Paraguayo",
+      "family": "global",
+      "href": "traditions/folklore_paraguayo.json"
+    },
+    {
+      "id": "folklore_boliviano",
+      "name": "Folklore Boliviano",
+      "family": "global",
+      "href": "traditions/folklore_boliviano.json"
+    },
+    {
+      "id": "folklore_ecuatoriano",
+      "name": "Folklore Ecuatoriano",
+      "family": "global",
+      "href": "traditions/folklore_ecuatoriano.json"
+    },
+    {
+      "id": "folklore_venezolano",
+      "name": "Folklore Venezolano",
+      "family": "global",
+      "href": "traditions/folklore_venezolano.json"
+    },
+    {
+      "id": "folklore_panameno",
+      "name": "Folklore Panameño",
+      "family": "global",
+      "href": "traditions/folklore_panameno.json"
+    },
+    {
+      "id": "folklore_uruguayo",
+      "name": "Folklore Uruguayo",
+      "family": "global",
+      "href": "traditions/folklore_uruguayo.json"
+    },
+    {
+      "id": "huapango",
+      "name": "Huapango",
+      "family": "global",
+      "href": "traditions/huapango.json"
+    },
+    {
+      "id": "trio_huasteco",
+      "name": "Trío Huasteco",
+      "family": "global",
+      "href": "traditions/trio_huasteco.json"
+    },
+    {
+      "id": "mexican_son",
+      "name": "Son Mexicano (Mexican Son)",
+      "family": "global",
+      "href": "traditions/mexican_son.json"
+    },
+    {
+      "id": "tololoche",
+      "name": "Tololoche norteño",
+      "family": "global",
+      "href": "traditions/tololoche.json"
+    },
+    {
+      "id": "tamborazo",
+      "name": "Tamborazo zacatecano",
+      "family": "vernacular",
+      "href": "traditions/tamborazo.json"
+    },
+    {
+      "id": "banda_guanajuatense",
+      "name": "Banda guanajuatense",
+      "family": "vernacular",
+      "href": "traditions/banda_guanajuatense.json"
+    },
+    {
+      "id": "banda_de_viento",
+      "name": "Banda de viento (Mexican wind band)",
+      "family": "global",
+      "href": "traditions/banda_de_viento.json"
+    },
+    {
+      "id": "norteno_sax",
+      "name": "Norteño-sax",
+      "family": "global",
+      "href": "traditions/norteno_sax.json"
+    },
+    {
+      "id": "corridos_belicos",
+      "name": "Corridos bélicos",
+      "family": "global",
+      "href": "traditions/corridos_belicos.json"
+    },
+    {
+      "id": "corridos_alternativos",
+      "name": "Corridos alternativos",
+      "family": "global",
+      "href": "traditions/corridos_alternativos.json"
+    },
+    {
+      "id": "arpa_grande",
+      "name": "Conjunto de arpa grande",
+      "family": "vernacular",
+      "href": "traditions/arpa_grande.json"
+    },
+    {
+      "id": "marimba_mexicana",
+      "name": "Marimba mexicana (Chiapas)",
+      "family": "global",
+      "href": "traditions/marimba_mexicana.json"
+    },
+    {
+      "id": "marimba_orquesta",
+      "name": "Marimba orquesta",
+      "family": "global",
+      "href": "traditions/marimba_orquesta.json"
+    },
+    {
+      "id": "marimba_de_guatemala",
+      "name": "Marimba de Guatemala",
+      "family": "vernacular",
+      "href": "traditions/marimba_de_guatemala.json"
+    },
+    {
+      "id": "new_tejano",
+      "name": "New Tejano",
+      "family": "global",
+      "href": "traditions/new_tejano.json"
+    },
+    {
+      "id": "nuevo_folklore_mexicano",
+      "name": "Nuevo folklore mexicano",
+      "family": "global",
+      "href": "traditions/nuevo_folklore_mexicano.json"
+    },
+    {
+      "id": "mexican_traditional",
+      "name": "Mexican Traditional (Son y Canción Mexicana)",
+      "family": "global",
+      "href": "traditions/mexican_traditional.json"
+    },
+    {
+      "id": "musica_purepecha",
+      "name": "Música Purépecha",
+      "family": "global",
+      "href": "traditions/musica_purepecha.json"
+    },
+    {
+      "id": "musica_mixteca",
+      "name": "Música Mixteca",
+      "family": "global",
+      "href": "traditions/musica_mixteca.json"
+    },
+    {
+      "id": "musica_wixarika",
+      "name": "Música Wixárika (Huichol)",
+      "family": "global",
+      "href": "traditions/musica_wixarika.json"
+    },
+    {
+      "id": "musica_indigena_mexicana",
+      "name": "Música Indígena Mexicana",
+      "family": "global",
+      "href": "traditions/musica_indigena_mexicana.json"
+    },
+    {
+      "id": "tipico",
+      "name": "Merengue Típico (Perico Ripiao)",
+      "family": "global",
+      "href": "traditions/tipico.json"
+    },
+    {
+      "id": "perreo",
+      "name": "Perreo",
+      "family": "hip_hop",
+      "href": "traditions/perreo.json"
+    },
+    {
+      "id": "bomba",
+      "name": "Bomba (Puerto Rico)",
+      "family": "global",
+      "href": "traditions/bomba.json"
+    },
+    {
+      "id": "bomba_y_plena",
+      "name": "Bomba y Plena",
+      "family": "global",
+      "href": "traditions/bomba_y_plena.json"
+    },
+    {
+      "id": "musica_jibara",
+      "name": "Música Jíbara",
+      "family": "global",
+      "href": "traditions/musica_jibara.json"
+    },
+    {
+      "id": "cuatro_puertorriqueno",
+      "name": "Cuatro Puertorriqueño (Instrumental Tradition)",
+      "family": "global",
+      "href": "traditions/cuatro_puertorriqueno.json"
+    },
+    {
+      "id": "kompa_gouyad",
+      "name": "Kompa Gouyad",
+      "family": "global",
+      "href": "traditions/kompa_gouyad.json"
+    },
+    {
+      "id": "kompa_twoubadou_ballad",
+      "name": "Twoubadou (Haitian guitar-and-accordion ballad)",
+      "family": "global",
+      "href": "traditions/kompa_twoubadou_ballad.json"
+    },
+    {
+      "id": "raboday",
+      "name": "Raboday",
+      "family": "global",
+      "href": "traditions/raboday.json"
+    },
+    {
+      "id": "rara",
+      "name": "Rara",
+      "family": "global",
+      "href": "traditions/rara.json"
+    },
+    {
+      "id": "nyahbinghi",
+      "name": "Nyahbinghi",
+      "family": "global",
+      "href": "traditions/nyahbinghi.json"
+    },
+    {
+      "id": "early_reggae",
+      "name": "Early Reggae (1968-1972)",
+      "family": "global",
+      "href": "traditions/early_reggae.json"
+    },
+    {
+      "id": "traditional_ska",
+      "name": "Traditional Ska (Skatalites-era instrumental)",
+      "family": "global",
+      "href": "traditions/traditional_ska.json"
+    },
+    {
+      "id": "jamaican_ska_vocal",
+      "name": "Jamaican Ska (vocal sound-system style)",
+      "family": "global",
+      "href": "traditions/jamaican_ska_vocal.json"
+    },
+    {
+      "id": "old_school_dancehall",
+      "name": "Old School Dancehall (early-1980s Kingston)",
+      "family": "global",
+      "href": "traditions/old_school_dancehall.json"
+    },
+    {
+      "id": "dancehall_queen_style",
+      "name": "Dancehall Queen (1990s digital ragga dance style)",
+      "family": "global",
+      "href": "traditions/dancehall_queen_style.json"
+    },
+    {
+      "id": "zimdancehall",
+      "name": "Zimdancehall",
+      "family": "global",
+      "href": "traditions/zimdancehall.json"
+    },
+    {
+      "id": "vincy_soca",
+      "name": "Vincy Soca",
+      "family": "global",
+      "href": "traditions/vincy_soca.json"
+    },
+    {
+      "id": "bajan_soca",
+      "name": "Bajan Soca",
+      "family": "global",
+      "href": "traditions/bajan_soca.json"
+    },
+    {
+      "id": "grenada_soca",
+      "name": "Grenada Soca",
+      "family": "global",
+      "href": "traditions/grenada_soca.json"
+    },
+    {
+      "id": "trinibad",
+      "name": "Trinibad",
+      "family": "hip_hop",
+      "href": "traditions/trinibad.json"
+    },
+    {
+      "id": "steelpan",
+      "name": "Steelpan (Trinidad steel orchestra)",
+      "family": "global",
+      "href": "traditions/steelpan.json"
+    },
+    {
+      "id": "dennery_segment",
+      "name": "Dennery Segment",
+      "family": "global",
+      "href": "traditions/dennery_segment.json"
+    },
+    {
+      "id": "zouk",
+      "name": "Zouk",
+      "family": "global",
+      "href": "traditions/zouk.json"
+    },
+    {
+      "id": "zouk_riddim",
+      "name": "Zouk Riddim",
+      "family": "electronic",
+      "href": "traditions/zouk_riddim.json"
+    },
+    {
+      "id": "shatta",
+      "name": "Shatta",
+      "family": "global",
+      "href": "traditions/shatta.json"
+    },
+    {
+      "id": "gwoka",
+      "name": "Gwoka",
+      "family": "global",
+      "href": "traditions/gwoka.json"
+    },
+    {
+      "id": "kaseko",
+      "name": "Kaseko",
+      "family": "global",
+      "href": "traditions/kaseko.json"
+    },
+    {
+      "id": "musique_guadeloupe",
+      "name": "Musique Guadeloupéenne (biguine-mazouk salon tradition)",
+      "family": "global",
+      "href": "traditions/musique_guadeloupe.json"
+    },
+    {
+      "id": "garifuna_folk",
+      "name": "Garifuna Folk Music",
+      "family": "global",
+      "href": "traditions/garifuna_folk.json"
+    },
+    {
+      "id": "punta",
+      "name": "Punta (Honduras Garifuna traditional)",
+      "family": "global",
+      "href": "traditions/punta.json"
+    },
+    {
+      "id": "old_school_highlife",
+      "name": "Old School Highlife (Ghana dance band era)",
+      "family": "global",
+      "href": "traditions/old_school_highlife.json"
+    },
+    {
+      "id": "azonto",
+      "name": "Azonto",
+      "family": "electronic",
+      "href": "traditions/azonto.json"
+    },
+    {
+      "id": "asakaa",
+      "name": "Asakaa",
+      "family": "hip_hop",
+      "href": "traditions/asakaa.json"
+    },
+    {
+      "id": "afro_funk",
+      "name": "Afro-Funk",
+      "family": "global",
+      "href": "traditions/afro_funk.json"
+    },
+    {
+      "id": "bikutsi",
+      "name": "Bikutsi",
+      "family": "global",
+      "href": "traditions/bikutsi.json"
+    },
+    {
+      "id": "semba",
+      "name": "Semba",
+      "family": "global",
+      "href": "traditions/semba.json"
+    },
+    {
+      "id": "funana",
+      "name": "Funaná",
+      "family": "global",
+      "href": "traditions/funana.json"
+    },
+    {
+      "id": "urban_kiz",
+      "name": "Urban Kiz",
+      "family": "electronic",
+      "href": "traditions/urban_kiz.json"
+    },
+    {
+      "id": "batida",
+      "name": "Batida (Lisbon Angolan Electronic)",
+      "family": "electronic",
+      "href": "traditions/batida.json"
+    },
+    {
+      "id": "sgija",
+      "name": "Sgija",
+      "family": "electronic",
+      "href": "traditions/sgija.json"
+    },
+    {
+      "id": "bolobedu_house",
+      "name": "Bolobedu House",
+      "family": "electronic",
+      "href": "traditions/bolobedu_house.json"
+    },
+    {
+      "id": "singeli",
+      "name": "Singeli",
+      "family": "electronic",
+      "href": "traditions/singeli.json"
+    },
+    {
+      "id": "zilizopendwa",
+      "name": "Zilizopendwa",
+      "family": "global",
+      "href": "traditions/zilizopendwa.json"
+    },
+    {
+      "id": "benga",
+      "name": "Benga",
+      "family": "global",
+      "href": "traditions/benga.json"
+    },
+    {
+      "id": "ohangla",
+      "name": "Ohangla",
+      "family": "global",
+      "href": "traditions/ohangla.json"
+    },
+    {
+      "id": "kadongo_kamu",
+      "name": "Kadongo Kamu",
+      "family": "global",
+      "href": "traditions/kadongo_kamu.json"
+    },
+    {
+      "id": "sungura",
+      "name": "Sungura",
+      "family": "global",
+      "href": "traditions/sungura.json"
+    },
+    {
+      "id": "jit",
+      "name": "Jit",
+      "family": "global",
+      "href": "traditions/jit.json"
+    },
+    {
+      "id": "mbira_dzavadzimu_ceremony",
+      "name": "Mbira dzaVadzimu Ceremonial Music",
+      "family": "global",
+      "href": "traditions/mbira_dzavadzimu_ceremony.json"
+    },
+    {
+      "id": "zim_urban_grooves",
+      "name": "Zimbabwean Urban Grooves",
+      "family": "global",
+      "href": "traditions/zim_urban_grooves.json"
+    },
+    {
+      "id": "mande_pop",
+      "name": "Mande Pop",
+      "family": "global",
+      "href": "traditions/mande_pop.json"
+    },
+    {
+      "id": "kora_jaliya",
+      "name": "Kora Jaliya (Mandinka Harp-Lute Music)",
+      "family": "global",
+      "href": "traditions/kora_jaliya.json"
+    },
+    {
+      "id": "ngoni_jeli",
+      "name": "Ngoni Music (Mande Lute)",
+      "family": "global",
+      "href": "traditions/ngoni_jeli.json"
+    },
+    {
+      "id": "balafon_mande",
+      "name": "Balafon Music (Mande and Voltaic)",
+      "family": "global",
+      "href": "traditions/balafon_mande.json"
+    },
+    {
+      "id": "griot_praise_song",
+      "name": "Griot Praise Song (Jeliya)",
+      "family": "global",
+      "href": "traditions/griot_praise_song.json"
+    },
+    {
+      "id": "musique_mandingue",
+      "name": "Musique Mandingue",
+      "family": "global",
+      "href": "traditions/musique_mandingue.json"
+    },
+    {
+      "id": "musique_peule",
+      "name": "Musique Peule",
+      "family": "global",
+      "href": "traditions/musique_peule.json"
+    },
+    {
+      "id": "soninke_music",
+      "name": "Musique soninke (Soninke griot song)",
+      "family": "global",
+      "href": "traditions/soninke_music.json"
+    },
+    {
+      "id": "tuareg_guitar",
+      "name": "Tuareg guitar (assouf electric style)",
+      "family": "global",
+      "href": "traditions/tuareg_guitar.json"
+    },
+    {
+      "id": "musique_touareg",
+      "name": "Musique touareg (Tuareg traditional repertoire)",
+      "family": "global",
+      "href": "traditions/musique_touareg.json"
+    },
+    {
+      "id": "malian_blues",
+      "name": "Malian blues (Niger Bend guitar song)",
+      "family": "global",
+      "href": "traditions/malian_blues.json"
+    },
+    {
+      "id": "chaabi_marocain",
+      "name": "Chaabi marocain (Moroccan wedding chaabi)",
+      "family": "global",
+      "href": "traditions/chaabi_marocain.json"
+    },
+    {
+      "id": "chaabi_algerien",
+      "name": "Chaabi algérien (Algiers casbah chaabi)",
+      "family": "global",
+      "href": "traditions/chaabi_algerien.json"
+    },
+    {
+      "id": "rai_algerien",
+      "name": "Raï algérien (Oran pop-raï)",
+      "family": "global",
+      "href": "traditions/rai_algerien.json"
+    },
+    {
+      "id": "kabyle",
+      "name": "Kabyle (Kabylie chanson)",
+      "family": "global",
+      "href": "traditions/kabyle.json"
+    },
+    {
+      "id": "tamazight",
+      "name": "Tamazight (Amazigh-language song, Middle Atlas)",
+      "family": "global",
+      "href": "traditions/tamazight.json"
+    },
+    {
+      "id": "mezwed",
+      "name": "Mezwed (Tunisian)",
+      "family": "global",
+      "href": "traditions/mezwed.json"
+    },
+    {
+      "id": "maghreb",
+      "name": "Maghreb (Maghrebi popular music, pan-regional)",
+      "family": "global",
+      "href": "traditions/maghreb.json"
+    },
+    {
+      "id": "shaabi",
+      "name": "Shaabi (pan-Arab popular street music)",
+      "family": "global",
+      "href": "traditions/shaabi.json"
+    },
+    {
+      "id": "dabke",
+      "name": "Dabke (Levantine line-dance music)",
+      "family": "global",
+      "href": "traditions/dabke.json"
+    },
+    {
+      "id": "mizrahi",
+      "name": "Mizrahi (Israeli Mediterranean Music)",
+      "family": "global",
+      "href": "traditions/mizrahi.json"
+    },
+    {
+      "id": "sefardi_romancero",
+      "name": "Sefardi Song (Judeo-Spanish Romancero)",
+      "family": "global",
+      "href": "traditions/sefardi_romancero.json"
+    },
+    {
+      "id": "khaleeji_iraqi",
+      "name": "Khaleeji-Iraqi Song",
+      "family": "global",
+      "href": "traditions/khaleeji_iraqi.json"
+    },
+    {
+      "id": "shailat",
+      "name": "Shailat",
+      "family": "global",
+      "href": "traditions/shailat.json"
+    },
+    {
+      "id": "latmiya",
+      "name": "Latmiya",
+      "family": "global",
+      "href": "traditions/latmiya.json"
+    },
+    {
+      "id": "arabesk",
+      "name": "Arabesk",
+      "family": "global",
+      "href": "traditions/arabesk.json"
+    },
+    {
+      "id": "oyun_havasi",
+      "name": "Oyun Havası",
+      "family": "global",
+      "href": "traditions/oyun_havasi.json"
+    },
+    {
+      "id": "karadeniz_turkuleri",
+      "name": "Karadeniz Türküleri",
+      "family": "global",
+      "href": "traditions/karadeniz_turkuleri.json"
+    },
+    {
+      "id": "rumeli_turkuleri",
+      "name": "Rumeli Türküleri",
+      "family": "global",
+      "href": "traditions/rumeli_turkuleri.json"
+    },
+    {
+      "id": "bozlak",
+      "name": "Bozlak",
+      "family": "global",
+      "href": "traditions/bozlak.json"
+    },
+    {
+      "id": "turk_sanat_muzigi",
+      "name": "Türk Sanat Müziği",
+      "family": "classical",
+      "href": "traditions/turk_sanat_muzigi.json"
+    },
+    {
+      "id": "baglama_asik",
+      "name": "Bağlama (Aşık Saz Tradition)",
+      "family": "global",
+      "href": "traditions/baglama_asik.json"
+    },
+    {
+      "id": "mevlevi_ayin",
+      "name": "Mevlevi Ayin",
+      "family": "classical",
+      "href": "traditions/mevlevi_ayin.json"
+    },
+    {
+      "id": "sufi_zikr_chant",
+      "name": "Sufi zikr chant (dhikr recitation)",
+      "family": "global",
+      "href": "traditions/sufi_zikr_chant.json"
+    },
+    {
+      "id": "shabad_gurmat_sangeet",
+      "name": "Shabad (Gurmat sangeet raga-set hymn)",
+      "family": "global",
+      "href": "traditions/shabad_gurmat_sangeet.json"
+    },
+    {
+      "id": "hindustani_vocal",
+      "name": "Hindustani vocal (gayaki tradition)",
+      "family": "classical",
+      "href": "traditions/hindustani_vocal.json"
+    },
+    {
+      "id": "lavani_dholki",
+      "name": "Lavani (Maharashtrian dholki stage song)",
+      "family": "global",
+      "href": "traditions/lavani_dholki.json"
+    },
+    {
+      "id": "bhangra_dhol_folk",
+      "name": "Bhangra (Punjabi harvest dhol dance)",
+      "family": "global",
+      "href": "traditions/bhangra_dhol_folk.json"
+    },
+    {
+      "id": "punjabi_folk_boli",
+      "name": "Punjabi folk (boliyan and tappe village song)",
+      "family": "global",
+      "href": "traditions/punjabi_folk_boli.json"
+    },
+    {
+      "id": "rajasthani_folk_thar",
+      "name": "Rajasthani folk (Thar desert hereditary-musician song)",
+      "family": "global",
+      "href": "traditions/rajasthani_folk_thar.json"
+    },
+    {
+      "id": "bengali_folk_lokgeeti",
+      "name": "Bengali folk (lokgeeti of Bengal and Bangladesh)",
+      "family": "global",
+      "href": "traditions/bengali_folk_lokgeeti.json"
+    },
+    {
+      "id": "indian_folk_lok_geet",
+      "name": "Indian folk (pan-regional lok geet)",
+      "family": "global",
+      "href": "traditions/indian_folk_lok_geet.json"
+    },
+    {
+      "id": "filmi_playback",
+      "name": "Filmi (Indian film playback song)",
+      "family": "pop",
+      "href": "traditions/filmi_playback.json"
+    },
+    {
+      "id": "keroncong_asli",
+      "name": "Keroncong asli (Indonesian kroncong classic form)",
+      "family": "global",
+      "href": "traditions/keroncong_asli.json"
+    },
+    {
+      "id": "campursari",
+      "name": "Campursari (Javanese gamelan-keyboard crossover)",
+      "family": "global",
+      "href": "traditions/campursari.json"
+    },
+    {
+      "id": "dangdut_koplo",
+      "name": "Dangdut koplo (East Javanese kendang koplo)",
+      "family": "pop",
+      "href": "traditions/dangdut_koplo.json"
+    },
+    {
+      "id": "gamelan",
+      "name": "Gamelan (Javanese Court)",
+      "family": "global",
+      "href": "traditions/gamelan.json"
+    },
+    {
+      "id": "balinese_traditional",
+      "name": "Balinese Traditional (Gong Kebyar)",
+      "family": "global",
+      "href": "traditions/balinese_traditional.json"
+    },
+    {
+      "id": "sundanese_traditional",
+      "name": "Sundanese Traditional",
+      "family": "global",
+      "href": "traditions/sundanese_traditional.json"
+    },
+    {
+      "id": "lagu_sunda",
+      "name": "Lagu Sunda (Pop Sunda)",
+      "family": "global",
+      "href": "traditions/lagu_sunda.json"
+    },
+    {
+      "id": "lagu_bali",
+      "name": "Lagu Bali (Pop Bali)",
+      "family": "global",
+      "href": "traditions/lagu_bali.json"
+    },
+    {
+      "id": "lagu_melayu",
+      "name": "Lagu Melayu (Malay Asli)",
+      "family": "global",
+      "href": "traditions/lagu_melayu.json"
+    },
+    {
+      "id": "dikir_barat",
+      "name": "Dikir Barat",
+      "family": "global",
+      "href": "traditions/dikir_barat.json"
+    },
+    {
+      "id": "rondalla",
+      "name": "Rondalla",
+      "family": "global",
+      "href": "traditions/rondalla.json"
+    },
+    {
+      "id": "kundiman",
+      "name": "Kundiman",
+      "family": "global",
+      "href": "traditions/kundiman.json"
+    },
+    {
+      "id": "manila_sound",
+      "name": "Manila Sound",
+      "family": "pop_rock",
+      "href": "traditions/manila_sound.json"
+    },
+    {
+      "id": "bisrock",
+      "name": "Bisrock",
+      "family": "rock",
+      "href": "traditions/bisrock.json"
+    },
+    {
+      "id": "luk_thung",
+      "name": "Luk Thung",
+      "family": "global",
+      "href": "traditions/luk_thung.json"
+    },
+    {
+      "id": "molam",
+      "name": "Molam",
+      "family": "global",
+      "href": "traditions/molam.json"
+    },
+    {
+      "id": "phleng_phuea_chiwit",
+      "name": "Phleng Phuea Chiwit",
+      "family": "global",
+      "href": "traditions/phleng_phuea_chiwit.json"
+    },
+    {
+      "id": "thai_folk",
+      "name": "Thai Folk (Village Traditions)",
+      "family": "global",
+      "href": "traditions/thai_folk.json"
+    },
+    {
+      "id": "thai_traditional",
+      "name": "Thai Traditional (Piphat and Mahori)",
+      "family": "global",
+      "href": "traditions/thai_traditional.json"
+    },
+    {
+      "id": "khmer_court_music",
+      "name": "Khmer Court Music (Pinpeat)",
+      "family": "global",
+      "href": "traditions/khmer_court_music.json"
+    },
+    {
+      "id": "cambodian_rock",
+      "name": "Cambodian Rock (Phnom Penh Psych)",
+      "family": "global",
+      "href": "traditions/cambodian_rock.json"
+    },
+    {
+      "id": "cambodian_traditional",
+      "name": "Cambodian Traditional (Village and Wedding)",
+      "family": "global",
+      "href": "traditions/cambodian_traditional.json"
+    },
+    {
+      "id": "vietnamese_bolero",
+      "name": "Vietnamese Bolero (Nhạc Vàng)",
+      "family": "global",
+      "href": "traditions/vietnamese_bolero.json"
+    },
+    {
+      "id": "tan_co",
+      "name": "Tân Cổ Giao Duyên",
+      "family": "global",
+      "href": "traditions/tan_co.json"
+    },
+    {
+      "id": "nhac_thieu_nhi",
+      "name": "Nhạc Thiếu Nhi",
+      "family": "global",
+      "href": "traditions/nhac_thieu_nhi.json"
+    },
+    {
+      "id": "kayokyoku",
+      "name": "Kayōkyoku",
+      "family": "global",
+      "href": "traditions/kayokyoku.json"
+    },
+    {
+      "id": "ryukoka",
+      "name": "Ryūkōka",
+      "family": "global",
+      "href": "traditions/ryukoka.json"
+    },
+    {
+      "id": "minyo",
+      "name": "Min'yō",
+      "family": "global",
+      "href": "traditions/minyo.json"
+    },
+    {
+      "id": "denpa_kei",
+      "name": "Denpa-kei",
+      "family": "electronic",
+      "href": "traditions/denpa_kei.json"
+    },
+    {
+      "id": "oshare_kei",
+      "name": "Oshare kei",
+      "family": "rock_punk",
+      "href": "traditions/oshare_kei.json"
+    },
+    {
+      "id": "shakuhachi_sankyoku",
+      "name": "Shakuhachi (sankyoku ensemble repertoire)",
+      "family": "classical",
+      "href": "traditions/shakuhachi_sankyoku.json"
+    },
+    {
+      "id": "shamisen_tsugaru",
+      "name": "Tsugaru-jamisen",
+      "family": "global",
+      "href": "traditions/shamisen_tsugaru.json"
+    },
+    {
+      "id": "taiko_north_american",
+      "name": "Taiko (North American kumi-daiko)",
+      "family": "global",
+      "href": "traditions/taiko_north_american.json"
+    },
+    {
+      "id": "ryukyu_koten_ongaku",
+      "name": "Ryukyu koten ongaku (Okinawan classical court music)",
+      "family": "classical",
+      "href": "traditions/ryukyu_koten_ongaku.json"
+    },
+    {
+      "id": "okinawa_minyo",
+      "name": "Okinawan min'yo",
+      "family": "global",
+      "href": "traditions/okinawa_minyo.json"
+    },
+    {
+      "id": "uchinaa_pop",
+      "name": "Uchina pop (Okinawan pop)",
+      "family": "global",
+      "href": "traditions/uchinaa_pop.json"
+    },
+    {
+      "id": "ainu_upopo",
+      "name": "Ainu upopo and rimse (song and dance)",
+      "family": "global",
+      "href": "traditions/ainu_upopo.json"
+    },
+    {
+      "id": "trot_revival",
+      "name": "Trot (contemporary revival)",
+      "family": "pop",
+      "href": "traditions/trot_revival.json"
+    },
+    {
+      "id": "korean_minyo",
+      "name": "Korean minyo (regional folk song)",
+      "family": "global",
+      "href": "traditions/korean_minyo.json"
+    },
+    {
+      "id": "korean_jeongak",
+      "name": "Korean jeongak (court and literati music)",
+      "family": "classical",
+      "href": "traditions/korean_jeongak.json"
+    },
+    {
+      "id": "gayageum_byeongchang",
+      "name": "Gayageum byeongchang (self-accompanied gayageum song)",
+      "family": "global",
+      "href": "traditions/gayageum_byeongchang.json"
+    },
+    {
+      "id": "joseon_pop",
+      "name": "Joseon pop",
+      "family": "pop_rock",
+      "href": "traditions/joseon_pop.json"
+    },
+    {
+      "id": "xinyao",
+      "name": "Xinyao",
+      "family": "pop",
+      "href": "traditions/xinyao.json"
+    },
+    {
+      "id": "zhongguo_feng",
+      "name": "Zhongguo Feng (China Wind Mandopop)",
+      "family": "pop",
+      "href": "traditions/zhongguo_feng.json"
+    },
+    {
+      "id": "chinese_minyao",
+      "name": "Chinese Minyao (Mainland Indie Folk)",
+      "family": "pop_rock",
+      "href": "traditions/chinese_minyao.json"
+    },
+    {
+      "id": "chinese_traditional",
+      "name": "Chinese Traditional Music (Han Instrumental & Vocal)",
+      "family": "global",
+      "href": "traditions/chinese_traditional.json"
+    },
+    {
+      "id": "pipa",
+      "name": "Pipa Repertoire",
+      "family": "global",
+      "href": "traditions/pipa.json"
+    },
+    {
+      "id": "guzheng",
+      "name": "Guzheng Repertoire",
+      "family": "global",
+      "href": "traditions/guzheng.json"
+    },
+    {
+      "id": "erhu",
+      "name": "Erhu Repertoire",
+      "family": "global",
+      "href": "traditions/erhu.json"
+    },
+    {
+      "id": "dizi",
+      "name": "Dizi Repertoire",
+      "family": "global",
+      "href": "traditions/dizi.json"
+    },
+    {
+      "id": "huqin",
+      "name": "Huqin Ensemble (Chinese Bowed-Fiddle Family)",
+      "family": "global",
+      "href": "traditions/huqin.json"
+    },
+    {
+      "id": "mongolian_folk",
+      "name": "Mongolian Folk Music",
+      "family": "global",
+      "href": "traditions/mongolian_folk.json"
+    },
+    {
+      "id": "zohioliin_duu",
+      "name": "Zohioliin Duu (Mongolian Authored Song)",
+      "family": "global",
+      "href": "traditions/zohioliin_duu.json"
+    },
+    {
+      "id": "throat_singing",
+      "name": "Throat Singing (Overtone Singing)",
+      "family": "global",
+      "href": "traditions/throat_singing.json"
+    },
+    {
+      "id": "tuvan_folk",
+      "name": "Tuvan Folk Music",
+      "family": "global",
+      "href": "traditions/tuvan_folk.json"
+    },
+    {
+      "id": "sami_yoik_tradition",
+      "name": "Sami yoik (Sápmi vocal tradition)",
+      "family": "global",
+      "href": "traditions/sami_yoik_tradition.json"
+    },
+    {
+      "id": "kaneka",
+      "name": "Kaneka (Kanak New Caledonia)",
+      "family": "global",
+      "href": "traditions/kaneka.json"
+    },
+    {
+      "id": "waiata_maori_song",
+      "name": "Waiata (Māori song tradition)",
+      "family": "global",
+      "href": "traditions/waiata_maori_song.json"
+    },
+    {
+      "id": "kapa_haka",
+      "name": "Kapa haka",
+      "family": "global",
+      "href": "traditions/kapa_haka.json"
+    },
+    {
+      "id": "himene_tarava_society",
+      "name": "Himene tārava (Society Islands village choir)",
+      "family": "global",
+      "href": "traditions/himene_tarava_society.json"
+    },
+    {
+      "id": "polynesian_traditional",
+      "name": "Polynesian traditional music (pan-Pacific)",
+      "family": "global",
+      "href": "traditions/polynesian_traditional.json"
+    },
+    {
+      "id": "tahitian_traditional",
+      "name": "Tahitian traditional music (ʻōteʻa and pāʻōʻā)",
+      "family": "global",
+      "href": "traditions/tahitian_traditional.json"
+    },
+    {
+      "id": "hula_mele",
+      "name": "Hula (mele hula dance-chant)",
+      "family": "global",
+      "href": "traditions/hula_mele.json"
+    },
+    {
+      "id": "slack_key_guitar",
+      "name": "Slack-key guitar (kī hōʻalu instrumental)",
+      "family": "global",
+      "href": "traditions/slack_key_guitar.json"
+    },
+    {
+      "id": "vintage_hawaiian",
+      "name": "Vintage Hawaiian (hapa haole steel-guitar era)",
+      "family": "pop",
+      "href": "traditions/vintage_hawaiian.json"
+    },
+    {
+      "id": "inuit_traditional",
+      "name": "Inuit traditional music (drum-dance and pisiq)",
+      "family": "global",
+      "href": "traditions/inuit_traditional.json"
+    },
+    {
+      "id": "navajo_dine_song",
+      "name": "Navajo traditional song (Diné)",
+      "family": "global",
+      "href": "traditions/navajo_dine_song.json"
+    },
+    {
+      "id": "native_american_traditional",
+      "name": "Native American traditional music (pan-tribal)",
+      "family": "global",
+      "href": "traditions/native_american_traditional.json"
+    },
+    {
+      "id": "native_american_flute_music",
+      "name": "Native American courting flute music",
+      "family": "global",
+      "href": "traditions/native_american_flute_music.json"
+    },
+    {
+      "id": "australian_indigenous_music",
+      "name": "Australian Aboriginal clan song and manikay",
+      "family": "global",
+      "href": "traditions/australian_indigenous_music.json"
+    },
+    {
+      "id": "bush_ballad",
+      "name": "Australian bush ballad",
+      "family": "country",
+      "href": "traditions/bush_ballad.json"
+    },
+    {
+      "id": "didgeridoo_drone_practice",
+      "name": "Didgeridoo drone practice (yidaki and mago technique)",
+      "family": "global",
+      "href": "traditions/didgeridoo_drone_practice.json"
+    },
+    {
+      "id": "yiddish_folk",
+      "name": "Yiddish folksong (Ashkenazi secular repertoire)",
+      "family": "global",
+      "href": "traditions/yiddish_folk.json"
+    },
+    {
+      "id": "jewish_cantorial_recitative",
+      "name": "Jewish cantorial recitative (golden-age hazzanut)",
+      "family": "global",
+      "href": "traditions/jewish_cantorial_recitative.json"
+    },
+    {
+      "id": "chabad_niggunim",
+      "name": "Chabad-Lubavitch niggunim",
+      "family": "global",
+      "href": "traditions/chabad_niggunim.json"
+    },
+    {
+      "id": "chasidic_pop",
+      "name": "Chasidic pop (Orthodox Jewish popular music)",
+      "family": "pop",
+      "href": "traditions/chasidic_pop.json"
+    },
+    {
+      "id": "byzantine_ecclesiastical",
+      "name": "Byzantine ecclesiastical music (papadic and sticheraric styles)",
+      "family": "classical",
+      "href": "traditions/byzantine_ecclesiastical.json"
+    },
+    {
+      "id": "orthodox_chant",
+      "name": "Orthodox chant (Slavonic obikhod and znamenny)",
+      "family": "classical",
+      "href": "traditions/orthodox_chant.json"
+    },
+    {
+      "id": "coptic_hymn",
+      "name": "Coptic hymnody (Alexandrian Tasbeha)",
+      "family": "global",
+      "href": "traditions/coptic_hymn.json"
+    },
+    {
+      "id": "syro_aramaic_chant",
+      "name": "Syro-Aramaic chant (Beth Gazo modal cycle)",
+      "family": "global",
+      "href": "traditions/syro_aramaic_chant.json"
+    },
+    {
+      "id": "gregorian_dance",
+      "name": "Gregorian dance (chant-sampling dance pop)",
+      "family": "electronic",
+      "href": "traditions/gregorian_dance.json"
+    },
+    {
+      "id": "spirituals",
+      "name": "Spirituals (arranged concert tradition)",
+      "family": "blues_gospel",
+      "href": "traditions/spirituals.json"
+    },
+    {
+      "id": "shape_note",
+      "name": "Shape-note singing (fasola tradition)",
+      "family": "vernacular",
+      "href": "traditions/shape_note.json"
+    },
+    {
+      "id": "appalachian_folk",
+      "name": "Appalachian folk song",
+      "family": "vernacular",
+      "href": "traditions/appalachian_folk.json"
+    },
+    {
+      "id": "old_time_fiddle",
+      "name": "Old-time fiddle",
+      "family": "vernacular",
+      "href": "traditions/old_time_fiddle.json"
+    },
+    {
+      "id": "clawhammer_banjo",
+      "name": "Clawhammer banjo",
+      "family": "vernacular",
+      "href": "traditions/clawhammer_banjo.json"
+    },
+    {
+      "id": "string_band",
+      "name": "String band (Southern pre-war)",
+      "family": "vernacular",
+      "href": "traditions/string_band.json"
+    },
+    {
+      "id": "hot_jazz",
+      "name": "Hot jazz",
+      "family": "jazz",
+      "href": "traditions/hot_jazz.json"
+    },
+    {
+      "id": "stride",
+      "name": "Stride",
+      "family": "jazz",
+      "href": "traditions/stride.json"
+    },
+    {
+      "id": "barrelhouse_piano",
+      "name": "Barrelhouse piano",
+      "family": "blues_gospel",
+      "href": "traditions/barrelhouse_piano.json"
+    },
+    {
+      "id": "second_line",
+      "name": "Second line",
+      "family": "vernacular",
+      "href": "traditions/second_line.json"
+    },
+    {
+      "id": "new_orleans_funk",
+      "name": "New Orleans funk",
+      "family": "pop_rock",
+      "href": "traditions/new_orleans_funk.json"
+    },
+    {
+      "id": "go_go",
+      "name": "Go-go",
+      "family": "pop_rock",
+      "href": "traditions/go_go.json"
+    },
+    {
+      "id": "atlanta_bass",
+      "name": "Atlanta bass",
+      "family": "hip_hop",
+      "href": "traditions/atlanta_bass.json"
+    },
+    {
+      "id": "freestyle",
+      "name": "Freestyle (Latin Freestyle)",
+      "family": "electronic",
+      "href": "traditions/freestyle.json"
+    },
+    {
+      "id": "minneapolis_sound",
+      "name": "Minneapolis Sound",
+      "family": "pop_rock",
+      "href": "traditions/minneapolis_sound.json"
+    },
+    {
+      "id": "philly_soul",
+      "name": "Philly Soul",
+      "family": "blues_gospel",
+      "href": "traditions/philly_soul.json"
+    },
+    {
+      "id": "memphis_soul",
+      "name": "Memphis Soul",
+      "family": "blues_gospel",
+      "href": "traditions/memphis_soul.json"
+    },
+    {
+      "id": "chicago_soul",
+      "name": "Chicago Soul",
+      "family": "blues_gospel",
+      "href": "traditions/chicago_soul.json"
+    },
+    {
+      "id": "new_orleans_soul",
+      "name": "New Orleans Soul",
+      "family": "blues_gospel",
+      "href": "traditions/new_orleans_soul.json"
+    },
+    {
+      "id": "souldies",
+      "name": "Souldies",
+      "family": "blues_gospel",
+      "href": "traditions/souldies.json"
+    },
+    {
+      "id": "rare_groove",
+      "name": "Rare Groove",
+      "family": "blues_gospel",
+      "href": "traditions/rare_groove.json"
+    },
+    {
+      "id": "brit_funk",
+      "name": "Brit Funk",
+      "family": "blues_gospel",
+      "href": "traditions/brit_funk.json"
+    },
+    {
+      "id": "modern_funk",
+      "name": "Modern Funk",
+      "family": "electronic",
+      "href": "traditions/modern_funk.json"
+    },
+    {
+      "id": "traditional_funk",
+      "name": "Traditional Funk",
+      "family": "blues_gospel",
+      "href": "traditions/traditional_funk.json"
+    },
+    {
+      "id": "country_boogie",
+      "name": "Country Boogie (Hillbilly Boogie)",
+      "family": "country",
+      "href": "traditions/country_boogie.json"
+    },
+    {
+      "id": "old_west",
+      "name": "Old West frontier music",
+      "family": "country",
+      "href": "traditions/old_west.json"
+    },
+    {
+      "id": "cowboy_western",
+      "name": "Cowboy Western (singing-cowboy style)",
+      "family": "country",
+      "href": "traditions/cowboy_western.json"
+    },
+    {
+      "id": "jamgrass",
+      "name": "Jamgrass",
+      "family": "country",
+      "href": "traditions/jamgrass.json"
+    },
+    {
+      "id": "neo_traditional_bluegrass",
+      "name": "Neo-traditional bluegrass",
+      "family": "country",
+      "href": "traditions/neo_traditional_bluegrass.json"
+    },
+    {
+      "id": "instrumental_bluegrass",
+      "name": "Instrumental bluegrass",
+      "family": "country",
+      "href": "traditions/instrumental_bluegrass.json"
+    },
+    {
+      "id": "sean_nos_singing",
+      "name": "Sean-nós singing (Conamara tradition)",
+      "family": "global",
+      "href": "traditions/sean_nos_singing.json"
+    },
+    {
+      "id": "puirt_a_beul",
+      "name": "Puirt-à-beul (Gaelic mouth music)",
+      "family": "global",
+      "href": "traditions/puirt_a_beul.json"
+    },
+    {
+      "id": "jig_and_reel",
+      "name": "Jig and reel (Irish dance tune repertoire)",
+      "family": "global",
+      "href": "traditions/jig_and_reel.json"
+    },
+    {
+      "id": "ceilidh",
+      "name": "Céilí / ceilidh band music",
+      "family": "global",
+      "href": "traditions/ceilidh.json"
+    },
+    {
+      "id": "irish_banjo",
+      "name": "Irish tenor banjo playing",
+      "family": "global",
+      "href": "traditions/irish_banjo.json"
+    },
+    {
+      "id": "uilleann_pipes",
+      "name": "Uilleann piping (Irish pipe tradition)",
+      "family": "global",
+      "href": "traditions/uilleann_pipes.json"
+    },
+    {
+      "id": "scottish_fiddle",
+      "name": "Scottish fiddle tradition",
+      "family": "global",
+      "href": "traditions/scottish_fiddle.json"
+    },
+    {
+      "id": "scottish_gaelic_folk",
+      "name": "Scottish Gaelic folk song",
+      "family": "global",
+      "href": "traditions/scottish_gaelic_folk.json"
+    },
+    {
+      "id": "pibroch",
+      "name": "Pibroch (ceòl mòr Highland piping)",
+      "family": "global",
+      "href": "traditions/pibroch.json"
+    },
+    {
+      "id": "scottish_smallpipe_music",
+      "name": "Scottish smallpipe music",
+      "family": "global",
+      "href": "traditions/scottish_smallpipe_music.json"
+    },
+    {
+      "id": "orkney_shetland_folk",
+      "name": "Orkney and Shetland folk",
+      "family": "global",
+      "href": "traditions/orkney_shetland_folk.json"
+    },
+    {
+      "id": "northumbrian_folk",
+      "name": "Northumbrian folk",
+      "family": "global",
+      "href": "traditions/northumbrian_folk.json"
+    },
+    {
+      "id": "english_traditional_folk",
+      "name": "Traditional English folk",
+      "family": "global",
+      "href": "traditions/english_traditional_folk.json"
+    },
+    {
+      "id": "cornish_folk",
+      "name": "Cornish folk",
+      "family": "global",
+      "href": "traditions/cornish_folk.json"
+    },
+    {
+      "id": "welsh_folk",
+      "name": "Welsh folk",
+      "family": "global",
+      "href": "traditions/welsh_folk.json"
+    },
+    {
+      "id": "manx_folk",
+      "name": "Manx folk",
+      "family": "global",
+      "href": "traditions/manx_folk.json"
+    },
+    {
+      "id": "galician_folk",
+      "name": "Galician folk",
+      "family": "global",
+      "href": "traditions/galician_folk.json"
+    },
+    {
+      "id": "asturian_folk",
+      "name": "Asturian folk",
+      "family": "global",
+      "href": "traditions/asturian_folk.json"
+    },
+    {
+      "id": "jota_aragonesa",
+      "name": "Jota aragonesa",
+      "family": "global",
+      "href": "traditions/jota_aragonesa.json"
+    },
+    {
+      "id": "sevillanas",
+      "name": "Sevillanas",
+      "family": "global",
+      "href": "traditions/sevillanas.json"
+    },
+    {
+      "id": "cante_flamenco",
+      "name": "Cante flamenco (the vocal art)",
+      "family": "global",
+      "href": "traditions/cante_flamenco.json"
+    },
+    {
+      "id": "flamenco_guitar_toque",
+      "name": "Flamenco guitar (toque solo tradition)",
+      "family": "global",
+      "href": "traditions/flamenco_guitar_toque.json"
+    },
+    {
+      "id": "pasodoble",
+      "name": "Pasodoble",
+      "family": "global",
+      "href": "traditions/pasodoble.json"
+    },
+    {
+      "id": "copla_andaluza",
+      "name": "Copla (Spanish copla andaluza)",
+      "family": "global",
+      "href": "traditions/copla_andaluza.json"
+    },
+    {
+      "id": "zarzuela_genero_chico",
+      "name": "Zarzuela género chico (one-act Madrid tradition)",
+      "family": "classical",
+      "href": "traditions/zarzuela_genero_chico.json"
+    },
+    {
+      "id": "tuna_universitaria",
+      "name": "Tuna universitaria (Spanish student serenade troupe)",
+      "family": "global",
+      "href": "traditions/tuna_universitaria.json"
+    },
+    {
+      "id": "catalan_folk",
+      "name": "Catalan folk (música tradicional catalana)",
+      "family": "global",
+      "href": "traditions/catalan_folk.json"
+    },
+    {
+      "id": "nova_canco",
+      "name": "Nova Cançó (Els Setze Jutges movement)",
+      "family": "global",
+      "href": "traditions/nova_canco.json"
+    },
+    {
+      "id": "basque_folk",
+      "name": "Basque folk (Euskal Herriko musika tradizionala)",
+      "family": "global",
+      "href": "traditions/basque_folk.json"
+    },
+    {
+      "id": "trikiti",
+      "name": "Trikiti (Basque diatonic accordion dance music)",
+      "family": "global",
+      "href": "traditions/trikiti.json"
+    },
+    {
+      "id": "polyphonies_corses",
+      "name": "Polyphonies corses (Corsican ensemble polyphony)",
+      "family": "global",
+      "href": "traditions/polyphonies_corses.json"
+    },
+    {
+      "id": "corsican_folk",
+      "name": "Corsican folk (canti corsi)",
+      "family": "global",
+      "href": "traditions/corsican_folk.json"
+    },
+    {
+      "id": "canti_alpini",
+      "name": "Canti alpini (Alpine male-choir song)",
+      "family": "global",
+      "href": "traditions/canti_alpini.json"
+    },
+    {
+      "id": "tarantella",
+      "name": "Tarantella (pan-southern Italian dance complex)",
+      "family": "global",
+      "href": "traditions/tarantella.json"
+    },
+    {
+      "id": "zampogna",
+      "name": "Zampogna",
+      "family": "vernacular",
+      "href": "traditions/zampogna.json"
+    },
+    {
+      "id": "organetto_italiano",
+      "name": "Organetto (Italian Diatonic Accordion Music)",
+      "family": "vernacular",
+      "href": "traditions/organetto_italiano.json"
+    },
+    {
+      "id": "canzone_genovese",
+      "name": "Canzone Genovese",
+      "family": "vernacular",
+      "href": "traditions/canzone_genovese.json"
+    },
+    {
+      "id": "trallalero",
+      "name": "Trallalero",
+      "family": "vernacular",
+      "href": "traditions/trallalero.json"
+    },
+    {
+      "id": "canto_a_tenore",
+      "name": "Canto a Tenore",
+      "family": "vernacular",
+      "href": "traditions/canto_a_tenore.json"
+    },
+    {
+      "id": "musica_sarda",
+      "name": "Musica Sarda",
+      "family": "vernacular",
+      "href": "traditions/musica_sarda.json"
+    },
+    {
+      "id": "fado_antigo",
+      "name": "Fado Antigo",
+      "family": "vernacular",
+      "href": "traditions/fado_antigo.json"
+    },
+    {
+      "id": "guitarrada_portuguesa",
+      "name": "Guitarrada (Portuguese Guitar Instrumental)",
+      "family": "vernacular",
+      "href": "traditions/guitarrada_portuguesa.json"
+    },
+    {
+      "id": "cante_alentejano",
+      "name": "Cante Alentejano",
+      "family": "vernacular",
+      "href": "traditions/cante_alentejano.json"
+    },
+    {
+      "id": "portuguese_folk",
+      "name": "Portuguese Folk (Música Popular Portuguesa)",
+      "family": "vernacular",
+      "href": "traditions/portuguese_folk.json"
+    },
+    {
+      "id": "flemish_folk",
+      "name": "Flemish Folk",
+      "family": "vernacular",
+      "href": "traditions/flemish_folk.json"
+    },
+    {
+      "id": "dutch_folk",
+      "name": "Dutch Folk",
+      "family": "vernacular",
+      "href": "traditions/dutch_folk.json"
+    },
+    {
+      "id": "volksmusik",
+      "name": "Volksmusik",
+      "family": "vernacular",
+      "href": "traditions/volksmusik.json"
+    },
+    {
+      "id": "neue_volksmusik",
+      "name": "Neue Volksmusik",
+      "family": "global",
+      "href": "traditions/neue_volksmusik.json"
+    },
+    {
+      "id": "alpine_yodeling",
+      "name": "Alpine Yodeling",
+      "family": "global",
+      "href": "traditions/alpine_yodeling.json"
+    },
+    {
+      "id": "naturjodel",
+      "name": "Naturjodel",
+      "family": "global",
+      "href": "traditions/naturjodel.json"
+    },
+    {
+      "id": "schwyzerorgeli_music",
+      "name": "Schwyzerörgeli Ländlermusik",
+      "family": "global",
+      "href": "traditions/schwyzerorgeli_music.json"
+    },
+    {
+      "id": "alphorn_music",
+      "name": "Alphorn Music",
+      "family": "global",
+      "href": "traditions/alphorn_music.json"
+    },
+    {
+      "id": "landler",
+      "name": "Ländler",
+      "family": "global",
+      "href": "traditions/landler.json"
+    },
+    {
+      "id": "oberkrainer",
+      "name": "Oberkrainer",
+      "family": "global",
+      "href": "traditions/oberkrainer.json"
+    },
+    {
+      "id": "guggenmusik",
+      "name": "Guggenmusik",
+      "family": "global",
+      "href": "traditions/guggenmusik.json"
+    },
+    {
+      "id": "blaskapelle",
+      "name": "Blaskapelle",
+      "family": "global",
+      "href": "traditions/blaskapelle.json"
+    },
+    {
+      "id": "dechovka",
+      "name": "Dechovka",
+      "family": "global",
+      "href": "traditions/dechovka.json"
+    },
+    {
+      "id": "cimbalova_muzika",
+      "name": "Cimbálová Muzika",
+      "family": "global",
+      "href": "traditions/cimbalova_muzika.json"
+    },
+    {
+      "id": "moravian_folk",
+      "name": "Moravian Folk Song",
+      "family": "global",
+      "href": "traditions/moravian_folk.json"
+    },
+    {
+      "id": "goralski",
+      "name": "Góralski",
+      "family": "global",
+      "href": "traditions/goralski.json"
+    },
+    {
+      "id": "polish_folk",
+      "name": "Polish folk (wiejska muzyka taneczna)",
+      "family": "global",
+      "href": "traditions/polish_folk.json"
+    },
+    {
+      "id": "lemko_folk",
+      "name": "Lemko folk (Łemkowszczyzna song tradition)",
+      "family": "global",
+      "href": "traditions/lemko_folk.json"
+    },
+    {
+      "id": "rusyn_folk",
+      "name": "Rusyn folk (Carpatho-Rusyn village music)",
+      "family": "global",
+      "href": "traditions/rusyn_folk.json"
+    },
+    {
+      "id": "hungarian_folk",
+      "name": "Hungarian folk (népzene, Bartók-Kodály collected repertory)",
+      "family": "global",
+      "href": "traditions/hungarian_folk.json"
+    },
+    {
+      "id": "csardas",
+      "name": "Csárdás",
+      "family": "global",
+      "href": "traditions/csardas.json"
+    },
+    {
+      "id": "muzica_lautareasca",
+      "name": "Muzică lăutărească",
+      "family": "global",
+      "href": "traditions/muzica_lautareasca.json"
+    },
+    {
+      "id": "muzica_populara",
+      "name": "Muzică populară",
+      "family": "global",
+      "href": "traditions/muzica_populara.json"
+    },
+    {
+      "id": "muzica_etno",
+      "name": "Muzică etno",
+      "family": "pop",
+      "href": "traditions/muzica_etno.json"
+    },
+    {
+      "id": "doina",
+      "name": "Doina",
+      "family": "global",
+      "href": "traditions/doina.json"
+    },
+    {
+      "id": "kaba_gaida",
+      "name": "Kaba gaida (Rhodope low bagpipe)",
+      "family": "global",
+      "href": "traditions/kaba_gaida.json"
+    },
+    {
+      "id": "bulgarian_folk",
+      "name": "Bulgarian folk (narodna muzika ensemble tradition)",
+      "family": "global",
+      "href": "traditions/bulgarian_folk.json"
+    },
+    {
+      "id": "narodna_muzika",
+      "name": "Narodna muzika (Yugoslav folk-pop)",
+      "family": "global",
+      "href": "traditions/narodna_muzika.json"
+    },
+    {
+      "id": "izvorna_muzika",
+      "name": "Izvorna muzika (Bosnian source music)",
+      "family": "global",
+      "href": "traditions/izvorna_muzika.json"
+    },
+    {
+      "id": "starogradska",
+      "name": "Starogradska Muzika",
+      "family": "global",
+      "href": "traditions/starogradska.json"
+    },
+    {
+      "id": "sevdah",
+      "name": "Sevdah (modern Bosnian revival)",
+      "family": "global",
+      "href": "traditions/sevdah.json"
+    },
+    {
+      "id": "klapa",
+      "name": "Klapa",
+      "family": "global",
+      "href": "traditions/klapa.json"
+    },
+    {
+      "id": "ojkanje",
+      "name": "Ojkanje",
+      "family": "global",
+      "href": "traditions/ojkanje.json"
+    },
+    {
+      "id": "tamburica",
+      "name": "Tamburica Orchestra Music",
+      "family": "global",
+      "href": "traditions/tamburica.json"
+    },
+    {
+      "id": "kolo",
+      "name": "Kolo (Serbo-Croatian circle dance)",
+      "family": "global",
+      "href": "traditions/kolo.json"
+    },
+    {
+      "id": "horo",
+      "name": "Horo (Bulgarian dance music)",
+      "family": "global",
+      "href": "traditions/horo.json"
+    },
+    {
+      "id": "popullore_jugu",
+      "name": "Këngë Popullore e Jugut (South Albanian)",
+      "family": "global",
+      "href": "traditions/popullore_jugu.json"
+    },
+    {
+      "id": "cifteli",
+      "name": "Çifteli Song (North Albanian)",
+      "family": "global",
+      "href": "traditions/cifteli.json"
+    },
+    {
+      "id": "entehno",
+      "name": "Éntekhno",
+      "family": "global",
+      "href": "traditions/entehno.json"
+    },
+    {
+      "id": "neo_kyma",
+      "name": "Néo Kýma",
+      "family": "global",
+      "href": "traditions/neo_kyma.json"
+    },
+    {
+      "id": "nisiotika",
+      "name": "Nisiótika",
+      "family": "global",
+      "href": "traditions/nisiotika.json"
+    },
+    {
+      "id": "pontian_folk",
+      "name": "Pontian Folk Music",
+      "family": "global",
+      "href": "traditions/pontian_folk.json"
+    },
+    {
+      "id": "greek_clarinet",
+      "name": "Greek Clarinet (Klarino)",
+      "family": "global",
+      "href": "traditions/greek_clarinet.json"
+    },
+    {
+      "id": "georgian_polyphony",
+      "name": "Georgian Polyphony",
+      "family": "global",
+      "href": "traditions/georgian_polyphony.json"
+    },
+    {
+      "id": "duduk",
+      "name": "Duduk (Armenian Apricot-Wood Reed)",
+      "family": "global",
+      "href": "traditions/duduk.json"
+    },
+    {
+      "id": "armenian_folk",
+      "name": "Armenian Folk Music",
+      "family": "global",
+      "href": "traditions/armenian_folk.json"
+    },
+    {
+      "id": "meyxana",
+      "name": "Meyxana",
+      "family": "global",
+      "href": "traditions/meyxana.json"
+    },
+    {
+      "id": "azeri_traditional",
+      "name": "Azerbaijani Traditional Music",
+      "family": "global",
+      "href": "traditions/azeri_traditional.json"
+    },
+    {
+      "id": "lezginka",
+      "name": "Lezginka",
+      "family": "global",
+      "href": "traditions/lezginka.json"
+    },
+    {
+      "id": "circassian_folk",
+      "name": "Circassian (Adyghe) Folk Music",
+      "family": "global",
+      "href": "traditions/circassian_folk.json"
+    },
+    {
+      "id": "caucasian_folk",
+      "name": "Caucasian Folk Music (Regional Composite)",
+      "family": "global",
+      "href": "traditions/caucasian_folk.json"
+    },
+    {
+      "id": "russian_folk",
+      "name": "Russian Folk Music",
+      "family": "global",
+      "href": "traditions/russian_folk.json"
+    },
+    {
+      "id": "russian_romance",
+      "name": "Russian Romance",
+      "family": "global",
+      "href": "traditions/russian_romance.json"
+    },
+    {
+      "id": "russian_chanson",
+      "name": "Russian Chanson (Blatnyak)",
+      "family": "global",
+      "href": "traditions/russian_chanson.json"
+    },
+    {
+      "id": "bandura_kobzar",
+      "name": "Bandura kobzar tradition",
+      "family": "vernacular",
+      "href": "traditions/bandura_kobzar.json"
+    },
+    {
+      "id": "ukrainian_village_folk",
+      "name": "Ukrainian village folk song",
+      "family": "vernacular",
+      "href": "traditions/ukrainian_village_folk.json"
+    },
+    {
+      "id": "balalaika_orchestra",
+      "name": "Russian balalaika orchestra",
+      "family": "vernacular",
+      "href": "traditions/balalaika_orchestra.json"
+    },
+    {
+      "id": "sutartines",
+      "name": "Sutartinės",
+      "family": "vernacular",
+      "href": "traditions/sutartines.json"
+    },
+    {
+      "id": "lithuanian_folk_music",
+      "name": "Lithuanian folk music",
+      "family": "vernacular",
+      "href": "traditions/lithuanian_folk_music.json"
+    },
+    {
+      "id": "latvian_folk_music",
+      "name": "Latvian folk music",
+      "family": "vernacular",
+      "href": "traditions/latvian_folk_music.json"
+    },
+    {
+      "id": "estonian_folk_music",
+      "name": "Estonian folk music",
+      "family": "vernacular",
+      "href": "traditions/estonian_folk_music.json"
+    },
+    {
+      "id": "kantele_music",
+      "name": "Kantele music",
+      "family": "vernacular",
+      "href": "traditions/kantele_music.json"
+    },
+    {
+      "id": "karelian_folk_music",
+      "name": "Karelian folk music",
+      "family": "vernacular",
+      "href": "traditions/karelian_folk_music.json"
+    },
+    {
+      "id": "finnish_tango",
+      "name": "Finnish tango",
+      "family": "pop",
+      "href": "traditions/finnish_tango.json"
+    },
+    {
+      "id": "iskelma",
+      "name": "Iskelmä",
+      "family": "pop",
+      "href": "traditions/iskelma.json"
+    },
+    {
+      "id": "humppa",
+      "name": "Humppa",
+      "family": "pop",
+      "href": "traditions/humppa.json"
+    },
+    {
+      "id": "rautalanka",
+      "name": "Rautalanka",
+      "family": "rock",
+      "href": "traditions/rautalanka.json"
+    },
+    {
+      "id": "danseband",
+      "name": "Danseband (Nordic dance-band pop)",
+      "family": "pop",
+      "href": "traditions/danseband.json"
+    },
+    {
+      "id": "trallpunk",
+      "name": "Trallpunk",
+      "family": "rock_punk",
+      "href": "traditions/trallpunk.json"
+    },
+    {
+      "id": "norwegian_folk",
+      "name": "Norwegian folk music (norsk folkemusikk)",
+      "family": "global",
+      "href": "traditions/norwegian_folk.json"
+    },
+    {
+      "id": "hardingfele",
+      "name": "Hardingfele (Hardanger-fiddle practice)",
+      "family": "global",
+      "href": "traditions/hardingfele.json"
+    },
+    {
+      "id": "nyckelharpa_tradition",
+      "name": "Nyckelharpa (keyed-fiddle tradition)",
+      "family": "global",
+      "href": "traditions/nyckelharpa_tradition.json"
+    },
+    {
+      "id": "swedish_fiddle",
+      "name": "Swedish fiddle tradition (spelmanslag)",
+      "family": "global",
+      "href": "traditions/swedish_fiddle.json"
+    },
+    {
+      "id": "folkmusik",
+      "name": "Folkmusik (Swedish folk revival)",
+      "family": "global",
+      "href": "traditions/folkmusik.json"
+    },
+    {
+      "id": "icelandic_traditional",
+      "name": "Icelandic traditional music (þjóðlagatónlist)",
+      "family": "global",
+      "href": "traditions/icelandic_traditional.json"
+    },
+    {
+      "id": "faroese_folk",
+      "name": "Faroese folk music (føroysk fólkatónleikur)",
+      "family": "global",
+      "href": "traditions/faroese_folk.json"
+    },
+    {
+      "id": "nordic_folk",
+      "name": "Nordic folk (pan-Scandinavian umbrella)",
+      "family": "global",
+      "href": "traditions/nordic_folk.json"
+    },
+    {
+      "id": "siberian_folk",
+      "name": "Siberian folk music (Sakha, Tuva, Altai)",
+      "family": "global",
+      "href": "traditions/siberian_folk.json"
+    },
+    {
+      "id": "tatar_folk",
+      "name": "Tatar folk music (Volga Tatar)",
+      "family": "global",
+      "href": "traditions/tatar_folk.json"
+    },
+    {
+      "id": "uyghur_folk",
+      "name": "Uyghur folk music (Xinjiang village and meshrep song)",
+      "family": "global",
+      "href": "traditions/uyghur_folk.json"
+    },
+    {
+      "id": "kazakh_traditional",
+      "name": "Kazakh Traditional Music",
+      "family": "global",
+      "href": "traditions/kazakh_traditional.json"
+    },
+    {
+      "id": "dombra_kuy",
+      "name": "Dombra Küy",
+      "family": "global",
+      "href": "traditions/dombra_kuy.json"
+    },
+    {
+      "id": "kyrgyz_traditional",
+      "name": "Kyrgyz Traditional Music",
+      "family": "global",
+      "href": "traditions/kyrgyz_traditional.json"
+    },
+    {
+      "id": "uzbek_traditional",
+      "name": "Uzbek Traditional Music",
+      "family": "global",
+      "href": "traditions/uzbek_traditional.json"
+    },
+    {
+      "id": "tajik_traditional",
+      "name": "Tajik Traditional Music",
+      "family": "global",
+      "href": "traditions/tajik_traditional.json"
+    },
+    {
+      "id": "turkmen_pop",
+      "name": "Turkmen Pop",
+      "family": "global",
+      "href": "traditions/turkmen_pop.json"
+    },
+    {
+      "id": "shashmaqam",
+      "name": "Shashmaqam",
+      "family": "global",
+      "href": "traditions/shashmaqam.json"
+    },
+    {
+      "id": "central_asian_folk",
+      "name": "Central Asian Folk",
+      "family": "global",
+      "href": "traditions/central_asian_folk.json"
+    },
+    {
+      "id": "persian_traditional",
+      "name": "Persian Traditional Music (Radif)",
+      "family": "global",
+      "href": "traditions/persian_traditional.json"
+    },
+    {
+      "id": "persian_neo_traditional",
+      "name": "Persian Neo-Traditional",
+      "family": "global",
+      "href": "traditions/persian_neo_traditional.json"
+    },
+    {
+      "id": "santur_persian",
+      "name": "Santur (Persian Hammered Dulcimer)",
+      "family": "global",
+      "href": "traditions/santur_persian.json"
+    },
+    {
+      "id": "tar_persian_classical",
+      "name": "Tar (Persian Classical Lute)",
+      "family": "global",
+      "href": "traditions/tar_persian_classical.json"
+    },
+    {
+      "id": "setar_persian_solo",
+      "name": "Setar (Persian Solo Lute)",
+      "family": "global",
+      "href": "traditions/setar_persian_solo.json"
+    },
+    {
+      "id": "ney_taksim",
+      "name": "Ney taksim (Ottoman-Sufi reed improvisation)",
+      "family": "global",
+      "href": "traditions/ney_taksim.json"
+    },
+    {
+      "id": "qanun_taqsim",
+      "name": "Qanun taqsim (Arab-Turkish plucked zither art music)",
+      "family": "global",
+      "href": "traditions/qanun_taqsim.json"
+    },
+    {
+      "id": "oud_taqsim",
+      "name": "Oud taqsim (Arab short-neck lute art music)",
+      "family": "global",
+      "href": "traditions/oud_taqsim.json"
+    },
+    {
+      "id": "darbuka_solo",
+      "name": "Darbuka solo (goblet-drum virtuoso tradition)",
+      "family": "global",
+      "href": "traditions/darbuka_solo.json"
+    },
+    {
+      "id": "afghan_traditional",
+      "name": "Afghan traditional (klasik and Kabuli art music)",
+      "family": "global",
+      "href": "traditions/afghan_traditional.json"
+    },
+    {
+      "id": "dambora",
+      "name": "Dambora (Hazara long-neck lute song)",
+      "family": "global",
+      "href": "traditions/dambora.json"
+    },
+    {
+      "id": "balochi_folk",
+      "name": "Balochi folk",
+      "family": "global",
+      "href": "traditions/balochi_folk.json"
+    },
+    {
+      "id": "pashto_pop",
+      "name": "Pashto pop",
+      "family": "global",
+      "href": "traditions/pashto_pop.json"
+    },
+    {
+      "id": "saraiki_pop",
+      "name": "Saraiki pop",
+      "family": "global",
+      "href": "traditions/saraiki_pop.json"
+    },
+    {
+      "id": "sindhi",
+      "name": "Sindhi (Sufi kalam and folk of Sindh)",
+      "family": "global",
+      "href": "traditions/sindhi.json"
+    },
+    {
+      "id": "nohay",
+      "name": "Nohay (Shia Muharram elegy)",
+      "family": "global",
+      "href": "traditions/nohay.json"
+    },
+    {
+      "id": "naat_south_asian",
+      "name": "Naat (South Asian Prophetic praise recitation)",
+      "family": "global",
+      "href": "traditions/naat_south_asian.json"
+    },
+    {
+      "id": "mappila_paattu",
+      "name": "Mappila paattu",
+      "family": "global",
+      "href": "traditions/mappila_paattu.json"
+    },
+    {
+      "id": "zikir",
+      "name": "Zikir (Southeast Asian Islamic dhikr)",
+      "family": "global",
+      "href": "traditions/zikir.json"
+    },
+    {
+      "id": "sholawat",
+      "name": "Sholawat (Indonesian praise of the Prophet)",
+      "family": "global",
+      "href": "traditions/sholawat.json"
+    },
+    {
+      "id": "nasyid",
+      "name": "Nasyid (Malay-Indonesian Islamic vocal song)",
+      "family": "pop",
+      "href": "traditions/nasyid.json"
+    },
+    {
+      "id": "quran_murattal",
+      "name": "Qur'an murattal (measured devotional recitation)",
+      "family": "global",
+      "href": "traditions/quran_murattal.json"
+    },
+    {
+      "id": "islamic_recitation_mujawwad",
+      "name": "Islamic recitation (adhān and mujawwad tilāwa)",
+      "family": "global",
+      "href": "traditions/islamic_recitation_mujawwad.json"
+    },
+    {
+      "id": "tibetan_traditional_secular",
+      "name": "Tibetan traditional secular song (nangma-töshé and dranyen song)",
+      "family": "global",
+      "href": "traditions/tibetan_traditional_secular.json"
+    },
+    {
+      "id": "tibetan_mantra_recitation",
+      "name": "Tibetan mantra recitation (mani and vajra mantra)",
+      "family": "global",
+      "href": "traditions/tibetan_mantra_recitation.json"
+    },
+    {
+      "id": "himalayan_folk",
+      "name": "Himalayan folk (trans-Himalayan hill song)",
+      "family": "global",
+      "href": "traditions/himalayan_folk.json"
+    },
+    {
+      "id": "lok_dohori",
+      "name": "Lok dohori (Nepali call-and-response duet)",
+      "family": "global",
+      "href": "traditions/lok_dohori.json"
+    },
+    {
+      "id": "nepali_pop",
+      "name": "Nepali pop (adhunik geet and Kathmandu pop)",
+      "family": "pop",
+      "href": "traditions/nepali_pop.json"
+    },
+    {
+      "id": "bhutanese_pop",
+      "name": "Bhutanese pop (rigsar)",
+      "family": "pop",
+      "href": "traditions/bhutanese_pop.json"
+    },
+    {
+      "id": "burmese_traditional",
+      "name": "Burmese traditional song (thachin gyi and village repertoire)",
+      "family": "global",
+      "href": "traditions/burmese_traditional.json"
+    },
+    {
+      "id": "lao_traditional",
+      "name": "Lao traditional music (sep ensembles and lam song)",
+      "family": "global",
+      "href": "traditions/lao_traditional.json"
+    },
+    {
+      "id": "sinhala_pop",
+      "name": "Sinhala Pop (Sri Lankan)",
+      "family": "pop",
+      "href": "traditions/sinhala_pop.json"
+    },
+    {
+      "id": "maldivian_pop",
+      "name": "Maldivian Pop (Dhivehi)",
+      "family": "pop",
+      "href": "traditions/maldivian_pop.json"
+    },
+    {
+      "id": "zeuhl",
+      "name": "Zeuhl (Kobaïan movement)",
+      "family": "rock_punk",
+      "href": "traditions/zeuhl.json"
+    },
+    {
+      "id": "rock_in_opposition",
+      "name": "Rock in Opposition",
+      "family": "rock_punk",
+      "href": "traditions/rock_in_opposition.json"
+    },
+    {
+      "id": "neue_deutsche_welle",
+      "name": "Neue Deutsche Welle",
+      "family": "rock_punk",
+      "href": "traditions/neue_deutsche_welle.json"
+    },
+    {
+      "id": "hamburger_schule",
+      "name": "Hamburger Schule",
+      "family": "rock_punk",
+      "href": "traditions/hamburger_schule.json"
+    },
+    {
+      "id": "ostrock",
+      "name": "Ostrock (GDR rock)",
+      "family": "rock_punk",
+      "href": "traditions/ostrock.json"
+    },
+    {
+      "id": "deutschrock",
+      "name": "Deutschrock (German-language rock mainstream)",
+      "family": "rock_punk",
+      "href": "traditions/deutschrock.json"
+    },
+    {
+      "id": "liedermacher",
+      "name": "Liedermacher (German songwriter tradition)",
+      "family": "vernacular",
+      "href": "traditions/liedermacher.json"
+    },
+    {
+      "id": "variete_francaise",
+      "name": "Variété française",
+      "family": "pop",
+      "href": "traditions/variete_francaise.json"
+    },
+    {
+      "id": "ye_ye",
+      "name": "Yé-yé",
+      "family": "pop",
+      "href": "traditions/ye_ye.json"
+    },
+    {
+      "id": "bal_musette",
+      "name": "Bal-musette (Parisian dance-hall practice)",
+      "family": "vernacular",
+      "href": "traditions/bal_musette.json"
+    },
+    {
+      "id": "musette",
+      "name": "Valse musette (accordion virtuoso repertoire)",
+      "family": "vernacular",
+      "href": "traditions/musette.json"
+    },
+    {
+      "id": "canzone_dautore",
+      "name": "Canzone d'Autore",
+      "family": "pop",
+      "href": "traditions/canzone_dautore.json"
+    },
+    {
+      "id": "neomelodici",
+      "name": "Neomelodici",
+      "family": "pop",
+      "href": "traditions/neomelodici.json"
+    },
+    {
+      "id": "beat_italiano",
+      "name": "Beat Italiano",
+      "family": "pop_rock",
+      "href": "traditions/beat_italiano.json"
+    },
+    {
+      "id": "indorock",
+      "name": "Indorock",
+      "family": "rock",
+      "href": "traditions/indorock.json"
+    },
+    {
+      "id": "dunedin_sound",
+      "name": "Dunedin Sound",
+      "family": "rock",
+      "href": "traditions/dunedin_sound.json"
+    },
+    {
+      "id": "bosstown_sound",
+      "name": "Bosstown Sound",
+      "family": "rock",
+      "href": "traditions/bosstown_sound.json"
+    },
+    {
+      "id": "paisley_underground",
+      "name": "Paisley Underground",
+      "family": "rock",
+      "href": "traditions/paisley_underground.json"
+    },
+    {
+      "id": "c86",
+      "name": "C86",
+      "family": "rock",
+      "href": "traditions/c86.json"
+    },
+    {
+      "id": "freakbeat",
+      "name": "Freakbeat",
+      "family": "rock",
+      "href": "traditions/freakbeat.json"
+    },
+    {
+      "id": "grebo",
+      "name": "Grebo",
+      "family": "rock_punk",
+      "href": "traditions/grebo.json"
+    },
+    {
+      "id": "mod_revival",
+      "name": "Mod Revival",
+      "family": "rock_punk",
+      "href": "traditions/mod_revival.json"
+    },
+    {
+      "id": "no_wave",
+      "name": "No Wave",
+      "family": "rock_punk",
+      "href": "traditions/no_wave.json"
+    },
+    {
+      "id": "oi_punk",
+      "name": "Oi!",
+      "family": "rock_punk",
+      "href": "traditions/oi_punk.json"
+    },
+    {
+      "id": "uk82",
+      "name": "UK82",
+      "family": "rock_punk",
+      "href": "traditions/uk82.json"
+    },
+    {
+      "id": "d_beat",
+      "name": "D-beat (Discharge lineage)",
+      "family": "rock_punk",
+      "href": "traditions/d_beat.json"
+    },
+    {
+      "id": "crack_rock_steady",
+      "name": "Crack Rock Steady",
+      "family": "rock_punk",
+      "href": "traditions/crack_rock_steady.json"
+    },
+    {
+      "id": "queercore",
+      "name": "Queercore",
+      "family": "rock_punk",
+      "href": "traditions/queercore.json"
+    },
+    {
+      "id": "egg_punk",
+      "name": "Egg Punk",
+      "family": "rock_punk",
+      "href": "traditions/egg_punk.json"
+    },
+    {
+      "id": "gypsy_punk",
+      "name": "Gypsy Punk",
+      "family": "rock_punk",
+      "href": "traditions/gypsy_punk.json"
+    },
+    {
+      "id": "celtic_punk",
+      "name": "Celtic Punk",
+      "family": "rock_punk",
+      "href": "traditions/celtic_punk.json"
+    },
+    {
+      "id": "horror_punk",
+      "name": "Horror Punk",
+      "family": "rock_punk",
+      "href": "traditions/horror_punk.json"
+    },
+    {
+      "id": "gothabilly",
+      "name": "Gothabilly",
+      "family": "rock_punk",
+      "href": "traditions/gothabilly.json"
+    },
+    {
+      "id": "deathrock",
+      "name": "Deathrock",
+      "family": "rock_punk",
+      "href": "traditions/deathrock.json"
+    },
+    {
+      "id": "minimal_wave",
+      "name": "Minimal Wave",
+      "family": "electronic",
+      "href": "traditions/minimal_wave.json"
+    },
+    {
+      "id": "minimal_synth",
+      "name": "Minimal Synth",
+      "family": "electronic",
+      "href": "traditions/minimal_synth.json"
+    },
+    {
+      "id": "sovietwave",
+      "name": "Sovietwave",
+      "family": "electronic",
+      "href": "traditions/sovietwave.json"
+    },
+    {
+      "id": "neoclassical_darkwave",
+      "name": "Neoclassical darkwave",
+      "family": "electronic",
+      "href": "traditions/neoclassical_darkwave.json"
+    },
+    {
+      "id": "hardvapour",
+      "name": "Hardvapour",
+      "family": "electronic",
+      "href": "traditions/hardvapour.json"
+    },
+    {
+      "id": "slushwave",
+      "name": "Slushwave",
+      "family": "electronic",
+      "href": "traditions/slushwave.json"
+    },
+    {
+      "id": "utopian_virtual",
+      "name": "Utopian virtual",
+      "family": "electronic",
+      "href": "traditions/utopian_virtual.json"
+    },
+    {
+      "id": "future_funk_edit_scene",
+      "name": "Future funk (Japanese city-pop edit scene)",
+      "family": "electronic",
+      "href": "traditions/future_funk_edit_scene.json"
+    },
+    {
+      "id": "hauntology_aesthetic",
+      "name": "Hauntology (library-music aesthetic)",
+      "family": "electronic",
+      "href": "traditions/hauntology_aesthetic.json"
+    },
+    {
+      "id": "wonky_beat_scene",
+      "name": "Wonky",
+      "family": "electronic",
+      "href": "traditions/wonky_beat_scene.json"
+    },
+    {
+      "id": "bmore_club",
+      "name": "Bmore club",
+      "family": "electronic",
+      "href": "traditions/bmore_club.json"
+    },
+    {
+      "id": "hyphy",
+      "name": "Hyphy",
+      "family": "hip_hop",
+      "href": "traditions/hyphy.json"
+    },
+    {
+      "id": "snap",
+      "name": "Snap",
+      "family": "hip_hop",
+      "href": "traditions/snap.json"
+    },
+    {
+      "id": "new_orleans_bounce",
+      "name": "Bounce (New Orleans)",
+      "family": "hip_hop",
+      "href": "traditions/new_orleans_bounce.json"
+    },
+    {
+      "id": "memphis_phonk",
+      "name": "Memphis phonk",
+      "family": "hip_hop",
+      "href": "traditions/memphis_phonk.json"
+    },
+    {
+      "id": "phonk",
+      "name": "Phonk",
+      "family": "hip_hop",
+      "href": "traditions/phonk.json"
+    },
+    {
+      "id": "drift_phonk",
+      "name": "Drift Phonk",
+      "family": "electronic",
+      "href": "traditions/drift_phonk.json"
+    },
+    {
+      "id": "gym_phonk",
+      "name": "Gym Phonk",
+      "family": "electronic",
+      "href": "traditions/gym_phonk.json"
+    },
+    {
+      "id": "drain_rap",
+      "name": "Drain (Drain Gang rap)",
+      "family": "hip_hop",
+      "href": "traditions/drain_rap.json"
+    },
+    {
+      "id": "dungeon_rap",
+      "name": "Dungeon Rap",
+      "family": "hip_hop",
+      "href": "traditions/dungeon_rap.json"
+    },
+    {
+      "id": "proto_rap",
+      "name": "Proto-Rap",
+      "family": "hip_hop",
+      "href": "traditions/proto_rap.json"
+    },
+    {
+      "id": "golden_age_hip_hop",
+      "name": "Golden Age Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/golden_age_hip_hop.json"
+    },
+    {
+      "id": "battle_rap",
+      "name": "Battle Rap",
+      "family": "hip_hop",
+      "href": "traditions/battle_rap.json"
+    },
+    {
+      "id": "horrorcore",
+      "name": "Horrorcore",
+      "family": "hip_hop",
+      "href": "traditions/horrorcore.json"
+    },
+    {
+      "id": "grime",
+      "name": "Grime",
+      "family": "hip_hop",
+      "href": "traditions/grime.json"
+    },
+    {
+      "id": "uk_funky",
+      "name": "UK Funky",
+      "family": "electronic",
+      "href": "traditions/uk_funky.json"
+    },
+    {
+      "id": "uk_garage",
+      "name": "UK Garage",
+      "family": "electronic",
+      "href": "traditions/uk_garage.json"
+    },
+    {
+      "id": "two_step_garage",
+      "name": "2-Step",
+      "family": "electronic",
+      "href": "traditions/two_step_garage.json"
+    },
+    {
+      "id": "halftime_dnb",
+      "name": "Halftime Drum & Bass",
+      "family": "electronic",
+      "href": "traditions/halftime_dnb.json"
+    },
+    {
+      "id": "digital_hardcore",
+      "name": "Digital Hardcore",
+      "family": "electronic",
+      "href": "traditions/digital_hardcore.json"
+    },
+    {
+      "id": "speedcore",
+      "name": "Speedcore",
+      "family": "electronic",
+      "href": "traditions/speedcore.json"
+    },
+    {
+      "id": "extratone",
+      "name": "Extratone",
+      "family": "electronic",
+      "href": "traditions/extratone.json"
+    },
+    {
+      "id": "frenchcore",
+      "name": "Frenchcore",
+      "family": "electronic",
+      "href": "traditions/frenchcore.json"
+    },
+    {
+      "id": "uptempo_hardcore",
+      "name": "Uptempo Hardcore",
+      "family": "electronic",
+      "href": "traditions/uptempo_hardcore.json"
+    },
+    {
+      "id": "xtra_raw",
+      "name": "Xtra Raw",
+      "family": "electronic",
+      "href": "traditions/xtra_raw.json"
+    },
+    {
+      "id": "hands_up",
+      "name": "Hands Up",
+      "family": "electronic",
+      "href": "traditions/hands_up.json"
+    },
+    {
+      "id": "tekk",
+      "name": "Tekk (German Hard Dance)",
+      "family": "electronic",
+      "href": "traditions/tekk.json"
+    },
+    {
+      "id": "hardtekk",
+      "name": "Hardtekk",
+      "family": "electronic",
+      "href": "traditions/hardtekk.json"
+    },
+    {
+      "id": "raggatek",
+      "name": "Raggatek",
+      "family": "electronic",
+      "href": "traditions/raggatek.json"
+    },
+    {
+      "id": "acidcore",
+      "name": "Acidcore",
+      "family": "electronic",
+      "href": "traditions/acidcore.json"
+    },
+    {
+      "id": "industrial_hardcore",
+      "name": "Industrial Hardcore",
+      "family": "electronic",
+      "href": "traditions/industrial_hardcore.json"
+    },
+    {
+      "id": "mincecore",
+      "name": "Mincecore",
+      "family": "rock_punk",
+      "href": "traditions/mincecore.json"
+    },
+    {
+      "id": "flashcore",
+      "name": "Flashcore",
+      "family": "electronic",
+      "href": "traditions/flashcore.json"
+    },
+    {
+      "id": "deconstructed_club",
+      "name": "Deconstructed Club",
+      "family": "electronic",
+      "href": "traditions/deconstructed_club.json"
+    },
+    {
+      "id": "ballroom_house",
+      "name": "Ballroom (House Ballroom Scene)",
+      "family": "electronic",
+      "href": "traditions/ballroom_house.json"
+    },
+    {
+      "id": "vogue_beat",
+      "name": "Vogue Beat",
+      "family": "electronic",
+      "href": "traditions/vogue_beat.json"
+    },
+    {
+      "id": "wave_electronic",
+      "name": "Wave (Hardwave)",
+      "family": "electronic",
+      "href": "traditions/wave_electronic.json"
+    },
+    {
+      "id": "dreampunk",
+      "name": "Dreampunk",
+      "family": "electronic",
+      "href": "traditions/dreampunk.json"
+    },
+    {
+      "id": "glitchcore",
+      "name": "Glitchcore",
+      "family": "electronic",
+      "href": "traditions/glitchcore.json"
+    },
+    {
+      "id": "dariacore",
+      "name": "Dariacore",
+      "family": "electronic",
+      "href": "traditions/dariacore.json"
+    },
+    {
+      "id": "hexd",
+      "name": "HexD",
+      "family": "electronic",
+      "href": "traditions/hexd.json"
+    },
+    {
+      "id": "bubblegum_bass",
+      "name": "Bubblegum Bass",
+      "family": "electronic",
+      "href": "traditions/bubblegum_bass.json"
+    },
+    {
+      "id": "nightcore",
+      "name": "Nightcore",
+      "family": "electronic",
+      "href": "traditions/nightcore.json"
+    },
+    {
+      "id": "denpa_song",
+      "name": "Denpa Song",
+      "family": "pop",
+      "href": "traditions/denpa_song.json"
+    },
+    {
+      "id": "touhou_doujin_arrange",
+      "name": "Touhou doujin arrange music",
+      "family": "electronic",
+      "href": "traditions/touhou_doujin_arrange.json"
+    },
+    {
+      "id": "vocaloid_producer_scene",
+      "name": "Vocaloid producer scene (Niconico bokaro-P music)",
+      "family": "electronic",
+      "href": "traditions/vocaloid_producer_scene.json"
+    },
+    {
+      "id": "chipmusic_lsdj_tracker",
+      "name": "Chipmusic (LSDj and Game Boy live scene)",
+      "family": "electronic",
+      "href": "traditions/chipmusic_lsdj_tracker.json"
+    },
+    {
+      "id": "demoscene_music",
+      "name": "Demoscene tracker module music",
+      "family": "electronic",
+      "href": "traditions/demoscene_music.json"
+    },
+    {
+      "id": "c64_sid_music",
+      "name": "Commodore 64 SID music",
+      "family": "electronic",
+      "href": "traditions/c64_sid_music.json"
+    },
+    {
+      "id": "algorave",
+      "name": "Algorave (live-coded algorithmic dance music)",
+      "family": "electronic",
+      "href": "traditions/algorave.json"
+    },
+    {
+      "id": "trip_hop",
+      "name": "Trip hop",
+      "family": "electronic",
+      "href": "traditions/trip_hop.json"
+    },
+    {
+      "id": "psydub",
+      "name": "Psydub (psychedelic dub)",
+      "family": "electronic",
+      "href": "traditions/psydub.json"
+    },
+    {
+      "id": "psychill",
+      "name": "Psychill (psychedelic chillout)",
+      "family": "electronic",
+      "href": "traditions/psychill.json"
+    },
+    {
+      "id": "zenonesque",
+      "name": "Zenonesque",
+      "family": "electronic",
+      "href": "traditions/zenonesque.json"
+    },
+    {
+      "id": "forest_psy",
+      "name": "Forest psy",
+      "family": "electronic",
+      "href": "traditions/forest_psy.json"
+    },
+    {
+      "id": "nitzhonot",
+      "name": "Nitzhonot",
+      "family": "electronic",
+      "href": "traditions/nitzhonot.json"
+    },
+    {
+      "id": "hitech_psytrance",
+      "name": "Hi-tech psytrance",
+      "family": "electronic",
+      "href": "traditions/hitech_psytrance.json"
+    },
+    {
+      "id": "acid_techno",
+      "name": "Acid Techno",
+      "family": "electronic",
+      "href": "traditions/acid_techno.json"
+    },
+    {
+      "id": "italo_disco",
+      "name": "Italo Disco",
+      "family": "electronic",
+      "href": "traditions/italo_disco.json"
+    },
+    {
+      "id": "new_italo_disco",
+      "name": "New Italo Disco",
+      "family": "electronic",
+      "href": "traditions/new_italo_disco.json"
+    },
+    {
+      "id": "euro_hi_nrg",
+      "name": "Euro Hi-NRG",
+      "family": "electronic",
+      "href": "traditions/euro_hi_nrg.json"
+    },
+    {
+      "id": "super_eurobeat",
+      "name": "Super Eurobeat",
+      "family": "electronic",
+      "href": "traditions/super_eurobeat.json"
+    },
+    {
+      "id": "disco_polo",
+      "name": "Disco Polo",
+      "family": "pop",
+      "href": "traditions/disco_polo.json"
+    },
+    {
+      "id": "melodipop",
+      "name": "Melodipop",
+      "family": "electronic",
+      "href": "traditions/melodipop.json"
+    },
+    {
+      "id": "space_disco",
+      "name": "Space Disco",
+      "family": "electronic",
+      "href": "traditions/space_disco.json"
+    },
+    {
+      "id": "post_disco",
+      "name": "Post-Disco",
+      "family": "electronic",
+      "href": "traditions/post_disco.json"
+    },
+    {
+      "id": "electro",
+      "name": "Electro",
+      "family": "electronic",
+      "href": "traditions/electro.json"
+    },
+    {
+      "id": "miami_electro",
+      "name": "Miami Electro (Miami Bass)",
+      "family": "hip_hop",
+      "href": "traditions/miami_electro.json"
+    },
+    {
+      "id": "techno_bass",
+      "name": "Techno Bass",
+      "family": "electronic",
+      "href": "traditions/techno_bass.json"
+    },
+    {
+      "id": "bleep_techno",
+      "name": "Bleep Techno",
+      "family": "electronic",
+      "href": "traditions/bleep_techno.json"
+    },
+    {
+      "id": "proto_techno",
+      "name": "Proto-Techno",
+      "family": "electronic",
+      "href": "traditions/proto_techno.json"
+    },
+    {
+      "id": "minimal_techno",
+      "name": "Minimal Techno",
+      "family": "electronic",
+      "href": "traditions/minimal_techno.json"
+    },
+    {
+      "id": "outsider_house",
+      "name": "Outsider House",
+      "family": "electronic",
+      "href": "traditions/outsider_house.json"
+    },
+    {
+      "id": "gospel_house",
+      "name": "Gospel House",
+      "family": "electronic",
+      "href": "traditions/gospel_house.json"
+    },
+    {
+      "id": "hard_house",
+      "name": "Hard House",
+      "family": "electronic",
+      "href": "traditions/hard_house.json"
+    },
+    {
+      "id": "funky_breaks",
+      "name": "Funky Breaks",
+      "family": "electronic",
+      "href": "traditions/funky_breaks.json"
+    },
+    {
+      "id": "balearic",
+      "name": "Balearic",
+      "family": "electronic",
+      "href": "traditions/balearic.json"
+    },
+    {
+      "id": "harsh_noise_wall",
+      "name": "Harsh Noise Wall",
+      "family": "electronic",
+      "href": "traditions/harsh_noise_wall.json"
+    },
+    {
+      "id": "martial_industrial",
+      "name": "Martial Industrial",
+      "family": "electronic",
+      "href": "traditions/martial_industrial.json"
+    },
+    {
+      "id": "dark_folk",
+      "name": "Dark Folk",
+      "family": "vernacular",
+      "href": "traditions/dark_folk.json"
+    },
+    {
+      "id": "drone_folk",
+      "name": "Drone Folk",
+      "family": "vernacular",
+      "href": "traditions/drone_folk.json"
+    },
+    {
+      "id": "free_folk",
+      "name": "Free Folk",
+      "family": "vernacular",
+      "href": "traditions/free_folk.json"
+    },
+    {
+      "id": "new_weird_america",
+      "name": "New Weird America",
+      "family": "vernacular",
+      "href": "traditions/new_weird_america.json"
+    },
+    {
+      "id": "psychedelic_folk",
+      "name": "Psychedelic Folk",
+      "family": "pop_rock",
+      "href": "traditions/psychedelic_folk.json"
+    },
+    {
+      "id": "chamber_folk",
+      "name": "Chamber Folk",
+      "family": "pop_rock",
+      "href": "traditions/chamber_folk.json"
+    },
+    {
+      "id": "exotica",
+      "name": "Exotica",
+      "family": "pop",
+      "href": "traditions/exotica.json"
+    },
+    {
+      "id": "library_music",
+      "name": "Library Music (Production Music)",
+      "family": "pop_rock",
+      "href": "traditions/library_music.json"
+    },
+    {
+      "id": "music_hall",
+      "name": "Music Hall",
+      "family": "vernacular",
+      "href": "traditions/music_hall.json"
+    },
+    {
+      "id": "song_poem",
+      "name": "Song-Poem",
+      "family": "pop",
+      "href": "traditions/song_poem.json"
+    },
+    {
+      "id": "salon_music",
+      "name": "Salon Music",
+      "family": "classical",
+      "href": "traditions/salon_music.json"
+    },
+    {
+      "id": "minnesang",
+      "name": "Minnesang",
+      "family": "classical",
+      "href": "traditions/minnesang.json"
+    },
+    {
+      "id": "trouvere",
+      "name": "Trouvère Song",
+      "family": "classical",
+      "href": "traditions/trouvere.json"
+    },
+    {
+      "id": "troubadour",
+      "name": "Troubadour Song (Occitan)",
+      "family": "classical",
+      "href": "traditions/troubadour.json"
+    },
+    {
+      "id": "ars_subtilior",
+      "name": "Ars Subtilior",
+      "family": "classical",
+      "href": "traditions/ars_subtilior.json"
+    },
+    {
+      "id": "trecento",
+      "name": "Italian Trecento Polyphony",
+      "family": "classical",
+      "href": "traditions/trecento.json"
+    },
+    {
+      "id": "madrigal",
+      "name": "Madrigal",
+      "family": "classical",
+      "href": "traditions/madrigal.json"
+    },
+    {
+      "id": "franco_flemish_school",
+      "name": "Franco-Flemish School",
+      "family": "classical",
+      "href": "traditions/franco_flemish_school.json"
+    },
+    {
+      "id": "english_renaissance",
+      "name": "English Renaissance (Tudor Polyphony)",
+      "family": "classical",
+      "href": "traditions/english_renaissance.json"
+    },
+    {
+      "id": "italian_baroque",
+      "name": "Italian Baroque",
+      "family": "classical",
+      "href": "traditions/italian_baroque.json"
+    },
+    {
+      "id": "french_baroque",
+      "name": "French Baroque",
+      "family": "classical",
+      "href": "traditions/french_baroque.json"
+    },
+    {
+      "id": "spanish_baroque",
+      "name": "Spanish Baroque",
+      "family": "classical",
+      "href": "traditions/spanish_baroque.json"
+    },
+    {
+      "id": "galante_era",
+      "name": "Galante Era",
+      "family": "classical",
+      "href": "traditions/galante_era.json"
+    },
+    {
+      "id": "classical_era",
+      "name": "Viennese Classical Era",
+      "family": "classical",
+      "href": "traditions/classical_era.json"
+    },
+    {
+      "id": "early_romantic_era",
+      "name": "Early Romantic Era",
+      "family": "classical",
+      "href": "traditions/early_romantic_era.json"
+    },
+    {
+      "id": "late_romantic_era",
+      "name": "Late Romantic Era",
+      "family": "classical",
+      "href": "traditions/late_romantic_era.json"
+    },
+    {
+      "id": "post_romantic_era",
+      "name": "Post-Romantic Era",
+      "family": "classical",
+      "href": "traditions/post_romantic_era.json"
+    },
+    {
+      "id": "serialism",
+      "name": "Serialism",
+      "family": "classical",
+      "href": "traditions/serialism.json"
+    },
+    {
+      "id": "totalism",
+      "name": "Totalism",
+      "family": "classical",
+      "href": "traditions/totalism.json"
+    },
+    {
+      "id": "post_minimalism",
+      "name": "Post-Minimalism",
+      "family": "classical",
+      "href": "traditions/post_minimalism.json"
+    },
+    {
+      "id": "xenharmonic",
+      "name": "Xenharmonic Music",
+      "family": "classical",
+      "href": "traditions/xenharmonic.json"
+    },
+    {
+      "id": "microtonal",
+      "name": "Microtonal Music (interval-scale practice)",
+      "family": "classical",
+      "href": "traditions/microtonal.json"
+    },
+    {
+      "id": "wandelweiser",
+      "name": "Wandelweiser",
+      "family": "classical",
+      "href": "traditions/wandelweiser.json"
+    },
+    {
+      "id": "acousmatic",
+      "name": "Acousmatic Music (loudspeaker concert practice)",
+      "family": "electronic",
+      "href": "traditions/acousmatic.json"
+    },
+    {
+      "id": "sound_collage",
+      "name": "Sound Collage",
+      "family": "electronic",
+      "href": "traditions/sound_collage.json"
+    },
+    {
+      "id": "ecm_style_jazz",
+      "name": "ECM-style Jazz",
+      "family": "jazz",
+      "href": "traditions/ecm_style_jazz.json"
+    },
+    {
+      "id": "avant_garde_jazz",
+      "name": "Avant-Garde Jazz",
+      "family": "jazz",
+      "href": "traditions/avant_garde_jazz.json"
+    },
+    {
+      "id": "jazz_funk",
+      "name": "Jazz-Funk",
+      "family": "jazz",
+      "href": "traditions/jazz_funk.json"
+    },
+    {
+      "id": "afro_cuban_jazz",
+      "name": "Afro-Cuban Jazz",
+      "family": "jazz",
+      "href": "traditions/afro_cuban_jazz.json"
+    },
+    {
+      "id": "west_african_jazz",
+      "name": "West African Jazz",
+      "family": "jazz",
+      "href": "traditions/west_african_jazz.json"
+    },
+    {
+      "id": "south_african_jazz",
+      "name": "South African Jazz",
+      "family": "jazz",
+      "href": "traditions/south_african_jazz.json"
+    },
+    {
+      "id": "swing_revival",
+      "name": "Swing Revival",
+      "family": "jazz",
+      "href": "traditions/swing_revival.json"
+    },
+    {
+      "id": "vintage_swing",
+      "name": "Vintage swing (retro-swing revival)",
+      "family": "jazz",
+      "href": "traditions/vintage_swing.json"
+    },
+    {
+      "id": "m_base",
+      "name": "M-Base (odd-metre Brooklyn jazz language)",
+      "family": "jazz",
+      "href": "traditions/m_base.json"
+    },
+    {
+      "id": "contemporary_post_bop",
+      "name": "Contemporary post-bop",
+      "family": "jazz",
+      "href": "traditions/contemporary_post_bop.json"
+    },
+    {
+      "id": "chicago_bop",
+      "name": "Chicago bop",
+      "family": "jazz",
+      "href": "traditions/chicago_bop.json"
+    },
+    {
+      "id": "jazz_metal",
+      "name": "Jazz metal",
+      "family": "rock",
+      "href": "traditions/jazz_metal.json"
+    },
+    {
+      "id": "jazzcore",
+      "name": "Jazzcore",
+      "family": "rock_punk",
+      "href": "traditions/jazzcore.json"
+    },
+    {
+      "id": "jazztronica",
+      "name": "Jazztronica",
+      "family": "electronic",
+      "href": "traditions/jazztronica.json"
+    },
+    {
+      "id": "musique_acadienne",
+      "name": "Musique acadienne (Maritime Acadian tradition)",
+      "family": "vernacular",
+      "href": "traditions/musique_acadienne.json"
+    },
+    {
+      "id": "trad_quebecois",
+      "name": "Musique traditionnelle québécoise",
+      "family": "vernacular",
+      "href": "traditions/trad_quebecois.json"
+    },
+    {
+      "id": "metis_fiddle",
+      "name": "Métis fiddle",
+      "family": "vernacular",
+      "href": "traditions/metis_fiddle.json"
+    },
+    {
+      "id": "cape_breton_folk",
+      "name": "Cape Breton fiddle and piano tradition",
+      "family": "vernacular",
+      "href": "traditions/cape_breton_folk.json"
+    },
+    {
+      "id": "newfoundland_folk",
+      "name": "Newfoundland traditional song and dance music",
+      "family": "vernacular",
+      "href": "traditions/newfoundland_folk.json"
+    },
+    {
+      "id": "contra_dance",
+      "name": "Contra dance band music",
+      "family": "vernacular",
+      "href": "traditions/contra_dance.json"
+    },
+    {
+      "id": "shanty",
+      "name": "Shanty (Shipboard Work Song)",
+      "family": "vernacular",
+      "href": "traditions/shanty.json"
+    },
+    {
+      "id": "sea_shanty",
+      "name": "Sea Shanty (Revival Repertoire)",
+      "family": "vernacular",
+      "href": "traditions/sea_shanty.json"
+    },
+    {
+      "id": "szanty",
+      "name": "Szanty",
+      "family": "vernacular",
+      "href": "traditions/szanty.json"
+    },
+    {
+      "id": "seemannslieder",
+      "name": "Seemannslieder",
+      "family": "pop",
+      "href": "traditions/seemannslieder.json"
+    },
+    {
+      "id": "shantykoren",
+      "name": "Shantykoren",
+      "family": "vernacular",
+      "href": "traditions/shantykoren.json"
+    },
+    {
+      "id": "military_cadence",
+      "name": "Military Cadence (Jody Call)",
+      "family": "vernacular",
+      "href": "traditions/military_cadence.json"
+    },
+    {
+      "id": "marching_band",
+      "name": "Marching Band",
+      "family": "vernacular",
+      "href": "traditions/marching_band.json"
+    },
+    {
+      "id": "brass_band",
+      "name": "Brass Band (British)",
+      "family": "classical",
+      "href": "traditions/brass_band.json"
+    },
+    {
+      "id": "balkan_brass",
+      "name": "Balkan Brass Band",
+      "family": "global",
+      "href": "traditions/balkan_brass.json"
+    },
+    {
+      "id": "fife_and_drum",
+      "name": "Fife and Drum Corps",
+      "family": "vernacular",
+      "href": "traditions/fife_and_drum.json"
+    },
+    {
+      "id": "concert_band",
+      "name": "Concert Band",
+      "family": "classical",
+      "href": "traditions/concert_band.json"
+    },
+    {
+      "id": "wind_ensemble",
+      "name": "Wind Ensemble",
+      "family": "classical",
+      "href": "traditions/wind_ensemble.json"
+    },
+    {
+      "id": "drum_corps",
+      "name": "Drum and Bugle Corps",
+      "family": "vernacular",
+      "href": "traditions/drum_corps.json"
+    },
+    {
+      "id": "afro_drill",
+      "name": "Afro drill",
+      "family": "hip_hop",
+      "href": "traditions/afro_drill.json"
+    },
+    {
+      "id": "drill_and_bass",
+      "name": "Drill'n'bass",
+      "family": "electronic",
+      "href": "traditions/drill_and_bass.json"
+    },
+    {
+      "id": "memphis_rap",
+      "name": "Memphis rap (Bluff City lineage)",
+      "family": "hip_hop",
+      "href": "traditions/memphis_rap.json"
+    },
+    {
+      "id": "atl_trap",
+      "name": "ATL trap (Atlanta canon)",
+      "family": "hip_hop",
+      "href": "traditions/atl_trap.json"
+    },
+    {
+      "id": "detroit_trap",
+      "name": "Detroit trap",
+      "family": "hip_hop",
+      "href": "traditions/detroit_trap.json"
+    },
+    {
+      "id": "bay_area_hip_hop",
+      "name": "Bay Area hip-hop (mobb music lineage)",
+      "family": "hip_hop",
+      "href": "traditions/bay_area_hip_hop.json"
+    },
+    {
+      "id": "jazz_rap",
+      "name": "Jazz rap",
+      "family": "hip_hop",
+      "href": "traditions/jazz_rap.json"
+    },
+    {
+      "id": "narco_rap",
+      "name": "Narco rap",
+      "family": "hip_hop",
+      "href": "traditions/narco_rap.json"
+    },
+    {
+      "id": "trap_latino",
+      "name": "Trap Latino (pan-Hispanic trap)",
+      "family": "hip_hop",
+      "href": "traditions/trap_latino.json"
+    },
+    {
+      "id": "trap_brasileiro",
+      "name": "Trap Brasileiro",
+      "family": "hip_hop",
+      "href": "traditions/trap_brasileiro.json"
+    },
+    {
+      "id": "phonk_brasileiro",
+      "name": "Phonk Brasileiro",
+      "family": "hip_hop",
+      "href": "traditions/phonk_brasileiro.json"
+    },
+    {
+      "id": "dark_plugg",
+      "name": "Dark plugg",
+      "family": "hip_hop",
+      "href": "traditions/dark_plugg.json"
+    },
+    {
+      "id": "dream_plugg",
+      "name": "Dream Plugg",
+      "family": "hip_hop",
+      "href": "traditions/dream_plugg.json"
+    },
+    {
+      "id": "emo_rap",
+      "name": "Emo Rap",
+      "family": "hip_hop",
+      "href": "traditions/emo_rap.json"
+    },
+    {
+      "id": "reggaeton_mexicano",
+      "name": "Reggaeton Mexicano",
+      "family": "global",
+      "href": "traditions/reggaeton_mexicano.json"
+    },
+    {
+      "id": "reggaeton_chileno",
+      "name": "Reggaeton Chileno",
+      "family": "global",
+      "href": "traditions/reggaeton_chileno.json"
+    },
+    {
+      "id": "salsa_venezolana",
+      "name": "Salsa Venezolana",
+      "family": "global",
+      "href": "traditions/salsa_venezolana.json"
+    },
+    {
+      "id": "salsa_peruana",
+      "name": "Salsa Peruana",
+      "family": "global",
+      "href": "traditions/salsa_peruana.json"
+    },
+    {
+      "id": "cumbia_argentina",
+      "name": "Cumbia Argentina",
+      "family": "global",
+      "href": "traditions/cumbia_argentina.json"
+    },
+    {
+      "id": "tecnocumbia",
+      "name": "Tecnocumbia",
+      "family": "global",
+      "href": "traditions/tecnocumbia.json"
+    },
+    {
+      "id": "merengue_de_calle",
+      "name": "Merengue de Calle",
+      "family": "global",
+      "href": "traditions/merengue_de_calle.json"
+    },
+    {
+      "id": "new_york_garage_house",
+      "name": "New York Garage House",
+      "family": "electronic",
+      "href": "traditions/new_york_garage_house.json"
+    },
+    {
+      "id": "german_techno",
+      "name": "German Techno",
+      "family": "electronic",
+      "href": "traditions/german_techno.json"
+    },
+    {
+      "id": "berlin_minimal_techno",
+      "name": "Berlin Minimal Techno",
+      "family": "electronic",
+      "href": "traditions/berlin_minimal_techno.json"
+    },
+    {
+      "id": "birmingham_techno",
+      "name": "Birmingham Techno",
+      "family": "electronic",
+      "href": "traditions/birmingham_techno.json"
+    },
+    {
+      "id": "south_african_house",
+      "name": "South African house (SA house)",
+      "family": "electronic",
+      "href": "traditions/south_african_house.json"
+    },
+    {
+      "id": "kenyan_drill",
+      "name": "Kenyan drill",
+      "family": "hip_hop",
+      "href": "traditions/kenyan_drill.json"
+    },
+    {
+      "id": "naija_old_school",
+      "name": "Naija old school",
+      "family": "pop",
+      "href": "traditions/naija_old_school.json"
+    },
+    {
+      "id": "afro_rnb",
+      "name": "Afro R&B",
+      "family": "pop",
+      "href": "traditions/afro_rnb.json"
+    },
+    {
+      "id": "afro_soul",
+      "name": "Afro soul",
+      "family": "global",
+      "href": "traditions/afro_soul.json"
+    },
+    {
+      "id": "coladeira",
+      "name": "Coladeira",
+      "family": "global",
+      "href": "traditions/coladeira.json"
+    },
+    {
+      "id": "mbube",
+      "name": "Mbube",
+      "family": "global",
+      "href": "traditions/mbube.json"
+    },
+    {
+      "id": "bristol_trip_hop",
+      "name": "Bristol trip hop",
+      "family": "electronic",
+      "href": "traditions/bristol_trip_hop.json"
+    },
+    {
+      "id": "sheffield_bleep_techno",
+      "name": "Sheffield bleep techno",
+      "family": "electronic",
+      "href": "traditions/sheffield_bleep_techno.json"
+    },
+    {
+      "id": "kosmische",
+      "name": "Kosmische Musik",
+      "family": "rock",
+      "href": "traditions/kosmische.json"
+    },
+    {
+      "id": "zamrock",
+      "name": "Zamrock",
+      "family": "rock",
+      "href": "traditions/zamrock.json"
+    },
+    {
+      "id": "turkish_psych",
+      "name": "Turkish psychedelic (Anadolu psych)",
+      "family": "rock",
+      "href": "traditions/turkish_psych.json"
+    },
+    {
+      "id": "indonesian_psychedelia",
+      "name": "Indonesian Psychedelia",
+      "family": "global",
+      "href": "traditions/indonesian_psychedelia.json"
+    },
+    {
+      "id": "thai_psychedelic",
+      "name": "Thai Psychedelic",
+      "family": "global",
+      "href": "traditions/thai_psychedelic.json"
+    },
+    {
+      "id": "group_sounds",
+      "name": "Group Sounds",
+      "family": "rock",
+      "href": "traditions/group_sounds.json"
+    },
+    {
+      "id": "j_core",
+      "name": "J-Core",
+      "family": "electronic",
+      "href": "traditions/j_core.json"
+    },
+    {
+      "id": "hokkien_pop",
+      "name": "Hokkien Pop (Taiyu)",
+      "family": "pop",
+      "href": "traditions/hokkien_pop.json"
+    },
+    {
+      "id": "taiwan_campus_folk",
+      "name": "Taiwan Campus Folk",
+      "family": "pop",
+      "href": "traditions/taiwan_campus_folk.json"
+    },
+    {
+      "id": "skramz",
+      "name": "Skramz",
+      "family": "rock_punk",
+      "href": "traditions/skramz.json"
+    },
+    {
+      "id": "screamo",
+      "name": "Screamo",
+      "family": "rock_punk",
+      "href": "traditions/screamo.json"
+    },
+    {
+      "id": "emoviolence",
+      "name": "Emoviolence",
+      "family": "rock_punk",
+      "href": "traditions/emoviolence.json"
+    },
+    {
+      "id": "street_punk",
+      "name": "Street Punk",
+      "family": "rock_punk",
+      "href": "traditions/street_punk.json"
+    },
+    {
+      "id": "ska_punk",
+      "name": "Ska Punk",
+      "family": "rock_punk",
+      "href": "traditions/ska_punk.json"
+    },
+    {
+      "id": "dancehall",
+      "name": "Dancehall",
+      "family": "global",
+      "href": "traditions/dancehall.json"
+    },
+    {
+      "id": "uk_dancehall",
+      "name": "UK Dancehall (Bashment)",
+      "family": "global",
+      "href": "traditions/uk_dancehall.json"
+    },
+    {
+      "id": "traphall",
+      "name": "Traphall",
+      "family": "hip_hop",
+      "href": "traditions/traphall.json"
+    },
+    {
+      "id": "basshall",
+      "name": "Basshall",
+      "family": "electronic",
+      "href": "traditions/basshall.json"
+    },
+    {
+      "id": "neo_soul",
+      "name": "Neo Soul",
+      "family": "blues_gospel",
+      "href": "traditions/neo_soul.json"
+    },
+    {
+      "id": "motown",
+      "name": "Motown Sound",
+      "family": "pop",
+      "href": "traditions/motown.json"
+    },
+    {
+      "id": "kansas_city_jazz",
+      "name": "Kansas City Jazz",
+      "family": "jazz",
+      "href": "traditions/kansas_city_jazz.json"
+    },
+    {
+      "id": "indie_rock",
+      "name": "Indie Rock",
+      "family": "rock",
+      "href": "traditions/indie_rock.json"
+    },
+    {
+      "id": "nu_jazz",
+      "name": "Nu Jazz",
+      "family": "jazz",
+      "href": "traditions/nu_jazz.json"
+    },
+    {
+      "id": "j_ska",
+      "name": "J-Ska",
+      "family": "pop_rock",
+      "href": "traditions/j_ska.json"
+    },
+    {
+      "id": "j_punk",
+      "name": "J-Punk",
+      "family": "rock_punk",
+      "href": "traditions/j_punk.json"
+    },
+    {
+      "id": "european_free_jazz",
+      "name": "European Free Jazz",
+      "family": "jazz",
+      "href": "traditions/european_free_jazz.json"
+    },
+    {
+      "id": "c_pop",
+      "name": "C-Pop (Chinese-Language Popular Song)",
+      "family": "pop",
+      "href": "traditions/c_pop.json"
+    },
+    {
+      "id": "t_pop",
+      "name": "T-Pop",
+      "family": "pop",
+      "href": "traditions/t_pop.json"
+    },
+    {
+      "id": "funk_bh",
+      "name": "Funk BH (Belo Horizonte funk)",
+      "family": "electronic",
+      "href": "traditions/funk_bh.json"
+    },
+    {
+      "id": "funk_rj",
+      "name": "Funk RJ (Rio proibidão and tamborzão lineage)",
+      "family": "electronic",
+      "href": "traditions/funk_rj.json"
+    },
+    {
+      "id": "nuevo_folklore_argentino",
+      "name": "Nuevo Folklore Argentino",
+      "family": "global",
+      "href": "traditions/nuevo_folklore_argentino.json"
+    },
+    {
+      "id": "chinese_opera",
+      "name": "Chinese Opera (xiqu regional traditions)",
+      "family": "classical",
+      "href": "traditions/chinese_opera.json"
+    },
+    {
+      "id": "p_funk",
+      "name": "P-Funk",
+      "family": "blues_gospel",
+      "href": "traditions/p_funk.json"
+    },
+    {
+      "id": "appalachian_black_metal",
+      "name": "Appalachian Black Metal",
+      "family": "rock_punk",
+      "href": "traditions/appalachian_black_metal.json"
+    },
+    {
+      "id": "nu_disco",
+      "name": "Nu Disco",
+      "family": "electronic",
+      "href": "traditions/nu_disco.json"
+    },
+    {
+      "id": "jazz_fusion",
+      "name": "Jazz Fusion (electric jazz-rock idiom)",
+      "family": "jazz",
+      "href": "traditions/jazz_fusion.json"
+    },
+    {
+      "id": "japanese_city_pop",
+      "name": "Japanese City Pop",
+      "family": "pop",
+      "href": "traditions/japanese_city_pop.json"
+    },
+    {
+      "id": "korean_city_pop",
+      "name": "Korean City Pop",
+      "family": "pop",
+      "href": "traditions/korean_city_pop.json"
     }
   ]
 }

@@ -3,14 +3,14 @@
   "name": "Vaporwave",
   "family": "global",
   "lineage": "2010s online-distributed electronic micro-genre nostalgically recontextualizing 1980s-1990s corporate-mall-and-soft-rock background music through pitch-shifting, chopping, and ironic-commentary visual presentation — codified through Macintosh Plus (Floral Shoppe 2011, the founding vaporwave album), Vektroid, Saint Pepsi, Blank Banshee, and continuing through the broader online-aesthetic vaporwave subscene",
-  "recipe": "classic mid-2010s vaporwave, experimental Elec, lofi branch, retro aesthetic experimental electric weirdcore video game music. sampler drum string machine, tape replay keyboard, fast decay focused low analog synth. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 332,
-  "score": 24.119,
+  "recipe": "classic mid-2010s vaporwave, experimental Elec, lofi branch, retro aesthetic experimental electric weirdcore utopian virtual. sampler drum string machine, tape replay keyboard, analog synth. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 308,
+  "score": 23.248,
   "config": {
     "traditions": [
       "vaporwave",
       "weirdcore",
-      "video_game_music"
+      "utopian_virtual"
     ],
     "instruments": [
       {
@@ -22,10 +22,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 0.6174999999999999,
-          "sample_bitdepth": 0.65,
+          "electronic_technique": 0.8124999999999999,
+          "sample_bitdepth": 0.39,
           "sample_swing": 7.75,
-          "sample_processing": 0.8365
+          "sample_processing": 0.9099999999999999
         }
       },
       {
@@ -36,9 +36,9 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 1.4749999999999999,
+          "keyboard_technique": 1.5,
           "tape_voice": 0,
-          "tape_state": 0.042749999999999996
+          "tape_state": 0.045
         }
       },
       {
@@ -47,29 +47,29 @@
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
           "sm_chorus": "sm_chorus_lush",
-          "sm_voicing": "sm_brass"
+          "sm_voicing": "sm_cellos"
         },
         "scores": {
-          "electronic_technique": 1.6919999999999997,
+          "electronic_technique": 1.7249999999999996,
           "sm_voice_count": 3.38,
-          "sm_chorus": 1.3,
-          "sm_voicing": 0.65
+          "sm_chorus": 0.65,
+          "sm_voicing": 0.195
         }
       },
       {
         "id": "analog_synth",
         "slots": {
-          "electronic_technique": "electronic_pluck_short",
-          "oscillator": "saw_super",
-          "filter_topology": "comb_filter",
-          "envelope": "pluck_env",
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 1.8199999999999998,
-          "oscillator": 0.585,
-          "filter_topology": 0.33525,
-          "envelope": 1.04,
+          "electronic_technique": 2,
+          "oscillator": 0.8,
+          "filter_topology": 0.9750000000000001,
+          "envelope": 0.8449999999999999,
           "modulation": 0.195
         }
       }

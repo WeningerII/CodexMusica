@@ -3,53 +3,53 @@
   "name": "Solomon Islands panpipe ensemble",
   "family": "global",
   "lineage": "Solomon Islands panpipe ensemble tradition of the Are'are people of southern Malaita island and adjacent Solomons communities, featuring large coordinated ensembles of stopped-bamboo-pipes-arranged-in-rafts played in interlocking hocketed polyphonic patterns. The au tahana (raft-panpipe) and au kuita (bundle-panpipe) instrumental categories support distinct repertoire layers. Performance contexts span feast-day celebrations, mourning-rituals, and (post-1978 independence) international-festival and recording-circuit work through the canonical Narasirato Pan Pipers ensemble formed in the 1990s. The genre is one of the most internationally circulated Melanesian musical traditions through twentieth-century ethnomusicological recording.",
-  "recipe": "classic Southeast Asian mid-1990s solomon islands panpipe ensemble, ritual Devotional, indigenous branch, wind pipe drone modal yidaki solo gaita galega solo. vocal fry, breath veiled tone, pure, interlocked note trading. raft bound interlocking melanesian panpipes. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 424,
-  "score": 123.403,
+  "recipe": "classic Southeast Asian mid-1990s solomon islands panpipe ensemble, ritual Devotional, indigenous branch, wind pipe drone modal musica sarda greek clarinet. thick, breath veiled tone, pure, interlocked note trading. raft bound interlocking melanesian panpipes. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 418,
+  "score": 127.98,
   "config": {
     "traditions": [
       "solomon_islands_panpipe",
-      "didgeridoo_yidaki_solo",
-      "galician_pipe_solo"
+      "musica_sarda",
+      "greek_clarinet"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 1.1115,
-          "voice_quality": 20.279999999999994,
+          "voice_register": 1.125,
+          "voice_quality": 14.949999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4365,
-          "voice_articulation": 12.024999999999995,
-          "voice_microtone": 14.68999999999999,
-          "voice_tradition": 11.504999999999997,
-          "voice_mechanism_compound": 6.045,
-          "voice_estill_quality": 2.99,
-          "voice_speech_song": 13.259999999999994,
-          "voice_ensemble_config": 11.959999999999994,
-          "voice_ornament_system": 4.525,
-          "voice_pitch_organization": 5.330000000000001,
-          "voice_processing_chain": 6.5649999999999995,
-          "voice_multitrack_stack": 1.5855
+          "voice_vibrato": 2.2350000000000003,
+          "voice_articulation": 12.967499999999998,
+          "voice_microtone": 17.582499999999996,
+          "voice_tradition": 13.8125,
+          "voice_mechanism_compound": 5.655000000000001,
+          "voice_estill_quality": 3.7700000000000005,
+          "voice_speech_song": 12.609999999999996,
+          "voice_ensemble_config": 12.902499999999996,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 5.265000000000001,
+          "voice_processing_chain": 9.035000000000002,
+          "voice_multitrack_stack": 1.04
         }
       },
       {
@@ -60,9 +60,9 @@
           "melanesian_panpipes_technique": "melanesian_panpipes_blown"
         },
         "scores": {
-          "melanesian_panpipes_form": 6.512499999999999,
-          "melanesian_panpipes_role": 12.031999999999998,
-          "melanesian_panpipes_technique": 0
+          "melanesian_panpipes_form": 6.145,
+          "melanesian_panpipes_role": 11.84,
+          "melanesian_panpipes_technique": 0.045
         }
       }
     ],

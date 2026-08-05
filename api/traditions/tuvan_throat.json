@@ -3,14 +3,14 @@
   "name": "Tuvan throat singing (khoomei)",
   "family": "global",
   "lineage": "Tuvan Republic (Russian-Federation Southern-Siberia, ethnically and linguistically Turkic-Mongolic) throat-singing tradition with five canonical styles — khöömei middle-register-resonance, sygyt high-isolated-whistle-overtone, kargyraa low-deep-undertone-style, borbangnadyr rolling-modulated-overtone, ezenggileer rhythmic-broken-overtone (horse-riding-mimetic). Distinct from the parallel Mongolian khoomei lineage despite the shared ethnographic-Turkic-Mongolic heritage; Tuvan technique tends toward higher-pitched sygyt isolation versus Mongolian deeper kharkhiraa. Embedded in nomadic herder-pastoralist work-song repertoire and in shamanic-trance ritual practice. The 1990s-onward post-Soviet international-touring exposure (initial European-and-American world-music-circuit) catalyzed contemporary-revival and academic-research interest.",
-  "recipe": "classic Northeast Asian mid-1990s tuvan throat singing, drone Modal, overtone branch, buddhist ritual devotional, central Asian hunting song mongolian hunting-khoomei tibetan chöd rite. sygyt, false fold engaged, breath pulsed, interlocked note trading. wood larch canonical tuvan khoomei accompaniment igil, traditional mongolian tuvan tradition tovshuur, long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur. steppe outdoor mongolian. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 535,
-  "score": 394.607,
+  "recipe": "classic Northeast Asian mid-1990s tuvan throat singing, drone Modal, overtone branch, buddhist ritual devotional, central Asian hunting song tuvan folk music central asian folk. sygyt, false fold engaged, breath pulsed, interlocked note trading. wood larch canonical tuvan khoomei accompaniment igil, traditional mongolian tuvan tradition tovshuur, long song morin khuur traditional horsehide morin khuur. steppe outdoor mongolian. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 494,
+  "score": 371.055,
   "config": {
     "traditions": [
       "tuvan_throat",
-      "mongolian_hunting_khoomei",
-      "tibetan_chod_rite"
+      "tuvan_folk",
+      "central_asian_folk"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 46.650749999999995,
-          "voice_quality": 34.23375,
+          "voice_register": 38.235,
+          "voice_quality": 30.025,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.067499999999999,
-          "voice_articulation": 18.264999999999993,
-          "voice_microtone": 19.62999999999999,
-          "voice_tradition": 46.15299999999999,
-          "voice_mechanism_compound": 43.855749999999986,
-          "voice_estill_quality": 5.2,
-          "voice_speech_song": 23.59499999999999,
-          "voice_ensemble_config": 19.044999999999995,
-          "voice_ornament_system": 4.4,
-          "voice_pitch_organization": 42.39624999999999,
-          "voice_processing_chain": 3.25,
-          "voice_multitrack_stack": 4.9399999999999995
+          "voice_vibrato": 8.139999999999999,
+          "voice_articulation": 21.514999999999997,
+          "voice_microtone": 26.324999999999996,
+          "voice_tradition": 39.474999999999994,
+          "voice_mechanism_compound": 35.98499999999999,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 28.794999999999998,
+          "voice_ensemble_config": 21.644999999999996,
+          "voice_ornament_system": 2.9900000000000015,
+          "voice_pitch_organization": 36.52499999999999,
+          "voice_processing_chain": 3.51,
+          "voice_multitrack_stack": 5.785000000000001
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "igil_body": 11.7,
-          "igil_string": 0,
-          "igil_body_wood": 7.952499999999999,
-          "igil_tradition": 6.5
+          "igil_body": 8.97,
+          "igil_string": 0.545,
+          "igil_body_wood": 6.465,
+          "igil_tradition": 5.719999999999999
         }
       },
       {
@@ -76,7 +76,7 @@
           "tovshuur_body": "tovshuur_carved_wood_hide"
         },
         "scores": {
-          "tovshuur_strings": 17.549999999999997,
+          "tovshuur_strings": 12.934999999999999,
           "tovshuur_body": 0.39
         }
       },
@@ -85,16 +85,16 @@
         "slots": {
           "bowed_technique": "bowed_rough_drone",
           "morin_khuur_use": "morin_khuur_long_song",
-          "morin_khuur_construction": "morin_khuur_modern_wood",
+          "morin_khuur_construction": "morin_khuur_traditional",
           "morin_khuur_body_wood": "morin_khuur_sycamore",
           "morin_khuur_strings": "morin_khuur_horsehair_canonical"
         },
         "scores": {
-          "bowed_technique": 2.99,
-          "morin_khuur_use": 20.347249999999995,
-          "morin_khuur_construction": 0.845,
-          "morin_khuur_body_wood": 7.734999999999999,
-          "morin_khuur_strings": 2.275
+          "bowed_technique": 6.2,
+          "morin_khuur_use": 18.364999999999995,
+          "morin_khuur_construction": 1.435,
+          "morin_khuur_body_wood": 5.609999999999999,
+          "morin_khuur_strings": 5.0649999999999995
         }
       }
     ],

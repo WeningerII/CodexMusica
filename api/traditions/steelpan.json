@@ -1,0 +1,136 @@
+{
+  "id": "steelpan",
+  "name": "Steelpan (Trinidad steel orchestra)",
+  "family": "global",
+  "lineage": "Trinidadian idiom born in 1930s-40s Laventille and Port of Spain when tamboo bamboo bands were replaced by tuned oil-drum idiophones, codified by Ellie Mannette, Winston 'Spree' Simon, and Bertie Marshall into the modern steel orchestra of tenor, double-second, guitar, cello and bass pans backed by an engine-room of iron, scratcher and drum kit, playing calypso and arranged concert works at Panorama.",
+  "recipe": "classic Caribbean mid-1930s steelpan, groove Percussion, Caribbean branch, Caribbean carnival processional, Latin am groove percussion trinidadian panorama steelpan competition cumbia colombiana. arranged concert stage steel steelpan, steel orchestra, pre muffled edge muffled brushes-and-sticks drum kit, lead synthetic remo fiberskyn modern stable siam oak mid tier modern open slap hand drum congas, agogo, pvc guiro, ampeg b15 amp American 60s bass amp flip top character mahogany stainless steel electric bass. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 708,
+  "score": 102.508,
+  "config": {
+    "traditions": [
+      "steelpan",
+      "caribbean_carnival_steelpan_panorama",
+      "cumbia_colombiana"
+    ],
+    "instruments": [
+      {
+        "id": "steelpan",
+        "slots": {
+          "steelpan_voice": "double_seconds",
+          "steelpan_context": "steelpan_orchestra"
+        },
+        "scores": {
+          "steelpan_voice": 1.13,
+          "steelpan_context": 9.004999999999999
+        }
+      },
+      {
+        "id": "steel_orchestra",
+        "slots": {
+          "steel_orchestra_sections": "steel_orchestra_frontline",
+          "steel_orchestra_context": "steel_orchestra_panorama",
+          "steel_orchestra_size": "steel_orchestra_stageside"
+        },
+        "scores": {
+          "steel_orchestra_sections": 0.845,
+          "steel_orchestra_context": 9.885,
+          "steel_orchestra_size": 2.1900000000000004
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 16.965,
+          "drumhead": 4.27,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_synthetic_head",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 9.44,
+          "conga_set": 1.885,
+          "conga_skin": 2.145,
+          "conga_shell_wood": 2.795
+        }
+      },
+      {
+        "id": "agogo",
+        "slots": {
+          "agogo_bell": "agogo_triple",
+          "agogo_context": "agogo_bateria"
+        },
+        "scores": {
+          "agogo_bell": 2.145,
+          "agogo_context": 4.42
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_mexican_pvc",
+          "guiro_striker": "guiro_metal"
+        },
+        "scores": {
+          "guiro_origin": 2.145,
+          "guiro_striker": 2.145
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_s",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 3.9650000000000007,
+          "body_wood": 1.87,
+          "pickup_config": 2.535,
+          "string_type": 4.97,
+          "scale_length_b": 3.08,
+          "fretted_or_not": 0,
+          "bass_technique": 4.365
+        }
+      }
+    ],
+    "room": "trinidad_calypso_panyard_outdoor",
+    "archetype": "arch_trinidad_carnival_soca",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "trinidad_calypso_soca_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "trinidad_calypso_soca_2_4",
+    "room": "trinidad_calypso_panyard_outdoor",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

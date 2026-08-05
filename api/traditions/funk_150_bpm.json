@@ -3,14 +3,14 @@
   "name": "Funk 150 BPM",
   "family": "electronic",
   "lineage": "Rio de Janeiro funk carioca subgenre that emerged around 2014-2016 out of the North Zone baile circuit and the DJ Rennan da Penha and Baile da Gaiola scene — the tamborzão sample battery accelerated to roughly 150 BPM, snare and atabaque hits pushed into rapid stuttering triplet-feel rolls, an aggressive dry kick with almost no sub tail, minimal melodic content, and MC vocals delivered as short shouted or sung hooks looped over the pattern.",
-  "recipe": "classic Southern American 2014-2016 funk 150 bpm, groove Percussion, Afro-diasporic electric branch, Latin electric electronic dance, footwork electronic dance funk paulista rave funk. vocal fry, breath veiled tone, straight note core, interlocked note trading. sampler drum machine, behringer rd 8 modern clone analog circuit reproduction TR-808, multi rod cluster canonical samba aluminum canonical rio escola tamborim, atabaque, monosynth acid bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 579,
-  "score": 155.257,
+  "recipe": "classic Southern American 2014-2016 funk 150 bpm, groove Percussion, Afro-diasporic electric branch, Latin electric electronic dance, footwork electronic dance funk paulista paracaná. vocal fry, breath veiled tone, straight note core, interlocked note trading. sampler drum machine, behringer rd 8 modern clone analog circuit reproduction TR-808, multi rod cluster canonical samba aluminum canonical rio escola tamborim, atabaque, sub bass monosynth acid bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 587,
+  "score": 146.795,
   "config": {
     "traditions": [
       "funk_150_bpm",
       "funk_paulista",
-      "rave_funk"
+      "paracana"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.4949999999999999,
-          "voice_quality": 14.29999999999999,
+          "voice_register": 0.845,
+          "voice_quality": 13.389999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4949999999999997,
-          "voice_articulation": 17.09499999999999,
-          "voice_microtone": 16.24999999999999,
-          "voice_tradition": 4.94,
-          "voice_mechanism_compound": 1.95,
-          "voice_estill_quality": 1.9825,
-          "voice_speech_song": 16.639999999999993,
-          "voice_ensemble_config": 17.419999999999995,
-          "voice_ornament_system": 1.9499999999999997,
+          "voice_vibrato": 1.9499999999999997,
+          "voice_articulation": 15.339999999999995,
+          "voice_microtone": 14.94999999999999,
+          "voice_tradition": 4.03,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 2.2425000000000006,
+          "voice_speech_song": 16.444999999999993,
+          "voice_ensemble_config": 15.274999999999993,
+          "voice_ornament_system": 2.195,
           "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 14.9975,
-          "voice_multitrack_stack": 5.785
+          "voice_processing_chain": 12.767500000000002,
+          "voice_multitrack_stack": 4.095
         }
       },
       {
@@ -58,13 +58,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.7149999999999999,
-          "sample_bitdepth": 0.345,
-          "sample_swing": 13.125,
-          "sample_processing": 0.65
+          "electronic_technique": 1.5175,
+          "sample_bitdepth": 0.24,
+          "sample_swing": 11,
+          "sample_processing": 0.39
         }
       },
       {
@@ -75,34 +75,34 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 2.925,
-          "drum_machine_808_context": 2.9899999999999998,
+          "tr808_voice": 3.835,
+          "drum_machine_808_context": 3.9,
           "tr808_production_origin": 1.04
         }
       },
       {
         "id": "tamborim",
         "slots": {
-          "tamborim_skin": "tamborim_calf",
+          "tamborim_skin": "tamborim_nylon",
           "tamborim_striker": "tamborim_cluster",
           "tamborim_shell": "tamborim_aluminum_canonical"
         },
         "scores": {
-          "tamborim_skin": 0.43499999999999994,
-          "tamborim_striker": 1.195,
-          "tamborim_shell": 2.73
+          "tamborim_skin": 0.40499999999999997,
+          "tamborim_striker": 1.3,
+          "tamborim_shell": 2.08
         }
       },
       {
         "id": "atabaque",
         "slots": {
           "atabaque_role": "atabaque_rum",
-          "atabaque_skin": "atabaque_synth",
+          "atabaque_skin": "atabaque_cowhide",
           "atabaque_shell_wood": "atabaque_cedrillo"
         },
         "scores": {
           "atabaque_role": 0.3,
-          "atabaque_skin": 0.345,
+          "atabaque_skin": 0.3,
           "atabaque_shell_wood": 0.39
         }
       },
@@ -115,9 +115,9 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 2.7950000000000004,
+          "electronic_technique": 3.7050000000000005,
           "wave_acid": 0.045,
-          "filter_acid": 2.535,
+          "filter_acid": 2.7299999999999995,
           "accent_acid": 1.2025
         }
       }

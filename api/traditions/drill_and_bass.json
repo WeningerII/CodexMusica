@@ -1,0 +1,138 @@
+{
+  "id": "drill_and_bass",
+  "name": "Drill'n'bass",
+  "family": "electronic",
+  "lineage": "Mid-1990s British studio-bound offshoot of jungle, named by the UK press and codified by Aphex Twin, Squarepusher, Luke Vibert and µ-Ziq on Rephlex and Warp circa 1995-1998, defined by Amen and Think breakbeats chopped to 1/32-note resolution and machine-gunned at 160-190 BPM, jazz-fusion fretless bass lines, sweet detuned analogue-synth melodies, and an explicitly non-danceable, through-edited arrangement with no MC and no DJ function.",
+  "recipe": "classic 1995-1998 drill'n'bass, experimental Elec, idm glitch branch, bass descendants bass system, footwork electronic dance drumfunk darkstep. glitched textural sampler, ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless sub bass monosynth acid bass, sub bass analog poly yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm synth, vintage ambassador asymmetric brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 623,
+  "score": 163.29,
+  "config": {
+    "traditions": [
+      "drill_and_bass",
+      "drumfunk",
+      "darkstep"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 10.365,
+          "sampler_archetypes": 3.25,
+          "sampler_bit_depth": 1.56,
+          "sampler_workflow": 10.125,
+          "sampler_classic_context": 22.944999999999993
+        }
+      },
+      {
+        "id": "fretless_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "fretless_use": "fretless_rock",
+          "fretless_bass_construction": "fretless_bass_factory",
+          "fretless_fingerboard_wood": "fretless_ebony_unlined",
+          "fretless_bass_strings": "fretless_flatwound"
+        },
+        "scores": {
+          "electric_technique": 1.95,
+          "amp_make": 14.527499999999996,
+          "fretless_use": 1.69,
+          "fretless_bass_construction": 0.39,
+          "fretless_fingerboard_wood": 6.325,
+          "fretless_bass_strings": 5.255000000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 14.234999999999996,
+          "poly_archetypes": 0.585,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 14.234999999999996,
+          "wave_acid": 0.39,
+          "filter_acid": 0.845,
+          "accent_acid": 0.845
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_simple",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_tx81z"
+        },
+        "scores": {
+          "electronic_technique": 14.234999999999996,
+          "fm_algorithm": 0.3,
+          "fm_modulator_ratio": 0.345,
+          "fm_polyphony": 0.65,
+          "fm_model_lineage": 13.714999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 27.202499999999997,
+          "drumhead": 4.015000000000001,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_uk_jungle_dubplate",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

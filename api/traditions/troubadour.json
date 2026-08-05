@@ -1,0 +1,157 @@
+{
+  "id": "troubadour",
+  "name": "Troubadour Song (Occitan)",
+  "family": "classical",
+  "lineage": "Occitan courtly lyric of circa 1100-1290 in Aquitaine, Provence and Toulouse, begun by Guilhem IX of Aquitaine and codified by Bernart de Ventadorn, Raimbaut de Vaqueiras, Guiraut Riquier and the trobairitz Comtessa de Dia — monophonic strophic cansos, sirventes and albas in church modes, only about 250 melodies surviving in unmeasured notation, delivered by solo voice with vielle, harp or Mediterranean plucked-lute accompaniment.",
+  "recipe": "classic North African early-1100s troubadour song, art Music, western early branch, Mediterranean ballad ballad poetry, middle eastern classical art music andalusī nūba persian traditional music. thick, breath veiled tone, slow rate, interlocked note trading. dance driving gut bourdon drone legato vielle medieval, Lebanese cedar eastern Mediterranean pyramid nylon arab school oud, low mid rich spectrum traditional gut gut string celtic harp, single plectrum line monophonic melodic lead medieval psaltery, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. stone plaster medina room. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 691,
+  "score": 258.387,
+  "config": {
+    "traditions": [
+      "troubadour",
+      "andalusi_nuba",
+      "persian_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.795,
+          "voice_quality": 7.670000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 13.940000000000001,
+          "voice_articulation": 13.844999999999994,
+          "voice_microtone": 21.384999999999998,
+          "voice_tradition": 21.860000000000003,
+          "voice_mechanism_compound": 17.200000000000003,
+          "voice_estill_quality": 14.595,
+          "voice_speech_song": 17.09499999999999,
+          "voice_ensemble_config": 15.339999999999995,
+          "voice_ornament_system": 17.51,
+          "voice_pitch_organization": 18,
+          "voice_processing_chain": 5.784999999999999,
+          "voice_multitrack_stack": 3.1200000000000006
+        }
+      },
+      {
+        "id": "vielle_medieval",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "vielle_medieval_form": "vielle_medieval_oval_five_string",
+          "vielle_medieval_repertoire": "vielle_medieval_estampie_dance",
+          "vielle_medieval_stringing": "vielle_medieval_bourdon_gut"
+        },
+        "scores": {
+          "bowed_technique": 12.875,
+          "vielle_medieval_form": 1.4949999999999999,
+          "vielle_medieval_repertoire": 2.1,
+          "vielle_medieval_stringing": 1.4949999999999999
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 12.875,
+          "oud_school": 0.845,
+          "oud_strings": 5.870000000000001,
+          "oud_pick": 0.495,
+          "oud_body_wood": 0.65,
+          "oud_soundboard_wood": 5.46,
+          "oud_string_material": 1.69
+        }
+      },
+      {
+        "id": "celtic_harp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "celtic_harp_levers": "lever_camac",
+          "celtic_harp_strings": "celtic_gut"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "celtic_harp_levers": 1.8449999999999998,
+          "celtic_harp_strings": 6.170000000000001
+        }
+      },
+      {
+        "id": "medieval_psaltery",
+        "slots": {
+          "medieval_psaltery_form": "medieval_psaltery_form_rectangular",
+          "medieval_psaltery_playing": "medieval_psaltery_playing_single_plectrum",
+          "medieval_psaltery_stringing": "medieval_psaltery_stringing_brass_wire"
+        },
+        "scores": {
+          "medieval_psaltery_form": 0.585,
+          "medieval_psaltery_playing": 2.6650000000000005,
+          "medieval_psaltery_stringing": -0.05
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_no_snares",
+          "bendir_context": "bendir_folk",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_synthetic_modern"
+        },
+        "scores": {
+          "bendir_snares": 1.3,
+          "bendir_context": 1.17,
+          "bendir_shell_wood": 2.34,
+          "bendir_head": 5.73
+        }
+      }
+    ],
+    "room": "stone_plaster_medina_room",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pythagorean",
+    "room": "stone_plaster_medina_room",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

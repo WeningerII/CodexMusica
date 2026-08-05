@@ -3,20 +3,20 @@
   "name": "Rap Genovese",
   "family": "hip_hop",
   "lineage": "Genoa's rap scene formed in the mid-2010s in the Certosa and Sampierdarena quarters around the Sacre Scuole collective (Izi, Tedua, Vaz Tè) with Bresh, Disme and Nader following — 130–150 BPM trap grids heard in half-time, rolling 808 glides, reverb-washed minor-key piano and pad loops, and a distinctively melodic sung-rapped delivery with heavy Auto-Tune, Ligurian dialect inserts and cinematic Genoa-port imagery.",
-  "recipe": "classic 2014-2016 rap genovese, mc Rhythm, intl hip hop branch, us hip hop modern, experimental MC rhythm pittsburgh rap cloud rap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass analog poly synth, no chemical hardener t rivet beech laminated maple laminated European tradition grand piano, octuple plus dense stack multi track instrument 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 645,
-  "score": 303.045,
+  "recipe": "classic 2014-2016 rap genovese, mc Rhythm, intl hip hop branch, us hip hop modern, experimental MC rhythm nerdcore dark plugg. vocal fry, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, low sub bass analog poly synth, modern bright beech laminated maple laminated European tradition sitka spruce grand piano, 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 598,
+  "score": 274.76,
   "config": {
     "traditions": [
       "rap_genovese",
-      "pittsburgh_rap",
-      "cloud_rap"
+      "nerdcore",
+      "dark_plugg"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.7995000000000005,
-          "voice_quality": 28.762499999999996,
+          "voice_register": 0.845,
+          "voice_quality": 26.284999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.752500000000001,
-          "voice_articulation": 16.769999999999996,
-          "voice_microtone": 20.279999999999994,
-          "voice_tradition": 11.5155,
-          "voice_mechanism_compound": 5.525,
-          "voice_estill_quality": 6.4350000000000005,
-          "voice_speech_song": 26.268999999999995,
-          "voice_ensemble_config": 16.89999999999999,
-          "voice_ornament_system": 7.085000000000003,
-          "voice_pitch_organization": 1.6929999999999998,
-          "voice_processing_chain": 17.214999999999996,
-          "voice_multitrack_stack": 6.532499999999999
+          "voice_vibrato": 2.2099999999999995,
+          "voice_articulation": 16.249999999999996,
+          "voice_microtone": 18.459999999999994,
+          "voice_tradition": 9.21,
+          "voice_mechanism_compound": 6.369999999999999,
+          "voice_estill_quality": 7.475,
+          "voice_speech_song": 24.775000000000002,
+          "voice_ensemble_config": 16.379999999999995,
+          "voice_ornament_system": 6.890000000000003,
+          "voice_pitch_organization": 2.0799999999999996,
+          "voice_processing_chain": 14.989999999999998,
+          "voice_multitrack_stack": 5.3950000000000005
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 9.093999999999998,
-          "drum_machine_808_context": 2.8600000000000003,
-          "tr808_production_origin": 2.8600000000000003
+          "tr808_voice": 8.055000000000001,
+          "drum_machine_808_context": 2.34,
+          "tr808_production_origin": 2.34
         }
       },
       {
@@ -74,10 +74,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 7.974999999999999,
-          "sample_bitdepth": 2.8600000000000003,
-          "sample_swing": 14.754999999999999,
-          "sample_processing": 1.3
+          "electronic_technique": 7.300000000000002,
+          "sample_bitdepth": 3.1849999999999996,
+          "sample_swing": 12.480000000000002,
+          "sample_processing": 1.95
         }
       },
       {
@@ -86,13 +86,13 @@
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_yamaha_cs"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 15.923999999999998,
-          "poly_archetypes": 1.1949999999999998,
-          "poly_voices": 1.1949999999999998,
-          "poly_maker_lineage": -0.845
+          "electronic_technique": 13.825000000000003,
+          "poly_archetypes": 1.8900000000000001,
+          "poly_voices": 1.8900000000000001,
+          "poly_maker_lineage": -1.4000000000000001
         }
       },
       {
@@ -101,36 +101,36 @@
           "keyboard_technique": "keyboard_avant_prepared",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "abel_hammer",
+          "piano_hammer": "renner_blue_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
-          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 2.9499999999999997,
-          "grand_piano_size": 1.3,
-          "grand_piano_brand": 1.3,
-          "piano_hammer": 6.645000000000001,
-          "piano_rim": 6.0605,
-          "piano_soundboard": 5.931000000000001,
-          "piano_pinblock": 6.250000000000001,
-          "piano_plate": 7.513,
-          "piano_pitch_standard": 13.845
+          "keyboard_technique": 6.2,
+          "grand_piano_size": 1.89,
+          "grand_piano_brand": 2.085,
+          "piano_hammer": 6.629999999999999,
+          "piano_rim": 5.7299999999999995,
+          "piano_soundboard": 5.145,
+          "piano_pinblock": 4.8999999999999995,
+          "piano_plate": 5.784999999999999,
+          "piano_pitch_standard": 11.18
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_density": "multitrack_density_5_part_cluster",
           "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 1.2839999999999998,
-          "multitrack_stack_era_aesthetic": 5.09,
-          "multitrack_stack_processing": 2.6195000000000004
+          "multitrack_stack_density": 0.845,
+          "multitrack_stack_era_aesthetic": 3.185,
+          "multitrack_stack_processing": 1.3649999999999998
         }
       }
     ],

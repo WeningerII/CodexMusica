@@ -1,0 +1,149 @@
+{
+  "id": "uk_funky",
+  "name": "UK Funky",
+  "family": "electronic",
+  "lineage": "London dance genre of 2008-2010 built by Crazy Cousinz, Roska, Marcus Nasty, Geeneus and Lil Silva after grime's chart decline — 128-132 BPM four-to-the-floor or broken kick patterns overlaid with soca, kuduro and Afro-Latin percussion (congas, timbales, shaker), sparse synth pads, and sung or MC'd hooks drawn from UK garage's vocal tradition.",
+  "recipe": "classic 2008-2010 uk funky, bass System, uk soundsystem branch, house electronic dance, African dance electronic dance south african house latin house. thick, breath veiled tone, slow rate, interlocked note trading. TR-909, brass hands layered timbales, digital subtractive, layered sampler, deep foundational bass rhythm calabash shekere. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3.",
+  "recipe_chars": 487,
+  "score": 247.121,
+  "config": {
+    "traditions": [
+      "uk_funky",
+      "south_african_house",
+      "latin_house_percussion"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.55875,
+          "voice_quality": 7.377500000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.755,
+          "voice_articulation": 18.264999999999997,
+          "voice_microtone": 18.069999999999993,
+          "voice_tradition": 11.7325,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 3.2175000000000007,
+          "voice_speech_song": 18.719999999999995,
+          "voice_ensemble_config": 22.359999999999992,
+          "voice_ornament_system": 1.545,
+          "voice_pitch_organization": 0.7149999999999997,
+          "voice_processing_chain": 14.264999999999999,
+          "voice_multitrack_stack": 4.485
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 19.25,
+          "drum_machine_909_context": 1.2349999999999999,
+          "tr909_production_origin": 0.5
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_son"
+        },
+        "scores": {
+          "percussion_technique": 13.259999999999998,
+          "timbales_shell": 1.235,
+          "timbales_context": 0.26437499999999997
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 2.9899999999999998,
+          "va_archetypes": 0.3,
+          "digital_subtractive_context": 20.54
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_emax",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 0.3,
+          "sampler_bit_depth": 0.7149999999999999,
+          "sampler_workflow": 1.3,
+          "sampler_classic_context": 48.62
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_large",
+          "shekere_beads": "shekere_seed"
+        },
+        "scores": {
+          "shekere_size": 3.8349999999999995,
+          "shekere_beads": 2.4050000000000002
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_uk_grime_dubstep_pirate",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

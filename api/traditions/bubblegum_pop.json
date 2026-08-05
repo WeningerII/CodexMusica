@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through early-1970s manufactured-pop subgenre targeted at the pre-teen audience — codified through the Buddah Records label catalog produced by Kasenetz-Katz (the 1910 Fruitgum Company Simon Says 1968, Ohio Express Yummy Yummy Yummy 1968), the Archies (the cartoon-derived studio project, Sugar Sugar 1969 the commercial breakthrough), Bobby Sherman, the Partridge Family, the Osmonds, the Jackson 5 early period — built on simple melodic hooks, three-chord harmonic foundation, and lyrical content of pre-adolescent crush-romance and sugar-themed innocence",
   "recipe": "classic North American 1967-1969 bubblegum pop, functional Song, pop rock branch, crooners functional song brill building pop adult standards. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 757,
-  "score": 291.02,
+  "score": 290.183,
   "config": {
     "traditions": [
       "bubblegum_pop",
@@ -38,18 +38,18 @@
           "voice_quality": 11.699999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.863,
+          "voice_vibrato": 3.525,
           "voice_articulation": 16.575,
           "voice_microtone": 22.81,
-          "voice_tradition": 19.168499999999998,
+          "voice_tradition": 19.117499999999996,
           "voice_mechanism_compound": 2.6649999999999996,
           "voice_estill_quality": 4.375,
           "voice_speech_song": 23.335,
           "voice_ensemble_config": 16.054999999999996,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 2.5549999999999997,
+          "voice_pitch_organization": 2.4699999999999998,
           "voice_processing_chain": 6.5,
-          "voice_multitrack_stack": 5.352000000000001
+          "voice_multitrack_stack": 5.280000000000001
         }
       },
       {
@@ -69,7 +69,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 15.988999999999995,
+          "electric_technique": 15.949999999999996,
           "amp_make": 3.1200000000000006,
           "body_wood": 0.845,
           "neck_wood": 0.845,
@@ -88,7 +88,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -97,8 +97,8 @@
         "scores": {
           "amp_make": 3.835,
           "body_wood": 0.845,
-          "pickup_config": 0,
-          "string_type": 7.2669999999999995,
+          "pickup_config": 0.045,
+          "string_type": 6.8,
           "scale_length_b": 1.04,
           "fretted_or_not": 0.39,
           "bass_technique": 6.027500000000001
@@ -113,7 +113,7 @@
         },
         "scores": {
           "drum_technique": 16.445,
-          "drumhead": 18.279999999999994,
+          "drumhead": 18.579999999999995,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -128,12 +128,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 17.804,
+          "keyboard_technique": 17.764999999999997,
           "drawbar_setting": 6.077500000000001,
           "rotary_speed": 5.825,
           "percussion_setting": 3.055,
           "tonewheel_model": 5.720000000000001,
-          "leslie_cabinet_model": 1.286
+          "leslie_cabinet_model": 1.195
         }
       }
     ],

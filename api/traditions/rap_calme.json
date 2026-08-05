@@ -3,14 +3,14 @@
   "name": "Rap calme (French mellow rap)",
   "family": "hip_hop",
   "lineage": "Streaming-era French mellow-rap tendency consolidated in Paris around 2015-2020 by Lomepal, Josman, Nekfeu and Ichon — 70-95 BPM half-time or lightly swung drums, Rhodes and warm sampled loops, low dynamic range, close-mic conversational and half-sung delivery in French with introspective, non-confrontational writing designed for late-night and playlist listening.",
-  "recipe": "classic Western European mid-2010s rap calme, mc Rhythm, intl hip hop branch, us hip hop conscious rap, lofi experimental electric conscious hip-hop bossbeat. thick, rap, straight onset, interlocked note trading. late 1980s reverb saturated bus stack multitrack vocal stack, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, chopped sampler, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, TR-808. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 695,
-  "score": 317.31,
+  "recipe": "classic Western European mid-2010s rap calme, mc Rhythm, intl hip hop branch, us hip hop conscious rap, lofi experimental electric jazz rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. late 1980s reverb saturated bus stack multitrack vocal stack, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, chopped sampler, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, TR-808. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 692,
+  "score": 367.8,
   "config": {
     "traditions": [
       "rap_calme",
-      "conscious_hip_hop",
-      "bossbeat"
+      "jazz_rap",
+      "conscious_hip_hop"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.726499999999998,
-          "voice_quality": 31.544999999999995,
+          "voice_register": 11.944999999999995,
+          "voice_quality": 37.46,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.55,
-          "voice_articulation": 19.435,
-          "voice_microtone": 21.839999999999996,
-          "voice_tradition": 11.4165,
-          "voice_mechanism_compound": 3.120000000000001,
-          "voice_estill_quality": 3.665,
-          "voice_speech_song": 31.695999999999998,
-          "voice_ensemble_config": 19.174999999999997,
-          "voice_ornament_system": 4.355000000000002,
-          "voice_pitch_organization": 0.39,
-          "voice_processing_chain": 25.069999999999997,
-          "voice_multitrack_stack": 7.8975
+          "voice_vibrato": 9.57,
+          "voice_articulation": 20.994999999999997,
+          "voice_microtone": 22.749999999999996,
+          "voice_tradition": 13.305,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 5.289999999999999,
+          "voice_speech_song": 36.945,
+          "voice_ensemble_config": 19.434999999999995,
+          "voice_ornament_system": 6.225000000000001,
+          "voice_pitch_organization": 0.3,
+          "voice_processing_chain": 30.22,
+          "voice_multitrack_stack": 6.8575
         }
       },
       {
@@ -57,18 +57,18 @@
         "slots": {
           "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
           "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
-          "multitrack_stack_processing": "multitrack_processing_natural"
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
           "multitrack_stack_density": 0.195,
-          "multitrack_stack_era_aesthetic": 2.6975000000000002,
-          "multitrack_stack_processing": 0.195
+          "multitrack_stack_era_aesthetic": 2.0475000000000003,
+          "multitrack_stack_processing": 0.975
         }
       },
       {
         "id": "rhodes_electric",
         "slots": {
-          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "keyboard_technique": "keyboard_ostinato_groove",
           "rhodes_model": "rhodes_mark1_stage",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
@@ -76,29 +76,29 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 3.5749999999999993,
-          "rhodes_model": 6.529999999999999,
-          "rhodes_use": 3.12,
+          "keyboard_technique": 5.624999999999999,
+          "rhodes_model": 8.35,
+          "rhodes_use": 2.4699999999999998,
           "rhodes_tine_material": 0.45499999999999996,
-          "rhodes_hammer_tip": 0.5850000000000002,
-          "rhodes_pickup_position": 2.145
+          "rhodes_hammer_tip": -0.03499999999999988,
+          "rhodes_pickup_position": 2.34
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 9.504999999999999,
-          "sampler_archetypes": 13.129999999999999,
-          "sampler_bit_depth": 2.34,
-          "sampler_workflow": 8.534999999999998,
-          "sampler_classic_context": 31.427500000000002
+          "electronic_technique": 11.379999999999999,
+          "sampler_archetypes": 16.6725,
+          "sampler_bit_depth": 2.5349999999999997,
+          "sampler_workflow": 11.385,
+          "sampler_classic_context": 33.67
         }
       },
       {
@@ -113,13 +113,13 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 6.6265,
-          "body_wood": 1.885,
-          "pickup_config": 0.45499999999999996,
-          "string_type": 8.399999999999999,
-          "scale_length_b": 2.4899999999999998,
+          "amp_make": 9.714999999999996,
+          "body_wood": 2.0799999999999996,
+          "pickup_config": 0.8449999999999999,
+          "string_type": 10.609999999999998,
+          "scale_length_b": 2.6249999999999996,
           "fretted_or_not": 0,
-          "bass_technique": 4.749999999999999
+          "bass_technique": 6.569999999999999
         }
       },
       {
@@ -130,7 +130,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 7.874999999999999,
+          "tr808_voice": 10.594999999999999,
           "drum_machine_808_context": 2.9575000000000005,
           "tr808_production_origin": 0.45499999999999996
         }

@@ -1,0 +1,121 @@
+{
+  "id": "alpine_yodeling",
+  "name": "Alpine Yodeling",
+  "family": "global",
+  "lineage": "Herding and signalling vocal practice of the Swiss, Austrian and Bavarian Alps documented from the 18th century onward and codified by 19th-century Jodlerklubs and the Eidgenössischer Jodlerverband — rapid register breaks between chest voice and falsetto on nonsense syllables (holadi, jo-hu), phrases built on the natural harmonic series over a slow tonic-dominant harmonic tread, sung solo over pasture distance or in three- to four-part male and mixed clubs.",
+  "recipe": "classic modern alpine yodeling, drone Modal, vocal branch, overtone drone modal, European drinking song, europop functional song yodel polish góralski. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble, alpine calling 3 4m alphorn, beating tremolo straight schwyzerorgeli. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 513,
+  "score": 236.419,
+  "config": {
+    "traditions": [
+      "alpine_yodeling",
+      "yodel",
+      "polish_goralski"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 9.224999999999998,
+          "voice_quality": 18.264999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.16,
+          "voice_articulation": 22.684999999999995,
+          "voice_microtone": 27.62499999999999,
+          "voice_tradition": 22.5875,
+          "voice_mechanism_compound": 6.175,
+          "voice_estill_quality": 5.135,
+          "voice_speech_song": 26.779999999999998,
+          "voice_ensemble_config": 24.959999999999994,
+          "voice_ornament_system": 2.4050000000000002,
+          "voice_pitch_organization": 15.177499999999998,
+          "voice_processing_chain": 6.305000000000001,
+          "voice_multitrack_stack": 5.07
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 5.915,
+          "choir_polyphonic_configuration": 6.630000000000001,
+          "choir_regional_canonical_configuration": 11.765,
+          "choir_ensemble_repertoire": 3.445
+        }
+      },
+      {
+        "id": "alphorn",
+        "slots": {
+          "alphorn_length": "alphorn_fis_3_4m",
+          "alphorn_material": "alphorn_carbon_modern"
+        },
+        "scores": {
+          "alphorn_length": 2.7449999999999997,
+          "alphorn_material": 0.433875
+        }
+      },
+      {
+        "id": "schwyzerorgeli",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "schwyzerorgeli_rows": "schwyzerorgeli_three_row",
+          "schwyzerorgeli_tuning": "schwyzerorgeli_tremolo",
+          "schwyzerorgeli_context": "schwyzerorgeli_laendler"
+        },
+        "scores": {
+          "free_reed_technique": 9.460625,
+          "schwyzerorgeli_rows": 0.65,
+          "schwyzerorgeli_tuning": 2.8699999999999997,
+          "schwyzerorgeli_context": 0.8
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "mountain_valley",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

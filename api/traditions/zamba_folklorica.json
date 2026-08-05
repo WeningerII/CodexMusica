@@ -1,0 +1,198 @@
+{
+  "id": "zamba_folklorica",
+  "name": "Zamba (Argentine folklore pañuelo dance)",
+  "family": "global",
+  "lineage": "Northwestern Argentine couple dance descended from the Peruvian zamacueca and fixed in its modern form by Salta and Tucumán composers such as Gustavo \"Cuchi\" Leguizamón, Manuel J. Castilla and Ariel Ramírez from the 1940s: slow 6/8 with constant 3/4 hemiola at 60-80 BPM, guitar rasguido with bass-note punteo, bombo legüero struck alternately on hoop and head, handkerchief-waving choreography, and duo singing in parallel thirds over a fixed introduction-plus-two-part form.",
+  "recipe": "classic South American mid-1940s zamba, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, andean field work folklore ecuatoriano chilean nueva canción. thick, breath veiled tone, slow rate, interlocked note trading. cedar bronze fingerpicked dreadnought acoustic cedar fingerpicked classical nylon-string guitar, swaying bombo leguero, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, naranjillo andean premium wood cedar andean andean classical charango. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 738,
+  "score": 247.152,
+  "config": {
+    "traditions": [
+      "zamba_folklorica",
+      "folklore_ecuatoriano",
+      "chilean_nueva_cancion"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 5.069999999999999,
+          "voice_quality": 13.32499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.055,
+          "voice_articulation": 17.224999999999994,
+          "voice_microtone": 15.404999999999992,
+          "voice_tradition": 9.844999999999999,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 7.7,
+          "voice_speech_song": 19.109999999999992,
+          "voice_ensemble_config": 16.769999999999992,
+          "voice_ornament_system": 9.035,
+          "voice_pitch_organization": 3.6400000000000006,
+          "voice_processing_chain": 5.07,
+          "voice_multitrack_stack": 7.5075
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood": "cedar",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 8.084999999999999,
+          "string_tuning": 0.445,
+          "top_wood": 1.04,
+          "back_sides": 0.045,
+          "string_acoustic": 1.045
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 8.084999999999999,
+          "string_tuning": 0,
+          "top_wood_classical": 6.109999999999999,
+          "bracing_classical": 2.8850000000000002,
+          "string_classical": 0.975,
+          "attack_technique_cl": 1.04
+        }
+      },
+      {
+        "id": "bombo_leguero",
+        "slots": {
+          "bombo_leguero_form": "bombo_leguero_santiagueno",
+          "bombo_leguero_style": "bombo_leguero_zamba",
+          "bombo_leguero_head": "bombo_leguero_cabra"
+        },
+        "scores": {
+          "bombo_leguero_form": 5.1450000000000005,
+          "bombo_leguero_style": 2.65,
+          "bombo_leguero_head": 0.12999999999999998
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 1.04,
+          "grand_piano_brand": 2.19,
+          "piano_hammer": 3.46,
+          "piano_rim": 4.68,
+          "piano_soundboard": 4.5,
+          "piano_pinblock": 2.545,
+          "piano_plate": 3.3449999999999998,
+          "piano_pitch_standard": 7.18
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.5499999999999998,
+          "orch_strings": 0.12999999999999998,
+          "orch_top_wood": 4.475,
+          "orch_back_wood": 4.44,
+          "orch_varnish": 3.15,
+          "orch_setup_period": 2.19,
+          "orch_bow": 2.4949999999999997,
+          "orch_bow_stick": 2.545,
+          "orch_articulation": 0.195,
+          "orch_rosin": 2.45
+        }
+      },
+      {
+        "id": "charango",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "charango_back": "charango_naranjillo",
+          "charango_top_wood": "charango_cedar_top",
+          "charango_strings": "charango_5_double",
+          "charango_string_material": "charango_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 7.415,
+          "charango_back": 3.38,
+          "charango_top_wood": 3.38,
+          "charango_strings": 3.38,
+          "charango_string_material": 3.3150000000000004
+        }
+      }
+    ],
+    "room": "odeon_rca_buenos_aires",
+    "archetype": "arch_ba_tango_radio_orquesta",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_american_op_amp",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "joropo_3_4_corrido_hemiola",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "joropo_3_4_corrido_hemiola",
+    "room": "odeon_rca_buenos_aires",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

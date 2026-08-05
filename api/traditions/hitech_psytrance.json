@@ -1,0 +1,120 @@
+{
+  "id": "hitech_psytrance",
+  "name": "Hi-tech psytrance",
+  "family": "electronic",
+  "lineage": "Fastest branch of psytrance, formed in Russia, Israel and Japan from the mid-2000s around labels such as Anomalistic, Hi-Tech Doctor and the Indian and Israeli underground circuits — 190-230 BPM with a very short clicky kick and a sixteenth-note bass so fast it fuses into a drone, granular and FM-generated micro-leads chopped and re-triggered every sixteenth, glitch edits and pitch-jumped speech samples used as rhythm, near-total absence of harmony or sustained melody, and bright treble-forward mastering built for high-powered outdoor rigs.",
+  "recipe": "classic 2004-2006 hi-tech psytrance, electronic Dance, trance branch, idm glitch experimental electric, hardstyle electronic dance, industrial noise experimental electric breakcore drill'n'bass. yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity sub bass fm glitched textural granular sub bass analog mono synth, sub bass digital subtractive, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 615,
+  "score": 128.613,
+  "config": {
+    "traditions": [
+      "hitech_psytrance",
+      "breakcore",
+      "drill_n_bass"
+    ],
+    "instruments": [
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 3.2500000000000004,
+          "fm_algorithm": 0.95,
+          "fm_modulator_ratio": 0.18,
+          "fm_polyphony": 0.054,
+          "fm_model_lineage": 4.095000000000001
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_synthesized"
+        },
+        "scores": {
+          "electronic_technique": 14.569999999999999,
+          "granular_use": 2.885,
+          "granular_synth_source": 7.15
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 3.2500000000000004,
+          "va_archetypes": 2.77,
+          "digital_subtractive_context": 21.125000000000007
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 3.2500000000000004,
+          "mono_oscillator": 0.105,
+          "mono_filter": 2.325,
+          "mono_archetypes": 2.379,
+          "mono_maker_lineage": -0.07000000000000019
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 14.569999999999999,
+          "sampler_archetypes": 0.6150000000000001,
+          "sampler_bit_depth": 2.045,
+          "sampler_workflow": 15.375,
+          "sampler_classic_context": 23.140000000000004
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

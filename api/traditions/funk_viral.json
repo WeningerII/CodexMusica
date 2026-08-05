@@ -3,24 +3,24 @@
   "name": "Funk Viral",
   "family": "electronic",
   "lineage": "Rio and São Paulo baile funk variant shaped after 2018 by TikTok and YouTube Shorts circulation — 130-150 BPM beat-viral patterns built from stacked tamborzão and beatbox-derived samples, extreme sub-bass drops, chopped shouted MC phrases looped as hooks, abrupt beat switches every eight bars, and mixes optimised for phone speakers rather than paredão sound systems.",
-  "recipe": "classic Southern American late-2010s funk viral, groove Percussion, Afro-diasporic electric branch, Brazilian groove percussion, Latin electric electronic dance, intl hip hop MC rhythm funk paulista haryanvi hip hop. thick, rap, slow rate, interlocked note trading. sampled chopped sampler drum machine, TR-808, low sub bass monosynth acid bass, multitrack vocal stack, hand clap. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 507,
-  "score": 164.126,
+  "recipe": "classic Southern American late-2010s funk viral, groove Percussion, Afro-diasporic electric branch, Brazilian groove percussion, Latin electric electronic dance, intl hip hop MC rhythm funk paulista grime. vocal fry, rap, breath pulsed, interlocked note trading. sampled chopped sampler drum machine, TR-808, sub bass monosynth acid bass, multitrack vocal stack, snappy to palm hand clap. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 515,
+  "score": 158.856,
   "config": {
     "traditions": [
       "funk_viral",
       "funk_paulista",
-      "haryanvi_hip_hop"
+      "grime"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.300000000000002,
-          "voice_quality": 11.355000000000002,
+          "voice_register": 1.2349999999999999,
+          "voice_quality": 10.38,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 17.354999999999993,
-          "voice_microtone": 17.614999999999988,
-          "voice_tradition": 10.205,
-          "voice_mechanism_compound": 1.4949999999999999,
-          "voice_estill_quality": 1.6249999999999998,
-          "voice_speech_song": 18.004999999999992,
-          "voice_ensemble_config": 17.09499999999999,
-          "voice_ornament_system": 2.5350000000000006,
-          "voice_pitch_organization": 2.68875,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 17.419999999999995,
+          "voice_microtone": 17.22499999999999,
+          "voice_tradition": 9.7175,
+          "voice_mechanism_compound": 0.65,
+          "voice_estill_quality": 1.17,
+          "voice_speech_song": 17.614999999999995,
+          "voice_ensemble_config": 18.199999999999992,
+          "voice_ornament_system": 2.34,
+          "voice_pitch_organization": 2.535,
           "voice_processing_chain": 11.674999999999995,
-          "voice_multitrack_stack": 4.3549999999999995
+          "voice_multitrack_stack": 3.965
         }
       },
       {
@@ -58,13 +58,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 4.6937500000000005,
-          "sample_bitdepth": 0.845,
+          "electronic_technique": 4.3187500000000005,
+          "sample_bitdepth": 0.285,
           "sample_swing": 7.375000000000001,
-          "sample_processing": 1.145
+          "sample_processing": 1.25
         }
       },
       {
@@ -72,12 +72,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 7.1625000000000005,
-          "drum_machine_808_context": 4.875,
-          "tr808_production_origin": 0.045
+          "tr808_voice": 8.1375,
+          "drum_machine_808_context": 6.434999999999999,
+          "tr808_production_origin": 0.345
         }
       },
       {
@@ -89,9 +89,9 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 9.432500000000001,
+          "electronic_technique": 8.0825,
           "wave_acid": 0.24,
-          "filter_acid": 2.73375,
+          "filter_acid": 2.4337500000000003,
           "accent_acid": 0.195
         }
       },
@@ -103,9 +103,9 @@
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 0.845,
+          "multitrack_stack_density": 0.65,
           "multitrack_stack_era_aesthetic": 0.06499999999999999,
-          "multitrack_stack_processing": 0.5199999999999999
+          "multitrack_stack_processing": 0.6962499999999999
         }
       },
       {
@@ -115,7 +115,7 @@
           "clap_capture": "clap_close_dry"
         },
         "scores": {
-          "clap_technique": 0.975,
+          "clap_technique": 1.365,
           "clap_capture": 0.045
         }
       }

@@ -1,0 +1,141 @@
+{
+  "id": "tibetan_mantra_recitation",
+  "name": "Tibetan mantra recitation (mani and vajra mantra)",
+  "family": "global",
+  "lineage": "Vajrayana mantra practice of Tibet and the Himalayan monastic world, formalized from the 11th-century second diffusion onward, in which assembled monks or laypeople repeat a fixed syllable formula such as om mani padme hum thousands of times in a low collective drone at roughly 40-70 repetitions per minute, punctuated in ritual settings by tingsha, damaru, rolmo cymbals and long dung chen blasts.",
+  "recipe": "classic Northeast Asian modern tibetan mantra recitation, ritual Devotional, buddhist branch, east Asian Tibetan ritual, overtone drone modal, vocal drone modal tibetan ache lhamo opera siberian folk music. sygyt, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble, tingsha, double headed cord pellets rotated canonical Tibetan gelug monastic ritual canonical Tibetan damaru, large paired bronze cymbals canonical Tibetan monastic yang chant ensemble canonical gelug monastic rolmo, ceremonial copper brass telescoping silver inlay canonical Tibetan build gelug monastic yang chant ritual dung chen. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 843,
+  "score": 277.418,
+  "config": {
+    "traditions": [
+      "tibetan_mantra_recitation",
+      "tibetan_ache_lhamo",
+      "siberian_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 8.807499999999997,
+          "voice_quality": 16.249999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.272499999999999,
+          "voice_articulation": 17.744999999999997,
+          "voice_microtone": 20.344999999999995,
+          "voice_tradition": 12.9675,
+          "voice_mechanism_compound": 14.234999999999996,
+          "voice_estill_quality": 10.204999999999998,
+          "voice_speech_song": 19.824999999999996,
+          "voice_ensemble_config": 19.174999999999997,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 13.2925,
+          "voice_processing_chain": 4.94,
+          "voice_multitrack_stack": 5.655000000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 8.774999999999999,
+          "choir_polyphonic_configuration": 4.68,
+          "choir_regional_canonical_configuration": 7.02,
+          "choir_ensemble_repertoire": 4.9399999999999995
+        }
+      },
+      {
+        "id": "tingsha",
+        "slots": {
+          "tingsha_form": "tingsha_thick_small",
+          "tingsha_strike": "tingsha_flat_clash"
+        },
+        "scores": {
+          "tingsha_form": 3.3799999999999994,
+          "tingsha_strike": 0.3
+        }
+      },
+      {
+        "id": "damaru",
+        "slots": {
+          "damaru_body": "damaru_double_headed_cord_pellets_canonical",
+          "damaru_tradition": "damaru_gelug_ritual_canonical"
+        },
+        "scores": {
+          "damaru_body": 9.36,
+          "damaru_tradition": 16.4
+        }
+      },
+      {
+        "id": "rolmo",
+        "slots": {
+          "rolmo_body": "rolmo_large_paired_cymbals_canonical",
+          "rolmo_tradition": "rolmo_yang_chant_ensemble_canonical"
+        },
+        "scores": {
+          "rolmo_body": 13.259999999999998,
+          "rolmo_tradition": 7.0200000000000005
+        }
+      },
+      {
+        "id": "dung_chen",
+        "slots": {
+          "dung_chen_length": "dung_chen_extended",
+          "dung_chen_body": "dung_chen_copper_brass_silver_inlay_canonical",
+          "dung_chen_tradition": "dung_chen_gelug_yang_chant_canonical"
+        },
+        "scores": {
+          "dung_chen_length": 17.16,
+          "dung_chen_body": 7.41,
+          "dung_chen_tradition": 11.959999999999999
+        }
+      }
+    ],
+    "room": "tibetan_monastery_assembly",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "tibetan_chant_multiphonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tibetan_chant_multiphonic",
+    "room": "tibetan_monastery_assembly",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

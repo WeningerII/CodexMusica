@@ -3,14 +3,14 @@
   "name": "1960s Greenwich Village confessional folk",
   "family": "global",
   "lineage": "Early-1960s Greenwich Village (Cafe Wha, Gerdes Folk City, the Bitter End) folk-revival singer-songwriter circuit — Bob Dylan, Phil Ochs, Dave Van Ronk, Joan Baez early years, Tom Paxton, Eric Andersen",
-  "recipe": "classic North American 1960s greenwich village confessional folk, ballad Poetry, 60s confessional, anglo singer song laurel canyon, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, straight note core, interlocked note trading. verse-lament through-composed narrative, through composed, static dynamic envelope, vocal ornamentation as intensification. dadgad tuning fingerpicked acoustic guitar, pearwood marine band tradition brass traditional hering Brazilian premium forro canon harmonica. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 685,
-  "score": 217.293,
+  "recipe": "classic North American 1960s greenwich village confessional folk, ballad Poetry, 60s confessional, anglo singer song laurel canyon, anglo singer song britfolk britfolk revival british folk revival. thick, incomplete closure resting, straight note core, interlocked note trading. verse-lament through-composed narrative, through composed, static dynamic envelope, vocal ornamentation as intensification. dadgad tuning fingerpicked acoustic guitar, reed pearwood marine band tradition brass traditional harmonica. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 674,
+  "score": 245.135,
   "config": {
     "traditions": [
       "greenwich_village_confessional",
       "britfolk_revival",
-      "laurel_canyon_70s"
+      "british_folk_revival"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 22.374999999999996,
-          "voice_quality": 22.834999999999997,
+          "voice_register": 25.499999999999996,
+          "voice_quality": 24.459999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.48,
-          "voice_articulation": 7.344999999999999,
-          "voice_microtone": 7.54,
-          "voice_tradition": 20.98875,
-          "voice_mechanism_compound": 2.24625,
-          "voice_estill_quality": 8.713750000000001,
-          "voice_speech_song": 14.884999999999996,
-          "voice_ensemble_config": 7.475,
-          "voice_ornament_system": 8.588125,
-          "voice_pitch_organization": 2.7775000000000003,
-          "voice_processing_chain": 2.79875,
-          "voice_multitrack_stack": 6.647500000000001
+          "voice_vibrato": 1.8099999999999998,
+          "voice_articulation": 9.555,
+          "voice_microtone": 10.399999999999995,
+          "voice_tradition": 27.510999999999996,
+          "voice_mechanism_compound": 3.7049999999999996,
+          "voice_estill_quality": 9.23,
+          "voice_speech_song": 16.899999999999995,
+          "voice_ensemble_config": 9.49,
+          "voice_ornament_system": 8.645,
+          "voice_pitch_organization": 2.3425000000000002,
+          "voice_processing_chain": 2.145,
+          "voice_multitrack_stack": 8.1225
         }
       },
       {
@@ -62,11 +62,11 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 6.6450000000000005,
-          "top_wood": 0.195,
-          "back_sides": 0.195,
-          "string_acoustic": 0.9862500000000001,
-          "acoustic_om_technique": 42.935874999999996
+          "string_tuning": 9.865,
+          "top_wood": 0.33749999999999997,
+          "back_sides": 0.2925,
+          "string_acoustic": 0.9675,
+          "acoustic_om_technique": 45.968999999999994
         }
       },
       {
@@ -80,12 +80,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.9974999999999999,
-          "harmonica_comb": 2.1475,
-          "harmonica_reed": 1.9,
-          "harmonica_technique": 24.729999999999997,
-          "harmonica_maker_school": 1.3,
-          "harmonica_tuning": 0.39
+          "harmonica_type": 1.2824999999999998,
+          "harmonica_comb": 2.4699999999999998,
+          "harmonica_reed": 2.2749999999999995,
+          "harmonica_technique": 25.259999999999998,
+          "harmonica_maker_school": 0.65,
+          "harmonica_tuning": 0.3
         }
       }
     ],

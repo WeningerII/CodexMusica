@@ -1,0 +1,157 @@
+{
+  "id": "cape_breton_folk",
+  "name": "Cape Breton fiddle and piano tradition",
+  "family": "vernacular",
+  "lineage": "Gaelic Scottish fiddle repertoire carried to Cape Breton Island, Nova Scotia by Highland Clearance emigrants after 1800 and preserved there in older form than in Scotland, codified on record by Winston 'Scotty' Fitzgerald and Buddy MacMaster — strathspey-reel medleys driven at square-dance tempo with pronounced Scotch-snap dotting, cuts and grace notes bowed rather than fingered, foot-tapping, and a percussive chordal piano accompaniment unique to the island.",
+  "recipe": "classic early-1800s cape breton fiddle and piano tradition, ballad Poetry, cape breton Gaelic branch, Celtic traditional improv on frame, Celtic balladic Scottish ballad orkney and shetland folk irish tenor banjo playing. light, breath veiled tone, straight onset, interlocked note trading. magic rosin modern acrylic base double stops fiddle, upright piano, foot tap, dadgad tuning phosphor bronze modern martin drone like modal dreadnought acoustic guitar, African blackwood grenadilla canonical Scottish cane drone reeds traditional arundo donax cane double reed canonical arundo donax sheepskin cowhide traditional pre modern highland bagpipes. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 728,
+  "score": 262.329,
+  "config": {
+    "traditions": [
+      "cape_breton_folk",
+      "orkney_shetland_folk",
+      "irish_banjo"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "pizz"
+        },
+        "scores": {
+          "bowed_technique": 14.464999999999998,
+          "fiddle_strings": 0.59,
+          "fiddle_bow": 1.295,
+          "fiddle_mute": 0.8107142857142857,
+          "fiddle_articulation": 1.9639285714285712
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 0.585,
+          "upright_use": 0.435,
+          "upright_piano_size": 0.975
+        }
+      },
+      {
+        "id": "foot_tap",
+        "slots": {
+          "tap_striker": "tap_hard_shoe_leather",
+          "tap_surface": "tap_board_plywood"
+        },
+        "scores": {
+          "tap_striker": 0.9099999999999999,
+          "tap_surface": 0.65
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "string_tuning": "dadgad",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 14.084999999999999,
+          "string_tuning": 23.115000000000002,
+          "top_wood": 0.9099999999999999,
+          "back_sides": 0.9099999999999999,
+          "string_acoustic": 1.4949999999999999
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "head_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.65,
+          "voice_quality": 12.869999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.3649999999999998,
+          "voice_articulation": 18.589999999999993,
+          "voice_microtone": 17.74499999999999,
+          "voice_tradition": 32.60964285714285,
+          "voice_mechanism_compound": 4.875,
+          "voice_estill_quality": 4.2250000000000005,
+          "voice_speech_song": 19.824999999999992,
+          "voice_ensemble_config": 20.604999999999993,
+          "voice_ornament_system": 30.63464285714285,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 6.825,
+          "voice_multitrack_stack": 7.215000000000001
+        }
+      },
+      {
+        "id": "highland_bagpipes",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "highland_drones": "highland_3_drones",
+          "highland_chanter": "highland_blackwood",
+          "highland_drone_reeds": "highland_cane_drone_reeds",
+          "highland_chanter_reed": "highland_cane_chanter_reed",
+          "highland_bag": "highland_hide_bag"
+        },
+        "scores": {
+          "wind_articulation": 12.12,
+          "highland_drones": 0,
+          "highland_chanter": 3.98,
+          "highland_drone_reeds": 2.9899999999999998,
+          "highland_chanter_reed": 1.04,
+          "highland_bag": 2.9899999999999998
+        }
+      }
+    ],
+    "room": "hardwood_living",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "hardwood_living",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

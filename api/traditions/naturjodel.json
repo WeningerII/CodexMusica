@@ -1,0 +1,95 @@
+{
+  "id": "naturjodel",
+  "name": "Naturjodel",
+  "family": "global",
+  "lineage": "Wordless yodel of central and eastern Switzerland — Appenzell Innerrhoden's Ruggusserli and Zäuerli, Muotathal's Juuz, Toggenburg's Johlen — carried orally by herding families and documented by researchers from Alfred Leonz Gassmann to Hanny Christen; slow free-metred phrases in a small group of male voices, built on natural-harmonic intervals including the flattened seventh, with a low held drone voice (Grundbass) beneath two or three yodelling parts and no instruments.",
+  "recipe": "classic Northern European early-1940s naturjodel, drone Modal, vocal branch, overtone drone modal, arctic hunting song yodel siberian folk music. sygyt, breath veiled tone, breath pulsed, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. mountain valley fabod. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 489,
+  "score": 204.642,
+  "config": {
+    "traditions": [
+      "naturjodel",
+      "yodel",
+      "siberian_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 9.717500000000001,
+          "voice_quality": 11.569999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.525,
+          "voice_articulation": 19.954999999999995,
+          "voice_microtone": 23.334999999999994,
+          "voice_tradition": 13.292499999999997,
+          "voice_mechanism_compound": 8.190000000000001,
+          "voice_estill_quality": 5.3625,
+          "voice_speech_song": 23.464999999999993,
+          "voice_ensemble_config": 20.539999999999992,
+          "voice_ornament_system": 3.5424999999999995,
+          "voice_pitch_organization": 17.322499999999998,
+          "voice_processing_chain": 5.200000000000001,
+          "voice_multitrack_stack": 3.9
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 7.6049999999999995,
+          "choir_polyphonic_configuration": 9.49,
+          "choir_regional_canonical_configuration": 14.430000000000001,
+          "choir_ensemble_repertoire": 2.6
+        }
+      }
+    ],
+    "room": "mountain_valley_fabod",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "mountain_valley_fabod",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

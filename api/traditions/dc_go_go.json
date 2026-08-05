@@ -3,9 +3,9 @@
   "name": "DC go-go (1970s-onward)",
   "family": "hip_hop",
   "lineage": "Washington D.C.-specific funk subgenre developed in mid-1970s by Chuck Brown (1936-2012), characterized by continuous percussion-and-bass-and-vocal groove without breaks between songs (the \"go-go\" of perpetual-motion), call-and-response between bandleader and audience, and Latin-percussion (congas, timbales, cowbell) integration with funk-band horn-section. Trouble Funk, Rare Essence, Experience Unlimited, and Backyard Band extended the canonical roster.",
-  "recipe": "classic North American dc go-go, functional Song, soul R&B branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, cowhide mid tier siam oak mid tier modern open slap hand drum congas, open slap hand drum timbales, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, tenor ensemble honking attack saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 915,
-  "score": 378.949,
+  "recipe": "classic North American dc go-go, functional Song, soul R&B branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, brushes-and-sticks drum kit, cowhide mid tier siam oak mid tier modern open slap hand drum congas, bronze open slap hand drum timbales, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, tenor ensemble honking attack saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 894,
+  "score": 383.937,
   "config": {
     "traditions": [
       "dc_go_go",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.522499999999997,
+          "voice_register": 8.514999999999999,
           "voice_quality": 8.774999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.47,
           "voice_articulation": 21.384999999999994,
           "voice_microtone": 20.604999999999993,
-          "voice_tradition": 8.9645,
+          "voice_tradition": 9.02,
           "voice_mechanism_compound": 1.885,
-          "voice_estill_quality": 4.905000000000001,
+          "voice_estill_quality": 4.890000000000001,
           "voice_speech_song": 24.049999999999997,
           "voice_ensemble_config": 17.354999999999997,
-          "voice_ornament_system": 1.9049999999999998,
-          "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 26.002999999999997,
+          "voice_ornament_system": 2.04,
+          "voice_pitch_organization": 2.2199999999999998,
+          "voice_processing_chain": 25.939999999999998,
           "voice_multitrack_stack": 9.912500000000001
         }
       },
@@ -61,35 +61,35 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_11_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 24.981499999999997,
-          "amp_make": 25.967999999999996,
-          "body_wood": 4.986000000000001,
-          "neck_wood": 2.3895,
+          "electric_technique": 25.234999999999996,
+          "amp_make": 26.594999999999995,
+          "body_wood": 5.07,
+          "neck_wood": 2.535,
           "fretboard": 3.055,
-          "pickup_magnet": 0.315,
-          "pickup_winding": 0.315,
-          "string_material": 2.055,
-          "bridge": 2.3895,
-          "scale_length": 4.8225,
-          "string_gauge": 2.3895,
-          "finish": 0,
-          "string_tuning": 6.1235
+          "pickup_magnet": 0.24,
+          "pickup_winding": 0.045,
+          "string_material": 2.19,
+          "bridge": 2.535,
+          "scale_length": 4.875,
+          "string_gauge": 2.535,
+          "finish": 0.09,
+          "string_tuning": 6.305
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
@@ -97,25 +97,25 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 7.8155,
+          "amp_make": 9.035,
           "body_wood": 2.535,
           "pickup_config": 0.195,
           "string_type": 8.97,
-          "scale_length_b": 2.3895,
+          "scale_length_b": 2.535,
           "fretted_or_not": 3.055,
-          "bass_technique": 24.949999999999996
+          "bass_technique": 25.294999999999995
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 17.289999999999996,
-          "drumhead": 2.5130000000000003,
+          "drumhead": 2.535,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -128,9 +128,9 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 4.0175,
+          "percussion_technique": 4.355,
           "conga_set": 0.195,
-          "conga_skin": 2.3895,
+          "conga_skin": 2.535,
           "conga_shell_wood": 2.535
         }
       },
@@ -138,13 +138,13 @@
         "id": "timbales",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "timbales_shell": "timbales_brass",
-          "timbales_context": "timbales_salsa"
+          "timbales_shell": "timbales_bronze",
+          "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 4.0175,
-          "timbales_shell": 0.5459999999999999,
-          "timbales_context": 0.36750000000000005
+          "percussion_technique": 4.355,
+          "timbales_shell": 1.155,
+          "timbales_context": 0.15
         }
       },
       {
@@ -153,18 +153,18 @@
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
-          "brass_mute": "no_mute_brass",
+          "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 9.946000000000002,
-          "brass_size": 2.055,
+          "wind_articulation": 9.97,
+          "brass_size": 2.19,
           "trumpet_mouthpiece": 3.0550000000000006,
-          "brass_mute": 0.1365,
-          "trumpet_technique": 9.946000000000002,
-          "trumpet_bell_metal": 2.3760000000000003,
+          "brass_mute": 0.195,
+          "trumpet_technique": 9.97,
+          "trumpet_bell_metal": 2.3850000000000002,
           "trumpet_maker_school": 3.38
         }
       },
@@ -180,11 +180,11 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 9.946000000000002,
+          "wind_articulation": 9.97,
           "sax_size": 4.9,
-          "sax_reed": 2.055,
+          "sax_reed": 2.19,
           "sax_body_alloy": 0.12999999999999998,
-          "sax_mouthpiece": 2.055,
+          "sax_mouthpiece": 2.19,
           "sax_technique": 4.9,
           "sax_maker_school": 0.845
         }

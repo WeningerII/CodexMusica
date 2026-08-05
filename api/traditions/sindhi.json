@@ -1,0 +1,173 @@
+{
+  "id": "sindhi",
+  "name": "Sindhi (Sufi kalam and folk of Sindh)",
+  "family": "global",
+  "lineage": "Music of Sindh in southern Pakistan anchored in the Shah jo Risalo of Shah Abdul Latif Bhittai (18th century) and its surs sung nightly at the Bhit Shah shrine by faqirs on the five-string tambooro, plus Sachal Sarmast and Jhulelal repertoire, carried to broadcast by Radio Pakistan Hyderabad from the 1950s and to cassette by Abida Parveen and Allan Faqir, marked by yaktaro drone, borrindo and narr flutes, surando bowed lute, chapri clappers and dholak, and slow declamatory melismatic singing.",
+  "recipe": "classic South Asian mid-1950s sindhi, ritual Devotional, Sufi branch, indian bard ballad poetry, indian subcontinent praise song rajasthani folk hindu stuti and bhajan. thick, declaimed, slow rate, interlocked note trading. yaktaro, borrindo, narh flute, surando, chapri, bolt tuned modern concert stable dholak, vocal male straight harmonium indian. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 528,
+  "score": 193.165,
+  "config": {
+    "traditions": [
+      "sindhi",
+      "rajasthani_folk_thar",
+      "hindu_stuti_bhajan"
+    ],
+    "instruments": [
+      {
+        "id": "yaktaro",
+        "slots": {
+          "yaktaro_resonator": "yaktaro_wood",
+          "yaktaro_string": "yaktaro_steel",
+          "yaktaro_context": "yaktaro_kafi"
+        },
+        "scores": {
+          "yaktaro_resonator": 0.195,
+          "yaktaro_string": 0.135,
+          "yaktaro_context": 4.095
+        }
+      },
+      {
+        "id": "borrindo",
+        "slots": {
+          "borrindo_size": "borrindo_small",
+          "borrindo_clay": "borrindo_fired"
+        },
+        "scores": {
+          "borrindo_size": 0,
+          "borrindo_clay": 0.15
+        }
+      },
+      {
+        "id": "narh_flute",
+        "slots": {
+          "narh_body": "narh_bamboo",
+          "narh_technique": "narh_plain",
+          "narh_length": "narh_short"
+        },
+        "scores": {
+          "narh_body": 0.15,
+          "narh_technique": 0.15,
+          "narh_length": 0.09
+        }
+      },
+      {
+        "id": "surando",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "surando_form": "surando_kachchh",
+          "surando_face": "surando_skin",
+          "surando_context": "surando_ballad"
+        },
+        "scores": {
+          "bowed_technique": 1.025,
+          "surando_form": 0.44999999999999996,
+          "surando_face": 0,
+          "surando_context": 1.4949999999999999
+        }
+      },
+      {
+        "id": "chapri",
+        "slots": {
+          "chapri_form": "chapri_plain",
+          "chapri_technique": "chapri_roll"
+        },
+        "scores": {
+          "chapri_form": 0.195,
+          "chapri_technique": 1.6899999999999997
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_synthetic_head",
+          "dholak_tensioning": "dholak_bolt_tuned"
+        },
+        "scores": {
+          "dholak_use": 0.195,
+          "dholak_construction": 2.9899999999999998,
+          "dholak_head": 0.845,
+          "dholak_tensioning": 1.4949999999999999
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_foot_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_kirtan"
+        },
+        "scores": {
+          "free_reed_technique": 3.7350000000000008,
+          "harmonium_action": 0.675,
+          "harmonium_voicing": 1.04,
+          "harmonium_use": 4.095
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.44,
+          "voice_quality": 18.554999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.8274999999999997,
+          "voice_articulation": 20.345,
+          "voice_microtone": 20.604999999999997,
+          "voice_tradition": 15.34,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 6.3375,
+          "voice_speech_song": 25.967499999999998,
+          "voice_ensemble_config": 22.619999999999997,
+          "voice_ornament_system": 7.7749999999999995,
+          "voice_pitch_organization": 2.5025000000000004,
+          "voice_processing_chain": 8.45,
+          "voice_multitrack_stack": 5.98
+        }
+      }
+    ],
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

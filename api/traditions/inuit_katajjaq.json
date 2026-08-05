@@ -3,14 +3,14 @@
   "name": "Katajjaq (Inuit throat-singing game)",
   "family": "global",
   "lineage": "Inuit Arctic throat-singing game tradition preserved across Nunavik (northern Quebec), Nunavut, Greenland, and the Inuit Russian Far East — two women face each other in close proximity (often forehead to forehead) and alternate inhale-exhale vocal patterns at high speed, attempting to break each others rhythm until one laughs or runs out of breath; modern revival through Tanya Tagaq (the solo katajjaq performer who extended the tradition into solo electronic-collaboration work, Animism 2014 Polaris Music Prize), Susan Aglukark, the Pirurvik Centre cultural preservation infrastructure",
-  "recipe": "classic Pacific Northwest mid-2010s katajjaq, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, sub saharan African hunting song mongolian hunting-khoomei aboriginal australian hunting songlines. sygyt, false fold engaged, straight onset, interlocked note trading. ingressive egressive paired breath alternation interlocked supraglottic both phases 8th to 12th partial overtone range arctic paired game tradition interlocked breath throat singing voice. iglu community hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 569,
-  "score": 216.332,
+  "recipe": "classic Pacific Northwest mid-2010s katajjaq, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, sub saharan African hunting song central asian folk tuvan folk music. sygyt, breath veiled tone, straight note core, interlocked note trading. ingressive egressive paired breath alternation interlocked supraglottic both phases 8th to 12th partial overtone range arctic paired game tradition interlocked breath throat singing voice. iglu community hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 543,
+  "score": 225.26,
   "config": {
     "traditions": [
       "inuit_katajjaq",
-      "mongolian_hunting_khoomei",
-      "aboriginal_australian_songlines"
+      "central_asian_folk",
+      "tuvan_folk"
     ],
     "instruments": [
       {
@@ -21,19 +21,19 @@
           "throat_singing_voice_region": "throat_singing_voice_arctic_paired"
         },
         "scores": {
-          "throat_mechanism_root": 20.25,
-          "throat_overtone_target_region": 3.902964285714285,
-          "throat_singing_voice_region": 28.80985714285714
+          "throat_mechanism_root": 18.545,
+          "throat_overtone_target_region": 7.344999999999999,
+          "throat_singing_voice_region": 25.7745
         }
       },
       {
         "id": "voice",
         "slots": {
           "voice_register": "sygyt_register",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "inuit_katajjaq_tradition",
@@ -43,26 +43,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sami_yoik",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 11.129999999999999,
-          "voice_quality": 12.684999999999999,
+          "voice_register": 8.2875,
+          "voice_quality": 15.209999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6400000000000006,
-          "voice_articulation": 11.114999999999997,
-          "voice_microtone": 10.529999999999992,
-          "voice_tradition": 33.627071428571426,
-          "voice_mechanism_compound": 21.65,
-          "voice_estill_quality": 3.2787499999999996,
-          "voice_speech_song": 20.474999999999994,
-          "voice_ensemble_config": 10.464999999999995,
-          "voice_ornament_system": 10.148142857142856,
-          "voice_pitch_organization": 9.649999999999999,
-          "voice_processing_chain": 3.695,
-          "voice_multitrack_stack": 3.0549999999999997
+          "voice_vibrato": 2.8114999999999997,
+          "voice_articulation": 16.574999999999996,
+          "voice_microtone": 19.434999999999995,
+          "voice_tradition": 27.620999999999995,
+          "voice_mechanism_compound": 15.12,
+          "voice_estill_quality": 4.8,
+          "voice_speech_song": 25.154999999999998,
+          "voice_ensemble_config": 15.924999999999995,
+          "voice_ornament_system": 8.298499999999999,
+          "voice_pitch_organization": 9.197499999999998,
+          "voice_processing_chain": 4.42,
+          "voice_multitrack_stack": 3.315000000000001
         }
       }
     ],

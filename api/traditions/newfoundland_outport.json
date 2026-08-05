@@ -3,13 +3,14 @@
   "name": "Newfoundland outport balladry",
   "family": "global",
   "lineage": "Newfoundland and Labrador outport fishing-community song heritage of Irish, West Country English, and Scottish settler-fishing-family origin — preserved across the 17th-21st centuries in the small isolated coastal-settlement (outport) communities along the Newfoundland coastline; standard ensemble: fiddle (the dominant melodic instrument, played in the distinctive Newfoundland style combining Irish ornamentation with Cape Breton bowing), accordion or button accordion, sometimes mandolin or guitar — 20th-century preservation through Émile Benoit, Rufus Guinchard, Wilf Doyle, Minnie White, the modern Great Big Sea folk-rock crossover, the Newfoundland and Labrador Folklore and Language Archive fieldwork collection",
-  "recipe": "classic North American early-1940s newfoundland outport balladry, ballad Poetry, newfoundland revival branch, anglo singer song britfolk britfolk revival. thick, breath veiled tone, straight note core, interlocked note trading. castagnari Italian premium folk music straight accordion, magic rosin modern acrylic base double stops fiddle, dadgad tuning fingerpicked acoustic guitar. newfoundland outport kitchen party. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 493,
-  "score": 148.727,
+  "recipe": "classic North American early-1940s newfoundland outport balladry, ballad Poetry, newfoundland revival branch, anglo singer song britfolk britfolk revival dark folk. thick, breath veiled tone, straight note core, interlocked note trading. castagnari Italian premium folk music straight accordion, magic rosin modern acrylic base drone like fiddle, dadgad tuning cedar walnut phosphor bronze bronze acoustic guitar. newfoundland outport kitchen party. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 524,
+  "score": 200.795,
   "config": {
     "traditions": [
       "newfoundland_outport",
-      "britfolk_revival"
+      "britfolk_revival",
+      "dark_folk"
     ],
     "instruments": [
       {
@@ -29,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 10.939999999999998,
-          "voice_quality": 11.573124999999996,
+          "voice_register": 11.989999999999998,
+          "voice_quality": 14.689999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.8200000000000003,
-          "voice_articulation": 8.161874999999998,
-          "voice_microtone": 8.405624999999999,
-          "voice_tradition": 12.943125000000002,
-          "voice_mechanism_compound": 1.6675,
-          "voice_estill_quality": 3.8537500000000002,
-          "voice_speech_song": 11.766249999999996,
-          "voice_ensemble_config": 8.148124999999999,
-          "voice_ornament_system": 11.049999999999999,
-          "voice_pitch_organization": 0.7799999999999998,
-          "voice_processing_chain": 1.336875,
-          "voice_multitrack_stack": 1.63375
+          "voice_vibrato": 3.8965,
+          "voice_articulation": 13.519999999999992,
+          "voice_microtone": 15.20999999999999,
+          "voice_tradition": 15.949625,
+          "voice_mechanism_compound": 4.419999999999999,
+          "voice_estill_quality": 6.5,
+          "voice_speech_song": 18.459999999999994,
+          "voice_ensemble_config": 14.494999999999994,
+          "voice_ornament_system": 12.311499999999999,
+          "voice_pitch_organization": 0.8114999999999998,
+          "voice_processing_chain": 1.92625,
+          "voice_multitrack_stack": 3.1200000000000006
         }
       },
       {
@@ -63,30 +64,30 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 10.745,
-          "accordion_reed_material": 0.024375,
-          "musette_offset": 0.39,
-          "reed_config": 0.035625000000000004,
-          "bellows": 0.39,
-          "voicing_chamber": 0.013124999999999998,
-          "accordion_maker_school": 2.771875
+          "free_reed_technique": 11.54,
+          "accordion_reed_material": 1.04,
+          "musette_offset": 0.585,
+          "reed_config": 0.203625,
+          "bellows": 0.585,
+          "voicing_chamber": 0.35812499999999997,
+          "accordion_maker_school": 3.3149999999999995
         }
       },
       {
         "id": "fiddle",
         "slots": {
-          "bowed_technique": "bowed_bluegrass_double_stops",
+          "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
-          "fiddle_mute": "no_mute",
+          "fiddle_mute": "practice_mute",
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 5.6000000000000005,
-          "fiddle_strings": 0.505625,
-          "fiddle_bow": 1.005625,
-          "fiddle_mute": 0.013125,
-          "fiddle_articulation": 1.414375
+          "bowed_technique": 6.819999999999999,
+          "fiddle_strings": 0.550625,
+          "fiddle_bow": 1.050625,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 1.445875
         }
       },
       {
@@ -95,15 +96,15 @@
           "string_tuning": "dadgad",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
-          "string_acoustic": "martin_lifespan_om",
+          "string_acoustic": "phosphor_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 13.488125,
-          "top_wood": 0.024375,
-          "back_sides": 0.03,
-          "string_acoustic": 0.65,
-          "acoustic_om_technique": 15.94625
+          "string_tuning": 15.633125000000001,
+          "top_wood": 1.04,
+          "back_sides": 1.04,
+          "string_acoustic": 1.04,
+          "acoustic_om_technique": 18.30275
         }
       }
     ],

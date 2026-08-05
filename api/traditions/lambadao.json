@@ -1,0 +1,174 @@
+{
+  "id": "lambadao",
+  "name": "Lambadão (Cuiabá)",
+  "family": "global",
+  "lineage": "Mato Grosso dance music consolidated in Cuiabá in the 1990s-2000s from lambada and the local siriri/cururu tradition — 120-140 BPM in 4/4, built on a tremolo- and delay-drenched electric lead guitar answering the vocal, programmed drum-machine kit with hard timbale fills, keyboard brass stabs, and shouted call-and-response over a bass-heavy sound-system mix.",
+  "recipe": "classic mid-1990s lambadão, functional Song, tropical song branch, Latin electric electronic dance, Brazilian song functional song tecnobrega cumbia 420. vocal fry, breath veiled tone, straight note core, interlocked note trading. single coil electric guitar, TR-808, sub bass analog poly synth, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass, brass open slap hand drum timbales. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 596,
+  "score": 175.697,
+  "config": {
+    "traditions": [
+      "lambadao",
+      "tecnobrega",
+      "cumbia_420"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 1.6199999999999997,
+          "amp_make": 2.1849999999999996,
+          "body_wood": 0.39,
+          "neck_wood": 0.39,
+          "fretboard": 0.325,
+          "pickup_magnet": 0.045,
+          "string_material": 0.045,
+          "string_gauge": 0.39,
+          "bridge": 0.24,
+          "scale_length": 0.39,
+          "finish": 0,
+          "string_tuning": 0.48
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 4.8100000000000005,
+          "drum_machine_808_context": 4.875,
+          "tr808_production_origin": 0.43500000000000005
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 7.8325000000000005,
+          "poly_archetypes": 0.135,
+          "poly_voices": 0,
+          "poly_maker_lineage": -1.5099999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 3.575,
+          "body_wood": 0.39,
+          "pickup_config": 0.845,
+          "string_type": 5.654999999999999,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": 3.705
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "timbales_shell": "timbales_brass",
+          "timbales_context": "timbales_son"
+        },
+        "scores": {
+          "percussion_technique": 9.464999999999998,
+          "timbales_shell": 1.3,
+          "timbales_context": 0.3
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.795,
+          "voice_quality": 9.945,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2349999999999997,
+          "voice_articulation": 17.224999999999998,
+          "voice_microtone": 17.679999999999993,
+          "voice_tradition": 7.150000000000001,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 23.854999999999997,
+          "voice_ensemble_config": 18.134999999999998,
+          "voice_ornament_system": 2.195,
+          "voice_pitch_organization": 1.2349999999999999,
+          "voice_processing_chain": 10.209999999999999,
+          "voice_multitrack_stack": 4.875
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

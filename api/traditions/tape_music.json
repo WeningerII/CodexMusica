@@ -1,0 +1,148 @@
+{
+  "id": "tape_music",
+  "name": "Tape Music",
+  "family": "classical",
+  "lineage": "Born in Paris in 1948 with Pierre Schaeffer's studio at RTF and in Cologne in 1951 at the WDR Studio fur elektronische Musik under Herbert Eimert and Stockhausen, with Vladimir Ussachevsky and Otto Luening establishing the American branch at Columbia in 1952 — compositions assembled by splicing, varispeed, reversal and tape-loop layering of recorded material onto magnetic tape as the finished, fixed work, with no performers and no metric pulse.",
+  "recipe": "classic North American late-1940s tape music, experimental Elec, musique concrete branch, western modern art music, industrial noise experimental electric computer music live electronics. thick, breath veiled tone, slow rate, interlocked note trading. tape replay keyboard, prepared piano, glitched textural granular glitched textural modular synth, bass drum. dry but alive 1948-1965 indie-commercial early tape us small. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 518,
+  "score": 175.639,
+  "config": {
+    "traditions": [
+      "tape_music",
+      "computer_music",
+      "live_electronics"
+    ],
+    "instruments": [
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "choir_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "tape_voice": 0.195,
+          "tape_state": 0.3
+        }
+      },
+      {
+        "id": "prepared_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "prepared_piano_object": "prepared_piano_bolts",
+          "prepared_piano_zone": "prepared_piano_middle",
+          "prepared_piano_instrument": "prepared_piano_grand"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "prepared_piano_object": 0.195,
+          "prepared_piano_zone": 0.195,
+          "prepared_piano_instrument": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 6.9725,
+          "voice_quality": 9.619999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.8,
+          "voice_articulation": 17.874999999999996,
+          "voice_microtone": 17.029999999999994,
+          "voice_tradition": 10.435,
+          "voice_mechanism_compound": 6.528333333333333,
+          "voice_estill_quality": 5.875,
+          "voice_speech_song": 21.97,
+          "voice_ensemble_config": 17.159999999999993,
+          "voice_ornament_system": 5.798333333333334,
+          "voice_pitch_organization": 7.943333333333334,
+          "voice_processing_chain": 6.074999999999999,
+          "voice_multitrack_stack": 2.4699999999999998
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 8.950000000000001,
+          "granular_use": 0.195,
+          "granular_synth_source": 5.331666666666667
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_emu_modular"
+        },
+        "scores": {
+          "electronic_technique": 8.950000000000001,
+          "mod_voltage_source": 0.39,
+          "mod_patch_density": 1.195,
+          "mod_lineage": 0.5199999999999997
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_18_jazz",
+          "bass_drum_beater": "bass_drum_wood_click"
+        },
+        "scores": {
+          "bass_drum_size": 0.15,
+          "bass_drum_beater": 0.195
+        }
+      }
+    ],
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_early_tape_us_small",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

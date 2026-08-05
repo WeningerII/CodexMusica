@@ -3,14 +3,14 @@
   "name": "Freestyle music",
   "family": "global",
   "lineage": "Mid-1980s onward Latino-and-Italian-American urban-dance genre developed in New York and Miami clubs, characterized by 808-drum-machine programming, electronic sub-bass, and emotional Latino-soul vocal lead — codified through Shannon (Let the Music Play 1983), Lisa Lisa and Cult Jam (I Wonder If I Take You Home 1984), Exposé, The Cover Girls, Stevie B, Sa-Fire",
-  "recipe": "classic Asian 1984-1986 freestyle music, electronic Dance, eurodance branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, straight onset, interlocked note trading. low sub bass analog poly synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, pitched chopped sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 492,
-  "score": 303.772,
+  "recipe": "classic Asian 1984-1986 freestyle music, electronic Dance, eurodance branch, us hip hop MC rhythm gangsta rap east coast hip-hop. thick, rap, straight onset, interlocked note trading. roland jupiter lineage canonical jupiter 8 1981 osaka sub bass analog poly synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, chopped sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 535,
+  "score": 250.467,
   "config": {
     "traditions": [
       "freestyle_music",
-      "conscious_hip_hop",
-      "gangsta_rap"
+      "gangsta_rap",
+      "east_coast_hip_hop_classic"
     ],
     "instruments": [
       {
@@ -29,42 +29,42 @@
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 13.844999999999997,
-          "voice_quality": 26.459999999999997,
+          "voice_register": 10.145,
+          "voice_quality": 20.1175,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.919999999999998,
-          "voice_articulation": 20.019999999999996,
-          "voice_microtone": 19.434999999999995,
-          "voice_tradition": 11.649999999999999,
-          "voice_mechanism_compound": 3.185,
-          "voice_estill_quality": 7.994999999999999,
-          "voice_speech_song": 25.255,
-          "voice_ensemble_config": 19.759999999999998,
-          "voice_ornament_system": 4.875000000000002,
-          "voice_pitch_organization": 1.825,
-          "voice_processing_chain": 18.509999999999994,
-          "voice_multitrack_stack": 9.340000000000002
+          "voice_vibrato": 4.545,
+          "voice_articulation": 16.769999999999992,
+          "voice_microtone": 16.184999999999988,
+          "voice_tradition": 9.999999999999998,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 5.8450000000000015,
+          "voice_speech_song": 17.83,
+          "voice_ensemble_config": 16.50999999999999,
+          "voice_ornament_system": 4.420000000000002,
+          "voice_pitch_organization": 2.5349999999999997,
+          "voice_processing_chain": 13.655000000000001,
+          "voice_multitrack_stack": 6.37
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "jupiter_8",
-          "poly_voices": "poly_8_voice",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 14.699999999999998,
-          "poly_archetypes": 0.345,
-          "poly_voices": 0.345,
-          "poly_maker_lineage": 0.49
+          "electronic_technique": 12.524999999999999,
+          "poly_archetypes": 0.995,
+          "poly_voices": 0.9950000000000001,
+          "poly_maker_lineage": 2.44
         }
       },
       {
@@ -75,9 +75,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 12.514999999999999,
-          "drum_machine_808_context": 9.155000000000001,
-          "tr808_production_origin": 3.2500000000000004
+          "tr808_voice": 10.864999999999998,
+          "drum_machine_808_context": 6.880000000000001,
+          "tr808_production_origin": 5.305
         }
       },
       {
@@ -86,15 +86,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 9.009999999999998,
-          "sampler_archetypes": 15.469999999999999,
+          "electronic_technique": 7.359999999999999,
+          "sampler_archetypes": 12.61,
           "sampler_bit_depth": 1.9399999999999997,
-          "sampler_workflow": 9.839999999999998,
-          "sampler_classic_context": 31.524999999999995
+          "sampler_workflow": 8.514999999999999,
+          "sampler_classic_context": 27.169999999999995
         }
       }
     ],

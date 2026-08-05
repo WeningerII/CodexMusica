@@ -1,0 +1,194 @@
+{
+  "id": "country_boogie",
+  "name": "Country Boogie (Hillbilly Boogie)",
+  "family": "country",
+  "lineage": "Hillbilly-boogie idiom that ran from about 1945 to 1955 across Nashville, Cincinnati and the Los Angeles Western scene, codified by the Delmore Brothers, Arthur 'Guitar Boogie' Smith, Merle Travis, Tennessee Ernie Ford and the Maddox Brothers & Rose — eight-to-the-bar boogie-woogie bass lines transferred from piano to slapped doghouse bass and low-string electric guitar, twelve-bar blues form at 150-190 BPM, hot lead breaks traded between electric guitar, harmonica and steel, and brash, half-shouted vocals.",
+  "recipe": "classic North American mid-1940s country boogie, functional Song, honky tonk era branch, western swing country, American jazz boogie woogie classic oklahoma country. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric cedar steel silk travis picked dreadnought acoustic guitar, growly gut upright bass, steel c6 lap steel, steel double stops fiddle, upright piano, vintage ambassador asymmetric brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 696,
+  "score": 457.895,
+  "config": {
+    "traditions": [
+      "country_boogie",
+      "western_music",
+      "classic_oklahoma_country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 33.13650000000002,
+          "voice_quality": 15.534999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 28.0395,
+          "voice_articulation": 20.149999999999995,
+          "voice_microtone": 21.709999999999994,
+          "voice_tradition": 6.5,
+          "voice_mechanism_compound": 1.5349999999999997,
+          "voice_estill_quality": 26.8815,
+          "voice_speech_song": 26.779999999999998,
+          "voice_ensemble_config": 22.229999999999993,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 0.45499999999999996,
+          "voice_processing_chain": 3.38,
+          "voice_multitrack_stack": 3.9000000000000012
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 24.815,
+          "amp_make": 28.891,
+          "body_wood": 1.95,
+          "neck_wood": 1.95,
+          "fretboard": 1.885,
+          "pickup_magnet": 1.105,
+          "string_material": 3.38,
+          "string_gauge": 1.95,
+          "bridge": 1.15,
+          "scale_length": 1.95,
+          "finish": 0.0315,
+          "string_tuning": 3.38
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "open_d",
+          "top_wood": "cedar",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 26.005000000000003,
+          "string_tuning": 1.9000000000000001,
+          "top_wood": 1.95,
+          "back_sides": 0,
+          "string_acoustic": 4.68
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 5,
+          "upright_play": 5
+        }
+      },
+      {
+        "id": "lap_steel",
+        "slots": {
+          "lap_steel_tuning": "lap_steel_c6",
+          "lap_steel_style": "lap_steel_western_swing"
+        },
+        "scores": {
+          "lap_steel_tuning": 16.835,
+          "lap_steel_style": 13.455
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_tasto"
+        },
+        "scores": {
+          "bowed_technique": 33.925000000000004,
+          "fiddle_strings": 4.29,
+          "fiddle_bow": 0,
+          "fiddle_mute": 1.15,
+          "fiddle_articulation": 1.105
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_honky_tonk",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 29.195000000000004,
+          "upright_use": 1.95,
+          "upright_piano_size": 0.65
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 21.319999999999997,
+          "drumhead": 7.085,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "americana_train_beat_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "americana_train_beat_4_4",
+    "room": "studio_early_tape_us_small",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

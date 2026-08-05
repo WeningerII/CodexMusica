@@ -5,7 +5,7 @@
   "lineage": "Cuban up-tempo song-and-dance form, the satirical-comic cousin to son cubano, prominent in the Sonora Matancera repertoire and the Celia Cruz canon",
   "recipe": "classic Caribbean mid-1950s guaracha, groove Percussion, son salsa branch, rumba Cuban rumba cubana guaguancó. vocal fry, blues-shouter, slow rate, interlocked note trading. cedar canonical Cuban strummed tres cubano, cold pressed wurzen felt grand piano, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, open slap hand drum timbales, claves, schilke chicago lead bright heavy one piece matched to monette horn trumpet. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 661,
-  "score": 174.912,
+  "score": 175.057,
   "config": {
     "traditions": [
       "guaracha",
@@ -86,7 +86,7 @@
           "keyboard_technique": 0.52,
           "grand_piano_size": 1.04,
           "grand_piano_brand": 1.235,
-          "piano_hammer": 1.5965,
+          "piano_hammer": 1.625,
           "piano_rim": 0.78,
           "piano_soundboard": 0.78,
           "piano_pinblock": -0.035,
@@ -101,7 +101,7 @@
           "upright_play": "slap_upright"
         },
         "scores": {
-          "upright_strings": 0.273,
+          "upright_strings": 0.1365,
           "upright_play": 0.39
         }
       },
@@ -114,7 +114,7 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 7.6455,
+          "percussion_technique": 7.8405000000000005,
           "bongos_skin": 17.94,
           "bongos_context": 1.4949999999999999,
           "bongos_shell_wood": 8.84
@@ -128,7 +128,7 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 7.6455,
+          "percussion_technique": 7.8405000000000005,
           "timbales_shell": 0.65,
           "timbales_context": 1.6899999999999997
         }
@@ -157,7 +157,7 @@
         },
         "scores": {
           "wind_articulation": 0.6499999999999999,
-          "brass_size": 0.273,
+          "brass_size": 0.1365,
           "trumpet_mouthpiece": 1.625,
           "brass_mute": 0.65,
           "trumpet_technique": 0.6499999999999999,

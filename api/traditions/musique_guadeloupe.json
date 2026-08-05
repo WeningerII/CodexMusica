@@ -1,0 +1,213 @@
+{
+  "id": "musique_guadeloupe",
+  "name": "Musique Guadeloupéenne (biguine-mazouk salon tradition)",
+  "family": "global",
+  "lineage": "Guadeloupean Creole salon and ballroom repertoire of the late nineteenth and early twentieth centuries — biguine, mazouk, valse créole and haute-taille — codified in Pointe-à-Pitre and in 1930s Paris recordings, played by clarinet lead with trombone counterline, banjo or guitar chording, string bass and chacha rattle in a lilting 2/4 or dotted 3/4 with heavily syncopated clarinet ornament.",
+  "recipe": "classic Western European mid-1930s musique guadeloupéenne, functional Song, tropical song branch, Caribbean carnival processional, American jazz early continental jazz. thick, breath veiled tone, straight onset, interlocked note trading. ebonite hard rubber klezmer tradition front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, walnut warmer than maple mid tier scruggs stelling bluegrass setup banjo 5 string, venice catlin high twist renaissance bass carpathian spruce European maple double bass, maracas, parlor acoustic guitar, piano accordion. intimate paris small studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 703,
+  "score": 295.23,
+  "config": {
+    "traditions": [
+      "musique_guadeloupe",
+      "hot_jazz",
+      "continental_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 3.0949999999999998,
+          "clarinet_body": 1.17,
+          "clarinet_size": 0,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 3.0949999999999998,
+          "trombone_type": 14.624999999999998,
+          "trombone_mouthpiece": 14.724999999999998,
+          "trombone_mute": 0.65,
+          "trombone_technique": 0.845,
+          "trombone_bell_metal": 0.65,
+          "trombone_maker_school": 5.54
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0,
+          "tone_ring": 0.3,
+          "banjo_head": 20.605,
+          "banjo_pot": 0,
+          "banjo_play": 0.54,
+          "banjo_rim_wood": 1.235,
+          "banjo_neck_wood": 1.605,
+          "banjo_strings": 0.135,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 20.345
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "modern_synthetic_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.2,
+          "bass_size": 0,
+          "bass_strings": 2.4699999999999998,
+          "bass_top_wood": 1.095,
+          "bass_back_wood": 1.045,
+          "bass_varnish": -0.035,
+          "bass_setup_period": 2.405,
+          "bass_play": 14.969999999999997,
+          "bass_rosin": 17.085,
+          "bass_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_leather",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 0.045,
+          "maracas_filling": 1
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 14.169999999999993,
+          "voice_quality": 6.955000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 15.004999999999999,
+          "voice_articulation": 21.059999999999995,
+          "voice_microtone": 21.059999999999995,
+          "voice_tradition": 14.819999999999999,
+          "voice_mechanism_compound": 4.874999999999999,
+          "voice_estill_quality": 5.39,
+          "voice_speech_song": 25.999999999999996,
+          "voice_ensemble_config": 22.034999999999993,
+          "voice_ornament_system": 1.5250000000000001,
+          "voice_pitch_organization": 4.485000000000001,
+          "voice_processing_chain": 4.8100000000000005,
+          "voice_multitrack_stack": 3.185
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 0.2925,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.195,
+          "back_sides_parlor": 0.15,
+          "string_acoustic_parlor": 0.195
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chromatic_jazz",
+          "pa_size": "pa_120_bass",
+          "pa_use": "pa_french_chanson"
+        },
+        "scores": {
+          "free_reed_technique": 1.9825,
+          "pa_size": 0.5,
+          "pa_use": 0.15
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "shellac_78",
+    "chain_console": "console_german_tube_50s"
+  }
+}

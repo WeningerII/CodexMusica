@@ -5,7 +5,7 @@
   "lineage": "Brazilian late-1960s art-pop counter-cultural movement (1967-1969 peak) emerging in Salvador-Bahia-and-São-Paulo as fusion of bossa-nova harmonic-sophistication, Northeast forró-and-baião rhythmic-vocabulary, Anglo-American psychedelic-rock instrumentation (electric-guitar, fuzz, distortion), Stockhausen-and-Cage avant-garde electroacoustic-experimentation, and Brazilian-modernist-poetry pau-brasil concrete-and-anthropophagic literary-aesthetic. Built politically in opposition to the 1964-1985 Brazilian military dictatorship through ironic-pop subversion. The canonical recordings of the late-1960s tropicália phase shaped Brazilian-mainstream MPB 1970s-onward and influenced global art-rock through the 1990s-onward Western re-discovery wave.",
   "recipe": "classic Southern American 1967-1969 tropicália, groove Percussion, Brazilian branch, experimental distorted rock post-rock krautrock. thick, breath veiled tone, slow rate, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog synth, berimbau, samba foundation jacaranda rosewood canonical Portuguese steel modern cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
   "recipe_chars": 778,
-  "score": 352.828,
+  "score": 359.271,
   "config": {
     "traditions": [
       "tropicalia",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 26.894999999999996,
-          "voice_quality": 20.572499999999998,
+          "voice_register": 27.044999999999995,
+          "voice_quality": 20.43225,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.87,
+          "voice_vibrato": 2.885,
           "voice_articulation": 15.794999999999995,
-          "voice_microtone": 27.979999999999997,
-          "voice_tradition": 10.333749999999998,
-          "voice_mechanism_compound": 2.500000000000001,
-          "voice_estill_quality": 6.6875,
+          "voice_microtone": 28.084999999999997,
+          "voice_tradition": 11.927499999999998,
+          "voice_mechanism_compound": 2.665000000000001,
+          "voice_estill_quality": 6.2375,
           "voice_speech_song": 16.542499999999997,
           "voice_ensemble_config": 15.534999999999995,
-          "voice_ornament_system": 3.43875,
+          "voice_ornament_system": 3.7387500000000005,
           "voice_pitch_organization": 2.99,
-          "voice_processing_chain": 5.0815,
-          "voice_multitrack_stack": 8.094
+          "voice_processing_chain": 5.53,
+          "voice_multitrack_stack": 8.496
         }
       },
       {
@@ -63,7 +63,7 @@
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 6.691249999999999,
+          "acoustic_technique": 6.554749999999999,
           "string_tuning": 0,
           "top_wood_classical": 5.915,
           "bracing_classical": 1.2349999999999999,
@@ -85,44 +85,44 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 8.75,
-          "amp_make": 8.8875,
+          "electric_technique": 8.795,
+          "amp_make": 9.6525,
           "body_wood": 1.4949999999999999,
           "neck_wood": 1.04,
-          "fretboard": 2.16375,
+          "fretboard": 2.34,
           "pickup_magnet": 0.39,
           "pickup_winding": 0.845,
           "string_material": 1.04,
-          "bridge": 0.6194999999999999,
+          "bridge": 0.25799999999999995,
           "scale_length": 2.5349999999999997,
           "string_gauge": 0.16799999999999995,
-          "finish": 0,
-          "string_tuning": 13.288749999999999
+          "finish": 0.195,
+          "string_tuning": 13.584999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "swamp_ash_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 9.1435,
-          "body_wood": 0.45149999999999996,
-          "pickup_config": 0.45149999999999996,
-          "string_type": 19.70625,
-          "scale_length_b": 0.1365,
-          "fretted_or_not": 0.105,
-          "bass_technique": 18.7065
+          "amp_make": 9.684999999999999,
+          "body_wood": 0.3,
+          "pickup_config": 0.15,
+          "string_type": 22.22625,
+          "scale_length_b": 0.1215,
+          "fretted_or_not": 0.03599999999999999,
+          "bass_technique": 18.674999999999997
         }
       },
       {
@@ -148,11 +148,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 6.2675,
-          "oscillator": 2.0771249999999997,
-          "filter_topology": 0.3315,
-          "envelope": 1.4949999999999999,
-          "modulation": 0.16799999999999995
+          "electronic_technique": 6.4625,
+          "oscillator": 2.227125,
+          "filter_topology": 0.3,
+          "envelope": 1.4747499999999998,
+          "modulation": 0.31799999999999995
         }
       },
       {
@@ -162,7 +162,7 @@
           "berimbau_use": "berimbau_capoeira"
         },
         "scores": {
-          "berimbau_size": 1.4949999999999999,
+          "berimbau_size": 1.4747499999999998,
           "berimbau_use": 7.93
         }
       },
@@ -179,7 +179,7 @@
           "plucked_traditional_technique": 2.73,
           "cavaquinho_origin": 2.535,
           "cavaquinho_context": 25.025,
-          "cavaquinho_body_wood": 2.925,
+          "cavaquinho_body_wood": 2.88375,
           "cavaquinho_strings": 1.4949999999999999
         }
       }

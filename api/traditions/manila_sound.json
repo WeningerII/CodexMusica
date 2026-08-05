@@ -1,0 +1,202 @@
+{
+  "id": "manila_sound",
+  "name": "Manila Sound",
+  "family": "pop_rock",
+  "lineage": "Mid-1970s Metro Manila pop movement launched by Hotdog's Ikaw Ang Miss Universe Ng Buhay Ko and Manila and carried by VST & Company, Cinderella, Rico J. Puno and Hagibis, blending soft-rock and disco-funk rhythm sections at 100-120 BPM with Taglish lyrics, sweet close-harmony backing vocals, clean single-coil guitar, Rhodes or clavinet comping, congas and occasional horn stabs, recorded on multitrack in Manila studios for the local label boom.",
+  "recipe": "classic Southeast Asian 1974-1976 manila sound, functional Song, pop rock branch, soul R&B functional song, house electronic dance post-disco beach music. thick, blues-shouter, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tremolo raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s close pickup gap more bark dirt ostinato rhodes electric, lead cowhide mid tier congas, bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ.",
+  "recipe_chars": 965,
+  "score": 348.917,
+  "config": {
+    "traditions": [
+      "manila_sound",
+      "post_disco",
+      "beach_music_carolina"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 26.899999999999995,
+          "voice_quality": 9.624999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.38,
+          "voice_articulation": 19.304999999999993,
+          "voice_microtone": 19.109999999999992,
+          "voice_tradition": 10.594999999999999,
+          "voice_mechanism_compound": 4.029999999999999,
+          "voice_estill_quality": 8.519999999999998,
+          "voice_speech_song": 26.974999999999994,
+          "voice_ensemble_config": 20.214999999999993,
+          "voice_ornament_system": 1.6899999999999995,
+          "voice_pitch_organization": 0.6950000000000001,
+          "voice_processing_chain": 9.305,
+          "voice_multitrack_stack": 12.245000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 13.925,
+          "amp_make": 14.28,
+          "body_wood": 2.675,
+          "neck_wood": 2.675,
+          "fretboard": 2.625,
+          "pickup_magnet": 0.345,
+          "string_material": 0.345,
+          "string_gauge": 2.675,
+          "bridge": 0.15,
+          "scale_length": 2.795,
+          "finish": 0,
+          "string_tuning": 6.13
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 12.189999999999998,
+          "body_wood": 2.795,
+          "pickup_config": 0.15,
+          "string_type": 12.219999999999999,
+          "scale_length_b": 2.675,
+          "fretted_or_not": 0.105,
+          "bass_technique": 11.2
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.719999999999995,
+          "drumhead": 8.665,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_suitcase",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_raymac_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_close_bark"
+        },
+        "scores": {
+          "keyboard_technique": 11.25,
+          "rhodes_model": 2.675,
+          "rhodes_use": 3.835,
+          "rhodes_tine_material": 1.2349999999999999,
+          "rhodes_hammer_tip": 5.3950000000000005,
+          "rhodes_pickup_position": 1.645
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 0.06499999999999999,
+          "conga_set": 1.18,
+          "conga_skin": 2.675,
+          "conga_shell_wood": 0.8449999999999999
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 11.419999999999998,
+          "brass_size": 0.345,
+          "trumpet_mouthpiece": 1.6099999999999999,
+          "brass_mute": 0.39,
+          "trumpet_technique": 11.419999999999998,
+          "trumpet_bell_metal": 0.72,
+          "trumpet_maker_school": 1.9949999999999999
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_nyc_disco_twelve_inch",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_mci_jh636",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_mci_jh636"
+  }
+}

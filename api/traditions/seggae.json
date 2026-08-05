@@ -1,0 +1,176 @@
+{
+  "id": "seggae",
+  "name": "Seggae",
+  "family": "global",
+  "lineage": "Mauritian fusion of séga and Jamaican roots reggae created in the mid-1980s by Kaya (Joseph Reginald Topize) and developed by Ras Natty Baby, laying the ravanne's triplet séga pulse across a reggae one-drop at 70–90 BPM with skanking offbeat guitar, dubwise bass, organ bubble and Kreol lyrics of Rastafari and Creole social grievance.",
+  "recipe": "classic Western European 1984-1986 seggae, bass System, reggae diaspora branch, central east south African groove percussion, sub saharan African protest song south african freedom song séga. vocal fry, breath veiled tone, slow rate, interlocked note trading. mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, ride-driven brushes-and-sticks drum kit, kayamba, Hammond a 100 built in Leslie home spinet tonewheel organ. brent black community studio london. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+  "recipe_chars": 653,
+  "score": 208.09,
+  "config": {
+    "traditions": [
+      "seggae",
+      "south_african_freedom_song",
+      "sega"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 2.4699999999999998,
+          "voice_quality": 10.984999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 16.314999999999994,
+          "voice_microtone": 16.31499999999999,
+          "voice_tradition": 20.539999999999996,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 21.904999999999994,
+          "voice_ensemble_config": 16.444999999999993,
+          "voice_ornament_system": 4.541500000000001,
+          "voice_pitch_organization": 2.0250000000000004,
+          "voice_processing_chain": 5.109999999999999,
+          "voice_multitrack_stack": 9.363
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 2.375,
+          "amp_make": 1.0399999999999998,
+          "body_wood": 1.3,
+          "neck_wood": 1.3,
+          "fretboard": 1.2349999999999999,
+          "pickup_magnet": 0.09,
+          "string_material": 0.063,
+          "string_gauge": 1.3,
+          "bridge": 0.65,
+          "scale_length": 1.3,
+          "finish": 0,
+          "string_tuning": 1.04
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 4.414000000000001,
+          "body_wood": 1.95,
+          "pickup_config": 0.65,
+          "string_type": 7.085,
+          "scale_length_b": 1.3,
+          "fretted_or_not": 0.845,
+          "bass_technique": 10.95
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.084999999999997,
+          "drumhead": 1.3,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "kayamba",
+        "slots": {
+          "kayamba_fill": "kayamba_pebble",
+          "kayamba_technique": "kayamba_shake"
+        },
+        "scores": {
+          "kayamba_fill": 0.65,
+          "kayamba_technique": 1.4949999999999999
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "stopped_rotor",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 0.9299999999999998,
+          "drawbar_setting": 1.2349999999999999,
+          "rotary_speed": 1.8850000000000002,
+          "percussion_setting": 0.3735,
+          "tonewheel_model": 7.345000000000001,
+          "leslie_cabinet_model": 0.78
+        }
+      }
+    ],
+    "room": "brent_black_community_studio_london",
+    "archetype": "arch_antilles_creole_analog",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_console_inline_strip",
+      "console": "console_uk_community_studio_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "brent_black_community_studio_london",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_uk_community_studio_80s"
+  }
+}

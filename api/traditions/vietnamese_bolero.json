@@ -1,0 +1,196 @@
+{
+  "id": "vietnamese_bolero",
+  "name": "Vietnamese Bolero (Nhạc Vàng)",
+  "family": "global",
+  "lineage": "Slow sentimental Vietnamese popular song crystallized in Saigon from the late 1950s through 1975 by writers such as Trúc Phương, Lam Phương and Trần Thiện Thanh, using the Latin bolero's slow duple pulse and dotted bongo-and-guitar rhythm under minor-mode, pentatonically inflected melodies, guitar phím lõm scalloped-fret bends, and a high, nasal, heavy-vibrato solo vocal; banned in the North after 1975 and sustained on cassette by the overseas diaspora.",
+  "recipe": "classic Southeast Asian 1957-1959 vietnamese bolero, functional Song, east Asian pop branch, tropical song functional song, chanson fado ballad poetry cape verdean batuko of santiago island. extended whistle, breath veiled tone, slow rate, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string guitar, mahogany la bella flats Detroit soul bass canon sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, dan bau, rawhide traditional open slap hand drum bongos, nasal reedy soprano saxophone. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 774,
+  "score": 301.785,
+  "config": {
+    "traditions": [
+      "vietnamese_bolero",
+      "cape_verdean_batuko",
+      "chanson"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 6.630000000000001,
+          "voice_quality": 31.074999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.135,
+          "voice_articulation": 27.560000000000002,
+          "voice_microtone": 28.275,
+          "voice_tradition": 14.259999999999998,
+          "voice_mechanism_compound": 6.045,
+          "voice_estill_quality": 6.045,
+          "voice_speech_song": 34.645,
+          "voice_ensemble_config": 26.325,
+          "voice_ornament_system": 5.065000000000001,
+          "voice_pitch_organization": 7.749999999999999,
+          "voice_processing_chain": 6.25,
+          "voice_multitrack_stack": 5.02
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 5.93,
+          "string_tuning": 0,
+          "top_wood_classical": 10.205,
+          "bracing_classical": 0.78,
+          "string_classical": 0.975,
+          "attack_technique_cl": 1.5999999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 2.275,
+          "body_wood": 1.3800000000000001,
+          "pickup_config": 0.65,
+          "string_type": 2.21,
+          "scale_length_b": 0.735,
+          "fretted_or_not": 1.15,
+          "bass_technique": 1.145
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 24.7,
+          "drumhead": 4.95,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 6.515000000000001,
+          "poly_archetypes": 1,
+          "poly_voices": 1,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "dan_bau",
+        "slots": {
+          "dan_bau_amplification": "dan_bau_acoustic",
+          "dan_bau_technique": "dan_bau_lever_only"
+        },
+        "scores": {
+          "dan_bau_amplification": 0.78,
+          "dan_bau_technique": 2.6
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "bongos_skin": "bongos_rawhide",
+          "bongos_context": "bongos_son",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 9.254999999999999,
+          "bongos_skin": 1.17,
+          "bongos_context": 0.39,
+          "bongos_shell_wood": 0.39
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_split_tone_overblown",
+          "sax_size": "soprano_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_split_tone_overblown",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 0.6,
+          "sax_size": 1.545,
+          "sax_reed": 0.435,
+          "sax_body_alloy": 0.7,
+          "sax_mouthpiece": 0.78,
+          "sax_technique": 0.6,
+          "sax_maker_school": 0.345
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "skweee",
+  "name": "Skweee",
+  "family": "electronic",
+  "lineage": "Nordic microgenre named in Stockholm and Helsinki circa 2007 by Daniel Savio, Pavan and the Flogsta Danshall / Harmönia circles, built from cheap monophonic synth leads squeezed with pitch-bend and filter over slow 70-100 BPM funk drum-machine patterns, deliberately thin and unmastered, entirely instrumental and released on short vinyl.",
+  "recipe": "classic late-2000s skweee, experimental Elec, lofi branch, continental electronic dance, idm glitch experimental electric, footwork electronic dance folktronica drill'n'bass. analog mono fm synth, monosynth acid bass, cheap paired with 303 chicago foundational TR-707, TR-808. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 384,
+  "score": 16.725,
+  "config": {
+    "traditions": [
+      "skweee",
+      "folktronica",
+      "drill_n_bass"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 2.2099999999999995,
+          "mono_oscillator": 0.045,
+          "mono_filter": 0.19500000000000003,
+          "mono_archetypes": 1.2349999999999999,
+          "mono_maker_lineage": -1.0100000000000002
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 2.2099999999999995,
+          "wave_acid": 0.31499999999999995,
+          "filter_acid": 0.195,
+          "accent_acid": 0.3
+        }
+      },
+      {
+        "id": "drum_machine_707",
+        "slots": {
+          "tr707_voice": "tr707_hat",
+          "drum_machine_707_context": "drum_machine_707_chicago_house"
+        },
+        "scores": {
+          "tr707_voice": 1.19,
+          "drum_machine_707_context": 5.46
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.34,
+          "drum_machine_808_context": 1.755,
+          "tr808_production_origin": 0.045
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_native_instruments_fm8"
+        },
+        "scores": {
+          "electronic_technique": 2.2099999999999995,
+          "fm_algorithm": 0.78,
+          "fm_modulator_ratio": 0.63,
+          "fm_polyphony": 0.78,
+          "fm_model_lineage": 0.09
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

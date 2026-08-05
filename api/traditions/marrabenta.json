@@ -5,7 +5,7 @@
   "lineage": "Mozambican urban dance-song born in 1950s Lourenço Marques — the galloping majika rhythm born on homemade oil-can guitars and electrified across the 1960s-1970s into orchestra-scale dance bands, voiced in Ronga and Changana and canonized from Rádio Moçambique and the Gallo sessions by Fany Pfumo, Dilon Djindji and Orchestra Marrabenta Star",
   "recipe": "classic Southern African mid-1950s marrabenta, functional Song, African pop branch, central east south African groove percussion soukous ndombolo. extended whistle, breath veiled tone, slow rate, interlocked note trading. mahogany ebony clean strummed single coil electric cedar strummed open chord ringing overtones dreadnought acoustic guitar, alder la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
   "recipe_chars": 645,
-  "score": 160.052,
+  "score": 159.14,
   "config": {
     "traditions": [
       "marrabenta",
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 11.634999999999994,
           "voice_ornament_system": 0.9099999999999997,
           "voice_pitch_organization": 3.2760000000000007,
-          "voice_processing_chain": 6.754375,
-          "voice_multitrack_stack": 5.45975
+          "voice_processing_chain": 5.966875,
+          "voice_multitrack_stack": 5.42675
         }
       },
       {
@@ -61,7 +61,7 @@
           "neck_wood": "mahogany_neck",
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
-          "string_material": "flatwound_elec",
+          "string_material": "pure_nickel",
           "string_gauge": "g_11",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
@@ -75,7 +75,7 @@
           "neck_wood": 1.04,
           "fretboard": 1.69,
           "pickup_magnet": 0.39,
-          "string_material": 0.105,
+          "string_material": 0,
           "string_gauge": 1.04,
           "bridge": 1.69,
           "scale_length": 1.04,
@@ -117,7 +117,7 @@
           "pickup_config": 1.3,
           "string_type": 1.56,
           "scale_length_b": 1.04,
-          "fretted_or_not": 0.063,
+          "fretted_or_not": 0.0315,
           "bass_technique": 0.585
         }
       },
@@ -130,7 +130,7 @@
         },
         "scores": {
           "drum_technique": 11.959999999999997,
-          "drumhead": 5.3565,
+          "drumhead": 5.4014999999999995,
           "drum_kit_kick_pedal": 0
         }
       }

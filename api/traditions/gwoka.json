@@ -1,0 +1,152 @@
+{
+  "id": "gwoka",
+  "name": "Gwoka",
+  "family": "global",
+  "lineage": "Guadeloupean drum-and-voice tradition formed among enslaved and post-emancipation Africans on the sugar plantations and codified as a seven-rhythm system (léwòz, kaladja, toumblak, graj, woulé, padjanbèl, mendé) played on goatskin ka drums, with a boula holding the base pulse, a makè improvising against the lead dancer, chacha rattle, and a call-and-response Kréyòl chantè answered by a répondè chorus and hand-clapping in the léwòz night circle.",
+  "recipe": "classic modern gwoka, groove Percussion, Caribbean branch, Afro-diasporic ritual devotional, Caribbean carnival processional nyahbinghi candomblé ritual music. extended whistle, breath veiled tone, slow rate, interlocked note trading. muted and open ritual tanbou ka, boula, ka drum, a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, maracas, foot stomp. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 542,
+  "score": 181.254,
+  "config": {
+    "traditions": [
+      "gwoka",
+      "nyahbinghi",
+      "candomble"
+    ],
+    "instruments": [
+      {
+        "id": "tanbou_ka",
+        "slots": {
+          "tanbou_ka_seating": "tanbou_ka_straddled",
+          "tanbou_ka_tuning": "tanbou_ka_slack"
+        },
+        "scores": {
+          "tanbou_ka_seating": 18.525,
+          "tanbou_ka_tuning": 4.03
+        }
+      },
+      {
+        "id": "boula",
+        "slots": {
+          "boula_tradition": "boula_haitian_rada",
+          "boula_head": "boula_goatskin_rope"
+        },
+        "scores": {
+          "boula_tradition": 4.03,
+          "boula_head": 0
+        }
+      },
+      {
+        "id": "ka_drum",
+        "slots": {
+          "ka_voice": "ka_make",
+          "ka_rhythm": "ka_grage",
+          "ka_build": "ka_carved"
+        },
+        "scores": {
+          "ka_voice": 0,
+          "ka_rhythm": 0.3,
+          "ka_build": 0.15
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.52,
+          "voice_quality": 13.389999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.2,
+          "voice_articulation": 18.33,
+          "voice_microtone": 18.784999999999993,
+          "voice_tradition": 11.504999999999997,
+          "voice_mechanism_compound": 4.745,
+          "voice_estill_quality": 1.9499999999999997,
+          "voice_speech_song": 18.33,
+          "voice_ensemble_config": 19.955,
+          "voice_ornament_system": 5.775,
+          "voice_pitch_organization": 3.365,
+          "voice_processing_chain": 5.3950000000000005,
+          "voice_multitrack_stack": 5.135000000000002
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 10.244499999999999,
+          "choir_polyphonic_configuration": 3.445,
+          "choir_regional_canonical_configuration": 7.6899999999999995,
+          "choir_ensemble_repertoire": 3.25
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_plastic",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 0.36450000000000005,
+          "maracas_filling": 1.045
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_bare_foot",
+          "stomp_surface": "stomp_wood_stage"
+        },
+        "scores": {
+          "stomp_footwear": 0,
+          "stomp_surface": 0.15
+        }
+      }
+    ],
+    "room": "urban_courtyard",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "equal_heptatonic_west_african",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_west_african",
+    "room": "urban_courtyard",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

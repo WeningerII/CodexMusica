@@ -1,0 +1,156 @@
+{
+  "id": "german_techno",
+  "name": "German Techno",
+  "family": "electronic",
+  "lineage": "Techno as it was rebuilt in Frankfurt and post-Wall Berlin between 1989 and 1995 by Sven Väth, Hardfloor, Westbam, Marusha, Dr. Motte and the Tresor/Harthouse labels, taking Detroit's template toward 135-150 BPM, hard TR-909 kicks and open hats, TB-303 acid lines, sequenced hoover and stab riffs, and long linear arrangements engineered for warehouse and Love Parade sound systems.",
+  "recipe": "classic Central European late-1980s german techno, electronic Dance, techno branch, trance electronic dance, continental electronic dance acid trance hard trance. vocal fry, breath veiled tone, slow rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, squelching classic acid monosynth acid bass, analog poly roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, sampler drum machine. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 619,
+  "score": 233.74,
+  "config": {
+    "traditions": [
+      "german_techno",
+      "acid_trance",
+      "hard_trance"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 2.32,
+          "drum_machine_909_context": 4.42,
+          "tr909_production_origin": 1.345
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 19.22,
+          "wave_acid": 0.195,
+          "filter_acid": 3.515,
+          "accent_acid": 5.82
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 1.8849999999999996,
+          "poly_archetypes": 1.3,
+          "poly_voices": 1.3,
+          "poly_maker_lineage": 0.325
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.52,
+          "sample_bitdepth": 0.5399999999999999,
+          "sample_swing": 19.65,
+          "sample_processing": 1.74
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "tb_303",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 19.22,
+          "mono_oscillator": 0.195,
+          "mono_filter": 0.585,
+          "mono_archetypes": 1.275,
+          "mono_maker_lineage": 6.124999999999999
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 1.04,
+          "voice_quality": 6.435000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.365,
+          "voice_articulation": 23.399999999999995,
+          "voice_microtone": 23.39999999999999,
+          "voice_tradition": 3.120000000000001,
+          "voice_mechanism_compound": 1.885,
+          "voice_estill_quality": 2.73,
+          "voice_speech_song": 23.139999999999997,
+          "voice_ensemble_config": 24.114999999999995,
+          "voice_ornament_system": 0.65,
+          "voice_pitch_organization": 1.6249999999999998,
+          "voice_processing_chain": 21.875,
+          "voice_multitrack_stack": 2.34
+        }
+      }
+    ],
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "berlin_techno_kreuzberg_studio",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "colored"
+  }
+}

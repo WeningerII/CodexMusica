@@ -3,14 +3,14 @@
   "name": "70s Laurel Canyon",
   "family": "global",
   "lineage": "Early-1970s Laurel Canyon (Los Angeles hill-neighborhood) singer-songwriter scene centered around Joni Mitchell, Crosby Stills Nash and Young, Jackson Browne, the Eagles, Linda Ronstadt, Carole King — codified through the A and M / Sunset Sound / Wally Heider studio canon",
-  "recipe": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country redneck rock. thick, breath veiled tone, straight note core, interlocked note trading. steel silk travis picked acoustic Fender tweed amp American 50s amp tweed breakup nickel plated steel nickel single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, sticks backbeat drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre.",
-  "recipe_chars": 1000,
-  "score": 346.685,
+  "recipe": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country lubbock sound redneck rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. travis picked acoustic Fender tweed amp American 50s amp tweed breakup nickel plated steel nickel single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, ride-driven brushes-and-sticks drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser.",
+  "recipe_chars": 999,
+  "score": 373.724,
   "config": {
     "traditions": [
       "laurel_canyon_70s",
-      "redneck_rock",
-      "outlaw_country"
+      "lubbock_sound",
+      "redneck_rock"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 30.676249999999996,
-          "voice_quality": 12.537499999999993,
+          "voice_register": 34.55125,
+          "voice_quality": 11.699999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.94,
-          "voice_articulation": 11.029999999999996,
-          "voice_microtone": 13.654999999999996,
-          "voice_tradition": 6.6975,
-          "voice_mechanism_compound": 2.36125,
-          "voice_estill_quality": 18.25375,
-          "voice_speech_song": 18.004999999999992,
-          "voice_ensemble_config": 10.662499999999996,
-          "voice_ornament_system": 3.4787500000000002,
-          "voice_pitch_organization": 2.45,
-          "voice_processing_chain": 7.5825,
-          "voice_multitrack_stack": 6.843750000000001
+          "voice_vibrato": 19.81375,
+          "voice_articulation": 12.849999999999994,
+          "voice_microtone": 13.279999999999996,
+          "voice_tradition": 7.6475,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 22.203749999999996,
+          "voice_speech_song": 20.34499999999999,
+          "voice_ensemble_config": 12.482499999999995,
+          "voice_ornament_system": 3.58375,
+          "voice_pitch_organization": 2.295,
+          "voice_processing_chain": 6.7075000000000005,
+          "voice_multitrack_stack": 6.16375
         }
       },
       {
@@ -63,18 +63,18 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0.96875,
-          "back_sides": 0.96875,
-          "string_acoustic": 1.04,
-          "acoustic_om_technique": 16.015
+          "top_wood": 0.39,
+          "back_sides": 0.39,
+          "string_acoustic": 0.845,
+          "acoustic_om_technique": 19.015
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "yamaha_cfx",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -83,11 +83,11 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 3.375,
-          "grand_piano_size": 0.9762500000000001,
-          "grand_piano_brand": 0.98375,
-          "piano_hammer": 6.1325,
-          "piano_rim": 6.105,
+          "keyboard_technique": 4.65,
+          "grand_piano_size": 0.6,
+          "grand_piano_brand": 0.5025,
+          "piano_hammer": 6.0275,
+          "piano_rim": 6.045,
           "piano_soundboard": 0.7,
           "piano_pinblock": 0.25,
           "piano_plate": -0.05,
@@ -100,36 +100,36 @@
           "electric_technique": "electric_country_chicken_pickin",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_11",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 16.607499999999998,
-          "amp_make": 15.898750000000001,
-          "body_wood": 0.96875,
-          "neck_wood": 0.96875,
-          "fretboard": 0.91875,
+          "electric_technique": 19.607499999999998,
+          "amp_make": 18.898749999999996,
+          "body_wood": 0.39,
+          "neck_wood": 0.5025,
+          "fretboard": 0.5025,
           "pickup_magnet": 0.5025,
-          "string_material": 1.625,
-          "string_gauge": 0.9762500000000001,
+          "string_material": 1.4300000000000002,
+          "string_gauge": 0.39,
           "bridge": 0,
-          "scale_length": 1.04,
+          "scale_length": 0.39,
           "finish": 0,
-          "string_tuning": 6.4350000000000005
+          "string_tuning": 6.33
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_fender_tweed",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -137,25 +137,25 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 15.898750000000001,
-          "body_wood": 1.04,
+          "amp_make": 18.898749999999996,
+          "body_wood": 0.39,
           "pickup_config": 0,
-          "string_type": 14.1325,
-          "scale_length_b": 0.96875,
+          "string_type": 13.8025,
+          "scale_length_b": 0.39,
           "fretted_or_not": 0,
-          "bass_technique": 16.055
+          "bass_technique": 19.25
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "hydraulic",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 0.96875,
+          "drum_technique": 12.512499999999996,
+          "drumhead": 0.9574999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -170,12 +170,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 3.375,
-          "rhodes_model": 0.9762500000000001,
-          "rhodes_use": 2.155,
-          "rhodes_tine_material": 3.80375,
-          "rhodes_hammer_tip": 4.0825000000000005,
-          "rhodes_pickup_position": 1.6625
+          "keyboard_technique": 4.65,
+          "rhodes_model": 0.39,
+          "rhodes_use": 1.4300000000000002,
+          "rhodes_tine_material": 3.4987500000000002,
+          "rhodes_hammer_tip": 3.4275,
+          "rhodes_pickup_position": 1.8575
         }
       },
       {
@@ -188,11 +188,11 @@
           "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
         },
         "scores": {
-          "keyboard_technique": 3.375,
-          "wurlitzer_use": 0.022499999999999996,
-          "wurlitzer_ep_voice": 5.932499999999999,
-          "wurlitzer_model": 8.4575,
-          "wurlitzer_reed_material": 1.34
+          "keyboard_technique": 4.65,
+          "wurlitzer_use": 0.65,
+          "wurlitzer_ep_voice": 5.827499999999999,
+          "wurlitzer_model": 7.852499999999999,
+          "wurlitzer_reed_material": 1.19
         }
       }
     ],

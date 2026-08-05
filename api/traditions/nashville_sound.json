@@ -5,7 +5,7 @@
   "lineage": "Late-1950s through 1960s smooth-pop country crossover production aesthetic codified by Chet Atkins (RCA Studio B Nashville producer, the Nashville Sound architect) and Owen Bradley (Decca/MCA Quonset Hut producer) as a deliberate softening of honky-tonks rough-edged dance-hall instrumentation toward smoother string-section and vocal-chorus-backed pop production — designed to compete with rock and roll for AM-radio pop airplay; recordings include Patsy Cline I Fall to Pieces 1961 and Crazy 1961, Jim Reeves Hell Have to Go 1960, Eddy Arnold Make the World Go Away 1965",
   "recipe": "classic Southern American 1957-1959 nashville sound, functional Song, nashville branch, crooners functional song brill building pop adult standards. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar parlor classic steel silk strummed parlor acoustic guitar, double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 507,
-  "score": 232.392,
+  "score": 232.495,
   "config": {
     "traditions": [
       "nashville_sound",
@@ -40,10 +40,10 @@
           "voice_effort": 0,
           "voice_vibrato": 13.694999999999999,
           "voice_articulation": 20.345,
-          "voice_microtone": 20.357499999999998,
-          "voice_tradition": 16.5875,
+          "voice_microtone": 20.31,
+          "voice_tradition": 16.809999999999995,
           "voice_mechanism_compound": 3.575,
-          "voice_estill_quality": 15.754999999999997,
+          "voice_estill_quality": 15.689999999999998,
           "voice_speech_song": 27.494999999999997,
           "voice_ensemble_config": 19.824999999999996,
           "voice_ornament_system": 0.39,
@@ -79,7 +79,7 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 13.107499999999998,
+          "bowed_technique": 13.099999999999998,
           "fiddle_strings": 0.78,
           "fiddle_bow": 0.195,
           "fiddle_mute": 0.345,

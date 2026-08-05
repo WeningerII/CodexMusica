@@ -1,0 +1,179 @@
+{
+  "id": "j_punk",
+  "name": "J-Punk",
+  "family": "rock_punk",
+  "lineage": "Japanese punk lineage running from Tokyo's 1978-1983 first wave — the Stalin, INU, Gauze, the Star Club — through the 1987-1995 melodic era of the Blue Hearts and Hi-Standard, characterized by fast downstroke barre-chord guitar at 180-240 BPM, driving eighth-note bass, hardcore d-beat or straight-eight drumming, Japanese-language shouted or strained-melodic vocals, and abrasive fast tracking in small Tokyo and Osaka studios and live houses.",
+  "recipe": "classic East Asian mid-1980s j-punk, distorted Rock, punk branch, pop punk distorted rock, noise rock distorted rock skate punk oshare kei. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation ebony single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 714,
+  "score": 502.762,
+  "config": {
+    "traditions": [
+      "j_punk",
+      "skate_punk",
+      "oshare_kei"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 23.77,
+          "amp_make": 40.196000000000005,
+          "body_wood": 1.4300000000000002,
+          "neck_wood": 0.585,
+          "fretboard": 3.1096249999999994,
+          "pickup_magnet": 3.7508749999999997,
+          "pickup_winding": 0.3,
+          "string_material": 0.24,
+          "bridge": 2.9146249999999996,
+          "scale_length": 0.8449999999999999,
+          "string_gauge": 0.975,
+          "finish": 0.195,
+          "string_tuning": 12.610000000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 12.545,
+          "body_wood": 3.769999999999999,
+          "pickup_config": 3.3799999999999994,
+          "string_type": 24.5375,
+          "scale_length_b": 1.4837499999999997,
+          "fretted_or_not": 1.2850000000000001,
+          "bass_technique": 41.14000000000001
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_punk",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.49875,
+          "drumhead": 9.108749999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 27.882499999999993,
+          "voice_quality": 13.454999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.40125,
+          "voice_articulation": 20.279999999999994,
+          "voice_microtone": 28.22,
+          "voice_tradition": 14.506249999999998,
+          "voice_mechanism_compound": 19.3375,
+          "voice_estill_quality": 1.69,
+          "voice_speech_song": 18.784999999999993,
+          "voice_ensemble_config": 33.802125000000004,
+          "voice_ornament_system": 2.2099999999999995,
+          "voice_pitch_organization": 5.330000000000001,
+          "voice_processing_chain": 4.8100000000000005,
+          "voice_multitrack_stack": 4.225
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 23.77,
+          "amp_make": 40.196000000000005,
+          "body_wood": 0.6975,
+          "neck_wood": 0.585,
+          "fretboard": 3.1096249999999994,
+          "pickup_magnet": 0.285,
+          "string_material": 0.24,
+          "string_gauge": 0.975,
+          "bridge": 2.9146249999999996,
+          "scale_length": 0.585,
+          "finish": 0.195,
+          "string_tuning": 12.155000000000001
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "tokyo_studio_1970s_80s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "broken"
+  }
+}

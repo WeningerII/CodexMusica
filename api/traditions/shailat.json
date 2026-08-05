@@ -1,0 +1,154 @@
+{
+  "id": "shailat",
+  "name": "Shailat",
+  "family": "global",
+  "lineage": "Saudi and wider Gulf tribal chant genre that exploded on YouTube and WhatsApp after roughly 2010, descended from the Najdi 'ardah war chant and nabati poetry recitation — sung in Najdi dialect by a lead voice answered by a massed male chorus in unison, largely without melodic instruments, driven by handclaps and frame drums with heavy studio reverb, doubling and pitch correction applied to the chorus.",
+  "recipe": "classic early-2010s shailat, praise Song, middle east n African branch, mid east n African pop functional song, middle east n African protest song moroccan pop chaabi marocain. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, snappy to palm hand clap, beech mid tier daf, tof, melodic orchestral imitation pitched sampler. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 626,
+  "score": 223.805,
+  "config": {
+    "traditions": [
+      "shailat",
+      "moroccan_pop",
+      "chaabi_marocain"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 12.284999999999998,
+          "voice_quality": 8.384999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.1925,
+          "voice_articulation": 19.629999999999995,
+          "voice_microtone": 20.182499999999997,
+          "voice_tradition": 22.229999999999997,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 3.3475,
+          "voice_speech_song": 28.7625,
+          "voice_ensemble_config": 22.359999999999992,
+          "voice_ornament_system": 1.8199999999999998,
+          "voice_pitch_organization": 8.739999999999998,
+          "voice_processing_chain": 5.85,
+          "voice_multitrack_stack": 6.695
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 8.935,
+          "choir_polyphonic_configuration": 2.145,
+          "choir_regional_canonical_configuration": 5.6499999999999995,
+          "choir_ensemble_repertoire": 2.34
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.4949999999999999,
+          "clap_capture": 0.3
+        }
+      },
+      {
+        "id": "daf",
+        "slots": {
+          "daf_rings": "daf_with_rings",
+          "daf_context": "daf_classical",
+          "daf_shell_wood": "daf_beech",
+          "daf_head_material": "daf_synthetic_modern",
+          "daf_jingle_metal": "daf_brass_rings"
+        },
+        "scores": {
+          "daf_rings": 0.45499999999999996,
+          "daf_context": 1.235,
+          "daf_shell_wood": 2.8600000000000003,
+          "daf_head_material": 0.39,
+          "daf_jingle_metal": 0.585
+        }
+      },
+      {
+        "id": "tof",
+        "slots": {
+          "tof_form": "tof_shallow",
+          "tof_head": "tof_goat",
+          "tof_style": "tof_processional"
+        },
+        "scores": {
+          "tof_form": 0,
+          "tof_head": 0,
+          "tof_style": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 3.625,
+          "sampler_bit_depth": 2.08,
+          "sampler_workflow": 1.8199999999999998,
+          "sampler_classic_context": 21.97
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "treated_studio",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "id": "nerdcore",
+  "name": "Nerdcore",
+  "family": "hip_hop",
+  "lineage": "US hip-hop subgenre named by MC Frontalot in 2000 and consolidated online through Nerdcore Hip-Hop compilations and Rhyme Torrents (2004-2008), built on bedroom-DAW boom-bap and chiptune-derived beats at 85-100 BPM with dense, high-syllable-count rapping about programming, gaming, and science-fiction, delivered with deliberately unaffected diction over 8-bit square-wave and SID-chip sample sources.",
+  "recipe": "classic 2004-2008 nerdcore, mc Rhythm, experimental branch, us hip hop modern, retro aesthetic experimental electric, us hip hop conscious rap jazz rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. sampled chopped sampler drum machine, low sub bass analog poly low sub bass wavetable synth, behringer rd 8 modern clone analog circuit reproduction TR-808. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 489,
+  "score": 294.053,
+  "config": {
+    "traditions": [
+      "nerdcore",
+      "jazz_rap",
+      "conscious_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 11.849999999999994,
+          "voice_quality": 33.01,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.389999999999999,
+          "voice_articulation": 21.125,
+          "voice_microtone": 20.279999999999998,
+          "voice_tradition": 13.819999999999999,
+          "voice_mechanism_compound": 4.874999999999999,
+          "voice_estill_quality": 6.199999999999999,
+          "voice_speech_song": 31.719999999999995,
+          "voice_ensemble_config": 19.955,
+          "voice_ornament_system": 7.735000000000001,
+          "voice_pitch_organization": 0.7499999999999998,
+          "voice_processing_chain": 23.364999999999995,
+          "voice_multitrack_stack": 4.7125
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 12.299999999999999,
+          "sample_bitdepth": 2.9250000000000003,
+          "sample_swing": 20.475,
+          "sample_processing": 1.6600000000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 13.559999999999999,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -1.05
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 12.695,
+          "drum_machine_808_context": 2.62,
+          "tr808_production_origin": 2.0149999999999997
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": 13.559999999999999,
+          "wt_position": 1.3649999999999998,
+          "wt_family": 2.8599999999999994,
+          "wt_polyphony": 0.15
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "untreated_bedroom",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

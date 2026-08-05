@@ -3,20 +3,20 @@
   "name": "Lambada and carimbó (Amazonian Pará)",
   "family": "global",
   "lineage": "Brazilian carimbó traditional Afro-Pará dance-music of the Amazonian Pará state, descended from West-African enslaved-population cultural memory. Lambada is the 1980s commercial-pop derivative of carimbó that achieved international fame through Kaoma's 1989 hit \"Chorando se Foi\" and the Brazilian Lambada dance-craze. Distinguished from broader Brazilian samba-and-forró by carimbó's Amazonian-Pará regional base and characteristic ass-jiggling tribal-rhythmic-pulse.",
-  "recipe": "classic Southern American mid-1980s lambada and carimbó, functional Song, Brazilian song branch, Brazilian groove percussion pagode baião. extended whistle, breath veiled tone, slow rate, interlocked note trading. clean strummed single coil electric guitar, traditional mellow brass tambourine orch. estudio rozenblit recife. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-  "recipe_chars": 461,
-  "score": 153.655,
+  "recipe": "classic Southern American mid-1980s lambada and carimbó, functional Song, Brazilian song branch, Brazilian groove percussion pagode samba rock. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, traditional mellow brass tambourine orch. estudio rozenblit recife. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 511,
+  "score": 165.247,
   "config": {
     "traditions": [
       "lambada_carimbo",
       "pagode",
-      "baiao"
+      "samba_rock"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -25,62 +25,62 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 5.135,
-          "voice_quality": 31.239999999999995,
+          "voice_register": 8.399999999999999,
+          "voice_quality": 29.054999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.26,
-          "voice_articulation": 18.525,
-          "voice_microtone": 15.599999999999993,
-          "voice_tradition": 9.620000000000001,
-          "voice_mechanism_compound": 4.16,
-          "voice_estill_quality": 2.5024999999999995,
-          "voice_speech_song": 22.359999999999992,
-          "voice_ensemble_config": 15.274999999999995,
-          "voice_ornament_system": 1.1049999999999995,
-          "voice_pitch_organization": 0.7149999999999997,
-          "voice_processing_chain": 5.545000000000001,
-          "voice_multitrack_stack": 6.050000000000001
+          "voice_vibrato": 2.7600000000000002,
+          "voice_articulation": 19.044999999999998,
+          "voice_microtone": 16.769999999999992,
+          "voice_tradition": 10.075000000000001,
+          "voice_mechanism_compound": 3.3149999999999995,
+          "voice_estill_quality": 1.845,
+          "voice_speech_song": 22.685,
+          "voice_ensemble_config": 17.094999999999995,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 0.345,
+          "voice_processing_chain": 7.300000000000001,
+          "voice_multitrack_stack": 6.200000000000001
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_roland_jc120",
-          "body_wood": "pine",
-          "neck_wood": "roasted_maple",
-          "fretboard": "pau_ferro_fb",
-          "pickup_magnet": "alnico_5",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
-          "bridge": "hardtail",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 5.625,
-          "amp_make": 1.7049999999999996,
-          "body_wood": 0.21,
-          "neck_wood": 0.65,
-          "fretboard": 0.3,
-          "pickup_magnet": 0.65,
+          "electric_technique": 6.125,
+          "amp_make": 3.1950000000000003,
+          "body_wood": 0.845,
+          "neck_wood": 1.15,
+          "fretboard": 1.4949999999999999,
+          "pickup_magnet": 0.195,
           "string_material": 0.15,
-          "string_gauge": 0.21,
-          "bridge": 0.845,
-          "scale_length": 0.195,
+          "string_gauge": 0.845,
+          "bridge": 1.15,
+          "scale_length": 0.845,
           "finish": 0,
-          "string_tuning": 1.04
+          "string_tuning": 1.8200000000000003
         }
       },
       {
@@ -91,7 +91,7 @@
         },
         "scores": {
           "tambourine_orch_jingle": 1.73,
-          "tambourine_orch_context": 4.29
+          "tambourine_orch_context": 4.095000000000001
         }
       }
     ],

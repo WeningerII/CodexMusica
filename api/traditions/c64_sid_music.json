@@ -1,0 +1,86 @@
+{
+  "id": "c64_sid_music",
+  "name": "Commodore 64 SID music",
+  "family": "electronic",
+  "lineage": "British and Northern European game-music practice of 1983-1992 written for the MOS 6581/8580 SID chip in the Commodore 64, codified by Rob Hubbard, Martin Galway, Ben Daglish, Jeroen Tel and Chris Huelsbeck via hand-written 6502 assembly players — three voices only, so chords are rendered as 50Hz arpeggio cycling, bass and lead share a channel through rapid note interleaving, and colour comes from pulse-width modulation, hard sync, ring modulation and the chip's resonant analog filter, over driving 130-160 BPM patterns whose drums are the noise oscillator with a fast pitch envelope.",
+  "recipe": "classic Asian mid-1980s commodore 64 sid music, experimental Elec, retro aesthetic branch, idm glitch experimental electric, continental electronic dance drill'n'bass chiptune / 8-bit. analog drift character textural wavetable roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive. bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 464,
+  "score": 59.135,
+  "config": {
+    "traditions": [
+      "c64_sid_music",
+      "drill_n_bass",
+      "chiptune_8bit"
+    ],
+    "instruments": [
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_analog_emul",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 16.57,
+          "wt_position": 5.654999999999999,
+          "wt_family": 1.3,
+          "wt_polyphony": 1
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 2.8600000000000003,
+          "mono_oscillator": 1.3,
+          "mono_filter": 2.49,
+          "mono_archetypes": 2.3850000000000002,
+          "mono_maker_lineage": 1.625
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 2.8600000000000003,
+          "va_archetypes": 1.3,
+          "digital_subtractive_context": 17.29
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_hk_cantopop_ballad_factory",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_home_portastudio",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_home_portastudio"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "id": "byzantine_ecclesiastical",
+  "name": "Byzantine ecclesiastical music (papadic and sticheraric styles)",
+  "family": "classical",
+  "lineage": "Liturgical monody of the Eastern Roman church, notated from the tenth century in neumatic systems and reformed in 1814 by Chrysanthos, Chourmouzios and Gregorios into the New Method still taught in Constantinople, Athens and Athos — a solo protopsaltis chanting in the eight-mode Oktoechos over a sustained ison drone, unmetered and text-governed in the syllabic heirmologic style, expansively melismatic in the slow papadic style, with microtonal intervals and prescribed ornamental formulas.",
+  "recipe": "classic Southern European mid-1810s byzantine ecclesiastical music, art Music, western early branch, christian gospel ritual devotional, vocal drone modal skolt sámi leuʹdd northern sámi luohti yoik. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. byzantine monastery chant athos. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 548,
+  "score": 252.265,
+  "config": {
+    "traditions": [
+      "byzantine_ecclesiastical",
+      "sami_skolt_leudd",
+      "sami_northern_luohti"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 5.7749999999999995,
+          "voice_quality": 37.375,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.385,
+          "voice_articulation": 21.125,
+          "voice_microtone": 22.944999999999997,
+          "voice_tradition": 22.1,
+          "voice_mechanism_compound": 7.15,
+          "voice_estill_quality": 8.655000000000001,
+          "voice_speech_song": 26.065,
+          "voice_ensemble_config": 20.214999999999996,
+          "voice_ornament_system": 12.2,
+          "voice_pitch_organization": 6.36,
+          "voice_processing_chain": 13.909999999999998,
+          "voice_multitrack_stack": 7.56
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 15.055000000000003,
+          "choir_polyphonic_configuration": 7.544999999999999,
+          "choir_regional_canonical_configuration": 9.47,
+          "choir_ensemble_repertoire": 3.25
+        }
+      }
+    ],
+    "room": "byzantine_monastery_chant_athos",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "byzantine_oktoechos_eight_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "byzantine_oktoechos_eight_modes",
+    "room": "byzantine_monastery_chant_athos",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

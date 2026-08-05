@@ -1,0 +1,160 @@
+{
+  "id": "ragga",
+  "name": "Ragga",
+  "family": "global",
+  "lineage": "Jamaican digital dancehall style dating from the 1985 Sleng Teng riddim, codified by Wayne Smith, King Jammy, Steely & Clevie, Shabba Ranks and Buju Banton — Casio and drum-machine riddims at roughly 90-105 BPM with all-electronic kick, rimshot and bassline, no live band, and a hoarse, rapid-fire chatted DJ delivery in Jamaican Patois riding a single recycled riddim.",
+  "recipe": "classic Caribbean mid-1980s ragga, bass System, Jamaican branch, dub descendants bass system, reggae diaspora bass system trip hop raggamuffin. thick, breath veiled tone, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, roland tr 8s modern aira digital recreation TR-909, sub bass analog poly synth, field chopped sampler, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, SSL surgical EQ. DAT pro mixdown spring reverb digital delay.",
+  "recipe_chars": 666,
+  "score": 227.235,
+  "config": {
+    "traditions": [
+      "ragga",
+      "trip_hop",
+      "raggamuffin"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.3499999999999996,
+          "voice_quality": 5.785000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 18.654999999999998,
+          "voice_microtone": 19.564999999999994,
+          "voice_tradition": 6.89,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 19.889999999999997,
+          "voice_ensemble_config": 17.744999999999994,
+          "voice_ornament_system": 10.075,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 7.975,
+          "voice_multitrack_stack": 4.095000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 11.959999999999999,
+          "drum_machine_808_context": 10.4,
+          "tr808_production_origin": 2.3275
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 1.4299999999999997,
+          "drum_machine_909_context": 0.845,
+          "tr909_production_origin": 2.3275
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 11.829999999999997,
+          "poly_archetypes": 0.87,
+          "poly_voices": 0.87,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.2625,
+          "sampler_archetypes": 2.795,
+          "sampler_bit_depth": 0.045,
+          "sampler_workflow": 2.9575000000000005,
+          "sampler_classic_context": 19.954999999999995
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 8.905000000000001,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 1.4949999999999999,
+          "string_type": 9.880000000000003,
+          "scale_length_b": 0.54,
+          "fretted_or_not": 0.3,
+          "bass_technique": 10.9
+        }
+      }
+    ],
+    "room": "kingston_channel_one_maxfield_avenue",
+    "archetype": "arch_kingston_digital_riddim",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "kingston_channel_one_maxfield_avenue",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "colored"
+  }
+}

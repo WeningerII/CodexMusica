@@ -5,7 +5,7 @@
   "lineage": "North American and Icelandic indie-folk-pop tendency of roughly 2009-2016, an algorithmically-named counterpart to stomp-and-holler distinguished by lighter, often female or mixed-gender lead voices — 100-140 BPM four-on-the-floor foot-stomp and handclap percussion, strummed dreadnought guitar with mandolin, glockenspiel and upright piano coloration, group 'hey' shouts and airy multitracked harmony over major-key diatonic progressions.",
   "recipe": "classic mid-2010s stomp and flutter, ballad Poetry, indie folk branch, anglo singer song freak folk, pop rock folk rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. lead plus dense cluster 5 part stack mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack, cedar phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, bowl back Italian redwood hard rock maple x brace modern mandolin mandolin, block chord upright piano, mid attack plastic glockenspiel, stomp boot hollow platform foot stomp, communal wide group massed hand clap. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 767,
-  "score": 339.21,
+  "score": 342.95,
   "config": {
     "traditions": [
       "stomp_and_flutter",
@@ -38,18 +38,18 @@
           "voice_quality": 8.319999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9306250000000005,
+          "voice_vibrato": 2.9250000000000003,
           "voice_articulation": 19.304999999999993,
-          "voice_microtone": 20.549999999999994,
-          "voice_tradition": 36.46774999999999,
+          "voice_microtone": 20.623499999999993,
+          "voice_tradition": 37.89499999999999,
           "voice_mechanism_compound": 2.6649999999999996,
-          "voice_estill_quality": 6.223,
+          "voice_estill_quality": 6.37,
           "voice_speech_song": 24.569999999999993,
           "voice_ensemble_config": 19.824999999999992,
           "voice_ornament_system": 4.030000000000001,
-          "voice_pitch_organization": 2.71075,
-          "voice_processing_chain": 8.903625000000002,
-          "voice_multitrack_stack": 7.494750000000001
+          "voice_pitch_organization": 2.7100000000000004,
+          "voice_processing_chain": 9.6125,
+          "voice_multitrack_stack": 7.800000000000001
         }
       },
       {
@@ -60,7 +60,7 @@
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 2.13,
+          "multitrack_stack_density": 2.0715,
           "multitrack_stack_era_aesthetic": 6.272499999999999,
           "multitrack_stack_processing": 1.365
         }
@@ -75,11 +75,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 33.562374999999996,
-          "string_tuning": 0.5449999999999999,
+          "acoustic_technique": 33.884499999999996,
+          "string_tuning": 0.6499999999999999,
           "top_wood": 2.08,
           "back_sides": 0.7735,
-          "string_acoustic": 2.4265
+          "string_acoustic": 2.47
         }
       },
       {
@@ -95,13 +95,13 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 11.348749999999999,
-          "mandolin_shape": 13.534499999999998,
+          "acoustic_technique": 11.61,
+          "mandolin_shape": 13.649999999999999,
           "mandolin_top": 2.08,
           "mandolin_back": 6.564999999999999,
-          "mandolin_bracing": 1.3315000000000001,
+          "mandolin_bracing": 1.339,
           "mandolin_strings": 2.08,
-          "mandolin_fingerboard": 1.94,
+          "mandolin_fingerboard": 2.015,
           "mandolin_pickup": 19.759999999999994
         }
       },
@@ -113,8 +113,8 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 8.59375,
-          "upright_use": 1.9900000000000002,
+          "keyboard_technique": 8.6,
+          "upright_use": 2.08,
           "upright_piano_size": 0.195
         }
       },
@@ -127,8 +127,8 @@
         },
         "scores": {
           "percussion_technique": 0.375,
-          "glockenspiel_size": 0.5265,
-          "glockenspiel_mallet": 1.9900000000000002
+          "glockenspiel_size": 0.5339999999999999,
+          "glockenspiel_mallet": 2.015
         }
       },
       {
@@ -138,7 +138,7 @@
           "stomp_surface": "stomp_hollow_platform"
         },
         "scores": {
-          "stomp_footwear": 3.3558749999999997,
+          "stomp_footwear": 3.3314999999999997,
           "stomp_surface": 1.4300000000000002
         }
       },
@@ -149,7 +149,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 1.970875,
+          "clap_technique": 2.08,
           "clap_capture": 0.6
         }
       }

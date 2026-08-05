@@ -1,0 +1,177 @@
+{
+  "id": "crunkcore",
+  "name": "Crunkcore",
+  "family": "rock_punk",
+  "lineage": "American internet-native fusion that broke 2007-2010 out of the MySpace scene, defined by Brokencyde, blessthefall's contemporaries and Attack Attack!, alternating screamed post-hardcore verses with Auto-Tuned pop hooks over crunk 808 kicks, snare rolls and supersaw trance leads at 130-150 BPM, with breakdowns dropping into half-time chugged drop-tuned guitar.",
+  "recipe": "classic 2007-2010 crunkcore, distorted Rock, pop punk branch, emo distorted rock, hardstyle electronic dance scenecore trancecore. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, TR-808, singing lead analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 695,
+  "score": 319.018,
+  "config": {
+    "traditions": [
+      "crunkcore",
+      "scenecore",
+      "trancecore"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 23.664999999999996,
+          "voice_quality": 5.200000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.0725,
+          "voice_articulation": 17.09499999999999,
+          "voice_microtone": 22.549999999999997,
+          "voice_tradition": 10.860624999999999,
+          "voice_mechanism_compound": 16.7375,
+          "voice_estill_quality": 4.095000000000001,
+          "voice_speech_song": 15.144999999999992,
+          "voice_ensemble_config": 15.875,
+          "voice_ornament_system": 1.5999999999999999,
+          "voice_pitch_organization": 2.990000000000001,
+          "voice_processing_chain": 6.175000000000001,
+          "voice_multitrack_stack": 6.5975
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "maple_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 12.189375,
+          "amp_make": 17.7125,
+          "body_wood": 6.89,
+          "neck_wood": 0.78,
+          "fretboard": 5.2875,
+          "pickup_magnet": 5.722499999999999,
+          "pickup_winding": 0.9600000000000002,
+          "string_material": 0.24,
+          "bridge": 0.78,
+          "scale_length": 1.56,
+          "string_gauge": 5.9799999999999995,
+          "finish": 0.09,
+          "string_tuning": 8.06
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 7.345000000000001,
+          "body_wood": 5.9799999999999995,
+          "pickup_config": 5.4825,
+          "string_type": 17.0625,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0.195,
+          "bass_technique": 18.625
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 17.387499999999996,
+          "drumhead": 9.815000000000001,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_clap",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 0,
+          "drum_machine_808_context": 0.585,
+          "tr808_production_origin": 0.845
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 10.270624999999999,
+          "poly_archetypes": 6.825,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.435
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

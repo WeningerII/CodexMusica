@@ -3,53 +3,53 @@
   "name": "Rap Napoletano",
   "family": "hip_hop",
   "lineage": "Neapolitan-dialect rap emerged from the early-1990s centri sociali of Naples, codified by 99 Posse, Almamegretta and La Famiglia and carried forward by Co'Sang, Clementino and Rocco Hunt — 88–100 BPM boom-bap and dub-reggae hybrids with tammorra and reggae-offbeat guitar layered under sampled loops, ragga-toasting and posse-cut delivery, melodic hooks quoting canzone napoletana melody, and militant anti-camorra and anti-fascist lyrics sung entirely in napulitano.",
-  "recipe": "classic Southern European 1990-1993 rap napoletano, mc Rhythm, intl hip hop branch, reggae diaspora bass system, Mediterranean ballad ballad poetry reggae fusion ska mexicano. thick, rap, straight note core, interlocked note trading. pitched chopped sampler, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon thumb muted electric bass, TR-808, sampled chopped turntable, tambourine orch. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 625,
-  "score": 261.24,
+  "recipe": "classic Southern European 1990-1993 rap napoletano, mc Rhythm, intl hip hop branch, reggae diaspora bass system, Mediterranean ballad ballad poetry kaneka seggae. rap, straight note core, interlocked note trading, neutral third half flat. pitched chopped sampler, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, TR-808, sampled chopped turntable, tambourine orch. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 613,
+  "score": 239.478,
   "config": {
     "traditions": [
       "rap_napoletano",
-      "reggae_fusion_modern",
-      "ska_mexicano"
+      "kaneka",
+      "seggae"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.940000000000001,
-          "voice_quality": 14.069999999999999,
+          "voice_register": 0.4225,
+          "voice_quality": 11.644999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5100000000000002,
-          "voice_articulation": 22.619999999999997,
-          "voice_microtone": 21.319999999999993,
-          "voice_tradition": 6.305000000000001,
-          "voice_mechanism_compound": 4.9399999999999995,
-          "voice_estill_quality": 4.745,
-          "voice_speech_song": 24.569999999999997,
-          "voice_ensemble_config": 22.035,
-          "voice_ornament_system": 2.8600000000000003,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 11.195,
-          "voice_multitrack_stack": 5.6225000000000005
+          "voice_vibrato": 3.515,
+          "voice_articulation": 20.604999999999997,
+          "voice_microtone": 19.759999999999994,
+          "voice_tradition": 5.4275,
+          "voice_mechanism_compound": 5.654999999999999,
+          "voice_estill_quality": 4.615,
+          "voice_speech_song": 23.464999999999996,
+          "voice_ensemble_config": 20.019999999999996,
+          "voice_ornament_system": 3.185000000000001,
+          "voice_pitch_organization": 1.7349999999999999,
+          "voice_processing_chain": 9.604999999999999,
+          "voice_multitrack_stack": 4.777500000000001
         }
       },
       {
@@ -57,16 +57,16 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.375000000000001,
-          "sampler_archetypes": 6.800000000000001,
-          "sampler_bit_depth": 1.9500000000000002,
-          "sampler_workflow": 6.445,
-          "sampler_classic_context": 27.9175
+          "electronic_technique": 4.04,
+          "sampler_archetypes": 4.5,
+          "sampler_bit_depth": 2.0149999999999997,
+          "sampler_workflow": 5.07,
+          "sampler_classic_context": 24.31
         }
       },
       {
@@ -74,20 +74,20 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 5.98,
-          "body_wood": 0.69,
+          "amp_make": 5.07,
+          "body_wood": 2.145,
           "pickup_config": 0.195,
-          "string_type": 5.915000000000001,
-          "scale_length_b": 0.345,
+          "string_type": 7.540000000000001,
+          "scale_length_b": 2.145,
           "fretted_or_not": 0.3,
-          "bass_technique": 20.75
+          "bass_technique": 21.25
         }
       },
       {
@@ -98,9 +98,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 9.465000000000002,
-          "drum_machine_808_context": 4.29,
-          "tr808_production_origin": 0.39
+          "tr808_voice": 9.555,
+          "drum_machine_808_context": 6.24,
+          "tr808_production_origin": 0.195
         }
       },
       {
@@ -110,19 +110,19 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 5.375000000000001,
-          "turntable_technique": 5.465000000000001
+          "electronic_technique": 4.04,
+          "turntable_technique": 3.1350000000000002
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
           "tambourine_orch_jingle": "tambourine_orch_nickel",
-          "tambourine_orch_context": "tambourine_orch_pop"
+          "tambourine_orch_context": "tambourine_orch_film"
         },
         "scores": {
           "tambourine_orch_jingle": 0,
-          "tambourine_orch_context": 1.8200000000000003
+          "tambourine_orch_context": 0.3
         }
       }
     ],

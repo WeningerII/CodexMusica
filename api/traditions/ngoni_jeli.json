@@ -1,0 +1,138 @@
+{
+  "id": "ngoni_jeli",
+  "name": "Ngoni Music (Mande Lute)",
+  "family": "global",
+  "lineage": "Music of the Mande skin-faced spike lute of Mali and Guinea, the jeli ngoni of the Kouyaté and Sissoko lineages and the hunters' donso ngoni of Wassoulou, documented since the fourteenth-century Mali empire and brought to modern prominence by Banzoumana Sissoko, Moriba Koïta and Bassekou Kouyaté — four to seven strings plucked with a dry percussive attack, cyclic pentatonic ostinati at 90-130 BPM, buzzing metal jangler resonance, and interlocking with a second ngoni and calabash percussion under praise or hunters' song.",
+  "recipe": "classic West African modern ngoni music, ballad Poetry, west African griot branch, sub saharan African hunting song baaka (aka pygmy) hunting polyphony san (khoisan) hunting and trance song. carved wood modern luthier goat skin nylon modern call-and-response ngoni, donso ritual large calabash mande gut pre modern hunters donso ngoni, extended hunters large calabash wassoulou gut pre modern kamele ngoni, griot voice, mid strong calabash inverted calabash, close dry to palm hand clap, foundational bass rhythm calabash shekere. bamako griot jeli compound. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 621,
+  "score": 162.226,
+  "config": {
+    "traditions": [
+      "ngoni_jeli",
+      "baaka_hunting_polyphony",
+      "san_bushman_hunting"
+    ],
+    "instruments": [
+      {
+        "id": "ngoni",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "ngoni_strings": "ngoni_7",
+          "ngoni_use": "ngoni_griot",
+          "ngoni_resonator": "ngoni_carved_wood",
+          "ngoni_skin": "ngoni_goat_skin",
+          "ngoni_string_material": "ngoni_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 24.415999999999997,
+          "ngoni_strings": 2.9899999999999998,
+          "ngoni_use": 3.575,
+          "ngoni_resonator": 2.9899999999999998,
+          "ngoni_skin": 1.3,
+          "ngoni_string_material": 3.3799999999999994
+        }
+      },
+      {
+        "id": "donso_ngoni",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "donso_ngoni_strings": "donso_ngoni_six",
+          "donso_ngoni_use": "donso_brotherhood",
+          "donso_ngoni_resonator": "donso_calabash_large",
+          "donso_ngoni_string_material": "donso_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 24.415999999999997,
+          "donso_ngoni_strings": 14.248999999999999,
+          "donso_ngoni_use": 10.3565,
+          "donso_ngoni_resonator": 4.504499999999999,
+          "donso_ngoni_string_material": 5.7485
+        }
+      },
+      {
+        "id": "kamele_ngoni",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "kamele_ngoni_strings": "kamele_ngoni_eight",
+          "kamele_ngoni_use": "kamele_hunters_repertoire",
+          "kamele_ngoni_resonator": "kamele_calabash_large",
+          "kamele_ngoni_string_material": "kamele_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 24.415999999999997,
+          "kamele_ngoni_strings": 6.3075,
+          "kamele_ngoni_use": 9.083,
+          "kamele_ngoni_resonator": 3.683,
+          "kamele_ngoni_string_material": 2.925
+        }
+      },
+      {
+        "id": "griot_voice",
+        "slots": {
+          "griot_origin": "griot_wolof",
+          "griot_voice_context": "griot_voice_stage"
+        },
+        "scores": {
+          "griot_origin": 2.145,
+          "griot_voice_context": 2.963
+        }
+      },
+      {
+        "id": "inverted_calabash",
+        "slots": {
+          "inverted_calabash_size": "inverted_calabash_medium",
+          "inverted_calabash_technique": "inverted_calabash_cloth_sticks"
+        },
+        "scores": {
+          "inverted_calabash_size": 1.468,
+          "inverted_calabash_technique": 0.39
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 2.7409999999999997,
+          "clap_capture": 1.3
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_large",
+          "shekere_beads": "shekere_seed"
+        },
+        "scores": {
+          "shekere_size": 1.4995,
+          "shekere_beads": 8.254999999999999
+        }
+      }
+    ],
+    "room": "bamako_griot_jeli_compound",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mande_pentatonic_jeli_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mande_pentatonic_jeli_modal",
+    "room": "bamako_griot_jeli_compound",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "gayageum_byeongchang",
+  "name": "Gayageum byeongchang (self-accompanied gayageum song)",
+  "family": "global",
+  "lineage": "Korean solo form in which a performer sings pansori excerpts and short folk-derived songs while simultaneously accompanying herself on the twelve-string gayageum, developed in the late nineteenth century out of the sanjo circle around Kim Chang-jo and carried into the twentieth by Oh Tae-seok, Park Gwi-hui and Kang Jeong-suk — the zither punctuating rather than doubling the vocal line, both parts riding a janggu jangdan cycle in jinyang, jungmori or jajinmori, with the gruff pansori chest voice and wide yukjabaegi vibrato intact.",
+  "recipe": "classic East Asian modern gayageum byeongchang, art Music, east Asian branch, indian bard ballad poetry, east Asian field work min'yō korean minyo. thick, breath veiled tone, wide pitch sway, interlocked note trading. sanjo suited paulownia Korean gayageum, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. korean pungnyu pavilion. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 517,
+  "score": 205.232,
+  "config": {
+    "traditions": [
+      "gayageum_byeongchang",
+      "minyo",
+      "korean_minyo"
+    ],
+    "instruments": [
+      {
+        "id": "gayageum",
+        "slots": {
+          "gayageum_type": "sanjo_gayageum",
+          "gayageum_technique": "gayageum_plectrum",
+          "gayageum_top_wood": "gayageum_paulownia_korean",
+          "gayageum_strings": "gayageum_silk_historical"
+        },
+        "scores": {
+          "gayageum_type": 1.5025,
+          "gayageum_technique": 5.2,
+          "gayageum_top_wood": 2.145,
+          "gayageum_strings": 0.39
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 8.5,
+          "voice_quality": 19.435,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.425,
+          "voice_articulation": 19.304999999999993,
+          "voice_microtone": 19.17499999999999,
+          "voice_tradition": 23.112500000000004,
+          "voice_mechanism_compound": 5.9799999999999995,
+          "voice_estill_quality": 7.377500000000001,
+          "voice_speech_song": 24.244999999999994,
+          "voice_ensemble_config": 20.279999999999994,
+          "voice_ornament_system": 13.925,
+          "voice_pitch_organization": 2.5350000000000006,
+          "voice_processing_chain": 4.745,
+          "voice_multitrack_stack": 3.315000000000001
+        }
+      },
+      {
+        "id": "janggu",
+        "slots": {
+          "janggu_use": "janggu_samul_nori",
+          "janggu_construction": "janggu_composite",
+          "janggu_shell_wood": "janggu_paulownia_canonical",
+          "janggu_head": "janggu_horse_dog_asymmetric",
+          "janggu_lineage": "janggu_pansori_godo"
+        },
+        "scores": {
+          "janggu_use": 3.185,
+          "janggu_construction": 2.6,
+          "janggu_shell_wood": 2.145,
+          "janggu_head": 2.145,
+          "janggu_lineage": 3.5899999999999994
+        }
+      }
+    ],
+    "room": "korean_pungnyu_pavilion",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "korean_minsogak_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "korean_minsogak_modes",
+    "room": "korean_pungnyu_pavilion",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

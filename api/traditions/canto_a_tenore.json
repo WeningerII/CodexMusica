@@ -1,0 +1,91 @@
+{
+  "id": "canto_a_tenore",
+  "name": "Canto a Tenore",
+  "family": "vernacular",
+  "lineage": "Sardinian pastoral quartet polyphony of the Barbagia and central highlands, attested for centuries and inscribed by UNESCO in 2005, built from the solo boghe delivering the poetic text while mesu boghe, contra and bassu sustain guttural throat-produced chords on nonsense syllables in a slow strophic cycle keyed to dance forms such as the ballu tundu.",
+  "recipe": "classic Southern European mid-2000s canto a tenore, drone Modal, vocal branch, overtone drone modal, Mediterranean ballad ballad poetry throat singing yodel. sygyt, false fold engaged, breath pulsed, interlocked note trading. a tenores quartet. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 345,
+  "score": 175.955,
+  "config": {
+    "traditions": [
+      "canto_a_tenore",
+      "throat_singing",
+      "yodel"
+    ],
+    "instruments": [
+      {
+        "id": "a_tenores_quartet",
+        "slots": {
+          "voices": "mesu_oghe",
+          "a_tenores_quartet_context": "a_tenores_quartet_revival"
+        },
+        "scores": {
+          "voices": 0.845,
+          "a_tenores_quartet_context": 0.65
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 10.497499999999999,
+          "voice_quality": 18.4925,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.29,
+          "voice_articulation": 19.239999999999995,
+          "voice_microtone": 21.319999999999993,
+          "voice_tradition": 17.744999999999997,
+          "voice_mechanism_compound": 11.6675,
+          "voice_estill_quality": 5.720000000000001,
+          "voice_speech_song": 18.589999999999996,
+          "voice_ensemble_config": 21.254999999999995,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 17.7125,
+          "voice_processing_chain": 4.875,
+          "voice_multitrack_stack": 5.654999999999999
+        }
+      }
+    ],
+    "room": "sardinian_outdoor_a_tenore_polyphony",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "sardinian_outdoor_a_tenore_polyphony",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

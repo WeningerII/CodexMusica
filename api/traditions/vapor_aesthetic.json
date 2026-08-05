@@ -5,7 +5,7 @@
   "lineage": "Early-2010s internet-distributed electronic subgenre characterized by slowed-down chopped-and-screwed sampling of 1980s-1990s American smooth-jazz, Muzak, corporate-advertising music, and Japanese city-pop, with explicit ironic-melancholic engagement with consumer-capitalist visual-aesthetic. Macintosh Plus's Floral Shoppe (2011), Chuck Person's Eccojams Vol. 1 (2010), and the broader Beer on the Rug netlabel scene anchor the canonical vaporwave aesthetic.",
   "recipe": "classic 2010-2013 vaporwave aesthetic, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit. pad like pad analog synth, glitched textural sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 372,
-  "score": 55.307,
+  "score": 57.133,
   "config": {
     "traditions": [
       "vapor_aesthetic",
@@ -23,9 +23,9 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 4.819500000000001,
-          "oscillator": 0.5129999999999999,
-          "filter_topology": 0.8445,
+          "electronic_technique": 4.62,
+          "oscillator": 1.35,
+          "filter_topology": 1.695,
           "envelope": 2.4050000000000002,
           "modulation": 0.15
         }
@@ -34,15 +34,15 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "roland_s750",
+          "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 15.988000000000001,
-          "sampler_archetypes": 0.105,
-          "sampler_bit_depth": 0.3045,
+          "electronic_technique": 15.820000000000002,
+          "sampler_archetypes": 0.7050000000000001,
+          "sampler_bit_depth": 0.21,
           "sampler_workflow": 15.625000000000002,
           "sampler_classic_context": 12.902499999999996
         }

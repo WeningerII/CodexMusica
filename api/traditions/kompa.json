@@ -3,24 +3,24 @@
   "name": "Kompa",
   "family": "global",
   "lineage": "Haitian dance-music genre invented in 1955 by Nemours Jean-Baptiste (kompa-direkt, the founder) and developing in parallel with Webert Sicots cadence-rampa lineage — the dominant secular popular-music genre of Haiti and the broader Haitian diaspora (Miami, New York, Montreal, Paris); extended through Tabou Combo (the second-generation kompa band, formed 1968), Skah Shah, Coupé Cloué, Magnum Band, Sweet Micky",
-  "recipe": "classic Caribbean mid-1950s kompa, groove Percussion, Afro-diasporic electric branch, tropical song functional song merengue urbano bachata dominicana. vocal fry, full chest belt, straight note core, interlocked note trading. maple pau ferro nickel plated steel nickel nickel plated humbucker electric maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, stainless steel roundwound sub heavy electric bass, steel leather castagnari Italian premium folk music accordion, brushes-and-sticks drum kit, lead open slap hand drum congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
-  "recipe_chars": 796,
-  "score": 160.815,
+  "recipe": "classic Caribbean mid-1950s kompa, groove Percussion, Afro-diasporic electric branch, tropical song functional song compas coladeira. extended whistle, breath veiled tone, fast rate, interlocked note trading. maple pau ferro nickel plated steel nickel nickel plated humbucker electric maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steel castagnari Italian premium folk music accordion, pre muffled edge muffled brushes-and-sticks drum kit, lead open slap hand drum congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
+  "recipe_chars": 814,
+  "score": 170.36,
   "config": {
     "traditions": [
       "kompa",
-      "merengue_urbano",
-      "bachata_dominicana"
+      "compas_direk",
+      "coladeira"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.275,
-          "voice_quality": 13.374999999999998,
+          "voice_register": 2.7625,
+          "voice_quality": 11.504999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.88,
-          "voice_articulation": 12.674999999999995,
-          "voice_microtone": 12.674999999999994,
-          "voice_tradition": 6.795,
-          "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 3.380000000000001,
-          "voice_speech_song": 19.434999999999995,
-          "voice_ensemble_config": 12.999999999999995,
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 14.949999999999996,
+          "voice_microtone": 14.494999999999994,
+          "voice_tradition": 5.005000000000001,
+          "voice_mechanism_compound": 5.07,
+          "voice_estill_quality": 4.2250000000000005,
+          "voice_speech_song": 21.514999999999997,
+          "voice_ensemble_config": 14.624999999999995,
           "voice_ornament_system": 1.1049999999999998,
-          "voice_pitch_organization": 0.9949999999999999,
-          "voice_processing_chain": 4.095,
-          "voice_multitrack_stack": 3.965
+          "voice_pitch_organization": 0.545,
+          "voice_processing_chain": 4.484999999999999,
+          "voice_multitrack_stack": 3.055
         }
       },
       {
@@ -63,44 +63,44 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_12_hum",
           "finish": "poly_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 1.2449999999999999,
-          "amp_make": 0.7799999999999998,
+          "electric_technique": 1.3699999999999999,
+          "amp_make": 1.0399999999999998,
           "body_wood": 0.78,
-          "neck_wood": 1.3,
+          "neck_wood": 1.4949999999999999,
           "fretboard": 1.3,
-          "pickup_magnet": 0.39,
+          "pickup_magnet": 0.585,
           "pickup_winding": 0.39,
           "string_material": 1.3,
-          "bridge": 0.39,
+          "bridge": 0.49499999999999994,
           "scale_length": 1.69,
-          "string_gauge": 0.39,
+          "string_gauge": 0.585,
           "finish": 0.15,
-          "string_tuning": 2.145
+          "string_tuning": 1.69
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_modern_modeling",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "roundwound_s",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 0.26,
-          "body_wood": 0.39,
+          "amp_make": 1.625,
+          "body_wood": 0.585,
           "pickup_config": 0.39,
-          "string_type": 1.69,
+          "string_type": 1.95,
           "scale_length_b": 0.39,
           "fretted_or_not": 0,
           "bass_technique": 1.2449999999999999
@@ -118,11 +118,11 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 1.365,
+          "free_reed_technique": 1.17,
           "accordion_reed_material": 1.3,
           "musette_offset": 2.5,
           "reed_config": 0.6,
-          "bellows": 2.0799999999999996,
+          "bellows": 0.39,
           "voicing_chamber": 2.035,
           "accordion_maker_school": 3.5749999999999993
         }
@@ -131,12 +131,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "single_clear",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.739999999999997,
-          "drumhead": 1.3,
+          "drum_technique": 14.559999999999997,
+          "drumhead": 1.625,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -150,25 +150,25 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_12",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
+          "finish": "poly",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 1.2449999999999999,
-          "amp_make": 0.7799999999999998,
+          "electric_technique": 1.3699999999999999,
+          "amp_make": 1.0399999999999998,
           "body_wood": 0.39,
-          "neck_wood": 1.3,
+          "neck_wood": 1.4949999999999999,
           "fretboard": 1.3,
           "pickup_magnet": 1.3,
           "string_material": 1.3,
-          "string_gauge": 0.39,
+          "string_gauge": 0.585,
           "bridge": 0.39,
           "scale_length": 0.39,
-          "finish": 0,
-          "string_tuning": 2.145
+          "finish": 0.15,
+          "string_tuning": 1.3
         }
       },
       {
@@ -180,9 +180,9 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 5.130000000000001,
-          "conga_set": 1.4300000000000002,
-          "conga_skin": 0.585,
+          "percussion_technique": 4.98,
+          "conga_set": 1.04,
+          "conga_skin": 0.39,
           "conga_shell_wood": 0.78
         }
       }

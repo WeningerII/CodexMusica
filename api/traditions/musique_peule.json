@@ -1,0 +1,158 @@
+{
+  "id": "musique_peule",
+  "name": "Musique Peule",
+  "family": "global",
+  "lineage": "Music of the Fulɓe (Peul, Fulani) herding and fishing communities spread from the Senegal River valley through Mali, Niger and northern Cameroon, transmitted by gawlo praise singers and pastoral flute players and brought to record by Baaba Maal and Mansour Seck from the 1980s — slow to moderate free or loosely metered song built on the hoddu lute's short pentatonic cycles, bowed nyanyeru fiddle, overblown serdu flute doubled by the player's own hummed drone, and clear high melismatic solo singing in Pulaar over struck calabash.",
+  "recipe": "classic North African mid-1980s musique peule, praise Song, sub saharan African branch, wind pipe drone modal kaba gaida greek clarinet. extended whistle, breath veiled tone, slow rate, interlocked note trading. hoddu, goje, yamaha modern Japanese mid to premium flute, foundational low fundamental tuning deep calabash inverted calabash, snappy to palm hand clap, deep foundational bass rhythm calabash shekere. saharan desert encampment. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 514,
+  "score": 183.062,
+  "config": {
+    "traditions": [
+      "musique_peule",
+      "kaba_gaida",
+      "greek_clarinet"
+    ],
+    "instruments": [
+      {
+        "id": "hoddu",
+        "slots": {
+          "hoddu_strings": "hoddu_five",
+          "hoddu_body": "hoddu_large",
+          "hoddu_role": "hoddu_dance"
+        },
+        "scores": {
+          "hoddu_strings": 0.195,
+          "hoddu_body": 0.195,
+          "hoddu_role": 0.195
+        }
+      },
+      {
+        "id": "goje",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "goje_form": "goje_dagbamba",
+          "goje_repertoire": "goje_praise",
+          "goje_material": "goje_lizard_membrane"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "goje_form": 4.41,
+          "goje_repertoire": 8.8105,
+          "goje_material": 0.95
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "flute_size": "alto_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "irish_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 1.17,
+          "flute_size": 1.755,
+          "flute_material": 1.3,
+          "flute_technique": 0.39,
+          "flute_maker_school": 2.0149999999999992
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 3.445,
+          "voice_quality": 16.31499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.03,
+          "voice_articulation": 16.899999999999995,
+          "voice_microtone": 21.872499999999995,
+          "voice_tradition": 14.944999999999999,
+          "voice_mechanism_compound": 5.2,
+          "voice_estill_quality": 5.51,
+          "voice_speech_song": 20.734999999999992,
+          "voice_ensemble_config": 18.394999999999996,
+          "voice_ornament_system": 6.760000000000001,
+          "voice_pitch_organization": 7.345000000000001,
+          "voice_processing_chain": 5.9799999999999995,
+          "voice_multitrack_stack": 3.3150000000000004
+        }
+      },
+      {
+        "id": "inverted_calabash",
+        "slots": {
+          "inverted_calabash_size": "inverted_calabash_large",
+          "inverted_calabash_technique": "inverted_calabash_hands"
+        },
+        "scores": {
+          "inverted_calabash_size": 2.6795,
+          "inverted_calabash_technique": 0.5549999999999999
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 3.769999999999999,
+          "clap_capture": 0.39
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_large",
+          "shekere_beads": "shekere_seed"
+        },
+        "scores": {
+          "shekere_size": 1.8944999999999999,
+          "shekere_beads": 1.95
+        }
+      }
+    ],
+    "room": "saharan_desert_encampment",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "equal_heptatonic_west_african",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_west_african",
+    "room": "saharan_desert_encampment",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

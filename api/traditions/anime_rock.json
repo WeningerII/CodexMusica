@@ -3,14 +3,14 @@
   "name": "Anime rock (anison rock)",
   "family": "rock",
   "lineage": "Japanese anime theme rock formalised in Tokyo from the late 1970s (Ichirou Mizuki, MIO) and hardened in the 1990s-2000s through JAM Project, Flow, Asian Kung-Fu Generation and Granrodeo — 160-200 BPM driving eighth-note guitar, modulating key-change bridges, wide diatonic-to-chromatic pre-chorus harmony compressed into 90-second TV-edit forms, and a high, forward, vibrato-heavy lead vocal doubled in octaves.",
-  "recipe": "classic Asian 1977-1979 anime rock, distorted Rock, regional branch, east Asian pop functional song, pop punk distorted rock enka anison. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. live tracking. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-  "recipe_chars": 845,
-  "score": 511.991,
+  "recipe": "classic Asian 1977-1979 anime rock, distorted Rock, regional branch, east Asian pop functional song, pop punk distorted rock oshare kei enka. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. live tracking. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 846,
+  "score": 546,
   "config": {
     "traditions": [
       "anime_rock",
-      "enka",
-      "anison_anime_song"
+      "oshare_kei",
+      "enka"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_oral_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 34.82500000000002,
-          "voice_quality": 11.764999999999993,
+          "voice_register": 39.30625000000002,
+          "voice_quality": 12.219999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.095000000000001,
-          "voice_articulation": 20.020000000000003,
-          "voice_microtone": 36.51500000000001,
-          "voice_tradition": 28.925,
-          "voice_mechanism_compound": 2.6625000000000005,
-          "voice_estill_quality": 3.380000000000001,
-          "voice_speech_song": 26,
-          "voice_ensemble_config": 20.085,
-          "voice_ornament_system": 3.8350000000000013,
-          "voice_pitch_organization": 3.9975,
-          "voice_processing_chain": 6.7212499999999995,
-          "voice_multitrack_stack": 6.648750000000001
+          "voice_vibrato": 5.0375000000000005,
+          "voice_articulation": 22.620000000000005,
+          "voice_microtone": 40.542000000000016,
+          "voice_tradition": 29.607499999999998,
+          "voice_mechanism_compound": 3.980000000000001,
+          "voice_estill_quality": 3.535000000000001,
+          "voice_speech_song": 25.935,
+          "voice_ensemble_config": 20.54,
+          "voice_ornament_system": 4.485000000000001,
+          "voice_pitch_organization": 4.777500000000001,
+          "voice_processing_chain": 5.525,
+          "voice_multitrack_stack": 6.694999999999999
         }
       },
       {
@@ -57,7 +57,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "basswood_h",
+          "body_wood": "alder_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_5_h",
@@ -70,19 +70,19 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 15.698749999999999,
-          "amp_make": 11.697499999999996,
-          "body_wood": 1.3,
+          "electric_technique": 16.15,
+          "amp_make": 16.99125,
+          "body_wood": 1.04625,
           "neck_wood": 0.845,
-          "fretboard": 2.2187499999999996,
-          "pickup_magnet": 1.885,
-          "pickup_winding": 1.7550000000000001,
+          "fretboard": 1.40625,
+          "pickup_magnet": 2.3850000000000002,
+          "pickup_winding": 1.3,
           "string_material": 0.135,
-          "bridge": 1.34875,
+          "bridge": 1.4949999999999999,
           "scale_length": 0.845,
-          "string_gauge": 1.2999999999999998,
+          "string_gauge": 1.3562499999999997,
           "finish": 0.65,
-          "string_tuning": 10.27
+          "string_tuning": 12.22
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.4775,
-          "body_wood": 1.2349999999999999,
-          "pickup_config": 1.15375,
-          "string_type": 21.2725,
+          "amp_make": 13.22125,
+          "body_wood": 1.4300000000000002,
+          "pickup_config": 0.78,
+          "string_type": 24.94125,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.195,
-          "bass_technique": 23.247500000000002
+          "bass_technique": 31.360000000000003
         }
       },
       {
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.75,
-          "drumhead": 16.789999999999996,
+          "drum_technique": 23.5,
+          "drumhead": 16.9045,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -125,13 +125,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 15.482499999999996,
-          "poly_archetypes": 11.223749999999999,
+          "electronic_technique": 17.471999999999998,
+          "poly_archetypes": 12.14325,
           "poly_voices": 1.235,
-          "poly_maker_lineage": -1.225
+          "poly_maker_lineage": -0.875
         }
       },
       {
@@ -146,26 +146,26 @@
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "snakewood_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "magic_rosin_orch"
+          "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
           "bowed_technique": 0.585,
-          "orch_strings": 1.8200000000000003,
-          "orch_top_wood": 4.6499999999999995,
-          "orch_back_wood": 10.5375,
-          "orch_varnish": 3.0224999999999995,
-          "orch_setup_period": 3.09625,
+          "orch_strings": 1.3649999999999998,
+          "orch_top_wood": 4.07,
+          "orch_back_wood": 11.193249999999999,
+          "orch_varnish": 2.62,
+          "orch_setup_period": 2.9345,
           "orch_bow": 1.3,
-          "orch_bow_stick": 2.275,
-          "orch_articulation": 2.015,
-          "orch_rosin": 1.4525
+          "orch_bow_stick": 2.23,
+          "orch_articulation": 1.8199999999999998,
+          "orch_rosin": 0.9099999999999999
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_7_foot",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
@@ -175,15 +175,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 13.914999999999997,
-          "grand_piano_size": 0.845,
+          "keyboard_technique": 15.164999999999997,
+          "grand_piano_size": 0.85125,
           "grand_piano_brand": 0.845,
-          "piano_hammer": 22.404999999999998,
-          "piano_rim": 23.879999999999995,
-          "piano_soundboard": 20.505,
-          "piano_pinblock": 3.34375,
-          "piano_plate": 1.4249999999999998,
-          "piano_pitch_standard": 14.5925
+          "piano_hammer": 23.05375,
+          "piano_rim": 24.239999999999995,
+          "piano_soundboard": 20.0075,
+          "piano_pinblock": 1.56,
+          "piano_plate": 0.5562499999999999,
+          "piano_pitch_standard": 10.01
         }
       }
     ],

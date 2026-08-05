@@ -1,0 +1,120 @@
+{
+  "id": "pipa",
+  "name": "Pipa Repertoire",
+  "family": "global",
+  "lineage": "Solo repertoire for the four-string pear-shaped fretted lute that entered China via Central Asia by the Tang dynasty, held upright and played with five fingernail plectra since the Ming, codified in the 1819 Hua Qiuping handbook and the Pudong and Pinghu school lineages and modernised by Liu Tianhua and Liu Dehai, split between martial wu pieces such as 'Ambush from Ten Sides' with rolling lunzhi tremolo, snapped strings and drum-imitating strikes, and civil wen pieces in slow rubato with heavy left-hand bending and vibrato over gong-mode pentatonic lines.",
+  "recipe": "classic East Asian late-1810s pipa repertoire, art Music, east Asian branch, string drone modal hardingfele dombra küy. low mid rich spectrum vocal imitating silk pipa, python skin snake skin steel modern bamboo stick horsehair erhu, dizi, yangqin, xiao. chinese traditional teahouse. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 400,
+  "score": 37.98,
+  "config": {
+    "traditions": [
+      "pipa",
+      "hardingfele",
+      "dombra_kuy"
+    ],
+    "instruments": [
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_traditional_frets",
+          "pipa_strings": "pipa_silk",
+          "pipa_pick": "pipa_fingernail",
+          "pipa_body_wood": "pipa_padauk"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.495,
+          "pipa_frets": 0.045,
+          "pipa_strings": 1.95,
+          "pipa_pick": 0.15,
+          "pipa_body_wood": 0.435
+        }
+      },
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_microtonal_inflected",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_jiangnan",
+          "erhu_body_wood": "erhu_mahogany_body",
+          "erhu_strings": "erhu_steel_modern",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": 0.35000000000000003,
+          "erhu_skin": 1.95,
+          "erhu_use": 0.39,
+          "erhu_body_wood": 0.195,
+          "erhu_strings": 1.035,
+          "erhu_bow": 5.135
+        }
+      },
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "dizi_membrane": "dizi_without",
+          "dizi_pitch": "dizi_ga",
+          "dizi_body_material": "dizi_bitter_bamboo",
+          "dizi_regional_style": "dizi_qudi_southern"
+        },
+        "scores": {
+          "wind_articulation": 1.38,
+          "dizi_membrane": 0.495,
+          "dizi_pitch": 2.5399999999999996,
+          "dizi_body_material": 0.6,
+          "dizi_regional_style": 0.75
+        }
+      },
+      {
+        "id": "yangqin",
+        "slots": {
+          "yangqin_courses": "yangqin_traditional_smaller",
+          "yangqin_technique": "yangqin_bamboo_mallets"
+        },
+        "scores": {
+          "yangqin_courses": 0.855,
+          "yangqin_technique": 0.195
+        }
+      },
+      {
+        "id": "xiao",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "xiao_pitch": "xiao_g",
+          "xiao_context": "xiao_chamber",
+          "xiao_body_material": "xiao_jade_premium"
+        },
+        "scores": {
+          "wind_articulation": 1.38,
+          "xiao_pitch": 0.39,
+          "xiao_context": 21.710000000000008,
+          "xiao_body_material": 0.6300000000000001
+        }
+      }
+    ],
+    "room": "chinese_traditional_teahouse",
+    "archetype": "arch_china_record_state_broadcast",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "chinese_traditional_teahouse",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

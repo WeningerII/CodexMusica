@@ -5,7 +5,7 @@
   "lineage": "Mid-19th-century onward Pearl-River-Delta Cantonese yueju operatic tradition centered on Guangdong, Guangzhou, and Hong Kong — codified through the 19th-century touring red-boat troupes (hongchuan) and the early-20th-century Hong Kong commercial recording era — characterized by literary-Cantonese sung text, gaohu-fiddle-and-percussion accompaniment, and the male / female / clown role types of jingju adapted to Cantonese language and aesthetic",
   "recipe": "classic East Asian mid-1930s cantonese opera, art Music, Cantonese opera branch, east Asian beijing opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, slow rate, interlocked note trading. yueqin, Cantonese silk and bamboo legato gaohu, silk mahogany commercial grade pipa, percussion section ban clapper luogu, yangqin. chinese traditional teahouse. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 446,
-  "score": 417.852,
+  "score": 423.52,
   "config": {
     "traditions": [
       "cantonese_opera",
@@ -39,17 +39,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 12.857499999999998,
-          "voice_articulation": 22.03875,
-          "voice_microtone": 22.118749999999995,
-          "voice_tradition": 40.95374999999999,
+          "voice_articulation": 22.968749999999996,
+          "voice_microtone": 23.04874999999999,
+          "voice_tradition": 41.34374999999999,
           "voice_mechanism_compound": 11.244999999999997,
-          "voice_estill_quality": 33.9375,
+          "voice_estill_quality": 34.942499999999995,
           "voice_speech_song": 28.449999999999996,
-          "voice_ensemble_config": 25.54,
+          "voice_ensemble_config": 26.319999999999997,
           "voice_ornament_system": 28.449999999999996,
           "voice_pitch_organization": 25.016249999999992,
           "voice_processing_chain": 5.6362499999999995,
-          "voice_multitrack_stack": 4.36375
+          "voice_multitrack_stack": 4.42
         }
       },
       {
@@ -62,8 +62,8 @@
         },
         "scores": {
           "plucked_traditional_technique": 10.499999999999998,
-          "yueqin_use": 3.10375,
-          "yueqin_construction": 6.9937499999999995,
+          "yueqin_use": 3.12,
+          "yueqin_construction": 7.383749999999999,
           "yueqin_strings": 0
         }
       },
@@ -77,8 +77,8 @@
         },
         "scores": {
           "bowed_technique": 10.499999999999998,
-          "gaohu_type": 23.36874999999999,
-          "gaohu_setting": 24.685000000000002,
+          "gaohu_type": 23.518749999999994,
+          "gaohu_setting": 25.465,
           "gaohu_membrane": -0.05
         }
       },
@@ -95,7 +95,7 @@
           "plucked_traditional_technique": 10.499999999999998,
           "pipa_frets": 0.50625,
           "pipa_strings": 8.655,
-          "pipa_pick": 0.012499999999999999,
+          "pipa_pick": 0.057499999999999996,
           "pipa_body_wood": 1.91875
         }
       },
@@ -107,7 +107,7 @@
         },
         "scores": {
           "luogu_use": 17.8825,
-          "luogu_sections": 9.5375
+          "luogu_sections": 9.687499999999998
         }
       },
       {
@@ -118,7 +118,7 @@
         },
         "scores": {
           "yangqin_courses": 0,
-          "yangqin_technique": 0
+          "yangqin_technique": 0.045
         }
       }
     ],

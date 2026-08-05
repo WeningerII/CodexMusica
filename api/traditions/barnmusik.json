@@ -3,14 +3,14 @@
   "name": "Barnmusik (Swedish children's song)",
   "family": "vernacular",
   "lineage": "Swedish children's-song repertoire founded by Alice Tegnér's Sjung med oss, Mamma! collections from 1892 and re-codified for record and television in the 1960s–80s by Georg Riedel's settings of Astrid Lindgren texts and by Sveriges Radio's children's programming: strophic diatonic melodies in narrow range, moderate 2/4 and 3/4 tempi, acoustic guitar, piano and accordion accompaniment, and unison children's-choir singing with a single adult lead.",
-  "recipe": "classic British mid-1960s barnmusik, nursery Rhyme, European branch, European lullaby, anglo singer song ballad poetry stomp and flutter stomp and holler. thick, breath veiled tone, breath pulsed, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, maple fingerpicked dreadnought acoustic guitar, castagnari Italian premium folk music straight accordion, upright piano, glockenspiel, melodic recorder. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 680,
-  "score": 228.907,
+  "recipe": "classic British mid-1960s barnmusik, nursery Rhyme, European branch, European lullaby, anglo singer song ballad poetry british folk revival filk music. thick, breath veiled tone, fast rate, interlocked note trading. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu choir ensemble, dadgad tuning fingerpicked dreadnought acoustic guitar, castagnari Italian premium folk music straight accordion, upright piano, glockenspiel, melodic recorder. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 674,
+  "score": 222.947,
   "config": {
     "traditions": [
       "barnmusik",
-      "stomp_and_flutter",
-      "stomp_and_holler"
+      "british_folk_revival",
+      "filk_music"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -28,42 +28,42 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 15.604999999999999,
-          "voice_quality": 6.110000000000001,
+          "voice_register": 11.779999999999998,
+          "voice_quality": 10.075,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.64,
-          "voice_articulation": 21.294999999999998,
-          "voice_microtone": 21.58,
-          "voice_tradition": 16.77,
-          "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 5.29,
-          "voice_speech_song": 28.73,
-          "voice_ensemble_config": 22.789999999999992,
-          "voice_ornament_system": 2.4450000000000003,
+          "voice_vibrato": 1,
+          "voice_articulation": 19.845,
+          "voice_microtone": 20.34499999999999,
+          "voice_tradition": 18.85,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 4.3900000000000015,
+          "voice_speech_song": 28.08,
+          "voice_ensemble_config": 20.389999999999993,
+          "voice_ornament_system": 3.87,
           "voice_pitch_organization": 1.4100000000000001,
-          "voice_processing_chain": 5.86,
-          "voice_multitrack_stack": 5.785
+          "voice_processing_chain": 4.26,
+          "voice_multitrack_stack": 5.36
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 7.425,
-          "choir_polyphonic_configuration": 1.5,
-          "choir_regional_canonical_configuration": 4.529999999999999,
+          "choir_size": 6.175,
+          "choir_polyphonic_configuration": 1.15,
+          "choir_regional_canonical_configuration": 3.8300000000000005,
           "choir_ensemble_repertoire": 1.98
         }
       },
@@ -71,38 +71,38 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "drop_d",
-          "top_wood": "cedar",
+          "string_tuning": "dadgad",
+          "top_wood": "mahogany_top",
           "back_sides": "maple_bs",
-          "string_acoustic": "thomastik_flat_top"
+          "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
-          "acoustic_technique": 13.449999999999998,
-          "string_tuning": 0.16249999999999998,
-          "top_wood": 0.6950000000000001,
-          "back_sides": 1.0499999999999998,
-          "string_acoustic": 0.345
+          "acoustic_technique": 14.149999999999999,
+          "string_tuning": 3.95,
+          "top_wood": 0.45499999999999996,
+          "back_sides": 0.7,
+          "string_acoustic": 0.545
         }
       },
       {
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "tipo_a_mano",
+          "accordion_reed_material": "machine_reeds",
           "musette_offset": "demi_swing",
-          "reed_config": "lmmh",
+          "reed_config": "lm_only",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 10.16,
-          "accordion_reed_material": 0.195,
+          "free_reed_technique": 8.235,
+          "accordion_reed_material": 0.5,
           "musette_offset": 1.3199999999999998,
-          "reed_config": 0.95,
-          "bellows": 0.15,
-          "voicing_chamber": 0.105,
-          "accordion_maker_school": 4.9399999999999995
+          "reed_config": 0.42,
+          "bellows": 0.195,
+          "voicing_chamber": 0.45499999999999996,
+          "accordion_maker_school": 4.419999999999999
         }
       },
       {
@@ -113,8 +113,8 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 2.495,
-          "upright_use": 0.195,
+          "keyboard_technique": 2.12,
+          "upright_use": 0.045,
           "upright_piano_size": 2.775
         }
       },
@@ -123,12 +123,12 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "glockenspiel_size": "glockenspiel_orch_25",
-          "glockenspiel_mallet": "glockenspiel_rubber"
+          "glockenspiel_mallet": "glockenspiel_plastic"
         },
         "scores": {
           "percussion_technique": -0.05,
           "glockenspiel_size": 0.09,
-          "glockenspiel_mallet": 0.5
+          "glockenspiel_mallet": 0
         }
       },
       {
@@ -140,9 +140,9 @@
           "recorder_body_wood": "recorder_boxwood_canonical"
         },
         "scores": {
-          "wind_articulation": 9.285,
+          "wind_articulation": 10.085,
           "recorder_size": 0.28500000000000003,
-          "recorder_context": 0.39,
+          "recorder_context": 1.04,
           "recorder_body_wood": 0.32999999999999996
         }
       }

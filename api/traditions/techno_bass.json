@@ -1,0 +1,128 @@
+{
+  "id": "techno_bass",
+  "name": "Techno Bass",
+  "family": "electronic",
+  "lineage": "Detroit hybrid of electro and techno codified 1991-1998 by Underground Resistance, Aux 88, Will Web and DJ Assault on Direct Beat and 430 West, running 125-140 BPM with a syncopated 808/909 electro breakbeat carrying a deep detuned sub-bass line, cold sequenced synth motifs, vocoded vocals and militant sci-fi track titles.",
+  "recipe": "classic Central European mid-1990s techno bass, electronic Dance, techno branch, us hip hop southern german techno acid house. roland tr 8s modern aira digital recreation TR-808, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono modular synth, vocoder, sampler drum machine. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 569,
+  "score": 112.655,
+  "config": {
+    "traditions": [
+      "techno_bass",
+      "german_techno",
+      "acid_house"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 7.120999999999999,
+          "drum_machine_808_context": 6.071,
+          "tr808_production_origin": 1.4949999999999999
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 5.6579999999999995,
+          "drum_machine_909_context": 9.479,
+          "tr909_production_origin": 2.275
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "tb_303",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 21.9,
+          "mono_oscillator": 0,
+          "mono_filter": 0.195,
+          "mono_archetypes": 3.125,
+          "mono_maker_lineage": 4.355
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_few_bands",
+          "voc_carrier": "voc_noise_carrier",
+          "voc_modulator": "voc_drum_mod"
+        },
+        "scores": {
+          "voc_band_count": 0,
+          "voc_carrier": 0.195,
+          "voc_modulator": 0.5865
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_simple_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 21.9,
+          "mod_voltage_source": 1.4025,
+          "mod_patch_density": 1,
+          "mod_lineage": 0.65
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.9999999999999998,
+          "sample_bitdepth": 1.2265,
+          "sample_swing": 16.816,
+          "sample_processing": 1.78
+        }
+      }
+    ],
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "clean",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "berlin_techno_kreuzberg_studio",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "clean"
+  }
+}

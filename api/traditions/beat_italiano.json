@@ -1,0 +1,193 @@
+{
+  "id": "beat_italiano",
+  "name": "Beat Italiano",
+  "family": "pop_rock",
+  "lineage": "Italian beat boom of 1965-69, launched by Piper Club Rome and the Milan scene and codified by Equipe 84, The Rokes, I Nomadi, I Camaleonti and Le Orme — mid-tempo 4/4 backbeats at 110-140 BPM, jangling twelve-string and fuzz-toned single-coil guitars, Vox and Farfisa combo organ, and close two- and three-part harmony over Italian-language lyrics, much of it Italianized cover versions cut at RCA Italiana and Ricordi with heavy tape echo and orchestral overdubs.",
+  "recipe": "classic British mid-1960s beat italiano, functional Song, pop rock branch, classic distorted rock, europop functional song deutschrock freakbeat. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, rotosound split coil Fender xii clean strummed twelve string electric, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, traditional mellow brass tambourine orch. small Soho room 1962-1968 indie-commercial uk small 60s commercial. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 857,
+  "score": 399.265,
+  "config": {
+    "traditions": [
+      "beat_italiano",
+      "deutschrock",
+      "freakbeat"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "operatic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 23.769999999999992,
+          "voice_quality": 10.334999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.925,
+          "voice_articulation": 24.765,
+          "voice_microtone": 24.569999999999997,
+          "voice_tradition": 6.6899999999999995,
+          "voice_mechanism_compound": 3.575000000000001,
+          "voice_estill_quality": 7.469999999999999,
+          "voice_speech_song": 29.119999999999997,
+          "voice_ensemble_config": 25.544999999999995,
+          "voice_ornament_system": 6.3999999999999995,
+          "voice_pitch_organization": 1.4449999999999996,
+          "voice_processing_chain": 6.2725,
+          "voice_multitrack_stack": 5.525
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 6.545,
+          "amp_make": 12.902499999999996,
+          "body_wood": 2.9899999999999998,
+          "neck_wood": 2.9899999999999998,
+          "fretboard": 2.925,
+          "pickup_magnet": 0.65,
+          "string_material": 0.65,
+          "string_gauge": 2.9899999999999998,
+          "bridge": 0.5,
+          "scale_length": 2.9899999999999998,
+          "finish": 0.435,
+          "string_tuning": 12.22
+        }
+      },
+      {
+        "id": "twelve_string_electric",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_60s_vox_ac",
+          "twelve_string_electric_model": "twelve_string_electric_modern",
+          "twelve_string_electric_context": "twelve_string_electric_arena",
+          "twelve_string_electric_strings": "twelve_string_electric_rotosound",
+          "twelve_string_electric_pickup": "twelve_string_fender_xii_split"
+        },
+        "scores": {
+          "electric_technique": 6.545,
+          "amp_make": 2.665000000000001,
+          "twelve_string_electric_model": 0.045,
+          "twelve_string_electric_context": 24.375,
+          "twelve_string_electric_strings": 1.625,
+          "twelve_string_electric_pickup": 1.3
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_vox_ac"
+        },
+        "scores": {
+          "keyboard_technique": 5.7,
+          "combo_organ_model": 10.399999999999999,
+          "combo_organ_voicing": 8.649999999999999,
+          "combo_organ_context": 11.440000000000001,
+          "amp_make": 4.680000000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 11.894999999999998,
+          "body_wood": 3.6399999999999997,
+          "pickup_config": 0.5,
+          "string_type": 23.4,
+          "scale_length_b": 2.9899999999999998,
+          "fretted_or_not": 0.3,
+          "bass_technique": 19.76
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 24.244999999999997,
+          "drumhead": 5.414999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 3.25,
+          "tambourine_orch_context": 0
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_rca_italiana_morricone",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

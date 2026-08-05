@@ -1,0 +1,195 @@
+{
+  "id": "nova_musica_pernambucana",
+  "name": "Nova Música Pernambucana",
+  "family": "global",
+  "lineage": "Recife/Olinda scene of the late 1990s–2000s that followed manguebeat, codified by Mestre Ambrósio, Cordel do Fogo Encantado, Silvério Pessoa and Otto — rabeca-and-zabumba-led maracatu, coco and forró rhythms (2/4 baião and 4/4 maracatu de baque virado at 100–130 BPM) recombined with electric guitar, sampler loops and declamatory or chanted northeastern vocals.",
+  "recipe": "classic Southern American 1997-1999 nova música pernambucana, functional Song, Brazilian song branch, Brazilian groove percussion, Brazilian carnival processional samba rock pagode. thick, breath veiled tone, straight onset, interlocked note trading. wood baião tradition low stick with high bacalhau buzz zabumba, maracatu tradition alfaia, Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, sampler, accordion. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 705,
+  "score": 213.692,
+  "config": {
+    "traditions": [
+      "nova_musica_pernambucana",
+      "samba_rock",
+      "pagode"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.700000000000001,
+          "voice_quality": 22.229999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6649999999999996,
+          "voice_articulation": 19.824999999999996,
+          "voice_microtone": 19.23999999999999,
+          "voice_tradition": 4.68,
+          "voice_mechanism_compound": 3.3149999999999995,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 25.544999999999995,
+          "voice_ensemble_config": 19.954999999999995,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 0.345,
+          "voice_processing_chain": 6.100000000000001,
+          "voice_multitrack_stack": 5.590000000000001
+        }
+      },
+      {
+        "id": "zabumba",
+        "slots": {
+          "zabumba_shell": "zabumba_wood_shallow",
+          "zabumba_technique": "zabumba_baiao_pattern"
+        },
+        "scores": {
+          "zabumba_shell": 3.035,
+          "zabumba_technique": 3.8999999999999995
+        }
+      },
+      {
+        "id": "alfaia",
+        "slots": {
+          "alfaia_shell": "alfaia_wood_rope",
+          "alfaia_skin": "alfaia_cowhide",
+          "alfaia_technique": "alfaia_two_sticks"
+        },
+        "scores": {
+          "alfaia_shell": 0.195,
+          "alfaia_skin": 0.585,
+          "alfaia_technique": 4.095
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 3.1999999999999997,
+          "amp_make": 3.9450000000000003,
+          "body_wood": 0.845,
+          "neck_wood": 1.15,
+          "fretboard": 1.4949999999999999,
+          "pickup_magnet": 0.195,
+          "string_material": 0.15,
+          "string_gauge": 0.845,
+          "bridge": 1.15,
+          "scale_length": 0.845,
+          "finish": 0,
+          "string_tuning": 2.21
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 3.645000000000001,
+          "body_wood": 0.845,
+          "pickup_config": 0.645,
+          "string_type": 4.549999999999999,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 1.15,
+          "bass_technique": 3.7349999999999994
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.39999999999999997,
+          "sampler_archetypes": 0.78,
+          "sampler_bit_depth": 0.52,
+          "sampler_workflow": 0.78,
+          "sampler_classic_context": 22.61999999999999
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_petosa_seattle"
+        },
+        "scores": {
+          "free_reed_technique": 1.7225000000000001,
+          "accordion_reed_material": 0.845,
+          "musette_offset": 0.3,
+          "reed_config": 0.195,
+          "bellows": 0.195,
+          "voicing_chamber": 0.24,
+          "accordion_maker_school": 0.65
+        }
+      }
+    ],
+    "room": "estudio_rozenblit_recife",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "maracatu_nacao_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maracatu_nacao_4_4",
+    "room": "estudio_rozenblit_recife",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

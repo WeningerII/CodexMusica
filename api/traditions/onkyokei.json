@@ -1,0 +1,143 @@
+{
+  "id": "onkyokei",
+  "name": "Onkyokei (Japanese onkyo improvisation)",
+  "family": "electronic",
+  "lineage": "Tokyo improvised-music movement crystallized around the Off Site venue circa 1998-2004 and codified by Otomo Yoshihide, Sachiko M, Toshimaru Nakamura and Taku Sugimoto — extremely quiet, near-static music of sine tones, no-input mixing-board feedback, contact-mic scrapes and long silences, with no pulse, no harmony and structure emerging from the acoustics of the room itself.",
+  "recipe": "classic mid-2000s onkyokei, experimental Elec, ambient branch, musique concrete experimental electric, idm glitch experimental electric, jam free improv on frame laptronica idm and experimental electronic. doepfer eurorack canonical 1995 present small format standardization textural modular glitched textural granular synth, turntable, nickel feedback single coil electric guitar, prepared piano, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 570,
+  "score": 134.815,
+  "config": {
+    "traditions": [
+      "onkyokei",
+      "laptronica",
+      "idm"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 23.445,
+          "mod_voltage_source": 0.39,
+          "mod_patch_density": 4.06,
+          "mod_lineage": 1.235
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "turntable_technique": 0.295
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "alder",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 3.51,
+          "amp_make": 0.06499999999999999,
+          "body_wood": 0.4725,
+          "neck_wood": 0.1575,
+          "fretboard": 0.315,
+          "pickup_magnet": 0.1575,
+          "string_material": 1.4575,
+          "string_gauge": 0.63,
+          "bridge": 0.6825,
+          "scale_length": 0.315,
+          "finish": 0.09,
+          "string_tuning": 0.35250000000000004
+        }
+      },
+      {
+        "id": "prepared_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "prepared_piano_object": "prepared_piano_bolts",
+          "prepared_piano_zone": "prepared_piano_bass",
+          "prepared_piano_instrument": "prepared_piano_grand"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "prepared_piano_object": 0.15,
+          "prepared_piano_zone": 0.15,
+          "prepared_piano_instrument": 1.645
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 23.445,
+          "granular_use": 0.6950000000000001,
+          "granular_synth_source": 8.190000000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 23.445,
+          "sampler_archetypes": 0.9450000000000001,
+          "sampler_bit_depth": 1.365,
+          "sampler_workflow": 22.75,
+          "sampler_classic_context": 17.875
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

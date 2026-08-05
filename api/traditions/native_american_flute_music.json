@@ -1,0 +1,115 @@
+{
+  "id": "native_american_flute_music",
+  "name": "Native American courting flute music",
+  "family": "global",
+  "lineage": "Plains and Woodlands North American end-blown duct flute tradition (Lakota siyotanka, Kiowa, Anishinaabe) used for courting and personal songs from at least the 18th century, near-extinguished by mid-20th-century assimilation policy and revived from the 1960s-80s by Doc Tate Nevaquaya and R. Carlos Nakai — free-rhythm unmetered breath-length phrases on a two-chamber cedar flute whose block tuning yields an untempered minor-pentatonic scale, played rubato with heavy diaphragm pulse, finger-slur ornaments, and terminal breath vibrato.",
+  "recipe": "classic mid-1960s native american courting flute music, drone Modal, wind pipe branch, indigenous ritual devotional, indigenous hunting song shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, breath pulsed, interlocked note trading. courting mid register love song breath vibrato glissando native american flute, powwow drum circle, mangour hoof rattle. open air. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 483,
+  "score": 238.325,
+  "config": {
+    "traditions": [
+      "native_american_flute_music",
+      "shipibo_icaros",
+      "mapuche_tayil_ritual"
+    ],
+    "instruments": [
+      {
+        "id": "native_american_flute",
+        "slots": {
+          "native_american_flute_form": "native_american_flute_plains",
+          "native_american_flute_repertoire": "native_american_flute_courting",
+          "native_american_flute_body": "native_american_flute_cedar"
+        },
+        "scores": {
+          "native_american_flute_form": 9.635000000000002,
+          "native_american_flute_repertoire": 14.124999999999998,
+          "native_american_flute_body": 3.445
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.045,
+          "voice_quality": 36.01,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.185,
+          "voice_articulation": 21.384999999999998,
+          "voice_microtone": 24.244999999999997,
+          "voice_tradition": 22.36,
+          "voice_mechanism_compound": 14.82,
+          "voice_estill_quality": 6.630000000000001,
+          "voice_speech_song": 24.179999999999996,
+          "voice_ensemble_config": 21.97,
+          "voice_ornament_system": 7.15,
+          "voice_pitch_organization": 3.7050000000000005,
+          "voice_processing_chain": 14.625,
+          "voice_multitrack_stack": 8.71
+        }
+      },
+      {
+        "id": "powwow_drum_circle",
+        "slots": {
+          "members": "pw_women_above",
+          "style": "pw_northern"
+        },
+        "scores": {
+          "members": 0.93,
+          "style": 0.65
+        }
+      },
+      {
+        "id": "mangour_hoof_rattle",
+        "slots": {
+          "mangour_material": "mangour_hoof",
+          "mangour_motion": "mangour_hip"
+        },
+        "scores": {
+          "mangour_material": 0.65,
+          "mangour_motion": 0.045
+        }
+      }
+    ],
+    "room": "open_prairie",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "open_prairie",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

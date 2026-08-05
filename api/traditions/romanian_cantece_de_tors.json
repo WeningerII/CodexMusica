@@ -5,7 +5,7 @@
   "lineage": "Romanian spinning-song (cântece de tors) tradition continuous from premodern Romanian-rural domestic-textile-labor practice through 19th-century Romanian-folklorist documentation through 20th-century Béla Bartók Romanian-folk-collection canonical into modern Romanian-folk-revival continuous practice",
   "recipe": "classic Northern European modern romanian cântece de tors, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, Slavic balkan field work, European lullaby irish spinning song hungarian aratónóta. thick, close mic intimate, straight onset, continuous-phonation. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 364,
-  "score": 123.107,
+  "score": 124.037,
   "config": {
     "traditions": [
       "romanian_cantece_de_tors",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 10.884999999999996,
+          "voice_register": 10.794999999999996,
           "voice_quality": 4.745,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -46,7 +46,7 @@
           "voice_estill_quality": 0.975,
           "voice_speech_song": 11.179999999999996,
           "voice_ensemble_config": 6.922500000000001,
-          "voice_ornament_system": 21.957499999999996,
+          "voice_ornament_system": 22.977499999999996,
           "voice_pitch_organization": 6.759999999999999,
           "voice_processing_chain": 2.7300000000000004,
           "voice_multitrack_stack": 0.975

@@ -1,0 +1,236 @@
+{
+  "id": "urban_blues",
+  "name": "Urban Blues",
+  "family": "blues_gospel",
+  "lineage": "Postwar big-band-backed blues of Northern and border cities, consolidated 1946-1965 on Duke/Peacock in Houston, King in Cincinnati and RPM/Kent in Los Angeles by B.B. King, Bobby Bland, Roy Brown and Johnny Otis — full brass and reed sections reading arranged charts, a 12/8 triplet ballad feel or medium jump shuffle at 80-140 BPM, piano and later organ comping, vibrato-rich sustained guitar single notes, and a trained, projecting vocal descended from gospel quartet lead singing.",
+  "recipe": "classic Midwestern American mid-1950s urban blues, functional Song, blues electric branch, soul R&B functional song, American jazz kansas city afro soul contemporary r&b. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany maple humbucker electric guitar, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor ensemble student commercial trombone, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, cold pressed wurzen felt birch laminated maple laminated sitka spruce grand piano. 1540 brewster avenue cincinnati 1943-1971 indie-commercial king records studios cincinnati. passive ribbon.",
+  "recipe_chars": 999,
+  "score": 555.582,
+  "config": {
+    "traditions": [
+      "urban_blues",
+      "afro_soul",
+      "contemporary_rb_late_90s_2000s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 36.425000000000004,
+          "voice_quality": 24.09999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 12.794999999999998,
+          "voice_articulation": 21.059999999999995,
+          "voice_microtone": 21.96999999999999,
+          "voice_tradition": 25.095,
+          "voice_mechanism_compound": 5.329999999999999,
+          "voice_estill_quality": 18.22,
+          "voice_speech_song": 26.585,
+          "voice_ensemble_config": 23.334999999999994,
+          "voice_ornament_system": 2.29,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 7.085,
+          "voice_multitrack_stack": 3.802500000000001
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 13.89,
+          "amp_make": 17.129999999999995,
+          "body_wood": 2.145,
+          "neck_wood": 2.145,
+          "fretboard": 2.0799999999999996,
+          "pickup_magnet": 0.15,
+          "pickup_winding": 0.65,
+          "string_material": 0.65,
+          "bridge": 2.145,
+          "scale_length": 2.145,
+          "string_gauge": 1.605,
+          "finish": 0,
+          "string_tuning": 6.334999999999999
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "hard_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 17.044999999999998,
+          "sax_size": 13.649999999999999,
+          "sax_reed": 1.15,
+          "sax_body_alloy": 7,
+          "sax_mouthpiece": 1.845,
+          "sax_technique": 13.65,
+          "sax_maker_school": 6.109999999999999
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 17.044999999999998,
+          "brass_size": 1.045,
+          "trumpet_mouthpiece": 6.56,
+          "brass_mute": 1.345,
+          "trumpet_technique": 17.044999999999998,
+          "trumpet_bell_metal": 1.845,
+          "trumpet_maker_school": 2.21
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 17.044999999999998,
+          "trombone_type": 5.795,
+          "trombone_mouthpiece": 5.82,
+          "trombone_mute": 1.345,
+          "trombone_technique": 0.585,
+          "trombone_bell_metal": 2.175,
+          "trombone_maker_school": 2.21
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 19.14,
+          "body_wood": 2.145,
+          "pickup_config": 0.8449999999999999,
+          "string_type": 19.695,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 1.045,
+          "bass_technique": 13.65
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "fiberskyn_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 24.699999999999996,
+          "drumhead": 6,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 18.76,
+          "grand_piano_size": 1.48,
+          "grand_piano_brand": 1.18,
+          "piano_hammer": 2.7950000000000004,
+          "piano_rim": 3.04,
+          "piano_soundboard": 4.540000000000001,
+          "piano_pinblock": 2.35,
+          "piano_plate": 2.3499999999999996,
+          "piano_pitch_standard": 5.275
+        }
+      }
+    ],
+    "room": "king_records_studios_cincinnati",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_american_op_amp",
+      "comp": "comp_vari_mu",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "king_records_studios_cincinnati",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "id": "jota_aragonesa",
+  "name": "Jota aragonesa",
+  "family": "global",
+  "lineage": "The fast triple-metre dance-song of Aragón in north-east Spain, crystallised in the nineteenth century around Zaragoza and Calatayud and institutionalised through the certamen oficial de jota from 1912 — brisk 3/8 or 3/4 at roughly 130-160 beats per minute, a rondalla of bandurrias, laúdes and guitars strumming a hard I-V-I ostinato, castanets on the dance, and coplas of four octosyllabic lines sung at extreme volume in a high open chest register with long held cadential notes.",
+  "recipe": "classic European early-1910s jota aragonesa, functional Song, iberian branch, European wedding, European carnival processional greek gamílio glendí cologne karneval. vocal fry, breath veiled tone, fast rate, interlocked note trading. bandurria, cedar fan strum classical nylon-string guitar, regional traditional pomegranate wood castanets, processional soft indoor volume dulzaina, dry synthetic heads tabor. festival stage. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 533,
+  "score": 169.387,
+  "config": {
+    "traditions": [
+      "jota_aragonesa",
+      "greek_gamilio_glendi",
+      "cologne_karneval"
+    ],
+    "instruments": [
+      {
+        "id": "bandurria",
+        "slots": {
+          "bandurria_form": "bandurria_form_spanish_soprano",
+          "bandurria_playing": "bandurria_play_punteado",
+          "bandurria_stringing": "bandurria_string_steel"
+        },
+        "scores": {
+          "bandurria_form": 5.295,
+          "bandurria_playing": 0.32499999999999996,
+          "bandurria_stringing": -0.05
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "rasgueado_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.8999999999999999,
+          "string_tuning": 0,
+          "top_wood_classical": 7.41,
+          "bracing_classical": 0.7799999999999996,
+          "string_classical": 0.7799999999999996,
+          "attack_technique_cl": 1.0499999999999998
+        }
+      },
+      {
+        "id": "castanets",
+        "slots": {
+          "castanets_material": "castanets_pomegranate",
+          "castanets_mounting": "castanets_palillos"
+        },
+        "scores": {
+          "castanets_material": 2.4450000000000003,
+          "castanets_mounting": 0.975
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.4299999999999997,
+          "voice_quality": 12.804999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.285,
+          "voice_articulation": 11.829999999999995,
+          "voice_microtone": 13.812499999999995,
+          "voice_tradition": 13.454999999999997,
+          "voice_mechanism_compound": 4.3549999999999995,
+          "voice_estill_quality": 5.46,
+          "voice_speech_song": 15.534999999999995,
+          "voice_ensemble_config": 14.364999999999995,
+          "voice_ornament_system": 4.545,
+          "voice_pitch_organization": 4.574999999999999,
+          "voice_processing_chain": 1.73,
+          "voice_multitrack_stack": 2
+        }
+      },
+      {
+        "id": "dulzaina",
+        "slots": {
+          "dulzaina_form": "dulzaina_gralla",
+          "dulzaina_context": "dulzaina_tabalet_duo",
+          "dulzaina_reed": "dulzaina_soft_scrape",
+          "dulzaina_body_wood": "dulzaina_boj_boxwood"
+        },
+        "scores": {
+          "dulzaina_form": 8.19,
+          "dulzaina_context": 7.35,
+          "dulzaina_reed": 1,
+          "dulzaina_body_wood": 3.79
+        }
+      },
+      {
+        "id": "tabor",
+        "slots": {
+          "tabor_form": "tabor_tamboril_iberian",
+          "tabor_context": "tabor_farandole",
+          "tabor_snare": "tabor_no_snare",
+          "tabor_heads": "tabor_synthetic_heads"
+        },
+        "scores": {
+          "tabor_form": 7.385,
+          "tabor_context": 8.305000000000001,
+          "tabor_snare": 3.2499999999999996,
+          "tabor_heads": 5.199999999999999
+        }
+      }
+    ],
+    "room": "festival_stage",
+    "archetype": "arch_madrid_flamenco_tape",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "festival_stage",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Cape Verdean Atlantic-island music tradition with maritime-and-emigration thematic integration; the broader Cape Verdean musical tradition (morna, coladeira, funaná, batuque) developed across 16th-onward Portuguese-colonial-era through post-1975 independent-Cape-Verdean continuous practice; the Cape Verdean maritime-emigration culture integrates extensive maritime-and-port-departure-lament repertoire",
   "recipe": "classic West African mid-1970s cape verdean funaná, sea Shanty, atlantic branch, americas drinking song, iberian Latin protest song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese gut pre modern Portuguese strummed cavaquinho, castagnari Italian premium folk music accordion. batuko outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 546,
-  "score": 245.795,
+  "score": 243.355,
   "config": {
     "traditions": [
       "cape_verdean_funana_maritime",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.235,
-          "voice_quality": 27.769999999999996,
+          "voice_register": 2.9949999999999997,
+          "voice_quality": 27.845,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.5424999999999995,
           "voice_articulation": 25.09,
           "voice_microtone": 25.415,
-          "voice_tradition": 16.654999999999998,
-          "voice_mechanism_compound": 6.399999999999999,
-          "voice_estill_quality": 6.640000000000001,
+          "voice_tradition": 15.504999999999995,
+          "voice_mechanism_compound": 6.564999999999999,
+          "voice_estill_quality": 6.745000000000001,
           "voice_speech_song": 30.615000000000002,
           "voice_ensemble_config": 26.065,
-          "voice_ornament_system": 2.619999999999999,
-          "voice_pitch_organization": 2.795000000000001,
+          "voice_ornament_system": 2.5749999999999993,
+          "voice_pitch_organization": 2.7350000000000008,
           "voice_processing_chain": 7.995000000000004,
-          "voice_multitrack_stack": 6.825
+          "voice_multitrack_stack": 6.48
         }
       },
       {
@@ -66,9 +66,9 @@
           "acoustic_technique": 6.3149999999999995,
           "string_tuning": 0,
           "top_wood_classical": 6.694999999999999,
-          "bracing_classical": 0.6900000000000001,
+          "bracing_classical": 0.585,
           "string_classical": 0.78,
-          "attack_technique_cl": 2.275
+          "attack_technique_cl": 2.32
         }
       },
       {
@@ -84,26 +84,26 @@
           "plucked_traditional_technique": 4.29,
           "cavaquinho_origin": 0.65,
           "cavaquinho_context": 24.895000000000003,
-          "cavaquinho_body_wood": 3.835,
-          "cavaquinho_strings": 4.03
+          "cavaquinho_body_wood": 3.745,
+          "cavaquinho_strings": 3.58
         }
       },
       {
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_orchestral_ensemble",
-          "accordion_reed_material": "tipo_a_mano",
+          "accordion_reed_material": "steel_reeds",
           "musette_offset": "italian_tuning",
-          "reed_config": "lmmm",
+          "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 2.06,
-          "accordion_reed_material": 0.39,
+          "free_reed_technique": 1.8199999999999998,
+          "accordion_reed_material": 0.345,
           "musette_offset": 0.5,
-          "reed_config": 0.15,
+          "reed_config": 0.09,
           "bellows": 0,
           "voicing_chamber": 0.21,
           "accordion_maker_school": 2.73

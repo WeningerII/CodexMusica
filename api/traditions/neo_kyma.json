@@ -1,0 +1,179 @@
+{
+  "id": "neo_kyma",
+  "name": "Néo Kýma",
+  "family": "global",
+  "lineage": "Short-lived Athenian movement of 1960-67 centred on the Plaka boîtes, combining French chanson phrasing with éntekhno lyricism — soft mid-range voices, nylon-string guitar as the primary accompaniment with double bass and occasional string quartet, tempered Western harmony rather than dromoi, slow to moderate 4/4 and 3/4, and intimate close-miked delivery to small seated audiences",
+  "recipe": "classic Southern European early-1960s néo kýma, ballad Poetry, Greek entechno branch, chanson fado classic chanson, anglo singer song confessional60s chanson classique. extended whistle, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, lyon twisted plain Baroque setup lighter bass bar no endpin double bass, cold pressed weikert felt birch laminated maple laminated Asian spruce grand piano, sitka spruce bigleaf maple western maple French Polish shellac pad violin orchestral. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 714,
+  "score": 197.493,
+  "config": {
+    "traditions": [
+      "neo_kyma",
+      "chanson",
+      "chanson_classique"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 4.629375,
+          "voice_quality": 14.429999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.03,
+          "voice_articulation": 16.185,
+          "voice_microtone": 14.039999999999996,
+          "voice_tradition": 7.085,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 6.89,
+          "voice_speech_song": 17.29,
+          "voice_ensemble_config": 15.274999999999999,
+          "voice_ornament_system": 2.1449999999999996,
+          "voice_pitch_organization": 1.6900000000000002,
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 6.452750000000001
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 9.024375000000001,
+          "string_tuning": 0,
+          "top_wood_classical": 7.0415,
+          "bracing_classical": 0.2265,
+          "string_classical": 3.9675000000000002,
+          "attack_technique_cl": 3.0837499999999998
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "lyon_gut_bass",
+          "bass_top_wood": "plywood_bass_top",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.32499999999999996,
+          "bass_size": 1.845,
+          "bass_strings": 3.2306250000000003,
+          "bass_top_wood": 0.375,
+          "bass_back_wood": 0.42249999999999993,
+          "bass_varnish": 0.375,
+          "bass_setup_period": 3.0631250000000003,
+          "bass_play": 0.195,
+          "bass_rosin": 2.8843750000000004,
+          "bass_bow_stick": 1.2025
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_weikert_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 2.87,
+          "grand_piano_size": 2.0675,
+          "grand_piano_brand": 2.0675,
+          "piano_hammer": 2.01375,
+          "piano_rim": 4.368,
+          "piano_soundboard": 2.79125,
+          "piano_pinblock": 0.375,
+          "piano_plate": 0.975,
+          "piano_pitch_standard": 2.9575
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "plain_sheep_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.3999999999999997,
+          "orch_strings": 0.959375,
+          "orch_top_wood": 3.8436250000000003,
+          "orch_back_wood": 1.7799999999999998,
+          "orch_varnish": 3.95,
+          "orch_setup_period": 3.0631250000000003,
+          "orch_bow": 0.49499999999999994,
+          "orch_bow_stick": 1.2025,
+          "orch_articulation": 1.4949999999999999,
+          "orch_rosin": 3.3150000000000004
+        }
+      }
+    ],
+    "room": "athens_minos_studios_60s_70s",
+    "archetype": "arch_greek_columbia_rizoupoli",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "athens_minos_studios_60s_70s",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

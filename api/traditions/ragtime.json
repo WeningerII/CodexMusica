@@ -3,14 +3,14 @@
   "name": "Ragtime",
   "family": "jazz",
   "lineage": "1890s-1910s composed syncopated piano dance form developed in African-American midwestern saloon and brothel piano tradition — codified through Scott Joplin (Maple Leaf Rag 1899 and The Entertainer 1902) plus Tom Turpin, James Scott and Joseph Lamb, with the form serving as the principal pre-jazz American popular dance music until eclipsed by stride and early jazz around 1920",
-  "recipe": "classic mid-1890s ragtime, improv On Frame, pre jazz ragtime branch, American jazz early, crooners functional song swing-era jazz orchestra new orleans jazz. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright piano, 3 ply maple Gibson mastertone canon maple bluegrass canon plain gut banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone. parlor. acoustic horn. 78rpm shellac.",
-  "recipe_chars": 582,
-  "score": 206.092,
+  "recipe": "classic mid-1890s ragtime, improv On Frame, pre jazz ragtime branch, American jazz early, crooners functional song swing-era jazz orchestra continental jazz. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright piano, walnut warmer than maple maple bluegrass canon plain gut banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon cornet, bach 42 canonical American orchestral tenor student commercial trombone. parlor. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 515,
+  "score": 205.677,
   "config": {
     "traditions": [
       "ragtime",
       "big_band",
-      "new_orleans"
+      "continental_jazz"
     ],
     "instruments": [
       {
@@ -18,7 +18,7 @@
         "slots": {
           "keyboard_technique": "keyboard_stride_left_hand",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
@@ -27,15 +27,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 3.1000000000000005,
-          "grand_piano_size": 0.93,
-          "grand_piano_brand": 0.975,
-          "piano_hammer": 11.7,
-          "piano_rim": 18.135,
-          "piano_soundboard": 5.78,
-          "piano_pinblock": 2.3000000000000003,
-          "piano_plate": 0.745,
-          "piano_pitch_standard": 2.275
+          "keyboard_technique": 3.2050000000000005,
+          "grand_piano_size": 0.675,
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 12.284999999999998,
+          "piano_rim": 17.875,
+          "piano_soundboard": 5.869999999999999,
+          "piano_pinblock": 2.495,
+          "piano_plate": 0.7,
+          "piano_pitch_standard": 3.9
         }
       },
       {
@@ -46,36 +46,36 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 3.1000000000000005,
-          "upright_use": 1.15,
-          "upright_piano_size": 0.65
+          "keyboard_technique": 3.2050000000000005,
+          "upright_use": 1,
+          "upright_piano_size": 0.15
         }
       },
       {
         "id": "banjo_5_string",
         "slots": {
-          "banjo_back": "open_back",
-          "tone_ring": "tubaphone",
+          "banjo_back": "resonator",
+          "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
           "banjo_play": "clawhammer",
-          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_rim_wood": "banjo_walnut_rim",
           "banjo_neck_wood": "banjo_maple_neck",
           "banjo_strings": "banjo_gut_minstrel",
           "banjo_bridge": "banjo_minstrel_bridge",
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 0.045,
-          "tone_ring": 0,
-          "banjo_head": 14.234999999999996,
-          "banjo_pot": 0,
-          "banjo_play": 0,
-          "banjo_rim_wood": 2.015,
-          "banjo_neck_wood": 1.4,
+          "banjo_back": 0.38999999999999996,
+          "tone_ring": 0.32999999999999996,
+          "banjo_head": 17.94,
+          "banjo_pot": 0.345,
+          "banjo_play": 0.195,
+          "banjo_rim_wood": 3.0150000000000006,
+          "banjo_neck_wood": 1.25,
           "banjo_strings": 1.3649999999999995,
           "banjo_bridge": 1.4299999999999995,
-          "banjo_setup_period": 13.974999999999994
+          "banjo_setup_period": 17.485
         }
       },
       {
@@ -88,32 +88,32 @@
           "cornet_maker_school": "cornet_conn_vintage"
         },
         "scores": {
-          "wind_articulation": 3.375,
-          "cornet_pitch": 12.174999999999999,
-          "cornet_context": 7.475,
-          "cornet_bell_metal": 4.29,
-          "cornet_maker_school": 19.894999999999996
+          "wind_articulation": 1.2025,
+          "cornet_pitch": 10.224999999999998,
+          "cornet_context": 5.4399999999999995,
+          "cornet_bell_metal": 2.795,
+          "cornet_maker_school": 20.345
         }
       },
       {
         "id": "trombone",
         "slots": {
-          "wind_articulation": "wind_dixieland_lead",
+          "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_12c",
           "trombone_mute": "straight_mute_trb",
           "trombone_technique": "big_band_punch",
-          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 3.375,
-          "trombone_type": 29.924999999999997,
-          "trombone_mouthpiece": 29.724999999999994,
+          "wind_articulation": 1.6249999999999998,
+          "trombone_type": 28.875,
+          "trombone_mouthpiece": 29.02,
           "trombone_mute": 0.3,
-          "trombone_technique": 2.3600000000000003,
-          "trombone_bell_metal": 1.4299999999999997,
-          "trombone_maker_school": 10.725
+          "trombone_technique": 2.015,
+          "trombone_bell_metal": 0.78,
+          "trombone_maker_school": 11.504999999999999
         }
       }
     ],

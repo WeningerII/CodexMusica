@@ -1,0 +1,134 @@
+{
+  "id": "dark_psytrance",
+  "name": "Dark Psytrance",
+  "family": "electronic",
+  "lineage": "Post-Goa strain codified circa 1999-2005 through European and Russian labels (Parvati, Hydrogen, Osom) by Kindzadza, Psykovsky, Xenomorph and Penta, running 145-165 BPM over a rigid kick-and-rolling-offbeat-bass triplet with dissonant chromatic FM leads, horror-film speech samples, granular metallic textures and no harmonic resolution across a through-built ten-minute arc.",
+  "recipe": "classic mid-2000s dark psytrance, electronic Dance, trance branch, industrial noise experimental electric, techno electronic dance industrial hardcore electro-industrial. fm analog mono evolving modular granular evolving modular modular synth, TR-909, field textural sampler. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 468,
+  "score": 76.638,
+  "config": {
+    "traditions": [
+      "dark_psytrance",
+      "industrial_hardcore",
+      "electro_industrial"
+    ],
+    "instruments": [
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_extreme",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_tx81z"
+        },
+        "scores": {
+          "electronic_technique": 2.7300000000000004,
+          "fm_algorithm": 1.625,
+          "fm_modulator_ratio": 1.8645,
+          "fm_polyphony": 0.3,
+          "fm_model_lineage": 0.9099999999999999
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.585,
+          "tr909_production_origin": 0
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 3.8249999999999993,
+          "mono_oscillator": 0,
+          "mono_filter": 0.65,
+          "mono_archetypes": 0.65,
+          "mono_maker_lineage": -1.7049999999999998
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_synthesized"
+        },
+        "scores": {
+          "electronic_technique": 7.915,
+          "granular_use": 0.845,
+          "granular_synth_source": 6.825
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 7.4495,
+          "sampler_archetypes": 0.25,
+          "sampler_bit_depth": 0.585,
+          "sampler_workflow": 7.5489999999999995,
+          "sampler_classic_context": 22.875
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 7.915,
+          "mod_voltage_source": 0.39,
+          "mod_patch_density": 0.845,
+          "mod_lineage": 0.43500000000000005
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_isolation_cabin_diy",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

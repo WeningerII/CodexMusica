@@ -1,0 +1,136 @@
+{
+  "id": "dutch_house",
+  "name": "Dutch House",
+  "family": "electronic",
+  "lineage": "Netherlands club and festival style of roughly 2007-2012, codified by Chuckie, Afrojack, Sidney Samson and Laidback Luke out of Rotterdam and Amsterdam bubbling-and-house crossover, built on 128 BPM four-on-the-floor kicks with heavily sidechained tails, pitch-bent squelch leads voiced on a single detuned saw, tuned filtered toms borrowed from bubbling, near-total absence of sustained pads, and short shouted vocal stabs used as rhythmic punctuation rather than melody.",
+  "recipe": "classic mid-2010s dutch house, electronic Dance, house branch, tech house house, hardstyle electronic dance jumpstyle bouncy house. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. digital subtractive, TR-909, analog mono synth, hand clap. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 461,
+  "score": 198.888,
+  "config": {
+    "traditions": [
+      "dutch_house",
+      "jumpstyle",
+      "bouncy_house"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 2.3275,
+          "va_archetypes": 0.845,
+          "digital_subtractive_context": 17.485
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 21.375,
+          "drum_machine_909_context": 1.75875,
+          "tr909_production_origin": 0.135
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 2.3275,
+          "mono_oscillator": 0,
+          "mono_filter": -0.245,
+          "mono_archetypes": 0.65,
+          "mono_maker_lineage": -1.7199999999999998
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 3.1849999999999996,
+          "voice_quality": 8.190000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.95,
+          "voice_articulation": 18.004999999999995,
+          "voice_microtone": 17.159999999999993,
+          "voice_tradition": 8.676875,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 19.499999999999996,
+          "voice_ensemble_config": 20.019999999999992,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 3.6956250000000006,
+          "voice_processing_chain": 23.309375000000006,
+          "voice_multitrack_stack": 4.484999999999999
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.65,
+          "clap_capture": 0.345
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

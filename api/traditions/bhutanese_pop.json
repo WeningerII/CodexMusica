@@ -1,0 +1,160 @@
+{
+  "id": "bhutanese_pop",
+  "name": "Bhutanese pop (rigsar)",
+  "family": "pop",
+  "lineage": "Bhutan's modern popular song style, named rigsar and dated by convention to the 1960s song 'Zhendi Migo', which took shape through the 1980s-90s as electric keyboards, drum machines and Bollywood-derived arrangement templates were fitted to Dzongkha lyrics — mid-tempo 90-115 BPM verse-chorus songs, sweet high nasal vocal delivery, preset synth strings and rhythm boxes, with dranyen retained as a traditional signature.",
+  "recipe": "classic Southeast Asian mid-1960s bhutanese pop, functional Song, south Asian pop branch, east Asian pop functional song, east Asian art music enka trot. extended whistle, breath veiled tone, slow rate, interlocked note trading. plucked short envelope analog poly synth, drum machine analog, dranyen, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, ornamented song shadowing piwang tibet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 611,
+  "score": 271.578,
+  "config": {
+    "traditions": [
+      "bhutanese_pop",
+      "enka",
+      "trot_revival"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 30.322499999999998,
+          "voice_quality": 10.074999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.77,
+          "voice_articulation": 19.565,
+          "voice_microtone": 26.719999999999995,
+          "voice_tradition": 35.015,
+          "voice_mechanism_compound": 3.1200000000000006,
+          "voice_estill_quality": 5.525000000000001,
+          "voice_speech_song": 31.394999999999996,
+          "voice_ensemble_config": 19.5,
+          "voice_ornament_system": 6.725,
+          "voice_pitch_organization": 3.04,
+          "voice_processing_chain": 7.0525,
+          "voice_multitrack_stack": 8.775
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 24.625,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.7150000000000001,
+          "poly_maker_lineage": -1.225
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 1.15,
+          "snare_voice": 1.15,
+          "hat_voice": 0.28500000000000003,
+          "shuffle_quantize": 1.15
+        }
+      },
+      {
+        "id": "dranyen",
+        "slots": {
+          "dranyen_form": "dranyen_bhutanese",
+          "dranyen_technique": "dranyen_strum",
+          "dranyen_strings": "dranyen_nylon"
+        },
+        "scores": {
+          "dranyen_form": 0.3,
+          "dranyen_technique": 0.3,
+          "dranyen_strings": 1.795
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 3.2175000000000002,
+          "body_wood": 2.34,
+          "pickup_config": 1.24,
+          "string_type": 4.03,
+          "scale_length_b": 2.28,
+          "fretted_or_not": 0.195,
+          "bass_technique": 3.2199999999999993
+        }
+      },
+      {
+        "id": "piwang_tibet",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "piwang_tibet_resonator": "piwang_tibet_wood_skin",
+          "piwang_tibet_repertoire": "piwang_tibet_nangma",
+          "piwang_tibet_strings": "piwang_tibet_steel"
+        },
+        "scores": {
+          "bowed_technique": 0.12999999999999998,
+          "piwang_tibet_resonator": 1.09,
+          "piwang_tibet_repertoire": 10.985,
+          "piwang_tibet_strings": 0.585
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

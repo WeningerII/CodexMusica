@@ -3,9 +3,9 @@
   "name": "Bebop",
   "family": "jazz",
   "lineage": "1944-1955 small-group jazz vocabulary codified by Charlie Parker, Dizzy Gillespie, Thelonious Monk, Bud Powell, Max Roach, Kenny Clarke — rapid chord changes, virtuosic melodic improvisation, complex rhythmic displacement, intimate quintet-sextet format displacing swing-era big bands",
-  "recipe": "classic North American mid-1950s bebop, improv On Frame, bop branch, American jazz early swing-era jazz orchestra new orleans jazz. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted living room 1944-1959 indie-commercial van gelder hackensack. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 671,
-  "score": 228.497,
+  "recipe": "classic North American mid-1950s bebop, improv On Frame, bop branch, American jazz early swing-era jazz orchestra new orleans jazz. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted living room 1944-1959 indie-commercial van gelder hackensack. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 673,
+  "score": 240.058,
   "config": {
     "traditions": [
       "bebop",
@@ -25,32 +25,32 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4.079875,
-          "sax_size": 4.048375,
-          "sax_reed": 0.048375,
+          "wind_articulation": 4.2250000000000005,
+          "sax_size": 4.345,
+          "sax_reed": 0.38999999999999996,
           "sax_body_alloy": 22.175,
-          "sax_mouthpiece": 0.054,
+          "sax_mouthpiece": 0.345,
           "sax_technique": 21.875,
-          "sax_maker_school": 25.651125
+          "sax_maker_school": 28.3725
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_dixieland_lead",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "harmon_out",
-          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_technique": "trumpet_dixieland_lead",
           "trumpet_bell_metal": "trumpet_red_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.079875,
-          "brass_size": 0.054,
-          "trumpet_mouthpiece": 25.350875000000002,
+          "wind_articulation": 4.395,
+          "brass_size": 0.345,
+          "trumpet_mouthpiece": 28.4375,
           "brass_mute": 0.39,
-          "trumpet_technique": 4.079875,
+          "trumpet_technique": 4.395,
           "trumpet_bell_metal": 1.04,
           "trumpet_maker_school": 7.15
         }
@@ -69,14 +69,14 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 1.74225,
-          "grand_piano_size": 0.2175,
-          "grand_piano_brand": 0.2175,
+          "keyboard_technique": 1.5,
+          "grand_piano_size": 0.675,
+          "grand_piano_brand": 0.675,
           "piano_hammer": 6.89,
           "piano_rim": 8.385,
           "piano_soundboard": 1.4299999999999997,
-          "piano_pinblock": -0.05,
-          "piano_plate": 0.26575,
+          "piano_pinblock": -0.035,
+          "piano_plate": 0.325,
           "piano_pitch_standard": 0.9099999999999999
         }
       },
@@ -100,7 +100,7 @@
         },
         "scores": {
           "drum_technique": 21.875,
-          "drumhead": 25.36275,
+          "drumhead": 28.3725,
           "drum_kit_kick_pedal": 0
         }
       }

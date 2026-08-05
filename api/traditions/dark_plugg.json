@@ -1,0 +1,152 @@
+{
+  "id": "dark_plugg",
+  "name": "Dark plugg",
+  "family": "hip_hop",
+  "lineage": "Split off from plugg around 2018-2021 in the SoundCloud producer diaspora around MexikoDro's Plugg tradition, codified by producers such as Yung Icey, Ptolemy and StoopidXool with rappers like SosMula-adjacent underground figures, keeping plugg's 130-150 BPM bell and glassy-pad palette but shifting to minor-second dissonance, detuned brass or choir stabs, sparse distorted 808s with long glides, and heavily reverbed, murky vocals mixed low into the beat.",
+  "recipe": "classic 2018-2021 dark plugg, mc Rhythm, modern branch, experimental MC rhythm, lofi experimental electric dungeon rap nerdcore. vocal fry, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, low sub bass analog poly native instruments fm8 modern software 8 operator sub bass fm synth, sampled chopped sampler drum machine, low cupped muffled hand clap. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 524,
+  "score": 210.385,
+  "config": {
+    "traditions": [
+      "dark_plugg",
+      "dungeon_rap",
+      "nerdcore"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.34,
+          "voice_quality": 20.54,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 14.494999999999994,
+          "voice_microtone": 15.989999999999991,
+          "voice_tradition": 10.5625,
+          "voice_mechanism_compound": 6.954999999999999,
+          "voice_estill_quality": 6.5649999999999995,
+          "voice_speech_song": 18.685,
+          "voice_ensemble_config": 15.014999999999993,
+          "voice_ornament_system": 6.435000000000002,
+          "voice_pitch_organization": 1.88,
+          "voice_processing_chain": 10.195,
+          "voice_multitrack_stack": 5.9475
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 6.720000000000001,
+          "drum_machine_808_context": 2.4050000000000002,
+          "tr808_production_origin": 2.8600000000000003
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 9.64,
+          "poly_archetypes": 1.1949999999999998,
+          "poly_voices": 1.1949999999999998,
+          "poly_maker_lineage": -1.085
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_simple",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_native_instruments_fm8"
+        },
+        "scores": {
+          "electronic_technique": 9.64,
+          "fm_algorithm": 1.3,
+          "fm_modulator_ratio": 2.145,
+          "fm_polyphony": 0.195,
+          "fm_model_lineage": 2.755
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 6.310000000000001,
+          "sample_bitdepth": 4.385,
+          "sample_swing": 10.530000000000001,
+          "sample_processing": 2.34
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_cupped_muffled",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 2.495,
+          "clap_capture": 0.435
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "carpeted_bedroom",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

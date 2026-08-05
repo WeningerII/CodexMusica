@@ -3,20 +3,21 @@
   "name": "Banda sinaloense",
   "family": "global",
   "lineage": "Mexican brass-band tradition of Sinaloa state, derived from late-nineteenth-century German-immigrant military-band tradition adapted to Mexican-rural-popular celebration-music. Large ensemble of clarinets, trumpets, trombones, sousaphone, tambora, tarola, voice — entirely brass-and-percussion. Repertoire spans ranchera, corrido, cumbia. Banda El Recodo (founded 1938) anchors the canonical sound.",
-  "recipe": "classic Mexican late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline. thick, full chest belt, interlocked note trading, neutral third half flat. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition clarinet, banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 866,
-  "score": 119.904,
+  "recipe": "classic Mexican late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline marching band. thick, breath veiled tone, interlocked note trading, neutral third half flat. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line bass leaning trombone, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition front line clarinet, walking bass banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 920,
+  "score": 188.268,
   "config": {
     "traditions": [
       "banda_sinaloense",
-      "american_drumline"
+      "american_drumline",
+      "marching_band"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
@@ -29,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 0.7499999999999996,
-          "voice_quality": 6.110000000000002,
+          "voice_register": 1.5949999999999998,
+          "voice_quality": 6.175,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.45499999999999996,
-          "voice_articulation": 5.07,
-          "voice_microtone": 4.875000000000001,
-          "voice_tradition": 5.525,
-          "voice_mechanism_compound": 1.7324999999999997,
-          "voice_estill_quality": 3.353,
-          "voice_speech_song": 7.41,
-          "voice_ensemble_config": 6.695,
-          "voice_ornament_system": 1.56,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 3.3469999999999995,
+          "voice_articulation": 13.065000000000001,
+          "voice_microtone": 12.869999999999997,
+          "voice_tradition": 8.905,
+          "voice_mechanism_compound": 1.4949999999999999,
+          "voice_estill_quality": 3.6800000000000006,
+          "voice_speech_song": 15.405000000000001,
+          "voice_ensemble_config": 15.535000000000002,
+          "voice_ornament_system": 2.153,
+          "voice_pitch_organization": 1.4364999999999999,
+          "voice_processing_chain": 5.9799999999999995,
           "voice_multitrack_stack": 1.4949999999999999
         }
       },
@@ -55,21 +56,21 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_dixieland_lead",
-          "brass_size": "flugelhorn",
+          "brass_size": "cornet",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
-          "brass_mute": "no_mute_brass",
+          "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_dixieland_lead",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 2.5999999999999996,
-          "brass_size": 0.105,
+          "wind_articulation": 4.095,
+          "brass_size": 0,
           "trumpet_mouthpiece": 2.47,
-          "brass_mute": 0.0315,
-          "trumpet_technique": 2.5999999999999996,
-          "trumpet_bell_metal": 4.404,
-          "trumpet_maker_school": 4.366
+          "brass_mute": 0.195,
+          "trumpet_technique": 4.095,
+          "trumpet_bell_metal": 5.3565,
+          "trumpet_maker_school": 7.344999999999999
         }
       },
       {
@@ -77,20 +78,20 @@
         "slots": {
           "wind_articulation": "wind_dixieland_lead",
           "trombone_type": "bass_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_5g",
-          "trombone_mute": "no_mute_trb",
+          "trombone_mouthpiece": "bach_trombone_mp_3g",
+          "trombone_mute": "straight_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 2.5999999999999996,
+          "wind_articulation": 4.095,
           "trombone_type": 0,
-          "trombone_mouthpiece": 2.47,
-          "trombone_mute": 0.0315,
+          "trombone_mouthpiece": 3.965,
+          "trombone_mute": 0.195,
           "trombone_technique": 0.845,
-          "trombone_bell_metal": 4.599,
-          "trombone_maker_school": 5.265
+          "trombone_bell_metal": 6.2015,
+          "trombone_maker_school": 7.54
         }
       },
       {
@@ -105,11 +106,11 @@
         },
         "scores": {
           "wind_articulation": 0.39,
-          "tuba_pitch": 3.769999999999999,
-          "tuba_context": 10.616,
-          "tuba_bell_metal": 4.435499999999999,
-          "tuba_valve_system": 3.119999999999999,
-          "tuba_maker_school": 7.530499999999999
+          "tuba_pitch": 5.654999999999999,
+          "tuba_context": 14.754999999999997,
+          "tuba_bell_metal": 5.4014999999999995,
+          "tuba_valve_system": 5.59,
+          "tuba_maker_school": 11.0865
         }
       },
       {
@@ -122,10 +123,10 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 2.5999999999999996,
-          "clarinet_body": 4.373,
-          "clarinet_size": 0,
-          "clarinet_reed": 0.195,
+          "wind_articulation": 4.095,
+          "clarinet_body": 4.508,
+          "clarinet_size": 0.15,
+          "clarinet_reed": 0.845,
           "clarinet_articulation": 0.45499999999999996
         }
       },
@@ -136,8 +137,8 @@
           "banda_sinaloense_context": "banda_sinaloense_norteno"
         },
         "scores": {
-          "sections": 0.845,
-          "banda_sinaloense_context": 1.69
+          "sections": 2.34,
+          "banda_sinaloense_context": 2.73
         }
       }
     ],

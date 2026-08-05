@@ -1,0 +1,119 @@
+{
+  "id": "latmiya",
+  "name": "Latmiya",
+  "family": "global",
+  "lineage": "Shia mourning chant of Iraq, Iran, Lebanon, Bahrain and the Gulf performed in Muharram husseiniya gatherings for the commemoration of Ashura, formalized in Iraqi and Bahraini radud practice through the twentieth century — a solo radud declaims elegiac Arabic verse and a massed male congregation answers while beating their chests, the latm strokes supplying the meter, unaccompanied by melodic instruments and rising in tempo and register across a strophe.",
+  "recipe": "classic Middle Eastern mid-1980s latmiya, funeral Lament, middle eastern branch, islamic ritual devotional, middle east n African praise song shailat sufi munajat and naat. thick, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, group massed hand clap, tof. qat chew majlis room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 544,
+  "score": 179.888,
+  "config": {
+    "traditions": [
+      "latmiya",
+      "shailat",
+      "sufi_munajat_naat"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 1.6699999999999995,
+          "voice_quality": 21.325624999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.8375000000000004,
+          "voice_articulation": 14.364999999999997,
+          "voice_microtone": 24.244999999999997,
+          "voice_tradition": 18.2,
+          "voice_mechanism_compound": 6.775,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 21.125,
+          "voice_ensemble_config": 15.144999999999996,
+          "voice_ornament_system": 11.88,
+          "voice_pitch_organization": 9.28625,
+          "voice_processing_chain": 4.744999999999999,
+          "voice_multitrack_stack": 3.640000000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 8.19,
+          "choir_polyphonic_configuration": 1.7512500000000002,
+          "choir_regional_canonical_configuration": 6.89,
+          "choir_ensemble_repertoire": 3.6399999999999997
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_group_massed",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.92,
+          "clap_capture": 0.195
+        }
+      },
+      {
+        "id": "tof",
+        "slots": {
+          "tof_form": "tof_jingled",
+          "tof_head": "tof_calf",
+          "tof_style": "tof_processional"
+        },
+        "scores": {
+          "tof_form": 0.045,
+          "tof_head": 0.15,
+          "tof_style": 0
+        }
+      }
+    ],
+    "room": "qat_chew_majlis_room",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "qat_chew_majlis_room",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

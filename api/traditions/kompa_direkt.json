@@ -3,14 +3,14 @@
   "name": "Kompa-direkt (Haitian)",
   "family": "global",
   "lineage": "The original founding Haitian kompa-direkt tradition invented by Nemours Jean-Baptiste in 1955 — characterized by big-band horn-section arrangement, slower 2/4 dance tempo (90-110 BPM), and the meringue Haitian rhythmic foundation; figures Nemours Jean-Baptiste (the founder), his orchestra Ensemble Aux Calebasses, and the parallel cadence-rampa lineage of Webert Sicot",
-  "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra new orleans jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
-  "recipe_chars": 847,
-  "score": 219.024,
+  "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early neo-swing swing-era jazz orchestra. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, cowhide mid tier siam oak mid tier modern congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
+  "recipe_chars": 866,
+  "score": 225.833,
   "config": {
     "traditions": [
       "kompa_direkt",
-      "big_band",
-      "new_orleans"
+      "neo_swing",
+      "big_band"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -34,28 +34,28 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 15.281499999999994,
+          "voice_register": 15.364999999999995,
           "voice_quality": 5.98,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.222999999999999,
-          "voice_articulation": 7.735,
-          "voice_microtone": 12.819999999999995,
-          "voice_tradition": 15.767999999999997,
-          "voice_mechanism_compound": 1.2349999999999999,
-          "voice_estill_quality": 1.0399999999999998,
-          "voice_speech_song": 8.58,
-          "voice_ensemble_config": 7.669999999999999,
-          "voice_ornament_system": 0.8449999999999998,
+          "voice_vibrato": 11.705000000000002,
+          "voice_articulation": 9.165000000000001,
+          "voice_microtone": 12.6,
+          "voice_tradition": 13.877500000000001,
+          "voice_mechanism_compound": 1.4300000000000002,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 10.01,
+          "voice_ensemble_config": 9.555,
+          "voice_ornament_system": 0.6499999999999998,
           "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 5.3950000000000005,
-          "voice_multitrack_stack": 2.7300000000000018
+          "voice_processing_chain": 5.265,
+          "voice_multitrack_stack": 2.4049999999999994
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
@@ -65,22 +65,22 @@
           "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
-          "string_tuning": "open_g"
+          "finish": "oil_satin",
+          "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 1.9500000000000002,
-          "amp_make": 6.0125,
-          "body_wood": 0.39,
-          "neck_wood": 0.39,
-          "fretboard": 0.325,
-          "pickup_magnet": 0.105,
+          "electric_technique": 2.6900000000000004,
+          "amp_make": 5.817500000000001,
+          "body_wood": 1.2349999999999999,
+          "neck_wood": 1.2349999999999999,
+          "fretboard": 1.17,
+          "pickup_magnet": 0.345,
           "string_material": 0.195,
-          "string_gauge": 0.39,
+          "string_gauge": 1.2349999999999999,
           "bridge": 0.39,
-          "scale_length": 0.39,
-          "finish": 0,
-          "string_tuning": 1.04
+          "scale_length": 1.2349999999999999,
+          "finish": 0.15,
+          "string_tuning": 1.69
         }
       },
       {
@@ -95,13 +95,13 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 7.1175,
-          "body_wood": 0.39,
+          "amp_make": 7.377500000000001,
+          "body_wood": 1.2349999999999999,
           "pickup_config": 0.39,
-          "string_type": 14.339999999999998,
-          "scale_length_b": 0.585,
-          "fretted_or_not": 0.063,
-          "bass_technique": 12.374999999999998
+          "string_type": 13.4875,
+          "scale_length_b": 1.4299999999999997,
+          "fretted_or_not": 0,
+          "bass_technique": 10.42
         }
       },
       {
@@ -112,8 +112,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.844999999999995,
-          "drumhead": 14.42,
+          "drum_technique": 14.235,
+          "drumhead": 13.422500000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -129,13 +129,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 6.136,
-          "sax_size": 0.39,
-          "sax_reed": 0.105,
-          "sax_body_alloy": 13.124999999999998,
-          "sax_mouthpiece": 0.105,
-          "sax_technique": 12.406499999999998,
-          "sax_maker_school": 12.59
+          "wind_articulation": 5.525,
+          "sax_size": 1.2349999999999999,
+          "sax_reed": 0.38999999999999996,
+          "sax_body_alloy": 11.125,
+          "sax_mouthpiece": 0.345,
+          "sax_technique": 10.375,
+          "sax_maker_school": 10.822500000000002
         }
       },
       {
@@ -147,10 +147,10 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 0.26,
-          "conga_set": 0.6779999999999999,
-          "conga_skin": 0.39,
-          "conga_shell_wood": 0.78
+          "percussion_technique": 1.56,
+          "conga_set": 0.345,
+          "conga_skin": 1.2349999999999999,
+          "conga_shell_wood": 1.625
         }
       }
     ],

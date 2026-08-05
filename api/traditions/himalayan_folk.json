@@ -1,0 +1,153 @@
+{
+  "id": "himalayan_folk",
+  "name": "Himalayan folk (trans-Himalayan hill song)",
+  "family": "global",
+  "lineage": "Village song of the mid-Himalayan belt from Kumaon and Nepal through Sikkim and Bhutan, transmitted orally and documented by ethnographers from the mid-20th century — seasonal, agricultural and wedding songs in narrow-range modal melody with heavy nasal vocal placement, accompanied by madal or damphu hand drum, murali/bansuri flute and sarangi, in walking-tempo duple or free-metered outdoor calls.",
+  "recipe": "classic early-1940s himalayan folk, domestic Rhythm, south Asian branch, indian bard ballad poetry, south Asian field work, south Asian pop functional song chutney punjabi folk. thick, breath veiled tone, slow rate, interlocked note trading. dance driving slung madal, self accompanied damped bent pitch damphu, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, four string nepali sarangi, hand clap. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 536,
+  "score": 273.58,
+  "config": {
+    "traditions": [
+      "himalayan_folk",
+      "chutney_bhojpuri",
+      "punjabi_folk_boli"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 8.200000000000001,
+          "voice_quality": 9.945,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 17.224999999999994,
+          "voice_microtone": 17.419999999999995,
+          "voice_tradition": 19.464000000000002,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 6.76,
+          "voice_speech_song": 25.154999999999998,
+          "voice_ensemble_config": 17.029999999999994,
+          "voice_ornament_system": 8.614999999999998,
+          "voice_pitch_organization": 8.32,
+          "voice_processing_chain": 4.9399999999999995,
+          "voice_multitrack_stack": 4.517500000000001
+        }
+      },
+      {
+        "id": "madal",
+        "slots": {
+          "madal_role": "madal_role_jhyaure",
+          "madal_posture": "madal_posture_patuka",
+          "madal_paste": "madal_paste_khari",
+          "madal_shell": "madal_shell_composite"
+        },
+        "scores": {
+          "madal_role": 17.219499999999996,
+          "madal_posture": 12.4995,
+          "madal_paste": 0.585,
+          "madal_shell": -0.07
+        }
+      },
+      {
+        "id": "damphu",
+        "slots": {
+          "damphu_form": "damphu_form_pegged",
+          "damphu_technique": "damphu_technique_damped",
+          "damphu_role": "damphu_role_selo",
+          "damphu_head": "damphu_head_warmed"
+        },
+        "scores": {
+          "damphu_form": 8.634999999999998,
+          "damphu_technique": 8.295,
+          "damphu_role": 17.57,
+          "damphu_head": 0.26
+        }
+      },
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "bansuri_length": "small_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_kerala_bamboo",
+          "bansuri_lineage": "bansuri_hariprasad_maihar"
+        },
+        "scores": {
+          "wind_articulation": 5.17,
+          "bansuri_length": 4.92,
+          "bansuri_ornament": 2.3395,
+          "bansuri_body_material": 8.84,
+          "bansuri_lineage": 3.9
+        }
+      },
+      {
+        "id": "nepali_sarangi",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "nepali_sarangi_form": "nepali_sarangi_form_gandharba",
+          "nepali_sarangi_context": "nepali_sarangi_context_seasonal",
+          "nepali_sarangi_build": "nepali_sarangi_build_steel"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "nepali_sarangi_form": 13.605,
+          "nepali_sarangi_context": 14.045,
+          "nepali_sarangi_build": 0.975
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 0.39,
+          "clap_capture": 0.045
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "mountain_valley",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

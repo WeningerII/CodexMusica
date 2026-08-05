@@ -1,0 +1,102 @@
+{
+  "id": "himene_tarava_society",
+  "name": "Himene tārava (Society Islands village choir)",
+  "family": "global",
+  "lineage": "Tahitian and Cook Islands congregational choral form that crystallised after London Missionary Society hymn contact from 1797 onward and is now judged annually at the Heiva i Tahiti — large unaccompanied village choirs stacked in six or more parts, a continuously grunted low-male ostinato (the tuki or perepere) under the texture, high women's ha'u lines sliding into the chords, sustained non-diatonic clusters that drift in pitch across a verse, and abrupt unison cadential drops.",
+  "recipe": "classic Oceanian late-1790s himene tārava, praise Song, oceania pacific branch, christian gospel anglican choral, vocal drone modal anglican choral evensong trallalero. vocal fry, declaimed, slow rate, interlocked note trading. snappy to palm hand clap, foot stomp. tongan outdoor village green. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 358,
+  "score": 128.461,
+  "config": {
+    "traditions": [
+      "himene_tarava_society",
+      "anglican_choral_evensong",
+      "trallalero"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.16,
+          "voice_quality": 13.769499999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.275,
+          "voice_articulation": 12.642499999999995,
+          "voice_microtone": 13.97499999999999,
+          "voice_tradition": 11.959999999999994,
+          "voice_mechanism_compound": 5.2,
+          "voice_estill_quality": 5.604,
+          "voice_speech_song": 15.599999999999993,
+          "voice_ensemble_config": 18.492499999999993,
+          "voice_ornament_system": 5.3,
+          "voice_pitch_organization": 4.972500000000001,
+          "voice_processing_chain": 7.67,
+          "voice_multitrack_stack": 6.045
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.2349999999999999,
+          "clap_capture": 0.845
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_gumboot",
+          "stomp_surface": "stomp_wood_stage"
+        },
+        "scores": {
+          "stomp_footwear": 0.195,
+          "stomp_surface": 0.195
+        }
+      }
+    ],
+    "room": "tongan_outdoor_village_green",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "tongan_outdoor_village_green",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

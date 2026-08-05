@@ -3,21 +3,21 @@
   "name": "Kriti (Carnatic devotional composition)",
   "family": "global",
   "lineage": "The central composition-form of Carnatic classical music, codified by the early-19th-century Trinity (Tyagaraja set Telugu and Sanskrit devotional poetry to ~600 kritis predominantly to Rama; Muthuswami Dikshitar composed in Sanskrit predominantly to various deities; Syama Sastri composed predominantly to the Goddess) — every kriti has the standard pallavi (refrain) / anupallavi (upward-developing second section) / charanam (longer extending section) structure",
-  "recipe": "classic South Asian early-1950s kriti, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music telugu kirtana sinhala vannama. vocal fry, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, synthetic core modern lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 603,
-  "score": 286.101,
+  "recipe": "classic South Asian early-1950s kriti, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music dadra tappa. vocal fry, declaimed, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 516,
+  "score": 257.035,
   "config": {
     "traditions": [
       "kriti",
-      "telugu_kirtana",
-      "sinhala_vannama"
+      "dadra",
+      "tappa"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 3.1185,
-          "voice_quality": 19.11,
+          "voice_register": 2.34,
+          "voice_quality": 12.708999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.975,
-          "voice_articulation": 6.175,
-          "voice_microtone": 5.98,
-          "voice_tradition": 36.742,
-          "voice_mechanism_compound": 10.649999999999999,
-          "voice_estill_quality": 16.084,
-          "voice_speech_song": 11.434499999999998,
-          "voice_ensemble_config": 6.955000000000001,
-          "voice_ornament_system": 28.644999999999996,
-          "voice_pitch_organization": 28.824999999999996,
-          "voice_processing_chain": 4.355,
-          "voice_multitrack_stack": 3.1185
+          "voice_vibrato": 17.225,
+          "voice_articulation": 4.225,
+          "voice_microtone": 4.030000000000001,
+          "voice_tradition": 31.666999999999998,
+          "voice_mechanism_compound": 13.149999999999999,
+          "voice_estill_quality": 19.584,
+          "voice_speech_song": 14.084499999999997,
+          "voice_ensemble_config": 4.355,
+          "voice_ornament_system": 21.294999999999998,
+          "voice_pitch_organization": 21.474999999999998,
+          "voice_processing_chain": 2.73,
+          "voice_multitrack_stack": 2.9899999999999998
         }
       },
       {
@@ -62,11 +62,11 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 5.59,
+          "mridangam_heads": 6.89,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 8.915,
-          "mridangam_heads_material": 1.9499999999999997,
-          "mridangam_lineage": 9.409499999999998
+          "mridangam_shell_wood": 2.9899999999999998,
+          "mridangam_heads_material": 0,
+          "mridangam_lineage": 3.6399999999999997
         }
       },
       {
@@ -76,16 +76,16 @@
           "tanpura_size": "female_size",
           "tanpura_jawari": "curved_jawari",
           "tanpura_strings": "five_string_chitra",
-          "tanpura_string_material": "tanpura_bronze_steel",
-          "tanpura_body_wood": "tanpura_gourd_body"
+          "tanpura_string_material": "tanpura_brass_only",
+          "tanpura_body_wood": "tanpura_wooden_body"
         },
         "scores": {
-          "plucked_traditional_technique": 10.96,
-          "tanpura_size": 5.2,
-          "tanpura_jawari": 10.75,
-          "tanpura_strings": 1.69,
-          "tanpura_string_material": 1.9499999999999997,
-          "tanpura_body_wood": 1.9499999999999997
+          "plucked_traditional_technique": 13.96,
+          "tanpura_size": 7.54,
+          "tanpura_jawari": 13.25,
+          "tanpura_strings": 1.4999999999999998,
+          "tanpura_string_material": 0.39,
+          "tanpura_body_wood": 0.285
         }
       },
       {
@@ -93,16 +93,16 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "violin_carnatic_tuning": "violin_carnatic_carnatic",
-          "violin_carnatic_posture": "violin_carnatic_seated_western",
-          "violin_carnatic_strings": "violin_carnatic_synthetic",
+          "violin_carnatic_posture": "violin_carnatic_seated_south",
+          "violin_carnatic_strings": "violin_carnatic_gut_historical",
           "violin_carnatic_lineage": "violin_carnatic_lalgudi"
         },
         "scores": {
-          "bowed_technique": 10.96,
-          "violin_carnatic_tuning": 11.764999999999999,
-          "violin_carnatic_posture": 2.9899999999999998,
-          "violin_carnatic_strings": 2.7949999999999995,
-          "violin_carnatic_lineage": 9.409499999999998
+          "bowed_technique": 13.96,
+          "violin_carnatic_tuning": 9.424999999999999,
+          "violin_carnatic_posture": 3.25,
+          "violin_carnatic_strings": 2.7300000000000004,
+          "violin_carnatic_lineage": 3.6399999999999997
         }
       }
     ],

@@ -1,0 +1,150 @@
+{
+  "id": "florida_breaks",
+  "name": "Florida Breaks",
+  "family": "electronic",
+  "lineage": "Orlando, Tampa and Miami club style of the mid-1990s codified by DJ Icey, Baby Anne, Rabbit in the Moon and the Zone label — 128-135 BPM electro-funk breakbeat with a hard clipped kick and snare, dominant filtered sub or acid bassline, Miami-bass-derived 808 low end, minimal melodic content and short chanted vocal drops.",
+  "recipe": "classic 1994-1996 florida breaks, bass System, bass descendants branch, uk soundsystem bass system, tech house house, techno electronic dance breakbeat hardcore yorkshire bleeps and bass. vocal fry, breath veiled tone, straight note core, interlocked note trading. sampler drum machine, TR-808, low sub bass monosynth acid bass, turntable, low sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 575,
+  "score": 227.093,
+  "config": {
+    "traditions": [
+      "florida_breaks",
+      "breakbeat_hardcore",
+      "yorkshire_bleeps_and_bass"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.2999999999999998,
+          "sample_bitdepth": 1.5939999999999999,
+          "sample_swing": 12.125,
+          "sample_processing": 2.8895
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 15.665,
+          "drum_machine_808_context": 15.925,
+          "tr808_production_origin": 0.65
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 17.419999999999995,
+          "wave_acid": 0.345,
+          "filter_acid": 3.38,
+          "accent_acid": 3.625
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "scores": {
+          "electronic_technique": 1.2999999999999998,
+          "turntable_technique": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 17.419999999999995,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.65,
+          "poly_maker_lineage": -1.085
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.615,
+          "voice_quality": 6.695,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.380000000000001,
+          "voice_articulation": 19.305,
+          "voice_microtone": 18.914999999999996,
+          "voice_tradition": 5.005000000000001,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 19.11,
+          "voice_ensemble_config": 19.045,
+          "voice_ornament_system": 6.5,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 15.3095,
+          "voice_multitrack_stack": 4.615
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

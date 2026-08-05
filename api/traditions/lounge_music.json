@@ -1,0 +1,175 @@
+{
+  "id": "lounge_music",
+  "name": "Lounge (cocktail-bar mood music)",
+  "family": "pop",
+  "lineage": "Consolidated in American hotel bars and Las Vegas rooms circa 1954-1966 and captured on Capitol, RCA and Command LPs by Martin Denny, Esquivel, Henry Mancini and Jackie Gleason — small combo of vibraphone, muted trumpet, organ, brushed kit and upright bass playing standards and originals in slow-to-medium swing and bossa, drenched in chamber reverb, with exaggerated stereo panning and novelty percussion for the hi-fi demonstration market.",
+  "recipe": "classic North American mid-1960s lounge, functional Song, crooners branch, American jazz smooth vocal, pop rock functional song new wave dinner jazz. vibraphone, bach stradivarius 180 canonical American orchestral breath tone airy low dynamic level jazz balance ensemble trumpet, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, growly gut upright bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, cowhide mid tier congas, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 920,
+  "score": 281.189,
+  "config": {
+    "traditions": [
+      "lounge_music",
+      "new_wave",
+      "dinner_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_slow",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": 0.75,
+          "vibe_motor": 11.10875,
+          "vibe_mallets": 10.5
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "plunger",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 5.68875,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 15.795,
+          "brass_mute": 1.625,
+          "trumpet_technique": 2.7074999999999996,
+          "trumpet_bell_metal": 0.65,
+          "trumpet_maker_school": 5.265
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 15.459999999999999,
+          "drawbar_setting": 14.31125,
+          "rotary_speed": 10.699999999999996,
+          "percussion_setting": 11.195,
+          "tonewheel_model": 19.499999999999996,
+          "leslie_cabinet_model": 1.69
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 10.5,
+          "upright_play": 10.5
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 31.655,
+          "drumhead": 13.999999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 15.459999999999999,
+          "grand_piano_size": 2.925,
+          "grand_piano_brand": 2.925,
+          "piano_hammer": 12.739999999999998,
+          "piano_rim": 14.644999999999998,
+          "piano_soundboard": 13.999999999999998,
+          "piano_pinblock": 0.375,
+          "piano_plate": 1.3324999999999998,
+          "piano_pitch_standard": 1.9175
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 1.3975,
+          "conga_set": 0.78,
+          "conga_skin": 2.08,
+          "conga_shell_wood": 0.325
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 4.42,
+          "choir_polyphonic_configuration": 2.0799999999999996,
+          "choir_regional_canonical_configuration": 0.975,
+          "choir_ensemble_repertoire": 1.8199999999999998
+        }
+      }
+    ],
+    "room": "capitol_tower_studios_la",
+    "archetype": "arch_60s_la_smallroom_chambers",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "console_apinla_vintage_la",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "jazz_swing_eighth_4_4",
+    "room": "capitol_tower_studios_la",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_apinla_vintage_la"
+  }
+}

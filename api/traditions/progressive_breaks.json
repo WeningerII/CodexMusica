@@ -1,0 +1,170 @@
+{
+  "id": "progressive_breaks",
+  "name": "Progressive Breaks",
+  "family": "electronic",
+  "lineage": "UK and US crossover style of roughly 1996-2005 developed by Hybrid, BT, Way Out West and the Distinctive and Bedrock labels, characterized by 128-134 BPM chopped syncopated breakbeats replacing the four-on-the-floor kick, long filtered progressive-house pads, orchestral or cinematic string layers, sub-bass ostinati and eight-to-ten-minute arrangements built on extremely gradual DJ-friendly transitions.",
+  "recipe": "classic mid-2000s progressive breaks, electronic Dance, continental branch, trance electronic dance, idm glitch experimental electric idm and experimental electronic. vocal fry, breath veiled tone, straight note core, interlocked note trading. glitched textural sampler, sub bass analog poly synth, sub bass digital subtractive, sub bass monosynth acid bass, sustained pad string machine, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 600,
+  "score": 234.962,
+  "config": {
+    "traditions": [
+      "progressive_breaks",
+      "glitch_hop",
+      "idm"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 18.275,
+          "sampler_archetypes": 2.525,
+          "sampler_bit_depth": 0.75,
+          "sampler_workflow": 17.625,
+          "sampler_classic_context": 23.627499999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 5.9845,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.765
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 5.9845,
+          "va_archetypes": 0.9099999999999999,
+          "digital_subtractive_context": 14.43
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 5.9845,
+          "wave_acid": 0.36,
+          "filter_acid": 1.3495000000000001,
+          "accent_acid": 1.595
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_violins"
+        },
+        "scores": {
+          "electronic_technique": 3.2175000000000007,
+          "sm_voice_count": 6.305,
+          "sm_chorus": 1.345,
+          "sm_voicing": 0.345
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 5.970000000000001,
+          "drum_machine_909_context": 0.845,
+          "tr909_production_origin": 0.845
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.0245,
+          "voice_quality": 9.23,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 14.039999999999996,
+          "voice_microtone": 14.689999999999994,
+          "voice_tradition": 10.050000000000002,
+          "voice_mechanism_compound": 1.04,
+          "voice_estill_quality": 2.13,
+          "voice_speech_song": 14.624999999999995,
+          "voice_ensemble_config": 16.249999999999996,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 1.45,
+          "voice_processing_chain": 22.27,
+          "voice_multitrack_stack": 7.345000000000001
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

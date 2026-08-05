@@ -1,0 +1,163 @@
+{
+  "id": "mega_funk",
+  "name": "Mega Funk",
+  "family": "electronic",
+  "lineage": "Southern Brazilian car-sound-system style developed in Santa Catarina and Rio Grande do Sul from the early 2010s by DJ Cleber Mix, DJ Bilb and DJ Cassula — 130-135 BPM tracks that lay a four-on-the-floor electro-house kick and sidechained bass under funk carioca vocal samples and Eurodance or pop melodic hooks, arranged as long continuous mixes with build-and-drop structure tuned for loud automotive subwoofers.",
+  "recipe": "classic 2010-2013 mega funk, electronic Dance, Latin electric branch, eurodance electronic dance eurobeat bubblegum dance. extended whistle, chest mix belt, straight note core, interlocked note trading. TR-909, singing lead analog poly synth, melodic pitched sampler, monosynth acid ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. boombox portable speaker. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 552,
+  "score": 203.442,
+  "config": {
+    "traditions": [
+      "mega_funk",
+      "eurobeat",
+      "bubblegum_dance"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.8100000000000005,
+          "voice_quality": 15.299999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9250000000000007,
+          "voice_articulation": 15.794999999999995,
+          "voice_microtone": 16.054999999999993,
+          "voice_tradition": 5.85,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 2.9575,
+          "voice_speech_song": 16.054999999999996,
+          "voice_ensemble_config": 19.304999999999993,
+          "voice_ornament_system": 2.11125,
+          "voice_pitch_organization": 2.990000000000001,
+          "voice_processing_chain": 18.11,
+          "voice_multitrack_stack": 8.97
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 3.295,
+          "drum_machine_909_context": 1.14,
+          "tr909_production_origin": 0.24
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 6.30875,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.045,
+          "poly_maker_lineage": -1.7199999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 0.975,
+          "sampler_bit_depth": 0.585,
+          "sampler_workflow": 2.0799999999999996,
+          "sampler_classic_context": 23.919999999999998
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "open_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 2.9250000000000007,
+          "wave_acid": 0.65,
+          "filter_acid": 0.65,
+          "accent_acid": 0.65
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "amp_make": 4.030000000000001,
+          "body_wood": 0.585,
+          "pickup_config": 1.04,
+          "string_type": 2.405,
+          "scale_length_b": 1.17,
+          "fretted_or_not": 0.045,
+          "bass_technique": 8.749999999999996
+        }
+      }
+    ],
+    "room": "boombox_portable_speaker",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "boombox_portable_speaker",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

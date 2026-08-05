@@ -5,7 +5,7 @@
   "lineage": "Ultra-fast Tsonga dance music from Limpopo and Soweto codified by producer Nozinja around 2005-2010 (Tshetsha Boys, Zinja Hlungwani) — 170-189bpm MIDI-marimba and organ presets over skeletal, often kick-less drum programming, chanted Xitsonga hooks answered by the dance troupe, and the whirlwind xibelani dance culture",
   "recipe": "classic Southern American mid-2000s shangaan electro, electronic Dance, African dance branch, central east south African groove percussion, footwork electronic dance juke jersey club. vocal fry, breath veiled tone, fast rate, interlocked note trading. MIDI marimba preset diy sequenced yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation, sampler drum machine. rio favela home baile funk. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 527,
-  "score": 118.227,
+  "score": 117.702,
   "config": {
     "traditions": [
       "shangaan_electro",
@@ -41,14 +41,14 @@
           "voice_vibrato": 1.3,
           "voice_articulation": 9.36,
           "voice_microtone": 8.385,
-          "voice_tradition": 12.601,
+          "voice_tradition": 12.1705,
           "voice_mechanism_compound": 0.845,
           "voice_estill_quality": 0.7149999999999997,
           "voice_speech_song": 8.775,
           "voice_ensemble_config": 8.515,
           "voice_ornament_system": 0.45499999999999996,
           "voice_pitch_organization": 0.8999999999999997,
-          "voice_processing_chain": 17.175874999999998,
+          "voice_processing_chain": 17.144374999999997,
           "voice_multitrack_stack": 7.280000000000001
         }
       },
@@ -62,7 +62,7 @@
         },
         "scores": {
           "electronic_technique": 1.0074999999999998,
-          "rompler_preset_bank": 3.263,
+          "rompler_preset_bank": 3.1999999999999997,
           "rompler_context": 2.8599999999999994,
           "rompler_lineage": 2.275
         }

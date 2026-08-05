@@ -1,0 +1,174 @@
+{
+  "id": "murga_portena",
+  "name": "Murga porteña (Buenos Aires carnival murga)",
+  "family": "global",
+  "lineage": "Buenos Aires neighbourhood carnival practice descended from late-nineteenth-century Spanish and Uruguayan murga and revived after the 1983 return of the corsos: dozens of costumed dancers over a percussion line of bombo con platillo, redoblante and cymbals playing the 2/4 marcha camión at roughly 90-110 BPM, with shouted unison canciones de crítica, glosas and retiradas sung by an untrained mass chorus.",
+  "recipe": "classic early-1980s murga porteña, carnival Processional, river plate branch, Latin am groove percussion, European carnival processional tarantella organetto. vocal fry, breath veiled tone, fast rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response murga tablado cuple belt murga carnaval coro block choir ensemble, double bass rapid double strokes bass pipe band flourishing muffled funeral tenor drum, denshig cymbals, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor bass leaning trombone. urban courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 840,
+  "score": 167.92,
+  "config": {
+    "traditions": [
+      "murga_portena",
+      "tarantella",
+      "organetto_italiano"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 0.845,
+          "voice_quality": 11.179999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 16.769999999999996,
+          "voice_microtone": 17.419999999999995,
+          "voice_tradition": 7.377499999999999,
+          "voice_mechanism_compound": 4.8100000000000005,
+          "voice_estill_quality": 6.2075000000000005,
+          "voice_speech_song": 17.419999999999998,
+          "voice_ensemble_config": 16.899999999999995,
+          "voice_ornament_system": 4.1875,
+          "voice_pitch_organization": 1.2075,
+          "voice_processing_chain": 4.16,
+          "voice_multitrack_stack": 3.0550000000000006
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_rioplatense_murga",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 8.514999999999999,
+          "choir_polyphonic_configuration": 1.48,
+          "choir_regional_canonical_configuration": 9,
+          "choir_ensemble_repertoire": 3.6399999999999997
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_18_jazz",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.39,
+          "bass_drum_beater": 1.2349999999999999
+        }
+      },
+      {
+        "id": "tenor_drum",
+        "slots": {
+          "tenor_drum_form": "tenor_drum_pipe_band",
+          "tenor_drum_head": "tenor_drum_calfskin",
+          "tenor_drum_beater": "tenor_drum_wood_sticks",
+          "tenor_drum_shell": "tenor_drum_muffled_cloth"
+        },
+        "scores": {
+          "tenor_drum_form": 10.025,
+          "tenor_drum_head": -0.07,
+          "tenor_drum_beater": -0.05,
+          "tenor_drum_shell": 9.35
+        }
+      },
+      {
+        "id": "denshig_cymbals",
+        "slots": {
+          "denshig_size": "denshig_small",
+          "denshig_stroke": "denshig_edge_tap"
+        },
+        "scores": {
+          "denshig_size": 0.195,
+          "denshig_stroke": 0.195
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.2999999999999998,
+          "brass_size": 0.5,
+          "trumpet_mouthpiece": 1.56,
+          "brass_mute": 0.3,
+          "trumpet_technique": 1.2999999999999998,
+          "trumpet_bell_metal": 1.695,
+          "trumpet_maker_school": 1.545
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_3g",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 1.2999999999999998,
+          "trombone_type": 0.45,
+          "trombone_mouthpiece": 1.9499999999999997,
+          "trombone_mute": 0.195,
+          "trombone_technique": 0.195,
+          "trombone_bell_metal": 1.695,
+          "trombone_maker_school": 1.545
+        }
+      }
+    ],
+    "room": "urban_courtyard",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "milonga_2_4_ostinato",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "milonga_2_4_ostinato",
+    "room": "urban_courtyard",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

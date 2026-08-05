@@ -1,0 +1,156 @@
+{
+  "id": "tunantada_jauja",
+  "name": "Tunantada (Jauja, Junín)",
+  "family": "global",
+  "lineage": "Masked satirical dance-drama of the Yauyos valley and Jauja in Junín, Peru, performed at the Fiesta de San Sebastián y San Fabián each January since at least the nineteenth century, in which costumed characters representing colonial types parade to an orquesta típica of clarinets, saxophones, violin and Andean harp playing a stately triple-feel 3/4 or slow 6/8 at walking pace, with the clarinet's wide vibrato carrying the melody and no singing at all in the core repertoire.",
+  "recipe": "classic Andean modern tunantada, carnival Processional, andean branch, andean field work, americas wedding andean matrimonio huayno música andina. vocal fry, forward-resonance, straight note core, interlocked note trading. grenadilla African blackwood traditional clarinet, yellow brass modern standard continuous-airflow legato saxophone, silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, harpa. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 525,
+  "score": 230.513,
+  "config": {
+    "traditions": [
+      "tunantada_jauja",
+      "andean_matrimonio_huayno",
+      "musica_andina"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 1.5599999999999996,
+          "clarinet_body": 1.8250000000000002,
+          "clarinet_size": 0.063,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.105
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "soprano_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 1.5599999999999996,
+          "sax_size": 0.25875,
+          "sax_reed": 0,
+          "sax_body_alloy": 2.0475,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 1.6249999999999998,
+          "sax_maker_school": 0.845
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_klezmer_ornamented",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.2,
+          "orch_strings": 1.2665,
+          "orch_top_wood": 3.819,
+          "orch_back_wood": 1.85525,
+          "orch_varnish": 2.2880000000000003,
+          "orch_setup_period": 2.875,
+          "orch_bow": 4.159999999999999,
+          "orch_bow_stick": 2.1125,
+          "orch_articulation": 0.1215,
+          "orch_rosin": 2.1125
+        }
+      },
+      {
+        "id": "harpa",
+        "slots": {
+          "harpa_size": "harpa_floor",
+          "harpa_strings": "harpa_brass_wire"
+        },
+        "scores": {
+          "harpa_size": 1.15,
+          "harpa_strings": 0.39
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "twang_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.845,
+          "voice_quality": 24.437499999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.0515,
+          "voice_articulation": 15.859999999999994,
+          "voice_microtone": 14.819999999999991,
+          "voice_tradition": 41.535000000000004,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 20.5945,
+          "voice_speech_song": 16.444999999999993,
+          "voice_ensemble_config": 21.9015,
+          "voice_ornament_system": 30.679999999999996,
+          "voice_pitch_organization": 2.2590000000000003,
+          "voice_processing_chain": 4.68,
+          "voice_multitrack_stack": 2.0149999999999997
+        }
+      }
+    ],
+    "room": "andean_altiplano_outdoor",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "huayno_2_4_andean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "huayno_2_4_andean",
+    "room": "andean_altiplano_outdoor",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "id": "european_free_jazz",
+  "name": "European Free Jazz",
+  "family": "jazz",
+  "lineage": "Continental improvised-music movement formed 1965-1975 around Peter Brötzmann and the FMP label in Berlin, Han Bennink and Misha Mengelberg's Instant Composers Pool in Amsterdam, and Derek Bailey and Evan Parker's Incus circle in London, abandoning tune, changes and steady pulse in favor of collective free improvisation, extended saxophone multiphonics and overblowing, non-idiomatic prepared guitar, percussion played as noise and theater, and dry direct-to-tape documentation at concerts and small studios.",
+  "recipe": "classic European mid-1970s european free jazz, improv On Frame, avant branch, jam free improv on frame, western modern art music live electronics early modern classical. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, fiberskyn synthetic calf brushes-and-sticks drum kit, growly gut upright bass, bach 42 canonical American orchestral tenor multiphonic student commercial trombone, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, modeled amp modern rig basswood maple pau ferro humbucker electric guitar, grenadilla African blackwood traditional multiphonic clarinet. live tracking. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 771,
+  "score": 291.895,
+  "config": {
+    "traditions": [
+      "european_free_jazz",
+      "live_electronics",
+      "early_modern_classical"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 12.925,
+          "sax_size": 1.2349999999999999,
+          "sax_reed": 1.3,
+          "sax_body_alloy": 15.75,
+          "sax_mouthpiece": 1.3,
+          "sax_technique": 10.25,
+          "sax_maker_school": 9.764999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "fiberskyn_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 29.82,
+          "drumhead": 15.75,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 10.25,
+          "upright_play": 10.4
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "classical_trb",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 12.925,
+          "trombone_type": 10.25,
+          "trombone_mouthpiece": 10.2,
+          "trombone_mute": 2.12,
+          "trombone_technique": 0.7,
+          "trombone_bell_metal": 0.3,
+          "trombone_maker_school": 3.575
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 8.17,
+          "grand_piano_size": 1.105,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 12.78,
+          "piano_rim": 11.015,
+          "piano_soundboard": 8.045,
+          "piano_pinblock": 8.39,
+          "piano_plate": 9.125,
+          "piano_pitch_standard": 13.645
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_c"
+        },
+        "scores": {
+          "electric_technique": 3.05,
+          "amp_make": 3.315000000000001,
+          "body_wood": 2.8600000000000003,
+          "neck_wood": 1.3,
+          "fretboard": 2.21,
+          "pickup_magnet": 2.8600000000000003,
+          "pickup_winding": 2.8600000000000003,
+          "string_material": 2.21,
+          "bridge": 0.85,
+          "scale_length": 4.16,
+          "string_gauge": 2.7299999999999995,
+          "finish": 0.3,
+          "string_tuning": 4.16
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 12.925,
+          "clarinet_body": 8.295,
+          "clarinet_size": 1.4949999999999999,
+          "clarinet_reed": 1.3,
+          "clarinet_articulation": 0.7
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "mic_coles_4038_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "free_jazz_no_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "free_jazz_no_changes",
+    "room": "live_room",
+    "chain_mic": "mic_coles_4038_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

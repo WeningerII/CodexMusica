@@ -1,0 +1,162 @@
+{
+  "id": "straight_ahead_jazz",
+  "name": "Straight-Ahead Jazz",
+  "family": "jazz",
+  "lineage": "Post-1960 mainstream American acoustic jazz practice consolidated in New York clubs and on Blue Note, Riverside and Prestige, codified by Cannonball Adderley, Hank Mobley, Dexter Gordon and later Ron Carter's and Cedar Walton's rhythm sections, defined by swung 4/4 ride-cymbal timekeeping, walking bass, comping piano, standards and blues/rhythm-changes forms, and successive full-chorus solos at medium to bright tempos.",
+  "recipe": "classic North American early-1960s straight-ahead jazz, improv On Frame, hard bop branch, American jazz bop, American jazz soul jazz neo-bop. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, cold pressed wurzen felt oversize maple tension resonator gospel runs grand piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, vibraphone. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 755,
+  "score": 463.364,
+  "config": {
+    "traditions": [
+      "straight_ahead_jazz",
+      "soul_jazz",
+      "neo_bop"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 7.373249999999999,
+          "sax_size": 5.69675,
+          "sax_reed": 0.3045,
+          "sax_body_alloy": 35.743,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 34.925000000000004,
+          "sax_maker_school": 42.09225
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 8.520124999999998,
+          "grand_piano_size": 1,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 9.295000000000002,
+          "piano_rim": 9.685000000000002,
+          "piano_soundboard": 0.5199999999999999,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.8999999999999999,
+          "piano_pitch_standard": 0.12999999999999998
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_sul_tasto",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.12999999999999998,
+          "bass_size": 1.1995,
+          "bass_strings": 2.4699999999999998,
+          "bass_top_wood": -0.05,
+          "bass_back_wood": 0.20450000000000002,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 2.99,
+          "bass_play": 34.8695,
+          "bass_rosin": 46.508750000000006,
+          "bass_bow_stick": 0.6499999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 38.2525,
+          "drumhead": 43.01525,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 7.373249999999999,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 42.963,
+          "brass_mute": 1,
+          "trumpet_technique": 7.373249999999999,
+          "trumpet_bell_metal": 0.195,
+          "trumpet_maker_school": 9.165000000000001
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_slow",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "vibe_motor": 34.64,
+          "vibe_mallets": 34.625
+        }
+      }
+    ],
+    "room": "van_gelder_englewood_cliffs",
+    "archetype": "arch_van_gelder_hard_bop",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "colored",
+      "comp": "comp_fairchild_670_tube",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "bebop_complex_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "bebop_complex_changes",
+    "room": "van_gelder_englewood_cliffs",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "id": "tv_theme",
+  "name": "TV Themes",
+  "family": "pop",
+  "lineage": "American and British television title-music tradition running from the late 1940s through the present, shaped by Henry Mancini, Lalo Schifrin, Mike Post, Nelson Riddle and Ron Grainer, written to fixed title-sequence durations of roughly 30 to 90 seconds with an immediate melodic statement, no long introduction, a hard button ending cut to picture, and stylistic markers tracking the era: jazz combos and big band in the 1960s, funk and wah guitar in the 1970s, LinnDrum and gated synth brass in the 1980s.",
+  "recipe": "classic North American 1947-1949 tv themes, spoken Word, broadcast branch, American jazz bop, pop rock synthpop bebop neo-bop. through composed jazz big band, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance trumpet, vintage ambassador asymmetric brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, singing lead analog poly synth, string quartet inst, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, classic source linn electronics lm 2 linndrum canonical 1982 1984 8 bit sample rom linndrum. multi room 1985-2000 major-flagship multitrack flagship us 80s.",
+  "recipe_chars": 998,
+  "score": 316.527,
+  "config": {
+    "traditions": [
+      "tv_theme",
+      "bebop",
+      "neo_bop"
+    ],
+    "instruments": [
+      {
+        "id": "jazz_big_band",
+        "slots": {
+          "sections": "bb_trumpets",
+          "era": "bb_progressive"
+        },
+        "scores": {
+          "sections": 0.7350000000000001,
+          "era": 1.3
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 2.375,
+          "sax_size": 2.57,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 18.220000000000002,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 17.92,
+          "sax_maker_school": 19.725
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.375,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 21.43,
+          "brass_mute": 0.195,
+          "trumpet_technique": 2.375,
+          "trumpet_bell_metal": 2.69,
+          "trumpet_maker_school": 5.720000000000001
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 25.902499999999993,
+          "drumhead": 21.725,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 6.662500000000001,
+          "body_wood": 0.845,
+          "pickup_config": 0.845,
+          "string_type": 21.475,
+          "scale_length_b": 0.28500000000000003,
+          "fretted_or_not": 0.15,
+          "bass_technique": 18.525
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "poly",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 5.965,
+          "amp_make": 9.912500000000001,
+          "body_wood": 0.28500000000000003,
+          "neck_wood": 0.345,
+          "fretboard": 0.845,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 1,
+          "bridge": 0.845,
+          "scale_length": 0.525,
+          "finish": 0.15,
+          "string_tuning": 2.6
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 5.085,
+          "poly_archetypes": 0.9099999999999999,
+          "poly_voices": 0.255,
+          "poly_maker_lineage": 0.12999999999999998
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_modern",
+          "string_quartet_inst_era": "string_quartet_inst_classical"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "quartet_school": 0.69,
+          "string_quartet_inst_era": 1.17
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 6.22,
+          "drawbar_setting": 18.115,
+          "rotary_speed": 3.12,
+          "percussion_setting": 18.07,
+          "tonewheel_model": 22.620000000000005,
+          "leslie_cabinet_model": 1.3
+        }
+      },
+      {
+        "id": "linndrum",
+        "slots": {
+          "linndrum_voice": "linndrum_hat_perc",
+          "linndrum_context": "linndrum_hiphop_sample",
+          "linndrum_production_origin": "linndrum_lm_2_canonical"
+        },
+        "scores": {
+          "linndrum_voice": 5.375,
+          "linndrum_context": 4.874999999999999,
+          "linndrum_production_origin": 1.2349999999999999
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

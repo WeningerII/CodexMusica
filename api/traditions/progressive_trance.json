@@ -3,14 +3,14 @@
   "name": "Progressive trance",
   "family": "global",
   "lineage": "Late-1990s and 2000s long-arc trance subgenre characterized by 7-12-minute track lengths with extended dynamic build-and-release arcs — codified through Sasha and John Digweed’s Northern Exposure mixes (1996-1999), Hernán Cattáneo’s Buenos Aires DJ sets, and the GU (Global Underground) mix-CD series",
-  "recipe": "classic 1996-1999 progressive trance, electronic Dance, trance branch, ambient experimental electric dungeon synth vaporwave aesthetic. roland jupiter lineage canonical jupiter 8 1981 osaka pad analog poly synth, sustained pad digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, field textural sampler. festival stage. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette hall reverb digital delay.",
-  "recipe_chars": 495,
-  "score": 88.125,
+  "recipe": "classic 1996-1999 progressive trance, electronic Dance, trance branch, ambient experimental electric hauntology dungeon synth. roland jupiter lineage canonical jupiter 8 1981 osaka pad analog poly synth, sustained pad digital subtractive, TR-909, field textural sampler. festival stage. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette hall reverb digital delay.",
+  "recipe_chars": 408,
+  "score": 100.262,
   "config": {
     "traditions": [
       "progressive_trance",
-      "dungeon_synth",
-      "vapor_aesthetic"
+      "hauntology_aesthetic",
+      "dungeon_synth"
     ],
     "instruments": [
       {
@@ -22,10 +22,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 10.184999999999999,
+          "electronic_technique": 10.559999999999999,
           "poly_archetypes": 1.5299999999999998,
           "poly_voices": 1.5299999999999998,
-          "poly_maker_lineage": 2.015
+          "poly_maker_lineage": 1.17
         }
       },
       {
@@ -36,9 +36,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 10.184999999999999,
+          "electronic_technique": 10.559999999999999,
           "va_archetypes": 5.599999999999999,
-          "digital_subtractive_context": 17.354999999999997
+          "digital_subtractive_context": 21.19
         }
       },
       {
@@ -49,9 +49,9 @@
           "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
-          "tr909_voice": 0.75,
+          "tr909_voice": 1.125,
           "drum_machine_909_context": 0.7149999999999999,
-          "tr909_production_origin": 1.625
+          "tr909_production_origin": 0.78
         }
       },
       {
@@ -64,11 +64,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 7.49,
+          "electronic_technique": 8.365,
           "sampler_archetypes": 0.5849999999999999,
           "sampler_bit_depth": 0.6449999999999999,
-          "sampler_workflow": 7.89,
-          "sampler_classic_context": 17.874999999999996
+          "sampler_workflow": 8.765,
+          "sampler_classic_context": 22.3925
         }
       }
     ],

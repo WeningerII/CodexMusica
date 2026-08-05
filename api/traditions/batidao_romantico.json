@@ -1,0 +1,167 @@
+{
+  "id": "batidao_romantico",
+  "name": "Batidão Romântico",
+  "family": "global",
+  "lineage": "Bahian and Northeastern romantic dance pop consolidated around 2014-2018 by Léo Santana, Tayrone and Unha Pintada out of arrocha and pisadinha — mid-tempo 4/4 at about 100-115 BPM built on a programmed, heavily quantised kick-and-clap 'batidão' with a bouncing synth-bass, accordion or accordion-sampled hooks, glossy pad and pluck patches, and a smooth belted male lead with layered gang-vocal responses on the chorus.",
+  "recipe": "classic 2014-2018 batidão romântico, functional Song, Brazilian song branch, Latin electric electronic dance freestyle mega funk. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, sampler drum machine, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, weltmeister east German mid tier vintage volk accordion, roland tr 8s modern aira digital recreation TR-909. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 627,
+  "score": 210.787,
+  "config": {
+    "traditions": [
+      "batidao_romantico",
+      "freestyle",
+      "mega_funk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 7.005000000000002,
+          "voice_quality": 7.345000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 23.009999999999998,
+          "voice_microtone": 23.464999999999996,
+          "voice_tradition": 8.84,
+          "voice_mechanism_compound": 6.175,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 27.56,
+          "voice_ensemble_config": 23.919999999999998,
+          "voice_ornament_system": 1.5250000000000001,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 11.045,
+          "voice_multitrack_stack": 5.6875
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 8.45,
+          "poly_archetypes": 1.135,
+          "poly_voices": 1,
+          "poly_maker_lineage": -1.5099999999999998
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.56,
+          "sample_bitdepth": 0.195,
+          "sample_swing": 9.795,
+          "sample_processing": 2.4899999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "amp_make": 3.9650000000000007,
+          "body_wood": 2.0799999999999996,
+          "pickup_config": 0.435,
+          "string_type": 5.330000000000001,
+          "scale_length_b": 1.8399999999999999,
+          "fretted_or_not": 0,
+          "bass_technique": 3.125
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chromatic_jazz",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 2.1999999999999997,
+          "accordion_reed_material": 1.8399999999999999,
+          "musette_offset": 1.04,
+          "reed_config": 0.195,
+          "bellows": 0.15,
+          "voicing_chamber": 0.045,
+          "accordion_maker_school": 1.69
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 3.795,
+          "drum_machine_909_context": 1.4949999999999999,
+          "tr909_production_origin": 1.3
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "mp3_lossy_modern"
+    },
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "mp3_lossy_modern",
+    "chain_console": "console_in_the_box"
+  }
+}

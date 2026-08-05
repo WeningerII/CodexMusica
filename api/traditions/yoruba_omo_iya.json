@@ -5,7 +5,7 @@
   "lineage": "Yoruba children's play-song tradition continuous from pre-colonial Yoruba family-and-community-rearing practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora childhood-practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora",
   "recipe": "classic modern yoruba ọmọ-iya nursery and play-song, nursery Rhyme, sub saharan African branch, sub saharan African praise song, americas nursery rhyme zulu izibongo american hand-game clapping rhymes. thick, declaimed, straight onset, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 341,
-  "score": 191.357,
+  "score": 193.345,
   "config": {
     "traditions": [
       "yoruba_omo_iya",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.6499999999999995,
-          "voice_quality": 12.044999999999995,
+          "voice_register": 1.5899999999999994,
+          "voice_quality": 12.059999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6000000000000005,
           "voice_articulation": 13.909999999999995,
           "voice_microtone": 13.324999999999992,
-          "voice_tradition": 62.31499999999999,
+          "voice_tradition": 62.66,
           "voice_mechanism_compound": 0.585,
           "voice_estill_quality": 1.4299999999999997,
           "voice_speech_song": 22.749999999999996,
           "voice_ensemble_config": 13.649999999999995,
-          "voice_ornament_system": 23.365,
-          "voice_pitch_organization": 21.554999999999996,
+          "voice_ornament_system": 24.992499999999996,
+          "voice_pitch_organization": 21.615,
           "voice_processing_chain": 2.1774999999999998,
           "voice_multitrack_stack": 1.9499999999999997
         }

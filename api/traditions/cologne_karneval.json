@@ -5,7 +5,7 @@
   "lineage": "Cologne (Köln) Karneval tradition documented from medieval Catholic-Rhineland Carnival-celebration practice (the documented Cologne-Karneval lineage extends to medieval-era Karnevalsumzug processionals) through 19th-century 1823-founded modern-Karneval-Festkomitee codification into modern Cologne Karneval Rosenmontagszug processional and Stunksitzung-and-Kostümsitzung continuous practice",
   "recipe": "classic Southern European early-1820s cologne karneval, carnival Processional, European branch, American south carnival processional, European drinking song, European wedding new orleans brass band second-line french chansons à boire. thick, breath veiled tone, straight onset, interlocked note trading. yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato student friendly trumpet, yellow brass canonical 70 30 bach 42 standard yamaha xeno modern Japanese continuous-airflow legato tenor standard trombone, brass petosa seattle American premium accordion. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 693,
-  "score": 191.72,
+  "score": 191.615,
   "config": {
     "traditions": [
       "cologne_karneval",
@@ -38,7 +38,7 @@
           "voice_quality": 7.735,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.66875,
+          "voice_vibrato": 10.473749999999999,
           "voice_articulation": 11.439999999999996,
           "voice_microtone": 11.244999999999994,
           "voice_tradition": 12.0425,
@@ -46,9 +46,9 @@
           "voice_estill_quality": 1.5599999999999996,
           "voice_speech_song": 17.159999999999993,
           "voice_ensemble_config": 11.764999999999997,
-          "voice_ornament_system": 2.6425,
-          "voice_pitch_organization": 7.924999999999999,
-          "voice_processing_chain": 6.91,
+          "voice_ornament_system": 2.5974999999999997,
+          "voice_pitch_organization": 7.969999999999999,
+          "voice_processing_chain": 7.105,
           "voice_multitrack_stack": 5.004999999999999
         }
       },
@@ -68,7 +68,7 @@
           "brass_size": 0.585,
           "trumpet_mouthpiece": 10.93375,
           "brass_mute": 0,
-          "trumpet_technique": 3.7849999999999997,
+          "trumpet_technique": 3.9349999999999996,
           "trumpet_bell_metal": 7.0200000000000005,
           "trumpet_maker_school": 5.459999999999999
         }
@@ -80,16 +80,16 @@
           "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_6half_al",
           "trombone_mute": "straight_mute_trb",
-          "trombone_technique": "classical_trb",
+          "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_yamaha_xeno"
         },
         "scores": {
           "wind_articulation": 6.174999999999999,
-          "trombone_type": 3.1025,
+          "trombone_type": 3.0575,
           "trombone_mouthpiece": 10.45,
           "trombone_mute": 0.045,
-          "trombone_technique": 0.195,
+          "trombone_technique": 0.045,
           "trombone_bell_metal": 7.0200000000000005,
           "trombone_maker_school": 5.459999999999999
         }
@@ -99,7 +99,7 @@
         "slots": {
           "free_reed_technique": "free_reed_chromatic_jazz",
           "accordion_reed_material": "brass_reeds",
-          "musette_offset": "german_tuning",
+          "musette_offset": "italian_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
@@ -107,8 +107,8 @@
         },
         "scores": {
           "free_reed_technique": 0.8999999999999999,
-          "accordion_reed_material": 6.150000000000001,
-          "musette_offset": 0.195,
+          "accordion_reed_material": 6.240000000000001,
+          "musette_offset": 0.045,
           "reed_config": 4.809999999999999,
           "bellows": 0,
           "voicing_chamber": 0.45499999999999996,

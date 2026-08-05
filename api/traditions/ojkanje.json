@@ -1,0 +1,97 @@
+{
+  "id": "ojkanje",
+  "name": "Ojkanje",
+  "family": "global",
+  "lineage": "Two-voice shouted singing of the Dinaric hinterland of Croatia, Bosnia and western Herzegovina, documented ethnographically from the early twentieth century and inscribed by UNESCO in 2010 — a lead voice sustaining a tone with a fast pulsating tremolo on the syllable 'oj' while a second voice holds a major or minor second below, unmetered, at maximum chest volume, cadencing on a unison after a prolonged shake",
+  "recipe": "classic Southern European early-2010s ojkanje, field Work, Slavic balkan branch, vocal drone modal, Slavic bard ballad poetry naturjodel alpine yodeling. vocal fry, breath veiled tone, slow rate, interlocked note trading. maple carved canonical balkan horsehair canonical single string drone like gusle. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 392,
+  "score": 156.01,
+  "config": {
+    "traditions": [
+      "ojkanje",
+      "naturjodel",
+      "alpine_yodeling"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.355,
+          "voice_quality": 14.299999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.615,
+          "voice_articulation": 14.689999999999994,
+          "voice_microtone": 19.629999999999992,
+          "voice_tradition": 18.525,
+          "voice_mechanism_compound": 6.11,
+          "voice_estill_quality": 3.7700000000000005,
+          "voice_speech_song": 15.664999999999994,
+          "voice_ensemble_config": 19.759999999999994,
+          "voice_ornament_system": 5.46,
+          "voice_pitch_organization": 8.515,
+          "voice_processing_chain": 7.865,
+          "voice_multitrack_stack": 4.8100000000000005
+        }
+      },
+      {
+        "id": "gusle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "gusle_region": "gusle_herzegovinian",
+          "gusle_context": "gusle_lament",
+          "gusle_body_wood": "gusle_maple_carved",
+          "gusle_string_material": "gusle_horsehair_canonical"
+        },
+        "scores": {
+          "bowed_technique": 4.29,
+          "gusle_region": 1.69,
+          "gusle_context": 0.63,
+          "gusle_body_wood": 1.95,
+          "gusle_string_material": 1.6049999999999998
+        }
+      }
+    ],
+    "room": "outdoor_dalmatian_square",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "istrian_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "istrian_scale",
+    "room": "outdoor_dalmatian_square",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

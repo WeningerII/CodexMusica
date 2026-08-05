@@ -5,7 +5,7 @@
   "lineage": "Japanese nagauta (\"long song\") sung-and-shamisen narrative tradition serving as the principal musical accompaniment for Kabuki theatre dance-and-action sequences. Codified in mid-Edo period eighteenth century, with the canonical compositional lineages tracing to Kineya Kangoro and Kineya Saburousuke. Performance configuration: a row of male singers seated upstage on a raised platform (typically four-to-eight singers), with a parallel row of shamisen players, plus hayashi percussion ensemble (drums, flutes) on stage-right. Repertoire spans dance-piece accompaniment, dramatic-scene underscore, and standalone concert pieces (the gozen-engaku \"music for the lord\" reception genre). Kineya guild lineages maintain hereditary transmission.",
   "recipe": "classic East Asian modern nagauta, art Music, east Asian branch, buddhist ritual devotional tibetan chöd rite himalayan vajrayana liturgy. breath veiled tone, straight note core, interlocked note trading, neutral third half flat. cat skin ivory red sandalwood premium silk shamisen, tsuzumi. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 379,
-  "score": 173.809,
+  "score": 173.713,
   "config": {
     "traditions": [
       "japanese_nagauta_kabuki",
@@ -38,16 +38,16 @@
           "voice_quality": 16.9,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.5195,
+          "voice_vibrato": 5.4595,
           "voice_articulation": 13.129999999999995,
           "voice_microtone": 12.934999999999992,
-          "voice_tradition": 12.746500000000001,
+          "voice_tradition": 12.865,
           "voice_mechanism_compound": 4.874999999999999,
-          "voice_estill_quality": 8.337499999999999,
+          "voice_estill_quality": 8.501,
           "voice_speech_song": 17.159999999999993,
           "voice_ensemble_config": 17.289999999999992,
           "voice_ornament_system": 6.2749999999999995,
-          "voice_pitch_organization": 3.9735000000000005,
+          "voice_pitch_organization": 3.7950000000000004,
           "voice_processing_chain": 5.720000000000001,
           "voice_multitrack_stack": 1.8849999999999996
         }
@@ -65,11 +65,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 2.5315,
-          "shamisen_size": 3.7965,
+          "shamisen_size": 3.6914999999999996,
           "shamisen_skin": 1.3,
-          "shamisen_pick": 2.8965,
+          "shamisen_pick": 2.925,
           "shamisen_neck_wood": 1.625,
-          "shamisen_strings": 4.218,
+          "shamisen_strings": 4.1865,
           "shamisen_tradition": 9.726499999999998
         }
       },
@@ -82,7 +82,7 @@
         },
         "scores": {
           "tsuzumi_type": 9,
-          "tsuzumi_context": 11.658000000000001,
+          "tsuzumi_context": 11.6265,
           "tsuzumi_body": 3.46
         }
       }

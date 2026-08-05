@@ -1,0 +1,165 @@
+{
+  "id": "freestyle_house",
+  "name": "Freestyle House",
+  "family": "electronic",
+  "lineage": "Late-1980s to mid-1990s New York, New Jersey and Miami hybrid in which Latin freestyle songwriting was re-tracked over 120-126 BPM house drum programming, worked out by producers such as Todd Terry, Little Louie Vega and Carlos Berrios, marked by TR-909 kick and open hat over syncopated 808 cowbell and tumbao-derived bass figures, glassy FM piano and brass stabs, and belted Nuyorican and Italian-American lead vocals with dense stacked harmony choruses.",
+  "recipe": "classic North American 1987-1989 freestyle house, electronic Dance, Latin house branch, garage house u s house diva house. thick, breath veiled tone, slow rate, interlocked note trading. roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, TR-808, sampler, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, sub bass analog poly synth. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 609,
+  "score": 315.252,
+  "config": {
+    "traditions": [
+      "freestyle_house",
+      "diva_house",
+      "uk_dance"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 8.731499999999997,
+          "voice_quality": 8.254999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 20.539999999999996,
+          "voice_microtone": 20.929999999999993,
+          "voice_tradition": 7.8325,
+          "voice_mechanism_compound": 4.159999999999999,
+          "voice_estill_quality": 6.6625,
+          "voice_speech_song": 21.774999999999995,
+          "voice_ensemble_config": 24.63499999999999,
+          "voice_ornament_system": 2.4000000000000004,
+          "voice_pitch_organization": 3.5100000000000016,
+          "voice_processing_chain": 23,
+          "voice_multitrack_stack": 9.7175
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 33.5,
+          "drum_machine_909_context": 2.0799999999999996,
+          "tr909_production_origin": 1.4299999999999997
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 4.485,
+          "drum_machine_808_context": 7.8325,
+          "tr808_production_origin": 0.325
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.52,
+          "sampler_archetypes": 0.12999999999999998,
+          "sampler_bit_depth": 1.56,
+          "sampler_workflow": 0.6174999999999999,
+          "sampler_classic_context": 65.7475
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 7.182499999999999,
+          "grand_piano_size": 1.69,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 1.8199999999999996,
+          "piano_rim": 1.5829999999999997,
+          "piano_soundboard": 1.6650000000000003,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.3649999999999998,
+          "piano_pitch_standard": 6.109999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 4.355,
+          "poly_archetypes": 1.4949999999999999,
+          "poly_voices": 0.8699999999999999,
+          "poly_maker_lineage": 0.325
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_nyc_disco_twelve_inch",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_late70s_nyc_commercial",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

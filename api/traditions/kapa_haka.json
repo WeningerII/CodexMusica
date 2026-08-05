@@ -1,0 +1,139 @@
+{
+  "id": "kapa_haka",
+  "name": "Kapa haka",
+  "family": "global",
+  "lineage": "Māori performing-arts discipline formalised through 20th-century concert parties and the biennial Te Matatini national competition founded in 1972 — a fixed bracket of whakaeke, mōteatea, waiata ā-ringa, poi, haka and whakawātea, with unison group chant in te reo Māori, sharply stamped foot percussion and thigh slaps supplying the pulse, declaimed leader calls answered by the full rōpū, and pūkaea or pūtātara conch calls opening the set.",
+  "recipe": "classic Oceanian early-1970s kapa haka, praise Song, oceania pacific branch, European carnival processional, oceania pacific funeral lament hawaiian kanikau māori waiata tangi. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. bare foot foot stomp, group massed hand clap, call ritual conch shell horn, putorino, pacific slit gong. marae forecourt. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 433,
+  "score": 122.65,
+  "config": {
+    "traditions": [
+      "kapa_haka",
+      "hawaiian_kanikau",
+      "maori_waiata_tangi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.3,
+          "voice_quality": 12.219999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.675,
+          "voice_articulation": 10.204999999999998,
+          "voice_microtone": 10.919999999999991,
+          "voice_tradition": 17.945,
+          "voice_mechanism_compound": 5.459999999999999,
+          "voice_estill_quality": 2.8600000000000003,
+          "voice_speech_song": 14.429999999999994,
+          "voice_ensemble_config": 12.414999999999994,
+          "voice_ornament_system": 9.8,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 4.029999999999999,
+          "voice_multitrack_stack": 4.615
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_bare_foot",
+          "stomp_surface": "stomp_wood_stage"
+        },
+        "scores": {
+          "stomp_footwear": 1,
+          "stomp_surface": 0.09
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_group_massed",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.75,
+          "clap_capture": 0
+        }
+      },
+      {
+        "id": "conch_shell_horn",
+        "slots": {
+          "wind_articulation": "wind_call_blowing",
+          "conch_use": "conch_polynesian",
+          "conch_shell_horn_region": "conch_shell_horn_polynesian"
+        },
+        "scores": {
+          "wind_articulation": 4.55,
+          "conch_use": 0.39,
+          "conch_shell_horn_region": 10.399999999999999
+        }
+      },
+      {
+        "id": "putorino",
+        "slots": {
+          "putorino_construction": "putorino_split_hollowed_hardwood_case_moth_canonical",
+          "putorino_voice": "putorino_dual_flute_and_bugle"
+        },
+        "scores": {
+          "putorino_construction": 0.285,
+          "putorino_voice": 0
+        }
+      },
+      {
+        "id": "pacific_slit_gong",
+        "slots": {
+          "pacific_slit_gong_form": "pacific_slit_gong_toere",
+          "pacific_slit_gong_role": "pacific_slit_gong_ceremonial",
+          "pacific_slit_gong_wood": "pacific_slit_gong_miro"
+        },
+        "scores": {
+          "pacific_slit_gong_form": 0.26,
+          "pacific_slit_gong_role": 4.1049999999999995,
+          "pacific_slit_gong_wood": -0.035
+        }
+      }
+    ],
+    "room": "marae_forecourt",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "marae_forecourt",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

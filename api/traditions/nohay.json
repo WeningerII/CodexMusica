@@ -1,0 +1,131 @@
+{
+  "id": "nohay",
+  "name": "Nohay (Shia Muharram elegy)",
+  "family": "global",
+  "lineage": "Shia mourning elegy sung during Muharram in South Asia and the Gulf, formalized in Lucknow and Hyderabad majlis practice from the 18th-19th centuries in Urdu marsiya-noha poetics and diffused globally by the Pakistani cassette industry from the 1980s through Nadeem Sarwar and Farhan Ali Waris, marked by unaccompanied or minimally accompanied voice, chest-beating matam supplying the pulse, unison responsorial refrains, slow duple or 6/8 processional meters, and rising modal laments on the martyrdom of Husayn at Karbala.",
+  "recipe": "classic South Asian mid-1980s nohay, funeral Lament, south Asian branch, islamic ritual devotional, indian subcontinent praise song mappila paattu naat. vocal fry, breath veiled tone, slow rate, interlocked note trading. communal group massed hand clap, thigh chest hambone body, walnut bent frame canonical Persian daf, unison double single performer stack late 1980s reverb saturated bus stack multitrack vocal stack. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 597,
+  "score": 176.765,
+  "config": {
+    "traditions": [
+      "nohay",
+      "mappila_paattu",
+      "naat_south_asian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 0.615,
+          "voice_quality": 16.119999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.45,
+          "voice_articulation": 20.345,
+          "voice_microtone": 28.209999999999994,
+          "voice_tradition": 10.54,
+          "voice_mechanism_compound": 5.07,
+          "voice_estill_quality": 1.8849999999999996,
+          "voice_speech_song": 24.049999999999997,
+          "voice_ensemble_config": 22.034999999999993,
+          "voice_ornament_system": 10.43,
+          "voice_pitch_organization": 5.300000000000001,
+          "voice_processing_chain": 6.305,
+          "voice_multitrack_stack": 4.28
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_group_massed",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.625,
+          "clap_capture": 0.09
+        }
+      },
+      {
+        "id": "hambone_body",
+        "slots": {
+          "hambone_technique": "hambone_thigh_chest"
+        },
+        "scores": {
+          "hambone_technique": 1.69
+        }
+      },
+      {
+        "id": "daf",
+        "slots": {
+          "daf_rings": "daf_with_rings",
+          "daf_context": "daf_kurdish",
+          "daf_shell_wood": "daf_walnut_canonical",
+          "daf_head_material": "daf_goat_skin_canonical",
+          "daf_jingle_metal": "daf_brass_rings"
+        },
+        "scores": {
+          "daf_rings": 0.45499999999999996,
+          "daf_context": 0.78,
+          "daf_shell_wood": 1.69,
+          "daf_head_material": 0.495,
+          "daf_jingle_metal": 0.495
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_unison_double",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.69,
+          "multitrack_stack_era_aesthetic": 2.65,
+          "multitrack_stack_processing": 0.195
+        }
+      }
+    ],
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

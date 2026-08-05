@@ -1,0 +1,247 @@
+{
+  "id": "requiem_mass",
+  "name": "Requiem Mass",
+  "family": "classical",
+  "lineage": "Latin Mass for the Dead as an art-music genre, developing from the Gregorian Missa pro defunctis into large-scale concert settings between Ockeghem's 15th-century polyphonic Requiem and the 19th-century monuments of Mozart, Berlioz, Verdi, Faure and Durufle, built on a fixed liturgical text sequence (Introit, Kyrie, Dies irae, Offertorio, Sanctus, Agnus Dei, Lux aeterna, In paradisum), scored for SATB chorus, vocal soloists and orchestra, with the Dies irae typically the fastest and loudest movement and the Introit and In paradisum the quietest.",
+  "recipe": "classic European early-1950s requiem mass, art Music, western common practice branch, western early art music, European funeral lament cantata burgundian school. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, synthetic norway spruce European alpine European maple bosnian source cello, yellow brass canonical 70 30 bach 42 standard legato bass leaning trombone, timpani, glotin var French cane legato bassoon, yellow brass canonical 70 30 bach stradivarius legato heavy one piece matched to monette horn trumpet, concert harp. cathedral. blumlein stereo pair, ultra-clean solid-state pre.",
+  "recipe_chars": 989,
+  "score": 376.522,
+  "config": {
+    "traditions": [
+      "requiem_mass",
+      "cantata",
+      "burgundian_school"
+    ],
+    "instruments": [
+      {
+        "id": "choir_cathedral_satb",
+        "slots": {
+          "voicing": "satb_standard",
+          "repertoire": "baroque_choral"
+        },
+        "scores": {
+          "voicing": 2.6,
+          "repertoire": 0.39
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 5.055,
+          "voice_quality": 21.645000000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.54,
+          "voice_articulation": 23.009999999999998,
+          "voice_microtone": 20.019999999999996,
+          "voice_tradition": 9.165,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 7.7025,
+          "voice_speech_song": 21.6125,
+          "voice_ensemble_config": 23.66,
+          "voice_ornament_system": 5.325,
+          "voice_pitch_organization": 6.695,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 4.2250000000000005
+        }
+      },
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
+          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
+          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
+          "pipe_organ_action": "pipe_organ_pneumatic"
+        },
+        "scores": {
+          "keyboard_technique": 5,
+          "pipe_organ_class": 0.65,
+          "pipe_organ_context": 13.130000000000003,
+          "pipe_organ_voicing_school": 9.1,
+          "pipe_organ_pipe_alloy": 7.084999999999999,
+          "pipe_organ_temperament": 4.55,
+          "pipe_organ_action": 5.3950000000000005
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 5,
+          "orch_strings": 0.315,
+          "orch_top_wood": 7.925,
+          "orch_back_wood": 8.015,
+          "orch_varnish": 7.215,
+          "orch_setup_period": 6.005,
+          "orch_bow": 0.9099999999999999,
+          "orch_bow_stick": 6.9225,
+          "orch_articulation": 2.4699999999999998,
+          "orch_rosin": 7.052500000000001
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 5,
+          "cello_strings": 1.755,
+          "cello_top_wood": 7.925,
+          "cello_back_wood": 8.015,
+          "cello_varnish": 7.215,
+          "cello_setup_period": 6.005,
+          "cello_bow_grip": 2.6,
+          "cello_rosin": 5.875,
+          "cello_bow_stick": 6.9225
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_3g",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 5.195,
+          "trombone_type": 0,
+          "trombone_mouthpiece": 6.930000000000001,
+          "trombone_mute": 2.6,
+          "trombone_technique": 0.9749999999999999,
+          "trombone_bell_metal": 1.2349999999999999,
+          "trombone_maker_school": 0.845
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_calfskin"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "timpani_size": 2.6,
+          "timpani_head": 0.195
+        }
+      },
+      {
+        "id": "bassoon",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "bassoon_school": "bassoon_heckel",
+          "bassoon_body_wood": "bassoon_maple_canonical",
+          "bassoon_reed": "bassoon_glotin_cane",
+          "bassoon_context": "bassoon_orch"
+        },
+        "scores": {
+          "wind_articulation": 5.195,
+          "bassoon_school": 1.755,
+          "bassoon_body_wood": 0.9749999999999999,
+          "bassoon_reed": 1.215,
+          "bassoon_context": 1.885
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 5.195,
+          "brass_size": 0.045,
+          "trumpet_mouthpiece": 7.085,
+          "brass_mute": 5,
+          "trumpet_technique": 5.195,
+          "trumpet_bell_metal": 1.2349999999999999,
+          "trumpet_maker_school": 0.845
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 3.25,
+          "harp_pedals": 2.6
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "cathedral",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

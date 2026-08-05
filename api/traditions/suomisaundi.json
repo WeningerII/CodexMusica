@@ -1,0 +1,159 @@
+{
+  "id": "suomisaundi",
+  "name": "Suomisaundi",
+  "family": "electronic",
+  "lineage": "Finnish freeform psytrance codified 1997-2005 by Texas Faggott, Squaremeat, Salakavala, Haltya and the 6equj5/Exogenic circle, running 140-150 BPM over a standard psy kick-and-rolling-bass but abandoning genre structure for cartoonish detuned lead patches, absurd Finnish speech samples, sudden tempo and key ruptures, live jamming and deliberately amateur mixing.",
+  "recipe": "classic mid-2000s suomisaundi, electronic Dance, trance branch, idm glitch experimental electric, techno electronic dance idm and experimental electronic algorave. thick, breath veiled tone, straight note core, interlocked note trading. analog mono fm analog poly synth, TR-909, glitched textural sampler. isolated rural 2005-present isolation diy isolation cabin diy. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 467,
+  "score": 177.692,
+  "config": {
+    "traditions": [
+      "suomisaundi",
+      "idm",
+      "algorave"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_arp_pearlman"
+        },
+        "scores": {
+          "electronic_technique": 7.25,
+          "mono_oscillator": 0.105,
+          "mono_filter": -0.35,
+          "mono_archetypes": 1.3,
+          "mono_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 2.21,
+          "drum_machine_909_context": 1.885,
+          "tr909_production_origin": 0.54
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 13.97,
+          "sampler_archetypes": 0.78,
+          "sampler_bit_depth": 1.105,
+          "sampler_workflow": 13.125,
+          "sampler_classic_context": 19.857499999999995
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_native_instruments_fm8"
+        },
+        "scores": {
+          "electronic_technique": 2.5200000000000005,
+          "fm_algorithm": 1.8850000000000002,
+          "fm_modulator_ratio": 0,
+          "fm_polyphony": 1,
+          "fm_model_lineage": 0.54
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 2.5200000000000005,
+          "poly_archetypes": 0.3,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.9499999999999995,
+          "voice_quality": 6.695,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.0399999999999998,
+          "voice_articulation": 14.234999999999994,
+          "voice_microtone": 14.039999999999992,
+          "voice_tradition": 9.75,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 16.119999999999994,
+          "voice_ensemble_config": 14.559999999999995,
+          "voice_ornament_system": 0.66,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 21.775,
+          "voice_multitrack_stack": 4.745000000000001
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformerless",
+      "console": "console_home_portastudio",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_isolation_cabin_diy",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "transformerless",
+    "chain_medium": "digital_std",
+    "chain_console": "console_home_portastudio"
+  }
+}

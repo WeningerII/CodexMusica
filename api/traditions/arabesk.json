@@ -1,0 +1,206 @@
+{
+  "id": "arabesk",
+  "name": "Arabesk",
+  "family": "global",
+  "lineage": "Turkish urban style born in the 1960s-70s among rural migrants to Istanbul's gecekondu districts, shaped by Egyptian film-music imports and codified by Orhan Gencebay, Müslüm Gürses and Ferdi Tayfur on Unkapanı cassette labels — makam-based melodies over 4/4 düm-tek düyek or 9/8 aksak at moderate tempo, massed unison violins, kanun and elektrosaz, darbuka and kit drums, with a fatalistic ornamented tenor delivery and long free-rhythm instrumental introductions.",
+  "recipe": "classic Middle Eastern mid-1960s arabesk, functional Song, mid east n African pop branch, middle eastern classical art music, med east poetic ballad poetry khaleeji-iraqi song uzbek traditional music. thick, breath veiled tone, slow rate, interlocked note trading. makam correct juniper bowl eastern anatolian saz baglama, kanun tortoiseshell traditional kanun, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, alder pyramid pure nickel bass British mid 60s era electric bass, arundo donax cane canonical Persian nine segment mevlevi Sufi konya tradition Turkish ney continuous-airflow legato ney, pre muffled edge muffled brushes-and-sticks drum kit. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu.",
+  "recipe_chars": 990,
+  "score": 367.448,
+  "config": {
+    "traditions": [
+      "arabesk",
+      "khaleeji_iraqi",
+      "uzbek_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 6.725,
+          "voice_quality": 10.594999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 11.830000000000002,
+          "voice_articulation": 19.564999999999994,
+          "voice_microtone": 36.39999999999999,
+          "voice_tradition": 17.8425,
+          "voice_mechanism_compound": 13.165,
+          "voice_estill_quality": 9.705,
+          "voice_speech_song": 22.749999999999996,
+          "voice_ensemble_config": 19.694999999999993,
+          "voice_ornament_system": 14.754999999999999,
+          "voice_pitch_organization": 16.165,
+          "voice_processing_chain": 4.159999999999999,
+          "voice_multitrack_stack": 8.705000000000002
+        }
+      },
+      {
+        "id": "saz_baglama",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "saz_size": "cura_saz",
+          "saz_frets": "saz_microtonal_frets",
+          "saz_body_wood": "saz_juniper_body",
+          "saz_strings": "saz_nylon_cura",
+          "saz_tradition": "saz_alevi_cem"
+        },
+        "scores": {
+          "plucked_traditional_technique": 8.850000000000001,
+          "saz_size": 0.78,
+          "saz_frets": 1.885,
+          "saz_body_wood": 4.095,
+          "saz_strings": 0.345,
+          "saz_tradition": 0.105
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "kanun_school": "kanun_turkish",
+          "kanun_articulation": "kanun_tortoiseshell_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": 8.850000000000001,
+          "kanun_school": 8.835,
+          "kanun_articulation": 3.7350000000000003
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 8.13,
+          "orch_strings": 0.24,
+          "orch_top_wood": 11.55,
+          "orch_back_wood": 6.895000000000001,
+          "orch_varnish": 7.045000000000001,
+          "orch_setup_period": 6.475000000000001,
+          "orch_bow": 0.195,
+          "orch_bow_stick": 8.645000000000001,
+          "orch_articulation": 0.195,
+          "orch_rosin": 7.045000000000001
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": 1.3649999999999998,
+          "darbuka_material": 1.885,
+          "darbuka_skin": 4.875,
+          "darbuka_regional_style": 7.67
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 2.150000000000001,
+          "body_wood": 2.35,
+          "pickup_config": 0,
+          "string_type": 3.3350000000000004,
+          "scale_length_b": 2.35,
+          "fretted_or_not": 0.045,
+          "bass_technique": 0.5499999999999999
+        }
+      },
+      {
+        "id": "ney",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "ney_use": "ney_persian_classical",
+          "ney_pitch": "ney_kerdaniye",
+          "ney_body_material": "ney_arundo_canonical",
+          "ney_lineage": "ney_sufi_mevlevi"
+        },
+        "scores": {
+          "wind_articulation": 6.790000000000001,
+          "ney_use": 1.235,
+          "ney_pitch": 3.5100000000000002,
+          "ney_body_material": 1.3,
+          "ney_lineage": 2.73
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 19.434999999999995,
+          "drumhead": 5.369999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "istanbul_makam_kilic_ali_pasha_studio",
+    "archetype": "arch_unkapani_plak_arabesk",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "istanbul_makam_kilic_ali_pasha_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_british_inline_80s"
+  }
+}

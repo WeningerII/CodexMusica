@@ -3,14 +3,14 @@
   "name": "Tarab (Egyptian classical)",
   "family": "global",
   "lineage": "The specifically Egyptian branch of the broader Arab tarab tradition — built on the takht ensemble (oud, qanun, ney, riq, kamancheh) plus the 20th-century Egyptian innovation of adding a large Western violin section for the 1945-1970 Umm Kulthum / Mohammed Abdel Wahab era recordings; pre-WWII figures Sayed Darwish, Mohammed al-Qasabgi, Zakariya Ahmed, then the post-WWII Golden Age anchored by Umm Kulthum (1898-1975), Mohammed Abdel Wahab (1902-1991), Abdel Halim Hafez (1929-1977)",
-  "recipe": "classic North African mid-1950s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, Sufi ritual devotional armenian liturgical and folk andalusī nūba. thick, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, brass nickel silver Egyptian modern hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, court tradition pre twentieth century takht arab, kanun kanun, half rectified carpathian spruce European maple sycamore maple oil varnish violin orchestral. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-  "recipe_chars": 884,
-  "score": 425.147,
+  "recipe": "classic North African mid-1950s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, Sufi ritual devotional armenian liturgical and folk khaleeji-iraqi song. thick, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, brass nickel silver Egyptian modern hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, court tradition pre twentieth century takht arab, kanun tortoiseshell traditional kanun, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 914,
+  "score": 382.582,
   "config": {
     "traditions": [
       "tarab_egyptian",
       "armenian_traditional",
-      "andalusi_nuba"
+      "khaleeji_iraqi"
     ],
     "instruments": [
       {
@@ -26,30 +26,30 @@
           "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 3.8500000000000005,
-          "voice_quality": 13.389999999999997,
+          "voice_register": 4.775,
+          "voice_quality": 14.884999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.185,
-          "voice_articulation": 7.085,
-          "voice_microtone": 31.72,
-          "voice_tradition": 27.332499999999996,
-          "voice_mechanism_compound": 20.015,
-          "voice_estill_quality": 16.104999999999997,
-          "voice_speech_song": 12.334999999999997,
-          "voice_ensemble_config": 7.475,
-          "voice_ornament_system": 21.605,
-          "voice_pitch_organization": 22.865,
-          "voice_processing_chain": 2.73,
-          "voice_multitrack_stack": 2.2099999999999995
+          "voice_vibrato": 12.870000000000001,
+          "voice_articulation": 9.685,
+          "voice_microtone": 35.0025,
+          "voice_tradition": 23.4,
+          "voice_mechanism_compound": 17.64,
+          "voice_estill_quality": 12.354999999999999,
+          "voice_speech_song": 11.959999999999997,
+          "voice_ensemble_config": 10.27,
+          "voice_ornament_system": 19.23,
+          "voice_pitch_organization": 20.34,
+          "voice_processing_chain": 3.6725000000000008,
+          "voice_multitrack_stack": 3.7700000000000005
         }
       },
       {
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 12,
-          "oud_school": 4.359999999999999,
-          "oud_strings": 6.4350000000000005,
-          "oud_pick": 0.345,
+          "plucked_traditional_technique": 8.9,
+          "oud_school": 4.859999999999999,
+          "oud_strings": 4.55,
+          "oud_pick": 1.1949999999999998,
           "oud_body_wood": 3.4949999999999997,
           "oud_soundboard_wood": 2.8600000000000003,
-          "oud_string_material": 3.9
+          "oud_string_material": 4.355
         }
       },
       {
@@ -85,11 +85,11 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 12,
-          "qanun_strings": 6.24,
+          "plucked_traditional_technique": 8.9,
+          "qanun_strings": 4.55,
           "qanun_levers": -0.7,
-          "qanun_pick": 6.24,
-          "qanun_body_wood": 3.835,
+          "qanun_pick": 4.55,
+          "qanun_body_wood": 4.29,
           "qanun_bridge_skin": 1.125,
           "qanun_string_material": 0
         }
@@ -104,11 +104,11 @@
           "ney_lineage": "ney_hassan_kassai"
         },
         "scores": {
-          "wind_articulation": 12.04,
+          "wind_articulation": 8.79,
           "ney_use": 2.195,
-          "ney_pitch": 6.4350000000000005,
+          "ney_pitch": 4.55,
           "ney_body_material": 3.1399999999999997,
-          "ney_lineage": 7.279999999999999
+          "ney_lineage": 7.54
         }
       },
       {
@@ -119,7 +119,7 @@
         },
         "scores": {
           "members": 0.045,
-          "takht_arab_era": 9.49
+          "takht_arab_era": 9.555
         }
       },
       {
@@ -130,9 +130,9 @@
           "kanun_articulation": "kanun_tortoiseshell_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 12,
-          "kanun_school": 6.739999999999999,
-          "kanun_articulation": 0.5199999999999999
+          "plucked_traditional_technique": 8.9,
+          "kanun_school": 8.74,
+          "kanun_articulation": 1.3849999999999998
         }
       },
       {
@@ -150,16 +150,16 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 12.579999999999998,
-          "orch_strings": 1.2349999999999999,
-          "orch_top_wood": 16.45,
-          "orch_back_wood": 13.444999999999999,
-          "orch_varnish": 13.595,
-          "orch_setup_period": 13.025,
-          "orch_bow": 0.195,
-          "orch_bow_stick": 17.16,
+          "bowed_technique": 9.33,
+          "orch_strings": 0.585,
+          "orch_top_wood": 13.2,
+          "orch_back_wood": 10.045,
+          "orch_varnish": 10.345,
+          "orch_setup_period": 9.775,
+          "orch_bow": 0.39,
+          "orch_bow_stick": 12.934999999999999,
           "orch_articulation": 0.195,
-          "orch_rosin": 13.445
+          "orch_rosin": 10.195
         }
       }
     ],

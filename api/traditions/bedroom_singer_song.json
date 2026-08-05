@@ -3,9 +3,9 @@
   "name": "Bedroom singer-songwriter",
   "family": "global",
   "lineage": "2010s onward singer-songwriter genre with intimate DIY bedroom-DAW production and a confessional first-person lyrical register — codified through Phoebe Bridgers (Stranger in the Alps 2017, Punisher 2020), Julien Baker, Lucy Dacus, Soccer Mommy, Snail Mail (Lush 2018), Mitski, with the form representing the contemporary indie-singer-songwriter mainstream",
-  "recipe": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic soft down tuning clean strummed single coil electric guitar, singing lead analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 432,
-  "score": 183.299,
+  "recipe": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic clean strummed single coil electric guitar, singing lead analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 415,
+  "score": 184.612,
   "config": {
     "traditions": [
       "bedroom_singer_song",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.406249999999991,
+          "voice_register": 14.39499999999999,
           "voice_quality": 12.804999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9312500000000004,
+          "voice_vibrato": 3.8825000000000003,
           "voice_articulation": 11.049999999999995,
           "voice_microtone": 11.924999999999995,
-          "voice_tradition": 13.301249999999998,
+          "voice_tradition": 13.397999999999998,
           "voice_mechanism_compound": 4.095,
-          "voice_estill_quality": 7.308750000000001,
+          "voice_estill_quality": 7.69725,
           "voice_speech_song": 17.224999999999994,
           "voice_ensemble_config": 10.984999999999994,
-          "voice_ornament_system": 6.656250000000001,
+          "voice_ornament_system": 7.0447500000000005,
           "voice_pitch_organization": 0.8449999999999999,
           "voice_processing_chain": 5.005,
-          "voice_multitrack_stack": 15.707499999999998
+          "voice_multitrack_stack": 15.802749999999998
         }
       },
       {
@@ -66,7 +66,7 @@
           "top_wood": 0.195,
           "back_sides": 0.39,
           "string_acoustic": 0.5512499999999999,
-          "acoustic_om_technique": 14.424999999999999
+          "acoustic_om_technique": 14.456499999999998
         }
       },
       {
@@ -83,20 +83,20 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_short",
           "finish": "nitro",
-          "string_tuning": "eb_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 9.949999999999998,
+          "electric_technique": 10.159999999999998,
           "amp_make": 2.0799999999999996,
           "body_wood": 0.195,
           "neck_wood": 0.195,
           "fretboard": 0.195,
           "pickup_magnet": 0.195,
-          "string_material": 0.29250000000000004,
+          "string_material": 0.195,
           "string_gauge": 0.195,
           "bridge": 0.195,
           "scale_length": 0.39,
-          "finish": 0,
+          "finish": 0.15,
           "string_tuning": 1.3
         }
       },
@@ -109,9 +109,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 9.987499999999997,
+          "electronic_technique": 10.131499999999997,
           "poly_archetypes": 1.4949999999999999,
-          "poly_voices": 1.07875,
+          "poly_voices": 1.045,
           "poly_maker_lineage": -1.085
         }
       }

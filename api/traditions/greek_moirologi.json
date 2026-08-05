@@ -3,14 +3,14 @@
   "name": "Greek moirológi (μοιρολόγι, lament)",
   "family": "global",
   "lineage": "Greek mourning-song tradition continuous from ancient-Greek thrēnos through Byzantine-and-Ottoman period continuous performance into modern Greek funeral practice; particularly preserved in Mani peninsula (Peloponnese), Crete, Epirus, and Pontic-Greek diaspora",
-  "recipe": "classic modern greek moirológi, funeral Lament, European branch, middle eastern funeral lament, Mediterranean ballad ballad poetry, christian gospel ritual devotional sevdalinka african-american spirituals. thick, declaimed, straight note core, interlocked note trading. gut pre modern cretan cretan lyra. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 383,
-  "score": 170.26,
+  "recipe": "classic modern greek moirológi, funeral Lament, European branch, middle eastern funeral lament, Mediterranean ballad ballad poetry, christian gospel ritual devotional african-american spirituals bluegrass gospel. thick, declaimed, straight note core, leader call answered. gut pre modern cretan cretan lyra. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 385,
+  "score": 193.795,
   "config": {
     "traditions": [
       "greek_moirologi",
-      "sevdalinka",
-      "spirituals_african_american"
+      "spirituals_african_american",
+      "bluegrass_gospel"
     ],
     "instruments": [
       {
@@ -21,35 +21,35 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "hocket_voice",
+          "voice_articulation": "call_response_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 12.069999999999999,
-          "voice_quality": 14.347499999999997,
+          "voice_register": 20.945,
+          "voice_quality": 25.647499999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.133750000000001,
-          "voice_articulation": 14.299999999999994,
-          "voice_microtone": 18.19999999999999,
-          "voice_tradition": 41.58874999999999,
-          "voice_mechanism_compound": 5.135,
-          "voice_estill_quality": 7.795000000000002,
-          "voice_speech_song": 19.82499999999999,
-          "voice_ensemble_config": 14.42999999999999,
-          "voice_ornament_system": 6.375000000000001,
-          "voice_pitch_organization": 3.8787499999999993,
-          "voice_processing_chain": 2.925,
-          "voice_multitrack_stack": 3.445000000000001
+          "voice_vibrato": 5.0375,
+          "voice_articulation": 19.97125,
+          "voice_microtone": 13.90999999999999,
+          "voice_tradition": 35.37875,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 17.419999999999998,
+          "voice_speech_song": 18.45999999999999,
+          "voice_ensemble_config": 17.93,
+          "voice_ornament_system": 8.25,
+          "voice_pitch_organization": 3.7287499999999993,
+          "voice_processing_chain": 3.5750000000000006,
+          "voice_multitrack_stack": 3.315000000000001
         }
       },
       {
@@ -62,9 +62,9 @@
           "lyra_string_material": "lyra_gut_historical"
         },
         "scores": {
-          "bowed_technique": 0.75,
-          "lyra_strings": 0.585,
-          "lyra_use": 0.585,
+          "bowed_technique": -0.05,
+          "lyra_strings": 0.195,
+          "lyra_use": 1.04,
           "lyra_body_wood": 0.39,
           "lyra_string_material": 3.40125
         }

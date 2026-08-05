@@ -1,0 +1,143 @@
+{
+  "id": "musica_mixteca",
+  "name": "Música Mixteca",
+  "family": "global",
+  "lineage": "The wind-band and waltz tradition of the Mixteca region spanning Oaxaca, Guerrero and Puebla, formed after mid-nineteenth-century military bandmasters and church maestros seeded reed-and-brass instruction in Mixtec villages — its repertoire runs from the chilena in 6/8 with hemiola to the sentimental 3/4 vals (Alfredo Colín's 1912 'Canción Mixteca' becoming its anthem), played by community bandas de viento of clarinets, trumpets, trombones, tuba and bass drum at patron-saint fiestas and funerals.",
+  "recipe": "classic North American early-1910s música mixteca, functional Song, Mexican branch, andean carnival processional, American marching groove percussion marching band. composite resin blackwood dust clarinet, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor bass trombone trombone, eb bass brass band sousaphone, double bass rapid double strokes bass drum, yellow brass modern standard saxophone. us uk civic amateur band hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 676,
+  "score": 63.725,
+  "config": {
+    "traditions": [
+      "musica_mixteca",
+      "concert_march",
+      "marching_band"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "buffet_greenline_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 1.56,
+          "clarinet_body": 1.625,
+          "clarinet_size": 0.65,
+          "clarinet_reed": 0.65,
+          "clarinet_articulation": 0.45
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.56,
+          "brass_size": 0.15,
+          "trumpet_mouthpiece": 2.925,
+          "brass_mute": 1.34,
+          "trumpet_technique": 1.56,
+          "trumpet_bell_metal": 2.7299999999999995,
+          "trumpet_maker_school": 5.46
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 1.56,
+          "trombone_type": 0,
+          "trombone_mouthpiece": 6.3637500000000005,
+          "trombone_mute": 0.65,
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 3.3799999999999994,
+          "trombone_maker_school": 4.8100000000000005
+        }
+      },
+      {
+        "id": "sousaphone",
+        "slots": {
+          "sousaphone_bore": "sousaphone_eb_bass",
+          "sousaphone_context": "sousaphone_nola_brass_band"
+        },
+        "scores": {
+          "sousaphone_bore": 4.963749999999999,
+          "sousaphone_context": 7.799999999999999
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.65,
+          "bass_drum_beater": 5.07
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "baritone_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 1.56,
+          "sax_size": 1.6625,
+          "sax_reed": 0.65,
+          "sax_body_alloy": 5.295,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.195
+        }
+      }
+    ],
+    "room": "us_uk_civic_amateur_band_hall",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "ranchera_3_4_and_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "ranchera_3_4_and_2_4",
+    "room": "us_uk_civic_amateur_band_hall",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "id": "anison",
+  "name": "Anison (Japanese anime theme song)",
+  "family": "pop",
+  "lineage": "Japanese commercial song written for anime opening and closing titles, established as a distinct trade in the 1960s–70s by Columbia and Nippon Columbia sessions for Ichirou Mizuki and Isao Sasaki, characterized by a 90-second broadcast edit, declamatory belted male or bright female lead, marching or driving 4/4 at 130–170 BPM, brass-and-string sweetened rock backing, shouted title hooks and abrupt key-lifting final choruses.",
+  "recipe": "classic East Asian mid-1960s anison, functional Song, east Asian pop branch, pop rock functional song, classic distorted rock yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, red brass 90 10 darkest schilke chicago lead bright shallow cup lead trumpet trumpet. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 870,
+  "score": 535.038,
+  "config": {
+    "traditions": [
+      "anison",
+      "yacht_rock",
+      "folk_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 56.57500000000001,
+          "voice_quality": 9.879999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.695,
+          "voice_articulation": 18.004999999999992,
+          "voice_microtone": 44.1,
+          "voice_tradition": 24.927499999999995,
+          "voice_mechanism_compound": 1.755,
+          "voice_estill_quality": 4.7125,
+          "voice_speech_song": 25.674999999999997,
+          "voice_ensemble_config": 18.32999999999999,
+          "voice_ornament_system": 2.585,
+          "voice_pitch_organization": 1.56,
+          "voice_processing_chain": 8.665,
+          "voice_multitrack_stack": 7.442500000000001
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 16.555,
+          "amp_make": 13.129999999999995,
+          "body_wood": 2.4699999999999998,
+          "neck_wood": 2.275,
+          "fretboard": 2.21,
+          "pickup_magnet": 0.28500000000000003,
+          "pickup_winding": 0.7,
+          "string_material": 0.585,
+          "bridge": 2.275,
+          "scale_length": 2.275,
+          "string_gauge": 2.275,
+          "finish": 0.09,
+          "string_tuning": 14.364999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 13.584999999999997,
+          "body_wood": 2.275,
+          "pickup_config": 0.39,
+          "string_type": 32.17499999999999,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0.195,
+          "bass_technique": 25.689999999999994
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 25.544999999999995,
+          "drumhead": 16.040000000000003,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 17.91,
+          "poly_archetypes": 13.259999999999996,
+          "poly_voices": 1.235,
+          "poly_maker_lineage": -0.5950000000000001
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 17.470000000000002,
+          "grand_piano_size": 2.275,
+          "grand_piano_brand": 2.4699999999999998,
+          "piano_hammer": 19.58,
+          "piano_rim": 19.735000000000003,
+          "piano_soundboard": 17.495000000000005,
+          "piano_pinblock": 2.4800000000000004,
+          "piano_plate": 0.45499999999999996,
+          "piano_pitch_standard": 6.394999999999999
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 6.04,
+          "brass_mute": 0.39,
+          "trumpet_technique": -0.035,
+          "trumpet_bell_metal": 2.84,
+          "trumpet_maker_school": 2.9899999999999998
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_tokyo_jpop_hit_factory",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tokyo_studio_1970s_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Early-1980s American underground extension of punk into faster tempos, shorter song lengths, screamed vocals, and a developed touring-and-DIY-record-label network — codified through the Washington DC scene (Bad Brains Bad Brains 1982, Minor Threat — Out of Step 1983), the Boston scene (SS Decontrol, DYS), the Los Angeles scene (Black Flag — Damaged 1981, Circle Jerks, Suicidal Tendencies), and the New York hardcore scene (Agnostic Front, Cro-Mags, Sick of It All)",
   "recipe": "classic North American 1980-1983 hardcore punk, distorted Rock, punk branch, thrash metal djent. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension sticks drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT boss DS-1.",
   "recipe_chars": 561,
-  "score": 307.346,
+  "score": 308.079,
   "config": {
     "traditions": [
       "hardcore_punk",
@@ -30,8 +30,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 30.340624999999996,
-          "amp_make": 33.85912499999999,
+          "electric_technique": 30.730624999999996,
+          "amp_make": 33.926624999999994,
           "body_wood": 1.8850000000000002,
           "neck_wood": 1.8850000000000002,
           "fretboard": 1.8850000000000002,
@@ -74,7 +74,7 @@
         },
         "scores": {
           "drum_technique": 15.374999999999996,
-          "drumhead": 2.038625,
+          "drumhead": 2.052125,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -107,10 +107,10 @@
           "voice_articulation": 13.974999999999993,
           "voice_microtone": 16.57499999999999,
           "voice_tradition": 1.885,
-          "voice_mechanism_compound": 26.52375,
+          "voice_mechanism_compound": 26.59125,
           "voice_estill_quality": 1.6899999999999997,
           "voice_speech_song": 16.249999999999993,
-          "voice_ensemble_config": 24.915749999999996,
+          "voice_ensemble_config": 25.110749999999996,
           "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 2.9450000000000007,
           "voice_processing_chain": 5.98,

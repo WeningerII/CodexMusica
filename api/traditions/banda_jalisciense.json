@@ -3,9 +3,9 @@
   "name": "Banda jalisciense",
   "family": "global",
   "lineage": "Jalisco village wind-band tradition formed in the late nineteenth century out of municipal and military brass instruction, running parallel to mariachi in the same region: 10–20 players of clarinets, cornets/trumpets, valve trombones, alto horns, tuba and tambora-plus-tarola battery, playing sones, jarabes, marches and polkas at 100–140 BPM with 6/8-against-3/4 hemiola, unison clarinet leads, tuba on the downbeat-and-offbeat bass line, and shouted gritos over sung coplas.",
-  "recipe": "classic Southwestern American early-1940s banda jalisciense, functional Song, Mexican branch, tejano border ranchera, European carnival processional cologne karneval. thick, full chest belt, straight onset, interlocked note trading. red brass 90 10 darkest bach stradivarius 180 canonical American orchestral unison standard rim orchestral balance trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, composite resin blackwood dust clarinet, compact tuba brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba, double bass rapid double strokes bass drum. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 898,
-  "score": 206.497,
+  "recipe": "classic Southwestern American early-1940s banda jalisciense, functional Song, Mexican branch, tejano border ranchera, European carnival processional cologne karneval. sygyt, full chest belt, straight onset, interlocked note trading. red brass 90 10 darkest bach stradivarius 180 canonical American orchestral unison standard rim orchestral balance trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, grenadilla African blackwood traditional clarinet, compact tuba brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba, double bass rapid double strokes bass drum. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 908,
+  "score": 206.59,
   "config": {
     "traditions": [
       "banda_jalisciense",
@@ -27,10 +27,10 @@
         "scores": {
           "wind_articulation": 8.999999999999998,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 5.4765,
-          "brass_mute": 0.375,
+          "trumpet_mouthpiece": 5.685,
+          "brass_mute": 0.46499999999999997,
           "trumpet_technique": 8.999999999999998,
-          "trumpet_bell_metal": 2.9045,
+          "trumpet_bell_metal": 2.93,
           "trumpet_maker_school": 1.3
         }
       },
@@ -40,7 +40,7 @@
           "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "bass_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_6half_al",
-          "trombone_mute": "no_mute_trb",
+          "trombone_mute": "straight_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_red_brass",
           "trombone_maker_school": "trombone_bach_42"
@@ -51,7 +51,7 @@
           "trombone_mouthpiece": 6.14,
           "trombone_mute": 0.195,
           "trombone_technique": 0.65,
-          "trombone_bell_metal": 2.936,
+          "trombone_bell_metal": 2.93,
           "trombone_maker_school": 1.95
         }
       },
@@ -59,17 +59,17 @@
         "id": "clarinet",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "clarinet_body": "buffet_greenline_clarinet",
+          "clarinet_body": "grenadilla_clarinet",
           "clarinet_size": "e_flat_clarinet",
           "clarinet_reed": "medium_clarinet_reed",
-          "clarinet_articulation": "glissando_clarinet"
+          "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
           "wind_articulation": 1.2675,
-          "clarinet_body": 5.25,
+          "clarinet_body": 5.35,
           "clarinet_size": 0.39,
           "clarinet_reed": 0.195,
-          "clarinet_articulation": 0.12999999999999998
+          "clarinet_articulation": 0.15
         }
       },
       {
@@ -84,28 +84,28 @@
         },
         "scores": {
           "wind_articulation": 1.2675,
-          "tuba_pitch": 4.641,
+          "tuba_pitch": 4.185,
           "tuba_context": 8.32,
           "tuba_bell_metal": 2.73,
           "tuba_valve_system": 1.04,
-          "tuba_maker_school": 4.615
+          "tuba_maker_school": 4.6
         }
       },
       {
         "id": "bass_drum",
         "slots": {
-          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_size": "bass_drum_18_jazz",
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.0315,
-          "bass_drum_beater": 1.573
+          "bass_drum_size": 0.135,
+          "bass_drum_beater": 1.69
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "sygyt_register",
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -123,8 +123,8 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 1.1115,
-          "voice_quality": 21.65499999999999,
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 21.44499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.339999999999999,
@@ -132,13 +132,13 @@
           "voice_microtone": 16.37999999999999,
           "voice_tradition": 6.3050000000000015,
           "voice_mechanism_compound": 4.55,
-          "voice_estill_quality": 11.364999999999998,
+          "voice_estill_quality": 11.664999999999997,
           "voice_speech_song": 25.057499999999994,
           "voice_ensemble_config": 19.044999999999995,
-          "voice_ornament_system": 0.6174999999999999,
-          "voice_pitch_organization": 3.7279999999999998,
-          "voice_processing_chain": 3.3080000000000003,
-          "voice_multitrack_stack": 4.03
+          "voice_ornament_system": 0.4749999999999999,
+          "voice_pitch_organization": 3.92,
+          "voice_processing_chain": 3.7700000000000005,
+          "voice_multitrack_stack": 3.34
         }
       }
     ],

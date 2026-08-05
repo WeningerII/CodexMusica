@@ -1,0 +1,108 @@
+{
+  "id": "didgeridoo_drone_practice",
+  "name": "Didgeridoo drone practice (yidaki and mago technique)",
+  "family": "global",
+  "lineage": "Northern Australian aerophone tradition of Arnhem Land (yidaki) and western Arnhem (mago), documented from the 1930s and internationally disseminated from the 1980s — a termite-hollowed eucalypt tube sounded by lip buzz with continuous circular breathing, producing a fixed fundamental around D-to-F, a superimposed second overtone 'toot', and rhythm generated entirely by tongue, cheek, diaphragm and vocalized calls layered into the drone at fast isochronous cycle lengths.",
+  "recipe": "classic mid-1930s didgeridoo drone practice, drone Modal, overtone branch, indigenous ritual devotional, wind pipe drone modal shipibo-conibo icaros healing songs yidaki solo. sygyt, breath veiled tone, breath pulsed, interlocked note trading. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo, arnhem land song cycle clapsticks bilma. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 458,
+  "score": 249.993,
+  "config": {
+    "traditions": [
+      "didgeridoo_drone_practice",
+      "shipibo_icaros",
+      "didgeridoo_yidaki_solo"
+    ],
+    "instruments": [
+      {
+        "id": "didgeridoo",
+        "slots": {
+          "wind_articulation": "wind_circular_breathing_drone",
+          "didj_material": "eucalyptus_tetrodonta_yidaki",
+          "didj_mouthpiece": "sugarbag_beeswax_mouthpiece",
+          "didj_technique": "circular_breathing"
+        },
+        "scores": {
+          "wind_articulation": 15.635357142857142,
+          "didj_material": 12.098214285714285,
+          "didj_mouthpiece": 8.800357142857141,
+          "didj_technique": 6.294374999999999
+        }
+      },
+      {
+        "id": "clapsticks_bilma",
+        "slots": {
+          "clapsticks_bilma_form": "clapsticks_bilma_arnhem",
+          "clapsticks_bilma_context": "clapsticks_bilma_manikay",
+          "clapsticks_bilma_wood": "clapsticks_bilma_eucalypt"
+        },
+        "scores": {
+          "clapsticks_bilma_form": 13.368214285714284,
+          "clapsticks_bilma_context": 16.733124999999998,
+          "clapsticks_bilma_wood": 0.95
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 7.4878125,
+          "voice_quality": 28.404999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.835,
+          "voice_articulation": 17.095,
+          "voice_microtone": 20.734999999999992,
+          "voice_tradition": 17.484999999999992,
+          "voice_mechanism_compound": 9.765714285714285,
+          "voice_estill_quality": 4.94,
+          "voice_speech_song": 18.979999999999997,
+          "voice_ensemble_config": 17.679999999999996,
+          "voice_ornament_system": 6.150000000000001,
+          "voice_pitch_organization": 13.570312499999996,
+          "voice_processing_chain": 10.465,
+          "voice_multitrack_stack": 6.045
+        }
+      }
+    ],
+    "room": "forest_clearing",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "forest_clearing",
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

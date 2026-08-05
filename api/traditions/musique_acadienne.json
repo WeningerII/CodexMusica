@@ -1,0 +1,162 @@
+{
+  "id": "musique_acadienne",
+  "name": "Musique acadienne (Maritime Acadian tradition)",
+  "family": "vernacular",
+  "lineage": "French-language traditional music of the Acadian Maritimes — southeast New Brunswick, southwest Nova Scotia, Prince Edward Island and the Îles-de-la-Madeleine — carried orally since the eighteenth century and revived from the 1970s by Édith Butler, 1755 and later Barachois and Vishtèn: crooked-metre fiddle reels with irregular bar counts, seated podorythmie foot percussion, diatonic accordion and spoons, and unaccompanied complainte and chanson à répondre call-and-response singing in Acadian French.",
+  "recipe": "classic North American mid-1970s musique acadienne, improv On Frame, Celtic traditional branch, Celtic balladic ballad poetry, pre commercial country scottish gaelic folk song newfoundland traditional song and dance music. thick, breath veiled tone, wide pitch sway, interlocked note trading. fiddle, Celtic drone like melodeon diatonic, foot tap, spoons wooden and hand spoons, dadgad tuning drone like modal dreadnought acoustic guitar, upright piano. newfoundland outport kitchen party. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 552,
+  "score": 313.349,
+  "config": {
+    "traditions": [
+      "musique_acadienne",
+      "scottish_gaelic_folk",
+      "newfoundland_folk"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 12.72625,
+          "fiddle_strings": 0.49499999999999994,
+          "fiddle_bow": 0.195,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.3
+        }
+      },
+      {
+        "id": "melodeon_diatonic",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "melodeon_rows": "melodeon_3_row",
+          "melodeon_diatonic_context": "melodeon_diatonic_celtic"
+        },
+        "scores": {
+          "free_reed_technique": 13.525,
+          "melodeon_rows": 1.235,
+          "melodeon_diatonic_context": 6.175
+        }
+      },
+      {
+        "id": "foot_tap",
+        "slots": {
+          "tap_striker": "tap_metal_taps",
+          "tap_surface": "tap_board_plywood"
+        },
+        "scores": {
+          "tap_striker": 0.15,
+          "tap_surface": 0.70625
+        }
+      },
+      {
+        "id": "spoons",
+        "slots": {
+          "spoons_material": "spoons_wooden",
+          "spoons_playing": "spoons_knee_and_hand"
+        },
+        "scores": {
+          "spoons_material": 1.5062499999999999,
+          "spoons_playing": 27.495000000000015
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "string_tuning": "dadgad",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "martin_lifespan"
+        },
+        "scores": {
+          "acoustic_technique": 12.41,
+          "string_tuning": 15.04,
+          "top_wood": 0.135,
+          "back_sides": 0.195,
+          "string_acoustic": 0.9099999999999999
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.520000000000001,
+          "voice_quality": 14.559999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.125,
+          "voice_articulation": 27.300000000000015,
+          "voice_microtone": 27.690000000000012,
+          "voice_tradition": 23.985000000000003,
+          "voice_mechanism_compound": 6.240000000000001,
+          "voice_estill_quality": 10.101999999999999,
+          "voice_speech_song": 30.940000000000015,
+          "voice_ensemble_config": 29.900000000000013,
+          "voice_ornament_system": 22.462749999999996,
+          "voice_pitch_organization": 2.2099999999999995,
+          "voice_processing_chain": 5.85,
+          "voice_multitrack_stack": 5.330000000000001
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_honky_tonk",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 3.325,
+          "upright_use": 0.135,
+          "upright_piano_size": 2.4050000000000002
+        }
+      }
+    ],
+    "room": "newfoundland_outport_kitchen_party",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "newfoundland_outport_kitchen_party",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

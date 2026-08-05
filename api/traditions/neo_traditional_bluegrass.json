@@ -1,0 +1,189 @@
+{
+  "id": "neo_traditional_bluegrass",
+  "name": "Neo-traditional bluegrass",
+  "family": "country",
+  "lineage": "Conservative revival strain that took shape in the mid-1970s and 1980s around the Johnson Mountain Boys, Larry Sparks and Del McCoury, deliberately restoring the 1946-48 Monroe-Flatt-Scruggs template — five-string banjo in Scruggs three-finger roll, chopping mandolin backbeat, walking upright bass, no drums, and tenor-above-lead trio harmony sung high and hard into a single central condenser at 130-180 BPM, with modern recording fidelity but period repertoire, tempos and vocal placement.",
+  "recipe": "classic 1974-1976 neo-traditional bluegrass, improv On Frame, bluegrass branch, neo trad country, christian gospel southern gospel classic texas country neotraditional country. thick, breath veiled tone, straight note core, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar phosphor bronze modern martin travis picked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, sustaining steel upright bass, steel magic rosin modern acrylic base double stops fiddle. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 789,
+  "score": 440.433,
+  "config": {
+    "traditions": [
+      "neo_traditional_bluegrass",
+      "classic_texas_country",
+      "neotraditional_country"
+    ],
+    "instruments": [
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "mandolin_shape": "f_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 7.699999999999999,
+          "mandolin_shape": 8.2365,
+          "mandolin_top": 10.258249999999999,
+          "mandolin_back": 7.781499999999999,
+          "mandolin_bracing": 8.55,
+          "mandolin_strings": 2.5026249999999997,
+          "mandolin_fingerboard": 1.5999999999999999,
+          "mandolin_pickup": 19.955
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "resonator",
+          "tone_ring": "flathead",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "three_finger",
+          "banjo_rim_wood": "banjo_block_rim_maple",
+          "banjo_neck_wood": "banjo_maple_neck",
+          "banjo_strings": "banjo_medium_bluegrass",
+          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.45499999999999996,
+          "tone_ring": 7.749999999999999,
+          "banjo_head": 18.914999999999996,
+          "banjo_pot": 1.205125,
+          "banjo_play": 4.029999999999999,
+          "banjo_rim_wood": 9.743125,
+          "banjo_neck_wood": 9.774624999999999,
+          "banjo_strings": 11.93675,
+          "banjo_bridge": 9.81175,
+          "banjo_setup_period": 30.939999999999998
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "eb_standard",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 18.727999999999998,
+          "string_tuning": 0.06499999999999999,
+          "top_wood": 1.65,
+          "back_sides": 0.8365,
+          "string_acoustic": 3.2215
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 1.8850000000000002,
+          "upright_play": 0.75
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "pizz"
+        },
+        "scores": {
+          "bowed_technique": 29.810000000000002,
+          "fiddle_strings": 2.3400000000000003,
+          "fiddle_bow": 3.4149999999999996,
+          "fiddle_mute": 0.7765,
+          "fiddle_articulation": 0.65
+        }
+      },
+      {
+        "id": "resonator_guitar",
+        "slots": {
+          "resonator_body": "resonator_dobro_wood_single_cone",
+          "resonator_strings": "gibson_dobro_set",
+          "resonator_technique": "resonator_lap_steel_position"
+        },
+        "scores": {
+          "resonator_body": 4.029999999999999,
+          "resonator_strings": 4.029999999999999,
+          "resonator_technique": 4.029999999999999
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 22.375249999999994,
+          "voice_quality": 11.95999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 20.862125,
+          "voice_articulation": 18.71999999999999,
+          "voice_microtone": 18.71999999999999,
+          "voice_tradition": 7.540000000000002,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 21.447375,
+          "voice_speech_song": 24.309999999999995,
+          "voice_ensemble_config": 18.199999999999992,
+          "voice_ornament_system": 2.29375,
+          "voice_pitch_organization": 1.9816249999999997,
+          "voice_processing_chain": 8.708625,
+          "voice_multitrack_stack": 6.761875
+        }
+      }
+    ],
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_ua_610_tube",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "bluegrass_high_lonesome_pentatonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "bluegrass_high_lonesome_pentatonic",
+    "room": "live_room",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

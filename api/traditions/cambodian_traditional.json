@@ -1,0 +1,171 @@
+{
+  "id": "cambodian_traditional",
+  "name": "Cambodian Traditional (Village and Wedding)",
+  "family": "global",
+  "lineage": "Rural Khmer repertoires outside the court — the phleng kar wedding cycle, arak spirit-possession music, ayai sung repartee and the solo chapei dang veng bardic tradition — carried orally through village ceremony and codified in the late twentieth century largely through Kong Nay and post-genocide revival projects, built on chapei long-necked lute, tro fiddles, khim dulcimer, skor daey hand drum and chhing cymbals under speech-rhythm vocal narration.",
+  "recipe": "classic modern cambodian traditional, wedding, east Asian branch, indian bard ballad poetry, east Asian field work thai folk min'yō. thick, breath veiled tone, slow rate, interlocked note trading. two string long neck fretted canonical khmer narrative dang veng narrative singing canonical cambodian chapei lute, silk historical coconut shell three string wedding context tro khmer, tro sau, khim, krapeu, skor daey, khmer ching chap open and damped bronze ching. tin roofed shack. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 544,
+  "score": 210.896,
+  "config": {
+    "traditions": [
+      "cambodian_traditional",
+      "thai_folk",
+      "minyo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.475000000000001,
+          "voice_quality": 10.269999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 19.824999999999996,
+          "voice_microtone": 20.34499999999999,
+          "voice_tradition": 16.3575,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.6650000000000005,
+          "voice_speech_song": 25.609999999999992,
+          "voice_ensemble_config": 18.979999999999997,
+          "voice_ornament_system": 7.115000000000001,
+          "voice_pitch_organization": 5.265,
+          "voice_processing_chain": 2.925000000000001,
+          "voice_multitrack_stack": 2.4699999999999998
+        }
+      },
+      {
+        "id": "chapei_lute",
+        "slots": {
+          "chapei_lute_body": "chapei_lute_two_string_long_neck_canonical",
+          "chapei_lute_tradition": "chapei_lute_dang_veng_canonical"
+        },
+        "scores": {
+          "chapei_lute_body": 4.225,
+          "chapei_lute_tradition": 4.68
+        }
+      },
+      {
+        "id": "tro_khmer",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "tro_khmer_strings": "tro_khmer_silk",
+          "tro_khmer_body": "tro_khmer_tight_snakeskin",
+          "tro_khmer_tuning": "tro_khmer_fourth_fourth",
+          "tro_khmer_context": "tro_khmer_wedding"
+        },
+        "scores": {
+          "bowed_technique": 1.4,
+          "tro_khmer_strings": 4.251250000000001,
+          "tro_khmer_body": 4.24,
+          "tro_khmer_tuning": 6.512499999999999,
+          "tro_khmer_context": 14.649999999999999
+        }
+      },
+      {
+        "id": "tro_sau",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "tro_sau_form": "tro_sau_thom",
+          "tro_sau_context": "tro_sau_mohori"
+        },
+        "scores": {
+          "bowed_technique": 1.4,
+          "tro_sau_form": 0.24,
+          "tro_sau_context": 0.39
+        }
+      },
+      {
+        "id": "khim",
+        "slots": {
+          "khim_form": "khim_thai",
+          "khim_mallets": "khim_bare_bamboo",
+          "khim_strings": "khim_brass"
+        },
+        "scores": {
+          "khim_form": 0.285,
+          "khim_mallets": 0.285,
+          "khim_strings": 0.045
+        }
+      },
+      {
+        "id": "krapeu",
+        "slots": {
+          "krapeu_strings": "krapeu_nylon",
+          "krapeu_technique": "krapeu_horn_pick"
+        },
+        "scores": {
+          "krapeu_strings": 0.285,
+          "krapeu_technique": 0.045
+        }
+      },
+      {
+        "id": "skor_daey",
+        "slots": {
+          "skor_daey_body": "skor_daey_hardwood_pair",
+          "skor_daey_stroke": "skor_daey_bare_hands",
+          "skor_daey_context": "skor_daey_mohori"
+        },
+        "scores": {
+          "skor_daey_body": 0.195,
+          "skor_daey_stroke": 0.135,
+          "skor_daey_context": 0.845
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_khmer",
+          "ching_stroke": "ching_open_closed",
+          "ching_alloy": "ching_bronze"
+        },
+        "scores": {
+          "ching_form": 4.885,
+          "ching_stroke": 19.629999999999995,
+          "ching_alloy": 1.75
+        }
+      }
+    ],
+    "room": "tin_roofed_shack",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "equal_heptatonic_thai_khmer",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_thai_khmer",
+    "room": "tin_roofed_shack",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

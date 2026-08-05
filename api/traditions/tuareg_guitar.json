@@ -1,0 +1,178 @@
+{
+  "id": "tuareg_guitar",
+  "name": "Tuareg guitar (assouf electric style)",
+  "family": "global",
+  "lineage": "Electric-guitar idiom developed in Tuareg refugee and rebel camps in Libya and Algeria in the early 1980s and codified by Tinariwen and later by Niger's Agadez players (Bombino, Mdou Moctar) — cyclic pentatonic riffs with a raised fourth transferred from the imzad fiddle and tehardent lute onto clean-to-crunchy single-coil guitar, loping 12/8 or shuffled 4/4 built from handclaps and tinde/djembe, call-and-response Tamasheq vocals, and long unresolved modal vamps with no chord progression.",
+  "recipe": "classic North African 1980-1983 tuareg guitar, drone Modal, modal electric branch, regional distorted rock, sub saharan African protest song thai psychedelic zamrock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp power chord single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, snappy to palm hand clap, djembe, tehardent, driving call-and-response tinde. saharan desert encampment. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 547,
+  "score": 248.77,
+  "config": {
+    "traditions": [
+      "tuareg_guitar",
+      "thai_psychedelic",
+      "zamrock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 5.525,
+          "amp_make": 6.37,
+          "body_wood": 0.5,
+          "neck_wood": 0.5,
+          "fretboard": 0.545,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 0.5,
+          "bridge": 0.545,
+          "scale_length": 0.5,
+          "finish": 0.5,
+          "string_tuning": 8.19
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 6.630000000000001,
+          "body_wood": 1.045,
+          "pickup_config": 0.545,
+          "string_type": 16.25,
+          "scale_length_b": 0.5,
+          "fretted_or_not": 0.195,
+          "bass_technique": 12.69
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 15.774999999999995,
+          "voice_quality": 7.865,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.9099999999999999,
+          "voice_articulation": 20.41,
+          "voice_microtone": 26.714999999999996,
+          "voice_tradition": 10.325,
+          "voice_mechanism_compound": 10.29,
+          "voice_estill_quality": 5.265,
+          "voice_speech_song": 23.009999999999998,
+          "voice_ensemble_config": 20.345,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 4.159999999999999,
+          "voice_processing_chain": 8.940000000000001,
+          "voice_multitrack_stack": 5.46
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 2.15,
+          "clap_capture": 0.38999999999999996
+        }
+      },
+      {
+        "id": "djembe",
+        "slots": {
+          "djembe_wood": "djembe_iroko",
+          "djembe_skin": "djembe_goat_skin",
+          "djembe_play": "djembe_traditional_3"
+        },
+        "scores": {
+          "djembe_wood": 0.435,
+          "djembe_skin": 0.045,
+          "djembe_play": 0.045
+        }
+      },
+      {
+        "id": "tehardent",
+        "slots": {
+          "tehardent_body": "tehardent_wood_hide",
+          "tehardent_style": "tehardent_takamba"
+        },
+        "scores": {
+          "tehardent_body": 0,
+          "tehardent_style": 0.65
+        }
+      },
+      {
+        "id": "tinde",
+        "slots": {
+          "tinde_build": "tinde_basin",
+          "tinde_context": "tinde_tende_nomnas"
+        },
+        "scores": {
+          "tinde_build": 0.045,
+          "tinde_context": 23.855
+        }
+      }
+    ],
+    "room": "saharan_desert_encampment",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "tuareg_pentatonic_raised4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tuareg_pentatonic_raised4",
+    "room": "saharan_desert_encampment",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "colored"
+  }
+}

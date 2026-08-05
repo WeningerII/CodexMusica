@@ -1,0 +1,213 @@
+{
+  "id": "country_soul",
+  "name": "Country Soul",
+  "family": "blues_gospel",
+  "lineage": "Mid-1960s recordings made at Muscle Shoals, American Sound in Memphis and Fame by integrated house bands — country song forms and pedal-steel voicings played with a gospel-derived rhythm-section pocket, tambourine on the backbeat, Wurlitzer or tonewheel organ pads, at 60-100 BPM, sung with the melisma and rasp of Southern soul over three-chord country changes.",
+  "recipe": "classic Southern American 1964-1966 country soul, functional Song, soul R&B branch, nashville country instrumental country nashville sound. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup alder la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet gospel runs full spectrum slow chorale tonewheel organ, gospel runs electric piano tine, tambourine orch. converted coffin warehouse 1969-1979 mid tier muscle shoals sound studio. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 881,
+  "score": 646.997,
+  "config": {
+    "traditions": [
+      "country_soul",
+      "instrumental_country",
+      "nashville_sound"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 46.73125,
+          "voice_quality": 13.56224999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 25.33,
+          "voice_articulation": 18.069999999999993,
+          "voice_microtone": 16.184999999999988,
+          "voice_tradition": 16.20675,
+          "voice_mechanism_compound": 5.459999999999999,
+          "voice_estill_quality": 30.912374999999997,
+          "voice_speech_song": 25.934999999999995,
+          "voice_ensemble_config": 16.31499999999999,
+          "voice_ornament_system": 1.4949999999999997,
+          "voice_pitch_organization": 1.28125,
+          "voice_processing_chain": 6.183000000000001,
+          "voice_multitrack_stack": 7.215000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_country_chicken_pickin",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 27.26025,
+          "amp_make": 38.388,
+          "body_wood": 1.885,
+          "neck_wood": 1.885,
+          "fretboard": 1.8199999999999998,
+          "pickup_magnet": 0.042749999999999996,
+          "string_material": 3.5100000000000002,
+          "string_gauge": 1.885,
+          "bridge": 0.09974999999999999,
+          "scale_length": 1.885,
+          "finish": 0.1425,
+          "string_tuning": 1.95
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 31.525,
+          "amp_make": 38.388,
+          "pickup_steel": 1.885,
+          "string_setup": 12.278125,
+          "bar_material": 3.26775,
+          "pedal_steel_brand": 34.076249999999995,
+          "pedal_steel_neck_config": 27.453625,
+          "pedal_steel_strings": 31.264999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 25.916749999999997,
+          "body_wood": 1.885,
+          "pickup_config": 0,
+          "string_type": 16.40825,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0.09974999999999999,
+          "bass_technique": 24.82
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 16.444999999999993,
+          "drumhead": 5.575124999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "slow_chorale",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_145_smaller"
+        },
+        "scores": {
+          "keyboard_technique": 15.699749999999998,
+          "drawbar_setting": 3.29275,
+          "rotary_speed": 11.823749999999999,
+          "percussion_setting": 0.65,
+          "tonewheel_model": 9.23,
+          "leslie_cabinet_model": 0.12999999999999998
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "tine_voicing": "mellow_tine",
+          "tine_effect": "overdrive_tine"
+        },
+        "scores": {
+          "keyboard_technique": 15.699749999999998,
+          "tine_voicing": 0,
+          "tine_effect": 0.65
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_mixed",
+          "tambourine_orch_context": "tambourine_orch_film"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 1.04,
+          "tambourine_orch_context": 0.195
+        }
+      }
+    ],
+    "room": "muscle_shoals_sound_studio",
+    "archetype": "arch_memphis_southern_soul",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "muscle_shoals_sound_studio",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

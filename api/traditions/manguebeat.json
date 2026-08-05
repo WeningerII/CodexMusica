@@ -3,14 +3,14 @@
   "name": "Mangue beat",
   "family": "rock",
   "lineage": "Recife, Pernambuco movement launched in 1991 by Fred Zero Quatro's 'Caranguejos com Cérebro' manifesto and realized by Chico Science & Nação Zumbi on Da Lama ao Caos (1994) — maracatu nação alfaia batteries and coco rhythms locked against distorted humbucker guitar, slap and fuzz electric bass, drum kit and hip-hop turntable scratching, with declaimed half-rapped Portuguese vocals over 4/4 maracatu patterns at 100-120 BPM.",
-  "recipe": "classic Southern American early-1990s mangue beat, distorted Rock, regional branch, Brazilian groove percussion, Brazilian carnival processional pagode frevo. thick, breath veiled tone, straight onset, interlocked note trading. processional maracatu tradition alfaia, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation ebony humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, agogo, timbal brasileiro, turntable. estudio rozenblit recife. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 723,
-  "score": 231.632,
+  "recipe": "classic Southern American early-1990s mangue beat, distorted Rock, regional branch, Brazilian groove percussion, Brazilian carnival processional samba rock pagode. thick, breath veiled tone, slow rate, interlocked note trading. maracatu tradition alfaia, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation ebony humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, jazz-trained ride-driven brushes-and-sticks drum kit, agogo, timbal brasileiro, turntable. estudio rozenblit recife. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 699,
+  "score": 236.637,
   "config": {
     "traditions": [
       "manguebeat",
-      "pagode",
-      "frevo"
+      "samba_rock",
+      "pagode"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.724999999999993,
-          "voice_quality": 18.882499999999993,
+          "voice_register": 12.899999999999995,
+          "voice_quality": 21.319999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9175,
-          "voice_articulation": 16.574999999999996,
-          "voice_microtone": 17.484999999999992,
-          "voice_tradition": 7.735,
-          "voice_mechanism_compound": 5.3950000000000005,
-          "voice_estill_quality": 5.200000000000001,
-          "voice_speech_song": 17.484999999999992,
-          "voice_ensemble_config": 17.354999999999997,
+          "voice_vibrato": 1.3324999999999998,
+          "voice_articulation": 17.354999999999997,
+          "voice_microtone": 18.069999999999993,
+          "voice_tradition": 6.434999999999999,
+          "voice_mechanism_compound": 3.705,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 19.174999999999997,
+          "voice_ensemble_config": 17.484999999999996,
           "voice_ornament_system": 1.6449999999999998,
           "voice_pitch_organization": 1.2899999999999998,
-          "voice_processing_chain": 6.24,
-          "voice_multitrack_stack": 8.515
+          "voice_processing_chain": 6.044999999999999,
+          "voice_multitrack_stack": 7.67
         }
       },
       {
@@ -62,7 +62,7 @@
         "scores": {
           "alfaia_shell": 0.195,
           "alfaia_skin": 0.585,
-          "alfaia_technique": 5.59
+          "alfaia_technique": 4.095
         }
       },
       {
@@ -76,59 +76,59 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 3.9050000000000002,
-          "amp_make": 4.28,
+          "electric_technique": 3.255,
+          "amp_make": 5.23,
           "body_wood": 0.845,
-          "neck_wood": 0.195,
-          "fretboard": 2.34,
-          "pickup_magnet": 1.4949999999999999,
+          "neck_wood": 0.845,
+          "fretboard": 1.4949999999999999,
+          "pickup_magnet": 0.69,
           "pickup_winding": 0.195,
           "string_material": 0.15,
-          "bridge": 1.6899999999999997,
+          "bridge": 0.845,
           "scale_length": 0.845,
-          "string_gauge": 0.39,
+          "string_gauge": 0.845,
           "finish": 0,
-          "string_tuning": 5.069999999999999
+          "string_tuning": 5.85
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 6.694999999999999,
-          "body_wood": 1.4949999999999999,
-          "pickup_config": 1.4949999999999999,
-          "string_type": 9.354999999999999,
-          "scale_length_b": 0.195,
-          "fretted_or_not": 0.65,
-          "bass_technique": 8.359999999999998
+          "amp_make": 7.795000000000001,
+          "body_wood": 0.845,
+          "pickup_config": 0.645,
+          "string_type": 11.73,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 1.15,
+          "bass_technique": 10.735000000000001
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.647499999999997,
-          "drumhead": 1.56,
+          "drum_technique": 17.9725,
+          "drumhead": 0.95,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -139,8 +139,8 @@
           "agogo_context": "agogo_bateria"
         },
         "scores": {
-          "agogo_bell": 4.614999999999998,
-          "agogo_context": 4.29
+          "agogo_bell": 5.849999999999999,
+          "agogo_context": 1.95
         }
       },
       {
@@ -164,7 +164,7 @@
         },
         "scores": {
           "electronic_technique": 1.45,
-          "turntable_technique": 2.145
+          "turntable_technique": 2.34
         }
       }
     ],

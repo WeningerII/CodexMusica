@@ -1,0 +1,163 @@
+{
+  "id": "furniture_music",
+  "name": "Furniture Music (musique d'ameublement)",
+  "family": "classical",
+  "lineage": "Coined and composed by Erik Satie with Darius Milhaud in Paris 1917-1923, first performed at the Galerie Barbazanges in 1920 — short modal cells for small mixed ensemble (piano, clarinet, trombone, strings) repeated unchanged for the duration of an interval, deliberately unresolving, dynamically flat and written to be ignored, with Satie shouting at the audience to keep talking.",
+  "recipe": "classic Western European mid-1920s furniture music, art Music, western modern branch, western common practice art music, ambient experimental electric salon music chamber music. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, composite resin blackwood dust continuous-airflow legato clarinet, band section bass trombone, plain gut sheep gut unsplit sitka spruce bigleaf maple violin orchestral, plain gut sheep gut unsplit carpathian spruce European maple cello, silver yamaha modern Japanese mid to premium continuous-airflow legato flute. intimate paris small studio. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 670,
+  "score": 243.948,
+  "config": {
+    "traditions": [
+      "furniture_music",
+      "salon_music",
+      "chamber_music"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 5.3525,
+          "grand_piano_size": 0.785,
+          "grand_piano_brand": 1.04,
+          "piano_hammer": 13.1625,
+          "piano_rim": 11.788269230769231,
+          "piano_soundboard": 10.125,
+          "piano_pinblock": 9.775,
+          "piano_plate": 9.715,
+          "piano_pitch_standard": 13.06403846153846
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "buffet_greenline_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "glissando_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 5.19,
+          "clarinet_body": 9.625,
+          "clarinet_size": 2.6,
+          "clarinet_reed": 0.65,
+          "clarinet_articulation": 0.12999999999999998
+        }
+      },
+      {
+        "id": "bass_trombone",
+        "slots": {
+          "bass_trombone_valves": "bass_trombone_double_trigger",
+          "bass_trombone_context": "bass_trombone_big_band_section"
+        },
+        "scores": {
+          "bass_trombone_valves": 0.65,
+          "bass_trombone_context": 1.4699999999999998
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "plain_sheep_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 5.375,
+          "orch_strings": 1.8492307692307692,
+          "orch_top_wood": 8,
+          "orch_back_wood": 12.3825,
+          "orch_varnish": 9.625,
+          "orch_setup_period": 8.744038461538462,
+          "orch_bow": 0.39,
+          "orch_bow_stick": 12.34076923076923,
+          "orch_articulation": 0.45499999999999996,
+          "orch_rosin": 11.0825
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "plain_sheep_gut_cello",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 5.375,
+          "cello_strings": 1.8492307692307692,
+          "cello_top_wood": 6.201538461538462,
+          "cello_back_wood": 11.17153846153846,
+          "cello_varnish": 9.625,
+          "cello_setup_period": 8.744038461538462,
+          "cello_bow_grip": 2.795,
+          "cello_rosin": 10.715769230769231,
+          "cello_bow_stick": 12.34076923076923
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "piccolo_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 5.19,
+          "flute_size": 0.65,
+          "flute_material": 1.105,
+          "flute_technique": 0.4550000000000001,
+          "flute_maker_school": 4.389038461538462
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_decca_sound_orchestral",
+    "inline_chain": {
+      "mic": "mic_coles_4038_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "mic_coles_4038_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -3,60 +3,60 @@
   "name": "Cumbia chilena",
   "family": "global",
   "lineage": "Chilean adaptation of Colombian cumbia established in Santiago in the early 1960s by Luis Alberto Martínez's La Sonora Palacios and Los Vikings 5 — faster than its Colombian source at roughly 110-130 BPM, driven by electric organ or piano guajeo, two-trumpet-and-trombone brass riffs, timbales-and-congas kit playing and güiro on the offbeat, with unison chorus refrains; revived from the late 1990s as nueva cumbia chilena by Chico Trujillo and Juana Fe with punk-speed tempos and brass grit.",
-  "recipe": "classic North American 1960-1963 cumbia chilena, groove Percussion, Latin am branch, Caribbean groove percussion, tropical song functional song cuarteto cordobés bachata dominicana. kargyraa, full chest belt, straight note core, interlocked note trading. red brass 90 10 darkest schilke chicago lead bright shallow cup lead trumpet trumpet, red brass 90 10 darker orchestral bass trombone trombone, Hammond a 100 built in Leslie home spinet tonewheel organ, la bella flats Detroit soul bass canon electric bass, brass open slap hand drum timbales, lead open slap hand drum congas, guiro, ride-driven brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
-  "recipe_chars": 810,
-  "score": 206.328,
+  "recipe": "classic North American 1960-1963 cumbia chilena, groove Percussion, Latin am branch, Caribbean groove percussion, tropical song functional song kaseko música costeña. extended whistle, full chest belt, straight note core, interlocked note trading. red brass 90 10 darkest shallow cup lead trumpet unison trumpet, red brass 90 10 darker orchestral bass trombone trombone, Hammond a 100 built in Leslie home spinet tonewheel organ, alder la bella flats Detroit soul bass canon electric bass, brass open slap hand drum timbales, open slap hand drum congas, guiro, ride-driven brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 783,
+  "score": 219.256,
   "config": {
     "traditions": [
       "cumbia_chilena",
-      "cuarteto",
-      "bachata_dominicana"
+      "kaseko",
+      "musica_costena"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "kargyraa_register",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.8949999999999999,
-          "voice_quality": 13.139999999999997,
+          "voice_register": 1.2674999999999998,
+          "voice_quality": 11.915,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.2685,
-          "voice_articulation": 18.719999999999995,
-          "voice_microtone": 18.71999999999999,
-          "voice_tradition": 4.550000000000001,
-          "voice_mechanism_compound": 4.745,
-          "voice_estill_quality": 4.745,
-          "voice_speech_song": 24.894999999999992,
-          "voice_ensemble_config": 19.044999999999995,
-          "voice_ornament_system": 1.15,
-          "voice_pitch_organization": 2.55,
-          "voice_processing_chain": 6.37,
-          "voice_multitrack_stack": 7.750000000000001
+          "voice_vibrato": 1.7449999999999999,
+          "voice_articulation": 20.214999999999996,
+          "voice_microtone": 19.824999999999992,
+          "voice_tradition": 4.68,
+          "voice_mechanism_compound": 5.784999999999999,
+          "voice_estill_quality": 5.59,
+          "voice_speech_song": 26.389999999999997,
+          "voice_ensemble_config": 19.304999999999993,
+          "voice_ornament_system": 0.15,
+          "voice_pitch_organization": 2.525625,
+          "voice_processing_chain": 7.02,
+          "voice_multitrack_stack": 8.241249999999999
         }
       },
       {
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_mariachi_unison",
-          "brass_size": "trumpet_b_flat",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_mariachi_unison",
@@ -64,19 +64,19 @@
           "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 0.95,
-          "brass_size": 0.15,
-          "trumpet_mouthpiece": 3.1050000000000004,
+          "wind_articulation": 1.45,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 2.14,
           "brass_mute": 0.15,
-          "trumpet_technique": 0.95,
-          "trumpet_bell_metal": 3.385,
-          "trumpet_maker_school": 1.69
+          "trumpet_technique": 1.45,
+          "trumpet_bell_metal": 3.5199999999999996,
+          "trumpet_maker_school": 0.65
         }
       },
       {
         "id": "trombone",
         "slots": {
-          "wind_articulation": "wind_dixieland_lead",
+          "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "valve_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_1half_g",
           "trombone_mute": "cup_mute_trb",
@@ -85,12 +85,12 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 0.7444999999999999,
+          "wind_articulation": 0.8449999999999999,
           "trombone_type": 0.15,
-          "trombone_mouthpiece": 4.16,
+          "trombone_mouthpiece": 3.5943750000000003,
           "trombone_mute": 0,
-          "trombone_technique": 0.585,
-          "trombone_bell_metal": 3.385,
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 3.5199999999999996,
           "trombone_maker_school": 0.33
         }
       },
@@ -105,32 +105,32 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 0.06499999999999999,
-          "drawbar_setting": -0.035,
+          "keyboard_technique": 0.8249999999999998,
+          "drawbar_setting": 0.975,
           "rotary_speed": 1.6,
           "percussion_setting": 0.3,
-          "tonewheel_model": 8.515,
+          "tonewheel_model": 9.945,
           "leslie_cabinet_model": 0.65
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 2.4699999999999998,
-          "body_wood": 0.585,
-          "pickup_config": 0.49949999999999994,
-          "string_type": 4.745,
-          "scale_length_b": 0.24,
-          "fretted_or_not": 0.09,
+          "amp_make": 2.0149999999999997,
+          "body_wood": 1.2349999999999999,
+          "pickup_config": 0.500625,
+          "string_type": 3.4450000000000003,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0.195,
           "bass_technique": 3.35
         }
       },
@@ -142,8 +142,8 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 5.825000000000001,
-          "timbales_shell": 1.6899999999999997,
+          "percussion_technique": 7.125625,
+          "timbales_shell": 2.0799999999999996,
           "timbales_context": 0.195
         }
       },
@@ -156,10 +156,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 5.825000000000001,
-          "conga_set": 1.69,
-          "conga_skin": 0.195,
-          "conga_shell_wood": 0.195
+          "percussion_technique": 7.125625,
+          "conga_set": 0.65,
+          "conga_skin": 0.845,
+          "conga_shell_wood": 0.045
         }
       },
       {
@@ -169,7 +169,7 @@
           "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "guiro_origin": 0,
+          "guiro_origin": 0.195,
           "guiro_striker": 0.3
         }
       },
@@ -181,8 +181,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.084999999999997,
-          "drumhead": 0.3,
+          "drum_technique": 21.189999999999998,
+          "drumhead": 1.04,
           "drum_kit_kick_pedal": 0
         }
       }

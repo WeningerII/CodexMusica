@@ -1,0 +1,216 @@
+{
+  "id": "lambada",
+  "name": "Lambada",
+  "family": "global",
+  "lineage": "Formed in Belém do Pará and Porto Seguro, Brazil, in the mid-1980s from carimbó, Caribbean merengue and Dominican-influenced guitar, then codified globally by Kaoma's 1989 'Chorando Se Foi' and the Bahian beach-resort dance circuit — fast 2/4 at roughly 120-140 BPM with a lilting merengue-derived bass, saw-toned accordion or synth lead, clean chorused electric guitar riffs, congas and kit, and bright unison Portuguese vocal refrains.",
+  "recipe": "classic Southern American 1984-1986 lambada, functional Song, tropical song branch, Brazilian song functional song agronejo forró de favela. thick, breath veiled tone, straight note core, interlocked note trading. castagnari Italian premium folk music straight accordion, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, brushes-and-sticks drum kit, lead cowhide mid tier siam oak mid tier modern open slap hand drum congas, balanced bright yellow brass modern standard saxophone, timbal brasileiro. phonogram brasil studio. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
+  "recipe_chars": 852,
+  "score": 225.352,
+  "config": {
+    "traditions": [
+      "lambada",
+      "agronejo",
+      "forro_de_favela"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 3.969999999999999,
+          "accordion_reed_material": 1.95,
+          "musette_offset": 1.04,
+          "reed_config": 2.04,
+          "bellows": 0.195,
+          "voicing_chamber": 0.43499999999999994,
+          "accordion_maker_school": 2.0549999999999997
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 3.374999999999999,
+          "amp_make": 5.6,
+          "body_wood": 1.95,
+          "neck_wood": 1.95,
+          "fretboard": 1.885,
+          "pickup_magnet": 0.09,
+          "string_material": 0.09,
+          "string_gauge": 1.95,
+          "bridge": 1.195,
+          "scale_length": 1.95,
+          "finish": 0,
+          "string_tuning": 1.0799999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 3.6200000000000006,
+          "body_wood": 3.25,
+          "pickup_config": 1.195,
+          "string_type": 4.940000000000001,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 0.65,
+          "bass_technique": 3.374999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 17.419999999999995,
+          "drumhead": 1.95,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 3.3149999999999995,
+          "conga_set": 1.645,
+          "conga_skin": 1.95,
+          "conga_shell_wood": 1.95
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 6.890000000000001,
+          "voice_quality": 5.525000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.664999999999999,
+          "voice_articulation": 17.744999999999994,
+          "voice_microtone": 18.65499999999999,
+          "voice_tradition": 3.9650000000000007,
+          "voice_mechanism_compound": 4.355,
+          "voice_estill_quality": 8.185,
+          "voice_speech_song": 28.08,
+          "voice_ensemble_config": 19.369999999999994,
+          "voice_ornament_system": 1.045,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 5.19,
+          "voice_multitrack_stack": 4.9075
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 1.2999999999999998,
+          "sax_size": 1.95,
+          "sax_reed": 0.09,
+          "sax_body_alloy": 1.095,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 0.12999999999999998,
+          "sax_maker_school": 0.195
+        }
+      },
+      {
+        "id": "timbal_brasileiro",
+        "slots": {
+          "timbal_head": "timbal_synthetic",
+          "timbal_size": "timbal_standard",
+          "timbal_style": "timbal_samba_reggae"
+        },
+        "scores": {
+          "timbal_head": 1.15,
+          "timbal_size": 0,
+          "timbal_style": 0.3
+        }
+      }
+    ],
+    "room": "phonogram_brasil_studio",
+    "archetype": "arch_antilles_zouk_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "merengue_2_4_perico_ripiao",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "merengue_2_4_perico_ripiao",
+    "room": "phonogram_brasil_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

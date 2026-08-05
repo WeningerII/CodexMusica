@@ -1,0 +1,181 @@
+{
+  "id": "folkmusik",
+  "name": "Folkmusik (Swedish folk revival)",
+  "family": "global",
+  "lineage": "Swedish folk-music revival that ran from the 1970s 'gröna vågen' youth turn to tradition through the 1990s Falun and Umeå scenes, codified by Groupa, Filarfolket, Hedningarna and Väsen — traditional polska and vallåt melodies reharmonized with modal chords, nyckelharpa and Hardanger d'amore fiddle joined by bouzouki, hand percussion and later samplers, at moderate dance tempi with close-miked chamber clarity.",
+  "recipe": "classic North American mid-1970s folkmusik, drone Modal, string branch, string improv improv on frame, anglo singer song indie folk ectofolk. thick, breath veiled tone, straight note core, interlocked note trading. spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, drone like fiddle, dance rhythm strummed bouzouki, leather castagnari Italian premium folk music straight accordion, spilapipa, drone heavy hardanger damore. hexham head studio pa chamber folk. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 583,
+  "score": 301.2,
+  "config": {
+    "traditions": [
+      "folkmusik",
+      "indie_folk_2000s",
+      "ectofolk"
+    ],
+    "instruments": [
+      {
+        "id": "nyckelharpa",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "nyckel_keys": "modern_chromatic_nyckel",
+          "nyckel_strings": "nyckel_12_sympathetic",
+          "nyckel_body_wood": "nyckel_spruce_maple",
+          "nyckel_string_material": "nyckel_gut_historical",
+          "nyckel_mechanism": "nyckel_3_row_chromatic"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "nyckel_keys": 7.68,
+          "nyckel_strings": 18.375,
+          "nyckel_body_wood": 2.4499999999999997,
+          "nyckel_string_material": 2.7,
+          "nyckel_mechanism": -1.6099999999999999
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 20.32,
+          "fiddle_strings": 0.5,
+          "fiddle_bow": 0.345,
+          "fiddle_mute": 0.45499999999999996,
+          "fiddle_articulation": 0.525
+        }
+      },
+      {
+        "id": "bouzouki",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bouzouki_courses": "trichordo",
+          "bouzouki_pick": "bouzouki_thin",
+          "bouzouki_body_wood": "bouzouki_maple_bowl",
+          "bouzouki_strings": "bouzouki_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 20.53,
+          "bouzouki_courses": 4.955,
+          "bouzouki_pick": 2.08,
+          "bouzouki_body_wood": 0.345,
+          "bouzouki_strings": 0.65
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 19.974999999999998,
+          "accordion_reed_material": 0.43500000000000005,
+          "musette_offset": 1.7950000000000002,
+          "reed_config": 0.7499999999999999,
+          "bellows": 1.75,
+          "voicing_chamber": 0.345,
+          "accordion_maker_school": 9.07
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 31.144999999999992,
+          "voice_quality": 11.244999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8524999999999998,
+          "voice_articulation": 16.769999999999992,
+          "voice_microtone": 20.40999999999999,
+          "voice_tradition": 32.38999999999999,
+          "voice_mechanism_compound": 8.515,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 20.994999999999994,
+          "voice_ensemble_config": 16.89999999999999,
+          "voice_ornament_system": 3.275000000000001,
+          "voice_pitch_organization": 2.63,
+          "voice_processing_chain": 5.65,
+          "voice_multitrack_stack": 5.2975
+        }
+      },
+      {
+        "id": "spilapipa",
+        "slots": {
+          "spilapipa_material": "spilapipa_willow",
+          "spilapipa_style": "spilapipa_vallat"
+        },
+        "scores": {
+          "spilapipa_material": 0.045,
+          "spilapipa_style": 0.65
+        }
+      },
+      {
+        "id": "hardanger_damore",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "hdamore_tuning": "hdamore_troll",
+          "hdamore_style": "hdamore_contemporary",
+          "hdamore_sympathetic": "hdamore_steel"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "hdamore_tuning": 1.95,
+          "hdamore_style": 0.845,
+          "hdamore_sympathetic": 0
+        }
+      }
+    ],
+    "room": "hexham_head_studio_pa_chamber_folk",
+    "archetype": "arch_ecm_kongshaug",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "nordic_modal_drone_double_stops",
+    "room": "hexham_head_studio_pa_chamber_folk",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

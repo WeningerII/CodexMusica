@@ -1,0 +1,129 @@
+{
+  "id": "griot_praise_song",
+  "name": "Griot Praise Song (Jeliya)",
+  "family": "global",
+  "lineage": "Hereditary oral-history and praise practice of the jeli, gewel and gawlo castes across Mali, Guinea, Senegal, the Gambia and Burkina Faso, attributed in tradition to Bala Faseke Kouyaté at the thirteenth-century court of Sunjata Keita — free-tempo genealogical recitation (sataro) alternating with sung fasa melody in high strained tessitura over a fixed kumbengo ostinato on kora, ngoni or balafon, with heavy melisma, patron-naming interjection and no fixed piece length.",
+  "recipe": "classic West African modern griot praise song, ballad Poetry, west African griot branch, sub saharan African praise song musique peule zulu izibongo. griot voice, calabash nylon fishing line suso lineage gambia modern revival kora, carved wood modern luthier gut pre modern call-and-response ngoni, balafon, snappy to palm hand clap, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sub saharan call response ostinato polyrhythmic global traditional polyphonic choir ensemble. bamako griot jeli compound. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 602,
+  "score": 121.346,
+  "config": {
+    "traditions": [
+      "griot_praise_song",
+      "musique_peule",
+      "zulu_izibongo"
+    ],
+    "instruments": [
+      {
+        "id": "griot_voice",
+        "slots": {
+          "griot_origin": "griot_wolof",
+          "griot_voice_context": "griot_voice_praise"
+        },
+        "scores": {
+          "griot_origin": 11.114999999999998,
+          "griot_voice_context": 2.3945
+        }
+      },
+      {
+        "id": "kora",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "kora_strings": "kora_21_traditional",
+          "kora_resonator": "kora_calabash_med",
+          "kora_strings_mat": "kora_fishing_line",
+          "kora_top_skin": "kora_cowhide_canonical",
+          "kora_neck_wood": "kora_rosewood_modern",
+          "kora_lineage": "kora_suso_lineage"
+        },
+        "scores": {
+          "plucked_traditional_technique": 28.47,
+          "kora_strings": 3.759,
+          "kora_resonator": 1.69,
+          "kora_strings_mat": 1.69,
+          "kora_top_skin": 0.78,
+          "kora_neck_wood": 0.975,
+          "kora_lineage": 2.34
+        }
+      },
+      {
+        "id": "ngoni",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "ngoni_strings": "ngoni_4",
+          "ngoni_use": "ngoni_modern",
+          "ngoni_resonator": "ngoni_carved_wood",
+          "ngoni_skin": "ngoni_cowhide",
+          "ngoni_string_material": "ngoni_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 28.47,
+          "ngoni_strings": 3.7904999999999998,
+          "ngoni_use": 0.8114999999999999,
+          "ngoni_resonator": 1.04,
+          "ngoni_skin": 0.39,
+          "ngoni_string_material": 1.8200000000000003
+        }
+      },
+      {
+        "id": "balafon",
+        "slots": {
+          "balafon_tuning": "balafon_mandinka",
+          "balafon_resonator": "balafon_gourd"
+        },
+        "scores": {
+          "balafon_tuning": 8.294999999999998,
+          "balafon_resonator": 0.65
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 3.965,
+          "clap_capture": 0.195
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 7.0200000000000005,
+          "choir_polyphonic_configuration": 2.9899999999999998,
+          "choir_regional_canonical_configuration": 7.995,
+          "choir_ensemble_repertoire": 2.6
+        }
+      }
+    ],
+    "room": "bamako_griot_jeli_compound",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mande_pentatonic_jeli_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mande_pentatonic_jeli_modal",
+    "room": "bamako_griot_jeli_compound",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "id": "japanoise",
+  "name": "Japanoise",
+  "family": "electronic",
+  "lineage": "Japanese noise scene of Osaka, Tokyo and Kyoto from the late 1970s onward — Hijokaidan, Incapacitants, Merzbow, Hanatarash — built on maximal-density junk-electronics improvisation, overloaded mixer feedback and homemade pedal chains, mixed at total saturation with no dynamic reserve and released in obsessive editions on Alchemy, PSF and self-run cassette labels.",
+  "recipe": "classic East Asian 1977-1979 japanoise, experimental Elec, industrial noise branch, musique concrete experimental electric, noise rock distorted rock, ambient experimental electric isolationism jazzcore. thick, breath veiled tone, straight onset, interlocked note trading. glitched textural modular pad like pad analog synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, field textural sampler, tape replay keyboard. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 650,
+  "score": 271.65,
+  "config": {
+    "traditions": [
+      "japanoise",
+      "isolationism",
+      "jazzcore"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_buchla_west_coast"
+        },
+        "scores": {
+          "electronic_technique": 11.88,
+          "mod_voltage_source": 0.135,
+          "mod_patch_density": 4.866818181818181,
+          "mod_lineage": 0.78
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_12_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 15.754999999999999,
+          "amp_make": 8.815,
+          "body_wood": 2.08,
+          "neck_wood": 1.145,
+          "fretboard": 1.345,
+          "pickup_magnet": 1.345,
+          "pickup_winding": 3.575,
+          "string_material": 0.405,
+          "bridge": 1.145,
+          "scale_length": 1.1900000000000002,
+          "string_gauge": 1.495,
+          "finish": 0.195,
+          "string_tuning": 6.5
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "diode_cascade",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 7.724999999999999,
+          "oscillator": 1.5,
+          "filter_topology": 1.345,
+          "envelope": 3.716818181818182,
+          "modulation": 0.65
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 12.744999999999994,
+          "voice_quality": 4.355000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.509772727272727,
+          "voice_articulation": 15.339999999999996,
+          "voice_microtone": 15.144999999999992,
+          "voice_tradition": 15.155000000000001,
+          "voice_mechanism_compound": 13.485,
+          "voice_estill_quality": 2.99,
+          "voice_speech_song": 15.339999999999996,
+          "voice_ensemble_config": 17.614999999999995,
+          "voice_ornament_system": 1.6899999999999997,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 8.625,
+          "voice_multitrack_stack": 6.910000000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 11.88,
+          "sampler_archetypes": 0.5297727272727273,
+          "sampler_bit_depth": 0.745,
+          "sampler_workflow": 12.602045454545456,
+          "sampler_classic_context": 30.625
+        }
+      },
+      {
+        "id": "tape_replay_keyboard",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "brass_tape",
+          "tape_state": "aged_tape"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "tape_voice": 0.15,
+          "tape_state": 0.045
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tokyo_studio_1970s_80s",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

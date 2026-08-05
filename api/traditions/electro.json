@@ -1,0 +1,163 @@
+{
+  "id": "electro",
+  "name": "Electro",
+  "family": "electronic",
+  "lineage": "New York electro-funk of 1982-1986 codified by Afrika Bambaataa and Arthur Baker on 'Planet Rock' and by Tommy Boy, Streetwise and Sunnyview, built on a syncopated TR-808 breakbeat at 110-130 BPM with tuned 808 kick bass, Kraftwerk-derived synth melodies, vocoder and talkbox vocals and turntable scratching in place of live drums.",
+  "recipe": "classic North American 1982-1986 electro, electronic Dance, us hip hop east coast, techno electronic dance new york city rap new jersey rap. thick, rap, straight note core, interlocked note trading. TR-808, vocoder, roland lineage canonical sh 101 tb 303 1982 1984 osaka sub bass analog mono synth, sampled chopped turntable, talkbox, chopped sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 559,
+  "score": 229.666,
+  "config": {
+    "traditions": [
+      "electro",
+      "nyc_rap",
+      "new_jersey_rap"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 9.06,
+          "drum_machine_808_context": 2.0149999999999997,
+          "tr808_production_origin": 0.7800000000000001
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_few_bands",
+          "voc_carrier": "voc_noise_carrier",
+          "voc_modulator": "voc_drum_mod"
+        },
+        "scores": {
+          "voc_band_count": 0,
+          "voc_carrier": 0.24562499999999998,
+          "voc_modulator": 0.39
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 9.205625000000001,
+          "mono_oscillator": 0,
+          "mono_filter": 0.39,
+          "mono_archetypes": 0.39,
+          "mono_maker_lineage": 2.21
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 7.415000000000001,
+          "turntable_technique": 11.145
+        }
+      },
+      {
+        "id": "talkbox",
+        "slots": {
+          "talkbox_use": "talkbox_rock",
+          "talkbox_construction": "talkbox_combo"
+        },
+        "scores": {
+          "talkbox_use": 2.5,
+          "talkbox_construction": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 7.415000000000001,
+          "sampler_archetypes": 10.530000000000001,
+          "sampler_bit_depth": 1.7249999999999999,
+          "sampler_workflow": 8.445,
+          "sampler_classic_context": 25.447499999999998
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 8.415000000000001,
+          "voice_quality": 17.192500000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.7474999999999999,
+          "voice_articulation": 16.639999999999997,
+          "voice_microtone": 16.054999999999993,
+          "voice_tradition": 7.795000000000001,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 18.003750000000004,
+          "voice_ensemble_config": 17.354999999999997,
+          "voice_ornament_system": 4.875000000000002,
+          "voice_pitch_organization": 0.8125,
+          "voice_processing_chain": 10.893750000000002,
+          "voice_multitrack_stack": 2.4699999999999998
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_nyc_disco_twelve_inch",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_late70s_nyc_commercial",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

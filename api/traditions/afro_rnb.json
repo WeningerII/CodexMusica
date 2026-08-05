@@ -1,0 +1,167 @@
+{
+  "id": "afro_rnb",
+  "name": "Afro R&B",
+  "family": "pop",
+  "lineage": "Continental and diasporic African R&B consolidated from the mid-2000s onward in Lagos, Accra and London through artists such as Banky W, Wizkid's slower material, Bisa Kdei and Tems — 85-105 BPM programmed grooves marrying American contemporary-R&B chord vocabulary and stacked melisma-light harmonies to shaker-and-log-drum Afrobeats percussion, with lead vocals moving between English, Pidgin, Twi and Yoruba.",
+  "recipe": "classic 2004-2006 afro r&b, functional Song, soul R&B branch, African pop functional song, African dance electronic dance naija old school isicathamiya. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, TR-808, tremolo block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 593,
+  "score": 266.88,
+  "config": {
+    "traditions": [
+      "afro_rnb",
+      "naija_old_school",
+      "isicathamiya"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 17.869999999999997,
+          "voice_quality": 10.725,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.9325000000000006,
+          "voice_articulation": 20.279999999999994,
+          "voice_microtone": 19.889999999999993,
+          "voice_tradition": 28.879999999999995,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 5.795000000000001,
+          "voice_speech_song": 25.674999999999997,
+          "voice_ensemble_config": 19.662499999999994,
+          "voice_ornament_system": 1.8850000000000002,
+          "voice_pitch_organization": 3.185,
+          "voice_processing_chain": 8.0275,
+          "voice_multitrack_stack": 7.0249999999999995
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 12.965,
+          "poly_archetypes": 0.39,
+          "poly_voices": 2.0949999999999998,
+          "poly_maker_lineage": -1.33
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 2.1125,
+          "drum_machine_808_context": 1.6249999999999998,
+          "tr808_production_origin": 0.7800000000000001
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "rhodes_model": "rhodes_suitcase",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 12.2,
+          "rhodes_model": 2.2199999999999998,
+          "rhodes_use": 3.77,
+          "rhodes_tine_material": 0.585,
+          "rhodes_hammer_tip": -0.385,
+          "rhodes_pickup_position": 0.39
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 7.005,
+          "body_wood": 2.34,
+          "pickup_config": 0.585,
+          "string_type": 5.715,
+          "scale_length_b": 2.175,
+          "fretted_or_not": 0.195,
+          "bass_technique": 3.65
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.925,
+          "sampler_archetypes": 1.4625,
+          "sampler_bit_depth": 1.1849999999999998,
+          "sampler_workflow": 1.4625,
+          "sampler_classic_context": 23.269999999999996
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_lagos_afrobeats_digital",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

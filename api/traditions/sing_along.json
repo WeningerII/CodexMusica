@@ -1,0 +1,159 @@
+{
+  "id": "sing_along",
+  "name": "Sing-Along",
+  "family": "vernacular",
+  "lineage": "Anglo-American and Northern European communal singing practice of parlour, pub, campfire and civic hall, formalized commercially by mid-twentieth-century broadcast and record formats such as Mitch Miller's Sing Along with Mitch (1958-66) and the British pub singalong LP — strophic familiar songs in easy singing keys at steady 90-130 BPM, unison or simple thirds harmony, a piano or accordion holding a plain oom-pah or block-chord accompaniment, deliberately short repeated choruses and printed or shouted lyric cues so untrained voices can join instantly.",
+  "recipe": "classic late-1950s sing-along, drinking Song, European branch, anglo American protest song, European nursery rhyme barnmusik american folk-revival protest song. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble, block chord upright piano, melodic straight piano accordion, walnut warmer than maple mid tier light steel clawhammer canon banjo 5 string, tambourine orch. parlor. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 681,
+  "score": 189.684,
+  "config": {
+    "traditions": [
+      "sing_along",
+      "barnmusik",
+      "american_folk_revival_protest"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 3.5450000000000004,
+          "voice_quality": 8.19,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.56,
+          "voice_articulation": 17.874999999999996,
+          "voice_microtone": 15.794999999999993,
+          "voice_tradition": 10.49775,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 3.22525,
+          "voice_speech_song": 24.179999999999996,
+          "voice_ensemble_config": 17.159999999999997,
+          "voice_ornament_system": 1.56,
+          "voice_pitch_organization": 2.1774999999999998,
+          "voice_processing_chain": 4.745000000000002,
+          "voice_multitrack_stack": 7.025
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 6.9952499999999995,
+          "choir_polyphonic_configuration": 1.54,
+          "choir_regional_canonical_configuration": 5.755249999999999,
+          "choir_ensemble_repertoire": 2.535
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 3.12,
+          "upright_use": 1.24,
+          "upright_piano_size": 3.835
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 4.78,
+          "pa_size": 1.235,
+          "pa_use": 1.235
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.195,
+          "tone_ring": 0.195,
+          "banjo_head": 16.38,
+          "banjo_pot": 0.195,
+          "banjo_play": 0.3125,
+          "banjo_rim_wood": 1.1302499999999998,
+          "banjo_neck_wood": 1.045,
+          "banjo_strings": 1.045,
+          "banjo_bridge": 0.045,
+          "banjo_setup_period": 16.119999999999997
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.3,
+          "tambourine_orch_context": 0.3
+        }
+      }
+    ],
+    "room": "parlor",
+    "archetype": "arch_network_radio_broadcast",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "room": "parlor",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Drumless Hip Hop",
   "family": "hip_hop",
   "lineage": "New York underground rap approach consolidated in the 2010s by Roc Marciano, Ka, The Alchemist and Griselda-adjacent producers, stripping the boom-bap kit entirely so that a looped soul, library or soundtrack sample carries the beat alone at an implied 80-90 BPM, leaving the rapper's conversational, unhurried, largely unpunched-in delivery to supply the rhythmic grid.",
-  "recipe": "classic mid-2010s drumless hip hop, mc Rhythm, east coast branch, experimental MC rhythm, us hip hop conscious rap conscious hip-hop mumble rap. thick, rap, straight onset, narrative. pitched chopped sampler, sampled chopped turntable, gospel runs rhodes electric, modern setup heavier bass bar nyman jazz bass canon double bass. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 468,
-  "score": 337.17,
+  "recipe": "classic mid-2010s drumless hip hop, mc Rhythm, east coast branch, experimental MC rhythm, us hip hop conscious rap jazz rap conscious hip-hop. thick, rap, straight onset, narrative. chopped sampler, sampled chopped turntable, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, modern setup heavier bass bar nyman jazz bass canon double bass. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 514,
+  "score": 359.732,
   "config": {
     "traditions": [
       "drumless_hip_hop",
-      "conscious_hip_hop",
-      "mumble_rap"
+      "jazz_rap",
+      "conscious_hip_hop"
     ],
     "instruments": [
       {
@@ -34,39 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 11.662999999999997,
-          "voice_quality": 36.589499999999994,
+          "voice_register": 14.639999999999997,
+          "voice_quality": 38.51,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.892999999999999,
-          "voice_articulation": 18.9715,
-          "voice_microtone": 12.869999999999997,
-          "voice_tradition": 14.828,
+          "voice_vibrato": 7.744999999999998,
+          "voice_articulation": 20.43,
+          "voice_microtone": 15.079999999999997,
+          "voice_tradition": 14.36,
           "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 7.368,
-          "voice_speech_song": 34.435,
-          "voice_ensemble_config": 12.805,
-          "voice_ornament_system": 6.695000000000003,
-          "voice_pitch_organization": 0.39,
-          "voice_processing_chain": 23.885,
-          "voice_multitrack_stack": 15.339999999999996
+          "voice_estill_quality": 9.019999999999998,
+          "voice_speech_song": 35.61,
+          "voice_ensemble_config": 14.364999999999998,
+          "voice_ornament_system": 7.3450000000000015,
+          "voice_pitch_organization": 0.51,
+          "voice_processing_chain": 24.919999999999998,
+          "voice_multitrack_stack": 10.627499999999996
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_archetypes": "emu_sp1200",
           "sampler_bit_depth": "sampler_twelve_bit",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 11.488,
-          "sampler_archetypes": 19.89,
-          "sampler_bit_depth": 1.9500000000000002,
-          "sampler_workflow": 14.052999999999999,
-          "sampler_classic_context": 27.7875
+          "electronic_technique": 12.194999999999999,
+          "sampler_archetypes": 20.0525,
+          "sampler_bit_depth": 2.9250000000000003,
+          "sampler_workflow": 14.895,
+          "sampler_classic_context": 29.444999999999997
         }
       },
       {
@@ -76,35 +76,35 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 11.488,
-          "turntable_technique": 15.895
+          "electronic_technique": 12.194999999999999,
+          "turntable_technique": 16.389999999999997
         }
       },
       {
         "id": "rhodes_electric",
         "slots": {
-          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "keyboard_technique": "keyboard_ostinato_groove",
           "rhodes_model": "rhodes_mark1_stage",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
-          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 6.930000000000001,
-          "rhodes_model": 5.1629999999999985,
-          "rhodes_use": 3.25,
+          "keyboard_technique": 8.875,
+          "rhodes_model": 6.599999999999999,
+          "rhodes_use": 0.78,
           "rhodes_tine_material": 0.45499999999999996,
-          "rhodes_hammer_tip": -0.5950000000000001,
-          "rhodes_pickup_position": 0.195
+          "rhodes_hammer_tip": -0.84,
+          "rhodes_pickup_position": 1.04
         }
       },
       {
         "id": "double_bass",
         "slots": {
-          "bowed_technique": "bowed_legato_classical",
+          "bowed_technique": "bowed_spiccato_articulated",
           "bass_size": "bass_three_quarter",
-          "bass_strings": "bass_steel",
+          "bass_strings": "venice_catlin_bass",
           "bass_top_wood": "plywood_bass_top",
           "bass_back_wood": "plywood_bass_back",
           "bass_varnish": "spirit_varnish_bass",
@@ -114,15 +114,15 @@
           "bass_bow_stick": "brazilwood_stick_bass"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "bass_size": 0.105,
-          "bass_strings": 0.45499999999999996,
+          "bowed_technique": -0.035,
+          "bass_size": 0.195,
+          "bass_strings": 0.975,
           "bass_top_wood": 0.8749999999999999,
           "bass_back_wood": 0.8749999999999999,
           "bass_varnish": 0.8749999999999999,
-          "bass_setup_period": 1.4625,
-          "bass_play": 5.645,
-          "bass_rosin": 5.394999999999998,
+          "bass_setup_period": 2.1125,
+          "bass_play": 7.314999999999999,
+          "bass_rosin": 7.474999999999998,
           "bass_bow_stick": 0.8749999999999999
         }
       }

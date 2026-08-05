@@ -3,14 +3,14 @@
   "name": "Kentucky Roots",
   "family": "country",
   "lineage": "Kentucky's string-band and mountain-song tradition runs from Appalachian and western-Kentucky coalfield ballad singing through the 1927 Bristol-era commercial recordings to the codification of bluegrass by Bill Monroe of Rosine in 1945 — 100–160 BPM two-beat with driving mandolin chop on the backbeat, three-finger five-string banjo roll, fiddle double-stops, guitar bass runs and slapped upright, and the tenor-above-lead 'high lonesome' vocal harmony, alongside Merle Travis's thumb-picked guitar syncopation from Muhlenberg County.",
-  "recipe": "classic tropical late-1920s kentucky roots, improv On Frame, bluegrass branch, appalachian drone modal, pre commercial country, Celtic balladic Scottish ballad pre-commercial country roots old-time appalachian. thick, breath veiled tone, wide pitch sway, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, plain gut sheep gut double stops fiddle, dadgad tuning mahogany martin lifespan sealed dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, upright bass. wooden barn. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 766,
-  "score": 409.15,
+  "recipe": "classic tropical late-1920s kentucky roots, improv On Frame, bluegrass branch, appalachian drone modal, pre commercial country, Celtic balladic Scottish ballad string band old west frontier music. thick, breath veiled tone, wide pitch sway, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, plain gut sheep gut double stops fiddle, dadgad tuning mahogany martin lifespan sealed dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, upright bass. wooden barn. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 752,
+  "score": 430.935,
   "config": {
     "traditions": [
       "kentucky_roots",
-      "pre_commercial_country",
-      "old_time"
+      "string_band",
+      "old_west"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 15.662214285714281,
-          "voice_quality": 15.794999999999993,
+          "voice_register": 11.894999999999998,
+          "voice_quality": 13.129999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 14.831499999999998,
-          "voice_articulation": 16.585678571428566,
-          "voice_microtone": 18.40614285714285,
-          "voice_tradition": 14.559999999999999,
-          "voice_mechanism_compound": 4.186964285714286,
-          "voice_estill_quality": 12.79292857142857,
-          "voice_speech_song": 21.52728571428571,
-          "voice_ensemble_config": 16.903821428571423,
-          "voice_ornament_system": 2.181857142857144,
-          "voice_pitch_organization": 1.6184999999999998,
-          "voice_processing_chain": 9.669285714285714,
-          "voice_multitrack_stack": 3.7575000000000003
+          "voice_vibrato": 12.870000000000001,
+          "voice_articulation": 19.564999999999998,
+          "voice_microtone": 19.629999999999995,
+          "voice_tradition": 12.544999999999998,
+          "voice_mechanism_compound": 4.9399999999999995,
+          "voice_estill_quality": 16.064999999999998,
+          "voice_speech_song": 26.455,
+          "voice_ensemble_config": 19.499999999999996,
+          "voice_ornament_system": 5.947500000000002,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 9.704999999999998,
+          "voice_multitrack_stack": 4.21
         }
       },
       {
@@ -65,14 +65,14 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 10.149999999999999,
-          "mandolin_shape": 9.281499999999998,
-          "mandolin_top": 10.668714285714282,
-          "mandolin_back": 9.384892857142855,
-          "mandolin_bracing": 10.06392857142857,
-          "mandolin_strings": 2.134,
-          "mandolin_fingerboard": 1.0399999999999996,
-          "mandolin_pickup": 16.858892857142855
+          "acoustic_technique": 10.094999999999999,
+          "mandolin_shape": 9.374999999999998,
+          "mandolin_top": 10.959999999999999,
+          "mandolin_back": 9.374999999999998,
+          "mandolin_bracing": 9.674999999999999,
+          "mandolin_strings": 2.6650000000000005,
+          "mandolin_fingerboard": 0.19500000000000023,
+          "mandolin_pickup": 18.525
         }
       },
       {
@@ -90,16 +90,16 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 1.1624999999999999,
-          "tone_ring": 9.249999999999998,
-          "banjo_head": 17.55317857142857,
-          "banjo_pot": 0.17121428571428574,
-          "banjo_play": 4.068999999999999,
-          "banjo_rim_wood": 10.671928571428568,
-          "banjo_neck_wood": 9.6955,
-          "banjo_strings": 9.6955,
-          "banjo_bridge": 9.6955,
-          "banjo_setup_period": 26.704178571428567
+          "banjo_back": 0.9099999999999999,
+          "tone_ring": 9.419999999999998,
+          "banjo_head": 19.63,
+          "banjo_pot": 0.105,
+          "banjo_play": 4.619999999999999,
+          "banjo_rim_wood": 11.11,
+          "banjo_neck_wood": 10.244999999999997,
+          "banjo_strings": 10.29,
+          "banjo_bridge": 10.485,
+          "banjo_setup_period": 30.7125
         }
       },
       {
@@ -108,15 +108,15 @@
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "plain_sheep_gut_fiddle",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "rubber_mute",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "sul_tasto"
         },
         "scores": {
-          "bowed_technique": 27.97499999999999,
-          "fiddle_strings": 1.0399999999999996,
-          "fiddle_bow": 0.13971428571428574,
-          "fiddle_mute": 0.05892857142857143,
-          "fiddle_articulation": 1.1549999999999998
+          "bowed_technique": 30.25,
+          "fiddle_strings": 1.04,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.9099999999999999
         }
       },
       {
@@ -129,22 +129,22 @@
           "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 16.224999999999998,
-          "string_tuning": 3.7749999999999995,
-          "top_wood": 1.1624999999999999,
-          "back_sides": 1.1624999999999999,
-          "string_acoustic": 3.7049999999999996
+          "acoustic_technique": 15.170000000000002,
+          "string_tuning": 5.720000000000001,
+          "top_wood": 0.9099999999999999,
+          "back_sides": 1.3649999999999998,
+          "string_acoustic": 2.8600000000000003
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "steel_upright",
+          "upright_strings": "gut_upright",
           "upright_play": "arco_upright"
         },
         "scores": {
-          "upright_strings": 0.14292857142857146,
-          "upright_play": 1.6639285714285714
+          "upright_strings": 0.65,
+          "upright_play": 1.3
         }
       },
       {
@@ -155,9 +155,9 @@
           "resonator_technique": "resonator_lap_steel_position"
         },
         "scores": {
-          "resonator_body": 8.470749999999999,
-          "resonator_strings": 4.145499999999999,
-          "resonator_technique": 8.073892857142857
+          "resonator_body": 6.37,
+          "resonator_strings": 5.42,
+          "resonator_technique": 6.175
         }
       }
     ],

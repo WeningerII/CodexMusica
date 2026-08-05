@@ -1,0 +1,107 @@
+{
+  "id": "a_cappella",
+  "name": "A Cappella (Contemporary Vocal)",
+  "family": "pop",
+  "lineage": "Unaccompanied multi-voice arrangement of popular repertoire, established on US and UK college campuses from the mid-twentieth century and codified commercially by the Bobs, Take 6, the King's Singers' pop sets and post-2000 groups such as Pentatonix — four to sixteen voices covering bass line, chordal pads and lead, with vocal percussion supplying kick, snare and hi-hat, close-miked and multitracked, in strophic pop forms at 70-130 BPM.",
+  "recipe": "classic early-2000s a cappella, functional Song, pop rock branch, soul R&B doowop, christian gospel jubilee quartet doo-wop. thick, breath veiled tone, straight onset, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, close dry group massed hand clap. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 521,
+  "score": 268.239,
+  "config": {
+    "traditions": [
+      "a_cappella",
+      "doo_wop",
+      "jubilee_quartet"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 39.0015,
+          "voice_quality": 24.830000000000005,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.2315,
+          "voice_articulation": 21.839999999999996,
+          "voice_microtone": 21.449999999999996,
+          "voice_tradition": 21.514499999999995,
+          "voice_mechanism_compound": 3.4450000000000003,
+          "voice_estill_quality": 16.7,
+          "voice_speech_song": 24.504999999999995,
+          "voice_ensemble_config": 25.28499999999999,
+          "voice_ornament_system": 6.15,
+          "voice_pitch_organization": 5.485,
+          "voice_processing_chain": 10.919999999999998,
+          "voice_multitrack_stack": 8.515
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 8.06,
+          "choir_polyphonic_configuration": 7.1564999999999985,
+          "choir_regional_canonical_configuration": 3.6399999999999997,
+          "choir_ensemble_repertoire": 3.12
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_group_massed",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 2.9899999999999993,
+          "clap_capture": 2.925
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

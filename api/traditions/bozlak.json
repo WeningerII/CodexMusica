@@ -1,0 +1,123 @@
+{
+  "id": "bozlak",
+  "name": "Bozlak",
+  "family": "global",
+  "lineage": "Long-form lament genre of the central Anatolian Türkmen and Abdal communities of Kırşehir, Kırıkkale and Yozgat, codified in the twentieth century by Muharrem Ertaş, Çekiç Ali and Neşet Ertaş — an unmetered high-tessitura vocal outcry descending stepwise over a sustained bağlama drone, punctuated by cries of 'aman' and free-rhythm instrumental responses before resolving into a metered kırık hava.",
+  "recipe": "classic North African early-1940s bozlak, ballad Poetry, med east poetic branch, string drone modal, middle eastern funeral lament çifteli song bağlama. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. juniper bowl eastern anatolian alevi cem devotional drone like saz baglama, divan saz, ornamented makam correct microtonal bend cura sazi. cement block broadcast booth. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 504,
+  "score": 153.057,
+  "config": {
+    "traditions": [
+      "bozlak",
+      "cifteli",
+      "baglama_asik"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 1.885,
+          "voice_quality": 11.569999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.45,
+          "voice_articulation": 15.404999999999994,
+          "voice_microtone": 21.027499999999993,
+          "voice_tradition": 17.582499999999992,
+          "voice_mechanism_compound": 6.5649999999999995,
+          "voice_estill_quality": 5.005000000000001,
+          "voice_speech_song": 17.289999999999992,
+          "voice_ensemble_config": 14.852499999999994,
+          "voice_ornament_system": 5.615000000000002,
+          "voice_pitch_organization": 5.850000000000001,
+          "voice_processing_chain": 4.68,
+          "voice_multitrack_stack": 2.7300000000000004
+        }
+      },
+      {
+        "id": "saz_baglama",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "saz_size": "cura_saz",
+          "saz_frets": "saz_microtonal_frets",
+          "saz_body_wood": "saz_juniper_body",
+          "saz_strings": "saz_nylon_cura",
+          "saz_tradition": "saz_alevi_cem"
+        },
+        "scores": {
+          "plucked_traditional_technique": 8.97,
+          "saz_size": 0.8,
+          "saz_frets": 0.65,
+          "saz_body_wood": 2.6050000000000004,
+          "saz_strings": 0.49499999999999994,
+          "saz_tradition": 1.4649999999999999
+        }
+      },
+      {
+        "id": "divan_saz",
+        "slots": {
+          "divan_saz_courses": "divan_saz_triple",
+          "divan_saz_technique": "divan_saz_mizrap",
+          "divan_saz_body": "divan_saz_mulberry"
+        },
+        "scores": {
+          "divan_saz_courses": 6.045,
+          "divan_saz_technique": 0.09,
+          "divan_saz_body": 0.9750000000000001
+        }
+      },
+      {
+        "id": "cura_sazi",
+        "slots": {
+          "cura_sazi_size": "cura_sazi_tambura_cura",
+          "cura_sazi_frets": "cura_sazi_microtonal"
+        },
+        "scores": {
+          "cura_sazi_size": 0.195,
+          "cura_sazi_frets": 1.5849999999999997
+        }
+      }
+    ],
+    "room": "cement_block_broadcast_booth",
+    "archetype": "arch_arab_east_state_radio",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "cement_block_broadcast_booth",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "id": "georgian_polyphony",
+  "name": "Georgian Polyphony",
+  "family": "global",
+  "lineage": "Three-voice Caucasian vocal polyphony documented across Guria, Svaneti, Kakheti and Samegrelo, transcribed from the 1880s by Zakaria Paliashvili and Dimitri Arakishvili and recorded on wax cylinder from 1901, built on a bass drone or moving bass with two upper parts colliding in seconds and fourths, non-tempered intervals near neutral thirds, sharp cadences resolving to open fifths, Gurian krimanchuli yodel breaks, and the extended supra table-song and Kakhetian long-song forms sung a cappella by male ensembles.",
+  "recipe": "classic Caucasian mid-1880s georgian polyphony, drone Modal, vocal branch, christian gospel Russian orthodox, Slavic balkan field work byzantine chant russian orthodox liturgical chant. thick, declaimed, slow rate, interlocked note trading. drone bass choir georgian polyphonic, eastern georgian three string panduri, chonguri, voice like duduki georgian. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 441,
+  "score": 226.653,
+  "config": {
+    "traditions": [
+      "georgian_polyphony",
+      "byzantine_chant",
+      "russian_orthodox_chant"
+    ],
+    "instruments": [
+      {
+        "id": "choir_georgian_polyphonic",
+        "slots": {
+          "choir_georgian_polyphonic_style": "choir_georgian_polyphonic_kakhetian",
+          "choir_georgian_polyphonic_context": "choir_georgian_polyphonic_sacred",
+          "choir_georgian_polyphonic_voices": "choir_georgian_polyphonic_bani"
+        },
+        "scores": {
+          "choir_georgian_polyphonic_style": 16.708214285714284,
+          "choir_georgian_polyphonic_context": 14.784999999999998,
+          "choir_georgian_polyphonic_voices": 12.308214285714286
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 7.12,
+          "voice_quality": 15.476428571428567,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.015,
+          "voice_articulation": 17.549999999999997,
+          "voice_microtone": 22.717499999999994,
+          "voice_tradition": 22.099999999999994,
+          "voice_mechanism_compound": 7.215000000000001,
+          "voice_estill_quality": 6.496428571428571,
+          "voice_speech_song": 21.774999999999995,
+          "voice_ensemble_config": 23.269999999999992,
+          "voice_ornament_system": 6.2749999999999995,
+          "voice_pitch_organization": 5.945714285714287,
+          "voice_processing_chain": 6.825,
+          "voice_multitrack_stack": 8.190000000000001
+        }
+      },
+      {
+        "id": "panduri",
+        "slots": {
+          "panduri_form": "panduri_kakhuri",
+          "panduri_repertoire": "panduri_supra_song",
+          "panduri_strings": "panduri_nylon"
+        },
+        "scores": {
+          "panduri_form": 6.085714285714286,
+          "panduri_repertoire": 3.25,
+          "panduri_strings": 1.625
+        }
+      },
+      {
+        "id": "chonguri",
+        "slots": {
+          "chonguri_form": "chonguri_samegrelo",
+          "chonguri_technique": "chonguri_strum",
+          "chonguri_strings": "chonguri_silk"
+        },
+        "scores": {
+          "chonguri_form": 0.39,
+          "chonguri_technique": 0,
+          "chonguri_strings": 0
+        }
+      },
+      {
+        "id": "duduki_georgian",
+        "slots": {
+          "duduki_role": "duduki_lead",
+          "duduki_size": "duduki_bass",
+          "duduki_style": "duduki_urban"
+        },
+        "scores": {
+          "duduki_role": 1.3,
+          "duduki_size": 1.2349999999999999,
+          "duduki_style": 0.195
+        }
+      }
+    ],
+    "room": "stone_armenian_church",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "stone_armenian_church",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

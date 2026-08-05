@@ -1,0 +1,160 @@
+{
+  "id": "balochi_folk",
+  "name": "Balochi folk",
+  "family": "global",
+  "lineage": "Music of Balochistan across southwestern Pakistan, southeastern Iran and southern Afghanistan, transmitted by hereditary Luri and Domb musician castes and documented from the 1960s onward by Radio Pakistan Quetta and researchers such as Jean During, marked by the bowed spike-fiddle suroz shadowing the voice heterophonically, the plucked tanburag lute, double-flute nal and donali, dholak or dohol accompaniment, and repertoires spanning zahirig laments, epic sherwandi narrative and the trance-healing guati ceremony.",
+  "recipe": "classic North African mid-1960s balochi folk, drone Modal, string branch, Persian arab improv improv on frame, middle eastern funeral lament iraqi maqam tarab. thick, breath veiled tone, slow rate, interlocked note trading. modal lead voice legato suroz, turkmen long necked bagshy tradition fergana tashkent maqom tradition distinct from bukharan dutar, narh flute, dozaleh, dholak, dohol. saharan desert encampment. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 492,
+  "score": 213.458,
+  "config": {
+    "traditions": [
+      "balochi_folk",
+      "iraqi_maqam",
+      "tarab_egyptian"
+    ],
+    "instruments": [
+      {
+        "id": "suroz",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "suroz_form": "suroz_form_iranian_soroud",
+          "suroz_context": "suroz_context_zahirig",
+          "suroz_build": "suroz_build_no_taraf"
+        },
+        "scores": {
+          "bowed_technique": 3.84,
+          "suroz_form": 9.545,
+          "suroz_context": 13.095,
+          "suroz_build": 3.25
+        }
+      },
+      {
+        "id": "dutar",
+        "slots": {
+          "dutar_body": "dutar_turkmen_long",
+          "dutar_strings": "dutar_silk_traditional",
+          "dutar_tradition": "dutar_fergana_tashkent_maqom"
+        },
+        "scores": {
+          "dutar_body": 2.08,
+          "dutar_strings": -0.24500000000000005,
+          "dutar_tradition": 4.355
+        }
+      },
+      {
+        "id": "narh_flute",
+        "slots": {
+          "narh_body": "narh_bamboo",
+          "narh_technique": "narh_plain",
+          "narh_length": "narh_short"
+        },
+        "scores": {
+          "narh_body": 0.33,
+          "narh_technique": 0.435,
+          "narh_length": 0.09
+        }
+      },
+      {
+        "id": "dozaleh",
+        "slots": {
+          "dozaleh_tuning": "dozaleh_drone",
+          "dozaleh_breath": "dozaleh_phrased",
+          "dozaleh_cane": "dozaleh_thin"
+        },
+        "scores": {
+          "dozaleh_tuning": 0.09,
+          "dozaleh_breath": 0.045,
+          "dozaleh_cane": 0.09
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 0.195,
+          "dholak_construction": 0.845,
+          "dholak_head": 0.65,
+          "dholak_tensioning": 0.65
+        }
+      },
+      {
+        "id": "dohol",
+        "slots": {
+          "dohol_stroke": "dohol_changal",
+          "dohol_context": "dohol_halparke"
+        },
+        "scores": {
+          "dohol_stroke": 0,
+          "dohol_context": 0.39
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 3.7000000000000006,
+          "voice_quality": 15.794999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.07,
+          "voice_articulation": 14.105000000000002,
+          "voice_microtone": 26.617500000000007,
+          "voice_tradition": 18.85,
+          "voice_mechanism_compound": 12.945,
+          "voice_estill_quality": 6.055,
+          "voice_speech_song": 14.105000000000002,
+          "voice_ensemble_config": 15.99,
+          "voice_ornament_system": 15.375,
+          "voice_pitch_organization": 15.79,
+          "voice_processing_chain": 7.409999999999999,
+          "voice_multitrack_stack": 5.3950000000000005
+        }
+      }
+    ],
+    "room": "saharan_desert_encampment",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "dastgah_persian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "dastgah_persian",
+    "room": "saharan_desert_encampment",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "id": "math_metal",
+  "name": "Math Metal",
+  "family": "rock",
+  "lineage": "Technical extreme-metal idiom formed in the 1990s United States through Meshuggah, Dillinger Escape Plan and Candiria out of death metal and metalcore — riffs written as long polymetric groupings of sevens, elevens and seventeens cycling against a steady 4/4 backbeat, extended-range seven- and eight-string guitars in drop tunings doubled note-for-note by bass, abrupt stop-start rests and metric modulations, jazz-derived chromatic passing harmony, and a barked or screamed vocal placed rhythmically rather than melodically.",
+  "recipe": "classic North American mid-1990s math metal, distorted Rock, prog branch, avant metal, noise rock distorted rock, death metal jazz metal jazzcore. thick, breath veiled tone, straight onset, interlocked note trading. drop a chord melody seven string drop e eight string electric, ampeg svt amp rock bass amp mahogany ernie ball slinky electric ampeg svt amp rock bass amp ebony unlined fusion fretless canon fretless bass, vintage ambassador asymmetric brushes-and-sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 654,
+  "score": 377.492,
+  "config": {
+    "traditions": [
+      "math_metal",
+      "jazz_metal",
+      "jazzcore"
+    ],
+    "instruments": [
+      {
+        "id": "seven_string_electric",
+        "slots": {
+          "seven_string_tuning": "seven_string_drop_a",
+          "seven_string_technique": "seven_string_jazz_chord_melody"
+        },
+        "scores": {
+          "seven_string_tuning": 3.57,
+          "seven_string_technique": 3.1720454545454544
+        }
+      },
+      {
+        "id": "eight_string_electric",
+        "slots": {
+          "eight_string_tuning": "eight_string_drop_e",
+          "eight_string_technique": "eight_string_djent_chug"
+        },
+        "scores": {
+          "eight_string_tuning": 1,
+          "eight_string_technique": 0.8
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 13.845,
+          "body_wood": 1.2349999999999999,
+          "pickup_config": 0.15,
+          "string_type": 28.31681818181818,
+          "scale_length_b": 1.2349999999999999,
+          "fretted_or_not": 0.59,
+          "bass_technique": 24.295
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 28.925,
+          "drumhead": 8.935681818181818,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 31.514999999999997,
+          "voice_quality": 6.3050000000000015,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 10.53681818181818,
+          "voice_articulation": 23.205,
+          "voice_microtone": 30.675,
+          "voice_tradition": 9.680681818181817,
+          "voice_mechanism_compound": 40.12704545454546,
+          "voice_estill_quality": 2.3399999999999994,
+          "voice_speech_song": 20.604999999999997,
+          "voice_ensemble_config": 20.344999999999995,
+          "voice_ornament_system": 4.402045454545456,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 9.555,
+          "voice_multitrack_stack": 11.179999999999996
+        }
+      },
+      {
+        "id": "fretless_bass",
+        "slots": {
+          "electric_technique": "electric_bass_slap_pop",
+          "amp_make": "amp_american_ampeg_svt",
+          "fretless_use": "fretless_jazz",
+          "fretless_bass_construction": "fretless_bass_factory",
+          "fretless_fingerboard_wood": "fretless_ebony_unlined",
+          "fretless_bass_strings": "fretless_flatwound"
+        },
+        "scores": {
+          "electric_technique": 0.45,
+          "amp_make": 13.845,
+          "fretless_use": 2.6,
+          "fretless_bass_construction": 0.585,
+          "fretless_fingerboard_wood": 10.745454545454546,
+          "fretless_bass_strings": 8.985681818181819
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

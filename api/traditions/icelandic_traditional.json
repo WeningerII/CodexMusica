@@ -1,0 +1,121 @@
+{
+  "id": "icelandic_traditional",
+  "name": "Icelandic traditional music (þjóðlagatónlist)",
+  "family": "global",
+  "lineage": "Icelandic oral tradition documented by Bjarni Þorsteinsson's 1906-09 collection and later Hallgrímur Helgason and Iceland State Radio field work — rímur epic chant in stemma melodies of narrow range sung in strict rhyme-and-alliteration stanzas, tvísöngur two-part singing in parallel fifths surviving from medieval organum, plus the bowed drone-boxes langspil and fiðla, with hard consonantal delivery and free declamatory rhythm.",
+  "recipe": "classic mid-1900s icelandic traditional music, ballad Poetry, Mediterranean ballad branch, Celtic balladic ballad poetry, vocal drone modal, north Southeast Asian baltic Southeast Asian shanty scottish gaelic folk song sean-nós singing. kargyraa, breath veiled tone, fast rate, interlocked note trading. two string bowed cousin bowed hymn accompaniment langspil, harpa, fiddle. parish church. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 467,
+  "score": 228.035,
+  "config": {
+    "traditions": [
+      "icelandic_traditional",
+      "scottish_gaelic_folk",
+      "sean_nos_singing"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.75,
+          "voice_quality": 10.789999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.65,
+          "voice_articulation": 20.345,
+          "voice_microtone": 21.904999999999994,
+          "voice_tradition": 25.28,
+          "voice_mechanism_compound": 7.569999999999999,
+          "voice_estill_quality": 5.995,
+          "voice_speech_song": 22.685,
+          "voice_ensemble_config": 23.854999999999997,
+          "voice_ornament_system": 23.675,
+          "voice_pitch_organization": 10.350000000000001,
+          "voice_processing_chain": 4.8100000000000005,
+          "voice_multitrack_stack": 4.029999999999999
+        }
+      },
+      {
+        "id": "langspil",
+        "slots": {
+          "langspil_form": "langspil_fidla",
+          "langspil_setting": "langspil_bowed_hymn",
+          "langspil_strings": "langspil_brass_strings"
+        },
+        "scores": {
+          "langspil_form": 10.075,
+          "langspil_setting": 10.164999999999997,
+          "langspil_strings": 7.9
+        }
+      },
+      {
+        "id": "harpa",
+        "slots": {
+          "harpa_size": "harpa_lap",
+          "harpa_strings": "harpa_brass_wire"
+        },
+        "scores": {
+          "harpa_size": 0.15,
+          "harpa_strings": 1.295
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "plain_lamb_gut_fiddle",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 10.520000000000001,
+          "fiddle_strings": 0.09999999999999999,
+          "fiddle_bow": 0.745,
+          "fiddle_mute": 0.835,
+          "fiddle_articulation": 1.9849999999999999
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "nordic_modal_drone_double_stops",
+    "room": "stone_parish_church",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

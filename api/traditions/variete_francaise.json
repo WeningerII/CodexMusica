@@ -1,0 +1,235 @@
+{
+  "id": "variete_francaise",
+  "name": "Variété française",
+  "family": "pop",
+  "lineage": "The French mainstream popular-song industry from the 1950s onward, built around Paris labels and the Olympia stage and defined by Charles Aznavour, Michel Sardou, Sylvie Vartan, Michel Berger and Jean-Jacques Goldman, characterised by orchestral or later synth-and-band arrangements written by contracted arrangers, mid-tempo 4/4 or slow ballad meters, wide string and brass swells behind a strongly enunciated French lead vocal, and a chorus-forward song architecture aimed at television and radio.",
+  "recipe": "classic Western European mid-1950s variété française, functional Song, europop branch, chanson fado classic chanson, crooners functional song adult standards brill building pop. thick, breath veiled tone, slow rate, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, alder pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, mahogany rosewood soft down tuning clean strummed single coil electric guitar, singing lead analog poly synth, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lead trumpet trumpet. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 911,
+  "score": 323.093,
+  "config": {
+    "traditions": [
+      "variete_francaise",
+      "adult_standards",
+      "brill_building_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 10.339999999999995,
+          "voice_quality": 12.739999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.42,
+          "voice_articulation": 24.245000000000005,
+          "voice_microtone": 24.05,
+          "voice_tradition": 8.190000000000001,
+          "voice_mechanism_compound": 1.8849999999999996,
+          "voice_estill_quality": 4.36,
+          "voice_speech_song": 33.995000000000005,
+          "voice_ensemble_config": 23.725,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 7.149999999999999,
+          "voice_multitrack_stack": 3.7050000000000005
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 8.415000000000001,
+          "grand_piano_size": 2.535,
+          "grand_piano_brand": 2.535,
+          "piano_hammer": 6.1450000000000005,
+          "piano_rim": 8.47,
+          "piano_soundboard": 7.45,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.06499999999999999,
+          "piano_pitch_standard": 6.825
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.2,
+          "orch_strings": 0.09,
+          "orch_top_wood": 2.34,
+          "orch_back_wood": 1.8199999999999998,
+          "orch_varnish": 3.7199999999999998,
+          "orch_setup_period": 1.17,
+          "orch_bow": 0.65,
+          "orch_bow_stick": 0.325,
+          "orch_articulation": 0.585,
+          "orch_rosin": 3.875
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 2.5350000000000006,
+          "body_wood": 2.535,
+          "pickup_config": 0,
+          "string_type": 3.4450000000000003,
+          "scale_length_b": 2.73,
+          "fretted_or_not": 0.3,
+          "bass_technique": 2.27
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 24.115000000000006,
+          "drumhead": 7.825,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_3",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 8.25,
+          "amp_make": 2.2749999999999995,
+          "body_wood": 2.535,
+          "neck_wood": 2.535,
+          "fretboard": 2.4699999999999998,
+          "pickup_magnet": 0.045,
+          "string_material": 0.15,
+          "string_gauge": 3.835,
+          "bridge": 0,
+          "scale_length": 2.535,
+          "finish": 0,
+          "string_tuning": 2.4699999999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 9.094999999999999,
+          "poly_archetypes": 2.4050000000000002,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_lead_mp",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.5399999999999998,
+          "brass_size": 0.3,
+          "trumpet_mouthpiece": 3.0224999999999995,
+          "brass_mute": 0.195,
+          "trumpet_technique": 1.5399999999999998,
+          "trumpet_bell_metal": 2.235,
+          "trumpet_maker_school": 3.6399999999999997
+        }
+      }
+    ],
+    "room": "intimate_paris_small_studio",
+    "archetype": "arch_paris_chanson_orchestral",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "intimate_paris_small_studio",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

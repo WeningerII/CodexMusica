@@ -5,7 +5,7 @@
   "lineage": "Norwegian-Scandinavian sailor work-song tradition (skipperslåttar = \"ship-sailor tunes,\" skanssanger = \"quarterdeck songs\") continuous from 18th-19th-century Norwegian-and-broader-Scandinavian maritime-trade work-song practice through 20th-century Norwegian-folk-revival into modern Norwegian-coastal-cultural-practice; foundational repertoire includes \"Pål sine høner\" (sailor work-coordination song), Norwegian sea-shanty translations",
   "recipe": "classic modern norwegian skipperslåttar, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, Slavic balkan field work, European drinking song russian zhnitvenye pesni romanian colinde de seceriş. thick, close mic intimate, straight onset, leader call answered. castagnari Italian premium folk music straight accordion. beach. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 418,
-  "score": 119.088,
+  "score": 118.769,
   "config": {
     "traditions": [
       "norwegian_skipperslatter",
@@ -39,9 +39,9 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2500000000000004,
-          "voice_articulation": 8.128124999999999,
+          "voice_articulation": 8.173124999999999,
           "voice_microtone": 8.45,
-          "voice_tradition": 25.772499999999994,
+          "voice_tradition": 25.663124999999994,
           "voice_mechanism_compound": 1.7550000000000001,
           "voice_estill_quality": 0.7799999999999998,
           "voice_speech_song": 14.689999999999996,
@@ -64,12 +64,12 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 10.664999999999997,
+          "free_reed_technique": 10.619999999999997,
           "accordion_reed_material": 0.195,
           "musette_offset": 0.39,
           "reed_config": 0,
           "bellows": 0.3,
-          "voicing_chamber": 0.315,
+          "voicing_chamber": 0.105,
           "accordion_maker_school": 7.084999999999999
         }
       }

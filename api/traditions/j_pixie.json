@@ -3,14 +3,14 @@
   "name": "J-Pixie",
   "family": "pop",
   "lineage": "Tokyo kawaii-electropop idiom crystallized around 2011-2016 in Yasutaka Nakata's Harajuku productions and the Kyary Pamyu Pamyu records — 128-135 BPM four-on-the-floor with sidechained saw-supersaw chords, pitched-up and heavily formant-shifted girlish lead vocals stacked in unison, toy-timbre glockenspiel and music-box countermelodies, abrupt key-lifting bridges, and dense chopped vocal-sample fills replacing conventional drum breaks.",
-  "recipe": "classic mid-2010s j-pixie, functional Song, east Asian pop branch, pop experimental experimental electric, pop rock synthpop, eurodance electronic dance etherpop shiver pop. thick, breath veiled tone, fast rate, interlocked note trading. lead plus dense cluster 5 part stack formant shifted left right stereo width multitrack vocal stack, singing lead wavetable singing lead analog poly synth, sampler drum machine, glockenspiel, high-gain-saturation sub bass monosynth acid bass, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-  "recipe_chars": 729,
-  "score": 256.613,
+  "recipe": "classic mid-2010s j-pixie, functional Song, east Asian pop branch, pop experimental experimental electric, pop rock synthpop, eurodance electronic dance etherpop wonky pop. thick, breath veiled tone, wide pitch sway, interlocked note trading. lead plus dense cluster 5 part stack formant shifted left right stereo width multitrack vocal stack, singing lead wavetable singing lead analog poly synth, sampler drum machine, glockenspiel, sub bass monosynth acid bass, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 713,
+  "score": 250.185,
   "config": {
     "traditions": [
       "j_pixie",
       "etherpop",
-      "shiver_pop"
+      "wonky_pop"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 27.894999999999992,
-          "voice_quality": 7.995000000000001,
+          "voice_register": 27.589999999999993,
+          "voice_quality": 6.955000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.65,
-          "voice_articulation": 15.729999999999995,
-          "voice_microtone": 27.299999999999997,
-          "voice_tradition": 27.56,
-          "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 21.059999999999995,
-          "voice_ensemble_config": 17.159999999999993,
-          "voice_ornament_system": 3.495,
-          "voice_pitch_organization": 3.885000000000001,
-          "voice_processing_chain": 8.185,
+          "voice_vibrato": 0.9099999999999999,
+          "voice_articulation": 17.484999999999996,
+          "voice_microtone": 26.799999999999997,
+          "voice_tradition": 26.205,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 2.405,
+          "voice_speech_song": 23.009999999999998,
+          "voice_ensemble_config": 19.304999999999996,
+          "voice_ornament_system": 3.7500000000000004,
+          "voice_pitch_organization": 3.2350000000000003,
+          "voice_processing_chain": 7.204999999999999,
           "voice_multitrack_stack": 5.9799999999999995
         }
       },
@@ -60,8 +60,8 @@
           "multitrack_stack_processing": "multitrack_processing_formant_split_stereo"
         },
         "scores": {
-          "multitrack_stack_density": 4.29,
-          "multitrack_stack_era_aesthetic": 0.26,
+          "multitrack_stack_density": 3.325,
+          "multitrack_stack_era_aesthetic": 0.8124999999999999,
           "multitrack_stack_processing": 2.9899999999999998
         }
       },
@@ -74,10 +74,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 24.955,
+          "electronic_technique": 23.04,
           "wt_position": 2.405,
-          "wt_family": 1.69,
-          "wt_polyphony": 2.9899999999999998
+          "wt_family": 0.845,
+          "wt_polyphony": 2.145
         }
       },
       {
@@ -86,12 +86,12 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 24.955,
-          "poly_archetypes": 3.25,
-          "poly_voices": 0.845,
+          "electronic_technique": 23.04,
+          "poly_archetypes": 3.885,
+          "poly_voices": 0.195,
           "poly_maker_lineage": -1.435
         }
       },
@@ -104,10 +104,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 1.2,
+          "electronic_technique": 1.2449999999999999,
           "sample_bitdepth": 0.845,
-          "sample_swing": 4.67,
-          "sample_processing": 1.15
+          "sample_swing": 4.625,
+          "sample_processing": 1.195
         }
       },
       {
@@ -119,8 +119,8 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "glockenspiel_size": 0.845,
-          "glockenspiel_mallet": 0.435
+          "glockenspiel_size": 0.15,
+          "glockenspiel_mallet": 0.54
         }
       },
       {
@@ -128,13 +128,13 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
-          "filter_acid": "open_acid",
+          "filter_acid": "closed_acid",
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
           "electronic_technique": 3.6725000000000003,
-          "wave_acid": 1.69,
-          "filter_acid": 1.69,
+          "wave_acid": 0.845,
+          "filter_acid": 0.845,
           "accent_acid": 0
         }
       },
@@ -146,8 +146,8 @@
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
-          "voc_band_count": 1.69,
-          "voc_carrier": 1.6899999999999997,
+          "voc_band_count": 0.845,
+          "voc_carrier": 0.845,
           "voc_modulator": 1.3
         }
       }

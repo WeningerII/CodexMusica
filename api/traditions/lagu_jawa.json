@@ -3,13 +3,13 @@
   "name": "Lagu Jawa (Javanese Popular Song)",
   "family": "global",
   "lineage": "Central Javanese popular song strand running from 1950s-70s langgam Jawa — Western-derived kroncong song form sung in Javanese over gamelan-imitating guitar, cello pizzicato and siter, codified by Gesang and Waldjinah — into 1990s campursari, where Manthous and later Didi Kempot fused slendro/pelog-tuned gamelan instruments with electric bass, keyboard and kendang-driven dangdut rhythm at 90-120 BPM.",
-  "recipe": "classic Southeast Asian mid-1950s lagu jawa, functional Song, east Asian pop branch, southeast Asian art music, Mediterranean ballad ballad poetry thai classical indonesian keroncong. thick, breath veiled tone, slow rate, interlocked note trading. gamelan javanese full, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian, heptatonic pelog tuning saron gamelan, gender, bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling, alder pyramid pure nickel bass British mid 60s era electric bass, singing lead digital subtractive. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 774,
-  "score": 308.052,
+  "recipe": "classic Southeast Asian mid-1950s lagu jawa, functional Song, east Asian pop branch, southeast Asian art music, Mediterranean ballad ballad poetry gamelan indonesian keroncong. thick, breath veiled tone, slow rate, interlocked note trading. gamelan javanese full, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian, pentatonic slendro tuning saron gamelan, gender, bamboo rattan band fipple canonical javanese balinese melodic suling, alder pyramid pure nickel bass British mid 60s era electric bass, singing lead digital subtractive. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 751,
+  "score": 251.08,
   "config": {
     "traditions": [
       "lagu_jawa",
-      "thai_classical",
+      "gamelan",
       "indonesian_keroncong"
     ],
     "instruments": [
@@ -23,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "chinese_classical_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.799999999999999,
-          "voice_quality": 12.48,
+          "voice_register": 7.550000000000001,
+          "voice_quality": 9.165000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.212499999999995,
-          "voice_articulation": 20.8,
-          "voice_microtone": 19.174999999999997,
-          "voice_tradition": 16.964999999999996,
-          "voice_mechanism_compound": 6.774999999999997,
-          "voice_estill_quality": 10.042499999999997,
-          "voice_speech_song": 27.429999999999996,
-          "voice_ensemble_config": 23.074999999999996,
-          "voice_ornament_system": 6.774999999999998,
-          "voice_pitch_organization": 30.009999999999998,
-          "voice_processing_chain": 5.785,
-          "voice_multitrack_stack": 5.330000000000001
+          "voice_vibrato": 2.8600000000000003,
+          "voice_articulation": 19.499999999999996,
+          "voice_microtone": 17.874999999999996,
+          "voice_tradition": 10.985,
+          "voice_mechanism_compound": 4.37,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 25.285,
+          "voice_ensemble_config": 22.619999999999994,
+          "voice_ornament_system": 4.19,
+          "voice_pitch_organization": 32.01,
+          "voice_processing_chain": 4.745,
+          "voice_multitrack_stack": 3.9650000000000007
         }
       },
       {
@@ -59,8 +59,8 @@
           "tuning": "gj_pelog"
         },
         "scores": {
-          "sections": 3.9649999999999985,
-          "tuning": 4.419999999999998
+          "sections": 2.8949999999999996,
+          "tuning": 3.7649999999999992
         }
       },
       {
@@ -72,21 +72,21 @@
           "kendang_head": "kendang_buffalo_hide_canonical"
         },
         "scores": {
-          "kendang_size": 3.5749999999999993,
-          "kendang_context": 8.059999999999999,
-          "kendang_shell_wood": 7.149999999999999,
-          "kendang_head": 4.484999999999999
+          "kendang_size": 3.769999999999999,
+          "kendang_context": 9.1,
+          "kendang_shell_wood": 5.719999999999999,
+          "kendang_head": 5.135
         }
       },
       {
         "id": "saron_gamelan",
         "slots": {
           "saron_size": "saron_barung",
-          "saron_tuning_system": "saron_pelog"
+          "saron_tuning_system": "saron_slendro"
         },
         "scores": {
-          "saron_size": 0.78,
-          "saron_tuning_system": 3.705
+          "saron_size": 0.585,
+          "saron_tuning_system": 3.38
         }
       },
       {
@@ -96,23 +96,23 @@
           "gender_tuning": "gender_pelog"
         },
         "scores": {
-          "gender_use": 3.9649999999999985,
-          "gender_tuning": 4.419999999999998
+          "gender_use": 2.8949999999999996,
+          "gender_tuning": 3.7649999999999992
         }
       },
       {
         "id": "suling",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_folk_melodic",
           "suling_use": "suling_gamelan",
-          "suling_tuning": "suling_pelog",
+          "suling_tuning": "suling_slendro",
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 7.019999999999998,
-          "suling_use": 3.9649999999999985,
-          "suling_tuning": 7.084999999999998,
-          "suling_body_material": 4.68
+          "wind_articulation": 5.004999999999999,
+          "suling_use": 2.8949999999999996,
+          "suling_tuning": 1.425,
+          "suling_body_material": 5.329999999999999
         }
       },
       {
@@ -124,29 +124,29 @@
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "sub_bass_synth_blend"
+          "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
           "amp_make": 1.625,
-          "body_wood": 2.1449999999999996,
-          "pickup_config": 0.8449999999999999,
-          "string_type": 4.49,
+          "body_wood": 1.7949999999999997,
+          "pickup_config": 0.495,
+          "string_type": 3.9899999999999998,
           "scale_length_b": 1.6449999999999998,
           "fretted_or_not": 0.045,
-          "bass_technique": 0.9
+          "bass_technique": -0.035
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "novation_supernova",
+          "va_archetypes": "access_virus",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 5.025,
-          "va_archetypes": 0.45499999999999996,
-          "digital_subtractive_context": 20.410000000000004
+          "electronic_technique": 4.875,
+          "va_archetypes": 0.345,
+          "digital_subtractive_context": 19.11
         }
       }
     ],

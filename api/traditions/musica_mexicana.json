@@ -5,7 +5,7 @@
   "lineage": "Streaming-era umbrella term adopted around 2020-2023 for the whole modern regional-Mexican field — banda sinaloense, norteño-sax, sierreño, mariachi-pop and corridos tumbados marketed together out of Culiacán, Guadalajara and Los Angeles by labels such as Rancho Humilde, Street Mob and Fonovisa — unified by 2/4 polka and 3/4 vals frames, tuba or tololoche bass on the downbeat with bajo sexto offbeats, twin-trumpet or requinto lead lines, and plain-toned chest-voice duet singing in close thirds",
   "recipe": "classic 2020-2023 música mexicana, functional Song, Mexican branch, tejano border corrido, tejano border ranchera corridos tumbados. thick, full chest belt, straight onset, interlocked note trading. compact tuba brass yellow brass canonical orchestral rotary valves canonical German orchestral yamaha ybb 841 modern Japanese tuba, nickel wound modern tejano bajo sexto, castagnari Italian premium folk music chordal accordion, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese unison standard rim orchestral balance trumpet, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana, cedar caoba paracho nylon treble steel bass guitarron mexicano, cedar concert modern carbon fiber strummed open chord ringing overtones classical nylon-string guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 996,
-  "score": 312.076,
+  "score": 312.127,
   "config": {
     "traditions": [
       "musica_mexicana",
@@ -35,15 +35,15 @@
         },
         "scores": {
           "voice_register": 3.706500000000001,
-          "voice_quality": 22.67499999999999,
+          "voice_quality": 22.56999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.1765,
           "voice_articulation": 19.044999999999995,
           "voice_microtone": 18.849999999999994,
-          "voice_tradition": 11.35,
+          "voice_tradition": 11.44,
           "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 12.239999999999998,
+          "voice_estill_quality": 12.389999999999997,
           "voice_speech_song": 29.6725,
           "voice_ensemble_config": 22.424999999999997,
           "voice_ornament_system": 2.4050000000000002,
@@ -82,9 +82,9 @@
         },
         "scores": {
           "plucked_traditional_technique": 2.925,
-          "bajo_courses": 11.1365,
+          "bajo_courses": 11,
           "bajo_top": 0.39,
-          "bajo_strings": 9.195,
+          "bajo_strings": 9.36,
           "bajo_back_wood": 0
         }
       },
@@ -96,16 +96,16 @@
           "musette_offset": "german_tuning",
           "reed_config": "lmmh",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "no_cassotto",
+          "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 12.530000000000003,
+          "free_reed_technique": 12.498500000000002,
           "accordion_reed_material": 1.1995,
           "musette_offset": 0.195,
           "reed_config": 0.49499999999999994,
           "bellows": 0.195,
-          "voicing_chamber": 0.0315,
+          "voicing_chamber": 0,
           "accordion_maker_school": 1.625
         }
       },
@@ -157,7 +157,7 @@
           "guitarron_technique": "guitarron_octave_pair_plucking"
         },
         "scores": {
-          "guitarron_body": 2.7165,
+          "guitarron_body": 2.5485,
           "guitarron_body_wood": 4.419999999999999,
           "guitarron_strings": 0.195,
           "guitarron_string_material": 6.825,
@@ -175,7 +175,7 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 4.2965,
+          "acoustic_technique": 4.415,
           "string_tuning": 0,
           "top_wood_classical": 4.81,
           "bracing_classical": 3.1449999999999996,

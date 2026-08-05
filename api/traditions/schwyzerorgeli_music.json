@@ -1,0 +1,152 @@
+{
+  "id": "schwyzerorgeli_music",
+  "name": "Schwyzerörgeli Ländlermusik",
+  "family": "global",
+  "lineage": "Central Swiss dance-band idiom that took its modern shape after the 1880s adoption of the Schwyzerörgeli, a small diatonic bisonoric accordion in Helvetic tuning, and was standardized in the 1920s-1950s by Kapellen around Rees Gwerder, Kasi Geisser and the Ländlerkapelle format — one or two Örgeli plus B-flat clarinet and slap double bass playing Ländler, Schottisch, Mazurka and Polka at brisk 3/4 and 2/4, with the bass on beat one and the left hand supplying oom-pah chords.",
+  "recipe": "classic mid-1880s schwyzerörgeli ländlermusik, drinking Song, European branch, European wedding, europop functional song trikiti bal-musette. thick, breath veiled tone, straight onset, interlocked note trading. lilting dance rhythm schwyzerorgeli, thermoset resin clarinet, venice catlin high twist renaissance bass norway spruce European alpine double bass, piano accordion. wooden barn. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 451,
+  "score": 193.205,
+  "config": {
+    "traditions": [
+      "schwyzerorgeli_music",
+      "trikiti",
+      "bal_musette"
+    ],
+    "instruments": [
+      {
+        "id": "schwyzerorgeli",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "schwyzerorgeli_rows": "schwyzerorgeli_three_row",
+          "schwyzerorgeli_tuning": "schwyzerorgeli_tremolo",
+          "schwyzerorgeli_context": "schwyzerorgeli_laendler"
+        },
+        "scores": {
+          "free_reed_technique": 0.35750000000000004,
+          "schwyzerorgeli_rows": 3.965,
+          "schwyzerorgeli_tuning": 0.195,
+          "schwyzerorgeli_context": 3.38
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "hanson_btr_clarinet",
+          "clarinet_size": "bass_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "doina_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.52,
+          "clarinet_body": 2.5,
+          "clarinet_size": 0.8049999999999999,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.5849999999999999
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_slap",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "bass_size": 0,
+          "bass_strings": 3.245,
+          "bass_top_wood": 5.265000000000001,
+          "bass_back_wood": 7.930000000000001,
+          "bass_varnish": 2.5,
+          "bass_setup_period": 6.285,
+          "bass_play": 0.3,
+          "bass_rosin": 5.7,
+          "bass_bow_stick": 2.5
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "pa_size": "pa_120_bass",
+          "pa_use": "pa_french_chanson"
+        },
+        "scores": {
+          "free_reed_technique": 1.59,
+          "pa_size": 0.195,
+          "pa_use": 0.785
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.62,
+          "voice_quality": 21.18999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 22.554999999999996,
+          "voice_microtone": 21.839999999999996,
+          "voice_tradition": 5.2975,
+          "voice_mechanism_compound": 5.654999999999999,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 26.064999999999998,
+          "voice_ensemble_config": 21.514999999999997,
+          "voice_ornament_system": 1.9000000000000001,
+          "voice_pitch_organization": 1.835,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 5.720000000000001
+        }
+      }
+    ],
+    "room": "wooden_barn",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "wooden_barn",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

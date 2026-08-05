@@ -1,0 +1,176 @@
+{
+  "id": "maldivian_pop",
+  "name": "Maldivian Pop (Dhivehi)",
+  "family": "pop",
+  "lineage": "Dhivehi-language popular song developed in Malé from the late 1970s around Voice of Maldives broadcasts and the Zero Degree Atoll and Fasgandu circles, setting Dhivehi lyrics and bodu-beru-derived hand-drum patterns against Hindi-filmi melodic contour, nylon and electric guitars, cheap polysynth pads and drum-machine backbeats at 90-120 BPM, with an unforced mid-range male tenor and heavy reverb typical of the island cassette studios.",
+  "recipe": "classic 1977-1979 maldivian pop, functional Song, south Asian pop branch, mid east n African pop functional song, europop functional song turkmen pop arab pop. extended whistle, breath veiled tone, slow rate, interlocked note trading. cedar nylon strummed open chord ringing overtones classical nylon-string guitar, orange amp British heavy crunch alder pyramid pure nickel bass electric bass, dholak, snappy thin to palm hand clap, singing lead analog poly synth, drum machine analog. tin roofed shack. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 642,
+  "score": 290.603,
+  "config": {
+    "traditions": [
+      "maldivian_pop",
+      "turkmen_pop",
+      "arab_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 24.044999999999998,
+          "voice_quality": 11.374999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.3950000000000005,
+          "voice_articulation": 19.564999999999998,
+          "voice_microtone": 24.017500000000002,
+          "voice_tradition": 24.174999999999997,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 4.680000000000001,
+          "voice_speech_song": 28.274999999999995,
+          "voice_ensemble_config": 22.589999999999996,
+          "voice_ornament_system": 3.445,
+          "voice_pitch_organization": 3.445,
+          "voice_processing_chain": 7.360000000000001,
+          "voice_multitrack_stack": 8.735000000000001
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 18.575,
+          "string_tuning": 0,
+          "top_wood_classical": 9.035,
+          "bracing_classical": 1.23,
+          "string_classical": 6.045,
+          "attack_technique_cl": 4.8100000000000005
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 5.850000000000001,
+          "body_wood": 4.8100000000000005,
+          "pickup_config": 0.54,
+          "string_type": 5.07,
+          "scale_length_b": 4.8100000000000005,
+          "fretted_or_not": 0.3,
+          "bass_technique": 0.995
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_synthetic",
+          "dholak_head": "dholak_synthetic_head",
+          "dholak_tensioning": "dholak_bolt_tuned"
+        },
+        "scores": {
+          "dholak_use": 1.4949999999999999,
+          "dholak_construction": 0.54,
+          "dholak_head": 0.54,
+          "dholak_tensioning": 0.54
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.365,
+          "clap_capture": 0.5
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 19.075,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "fm_pair_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 0.54,
+          "snare_voice": 0.54,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.54
+        }
+      }
+    ],
+    "room": "tin_roofed_shack",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_console_inline_strip",
+      "console": "console_uk_community_studio_80s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tin_roofed_shack",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_uk_community_studio_80s"
+  }
+}

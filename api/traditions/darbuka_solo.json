@@ -1,0 +1,150 @@
+{
+  "id": "darbuka_solo",
+  "name": "Darbuka solo (goblet-drum virtuoso tradition)",
+  "family": "global",
+  "lineage": "Goblet-drum practice of Egypt, Turkey and the Levant, transformed by the mid-20th-century shift from clay-and-skin tabla baladi to aluminium shells with tunable synthetic heads, codified through Cairo film-orchestra percussionists and Turkish soloists such as Misirli Ahmet and Hossam Ramzy, marked by doum-tek finger technique, split-hand and clarinet-finger rolls, iqa cycles such as maqsum, baladi, sa'idi, chiftetelli and 10/8 curcuna, and cadenza-like solos that fragment the cycle before restoring it.",
+  "recipe": "classic North African mid-1980s darbuka solo, art Music, middle eastern classical branch, Persian arab improv improv on frame, middle eastern wedding oyun havası iraqi maqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. clay pre modern traditional goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin open slap hand drum darbuka, beech mid tier modern fish skin canonical Egyptian light responsive brass jingles canonical takht riq, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, tabl baladi, mazhar. stone plaster medina room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 711,
+  "score": 276.71,
+  "config": {
+    "traditions": [
+      "darbuka_solo",
+      "oyun_havasi",
+      "iraqi_maqam"
+    ],
+    "instruments": [
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_clay_traditional",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_turkish_split"
+        },
+        "scores": {
+          "percussion_technique": 4.295,
+          "darbuka_material": 2.08,
+          "darbuka_skin": 5.86,
+          "darbuka_regional_style": 9.565
+        }
+      },
+      {
+        "id": "riq",
+        "slots": {
+          "riq_size": "riq_medium",
+          "riq_context": "riq_sufi",
+          "riq_shell_wood": "riq_beech_modern",
+          "riq_head_material": "riq_fish_skin_canonical",
+          "riq_jingles": "riq_brass_jingles"
+        },
+        "scores": {
+          "riq_size": 3.25,
+          "riq_context": 0.615,
+          "riq_shell_wood": 2.145,
+          "riq_head_material": 1.95,
+          "riq_jingles": 1.04
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_no_snares",
+          "bendir_context": "bendir_world",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_synthetic_modern"
+        },
+        "scores": {
+          "bendir_snares": 5.85,
+          "bendir_context": 0.345,
+          "bendir_shell_wood": 2.925,
+          "bendir_head": 4.29
+        }
+      },
+      {
+        "id": "tabl_baladi",
+        "slots": {
+          "tabl_baladi_size": "tabl_baladi_large",
+          "tabl_baladi_sticks": "tabl_baladi_asaya_kirsh"
+        },
+        "scores": {
+          "tabl_baladi_size": 0.045,
+          "tabl_baladi_sticks": 19.370000000000005
+        }
+      },
+      {
+        "id": "mazhar",
+        "slots": {
+          "mazhar_context": "mazhar_inshad",
+          "mazhar_head": "mazhar_synthetic"
+        },
+        "scores": {
+          "mazhar_context": 0.51,
+          "mazhar_head": 0.09
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.605,
+          "voice_quality": 8.515,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.879999999999999,
+          "voice_articulation": 21.71,
+          "voice_microtone": 34.0275,
+          "voice_tradition": 19.4675,
+          "voice_mechanism_compound": 15.670000000000002,
+          "voice_estill_quality": 9.205,
+          "voice_speech_song": 21.319999999999997,
+          "voice_ensemble_config": 19.695,
+          "voice_ornament_system": 18.1,
+          "voice_pitch_organization": 18.865,
+          "voice_processing_chain": 5.9799999999999995,
+          "voice_multitrack_stack": 5.07
+        }
+      }
+    ],
+    "room": "stone_plaster_medina_room",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformer_solid_state",
+      "console": "clean",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "stone_plaster_medina_room",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

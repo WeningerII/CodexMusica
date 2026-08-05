@@ -3,70 +3,70 @@
   "name": "Catalan Nova Cançó",
   "family": "global",
   "lineage": "Catalan Nova Cançó (\"new song\") minority-language protest-song tradition continuous from 1959 founding by Els Setze Jutges collective through the Franco-era 1959-1975 Catalan-language-suppression-resistance period continuous into post-Franco Catalan-cultural-revival; centered on Lluís Llach, Raimon, Joan Manuel Serrat, Maria del Mar Bonet, Pi de la Serra",
-  "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar. iberian kantautor basque galician club. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 457,
-  "score": 188.835,
+  "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry catalan folk morna. thick, breath veiled tone, slow rate, interlocked note trading. fingerpicked acoustic guitar. iberian kantautor basque galician club. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 418,
+  "score": 138.625,
   "config": {
     "traditions": [
       "catalan_nova_canco",
-      "morna",
-      "cape_verdean_batuko"
+      "catalan_folk",
+      "morna"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.07,
-          "voice_quality": 28.27,
+          "voice_register": 2.490000000000001,
+          "voice_quality": 10.659999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.46,
-          "voice_articulation": 20.8,
-          "voice_microtone": 21.514999999999997,
-          "voice_tradition": 19.275,
-          "voice_mechanism_compound": 5.13,
-          "voice_estill_quality": 4.845,
-          "voice_speech_song": 30.354999999999997,
-          "voice_ensemble_config": 20.085,
-          "voice_ornament_system": 4.565,
-          "voice_pitch_organization": 6.955000000000001,
-          "voice_processing_chain": 6.434999999999999,
-          "voice_multitrack_stack": 4.415
+          "voice_vibrato": 1.9175,
+          "voice_articulation": 17.485000000000007,
+          "voice_microtone": 18.2,
+          "voice_tradition": 10.04,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 27.105000000000008,
+          "voice_ensemble_config": 17.42,
+          "voice_ornament_system": 7.075000000000001,
+          "voice_pitch_organization": 5.55,
+          "voice_processing_chain": 6.629999999999999,
+          "voice_multitrack_stack": 3.250000000000001
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "string_tuning": "open_g",
+          "string_tuning": "open_d",
           "top_wood": "cedar_om",
-          "back_sides": "rosewood_bs_om",
-          "string_acoustic": "martin_lifespan_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 1.1899999999999997,
-          "top_wood": 0.435,
-          "back_sides": 0.705,
-          "string_acoustic": 0.8450000000000001,
-          "acoustic_om_technique": 10.06
+          "string_tuning": 0.895,
+          "top_wood": 0.43499999999999994,
+          "back_sides": 0.43499999999999994,
+          "string_acoustic": 0.48,
+          "acoustic_om_technique": 8.935
         }
       }
     ],

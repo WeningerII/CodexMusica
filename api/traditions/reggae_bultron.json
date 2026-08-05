@@ -1,0 +1,158 @@
+{
+  "id": "reggae_bultron",
+  "name": "Reggae Bultrón",
+  "family": "global",
+  "lineage": "Puerto Rican underground style of the mid-to-late 1990s San Juan marquesina and caserío scene, codified by DJ Nelson (Reggae Bultrón, 1997), DJ Playero and DJ Negro out of the earlier Playero mixtape series — Jamaican dancehall riddims (Dem Bow, Bam Bam) re-sequenced on hardware samplers at 90-100 BPM under Spanish-language duo toasting, with heavily gated kick-and-tresillo snare, sirens, gunshot stabs and cassette-generation hiss.",
+  "recipe": "classic 1997-1999 reggae bultrón, mc Rhythm, reggaeton branch, Jamaican bass system, Afro-diasporic MC rhythm dancehall queen ragga. extended whistle, breath veiled tone, slow rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampler, turntable, low sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 585,
+  "score": 176.797,
+  "config": {
+    "traditions": [
+      "reggae_bultron",
+      "dancehall_queen_style",
+      "ragga"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.3975,
+          "voice_quality": 9.165000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.015,
+          "voice_articulation": 16.89999999999999,
+          "voice_microtone": 16.50999999999999,
+          "voice_tradition": 4.210000000000001,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 17.09499999999999,
+          "voice_ensemble_config": 16.054999999999993,
+          "voice_ornament_system": 4.42,
+          "voice_pitch_organization": 1.7249999999999996,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 4.030000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 4.55,
+          "drum_machine_808_context": 4.81,
+          "tr808_production_origin": 2.34
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.3499999999999999,
+          "sampler_archetypes": 0.75,
+          "sampler_bit_depth": 1.56,
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 20.279999999999994
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "scores": {
+          "electronic_technique": 1.3499999999999999,
+          "turntable_technique": 0.195
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 4.8100000000000005,
+          "poly_archetypes": 0.28500000000000003,
+          "poly_voices": 0.135,
+          "poly_maker_lineage": -0.5549999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 5.135,
+          "body_wood": 2.08,
+          "pickup_config": 0.495,
+          "string_type": 6.175,
+          "scale_length_b": 1.885,
+          "fretted_or_not": 0.195,
+          "bass_technique": 8.67
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_san_juan_reggaeton_mixtape",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Nashville hip-hop",
   "family": "hip_hop",
   "lineage": "Developed in North Nashville from the late 1990s onward through Young Buck's move into G-Unit and the independent Cashville circuit of Starlito, Don Trip and All Star — 70-90 BPM half-time Southern beats with 808 sub kicks, rolling triplet hats, sparse guitar and organ interpolations drawn from the city's session infrastructure, and dry, plainspoken conversational delivery.",
-  "recipe": "classic 1997-1999 nashville hip-hop, mc Rhythm, southern branch, us hip hop gangsta, us hip hop modern pittsburgh rap. thick, rap, straight onset, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, sampled chopped sampler drum machine, Fender blackface amp American 60s amp spring reverb bright roasted maple maple single coil electric guitar, mark 7 modern tine post 2007 reissue ostinato rhodes electric, late 1980s reverb saturated bus stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 743,
-  "score": 283.034,
+  "recipe": "classic 1997-1999 nashville hip-hop, mc Rhythm, southern branch, us hip hop gangsta, us hip hop modern dark plugg. thick, rap, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampled chopped sampler drum machine, Fender blackface amp American 60s amp spring reverb bright mahogany roasted maple single coil electric guitar, mark 7 modern tine post 2007 reissue wide pickup gap more bell less bark rhodes electric, late 1980s reverb saturated bus stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 784,
+  "score": 259.815,
   "config": {
     "traditions": [
       "nashville_hip_hop",
       "gangsta_rap",
-      "pittsburgh_rap"
+      "dark_plugg"
     ],
     "instruments": [
       {
@@ -21,7 +21,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.5925,
-          "voice_quality": 27.239250000000002,
+          "voice_register": 2.1174999999999997,
+          "voice_quality": 25.55975,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.097875,
-          "voice_articulation": 16.60425,
-          "voice_microtone": 19.629999999999992,
-          "voice_tradition": 13.764500000000002,
-          "voice_mechanism_compound": 3.12,
-          "voice_estill_quality": 4.16,
-          "voice_speech_song": 26.154625000000003,
-          "voice_ensemble_config": 18.264999999999997,
-          "voice_ornament_system": 8.190000000000003,
-          "voice_pitch_organization": 2.062,
-          "voice_processing_chain": 17.01525,
-          "voice_multitrack_stack": 6.305000000000001
+          "voice_vibrato": 5.492500000000001,
+          "voice_articulation": 14.754999999999992,
+          "voice_microtone": 16.83499999999999,
+          "voice_tradition": 11.790000000000003,
+          "voice_mechanism_compound": 4.3549999999999995,
+          "voice_estill_quality": 5.395,
+          "voice_speech_song": 24.644625000000005,
+          "voice_ensemble_config": 16.769999999999992,
+          "voice_ornament_system": 6.890000000000003,
+          "voice_pitch_organization": 2.0799999999999996,
+          "voice_processing_chain": 15.05875,
+          "voice_multitrack_stack": 5.200000000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 14.1415,
+          "tr808_voice": 12.838000000000001,
           "drum_machine_808_context": 5.2,
-          "tr808_production_origin": 3.3571249999999995
+          "tr808_production_origin": 3.3799999999999994
         }
       },
       {
@@ -71,13 +71,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "chopped_break"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 11.78575,
-          "sample_bitdepth": 2.275,
-          "sample_swing": 20.995000000000005,
-          "sample_processing": 0.95
+          "electronic_technique": 10.71775,
+          "sample_bitdepth": 2.925,
+          "sample_swing": 18.330000000000002,
+          "sample_processing": 1.4949999999999999
         }
       },
       {
@@ -89,25 +89,25 @@
           "neck_wood": "roasted_maple",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
-          "string_material": "flatwound_elec",
+          "string_material": "pure_nickel",
           "string_gauge": "g_12",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
+          "finish": "poly",
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 14.450000000000003,
-          "amp_make": 5.5215000000000005,
-          "body_wood": 0.845,
-          "neck_wood": 1,
-          "fretboard": 0.78,
-          "pickup_magnet": 0.284625,
-          "string_material": 0.273,
-          "string_gauge": 1.04,
-          "bridge": 1.885,
-          "scale_length": 0.845,
-          "finish": 0.3,
+          "electric_technique": 13.725000000000003,
+          "amp_make": 4.255,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.7550000000000001,
+          "fretboard": 1.4299999999999997,
+          "pickup_magnet": 0.65,
+          "string_material": 0.65,
+          "string_gauge": 1.4949999999999999,
+          "bridge": 2.535,
+          "scale_length": 1.4949999999999999,
+          "finish": 0.845,
           "string_tuning": 1.04
         }
       },
@@ -119,15 +119,15 @@
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
           "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
-          "rhodes_pickup_position": "rhodes_pickup_centered"
+          "rhodes_pickup_position": "rhodes_pickup_far_bell"
         },
         "scores": {
-          "keyboard_technique": 3.5,
-          "rhodes_model": 3.4450000000000003,
-          "rhodes_use": 1.2349999999999999,
+          "keyboard_technique": 1.875,
+          "rhodes_model": 1.9825,
+          "rhodes_use": 1.885,
           "rhodes_tine_material": 1.885,
-          "rhodes_hammer_tip": 0.5850000000000002,
-          "rhodes_pickup_position": 0.845
+          "rhodes_hammer_tip": -0.13999999999999996,
+          "rhodes_pickup_position": 1.04
         }
       },
       {
@@ -138,8 +138,8 @@
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 0.15525,
-          "multitrack_stack_era_aesthetic": 3.185,
+          "multitrack_stack_density": 0.27375,
+          "multitrack_stack_era_aesthetic": 2.535,
           "multitrack_stack_processing": 1.4299999999999997
         }
       }

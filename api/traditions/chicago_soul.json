@@ -1,0 +1,215 @@
+{
+  "id": "chicago_soul",
+  "name": "Chicago Soul",
+  "family": "blues_gospel",
+  "lineage": "Chicago soul of 1962-1973 developed at Chess, Vee-Jay, OKeh, Brunswick and One-derful by Curtis Mayfield, Carl Davis, Johnny Pate and Willie Henderson, marked by gospel quartet-derived close harmony, Mayfield's open F-sharp tuned guitar with high triadic figures, Latin-tinged bolero and cha-cha rhythm patterns under mid-tempo 12/8 ballads, brass-and-flute charts rather than string beds, and light, high tenor leads carrying civil-rights-era lyric content.",
+  "recipe": "classic Midwestern American mid-1960s chicago soul, functional Song, soul R&B branch, soul R&B doowop, blues electric functional song doo-wop souldies. thick, blues-shouter, wide pitch sway, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled sticks pocket drum kit, powell boston canonical American orchestral flute, red brass 90 10 darkest schilke chicago lead bright ensemble shallow cup lead trumpet trumpet, lead cowhide mid tier open slap hand drum congas. 2120 south michigan avenue 1957-1975 indie-commercial chess studios chicago. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
+  "recipe_chars": 986,
+  "score": 491.57,
+  "config": {
+    "traditions": [
+      "chicago_soul",
+      "doo_wop",
+      "souldies"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 34.02,
+          "voice_quality": 27.849999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.41,
+          "voice_articulation": 20.799999999999997,
+          "voice_microtone": 20.01999999999999,
+          "voice_tradition": 30.814999999999998,
+          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_estill_quality": 27.89,
+          "voice_speech_song": 27.689999999999998,
+          "voice_ensemble_config": 21.514999999999993,
+          "voice_ornament_system": 1.8699999999999997,
+          "voice_pitch_organization": 2.085,
+          "voice_processing_chain": 5.265,
+          "voice_multitrack_stack": 6.36
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_renaissance"
+        },
+        "scores": {
+          "choir_size": 8.58,
+          "choir_polyphonic_configuration": 3.2499999999999987,
+          "choir_regional_canonical_configuration": 2.8600000000000003,
+          "choir_ensemble_repertoire": 1.735
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "open_g"
+        },
+        "scores": {
+          "electric_technique": 20.639999999999997,
+          "amp_make": 26.804999999999996,
+          "body_wood": 1.3299999999999998,
+          "neck_wood": 1.3299999999999998,
+          "fretboard": 1.2799999999999998,
+          "pickup_magnet": 0.045,
+          "string_material": 0.045,
+          "string_gauge": 3.1849999999999996,
+          "bridge": 0.045,
+          "scale_length": 1.4949999999999999,
+          "finish": 0.345,
+          "string_tuning": 4.095
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 28.025,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0,
+          "string_type": 25.455,
+          "scale_length_b": 1.63,
+          "fretted_or_not": 0.24,
+          "bass_technique": 20.4
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_motown",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 21.25,
+          "drumhead": 4.145,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "flute_size": "alto_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "jazz_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "flute_size": 0.24,
+          "flute_material": 0.195,
+          "flute_technique": 0.045,
+          "flute_maker_school": 2.5349999999999997
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "bucket_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 21.735,
+          "brass_size": 0.24,
+          "trumpet_mouthpiece": 4.555,
+          "brass_mute": 0.195,
+          "trumpet_technique": 21.735,
+          "trumpet_bell_metal": 1.6,
+          "trumpet_maker_school": 4.419999999999999
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 5.0249999999999995,
+          "conga_set": 4.56,
+          "conga_skin": 1.285,
+          "conga_shell_wood": 0
+        }
+      }
+    ],
+    "room": "chess_studios_chicago",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "chess_studios_chicago",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Breton folk (kan ha diskan, fest-noz)",
   "family": "global",
   "lineage": "Breton traditional dance-and-song tradition — comprising kan ha diskan (Breton paired-vocal call-and-response, two singers alternating phrases for unaccompanied dance-song) and the biniou-and-bombarde pipe-couple (biniou koz the small Breton bagpipe, bombarde the Breton shawm, played in parallel octaves for outdoor fest-noz dance contexts); 20th-century revival figures the Goadec sisters (Sœurs Goadec), Alan Stivell (the Celtic-revival harper from 1971 onward), Yann-Fañch Kemener, Tri Yann",
-  "recipe": "classic Northern European early-1970s breton folk, ballad Poetry, Celtic balladic branch, western early art music, anglo singer song ballad poetry indie folk ectofolk. thick, breath veiled tone, straight note core, interlocked note trading. boxwood pre modern traditional breton cane arundo donax canonical breton goatskin canonical breton melodic biniou, paired melodic bombarde, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy. brittany fest noz outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 588,
-  "score": 293.225,
+  "recipe": "classic Northern European early-1970s breton folk, ballad Poetry, Celtic balladic branch, western early art music, anglo singer song ballad poetry indie folk freak folk. thick, breath veiled tone, straight note core, interlocked note trading. boxwood pre modern traditional breton cane arundo donax canonical breton goatskin canonical breton melodic biniou, paired melodic bombarde, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy. brittany fest noz outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 590,
+  "score": 289.395,
   "config": {
     "traditions": [
       "breton_folk",
       "indie_folk_2000s",
-      "ectofolk"
+      "freak_folk_2000s"
     ],
     "instruments": [
       {
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 25.129999999999992,
-          "voice_quality": 12.674999999999994,
+          "voice_register": 23.255,
+          "voice_quality": 13.779999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.2424999999999997,
-          "voice_articulation": 16.379999999999995,
-          "voice_microtone": 15.169999999999996,
-          "voice_tradition": 30.549999999999997,
-          "voice_mechanism_compound": 2.275,
+          "voice_vibrato": 2.4375,
+          "voice_articulation": 16.249999999999993,
+          "voice_microtone": 14.75499999999999,
+          "voice_tradition": 28.999999999999996,
+          "voice_mechanism_compound": 1.17,
           "voice_estill_quality": 3.5100000000000007,
-          "voice_speech_song": 22.294999999999995,
-          "voice_ensemble_config": 15.599999999999994,
-          "voice_ornament_system": 12.739999999999997,
-          "voice_pitch_organization": 2.794999999999999,
-          "voice_processing_chain": 3.57,
-          "voice_multitrack_stack": 5.0375
+          "voice_speech_song": 21.644999999999992,
+          "voice_ensemble_config": 15.469999999999994,
+          "voice_ornament_system": 10.239999999999997,
+          "voice_pitch_organization": 1.8199999999999998,
+          "voice_processing_chain": 3.5100000000000002,
+          "voice_multitrack_stack": 6.3100000000000005
         }
       },
       {
@@ -63,7 +63,7 @@
           "biniou_bag": "biniou_goatskin_canonical"
         },
         "scores": {
-          "wind_articulation": 22.904999999999998,
+          "wind_articulation": 22.654999999999998,
           "biniou_register": 6.799999999999999,
           "biniou_context": 12.399999999999999,
           "biniou_chanter_wood": 8.745,
@@ -78,7 +78,7 @@
           "bombarde_use": "bombarde_couple_biniou"
         },
         "scores": {
-          "wind_articulation": 22.904999999999998,
+          "wind_articulation": 22.654999999999998,
           "bombarde_use": 21.45
         }
       },
@@ -94,11 +94,11 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "hurdy_strings": 5.634999999999999,
+          "hurdy_strings": 6.534999999999999,
           "hurdy_buzz": 1.2149999999999999,
           "hurdy_wheel_rosin": 1.215,
-          "hurdy_string_material": 5.544999999999999,
-          "hurdy_tradition": 5.289999999999999
+          "hurdy_string_material": 6.444999999999999,
+          "hurdy_tradition": 6.1899999999999995
         }
       }
     ],

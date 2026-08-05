@@ -1,0 +1,115 @@
+{
+  "id": "darkstep",
+  "name": "Darkstep",
+  "family": "electronic",
+  "lineage": "UK, Germany and the Netherlands from roughly 1997 onward, developed by Panacea, Technical Itch, Dylan and Current Value out of techstep — 170-180 BPM drum and bass with saturated and distorted Amen edits, atonal noise-based reese and screech bass, near-total absence of chordal harmony, and long unresolved builds with no vocal presence.",
+  "recipe": "classic late-1990s darkstep, bass System, bass descendants branch, uk soundsystem bass system, industrial noise experimental electric, hardstyle electronic dance darkcore breakbeat hardcore. sound design field sampler, sub bass monosynth acid bass, sub bass digital subtractive, sub bass modular synth, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 514,
+  "score": 116.949,
+  "config": {
+    "traditions": [
+      "darkstep",
+      "darkcore",
+      "breakbeat_hardcore"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.6237499999999994,
+          "sampler_archetypes": 0.42,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 3.76125,
+          "sampler_classic_context": 28.860000000000003
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 15.599999999999998,
+          "wave_acid": 0.195,
+          "filter_acid": 1.885,
+          "accent_acid": 0.375
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 15.599999999999998,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 23.855000000000008
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 15.599999999999998,
+          "mod_voltage_source": 0.8389285714285716,
+          "mod_patch_density": 0.39,
+          "mod_lineage": 0.72
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_clap",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 3.6250000000000004,
+          "drum_machine_909_context": 2.6650000000000005,
+          "tr909_production_origin": 0
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "id": "zikir",
+  "name": "Zikir (Southeast Asian Islamic dhikr)",
+  "family": "global",
+  "lineage": "Communal Islamic remembrance chanting as practiced across Aceh, the Malay Peninsula and Java from the spread of Sufi tariqa in the 16th-17th centuries onward, led by a syeikh who intones the tahlil formula while seated ranks of men answer in accelerating unison, the pulse driven by body percussion, hand-claps and rebana/kompang frame drums that tighten from a slow swaying tempo to a hard 160+ BPM shout at the climax.",
+  "recipe": "classic modern zikir, ritual Devotional, islamic branch, Sufi ritual devotional, middle east n African praise song sufi zikr chant sindhi. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, snappy to palm hand clap, rebana ubi, kompang frame drum, juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 602,
+  "score": 180.864,
+  "config": {
+    "traditions": [
+      "zikir",
+      "sufi_zikr_chant",
+      "sindhi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 17.61499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.68,
+          "voice_articulation": 13.779999999999998,
+          "voice_microtone": 16.574999999999992,
+          "voice_tradition": 22.0025,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 4.095000000000001,
+          "voice_speech_song": 16.705,
+          "voice_ensemble_config": 13.974999999999994,
+          "voice_ornament_system": 10.856500000000002,
+          "voice_pitch_organization": 2.6650000000000005,
+          "voice_processing_chain": 7.02,
+          "voice_multitrack_stack": 8.905000000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 11.439999999999998,
+          "choir_polyphonic_configuration": 2.535,
+          "choir_regional_canonical_configuration": 7.734999999999999,
+          "choir_ensemble_repertoire": 2.795
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 3.6399999999999997,
+          "clap_capture": 0.3
+        }
+      },
+      {
+        "id": "rebana_ubi",
+        "slots": {
+          "rebana_ubi_size": "rebana_ubi_giant",
+          "rebana_ubi_style": "rebana_ubi_ensemble"
+        },
+        "scores": {
+          "rebana_ubi_size": 0,
+          "rebana_ubi_style": 0
+        }
+      },
+      {
+        "id": "kompang_frame_drum",
+        "slots": {
+          "kompang_stroke": "kompang_melalu",
+          "kompang_size": "kompang_standard"
+        },
+        "scores": {
+          "kompang_stroke": 0.045,
+          "kompang_size": 0.3
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_no_snares",
+          "bendir_context": "bendir_folk",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_goat_skin_canonical"
+        },
+        "scores": {
+          "bendir_snares": 2.535,
+          "bendir_context": 1.345,
+          "bendir_shell_wood": 2.535,
+          "bendir_head": 5.3950000000000005
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "field_recording",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

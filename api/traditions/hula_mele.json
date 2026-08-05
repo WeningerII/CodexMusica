@@ -1,0 +1,135 @@
+{
+  "id": "hula_mele",
+  "name": "Hula (mele hula dance-chant)",
+  "family": "global",
+  "lineage": "Hawaiian chant-and-dance tradition transmitted through the hālau system, suppressed after 1830 and restored publicly from Kalākaua's reign in the 1880s, then reasserted in the 1970s Hawaiian Renaissance and the Merrie Monarch Festival — hula kahiko sets oli and mele over the ipu heke gourd struck-and-thumped pattern, pahu sharkskin drum for temple repertoire, puʻili split-bamboo rattles and ʻiliʻili stones, with a chanter's sustained ʻiʻi vibrato, narrow melodic range, and text-governed unmetered phrase lengths.",
+  "recipe": "classic Oceanian mid-1880s hula, praise Song, oceania pacific branch, indigenous ritual devotional, oceania pacific funeral lament shipibo-conibo icaros healing songs música mapuche. extended whistle, breath veiled tone, fast rate, interlocked note trading. single gourd no top piece mele hula accompaniment ground strike palm slap canonical hula kahiko rhythm ipu heke, coconut log carved hollow sharkskin head hand struck canonical hawaiian sacred hula kahiko accompaniment pahu mele song drum pahu, bamboo split rattle struck canonical hula kahiko hula kahiko sacred dance canonical hawaiian pulili, snappy to palm hand clap, foot stomp. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 745,
+  "score": 284.24,
+  "config": {
+    "traditions": [
+      "hula_mele",
+      "shipibo_icaros",
+      "musica_mapuche"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.6650000000000005,
+          "voice_quality": 32.239999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.185,
+          "voice_articulation": 24.894999999999996,
+          "voice_microtone": 23.009999999999994,
+          "voice_tradition": 30.127499999999998,
+          "voice_mechanism_compound": 10.915000000000001,
+          "voice_estill_quality": 4.68,
+          "voice_speech_song": 27.429999999999996,
+          "voice_ensemble_config": 24.179999999999996,
+          "voice_ornament_system": 8.025000000000002,
+          "voice_pitch_organization": 4.062500000000001,
+          "voice_processing_chain": 12.870000000000001,
+          "voice_multitrack_stack": 3.7050000000000005
+        }
+      },
+      {
+        "id": "ipu_heke",
+        "slots": {
+          "ipu_heke_construction": "ipu_single_heke_ole",
+          "ipu_heke_technique": "ipu_heke_ground_strike_palm_slap"
+        },
+        "scores": {
+          "ipu_heke_construction": 12.870000000000001,
+          "ipu_heke_technique": 8.559999999999999
+        }
+      },
+      {
+        "id": "pahu",
+        "slots": {
+          "pahu_construction": "pahu_coconut_log_sharkskin_canonical",
+          "pahu_role": "pahu_hula_kahiko_accompaniment"
+        },
+        "scores": {
+          "pahu_construction": 7.279999999999999,
+          "pahu_role": 16.38
+        }
+      },
+      {
+        "id": "pulili",
+        "slots": {
+          "pulili_body": "pulili_bamboo_split_rattle_canonical",
+          "pulili_tradition": "pulili_hula_kahiko_canonical"
+        },
+        "scores": {
+          "pulili_body": 12.219999999999999,
+          "pulili_tradition": 13.389999999999999
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 4.159999999999999,
+          "clap_capture": 0.8
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_gumboot",
+          "stomp_surface": "stomp_wood_stage"
+        },
+        "scores": {
+          "stomp_footwear": 0.195,
+          "stomp_surface": 0.195
+        }
+      }
+    ],
+    "room": "hawaiian_heiau_outdoor_lava_stone_temple",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "hawaiian_heiau_outdoor_lava_stone_temple",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

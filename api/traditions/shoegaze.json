@@ -3,13 +3,14 @@
   "name": "Shoegaze",
   "family": "rock_punk",
   "lineage": "UK underground guitar-pop genre that emerged 1988-1991 — named for the bands characteristic stage posture of staring down at effect-pedal boards rather than engaging the audience; codified through My Bloody Valentine (Loveless 1991, the wall-of-guitars masterpiece tracked over 2 years across 19 studios with Kevin Shields perfectionism), Slowdive (Just for a Day 1991, Souvlaki 1993), Ride (Nowhere 1990), Lush, Chapterhouse, the Pale Saints; built on dense overlapping guitar tracks with reverb / delay / tremolo / flanger / phaser processing and buried-in-mix vocals",
-  "recipe": "classic Northern European 1988-1991 shoegaze, distorted Rock, alternative branch, modal electric drone modal tuareg desert blues. thick, breath veiled tone, straight note core, interlocked note trading. lower tension down tuning clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT electro-harmonix deluxe memory man.",
-  "recipe_chars": 680,
-  "score": 151.381,
+  "recipe": "classic Northern European 1988-1991 shoegaze, distorted Rock, alternative branch, modal electric drone modal tuareg desert blues tuareg guitar. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT electro-harmonix deluxe memory man.",
+  "recipe_chars": 704,
+  "score": 213.57,
   "config": {
     "traditions": [
       "shoegaze",
-      "desert_blues"
+      "desert_blues",
+      "tuareg_guitar"
     ],
     "instruments": [
       {
@@ -24,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 12.215999999999994,
+          "voice_register": 13.465999999999994,
           "voice_quality": 6.76,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.755,
-          "voice_articulation": 8.319999999999999,
-          "voice_microtone": 13.129999999999992,
-          "voice_tradition": 12.609999999999996,
-          "voice_mechanism_compound": 10.536999999999999,
-          "voice_estill_quality": 4.802,
-          "voice_speech_song": 11.959999999999994,
-          "voice_ensemble_config": 10.139999999999999,
-          "voice_ornament_system": 1.7874999999999996,
-          "voice_pitch_organization": 1.525,
-          "voice_processing_chain": 3.185,
-          "voice_multitrack_stack": 2.145
+          "voice_vibrato": 2.6075000000000004,
+          "voice_articulation": 14.299999999999997,
+          "voice_microtone": 21.709999999999994,
+          "voice_tradition": 16.509999999999998,
+          "voice_mechanism_compound": 15.425499999999998,
+          "voice_estill_quality": 7.6049999999999995,
+          "voice_speech_song": 18.784999999999997,
+          "voice_ensemble_config": 16.119999999999997,
+          "voice_ornament_system": 3.445,
+          "voice_pitch_organization": 2.665000000000001,
+          "voice_processing_chain": 7.1175,
+          "voice_multitrack_stack": 4.452500000000001
         }
       },
       {
@@ -63,13 +64,13 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "hardtail",
-          "scale_length": "scale_gibson",
+          "scale_length": "scale_short",
           "finish": "nitro",
-          "string_tuning": "d_standard"
+          "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 4.868,
-          "amp_make": 2.7950000000000004,
+          "electric_technique": 5.518,
+          "amp_make": 3.2500000000000004,
           "body_wood": 0.585,
           "neck_wood": 0.65,
           "fretboard": 0.195,
@@ -77,30 +78,30 @@
           "string_material": 0.105,
           "string_gauge": 0.39,
           "bridge": 0.195,
-          "scale_length": 0.195,
+          "scale_length": 0.39,
           "finish": 0,
-          "string_tuning": 5.005
+          "string_tuning": 7.6049999999999995
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 3.055,
-          "body_wood": 0.441,
+          "amp_make": 3.5100000000000002,
+          "body_wood": 0.195,
           "pickup_config": 0,
-          "string_type": 7.5075,
+          "string_type": 8.645,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.0735,
-          "bass_technique": 5.575
+          "fretted_or_not": 0.15,
+          "bass_technique": 6.45
         }
       },
       {
@@ -111,8 +112,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 9.489999999999998,
-          "drumhead": 4.8365,
+          "drum_technique": 15.469999999999999,
+          "drumhead": 5.3500000000000005,
           "drum_kit_kick_pedal": 0
         }
       }

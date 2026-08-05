@@ -3,14 +3,14 @@
   "name": "Velha Guarda",
   "family": "global",
   "lineage": "Rio de Janeiro's samba old-guard repertory, formalised from the late 1960s when Paulinho da Viola, Cartola, Nelson Cavaquinho and Zé Keti brought the elder composers of Portela and Mangueira into the recording studio — moderate 2/4 samba at 90-105 BPM with telecoteco pandeiro, surdo de marcação on beat two, tamborim and reco-reco, cavaquinho comping against seven-string guitar countermelody, and a plain, unforced chest voice with call-and-response chorus",
-  "recipe": "classic Southern American 1967-1969 velha guarda, groove Percussion, Brazilian branch, pagode Brazilian, Brazilian song functional song, Latin am troubadour ballad poetry milonga. thick, breath veiled tone, slow rate, interlocked note trading. samba foundation mahogany samba canon strummed cavaquinho, Brazilian rosewood pre 1992 choro choro tradition violao 7 cordas, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, snappy samba tradition metal construction reco reco, a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ.",
-  "recipe_chars": 973,
-  "score": 288.362,
+  "recipe": "classic Southern American 1967-1969 velha guarda, groove Percussion, Brazilian branch, pagode Brazilian, Brazilian song functional song, Latin am troubadour ballad poetry roda de samba. thick, breath veiled tone, slow rate, interlocked note trading. samba foundation mahogany samba canon cavaquinho, Brazilian rosewood pre 1992 choro choro tradition violao 7 cordas, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, snappy samba tradition metal construction reco reco, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ.",
+  "recipe_chars": 986,
+  "score": 292.598,
   "config": {
     "traditions": [
       "velha_guarda",
-      "pagode",
-      "milonga"
+      "roda_de_samba",
+      "pagode"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 5.020000000000001,
-          "voice_quality": 30.744999999999983,
+          "voice_register": 1.2949999999999997,
+          "voice_quality": 35.42499999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8600000000000003,
-          "voice_articulation": 21.059999999999988,
-          "voice_microtone": 20.47499999999999,
-          "voice_tradition": 6.7925,
-          "voice_mechanism_compound": 6.694999999999999,
-          "voice_estill_quality": 6.695,
-          "voice_speech_song": 25.089999999999993,
-          "voice_ensemble_config": 22.034999999999993,
-          "voice_ornament_system": 1.5599999999999996,
-          "voice_pitch_organization": 1.3849999999999998,
-          "voice_processing_chain": 4.175000000000001,
-          "voice_multitrack_stack": 7.025
+          "voice_vibrato": 2.1774999999999998,
+          "voice_articulation": 20.409999999999993,
+          "voice_microtone": 19.17499999999999,
+          "voice_tradition": 6.37,
+          "voice_mechanism_compound": 5.654999999999999,
+          "voice_estill_quality": 5.46,
+          "voice_speech_song": 23.399999999999995,
+          "voice_ensemble_config": 21.57999999999999,
+          "voice_ornament_system": 1.3649999999999998,
+          "voice_pitch_organization": 1.355,
+          "voice_processing_chain": 4.734500000000001,
+          "voice_multitrack_stack": 7.874000000000001
         }
       },
       {
@@ -59,14 +59,14 @@
           "cavaquinho_origin": "cavaquinho_brazilian",
           "cavaquinho_context": "cavaquinho_choro",
           "cavaquinho_body_wood": "cavaquinho_mahogany",
-          "cavaquinho_strings": "cavaquinho_gut_historical"
+          "cavaquinho_strings": "cavaquinho_steel"
         },
         "scores": {
-          "plucked_traditional_technique": 5.7524999999999995,
-          "cavaquinho_origin": 8.514999999999997,
-          "cavaquinho_context": 26.845,
-          "cavaquinho_body_wood": 7.149999999999998,
-          "cavaquinho_strings": -0.9800000000000001
+          "plucked_traditional_technique": 0.325,
+          "cavaquinho_origin": 9.554999999999998,
+          "cavaquinho_context": 27.3,
+          "cavaquinho_body_wood": 8.579999999999998,
+          "cavaquinho_strings": -1.05
         }
       },
       {
@@ -79,11 +79,11 @@
           "violao_7_role": "violao_7_bordao_counter"
         },
         "scores": {
-          "violao_7_string7": 1.4299999999999997,
-          "violao_7_strings": 0.975,
-          "violao_7_body_wood": 2.665000000000001,
+          "violao_7_string7": 0.78,
+          "violao_7_strings": 0.195,
+          "violao_7_body_wood": 4.810000000000001,
           "violao_7_top_wood": 0.7349999999999999,
-          "violao_7_role": 3.5100000000000002
+          "violao_7_role": 2.275
         }
       },
       {
@@ -97,12 +97,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 4.875,
-          "pandeiro_size": 7.149999999999998,
-          "pandeiro_context": 2.9899999999999993,
-          "pandeiro_head": 5.2,
-          "pandeiro_shell_wood": 5.2,
-          "pandeiro_jingles": 5.2
+          "percussion_technique": 1.6999999999999997,
+          "pandeiro_size": 8.579999999999998,
+          "pandeiro_context": 3.184999999999999,
+          "pandeiro_head": 7.540000000000001,
+          "pandeiro_shell_wood": 7.540000000000001,
+          "pandeiro_jingles": 7.540000000000001
         }
       },
       {
@@ -114,8 +114,8 @@
         },
         "scores": {
           "surdo_size": 1.1949999999999998,
-          "surdo_skin": 3.77,
-          "surdo_shell": 2.0149999999999997
+          "surdo_skin": 4.42,
+          "surdo_shell": 2.21
         }
       },
       {
@@ -126,9 +126,9 @@
           "tamborim_shell": "tamborim_aluminum_canonical"
         },
         "scores": {
-          "tamborim_skin": 0.195,
-          "tamborim_striker": 7.344999999999998,
-          "tamborim_shell": 3.965
+          "tamborim_skin": 0.65,
+          "tamborim_striker": 9.229999999999999,
+          "tamborim_shell": 4.16
         }
       },
       {
@@ -137,7 +137,7 @@
           "reco_source": "reco_metal_springs"
         },
         "scores": {
-          "reco_source": 8.124999999999998
+          "reco_source": 8.774999999999999
         }
       },
       {
@@ -145,14 +145,14 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
-          "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
-          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 7.41,
+          "choir_size": 8.059999999999999,
           "choir_polyphonic_configuration": 2.8850000000000002,
-          "choir_regional_canonical_configuration": 3.3449999999999998,
-          "choir_ensemble_repertoire": 2.925
+          "choir_regional_canonical_configuration": 4.29,
+          "choir_ensemble_repertoire": 2.145
         }
       }
     ],

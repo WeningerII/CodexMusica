@@ -3,14 +3,14 @@
   "name": "J-Pop Boy Group",
   "family": "pop",
   "lineage": "Japanese male idol-group pop formalized by Johnny & Associates from the 1980s onward and sustained by SMAP, Arashi, Hey! Say! JUMP and Snow Man, built on 120-135 BPM four-on-the-floor or shuffle-pop backing with dense synth-brass and string-machine arrangements, unison-then-solo-rotation vocal distribution across five to nine members, major-key modulating choruses and choreography-driven sectional form.",
-  "recipe": "classic Asian mid-1980s j-pop boy group, functional Song, east Asian pop branch, pop rock synthpop, europop functional song japanese technopop metropopolis. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog poly synth, sampler drum machine, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, Fender blackface amp American 60s amp spring reverb bright mahogany soft down tuning single coil electric guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. multi room segmented 2010-present major-flagship kpop idol complex. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-  "recipe_chars": 792,
-  "score": 468.797,
+  "recipe": "classic Asian mid-1980s j-pop boy group, functional Song, east Asian pop branch, pop rock synthpop, europop functional song wonky pop japanese technopop. thick, breath veiled tone, straight onset, interlocked note trading. plucked short envelope analog poly synth, sampler drum machine, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. multi room segmented 2010-present major-flagship kpop idol complex. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 814,
+  "score": 436.025,
   "config": {
     "traditions": [
       "jpop_boy_group",
-      "japanese_electropop",
-      "metropopolis"
+      "wonky_pop",
+      "japanese_electropop"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -34,36 +34,36 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 36.57000000000002,
-          "voice_quality": 8.32,
+          "voice_register": 35.66000000000002,
+          "voice_quality": 7.0200000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.5349999999999997,
-          "voice_articulation": 19.889999999999997,
-          "voice_microtone": 35.82500000000001,
-          "voice_tradition": 35.489999999999995,
-          "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 3.835000000000001,
-          "voice_speech_song": 26.259999999999998,
-          "voice_ensemble_config": 21.059999999999995,
-          "voice_ornament_system": 3.3250000000000006,
-          "voice_pitch_organization": 4.135000000000001,
-          "voice_processing_chain": 10.81,
-          "voice_multitrack_stack": 10.010000000000002
+          "voice_vibrato": 2.34,
+          "voice_articulation": 18.004999999999995,
+          "voice_microtone": 34.67500000000001,
+          "voice_tradition": 34.715,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 3.640000000000001,
+          "voice_speech_song": 25.21999999999999,
+          "voice_ensemble_config": 19.629999999999995,
+          "voice_ornament_system": 3.3700000000000006,
+          "voice_pitch_organization": 5.525000000000001,
+          "voice_processing_chain": 7.89,
+          "voice_multitrack_stack": 6.175000000000001
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
+          "electronic_technique": "electronic_pluck_short",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 30.184999999999995,
-          "poly_archetypes": 3.7700000000000005,
-          "poly_voices": 1.7599999999999998,
+          "electronic_technique": 28.615,
+          "poly_archetypes": 4.42,
+          "poly_voices": 1.6099999999999999,
           "poly_maker_lineage": -0.6300000000000001
         }
       },
@@ -77,15 +77,15 @@
         },
         "scores": {
           "electronic_technique": 0.39999999999999997,
-          "sample_bitdepth": 1.6899999999999997,
-          "sample_swing": 4.82,
-          "sample_processing": 1.04
+          "sample_bitdepth": 0.7799999999999999,
+          "sample_swing": 2.695,
+          "sample_processing": 1.2349999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
@@ -94,12 +94,12 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 4.550000000000001,
+          "amp_make": 4.290000000000001,
           "body_wood": 1.2349999999999999,
-          "pickup_config": 1.04,
-          "string_type": 9.215000000000002,
-          "scale_length_b": 1.04,
-          "fretted_or_not": 0.65,
+          "pickup_config": 0.63,
+          "string_type": 9.425,
+          "scale_length_b": 1.2349999999999999,
+          "fretted_or_not": 0.195,
           "bass_technique": 7.395000000000001
         }
       },
@@ -107,7 +107,7 @@
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_blackface",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
@@ -117,21 +117,21 @@
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "poly",
-          "string_tuning": "eb_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 29.944999999999997,
-          "amp_make": 5.609999999999999,
+          "electric_technique": 27.919999999999998,
+          "amp_make": 4.810000000000001,
           "body_wood": 1.2349999999999999,
           "neck_wood": 0.845,
           "fretboard": 0.78,
           "pickup_magnet": 0.15,
-          "string_material": 0,
-          "string_gauge": 1.69,
+          "string_material": 0.195,
+          "string_gauge": 1.885,
           "bridge": 0.65,
           "scale_length": 1.2349999999999999,
-          "finish": 0.65,
-          "string_tuning": 3.9650000000000003
+          "finish": 0.15,
+          "string_tuning": 3.7700000000000005
         }
       },
       {
@@ -139,7 +139,7 @@
         "slots": {
           "keyboard_technique": "keyboard_arpeggio_sustain_rich",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -148,15 +148,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 28.839999999999996,
-          "grand_piano_size": 0.65,
-          "grand_piano_brand": 1.4949999999999999,
-          "piano_hammer": 31.95,
-          "piano_rim": 31.829999999999995,
-          "piano_soundboard": 30.829999999999995,
-          "piano_pinblock": 0.375,
-          "piano_plate": 1.6574999999999998,
-          "piano_pitch_standard": 6.7275
+          "keyboard_technique": 27.965,
+          "grand_piano_size": 0.845,
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 30.345,
+          "piano_rim": 29.895,
+          "piano_soundboard": 29.529999999999998,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.9099999999999999,
+          "piano_pitch_standard": 3.835
         }
       }
     ],

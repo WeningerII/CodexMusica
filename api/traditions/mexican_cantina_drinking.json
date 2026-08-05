@@ -5,7 +5,7 @@
   "lineage": "Mexican cantina-drinking song tradition continuous from 19th-century post-Independence Mexican ranchera-and-corrido tradition through 20th-century mariachi-and-banda canonical performance into modern Mexican-and-Mexican-American continuous cantina-practice; foundational repertoire includes \"El Rey,\" \"Volver, volver,\" \"La Llorona\" (canonical cantina-drinking-grief)",
   "recipe": "classic European early-1940s mexican cantina drinking song, drinking Song, americas branch, European drinking song, americas wedding, iberian Latin protest song french chansons à boire irish pub song / drinking song. thick, full chest belt, straight onset, interlocked note trading. concert modern carbon fiber fingerpicked classical nylon-string guitar, cedar caoba paracho nylon treble steel bass guitarron mexicano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison student friendly trumpet, synthetic magic rosin modern acrylic base drone like fiddle, banda sinaloense. irish pub. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 749,
-  "score": 223.916,
+  "score": 224.072,
   "config": {
     "traditions": [
       "mexican_cantina_drinking",
@@ -60,7 +60,7 @@
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "lattice_cl",
           "string_classical": "carbon_cl",
-          "attack_technique_cl": "tirando_cl"
+          "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
           "acoustic_technique": 3.885625,
@@ -68,7 +68,7 @@
           "top_wood_classical": 0.845,
           "bracing_classical": 1.4300000000000002,
           "string_classical": 1.4300000000000002,
-          "attack_technique_cl": 0.045
+          "attack_technique_cl": 0.15
         }
       },
       {
@@ -82,8 +82,8 @@
         },
         "scores": {
           "guitarron_body": 2.73,
-          "guitarron_body_wood": 9.002499999999998,
-          "guitarron_strings": 0.045,
+          "guitarron_body_wood": 8.7625,
+          "guitarron_strings": 0,
           "guitarron_string_material": 7.344999999999998,
           "guitarron_technique": 10.464999999999998
         }
@@ -100,11 +100,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 7.249999999999999,
+          "wind_articulation": 7.444999999999999,
           "brass_size": 0.39,
           "trumpet_mouthpiece": 6.930000000000001,
           "brass_mute": 0,
-          "trumpet_technique": 7.249999999999999,
+          "trumpet_technique": 7.444999999999999,
           "trumpet_bell_metal": 5.524999999999999,
           "trumpet_maker_school": 7.214999999999998
         }
@@ -121,7 +121,7 @@
         "scores": {
           "bowed_technique": 3.25,
           "fiddle_strings": 1.4300000000000002,
-          "fiddle_bow": 6.5,
+          "fiddle_bow": 6.44625,
           "fiddle_mute": 1.8199999999999998,
           "fiddle_articulation": 0.195
         }

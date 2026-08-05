@@ -1,0 +1,139 @@
+{
+  "id": "nyahbinghi",
+  "name": "Nyahbinghi",
+  "family": "global",
+  "lineage": "Rastafarian ritual drumming and chanting codified in Kingston's Wareika Hills camps in the 1950s by Count Ossie and the Mystic Revelation of Rastafari out of Burru and Kumina drum practice, using a three-drum battery — bass drum struck on one and three, mid-range funde holding a steady two-beat pulse, and an improvising akete repeater — under slow modal chanting of psalms and Rasta hymns at roughly 60-80 BPM.",
+  "recipe": "classic Caribbean mid-1950s nyahbinghi, ritual Devotional, Afro-diasporic branch, Jamaican bass system, Caribbean groove percussion bomba gwoka. kargyraa, breath veiled tone, slow rate, interlocked note trading. double bass rapid double strokes bass drum, tanbou dejanbe, djembe, snappy to palm hand clap, foundational bass rhythm calabash shekere. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 544,
+  "score": 144.58,
+  "config": {
+    "traditions": [
+      "nyahbinghi",
+      "bomba",
+      "gwoka"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 1.755,
+          "voice_quality": 11.959999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.275,
+          "voice_articulation": 19.499999999999996,
+          "voice_microtone": 20.604999999999993,
+          "voice_tradition": 12.934999999999997,
+          "voice_mechanism_compound": 5.2,
+          "voice_estill_quality": 1.755,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 20.734999999999992,
+          "voice_ornament_system": 6.15,
+          "voice_pitch_organization": 2.335,
+          "voice_processing_chain": 3.7700000000000005,
+          "voice_multitrack_stack": 3.7049999999999996
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_24_26_big",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.09,
+          "bass_drum_beater": 2.9899999999999998
+        }
+      },
+      {
+        "id": "tanbou_dejanbe",
+        "slots": {
+          "tanbou_dejanbe_rite": "tanbou_dejanbe_rada",
+          "tanbou_dejanbe_head": "tanbou_dejanbe_peg",
+          "tanbou_dejanbe_shell": "tanbou_dejanbe_mahogany"
+        },
+        "scores": {
+          "tanbou_dejanbe_rite": 0.39,
+          "tanbou_dejanbe_head": 0,
+          "tanbou_dejanbe_shell": 0
+        }
+      },
+      {
+        "id": "djembe",
+        "slots": {
+          "djembe_wood": "djembe_mahogany",
+          "djembe_skin": "djembe_goat_skin",
+          "djembe_play": "djembe_traditional_3"
+        },
+        "scores": {
+          "djembe_wood": 0.65,
+          "djembe_skin": 0.545,
+          "djembe_play": 0.045
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.0949999999999998,
+          "clap_capture": 0.54
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_large",
+          "shekere_beads": "shekere_seed"
+        },
+        "scores": {
+          "shekere_size": 4.29,
+          "shekere_beads": 0.09
+        }
+      }
+    ],
+    "room": "kingston_studio_one_brentford_road",
+    "archetype": "arch_kingston_jamaican_commercial",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "kingston_studio_one_brentford_road",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "new_italo_disco",
+  "name": "New Italo Disco",
+  "family": "electronic",
+  "lineage": "A 2007-2015 revivalist scene centred on Dutch, Italian and Scandinavian net-labels such as Bordello a Parigi and Slow Motion, reconstructing early-1980s Italo templates at 115-125 BPM using vintage Juno-106 and TR-808 hardware or emulations, long instrumental intros, deep-reverb claps and deliberately cold, deadpan vocals.",
+  "recipe": "classic mid-2010s new italo disco, experimental Elec, retro aesthetic branch, continental electronic dance, italo house house italo disco. thick, chest mix belt, pure, interlocked note trading. oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, roland tr 8s modern aira digital recreation TR-808, string machine, monosynth acid bass, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 561,
+  "score": 184.18,
+  "config": {
+    "traditions": [
+      "new_italo_disco",
+      "italo_house_piano",
+      "italo_disco"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 2.2424999999999997,
+          "poly_archetypes": 0.45499999999999996,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": 1.4949999999999999
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 0.325,
+          "drum_machine_808_context": 5.595000000000001,
+          "tr808_production_origin": 1.545
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_brass"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sm_voice_count": 7.475,
+          "sm_chorus": 1.3,
+          "sm_voicing": 0.63
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 0.645,
+          "wave_acid": 0.31499999999999995,
+          "filter_acid": 0.39,
+          "accent_acid": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "bel_canto_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 2.6500000000000012,
+          "voice_quality": 12.334999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.45,
+          "voice_articulation": 12.999999999999995,
+          "voice_microtone": 13.649999999999993,
+          "voice_tradition": 6.825,
+          "voice_mechanism_compound": 1.625,
+          "voice_estill_quality": 8.02,
+          "voice_speech_song": 15.274999999999995,
+          "voice_ensemble_config": 14.754999999999995,
+          "voice_ornament_system": 6.775,
+          "voice_pitch_organization": 3.5950000000000006,
+          "voice_processing_chain": 18.705,
+          "voice_multitrack_stack": 8.195
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.7,
+          "sampler_archetypes": 1.25,
+          "sampler_bit_depth": 0.5700000000000001,
+          "sampler_workflow": 4.03,
+          "sampler_classic_context": 28.242499999999993
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

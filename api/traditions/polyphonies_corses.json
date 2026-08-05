@@ -1,0 +1,96 @@
+{
+  "id": "polyphonies_corses",
+  "name": "Polyphonies corses (Corsican ensemble polyphony)",
+  "family": "global",
+  "lineage": "The staged and recorded ensemble form of Corsican polyphony that emerged from the 1970s riacquistu cultural revival through Canta u Populu Corsu and was refined by A Filetta, Tavagna and Barbara Furtuna — three to seven male voices in close-position chords derived from paghjella practice, with bassu, secunda and terza roles expanded, cadences on unstable seconds and near-just thirds, heavy melismatic ricuccata ornamentation, straight non-vibrato tone, and slow free-pulse declamation of sacred Latin-Corsican and secular texts in resonant stone acoustics.",
+  "recipe": "classic European mid-1970s polyphonies corses, drone Modal, vocal branch, European funeral lament, christian gospel ritual devotional, Mediterranean ballad ballad poetry sevdah spirituals. thick, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody paghjella corsican secondu bassu terzu sacred liturgical global choir ensemble. parish church. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 530,
+  "score": 210.478,
+  "config": {
+    "traditions": [
+      "polyphonies_corses",
+      "sevdah",
+      "spirituals"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 10.2,
+          "voice_quality": 15.224999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.528500000000001,
+          "voice_articulation": 23.5165,
+          "voice_microtone": 25.089999999999996,
+          "voice_tradition": 14.072499999999998,
+          "voice_mechanism_compound": 7.8,
+          "voice_estill_quality": 6.620000000000002,
+          "voice_speech_song": 26.585,
+          "voice_ensemble_config": 26.979999999999997,
+          "voice_ornament_system": 5.275,
+          "voice_pitch_organization": 3.8590000000000004,
+          "voice_processing_chain": 4.9435,
+          "voice_multitrack_stack": 5.235
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_paghjella_corsican",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 5.168,
+          "choir_polyphonic_configuration": 5.784999999999999,
+          "choir_regional_canonical_configuration": 11.57,
+          "choir_ensemble_repertoire": 3.25
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_ecm_kongshaug",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "stone_parish_church",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

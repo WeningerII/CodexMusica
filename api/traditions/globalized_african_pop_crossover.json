@@ -5,7 +5,7 @@
   "lineage": "2020s Africa-meets-Western-pop streaming-era hybrid tradition — codified through Wizkid (\"Essence\" featuring Tems 2020), Burna Boy (African Giant 2019, Twice as Tall 2020), Tems, Rema, Tiwa Savage, and the broader Afrobeats-to-international-mainstream wave; characterized by Afrobeats / amapiano rhythmic foundations under English-and-Pidgin vocals, major-label distribution, and feature collaborations with North American and European pop artists",
   "recipe": "classic mid-2020s globalized african-pop crossover, functional Song, African pop branch, central east south African groove percussion ndombolo chimurenga. extended whistle, breath veiled tone, breath pulsed, interlocked note trading. log drum, TR-808, singing lead analog poly synth, pyramid pure nickel bass British mid 60s era electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 537,
-  "score": 166.136,
+  "score": 165.199,
   "config": {
     "traditions": [
       "globalized_african_pop_crossover",
@@ -34,13 +34,13 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 16.326999999999998,
+          "voice_register": 15.938499999999998,
           "voice_quality": 9.035,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3419999999999999,
+          "voice_vibrato": 1.387,
           "voice_articulation": 9.23,
-          "voice_microtone": 16.216499999999993,
+          "voice_microtone": 16.079999999999995,
           "voice_tradition": 29.412499999999994,
           "voice_mechanism_compound": 5.005,
           "voice_estill_quality": 3.315000000000001,
@@ -59,7 +59,7 @@
           "log_drum_context": "log_drum_amapiano"
         },
         "scores": {
-          "log_drum_voice": 2.08,
+          "log_drum_voice": 2.0215,
           "log_drum_context": 13.52
         }
       },
@@ -85,10 +85,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 15.395499999999997,
+          "electronic_technique": 15.122499999999997,
           "poly_archetypes": 0.845,
           "poly_voices": 0.21,
-          "poly_maker_lineage": -1.085
+          "poly_maker_lineage": -1.1420000000000001
         }
       },
       {
@@ -99,7 +99,7 @@
           "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
@@ -108,7 +108,7 @@
           "pickup_config": 0.65,
           "string_type": 2.145,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.06749999999999999,
           "bass_technique": 0.585
         }
       }

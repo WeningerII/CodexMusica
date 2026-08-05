@@ -1,0 +1,178 @@
+{
+  "id": "tuna_universitaria",
+  "name": "Tuna universitaria (Spanish student serenade troupe)",
+  "family": "global",
+  "lineage": "Iberian university student serenading tradition descended from the medieval sopistas of Salamanca and Coimbra and reorganized as faculty tunas from the late nineteenth century — plucked bandurria and laúd melody lines doubled in thirds above strummed guitars, pandereta and hand-clapping, sung in unison male chorus in cloaks and beribboned capes, repertoire of jotas, boleros, pasodobles and serenading coplas at brisk 3/4 or 2/4, performed outdoors in courtyards and beneath windows.",
+  "recipe": "classic Iberian modern tuna universitaria, drinking Song, European branch, iberian functional song, chanson fado fado coimbra catalan folk sevillanas. thick, breath veiled tone, straight onset, interlocked note trading. strummed chordal bandurria, cedar concert modern classical nylon-string guitar, bowl back Italian German spruce classical leaning European maple loar canon mandolin, tambourine orch, hand clap, castagnari Italian premium folk music accordion. coimbra university outdoor quad. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 558,
+  "score": 240.657,
+  "config": {
+    "traditions": [
+      "tuna_universitaria",
+      "catalan_folk",
+      "sevillanas"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "flamenco_jondo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 2.6799999999999997,
+          "voice_quality": 11.309999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 25.285000000000004,
+          "voice_microtone": 24.83,
+          "voice_tradition": 11.724999999999998,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 3.7700000000000005,
+          "voice_speech_song": 31.590000000000003,
+          "voice_ensemble_config": 26.520000000000003,
+          "voice_ornament_system": 10.15,
+          "voice_pitch_organization": 6.569375000000001,
+          "voice_processing_chain": 5.915000000000001,
+          "voice_multitrack_stack": 2.8925000000000005
+        }
+      },
+      {
+        "id": "bandurria",
+        "slots": {
+          "bandurria_form": "bandurria_form_spanish_soprano",
+          "bandurria_playing": "bandurria_play_rasgueado",
+          "bandurria_stringing": "bandurria_string_steel"
+        },
+        "scores": {
+          "bandurria_form": 7.1000000000000005,
+          "bandurria_playing": 4.45,
+          "bandurria_stringing": -0.05
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "rasgueado_cl"
+        },
+        "scores": {
+          "acoustic_technique": 2.3687500000000004,
+          "string_tuning": 0,
+          "top_wood_classical": 10.639374999999998,
+          "bracing_classical": 1.04,
+          "string_classical": 0.65,
+          "attack_technique_cl": 0.75
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "german_spruce_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 2.3687500000000004,
+          "mandolin_shape": 4.615,
+          "mandolin_top": 3.25,
+          "mandolin_back": 3.113125,
+          "mandolin_bracing": 0.9,
+          "mandolin_strings": 0.8400000000000001,
+          "mandolin_fingerboard": 0,
+          "mandolin_pickup": 23.985000000000007
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.585,
+          "tambourine_orch_context": 0.3
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_group_massed",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 0.9500000000000001,
+          "clap_capture": 0.09
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmh",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 1.4949999999999999,
+          "accordion_reed_material": 0.435,
+          "musette_offset": 0.65,
+          "reed_config": 0.845,
+          "bellows": 0.65,
+          "voicing_chamber": 0.09,
+          "accordion_maker_school": 2.0799999999999996
+        }
+      }
+    ],
+    "room": "coimbra_university_outdoor_quad",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "coimbra_university_outdoor_quad",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

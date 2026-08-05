@@ -3,14 +3,14 @@
   "name": "String quartet",
   "family": "classical",
   "lineage": "Western chamber music tradition for two violins, viola, and cello, codified by Haydn in his sixty-eight quartets (1762-1803) — the form's most consequential codifiers include Mozart (the six Haydn quartets), Beethoven (the sixteen quartets including the late opp. 127-135), Schubert (Death and the Maiden), Bartók (six quartets), Shostakovich (fifteen quartets), and continuing through contemporary composers",
-  "recipe": "classic British early-1760s string quartet, art Music, western common practice branch, western early art music, western modern art music minimalist holy minimalism. synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, tungsten wound larsen spirocore viola c canon carpathian spruce eastern European source viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe": "classic British early-1760s string quartet, art Music, western common practice branch, western early art music, western modern art music minimalist furniture music. synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, tungsten wound larsen spirocore viola c canon carpathian spruce eastern European source viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
   "recipe_chars": 508,
-  "score": 268.639,
+  "score": 271.495,
   "config": {
     "traditions": [
       "string_quartet",
       "minimalist",
-      "holy_minimalism"
+      "furniture_music"
     ],
     "instruments": [
       {
@@ -30,12 +30,12 @@
         "scores": {
           "bowed_technique": 7.750000000000001,
           "orch_strings": 1.3649999999999998,
-          "orch_top_wood": 8.754999999999999,
-          "orch_back_wood": 14.714375,
+          "orch_top_wood": 9.754999999999999,
+          "orch_back_wood": 15.045,
           "orch_varnish": 13.5,
-          "orch_setup_period": 12.491875,
+          "orch_setup_period": 12.48,
           "orch_bow": 0.78,
-          "orch_bow_stick": 15.693125,
+          "orch_bow_stick": 15.685,
           "orch_articulation": 1.3649999999999998,
           "orch_rosin": 13.5
         }
@@ -55,13 +55,13 @@
         },
         "scores": {
           "bowed_technique": 7.750000000000001,
-          "viola_size": 1.6,
+          "viola_size": 1.75,
           "viola_strings": 3.12,
-          "viola_top_wood": 8.13,
-          "viola_back_wood": 14.335,
+          "viola_top_wood": 8.120000000000001,
+          "viola_back_wood": 14.325,
           "viola_varnish": 13.5,
-          "viola_setup_period": 12.491875,
-          "viola_bow_stick": 15.693125,
+          "viola_setup_period": 12.48,
+          "viola_bow_stick": 15.685,
           "viola_rosin": 13.795000000000002
         }
       },
@@ -81,13 +81,13 @@
         "scores": {
           "bowed_technique": 7.750000000000001,
           "cello_strings": 2.6649999999999996,
-          "cello_top_wood": 8.13,
-          "cello_back_wood": 14.335,
+          "cello_top_wood": 8.120000000000001,
+          "cello_back_wood": 14.325,
           "cello_varnish": 13.5,
-          "cello_setup_period": 12.491875,
+          "cello_setup_period": 12.48,
           "cello_bow_grip": 3.7700000000000005,
           "cello_rosin": 15.100000000000001,
-          "cello_bow_stick": 15.693125
+          "cello_bow_stick": 15.685
         }
       }
     ],

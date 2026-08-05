@@ -3,14 +3,14 @@
   "name": "Folklore Argentino",
   "family": "global",
   "lineage": "Argentine national folk-song repertoire codified in the 1940s-1960s by Atahualpa Yupanqui, Los Chalchaleros, Ariel Ramírez and Mercedes Sosa and centred on the Cosquín festival, comprising the slow 6/8 zamba with handkerchief-dance phrasing, the driving hemiola chacarera, the vidala and the chamamé, scored for nylon-string guitar rasgueado, bombo legüero played on head and rim, charango and quena, with declamatory rubato-heavy solo or duo singing in criollo Spanish.",
-  "recipe": "classic South American mid-1940s folklore argentino, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, andean carnival processional chilean nueva canción argentine canto nuevo / canto popular. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, driving rim accented bombo leguero, naranjillo andean premium wood cedar andean andean classical charango, melodic quena, melodic straight piano accordion. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 620,
-  "score": 215.316,
+  "recipe": "classic South American mid-1940s folklore argentino, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, andean carnival processional chilean nueva canción nueva canción. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, driving rim accented bombo leguero, naranjillo andean premium wood cedar andean andean classical charango, melodic quena, melodic straight piano accordion. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 596,
+  "score": 233.18,
   "config": {
     "traditions": [
       "folklore_argentino",
       "chilean_nueva_cancion",
-      "argentine_canto_nuevo"
+      "nueva_cancion"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 8.7815,
-          "voice_quality": 12.999999999999993,
+          "voice_register": 7.32,
+          "voice_quality": 14.039999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6649999999999996,
-          "voice_articulation": 12.739999999999997,
-          "voice_microtone": 12.544999999999993,
-          "voice_tradition": 15.516,
-          "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 4.4,
-          "voice_speech_song": 19.694999999999993,
-          "voice_ensemble_config": 12.674999999999995,
-          "voice_ornament_system": 6.37,
-          "voice_pitch_organization": 0.845,
-          "voice_processing_chain": 4.773,
-          "voice_multitrack_stack": 10.745499999999996
+          "voice_articulation": 17.419999999999998,
+          "voice_microtone": 17.224999999999994,
+          "voice_tradition": 14.2675,
+          "voice_mechanism_compound": 5.135,
+          "voice_estill_quality": 7.275000000000001,
+          "voice_speech_song": 23.919999999999998,
+          "voice_ensemble_config": 15.469999999999995,
+          "voice_ornament_system": 9.5225,
+          "voice_pitch_organization": 0.78,
+          "voice_processing_chain": 5.505,
+          "voice_multitrack_stack": 8.58
         }
       },
       {
@@ -63,11 +63,11 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 13.891499999999999,
+          "acoustic_technique": 12.129999999999999,
           "string_tuning": 0,
-          "top_wood_classical": 4.42,
-          "bracing_classical": 1,
-          "string_classical": 2.4265,
+          "top_wood_classical": 5.46,
+          "bracing_classical": 2.085,
+          "string_classical": 2.6649999999999996,
           "attack_technique_cl": 1.2349999999999999
         }
       },
@@ -79,8 +79,8 @@
           "bombo_leguero_head": "bombo_leguero_cabra"
         },
         "scores": {
-          "bombo_leguero_form": 7.199999999999999,
-          "bombo_leguero_style": 5.925,
+          "bombo_leguero_form": 3.895,
+          "bombo_leguero_style": 5.55,
           "bombo_leguero_head": 0.12999999999999998
         }
       },
@@ -94,11 +94,11 @@
           "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 12.092,
-          "charango_back": 2.34,
-          "charango_top_wood": 2.535,
-          "charango_strings": 2.34,
-          "charango_string_material": 2.275
+          "plucked_traditional_technique": 10.049999999999999,
+          "charango_back": 3.835,
+          "charango_top_wood": 3.835,
+          "charango_strings": 3.835,
+          "charango_string_material": 4.42
         }
       },
       {
@@ -109,9 +109,9 @@
           "quena_pitch": "quena_g"
         },
         "scores": {
-          "wind_articulation": 9.458,
-          "quena_material": 0.5265,
-          "quena_pitch": 0.8865000000000001
+          "wind_articulation": 7.769999999999999,
+          "quena_material": 0.39,
+          "quena_pitch": 2
         }
       },
       {
@@ -122,9 +122,9 @@
           "pa_use": "pa_polka"
         },
         "scores": {
-          "free_reed_technique": 9.408,
-          "pa_size": 4.7065,
-          "pa_use": 5.85
+          "free_reed_technique": 7.719999999999999,
+          "pa_size": 3.965,
+          "pa_use": 4.159999999999999
         }
       }
     ],

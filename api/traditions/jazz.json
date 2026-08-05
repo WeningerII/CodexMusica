@@ -5,7 +5,7 @@
   "lineage": "The broad jazz tradition — African-American improvised-ensemble art music codified from early-20th-century New Orleans through swing, bebop, and modal jazz",
   "recipe": "classic North American mid-1970s jazz, improv On Frame, bop branch. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 621,
-  "score": 160.923,
+  "score": 164.661,
   "config": {
     "traditions": [
       "jazz"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "wind_articulation": 2.5,
-          "sax_size": 2.85025,
-          "sax_reed": 0.35025,
-          "sax_body_alloy": 16.034714285714287,
-          "sax_mouthpiece": 0.35025,
+          "sax_size": 2.95525,
+          "sax_reed": 0.39,
+          "sax_body_alloy": 16.0315,
+          "sax_mouthpiece": 0.39,
           "sax_technique": 16.0325,
-          "sax_maker_school": 15.912571428571427
+          "sax_maker_school": 16.94875
         }
       },
       {
@@ -45,11 +45,11 @@
         },
         "scores": {
           "wind_articulation": 2.5,
-          "brass_size": 0.35025,
-          "trumpet_mouthpiece": 17.77732142857143,
-          "brass_mute": 0.4907142857142856,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 18.74975,
+          "brass_mute": 0.4874999999999999,
           "trumpet_technique": 2.5,
-          "trumpet_bell_metal": 0.27417857142857144,
+          "trumpet_bell_metal": 0.25275000000000003,
           "trumpet_maker_school": 3.25
         }
       },
@@ -68,11 +68,11 @@
         },
         "scores": {
           "keyboard_technique": 0.26,
-          "grand_piano_size": 0.1365,
-          "grand_piano_brand": 0.35025,
+          "grand_piano_size": 0.168,
+          "grand_piano_brand": 0.39,
           "piano_hammer": 3.185,
-          "piano_rim": 4.499678571428571,
-          "piano_soundboard": 1.2980357142857142,
+          "piano_rim": 4.875,
+          "piano_soundboard": 1.29125,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
           "piano_pitch_standard": 0.325
@@ -98,7 +98,7 @@
         },
         "scores": {
           "drum_technique": 16,
-          "drumhead": 17.75517857142857,
+          "drumhead": 18.84875,
           "drum_kit_kick_pedal": 0
         }
       }

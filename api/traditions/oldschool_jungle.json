@@ -1,0 +1,154 @@
+{
+  "id": "oldschool_jungle",
+  "name": "Oldschool Jungle",
+  "family": "electronic",
+  "lineage": "Formed in London and Bristol 1992-94 out of hardcore rave's acceleration, codified by Rebel MC, Shy FX, Congo Natty and DJ Hype on white-label 12-inches — 155-170 BPM chopped Amen and Apache breakbeats time-stretched over halftime 80 BPM sub-bass and Jamaican dancehall samples, with ragga toasting and pitched-up diva vocals cut to dubplate for pirate-radio play.",
+  "recipe": "classic Western European early-1990s oldschool jungle, bass System, uk soundsystem branch, dub descendants bass system, techno electronic dance, Afro-diasporic MC rhythm techno bass german techno. vocal fry, breath veiled tone, straight note core, interlocked note trading. chopped sampler, sampler drum machine, turntable, low sub bass analog poly synth, monosynth acid bass. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 516,
+  "score": 190.588,
+  "config": {
+    "traditions": [
+      "oldschool_jungle",
+      "techno_bass",
+      "german_techno"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 0.975,
+          "voice_quality": 3.1850000000000014,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 19.174999999999997,
+          "voice_microtone": 18.589999999999993,
+          "voice_tradition": 2.6650000000000005,
+          "voice_mechanism_compound": 3.6900000000000004,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 18.979999999999997,
+          "voice_ensemble_config": 20.279999999999994,
+          "voice_ornament_system": 2.8600000000000003,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 15.34,
+          "voice_multitrack_stack": 2.9899999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.91,
+          "sampler_archetypes": 1.3324999999999998,
+          "sampler_bit_depth": 0.49499999999999994,
+          "sampler_workflow": 4.725,
+          "sampler_classic_context": 19.955
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 1.91,
+          "sample_bitdepth": 0.65,
+          "sample_swing": 13.41,
+          "sample_processing": 3.4
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 1.91,
+          "turntable_technique": 0.6824999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 8.6775,
+          "poly_archetypes": 0.915,
+          "poly_voices": 0.915,
+          "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 12.295,
+          "wave_acid": 0,
+          "filter_acid": 2.34,
+          "accent_acid": 1.865
+        }
+      }
+    ],
+    "room": "brent_black_community_studio_london",
+    "archetype": "arch_uk_jungle_dubplate",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_console_inline_strip",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "brent_black_community_studio_london",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

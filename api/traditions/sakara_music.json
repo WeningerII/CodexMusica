@@ -1,0 +1,132 @@
+{
+  "id": "sakara_music",
+  "name": "Sákárà (Lagos sakara-drum praise song)",
+  "family": "global",
+  "lineage": "Yoruba Muslim urban style of Lagos and Ijebu that crystallized in the 1920s–30s among Ilorin and Ijebu Muslim communities and was codified on 78s by Abibu Oluwa and Yusuf Olatunji, pairing a set of tuned clay-framed sákárà drums played with thin sticks against the gòjé one-string spike fiddle, at a slow-to-moderate walking pulse under a low, gravelly proverb-laden praise vocal with brief chorus refrains.",
+  "recipe": "classic West African mid-1920s sákárà, praise Song, sub saharan African branch, islamic ritual devotional, west African griot ballad poetry musique soninke ngoni music. vocal fry, declaimed, slow rate, interlocked note trading. deep toned lead voice pitch bending talking bent pitch sakara drum, buzzy lizard skin calabash resonator goje, deep box apala foundation thumb plucked found metal agidigbo, close dry to palm hand clap. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 583,
+  "score": 253.173,
+  "config": {
+    "traditions": [
+      "sakara_music",
+      "soninke_music",
+      "ngoni_jeli"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 3.0650000000000004,
+          "voice_quality": 24.72,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.85,
+          "voice_articulation": 18.459999999999994,
+          "voice_microtone": 18.069999999999993,
+          "voice_tradition": 36.205000000000005,
+          "voice_mechanism_compound": 7.305,
+          "voice_estill_quality": 6.96,
+          "voice_speech_song": 24.959999999999994,
+          "voice_ensemble_config": 20.01999999999999,
+          "voice_ornament_system": 7.715000000000002,
+          "voice_pitch_organization": 5.3900000000000015,
+          "voice_processing_chain": 4.517500000000001,
+          "voice_multitrack_stack": 2.715
+        }
+      },
+      {
+        "id": "sakara_drum",
+        "slots": {
+          "sakara_form": "sakara_form_lead",
+          "sakara_stroke": "sakara_stroke_talking",
+          "sakara_frame": "sakara_frame_clay"
+        },
+        "scores": {
+          "sakara_form": 9.735000000000001,
+          "sakara_stroke": 7.055000000000001,
+          "sakara_frame": 6.000000000000001
+        }
+      },
+      {
+        "id": "goje",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "goje_form": "goje_dagbamba",
+          "goje_repertoire": "goje_praise",
+          "goje_material": "goje_lizard_membrane"
+        },
+        "scores": {
+          "bowed_technique": 0.09999999999999999,
+          "goje_form": 7.48,
+          "goje_repertoire": 16.185,
+          "goje_material": 1.9000000000000001
+        }
+      },
+      {
+        "id": "agidigbo",
+        "slots": {
+          "agidigbo_tradition": "agidigbo_apala",
+          "agidigbo_playing": "agidigbo_thumb_ostinato",
+          "agidigbo_lamella": "agidigbo_recycled_metal"
+        },
+        "scores": {
+          "agidigbo_tradition": 5.75,
+          "agidigbo_playing": 6.9,
+          "agidigbo_lamella": 5.4
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 3.9,
+          "clap_capture": 1.04
+        }
+      }
+    ],
+    "room": "lagos_decca_west_african_studio",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "room": "lagos_decca_west_african_studio",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

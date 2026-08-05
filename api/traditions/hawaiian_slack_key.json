@@ -3,14 +3,14 @@
   "name": "Hawaiian slack-key (kī hōʻalu)",
   "family": "global",
   "lineage": "Hawaiian fingerstyle guitar tradition that emerged after 1832 when Spanish-Mexican vaquero cowboys brought to Hawaii by King Kamehameha III to manage the new ranching industry left their guitars behind as gifts to Hawaiian musicians — who slackened the strings (kī hōʻalu literally means loosen the key) into open tunings and developed the fingerstyle vocabulary; 20th-century figures Gabby Pahinui (1921-1980, the voice, his Sons of Hawaii ensemble preserving the tradition), Sonny Chillingworth, Atta Isaacs, Raymond Kane, Leonard Kwan, Keola Beamer, the modern Cyril Pahinui and Ledward Kaapana lineage",
-  "recipe": "classic North American early-1920s hawaiian slack-key, drone Modal, string branch, vocal drone modal sámi yoik bulgarian women's choir. vocal fry, breath veiled tone, straight note core, interlocked note trading. rosewood parlor classic steel silk fingerpicked parlor acoustic steel silk drone like modal dreadnought acoustic guitar. honolulu hawaiian slack key lanai. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 515,
-  "score": 157.36,
+  "recipe": "classic North American early-1920s hawaiian slack-key, drone Modal, string branch, vocal drone modal alpine yodeling sámi yoik. vocal fry, breath veiled tone, straight note core, interlocked note trading. rosewood parlor classic steel silk parlor acoustic steel silk drone like modal dreadnought acoustic guitar. honolulu hawaiian slack key lanai. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 494,
+  "score": 173.997,
   "config": {
     "traditions": [
       "hawaiian_slack_key",
-      "sami_yoik",
-      "bulgarian_womens_choir"
+      "alpine_yodeling",
+      "sami_yoik"
     ],
     "instruments": [
       {
@@ -23,49 +23,49 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.135,
-          "voice_quality": 13.194999999999999,
+          "voice_register": 5.2,
+          "voice_quality": 15.794999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.93,
-          "voice_articulation": 10.139999999999999,
-          "voice_microtone": 15.59999999999999,
-          "voice_tradition": 22.717499999999998,
-          "voice_mechanism_compound": 7.475,
-          "voice_estill_quality": 5.655000000000001,
-          "voice_speech_song": 12.414999999999994,
-          "voice_ensemble_config": 13.064999999999994,
+          "voice_vibrato": 2.005,
+          "voice_articulation": 13.194999999999997,
+          "voice_microtone": 19.304999999999993,
+          "voice_tradition": 21.219999999999995,
+          "voice_mechanism_compound": 7.735000000000001,
+          "voice_estill_quality": 6.110000000000001,
+          "voice_speech_song": 15.924999999999995,
+          "voice_ensemble_config": 15.664999999999996,
           "voice_ornament_system": 2.0149999999999997,
-          "voice_pitch_organization": 6.142500000000001,
-          "voice_processing_chain": 5.720000000000001,
-          "voice_multitrack_stack": 6.207500000000001
+          "voice_pitch_organization": 9.165000000000001,
+          "voice_processing_chain": 5.07,
+          "voice_multitrack_stack": 5.785
         }
       },
       {
         "id": "acoustic_guitar_parlor",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "open_g",
           "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "rosewood_bs_p",
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 4.24,
-          "string_tuning": 2.7700000000000005,
+          "acoustic_technique": 2.575,
+          "string_tuning": 2.4700000000000006,
           "top_wood_parlor": 0.54,
-          "back_sides_parlor": 2.0149999999999997,
+          "back_sides_parlor": 2.4699999999999998,
           "string_acoustic_parlor": 1.495
         }
       },
@@ -79,8 +79,8 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 10.529999999999998,
-          "string_tuning": 2.7700000000000005,
+          "acoustic_technique": 11.05,
+          "string_tuning": 2.4700000000000006,
           "top_wood": 0.345,
           "back_sides": 0.51,
           "string_acoustic": 1.495

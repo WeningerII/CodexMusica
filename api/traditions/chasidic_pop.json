@@ -1,0 +1,230 @@
+{
+  "id": "chasidic_pop",
+  "name": "Chasidic pop (Orthodox Jewish popular music)",
+  "family": "pop",
+  "lineage": "Orthodox Jewish popular idiom created in late-1960s New York by Shlomo Carlebach and the Rabbis' Sons and industrialized from the 1980s through Mordechai Ben David, Avraham Fried and the arranger Yisroel Lamm — Hebrew liturgical and biblical verse texts set to major-key or Ahava Raba pop melodies at moderate 4/4, with synth-and-brass big-band arrangements, boys'-choir doubling of the hook, and a fast 'freilach' double-time section built for wedding dancing.",
+  "recipe": "classic North American 1967-1969 chasidic pop, functional Song, europop branch, Jewish ritual devotional, klezmer improv improv on frame klezmer-jazz fusion. thick, breath veiled tone, straight onset, interlocked note trading. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, alder thomastik infeld low tension jazz warm walking electric bass, pre muffled edge muffled brushes-and-sticks drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral shallow cup lead trumpet ensemble trumpet, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ebonite hard rubber klezmer tradition clarinet.",
+  "recipe_chars": 968,
+  "score": 349.37,
+  "config": {
+    "traditions": [
+      "chasidic_pop",
+      "klezmer",
+      "klezmer_jazz_fusion"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 17.034999999999993,
+          "voice_quality": 15.794999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.09,
+          "voice_articulation": 15.794999999999995,
+          "voice_microtone": 18.589999999999993,
+          "voice_tradition": 9.894999999999998,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 18.134999999999998,
+          "voice_ensemble_config": 17.614999999999995,
+          "voice_ornament_system": 2.5249999999999995,
+          "voice_pitch_organization": 3.8250000000000006,
+          "voice_processing_chain": 10.524999999999999,
+          "voice_multitrack_stack": 8.974999999999998
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 4.55,
+          "choir_polyphonic_configuration": 2.4949999999999997,
+          "choir_regional_canonical_configuration": 2.4050000000000002,
+          "choir_ensemble_repertoire": 1.3
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 9.534999999999998,
+          "poly_archetypes": 0.15,
+          "poly_voices": 0.15,
+          "poly_maker_lineage": 1.295
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 2.255,
+          "body_wood": 1.3,
+          "pickup_config": 1.3,
+          "string_type": 7.944999999999999,
+          "scale_length_b": 0.435,
+          "fretted_or_not": 0.195,
+          "bass_technique": 7.749999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 24.569999999999997,
+          "drumhead": 9.565,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.6000000000000005,
+          "brass_size": 0.8,
+          "trumpet_mouthpiece": 8.379999999999999,
+          "brass_mute": 0.195,
+          "trumpet_technique": 2.6000000000000005,
+          "trumpet_bell_metal": 1.9500000000000002,
+          "trumpet_maker_school": 1.495
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 2.6000000000000005,
+          "sax_size": 0.75,
+          "sax_reed": 0.8,
+          "sax_body_alloy": 7.749999999999999,
+          "sax_mouthpiece": 0.8,
+          "sax_technique": 7.794999999999999,
+          "sax_maker_school": 6.349999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 8.95,
+          "grand_piano_size": 0.845,
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 8.995,
+          "piano_rim": 11.594999999999997,
+          "piano_soundboard": 8.95,
+          "piano_pinblock": -0.035,
+          "piano_plate": 0.26,
+          "piano_pitch_standard": 3.640000000000001
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "glissando_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.9700000000000001,
+          "clarinet_body": 15.809999999999997,
+          "clarinet_size": 0.845,
+          "clarinet_reed": 0.8,
+          "clarinet_articulation": 12.374999999999998
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_british_inline_80s",
+      "comp": "comp_1176_fet",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "sephardi_chassidic_jewish_modal_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "sephardi_chassidic_jewish_modal_modes",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

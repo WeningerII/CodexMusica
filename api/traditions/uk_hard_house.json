@@ -1,0 +1,142 @@
+{
+  "id": "uk_hard_house",
+  "name": "UK Hard House",
+  "family": "electronic",
+  "lineage": "London-centred style of roughly 1995-2005 built at Trade and Sundissential and on the Tidy Trax, Nukleuz and Vicious Circle labels by Tony De Vit, the Tidy Boys, BK and Lisa Lashes, running 145-155 BPM with a distorted overdriven kick, hard offbeat bass stab, gated hoover and reverse-siren risers, long breakdown build-ups on white-noise sweeps, chopped diva or shouted MC vocal snippets, and a driving offbeat rhythm derived from hardbag and Belgian new beat.",
+  "recipe": "classic mid-2000s uk hard house, electronic Dance, hardstyle branch, trance electronic dance, house electronic dance freestyle house ghettotech. vocal fry, breath veiled tone, slow rate, interlocked note trading. TR-909, low sub bass digital subtractive, low sub bass analog mono synth, chopped sampler. concrete basement. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 457,
+  "score": 268.41,
+  "config": {
+    "traditions": [
+      "uk_hard_house",
+      "freestyle_house",
+      "ghettotech"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 20.195,
+          "drum_machine_909_context": 3.6699999999999995,
+          "tr909_production_origin": 0.65
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 4.4350000000000005,
+          "va_archetypes": 1.3,
+          "digital_subtractive_context": 23.270000000000003
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 4.4350000000000005,
+          "mono_oscillator": 0,
+          "mono_filter": 0.9749999999999999,
+          "mono_archetypes": 2.17,
+          "mono_maker_lineage": -1.33
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.8499999999999999,
+          "sampler_archetypes": 0.995,
+          "sampler_bit_depth": 0.6499999999999998,
+          "sampler_workflow": 1.3499999999999999,
+          "sampler_classic_context": 48.10999999999999
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 2.5349999999999997,
+          "voice_quality": 5.785,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.5599999999999996,
+          "voice_articulation": 23.205000000000002,
+          "voice_microtone": 22.424999999999997,
+          "voice_tradition": 6.825000000000001,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 4.290000000000001,
+          "voice_speech_song": 23.009999999999998,
+          "voice_ensemble_config": 24.375,
+          "voice_ornament_system": 1.4699999999999998,
+          "voice_pitch_organization": 1.0449999999999997,
+          "voice_processing_chain": 21.075000000000003,
+          "voice_multitrack_stack": 4.299999999999999
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

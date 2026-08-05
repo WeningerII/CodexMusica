@@ -1,0 +1,193 @@
+{
+  "id": "chamber_folk",
+  "name": "Chamber Folk",
+  "family": "pop_rock",
+  "lineage": "Anglo-American acoustic songwriting recorded with classical chamber forces, traceable to Robert Kirby's string arrangements for Nick Drake (1969-70) and revived from the late 1990s by Sufjan Stevens, Andrew Bird and Ólöf Arnalds — slow-to-moderate tempo, aeolian and phrygian modal harmony, fingerpicked or nylon guitar doubled by cello, violin, clarinet and harmonium, brushed or absent drums, and close, breathy, low-vibrato vocal delivery.",
+  "recipe": "classic North American 1997-1999 chamber folk, ballad Poetry, indie folk branch, anglo singer song britfolk, western common practice art music, anglo singer song confessional60s salon music viennese classical era. thick, breath veiled tone, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, norway spruce European alpine European maple sycamore maple oil varnish cello, plain gut sheep gut unsplit norway spruce European alpine violin orchestral, low mid rich spectrum traditional gut gut string celtic harp, legato pump organ harmonium, grenadilla African blackwood traditional continuous-airflow legato clarinet. hexham head studio pa chamber folk. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 833,
+  "score": 344.98,
+  "config": {
+    "traditions": [
+      "chamber_folk",
+      "salon_music",
+      "classical_era"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 12.225,
+          "voice_quality": 4.160000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 10.765,
+          "voice_articulation": 18.72,
+          "voice_microtone": 18.979999999999997,
+          "voice_tradition": 13.945,
+          "voice_mechanism_compound": 6.025,
+          "voice_estill_quality": 14.684999999999999,
+          "voice_speech_song": 23.919999999999998,
+          "voice_ensemble_config": 19.304999999999996,
+          "voice_ornament_system": 6.525,
+          "voice_pitch_organization": 6.220000000000001,
+          "voice_processing_chain": 3.8349999999999995,
+          "voice_multitrack_stack": 4.875
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "dadgad",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 1.9899999999999995,
+          "top_wood": 1.875,
+          "back_sides": 1.95,
+          "string_acoustic": 3.055,
+          "acoustic_om_technique": 14.064999999999998
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "plain_sheep_gut_cello",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 7.75,
+          "cello_strings": 0.75,
+          "cello_top_wood": 7.62,
+          "cello_back_wood": 6.7250000000000005,
+          "cello_varnish": 6.075,
+          "cello_setup_period": 6.675,
+          "cello_bow_grip": 3.38,
+          "cello_rosin": 7.965000000000001,
+          "cello_bow_stick": 7.8325000000000005
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "plain_sheep_gut_violin",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 7.75,
+          "orch_strings": 1.795,
+          "orch_top_wood": 7.62,
+          "orch_back_wood": 6.7250000000000005,
+          "orch_varnish": 6.075,
+          "orch_setup_period": 6.675,
+          "orch_bow": 0.585,
+          "orch_bow_stick": 7.8325000000000005,
+          "orch_articulation": 0.45499999999999996,
+          "orch_rosin": 6.630000000000001
+        }
+      },
+      {
+        "id": "celtic_harp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "celtic_harp_levers": "lever_camac",
+          "celtic_harp_strings": "celtic_gut"
+        },
+        "scores": {
+          "acoustic_technique": 0.52,
+          "celtic_harp_levers": 4.029999999999999,
+          "celtic_harp_strings": 7.085
+        }
+      },
+      {
+        "id": "pump_organ_harmonium",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pump_organ_construction": "pump_organ_late_19th_revival",
+          "pump_organ_stops": "pump_organ_diapason_stop"
+        },
+        "scores": {
+          "keyboard_technique": 6.125,
+          "pump_organ_construction": 18.07,
+          "pump_organ_stops": 0.845
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "glissando_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 6.315000000000001,
+          "clarinet_body": 6.250000000000001,
+          "clarinet_size": 4.029999999999999,
+          "clarinet_reed": 0.65,
+          "clarinet_articulation": 0.25
+        }
+      }
+    ],
+    "room": "hexham_head_studio_pa_chamber_folk",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "folk_noir_aeolian_phrygian_chamber",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "folk_noir_aeolian_phrygian_chamber",
+    "room": "hexham_head_studio_pa_chamber_folk",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_modern",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -3,29 +3,29 @@
   "name": "American hand-game clapping rhymes (Miss Mary Mack lineage)",
   "family": "global",
   "lineage": "African-American-and-American-English hand-game clapping-rhyme tradition continuous from African-diasporic and African-American children's play-song origins through 20th-century continuous performance across American childhood-and-playground-practice; the canonical \"Miss Mary Mack\" and broader hand-game repertoire is documented as one of the most-durable American children's-play-traditions",
-  "recipe": "classic early-1940s american hand-game clapping rhymes, nursery Rhyme, americas branch, sub saharan African nursery rhyme, Brazilian groove percussion, sub saharan African protest song yoruba ọmọ-iya nursery and play-song pagode. thick, breath veiled tone, slow rate, interlocked note trading. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 385,
-  "score": 156.437,
+  "recipe": "classic early-1940s american hand-game clapping rhymes, nursery Rhyme, americas branch, sub saharan African nursery rhyme, Brazilian groove percussion, sub saharan African protest song yoruba ọmọ-iya nursery and play-song south african freedom song. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 413,
+  "score": 154.595,
   "config": {
     "traditions": [
       "american_handgame_clapping",
       "yoruba_omo_iya",
-      "pagode"
+      "south_african_freedom_song"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 1.5949999999999993,
-          "voice_quality": 17.939999999999994,
+          "voice_register": 2.7249999999999996,
+          "voice_quality": 8.255,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.6824999999999999,
-          "voice_articulation": 16.965,
-          "voice_microtone": 16.574999999999992,
-          "voice_tradition": 35.4,
-          "voice_mechanism_compound": 2.015,
-          "voice_estill_quality": 1.8199999999999998,
-          "voice_speech_song": 22.132499999999997,
-          "voice_ensemble_config": 16.9,
-          "voice_ornament_system": 13.469999999999997,
-          "voice_pitch_organization": 9.629999999999997,
-          "voice_processing_chain": 3.0500000000000003,
-          "voice_multitrack_stack": 4.7125
+          "voice_vibrato": 0.5549999999999999,
+          "voice_articulation": 15.209999999999997,
+          "voice_microtone": 15.404999999999992,
+          "voice_tradition": 44.025,
+          "voice_mechanism_compound": 0.95,
+          "voice_estill_quality": 0.8549999999999998,
+          "voice_speech_song": 22.229999999999997,
+          "voice_ensemble_config": 15.339999999999996,
+          "voice_ornament_system": 15.869999999999997,
+          "voice_pitch_organization": 9.329999999999997,
+          "voice_processing_chain": 2.9750000000000005,
+          "voice_multitrack_stack": 6.095000000000001
         }
       }
     ],

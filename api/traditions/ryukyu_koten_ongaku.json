@@ -1,0 +1,163 @@
+{
+  "id": "ryukyu_koten_ongaku",
+  "name": "Ryukyu koten ongaku (Okinawan classical court music)",
+  "family": "classical",
+  "lineage": "Court repertoire of the Ryukyu Kingdom at Shuri, systematized in the eighteenth century when Yakabi Choki (1716-1775) devised the kunkunshi tablature and the music was formalized for reception of Chinese sappushi envoys and for kumiodori dance-drama created by Tamagusuku Chokun in 1719 — very slow, sung in courtly Okinawan to the ryukyu scale on sanshin with kutu koto, kucho spike fiddle, fue flute and sparse taiko punctuation, in ryuka thirty-syllable verse form.",
+  "recipe": "classic East Asian early-1710s ryukyu koten ongaku, art Music, east Asian branch, east Asian funeral lament, string drone modal hawaiian slack-key kazakh traditional music. sygyt, breath veiled tone, slow rate, interlocked note trading. sanshin, koto, synthetic extended range song accompaniment legato kokyu, ritual synthetic resin shinobue, modern ensemble taiko drum. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 524,
+  "score": 218.205,
+  "config": {
+    "traditions": [
+      "ryukyu_koten_ongaku",
+      "hawaiian_slack_key",
+      "kazakh_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "sanshin",
+        "slots": {
+          "sanshin_kata": "sanshin_makabi",
+          "sanshin_repertoire": "sanshin_koten",
+          "sanshin_skin": "sanshin_kyoka_bari",
+          "sanshin_plectrum": "sanshin_plastic_tsume"
+        },
+        "scores": {
+          "sanshin_kata": 0.645,
+          "sanshin_repertoire": 3.395,
+          "sanshin_skin": 0,
+          "sanshin_plectrum": 0.65
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.0199999999999996,
+          "voice_quality": 18.199999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.8,
+          "voice_articulation": 14.494999999999996,
+          "voice_microtone": 18.817499999999992,
+          "voice_tradition": 18.52,
+          "voice_mechanism_compound": 7.475,
+          "voice_estill_quality": 10.799999999999999,
+          "voice_speech_song": 18.004999999999995,
+          "voice_ensemble_config": 15.339999999999995,
+          "voice_ornament_system": 6.3950000000000005,
+          "voice_pitch_organization": 7.8325,
+          "voice_processing_chain": 5.46,
+          "voice_multitrack_stack": 4.095000000000001
+        }
+      },
+      {
+        "id": "koto",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "koto_strings": "koto_13",
+          "koto_picks": "koto_yamada",
+          "koto_body_wood": "koto_modern_paulownia",
+          "koto_strings_material": "koto_nylon_tetron",
+          "koto_bridge_material": "koto_plastic_bridges_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.37,
+          "koto_strings": 2.395,
+          "koto_picks": 3.705,
+          "koto_body_wood": 0.845,
+          "koto_strings_material": 0.845,
+          "koto_bridge_material": 0.65
+        }
+      },
+      {
+        "id": "kokyu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kokyu_form": "kokyu_mainland_square",
+          "kokyu_skin": "kokyu_synthetic",
+          "kokyu_tuning": "kokyu_matayoshi_four",
+          "kokyu_context": "kokyu_ryukyuan_classical"
+        },
+        "scores": {
+          "bowed_technique": 6.325,
+          "kokyu_form": 0.8499999999999999,
+          "kokyu_skin": 1.25,
+          "kokyu_tuning": 5.364999999999999,
+          "kokyu_context": 8.59
+        }
+      },
+      {
+        "id": "shinobue",
+        "slots": {
+          "shinobue_family": "shinobue_family_utabue",
+          "shinobue_choshi": "shinobue_choshi_roku_pon",
+          "shinobue_context": "shinobue_context_shishimai",
+          "shinobue_bore": "shinobue_bore_resin"
+        },
+        "scores": {
+          "shinobue_family": 2.795,
+          "shinobue_choshi": 1.17,
+          "shinobue_context": 3.575,
+          "shinobue_bore": 1.625
+        }
+      },
+      {
+        "id": "taiko_drum",
+        "slots": {
+          "taiko_size": "taiko_chu_daiko",
+          "taiko_skin": "taiko_horsehide",
+          "taiko_shell_wood": "taiko_stave_built",
+          "taiko_lineage": "taiko_kodo_sado",
+          "taiko_technique": "taiko_kumi_daiko"
+        },
+        "scores": {
+          "taiko_size": 0.5,
+          "taiko_skin": 0.7649999999999999,
+          "taiko_shell_wood": 0.65,
+          "taiko_lineage": 0.65,
+          "taiko_technique": 1.69
+        }
+      }
+    ],
+    "room": "tatami_parlor_japanese",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "japanese_in_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_in_scale",
+    "room": "tatami_parlor_japanese",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "id": "bouncy_house",
+  "name": "Bouncy House",
+  "family": "electronic",
+  "lineage": "Northern English club style of the late 1990s and 2000s, developed in Wigan, Bolton and Blackpool by producers such as the Blackout Crew and DJ Rob Tissera out of scouse house and hard house, running 138-150 BPM over a four-on-the-floor kick with an off-beat detuned 'donk' cowbell-like stab, filtered rave hoover leads, Italo-style piano riffs and shouted rap or diva vocal samples.",
+  "recipe": "classic 1997-1999 bouncy house, electronic Dance, hardstyle branch, italo house house, eurodance electronic dance, continental electronic dance bouncy techno. vocal fry, chest mix belt, straight onset, interlocked note trading. TR-909, analog mono synth, digital subtractive, melodic pitched sampler, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 553,
+  "score": 238.933,
+  "config": {
+    "traditions": [
+      "bouncy_house",
+      "italo_house_piano",
+      "bouncy_techno"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 21.669999999999998,
+          "drum_machine_909_context": 3.185,
+          "tr909_production_origin": 0.09
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 1.9500000000000002,
+          "mono_oscillator": 0,
+          "mono_filter": -0.35,
+          "mono_archetypes": 0.195,
+          "mono_maker_lineage": -1.5250000000000001
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 1.1049999999999998,
+          "va_archetypes": 0.823125,
+          "digital_subtractive_context": 15.339999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.52,
+          "sampler_archetypes": 1.55,
+          "sampler_bit_depth": 0.9099999999999999,
+          "sampler_workflow": 1.95,
+          "sampler_classic_context": 46.731874999999995
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 3.38,
+          "voice_quality": 13.559374999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4050000000000002,
+          "voice_articulation": 15.144999999999996,
+          "voice_microtone": 15.794999999999993,
+          "voice_tradition": 8.190000000000001,
+          "voice_mechanism_compound": 3.705,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 15.729999999999995,
+          "voice_ensemble_config": 18.394999999999992,
+          "voice_ornament_system": 2.6500000000000004,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 22.08875,
+          "voice_multitrack_stack": 6.11
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_minimalist_repeated",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 0.12999999999999998,
+          "grand_piano_size": 0.195,
+          "grand_piano_brand": 1.4300000000000002,
+          "piano_hammer": 2.124375,
+          "piano_rim": 2.9250000000000007,
+          "piano_soundboard": 0.585,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.105,
+          "piano_pitch_standard": 3.640000000000001
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

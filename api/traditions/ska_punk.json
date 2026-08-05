@@ -1,0 +1,229 @@
+{
+  "id": "ska_punk",
+  "name": "Ska Punk",
+  "family": "rock_punk",
+  "lineage": "American third-wave ska-punk of 1987-98, formed in Orange County and Boston by Operation Ivy, the Mighty Mighty Bosstones and Less Than Jake — alternating upstroke offbeat ska verses at 150-190 BPM with distorted straight-eighth punk choruses, a two-to-four-piece horn section riffing behind, walking or pumping electric bass, and shouted-melodic vocals cut in mid-budget US indie studios.",
+  "recipe": "classic North American late-1980s ska punk, distorted Rock, punk branch, pop punk distorted rock, Jamaican bass system oshare kei skate punk. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, bach 42 canonical American orchestral tenor student commercial trombone, saxophone, psychedelic foregrounded organ driven rock block chord combo organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 873,
+  "score": 473.195,
+  "config": {
+    "traditions": [
+      "ska_punk",
+      "oshare_kei",
+      "skate_punk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 24.414999999999992,
+          "voice_quality": 8.645,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.4450000000000003,
+          "voice_articulation": 18.199999999999992,
+          "voice_microtone": 24.119999999999997,
+          "voice_tradition": 11.504999999999997,
+          "voice_mechanism_compound": 12.68,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 17.09499999999999,
+          "voice_ensemble_config": 33.285,
+          "voice_ornament_system": 1.56,
+          "voice_pitch_organization": 3.770000000000001,
+          "voice_processing_chain": 3.5100000000000002,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 26.845,
+          "amp_make": 36.175000000000004,
+          "body_wood": 2.73,
+          "neck_wood": 2.275,
+          "fretboard": 2.21,
+          "pickup_magnet": 0.845,
+          "pickup_winding": 0.195,
+          "string_material": 0.15,
+          "bridge": 2.275,
+          "scale_length": 2.275,
+          "string_gauge": 2.275,
+          "finish": 0.195,
+          "string_tuning": 9.49
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 11.635000000000002,
+          "body_wood": 2.47,
+          "pickup_config": 0.39,
+          "string_type": 17.880000000000003,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0.135,
+          "bass_technique": 40.845
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_punk",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 24.625,
+          "drumhead": 8.834999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_ska_skank",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 8.95,
+          "brass_size": 0.15,
+          "trumpet_mouthpiece": 5.3950000000000005,
+          "brass_mute": 0.845,
+          "trumpet_technique": 8.95,
+          "trumpet_bell_metal": 0.195,
+          "trumpet_maker_school": 2.34
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "trombone_type": "valve_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 8.95,
+          "trombone_type": 0.65,
+          "trombone_mouthpiece": 8.895,
+          "trombone_mute": 0.3,
+          "trombone_technique": 1.4949999999999999,
+          "trombone_bell_metal": 0.32999999999999996,
+          "trombone_maker_school": 1.69
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_split_tone_overblown",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 8.95,
+          "sax_size": 2.275,
+          "sax_reed": 0.15,
+          "sax_body_alloy": 0.9099999999999999,
+          "sax_mouthpiece": 0.5399999999999999,
+          "sax_technique": 0.325,
+          "sax_maker_school": 0.845
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_selmer"
+        },
+        "scores": {
+          "keyboard_technique": 8.879999999999997,
+          "combo_organ_model": 10.769999999999998,
+          "combo_organ_voicing": 10.934999999999999,
+          "combo_organ_context": 8.645,
+          "amp_make": 0.19500000000000003
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "digital_std",
+    "chain_console": "console_american_op_amp"
+  }
+}

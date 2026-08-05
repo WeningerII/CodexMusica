@@ -1,0 +1,180 @@
+{
+  "id": "jazzcore",
+  "name": "Jazzcore",
+  "family": "rock_punk",
+  "lineage": "Mid-1980s downtown New York and Chicago collision of hardcore punk speed with free-jazz improvisation, codified by John Zorn's Naked City, Last Exit and later The Flying Luttenbachers and Zu — sub-minute compositions of jump-cut blocks, blast-tempo drumming under squealing alto saxophone, detuned or noise-processed guitar, and screamed vocal bursts used as percussive punctuation rather than lyric line.",
+  "recipe": "classic North American 1984-1986 jazzcore, distorted Rock, noise rock branch, experimental distorted rock, American jazz avant avant-garde jazz european free jazz. thick, breath veiled tone, straight onset, interlocked note trading. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch mahogany thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, expressive clarinet jazz bass clarinet. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 819,
+  "score": 403.438,
+  "config": {
+    "traditions": [
+      "jazzcore",
+      "avant_garde_jazz",
+      "european_free_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_multiphonic_avant",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 21,
+          "sax_size": 1.885,
+          "sax_reed": 0.65,
+          "sax_body_alloy": 15.169999999999998,
+          "sax_mouthpiece": 1.04,
+          "sax_technique": 15.375,
+          "sax_maker_school": 15.504583333333333
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 9.374999999999998,
+          "amp_make": 10.27,
+          "body_wood": 2.535,
+          "neck_wood": 1.3900000000000001,
+          "fretboard": 1.34,
+          "pickup_magnet": 0.45499999999999996,
+          "pickup_winding": 0.78,
+          "string_material": 0.65,
+          "bridge": 1.3900000000000001,
+          "scale_length": 1.4949999999999999,
+          "string_gauge": 1.3900000000000001,
+          "finish": 0.195,
+          "string_tuning": 7.085
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 6.715,
+          "body_wood": 1.48,
+          "pickup_config": 0.45499999999999996,
+          "string_type": 17.10458333333333,
+          "scale_length_b": 1.3900000000000001,
+          "fretted_or_not": 1.045,
+          "bass_technique": 14.912499999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 28.47,
+          "drumhead": 16.96458333333333,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 26.169999999999995,
+          "voice_quality": 7.020000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 16.500833333333333,
+          "voice_articulation": 21.58,
+          "voice_microtone": 25.34083333333333,
+          "voice_tradition": 20.49791666666666,
+          "voice_mechanism_compound": 14.042083333333332,
+          "voice_estill_quality": 1.9499999999999997,
+          "voice_speech_song": 22.035,
+          "voice_ensemble_config": 20.929999999999996,
+          "voice_ornament_system": 4.485000000000001,
+          "voice_pitch_organization": 1.135,
+          "voice_processing_chain": 4.095000000000001,
+          "voice_multitrack_stack": 5.6850000000000005
+        }
+      },
+      {
+        "id": "bass_clarinet",
+        "slots": {
+          "bass_clarinet_range": "bass_clarinet_to_low_c",
+          "bass_clarinet_style": "bass_clarinet_jazz"
+        },
+        "scores": {
+          "bass_clarinet_range": 0.65,
+          "bass_clarinet_style": 7.409999999999999
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "free_jazz_no_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "free_jazz_no_changes",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_inline_80s"
+  }
+}

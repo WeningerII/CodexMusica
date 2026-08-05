@@ -1,0 +1,139 @@
+{
+  "id": "dikir_barat",
+  "name": "Dikir Barat",
+  "family": "global",
+  "lineage": "Kelantanese Malay competitive group-singing form consolidated in the mid-20th century on the Malaysia-Thailand border and popularized nationally from the 1980s, in which a tukang karut improvises rhyming pantun verse and a juara leads while a seated awok-awok chorus of twenty or more answers in unison with synchronized hand-clapping and body movement, driven by rebana and kompang frame drums, canang kettle gongs and a gong, accelerating from a slow declamatory opening to a fast interlocked chant.",
+  "recipe": "classic mid-1980s dikir barat, groove Percussion, east Asian branch, middle east n African praise song, islamic ritual devotional shailat zikir. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, rebana ubi, kompang frame drum, canang kettle gong, gong chau hard beater gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 530,
+  "score": 160.417,
+  "config": {
+    "traditions": [
+      "dikir_barat",
+      "shailat",
+      "zikir"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.56,
+          "voice_quality": 10.464999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.29,
+          "voice_articulation": 17.615,
+          "voice_microtone": 16.639999999999997,
+          "voice_tradition": 14.169999999999993,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 2.405,
+          "voice_speech_song": 20.409999999999997,
+          "voice_ensemble_config": 17.224999999999994,
+          "voice_ornament_system": 5.305000000000001,
+          "voice_pitch_organization": 4.685000000000001,
+          "voice_processing_chain": 5.6875,
+          "voice_multitrack_stack": 6.795
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 15.54,
+          "choir_polyphonic_configuration": 1.6899999999999997,
+          "choir_regional_canonical_configuration": 12.034999999999997,
+          "choir_ensemble_repertoire": 3.445
+        }
+      },
+      {
+        "id": "rebana_ubi",
+        "slots": {
+          "rebana_ubi_size": "rebana_ubi_giant",
+          "rebana_ubi_style": "rebana_ubi_ensemble"
+        },
+        "scores": {
+          "rebana_ubi_size": 0,
+          "rebana_ubi_style": 0
+        }
+      },
+      {
+        "id": "kompang_frame_drum",
+        "slots": {
+          "kompang_stroke": "kompang_melalu",
+          "kompang_size": "kompang_standard"
+        },
+        "scores": {
+          "kompang_stroke": 0.195,
+          "kompang_size": 0.15
+        }
+      },
+      {
+        "id": "canang_kettle_gong",
+        "slots": {
+          "canang_form": "canang_malay_pair",
+          "canang_beater": "canang_padded"
+        },
+        "scores": {
+          "canang_form": 0,
+          "canang_beater": 0
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_chau",
+          "gong_striker": "gong_hard_beater"
+        },
+        "scores": {
+          "gong_type": 1,
+          "gong_striker": 1.5499999999999998
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "room": "field_recording",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "cassette_medium",
+    "chain_console": "clean"
+  }
+}

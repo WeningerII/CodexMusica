@@ -1,0 +1,218 @@
+{
+  "id": "gulf_and_western",
+  "name": "Gulf and Western (Trop Rock)",
+  "family": "country",
+  "lineage": "US coastal songwriter style codified by Jimmy Buffett's Key West recordings of the mid-1970s — country and folk-rock song forms at relaxed 90-120 BPM, acoustic guitar and pedal steel augmented by steel pan, marimba-like percussion, calypso-tinged shuffles and saxophone, with conversational baritone vocals narrating beaches, boats, bars and escape.",
+  "recipe": "classic Southern American 1974-1976 gulf and western, functional Song, americana branch, country rock country, Caribbean groove percussion kompa-direkt. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, sticks backbeat drum kit, concert stage steel steelpan, rose brass darker warmer selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. beach. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 845,
+  "score": 584.242,
+  "config": {
+    "traditions": [
+      "gulf_and_western",
+      "country_rock",
+      "kompa_direkt"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 51.88500000000001,
+          "voice_quality": 10.399999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 25.749999999999993,
+          "voice_articulation": 15.664999999999996,
+          "voice_microtone": 22.55,
+          "voice_tradition": 11.245000000000003,
+          "voice_mechanism_compound": 1.885,
+          "voice_estill_quality": 27.479999999999993,
+          "voice_speech_song": 21.839999999999996,
+          "voice_ensemble_config": 15.989999999999997,
+          "voice_ornament_system": 0.15,
+          "voice_pitch_organization": 2.0849999999999995,
+          "voice_processing_chain": 6.694999999999999,
+          "voice_multitrack_stack": 5.550000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "eb_standard",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 29.714999999999993,
+          "string_tuning": 0.37,
+          "top_wood": 1.645,
+          "back_sides": 0.255,
+          "string_acoustic": 3.73
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 29.854999999999997,
+          "amp_make": 26.074999999999996,
+          "pickup_steel": 1.645,
+          "string_setup": 10.979999999999997,
+          "bar_material": 3.23,
+          "pedal_steel_brand": 26.464999999999993,
+          "pedal_steel_neck_config": 25.949999999999992,
+          "pedal_steel_strings": 25.019999999999996
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 25.849999999999994,
+          "body_wood": 1.8399999999999999,
+          "pickup_config": 0,
+          "string_type": 20.38,
+          "scale_length_b": 2.34,
+          "fretted_or_not": 0.09,
+          "bass_technique": 24.869999999999994
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 19,
+          "drumhead": 1.75,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "steelpan",
+        "slots": {
+          "steelpan_voice": "cello_pan",
+          "steelpan_context": "steelpan_orchestra"
+        },
+        "scores": {
+          "steelpan_voice": 3.12,
+          "steelpan_context": 2.0149999999999997
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 2.34,
+          "sax_size": 1.645,
+          "sax_reed": 0.65,
+          "sax_body_alloy": 2.2749999999999995,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 1.295,
+          "sax_maker_school": 1.695
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 24.869999999999994,
+          "amp_make": 26.074999999999996,
+          "body_wood": 1.645,
+          "neck_wood": 1.645,
+          "fretboard": 1.595,
+          "pickup_magnet": 0.15,
+          "string_material": 3.41,
+          "string_gauge": 1.645,
+          "bridge": 0.09,
+          "scale_length": 1.8399999999999999,
+          "finish": 0,
+          "string_tuning": 9.46
+        }
+      }
+    ],
+    "room": "beach",
+    "archetype": "arch_nashville_a_team",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_american_op_amp",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "trinidad_calypso_soca_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "trinidad_calypso_soca_2_4",
+    "room": "beach",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

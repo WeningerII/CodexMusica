@@ -3,14 +3,14 @@
   "name": "Microhouse",
   "family": "electronic",
   "lineage": "Berlin-and-Cologne minimal-techno genre extending Chicago-house's rhythmic foundation through clicks-and-cuts micro-detail textural aesthetic and Kompakt-label-associated restrained-palette arrangement — codified through Akufen (My Way 2002), Matthew Herbert, Ricardo Villalobos (Alcachofa 2003, Fizheuer Zieheuer 2006), Luciano, Magda, with the genre serving as the early-2000s Cologne-Berlin minimal-aesthetic mainstream",
-  "recipe": "classic 2000-2003 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric idm and experimental electronic breakcore. sustained pad digital subtractive, TR-909, glitched textural sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 357,
-  "score": 97.57,
+  "recipe": "classic 2000-2003 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric folktronica idm and experimental electronic. sustained pad digital subtractive, TR-909, glitched textural sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 359,
+  "score": 106.317,
   "config": {
     "traditions": [
       "microhouse",
-      "idm",
-      "breakcore"
+      "folktronica",
+      "idm"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 3.12,
-          "va_archetypes": 0.003214285714285714,
-          "digital_subtractive_context": 14.624999999999998
+          "electronic_technique": 3.995,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 14.169999999999998
         }
       },
       {
@@ -31,12 +31,12 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_techno",
-          "tr909_production_origin": "tr909_roland_osaka_canonical"
+          "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 12.86,
-          "drum_machine_909_context": 3.168125,
-          "tr909_production_origin": 0.6499999999999998
+          "tr909_voice": 12.209999999999999,
+          "drum_machine_909_context": 3.0949999999999998,
+          "tr909_production_origin": 0.54
         }
       },
       {
@@ -49,11 +49,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 16.095,
+          "electronic_technique": 19.095,
           "sampler_archetypes": 0.78,
           "sampler_bit_depth": 0.26,
-          "sampler_workflow": 15.849999999999998,
-          "sampler_classic_context": 31.10866071428571
+          "sampler_workflow": 18.849999999999998,
+          "sampler_classic_context": 32.92249999999999
         }
       }
     ],

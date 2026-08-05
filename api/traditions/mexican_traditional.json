@@ -1,0 +1,144 @@
+{
+  "id": "mexican_traditional",
+  "name": "Mexican Traditional (Son y Canción Mexicana)",
+  "family": "global",
+  "lineage": "The umbrella of regional Mexican string-and-voice repertoires — son jalisciense, son huasteco, son jarocho, canción ranchera — consolidated between the late colonial period and the 1930s-50s XEW radio and Peerless/Musart record era, built on 6/8-against-3/4 sesquiáltera hemiola, zapateado footwork on a wooden tarima, close two-voice falsete harmony, and a plucked-string core of vihuela, guitarrón, harp, jarana and violin, with the mariachi trumpet added only after 1930s broadcasting demanded it.",
+  "recipe": "classic Southwestern American mid-1930s mexican traditional, functional Song, Mexican branch, tejano border ranchera, Latin am troubadour ballad poetry milonga. mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana, cedar caoba paracho mixed string set guitarron mexicano, gut drone like fiddle, unison standard rim orchestral balance trumpet, arpa grande, palo escrito Mexican rosewood gut pre 1950s son jarocho strummed jarana jarocha. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 676,
+  "score": 86.845,
+  "config": {
+    "traditions": [
+      "mexican_traditional",
+      "ranchera",
+      "milonga"
+    ],
+    "instruments": [
+      {
+        "id": "vihuela_mexicana",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "vihuela_mexicana_back": "vihuela_mexicana_arched",
+          "vihuela_mexicana_context": "vihuela_mexicana_modern",
+          "vihuela_mexicana_body_wood": "vihuela_mexicana_mahogany",
+          "vihuela_mexicana_strings": "vihuela_mexicana_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.8549999999999995,
+          "vihuela_mexicana_back": 3.964999999999999,
+          "vihuela_mexicana_context": 2.08,
+          "vihuela_mexicana_body_wood": 4.419999999999999,
+          "vihuela_mexicana_strings": 4.419999999999999
+        }
+      },
+      {
+        "id": "guitarron_mexicano",
+        "slots": {
+          "guitarron_body": "guitarron_deep_round_back",
+          "guitarron_body_wood": "guitarron_cedar_paracho",
+          "guitarron_strings": "guitarron_six_string_nylon_steel",
+          "guitarron_string_material": "guitarron_nylon_steel_modern",
+          "guitarron_technique": "guitarron_octave_pair_plucking"
+        },
+        "scores": {
+          "guitarron_body": 1.625,
+          "guitarron_body_wood": 4.419999999999999,
+          "guitarron_strings": 4.47,
+          "guitarron_string_material": 0.39000000000000007,
+          "guitarron_technique": 6.825
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 3.075,
+          "fiddle_strings": 1.4949999999999999,
+          "fiddle_bow": 0.195,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.195
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_mariachi_unison",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_mariachi_unison",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 7.249999999999999,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 2.78,
+          "brass_mute": 0.75,
+          "trumpet_technique": 7.249999999999999,
+          "trumpet_bell_metal": 0.65,
+          "trumpet_maker_school": 0.65
+        }
+      },
+      {
+        "id": "arpa_grande",
+        "slots": {
+          "arpa_grande_role": "arpa_grande_bass",
+          "arpa_grande_form": "arpa_grande_michoacana",
+          "arpa_grande_strings": "arpa_grande_gut"
+        },
+        "scores": {
+          "arpa_grande_role": 0.045,
+          "arpa_grande_form": 0.195,
+          "arpa_grande_strings": 0
+        }
+      },
+      {
+        "id": "jarana_jarocha",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "jarana_size": "jarana_segunda",
+          "jarana_jarocha_context": "jarana_jarocha_fusion",
+          "jarana_jarocha_body_wood": "jarana_palo_escrito",
+          "jarana_jarocha_strings": "jarana_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.8549999999999995,
+          "jarana_size": 5.195,
+          "jarana_jarocha_context": 2.08,
+          "jarana_jarocha_body_wood": 6.4399999999999995,
+          "jarana_jarocha_strings": 5.535000000000001
+        }
+      }
+    ],
+    "room": "mexico_peerless_musart_50s_60s",
+    "archetype": "arch_churubusco_ranchera_bolero",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mariachi_son_6_8_3_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mariachi_son_6_8_3_4",
+    "room": "mexico_peerless_musart_50s_60s",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

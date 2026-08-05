@@ -1,0 +1,194 @@
+{
+  "id": "bajan_soca",
+  "name": "Bajan Soca",
+  "family": "global",
+  "lineage": "Barbadian soca style shaped around the Crop Over festival since the 1980s and codified by Square One, Krosfyah and later producers such as Nicholas Brancker and Stiffy's circle, mixing 130-155 BPM soca grooves with the local 'ragga soca' and bashment-soca accents, live or sampled horn sections, tuk-band snare-and-bass-drum inflections, and melodic sung hooks alongside chanted crowd calls.",
+  "recipe": "classic North American mid-1980s bajan soca, carnival Processional, Caribbean branch, tropical song functional song, reggae diaspora bass system cumbia argentina panamanian pop. thick, breath veiled tone, straight note core, interlocked note trading. pre muffled edge muffled brushes-and-sticks drum kit, la bella flats Detroit soul bass canon thumb muted electric bass, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, saxophone, heavy one piece matched to monette horn ensemble trumpet, soca engine room iron trinidadian iron, tambourine orch. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 827,
+  "score": 203.922,
+  "config": {
+    "traditions": [
+      "bajan_soca",
+      "cumbia_argentina",
+      "panamanian_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 3.2950000000000017,
+          "voice_quality": 11.569999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4050000000000002,
+          "voice_articulation": 18.589999999999996,
+          "voice_microtone": 19.499999999999993,
+          "voice_tradition": 4.030000000000001,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.9325000000000006,
+          "voice_speech_song": 26.259999999999998,
+          "voice_ensemble_config": 18.524999999999995,
+          "voice_ornament_system": 0.825,
+          "voice_pitch_organization": 0.39999999999999997,
+          "voice_processing_chain": 5.859999999999999,
+          "voice_multitrack_stack": 7.749999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.459999999999997,
+          "drumhead": 2.325,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 2.99,
+          "body_wood": 0.195,
+          "pickup_config": 0.345,
+          "string_type": 3.5750000000000006,
+          "scale_length_b": 0.345,
+          "fretted_or_not": 0,
+          "bass_technique": 3.7
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "rompler_preset_bank": "rompler_preset_piano_orchestral",
+          "rompler_context": "rompler_context_arranger_party",
+          "rompler_lineage": "rompler_korg_pa_arranger"
+        },
+        "scores": {
+          "electronic_technique": 3.0225,
+          "rompler_preset_bank": 4.2299999999999995,
+          "rompler_context": 4.94,
+          "rompler_lineage": 1
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 1.8849999999999998,
+          "sax_size": 0.195,
+          "sax_reed": 0.435,
+          "sax_body_alloy": 0.75,
+          "sax_mouthpiece": 0.78,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.345
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 1.8849999999999998,
+          "brass_size": 0.435,
+          "trumpet_mouthpiece": 4.935,
+          "brass_mute": 0.195,
+          "trumpet_technique": 1.8849999999999998,
+          "trumpet_bell_metal": 0.8,
+          "trumpet_maker_school": 0.9600000000000001
+        }
+      },
+      {
+        "id": "trinidadian_iron",
+        "slots": {
+          "iron_source": "iron_brake_drum",
+          "iron_pattern": "iron_quarter"
+        },
+        "scores": {
+          "iron_source": 7.684999999999999,
+          "iron_pattern": 0.15
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_pop"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.12999999999999998,
+          "tambourine_orch_context": 0.12999999999999998
+        }
+      }
+    ],
+    "room": "port_of_spain_community_studio",
+    "archetype": "arch_trinidad_carnival_soca",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_smart_c1_bus",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "trinidad_calypso_soca_2_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "trinidad_calypso_soca_2_4",
+    "room": "port_of_spain_community_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

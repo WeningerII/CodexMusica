@@ -5,7 +5,7 @@
   "lineage": "Roma-Balkan wedding-music tradition continuous from 19th-20th century Roma musical-professionalization across Bulgaria, Macedonia, Serbia, Romania, Turkey, and broader Balkan zones; particularly codified in the 1980s-2000s Goran-Bregović-era and the broader Balkan brass-band wedding tradition documented by Bartók and later ethnomusicologists",
   "recipe": "classic mid-1980s roma balkan svatba, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, string improv improv on frame lebanese-arab wedding takht persian aroosi. thick, breath veiled tone, slow rate, interlocked note trading. brass castagnari Italian premium folk music ensemble accordion, synthetic magic rosin modern acrylic base legato fiddle, grenadilla African blackwood traditional continuous-airflow legato clarinet, brass warmer alternative synthetic remo mylar modern canonical Egyptian darbuka, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato student friendly trumpet, continuous-airflow legato kaval, yellow brass modern standard yamaha custom 875ex modern Japanese premium continuous-airflow legato saxophone, bolt tuned tapan. irish pub. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 906,
-  "score": 359.26,
+  "score": 355.03,
   "config": {
     "traditions": [
       "roma_svatba_balkan",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 1.7699999999999998,
+          "voice_register": 1.815,
           "voice_quality": 7.150000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.355,
+          "voice_vibrato": 6.995,
           "voice_articulation": 13.714999999999995,
           "voice_microtone": 24.894999999999992,
-          "voice_tradition": 26.455,
+          "voice_tradition": 25.074999999999996,
           "voice_mechanism_compound": 16.599999999999998,
-          "voice_estill_quality": 6.624999999999999,
+          "voice_estill_quality": 6.669999999999999,
           "voice_speech_song": 16.412499999999994,
-          "voice_ensemble_config": 16.949999999999996,
+          "voice_ensemble_config": 14.519999999999998,
           "voice_ornament_system": 17.38,
-          "voice_pitch_organization": 17.575,
-          "voice_processing_chain": 5.1850000000000005,
+          "voice_pitch_organization": 17.815,
+          "voice_processing_chain": 5.92,
           "voice_multitrack_stack": 4.16
         }
       },
@@ -57,18 +57,18 @@
         "slots": {
           "free_reed_technique": "free_reed_orchestral_ensemble",
           "accordion_reed_material": "brass_reeds",
-          "musette_offset": "scottish_musette",
-          "reed_config": "lmmh",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 8.235,
-          "accordion_reed_material": 1.75,
-          "musette_offset": 0.495,
-          "reed_config": 0.195,
-          "bellows": 0.3,
+          "free_reed_technique": 8.129999999999999,
+          "accordion_reed_material": 1.6900000000000002,
+          "musette_offset": 0.39,
+          "reed_config": 0.045,
+          "bellows": 0.15,
           "voicing_chamber": 0.7,
           "accordion_maker_school": 8.905
         }
@@ -87,7 +87,7 @@
           "fiddle_strings": 1.2349999999999999,
           "fiddle_bow": 3.0875,
           "fiddle_mute": 0.7,
-          "fiddle_articulation": 0.46499999999999997
+          "fiddle_articulation": 0.26999999999999996
         }
       },
       {
@@ -101,10 +101,10 @@
         },
         "scores": {
           "wind_articulation": 9.319999999999999,
-          "clarinet_body": 9.08,
+          "clarinet_body": 9.245,
           "clarinet_size": 2.9899999999999998,
           "clarinet_reed": 0,
-          "clarinet_articulation": 0.43499999999999994
+          "clarinet_articulation": 0.045
         }
       },
       {
@@ -117,7 +117,7 @@
         },
         "scores": {
           "percussion_technique": 0.26,
-          "darbuka_material": 1.6,
+          "darbuka_material": 1.6900000000000002,
           "darbuka_skin": 1.8199999999999998,
           "darbuka_regional_style": 0.585
         }
@@ -126,7 +126,7 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "brass_size": "flugelhorn",
+          "brass_size": "cornet",
           "trumpet_mouthpiece": "bach_trumpet_mp_7c",
           "brass_mute": "straight_mute",
           "trumpet_technique": "trumpet_classical_legato",
@@ -135,11 +135,11 @@
         },
         "scores": {
           "wind_articulation": 9.319999999999999,
-          "brass_size": 0.39,
+          "brass_size": 0,
           "trumpet_mouthpiece": 8.125,
           "brass_mute": 5.75,
           "trumpet_technique": 5.75,
-          "trumpet_bell_metal": 2.6649999999999996,
+          "trumpet_bell_metal": 2.275,
           "trumpet_maker_school": 1.2349999999999999
         }
       },
@@ -173,8 +173,8 @@
           "wind_articulation": 9.319999999999999,
           "sax_size": 0.8449999999999999,
           "sax_reed": 0,
-          "sax_body_alloy": 10.565,
-          "sax_mouthpiece": 0.44999999999999996,
+          "sax_body_alloy": 10.549999999999999,
+          "sax_mouthpiece": 0.15,
           "sax_technique": 3.5100000000000002,
           "sax_maker_school": 1.2349999999999999
         }
@@ -187,9 +187,9 @@
           "tapan_build": "tapan_modern_tensioned"
         },
         "scores": {
-          "tapan_form": 14.864999999999997,
+          "tapan_form": 15.884999999999996,
           "tapan_role": 28.754999999999995,
-          "tapan_build": 7.275
+          "tapan_build": 7.125
         }
       }
     ],

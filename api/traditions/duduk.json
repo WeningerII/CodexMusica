@@ -1,0 +1,140 @@
+{
+  "id": "duduk",
+  "name": "Duduk (Armenian Apricot-Wood Reed)",
+  "family": "global",
+  "lineage": "Armenian double-reed tradition centered on the apricot-wood duduk, formalized in the twentieth century by Vache Hovsepyan, Levon Madoyan and Djivan Gasparyan at the Yerevan conservatory, in which a lead player spins slow rubato modal laments and dance tunes over a second duduk sustaining an unbroken circular-breathed dam drone, with dense finger-slide ornament, breathy subtone attacks and a narrow one-and-a-half-octave nasal-warm range.",
+  "recipe": "classic Eastern European early-1940s duduk, drone Modal, wind pipe branch, middle eastern funeral lament, heterophonic drone modal armenian folk music mongolian long-song. sygyt, breath veiled tone, slow rate, interlocked note trading. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian drone like circular breathing duduk, mid register dance driving shvi, dhol, four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory kamancha. yerevan armenian komitas studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 726,
+  "score": 271.333,
+  "config": {
+    "traditions": [
+      "duduk",
+      "armenian_folk",
+      "mongolian_long_song"
+    ],
+    "instruments": [
+      {
+        "id": "duduk",
+        "slots": {
+          "wind_articulation": "wind_circular_breathing_drone",
+          "duduk_use": "duduk_solo",
+          "duduk_pitch": "duduk_gf",
+          "duduk_body_wood": "duduk_apricot_canonical",
+          "duduk_reed": "duduk_arundo_canonical",
+          "duduk_lineage": "duduk_djivan_gasparyan"
+        },
+        "scores": {
+          "wind_articulation": 9.0640625,
+          "duduk_use": 1.4300000000000002,
+          "duduk_pitch": 1.7550000000000001,
+          "duduk_body_wood": 7.01,
+          "duduk_reed": 5.01,
+          "duduk_lineage": 9.749999999999998
+        }
+      },
+      {
+        "id": "shvi",
+        "slots": {
+          "shvi_size_key": "shvi_size_a",
+          "shvi_context": "shvi_context_dance",
+          "shvi_body": "shvi_body_apricot"
+        },
+        "scores": {
+          "shvi_size_key": 10.4236875,
+          "shvi_context": 13.24,
+          "shvi_body": 10.774312499999997
+        }
+      },
+      {
+        "id": "dhol",
+        "slots": {
+          "dhol_form": "dhol_bihu",
+          "dhol_repertoire": "dhol_bhangra_chaal",
+          "dhol_shell": "dhol_sheesham"
+        },
+        "scores": {
+          "dhol_form": 18.72,
+          "dhol_repertoire": 2.704375,
+          "dhol_shell": 0.8999999999999999
+        }
+      },
+      {
+        "id": "kamancha",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kamancha_body": "kamancha_walnut_skin_canonical",
+          "kamancha_string": "kamancha_four_silk_or_metal",
+          "kamancha_tradition": "kamancha_persian_radif"
+        },
+        "scores": {
+          "bowed_technique": 0.78,
+          "kamancha_body": 0.65,
+          "kamancha_string": 1.04,
+          "kamancha_tradition": 3.835
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
+        },
+        "scores": {
+          "voice_register": 5.515,
+          "voice_quality": 9.815,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.03,
+          "voice_articulation": 17.81,
+          "voice_microtone": 33.019999999999996,
+          "voice_tradition": 21.5475,
+          "voice_mechanism_compound": 12.415000000000001,
+          "voice_estill_quality": 8.84,
+          "voice_speech_song": 20.475,
+          "voice_ensemble_config": 17.939999999999998,
+          "voice_ornament_system": 6.435000000000001,
+          "voice_pitch_organization": 13.0890625,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 3.625
+        }
+      }
+    ],
+    "room": "yerevan_armenian_komitas_studio",
+    "archetype": "arch_melodiya_state",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "yerevan_armenian_komitas_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Ranchera",
   "family": "vernacular",
   "lineage": "Mexican rural-pastoral nostalgic-song-form codified 1920s-1940s in the Mexican-revolutionary-era-and-cinema-golden-age, performed by mariachi-conjunto ensemble (typically violin-section, trumpet-pair, guitar, vihuela, guitarrón) with prominent solo-vocalist. The canonical ranchera structure: simple three-or-four-chord harmonic-progression (I-IV-V or I-vi-IV-V), 3/4 or 4/4 meter, sentimental lyrics about rural-homeland, lost-love, drinking-and-sorrow, mother-figure. The 1936-onward Mexican-golden-age-cinema established ranchera as the national-cinematic-musical-export, recorded by ranchera-cantante singers (typically male-tenor or female-mezzo) with characteristic grito-mexicano high-falsetto-cry interjection. The genre influenced Tejano, mariachi-revival, and modern norteño popular-styles.",
-  "recipe": "classic Southwestern American modern ranchera, functional Song, ranchera branch, tejano border corrido, Mexican functional song, tropical song functional song bachata. thick, full chest belt, slow rate, interlocked note trading. sitka spruce European maple sycamore maple French Polish shellac pad violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison standard rim orchestral balance trumpet, cedar carbon fiber fingerpicked classical nylon-string guitar, cedar caoba paracho nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 884,
-  "score": 365.58,
+  "recipe": "classic Southwestern American modern ranchera, functional Song, ranchera branch, tejano border corrido, Mexican functional song, tropical song functional song bolero cubano. thick, full chest belt, slow rate, interlocked note trading. sitka spruce European maple sycamore maple French Polish shellac pad violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison standard rim orchestral balance trumpet, cedar fingerpicked classical nylon-string guitar, cedar caoba paracho nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 877,
+  "score": 340.085,
   "config": {
     "traditions": [
       "ranchera",
       "corrido",
-      "bachata"
+      "bolero_cubano"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 3.665,
-          "voice_quality": 49.07500000000001,
+          "voice_register": 3.2399999999999993,
+          "voice_quality": 40.625000000000014,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9899999999999998,
-          "voice_articulation": 19.499999999999996,
-          "voice_microtone": 19.109999999999992,
+          "voice_vibrato": 4.029999999999999,
+          "voice_articulation": 18.914999999999992,
+          "voice_microtone": 18.71999999999999,
           "voice_tradition": 10.497499999999999,
-          "voice_mechanism_compound": 7.994999999999999,
-          "voice_estill_quality": 23.15,
-          "voice_speech_song": 35.099999999999994,
-          "voice_ensemble_config": 21.96999999999999,
-          "voice_ornament_system": 1.8849999999999993,
+          "voice_mechanism_compound": 8.189999999999998,
+          "voice_estill_quality": 23.299999999999997,
+          "voice_speech_song": 33.864999999999995,
+          "voice_ensemble_config": 21.384999999999994,
+          "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 2.405,
-          "voice_processing_chain": 6.1499999999999995,
-          "voice_multitrack_stack": 8.345
+          "voice_processing_chain": 5.6499999999999995,
+          "voice_multitrack_stack": 5.85
         }
       },
       {
@@ -67,16 +67,16 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.75,
+          "bowed_technique": 1.25,
           "orch_strings": 0.3,
-          "orch_top_wood": 7.259999999999999,
-          "orch_back_wood": 6.424999999999999,
-          "orch_varnish": 6.375,
-          "orch_setup_period": 6.58,
+          "orch_top_wood": 5.965,
+          "orch_back_wood": 5.174999999999999,
+          "orch_varnish": 5.125,
+          "orch_setup_period": 4.595,
           "orch_bow": 2.29,
-          "orch_bow_stick": 6.075,
-          "orch_articulation": 0.995,
-          "orch_rosin": 6.125
+          "orch_bow_stick": 4.825,
+          "orch_articulation": 0.345,
+          "orch_rosin": 4.875
         }
       },
       {
@@ -92,8 +92,8 @@
         },
         "scores": {
           "wind_articulation": 11.874999999999996,
-          "brass_size": 0.15,
-          "trumpet_mouthpiece": 6.469999999999999,
+          "brass_size": 0.5,
+          "trumpet_mouthpiece": 5.174999999999999,
           "brass_mute": 0.75,
           "trumpet_technique": 11.874999999999996,
           "trumpet_bell_metal": 2.6,
@@ -107,15 +107,15 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "double_top_cl",
-          "string_classical": "carbon_cl",
+          "string_classical": "nylon_normal_cl",
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 9.889999999999997,
+          "acoustic_technique": 10.144999999999998,
           "string_tuning": 0,
-          "top_wood_classical": 4.225,
+          "top_wood_classical": 7.02,
           "bracing_classical": 1.2349999999999999,
-          "string_classical": 1.2349999999999997,
+          "string_classical": 0.975,
           "attack_technique_cl": 1.0499999999999998
         }
       },
@@ -129,11 +129,11 @@
           "guitarron_technique": "guitarron_octave_pair_plucking"
         },
         "scores": {
-          "guitarron_body": 2.08,
-          "guitarron_body_wood": 8.069999999999999,
-          "guitarron_strings": 0.65,
-          "guitarron_string_material": 4.485,
-          "guitarron_technique": 10.74
+          "guitarron_body": 0.585,
+          "guitarron_body_wood": 7.919999999999999,
+          "guitarron_strings": 0.345,
+          "guitarron_string_material": 2.9899999999999998,
+          "guitarron_technique": 10.09
         }
       },
       {
@@ -146,11 +146,11 @@
           "vihuela_mexicana_strings": "vihuela_mexicana_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 6.254999999999999,
-          "vihuela_mexicana_back": 5.484999999999999,
+          "plucked_traditional_technique": 4.192499999999999,
+          "vihuela_mexicana_back": 5.334999999999999,
           "vihuela_mexicana_context": 2.145,
-          "vihuela_mexicana_body_wood": 8.069999999999999,
-          "vihuela_mexicana_strings": 8.069999999999999
+          "vihuela_mexicana_body_wood": 7.919999999999999,
+          "vihuela_mexicana_strings": 8.219999999999999
         }
       }
     ],

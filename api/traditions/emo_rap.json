@@ -1,0 +1,180 @@
+{
+  "id": "emo_rap",
+  "name": "Emo Rap",
+  "family": "hip_hop",
+  "lineage": "Formed on SoundCloud between 2015 and 2018 in Florida and the wider US internet underground, codified by Lil Peep, XXXTENTACION, Juice WRLD and producers Smokeasac and Nick Mira, marrying looped clean or distorted emo/pop-punk guitar samples to 70-90 BPM half-time 808 trap drums under confessional, Auto-Tuned sung-rapped delivery about depression, addiction and heartbreak.",
+  "recipe": "classic mid-2010s emo rap, mc Rhythm, modern branch, emo distorted rock, lofi experimental electric trancecore emocore. thick, rap, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric drop d tuning cedar walnut phosphor bronze bronze acoustic guitar, roland tr 8s modern aira digital recreation TR-808, melodic pitched sampler, ampeg svt amp rock bass amp alder ernie ball slinky electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 609,
+  "score": 292.098,
+  "config": {
+    "traditions": [
+      "emo_rap",
+      "trancecore",
+      "emocore"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 17.639999999999993,
+          "voice_quality": 8.995000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.9200000000000004,
+          "voice_articulation": 17.874999999999993,
+          "voice_microtone": 18.32999999999999,
+          "voice_tradition": 10.19,
+          "voice_mechanism_compound": 11.375,
+          "voice_estill_quality": 3.4450000000000003,
+          "voice_speech_song": 18.914999999999992,
+          "voice_ensemble_config": 16.769999999999992,
+          "voice_ornament_system": 1.4999999999999998,
+          "voice_pitch_organization": 1.2349999999999997,
+          "voice_processing_chain": 9.25,
+          "voice_multitrack_stack": 8.125
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 11.54,
+          "amp_make": 15.015,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4299999999999997,
+          "pickup_magnet": 0.24,
+          "string_material": 0.24,
+          "string_gauge": 2.795,
+          "bridge": 1.74,
+          "scale_length": 1.4949999999999999,
+          "finish": 0.09,
+          "string_tuning": 6.044999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "drop_d",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_bottleneck_slide"
+        },
+        "scores": {
+          "string_tuning": 3.19,
+          "top_wood": 1.4949999999999999,
+          "back_sides": 1.6899999999999997,
+          "string_acoustic": 2.34,
+          "acoustic_om_technique": 2.9250000000000007
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.4,
+          "drum_machine_808_context": 2.2350000000000003,
+          "tr808_production_origin": 1.8900000000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 2.2,
+          "sampler_archetypes": 3.96,
+          "sampler_bit_depth": 4.289999999999999,
+          "sampler_workflow": 2.925,
+          "sampler_classic_context": 18.264999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 5.59,
+          "body_wood": 2.6,
+          "pickup_config": 2.7350000000000003,
+          "string_type": 14.1375,
+          "scale_length_b": 1.98,
+          "fretted_or_not": 0.39,
+          "bass_technique": 16.25
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

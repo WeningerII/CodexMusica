@@ -3,14 +3,14 @@
   "name": "Pre-sampling hip-hop (1979-1985)",
   "family": "vernacular",
   "lineage": "Founding commercial-recording era of hip-hop — pre-sampling-technology, when hip-hop tracks were built with live session-band recreations of the breakbeats that DJs had isolated and looped from existing records during the Bronx block-party era. Recordings include the Sugar Hill Gang Rappers Delight 1979 (the commercial breakthrough, built on a session-band recreation of Chics Good Times bassline), Grandmaster Flash and the Furious Five The Message 1982 (the socially-conscious hip-hop breakthrough), Afrika Bambaataa Planet Rock 1982 (the Kraftwerk-Trans-Europe-Express-derived electro-funk hip-hop fusion), Run-DMC self-titled debut 1984",
-  "recipe": "classic North American pre-sampling hip-hop, mc Rhythm, east coast branch, soul R&B functional song contemporary r&b doo-wop. thick, rap, straight onset, narrative. sampled chopped turntable, pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, drum machine 606, cheap paired with 303 chicago foundational TR-707. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 762,
-  "score": 314.32,
+  "recipe": "classic North American pre-sampling hip-hop, mc Rhythm, east coast branch, soul R&B functional song contemporary r&b afro soul. thick, rap, straight onset, narrative. sampled chopped turntable, pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, drum machine 606, cheap paired with 303 chicago foundational TR-707. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 764,
+  "score": 335.238,
   "config": {
     "traditions": [
       "pre_sampling_hip_hop_1979_1985",
       "contemporary_rb_late_90s_2000s",
-      "doo_wop"
+      "afro_soul"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 21.599999999999998,
+          "voice_register": 23.175,
           "voice_quality": 12.899999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.4775000000000005,
-          "voice_articulation": 21.795,
+          "voice_vibrato": 4.9725,
+          "voice_articulation": 24.645000000000003,
           "voice_microtone": 15.599999999999994,
-          "voice_tradition": 17.4,
-          "voice_mechanism_compound": 4.81,
-          "voice_estill_quality": 12.194999999999999,
-          "voice_speech_song": 18.199999999999996,
+          "voice_tradition": 18.195,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 15.719999999999999,
+          "voice_speech_song": 18.264999999999997,
           "voice_ensemble_config": 14.884999999999996,
-          "voice_ornament_system": 3.185000000000001,
-          "voice_pitch_organization": 2.0475000000000003,
-          "voice_processing_chain": 12.45,
-          "voice_multitrack_stack": 5.0699999999999985
+          "voice_ornament_system": 2.795000000000001,
+          "voice_pitch_organization": 1.8749999999999998,
+          "voice_processing_chain": 12.225,
+          "voice_multitrack_stack": 5.3950000000000005
         }
       },
       {
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 11.094999999999999,
-          "turntable_technique": 14.67
+          "turntable_technique": 13.77
         }
       },
       {
@@ -71,8 +71,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.134999999999998,
-          "drumhead": 7.1899999999999995,
+          "drum_technique": 19.044999999999998,
+          "drumhead": 4.8149999999999995,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -88,13 +88,13 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 16.265,
-          "body_wood": 0.195,
+          "amp_make": 17.64,
+          "body_wood": 0.845,
           "pickup_config": 0,
-          "string_type": 17.55,
-          "scale_length_b": 0.195,
+          "string_type": 20.085,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.105,
-          "bass_technique": 13.2
+          "bass_technique": 16.2
         }
       },
       {
@@ -102,41 +102,41 @@
         "slots": {
           "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "pine",
-          "neck_wood": "maple",
-          "fretboard": "pau_ferro_fb",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
+          "string_gauge": "g_11",
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 13.44,
-          "amp_make": 15.754999999999999,
-          "body_wood": 0.45499999999999996,
-          "neck_wood": 0.65,
-          "fretboard": 0.65,
+          "electric_technique": 16.44,
+          "amp_make": 18.179999999999996,
+          "body_wood": 0.845,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
           "pickup_magnet": 0.65,
           "string_material": 0.65,
-          "string_gauge": 0.45499999999999996,
+          "string_gauge": 0.845,
           "bridge": 0.105,
-          "scale_length": 0.195,
+          "scale_length": 0.845,
           "finish": 0,
-          "string_tuning": 4.29
+          "string_tuning": 2.795
         }
       },
       {
         "id": "drum_machine_606",
         "slots": {
           "drum_machine_606_voice": "drum_machine_606_cymbal",
-          "drum_machine_606_context": "drum_machine_606_electro"
+          "drum_machine_606_context": "drum_machine_606_acid"
         },
         "scores": {
           "drum_machine_606_voice": 0.39,
-          "drum_machine_606_context": 0.5199999999999999
+          "drum_machine_606_context": 0.345
         }
       },
       {
@@ -146,8 +146,8 @@
           "drum_machine_707_context": "drum_machine_707_chicago_house"
         },
         "scores": {
-          "tr707_voice": 1.3,
-          "drum_machine_707_context": 4.875
+          "tr707_voice": 1.4949999999999999,
+          "drum_machine_707_context": 4.3549999999999995
         }
       }
     ],

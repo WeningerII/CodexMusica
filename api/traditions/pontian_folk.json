@@ -1,0 +1,147 @@
+{
+  "id": "pontian_folk",
+  "name": "Pontian Folk Music",
+  "family": "global",
+  "lineage": "Music of the Pontic Greeks of the Black Sea coast, transplanted to northern Greece and the diaspora after the 1923 population exchange and sustained at diaspora associations and panigyria — the three-string bowed kemenche (Pontian lyra) playing continuous fast double-stopped melody with a droning lower string, driving the tik, omal and serra dances in 5/8 and 7/8 at high tempo, doubled at open-air events by zurna and davul, with strophic distich singing",
+  "recipe": "classic early-1920s pontian folk music, drone Modal, string branch, European carnival processional, European funeral lament organetto tarantella. thick, breath veiled tone, fast rate, interlocked note trading. pontian lyra, zurna, davul, def turkish, horo dance driving strummed tambura balkan. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 374,
+  "score": 214.552,
+  "config": {
+    "traditions": [
+      "pontian_folk",
+      "organetto_italiano",
+      "tarantella"
+    ],
+    "instruments": [
+      {
+        "id": "pontian_lyra",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "pontian_style": "pontian_tik",
+          "pontian_size": "pontian_standard"
+        },
+        "scores": {
+          "bowed_technique": 1.04,
+          "pontian_style": 2.9450000000000003,
+          "pontian_size": 1.24
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.125,
+          "voice_quality": 15.989999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.4850000000000003,
+          "voice_articulation": 23.399999999999995,
+          "voice_microtone": 24.699999999999996,
+          "voice_tradition": 11.0825,
+          "voice_mechanism_compound": 7.669999999999999,
+          "voice_estill_quality": 6.175,
+          "voice_speech_song": 24.439999999999998,
+          "voice_ensemble_config": 21.449999999999996,
+          "voice_ornament_system": 4.175000000000001,
+          "voice_pitch_organization": 2.6,
+          "voice_processing_chain": 5.91,
+          "voice_multitrack_stack": 3.1200000000000006
+        }
+      },
+      {
+        "id": "zurna",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "zurna_size": "zurna_kaba",
+          "zurna_context": "zurna_sufi",
+          "zurna_body_wood": "zurna_apricot_canonical",
+          "zurna_reed": "zurna_arundo_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000002,
+          "zurna_size": 2.7649999999999997,
+          "zurna_context": 1.105,
+          "zurna_body_wood": 0.285,
+          "zurna_reed": 0.285
+        }
+      },
+      {
+        "id": "davul",
+        "slots": {
+          "davul_form": "davul_armenian",
+          "davul_context": "davul_zurna_pairing",
+          "davul_head_material": "davul_goatskin"
+        },
+        "scores": {
+          "davul_form": 4.875,
+          "davul_context": 32.434999999999995,
+          "davul_head_material": -0.05
+        }
+      },
+      {
+        "id": "def_turkish",
+        "slots": {
+          "def_jingles": "def_bendir",
+          "def_technique": "def_finger"
+        },
+        "scores": {
+          "def_jingles": 0.045,
+          "def_technique": 2.585
+        }
+      },
+      {
+        "id": "tambura_balkan",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "tambura_balkan_school": "tambura_macedonian",
+          "tambura_balkan_use": "tambura_horo"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.374999999999999,
+          "tambura_balkan_school": -0.035,
+          "tambura_balkan_use": 4.94
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "field_recording",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

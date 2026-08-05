@@ -5,7 +5,7 @@
   "lineage": "Late-1990s and 2000s R&B subgenre developed in Philadelphia (Roots, Jill Scott, Musiq Soulchild) and broader American urban scenes, characterized by live-instrument analog production (vs the parallel commercial R&B's drum-machine production), jazz-and-soul-influenced harmonic vocabulary, and reverent reference to 1970s classic soul aesthetic. D'Angelo's Voodoo (2000), Erykah Badu's Baduizm (1997), and Maxwell's Embrya (1998) consolidated the canonical sound. The Soulquarians collective (Questlove, J Dilla, D'Angelo, Erykah Badu, Common, Mos Def, Bilal, Q-Tip) anchored the artistic-organizational hub.",
   "recipe": "classic 1997-1999 neo-soul, functional Song, soul R&B branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, blues-shouter, straight onset, narrative. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright basswood soft down tuning humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 713,
-  "score": 485.787,
+  "score": 492.905,
   "config": {
     "traditions": [
       "neo_soul_classic",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 41.80250000000001,
-          "voice_quality": 15.353499999999991,
+          "voice_register": 41.84000000000001,
+          "voice_quality": 14.649999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 26.418,
+          "voice_vibrato": 26.775,
           "voice_articulation": 16.125,
-          "voice_microtone": 26.655,
-          "voice_tradition": 31.175000000000004,
+          "voice_microtone": 26.805,
+          "voice_tradition": 33.215,
           "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 18.294999999999998,
+          "voice_estill_quality": 18.34,
           "voice_speech_song": 18.264999999999993,
           "voice_ensemble_config": 16.639999999999993,
           "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 12.386000000000001,
-          "voice_multitrack_stack": 6.777500000000001
+          "voice_processing_chain": 12.14,
+          "voice_multitrack_stack": 6.800000000000001
         }
       },
       {
@@ -66,14 +66,14 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 15.7145,
-          "grand_piano_size": 0.39449999999999996,
+          "keyboard_technique": 15.2,
+          "grand_piano_size": 0.195,
           "grand_piano_brand": 0.845,
           "piano_hammer": 6.175,
           "piano_rim": 6.175,
-          "piano_soundboard": 2.45,
+          "piano_soundboard": 2.555,
           "piano_pinblock": -0.05,
-          "piano_plate": 4.9399999999999995,
+          "piano_plate": 4.88,
           "piano_pitch_standard": 0.7149999999999999
         }
       },
@@ -81,21 +81,21 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 25.913999999999994,
-          "body_wood": 0.7889999999999999,
-          "pickup_config": 0.5415,
-          "string_type": 29.68,
-          "scale_length_b": 0.51,
-          "fretted_or_not": 0.0315,
-          "bass_technique": 24.25
+          "amp_make": 27.869999999999994,
+          "body_wood": 0.39,
+          "pickup_config": 0.44999999999999996,
+          "string_type": 31.525,
+          "scale_length_b": 0.44999999999999996,
+          "fretted_or_not": 0.21,
+          "bass_technique": 24.295
         }
       },
       {
@@ -107,7 +107,7 @@
         },
         "scores": {
           "drum_technique": 39.974999999999994,
-          "drumhead": 29.735000000000003,
+          "drumhead": 31.460000000000004,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -129,17 +129,17 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 15.181499999999998,
-          "amp_make": 21.743,
+          "electric_technique": 15.149999999999999,
+          "amp_make": 22.955,
           "body_wood": 3.38,
           "neck_wood": 0.845,
           "fretboard": 0.845,
-          "pickup_magnet": 0.51,
-          "pickup_winding": 2.3314999999999997,
+          "pickup_magnet": 0.645,
+          "pickup_winding": 2.3,
           "string_material": 0.845,
-          "bridge": 0.39449999999999996,
+          "bridge": 0.195,
           "scale_length": 4.225,
-          "string_gauge": 0.39449999999999996,
+          "string_gauge": 0.195,
           "finish": 0,
           "string_tuning": 7.215
         }

@@ -1,0 +1,194 @@
+{
+  "id": "persian_traditional",
+  "name": "Persian Traditional Music (Radif)",
+  "family": "global",
+  "lineage": "Iranian classical system organized as the radif, a canonical body of some 250 gusheh melodic models distributed across seven dastgah and five avaz, assembled and taught in Qajar Tehran by Mirza Abdollah and Aqa Hoseinqoli around 1900 — an unmetred avaz section in which a solo voice and tar or santur trade phrases in strict heterophony, punctuated by metered tasnif songs and fast chaharmezrab etudes over tombak goblet-drum patterns.",
+  "recipe": "classic Middle Eastern early-1900s persian traditional music, art Music, middle eastern classical branch, Persian arab improv improv on frame, heterophonic drone modal oud taqsim tarab. vocal fry, breath veiled tone, slow rate, interlocked note trading. brass mulberry bowl canonical double bowl radif shahnazi lineage tar walnut bowl canonical Persian gut historical pre modern radif radif setar persian, santur, kayhan kalhor canon walnut canonical Persian legato kamancheh, arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, walnut tombak, walnut bent frame canonical Persian fish skin iraqi variant brass rings canonical Iranian daf. tehran classical dastgah context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 862,
+  "score": 481.468,
+  "config": {
+    "traditions": [
+      "persian_traditional",
+      "oud_taqsim",
+      "arab_tarab"
+    ],
+    "instruments": [
+      {
+        "id": "tar_persian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "tar_belly": "tar_lamb_skin",
+          "tar_pick": "tar_brass_mizrab",
+          "tar_body_wood": "tar_mulberry_body",
+          "tar_string_material": "tar_gut_historical",
+          "tar_tradition": "tar_radif_canonical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 13.115000000000002,
+          "tar_belly": 2.145,
+          "tar_pick": 10.365,
+          "tar_body_wood": 1.15,
+          "tar_string_material": 0.32500000000000007,
+          "tar_tradition": 6.984999999999999
+        }
+      },
+      {
+        "id": "santur",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "santur_school": "santur_iraqi",
+          "santur_technique": "santur_mizrab"
+        },
+        "scores": {
+          "plucked_traditional_technique": 13.115000000000002,
+          "santur_school": 10.595,
+          "santur_technique": 0.045
+        }
+      },
+      {
+        "id": "setar_persian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "setar_strings": "setar_4",
+          "setar_pluck": "setar_index_nail",
+          "setar_body_wood": "setar_walnut_body",
+          "setar_string_material": "setar_gut_historical",
+          "setar_tradition": "setar_radif_canonical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 13.115000000000002,
+          "setar_strings": 4.095,
+          "setar_pluck": 8.385,
+          "setar_body_wood": 5.46,
+          "setar_string_material": 2.0149999999999997,
+          "setar_tradition": 7.285
+        }
+      },
+      {
+        "id": "kamancheh",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kamancheh_belly": "lamb_kamancheh",
+          "kamancheh_use": "kamancheh_dastgah",
+          "kamancheh_body_wood": "kamancheh_walnut_body",
+          "kamancheh_strings": "kamancheh_gut_historical"
+        },
+        "scores": {
+          "bowed_technique": 13.115000000000002,
+          "kamancheh_belly": 7.540000000000001,
+          "kamancheh_use": 11.83,
+          "kamancheh_body_wood": 5.46,
+          "kamancheh_strings": 0.32500000000000007
+        }
+      },
+      {
+        "id": "ney",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "ney_use": "ney_persian_classical",
+          "ney_pitch": "ney_kerdaniye",
+          "ney_body_material": "ney_arundo_canonical",
+          "ney_lineage": "ney_hassan_kassai"
+        },
+        "scores": {
+          "wind_articulation": 13.065000000000001,
+          "ney_use": 3.835,
+          "ney_pitch": 6.695,
+          "ney_body_material": 5.46,
+          "ney_lineage": 10.335
+        }
+      },
+      {
+        "id": "tombak",
+        "slots": {
+          "tombak_wood": "tombak_walnut",
+          "tombak_school": "tombak_tehran"
+        },
+        "scores": {
+          "tombak_wood": 6.695,
+          "tombak_school": 9.685
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.795,
+          "voice_quality": 10.724999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 16.75,
+          "voice_articulation": 16.119999999999997,
+          "voice_microtone": 36.3025,
+          "voice_tradition": 34.72,
+          "voice_mechanism_compound": 24.67,
+          "voice_estill_quality": 15.68,
+          "voice_speech_song": 18.232499999999998,
+          "voice_ensemble_config": 16.705,
+          "voice_ornament_system": 28.42,
+          "voice_pitch_organization": 29.165000000000003,
+          "voice_processing_chain": 5.915,
+          "voice_multitrack_stack": 3.835
+        }
+      },
+      {
+        "id": "daf",
+        "slots": {
+          "daf_rings": "daf_with_rings",
+          "daf_context": "daf_classical",
+          "daf_shell_wood": "daf_walnut_canonical",
+          "daf_head_material": "daf_fish_skin",
+          "daf_jingle_metal": "daf_brass_rings"
+        },
+        "scores": {
+          "daf_rings": 0.42,
+          "daf_context": 17.095,
+          "daf_shell_wood": 8.32,
+          "daf_head_material": 1.3,
+          "daf_jingle_metal": 2.6
+        }
+      }
+    ],
+    "room": "tehran_classical_dastgah_context",
+    "archetype": "arch_arab_east_state_radio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "dastgah_persian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "dastgah_persian",
+    "room": "tehran_classical_dastgah_context",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

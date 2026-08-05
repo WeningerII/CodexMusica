@@ -1,0 +1,162 @@
+{
+  "id": "naija_old_school",
+  "name": "Naija old school",
+  "family": "pop",
+  "lineage": "Nigerian urban pop of roughly 1995-2008, formed in Lagos and Ajegunle out of galala, reggae-dancehall and imported hip-hop and codified by Daddy Showkey, Plantashun Boiz, Tony Tetuila, P-Square and Kennis Music radio — mid-tempo 100-115 BPM keyboard-and-drum-machine tracks with dancehall-derived bounce, talking-drum accents, sung Pidgin choruses over rapped verses, and thin bright General MIDI-era synth timbres.",
+  "recipe": "classic African mid-2000s naija old school, functional Song, African pop branch, African dance electronic dance, Afro-diasporic MC rhythm, reggae diaspora bass system kaneka afroswing. thick, rap, slow rate, interlocked note trading. TR-808, melodic pitched sampler, plucked short envelope analog poly synth, iroko alternative west African talking drum, orange amp British heavy crunch alder pyramid pure nickel bass electric bass. large tropical 1965-1985 mid-major EMI. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 613,
+  "score": 230.893,
+  "config": {
+    "traditions": [
+      "naija_old_school",
+      "kaneka",
+      "afroswing"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 12.609999999999992,
+          "voice_quality": 7.444999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.12,
+          "voice_articulation": 19.889999999999997,
+          "voice_microtone": 20.734999999999992,
+          "voice_tradition": 12.325,
+          "voice_mechanism_compound": 4.42,
+          "voice_estill_quality": 3.835000000000001,
+          "voice_speech_song": 23.205,
+          "voice_ensemble_config": 19.174999999999997,
+          "voice_ornament_system": 2.7950000000000017,
+          "voice_pitch_organization": 2.0749999999999997,
+          "voice_processing_chain": 7.204999999999999,
+          "voice_multitrack_stack": 2.3724999999999996
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 5.915,
+          "drum_machine_808_context": 3.964999999999999,
+          "tr808_production_origin": 0.195
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.14,
+          "sampler_archetypes": 2.69,
+          "sampler_bit_depth": 2.1800000000000006,
+          "sampler_workflow": 3.1900000000000004,
+          "sampler_classic_context": 22.489999999999995
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 11.499999999999998,
+          "poly_archetypes": 0.54,
+          "poly_voices": 0.54,
+          "poly_maker_lineage": -1.355
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 0,
+          "talking_drum_context": 2.3449999999999998,
+          "talking_drum_shell_wood": 4.16,
+          "talking_drum_head": 0.045
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 3.2250000000000005,
+          "body_wood": 3.38,
+          "pickup_config": 0.5399999999999999,
+          "string_type": 7.279999999999999,
+          "scale_length_b": 2.975,
+          "fretted_or_not": 0.045,
+          "bass_technique": 9.2
+        }
+      }
+    ],
+    "room": "studio_emi_lagos_african",
+    "archetype": "arch_emi_lagos_african_70s",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_in_the_box",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_emi_lagos_african",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

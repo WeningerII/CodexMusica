@@ -1,0 +1,113 @@
+{
+  "id": "acidcore",
+  "name": "Acidcore",
+  "family": "electronic",
+  "lineage": "Emerged in the mid-1990s across the UK Spiral Tribe diaspora and the French and Czech teknival networks — 160-200 BPM hard techno kick patterns driven by one or several overdriven Roland TB-303 lines whose resonant filter sweeps and accent patterns constitute the entire melodic content, with metallic 909 percussion, no vocals, and hypnotic long-form arrangements built for all-night outdoor sound systems.",
+  "recipe": "classic 1994-1996 acidcore, electronic Dance, techno branch, hardstyle electronic dance, industrial noise experimental electric gabber frenchcore. monosynth acid bass, roland tr 8s modern aira digital recreation TR-909, drum machine 606, roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono modular synth. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 470,
+  "score": 68.06,
+  "config": {
+    "traditions": [
+      "acidcore",
+      "gabber",
+      "frenchcore"
+    ],
+    "instruments": [
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 14.374999999999996,
+          "wave_acid": 0.09,
+          "filter_acid": 2.145,
+          "accent_acid": 2.75
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 1.625,
+          "drum_machine_909_context": 0.975,
+          "tr909_production_origin": 1.4349999999999998
+        }
+      },
+      {
+        "id": "drum_machine_606",
+        "slots": {
+          "drum_machine_606_voice": "drum_machine_606_cymbal",
+          "drum_machine_606_context": "drum_machine_606_electro"
+        },
+        "scores": {
+          "drum_machine_606_voice": 1.04,
+          "drum_machine_606_context": 0.12999999999999998
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 14.374999999999996,
+          "mono_oscillator": 0,
+          "mono_filter": 3.185,
+          "mono_archetypes": 3.575,
+          "mono_maker_lineage": 4.9799999999999995
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 14.374999999999996,
+          "mod_voltage_source": 1.4949999999999999,
+          "mod_patch_density": 0.24,
+          "mod_lineage": 0.195
+        }
+      }
+    ],
+    "room": "studio_isolation_cabin_diy",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "broken",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_isolation_cabin_diy",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "broken"
+  }
+}

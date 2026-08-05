@@ -1,0 +1,128 @@
+{
+  "id": "psyprog",
+  "name": "Progressive Psytrance",
+  "family": "electronic",
+  "lineage": "European-Israeli style codified 2002-2010 through Iboga, Digital Structures and Zenon-adjacent labels (Ace Ventura, Liquid Soul, Atmos, Perfect Stranger), slowing psytrance to 130-138 BPM with a deep round kick, a minimal two-or-three-note rolling bass, sparse morphing modular textures introduced one layer at a time, minor-key pads and very few breakdowns across an eight-minute groove-first arc.",
+  "recipe": "classic mid-2000s progressive psytrance, electronic Dance, trance branch, deep house house, techno electronic dance proto-techno berlin minimal techno. analog mono modular sub bass analog poly evolving modular granular synth, roland tr 8s modern aira digital recreation TR-909, sub bass eurorack modular. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 508,
+  "score": 59.495,
+  "config": {
+    "traditions": [
+      "psyprog",
+      "proto_techno",
+      "berlin_minimal_techno"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 8.95,
+          "mono_oscillator": 0.15,
+          "mono_filter": 0.39,
+          "mono_archetypes": 0.435,
+          "mono_maker_lineage": -0.385
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 7.685,
+          "drum_machine_909_context": 2.6,
+          "tr909_production_origin": 2.635
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 8.95,
+          "mod_voltage_source": 1.645,
+          "mod_patch_density": 0.955,
+          "mod_lineage": 0.195
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 4.075,
+          "poly_archetypes": 0.7050000000000001,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -0.6300000000000001
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_synthesized"
+        },
+        "scores": {
+          "electronic_technique": 3.5,
+          "granular_use": 0,
+          "granular_synth_source": 9.23
+        }
+      },
+      {
+        "id": "eurorack_modular",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "eurorack_focus": "eurorack_generative",
+          "eurorack_modular_context": "eurorack_modular_studio"
+        },
+        "scores": {
+          "electronic_technique": 4.075,
+          "eurorack_focus": 1.56,
+          "eurorack_modular_context": 0.9099999999999999
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

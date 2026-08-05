@@ -3,14 +3,14 @@
   "name": "Tin Pan Alley song",
   "family": "global",
   "lineage": "American pre-rock popular songwriting tradition centered on the West 28th Street and later Brill Building songwriter-publisher infrastructure (c. 1885-1965) — covering George M. Cohan, Irving Berlin (Alexander s Ragtime Band 1911, the Tin Pan Alley breakthrough), Cole Porter, the Gershwins, Rodgers and Hart (later Rodgers and Hammerstein), Harold Arlen, Hoagy Carmichael, and the post-WWII Brill Building era (Goffin and King, Mann and Weil, Sedaka, Bacharach and David, Leiber and Stoller); foundational repertoire for the 32-bar AABA song form that defined American popular music for half a century",
-  "recipe": "classic North American early-1880s tin pan alley song, functional Song, crooners branch, American jazz early chicago jazz swing-era jazz orchestra. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 594,
-  "score": 153.972,
+  "recipe": "classic North American early-1880s tin pan alley song, functional Song, crooners branch, American jazz early british dance band continental jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part homophonic chordal rhythm aligned sardinian cantu a tenore oche mesu contra bassu choir ensemble. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 595,
+  "score": 208.822,
   "config": {
     "traditions": [
       "tin_pan_alley_song",
-      "chicago_jazz_1920s",
-      "big_band"
+      "british_dance_band",
+      "continental_jazz"
     ],
     "instruments": [
       {
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 14.296499999999995,
-          "voice_quality": 11.959999999999994,
+          "voice_register": 16.839999999999996,
+          "voice_quality": 10.984999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.0045,
-          "voice_articulation": 14.040000000000001,
-          "voice_microtone": 14.766999999999998,
-          "voice_tradition": 16.237499999999997,
-          "voice_mechanism_compound": 0.845,
-          "voice_estill_quality": 1.8849999999999996,
-          "voice_speech_song": 18.59,
-          "voice_ensemble_config": 13.78,
-          "voice_ornament_system": 1.4949999999999997,
+          "voice_vibrato": 13.029999999999998,
+          "voice_articulation": 23.660000000000004,
+          "voice_microtone": 25.61,
+          "voice_tradition": 16.9,
+          "voice_mechanism_compound": 1.6899999999999997,
+          "voice_estill_quality": 3.2175000000000002,
+          "voice_speech_song": 30.355,
+          "voice_ensemble_config": 23.79,
+          "voice_ornament_system": 1.5250000000000001,
           "voice_pitch_organization": 3.5100000000000007,
-          "voice_processing_chain": 4.942,
-          "voice_multitrack_stack": 1.2539999999999998
+          "voice_processing_chain": 3.1200000000000006,
+          "voice_multitrack_stack": 0.845
         }
       },
       {
@@ -57,39 +57,39 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_441_japanese"
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 1.0110000000000001,
-          "grand_piano_size": 0.845,
+          "keyboard_technique": 0.22499999999999998,
+          "grand_piano_size": 0.195,
           "grand_piano_brand": 1.2349999999999999,
-          "piano_hammer": 7.085,
-          "piano_rim": 10.27,
-          "piano_soundboard": 3.1200000000000006,
-          "piano_pinblock": -0.05,
-          "piano_plate": -0.05,
-          "piano_pitch_standard": 1.4299999999999997
+          "piano_hammer": 8.319999999999999,
+          "piano_rim": 10.009999999999998,
+          "piano_soundboard": 2.6650000000000005,
+          "piano_pinblock": -0.035,
+          "piano_plate": 0.12999999999999998,
+          "piano_pitch_standard": 4.29
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 3.77,
-          "choir_polyphonic_configuration": 1.8850000000000002,
-          "choir_regional_canonical_configuration": 1.4299999999999997,
-          "choir_ensemble_repertoire": 3.185
+          "choir_size": 4.615,
+          "choir_polyphonic_configuration": 1.69,
+          "choir_regional_canonical_configuration": 3.3149999999999995,
+          "choir_ensemble_repertoire": 3.0650000000000004
         }
       }
     ],

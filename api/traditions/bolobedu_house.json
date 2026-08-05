@@ -1,0 +1,143 @@
+{
+  "id": "bolobedu_house",
+  "name": "Bolobedu House",
+  "family": "electronic",
+  "lineage": "Limpopo dance style from the Bolobedu region around Tzaneen, popularised nationally from about 2016 by Makhadzi, Master KG, DJ Call Me and Prince Benza — roughly 110-118 BPM, marrying khelobedu-language call-and-response vocals and traditional Balobedu dance rhythms to a four-on-the-floor house kick, bright marimba-like synth riffs, hand claps and shouted group refrains.",
+  "recipe": "classic mid-2010s bolobedu house, electronic Dance, African dance branch, house electronic dance, African pop functional song south african pop freestyle house. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, singing lead analog poly synth, log drum, room natural to palm hand clap, foundational bass rhythm calabash shekere. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 512,
+  "score": 193.823,
+  "config": {
+    "traditions": [
+      "bolobedu_house",
+      "south_african_pop",
+      "freestyle_house"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 12.559999999999993,
+          "voice_quality": 8.32,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.105,
+          "voice_articulation": 17.354999999999997,
+          "voice_microtone": 17.744999999999994,
+          "voice_tradition": 18.935,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 3.835,
+          "voice_speech_song": 20.084999999999994,
+          "voice_ensemble_config": 21.254999999999992,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 2.200000000000001,
+          "voice_processing_chain": 16.92,
+          "voice_multitrack_stack": 5.330000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.2749999999999995,
+          "drum_machine_808_context": 4.1274999999999995,
+          "tr808_production_origin": 0.65
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 10.984999999999998,
+          "poly_archetypes": 0.22499999999999998,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -1.33
+        }
+      },
+      {
+        "id": "log_drum",
+        "slots": {
+          "log_drum_voice": "log_drum_sub",
+          "log_drum_context": "log_drum_amapiano"
+        },
+        "scores": {
+          "log_drum_voice": 0.585,
+          "log_drum_context": 6.22
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 2.6849999999999996,
+          "clap_capture": 1.04
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_large",
+          "shekere_beads": "shekere_seed"
+        },
+        "scores": {
+          "shekere_size": 2.5349999999999997,
+          "shekere_beads": 5.13
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_sa_township_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

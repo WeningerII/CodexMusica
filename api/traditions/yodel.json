@@ -1,0 +1,125 @@
+{
+  "id": "yodel",
+  "name": "Yodel",
+  "family": "global",
+  "lineage": "Alpine herding-call vocal technique of Switzerland, Austria and Bavaria documented from the eighteenth century and paralleled in Georgian krimanchuli, Central African forest polyphony and American cowboy song — rapid repeated breaks between chest and falsetto register on nonsense syllables, often built on the natural harmonic series of the alphorn so that the eleventh partial sounds as the flattened 'alphorn fa', performed solo or in two- and three-voice juuzli over a held bass drone.",
+  "recipe": "classic modern yodel, drone Modal, overtone branch, vocal drone modal, pre commercial country old west frontier music cowboy. thick, breath veiled tone, wide pitch sway, interlocked note trading. alpine 3 4m alphorn, treble parlor concert zither alpine, brass petosa seattle American premium straight accordion. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 391,
+  "score": 233.725,
+  "config": {
+    "traditions": [
+      "yodel",
+      "old_west",
+      "cowboy_song"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 13.514999999999997,
+          "voice_quality": 13.324999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 12.965000000000002,
+          "voice_articulation": 21.839999999999996,
+          "voice_microtone": 25.154999999999994,
+          "voice_tradition": 13.617499999999996,
+          "voice_mechanism_compound": 6.305,
+          "voice_estill_quality": 18.474999999999998,
+          "voice_speech_song": 29.705,
+          "voice_ensemble_config": 23.919999999999995,
+          "voice_ornament_system": 3.412500000000001,
+          "voice_pitch_organization": 9.295,
+          "voice_processing_chain": 8.754999999999999,
+          "voice_multitrack_stack": 4.355
+        }
+      },
+      {
+        "id": "alphorn",
+        "slots": {
+          "alphorn_length": "alphorn_fis_3_4m",
+          "alphorn_material": "alphorn_carbon_modern"
+        },
+        "scores": {
+          "alphorn_length": 1.45,
+          "alphorn_material": 0.495
+        }
+      },
+      {
+        "id": "concert_zither_alpine",
+        "slots": {
+          "concert_zither_alpine_type": "concert_zither_alpine_diskant",
+          "concert_zither_alpine_context": "concert_zither_alpine_stubenmusik",
+          "concert_zither_alpine_strings": "concert_zither_alpine_strings_gut"
+        },
+        "scores": {
+          "concert_zither_alpine_type": 5.33,
+          "concert_zither_alpine_context": 4.5,
+          "concert_zither_alpine_strings": 1.44
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_petosa_seattle"
+        },
+        "scores": {
+          "free_reed_technique": 13.915000000000001,
+          "accordion_reed_material": 1.8900000000000001,
+          "musette_offset": 2.145,
+          "reed_config": 0.7,
+          "bellows": 0.42000000000000004,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 2.9499999999999997
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "mountain_valley",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

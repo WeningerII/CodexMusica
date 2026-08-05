@@ -1,0 +1,164 @@
+{
+  "id": "close_harmony",
+  "name": "Close Harmony (Country Brother Duet)",
+  "family": "country",
+  "lineage": "American Southeastern vocal-duet practice recorded intensively from the early 1930s by Bluebird and ARC — two voices, most often siblings, singing parallel thirds and sixths within a narrow tessitura with matched timbre and no vibrato, accompanied by mandolin and guitar at 80-120 BPM, a repertoire of sentimental ballads and hymns codified by the Monroe, Delmore and Bolick brothers.",
+  "recipe": "classic 1930-1933 close harmony, functional Song, pre commercial branch, bluegrass improv on frame, christian gospel southern gospel reactionary bluegrass neo-traditional bluegrass. thick, breath veiled tone, straight note core, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, martin lifespan sealed travis picked dreadnought acoustic guitar, plain gut sheep gut double stops fiddle, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 648,
+  "score": 397.802,
+  "config": {
+    "traditions": [
+      "close_harmony",
+      "reactionary_bluegrass",
+      "neo_traditional_bluegrass"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 21.18499999999999,
+          "voice_quality": 11.179999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 16.595,
+          "voice_articulation": 18.654999999999994,
+          "voice_microtone": 17.35499999999999,
+          "voice_tradition": 9.294999999999998,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 17.99,
+          "voice_speech_song": 20.929999999999993,
+          "voice_ensemble_config": 17.289999999999992,
+          "voice_ornament_system": 2.925,
+          "voice_pitch_organization": 3.2700000000000005,
+          "voice_processing_chain": 7.150000000000001,
+          "voice_multitrack_stack": 6.045
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "mandolin_shape": "f_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 9.684999999999999,
+          "mandolin_shape": 9.045,
+          "mandolin_top": 11.064999999999998,
+          "mandolin_back": 9.045,
+          "mandolin_bracing": 10.045,
+          "mandolin_strings": 4.5175,
+          "mandolin_fingerboard": 0.585,
+          "mandolin_pickup": 17.354999999999997
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "d_standard",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
+          "string_acoustic": "martin_lifespan"
+        },
+        "scores": {
+          "acoustic_technique": 14.915,
+          "string_tuning": 0.245,
+          "top_wood": 0.735,
+          "back_sides": 0.45499999999999996,
+          "string_acoustic": 1.8
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "plain_sheep_gut_fiddle",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 26.074999999999996,
+          "fiddle_strings": 2.355,
+          "fiddle_bow": 0.735,
+          "fiddle_mute": 0.45499999999999996,
+          "fiddle_articulation": 0.15
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "resonator",
+          "tone_ring": "flathead",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "three_finger",
+          "banjo_rim_wood": "banjo_block_rim_maple",
+          "banjo_neck_wood": "banjo_maple_neck",
+          "banjo_strings": "banjo_medium_bluegrass",
+          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.735,
+          "tone_ring": 9,
+          "banjo_head": 17.159999999999997,
+          "banjo_pot": 0.195,
+          "banjo_play": 4.68,
+          "banjo_rim_wood": 11.7,
+          "banjo_neck_wood": 11.7,
+          "banjo_strings": 11.894999999999998,
+          "banjo_bridge": 11.894999999999998,
+          "banjo_setup_period": 30.354999999999993
+        }
+      }
+    ],
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "bluegrass_high_lonesome_pentatonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "bluegrass_high_lonesome_pentatonic",
+    "room": "studio_electrical_era_office",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

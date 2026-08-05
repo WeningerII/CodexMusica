@@ -5,7 +5,7 @@
   "lineage": "Japanese domestic weaving-song (hata-ori uta, 機織り唄) tradition continuous from premodern Japanese-rural domestic-textile-labor practice (the canonical Japanese silk-and-cotton weaving was performed predominantly by women at the home-loom, with extensive song-coordination of the throw-the-shuttle-and-pull-the-beater rhythmic-labor) through Edo-period continuous performance into modern Japanese-rural-and-revival continuous practice",
   "recipe": "classic East Asian modern japanese domestic weaving-song, domestic Rhythm, east Asian arctic branch, Celtic hebridean domestic rhythm, east Asian lullaby, east Asian field work irish spinning song japanese komoriuta. vocal fry, breath veiled tone, straight note core, interlocked note trading. tatami parlor japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 380,
-  "score": 163.242,
+  "score": 162.792,
   "config": {
     "traditions": [
       "japanese_domestic_hataori",
@@ -41,12 +41,12 @@
           "voice_vibrato": 5.9525,
           "voice_articulation": 11.114999999999997,
           "voice_microtone": 11.959999999999994,
-          "voice_tradition": 46.62937499999999,
+          "voice_tradition": 45.86437499999999,
           "voice_mechanism_compound": 3.6500000000000004,
           "voice_estill_quality": 2.4700000000000006,
           "voice_speech_song": 19.694999999999993,
           "voice_ensemble_config": 11.049999999999995,
-          "voice_ornament_system": 21.695624999999996,
+          "voice_ornament_system": 22.010624999999994,
           "voice_pitch_organization": 7.6049999999999995,
           "voice_processing_chain": 2.8600000000000003,
           "voice_multitrack_stack": 3.965

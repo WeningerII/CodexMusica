@@ -1,0 +1,172 @@
+{
+  "id": "nu_jazz",
+  "name": "Nu Jazz",
+  "family": "jazz",
+  "lineage": "European studio idiom of roughly 1996-2006 developed by Jazzanova and Bugge Wesseltoft in Berlin and Oslo, St Germain in Paris and Nils Petter Molvær in Norway, laying live jazz soloing — trumpet, Rhodes, upright bass, saxophone — over programmed broken-beat and deep-house drum grids at 100-125 BPM, with modal static harmony, sampled and re-edited acoustic fragments, dub-style spatial effects, and arrangement decided at the sequencer rather than in performance.",
+  "recipe": "classic mid-2000s nu jazz, improv On Frame, fusion branch, deep house house, American jazz soul jazz. centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sampler, analog poly synth, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 703,
+  "score": 436.009,
+  "config": {
+    "traditions": [
+      "nu_jazz",
+      "soul_jazz",
+      "deep_house_soulful"
+    ],
+    "instruments": [
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 12.98,
+          "rhodes_model": 32.2665,
+          "rhodes_use": 2.015,
+          "rhodes_tine_material": 0.195,
+          "rhodes_hammer_tip": 0.65,
+          "rhodes_pickup_position": 2.08
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 9.2895,
+          "brass_size": 0.585,
+          "trumpet_mouthpiece": 37.836,
+          "brass_mute": 0.195,
+          "trumpet_technique": 9.2895,
+          "trumpet_bell_metal": 0.546,
+          "trumpet_maker_school": 4.875
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 9.2895,
+          "sax_size": 8.594999999999999,
+          "sax_reed": 0.585,
+          "sax_body_alloy": 31.500000000000004,
+          "sax_mouthpiece": 0.585,
+          "sax_technique": 31.695000000000004,
+          "sax_maker_school": 37.182
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 31.500000000000004,
+          "upright_play": 31.695000000000007
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 40.105,
+          "drumhead": 38.481,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.8999999999999999,
+          "sampler_archetypes": 2.5,
+          "sampler_bit_depth": 1.1049999999999998,
+          "sampler_workflow": 0.975,
+          "sampler_classic_context": 37.56699999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 2.4615000000000005,
+          "poly_archetypes": 1.2554999999999998,
+          "poly_voices": 0.65,
+          "poly_maker_lineage": -1.015
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 14.694999999999999,
+          "drum_machine_909_context": 1.2349999999999999,
+          "tr909_production_origin": 0.315
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "modal_jazz_dorian_static",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "modal_jazz_dorian_static",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

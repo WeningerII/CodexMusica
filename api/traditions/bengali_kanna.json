@@ -3,14 +3,14 @@
   "name": "Bengali kanna gaan (women's lament)",
   "family": "global",
   "lineage": "Bengali women's mourning-song tradition continuous from medieval-Bengal rural practice through colonial-period documented performance into modern Bangla-language domestic mourning practice across West Bengal and Bangladesh; less codified as a professional-role tradition than Tamil oppāri but documented in folk-ethnographic literature",
-  "recipe": "classic modern bengali kanna gaan, funeral Lament, south Asian branch, vocal drone modal, indian bard ballad poetry, hindu ritual devotional cambodian chapei dang veng sfyria whistled language. thick, breath veiled tone, straight note core, interlocked note trading. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 346,
-  "score": 157.5,
+  "recipe": "classic modern bengali kanna gaan, funeral Lament, south Asian branch, vocal drone modal, indian bard ballad poetry, hindu ritual devotional cambodian chapei dang veng naturjodel. thick, breath veiled tone, slow rate, interlocked note trading. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 323,
+  "score": 142.185,
   "config": {
     "traditions": [
       "bengali_kanna",
       "cambodian_chapei_dang_veng",
-      "sfyria_antia"
+      "naturjodel"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 4.090000000000001,
-          "voice_quality": 18.85,
+          "voice_quality": 13.454999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.630000000000001,
+          "voice_vibrato": 4.29,
           "voice_articulation": 14.560000000000002,
-          "voice_microtone": 21.58,
-          "voice_tradition": 26.259999999999994,
-          "voice_mechanism_compound": 5.46,
-          "voice_estill_quality": 7.54,
-          "voice_speech_song": 19.5,
-          "voice_ensemble_config": 15.080000000000002,
+          "voice_microtone": 16.9,
+          "voice_tradition": 21.904999999999998,
+          "voice_mechanism_compound": 6.11,
+          "voice_estill_quality": 8.384999999999998,
+          "voice_speech_song": 19.955000000000002,
+          "voice_ensemble_config": 14.04,
           "voice_ornament_system": 5,
-          "voice_pitch_organization": 8.105,
-          "voice_processing_chain": 5.85,
-          "voice_multitrack_stack": 5.3950000000000005
+          "voice_pitch_organization": 6.57,
+          "voice_processing_chain": 5.07,
+          "voice_multitrack_stack": 5.655000000000001
         }
       }
     ],

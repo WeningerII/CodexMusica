@@ -1,0 +1,141 @@
+{
+  "id": "reggaeton_chileno",
+  "name": "Reggaeton Chileno",
+  "family": "global",
+  "lineage": "Santiago-based urbano scene that consolidated between 2016 and 2022 around Pablo Chill-E, Polimá Westcoast, Cris Mj, Standly and the Shishigang/Gran Rah orbit, taking the dembow at roughly 90-100 BPM but slowing and darkening it with minor-key detuned synth pads, heavy sub, minimal percussion layering and a distinctly Chilean drawled, slang-dense vocal delivery often blurred by Auto-Tune.",
+  "recipe": "classic mid-2010s reggaeton chileno, mc Rhythm, reggaeton branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm rap belge hawaiian hip hop. vocal fry, rap, wide pitch sway, interlocked note trading. TR-808, chopped sampler, sub bass analog poly sub bass wavetable synth. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 390,
+  "score": 220.85,
+  "config": {
+    "traditions": [
+      "reggaeton_chileno",
+      "rap_belge",
+      "hawaiian_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.885,
+          "voice_quality": 22.515,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.8999999999999999,
+          "voice_articulation": 18.654999999999994,
+          "voice_microtone": 21.449999999999996,
+          "voice_tradition": 7.825000000000001,
+          "voice_mechanism_compound": 3.7700000000000005,
+          "voice_estill_quality": 3.770000000000001,
+          "voice_speech_song": 20.589999999999996,
+          "voice_ensemble_config": 18.134999999999994,
+          "voice_ornament_system": 6.890000000000002,
+          "voice_pitch_organization": 2.7950000000000004,
+          "voice_processing_chain": 11.445,
+          "voice_multitrack_stack": 5.07
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 6.805000000000001,
+          "drum_machine_808_context": 3.495,
+          "tr808_production_origin": 0.45499999999999996
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 4.150000000000001,
+          "sampler_archetypes": 6.37,
+          "sampler_bit_depth": 0.9750000000000001,
+          "sampler_workflow": 4.9750000000000005,
+          "sampler_classic_context": 25.739999999999995
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 9.88,
+          "poly_archetypes": 0.045,
+          "poly_voices": 0.435,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_chaotic",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 9.88,
+          "wt_position": 0.45499999999999996,
+          "wt_family": 0.45499999999999996,
+          "wt_polyphony": 0
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "carpeted_bedroom",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

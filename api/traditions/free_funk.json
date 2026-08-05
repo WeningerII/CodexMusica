@@ -1,0 +1,149 @@
+{
+  "id": "free_funk",
+  "name": "Free Funk",
+  "family": "jazz",
+  "lineage": "New York idiom of 1975-1990 joining free-jazz pitch freedom to electric funk rhythm, codified by Ornette Coleman's Prime Time and his harmolodic theory and extended by Ronald Shannon Jackson's Decoding Society and James Blood Ulmer — dense 4/4 backbeats at 100-140 BPM played by doubled electric guitars and basses, atonal or key-ambiguous unison heads, simultaneous multi-line soloing, and no fixed harmonic centre beneath the groove.",
+  "recipe": "classic North American mid-1980s free funk, improv On Frame, avant branch, funk percussive groove percussion, American jazz fusion indo jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, bach stradivarius 180 canonical American orchestral multiphonic jazz balance legato trumpet, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 804,
+  "score": 369.492,
+  "config": {
+    "traditions": [
+      "free_funk",
+      "fusion",
+      "indo_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 7.6,
+          "sax_size": 2.6971875,
+          "sax_reed": 2.7471875,
+          "sax_body_alloy": 32,
+          "sax_mouthpiece": 2.7471875,
+          "sax_technique": 30.795,
+          "sax_maker_school": 31.318437499999995
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 7.6,
+          "brass_size": 2.7471875,
+          "trumpet_mouthpiece": 32.9784375,
+          "brass_mute": 2.875,
+          "trumpet_technique": 2.875,
+          "trumpet_bell_metal": 0.65,
+          "trumpet_maker_school": 5.265000000000001
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 10.809999999999999,
+          "amp_make": 15.875625000000001,
+          "body_wood": 0.915,
+          "neck_wood": 2.7471875,
+          "fretboard": 2.7471875,
+          "pickup_magnet": 2.7471875,
+          "string_material": 2.7471875,
+          "string_gauge": 0.915,
+          "bridge": 0.9099999999999999,
+          "scale_length": 1.8299999999999998,
+          "finish": 0.045,
+          "string_tuning": 6.044999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 5.200000000000002,
+          "body_wood": 1.8299999999999998,
+          "pickup_config": 0.65,
+          "string_type": 33.1734375,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.9099999999999999,
+          "bass_technique": 30.75
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 45.694999999999986,
+          "drumhead": 33.2284375,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_late70s_nyc_commercial",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "free_jazz_no_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "free_jazz_no_changes",
+    "room": "studio_late70s_nyc_commercial",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

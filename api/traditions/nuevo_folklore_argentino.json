@@ -1,0 +1,197 @@
+{
+  "id": "nuevo_folklore_argentino",
+  "name": "Nuevo Folklore Argentino",
+  "family": "global",
+  "lineage": "Argentine folk-renewal movement running from the late 1960s Nuevo Cancionero manifesto (Mendoza, Armando Tejada Gómez and Oscar Matus, with Mercedes Sosa as its voice) through the 1970s Cuchi Leguizamón and Gustavo 'Cuchi' circle and the 1990s-2010s revisionists Dino Saluzzi, Juan Falú, Liliana Herrero and Carlos Aguirre — retaining chacarera hemiola and zamba 6/8 but opening them to jazz-derived extended chords, through-composed forms, bandoneón and piano colour, rubato vocal declamation and chamber-quiet dynamics rather than peña ensemble drive.",
+  "recipe": "classic South American 1967-1969 nuevo folklore argentino, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, string improv improv on frame nueva canción cimbálová muzika. thick, breath veiled tone, straight onset, interlocked note trading. sitka spruce spruce maple bronze fingerpicked dreadnought acoustic guitar, tango virtuoso modern Argentine post 1990 revival straight bandoneon, modern bright beech laminated maple laminated European tradition sitka spruce grand piano, swaying bombo leguero, steel plywood laminate European maple sycamore maple double bass, naranjillo andean premium wood cedar andean andean classical charango. large tracking room 1920-1965 mid tier odeon rca buenos aires. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 827,
+  "score": 249.07,
+  "config": {
+    "traditions": [
+      "nuevo_folklore_argentino",
+      "nueva_cancion",
+      "cimbalova_muzika"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 7.745000000000001,
+          "voice_quality": 11.114999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.38,
+          "voice_articulation": 25.09,
+          "voice_microtone": 25.48,
+          "voice_tradition": 11.27,
+          "voice_mechanism_compound": 4.3549999999999995,
+          "voice_estill_quality": 2.775,
+          "voice_speech_song": 29.510000000000005,
+          "voice_ensemble_config": 25.025000000000006,
+          "voice_ornament_system": 5.3625,
+          "voice_pitch_organization": 1.5899999999999999,
+          "voice_processing_chain": 7.4799999999999995,
+          "voice_multitrack_stack": 7.052500000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 6.760000000000001,
+          "string_tuning": 0.9399999999999998,
+          "top_wood": 1.645,
+          "back_sides": 1.645,
+          "string_acoustic": 1.645
+        }
+      },
+      {
+        "id": "bandoneon",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "bandoneon_action": "bandoneon_bisonoric",
+          "bandoneon_use": "bandoneon_orquesta",
+          "bandoneon_maker_school": "bandoneon_argentine_made",
+          "bandoneon_reed_material": "bandoneon_steel_reeds_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 4.1850000000000005,
+          "bandoneon_action": 0.6,
+          "bandoneon_use": 2.275,
+          "bandoneon_maker_school": 2.9899999999999998,
+          "bandoneon_reed_material": -1.91
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "renner_blue_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 1.625,
+          "grand_piano_size": 0.43499999999999994,
+          "grand_piano_brand": 1.645,
+          "piano_hammer": 2.0149999999999997,
+          "piano_rim": 2.015,
+          "piano_soundboard": 3.995,
+          "piano_pinblock": 1.295,
+          "piano_plate": 1.445,
+          "piano_pitch_standard": 4.94
+        }
+      },
+      {
+        "id": "bombo_leguero",
+        "slots": {
+          "bombo_leguero_form": "bombo_leguero_santiagueno",
+          "bombo_leguero_style": "bombo_leguero_zamba",
+          "bombo_leguero_head": "bombo_leguero_sintetico"
+        },
+        "scores": {
+          "bombo_leguero_form": 4.6450000000000005,
+          "bombo_leguero_style": 3.4,
+          "bombo_leguero_head": 0.45
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "bass_steel",
+          "bass_top_wood": "plywood_bass_top",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "bass_size": 0.045,
+          "bass_strings": 2.145,
+          "bass_top_wood": 1.25,
+          "bass_back_wood": 2.015,
+          "bass_varnish": 1.25,
+          "bass_setup_period": 2.135,
+          "bass_play": 2.59,
+          "bass_rosin": 3.9449999999999994,
+          "bass_bow_stick": 1.25
+        }
+      },
+      {
+        "id": "charango",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "charango_back": "charango_naranjillo",
+          "charango_top_wood": "charango_cedar_top",
+          "charango_strings": "charango_5_double",
+          "charango_string_material": "charango_fluorocarbon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 4.285,
+          "charango_back": 1.4949999999999999,
+          "charango_top_wood": 1.4949999999999999,
+          "charango_strings": 1.4949999999999999,
+          "charango_string_material": 0.5
+        }
+      }
+    ],
+    "room": "odeon_rca_buenos_aires",
+    "archetype": "arch_ecm_kongshaug",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "andean_colombian_bambuco_6_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "andean_colombian_bambuco_6_8",
+    "room": "odeon_rca_buenos_aires",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

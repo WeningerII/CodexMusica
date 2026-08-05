@@ -1,0 +1,128 @@
+{
+  "id": "birmingham_techno",
+  "name": "Birmingham Techno",
+  "family": "electronic",
+  "lineage": "UK industrial-techno strain forged in Birmingham between 1993 and 1999 around Karl O'Connor's Downwards label with Regis, Surgeon, Female and Anthony Child, running 130-140 BPM loops of distorted, heavily compressed drum machine hits, feedback-driven metallic percussion, no melodic content and post-punk/industrial sonic references drawn from Whitehouse and early Throbbing Gristle.",
+  "recipe": "classic European early-1990s birmingham techno, electronic Dance, techno branch, industrial noise experimental electric, hardstyle electronic dance power noise. TR-909, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, field textural sampler, analog mono modular synth, turntable. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 440,
+  "score": 100.862,
+  "config": {
+    "traditions": [
+      "birmingham_techno",
+      "power_noise",
+      "industrial"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 0.795,
+          "drum_machine_909_context": 0.975,
+          "tr909_production_origin": 0
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_clap",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 0,
+          "drum_machine_808_context": 1.9175,
+          "tr808_production_origin": 6.499999999999999
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 9.375,
+          "sampler_archetypes": 0.24,
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": 9.82,
+          "sampler_classic_context": 39.125
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 12.575,
+          "mono_oscillator": 0,
+          "mono_filter": 0.585,
+          "mono_archetypes": 0.585,
+          "mono_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 12.575,
+          "mod_voltage_source": 1.285,
+          "mod_patch_density": 1.145,
+          "mod_lineage": 0.43500000000000005
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "scores": {
+          "electronic_technique": 0.06499999999999999,
+          "turntable_technique": 0.6950000000000001
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "broken"
+  }
+}

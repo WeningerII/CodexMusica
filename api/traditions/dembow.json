@@ -3,14 +3,14 @@
   "name": "Dembow (Dominican)",
   "family": "global",
   "lineage": "Dominican street-dance genre built on the 'Pounder'/Dem Bow riddim exported from Kingston in 1990, localised in Santo Domingo barrios through the 2000s by producers such as DJ Scuff and Bubloy and MCs Omega, El Alfa and Chimbala — 110-125 BPM boom-ch-boom-chick two-bar drum pattern with a hard sampled snare or timbal on the offbeat, minimal or absent harmonic content, shouted call-and-response Spanish hooks with heavy vocal chopping and pitch effects, and abrupt sound-effect stabs replacing melodic instrumentation.",
-  "recipe": "classic mid-2000s dembow, mc Rhythm, reggaeton branch, Jamaican bass system, Afro-diasporic electric groove percussion, us hip hop southern trap queen memphis hip-hop. vocal fry, rap, straight note core, interlocked note trading. sampled chopped sampler drum machine, roland tr 8s modern aira digital recreation TR-808, open slap hand drum timbales, low sub bass digital subtractive, snappy to palm hand clap, la bella flats Detroit soul bass canon sub heavy electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
-  "recipe_chars": 660,
-  "score": 235.893,
+  "recipe": "classic mid-2000s dembow, mc Rhythm, reggaeton branch, Jamaican bass system, Afro-diasporic electric groove percussion, us hip hop southern trap queen miami electro. vocal fry, rap, straight note core, interlocked note trading. sampled chopped sampler drum machine, roland tr 8s modern aira digital recreation TR-808, open slap hand drum timbales, sub bass digital subtractive, live room natural hand clap, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 685,
+  "score": 230.785,
   "config": {
     "traditions": [
       "dembow",
       "trap_queen",
-      "memphis_hip_hop_tape"
+      "miami_electro"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.145,
-          "voice_quality": 11.97125,
+          "voice_register": 1.95,
+          "voice_quality": 11.63125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.185,
-          "voice_articulation": 22.879999999999995,
-          "voice_microtone": 24.82999999999999,
-          "voice_tradition": 8.905000000000001,
-          "voice_mechanism_compound": 3.8349999999999995,
-          "voice_estill_quality": 3.6400000000000006,
-          "voice_speech_song": 23.529999999999998,
-          "voice_ensemble_config": 21.709999999999994,
-          "voice_ornament_system": 7.735000000000001,
-          "voice_pitch_organization": 1.7462499999999999,
-          "voice_processing_chain": 8.6625,
-          "voice_multitrack_stack": 6.908125000000001
+          "voice_vibrato": 2.5349999999999997,
+          "voice_articulation": 21.319999999999997,
+          "voice_microtone": 20.929999999999993,
+          "voice_tradition": 7.695625,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 4.095000000000001,
+          "voice_speech_song": 21.97,
+          "voice_ensemble_config": 19.954999999999995,
+          "voice_ornament_system": 6.825000000000002,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 7.7425,
+          "voice_multitrack_stack": 5.578125000000001
         }
       },
       {
@@ -61,10 +61,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 5.750000000000001,
-          "sample_bitdepth": 1.73875,
-          "sample_swing": 6.625000000000001,
-          "sample_processing": 0.78
+          "electronic_technique": 5.075,
+          "sample_bitdepth": 1.69,
+          "sample_swing": 6.449999999999999,
+          "sample_processing": 1.4300000000000002
         }
       },
       {
@@ -75,22 +75,22 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.345000000000001,
-          "drum_machine_808_context": 2.34,
-          "tr808_production_origin": 1.4949999999999999
+          "tr808_voice": 9.197499999999998,
+          "drum_machine_808_context": 4.68,
+          "tr808_production_origin": 1.105
         }
       },
       {
         "id": "timbales",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "timbales_shell": "timbales_brass",
+          "timbales_shell": "timbales_bronze",
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 3.09,
-          "timbales_shell": 0.65,
-          "timbales_context": 1.3
+          "percussion_technique": 3.5700000000000003,
+          "timbales_shell": 0.885,
+          "timbales_context": 1.95
         }
       },
       {
@@ -101,27 +101,27 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 9.89875,
-          "va_archetypes": 0.18,
-          "digital_subtractive_context": 20.345
+          "electronic_technique": 12.219999999999999,
+          "va_archetypes": 0.135,
+          "digital_subtractive_context": 19.435
         }
       },
       {
         "id": "hand_clap",
         "slots": {
           "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_close_dry"
+          "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 1.625,
-          "clap_capture": 0.414375
+          "clap_technique": 0.975,
+          "clap_capture": 1.04
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_orange",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
@@ -129,13 +129,13 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 2.2749999999999995,
-          "body_wood": 0.585,
-          "pickup_config": 2.415,
-          "string_type": 3.1200000000000006,
-          "scale_length_b": 1.69,
+          "amp_make": 3.575,
+          "body_wood": 0.39,
+          "pickup_config": 2.145,
+          "string_type": 5.46,
+          "scale_length_b": 1.95,
           "fretted_or_not": 0.585,
-          "bass_technique": 3.9875000000000003
+          "bass_technique": 3.5300000000000002
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "German Baroque",
   "family": "classical",
   "lineage": "North- and central-German art music of roughly 1650-1750 codified by Buxtehude in Lübeck and brought to its summit by J.S. Bach in Weimar, Köthen and Leipzig alongside Telemann and Handel — dense contrapuntal writing over a continuo of organ or harpsichord with cello and violone, Lutheran chorale melodies as structural cantus firmus, dance-suite meters, terraced dynamics, and gut-strung violins, oboes, natural trumpets and recorders played in circulating well temperaments at low chamber pitch.",
-  "recipe": "classic European early-1650s german baroque, art Music, western early branch, western common practice art music, christian gospel anglican choral, western modern art music classical period second viennese school. Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, flemish ruckers antwerp canonical late 16th 17th century bach era reference delrin plastic plectra canonical modern stable replacement vallotti canonical late Baroque Italian well temperament legato harpsichord, silver wound lamb gut core norway spruce European alpine European maple violin orchestral, plain lamb gut canonical period performance gut tied frets movable canonical viol viola da gamba, gut norway spruce European alpine European maple bosnian source cello.",
-  "recipe_chars": 965,
-  "score": 423.855,
+  "recipe": "classic European early-1650s german baroque, art Music, western early branch, western common practice art music, christian gospel anglican choral, western modern art music second viennese school french baroque. Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament legato harpsichord, gut Italian alpine spruce val di fiemme bigleaf maple western maple violin orchestral, plain lamb gut canonical period performance gut tied frets movable canonical viol viola da gamba, synthetic Italian alpine spruce val di fiemme European maple bosnian source cello.",
+  "recipe_chars": 963,
+  "score": 331.699,
   "config": {
     "traditions": [
       "german_baroque",
-      "classical_period_18c",
-      "second_viennese_school"
+      "second_viennese_school",
+      "french_baroque"
     ],
     "instruments": [
       {
@@ -25,13 +25,13 @@
           "pipe_organ_action": "pipe_organ_mechanical_tracker"
         },
         "scores": {
-          "keyboard_technique": 8.25,
-          "pipe_organ_class": 2.445,
-          "pipe_organ_context": 17.55,
-          "pipe_organ_voicing_school": 13.934999999999999,
-          "pipe_organ_pipe_alloy": 4.16,
-          "pipe_organ_temperament": 6.855,
-          "pipe_organ_action": 4.5249999999999995
+          "keyboard_technique": 5,
+          "pipe_organ_class": 2.1925,
+          "pipe_organ_context": 16.509999999999998,
+          "pipe_organ_voicing_school": 12.75625,
+          "pipe_organ_pipe_alloy": 3.3149999999999995,
+          "pipe_organ_temperament": 5.720000000000001,
+          "pipe_organ_action": 3.2325000000000004
         }
       },
       {
@@ -40,44 +40,44 @@
           "keyboard_technique": "keyboard_classical_legato",
           "harpsichord_register": "harpsi_8_foot",
           "harpsichord_context": "harpsichord_solo",
-          "harpsichord_maker_school": "harpsichord_flemish_ruckers",
-          "harpsichord_plectrum": "harpsichord_delrin_modern",
+          "harpsichord_maker_school": "harpsichord_french_blanchet_taskin",
+          "harpsichord_plectrum": "harpsichord_leather_french",
           "harpsichord_temperament": "harpsichord_vallotti"
         },
         "scores": {
-          "keyboard_technique": 8.25,
-          "harpsichord_register": 4.29,
-          "harpsichord_context": 17.55,
-          "harpsichord_maker_school": 5.46,
-          "harpsichord_plectrum": 3.575,
-          "harpsichord_temperament": 6.97
+          "keyboard_technique": 5,
+          "harpsichord_register": 2.6,
+          "harpsichord_context": 16.509999999999998,
+          "harpsichord_maker_school": 5.2,
+          "harpsichord_plectrum": 4.3549999999999995,
+          "harpsichord_temperament": 6.07125
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "silver_wound_lamb_gut_violin",
-          "orch_top_wood": "norway_spruce_alpine_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_strings": "gut_strings_orch",
+          "orch_top_wood": "italian_alpine_spruce_violin",
+          "orch_back_wood": "bigleaf_western_maple_violin",
           "orch_varnish": "cremonese_pre_1750_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
+          "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 8.25,
-          "orch_strings": 2.685,
-          "orch_top_wood": 16.11,
-          "orch_back_wood": 15.11,
-          "orch_varnish": 14.635,
-          "orch_setup_period": 12.895000000000001,
-          "orch_bow": 4.225,
-          "orch_bow_stick": 14.735,
+          "bowed_technique": 5,
+          "orch_strings": 2.7950000000000004,
+          "orch_top_wood": 11.54875,
+          "orch_back_wood": 11.732499999999998,
+          "orch_varnish": 9.47,
+          "orch_setup_period": 9.540000000000001,
+          "orch_bow": 3.575,
+          "orch_bow_stick": 11.147499999999999,
           "orch_articulation": 2.7299999999999995,
-          "orch_rosin": 15.745
+          "orch_rosin": 12.6425
         }
       },
       {
@@ -92,48 +92,48 @@
           "gamba_lineage": "gamba_marais_french_baroque"
         },
         "scores": {
-          "bowed_technique": 8.25,
+          "bowed_technique": 5,
           "gamba_size": 1.3,
-          "viola_da_gamba_context": 17.55,
-          "gamba_strings": 6.76,
-          "gamba_frets": 2.88,
-          "gamba_bow_stick": 12.625,
-          "gamba_lineage": 2.7449999999999997
+          "viola_da_gamba_context": 16.509999999999998,
+          "gamba_strings": 4.875,
+          "gamba_frets": 2.2337499999999997,
+          "gamba_bow_stick": 7.951250000000001,
+          "gamba_lineage": 4.811249999999999
         }
       },
       {
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_gut",
-          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "italian_alpine_spruce_cello",
           "cello_back_wood": "bosnian_flamed_maple_cello",
           "cello_varnish": "cremonese_pre_1750_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
-          "cello_rosin": "galeazzi_1791_baroque_rosin_cello",
+          "cello_rosin": "pirastro_cellisto_rosin",
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 8.25,
-          "cello_strings": 3.8349999999999995,
-          "cello_top_wood": 16.11,
-          "cello_back_wood": 15.11,
-          "cello_varnish": 14.635,
-          "cello_setup_period": 12.895000000000001,
-          "cello_bow_grip": 4.29,
-          "cello_rosin": 15.145,
-          "cello_bow_stick": 14.735
+          "bowed_technique": 5,
+          "cello_strings": 3.7049999999999996,
+          "cello_top_wood": 11.54875,
+          "cello_back_wood": 10.335,
+          "cello_varnish": 9.47,
+          "cello_setup_period": 9.540000000000001,
+          "cello_bow_grip": 2.6,
+          "cello_rosin": 10.06,
+          "cello_bow_stick": 11.147499999999999
         }
       },
       {
         "id": "natural_trumpet",
         "slots": {
-          "natural_trumpet_type": "natural_trumpet_vented_repro",
+          "natural_trumpet_type": "natural_trumpet_baroque",
           "natural_trumpet_register": "natural_trumpet_principale_low"
         },
         "scores": {
-          "natural_trumpet_type": 2.5349999999999997,
+          "natural_trumpet_type": 2.1925,
           "natural_trumpet_register": 1
         }
       },
@@ -146,10 +146,10 @@
           "recorder_body_wood": "recorder_boxwood_canonical"
         },
         "scores": {
-          "wind_articulation": 8.44,
-          "recorder_size": 8.515,
-          "recorder_context": 17.55,
-          "recorder_body_wood": 4.33
+          "wind_articulation": 5.19,
+          "recorder_size": 7.0200000000000005,
+          "recorder_context": 16.509999999999998,
+          "recorder_body_wood": 3.2325000000000004
         }
       },
       {
@@ -159,8 +159,8 @@
           "repertoire": "baroque_choral"
         },
         "scores": {
-          "voicing": 4.29,
-          "repertoire": 1.935
+          "voicing": 2.6,
+          "repertoire": 1.2850000000000001
         }
       },
       {
@@ -170,8 +170,8 @@
           "oboe_damore_style": "oboe_damore_baroque_legato"
         },
         "scores": {
-          "oboe_damore_pitch": 2.29,
-          "oboe_damore_style": 2.445
+          "oboe_damore_pitch": 3.4200000000000004,
+          "oboe_damore_style": 2.1925
         }
       }
     ],

@@ -1,0 +1,162 @@
+{
+  "id": "indorock",
+  "name": "Indorock",
+  "family": "rock",
+  "lineage": "Rock and roll style created by Indo-Dutch (Indische) repatriates in The Hague between roughly 1957 and 1964 — the Tielman Brothers, the Blue Diamonds, the Crazy Rockers and the Black Dynamites — combining fast 4/4 rock and roll and Hawaiian-derived guitar lines with kroncong-inflected melody, twin lead electric guitars using rapid tremolo picking and heavy spring reverb, slap-driven bass, straight backbeat drums, and acrobatic stage guitar technique.",
+  "recipe": "classic British late-1950s indorock, distorted Rock, regional branch, surf rock distorted rock, pop rock functional song, classic distorted rock new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric cedar phosphor bronze bronze strummed open chord ringing overtones parlor acoustic guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
+  "recipe_chars": 716,
+  "score": 532.763,
+  "config": {
+    "traditions": [
+      "indorock",
+      "new_wave",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 59.945000000000014,
+          "voice_quality": 16.152499999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.02,
+          "voice_articulation": 22.424999999999997,
+          "voice_microtone": 57.25,
+          "voice_tradition": 19.304999999999993,
+          "voice_mechanism_compound": 4.485000000000001,
+          "voice_estill_quality": 2.665000000000001,
+          "voice_speech_song": 27.235,
+          "voice_ensemble_config": 21.254999999999995,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 2.565,
+          "voice_processing_chain": 10.690000000000001,
+          "voice_multitrack_stack": 8.4175
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 17.014999999999997,
+          "amp_make": 26.129999999999995,
+          "body_wood": 2.275,
+          "neck_wood": 2.275,
+          "fretboard": 2.21,
+          "pickup_magnet": 0.585,
+          "string_material": 0.975,
+          "string_gauge": 2.925,
+          "bridge": 1.69,
+          "scale_length": 2.275,
+          "finish": 0.09,
+          "string_tuning": 22.294999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 21.58,
+          "body_wood": 3.965,
+          "pickup_config": 1.69,
+          "string_type": 47.345,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0.045,
+          "bass_technique": 43.305
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 40.275,
+          "drumhead": 15.884999999999996,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "drop_d",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 16.424999999999997,
+          "string_tuning": 0.35749999999999993,
+          "top_wood_parlor": 2.275,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 2.275
+        }
+      }
+    ],
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_uk_small_commercial_early",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

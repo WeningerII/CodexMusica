@@ -5,7 +5,7 @@
   "lineage": "Sardinian boci de tela (\"weaving songs\") and broader Sardinian women's-domestic-textile-labor song tradition continuous from medieval-Sardinian-rural domestic-textile labor practice through 19th-20th century continuous performance into modern Sardinian-folk-revival",
   "recipe": "classic Southern European modern sardinian boci de tela, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, European funeral lament albanian vajtim italian ninna-nanna. thick, false fold engaged, straight onset, interlocked note trading. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 378,
-  "score": 131.97,
+  "score": 132.935,
   "config": {
     "traditions": [
       "sardinian_boci_de_tela",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.8100000000000005,
+          "voice_register": 3.72,
           "voice_quality": 22.374999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.21,
           "voice_articulation": 6.955000000000001,
           "voice_microtone": 10.1075,
-          "voice_tradition": 41.785000000000004,
+          "voice_tradition": 41.335,
           "voice_mechanism_compound": 3.8349999999999995,
-          "voice_estill_quality": 5.434999999999999,
+          "voice_estill_quality": 5.7349999999999985,
           "voice_speech_song": 10.854999999999997,
           "voice_ensemble_config": 7.475000000000001,
-          "voice_ornament_system": 7.7575,
-          "voice_pitch_organization": 6.697500000000002,
-          "voice_processing_chain": 1.8525,
+          "voice_ornament_system": 8.190000000000001,
+          "voice_pitch_organization": 7.372500000000001,
+          "voice_processing_chain": 1.95,
           "voice_multitrack_stack": 2.47
         }
       }

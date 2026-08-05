@@ -1,0 +1,112 @@
+{
+  "id": "karelian_folk_music",
+  "name": "Karelian folk music",
+  "family": "vernacular",
+  "lineage": "The song culture of Karelia on both sides of the Finnish-Russian border, centred on Kalevala-meter runic singing in a narrow five-note range with a persistent trochaic tetrameter and a two-singer hand-clasp delivery, alongside itkuvirsi laments improvised by trained women wailers at weddings and funerals in free rhythm with sobbing glottal breaks; recorded by Elias Lönnrot's 1830s collecting journeys and by 20th-century Soviet Karelian and Finnish Literature Society field expeditions.",
+  "recipe": "classic Northeast Asian mid-1830s karelian folk music, drone Modal, vocal branch, European funeral lament, string drone modal, Slavic bard ballad poetry dambora çifteli song. kargyraa, breath veiled tone, straight note core, interlocked note trading. archaic birch alder karelian gut pre modern five string kantele, finnish three string jouhikko. taiga natural reverb. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 443,
+  "score": 186.648,
+  "config": {
+    "traditions": [
+      "karelian_folk_music",
+      "dambora",
+      "cifteli"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.5838750000000004,
+          "voice_quality": 10.919999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6000000000000005,
+          "voice_articulation": 17.549999999999997,
+          "voice_microtone": 20.279999999999994,
+          "voice_tradition": 21.904999999999998,
+          "voice_mechanism_compound": 9.945,
+          "voice_estill_quality": 5.525,
+          "voice_speech_song": 19.629999999999995,
+          "voice_ensemble_config": 17.029999999999994,
+          "voice_ornament_system": 7.800000000000001,
+          "voice_pitch_organization": 6.955000000000001,
+          "voice_processing_chain": 7.995,
+          "voice_multitrack_stack": 3.8350000000000013
+        }
+      },
+      {
+        "id": "kantele",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "kantele_strings": "kantele_5",
+          "kantele_context": "kantele_ballad",
+          "kantele_body_wood": "kantele_birch_alder",
+          "kantele_string_material": "kantele_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.5,
+          "kantele_strings": 1.6,
+          "kantele_context": 3.12,
+          "kantele_body_wood": 2.9899999999999998,
+          "kantele_string_material": 4.485
+        }
+      },
+      {
+        "id": "jouhikko",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "jouhikko_form": "jouhikko_suomi",
+          "jouhikko_context": "jouhikko_runic_song",
+          "jouhikko_strings": "jouhikko_gut"
+        },
+        "scores": {
+          "bowed_technique": 0.585,
+          "jouhikko_form": 10.8895,
+          "jouhikko_context": 5.525000000000001,
+          "jouhikko_strings": 0
+        }
+      }
+    ],
+    "room": "taiga_natural_reverb",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "nordic_modal_drone_double_stops",
+    "room": "taiga_natural_reverb",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

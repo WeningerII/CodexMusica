@@ -1,0 +1,142 @@
+{
+  "id": "sgija",
+  "name": "Sgija",
+  "family": "electronic",
+  "lineage": "South African township dance strain that surfaced around 2019-2021 in Gauteng out of amapiano and Pretoria's Bacardi house, driven by Felo Le Tee, Mellow & Sleazy, Kabza-adjacent producers and dance crews — 112-118 BPM, dominated by a long pitched log-drum bass figure, dry shaker-and-clap grid, siren-like synth stabs and repeated shouted isiZulu/Sepitori chants rather than sung verses.",
+  "recipe": "classic 2019-2021 sgija, electronic Dance, African dance branch, deep house house, Afro-diasporic MC rhythm funk consciente float house. thick, breath veiled tone, straight onset, interlocked note trading. log drum, TR-808, sub bass analog poly synth, close dry hand clap, deep foundational bass rhythm calabash shekere. no single room 2015-present distributed distributed production. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 468,
+  "score": 153.267,
+  "config": {
+    "traditions": [
+      "sgija",
+      "funk_consciente",
+      "float_house"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.6249999999999993,
+          "voice_quality": 8.190000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.9099999999999999,
+          "voice_articulation": 17.159999999999993,
+          "voice_microtone": 16.379999999999992,
+          "voice_tradition": 10.3575,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 17.159999999999993,
+          "voice_ensemble_config": 16.314999999999994,
+          "voice_ornament_system": 2.1449999999999996,
+          "voice_pitch_organization": 0.845,
+          "voice_processing_chain": 12.715000000000002,
+          "voice_multitrack_stack": 5.330000000000001
+        }
+      },
+      {
+        "id": "log_drum",
+        "slots": {
+          "log_drum_voice": "log_drum_sub",
+          "log_drum_context": "log_drum_amapiano"
+        },
+        "scores": {
+          "log_drum_voice": 2.2345,
+          "log_drum_context": 4.55
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 4.062499999999999,
+          "drum_machine_808_context": 3.3799999999999994,
+          "tr808_production_origin": 0.65
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 3.9325,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.65,
+          "poly_maker_lineage": -1.355
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 0.845,
+          "clap_capture": 1.1949999999999998
+        }
+      },
+      {
+        "id": "shekere",
+        "slots": {
+          "shekere_size": "shekere_large",
+          "shekere_beads": "shekere_seed"
+        },
+        "scores": {
+          "shekere_size": 8.645,
+          "shekere_beads": 3.25
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_sa_township_digital",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

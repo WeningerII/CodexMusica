@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s Chicago club-music genre developed at the Warehouse and Music Box clubs through Frankie Knuckles, Ron Hardy, and the early Trax Records and DJ International record-label catalogs — characterized by 120-128 bpm four-on-the-floor kick, drum-machine programming, sampled-and-looped disco-and-soul vocal hooks, and the form's explicit Black-and-Latino-queer-club origins (1984-1988)",
   "recipe": "classic Asian 1984-1988 chicago house, electronic Dance, chicago house branch, christian gospel black gospel. drum machine analog, monosynth acid bass. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 301,
-  "score": 17.945,
+  "score": 18.054,
   "config": {
     "traditions": [
       "chicago_house"
@@ -36,9 +36,9 @@
         },
         "scores": {
           "electronic_technique": 1.7610000000000001,
-          "wave_acid": 0.36524999999999996,
+          "wave_acid": 0.354,
           "filter_acid": 0.39,
-          "accent_acid": 0.855
+          "accent_acid": 0.975
         }
       }
     ],

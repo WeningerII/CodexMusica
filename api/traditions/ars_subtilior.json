@@ -1,0 +1,155 @@
+{
+  "id": "ars_subtilior",
+  "name": "Ars Subtilior",
+  "family": "classical",
+  "lineage": "Late-fourteenth-century Franco-Cypriot courtly polyphony of circa 1370-1420 around Avignon, Foix and the Aragonese court, written by Baude Cordier, Solage, Jacob de Senleches and Matteo da Perugia and preserved in the Chantilly and Modena codices — extreme rhythmic notation with simultaneous mensurations, syncopation across the tactus, chromatic inflection, eye-music heart- and circle-shaped scores, and three- or four-voice ballades and rondeaux for solo voices with vielle, harp and lute.",
+  "recipe": "classic European early-1370s ars subtilior, art Music, western early branch, western common practice art music, western modern art music musical impressionism chamber music. thick, breath veiled tone, slow rate, interlocked note trading. sustained legato vielle medieval, harpa, late 16c ayre and lieder fluorocarbon modern revival lute renaissance, melismatic single line portative organ, grenadilla African blackwood modern premium continuous-airflow legato recorder. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 555,
+  "score": 254.416,
+  "config": {
+    "traditions": [
+      "ars_subtilior",
+      "impressionism",
+      "chamber_music"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "operatic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 5.25,
+          "voice_quality": 10.659999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.5,
+          "voice_articulation": 28.990000000000006,
+          "voice_microtone": 27.300000000000004,
+          "voice_tradition": 8.32,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 8.0584375,
+          "voice_speech_song": 30.615000000000006,
+          "voice_ensemble_config": 28.860000000000003,
+          "voice_ornament_system": 6.104375,
+          "voice_pitch_organization": 5.07,
+          "voice_processing_chain": 3.6399999999999997,
+          "voice_multitrack_stack": 3.4834375
+        }
+      },
+      {
+        "id": "vielle_medieval",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "vielle_medieval_form": "vielle_medieval_oval_five_string",
+          "vielle_medieval_repertoire": "vielle_medieval_troubadour_song",
+          "vielle_medieval_stringing": "vielle_medieval_bourdon_gut"
+        },
+        "scores": {
+          "bowed_technique": 5,
+          "vielle_medieval_form": 2.145,
+          "vielle_medieval_repertoire": 1.195,
+          "vielle_medieval_stringing": 0.39
+        }
+      },
+      {
+        "id": "harpa",
+        "slots": {
+          "harpa_size": "harpa_lap",
+          "harpa_strings": "harpa_horsehair"
+        },
+        "scores": {
+          "harpa_size": 0.285,
+          "harpa_strings": 0.15
+        }
+      },
+      {
+        "id": "lute_renaissance",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "lute_courses": "lute_8_courses",
+          "lute_renaissance_context": "lute_renaissance_song",
+          "lute_renaissance_ribs": "lute_yew_ribs",
+          "lute_renaissance_soundboard": "lute_alpine_spruce",
+          "lute_renaissance_strings": "lute_fluorocarbon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5,
+          "lute_courses": 1.4949999999999999,
+          "lute_renaissance_context": 24.050000000000008,
+          "lute_renaissance_ribs": 0.39,
+          "lute_renaissance_soundboard": 0.39,
+          "lute_renaissance_strings": 2.34
+        }
+      },
+      {
+        "id": "portative_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "portative_organ_form": "portative_organ_form_single_rank",
+          "portative_organ_repertoire": "portative_organ_repertoire_trecento_secular",
+          "portative_organ_pipework": "portative_organ_pipework_metal"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "portative_organ_form": 0.7149999999999999,
+          "portative_organ_repertoire": 1.6949999999999998,
+          "portative_organ_pipework": -0.1
+        }
+      },
+      {
+        "id": "recorder",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "recorder_size": "alto_recorder",
+          "recorder_context": "recorder_baroque_solo",
+          "recorder_body_wood": "recorder_grenadilla"
+        },
+        "scores": {
+          "wind_articulation": 5.19,
+          "recorder_size": 2.6,
+          "recorder_context": 19.759999999999998,
+          "recorder_body_wood": 2.2749999999999995
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pythagorean",
+    "room": "cathedral",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

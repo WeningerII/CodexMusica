@@ -1,0 +1,188 @@
+{
+  "id": "thai_psychedelic",
+  "name": "Thai Psychedelic",
+  "family": "global",
+  "lineage": "Thai psychedelic rock of the late 1960s-70s, formed in Bangkok and the Isan northeast when luk thung and mor lam singers were backed by electric string bands — Plearn Promdan, Dao Bandon and later reissue-canonized groups — pairing khaen-derived modal riffs and free-reed drone with fuzz guitar, farfisa organ, driving 4/4 kit at 110-150 BPM and nasal Thai vocal delivery cut to raw mono singles.",
+  "recipe": "classic Southeast Asian 1967-1969 thai psychedelic, distorted Rock, regional branch, wind pipe drone modal, east Asian pop functional song enka molam. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation ebony single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, psychedelic foregrounded organ driven rock block chord combo organ, khaen, central Thai ching chap open and damped ching. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 775,
+  "score": 358.683,
+  "config": {
+    "traditions": [
+      "thai_psychedelic",
+      "enka",
+      "molam"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 20.77499999999999,
+          "voice_quality": 11.764999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5024999999999995,
+          "voice_articulation": 19.955000000000005,
+          "voice_microtone": 23.660000000000004,
+          "voice_tradition": 18.425,
+          "voice_mechanism_compound": 5.9799999999999995,
+          "voice_estill_quality": 5.525000000000001,
+          "voice_speech_song": 25.740000000000002,
+          "voice_ensemble_config": 20.93,
+          "voice_ornament_system": 5.525000000000001,
+          "voice_pitch_organization": 10.87,
+          "voice_processing_chain": 4.7,
+          "voice_multitrack_stack": 8.865
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_short",
+          "finish": "oil_satin",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 11.25,
+          "amp_make": 3.89,
+          "body_wood": 0.845,
+          "neck_wood": 0.845,
+          "fretboard": 1.39,
+          "pickup_magnet": 0.15,
+          "string_material": 0.15,
+          "string_gauge": 0.845,
+          "bridge": 0.845,
+          "scale_length": 1.15,
+          "finish": 1.5,
+          "string_tuning": 3.9899999999999993
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 4.045,
+          "body_wood": 1.69,
+          "pickup_config": 0.845,
+          "string_type": 8.124999999999998,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 0.345,
+          "bass_technique": 8.224999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.572500000000005,
+          "drumhead": 10.87,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_unspecified"
+        },
+        "scores": {
+          "keyboard_technique": 11.215,
+          "combo_organ_model": 11.999999999999998,
+          "combo_organ_voicing": 12.719999999999999,
+          "combo_organ_context": 8.19,
+          "amp_make": 0
+        }
+      },
+      {
+        "id": "khaen",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "khaen_size": "khaen_paet",
+          "khaen_context": "khaen_mor_lam"
+        },
+        "scores": {
+          "free_reed_technique": 1.27,
+          "khaen_size": 3.8399999999999994,
+          "khaen_context": 5.254999999999999
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_thai",
+          "ching_stroke": "ching_open_closed",
+          "ching_alloy": "ching_bronze"
+        },
+        "scores": {
+          "ching_form": 8.95,
+          "ching_stroke": 21.515000000000004,
+          "ching_alloy": 0.9099999999999999
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "equal_heptatonic_thai_khmer",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "equal_heptatonic_thai_khmer",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

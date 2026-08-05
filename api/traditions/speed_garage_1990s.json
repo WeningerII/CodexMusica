@@ -3,14 +3,14 @@
   "name": "Speed garage (UK 90s)",
   "family": "electronic",
   "lineage": "Late-1990s UK garage subgenre developed in London integrating Jamaican ragga-and-dancehall vocal-sampling and bass-line aesthetic with US deep-house production framework. Characterized by chopped-vocal samples, prominent rolling-bass, and the canonical Tuff Jam-Dreem Teem-MJ Cole DJ-and-production lineage. Direct precursor of 2-step UK garage and (through 2-step) UK grime, dubstep, and future garage.",
-  "recipe": "classic British 1997-1999 speed garage, bass System, uk soundsystem branch, Jamaican bass system jamaican dancehall reggae roots. vocal fry, breath veiled tone, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, low sub bass analog synth, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 639,
-  "score": 205.672,
+  "recipe": "classic British 1997-1999 speed garage, bass System, uk soundsystem branch, Jamaican bass system dancehall jamaican dancehall. vocal fry, breath veiled tone, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 632,
+  "score": 203.085,
   "config": {
     "traditions": [
       "speed_garage_1990s",
-      "jamaican_dancehall",
-      "reggae_roots"
+      "dancehall",
+      "jamaican_dancehall"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.47425,
-          "voice_quality": 10.594999999999994,
+          "voice_register": 4.159999999999999,
+          "voice_quality": 6.500000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.21,
-          "voice_articulation": 16.509999999999998,
-          "voice_microtone": 19.499999999999993,
-          "voice_tradition": 6.630000000000001,
-          "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 16.899999999999995,
-          "voice_ensemble_config": 16.054999999999996,
-          "voice_ornament_system": 4.8100000000000005,
-          "voice_pitch_organization": 2.990000000000001,
-          "voice_processing_chain": 6.87,
-          "voice_multitrack_stack": 6.24
+          "voice_vibrato": 3.0400000000000005,
+          "voice_articulation": 14.429999999999996,
+          "voice_microtone": 18.069999999999993,
+          "voice_tradition": 6.175,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 14.624999999999995,
+          "voice_ensemble_config": 14.364999999999997,
+          "voice_ornament_system": 6.11,
+          "voice_pitch_organization": 2.49,
+          "voice_processing_chain": 6.94,
+          "voice_multitrack_stack": 6.044999999999999
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 8.71,
-          "drum_machine_808_context": 9.425,
-          "tr808_production_origin": 2.0149999999999997
+          "tr808_voice": 10.659999999999998,
+          "drum_machine_808_context": 11.375,
+          "tr808_production_origin": 2.1799999999999997
         }
       },
       {
@@ -75,10 +75,10 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 12.93525,
-          "oscillator": 8.775000000000002,
-          "filter_topology": 9.815000000000001,
-          "envelope": 0.585,
+          "electronic_technique": 14.819999999999999,
+          "oscillator": 10.725,
+          "filter_topology": 10.075,
+          "envelope": 0.39,
           "modulation": 0
         }
       },
@@ -86,21 +86,21 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "amp_make": 8.905000000000001,
-          "body_wood": 0.845,
-          "pickup_config": 0.195,
-          "string_type": 10.335,
-          "scale_length_b": 0.845,
+          "amp_make": 9.815,
+          "body_wood": 0.69,
+          "pickup_config": 0.495,
+          "string_type": 10.14,
+          "scale_length_b": 0.285,
           "fretted_or_not": 0.39,
-          "bass_technique": 5.62
+          "bass_technique": 5.669999999999999
         }
       }
     ],

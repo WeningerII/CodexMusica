@@ -3,9 +3,9 @@
   "name": "Hausa court music (roķon Sarkin Kano)",
   "family": "global",
   "lineage": "Sahelian-Hausa royal-court ceremonial tradition centered on the emirates of northern Nigeria and southern Niger (Kano, Katsina, Sokoto, Zaria, Daura) — characterized by kakaki long-trumpet fanfares, talking-drum (kalangu) praise-singing, ganga and tambari drum ensembles announcing emir presence; ritual functions tied to the masu sarauta court-titled-officials system",
-  "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion yoruba dùndún surrogate speech were music. vocal fry, declaimed, pure, interlocked note trading. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, griot voice, goje, ceremonial praise driven algaita. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 630,
-  "score": 244.982,
+  "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion yoruba dùndún surrogate speech were music. thick, declaimed, pure, interlocked note trading. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, griot voice, goje, ceremonial praise driven algaita. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 626,
+  "score": 240.185,
   "config": {
     "traditions": [
       "hausa_court_music",
@@ -16,7 +16,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 1.0949999999999998,
+          "voice_register": 0.9449999999999994,
           "voice_quality": 16.145,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.845,
           "voice_articulation": 10.529999999999994,
           "voice_microtone": 12.512499999999992,
-          "voice_tradition": 45.467499999999994,
+          "voice_tradition": 41.845,
           "voice_mechanism_compound": 0.845,
-          "voice_estill_quality": 3.91,
+          "voice_estill_quality": 4.42,
           "voice_speech_song": 14.299999999999995,
           "voice_ensemble_config": 10.464999999999995,
-          "voice_ornament_system": 8.785,
-          "voice_pitch_organization": 12.604999999999995,
+          "voice_ornament_system": 8.364999999999998,
+          "voice_pitch_organization": 12.514999999999995,
           "voice_processing_chain": 5.07,
           "voice_multitrack_stack": 2.3399999999999994
         }
@@ -64,21 +64,21 @@
           "wind_articulation": 11.115,
           "kakaki_length": 6.25,
           "kakaki_context": 2.5999999999999996,
-          "kakaki_bell_metal": 4.18
+          "kakaki_bell_metal": 4.045
         }
       },
       {
         "id": "talking_drum",
         "slots": {
           "talking_drum_origin": "gangan_yoruba",
-          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_context": "talking_drum_praise",
           "talking_drum_shell_wood": "talking_drum_iroko_alt",
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
           "talking_drum_origin": 3.8449999999999998,
-          "talking_drum_context": 1.6049999999999998,
-          "talking_drum_shell_wood": 8.58,
+          "talking_drum_context": 1.4949999999999999,
+          "talking_drum_shell_wood": 7.335000000000001,
           "talking_drum_head": 2.4450000000000003
         }
       },
@@ -103,9 +103,9 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "goje_form": 11.369999999999997,
-          "goje_repertoire": 7.745,
-          "goje_material": 0.325
+          "goje_form": 11.324999999999998,
+          "goje_repertoire": 7.3100000000000005,
+          "goje_material": 0.25
         }
       },
       {
@@ -116,8 +116,8 @@
           "algaita_reed": "algaita_cane_reed"
         },
         "scores": {
-          "algaita_form": 11.084999999999999,
-          "algaita_context": 12.135,
+          "algaita_form": 11.594999999999999,
+          "algaita_context": 12.645,
           "algaita_reed": -0.05
         }
       }

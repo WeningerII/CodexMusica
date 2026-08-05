@@ -1,0 +1,158 @@
+{
+  "id": "bassline",
+  "name": "Bassline",
+  "family": "electronic",
+  "lineage": "Sheffield and the East Midlands, roughly 2002-2008, codified at the Niche club and by DJs Jamie Duggan, DJ Q and producers behind T2's 'Heartbroken' — a 4/4 UK garage derivative at 135-142 BPM built on a hard offbeat kick-and-clap grid, an aggressive square- or reese-toned mid-bass riff carrying the hook, and soulful female topline vocals or MC chat over sparse organ stabs.",
+  "recipe": "classic British mid-2000s bassline, bass System, uk soundsystem branch, garage house u s house, bass descendants bass system, intl hip hop MC rhythm jump-up ballroom. extended whistle, breath veiled tone, slow rate, interlocked note trading. sub bass monosynth acid bass, TR-909, sub bass analog poly synth, chopped sampler, psychedelic foregrounded organ driven rock combo organ. bedroom. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3.",
+  "recipe_chars": 463,
+  "score": 223.086,
+  "config": {
+    "traditions": [
+      "bassline",
+      "jump_up",
+      "ballroom_house"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.56,
+          "voice_quality": 10.269999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.965,
+          "voice_articulation": 19.435000000000002,
+          "voice_microtone": 20.279999999999998,
+          "voice_tradition": 5.915000000000001,
+          "voice_mechanism_compound": 1.17,
+          "voice_estill_quality": 1.8199999999999996,
+          "voice_speech_song": 20.28,
+          "voice_ensemble_config": 19.564999999999998,
+          "voice_ornament_system": 4.244375000000001,
+          "voice_pitch_organization": 2.2099999999999995,
+          "voice_processing_chain": 12.709375,
+          "voice_multitrack_stack": 6.17875
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 11.297499999999998,
+          "wave_acid": 0.18,
+          "filter_acid": 0.195,
+          "accent_acid": 0.12999999999999998
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 11.749999999999998,
+          "drum_machine_909_context": 2.34,
+          "tr909_production_origin": 0.3
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 11.297499999999998,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.6149999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.6999999999999997,
+          "sampler_archetypes": 2.7299999999999995,
+          "sampler_bit_depth": 3.78375,
+          "sampler_workflow": 2.79,
+          "sampler_classic_context": 36.66
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "vox_continental_combo",
+          "combo_organ_voicing": "combo_organ_16_pedal",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_unspecified"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "combo_organ_model": 1.625,
+          "combo_organ_voicing": 3.835,
+          "combo_organ_context": 1.4949999999999999,
+          "amp_make": 0
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_uk_grime_dubstep_pirate",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

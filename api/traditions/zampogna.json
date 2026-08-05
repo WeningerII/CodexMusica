@@ -1,0 +1,132 @@
+{
+  "id": "zampogna",
+  "name": "Zampogna",
+  "family": "vernacular",
+  "lineage": "Southern Italian double-chantered mouth-blown bagpipe tradition of Molise, Abruzzo, Campania, Calabria and Sicily, documented from the 17th century and carried by shepherd-pipers (zampognari) who descend to towns for the Christmas novena, playing paired-chanter harmony with two drones against the ciaramella shawm at brisk 6/8 pastorale tempi, with untempered scales and heavy nasal reed-driven ornamentation.",
+  "recipe": "classic early-1940s zampogna, drone Modal, wind pipe branch, European carnival processional, christian gospel ritual devotional organetto adoração. thick, breath veiled tone, slow rate, interlocked note trading. olive wood canonical southern Italian cane arundo donax canonical Italian whole goatskin canonical southern Italian pastoral zampogna, ciaramella, piffero appenninico, tambourine orch. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 488,
+  "score": 144.51,
+  "config": {
+    "traditions": [
+      "zampogna",
+      "organetto_italiano",
+      "adoracao"
+    ],
+    "instruments": [
+      {
+        "id": "zampogna",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "zampogna_region": "zampogna_calabrese",
+          "zampogna_context": "zampogna_nativity",
+          "zampogna_chanter_wood": "zampogna_olivewood_canonical",
+          "zampogna_reed": "zampogna_cane_canonical",
+          "zampogna_bag": "zampogna_goatskin_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "zampogna_region": 4.425,
+          "zampogna_context": 2.93,
+          "zampogna_chanter_wood": 4.485,
+          "zampogna_reed": 2.145,
+          "zampogna_bag": 4.485
+        }
+      },
+      {
+        "id": "ciaramella",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "ciaramella_use": "ciaramella_zampogna_pair"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000002,
+          "ciaramella_use": 8.87
+        }
+      },
+      {
+        "id": "piffero_appenninico",
+        "slots": {
+          "piffero_pairing": "piffero_fisarmonica",
+          "piffero_reed": "piffero_hard"
+        },
+        "scores": {
+          "piffero_pairing": 1.69,
+          "piffero_reed": 0.15
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 4.425000000000002,
+          "voice_quality": 9.36,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 16.12,
+          "voice_microtone": 17.679999999999996,
+          "voice_tradition": 8.190000000000001,
+          "voice_mechanism_compound": 5.9799999999999995,
+          "voice_estill_quality": 7.1499999999999995,
+          "voice_speech_song": 18.98,
+          "voice_ensemble_config": 17.03,
+          "voice_ornament_system": 4.4,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 2.405,
+          "voice_multitrack_stack": 5.3950000000000005
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_film"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.045,
+          "tambourine_orch_context": 0.345
+        }
+      }
+    ],
+    "room": "mountain_valley",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "mountain_valley",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

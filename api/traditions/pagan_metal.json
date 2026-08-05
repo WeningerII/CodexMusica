@@ -1,0 +1,225 @@
+{
+  "id": "pagan_metal",
+  "name": "Pagan Metal",
+  "family": "rock",
+  "lineage": "European metal branch formed in the mid-1990s across Finland, the Baltic and Central Europe — Moonsorrow, Skyforger, Kroda and early Ensiferum — that carried black and death metal's tremolo riffing and blast-capable drumming into long, mid-tempo, folk-modal arrangements built on pre-Christian myth, adding kantele, jouhikko, bagpipe and frame-drum lines, hymn-like clean male chorus against a harsh rasped lead, and often eight- to twelve-minute through-built structures rather than verse-chorus form.",
+  "recipe": "classic Northern European 1994-1996 pagan metal, distorted Rock, folk metal branch, black metal, doom metal, modal electric drone modal viking metal. thick, larynx lowered, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit, gut pre modern five string fingerpicked kantele, Swedish archaic dalarna jouhikko, estonian Swedish four string drone under melody drone like tagelharpa, donkey skin bass thin treble tapan, analog poly synth. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 887,
+  "score": 575.623,
+  "config": {
+    "traditions": [
+      "pagan_metal",
+      "viking_metal",
+      "doom"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 50.91437500000001,
+          "amp_make": 24.634999999999998,
+          "body_wood": 25.415,
+          "neck_wood": 5.075,
+          "fretboard": 5.025,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 0.585,
+          "string_material": 0.845,
+          "bridge": 5.12,
+          "scale_length": 21.775,
+          "string_gauge": 6.305,
+          "finish": 0.09,
+          "string_tuning": 33.995000000000005
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 24.137499999999996,
+          "body_wood": 5.265,
+          "pickup_config": 0.39,
+          "string_type": 26.12625,
+          "scale_length_b": 5.12,
+          "fretted_or_not": 0.195,
+          "bass_technique": 20.904375
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.605,
+          "drumhead": 5.12,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 29.424999999999997,
+          "voice_quality": 17.345,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.24,
+          "voice_articulation": 20.929999999999996,
+          "voice_microtone": 24.309999999999995,
+          "voice_tradition": 14.634374999999997,
+          "voice_mechanism_compound": 51.64875,
+          "voice_estill_quality": 3.290625,
+          "voice_speech_song": 22.425,
+          "voice_ensemble_config": 23.59499999999999,
+          "voice_ornament_system": 0.6499999999999999,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 3.0550000000000006
+        }
+      },
+      {
+        "id": "kantele",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "kantele_strings": "kantele_36",
+          "kantele_context": "kantele_kalevala",
+          "kantele_body_wood": "kantele_birch_alder",
+          "kantele_string_material": "kantele_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 8.595,
+          "kantele_strings": 0,
+          "kantele_context": 0.845,
+          "kantele_body_wood": 0,
+          "kantele_string_material": 1.65875
+        }
+      },
+      {
+        "id": "jouhikko",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "jouhikko_form": "jouhikko_moraharpa",
+          "jouhikko_context": "jouhikko_runic_song",
+          "jouhikko_strings": "jouhikko_horsehair"
+        },
+        "scores": {
+          "bowed_technique": 1.17,
+          "jouhikko_form": 1.56,
+          "jouhikko_context": 3.1906250000000003,
+          "jouhikko_strings": 0.975
+        }
+      },
+      {
+        "id": "tagelharpa",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "tagelharpa_form": "tagelharpa_talharpa",
+          "tagelharpa_context": "tagelharpa_drone_melody",
+          "tagelharpa_string_material": "tagelharpa_horsehair",
+          "tagelharpa_body_wood": "tagelharpa_birch_carved"
+        },
+        "scores": {
+          "bowed_technique": 11.193124999999998,
+          "tagelharpa_form": 1.56,
+          "tagelharpa_context": 5.38875,
+          "tagelharpa_string_material": 0.195,
+          "tagelharpa_body_wood": 0.39
+        }
+      },
+      {
+        "id": "tapan",
+        "slots": {
+          "tapan_form": "tapan_davul_anatolian",
+          "tapan_role": "tapan_brass_fanfara",
+          "tapan_build": "tapan_asymmetric_skins"
+        },
+        "scores": {
+          "tapan_form": -0.07,
+          "tapan_role": 0.45499999999999996,
+          "tapan_build": 2
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 1.6699999999999997,
+          "poly_archetypes": 10.985000000000001,
+          "poly_voices": 1.235,
+          "poly_maker_lineage": 0.325
+        }
+      }
+    ],
+    "room": "gothenburg_swedish_melodic_death_studio",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "nordic_modal_drone_double_stops",
+    "room": "gothenburg_swedish_melodic_death_studio",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

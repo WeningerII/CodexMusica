@@ -3,14 +3,14 @@
   "name": "Tecnobanda",
   "family": "global",
   "lineage": "Jalisco-and-Sinaloa hybrid of the early 1990s in which the acoustic banda sinaloense wind section was partly replaced by synthesizers and a trap kit, popularised by Banda Machos, Banda Maguey and Banda Móvil out of Villa Corona and Guadalajara and tied to the quebradita dance craze of 1992-96 — fast 140-170 BPM polka and cumbia rhythms, a synth patch imitating the tuba bass line, clarinets and trumpets doubling the vocal melody in thirds, tarola-and-tambora backbeat played on drum kit, and shouted gritos punctuating the choruses.",
-  "recipe": "classic North American 1990-1993 tecnobanda, functional Song, Mexican branch, tejano border ranchera, Latin am groove percussion cumbia chilena. vocal fry, full chest belt, straight onset, interlocked note trading. sub bass analog poly synth, yellow brass canonical 70 30 bach stradivarius unison shallow cup lead trumpet trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble bass trombone trombone, grenadilla African blackwood traditional clarinet, fiberskyn synthetic calf brushes-and-sticks drum kit, alder la bella flats Detroit soul bass canon electric bass, eb bass brass band sousaphone, walking bass banda sinaloense. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 891,
-  "score": 276.688,
+  "recipe": "classic North American 1990-1993 tecnobanda, functional Song, Mexican branch, tejano border ranchera, Latin am groove percussion cumbia sureña. vocal fry, full chest belt, fast rate, interlocked note trading. sub bass analog poly synth, yellow brass canonical 70 30 bach stradivarius unison heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble bass leaning trombone, grenadilla African blackwood traditional clarinet, fiberskyn synthetic calf brushes-and-sticks drum kit, alder la bella flats Detroit soul bass canon sub heavy electric bass, eb bass brass band sousaphone, walking bass banda sinaloense. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 909,
+  "score": 264.163,
   "config": {
     "traditions": [
       "tecnobanda",
       "ranchera",
-      "cumbia_chilena"
+      "cumbia_surena"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.08,
-          "voice_quality": 24.939999999999994,
+          "voice_quality": 24.564999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3649999999999998,
-          "voice_articulation": 25.870000000000005,
-          "voice_microtone": 24.375,
-          "voice_tradition": 8.84,
-          "voice_mechanism_compound": 3.575,
-          "voice_estill_quality": 12.415,
-          "voice_speech_song": 34.417500000000004,
-          "voice_ensemble_config": 25.740000000000002,
-          "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 3.9000000000000004,
-          "voice_processing_chain": 7.6049999999999995,
-          "voice_multitrack_stack": 6.175000000000001
+          "voice_vibrato": 1.3,
+          "voice_articulation": 24.570000000000004,
+          "voice_microtone": 23.075,
+          "voice_tradition": 8.45,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 12.639999999999997,
+          "voice_speech_song": 33.11750000000001,
+          "voice_ensemble_config": 24.830000000000002,
+          "voice_ornament_system": 1.0724999999999998,
+          "voice_pitch_organization": 3.0550000000000006,
+          "voice_processing_chain": 5.654999999999999,
+          "voice_multitrack_stack": 4.030000000000001
         }
       },
       {
@@ -72,19 +72,19 @@
         "slots": {
           "wind_articulation": "wind_mariachi_unison",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "straight_mute",
           "trumpet_technique": "trumpet_mariachi_unison",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 5.249999999999998,
+          "wind_articulation": 4.899999999999999,
           "brass_size": 0.09,
-          "trumpet_mouthpiece": 2.2749999999999995,
+          "trumpet_mouthpiece": 2.8274999999999997,
           "brass_mute": 0.375,
-          "trumpet_technique": 5.249999999999998,
-          "trumpet_bell_metal": 2.535,
+          "trumpet_technique": 4.899999999999999,
+          "trumpet_bell_metal": 2.7299999999999995,
           "trumpet_maker_school": 0.65
         }
       },
@@ -93,7 +93,7 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "bass_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
+          "trombone_mouthpiece": "bach_trombone_mp_3g",
           "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
@@ -102,10 +102,10 @@
         "scores": {
           "wind_articulation": 4.875,
           "trombone_type": 0.195,
-          "trombone_mouthpiece": 3.6075,
+          "trombone_mouthpiece": 3.8675,
           "trombone_mute": 0.195,
-          "trombone_technique": 2.145,
-          "trombone_bell_metal": 2.73,
+          "trombone_technique": 1.95,
+          "trombone_bell_metal": 2.9249999999999994,
           "trombone_maker_school": 1.3
         }
       },
@@ -119,7 +119,7 @@
           "clarinet_articulation": "glissando_clarinet"
         },
         "scores": {
-          "wind_articulation": 1.3799999999999997,
+          "wind_articulation": 1.0799999999999998,
           "clarinet_body": 2.0475,
           "clarinet_size": 0.39,
           "clarinet_reed": 0.195,
@@ -134,7 +134,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.285000000000004,
+          "drum_technique": 23.53,
           "drumhead": 1.5,
           "drum_kit_kick_pedal": 0
         }
@@ -148,16 +148,16 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
           "amp_make": 2.6650000000000005,
-          "body_wood": 1.4949999999999999,
-          "pickup_config": 1.4949999999999999,
-          "string_type": 3.380000000000001,
+          "body_wood": 1.3,
+          "pickup_config": 1.3,
+          "string_type": 3.185,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.195,
-          "bass_technique": 2.6750000000000003
+          "bass_technique": 1.84
         }
       },
       {
@@ -168,7 +168,7 @@
         },
         "scores": {
           "sousaphone_bore": 2.08,
-          "sousaphone_context": 1.885
+          "sousaphone_context": 2.2749999999999995
         }
       },
       {

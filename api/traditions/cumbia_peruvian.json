@@ -3,14 +3,14 @@
   "name": "Cumbia peruana (chicha)",
   "family": "global",
   "lineage": "Peruvian Amazonian-and-coastal cumbia hybrid 1960s-onward, evolved from Colombian-cumbia-mainstream into a distinct fuzz-electric-guitar-led psychedelic-rock-fused subform centered in Lima, Iquitos, and Chiclayo. Built on Colombian-cumbia 4-beat-clave rhythmic-foundation but substituting electric-guitar (often with fuzz, wah, reverb, surf-twang) and electric-bass for the original gaitas-and-acoustic-bass. The chicha-cumbia 1965-1975-era originated in Andean-migrant Lima working-class-barrios and fused Andean huayno-pentatonic melodic-vocabulary with cumbia-rhythm and Anglo-American garage-and-psychedelic guitar-aesthetics. The 1970s-cumbia-amazonica branch (Iquitos-and-Pucallpa Amazon-basin) added more Afro-Caribbean and Brazilian-Northeastern-forró rhythmic-elements. 2000s-onward international-rediscovery via reissue-labels.",
-  "recipe": "classic Andean mid-1960s cumbia peruana, groove Percussion, Latin am branch, string drone modal mbira tradition son jarocho. thick, full chest belt, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance riff driven single coil electric guitar, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass, open slap hand drum timbales, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ. andean altiplano outdoor. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 823,
-  "score": 262.41,
+  "recipe": "classic Andean mid-1960s cumbia peruana, groove Percussion, Latin am branch, string drone modal folkmusik mbira tradition. thick, full chest belt, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright riff driven single coil electric guitar, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass, open slap hand drum timbales, open slap hand drum congas, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ. andean altiplano outdoor. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 727,
+  "score": 246.935,
   "config": {
     "traditions": [
       "cumbia_peruvian",
-      "mbira_tradition",
-      "son_jarocho"
+      "folkmusik",
+      "mbira_tradition"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 2.6000000000000014,
-          "voice_quality": 23.85,
+          "voice_register": 5.9,
+          "voice_quality": 23.150000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0550000000000006,
-          "voice_articulation": 22.165,
-          "voice_microtone": 24.569999999999997,
+          "voice_vibrato": 2.665000000000001,
+          "voice_articulation": 20.54,
+          "voice_microtone": 24.439999999999998,
           "voice_tradition": 11.959999999999997,
-          "voice_mechanism_compound": 8.969999999999999,
+          "voice_mechanism_compound": 9.23,
           "voice_estill_quality": 8.389999999999999,
-          "voice_speech_song": 23.595000000000002,
-          "voice_ensemble_config": 24.375,
-          "voice_ornament_system": 9.634999999999998,
+          "voice_speech_song": 21.384999999999998,
+          "voice_ensemble_config": 22.555,
+          "voice_ornament_system": 8.884999999999998,
           "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 13.719999999999999,
-          "voice_multitrack_stack": 6.680000000000001
+          "voice_processing_chain": 12.844999999999999,
+          "voice_multitrack_stack": 6.555000000000001
         }
       },
       {
@@ -66,7 +66,7 @@
           "bridge": "vintage_trem",
           "scale_length": "scale_short",
           "finish": "oil_satin",
-          "string_tuning": "open_g"
+          "string_tuning": "dadgad"
         },
         "scores": {
           "electric_technique": 4.95,
@@ -80,7 +80,7 @@
           "bridge": 0.45499999999999996,
           "scale_length": 0.7199999999999999,
           "finish": 0.45499999999999996,
-          "string_tuning": 5.2
+          "string_tuning": 4.745
         }
       },
       {
@@ -98,10 +98,10 @@
           "amp_make": 3.82,
           "body_wood": 0.435,
           "pickup_config": 0.24,
-          "string_type": 4.115,
+          "string_type": 3.965,
           "scale_length_b": 0.24,
           "fretted_or_not": 0.24,
-          "bass_technique": 2.54
+          "bass_technique": 2.915
         }
       },
       {
@@ -112,7 +112,7 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 11.815,
+          "percussion_technique": 8.690000000000001,
           "timbales_shell": 0.09,
           "timbales_context": 0.78
         }
@@ -126,10 +126,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 11.815,
-          "conga_set": 1.625,
-          "conga_skin": 2.145,
-          "conga_shell_wood": 2.145
+          "percussion_technique": 8.690000000000001,
+          "conga_set": 0.78,
+          "conga_skin": 0.65,
+          "conga_shell_wood": 0.65
         }
       },
       {
@@ -144,11 +144,11 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "drawbar_setting": 2.545,
-          "rotary_speed": 2.6900000000000004,
-          "percussion_setting": 2.39,
-          "tonewheel_model": 8.71,
-          "leslie_cabinet_model": 2.735
+          "drawbar_setting": 2.92,
+          "rotary_speed": 3.0650000000000004,
+          "percussion_setting": 2.04,
+          "tonewheel_model": 7.865,
+          "leslie_cabinet_model": 2.8850000000000002
         }
       }
     ],

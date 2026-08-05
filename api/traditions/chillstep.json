@@ -1,0 +1,167 @@
+{
+  "id": "chillstep",
+  "name": "Chillstep",
+  "family": "electronic",
+  "lineage": "Melodic downtempo offshoot of UK dubstep that coalesced online circa 2010-2013 through Blackmill, Phaeleh and Seven Lions, keeping the 140 BPM half-time snare-on-three skeleton and sub-bass weight of dubstep but replacing wobble aggression with sustained major-key pad washes, arpeggiated piano figures, long reverb tails and wordless or breathy female topline vocals.",
+  "recipe": "classic 2010-2013 chillstep, bass System, dub descendants branch, uk soundsystem bass system, ambient experimental electric, trance electronic dance uk garage and 2-step bassline. extended whistle, breath veiled tone, straight note core, interlocked note trading. sub bass analog poly sub bass wavetable synth, sub bass monosynth acid bass, sampler drum machine, cold pressed weikert felt a 440 modern pitch us standard grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 605,
+  "score": 202.125,
+  "config": {
+    "traditions": [
+      "chillstep",
+      "uk_garage_2step",
+      "bassline"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 1.5924999999999998,
+          "voice_quality": 7.345000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5024999999999995,
+          "voice_articulation": 15.079999999999993,
+          "voice_microtone": 20.08499999999999,
+          "voice_tradition": 5.3950000000000005,
+          "voice_mechanism_compound": 2.0799999999999996,
+          "voice_estill_quality": 1.8849999999999996,
+          "voice_speech_song": 15.859999999999992,
+          "voice_ensemble_config": 15.20999999999999,
+          "voice_ornament_system": 5.265000000000001,
+          "voice_pitch_organization": 4.550000000000001,
+          "voice_processing_chain": 8.04,
+          "voice_multitrack_stack": 4.647500000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 20.864999999999995,
+          "poly_archetypes": 2.6,
+          "poly_voices": 2.6,
+          "poly_maker_lineage": -1.33
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 20.864999999999995,
+          "wt_position": 3.77,
+          "wt_family": 0.195,
+          "wt_polyphony": 0.045
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 20.864999999999995,
+          "wave_acid": 0.345,
+          "filter_acid": 2.275,
+          "accent_acid": 0.345
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.0074999999999998,
+          "sample_bitdepth": 0.045,
+          "sample_swing": 7.444999999999999,
+          "sample_processing": 1.2349999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_weikert_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_solid_quartersawn",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 1.6999999999999997,
+          "grand_piano_size": 1.2349999999999999,
+          "grand_piano_brand": 1.2349999999999999,
+          "piano_hammer": 1.17,
+          "piano_rim": 0.52,
+          "piano_soundboard": 0.7149999999999999,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": 3.6399999999999997
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

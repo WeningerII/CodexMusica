@@ -1,0 +1,143 @@
+{
+  "id": "terrorcore",
+  "name": "Terrorcore",
+  "family": "electronic",
+  "lineage": "Extreme hardcore techno strain from Rotterdam, Frankfurt and Berlin from about 1993, driven by DJ Skinhead, Ultraviolence, Nasenbluten and the Fifth Era circle, running 200-300 BPM with brutally overdriven and clipped kick drums, screamed or pitch-shifted vocal samples, sirens, chopped horror-film dialogue and dissonant noise stabs over minimal melodic material.",
+  "recipe": "classic European early-1990s terrorcore, electronic Dance, hardstyle branch, industrial noise experimental electric, techno electronic dance, death metal power noise aggrotech. thick, breath veiled tone, straight note core, interlocked note trading. TR-909, glitched textural sampler, analog mono evolving modular modular synth. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 435,
+  "score": 192.737,
+  "config": {
+    "traditions": [
+      "terrorcore",
+      "power_noise",
+      "aggrotech"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 0.12999999999999998,
+          "drum_machine_909_context": 0.585,
+          "tr909_production_origin": 0.585
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 7.25,
+          "sampler_archetypes": 0.195,
+          "sampler_bit_depth": 1.4299999999999997,
+          "sampler_workflow": 7.25,
+          "sampler_classic_context": 27.375
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 6.700000000000001,
+          "mono_oscillator": 0,
+          "mono_filter": 0.195,
+          "mono_archetypes": 0.195,
+          "mono_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 7.399999999999999,
+          "mod_voltage_source": 1.4349999999999998,
+          "mod_patch_density": 2.145,
+          "mod_lineage": 0.43500000000000005
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.6399999999999992,
+          "voice_quality": 6.435000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.9499999999999997,
+          "voice_articulation": 16.184999999999995,
+          "voice_microtone": 14.559999999999992,
+          "voice_tradition": 8.2875,
+          "voice_mechanism_compound": 17.81,
+          "voice_estill_quality": 2.6000000000000005,
+          "voice_speech_song": 17.09499999999999,
+          "voice_ensemble_config": 16.379999999999992,
+          "voice_ornament_system": 0.65,
+          "voice_pitch_organization": 2.7600000000000007,
+          "voice_processing_chain": 17.180000000000003,
+          "voice_multitrack_stack": 3.46
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "broken"
+  }
+}

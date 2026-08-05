@@ -1,0 +1,116 @@
+{
+  "id": "demoscene_music",
+  "name": "Demoscene tracker module music",
+  "family": "electronic",
+  "lineage": "European computer-demo subculture music, formed on the Commodore Amiga after Karsten Obarski's Ultimate Soundtracker (1987) and carried onto PC by ProTracker, Scream Tracker, FastTracker II and Impulse Tracker — composed by Purple Motion, Skaven, Jesper Kyd, Lizardking and Necros for Future Crew, Triton and Renaissance demos and shown at Assembly and The Party — 120-165 BPM four-to-thirty-two-channel patterns of short looped samples entered as hexadecimal note tables, with heavy use of volume/pitch effect columns, sample offset tricks and slot-sharing to fake extra voices inside a few hundred kilobytes.",
+  "recipe": "classic Asian late-1980s demoscene tracker module music, experimental Elec, retro aesthetic branch, idm glitch experimental electric, continental electronic dance, lofi experimental electric chiptune / 8-bit drill'n'bass. glitched textural sampler, glitched textural wavetable yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator fm synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909. carpeted bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 613,
+  "score": 122.857,
+  "config": {
+    "traditions": [
+      "demoscene_music",
+      "chiptune_8bit",
+      "drill_n_bass"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 18.32,
+          "sampler_archetypes": 0.7050000000000001,
+          "sampler_bit_depth": 0.7149999999999999,
+          "sampler_workflow": 18.125,
+          "sampler_classic_context": 19.6625
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 18.32,
+          "wt_position": 5.654999999999999,
+          "wt_family": 0.3,
+          "wt_polyphony": 0.3
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_tx81z"
+        },
+        "scores": {
+          "electronic_technique": 1.9499999999999997,
+          "fm_algorithm": 1.6899999999999997,
+          "fm_modulator_ratio": 0,
+          "fm_polyphony": 0.3,
+          "fm_model_lineage": 5.46
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 1.9499999999999997,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 18.59
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 1.96,
+          "drum_machine_909_context": 1.69,
+          "tr909_production_origin": 3.3150000000000004
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_hk_cantopop_ballad_factory",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "carpeted_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

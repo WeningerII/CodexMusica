@@ -1,0 +1,167 @@
+{
+  "id": "bay_area_hip_hop",
+  "name": "Bay Area hip-hop (mobb music lineage)",
+  "family": "hip_hop",
+  "lineage": "Developed in Oakland, Vallejo and Richmond from the mid-1980s through the 1990s by Too $hort, E-40, Spice 1, Mac Dre, Digital Underground and producers Khayree and Ant Banks, built on 85-100 BPM funk-derived grooves with live-feel slap electric bass, P-funk synth leads and talkbox, sparse gated drums, and pimp-narrative or rapid-fire regional-slang vocal delivery cut for independent trunk-oriented mixes.",
+  "recipe": "classic North American 1984-1986 bay area hip-hop, mc Rhythm, west coast branch, us hip hop gangsta, funk percussive groove percussion new orleans funk. thick, rap, straight note core, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, talkbox, sampled chopped sampler drum machine, roland tr 8s modern aira digital recreation TR-808, sampled chopped turntable. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 685,
+  "score": 306.875,
+  "config": {
+    "traditions": [
+      "bay_area_hip_hop",
+      "gangsta_rap",
+      "new_orleans_funk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 3.815000000000001,
+          "voice_quality": 17.090000000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.9325000000000006,
+          "voice_articulation": 20.929999999999993,
+          "voice_microtone": 19.82499999999999,
+          "voice_tradition": 15.66,
+          "voice_mechanism_compound": 4.81,
+          "voice_estill_quality": 4.615,
+          "voice_speech_song": 20.084999999999994,
+          "voice_ensemble_config": 21.77499999999999,
+          "voice_ornament_system": 5.850000000000002,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 22.315,
+          "voice_multitrack_stack": 9.110000000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop"
+        },
+        "scores": {
+          "amp_make": 7.865000000000001,
+          "body_wood": 3.185,
+          "pickup_config": 0.195,
+          "string_type": 7.0200000000000005,
+          "scale_length_b": 4.485,
+          "fretted_or_not": 1.885,
+          "bass_technique": 17.82
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 14.79,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": 2.4050000000000002
+        }
+      },
+      {
+        "id": "talkbox",
+        "slots": {
+          "talkbox_use": "talkbox_rock",
+          "talkbox_construction": "talkbox_combo"
+        },
+        "scores": {
+          "talkbox_use": 0.12999999999999998,
+          "talkbox_construction": 0.845
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 9.52,
+          "sample_bitdepth": 0.2925,
+          "sample_swing": 14.350000000000001,
+          "sample_processing": 3.185
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 13.295,
+          "drum_machine_808_context": 6.210000000000001,
+          "tr808_production_origin": 1
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 9.52,
+          "turntable_technique": 10.560000000000002
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_api_312",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "digital_std",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

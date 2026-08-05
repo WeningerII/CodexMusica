@@ -1,0 +1,99 @@
+{
+  "id": "pibroch",
+  "name": "Pibroch (ceòl mòr Highland piping)",
+  "family": "global",
+  "lineage": "The Scottish Highland 'great music' of the Great Highland bagpipe, codified by the MacCrimmon hereditary pipers of Skye and the MacArthurs from roughly 1600 onward and fixed in the Campbell Canntaireachd and Angus MacKay's 1838 collection — a slow ground (ùrlar) in free, elastic pulse followed by fixed variation sets (siubhal, taorluath, crunluath) built from named grace-note gestures over an unbroken two-octave-plus-drone texture, typically fifteen to twenty minutes for a single tune.",
+  "recipe": "classic Northern European early-1600s pibroch, drone Modal, wind pipe branch, Celtic balladic ballad poetry, Celtic traditional improv on frame scottish gaelic folk song sean-nós singing. kargyraa, breath veiled tone, slow rate, interlocked note trading. African blackwood grenadilla canonical Scottish cane drone reeds traditional arundo donax highland bagpipes. scottish galician piping outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 460,
+  "score": 214.537,
+  "config": {
+    "traditions": [
+      "pibroch",
+      "scottish_gaelic_folk",
+      "sean_nos_singing"
+    ],
+    "instruments": [
+      {
+        "id": "highland_bagpipes",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "highland_drones": "highland_3_drones",
+          "highland_chanter": "highland_blackwood",
+          "highland_drone_reeds": "highland_cane_drone_reeds",
+          "highland_chanter_reed": "highland_cane_chanter_reed",
+          "highland_bag": "highland_hide_bag"
+        },
+        "scores": {
+          "wind_articulation": 12.22,
+          "highland_drones": 0.15,
+          "highland_chanter": 2.0799999999999996,
+          "highland_drone_reeds": 4.115,
+          "highland_chanter_reed": 0.09,
+          "highland_bag": 0.9099999999999999
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 20.019999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.615,
+          "voice_articulation": 20.994999999999997,
+          "voice_microtone": 21.904999999999994,
+          "voice_tradition": 29.152499999999996,
+          "voice_mechanism_compound": 8.97,
+          "voice_estill_quality": 4.485,
+          "voice_speech_song": 21.644999999999996,
+          "voice_ensemble_config": 22.034999999999993,
+          "voice_ornament_system": 26.575,
+          "voice_pitch_organization": 4.795,
+          "voice_processing_chain": 6.76,
+          "voice_multitrack_stack": 9.165000000000001
+        }
+      }
+    ],
+    "room": "scottish_galician_piping_outdoor",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "scottish_galician_piping_outdoor",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

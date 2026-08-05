@@ -1,0 +1,150 @@
+{
+  "id": "polynesian_traditional",
+  "name": "Polynesian traditional music (pan-Pacific)",
+  "family": "global",
+  "lineage": "Pre-contact and continuing repertoire across the Polynesian triangle — Tonga, Sāmoa, Hawaiʻi, Aotearoa, Tahiti and the Cooks — documented ethnographically from Cook's voyages onward and systematically from the mid-20th century by researchers such as Mervyn McLean and Adrienne Kaeppler: sung poetry over sharp-edged idiophone percussion (slit gong, sharkskin pahu, struck bamboo, body slaps), narrow-range recitational melody widening into stacked polyphony after mission contact, conch-shell calls framing ceremony, and rhythm organised in fast even subdivisions rather than harmonic cycles.",
+  "recipe": "classic Oceanian early-1940s polynesian traditional music, praise Song, oceania pacific branch, oceania pacific funeral lament, central east south African groove percussion séga liwa. extended whistle, breath veiled tone, fast rate, interlocked note trading. coconut log carved hollow sharkskin head hand struck canonical hawaiian sacred hula kahiko accompaniment pahu mele song drum pahu, high pitched fast dance interlocking pacific slit gong, conch shell horn, flat sharp hand clap, foot stomp, two dried gourds joined necks canonical hula kahiko percussion ground strike palm slap canonical hula kahiko rhythm ipu heke. tongan outdoor village green. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 728,
+  "score": 203.259,
+  "config": {
+    "traditions": [
+      "polynesian_traditional",
+      "sega",
+      "liwa_swahili"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 1.56,
+          "voice_quality": 14.55999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.3265,
+          "voice_articulation": 20.799999999999997,
+          "voice_microtone": 20.214999999999993,
+          "voice_tradition": 15.794999999999998,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 2.3399999999999994,
+          "voice_speech_song": 24.959999999999994,
+          "voice_ensemble_config": 20.539999999999992,
+          "voice_ornament_system": 10.3715,
+          "voice_pitch_organization": 3.8280000000000003,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 2.9250000000000007
+        }
+      },
+      {
+        "id": "pahu",
+        "slots": {
+          "pahu_construction": "pahu_coconut_log_sharkskin_canonical",
+          "pahu_role": "pahu_hula_kahiko_accompaniment"
+        },
+        "scores": {
+          "pahu_construction": 2.9899999999999998,
+          "pahu_role": 7.475
+        }
+      },
+      {
+        "id": "pacific_slit_gong",
+        "slots": {
+          "pacific_slit_gong_form": "pacific_slit_gong_toere",
+          "pacific_slit_gong_role": "pacific_slit_gong_dance",
+          "pacific_slit_gong_wood": "pacific_slit_gong_toa"
+        },
+        "scores": {
+          "pacific_slit_gong_form": 7.41,
+          "pacific_slit_gong_role": 7.425000000000001,
+          "pacific_slit_gong_wood": 0.44499999999999995
+        }
+      },
+      {
+        "id": "conch_shell_horn",
+        "slots": {
+          "wind_articulation": "wind_call_blowing",
+          "conch_use": "conch_polynesian",
+          "conch_shell_horn_region": "conch_shell_horn_polynesian"
+        },
+        "scores": {
+          "wind_articulation": 2.6650000000000005,
+          "conch_use": 0.3,
+          "conch_shell_horn_region": 20.604999999999997
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_flat_sharp",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1,
+          "clap_capture": 0
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_bare_foot",
+          "stomp_surface": "stomp_wood_stage"
+        },
+        "scores": {
+          "stomp_footwear": 0,
+          "stomp_surface": 0.045
+        }
+      },
+      {
+        "id": "ipu_heke",
+        "slots": {
+          "ipu_heke_construction": "ipu_heke_double_gourd_joined_neck_canonical",
+          "ipu_heke_technique": "ipu_heke_ground_strike_palm_slap"
+        },
+        "scores": {
+          "ipu_heke_construction": 5.59,
+          "ipu_heke_technique": 1.573
+        }
+      }
+    ],
+    "room": "tongan_outdoor_village_green",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "tongan_outdoor_village_green",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

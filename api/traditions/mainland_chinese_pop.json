@@ -3,14 +3,14 @@
   "name": "Mainland Chinese pop (neidi liuxing yinyue)",
   "family": "pop",
   "lineage": "Mainland Chinese popular song revived after 1978 as gangtai imports met domestic tongsu singing, hardened into the 1994 Beijing 'new music' generation (Na Ying, Sun Nan, Gao Feng) and then into the post-2005 televised-talent and streaming era dominated by Hunan TV, Modern Sky and Tencent Music — the mainstream form is a 70-100 BPM 4/4 ballad with piano, string pad and programmed kit, declamatory wide-vibrato tongsu vocal projection over Western functional harmony, often with erhu, dizi or guzheng overdubs signalling 'guofeng' national style.",
-  "recipe": "classic late-1970s mainland chinese pop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, python skin snake skin mahogany mid tier steel modern erhu, dizi, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, rectified machine polished sitka spruce hard rock maple acer saccharum violin orchestral. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 789,
-  "score": 590.395,
+  "recipe": "classic late-1970s mainland chinese pop, functional Song, east Asian pop branch, pop rock functional song yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, python skin snake skin mahogany mid tier steel modern erhu, melodic dizi, singing lead analog poly synth, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 755,
+  "score": 522.29,
   "config": {
     "traditions": [
       "mainland_chinese_pop",
-      "new_wave",
-      "yacht_rock"
+      "yacht_rock",
+      "skiffle"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 51.38000000000001,
-          "voice_quality": 13.942499999999992,
+          "voice_register": 54.65500000000001,
+          "voice_quality": 12.34999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.475000000000001,
-          "voice_articulation": 15.144999999999996,
-          "voice_microtone": 50.925000000000004,
-          "voice_tradition": 35.8375,
-          "voice_mechanism_compound": 4.355,
-          "voice_estill_quality": 3.9650000000000007,
-          "voice_speech_song": 23.205,
-          "voice_ensemble_config": 15.664999999999994,
+          "voice_vibrato": 13.274999999999999,
+          "voice_articulation": 16.184999999999995,
+          "voice_microtone": 46.575,
+          "voice_tradition": 26.78,
+          "voice_mechanism_compound": 4.81,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 22.554999999999996,
+          "voice_ensemble_config": 16.899999999999995,
           "voice_ornament_system": 2.585,
-          "voice_pitch_organization": 1.5699999999999998,
-          "voice_processing_chain": 9.945000000000002,
-          "voice_multitrack_stack": 9.9125
+          "voice_pitch_organization": 1.1049999999999995,
+          "voice_processing_chain": 7.54,
+          "voice_multitrack_stack": 8.97
         }
       },
       {
@@ -57,7 +57,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 25.452499999999993,
-          "grand_piano_size": 2.275,
-          "grand_piano_brand": 2.275,
-          "piano_hammer": 27.329999999999995,
-          "piano_rim": 27.734999999999996,
-          "piano_soundboard": 28.544999999999998,
-          "piano_pinblock": 4.255,
-          "piano_plate": 4.257499999999999,
-          "piano_pitch_standard": 7.0525
+          "keyboard_technique": 18.6775,
+          "grand_piano_size": 1.625,
+          "grand_piano_brand": 1.675,
+          "piano_hammer": 20.33,
+          "piano_rim": 20.735,
+          "piano_soundboard": 21.695,
+          "piano_pinblock": 3.88,
+          "piano_plate": 3.77,
+          "piano_pitch_standard": 6.954999999999999
         }
       },
       {
@@ -89,10 +89,10 @@
         },
         "scores": {
           "bowed_technique": 0.25,
-          "erhu_skin": 4.42,
+          "erhu_skin": 3.77,
           "erhu_use": 0.195,
-          "erhu_body_wood": 2.275,
-          "erhu_strings": 1.435,
+          "erhu_body_wood": 1.235,
+          "erhu_strings": 1.2850000000000001,
           "erhu_bow": 0.17500000000000002
         }
       },
@@ -106,7 +106,7 @@
           "dizi_regional_style": "dizi_qudi_southern"
         },
         "scores": {
-          "wind_articulation": 0.6174999999999999,
+          "wind_articulation": 7.509999999999998,
           "dizi_membrane": 0,
           "dizi_pitch": 1.17,
           "dizi_body_material": 0,
@@ -122,43 +122,43 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 26.509999999999994,
-          "poly_archetypes": 12.284999999999998,
-          "poly_voices": 1.91,
-          "poly_maker_lineage": 1.4949999999999997
+          "electronic_technique": 20.185,
+          "poly_archetypes": 11.114999999999998,
+          "poly_voices": 1.76,
+          "poly_maker_lineage": -0.21
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.309999999999999,
-          "body_wood": 2.275,
-          "pickup_config": 1.825,
-          "string_type": 27.4625,
-          "scale_length_b": 2.275,
+          "amp_make": 11.992499999999996,
+          "body_wood": 1.4300000000000002,
+          "pickup_config": 1.675,
+          "string_type": 24.5375,
+          "scale_length_b": 1.435,
           "fretted_or_not": 1.345,
-          "bass_technique": 25.514999999999997
+          "bass_technique": 19.214999999999996
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.17,
-          "drumhead": 27.089999999999996,
+          "drum_technique": 19.759999999999998,
+          "drumhead": 20.24,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -166,7 +166,7 @@
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "rectified_gut_violin",
+          "orch_strings": "aluminum_wound_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "french_polish_violin",
@@ -178,15 +178,15 @@
         },
         "scores": {
           "bowed_technique": 0.25,
-          "orch_strings": 1.3649999999999998,
-          "orch_top_wood": 3.7449999999999997,
-          "orch_back_wood": 14.9175,
-          "orch_varnish": 4.875,
-          "orch_setup_period": 3.6724999999999994,
+          "orch_strings": 0.5199999999999999,
+          "orch_top_wood": 3.37,
+          "orch_back_wood": 13.064999999999998,
+          "orch_varnish": 4.3500000000000005,
+          "orch_setup_period": 4.3325,
           "orch_bow": 0.32999999999999996,
-          "orch_bow_stick": 4.2749999999999995,
-          "orch_articulation": 0.585,
-          "orch_rosin": 3.115
+          "orch_bow_stick": 3.25,
+          "orch_articulation": 0.39,
+          "orch_rosin": 2.74
         }
       }
     ],

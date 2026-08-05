@@ -3,14 +3,14 @@
   "name": "Jump blues",
   "family": "blues_gospel",
   "lineage": "Post-WWII African-American small-combo shuffle blues with tenor-saxophone foreground, codified by Louis Jordan and his Tympany Five (1939-1950), Big Joe Turner, Wynonie Harris, Roy Brown, and the late-1940s Atlantic Records small-combo catalog",
-  "recipe": "classic North American mid-1940s jump blues, functional Song, blues electric branch, American jazz early swing-era jazz orchestra new orleans jazz. thick, blues-shouter, wide pitch sway, interlocked note trading. tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, upright piano, Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-  "recipe_chars": 785,
-  "score": 269.886,
+  "recipe": "classic North American mid-1940s jump blues, functional Song, blues electric branch, American jazz early swing-era jazz orchestra neo-swing. thick, blues-shouter, wide pitch sway, interlocked note trading. tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance ensemble trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, upright piano, Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 752,
+  "score": 266.827,
   "config": {
     "traditions": [
       "jump_blues",
       "big_band",
-      "new_orleans"
+      "neo_swing"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 26.156249999999996,
-          "voice_quality": 12.444624999999993,
+          "voice_register": 26.31499999999999,
+          "voice_quality": 14.489999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.643749999999999,
-          "voice_articulation": 8.515,
-          "voice_microtone": 13.492999999999999,
-          "voice_tradition": 15.165,
-          "voice_mechanism_compound": 3.4965,
-          "voice_estill_quality": 3.3780000000000006,
-          "voice_speech_song": 12.479999999999995,
-          "voice_ensemble_config": 8.45,
-          "voice_ornament_system": 1.2349999999999994,
+          "voice_vibrato": 13.774999999999999,
+          "voice_articulation": 9.945,
+          "voice_microtone": 13.325,
+          "voice_tradition": 12.902499999999998,
+          "voice_mechanism_compound": 3.9,
+          "voice_estill_quality": 3.7050000000000005,
+          "voice_speech_song": 13.909999999999995,
+          "voice_ensemble_config": 10.334999999999997,
+          "voice_ornament_system": 1.0399999999999996,
           "voice_pitch_organization": 3.0550000000000006,
-          "voice_processing_chain": 4.095000000000001,
-          "voice_multitrack_stack": 0.975
+          "voice_processing_chain": 3.9650000000000003,
+          "voice_multitrack_stack": 1.17
         }
       },
       {
@@ -57,20 +57,20 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
-          "sax_reed": "medium_reed",
+          "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 3.4450000000000003,
-          "sax_size": 1.345,
-          "sax_reed": 0.337125,
-          "sax_body_alloy": 11.625,
-          "sax_mouthpiece": 0.0915,
-          "sax_technique": 11.625,
-          "sax_maker_school": 13.900749999999999
+          "wind_articulation": 2.0149999999999997,
+          "sax_size": 2.145,
+          "sax_reed": 0.38999999999999996,
+          "sax_body_alloy": 9.625,
+          "sax_mouthpiece": 0.345,
+          "sax_technique": 9.625,
+          "sax_maker_school": 12.447499999999998
         }
       },
       {
@@ -81,16 +81,16 @@
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
-          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 3.4450000000000003,
-          "brass_size": 0.0915,
-          "trumpet_mouthpiece": 13.737,
-          "brass_mute": 0.005625,
-          "trumpet_technique": 3.4450000000000003,
-          "trumpet_bell_metal": 1.04,
+          "wind_articulation": 2.0149999999999997,
+          "brass_size": 0.345,
+          "trumpet_mouthpiece": 12.5125,
+          "brass_mute": 0.24,
+          "trumpet_technique": 2.0149999999999997,
+          "trumpet_bell_metal": 0.195,
           "trumpet_maker_school": 6.5
         }
       },
@@ -101,8 +101,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 11.625,
-          "upright_play": 11.625
+          "upright_strings": 9.625,
+          "upright_play": 9.625
         }
       },
       {
@@ -113,8 +113,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.234999999999994,
-          "drumhead": 13.84225,
+          "drum_technique": 14.624999999999995,
+          "drumhead": 12.447499999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -123,43 +123,43 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_spinet"
+          "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
           "keyboard_technique": 0.12999999999999998,
-          "upright_use": 0.30487499999999995,
-          "upright_piano_size": 0.65
+          "upright_use": 0.845,
+          "upright_piano_size": 0.195
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "maple_fb",
+          "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
+          "finish": "oil_satin",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 2.6999999999999997,
-          "amp_make": 8.043375000000001,
-          "body_wood": 0.09862499999999999,
-          "neck_wood": 0.09862499999999999,
-          "fretboard": 0.3,
-          "pickup_magnet": 0.0915,
+          "electric_technique": 2.6900000000000004,
+          "amp_make": 7.7025,
+          "body_wood": 0.845,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
+          "pickup_magnet": 0.345,
           "string_material": 0.195,
-          "string_gauge": 0.39,
-          "bridge": 0.024375,
-          "scale_length": 0.19725000000000004,
-          "finish": 0,
-          "string_tuning": 7.344999999999999
+          "string_gauge": 1.2349999999999999,
+          "bridge": 0.135,
+          "scale_length": 0.845,
+          "finish": 0.15,
+          "string_tuning": 7.62
         }
       }
     ],

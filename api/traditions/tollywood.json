@@ -5,7 +5,7 @@
   "lineage": "Telugu-language film song tradition centred on Madras studios and later Hyderabad's Ramoji complex from the 1950s onward, codified by Ghantasala, S. P. Kodandapani, K. V. Mahadevan, Ilaiyaraaja and M. M. Keeravani, combining Carnatic raga-derived melody and Telugu prosody with playback-singer delivery over hybrid orchestras of violin sections, flute, veena, mridangam and, from the 1980s, synthesizers and drum machines.",
   "recipe": "classic South Asian mid-1950s tollywood film song, functional Song, south Asian pop branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. thick, breath veiled tone, slow rate, interlocked note trading. synthetic core modern lalgudi lineage carnatic legato violin carnatic, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian ornamented veena, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, singing lead digital subtractive, pre muffled edge muffled brushes-and-sticks drum kit, goat skin syahi rope laced steel ring dholak. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. large-diaphragm condenser.",
   "recipe_chars": 987,
-  "score": 364.37,
+  "score": 364.49,
   "config": {
     "traditions": [
       "tollywood",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 5.050000000000002,
+          "voice_register": 5.200000000000002,
           "voice_quality": 17.679999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.475,
           "voice_articulation": 15.794999999999993,
           "voice_microtone": 14.29999999999999,
-          "voice_tradition": 29.055000000000003,
+          "voice_tradition": 30.03,
           "voice_mechanism_compound": 5.6499999999999995,
-          "voice_estill_quality": 8.075,
+          "voice_estill_quality": 7.970000000000001,
           "voice_speech_song": 22.424999999999997,
           "voice_ensemble_config": 15.274999999999993,
-          "voice_ornament_system": 25.119999999999997,
-          "voice_pitch_organization": 24.865000000000002,
+          "voice_ornament_system": 24.369999999999997,
+          "voice_pitch_organization": 24.115000000000002,
           "voice_processing_chain": 3.965,
-          "voice_multitrack_stack": 2.7900000000000005
+          "voice_multitrack_stack": 2.9250000000000003
         }
       },
       {
@@ -81,7 +81,7 @@
         "scores": {
           "wind_articulation": 5.744999999999999,
           "bansuri_length": 2.535,
-          "bansuri_ornament": 6.0600000000000005,
+          "bansuri_ornament": 6.2250000000000005,
           "bansuri_body_material": 5.654999999999999,
           "bansuri_lineage": 2.5349999999999997
         }
@@ -98,9 +98,9 @@
           "veena_lineage": "veena_thanjavur_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 6.82,
+          "plucked_traditional_technique": 6.775,
           "veena_construction": 0.845,
-          "veena_resonator": 0.3,
+          "veena_resonator": 0.15,
           "veena_pluck": 2.9899999999999998,
           "veena_body_wood": 2.5349999999999997,
           "veena_strings": 2.5349999999999997,
@@ -146,7 +146,7 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 1.0399999999999998,
+          "free_reed_technique": 0.9949999999999999,
           "harmonium_action": 0.39,
           "harmonium_voicing": 1.2349999999999999,
           "harmonium_use": 3.3799999999999994
@@ -160,7 +160,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 4.135,
+          "electronic_technique": 4.33,
           "va_archetypes": 0,
           "digital_subtractive_context": 14.689999999999996
         }
@@ -174,7 +174,7 @@
         },
         "scores": {
           "drum_technique": 14.559999999999995,
-          "drumhead": 3.7,
+          "drumhead": 3.745,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -187,8 +187,8 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 1.19,
-          "dholak_construction": 0.9299999999999999,
+          "dholak_use": 1.145,
+          "dholak_construction": 1.2750000000000001,
           "dholak_head": 2.5349999999999997,
           "dholak_tensioning": 2.5349999999999997
         }

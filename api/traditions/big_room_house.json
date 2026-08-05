@@ -5,7 +5,7 @@
   "lineage": "Early-2010s house subgenre engineered for large festival main-stage performance contexts. Characterized by enormous-build-up-and-drop song-structure, simplified melodic and harmonic content, massive distorted-synth festival-anthem peak-sections, and predictable formulaic arrangement. Hardwell, Martin Garrix, Dimitri Vegas & Like Mike, and the Spinnin' Records-Revealed Recordings label rosters define the canonical sound. Tomorrowland, Ultra Music Festival, and EDC Las Vegas constitute the canonical festival circuit.",
   "recipe": "classic 2010-2013 big room house, electronic Dance, house branch, thrash metal djent groove metal. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, analog synth. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 414,
-  "score": 20.564,
+  "score": 20.622,
   "config": {
     "traditions": [
       "big_room_house",
@@ -33,14 +33,14 @@
           "oscillator": "triangle_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "gated_env",
-          "modulation": "lfo_pitch"
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 2.45,
-          "oscillator": 1.6315,
+          "electronic_technique": 2.6,
+          "oscillator": 1.495,
           "filter_topology": 1.04,
           "envelope": 1.69,
-          "modulation": 0
+          "modulation": 0.045
         }
       }
     ],

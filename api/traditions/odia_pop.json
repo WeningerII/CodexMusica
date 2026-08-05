@@ -3,53 +3,53 @@
   "name": "Odia Pop",
   "family": "global",
   "lineage": "Odisha's Odia-language popular song, moving from HMV Cuttack and Odia cinema playback in the 1960s-80s into a cassette and now YouTube-driven album industry — verse-refrain songs at 90-130 BPM with lightly ornamented melodic lines derived from Odissi and bhajan phrasing, harmonium and bansuri counterlines over dholak, mardala, or programmed kit, and a bright forward-placed lead vocal doubled in the chorus.",
-  "recipe": "classic mid-1960s odia pop, functional Song, south Asian pop branch, indian subcontinent praise song, indian bard ballad poetry rajasthani manganiyar tradition cambodian chapei dang veng. thick, breath veiled tone, slow rate, interlocked note trading. vocal male straight harmonium indian, goat skin syahi rope laced steel ring dholak, mardala, kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, indian rosewood rosewood copper tabla, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, unison double single performer stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 968,
-  "score": 341.634,
+  "recipe": "classic mid-1960s odia pop, functional Song, south Asian pop branch, indian subcontinent praise song, indian bard ballad poetry mappila paattu naat. thick, declaimed, straight note core, interlocked note trading. low overtone rich vocal male harmonium indian, dholak, mardala, kerala bamboo alternative south indian maihar gharana canonical 20th century bansuri, indian rosewood rosewood copper tabla, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 872,
+  "score": 245.17,
   "config": {
     "traditions": [
       "odia_pop",
-      "rajasthani_manganiyar",
-      "cambodian_chapei_dang_veng"
+      "mappila_paattu",
+      "naat_south_asian"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 12.269749999999995,
-          "voice_quality": 24.7,
+          "voice_register": 9.479999999999992,
+          "voice_quality": 11.749999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.12,
-          "voice_articulation": 26.324999999999996,
-          "voice_microtone": 28.729999999999993,
-          "voice_tradition": 18.374625,
-          "voice_mechanism_compound": 6.4350000000000005,
-          "voice_estill_quality": 10.687124999999998,
-          "voice_speech_song": 33.215,
-          "voice_ensemble_config": 27.559999999999995,
-          "voice_ornament_system": 11.787125000000001,
-          "voice_pitch_organization": 8.645,
-          "voice_processing_chain": 6.954999999999999,
-          "voice_multitrack_stack": 7.345000000000001
+          "voice_vibrato": 3.380000000000001,
+          "voice_articulation": 20.734999999999992,
+          "voice_microtone": 26.324999999999996,
+          "voice_tradition": 12.025,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 28.08,
+          "voice_ensemble_config": 22.424999999999997,
+          "voice_ornament_system": 7.45,
+          "voice_pitch_organization": 4.21,
+          "voice_processing_chain": 5.329999999999999,
+          "voice_multitrack_stack": 4.255
         }
       },
       {
@@ -58,13 +58,13 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "harmonium_action": "harmonium_hand_pump",
           "harmonium_voicing": "harmonium_male",
-          "harmonium_use": "harmonium_classical"
+          "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 3.4480000000000004,
-          "harmonium_action": 3.835,
-          "harmonium_voicing": 2.535,
-          "harmonium_use": 4.745
+          "free_reed_technique": 2.2800000000000002,
+          "harmonium_action": 2.34,
+          "harmonium_voicing": 1.69,
+          "harmonium_use": 2.21
         }
       },
       {
@@ -73,13 +73,13 @@
           "dholak_use": "dholak_classical",
           "dholak_construction": "dholak_large",
           "dholak_head": "dholak_goat_skin_canonical",
-          "dholak_tensioning": "dholak_rope_tuning"
+          "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 2.298,
-          "dholak_construction": 2.6,
-          "dholak_head": 2.795,
-          "dholak_tensioning": 2.795
+          "dholak_use": 2.43,
+          "dholak_construction": 1.95,
+          "dholak_head": 0.69,
+          "dholak_tensioning": 0.735
         }
       },
       {
@@ -89,25 +89,25 @@
           "mardala_style": "mardala_odissi"
         },
         "scores": {
-          "mardala_head": 0.65,
+          "mardala_head": 0.195,
           "mardala_style": 0
         }
       },
       {
         "id": "bansuri",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "bansuri_length": "small_bansuri",
+          "wind_articulation": "wind_folk_melodic",
+          "bansuri_length": "classical_bansuri",
           "bansuri_ornament": "meend_bansuri",
           "bansuri_body_material": "bansuri_kerala_bamboo",
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 6.800000000000001,
-          "bansuri_length": 1.25,
-          "bansuri_ornament": 2.879625,
-          "bansuri_body_material": 6.629999999999999,
-          "bansuri_lineage": 4.095
+          "wind_articulation": 2.33,
+          "bansuri_length": 0.845,
+          "bansuri_ornament": 3.1500000000000004,
+          "bansuri_body_material": 8.059999999999999,
+          "bansuri_lineage": 1.95
         }
       },
       {
@@ -118,9 +118,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 7.215,
-          "tabla_bayan": 3.055,
-          "tabla_syahi": 4.68
+          "tabla_dayan": 3.9,
+          "tabla_bayan": 1.2,
+          "tabla_syahi": 7.6049999999999995
         }
       },
       {
@@ -132,23 +132,23 @@
           "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
-          "electronic_technique": 10.235,
-          "rompler_preset_bank": 12.719999999999999,
-          "rompler_context": 8.537125,
-          "rompler_lineage": 2.145
+          "electronic_technique": 10.43,
+          "rompler_preset_bank": 10.52,
+          "rompler_context": 9.15,
+          "rompler_lineage": 1.95
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_unison_double",
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
           "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 2.8979999999999997,
-          "multitrack_stack_era_aesthetic": 7.474999999999999,
-          "multitrack_stack_processing": 1.845
+          "multitrack_stack_density": 1.2850000000000001,
+          "multitrack_stack_era_aesthetic": 1.625,
+          "multitrack_stack_processing": 1.39
         }
       }
     ],

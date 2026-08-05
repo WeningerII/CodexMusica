@@ -3,20 +3,20 @@
   "name": "K-pop boy group",
   "family": "pop",
   "lineage": "Seoul idol-agency format codified from the mid-1990s (SM Entertainment's H.O.T., 1996) and industrialized through SM, YG, JYP, Big Hit and HYBE — multi-member male ensembles performing 100-130 BPM hybrid tracks that cut between rap verses, sung pre-choruses and a hook-dense chorus, over EDM, trap or new-jack-swing programming, with dense multitracked unison-and-harmony vocal stacks, sharp English-Korean code-switching, and arrangements written to synchronized choreography",
-  "recipe": "classic Asian 1994-1996 k-pop boy group, functional Song, east Asian pop branch, intl hip hop MC rhythm, eurodance electronic dance rap cristiano freestyle music. thick, rap, slow rate, interlocked note trading. octuple plus dense stack multi track instrument chorus detuned thickener across stack multitrack vocal stack, TR-808, plucked short envelope digital subtractive, plucked short envelope analog poly synth, sampled chopped sampler drum machine, ampeg b15 amp American 60s bass amp flip top character mahogany fingerstyle electric bass, group massed hand clap. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 761,
-  "score": 246.13,
+  "recipe": "classic Asian 1994-1996 k-pop boy group, functional Song, east Asian pop branch, intl hip hop MC rhythm, eurodance electronic dance rap cristiano trap funk. extended whistle, rap, slow rate, interlocked note trading. octuple plus dense stack multi track instrument hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, TR-808, low sub bass digital subtractive, low sub bass analog poly synth, sampled chopped sampler drum machine, low mid rich spectrum low-mid-thick mahogany electric bass, group massed hand clap. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 724,
+  "score": 242.937,
   "config": {
     "traditions": [
       "kpop_boy_group",
       "rap_cristiano",
-      "freestyle_music"
+      "trap_funk"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,76 +34,76 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 13.594999999999994,
-          "voice_quality": 13.747499999999999,
+          "voice_register": 12.225,
+          "voice_quality": 16.835,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4000000000000004,
-          "voice_articulation": 21.059999999999995,
-          "voice_microtone": 18.979999999999993,
-          "voice_tradition": 14.159999999999998,
-          "voice_mechanism_compound": 4.0200000000000005,
-          "voice_estill_quality": 3.9000000000000012,
-          "voice_speech_song": 21.904999999999998,
-          "voice_ensemble_config": 17.809999999999995,
+          "voice_vibrato": 1.75,
+          "voice_articulation": 20.604999999999997,
+          "voice_microtone": 19.56499999999999,
+          "voice_tradition": 13.56,
+          "voice_mechanism_compound": 4.07,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 21.254999999999992,
+          "voice_ensemble_config": 17.93999999999999,
           "voice_ornament_system": 4.75,
-          "voice_pitch_organization": 1.2999999999999998,
-          "voice_processing_chain": 8.42,
-          "voice_multitrack_stack": 4.940000000000001
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 9.545,
+          "voice_multitrack_stack": 3.8675000000000006
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
           "multitrack_stack_density": "multitrack_density_octuple_plus",
-          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
-          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
           "multitrack_stack_density": 4.245,
-          "multitrack_stack_era_aesthetic": 0.52,
-          "multitrack_stack_processing": 2.25
+          "multitrack_stack_era_aesthetic": 0.4225,
+          "multitrack_stack_processing": 2.09
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_miami",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 5.955,
-          "drum_machine_808_context": 3.175,
-          "tr808_production_origin": 0.39
+          "tr808_voice": 6.28,
+          "drum_machine_808_context": 1.3,
+          "tr808_production_origin": 0.3
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_pluck_short",
+          "electronic_technique": "electronic_bass_sub",
           "va_archetypes": "access_virus",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 14.025,
+          "electronic_technique": 13.405,
           "va_archetypes": 0.195,
-          "digital_subtractive_context": 18.525
+          "digital_subtractive_context": 17.419999999999995
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pluck_short",
+          "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 14.025,
+          "electronic_technique": 13.405,
           "poly_archetypes": 0.195,
           "poly_voices": 0.435,
-          "poly_maker_lineage": -1.33
+          "poly_maker_lineage": -1.435
         }
       },
       {
@@ -115,31 +115,31 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 3.8500000000000005,
+          "electronic_technique": 5.125000000000001,
           "sample_bitdepth": 0.9750000000000001,
-          "sample_swing": 6.76,
-          "sample_processing": 4.145
+          "sample_swing": 8.71,
+          "sample_processing": 4.645
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
+          "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "half_round",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "fretted_or_not": "fretless",
+          "bass_technique": "slap_pop"
         },
         "scores": {
-          "amp_make": 3.9450000000000007,
-          "body_wood": 2.45,
-          "pickup_config": 0.645,
-          "string_type": 3.795,
-          "scale_length_b": 2.45,
-          "fretted_or_not": 0,
-          "bass_technique": 1.95
+          "amp_make": 1.5999999999999999,
+          "body_wood": 1.8,
+          "pickup_config": 0.845,
+          "string_type": 3.145,
+          "scale_length_b": 1.8,
+          "fretted_or_not": 0.15,
+          "bass_technique": 3.6249999999999996
         }
       },
       {

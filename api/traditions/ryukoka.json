@@ -1,0 +1,202 @@
+{
+  "id": "ryukoka",
+  "name": "Ryūkōka",
+  "family": "global",
+  "lineage": "Japanese popular song of the Taishō and early Shōwa eras, roughly 1914-1945, spread by Nippon Victor and Columbia shellac discs and composers such as Masao Koga and Shinpei Nakayama, mixing Western salon-orchestra scoring — violin, mandolin, accordion, Hawaiian steel guitar, light brass — with yonanuki minor melodies and a restrained, throat-forward vocal delivery over slow waltz, foxtrot and duple march tempos.",
+  "recipe": "classic East Asian early-1910s ryūkōka, functional Song, east Asian pop branch, crooners functional song, east Asian pop enka american barbershop quartet. thick, breath veiled tone, slow rate, interlocked note trading. steel sitka spruce bigleaf maple western maple spirit varnish violin orchestral, brass weltmeister east German mid tier vintage volk accordion, redwood pre 1940 period gut strummed open chord ringing overtones classical nylon-string guitar, block chord upright piano, mulberry kuwa mid tier traditional min yo folk song accompaniment shamisen, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese standard rim orchestral balance trumpet. shanghai emi pathe 1930s. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 777,
+  "score": 271.775,
+  "config": {
+    "traditions": [
+      "ryukoka",
+      "enka",
+      "barbershop_quartet"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 15.394999999999996,
+          "voice_quality": 12.934999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.38,
+          "voice_articulation": 20.800000000000004,
+          "voice_microtone": 22.1,
+          "voice_tradition": 25.585,
+          "voice_mechanism_compound": 3.3150000000000004,
+          "voice_estill_quality": 5.615000000000001,
+          "voice_speech_song": 31.590000000000003,
+          "voice_ensemble_config": 20.280000000000005,
+          "voice_ornament_system": 4.415000000000001,
+          "voice_pitch_organization": 3.7199999999999998,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 6.759999999999999
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "spirit_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.6749999999999998,
+          "orch_strings": 1.195,
+          "orch_top_wood": 2.6,
+          "orch_back_wood": 3.51,
+          "orch_varnish": 3,
+          "orch_setup_period": 4.615,
+          "orch_bow": 1.3299999999999998,
+          "orch_bow_stick": 2.2449999999999997,
+          "orch_articulation": 0.8450000000000001,
+          "orch_rosin": 1.2
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 2,
+          "accordion_reed_material": 1.3,
+          "musette_offset": 1.55,
+          "reed_config": 1.26,
+          "bellows": 0.75,
+          "voicing_chamber": 0.39,
+          "accordion_maker_school": 4.68
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "redwood_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "gut_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 12.615,
+          "string_tuning": 0,
+          "top_wood_classical": 2.7299999999999995,
+          "bracing_classical": 2.3499999999999996,
+          "string_classical": 2.925,
+          "attack_technique_cl": 0.845
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 12.614999999999998,
+          "upright_use": 0.845,
+          "upright_piano_size": 1.4949999999999999
+        }
+      },
+      {
+        "id": "shamisen",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "shamisen_size": "futozao",
+          "shamisen_skin": "shamisen_dog",
+          "shamisen_pick": "bachi_ivory",
+          "shamisen_neck_wood": "shamisen_mulberry",
+          "shamisen_strings": "shamisen_silk_traditional",
+          "shamisen_tradition": "shamisen_min_yo"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.09999999999999999,
+          "shamisen_size": 0.195,
+          "shamisen_skin": 0.75,
+          "shamisen_pick": 0.78,
+          "shamisen_neck_wood": 1.8199999999999998,
+          "shamisen_strings": 0,
+          "shamisen_tradition": 10.985
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 0.645,
+          "brass_size": 1.6,
+          "trumpet_mouthpiece": 1.95,
+          "brass_mute": 0.8450000000000001,
+          "trumpet_technique": 0.5399999999999999,
+          "trumpet_bell_metal": 1.3,
+          "trumpet_maker_school": 2.3449999999999993
+        }
+      }
+    ],
+    "room": "shanghai_emi_pathe_1930s",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "japanese_in_scale",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "japanese_in_scale",
+    "room": "shanghai_emi_pathe_1930s",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

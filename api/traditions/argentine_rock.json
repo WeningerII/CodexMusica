@@ -3,14 +3,14 @@
   "name": "Argentine Rock (Rock Nacional)",
   "family": "rock",
   "lineage": "Rock nacional, born in Buenos Aires in 1967 with Los Gatos' 'La Balsa' and codified by Almendra, Sui Generis, Charly García and Luis Alberto Spinetta, then Soda Stereo in the 1980s — Spanish-language songwriting insisting on local idiom, mid-tempo 4/4 band arrangements with piano or 12-string acoustic foundations, extended harmonic progressions borrowed from tango and jazz, and intimate, unshouted vocals.",
-  "recipe": "classic South American mid-1980s argentine rock, distorted Rock, regional branch, Latin am troubadour ballad poetry, iberian Latin protest song cantautora mexicana milonga. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood ceramic single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, extended drone open tuning 12 string acoustic guitar 12 string. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 893,
-  "score": 323.394,
+  "recipe": "classic South American mid-1980s argentine rock, distorted Rock, regional branch, Latin am troubadour ballad poetry, iberian Latin protest song cantautora mexicana folklore surero. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, extended drone open tuning 12 string acoustic guitar 12 string. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 904,
+  "score": 320.684,
   "config": {
     "traditions": [
       "argentine_rock",
       "cantautora_mexicana",
-      "milonga"
+      "folklore_surero"
     ],
     "instruments": [
       {
@@ -34,60 +34,60 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 29.314999999999994,
-          "voice_quality": 10.399999999999997,
+          "voice_register": 26.089999999999993,
+          "voice_quality": 12.284999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.819375000000001,
-          "voice_articulation": 18.134999999999994,
+          "voice_articulation": 17.744999999999997,
           "voice_microtone": 23.099999999999998,
-          "voice_tradition": 9.847500000000002,
-          "voice_mechanism_compound": 6.564999999999999,
-          "voice_estill_quality": 6.5649999999999995,
-          "voice_speech_song": 21.709999999999994,
-          "voice_ensemble_config": 18.589999999999993,
-          "voice_ornament_system": 2.5749999999999993,
+          "voice_tradition": 7.930000000000001,
+          "voice_mechanism_compound": 5.720000000000001,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 21.774999999999995,
+          "voice_ensemble_config": 19.044999999999995,
+          "voice_ornament_system": 3.4499999999999993,
           "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 6.11,
+          "voice_processing_chain": 5.035,
           "voice_multitrack_stack": 5.854375
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 4,
+          "electric_technique": 2.4000000000000004,
           "amp_make": 7.769375,
-          "body_wood": 1.69,
-          "neck_wood": 1.69,
-          "fretboard": 1.625,
+          "body_wood": 1.95,
+          "neck_wood": 1.95,
+          "fretboard": 1.885,
           "pickup_magnet": 1,
           "string_material": 1,
-          "string_gauge": 1.69,
-          "bridge": 0.15,
-          "scale_length": 1.69,
+          "string_gauge": 2.6,
+          "bridge": 0.65,
+          "scale_length": 1.95,
           "finish": 0.65,
-          "string_tuning": 10.039375
+          "string_tuning": 11.039375
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -95,11 +95,11 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 8.604375,
-          "body_wood": 1.69,
+          "amp_make": 8.754375,
+          "body_wood": 1.95,
           "pickup_config": 0.345,
           "string_type": 18.939375,
-          "scale_length_b": 1.69,
+          "scale_length_b": 1.95,
           "fretted_or_not": 0.435,
           "bass_technique": 18.325
         }
@@ -112,7 +112,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.239999999999995,
+          "drum_technique": 19.499999999999996,
           "drumhead": 3.545,
           "drum_kit_kick_pedal": 0
         }
@@ -125,21 +125,21 @@
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 2.6,
-          "grand_piano_size": 1.69,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 7.894375,
-          "piano_rim": 8.689375,
-          "piano_soundboard": 2.5675,
-          "piano_pinblock": 0.7149999999999999,
-          "piano_plate": 0.325,
-          "piano_pitch_standard": 2.760625
+          "keyboard_technique": 3.1,
+          "grand_piano_size": 1.95,
+          "grand_piano_brand": 1.95,
+          "piano_hammer": 7.469375,
+          "piano_rim": 8.414375,
+          "piano_soundboard": 1.5750000000000002,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.45,
+          "piano_pitch_standard": 3.185625
         }
       },
       {
@@ -147,13 +147,13 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
           "electronic_technique": 1.815,
           "poly_archetypes": 7.614375,
-          "poly_voices": 0.39,
+          "poly_voices": 0.3,
           "poly_maker_lineage": 2.4699999999999998
         }
       },
@@ -165,7 +165,7 @@
           "twelve_string_strings": "eighty_twenty_12"
         },
         "scores": {
-          "twelve_string_body": 0.65,
+          "twelve_string_body": 0.845,
           "twelve_string_tuning": 4.739375,
           "twelve_string_strings": 1
         }

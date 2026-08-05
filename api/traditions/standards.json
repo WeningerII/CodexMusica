@@ -1,0 +1,158 @@
+{
+  "id": "standards",
+  "name": "Standards (Great American Songbook)",
+  "family": "jazz",
+  "lineage": "The core repertoire of Broadway and Tin Pan Alley songs written roughly 1920-1955 by Gershwin, Porter, Kern, Berlin and Arlen and adopted as the common ground of jazz performance — thirty-two-bar AABA and ABAC forms with functional ii-V harmony, sung with rubato verse and swung chorus by a vocalist over piano-bass-drums or big band, typically at ballad 60-80 BPM or medium swing 140-200 BPM, with the melody stated then improvised over.",
+  "recipe": "classic North American early-1920s standards, improv On Frame, smooth vocal branch, crooners functional song, American jazz bop cool jazz / west coast contemporary post-bop. thick, breath veiled tone, straight onset, interlocked note trading. jazz trio piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral lyrical lead trumpet trumpet. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 680,
+  "score": 412.677,
+  "config": {
+    "traditions": [
+      "standards",
+      "cool_jazz_west_coast",
+      "contemporary_post_bop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 24.719999999999995,
+          "voice_quality": 15.437499999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 23.085,
+          "voice_articulation": 17.744999999999997,
+          "voice_microtone": 23.034999999999997,
+          "voice_tradition": 23.879999999999995,
+          "voice_mechanism_compound": 4.9399999999999995,
+          "voice_estill_quality": 4.745,
+          "voice_speech_song": 19.109999999999992,
+          "voice_ensemble_config": 16.639999999999993,
+          "voice_ornament_system": 0.63,
+          "voice_pitch_organization": 2.13,
+          "voice_processing_chain": 6.11,
+          "voice_multitrack_stack": 4.030000000000002
+        }
+      },
+      {
+        "id": "jazz_trio_piano",
+        "slots": {
+          "members": "pt_piano",
+          "era": "jazz_modern_trio"
+        },
+        "scores": {
+          "members": 0.495,
+          "era": 0.8
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 22.125,
+          "upright_play": 22.125
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 28.46999999999999,
+          "drumhead": 24.029999999999994,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 4.92,
+          "sax_size": 5.07,
+          "sax_reed": 0.65,
+          "sax_body_alloy": 22.125,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": 22.17,
+          "sax_maker_school": 24.679999999999996
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_lead_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 4.92,
+          "brass_size": 0.65,
+          "trumpet_mouthpiece": 24.684999999999995,
+          "brass_mute": 1.9499999999999997,
+          "trumpet_technique": 4.374999999999999,
+          "trumpet_bell_metal": 0.845,
+          "trumpet_maker_school": 8.905
+        }
+      }
+    ],
+    "room": "columbia_30th_street_studio_nyc",
+    "archetype": "arch_swing_era_live_studio",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "console_american_op_amp",
+      "comp": "comp_fairchild_670_tube",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "room": "columbia_30th_street_studio_nyc",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

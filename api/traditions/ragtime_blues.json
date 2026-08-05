@@ -1,0 +1,163 @@
+{
+  "id": "ragtime_blues",
+  "name": "Ragtime Blues",
+  "family": "blues_gospel",
+  "lineage": "Southeastern US fingerpicked blues idiom crystallized in the 1920s-30s Piedmont corridor from Georgia to Virginia and codified on record by Blind Blake, Blind Boy Fuller and Rev. Gary Davis, marrying ragtime's syncopated right-hand melody and I-VI-II-V parlor-piano harmony to a steady alternating-bass thumb on guitar at a brisk 100-140 BPM, with light-toned conversational vocals, frequent kazoo/jug/harmonica breaks and instrumental rags played without any vocal at all.",
+  "recipe": "classic mid-1920s ragtime blues, ballad Poetry, piedmont narrative branch, blues narrative hokum blues, American jazz pre jazz ragtime, blues narrative jug band memphis blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning parlor classic steel silk fingerpicked parlor acoustic guitar, light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, traditional ceramic clay jug inst. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 702,
+  "score": 472.059,
+  "config": {
+    "traditions": [
+      "ragtime_blues",
+      "hokum_blues_vaudeville",
+      "memphis_blues"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
+        },
+        "scores": {
+          "acoustic_technique": 17.118714285714283,
+          "string_tuning": 7.691785714285714,
+          "top_wood_parlor": 0.18,
+          "back_sides_parlor": 0.012499999999999999,
+          "string_acoustic_parlor": 1.1954285714285715
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 39.5462142857143,
+          "voice_quality": 23.4,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 35.45892857142857,
+          "voice_articulation": 18.849999999999994,
+          "voice_microtone": 34.62185714285714,
+          "voice_tradition": 17.939999999999998,
+          "voice_mechanism_compound": 3.445,
+          "voice_estill_quality": 4.29,
+          "voice_speech_song": 18.849999999999994,
+          "voice_ensemble_config": 16.18499999999999,
+          "voice_ornament_system": 0.45500000000000007,
+          "voice_pitch_organization": 1.2053214285714284,
+          "voice_processing_chain": 3.965,
+          "voice_multitrack_stack": 1.8785357142857142
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "resonator",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "two_finger",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.9986428571428572,
+          "tone_ring": 0.65,
+          "banjo_head": 16.054999999999996,
+          "banjo_pot": 0.9986428571428572,
+          "banjo_play": 4.0335,
+          "banjo_rim_wood": 0.78,
+          "banjo_neck_wood": 0.09,
+          "banjo_strings": 1.0157142857142858,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 15.794999999999995
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 2.275,
+          "harmonica_comb": 40.92503571428572,
+          "harmonica_reed": 34.13321428571429,
+          "harmonica_technique": 36.25,
+          "harmonica_maker_school": 41.071892857142856,
+          "harmonica_tuning": 17.628142857142855
+        }
+      },
+      {
+        "id": "kazoo",
+        "slots": {
+          "kazoo_construction": "kazoo_metal"
+        },
+        "scores": {
+          "kazoo_construction": 4.5249999999999995
+        }
+      },
+      {
+        "id": "jug_inst",
+        "slots": {
+          "jug_material": "jug_ceramic_clay",
+          "jug_technique": "jug_lips_buzzed"
+        },
+        "scores": {
+          "jug_material": 8.219999999999999,
+          "jug_technique": 4.574999999999999
+        }
+      }
+    ],
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "folk_fingerstyle_alternating_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "folk_fingerstyle_alternating_bass",
+    "room": "studio_electrical_era_office",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

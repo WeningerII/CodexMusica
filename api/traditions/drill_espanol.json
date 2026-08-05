@@ -5,7 +5,7 @@
   "lineage": "Spanish-language drill scene developing from 2020 across Madrid, Barcelona and the Latin American diaspora (Morad, Beny Jr, Duki-adjacent Argentine trap producers), applying 140-146 BPM half-time drill drum programming and pitched 808 slides to Spanish and Catalan-inflected flows, with Andalusian and Maghrebi melodic material — flamenco-derived Phrygian guitar and Arabic string samples — replacing UK drill's minor-piano leads.",
   "recipe": "classic early-2020s drill en español, mc Rhythm, drill branch, intl hip hop MC rhythm, reggaeton MC rhythm, iberian functional song pinoy trap desi trap. thick, rap, straight note core, interlocked note trading. TR-808, pitched chopped sampler, cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, sub bass digital subtractive, sub bass monosynth acid bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 585,
-  "score": 255.602,
+  "score": 254.498,
   "config": {
     "traditions": [
       "drill_espanol",
@@ -38,7 +38,7 @@
           "voice_quality": 17.225,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9749999999999999,
+          "voice_vibrato": 1.9262499999999998,
           "voice_articulation": 18.784999999999993,
           "voice_microtone": 29.184999999999988,
           "voice_tradition": 6.695,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 7.735000000000001,
           "voice_pitch_organization": 3.1500000000000004,
           "voice_processing_chain": 7.995000000000002,
-          "voice_multitrack_stack": 5.19375
+          "voice_multitrack_stack": 5.145
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 5.8656250000000005,
+          "tr808_voice": 5.654375,
           "drum_machine_808_context": 1.69,
-          "tr808_production_origin": 0.3125
+          "tr808_production_origin": 0.15
         }
       },
       {
@@ -78,7 +78,7 @@
           "electronic_technique": 4.6000000000000005,
           "sampler_archetypes": 6.890000000000001,
           "sampler_bit_depth": 0.44999999999999996,
-          "sampler_workflow": 8.662500000000001,
+          "sampler_workflow": 8.613750000000001,
           "sampler_classic_context": 25.675
         }
       },
@@ -91,7 +91,7 @@
         },
         "scores": {
           "flamenco_body": 2.34,
-          "flamenco_features": 0.20749999999999996,
+          "flamenco_features": 0.045,
           "flamenco_technique": 1.345
         }
       },
@@ -103,7 +103,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 13.065625,
+          "electronic_technique": 12.854375000000001,
           "va_archetypes": 0.195,
           "digital_subtractive_context": 18.33
         }
@@ -117,7 +117,7 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 13.065625,
+          "electronic_technique": 12.854375000000001,
           "wave_acid": 0.39,
           "filter_acid": 1.04,
           "accent_acid": 0

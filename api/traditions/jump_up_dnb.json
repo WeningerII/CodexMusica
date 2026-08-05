@@ -3,14 +3,14 @@
   "name": "Jump-up (drum-and-bass)",
   "family": "electronic",
   "lineage": "Late-1990s and 2000s drum-and-bass subgenre emphasizing accessible bouncy bass-line catchiness, ragga-and-MC-led vocal-presentation, and crowd-friendly party-rave performance context. Aphrodite, DJ Hype, Mickey Finn, Pascal, and the Suburban Base-Frontline-Playaz label rosters anchor the canonical jump-up roster. Distinguished from neurofunk by jump-up's explicit accessible-party-aesthetic over technical-cerebral.",
-  "recipe": "classic British 1997-1999 jump-up, bass System, bass descendants branch, Caribbean groove percussion soca zydeco. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 597,
-  "score": 186.055,
+  "recipe": "classic British 1997-1999 jump-up, bass System, bass descendants branch, Caribbean groove percussion bomba y plena soca. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 604,
+  "score": 185.167,
   "config": {
     "traditions": [
       "jump_up_dnb",
-      "soca",
-      "zydeco"
+      "bomba_y_plena",
+      "soca"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 5.335000000000001,
-          "voice_quality": 14.039999999999994,
+          "voice_register": 3.6600000000000006,
+          "voice_quality": 9.685,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6000000000000005,
-          "voice_articulation": 14.949999999999996,
-          "voice_microtone": 14.559999999999992,
-          "voice_tradition": 5.719999999999999,
+          "voice_vibrato": 2.405,
+          "voice_articulation": 16.769999999999996,
+          "voice_microtone": 16.769999999999992,
+          "voice_tradition": 6.11,
           "voice_mechanism_compound": 3.45,
-          "voice_estill_quality": 4.424999999999999,
-          "voice_speech_song": 15.989999999999995,
-          "voice_ensemble_config": 17.029999999999994,
+          "voice_estill_quality": 1.725,
+          "voice_speech_song": 18.069999999999997,
+          "voice_ensemble_config": 17.354999999999997,
           "voice_ornament_system": 2.15,
           "voice_pitch_organization": 3.6449999999999996,
-          "voice_processing_chain": 5.3950000000000005,
-          "voice_multitrack_stack": 4.585
+          "voice_processing_chain": 5.295,
+          "voice_multitrack_stack": 4.785
         }
       },
       {
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 7.7250000000000005,
+          "tr808_voice": 7.575,
           "drum_machine_808_context": 9.25,
           "tr808_production_origin": 1.3
         }
@@ -72,14 +72,14 @@
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "gated_env",
-          "modulation": "no_mod"
+          "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 7.625000000000001,
-          "oscillator": 7.775,
+          "electronic_technique": 7.4750000000000005,
+          "oscillator": 7.625,
           "filter_topology": 7.925,
           "envelope": 0.6749999999999999,
-          "modulation": 0.105
+          "modulation": 0.5
         }
       },
       {
@@ -94,10 +94,10 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 10.289999999999997,
-          "body_wood": 0.38999999999999996,
+          "amp_make": 9.339999999999998,
+          "body_wood": 0.195,
           "pickup_config": 0.65,
-          "string_type": 9.65,
+          "string_type": 9.5,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.195,
           "bass_technique": 1.5250000000000001

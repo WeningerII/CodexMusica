@@ -1,0 +1,132 @@
+{
+  "id": "australian_indigenous_music",
+  "name": "Australian Aboriginal clan song and manikay",
+  "family": "global",
+  "lineage": "Ceremonial song traditions of Aboriginal Australia, most fully documented in Arnhem Land manikay and Central Desert inma from the mid-20th century through recordings by A.P. Elkin, Alice Moyle and later community song-men such as Djalu Gurruwiwi — paired singer and clapstick beat in strict fast isochronous pulse against a continuously circular-breathed yidaki drone, with descending terraced melodic contours, texted ancestral songlines in clan languages, and short repeated song items separated by spoken cueing.",
+  "recipe": "classic Oceanian early-1940s australian aboriginal clan song and manikay, ritual Devotional, indigenous branch, indigenous hunting song, overtone drone modal didgeridoo drone practice siberian folk music. sygyt, breath veiled tone, breath pulsed, interlocked note trading. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo, arnhem land song cycle clapsticks bilma, narrow blade ancient ritual slow whirl ritual summoning hardwood slat bullroarer, foot stomp. arctic arnhem indigenous outdoor. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 610,
+  "score": 227.808,
+  "config": {
+    "traditions": [
+      "australian_indigenous_music",
+      "didgeridoo_drone_practice",
+      "siberian_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 10.14,
+          "voice_quality": 8.97,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.085,
+          "voice_articulation": 16.705,
+          "voice_microtone": 19.824999999999996,
+          "voice_tradition": 16.3,
+          "voice_mechanism_compound": 10.87,
+          "voice_estill_quality": 5.46,
+          "voice_speech_song": 25.089999999999996,
+          "voice_ensemble_config": 16.639999999999997,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 15.339999999999998,
+          "voice_processing_chain": 6.239999999999998,
+          "voice_multitrack_stack": 2.34
+        }
+      },
+      {
+        "id": "didgeridoo",
+        "slots": {
+          "wind_articulation": "wind_circular_breathing_drone",
+          "didj_material": "eucalyptus_tetrodonta_yidaki",
+          "didj_mouthpiece": "sugarbag_beeswax_mouthpiece",
+          "didj_technique": "circular_breathing"
+        },
+        "scores": {
+          "wind_articulation": 10.692499999999999,
+          "didj_material": 11.044999999999998,
+          "didj_mouthpiece": 9.485,
+          "didj_technique": 2.34
+        }
+      },
+      {
+        "id": "clapsticks_bilma",
+        "slots": {
+          "clapsticks_bilma_form": "clapsticks_bilma_arnhem",
+          "clapsticks_bilma_context": "clapsticks_bilma_manikay",
+          "clapsticks_bilma_wood": "clapsticks_bilma_eucalypt"
+        },
+        "scores": {
+          "clapsticks_bilma_form": 11.51,
+          "clapsticks_bilma_context": 14.17,
+          "clapsticks_bilma_wood": 0.585
+        }
+      },
+      {
+        "id": "bullroarer",
+        "slots": {
+          "bullroarer_regional_form": "bullroarer_form_rhombos",
+          "bullroarer_whirl_style": "bullroarer_whirl_ceremonial",
+          "bullroarer_slat_build": "bullroarer_build_hardwood"
+        },
+        "scores": {
+          "bullroarer_regional_form": 2.8600000000000003,
+          "bullroarer_whirl_style": 2.8600000000000003,
+          "bullroarer_slat_build": 1.5599999999999998
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_boot",
+          "stomp_surface": "stomp_wood_stage"
+        },
+        "scores": {
+          "stomp_footwear": 0.3,
+          "stomp_surface": 0.195
+        }
+      }
+    ],
+    "room": "arctic_arnhem_indigenous_outdoor",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "arctic_arnhem_indigenous_outdoor",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

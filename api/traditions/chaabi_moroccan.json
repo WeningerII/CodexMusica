@@ -5,7 +5,7 @@
   "lineage": "Moroccan-Arabic-language popular wedding-and-celebration music built on the rural Moroccan dance rhythms (haoussa from Casablanca, aita from the Atlantic plains, houara from the Souss valley) with the urban ensemble of oud, violin, the Moroccan-invented banjo (late 1960s), darbuka, voice — codified through Cheikha Rimitti (raï predecessor and chaabi crossover), Najat Aatabou, Stati, Daoudi",
   "recipe": "classic North African 1967-1969 chaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, Sufi ritual devotional malhun iraqi maqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier pyramid nylon arab school oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, alder electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 617,
-  "score": 161.84,
+  "score": 164.505,
   "config": {
     "traditions": [
       "chaabi_moroccan",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 4.34575,
+          "voice_register": 4.180000000000001,
           "voice_quality": 8.71,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,14 +42,14 @@
           "voice_articulation": 6.630000000000001,
           "voice_microtone": 17.842499999999998,
           "voice_tradition": 15.080000000000002,
-          "voice_mechanism_compound": 11.03775,
-          "voice_estill_quality": 5.97775,
+          "voice_mechanism_compound": 10.995000000000001,
+          "voice_estill_quality": 5.9799999999999995,
           "voice_speech_song": 8.58,
           "voice_ensemble_config": 8.645,
-          "voice_ornament_system": 14.938749999999999,
-          "voice_pitch_organization": 15.04375,
+          "voice_ornament_system": 16.12,
+          "voice_pitch_organization": 16.315,
           "voice_processing_chain": 2.0149999999999997,
-          "voice_multitrack_stack": 4.766500000000001
+          "voice_multitrack_stack": 5.005000000000001
         }
       },
       {
@@ -64,11 +64,11 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 4.125,
+          "plucked_traditional_technique": 4.215,
           "oud_school": 4.095,
           "oud_strings": 2.145,
           "oud_pick": 1.95,
-          "oud_body_wood": 2.6,
+          "oud_body_wood": 2.585,
           "oud_soundboard_wood": 0.65,
           "oud_string_material": 4.16
         }
@@ -97,16 +97,16 @@
           "string_type": "half_round",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
           "amp_make": 1.6899999999999997,
           "body_wood": 1.95,
-          "pickup_config": 0.045,
+          "pickup_config": 0.09,
           "string_type": 1.95,
           "scale_length_b": 1.95,
-          "fretted_or_not": 0.195,
-          "bass_technique": -0.05
+          "fretted_or_not": 0.24,
+          "bass_technique": -0.035
         }
       }
     ],

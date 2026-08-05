@@ -5,7 +5,7 @@
   "lineage": "1990s emocore and 2000s screamo subgenre developed from hardcore-punk emotional-aggressive register, characterized by screamed-and-melodic vocal alternation, dynamic-contrasted song structure, and confessional-emotional lyrical content. Saetia, City of Caterpillar, Pg.99, Orchid, and Hot Cross constitute the canonical American skramz roster; the parallel European screamo scene (Funeral Diner, Envy from Japan) extended international reach.",
   "recipe": "classic mid-1990s scramz / screamo, distorted Rock, emo branch, thrash metal groove metal speed metal. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
   "recipe_chars": 631,
-  "score": 337.482,
+  "score": 337.195,
   "config": {
     "traditions": [
       "screamo_skramz",
@@ -42,8 +42,8 @@
           "voice_articulation": 13.324999999999996,
           "voice_microtone": 13.129999999999992,
           "voice_tradition": 4.875,
-          "voice_mechanism_compound": 37.46000000000001,
-          "voice_estill_quality": 1.9825000000000002,
+          "voice_mechanism_compound": 37.45400000000001,
+          "voice_estill_quality": 1.7875,
           "voice_speech_song": 15.859999999999994,
           "voice_ensemble_config": 14.949999999999996,
           "voice_ornament_system": 1.5250000000000001,
@@ -70,8 +70,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 38.91725,
-          "amp_make": 19.388499999999997,
+          "electric_technique": 39.04775,
+          "amp_make": 19.3825,
           "body_wood": 16.185000000000002,
           "neck_wood": 1.69,
           "fretboard": 1.625,
@@ -99,7 +99,7 @@
         "scores": {
           "amp_make": 5.655000000000001,
           "body_wood": 1.69,
-          "pickup_config": 0.855,
+          "pickup_config": 0.645,
           "string_type": 14.3,
           "scale_length_b": 1.69,
           "fretted_or_not": 0.195,

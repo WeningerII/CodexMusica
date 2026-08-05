@@ -3,9 +3,9 @@
   "name": "Swamp rock",
   "family": "rock",
   "lineage": "Late-1960s American style joining Louisiana and Gulf-Coast blues and swamp-pop feel to California rock recording, defined by Creedence Clearwater Revival, Tony Joe White and Dale Hawkins — medium-tempo shuffles and straight backbeats, tremolo-and-reverb single-coil guitar riffs, sparse organ, prominent bass-and-snare pocket, and drawled narrative vocals about rivers, work and superstition",
-  "recipe": "classic North American 1967-1969 swamp rock, distorted Rock, southern rock branch, blues electric functional song, country rock country. thick, worn fold, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright swamp ash ash single coil electric open d tuning slide steel resonator guitar, ampeg svt amp rock bass amp swamp ash ash ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, reed pearwood marine band tradition brass traditional harmonica, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 830,
-  "score": 626.13,
+  "recipe": "classic North American 1967-1969 swamp rock, distorted Rock, southern rock branch, blues electric functional song, country rock country. thick, worn fold, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright swamp ash ash single coil electric open d tuning slide steel resonator guitar, Fender tweed amp American 50s amp tweed breakup swamp ash ash electric bass, pre muffled edge muffled sticks backbeat drum kit, reed pearwood marine band tradition brass traditional harmonica, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 832,
+  "score": 626.628,
   "config": {
     "traditions": [
       "swamp_rock",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 63.53250000000001,
-          "voice_quality": 10.674999999999997,
+          "voice_register": 63.52000000000001,
+          "voice_quality": 10.719999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 27.548749999999995,
+          "voice_vibrato": 28.279999999999998,
           "voice_articulation": 22.360000000000003,
           "voice_microtone": 34.92500000000001,
           "voice_tradition": 6.89,
-          "voice_mechanism_compound": 2.6645714285714295,
-          "voice_estill_quality": 16.593428571428568,
+          "voice_mechanism_compound": 2.5150000000000006,
+          "voice_estill_quality": 17.294999999999995,
           "voice_speech_song": 27.235000000000003,
           "voice_ensemble_config": 23.075000000000003,
           "voice_ornament_system": 0.3,
           "voice_pitch_organization": 0.26,
-          "voice_processing_chain": 5.395,
-          "voice_multitrack_stack": 6.957428571428571
+          "voice_processing_chain": 5.6225000000000005,
+          "voice_multitrack_stack": 7.095
         }
       },
       {
@@ -58,35 +58,35 @@
           "electric_technique": "electric_fingerstyle_country",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "swamp_ash",
-          "neck_wood": "maple",
-          "fretboard": "pau_ferro_fb",
-          "pickup_magnet": "ceramic",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
-          "string_gauge": "g_8",
+          "string_gauge": "g_12",
           "bridge": "two_point_trem",
-          "scale_length": "scale_short",
-          "finish": "nitro",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 15.499999999999998,
-          "amp_make": 19.374249999999996,
-          "body_wood": 2.5999999999999996,
-          "neck_wood": 0.2824285714285715,
-          "fretboard": 0.2824285714285715,
-          "pickup_magnet": 0.2824285714285715,
-          "string_material": 0.78,
-          "string_gauge": 0.65,
-          "bridge": 0.01625,
-          "scale_length": 0.65,
-          "finish": 0,
+          "electric_technique": 15.754999999999999,
+          "amp_make": 20.419999999999995,
+          "body_wood": 2.84,
+          "neck_wood": 0.43500000000000005,
+          "fretboard": 0.045,
+          "pickup_magnet": 0.045,
+          "string_material": 0.645,
+          "string_gauge": 0.9750000000000001,
+          "bridge": 0.09,
+          "scale_length": 0.87,
+          "finish": 0.045,
           "string_tuning": 22.36
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_american_fender_tweed",
           "body_wood": "swamp_ash_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
@@ -95,13 +95,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 18.466035714285717,
-          "body_wood": 2.5999999999999996,
-          "pickup_config": 0.045,
-          "string_type": 34.05614285714286,
-          "scale_length_b": 1.75625,
+          "amp_make": 18.974999999999998,
+          "body_wood": 2.84,
+          "pickup_config": 0.09,
+          "string_type": 31.795,
+          "scale_length_b": 1.935,
           "fretted_or_not": 0.09,
-          "bass_technique": 31.385000000000005
+          "bass_technique": 31.535000000000004
         }
       },
       {
@@ -128,10 +128,10 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 1.5152499999999998,
-          "harmonica_comb": 14.098964285714283,
-          "harmonica_reed": 12.267499999999998,
-          "harmonica_technique": 17.777964285714283,
+          "harmonica_type": 1.6899999999999997,
+          "harmonica_comb": 13.659999999999998,
+          "harmonica_reed": 12.579999999999998,
+          "harmonica_technique": 17.794999999999998,
           "harmonica_maker_school": 13.129999999999997,
           "harmonica_tuning": 6.239999999999998
         }
@@ -147,12 +147,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 4.961142857142857,
-          "drawbar_setting": 31.435000000000006,
-          "rotary_speed": 32.25000000000001,
-          "percussion_setting": 15.261142857142858,
-          "tonewheel_model": 13.324999999999998,
-          "leslie_cabinet_model": 0.845
+          "keyboard_technique": 5.31,
+          "drawbar_setting": 31.585000000000004,
+          "rotary_speed": 32.790000000000006,
+          "percussion_setting": 13,
+          "tonewheel_model": 12.559999999999999,
+          "leslie_cabinet_model": 0.6950000000000001
         }
       },
       {
@@ -162,14 +162,14 @@
           "string_tuning": "open_d",
           "cone_type": "biscuit",
           "body_resonator": "steel_body",
-          "res_strings": "eighty_twenty_res"
+          "res_strings": "phosphor_res"
         },
         "scores": {
           "acoustic_technique": 9.86,
-          "string_tuning": 8.37,
+          "string_tuning": 8.76,
           "cone_type": 1.625,
-          "body_resonator": 0.78,
-          "res_strings": 0.45499999999999996
+          "body_resonator": 0.645,
+          "res_strings": 0.48
         }
       }
     ],

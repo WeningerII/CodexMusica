@@ -1,0 +1,164 @@
+{
+  "id": "siberian_folk",
+  "name": "Siberian folk music (Sakha, Tuva, Altai)",
+  "family": "global",
+  "lineage": "Indigenous South and East Siberian traditions of the Sakha, Tuvan, Altai and Khakas peoples, documented from Aleksei Anokhin's early-1900s expeditions through Soviet Melodiya ethnographic issues — overtone throat singing in khöömei, kargyraa and sygyt styles, the khomus jaw harp played with breath-shaped resonance, bowed igil and byzaanchy over pentatonic long-song melodies, epic olonkho and kai narration in free rhythm, and horse-gait rhythmic imitation.",
+  "recipe": "classic Northeast Asian 1900-1903 siberian folk music, drone Modal, overtone branch, central Asian hunting song, arctic indigenous tuvan folk music central asian folk. sygyt, breath veiled tone, breath pulsed, interlocked note trading. m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range central Asian steppe canonical research site throat singing voice, staccato dance rhythmic khomus, wood larch canonical tuvan pastoral solo igil, cylindrical tuvan tradition hide horsehair unison byzaanchy, doshpuluur, chatkhan. taiga natural reverb. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 666,
+  "score": 277.476,
+  "config": {
+    "traditions": [
+      "siberian_folk",
+      "tuvan_folk",
+      "central_asian_folk"
+    ],
+    "instruments": [
+      {
+        "id": "throat_singing_voice",
+        "slots": {
+          "throat_mechanism_root": "throat_mechanism_M1_compound_with_overtones",
+          "throat_overtone_target_region": "throat_overtone_8th_to_12th_partial",
+          "throat_singing_voice_region": "throat_singing_voice_central_asian_steppe"
+        },
+        "scores": {
+          "throat_mechanism_root": 12.48,
+          "throat_overtone_target_region": 7.994999999999999,
+          "throat_singing_voice_region": 6.11
+        }
+      },
+      {
+        "id": "khomus",
+        "slots": {
+          "khomus_form": "khomus_altai_komus",
+          "khomus_technique": "khomus_rhythmic_flick",
+          "khomus_material": "khomus_forged_steel"
+        },
+        "scores": {
+          "khomus_form": 11.64,
+          "khomus_technique": 2.85,
+          "khomus_material": -0.05
+        }
+      },
+      {
+        "id": "igil",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "igil_body": "igil_carved_horsehead",
+          "igil_string": "igil_horsehair_two",
+          "igil_body_wood": "igil_larch_canonical",
+          "igil_tradition": "igil_pastoral_solo"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "igil_body": 2.34,
+          "igil_string": 0.65,
+          "igil_body_wood": 2.145,
+          "igil_tradition": 1.95
+        }
+      },
+      {
+        "id": "byzaanchy",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "byzaanchy_body": "byzaanchy_body_cylinder_wood",
+          "byzaanchy_face": "byzaanchy_face_maral_hide",
+          "byzaanchy_strings": "byzaanchy_strings_horsehair_fifth",
+          "byzaanchy_context": "byzaanchy_context_khoomei"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "byzaanchy_body": 7.605,
+          "byzaanchy_face": 5.75,
+          "byzaanchy_strings": 5.67875,
+          "byzaanchy_context": 10.410625
+        }
+      },
+      {
+        "id": "doshpuluur",
+        "slots": {
+          "dosh_belly": "dosh_wood",
+          "dosh_style": "dosh_strum",
+          "dosh_strings": "dosh_horsehair"
+        },
+        "scores": {
+          "dosh_belly": 0.15,
+          "dosh_style": 0.045,
+          "dosh_strings": 0
+        }
+      },
+      {
+        "id": "chatkhan",
+        "slots": {
+          "chatkhan_strings": "chatkhan_six",
+          "chatkhan_role": "chatkhan_epic"
+        },
+        "scores": {
+          "chatkhan_strings": 3.9650000000000003,
+          "chatkhan_role": 0.045
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "khoomei_tuvan_tradition",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 14.296249999999999,
+          "voice_quality": 12.479999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.568125,
+          "voice_articulation": 21.774999999999995,
+          "voice_microtone": 26.974999999999994,
+          "voice_tradition": 18.101875,
+          "voice_mechanism_compound": 15.40625,
+          "voice_estill_quality": 3.9650000000000003,
+          "voice_speech_song": 28.664999999999996,
+          "voice_ensemble_config": 21.904999999999998,
+          "voice_ornament_system": 5.980000000000002,
+          "voice_pitch_organization": 16.71375,
+          "voice_processing_chain": 2.6650000000000005,
+          "voice_multitrack_stack": 1.69
+        }
+      }
+    ],
+    "room": "taiga_natural_reverb",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mongolian_khoomei_harmonic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mongolian_khoomei_harmonic",
+    "room": "taiga_natural_reverb",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

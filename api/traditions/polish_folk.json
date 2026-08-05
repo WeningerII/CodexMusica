@@ -1,0 +1,173 @@
+{
+  "id": "polish_folk",
+  "name": "Polish folk (wiejska muzyka taneczna)",
+  "family": "global",
+  "lineage": "Polish village dance music of the Mazovia, Radom and Rzeszów lowlands as documented from the 1920s by Oskar Kolberg's successors and re-collected on tape in the 1970s-90s by Andrzej Bieńkowski, built on a lead fiddle carrying a heavily ornamented melody over a baraban bass drum struck with a beater and a bowed basy drone, playing mazurka, oberek and kujawiak in a lopsided triple metre at 150-200 BPM with the accent thrown onto the second or third beat, plus tight nasal open-throat female singing in the przyśpiewki interludes.",
+  "recipe": "classic Northern European mid-1920s polish folk, domestic Rhythm, Slavic baltic branch, Slavic balkan field work, Slavic bard ballad poetry, European wedding caucasian folk music rusyn folk. thick, breath veiled tone, fast rate, interlocked note trading. drone like fiddle, venice catlin high twist renaissance bass carpathian spruce European maple double bass, double bass rapid double strokes bass drum, clarinet, castagnari Italian premium folk music straight accordion. baltic outdoor village. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 572,
+  "score": 195.845,
+  "config": {
+    "traditions": [
+      "polish_folk",
+      "caucasian_folk",
+      "rusyn_folk"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 7.295,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.39,
+          "fiddle_mute": 0.45499999999999996,
+          "fiddle_articulation": 0.39
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "carbon_fiber_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.4,
+          "bass_size": 0.935,
+          "bass_strings": 2.0949999999999998,
+          "bass_top_wood": 2.5999999999999996,
+          "bass_back_wood": 1.2349999999999997,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 2.09,
+          "bass_play": 0.495,
+          "bass_rosin": 2.05,
+          "bass_bow_stick": 0.45
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_18_jazz",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 1.39,
+          "bass_drum_beater": 3.0500000000000003
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.2,
+          "clarinet_body": 0.45499999999999996,
+          "clarinet_size": 2.145,
+          "clarinet_reed": 0.045,
+          "clarinet_articulation": 0.65
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 4.07,
+          "accordion_reed_material": 0.045,
+          "musette_offset": 0.15,
+          "reed_config": 0.39,
+          "bellows": 0,
+          "voicing_chamber": 0.35,
+          "accordion_maker_school": 5.525
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 3.82,
+          "voice_quality": 17.09499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.95,
+          "voice_articulation": 20.279999999999998,
+          "voice_microtone": 22.522499999999994,
+          "voice_tradition": 18.557499999999997,
+          "voice_mechanism_compound": 6.89,
+          "voice_estill_quality": 7.735,
+          "voice_speech_song": 21.319999999999997,
+          "voice_ensemble_config": 20.345,
+          "voice_ornament_system": 5.200000000000001,
+          "voice_pitch_organization": 4.005,
+          "voice_processing_chain": 4.540000000000001,
+          "voice_multitrack_stack": 4.290000000000001
+        }
+      }
+    ],
+    "room": "baltic_outdoor_village",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "cross_tuning_fiddle",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cross_tuning_fiddle",
+    "room": "baltic_outdoor_village",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

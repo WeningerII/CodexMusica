@@ -5,7 +5,7 @@
   "lineage": "The caller's rhythmic patter directing figures for old-time Appalachian square and big-circle dances, delivered in strict time over a string band of fiddle and banjo. It descends from Anglo-Celtic and French quadrille calling adapted in the southern mountains, where the caller became an improvising rhythmic voice rather than a mere prompter. The running-set dancing that underlies it was documented by Cecil Sharp during his 1916 to 1918 Appalachian fieldwork, and figures such as Bascom Lamar Lunsford institutionalized the practice through the Asheville Mountain Dance and Folk Festival from 1928. Calls are locked to the reel's meter, blending fixed figure-names with spontaneous filler.",
   "recipe": "classic mid-1910s appalachian square-dance calling, ballad Poetry, anglo singer song branch cape verdean batuko of santiago island classic blues women. thick, breath veiled tone, wide pitch sway, interlocked note trading. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 309,
-  "score": 251.603,
+  "score": 251.822,
   "config": {
     "traditions": [
       "appalachian_square_dance_calling",
@@ -46,10 +46,10 @@
           "voice_estill_quality": 10.334999999999999,
           "voice_speech_song": 28.729999999999997,
           "voice_ensemble_config": 26.194999999999997,
-          "voice_ornament_system": 5.581000000000001,
+          "voice_ornament_system": 5.785000000000001,
           "voice_pitch_organization": 3.250000000000001,
           "voice_processing_chain": 5.199999999999999,
-          "voice_multitrack_stack": 7.749
+          "voice_multitrack_stack": 7.763999999999999
         }
       }
     ],

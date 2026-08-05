@@ -1,0 +1,154 @@
+{
+  "id": "instrumental_country",
+  "name": "Instrumental Country",
+  "family": "country",
+  "lineage": "Nashville and Bakersfield studio-musician tradition formalized in the 1950s-60s by Chet Atkins, Merle Travis, Speedy West and Jimmy Bryant, and by the A-Team session players — melody-lead pedal steel, fingerstyle or Telecaster electric guitar and fiddle trading choruses over a 2/4 train-beat or shuffle at 100-160 BPM, with no vocal and 32-bar or 12-bar forms carrying the tune.",
+  "recipe": "classic Southern American mid-1950s instrumental country, functional Song, nashville branch, western swing country, honky tonk era country, neo trad country classic texas country classic oklahoma country. Fender blackface amp American 60s amp spring reverb bright mahogany nickel plated steel single coil electric cedar steel silk travis picked dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, steel double stops fiddle, sustaining steel upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 787,
+  "score": 387.56,
+  "config": {
+    "traditions": [
+      "instrumental_country",
+      "classic_texas_country",
+      "classic_oklahoma_country"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_country_chicken_pickin",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 32.695,
+          "amp_make": 33.17999999999999,
+          "body_wood": 1.32,
+          "neck_wood": 1.32,
+          "fretboard": 0.195,
+          "pickup_magnet": 0.195,
+          "string_material": 3.9650000000000003,
+          "string_gauge": 0.87,
+          "bridge": 0.195,
+          "scale_length": 2.1449999999999996,
+          "finish": 0.045,
+          "string_tuning": 1.23
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 37.06999999999999,
+          "amp_make": 33.17999999999999,
+          "pickup_steel": 0.825,
+          "string_setup": 15.6,
+          "bar_material": 3.9650000000000003,
+          "pedal_steel_brand": 35.794999999999995,
+          "pedal_steel_neck_config": 37.42999999999999,
+          "pedal_steel_strings": 33.355
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "sul_tasto"
+        },
+        "scores": {
+          "bowed_technique": 39.224999999999994,
+          "fiddle_strings": 4.875,
+          "fiddle_bow": 0.3,
+          "fiddle_mute": 0.65,
+          "fiddle_articulation": 0.195
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 3.9650000000000003,
+          "upright_play": 2.5
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.539999999999992,
+          "drumhead": 5.135,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "open_d",
+          "top_wood": "cedar",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 30.349999999999994,
+          "string_tuning": 0.2,
+          "top_wood": 1.365,
+          "back_sides": 0,
+          "string_acoustic": 4.16
+        }
+      }
+    ],
+    "room": "nashville_rca_studio_b_quonset_hut",
+    "archetype": "arch_nashville_a_team",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "console_american_op_amp",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "country_nashville_three_chord_train_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "country_nashville_three_chord_train_beat",
+    "room": "nashville_rca_studio_b_quonset_hut",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

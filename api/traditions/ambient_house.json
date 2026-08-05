@@ -1,0 +1,155 @@
+{
+  "id": "ambient_house",
+  "name": "Ambient House",
+  "family": "electronic",
+  "lineage": "Invented in London 1988-1992 in the chill-out rooms of acid-house parties, codified by The KLF's Chill Out and The Orb's Adventures Beyond the Ultraworld — house's 110-125 BPM four-on-floor kick and dub bassline slowed and softened under long sampled beds of field recordings, radio talk, choral pads and Mellotron, arranged as extended twenty-minute suites rather than DJ tools.",
+  "recipe": "classic 1988-1992 ambient house, experimental Elec, ambient branch, deep house house, dub descendants bass system liquid dub. TR-909, field textural sampler, sustained pad analog poly synth, polyester base quarter inch iron oxide canonical mellotron mellotron, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble, sustained pad string machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 696,
+  "score": 165.302,
+  "config": {
+    "traditions": [
+      "ambient_house",
+      "ambient_dub",
+      "liquid_dub"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 14.765,
+          "drum_machine_909_context": 0.54,
+          "tr909_production_origin": 0.65
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 5.450000000000001,
+          "sampler_archetypes": 1.25,
+          "sampler_bit_depth": 0.135,
+          "sampler_workflow": 7.565,
+          "sampler_classic_context": 39.552499999999995
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 15.539999999999997,
+          "poly_archetypes": 0.845,
+          "poly_voices": 0.845,
+          "poly_maker_lineage": 0.585
+        }
+      },
+      {
+        "id": "mellotron",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "mellotron_voice": "mellotron_strings",
+          "mellotron_context": "mellotron_indie",
+          "mellotron_model": "mellotron_m4000d_modern",
+          "mellotron_tape_material": "mellotron_polyester_tape_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 0.06499999999999999,
+          "mellotron_voice": 0,
+          "mellotron_context": 2.6445,
+          "mellotron_model": -0.13999999999999996,
+          "mellotron_tape_material": 1.45
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 7.215,
+          "body_wood": 0.96,
+          "pickup_config": 1.3,
+          "string_type": 7.93,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0,
+          "bass_technique": 16.099999999999998
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 3.5749999999999993,
+          "choir_polyphonic_configuration": 2.9899999999999998,
+          "choir_regional_canonical_configuration": 2.0799999999999996,
+          "choir_ensemble_repertoire": 3.9455
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_violins"
+        },
+        "scores": {
+          "electronic_technique": 15.539999999999997,
+          "sm_voice_count": 3.5100000000000002,
+          "sm_chorus": 0.345,
+          "sm_voicing": 0.845
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

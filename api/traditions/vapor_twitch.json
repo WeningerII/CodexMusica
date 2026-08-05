@@ -3,31 +3,31 @@
   "name": "Vapor twitch",
   "family": "electronic",
   "lineage": "Internet-native electronic microgenre that took shape between roughly 2014 and 2019 around livestream and gaming-video culture, feeding off vaporwave's chopped 1980s-90s sample palette but rebuilt for stream-background use — 100-140 BPM, glitch-cut breakbeats and trap hats, FM and wavetable leads over pitched-down mall-jazz and anime-soundtrack samples, heavy sidechain, and short loopable arrangements with no vocal focal point.",
-  "recipe": "classic mid-1980s vapor twitch, experimental Elec, retro aesthetic branch, idm glitch experimental electric, lofi experimental electric idm and experimental electronic lo-fi beats. glitched textural sampler, glitched textural wavetable native instruments fm8 modern software 8 operator sub bass fm sub bass analog poly synth, TR-909, vocoder. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 450,
-  "score": 114.385,
+  "recipe": "classic mid-1980s vapor twitch, experimental Elec, retro aesthetic branch, idm glitch experimental electric, lofi experimental electric folktronica. glitched textural sampler, glitched textural wavetable native instruments fm8 modern software 8 operator sub bass fm sub bass analog poly synth, roland tr 8s modern aira digital recreation TR-909, vocoder. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 462,
+  "score": 118.323,
   "config": {
     "traditions": [
       "vapor_twitch",
-      "idm",
-      "lofi_beats"
+      "glitch_hop",
+      "folktronica"
     ],
     "instruments": [
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
           "sampler_workflow": "sampler_microsampling_glitch",
-          "sampler_classic_context": "sampler_classic_edm"
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 20.47,
-          "sampler_archetypes": 2.6449999999999996,
-          "sampler_bit_depth": 1.6574999999999998,
-          "sampler_workflow": 19.91,
-          "sampler_classic_context": 25.317499999999995
+          "electronic_technique": 23.07,
+          "sampler_archetypes": 2.0150000000000006,
+          "sampler_bit_depth": 0.75,
+          "sampler_workflow": 22.875,
+          "sampler_classic_context": 23.432500000000005
         }
       },
       {
@@ -39,40 +39,40 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 20.47,
-          "wt_position": 4.745,
-          "wt_family": 0.345,
-          "wt_polyphony": 0.15
+          "electronic_technique": 23.07,
+          "wt_position": 3.9,
+          "wt_family": 0.105,
+          "wt_polyphony": 0
         }
       },
       {
         "id": "fm_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "fm_algorithm": "fm_complex",
+          "fm_algorithm": "fm_classic",
           "fm_modulator_ratio": "fm_harmonic",
           "fm_polyphony": "fm_mono",
           "fm_model_lineage": "fm_native_instruments_fm8"
         },
         "scores": {
-          "electronic_technique": 6.6450000000000005,
-          "fm_algorithm": 1.4949999999999999,
-          "fm_modulator_ratio": 1.2850000000000001,
-          "fm_polyphony": 0.15,
-          "fm_model_lineage": 1.95
+          "electronic_technique": 7.58,
+          "fm_algorithm": 2.375,
+          "fm_modulator_ratio": 1,
+          "fm_polyphony": 0,
+          "fm_model_lineage": 1.3
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
-          "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 2.7100000000000004,
-          "drum_machine_909_context": 0.78,
-          "tr909_production_origin": 0.39
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.65,
+          "tr909_production_origin": 1.2349999999999999
         }
       },
       {
@@ -84,23 +84,23 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 6.6450000000000005,
-          "poly_archetypes": 0.705,
-          "poly_voices": 0.24,
-          "poly_maker_lineage": -1.33
+          "electronic_technique": 7.58,
+          "poly_archetypes": 0.105,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.435
         }
       },
       {
         "id": "vocoder",
         "slots": {
           "voc_band_count": "voc_many_bands",
-          "voc_carrier": "voc_saw_carrier",
+          "voc_carrier": "voc_noise_carrier",
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
           "voc_band_count": 0.105,
-          "voc_carrier": 0.045,
-          "voc_modulator": 0.585
+          "voc_carrier": 0.195,
+          "voc_modulator": 0.845
         }
       }
     ],

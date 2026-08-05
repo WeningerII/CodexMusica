@@ -3,14 +3,14 @@
   "name": "Redneck Rock",
   "family": "country",
   "lineage": "Austin, Texas hybrid of 1972-1979 documented by Jan Reid's 'The Improbable Rise of Redneck Rock' and centred on the Armadillo World Headquarters — codified by Willie Nelson, Jerry Jeff Walker, Michael Martin Murphey and Doug Sahm, it plays honky-tonk and western-swing forms at rock volume with electric guitar and pedal steel trading leads, fiddle over a shuffle or train beat, loose live-in-the-room drumming, and a laconic drawled vocal that keeps country phrasing but rock attitude",
-  "recipe": "classic Southern American mid-1970s redneck rock, functional Song, outlaw branch, country rock country, western swing country, southern rock distorted rock swamp rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel humbucker electric steel silk travis picked dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, steel double stops fiddle, Fender tweed amp American 50s amp tweed breakup swamp ash ash electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 980,
-  "score": 912.961,
+  "recipe": "classic Southern American mid-1970s redneck rock, functional Song, outlaw branch, country rock country, western swing country, southern rock distorted rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup nickel plated steel nickel humbucker electric steel silk travis picked dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, steel double stops fiddle, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 975,
+  "score": 920.847,
   "config": {
     "traditions": [
       "redneck_rock",
       "country_rock",
-      "swamp_rock"
+      "western_music"
     ],
     "instruments": [
       {
@@ -24,65 +24,65 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 76.47500000000002,
-          "voice_quality": 9.815,
+          "voice_register": 68.87500000000001,
+          "voice_quality": 12.804999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 35.41624999999999,
-          "voice_articulation": 19.11,
-          "voice_microtone": 43.06500000000001,
-          "voice_tradition": 8.905,
-          "voice_mechanism_compound": 2.1449999999999996,
-          "voice_estill_quality": 33.247499999999995,
-          "voice_speech_song": 24.504999999999995,
-          "voice_ensemble_config": 18.33,
-          "voice_ornament_system": 0.585,
+          "voice_vibrato": 36.8065,
+          "voice_articulation": 18.004999999999995,
+          "voice_microtone": 36.88000000000001,
+          "voice_tradition": 9.489999999999998,
+          "voice_mechanism_compound": 1.885,
+          "voice_estill_quality": 38.145,
+          "voice_speech_song": 24.83,
+          "voice_ensemble_config": 18.329999999999995,
+          "voice_ornament_system": 1.2349999999999997,
           "voice_pitch_organization": 0.195,
-          "voice_processing_chain": 5.459999999999999,
-          "voice_multitrack_stack": 5.265000000000001
+          "voice_processing_chain": 5.85,
+          "voice_multitrack_stack": 4.062500000000001
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_fingerstyle_country",
-          "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "korina",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "low_wind",
+          "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 31.14999999999999,
-          "amp_make": 33.92999999999999,
-          "body_wood": 0.1245,
-          "neck_wood": 0.39,
-          "fretboard": 0.39,
+          "electric_technique": 35.4315,
+          "amp_make": 36.765,
+          "body_wood": 1.3,
+          "neck_wood": 0.65,
+          "fretboard": 0.585,
           "pickup_magnet": 0.195,
-          "pickup_winding": 0.195,
-          "string_material": 2.8599999999999994,
-          "bridge": 0.11825,
-          "scale_length": 0.219,
-          "string_gauge": 0.1245,
-          "finish": 0.008749999999999999,
-          "string_tuning": 20.109250000000003
+          "pickup_winding": 0.105,
+          "string_material": 4.095,
+          "bridge": 0.65,
+          "scale_length": 0.65,
+          "string_gauge": 0.65,
+          "finish": 0.024999999999999998,
+          "string_tuning": 16.25
         }
       },
       {
@@ -98,14 +98,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 36.98649999999999,
-          "amp_make": 33.92999999999999,
-          "pickup_steel": 0.11325,
-          "string_setup": 15.859999999999996,
-          "bar_material": 2.8599999999999994,
-          "pedal_steel_brand": 31.777499999999996,
-          "pedal_steel_neck_config": 35.13399999999999,
-          "pedal_steel_strings": 31.462999999999994
+          "electric_technique": 42.9715,
+          "amp_make": 36.705000000000005,
+          "pickup_steel": 0.65,
+          "string_setup": 18.33,
+          "bar_material": 4.095,
+          "pedal_steel_brand": 37.5055,
+          "pedal_steel_neck_config": 40.7975,
+          "pedal_steel_strings": 36.51299999999999
         }
       },
       {
@@ -118,8 +118,8 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 36.62499999999999,
-          "fiddle_strings": 2.8599999999999994,
+          "bowed_technique": 45.599999999999994,
+          "fiddle_strings": 4.55,
           "fiddle_bow": 0.39,
           "fiddle_mute": 0.15,
           "fiddle_articulation": 0.195
@@ -129,21 +129,21 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_fender_tweed",
-          "body_wood": "swamp_ash_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "amp_make": 32.26499999999999,
-          "body_wood": 1.04,
+          "amp_make": 36.765,
+          "body_wood": 0.65,
           "pickup_config": 0,
-          "string_type": 42.353,
-          "scale_length_b": 1.3,
-          "fretted_or_not": 0.015,
-          "bass_technique": 38.52
+          "string_type": 34.509499999999996,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0.017499999999999998,
+          "bass_technique": 35.4315
         }
       },
       {
@@ -154,8 +154,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 38.615,
-          "drumhead": 2.645,
+          "drum_technique": 30.622499999999995,
+          "drumhead": 1.3324999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -164,16 +164,16 @@
         "slots": {
           "acoustic_technique": "acoustic_travis_picking",
           "string_tuning": "eb_standard",
-          "top_wood": "sitka",
+          "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 32.49999999999999,
-          "string_tuning": 1.9487499999999998,
-          "top_wood": 0.39,
+          "acoustic_technique": 37.25,
+          "string_tuning": 0.8699999999999999,
+          "top_wood": 0.65,
           "back_sides": 0.39,
-          "string_acoustic": 3.12
+          "string_acoustic": 4.355
         }
       },
       {
@@ -187,11 +187,11 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 2.54,
-          "drawbar_setting": 38.57,
-          "rotary_speed": 39.17,
-          "percussion_setting": 19.34425,
-          "tonewheel_model": 19.759999999999998,
+          "keyboard_technique": 0.9224999999999999,
+          "drawbar_setting": 30.8325,
+          "rotary_speed": 30.644999999999996,
+          "percussion_setting": 15.86,
+          "tonewheel_model": 15.664999999999996,
           "leslie_cabinet_model": 1.2349999999999999
         }
       }

@@ -1,0 +1,148 @@
+{
+  "id": "swedish_fiddle",
+  "name": "Swedish fiddle tradition (spelmanslag)",
+  "family": "global",
+  "lineage": "Swedish fiddle practice codified through 19th-century parish spelmän, the 1908 spelmansstämma revival movement and the Zorn medal system from 1933 — polska in uneven 3/4 with the second or third beat shortened, plus schottis, vals and polketta, played with heavy double-stops, drone-fifth accompaniment, second-fiddle stämma harmony a third below, and swung foot-driven pulse in unison spelmanslag ensembles.",
+  "recipe": "classic Northern European late-1900s swedish fiddle tradition, improv On Frame, string improv branch, string drone modal, Slavic baltic domestic rhythm nyckelharpa estonian folk music. extended whistle, breath veiled tone, slow rate, interlocked note trading. double stops fiddle, traditional spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, drone like accordion, harpa. mountain valley fabod. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 486,
+  "score": 170.401,
+  "config": {
+    "traditions": [
+      "swedish_fiddle",
+      "nyckelharpa_tradition",
+      "estonian_folk_music"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "silver_wound_lamb_gut_fiddle",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 15.219999999999997,
+          "fiddle_strings": 0.295,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 1.15
+        }
+      },
+      {
+        "id": "nyckelharpa",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "nyckel_keys": "traditional_silverbas",
+          "nyckel_strings": "nyckel_12_sympathetic",
+          "nyckel_body_wood": "nyckel_spruce_maple",
+          "nyckel_string_material": "nyckel_gut_historical",
+          "nyckel_mechanism": "nyckel_2_row_diatonic_silverbas"
+        },
+        "scores": {
+          "bowed_technique": 0.78,
+          "nyckel_keys": 4.68,
+          "nyckel_strings": 0.12999999999999998,
+          "nyckel_body_wood": 4.002142857142857,
+          "nyckel_string_material": 2.209999999999999,
+          "nyckel_mechanism": -0.5950000000000001
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 5.655000000000001,
+          "accordion_reed_material": 0.195,
+          "musette_offset": 0.7649999999999999,
+          "reed_config": 0.42,
+          "bellows": 0.7649999999999999,
+          "voicing_chamber": 0.21,
+          "accordion_maker_school": 0.845
+        }
+      },
+      {
+        "id": "harpa",
+        "slots": {
+          "harpa_size": "harpa_lap",
+          "harpa_strings": "harpa_brass_wire"
+        },
+        "scores": {
+          "harpa_size": 0.65,
+          "harpa_strings": 0.845
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 1.3649999999999998,
+          "voice_quality": 14.364999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 16.249999999999996,
+          "voice_microtone": 20.34499999999999,
+          "voice_tradition": 10.14,
+          "voice_mechanism_compound": 9.749999999999998,
+          "voice_estill_quality": 5.655000000000001,
+          "voice_speech_song": 16.834999999999994,
+          "voice_ensemble_config": 18.004999999999995,
+          "voice_ornament_system": 2.535000000000001,
+          "voice_pitch_organization": 4.940000000000001,
+          "voice_processing_chain": 5.199999999999999,
+          "voice_multitrack_stack": 9.23392857142857
+        }
+      }
+    ],
+    "room": "mountain_valley_fabod",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "nordic_modal_drone_double_stops",
+    "room": "mountain_valley_fabod",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Egyptian Sayyed Darwish and Sheikh Imam political-vocal lineage",
   "family": "global",
   "lineage": "Egyptian political-vocal tradition founded by Sayyed Darwish (1892-1923, the early-20th-century musical pioneer who composed in support of the 1919 Egyptian Revolution against British occupation including the song \"Bilady, Bilady, Bilady\" that became the Egyptian national anthem) continuous through Sheikh Imam Eissa (1918-1995) and the Ahmed Fouad Negm collaborative songbook of 1960s-1990s anti-Nasser-and-anti-Sadat political-protest",
-  "recipe": "classic North African early-1890s egyptian sayyed darwish and sheikh imam political-vocal lineage, protest Song, middle east n African branch, European protest song, middle eastern classical art music, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 575,
-  "score": 256.9,
+  "recipe": "classic North African early-1890s egyptian sayyed darwish and sheikh imam political-vocal lineage, protest Song, middle east n African branch, European protest song, middle eastern classical art music, med east poetic ballad poetry andalusī nūba ghazal. vocal fry, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean oud. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 558,
+  "score": 236.125,
   "config": {
     "traditions": [
       "egyptian_sayyed_darwish_sheikh_imam",
       "andalusi_nuba",
-      "persian_dastgah"
+      "ghazal"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.8149999999999995,
-          "voice_quality": 14.68999999999999,
+          "voice_register": 5.4849999999999985,
+          "voice_quality": 13.649999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.48,
-          "voice_articulation": 11.374999999999995,
-          "voice_microtone": 40.10999999999999,
-          "voice_tradition": 25.389999999999997,
-          "voice_mechanism_compound": 19.19,
-          "voice_estill_quality": 15.084999999999997,
-          "voice_speech_song": 16.119999999999997,
-          "voice_ensemble_config": 12.089999999999995,
-          "voice_ornament_system": 21.349999999999998,
-          "voice_pitch_organization": 21.979999999999997,
-          "voice_processing_chain": 4.715,
-          "voice_multitrack_stack": 5.474999999999999
+          "voice_vibrato": 12.354999999999999,
+          "voice_articulation": 11.569999999999993,
+          "voice_microtone": 38.42499999999999,
+          "voice_tradition": 22.359999999999996,
+          "voice_mechanism_compound": 16.264999999999997,
+          "voice_estill_quality": 13.009999999999998,
+          "voice_speech_song": 17.159999999999993,
+          "voice_ensemble_config": 12.479999999999993,
+          "voice_ornament_system": 18.164999999999996,
+          "voice_pitch_organization": 18.45,
+          "voice_processing_chain": 5.489999999999999,
+          "voice_multitrack_stack": 5.949999999999999
         }
       },
       {
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 13.125,
-          "oud_school": 5.01,
-          "oud_strings": 7.0200000000000005,
-          "oud_pick": 0.195,
+          "plucked_traditional_technique": 10.75,
+          "oud_school": 5.725,
+          "oud_strings": 5.785,
+          "oud_pick": 0.38999999999999996,
           "oud_body_wood": 5.395,
-          "oud_soundboard_wood": 2.8600000000000003,
-          "oud_string_material": 1.4300000000000002
+          "oud_soundboard_wood": 1.885,
+          "oud_string_material": 0.78
         }
       }
     ],

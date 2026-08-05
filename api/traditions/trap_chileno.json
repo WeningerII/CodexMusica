@@ -3,9 +3,9 @@
   "name": "Trap chileno",
   "family": "hip_hop",
   "lineage": "Santiago trap scene that broke nationally around 2017 through Pablo Chill-E's Shishigang, Ceaese, Polimá Westcoast and Gianluca — 130-145 BPM half-time trap programming with rolling triplet hats and long 808 glides, heavy Auto-Tune melodic delivery, and specifically Chilean street slang (coa) and población narrative that separates it from Puerto Rican and Argentine trap.",
-  "recipe": "classic late-2010s trap chileno, mc Rhythm, reggaeton branch, us hip hop modern, intl hip hop MC rhythm desi trap frauenrap. thick, rap, straight note core, interlocked note trading. octuple plus dense stack multi track instrument 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack, TR-808, sampled chopped sampler drum machine, sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 596,
-  "score": 185.127,
+  "recipe": "classic late-2010s trap chileno, mc Rhythm, reggaeton branch, us hip hop modern, intl hip hop MC rhythm desi trap frauenrap. extended whistle, rap, straight note core, interlocked note trading. octuple plus dense stack multi track instrument 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack, TR-808, sampled chopped sampler drum machine, sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 607,
+  "score": 185.797,
   "config": {
     "traditions": [
       "trap_chileno",
@@ -16,7 +16,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.5724999999999993,
+          "voice_register": 1.56,
           "voice_quality": 19.044999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4874999999999998,
+          "voice_vibrato": 1.4949999999999999,
           "voice_articulation": 16.314999999999998,
           "voice_microtone": 19.109999999999992,
           "voice_tradition": 7.15,
           "voice_mechanism_compound": 3.2499999999999996,
           "voice_estill_quality": 2.4699999999999998,
-          "voice_speech_song": 18.6425,
+          "voice_speech_song": 18.68,
           "voice_ensemble_config": 16.249999999999996,
           "voice_ornament_system": 7.085000000000001,
-          "voice_pitch_organization": 1.525,
-          "voice_processing_chain": 10.735,
+          "voice_pitch_organization": 1.5699999999999998,
+          "voice_processing_chain": 10.54,
           "voice_multitrack_stack": 3.9975000000000005
         }
       },
@@ -60,9 +60,9 @@
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 1.12,
-          "multitrack_stack_era_aesthetic": 3.0875,
-          "multitrack_stack_processing": 2.5999999999999996
+          "multitrack_stack_density": 1.095,
+          "multitrack_stack_era_aesthetic": 2.81,
+          "multitrack_stack_processing": 2.57
         }
       },
       {
@@ -73,7 +73,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 6.31,
+          "tr808_voice": 6.4799999999999995,
           "drum_machine_808_context": 1.4949999999999999,
           "tr808_production_origin": 0.9099999999999999
         }
@@ -87,8 +87,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.575,
-          "sample_bitdepth": 1.2950000000000002,
+          "electronic_technique": 5.7250000000000005,
+          "sample_bitdepth": 1.4300000000000002,
           "sample_swing": 9.75,
           "sample_processing": 1.04
         }
@@ -98,14 +98,14 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "jupiter_8",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 21.76,
-          "poly_archetypes": 0.045,
-          "poly_voices": 0.24,
-          "poly_maker_lineage": -1.6599999999999997
+          "electronic_technique": 22.125,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -1.8549999999999998
         }
       }
     ],

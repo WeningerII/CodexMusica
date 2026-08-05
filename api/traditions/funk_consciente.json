@@ -3,14 +3,14 @@
   "name": "Funk consciente",
   "family": "hip_hop",
   "lineage": "Socially engaged strain of Rio de Janeiro funk carioca that emerged in the favelas around 1994-2000, codified by MC Leonardo e MC Junior's 'Rap da Felicidade' and by MV Bill's Cidade de Deus recordings, using the Miami-bass-derived Volt Mix and later the tamborzão pattern at 125-135 BPM with sampled atabaque and timbal hits, a booming 808 kick, minimal synth bass, and rapid declaimed Portuguese verses that report police violence, poverty and favela life over sung refrains.",
-  "recipe": "classic Southern American mid-1990s funk consciente, mc Rhythm, Afro-diasporic branch, Afro-diasporic electric groove percussion, intl hip hop MC rhythm, Brazilian groove percussion haryanvi hip hop colombian hip hop. thick, rap, slow rate, interlocked note trading. TR-808, sampled chopped sampler drum machine, atabaque, timbal brasileiro, low sub bass analog mono synth, hand clap. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 511,
-  "score": 183.585,
+  "recipe": "classic Southern American mid-1990s funk consciente, mc Rhythm, Afro-diasporic branch, Afro-diasporic electric groove percussion, intl hip hop MC rhythm, Brazilian groove percussion grime haryanvi hip hop. thick, rap, slow rate, interlocked note trading. TR-808, sampled chopped sampler drum machine, atabaque, timbal brasileiro, low sub bass analog mono synth, hand clap. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 499,
+  "score": 178.057,
   "config": {
     "traditions": [
       "funk_consciente",
-      "haryanvi_hip_hop",
-      "colombian_hip_hop"
+      "grime",
+      "haryanvi_hip_hop"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.205000000000002,
-          "voice_quality": 19.1,
+          "voice_register": 4.780000000000002,
+          "voice_quality": 16.2,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 18.134999999999994,
-          "voice_microtone": 18.004999999999992,
-          "voice_tradition": 7.9625,
-          "voice_mechanism_compound": 5.46,
-          "voice_estill_quality": 3.5750000000000006,
-          "voice_speech_song": 18.589999999999996,
-          "voice_ensemble_config": 17.484999999999992,
-          "voice_ornament_system": 5.460000000000001,
-          "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 10.274999999999999,
-          "voice_multitrack_stack": 3.835000000000001
+          "voice_articulation": 17.939999999999994,
+          "voice_microtone": 17.80999999999999,
+          "voice_tradition": 6.9875,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 4.030000000000001,
+          "voice_speech_song": 18.394999999999996,
+          "voice_ensemble_config": 18.134999999999994,
+          "voice_ornament_system": 5.005000000000002,
+          "voice_pitch_organization": 0.5199999999999999,
+          "voice_processing_chain": 8.725,
+          "voice_multitrack_stack": 4.030000000000001
         }
       },
       {
@@ -57,12 +57,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 8.235,
-          "drum_machine_808_context": 3.964999999999999,
-          "tr808_production_origin": 0.195
+          "tr808_voice": 8.76,
+          "drum_machine_808_context": 5.324999999999999,
+          "tr808_production_origin": 0.2725
         }
       },
       {
@@ -71,13 +71,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 6.17,
-          "sample_bitdepth": 0.845,
-          "sample_swing": 7.41,
-          "sample_processing": 1.0925
+          "electronic_technique": 5.705000000000001,
+          "sample_bitdepth": 0.6950000000000001,
+          "sample_swing": 4.91,
+          "sample_processing": 1.25
         }
       },
       {
@@ -88,8 +88,8 @@
           "atabaque_shell_wood": "atabaque_cedrillo"
         },
         "scores": {
-          "atabaque_role": 0.135,
-          "atabaque_skin": 0.435,
+          "atabaque_role": 0.28500000000000003,
+          "atabaque_skin": 0.65,
           "atabaque_shell_wood": 0.39
         }
       },
@@ -97,13 +97,13 @@
         "id": "timbal_brasileiro",
         "slots": {
           "timbal_head": "timbal_synthetic",
-          "timbal_size": "timbal_slim",
+          "timbal_size": "timbal_standard",
           "timbal_style": "timbal_solo"
         },
         "scores": {
           "timbal_head": 0,
-          "timbal_size": 0.195,
-          "timbal_style": 1.4949999999999999
+          "timbal_size": 0.0975,
+          "timbal_style": 2.34
         }
       },
       {
@@ -116,21 +116,21 @@
           "mono_maker_lineage": "mono_arp_pearlman"
         },
         "scores": {
-          "electronic_technique": 11.709999999999997,
-          "mono_oscillator": 0.195,
-          "mono_filter": 0.5475,
-          "mono_archetypes": 1.1824999999999999,
+          "electronic_technique": 10.985,
+          "mono_oscillator": 0.045,
+          "mono_filter": 0.585,
+          "mono_archetypes": 1.2349999999999999,
           "mono_maker_lineage": -1.435
         }
       },
       {
         "id": "hand_clap",
         "slots": {
-          "clap_technique": "clap_cupped_muffled",
+          "clap_technique": "clap_fingers_to_palm",
           "clap_capture": "clap_close_dry"
         },
         "scores": {
-          "clap_technique": 0.65,
+          "clap_technique": 0.78,
           "clap_capture": 0.39
         }
       }

@@ -3,14 +3,14 @@
   "name": "Wassoulou",
   "family": "global",
   "lineage": "Malian Wassoulou region (south of Bamako, between the Niger and Sankarani rivers, populated by the Wassoulou Fula and Bambara peoples) popular-music tradition extending the older donso ngoni (hunters harp-lute) hunters-music tradition into modern band format; built on the kamele ngoni (the Wassoulou youth harp-lute, a smaller more melodic adaptation of the donso ngoni), female-vocal foregrounded — codified through Oumou Sangaré (the Wassoulou voice from her 1989 Moussolou breakthrough onward), Sali Sidibé, Coumba Sidibé, Nahawa Doumbia",
-  "recipe": "classic West African late-1980s wassoulou, ballad Poetry, west African griot branch, west African groove percussion, African pop functional song congolese rumba jùjú. thick, breath veiled tone, straight onset, interlocked note trading. calabash gourd canonical bambara gut pre modern call-and-response ngoni, extended large calabash wassoulou gut pre modern call-and-response kamele ngoni, donso ritual gut pre modern hunters call-and-response donso ngoni, djembe, clean strummed single coil electric guitar, thomastik infeld low tension jazz warm sub heavy electric bass. bamako griot jeli compound. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 742,
-  "score": 351.492,
+  "recipe": "classic West African late-1980s wassoulou, ballad Poetry, west African griot branch, west African groove percussion, African pop functional song jùjú indonesian jaipongan. thick, breath veiled tone, straight note core, interlocked note trading. calabash gourd canonical bambara call-and-response ngoni, extended large calabash wassoulou call-and-response kamele ngoni, donso ritual gut pre modern hunters call-and-response donso ngoni, djembe, single coil electric guitar, sub heavy electric bass. bamako griot jeli compound. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 667,
+  "score": 333.373,
   "config": {
     "traditions": [
       "wassoulou",
-      "congolese_rumba",
-      "juju"
+      "juju",
+      "indonesian_jaipongan"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 12.924499999999998,
-          "voice_quality": 17.614999999999995,
+          "voice_register": 8.149500000000002,
+          "voice_quality": 17.744999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.494999999999999,
-          "voice_articulation": 15.925,
-          "voice_microtone": 15.729999999999997,
-          "voice_tradition": 50.17999999999999,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 1.2349999999999999,
-          "voice_speech_song": 20.15,
-          "voice_ensemble_config": 17.81,
+          "voice_vibrato": 5.2135,
+          "voice_articulation": 12.154999999999994,
+          "voice_microtone": 11.959999999999992,
+          "voice_tradition": 50.4075,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 13.909999999999995,
+          "voice_ensemble_config": 13.389999999999993,
           "voice_ornament_system": 5.719999999999999,
-          "voice_pitch_organization": 7.984499999999999,
-          "voice_processing_chain": 5.849,
-          "voice_multitrack_stack": 5.005000000000001
+          "voice_pitch_organization": 8.1845,
+          "voice_processing_chain": 8.498999999999999,
+          "voice_multitrack_stack": 6.8294999999999995
         }
       },
       {
@@ -63,25 +63,25 @@
           "ngoni_string_material": "ngoni_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 26.812500000000004,
-          "ngoni_strings": 2.67,
-          "ngoni_use": 2.08,
+          "plucked_traditional_technique": 25.382499999999997,
+          "ngoni_strings": 3.3200000000000003,
+          "ngoni_use": 3.3799999999999994,
           "ngoni_resonator": 1.3,
           "ngoni_skin": 0.39,
-          "ngoni_string_material": 1.04
+          "ngoni_string_material": 0.8450000000000002
         }
       },
       {
         "id": "djembe",
         "slots": {
-          "djembe_wood": "djembe_lenke",
+          "djembe_wood": "djembe_iroko",
           "djembe_skin": "djembe_synthetic",
           "djembe_play": "djembe_traditional_3"
         },
         "scores": {
-          "djembe_wood": 0.24,
+          "djembe_wood": 1.04,
           "djembe_skin": 0.5200000000000001,
-          "djembe_play": 0.39
+          "djembe_play": 0.845
         }
       },
       {
@@ -96,21 +96,21 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
           "bridge": "two_point_trem",
-          "scale_length": "scale_short",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 5.3500000000000005,
-          "amp_make": 0.8449999999999999,
-          "body_wood": 0.39,
-          "neck_wood": 0.39,
-          "fretboard": 0.325,
+          "electric_technique": 2.5749999999999997,
+          "amp_make": 0.6499999999999999,
+          "body_wood": 0.845,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
           "pickup_magnet": 0.24,
           "string_material": 0.39,
-          "string_gauge": 0.39,
+          "string_gauge": 0.845,
           "bridge": 0.5200000000000001,
-          "scale_length": 0.435,
+          "scale_length": 0.845,
           "finish": 0.105,
           "string_tuning": 0.63
         }
@@ -118,20 +118,20 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "thomastik_jazz_bass_flat",
-          "scale_length_b": "extra_long_b",
+          "string_type": "half_round",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "amp_make": 0.7149999999999999,
-          "body_wood": 0.39,
+          "amp_make": 0.585,
+          "body_wood": 0.845,
           "pickup_config": 0.5200000000000001,
-          "string_type": 4.209999999999999,
-          "scale_length_b": 0.5200000000000001,
+          "string_type": 2.145,
+          "scale_length_b": 0.845,
           "fretted_or_not": 1.2095,
           "bass_technique": 4.795
         }
@@ -146,11 +146,11 @@
           "kamele_ngoni_string_material": "kamele_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 26.812500000000004,
+          "plucked_traditional_technique": 25.382499999999997,
           "kamele_ngoni_strings": 14.824499999999999,
-          "kamele_ngoni_use": 19.788,
+          "kamele_ngoni_use": 21.938,
           "kamele_ngoni_resonator": 5.6899999999999995,
-          "kamele_ngoni_string_material": 1.04
+          "kamele_ngoni_string_material": 0.8450000000000002
         }
       },
       {
@@ -163,11 +163,11 @@
           "donso_ngoni_string_material": "donso_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 26.812500000000004,
-          "donso_ngoni_strings": 6.345,
-          "donso_ngoni_use": 3.255,
+          "plucked_traditional_technique": 25.382499999999997,
+          "donso_ngoni_strings": 6.194999999999999,
+          "donso_ngoni_use": 3.455,
           "donso_ngoni_resonator": 0.525,
-          "donso_ngoni_string_material": 3.4450000000000003
+          "donso_ngoni_string_material": 3.295
         }
       }
     ],

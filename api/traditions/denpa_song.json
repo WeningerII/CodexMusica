@@ -1,0 +1,131 @@
+{
+  "id": "denpa_song",
+  "name": "Denpa Song",
+  "family": "pop",
+  "lineage": "Formed in Japan through late-1990s and 2000s bishoujo-game and doujin circles around Momoi Halko, MOSAIC.WAV and the Under17 duo, denpa pairs deliberately shrill high-register anime-style vocals and nonsense onomatopoeic hooks with 150-190 BPM chiptune-flavoured eurobeat and akiba-pop backing, abrupt key changes, and call-and-response otagei chant sections built for audience participation.",
+  "recipe": "classic East Asian 1997-1999 denpa song, functional Song, east Asian pop branch, east Asian pop enka, pop experimental experimental electric bubblegum bass. plucked short envelope digital subtractive, yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity short envelope fm synth, 2000s elastic pitch edited stack formant shifted left right stereo width multitrack vocal stack, TR-909, mahogany alnico soft down tuning clean strummed humbucker electric guitar. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 732,
+  "score": 135.719,
+  "config": {
+    "traditions": [
+      "denpa_song",
+      "enka",
+      "bubblegum_bass"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 25.615,
+          "va_archetypes": 1.6356249999999999,
+          "digital_subtractive_context": 23.400000000000006
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 25.615,
+          "fm_algorithm": 0.195,
+          "fm_modulator_ratio": 0.39,
+          "fm_polyphony": 0.345,
+          "fm_model_lineage": 15.665
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_5_part_cluster",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_formant_split_stereo"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.195,
+          "multitrack_stack_era_aesthetic": 5.0687500000000005,
+          "multitrack_stack_processing": 1.8850000000000002
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 1.8199999999999996,
+          "tr909_production_origin": 0.585
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_soldano_slo100",
+          "body_wood": "korina",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "low_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_12_hum",
+          "finish": "poly_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 25.375,
+          "amp_make": 1.9499999999999997,
+          "body_wood": 1.04,
+          "neck_wood": 1.04,
+          "fretboard": 0.975,
+          "pickup_magnet": 1.48,
+          "pickup_winding": 0.63,
+          "string_material": 0.045,
+          "bridge": 1.04,
+          "scale_length": 1.04,
+          "string_gauge": 1.04,
+          "finish": 0.65,
+          "string_tuning": 1.3
+        }
+      }
+    ],
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_tokyo_jpop_hit_factory",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tokyo_studio_1970s_80s",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "id": "jazz_rap",
+  "name": "Jazz rap",
+  "family": "hip_hop",
+  "lineage": "Formed in New York and London between 1988 and 1994 through the Native Tongues collective — A Tribe Called Quest, De La Soul, Gang Starr, Digable Planets and Guru's Jazzmatazz — built on 88-96 BPM boom-bap breakbeats layered with sampled or live upright bass, muted trumpet, Rhodes and vibraphone from Blue Note and CTI records, swung MPC-quantised drums, and a relaxed, conversational, often abstract or Afrocentric lyric.",
+  "recipe": "classic North American late-1980s jazz rap, mc Rhythm, conscious rap branch, us hip hop east coast, American jazz hard bop straight-ahead jazz. thick, rap, straight onset, interlocked note trading. chopped sampler, growly gut upright bass, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, vibraphone, sampled chopped turntable. multi room 1985-2000 major-flagship multitrack flagship us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 743,
+  "score": 580.128,
+  "config": {
+    "traditions": [
+      "jazz_rap",
+      "hard_bop",
+      "straight_ahead_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 40.19000000000002,
+          "voice_quality": 18.785,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 26.140000000000008,
+          "voice_articulation": 24.309999999999995,
+          "voice_microtone": 25.870000000000008,
+          "voice_tradition": 26.280000000000005,
+          "voice_mechanism_compound": 5.525,
+          "voice_estill_quality": 9.280000000000001,
+          "voice_speech_song": 21.709999999999994,
+          "voice_ensemble_config": 20.149999999999995,
+          "voice_ornament_system": 7.150000000000001,
+          "voice_pitch_organization": 0.5999999999999999,
+          "voice_processing_chain": 15.45,
+          "voice_multitrack_stack": 2.9899999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 5.285,
+          "sampler_archetypes": 7.085,
+          "sampler_bit_depth": 1.9500000000000002,
+          "sampler_workflow": 5.845000000000001,
+          "sampler_classic_context": 24.634999999999998
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 25.500000000000007,
+          "upright_play": 25.500000000000007
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_jazz",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 8.8,
+          "rhodes_model": 26.670000000000005,
+          "rhodes_use": 0.585,
+          "rhodes_tine_material": 0.13000000000000012,
+          "rhodes_hammer_tip": -0.2800000000000001,
+          "rhodes_pickup_position": 1.69
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_sterling_silver_bell",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 6.145000000000001,
+          "brass_size": 0.5,
+          "trumpet_mouthpiece": 27.435000000000006,
+          "brass_mute": 0.9500000000000001,
+          "trumpet_technique": 6.145000000000001,
+          "trumpet_bell_metal": 0.8,
+          "trumpet_maker_school": 5.425000000000001
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 6.145000000000001,
+          "sax_size": 5.800000000000001,
+          "sax_reed": 0.5,
+          "sax_body_alloy": 26.750000000000007,
+          "sax_mouthpiece": 0.5,
+          "sax_technique": 25.650000000000006,
+          "sax_maker_school": 25.115000000000006
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_fast",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "vibe_motor": 25.500000000000007,
+          "vibe_mallets": 25.500000000000007
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 5.285,
+          "turntable_technique": 5.67
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

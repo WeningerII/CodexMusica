@@ -5,7 +5,7 @@
   "lineage": "Australian hip-hop tradition crystallizing in 2000s through Hilltop Hoods (Adelaide), Bliss n Eso, the Herd, and the broader Obese Records-and-Elefant-Traks label rosters. Characterized by sample-based East-Coast-American-influenced production, distinct Australian-accent vocal-delivery, and explicit Australian-suburban-cultural lyrical content. Hilltop Hoods' 2003 The Calling and 2006 The Hard Road consolidated the canonical commercial visibility.",
   "recipe": "classic australian hip-hop, mc Rhythm, intl hip hop branch, us hip hop east coast east coast hip-hop brooklyn drill. thick, rap, straight onset, interlocked note trading. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 521,
-  "score": 281.564,
+  "score": 282.125,
   "config": {
     "traditions": [
       "australian_hip_hop",
@@ -24,7 +24,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -41,14 +41,14 @@
           "voice_vibrato": 2.765,
           "voice_articulation": 14.624999999999995,
           "voice_microtone": 14.429999999999993,
-          "voice_tradition": 13.390000000000002,
-          "voice_mechanism_compound": 1.5250000000000001,
+          "voice_tradition": 13.585000000000003,
+          "voice_mechanism_compound": 1.59,
           "voice_estill_quality": 1.8525,
-          "voice_speech_song": 20.0635,
+          "voice_speech_song": 20.080000000000002,
           "voice_ensemble_config": 14.559999999999995,
           "voice_ornament_system": 4.875000000000002,
           "voice_pitch_organization": 5.635,
-          "voice_processing_chain": 14.200000000000001,
+          "voice_processing_chain": 14.350000000000001,
           "voice_multitrack_stack": 6.37
         }
       },
@@ -62,7 +62,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 11.965,
+          "electronic_technique": 12.010000000000002,
           "sampler_archetypes": 19.89,
           "sampler_bit_depth": 0.9750000000000001,
           "sampler_workflow": 12.595,
@@ -77,7 +77,7 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 13.060000000000002,
+          "tr808_voice": 13.105000000000002,
           "drum_machine_808_context": 6.759999999999999,
           "tr808_production_origin": 7.929999999999998
         }
@@ -89,7 +89,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 11.965,
+          "electronic_technique": 12.010000000000002,
           "turntable_technique": 17.895000000000003
         }
       }

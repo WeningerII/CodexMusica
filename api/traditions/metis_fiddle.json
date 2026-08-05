@@ -1,0 +1,123 @@
+{
+  "id": "metis_fiddle",
+  "name": "Métis fiddle",
+  "family": "vernacular",
+  "lineage": "Red River Valley fiddle tradition of the Manitoba, Saskatchewan and North Dakota Métis, formed in the early nineteenth-century fur trade from Scottish, French-Canadian and Orcadian tunes crossed with Cree and Anishinaabe rhythmic sensibility, and codified on record by Andy De Jarlis and Reg Bouvette — crooked jigs and Red River jigs with beats added or dropped mid-phrase, bow-driven melodic-rhythmic accent instead of vibrato, clogging or foot-tap percussion, and guitar or piano vamp accompaniment for the changing-steps dance.",
+  "recipe": "classic modern métis fiddle, improv On Frame, Celtic traditional branch, pre commercial country old west frontier music string band. plain gut sheep gut double stops fiddle, foot tap, dadgad tuning cedar mahogany martin lifespan dreadnought acoustic guitar, and hand spoons, melodic straight piano accordion, upright piano. open air. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 396,
+  "score": 83.512,
+  "config": {
+    "traditions": [
+      "metis_fiddle",
+      "old_west",
+      "string_band"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "plain_sheep_gut_fiddle",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "pizz"
+        },
+        "scores": {
+          "bowed_technique": 21.2365,
+          "fiddle_strings": 1.04,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.3315,
+          "fiddle_articulation": 1.2599999999999998
+        }
+      },
+      {
+        "id": "foot_tap",
+        "slots": {
+          "tap_striker": "tap_soft_shoe",
+          "tap_surface": "tap_sprung_wood_floor"
+        },
+        "scores": {
+          "tap_striker": 0.24,
+          "tap_surface": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "dadgad",
+          "top_wood": "cedar",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "martin_lifespan"
+        },
+        "scores": {
+          "acoustic_technique": 8.9515,
+          "string_tuning": 8.697999999999999,
+          "top_wood": 1.6764999999999999,
+          "back_sides": 1.3649999999999998,
+          "string_acoustic": 2.8600000000000003
+        }
+      },
+      {
+        "id": "spoons",
+        "slots": {
+          "spoons_material": "spoons_wooden",
+          "spoons_playing": "spoons_knee_and_hand"
+        },
+        "scores": {
+          "spoons_material": 0.1365,
+          "spoons_playing": 22.035000000000004
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 9.825,
+          "pa_size": 0.45499999999999996,
+          "pa_use": 0.45499999999999996
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_honky_tonk",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 7.949999999999999,
+          "upright_use": 1.6315,
+          "upright_piano_size": 1.89
+        }
+      }
+    ],
+    "room": "open_prairie",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "cross_tuning_fiddle",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cross_tuning_fiddle",
+    "room": "open_prairie",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

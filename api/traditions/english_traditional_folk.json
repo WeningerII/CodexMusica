@@ -1,0 +1,157 @@
+{
+  "id": "english_traditional_folk",
+  "name": "Traditional English folk",
+  "family": "global",
+  "lineage": "The vernacular song and dance repertoire of rural England as documented by Cecil Sharp, Ralph Vaughan Williams and the Folk-Song Society from 1898 and re-recorded from source singers in the 1950s by Peter Kennedy and Alan Lomax — unaccompanied strophic ballads in Dorian and Mixolydian modes sung in a straight, forward-placed voice with minimal vibrato, plus melodeon- and fiddle-led morris and country-dance tunes and pub harmony carolling.",
+  "recipe": "classic Northern European mid-1950s traditional english folk, ballad Poetry, English broadside branch, anglo singer song britfolk, atlantic Southeast Asian shanty british folk revival dark folk. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, melodic straight melodeon diatonic, steel reeds canonical anglo straight concertina anglo, drone like fiddle, shallow shell one handed tabor. uk folk revival club 60s. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 673,
+  "score": 278.928,
+  "config": {
+    "traditions": [
+      "english_traditional_folk",
+      "british_folk_revival",
+      "dark_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 15.7,
+          "voice_quality": 13.194999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.42,
+          "voice_articulation": 21.84,
+          "voice_microtone": 23.789999999999996,
+          "voice_tradition": 22.97,
+          "voice_mechanism_compound": 6.5649999999999995,
+          "voice_estill_quality": 7.8,
+          "voice_speech_song": 28.535,
+          "voice_ensemble_config": 25.414999999999996,
+          "voice_ornament_system": 8.945,
+          "voice_pitch_organization": 1.7099999999999997,
+          "voice_processing_chain": 4.809999999999999,
+          "voice_multitrack_stack": 3.7375
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 5.9799999999999995,
+          "choir_polyphonic_configuration": 2.73,
+          "choir_regional_canonical_configuration": 2.6650000000000005,
+          "choir_ensemble_repertoire": 2.9899999999999998
+        }
+      },
+      {
+        "id": "melodeon_diatonic",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "melodeon_rows": "melodeon_2_row",
+          "melodeon_diatonic_context": "melodeon_diatonic_morris"
+        },
+        "scores": {
+          "free_reed_technique": 13.879999999999999,
+          "melodeon_rows": 9.62,
+          "melodeon_diatonic_context": 2.3699999999999997
+        }
+      },
+      {
+        "id": "concertina_anglo",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "concertina_anglo_config": "concertina_anglo_30",
+          "concertina_anglo_context": "concertina_anglo_morris",
+          "concertina_anglo_maker_school": "concertina_irish_made_modern",
+          "concertina_anglo_reed": "concertina_anglo_steel_reeds"
+        },
+        "scores": {
+          "free_reed_technique": 13.879999999999999,
+          "concertina_anglo_config": 1.6899999999999997,
+          "concertina_anglo_context": 2.3699999999999997,
+          "concertina_anglo_maker_school": -0.175,
+          "concertina_anglo_reed": 3.705
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "plain_lamb_gut_fiddle",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 10.995,
+          "fiddle_strings": 0.585,
+          "fiddle_bow": 0.345,
+          "fiddle_mute": 0.21,
+          "fiddle_articulation": 0.195
+        }
+      },
+      {
+        "id": "tabor",
+        "slots": {
+          "tabor_form": "tabor_english_morris",
+          "tabor_context": "tabor_pipe_and_tabor",
+          "tabor_snare": "tabor_snare_resonant",
+          "tabor_heads": "tabor_calfskin_slack"
+        },
+        "scores": {
+          "tabor_form": 8.2,
+          "tabor_context": 9.03,
+          "tabor_snare": 3.2499999999999996,
+          "tabor_heads": 0.12999999999999998
+        }
+      }
+    ],
+    "room": "uk_folk_revival_club_60s",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "mic_coles_4038_ribbon",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "uk_folk_revival_club_60s",
+    "chain_mic": "mic_coles_4038_ribbon",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

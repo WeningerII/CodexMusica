@@ -3,14 +3,14 @@
   "name": "Vietnamese hò (work-coordination song)",
   "family": "global",
   "lineage": "Vietnamese hò (work-coordination call-and-response song) tradition continuous from premodern Vietnamese-agricultural-and-maritime labor practice through 19th-20th century continuous performance into modern Vietnamese-folk-revival practice across Northern, Central, and Southern Vietnam; the hò is the canonical Vietnamese work-coordination song-form integrating leader-and-group call-and-response across rice-paddy-planting, fishing, boat-rowing, and other labor-contexts",
-  "recipe": "classic modern vietnamese hò, field Work, east Asian branch, south Asian field work, atlantic Southeast Asian shanty, east Asian protest song bengali bhatiali korean minjung gayo. thick, breath veiled tone, straight onset, interlocked note trading. marsh swamp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 324,
-  "score": 149.691,
+  "recipe": "classic modern vietnamese hò, field Work, east Asian branch, south Asian field work, atlantic Southeast Asian shanty, east Asian protest song bengali bhatiali bengali folk. thick, breath veiled tone, straight onset, interlocked note trading. marsh swamp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 317,
+  "score": 159.175,
   "config": {
     "traditions": [
       "vietnamese_ho",
       "bengali_bhatiali",
-      "korean_minjung_gayo"
+      "bengali_folk_lokgeeti"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "korean_minsogak_vocal_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 5.219999999999999,
-          "voice_quality": 9.684999999999999,
+          "voice_register": 5.275,
+          "voice_quality": 12.284999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2500000000000004,
-          "voice_articulation": 16.445,
-          "voice_microtone": 16.249999999999996,
-          "voice_tradition": 17.1115,
-          "voice_mechanism_compound": 2.7390000000000003,
-          "voice_estill_quality": 0.6499999999999999,
-          "voice_speech_song": 28.275,
-          "voice_ensemble_config": 16.38,
-          "voice_ornament_system": 8.225000000000001,
-          "voice_pitch_organization": 18.72075,
-          "voice_processing_chain": 3.9325000000000006,
-          "voice_multitrack_stack": 2.9575000000000005
+          "voice_vibrato": 2.4050000000000002,
+          "voice_articulation": 20.540000000000003,
+          "voice_microtone": 20.15,
+          "voice_tradition": 14.040000000000001,
+          "voice_mechanism_compound": 2.7,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 29.25,
+          "voice_ensemble_config": 20.67,
+          "voice_ornament_system": 5.370000000000001,
+          "voice_pitch_organization": 18.285,
+          "voice_processing_chain": 5.460000000000001,
+          "voice_multitrack_stack": 1.8199999999999998
         }
       }
     ],

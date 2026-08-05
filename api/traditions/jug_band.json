@@ -5,7 +5,7 @@
   "lineage": "1920s and 1930s African-American Memphis-and-Cincinnati DIY blues string-band tradition — codified through the Memphis Jug Band (recorded 1927-1934), Cannon’s Jug Stompers (Gus Cannon with Noah Lewis), and the Dixieland Jug Blowers — characterized by amateur-improvised instrumentation (clay jug as bass, kazoo, washboard, harmonica, banjo, guitar) and country-blues repertoire performed for working-class audiences",
   "recipe": "classic mid-1930s jug band, ballad Poetry, jug band branch, blues narrative hokum blues, blues narrative delta narrative, pop rock skiffle. thick, worn fold, wide pitch sway, interlocked note trading. traditional ceramic clay jug inst, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, open g tuning mahogany fingerpicked parlor acoustic guitar, wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, drone like fiddle, bowl back Italian adirondack red spruce loar canon hard rock maple mandolin. wooden barn. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 699,
-  "score": 690.977,
+  "score": 699.724,
   "config": {
     "traditions": [
       "jug_band",
@@ -38,17 +38,17 @@
           "voice_quality": 34.85,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 36.69499999999999,
-          "voice_articulation": 21.825999999999997,
+          "voice_vibrato": 36.79999999999999,
+          "voice_articulation": 22.571499999999997,
           "voice_microtone": 32.644999999999996,
-          "voice_tradition": 16.261124999999996,
+          "voice_tradition": 16.838624999999993,
           "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 8.3275,
-          "voice_speech_song": 25.978,
-          "voice_ensemble_config": 22.07,
+          "voice_estill_quality": 8.432500000000001,
+          "voice_speech_song": 27.007,
+          "voice_ensemble_config": 22.847,
           "voice_ornament_system": 0.45500000000000007,
           "voice_pitch_organization": 0.845,
-          "voice_processing_chain": 12.244125,
+          "voice_processing_chain": 12.506625000000001,
           "voice_multitrack_stack": 2.8925
         }
       },
@@ -70,7 +70,7 @@
           "frottoir_striker": "frottoir_spoons"
         },
         "scores": {
-          "frottoir_construction": 25.349250000000005,
+          "frottoir_construction": 26.147250000000007,
           "frottoir_striker": 0.03975
         }
       },
@@ -86,11 +86,11 @@
         },
         "scores": {
           "harmonica_type": 3.224999999999999,
-          "harmonica_comb": 48.29,
+          "harmonica_comb": 48.5525,
           "harmonica_reed": 33.597875,
           "harmonica_technique": 36.144499999999994,
-          "harmonica_maker_school": 45.027375,
-          "harmonica_tuning": 15.337749999999998
+          "harmonica_maker_school": 45.867375,
+          "harmonica_tuning": 15.915249999999997
         }
       },
       {
@@ -112,7 +112,7 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 22.734499999999997,
+          "acoustic_technique": 22.9655,
           "string_tuning": 5.230625000000001,
           "top_wood_parlor": 1.103125,
           "back_sides_parlor": 0,
@@ -135,15 +135,15 @@
         },
         "scores": {
           "banjo_back": 1.403125,
-          "tone_ring": 1.403125,
-          "banjo_head": 22.804625,
+          "tone_ring": 1.5081250000000002,
+          "banjo_head": 23.550125,
           "banjo_pot": 0.65,
           "banjo_play": 1.2950000000000002,
-          "banjo_rim_wood": 0.3,
+          "banjo_rim_wood": 0.363,
           "banjo_neck_wood": 0.61875,
           "banjo_strings": 0.06375,
           "banjo_bridge": 0,
-          "banjo_setup_period": 21.452
+          "banjo_setup_period": 22.1975
         }
       },
       {
@@ -181,9 +181,9 @@
           "mandolin_top": 1.2349999999999999,
           "mandolin_back": 4.209999999999999,
           "mandolin_bracing": 0.45999999999999996,
-          "mandolin_strings": 6.599999999999999,
+          "mandolin_strings": 6.631499999999999,
           "mandolin_fingerboard": 0.8687499999999999,
-          "mandolin_pickup": 23.743250000000003
+          "mandolin_pickup": 24.488750000000003
         }
       }
     ],

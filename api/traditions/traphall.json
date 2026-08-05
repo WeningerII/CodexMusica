@@ -1,0 +1,137 @@
+{
+  "id": "traphall",
+  "name": "Traphall",
+  "family": "hip_hop",
+  "lineage": "Kingston and Atlanta hybrid formed circa 2013-2016 through producers and deejays including Vybz Kartel, Alkaline, Popcaan and Rvssian, replacing dancehall's one-drop riddim with Southern trap architecture — booming long-decay 808 kicks, triplet hi-hat rolls at 70-75 BPM half-time (140 double-time), sparse minor-key synth motifs, and patois deejay vocals heavily doubled, Auto-Tuned and stacked in ad-lib layers.",
+  "recipe": "classic Southern American 2013-2016 traphall, bass System, Jamaican branch, us hip hop southern, reggae diaspora bass system atl trap country rap. thick, rap, wide pitch sway, interlocked note trading. TR-808, sub bass analog poly synth, unison double single performer stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, sampled chopped sampler drum machine. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 577,
+  "score": 190.327,
+  "config": {
+    "traditions": [
+      "traphall",
+      "atl_trap",
+      "country_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 3.9750000000000014,
+          "voice_quality": 12.025,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.69,
+          "voice_articulation": 18.394999999999996,
+          "voice_microtone": 22.42499999999999,
+          "voice_tradition": 6.817499999999999,
+          "voice_mechanism_compound": 4.159999999999999,
+          "voice_estill_quality": 8.2325,
+          "voice_speech_song": 18.394999999999996,
+          "voice_ensemble_config": 17.224999999999994,
+          "voice_ornament_system": 5.720000000000001,
+          "voice_pitch_organization": 2.0425,
+          "voice_processing_chain": 5.969999999999999,
+          "voice_multitrack_stack": 4.615
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 8.76,
+          "drum_machine_808_context": 5.07,
+          "tr808_production_origin": 0.9099999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 14.904999999999998,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_unison_double",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 1.045,
+          "multitrack_stack_era_aesthetic": 0.22749999999999998,
+          "multitrack_stack_processing": 3.0075000000000003
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 5.154999999999999,
+          "sample_bitdepth": 2.73,
+          "sample_swing": 8.125,
+          "sample_processing": 2.925
+        }
+      }
+    ],
+    "room": "studio_atlanta_trap_commercial",
+    "archetype": "arch_atlanta_trap_2010s",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "studio_atlanta_trap_commercial",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_avalon_v737",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "id": "welsh_folk",
+  "name": "Welsh folk",
+  "family": "global",
+  "lineage": "Traditional music of Wales preserved through the eisteddfod system and the Welsh Folk Song Society (founded 1908) — cerdd dant penillion in which a singer improvises a counter-melody against a harper's set tune, plygain pre-dawn Christmas carols sung in unaccompanied three- and four-part male harmony, and modal dance tunes for triple harp, crwth and fiddle recovered from eighteenth-century manuscripts such as Blodeugerdd and the Morris brothers' collections.",
+  "recipe": "classic European late-1900s welsh folk, ballad Poetry, Welsh hymn ballad branch, Celtic British praise song, string drone modal welsh moliannu and cerdd dant hawaiian slack-key. thick, breath veiled tone, straight note core, interlocked note trading. cerdd dant overwound bass welsh triple harp, drone under song bardic crwth, choir welsh male, synthetic magic rosin modern acrylic base drone like fiddle, dadgad tuning indian rosewood rosewood martin lifespan acoustic guitar. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 567,
+  "score": 299.975,
+  "config": {
+    "traditions": [
+      "welsh_folk",
+      "welsh_moliannu_cerdd_dant",
+      "hawaiian_slack_key"
+    ],
+    "instruments": [
+      {
+        "id": "welsh_triple_harp",
+        "slots": {
+          "welsh_triple_harp_form": "welsh_triple_harp_bardic",
+          "welsh_triple_harp_repertoire": "welsh_triple_harp_cerdd_dant",
+          "welsh_triple_harp_stringing": "welsh_triple_harp_overwound_bass"
+        },
+        "scores": {
+          "welsh_triple_harp_form": 15.134999999999998,
+          "welsh_triple_harp_repertoire": 24.0278125,
+          "welsh_triple_harp_stringing": 3.8228125000000004
+        }
+      },
+      {
+        "id": "crwth",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "crwth_form": "crwth_chwechtant",
+          "crwth_playing": "crwth_cerdd_dant",
+          "crwth_strings": "crwth_synthetic"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "crwth_form": 22.330624999999994,
+          "crwth_playing": 29.0234375,
+          "crwth_strings": 1.3649999999999998
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 6.7,
+          "voice_quality": 14.819999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8850000000000002,
+          "voice_articulation": 14.754999999999995,
+          "voice_microtone": 17.159999999999993,
+          "voice_tradition": 33.3775,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 4.095,
+          "voice_speech_song": 18.979999999999993,
+          "voice_ensemble_config": 16.964999999999993,
+          "voice_ornament_system": 10.949999999999998,
+          "voice_pitch_organization": 4.135,
+          "voice_processing_chain": 3.5100000000000002,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "choir_welsh_male",
+        "slots": {
+          "voicing": "ttbb_welsh",
+          "context": "welsh_eisteddfod"
+        },
+        "scores": {
+          "voicing": 0.845,
+          "context": 1.69
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 11.210625,
+          "fiddle_strings": 1.4949999999999999,
+          "fiddle_bow": 3.469375,
+          "fiddle_mute": 0.7899999999999999,
+          "fiddle_articulation": 1.9728124999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "dadgad",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "martin_lifespan_om",
+          "acoustic_om_technique": "om_drop_d_drone"
+        },
+        "scores": {
+          "string_tuning": 9.467812499999999,
+          "top_wood": 0.21,
+          "back_sides": 1.14,
+          "string_acoustic": 1.3,
+          "acoustic_om_technique": 19.0125
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_ua_610_tube",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "stone_parish_church",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

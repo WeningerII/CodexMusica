@@ -1,0 +1,117 @@
+{
+  "id": "acid_breaks",
+  "name": "Acid Breaks",
+  "family": "electronic",
+  "lineage": "Late-1990s British and American breaks hybrid developed by Rennie Pilgrem, Lee Coombs, Hyper and Baby Anne — a 130-140 BPM funky or chopped breakbeat underpinning a resonance-swept Roland TB-303 line as the primary melodic voice, with dubby delay throws, heavy sidechained sub-bass and sparse sampled vocal stabs.",
+  "recipe": "classic 1997-1999 acid breaks, bass System, bass descendants branch, chicago house house, techno electronic dance, uk soundsystem bass system acid house. squelching classic acid monosynth acid bass, sampled chopped sampler drum machine, sampled chopped sampler, roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 566,
+  "score": 120.094,
+  "config": {
+    "traditions": [
+      "acid_breaks",
+      "acid_house",
+      "chicago_house"
+    ],
+    "instruments": [
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 13.37,
+          "wave_acid": 0.195,
+          "filter_acid": 4.608750000000001,
+          "accent_acid": 9.62
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 3.5100000000000002,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 13.105,
+          "sample_processing": 1.045
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.5100000000000002,
+          "sampler_archetypes": 0.22499999999999998,
+          "sampler_bit_depth": 0.52,
+          "sampler_workflow": 1.7499999999999998,
+          "sampler_classic_context": 38.35
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "tb_303",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 13.37,
+          "mono_oscillator": 0,
+          "mono_filter": 0.65,
+          "mono_archetypes": 5.825000000000001,
+          "mono_maker_lineage": 6.5649999999999995
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "scores": {
+          "electronic_technique": 3.5100000000000002,
+          "turntable_technique": 0
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "id": "flamenco_guitar_toque",
+  "name": "Flamenco guitar (toque solo tradition)",
+  "family": "global",
+  "lineage": "Andalusian solo guitar practice (toque) that separated from song accompaniment in Seville, Jerez and Madrid cafés cantantes around 1900 and was codified by Ramón Montoya, Niño Ricardo and Sabicas before Paco de Lucía's 1970s rearmament — cypress or rosewood nylon-string guitar with low action and golpeador, played rasgueado, picado, alzapúa and tremolo over the twelve-beat compás of soleá, seguiriya, bulería and tangos at 60-220 BPM, with palmas and cajón marking accents and falsetas alternating with strummed compás.",
+  "recipe": "classic Iberian mid-1970s flamenco guitar, improv On Frame, string improv branch, vocal drone modal, Mediterranean ballad ballad poetry flamenco. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco guitar, low cupped muffled hand clap, open back Afro peruvian tradition festejo tradition cajon peruano, foot tap. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 495,
+  "score": 27.705,
+  "config": {
+    "traditions": [
+      "flamenco_guitar_toque",
+      "flamenco",
+      "mor_lam"
+    ],
+    "instruments": [
+      {
+        "id": "flamenco_guitar",
+        "slots": {
+          "flamenco_body": "flamenco_blanca_cypress",
+          "flamenco_features": "flamenco_low_action_golpe_plate",
+          "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
+        },
+        "scores": {
+          "flamenco_body": 10.659999999999998,
+          "flamenco_features": 3.185,
+          "flamenco_technique": 7.234999999999999
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_cupped_muffled",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.195,
+          "clap_capture": 0.045
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_open_back",
+          "cajon_peruano_role": "cajon_peruano_festejo"
+        },
+        "scores": {
+          "cajon_peruano_construction": 3.185,
+          "cajon_peruano_role": 3.38
+        }
+      },
+      {
+        "id": "foot_tap",
+        "slots": {
+          "tap_striker": "tap_metal_taps",
+          "tap_surface": "tap_sprung_wood_floor"
+        },
+        "scores": {
+          "tap_striker": 0,
+          "tap_surface": 0.045
+        }
+      }
+    ],
+    "room": "andalusian_tablao_seville_madrid",
+    "archetype": "arch_madrid_flamenco_tape",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "flamenco_compas_12_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "flamenco_compas_12_beat",
+    "room": "andalusian_tablao_seville_madrid",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

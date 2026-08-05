@@ -3,14 +3,14 @@
   "name": "Easy listening (orchestral pop)",
   "family": "global",
   "lineage": "Mid-20th-century instrumental and vocal orchestral-pop tradition — codified through Percy Faith (Theme from A Summer Place 1959), Mantovani (the cascading-strings sound), Henry Mancini (Moon River 1961, the Pink Panther theme 1963), Ray Conniff (the orchestrated-vocal-chorus sound), Lawrence Welk, Mitch Miller; the genre served as the mid-century mass-audience easy-listening AM-radio format before the rock-and-roll era displaced it from commercial-radio dominance",
-  "recipe": "classic North American late-1950s easy listening, functional Song, crooners branch, western common practice art music, American jazz smooth vocal german romanticism british brass band. concert harp, string quartet inst, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, extended harmony through composed jazz big band, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, synthetic norway spruce European alpine bigleaf maple western maple violin orchestral. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 775,
-  "score": 115.787,
+  "recipe": "classic North American late-1950s easy listening, functional Song, crooners branch, western common practice art music, American jazz smooth vocal chamber music choral. concert harp, string quartet inst, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, extended harmony through composed jazz big band, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 756,
+  "score": 140.42,
   "config": {
     "traditions": [
       "easy_listening_orchestral",
-      "german_romanticism",
-      "british_brass_band"
+      "chamber_music",
+      "choral"
     ],
     "instruments": [
       {
@@ -20,8 +20,8 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 4.614999999999999,
-          "harp_pedals": 0.845
+          "harp_strings": 5.264999999999999,
+          "harp_pedals": 1.3
         }
       },
       {
@@ -32,9 +32,9 @@
           "string_quartet_inst_era": "string_quartet_inst_romantic"
         },
         "scores": {
-          "bowed_technique": 1.25,
-          "quartet_school": 0.545,
-          "string_quartet_inst_era": 6.175
+          "bowed_technique": 2.5,
+          "quartet_school": 0.65,
+          "string_quartet_inst_era": 5.59
         }
       },
       {
@@ -53,13 +53,13 @@
         "scores": {
           "keyboard_technique": 6.645,
           "grand_piano_size": 4.419999999999999,
-          "grand_piano_brand": 3.1849999999999996,
-          "piano_hammer": 6.594999999999999,
-          "piano_rim": 10.3325,
+          "grand_piano_brand": 2.9899999999999998,
+          "piano_hammer": 6.699999999999999,
+          "piano_rim": 9.985,
           "piano_soundboard": 7.374999999999999,
-          "piano_pinblock": 2.275,
-          "piano_plate": 2.5025,
-          "piano_pitch_standard": 8.54
+          "piano_pinblock": 4.175000000000001,
+          "piano_plate": 4.1499999999999995,
+          "piano_pitch_standard": 11.584999999999999
         }
       },
       {
@@ -70,7 +70,7 @@
         },
         "scores": {
           "sections": 0,
-          "era": 4.42
+          "era": 4.03
         }
       },
       {
@@ -82,10 +82,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 4.263333333333333,
-          "choir_polyphonic_configuration": 4.178333333333333,
-          "choir_regional_canonical_configuration": 2.295,
-          "choir_ensemble_repertoire": 8.644999999999998
+          "choir_size": 10.844999999999999,
+          "choir_polyphonic_configuration": 3.735,
+          "choir_regional_canonical_configuration": 4.09,
+          "choir_ensemble_repertoire": 9.555
         }
       },
       {
@@ -93,9 +93,9 @@
         "slots": {
           "bowed_technique": "bowed_pizzicato",
           "orch_strings": "synthetic_orch",
-          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "bigleaf_western_maple_violin",
-          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
@@ -103,16 +103,16 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 8.874999999999998,
-          "orch_strings": 1.6899999999999997,
-          "orch_top_wood": 2.3075,
-          "orch_back_wood": 5.3625,
-          "orch_varnish": 2.3249999999999997,
-          "orch_setup_period": 1.0075,
-          "orch_bow": 1.3283333333333334,
-          "orch_bow_stick": 2.6975000000000002,
+          "bowed_technique": 10.124999999999998,
+          "orch_strings": 0.8449999999999999,
+          "orch_top_wood": 3.74,
+          "orch_back_wood": 6.8575,
+          "orch_varnish": 3.375,
+          "orch_setup_period": 2.4375,
+          "orch_bow": 1.17,
+          "orch_bow_stick": 4.3225,
           "orch_articulation": 0.45499999999999996,
-          "orch_rosin": 4.062500000000001
+          "orch_rosin": 4.2575
         }
       }
     ],

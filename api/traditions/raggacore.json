@@ -1,0 +1,154 @@
+{
+  "id": "raggacore",
+  "name": "Raggacore",
+  "family": "electronic",
+  "lineage": "Emerged in Berlin and London around 2003-07 from breakcore's collision with dancehall, codified by Bong-Ra, Aaron Spectre, DJ Scotch Egg and the Wasted Sound / Death$ucker circles — 170-200 BPM distorted Amen and Mentasm edits under looped ragga toasting and dancehall riddim samples, produced entirely in-the-box with heavy clipping and abrupt cut-and-paste structure.",
+  "recipe": "classic early-2000s raggacore, bass System, bass descendants branch, uk soundsystem bass system, industrial noise experimental electric, idm glitch experimental electric industrial hardcore. vocal fry, breath veiled tone, straight onset, interlocked note trading. glitched textural sampler, sampled chopped sampler drum machine, sub bass monosynth acid bass, glitched textural wavetable synth, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 593,
+  "score": 238.953,
+  "config": {
+    "traditions": [
+      "raggacore",
+      "glitch_hop",
+      "industrial_hardcore"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 14.449499999999999,
+          "sampler_archetypes": 1.9700000000000002,
+          "sampler_bit_depth": 0.75,
+          "sampler_workflow": 14.25,
+          "sampler_classic_context": 22.067500000000003
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 3.8675000000000006,
+          "sample_bitdepth": 0.75,
+          "sample_swing": 6.750000000000001,
+          "sample_processing": 1.845
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 8.645,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.9099999999999999,
+          "voice_articulation": 20.02,
+          "voice_microtone": 20.669999999999998,
+          "voice_tradition": 9.5475,
+          "voice_mechanism_compound": 7.177,
+          "voice_estill_quality": 4.485,
+          "voice_speech_song": 20.02,
+          "voice_ensemble_config": 20.15,
+          "voice_ornament_system": 3.3150000000000004,
+          "voice_pitch_organization": 0.7474999999999999,
+          "voice_processing_chain": 14.7125,
+          "voice_multitrack_stack": 3.7375000000000007
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 9.067499999999999,
+          "wave_acid": 0.345,
+          "filter_acid": 0.585,
+          "accent_acid": 0.345
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 14.449499999999999,
+          "wt_position": 4.16,
+          "wt_family": 0.15,
+          "wt_polyphony": 0.345
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_backspin"
+        },
+        "scores": {
+          "electronic_technique": 3.8675000000000006,
+          "turntable_technique": 2.6975000000000002
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

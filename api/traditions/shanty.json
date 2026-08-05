@@ -1,0 +1,128 @@
+{
+  "id": "shanty",
+  "name": "Shanty (Shipboard Work Song)",
+  "family": "vernacular",
+  "lineage": "The functional labour song of Atlantic deep-water merchant sail, consolidated roughly 1815-1875 on packet and clipper crews out of Liverpool, London, Mobile and New York and first systematically transcribed by Richard Runciman Terry, Cecil Sharp, W.B. Whall and later Stan Hugill, whose Shanties from the Seven Seas remains the codifying text; a shantyman improvised solo lines against a fixed crew refrain, with the pull or push of the work fixing the metre - short-drag shanties with two hauls per verse, halyard shanties with a longer chorus, capstan shanties in continuous rolling 6/8 or 4/4 for windlass work - sung unaccompanied at moderate tempo in open chest voice.",
+  "recipe": "classic early-1810s shanty, sea Shanty, atlantic branch, blues narrative work song, Celtic balladic English broadside jeju haenyeo songs industrial folk. thick, breath veiled tone, wide pitch sway, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, foot stomp, sharp chains shaken shackle chains, ships bell. field recording. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 474,
+  "score": 229.668,
+  "config": {
+    "traditions": [
+      "shanty",
+      "jeju_haenyeo_songs",
+      "industrial_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.800000000000001,
+          "voice_quality": 31.589999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.01,
+          "voice_articulation": 23.205000000000002,
+          "voice_microtone": 23.854999999999997,
+          "voice_tradition": 18.134999999999998,
+          "voice_mechanism_compound": 9.555,
+          "voice_estill_quality": 9.815,
+          "voice_speech_song": 35.49,
+          "voice_ensemble_config": 24.7,
+          "voice_ornament_system": 8.6125,
+          "voice_pitch_organization": 3.440000000000001,
+          "voice_processing_chain": 5.654999999999999,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 14.754999999999999,
+          "choir_polyphonic_configuration": 3.3799999999999994,
+          "choir_regional_canonical_configuration": 7.669999999999999,
+          "choir_ensemble_repertoire": 2.34
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_bare_foot",
+          "stomp_surface": "stomp_wood_stage"
+        },
+        "scores": {
+          "stomp_footwear": 0,
+          "stomp_surface": 0.09
+        }
+      },
+      {
+        "id": "shackle_chains",
+        "slots": {
+          "shackle_chains_type": "shackle_chains_leg_irons",
+          "shackle_chains_motion": "shackle_chains_shaken"
+        },
+        "scores": {
+          "shackle_chains_type": 0,
+          "shackle_chains_motion": 1.3
+        }
+      },
+      {
+        "id": "ships_bell",
+        "slots": {
+          "ships_bell_type": "ships_bell_ships",
+          "ships_bell_pattern": "ships_bell_watch_paired"
+        },
+        "scores": {
+          "ships_bell_type": 0,
+          "ships_bell_pattern": 0.45499999999999996
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_acoustic_horn_pre1925",
+    "inline_chain": {
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "pre_field_recorder_portable",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "chain_mic": "mic_acoustic_horn_pre1925",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "shellac_78",
+    "chain_console": "broken"
+  }
+}

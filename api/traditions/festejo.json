@@ -1,0 +1,150 @@
+{
+  "id": "festejo",
+  "name": "Festejo (Lima criollo cajón dance)",
+  "family": "global",
+  "lineage": "Afro-Peruvian celebratory dance-song of the coastal barrios of Lima and Cañete, revived and codified in the 1950s-70s by Nicomedes and Victoria Santa Cruz, Perú Negro and the Vásquez family, built on a fast 6/8 cajón pattern with quijada rasp and cajita, call-and-response coplas over a repeating guitar tumbao, and stamped zapateo footwork.",
+  "recipe": "classic South American mid-1950s festejo, groove Percussion, Latin am branch, andean field work, Afro-diasporic ritual devotional, rumba Cuban folklore ecuatoriano nyahbinghi. kargyraa, breath veiled tone, slow rate, interlocked note trading. open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition quijada, cedar nylon classical nylon-string guitar, lead cowhide mid tier open slap hand drum congas, hand clap. urban courtyard. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 626,
+  "score": 186.37,
+  "config": {
+    "traditions": [
+      "festejo",
+      "folklore_ecuatoriano",
+      "nyahbinghi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 0.6499999999999999,
+          "voice_quality": 13.194999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.8600000000000003,
+          "voice_articulation": 21.38499999999999,
+          "voice_microtone": 22.294999999999987,
+          "voice_tradition": 7.150000000000001,
+          "voice_mechanism_compound": 3.445,
+          "voice_estill_quality": 5.245,
+          "voice_speech_song": 23.269999999999992,
+          "voice_ensemble_config": 20.929999999999993,
+          "voice_ornament_system": 6.4350000000000005,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 5.199999999999999,
+          "voice_multitrack_stack": 1.8850000000000002
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_open_back",
+          "cajon_peruano_role": "cajon_peruano_festejo"
+        },
+        "scores": {
+          "cajon_peruano_construction": 7.734999999999999,
+          "cajon_peruano_role": 3.77
+        }
+      },
+      {
+        "id": "quijada",
+        "slots": {
+          "quijada_form": "quijada_burro_peruano",
+          "quijada_context": "quijada_lando_raspado",
+          "quijada_preparation": "quijada_boiled_sundried"
+        },
+        "scores": {
+          "quijada_form": 6.045,
+          "quijada_context": 4.875,
+          "quijada_preparation": 0.15
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.7,
+          "string_tuning": 0,
+          "top_wood_classical": 7.02,
+          "bracing_classical": 1.4949999999999999,
+          "string_classical": 1.545,
+          "attack_technique_cl": 1.2349999999999999
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 14.934999999999999,
+          "conga_set": 1.2349999999999999,
+          "conga_skin": 1.145,
+          "conga_shell_wood": 0.9099999999999999
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 0.72,
+          "clap_capture": 0.195
+        }
+      }
+    ],
+    "room": "urban_courtyard",
+    "archetype": "arch_discos_fuentes_tropical",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "urban_courtyard",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "id": "muzica_etno",
+  "name": "Muzică etno",
+  "family": "pop",
+  "lineage": "Romanian folk-pop hybrid that emerged on private television and cable radio after 1995 and consolidated around 2000-2010, taking muzică populară melodies and doina-style nai and fluier lines and setting them over programmed four-on-the-floor and 2/4 hora beats at 125-140 BPM with synth pads, sampled cimbalom, sequenced bass and heavily tuned pop-belt vocals, arranged in verse-chorus pop form for playback performance in sequinned costume.",
+  "recipe": "classic mid-2000s muzică etno, functional Song, europop branch, eurodance electronic dance, mid east n African pop functional song, European wedding turkish pop bubblegum dance. thick, chest mix belt, slow rate, interlocked note trading. staccato nai romanian, weltmeister east German mid tier vintage volk straight accordion, singing lead analog poly synth, melodic pitched sampler, mahogany pyramid pure nickel bass British mid 60s era electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 656,
+  "score": 265.405,
+  "config": {
+    "traditions": [
+      "muzica_etno",
+      "turkish_pop",
+      "bubblegum_dance"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 25.364999999999995,
+          "voice_quality": 9.949999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.21,
+          "voice_articulation": 19.824999999999996,
+          "voice_microtone": 23.224999999999994,
+          "voice_tradition": 25.46,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 4.03,
+          "voice_speech_song": 24.569999999999997,
+          "voice_ensemble_config": 23.074999999999996,
+          "voice_ornament_system": 0.65,
+          "voice_pitch_organization": 3.0950000000000006,
+          "voice_processing_chain": 6.4350000000000005,
+          "voice_multitrack_stack": 3.0550000000000006
+        }
+      },
+      {
+        "id": "nai_romanian",
+        "slots": {
+          "nai_romanian_form": "nai_romanian_traditional",
+          "nai_romanian_repertoire": "nai_romanian_hora",
+          "nai_romanian_pipe_material": "nai_romanian_ebonite"
+        },
+        "scores": {
+          "nai_romanian_form": 4.550000000000001,
+          "nai_romanian_repertoire": 9.775,
+          "nai_romanian_pipe_material": 0.12999999999999998
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "american_swing",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 4.3500000000000005,
+          "accordion_reed_material": 1.9299999999999997,
+          "musette_offset": 0.195,
+          "reed_config": 0.65,
+          "bellows": 0,
+          "voicing_chamber": 0.24,
+          "accordion_maker_school": 3.44
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 22.935,
+          "poly_archetypes": 0.905,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.7199999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_pop_production"
+        },
+        "scores": {
+          "electronic_technique": 1.29,
+          "sampler_archetypes": 0.75,
+          "sampler_bit_depth": 1.7849999999999997,
+          "sampler_workflow": 1.365,
+          "sampler_classic_context": 21.175
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 2.73,
+          "body_wood": 2.0799999999999996,
+          "pickup_config": 0.57,
+          "string_type": 3.9,
+          "scale_length_b": 1.93,
+          "fretted_or_not": 0.045,
+          "bass_technique": 2.09
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

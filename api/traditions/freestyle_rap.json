@@ -1,0 +1,136 @@
+{
+  "id": "freestyle_rap",
+  "name": "Freestyle Rap",
+  "family": "hip_hop",
+  "lineage": "Improvised rap practice formalized in New York park jams and radio cyphers from the late 1970s and canonized by the Stretch Armstrong and Bobbito show, Wake Up Show and Rap Olympics through the 1990s, in which MCs compose in real time over a looped 85-95 BPM break, trading eight- and sixteen-bar turns with audience-supplied words and immediate rhyme-scheme resolution.",
+  "recipe": "classic North American 1977-1979 freestyle rap, mc Rhythm, us hip hop branch, us hip hop east coast, stage performance spoken word boom bap new jersey rap. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, chopped sampler, bilabial ejective kick drum source vocal percussion voice, TR-808. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 558,
+  "score": 279.005,
+  "config": {
+    "traditions": [
+      "freestyle_rap",
+      "boom_bap",
+      "new_jersey_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 7.865,
+          "voice_quality": 29.689999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5650000000000004,
+          "voice_articulation": 18.979999999999997,
+          "voice_microtone": 17.484999999999992,
+          "voice_tradition": 9.959999999999999,
+          "voice_mechanism_compound": 4.745,
+          "voice_estill_quality": 5.154999999999999,
+          "voice_speech_song": 29.625,
+          "voice_ensemble_config": 17.809999999999995,
+          "voice_ornament_system": 5.525000000000002,
+          "voice_pitch_organization": 1,
+          "voice_processing_chain": 20.899999999999995,
+          "voice_multitrack_stack": 5.235000000000001
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 9.535,
+          "turntable_technique": 15.120000000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 9.535,
+          "sampler_archetypes": 15.079999999999997,
+          "sampler_bit_depth": 1.7249999999999999,
+          "sampler_workflow": 10.719999999999999,
+          "sampler_classic_context": 30.68
+        }
+      },
+      {
+        "id": "vocal_percussion_voice",
+        "slots": {
+          "vocal_percussion_airstream_mechanism": "vocal_percussion_pulmonic_egressive",
+          "vocal_percussion_beatbox_articulation": "beatbox_kick_bilabial_ejective",
+          "vocal_percussion_syllabic_drum_system": "syllabic_khoisan_click_song",
+          "vocal_percussion_context": "vocal_percussion_context_ensemble"
+        },
+        "scores": {
+          "vocal_percussion_airstream_mechanism": 0.15,
+          "vocal_percussion_beatbox_articulation": 3.445,
+          "vocal_percussion_syllabic_drum_system": 0.585,
+          "vocal_percussion_context": 0.39
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 9.78,
+          "drum_machine_808_context": 2.5999999999999996,
+          "tr808_production_origin": -0.45499999999999996
+        }
+      }
+    ],
+    "room": "nyc_bronx_hip_hop_block_party_studio",
+    "archetype": "arch_network_radio_broadcast",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_field_recorder_portable",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "nyc_bronx_hip_hop_block_party_studio",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

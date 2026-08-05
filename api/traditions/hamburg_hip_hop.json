@@ -3,14 +3,14 @@
   "name": "Hamburg Hip Hop",
   "family": "hip_hop",
   "lineage": "Hamburg's German-language rap scene formed in the early 1990s around the St. Pauli and Eimsbüttel districts and the Yo Mama and Buback labels, codified by Absolute Beginner, Fettes Brot, Fünf Sterne deluxe and Samy Deluxe — 88–96 BPM sample-based boom-bap built on filtered jazz and soul loops, live-played bass and Rhodes overdubs, scratched hooks, and a witty, wordplay-heavy High-German flow with Plattdeutsch and English code-switching that set it against Stuttgart's soul-conscious and Berlin's harder street schools.",
-  "recipe": "classic North American 1990-1993 hamburg hip hop, mc Rhythm, intl hip hop branch, us hip hop east coast, us hip hop conscious rap conscious hip-hop new york city rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, vintage ambassador asymmetric brushes-and-sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 691,
-  "score": 510.835,
+  "recipe": "classic North American 1990-1993 hamburg hip hop, mc Rhythm, intl hip hop branch, us hip hop east coast, us hip hop conscious rap jazz rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, fiberskyn synthetic calf brushes-and-sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 677,
+  "score": 510.538,
   "config": {
     "traditions": [
       "hamburg_hip_hop",
-      "conscious_hip_hop",
-      "nyc_rap"
+      "jazz_rap",
+      "conscious_hip_hop"
     ],
     "instruments": [
       {
@@ -34,39 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 19.865,
-          "voice_quality": 40.324999999999996,
+          "voice_register": 20.24,
+          "voice_quality": 39.364999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.29,
-          "voice_articulation": 26.130000000000006,
-          "voice_microtone": 25.935000000000002,
-          "voice_tradition": 13.665000000000001,
-          "voice_mechanism_compound": 3.6399999999999997,
-          "voice_estill_quality": 12.669999999999998,
-          "voice_speech_song": 38.22,
-          "voice_ensemble_config": 27.235000000000007,
-          "voice_ornament_system": 7.150000000000002,
+          "voice_vibrato": 10.364999999999998,
+          "voice_articulation": 27.495000000000008,
+          "voice_microtone": 26.650000000000006,
+          "voice_tradition": 13.910000000000002,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 12.429999999999998,
+          "voice_speech_song": 37.5,
+          "voice_ensemble_config": 27.105000000000008,
+          "voice_ornament_system": 7.3450000000000015,
           "voice_pitch_organization": 1.6574999999999998,
-          "voice_processing_chain": 28.05,
-          "voice_multitrack_stack": 4.907500000000001
+          "voice_processing_chain": 28.024999999999995,
+          "voice_multitrack_stack": 4.7125
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_archetypes": "emu_sp1200",
           "sampler_bit_depth": "sampler_twelve_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 14.54,
-          "sampler_archetypes": 22.1,
+          "electronic_technique": 13.785000000000002,
+          "sampler_archetypes": 21.872500000000002,
           "sampler_bit_depth": 2.4749999999999996,
-          "sampler_workflow": 16.295,
-          "sampler_classic_context": 43.980000000000004
+          "sampler_workflow": 15.495000000000001,
+          "sampler_classic_context": 43.21500000000001
         }
       },
       {
@@ -76,8 +76,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 14.54,
-          "turntable_technique": 16.84
+          "electronic_technique": 13.785000000000002,
+          "turntable_technique": 15.895000000000001
         }
       },
       {
@@ -87,18 +87,18 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 14.904999999999998,
-          "body_wood": 0.975,
-          "pickup_config": 0.45499999999999996,
-          "string_type": 17.64,
-          "scale_length_b": 0.975,
+          "amp_make": 15.314999999999996,
+          "body_wood": 0.78,
+          "pickup_config": 0.8449999999999999,
+          "string_type": 18.005,
+          "scale_length_b": 1.0399999999999998,
           "fretted_or_not": 0.39,
-          "bass_technique": 11.79
+          "bass_technique": 12.165
         }
       },
       {
@@ -106,30 +106,30 @@
         "slots": {
           "keyboard_technique": "keyboard_ostinato_groove",
           "rhodes_model": "rhodes_mark1_stage",
-          "rhodes_use": "rhodes_soul",
+          "rhodes_use": "rhodes_jazz",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
           "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 11.795,
-          "rhodes_model": 9.775,
-          "rhodes_use": 1.17,
+          "keyboard_technique": 12.17,
+          "rhodes_model": 10.194999999999999,
+          "rhodes_use": 0.78,
           "rhodes_tine_material": 0.45499999999999996,
-          "rhodes_hammer_tip": 0.3249999999999998,
-          "rhodes_pickup_position": 2.145
+          "rhodes_hammer_tip": 0.9749999999999996,
+          "rhodes_pickup_position": 2.34
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drumhead": "fiberskyn_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 30.42000000000001,
-          "drumhead": 9.559999999999999,
+          "drum_technique": 30.875000000000007,
+          "drumhead": 9.75,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -3,14 +3,14 @@
   "name": "British blues",
   "family": "blues_gospel",
   "lineage": "London-centred electric blues of roughly 1962-1970, codified by Alexis Korner and Cyril Davies at the Marquee and by John Mayall's Bluesbreakers, whose 1966 sessions with Eric Clapton set the template — Chicago-derived twelve-bar and eight-bar forms at 80-160 BPM, shuffle and 12/8 slow-blues feels, amplified harmonica, overdriven single-coil and Les Paul guitar through cranked combo amps, walking or riff bass, and a strained, imitative white-English vocal reaching for Delta and Chicago phrasing.",
-  "recipe": "classic British mid-1960s british blues, functional Song, blues electric branch, blues acoustic functional song, classic distorted rock, American jazz improv on frame boogie-woogie hard bop. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric Fender blackface amp American 60s amp spring reverb bright open string slide resonance humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs fast tremolo tonewheel organ. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu.",
-  "recipe_chars": 978,
-  "score": 637.255,
+  "recipe": "classic British mid-1960s british blues, functional Song, blues electric branch, blues acoustic functional song, classic distorted rock, American jazz improv on frame soul jazz kansas city jazz. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric Fender blackface amp American 60s amp spring reverb bright maple pau ferro humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative gospel runs fast tremolo tonewheel organ. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console.",
+  "recipe_chars": 996,
+  "score": 579.692,
   "config": {
     "traditions": [
       "british_blues",
-      "boogie_woogie",
-      "hard_bop"
+      "soul_jazz",
+      "kansas_city_jazz"
     ],
     "instruments": [
       {
@@ -22,40 +22,40 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "bend_inflected",
-          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 54.88500000000001,
-          "voice_quality": 18.27999999999999,
+          "voice_register": 48.91000000000002,
+          "voice_quality": 21.38499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 28.11,
-          "voice_articulation": 25.479999999999993,
-          "voice_microtone": 27.814999999999994,
-          "voice_tradition": 18.36,
-          "voice_mechanism_compound": 5.134999999999999,
-          "voice_estill_quality": 5.11,
-          "voice_speech_song": 28.144999999999992,
-          "voice_ensemble_config": 23.464999999999996,
-          "voice_ornament_system": 1.4299999999999995,
-          "voice_pitch_organization": 1.2899999999999998,
-          "voice_processing_chain": 7.149999999999999,
-          "voice_multitrack_stack": 3.5750000000000006
+          "voice_vibrato": 20,
+          "voice_articulation": 21.58,
+          "voice_microtone": 21.349999999999998,
+          "voice_tradition": 18.820000000000004,
+          "voice_mechanism_compound": 3.8999999999999995,
+          "voice_estill_quality": 6.615,
+          "voice_speech_song": 24.894999999999996,
+          "voice_ensemble_config": 21.644999999999996,
+          "voice_ornament_system": 1.2349999999999997,
+          "voice_pitch_organization": 2.175,
+          "voice_processing_chain": 7.865,
+          "voice_multitrack_stack": 3.4775000000000005
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_overdriven_lead",
+          "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
           "neck_wood": "maple",
@@ -69,24 +69,24 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 2.9000000000000004,
-          "amp_make": 8.879999999999999,
+          "electric_technique": 4.5,
+          "amp_make": 9.299999999999999,
           "body_wood": 0.78,
-          "neck_wood": 0.98,
-          "fretboard": 0.98,
-          "pickup_magnet": 0.98,
-          "string_material": 0.98,
-          "string_gauge": 2.275,
+          "neck_wood": 1.2349999999999999,
+          "fretboard": 1.2349999999999999,
+          "pickup_magnet": 1.2349999999999999,
+          "string_material": 1.2349999999999999,
+          "string_gauge": 2.08,
           "bridge": 0.15,
           "scale_length": 0.78,
-          "finish": 0.435,
-          "string_tuning": 15.794999999999998
+          "finish": 0.195,
+          "string_tuning": 11.57
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_overdriven_lead",
+          "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany_maple_cap",
           "neck_wood": "maple_neck_h",
@@ -101,19 +101,19 @@
           "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": 2.9000000000000004,
-          "amp_make": 8.879999999999999,
+          "electric_technique": 4.5,
+          "amp_make": 9.299999999999999,
           "body_wood": 0.78,
-          "neck_wood": 0.98,
-          "fretboard": 0.98,
+          "neck_wood": 1.2349999999999999,
+          "fretboard": 1.2349999999999999,
           "pickup_magnet": 0.39,
           "pickup_winding": 0.9099999999999999,
-          "string_material": 0.98,
+          "string_material": 1.2349999999999999,
           "bridge": 0.78,
           "scale_length": 0.78,
-          "string_gauge": 2.275,
-          "finish": 0.435,
-          "string_tuning": 14.104999999999997
+          "string_gauge": 2.08,
+          "finish": 0.195,
+          "string_tuning": 10.465
         }
       },
       {
@@ -121,20 +121,20 @@
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "split_coil",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 11.745,
-          "body_wood": 0.975,
-          "pickup_config": 0.15,
-          "string_type": 17.79500000000001,
-          "scale_length_b": 0.78,
-          "fretted_or_not": 0,
-          "bass_technique": 19.400000000000006
+          "amp_make": 11.519999999999998,
+          "body_wood": 0.78,
+          "pickup_config": 0,
+          "string_type": 18.43,
+          "scale_length_b": 1.17,
+          "fretted_or_not": 0.045,
+          "bass_technique": 19.825000000000003
         }
       },
       {
@@ -145,8 +145,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 32.239999999999995,
-          "drumhead": 19.13000000000001,
+          "drum_technique": 29.705000000000002,
+          "drumhead": 19.375,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -161,12 +161,12 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "harmonica_type": 7.145000000000002,
-          "harmonica_comb": 28.844999999999995,
-          "harmonica_reed": 28.559999999999995,
-          "harmonica_technique": 30.374999999999996,
-          "harmonica_maker_school": 29.679999999999996,
-          "harmonica_tuning": 19.570000000000004
+          "harmonica_type": 7.555000000000001,
+          "harmonica_comb": 21.610000000000003,
+          "harmonica_reed": 21.535,
+          "harmonica_technique": 23.045,
+          "harmonica_maker_school": 23.525,
+          "harmonica_tuning": 18.610000000000003
         }
       },
       {
@@ -180,12 +180,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 4.42,
-          "drawbar_setting": 19.280000000000005,
-          "rotary_speed": 6.300000000000001,
-          "percussion_setting": 17.750000000000007,
-          "tonewheel_model": 25.675000000000008,
-          "leslie_cabinet_model": 0.195
+          "keyboard_technique": 5.92,
+          "drawbar_setting": 19.21,
+          "rotary_speed": 5.07,
+          "percussion_setting": 17.875,
+          "tonewheel_model": 23.86,
+          "leslie_cabinet_model": 1.17
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Ghazal",
   "family": "global",
   "lineage": "Persian-Urdu (and Pashto, Bengali, Hindi) classical lyric-poetry vocal song-form built on the rhyming-couplet ghazal poetic structure originated in 7th-century Arabic poetry, refined in 13th-century Persian poetry (Rumi, Hafez), and developed into a vocal-musical canon through the Mughal-era courts; Indian subcontinental ghazal singers: Begum Akhtar, Mehdi Hassan, Ghulam Ali, Jagjit Singh, Farida Khanum",
-  "recipe": "classic Middle Eastern early-1940s ghazal, ballad Poetry, med east poetic branch, vocal drone modal pansori armenian duduk-accompanied chant. vocal fry, breath veiled tone, slow rate, interlocked note trading. vocal male straight harmonium indian, indian rosewood rosewood copper tabla, gut 3 main playing strings tun cedar legato sarangi. tehran classical dastgah context. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
-  "recipe_chars": 491,
-  "score": 357.527,
+  "recipe": "classic Middle Eastern early-1940s ghazal, ballad Poetry, med east poetic branch, vocal drone modal alpine yodeling pansori. vocal fry, breath veiled tone, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla, gut 3 main playing strings legato sarangi. tehran classical dastgah context. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 473,
+  "score": 275.102,
   "config": {
     "traditions": [
       "ghazal",
-      "pansori",
-      "armenian_duduk_chant"
+      "alpine_yodeling",
+      "pansori"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 10.919999999999998,
-          "voice_quality": 21.254999999999995,
+          "voice_register": 9.23,
+          "voice_quality": 8.775,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.19,
-          "voice_articulation": 18.914999999999996,
-          "voice_microtone": 31.752499999999998,
-          "voice_tradition": 28.6,
-          "voice_mechanism_compound": 18.035,
-          "voice_estill_quality": 16.424999999999997,
-          "voice_speech_song": 21.254999999999995,
-          "voice_ensemble_config": 19.174999999999994,
-          "voice_ornament_system": 18.005,
-          "voice_pitch_organization": 19.59,
-          "voice_processing_chain": 10.789999999999996,
-          "voice_multitrack_stack": 12.61
+          "voice_vibrato": 9.865,
+          "voice_articulation": 15.794999999999995,
+          "voice_microtone": 22.619999999999994,
+          "voice_tradition": 22.457499999999996,
+          "voice_mechanism_compound": 14.234999999999998,
+          "voice_estill_quality": 12.649999999999999,
+          "voice_speech_song": 19.044999999999995,
+          "voice_ensemble_config": 17.09499999999999,
+          "voice_ornament_system": 14.055,
+          "voice_pitch_organization": 14.489999999999998,
+          "voice_processing_chain": 9.1,
+          "voice_multitrack_stack": 9.879999999999999
         }
       },
       {
@@ -61,10 +61,10 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 3.165,
-          "harmonium_action": 12.155,
-          "harmonium_voicing": 10.919999999999998,
-          "harmonium_use": 15.924999999999997
+          "free_reed_technique": 1.4649999999999996,
+          "harmonium_action": 9.62,
+          "harmonium_voicing": 10.334999999999999,
+          "harmonium_use": 13.129999999999999
         }
       },
       {
@@ -75,9 +75,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 5.54,
-          "tabla_bayan": 5.445,
-          "tabla_syahi": 8.254999999999999
+          "tabla_dayan": 4.19,
+          "tabla_bayan": 3.945,
+          "tabla_syahi": 6.109999999999999
         }
       },
       {
@@ -88,15 +88,15 @@
           "sarangi_taraf": "sarangi_40_strings",
           "sarangi_bow": "horse_hair_loose",
           "sarangi_main_strings": "sarangi_gut_main",
-          "sarangi_body_wood": "sarangi_tun_body"
+          "sarangi_body_wood": "sarangi_red_cedar_body"
         },
         "scores": {
-          "bowed_technique": 10.65,
-          "sarangi_belly": 12.415,
+          "bowed_technique": 7.875,
+          "sarangi_belly": 9.23,
           "sarangi_taraf": 0.845,
-          "sarangi_bow": 0.65,
-          "sarangi_main_strings": 14.299999999999997,
-          "sarangi_body_wood": 2.795
+          "sarangi_bow": 0.45499999999999996,
+          "sarangi_main_strings": 10.464999999999998,
+          "sarangi_body_wood": 0.845
         }
       }
     ],

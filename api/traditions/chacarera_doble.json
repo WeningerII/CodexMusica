@@ -1,0 +1,160 @@
+{
+  "id": "chacarera_doble",
+  "name": "Chacarera (doble, Santiago del Estero core form)",
+  "family": "global",
+  "lineage": "Rural dance-song of Santiago del Estero and the Argentine northwest, documented from the 1880s and codified for the concert stage by Andrés Chazarreta's 1911 Salta company and later Los Hermanos Ábalos and the Carabajal clan, built on a fast 6/8-against-3/4 hemiola strummed on nylon guitar with a rasguido that accents the sesquialtera, driven by bombo legüero played alternately on parche and aro, sung in strophic coplas of eight-bar periods with the doble variant extending each section to sixteen.",
+  "recipe": "classic mid-1880s chacarera, groove Percussion, Latin am branch, Latin am troubadour ballad poetry, andean carnival processional folclore jujeño huayno peruano. sygyt, breath veiled tone, fast rate, interlocked note trading. cedar concert modern plain gut sheep gut unsplit classical nylon-string guitar, driving rim accented bombo leguero, plain gut sheep gut unsplit sitka spruce Baroque setup violin orchestral, castagnari Italian premium folk music accordion. adobe room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 538,
+  "score": 197.985,
+  "config": {
+    "traditions": [
+      "chacarera_doble",
+      "folclore_jujeno",
+      "huayno_peruano"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.8449999999999999,
+          "voice_quality": 19.43499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.3449999999999998,
+          "voice_articulation": 19.239999999999995,
+          "voice_microtone": 17.159999999999993,
+          "voice_tradition": 17.889999999999997,
+          "voice_mechanism_compound": 5.329999999999999,
+          "voice_estill_quality": 11.545000000000002,
+          "voice_speech_song": 20.279999999999994,
+          "voice_ensemble_config": 18.914999999999992,
+          "voice_ornament_system": 14.479999999999999,
+          "voice_pitch_organization": 1.345,
+          "voice_processing_chain": 5.719999999999999,
+          "voice_multitrack_stack": 6.11
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "plain_sheep_gut_classical_guitar",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 1.4199999999999997,
+          "string_tuning": 0,
+          "top_wood_classical": 8.059999999999999,
+          "bracing_classical": 1.3,
+          "string_classical": 1.295,
+          "attack_technique_cl": 0.63
+        }
+      },
+      {
+        "id": "bombo_leguero",
+        "slots": {
+          "bombo_leguero_form": "bombo_leguero_santiagueno",
+          "bombo_leguero_style": "bombo_leguero_chacarera",
+          "bombo_leguero_head": "bombo_leguero_vacuno"
+        },
+        "scores": {
+          "bombo_leguero_form": 7.664999999999999,
+          "bombo_leguero_style": 4.69,
+          "bombo_leguero_head": 0.09999999999999999
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_chopped_old_time",
+          "orch_strings": "plain_sheep_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.26,
+          "orch_strings": 1.295,
+          "orch_top_wood": 3.5100000000000002,
+          "orch_back_wood": 0.325,
+          "orch_varnish": 0.9450000000000001,
+          "orch_setup_period": 2.4699999999999998,
+          "orch_bow": 1.885,
+          "orch_bow_stick": 0.54,
+          "orch_articulation": 1.1949999999999998,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_overblow_modern",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "italian_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 0,
+          "accordion_reed_material": 0.48000000000000004,
+          "musette_offset": 0.39,
+          "reed_config": 0.7,
+          "bellows": 0.195,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 2.4299999999999993
+        }
+      }
+    ],
+    "room": "adobe_room",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "huayno_2_4_andean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "huayno_2_4_andean",
+    "room": "adobe_room",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

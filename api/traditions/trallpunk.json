@@ -1,0 +1,148 @@
+{
+  "id": "trallpunk",
+  "name": "Trallpunk",
+  "family": "rock_punk",
+  "lineage": "Swedish melodic hardcore subgenre named for its 'tralla' singalong melodies, formed in the mid-1980s around Uppsala and Stockholm and codified by Asta Kask, Strebers, Charta 77 and later Coca Carola and De Lyckliga Kompisarna — fast 180-220 BPM d-beat and straight-eight punk drumming, major-key twin-guitar lines drawn from Swedish visa and folk tunes, chanted gang-vocal choruses, and blunt Swedish-language social lyrics.",
+  "recipe": "classic North American 1984-1986 trallpunk, distorted Rock, punk branch, pop punk distorted rock, European protest song skate punk oshare kei. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 633,
+  "score": 370.96,
+  "config": {
+    "traditions": [
+      "trallpunk",
+      "skate_punk",
+      "oshare_kei"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_gated_reverb",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 27.669999999999995,
+          "voice_quality": 9.165000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.835,
+          "voice_articulation": 21.709999999999994,
+          "voice_microtone": 24.914999999999996,
+          "voice_tradition": 12.479999999999997,
+          "voice_mechanism_compound": 13.13,
+          "voice_estill_quality": 1.69,
+          "voice_speech_song": 22.814999999999998,
+          "voice_ensemble_config": 30.834999999999997,
+          "voice_ornament_system": 0.9099999999999997,
+          "voice_pitch_organization": 6.145000000000001,
+          "voice_processing_chain": 3.8199999999999994,
+          "voice_multitrack_stack": 4.785
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 21.05,
+          "amp_make": 31.384999999999998,
+          "body_wood": 3.1200000000000006,
+          "neck_wood": 2.3800000000000003,
+          "fretboard": 2.3300000000000005,
+          "pickup_magnet": 2.0799999999999996,
+          "pickup_winding": 0.195,
+          "string_material": 0,
+          "bridge": 2.3800000000000003,
+          "scale_length": 2.6650000000000005,
+          "string_gauge": 2.6650000000000005,
+          "finish": 0.195,
+          "string_tuning": 9.879999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.425,
+          "body_wood": 4.4,
+          "pickup_config": 2.0799999999999996,
+          "string_type": 17.64,
+          "scale_length_b": 2.3800000000000003,
+          "fretted_or_not": 0.045,
+          "bass_technique": 35.095000000000006
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 19.889999999999997,
+          "drumhead": 9.45,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

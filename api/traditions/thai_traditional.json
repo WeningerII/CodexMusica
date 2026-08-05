@@ -1,0 +1,148 @@
+{
+  "id": "thai_traditional",
+  "name": "Thai Traditional (Piphat and Mahori)",
+  "family": "global",
+  "lineage": "Court and ceremonial ensemble music of Siam, formalized under Ayutthaya and Bangkok-era royal patronage and standardized in the early twentieth century by Luang Pradit Phairoh and the Fine Arts Department, using piphat (ranat xylophones, khong wong gong circles, pi nai quadruple reed, taphon and klong that drums) or mixed mahori with fiddles and khim, in stratified heterophony over a colotomic ching cycle and a seven-tone near-equidistant tuning.",
+  "recipe": "classic Southeast Asian early-1950s thai traditional, art Music, Thai classical branch, southeast Asian art music, east Asian field work piphat. ranat ek, counter melodic ranat thum, khong wong yai, pi nai, jackwood barrel canonical Thai piphat taphon, klong that, central Thai ching chap open and damped bronze ching, ivory court heirloom silk canonical Thai court legato saw duang, khim. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 600,
+  "score": 220.691,
+  "config": {
+    "traditions": [
+      "thai_traditional",
+      "thai_classical",
+      "piphat_ceremonial"
+    ],
+    "instruments": [
+      {
+        "id": "ranat_ek",
+        "slots": {
+          "ranat_ek_technique": "ranat_ek_kep"
+        },
+        "scores": {
+          "ranat_ek_technique": 28.732499999999995
+        }
+      },
+      {
+        "id": "ranat_thum",
+        "slots": {
+          "ranat_thum_keys": "ranat_thum_bamboo",
+          "ranat_thum_mallets": "ranat_thum_hard",
+          "ranat_thum_role": "ranat_thum_variation"
+        },
+        "scores": {
+          "ranat_thum_keys": 0,
+          "ranat_thum_mallets": 0.0495,
+          "ranat_thum_role": 1.17
+        }
+      },
+      {
+        "id": "khong_wong_yai",
+        "slots": {
+          "khong_wong_yai_role": "khong_wong_yai_main_melody"
+        },
+        "scores": {
+          "khong_wong_yai_role": 25.5
+        }
+      },
+      {
+        "id": "pi_nai",
+        "slots": {
+          "pi_nai_style": "pi_nai_piphat"
+        },
+        "scores": {
+          "pi_nai_style": 28.732499999999995
+        }
+      },
+      {
+        "id": "taphon",
+        "slots": {
+          "taphon_technique": "taphon_hand_struck",
+          "taphon_shell_wood": "taphon_jackwood_canonical",
+          "taphon_head": "taphon_calfskin_canonical"
+        },
+        "scores": {
+          "taphon_technique": 25.5,
+          "taphon_shell_wood": 13.455,
+          "taphon_head": 0.8849999999999999
+        }
+      },
+      {
+        "id": "klong_that",
+        "slots": {
+          "klong_that_setup": "klong_that_pair",
+          "klong_that_tuning": "klong_that_rice_paste"
+        },
+        "scores": {
+          "klong_that_setup": 0.63,
+          "klong_that_tuning": 0.24
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_thai",
+          "ching_stroke": "ching_open_closed",
+          "ching_alloy": "ching_bronze"
+        },
+        "scores": {
+          "ching_form": 30.0345,
+          "ching_stroke": 32.50000000000001,
+          "ching_alloy": 1.7875
+        }
+      },
+      {
+        "id": "saw_duang",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "saw_duang_body_form": "saw_duang_ivory_heirloom",
+          "saw_duang_repertoire": "saw_duang_khruang_sai_lead",
+          "saw_duang_strings": "saw_duang_silk_canonical",
+          "saw_duang_face": "saw_duang_python_face"
+        },
+        "scores": {
+          "bowed_technique": 14.694999999999999,
+          "saw_duang_body_form": 4.874999999999999,
+          "saw_duang_repertoire": 0.78,
+          "saw_duang_strings": 13.455,
+          "saw_duang_face": 0.9345
+        }
+      },
+      {
+        "id": "khim",
+        "slots": {
+          "khim_form": "khim_thai",
+          "khim_mallets": "khim_bamboo_padded",
+          "khim_strings": "khim_steel"
+        },
+        "scores": {
+          "khim_form": 0.195,
+          "khim_mallets": 0.195,
+          "khim_strings": 0.195
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_china_record_state_broadcast",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "thai_seven_equal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "thai_seven_equal",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

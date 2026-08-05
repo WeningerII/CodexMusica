@@ -1,0 +1,170 @@
+{
+  "id": "vispop",
+  "name": "Vispop",
+  "family": "pop",
+  "lineage": "Cebuano-language pop songwriting movement launched in Cebu City in 2013 by the Vispop compilation and competition series, codified by Kurt Fick, Jewel Villaflores and Kyle Wong, characterized by mid-tempo 80-110 BPM acoustic-guitar and piano ballads with unaffected conversational Bisaya vocals, simple diatonic loops and lightly programmed drums built entirely in home DAWs.",
+  "recipe": "classic Southeast Asian early-2010s vispop, functional Song, east Asian pop branch, anglo singer song bedroom singer song, pop rock functional song pixie yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, ukulele. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 783,
+  "score": 435.318,
+  "config": {
+    "traditions": [
+      "vispop",
+      "pixie",
+      "yacht_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 42.430000000000014,
+          "voice_quality": 7.15,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.629999999999999,
+          "voice_articulation": 14.364999999999997,
+          "voice_microtone": 40.60000000000001,
+          "voice_tradition": 30.889999999999997,
+          "voice_mechanism_compound": 3.5749999999999993,
+          "voice_estill_quality": 3.5100000000000002,
+          "voice_speech_song": 21.449999999999996,
+          "voice_ensemble_config": 14.299999999999995,
+          "voice_ornament_system": 5.265,
+          "voice_pitch_organization": 1.6199999999999999,
+          "voice_processing_chain": 6.175,
+          "voice_multitrack_stack": 6.305000000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 24.2,
+          "string_tuning": 0,
+          "top_wood": 3.965,
+          "back_sides": 0.7849999999999999,
+          "string_acoustic": 3.38
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 24.025000000000002,
+          "grand_piano_size": 3.38,
+          "grand_piano_brand": 3.38,
+          "piano_hammer": 23.404999999999998,
+          "piano_rim": 23.765,
+          "piano_soundboard": 24.665,
+          "piano_pinblock": 1.6350000000000002,
+          "piano_plate": 0.8449999999999999,
+          "piano_pitch_standard": 2.1449999999999996
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 7.669999999999999,
+          "body_wood": 3.38,
+          "pickup_config": 0.32999999999999996,
+          "string_type": 19.3375,
+          "scale_length_b": 3.365,
+          "fretted_or_not": 0.045,
+          "bass_technique": 14.914999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 15.664999999999996,
+          "drumhead": 23.12,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_baritone",
+          "ukulele_style": "ukulele_strum",
+          "ukulele_wood": "ukulele_mahogany"
+        },
+        "scores": {
+          "ukulele_size": 1.885,
+          "ukulele_style": 0.325,
+          "ukulele_wood": 0.09
+        }
+      }
+    ],
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

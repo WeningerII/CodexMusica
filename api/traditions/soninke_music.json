@@ -1,0 +1,164 @@
+{
+  "id": "soninke_music",
+  "name": "Musique soninke (Soninke griot song)",
+  "family": "global",
+  "lineage": "Repertoire of the Soninke people of the upper Senegal River valley (Mali–Mauritania–Senegal border, heirs of the Wagadu/Ghana empire), carried by hereditary geseru griot lineages on the gambare lute and kora and codified commercially from the 1970s by Mauritanian and Malian cassette artists — long strophic praise texts declaimed in Soninke over a repeating pentatonic donkilo ostinato at moderate 12/8 or slow 4/4, with calabash and hand-clap accompaniment, ululation, and a hard nasal female lead over a men's responsorial ground.",
+  "recipe": "classic West African mid-1970s musique soninke, ballad Poetry, west African griot branch, African pop functional song, sub saharan African praise song sákárà apala. extended whistle, declaimed, slow rate, interlocked note trading. griot voice, calabash gourd canonical bambara call-and-response ngoni, calabash diabate lineage mali call-and-response kora, foundational low fundamental tuning deep calabash inverted calabash, snappy thin to palm hand clap, buzzy natural material resonance calabash gourd balafon. bamako griot jeli compound. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 603,
+  "score": 318.142,
+  "config": {
+    "traditions": [
+      "soninke_music",
+      "sakara_music",
+      "apala"
+    ],
+    "instruments": [
+      {
+        "id": "griot_voice",
+        "slots": {
+          "griot_origin": "griot_wolof",
+          "griot_voice_context": "griot_voice_praise"
+        },
+        "scores": {
+          "griot_origin": 7,
+          "griot_voice_context": 0.15
+        }
+      },
+      {
+        "id": "ngoni",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "ngoni_strings": "ngoni_4",
+          "ngoni_use": "ngoni_griot",
+          "ngoni_resonator": "ngoni_calabash_canonical",
+          "ngoni_skin": "ngoni_cowhide",
+          "ngoni_string_material": "ngoni_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 37.265,
+          "ngoni_strings": 4.674999999999999,
+          "ngoni_use": 0.845,
+          "ngoni_resonator": 1.69,
+          "ngoni_skin": 0.38999999999999996,
+          "ngoni_string_material": 0.915
+        }
+      },
+      {
+        "id": "kora",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "kora_strings": "kora_21_traditional",
+          "kora_resonator": "kora_calabash_med",
+          "kora_strings_mat": "kora_gut_traditional",
+          "kora_top_skin": "kora_cowhide_canonical",
+          "kora_neck_wood": "kora_hardwood_local",
+          "kora_lineage": "kora_diabate_lineage"
+        },
+        "scores": {
+          "plucked_traditional_technique": 37.265,
+          "kora_strings": 4.449999999999999,
+          "kora_resonator": 1.69,
+          "kora_strings_mat": 0.585,
+          "kora_top_skin": 0.6299999999999999,
+          "kora_neck_wood": 0.285,
+          "kora_lineage": 1.885
+        }
+      },
+      {
+        "id": "inverted_calabash",
+        "slots": {
+          "inverted_calabash_size": "inverted_calabash_large",
+          "inverted_calabash_technique": "inverted_calabash_hands"
+        },
+        "scores": {
+          "inverted_calabash_size": 2.43,
+          "inverted_calabash_technique": 0.09
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.95,
+          "clap_capture": 0.195
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.2099999999999995,
+          "voice_quality": 26.419999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.35,
+          "voice_articulation": 19.955,
+          "voice_microtone": 19.759999999999994,
+          "voice_tradition": 43.6475,
+          "voice_mechanism_compound": 5.459999999999999,
+          "voice_estill_quality": 5.915,
+          "voice_speech_song": 26.91,
+          "voice_ensemble_config": 20.799999999999997,
+          "voice_ornament_system": 9.11,
+          "voice_pitch_organization": 7.8500000000000005,
+          "voice_processing_chain": 7.475000000000001,
+          "voice_multitrack_stack": 5.460000000000001
+        }
+      },
+      {
+        "id": "balafon",
+        "slots": {
+          "balafon_tuning": "balafon_mandinka",
+          "balafon_resonator": "balafon_gourd"
+        },
+        "scores": {
+          "balafon_tuning": 10.375,
+          "balafon_resonator": 1.435
+        }
+      }
+    ],
+    "room": "bamako_griot_jeli_compound",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "mande_pentatonic_jeli_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mande_pentatonic_jeli_modal",
+    "room": "bamako_griot_jeli_compound",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "cassette_medium",
+    "chain_console": "clean"
+  }
+}

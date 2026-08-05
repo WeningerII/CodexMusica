@@ -3,31 +3,31 @@
   "name": "Noise music",
   "family": "electronic",
   "lineage": "Late-1960s onward experimental-music genre foregrounding harsh-noise, feedback, and non-musical sound as primary material — codified through the Japanese noise canon (Merzbow — Pulse Demon 1996, Hijokaidan, Masonna, Boredoms), the European industrial-noise scene, and the American academic-experimental tradition extending from John Cage through the contemporary noise-festival circuit",
-  "recipe": "classic North American 1967-1969 noise music, experimental Elec, industrial noise branch, experimental distorted rock krautrock post-rock. ambient pad like analog serge lineage canonical 1973 1980s cal arts patch programmable west coast modular modular synth. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 410,
-  "score": 34.749,
+  "recipe": "classic North American 1967-1969 noise music, experimental Elec, industrial noise branch, experimental distorted rock nintendocore. analog modular modular synth. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 312,
+  "score": 27.514,
   "config": {
     "traditions": [
       "noise_music",
-      "krautrock",
-      "post_rock_extended"
+      "experimental_rock",
+      "nintendocore"
     ],
     "instruments": [
       {
         "id": "analog_synth",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_lead_line",
           "oscillator": "saw_single",
-          "filter_topology": "comb_filter",
-          "envelope": "pad_env",
+          "filter_topology": "svf",
+          "envelope": "gated_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 1.9125340909090907,
-          "oscillator": 1.04,
-          "filter_topology": 0.3,
-          "envelope": 1.6193977272727271,
-          "modulation": 0.6109090909090908
+          "electronic_technique": 1.02,
+          "oscillator": 1.95,
+          "filter_topology": 0.585,
+          "envelope": 0.645,
+          "modulation": 0.75
         }
       },
       {
@@ -36,13 +36,13 @@
           "electronic_technique": "electronic_modular_patch",
           "mod_voltage_source": "mod_sequencer",
           "mod_patch_density": "mod_west_coast",
-          "mod_lineage": "mod_serge_tcherepnin"
+          "mod_lineage": "mod_emu_modular"
         },
         "scores": {
-          "electronic_technique": 17.921874999999996,
-          "mod_voltage_source": 1.64225,
-          "mod_patch_density": 1.3045454545454547,
-          "mod_lineage": 4.159999999999999
+          "electronic_technique": 16.759999999999998,
+          "mod_voltage_source": 0.78,
+          "mod_patch_density": 2.1988636363636367,
+          "mod_lineage": 0.975
         }
       }
     ],

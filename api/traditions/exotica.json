@@ -1,0 +1,180 @@
+{
+  "id": "exotica",
+  "name": "Exotica",
+  "family": "pop",
+  "lineage": "American instrumental mood music of 1957-1963 codified by Martin Denny at the Hawaiian Village and by Les Baxter and Arthur Lyman on Capitol and HiFi Records — languid rumba and bolero tempos, pentatonic and whole-tone melodies carried on vibraphone, marimba and celesta over congas and bongos, with bird calls, gongs, wordless soprano vocalise, and extravagant stereo reverb evoking an imagined Polynesia.",
+  "recipe": "classic North American mid-1960s exotica, functional Song, pop rock branch, retro aesthetic experimental electric, American jazz smooth vocal, Cuban groove percussion yambú. thick, breath veiled tone, straight onset, interlocked note trading. vibraphone, marimba orchestral, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, mule hide canonical Cuban son premium oak staved canonical Cuban bongos, block chord celesta, gong tamtam, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 727,
+  "score": 259.285,
+  "config": {
+    "traditions": [
+      "exotica",
+      "smooth_jazz_80s",
+      "rumba_yambu"
+    ],
+    "instruments": [
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_fast",
+          "vibe_mallets": "vibe_soft_mallets"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "vibe_motor": 10.23,
+          "vibe_mallets": 10.125
+        }
+      },
+      {
+        "id": "marimba_orchestral",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "marimba_size": "marimba_4_octave",
+          "marimba_orchestral_bar": "marimba_orchestral_synthetic"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "marimba_size": 0,
+          "marimba_orchestral_bar": 0.65
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 2.5350000000000006,
+          "conga_set": 1.4300000000000002,
+          "conga_skin": 2.8499999999999996,
+          "conga_shell_wood": 2.8499999999999996
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_charanga",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 2.5350000000000006,
+          "bongos_skin": 2.8,
+          "bongos_context": 0.045,
+          "bongos_shell_wood": 2.8499999999999996
+        }
+      },
+      {
+        "id": "celesta",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "celesta_model": "celesta_yamaha",
+          "celesta_context": "celesta_orch"
+        },
+        "scores": {
+          "keyboard_technique": 10.45,
+          "celesta_model": 0.15,
+          "celesta_context": 2.34
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 24.634999999999994,
+          "voice_quality": 10.79,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.719999999999999,
+          "voice_articulation": 20.150000000000002,
+          "voice_microtone": 24.705,
+          "voice_tradition": 12.544999999999998,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 1.9499999999999997,
+          "voice_speech_song": 24.895000000000003,
+          "voice_ensemble_config": 20.28,
+          "voice_ornament_system": 0.7749999999999999,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 5.669999999999999,
+          "voice_multitrack_stack": 2.925
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.495,
+          "gong_striker": 0.39
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 10.45,
+          "drawbar_setting": 11.649999999999999,
+          "rotary_speed": 4.7700000000000005,
+          "percussion_setting": 10.125,
+          "tonewheel_model": 12.835,
+          "leslie_cabinet_model": 0.8
+        }
+      }
+    ],
+    "room": "capitol_tower_studios_la",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "console_apinla_vintage_la",
+      "comp": "comp_fairchild_670_tube",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pan_latin_bolero_2_4_romantic_ballad",
+    "room": "capitol_tower_studios_la",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_apinla_vintage_la"
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "id": "samba_rock",
+  "name": "Samba Rock",
+  "family": "global",
+  "lineage": "Emerged in São Paulo's Black dance clubs and Rio studios in the mid-1960s, codified by Jorge Ben, Trio Mocotó and Bebeto, grafting American soul and rock backbeat guitar onto samba's 2/4 telecoteco: strummed nylon or semi-hollow guitar playing percussive rhythm-chords, electric bass on the samba surdo accent, pandeiro and cuíca alongside a drum kit, tamborim breaks, and shouted call-and-response Portuguese vocals at 100-120 BPM.",
+  "recipe": "classic Southern American 1964-1966 samba rock, groove Percussion, Brazilian branch, Brazilian song functional song, funk percussive groove percussion p-funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright dual p90 clean semi hollow, ampeg b15 amp American 60s bass amp flip top character alder ernie ball slinky electric bass, jazz-trained ride-driven brushes-and-sticks drum kit, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian cuica, nylon canonical rio carnival surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, Hammond a 100 built in Leslie home spinet ostinato fast tremolo tonewheel organ. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu.",
+  "recipe_chars": 979,
+  "score": 377.6,
+  "config": {
+    "traditions": [
+      "samba_rock",
+      "funk",
+      "p_funk"
+    ],
+    "instruments": [
+      {
+        "id": "semi_hollow",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "semi_archetypes": "semi_casino",
+          "semi_hollow_pickup": "semi_dual_p90",
+          "semi_hollow_strings": "semi_flatwound_jazz",
+          "semi_hollow_context": "semi_hollow_indie"
+        },
+        "scores": {
+          "electric_technique": 4.2,
+          "amp_make": 15.874999999999996,
+          "semi_archetypes": 4.254999999999999,
+          "semi_hollow_pickup": 19.174999999999997,
+          "semi_hollow_strings": 0.4875,
+          "semi_hollow_context": 1.2349999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 11.014999999999999,
+          "body_wood": 1.95,
+          "pickup_config": 0.195,
+          "string_type": 10.924999999999997,
+          "scale_length_b": 1.95,
+          "fretted_or_not": 3.65,
+          "bass_technique": 14.325
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 19.889999999999993,
+          "drumhead": 1.95,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_samba",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": 0.4,
+          "pandeiro_size": 5.459999999999999,
+          "pandeiro_context": 1.69,
+          "pandeiro_head": 2.8600000000000003,
+          "pandeiro_shell_wood": 2.8600000000000003,
+          "pandeiro_jingles": 2.8600000000000003
+        }
+      },
+      {
+        "id": "cuica",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "cuica_size": "cuica_medium",
+          "cuica_context": "cuica_bateria",
+          "cuica_shell_material": "cuica_metal_canonical",
+          "cuica_head": "cuica_calfskin_canonical"
+        },
+        "scores": {
+          "percussion_technique": 0.4,
+          "cuica_size": 5.459999999999999,
+          "cuica_context": 1.625,
+          "cuica_shell_material": 6.369999999999999,
+          "cuica_head": 2.8600000000000003
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_segunda",
+          "surdo_skin": "surdo_nylon",
+          "surdo_shell": "surdo_steel"
+        },
+        "scores": {
+          "surdo_size": 0.3,
+          "surdo_skin": 2.6,
+          "surdo_shell": 0
+        }
+      },
+      {
+        "id": "tamborim",
+        "slots": {
+          "tamborim_skin": "tamborim_nylon",
+          "tamborim_striker": "tamborim_cluster",
+          "tamborim_shell": "tamborim_aluminum_canonical"
+        },
+        "scores": {
+          "tamborim_skin": 2.33,
+          "tamborim_striker": 6.109999999999999,
+          "tamborim_shell": 1.3
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 18.039999999999996,
+          "voice_quality": 25.219999999999988,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 20.214999999999993,
+          "voice_microtone": 19.434999999999988,
+          "voice_tradition": 9.6,
+          "voice_mechanism_compound": 1.4949999999999999,
+          "voice_estill_quality": 7.045,
+          "voice_speech_song": 22.749999999999996,
+          "voice_ensemble_config": 20.669999999999995,
+          "voice_ornament_system": 1.6899999999999997,
+          "voice_pitch_organization": 0.8999999999999997,
+          "voice_processing_chain": 12.369999999999997,
+          "voice_multitrack_stack": 5.98
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 14.375,
+          "drawbar_setting": 10.124999999999996,
+          "rotary_speed": 11.944999999999997,
+          "percussion_setting": 4.739999999999999,
+          "tonewheel_model": 10.985,
+          "leslie_cabinet_model": 0.585
+        }
+      }
+    ],
+    "room": "estudios_scatena_sp",
+    "archetype": "arch_odeon_bossa_mpb",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "samba_2_4_telecoteco",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "samba_2_4_telecoteco",
+    "room": "estudios_scatena_sp",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

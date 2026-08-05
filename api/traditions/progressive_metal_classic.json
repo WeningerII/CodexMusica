@@ -5,7 +5,7 @@
   "lineage": "Metal-prog-rock hybrid subgenre codified through Queensrÿche (Operation: Mindcrime 1988), Fates Warning (Awaken the Guardian 1986), Dream Theater (Images and Words 1992), Symphony X, and Watchtower; characterized by operatic-clean-vocal performances, virtuosic-twin-guitar lead lines, complex multi-meter compositions, and the conceptual-album / fantasy-narrative lyrical subject-matter tradition",
   "recipe": "classic North American late-1980s progressive metal, distorted Rock, prog branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 700,
-  "score": 396.153,
+  "score": 402.433,
   "config": {
     "traditions": [
       "progressive_metal_classic",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 32.69500000000001,
+          "voice_register": 32.89000000000001,
           "voice_quality": 3.770000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.211875000000003,
+          "voice_vibrato": 22.825000000000003,
           "voice_articulation": 14.429999999999994,
-          "voice_microtone": 30.168125,
-          "voice_tradition": 26.555625,
-          "voice_mechanism_compound": 14.389374999999996,
-          "voice_estill_quality": 4.45875,
+          "voice_microtone": 30.305,
+          "voice_tradition": 27.3,
+          "voice_mechanism_compound": 14.499999999999996,
+          "voice_estill_quality": 4.590000000000001,
           "voice_speech_song": 15.274999999999995,
           "voice_ensemble_config": 16.89999999999999,
           "voice_ornament_system": 1.0399999999999998,
           "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 8.566875000000001,
-          "voice_multitrack_stack": 4.9018749999999995
+          "voice_processing_chain": 8.64,
+          "voice_multitrack_stack": 4.9399999999999995
         }
       },
       {
@@ -60,8 +60,8 @@
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "mid_wind",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
@@ -70,26 +70,26 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 16.445,
-          "amp_make": 8.758125,
-          "body_wood": 8.076875,
+          "electric_technique": 16.745,
+          "amp_make": 9.23,
+          "body_wood": 7.724999999999999,
           "neck_wood": 1.2349999999999999,
           "fretboard": 1.2349999999999999,
-          "pickup_magnet": 0.3,
-          "pickup_winding": 0.313125,
+          "pickup_magnet": 0.645,
+          "pickup_winding": 0.49499999999999994,
           "string_material": 1.2349999999999999,
-          "bridge": 0.313125,
-          "scale_length": 9.24875,
-          "string_gauge": 0.66375,
+          "bridge": 0.39,
+          "scale_length": 9.259999999999998,
+          "string_gauge": 0.6,
           "finish": 0,
-          "string_tuning": 13.901875
+          "string_tuning": 14.114999999999998
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "extra_long_b",
@@ -97,13 +97,13 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "amp_make": 9.55875,
-          "body_wood": 0.4125,
+          "amp_make": 10.205,
+          "body_wood": 0.39,
           "pickup_config": 0.39,
-          "string_type": 26.325,
-          "scale_length_b": 0.3,
-          "fretted_or_not": 0.305625,
-          "bass_technique": 21
+          "string_type": 27.3,
+          "scale_length_b": 0.44999999999999996,
+          "fretted_or_not": 0.3,
+          "bass_technique": 21.045
         }
       },
       {
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 36.855,
-          "drumhead": 26.275000000000002,
+          "drumhead": 27.235000000000003,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -128,10 +128,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 1.2425,
+          "electronic_technique": 1.5275,
           "poly_archetypes": 5.654999999999999,
-          "poly_voices": 0.3,
-          "poly_maker_lineage": 3.9006250000000002
+          "poly_voices": 0.39,
+          "poly_maker_lineage": 3.83
         }
       }
     ],

@@ -1,0 +1,223 @@
+{
+  "id": "neoclassical_darkwave",
+  "name": "Neoclassical darkwave",
+  "family": "electronic",
+  "lineage": "European darkwave offshoot codified 1988-1998 by Dead Can Dance, Ataraxia, Stoa, Elend and the Projekt and Cold Meat Industry rosters, marrying gothic-rock pacing to bowed strings, cathedral-reverb piano, sampled or real choir and timpani, in slow duple or free-pulse settings, with operatic soprano or breathy contralto lead over minor-modal and Phrygian harmony and near-total absence of drum kit.",
+  "recipe": "classic mid-1990s neoclassical darkwave, distorted Rock, gothic rock branch, ambient experimental electric vaporwave aesthetic hauntology. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara choir ensemble, carpathian spruce hard rock maple cello, carpathian spruce hard rock maple acer saccharum violin orchestral, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, timpani, sustained pad analog poly synth, skinner aeolian skinner canonical American eclectic early 20th century tin lead 75 25 canonical principal rank bright projecting quarter comma meantone canonical renaissance early Baroque electric pneumatic canonical 20th century American pipe organ. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 959,
+  "score": 219.345,
+  "config": {
+    "traditions": [
+      "neoclassical_darkwave",
+      "vapor_aesthetic",
+      "hauntology_uk_2010s"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 12.984999999999994,
+          "voice_quality": 8.775,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 16.639999999999997,
+          "voice_microtone": 19.044999999999995,
+          "voice_tradition": 9.425,
+          "voice_mechanism_compound": 5.59,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 16.639999999999997,
+          "voice_ensemble_config": 19.499999999999996,
+          "voice_ornament_system": 0.6999999999999997,
+          "voice_pitch_organization": 2.7300000000000004,
+          "voice_processing_chain": 13.875,
+          "voice_multitrack_stack": 9.165000000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_andean_three_voice_parallel_thirds",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 2.08,
+          "choir_polyphonic_configuration": 2.08,
+          "choir_regional_canonical_configuration": 1.2349999999999999,
+          "choir_ensemble_repertoire": 3.7700000000000005
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "cello_strings": "cello_steel",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "bernardel_rosin_cello",
+          "cello_bow_stick": "brazilwood_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 0.7,
+          "cello_strings": 0.39,
+          "cello_top_wood": 1.2349999999999999,
+          "cello_back_wood": 4.16,
+          "cello_varnish": -0.035,
+          "cello_setup_period": -0.07,
+          "cello_bow_grip": 0.3,
+          "cello_rosin": -0.035,
+          "cello_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_chopped_old_time",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "tremolo_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.1049999999999998,
+          "orch_strings": 0.39,
+          "orch_top_wood": 1.2349999999999999,
+          "orch_back_wood": 5.7,
+          "orch_varnish": -0.035,
+          "orch_setup_period": -0.07,
+          "orch_bow": 1.195,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.9300000000000002,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 7.200000000000001,
+          "grand_piano_size": 0.63,
+          "grand_piano_brand": 1.7400000000000002,
+          "piano_hammer": 4.305000000000001,
+          "piano_rim": 5.07,
+          "piano_soundboard": 1.8150000000000002,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 1.935
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_synthetic"
+        },
+        "scores": {
+          "percussion_technique": 0.75,
+          "timpani_size": 0.3,
+          "timpani_head": 0.255
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 6.035000000000001,
+          "poly_archetypes": 4.21,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -0.525
+        }
+      },
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "pipe_organ_class": "pipe_organ_romantic",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_skinner_american",
+          "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
+          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
+          "pipe_organ_action": "pipe_organ_electric_pneumatic"
+        },
+        "scores": {
+          "keyboard_technique": 1.6199999999999999,
+          "pipe_organ_class": 0.3,
+          "pipe_organ_context": 2.925,
+          "pipe_organ_voicing_school": 3.7700000000000005,
+          "pipe_organ_pipe_alloy": 3.38,
+          "pipe_organ_temperament": 2.925,
+          "pipe_organ_action": 2.535
+        }
+      }
+    ],
+    "room": "cathedral",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "cathedral",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

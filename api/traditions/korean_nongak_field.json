@@ -3,14 +3,14 @@
   "name": "Korean nongak (농악, farmer's percussion-and-dance)",
   "family": "global",
   "lineage": "Korean nongak (농악, \"farmer's music\") tradition continuous from premodern Korean-agricultural-village labor-and-festival practice through Japanese-colonial-era and post-1945 continuous performance into modern-recognized Korean-folk continuous practice; the nongak is the canonical Korean village-festival-and-labor music integrating samul (four-instrument) percussion with vocal-and-dance accompaniment",
-  "recipe": "classic mid-1940s korean nongak, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian carnival processional chinese xǐqìng (喜慶) wedding music bengali bhatiali. thick, breath veiled tone, straight onset, interlocked note trading. paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu, lead kkwaenggwari, reformed dense wood brass belled taepyeongso. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 518,
-  "score": 259.809,
+  "recipe": "classic mid-1940s korean nongak, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian carnival processional indian folk chinese xǐqìng (喜慶) wedding music. thick, breath veiled tone, straight onset, interlocked note trading. paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu, lead kkwaenggwari, dense wood brass belled taepyeongso. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 504,
+  "score": 281.965,
   "config": {
     "traditions": [
       "korean_nongak_field",
-      "chinese_xiqing_wedding",
-      "bengali_bhatiali"
+      "indian_folk_lok_geet",
+      "chinese_xiqing_wedding"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.829500000000001,
-          "voice_quality": 9.554999999999998,
+          "voice_register": 8.9,
+          "voice_quality": 8.514999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2500000000000004,
-          "voice_articulation": 14.884999999999994,
-          "voice_microtone": 15.274999999999991,
-          "voice_tradition": 31.759499999999996,
-          "voice_mechanism_compound": 2.5945,
-          "voice_estill_quality": 1.91425,
-          "voice_speech_song": 16.964999999999993,
-          "voice_ensemble_config": 16.704999999999995,
-          "voice_ornament_system": 23.525,
-          "voice_pitch_organization": 7.6049999999999995,
-          "voice_processing_chain": 3.380000000000001,
-          "voice_multitrack_stack": 3.24525
+          "voice_vibrato": 2.4050000000000002,
+          "voice_articulation": 19.824999999999996,
+          "voice_microtone": 20.019999999999996,
+          "voice_tradition": 32.211,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 22.0025,
+          "voice_ensemble_config": 22.099999999999994,
+          "voice_ornament_system": 23,
+          "voice_pitch_organization": 6.090000000000001,
+          "voice_processing_chain": 3.120000000000001,
+          "voice_multitrack_stack": 2.6649999999999996
         }
       },
       {
@@ -62,11 +62,11 @@
           "janggu_lineage": "janggu_pungmul_outdoor"
         },
         "scores": {
-          "janggu_use": 3.70325,
-          "janggu_construction": 0.845,
-          "janggu_shell_wood": 10.453249999999999,
-          "janggu_head": 10.453249999999999,
-          "janggu_lineage": 4.84725
+          "janggu_use": 4.355,
+          "janggu_construction": 0.768,
+          "janggu_shell_wood": 9.767,
+          "janggu_head": 9.767,
+          "janggu_lineage": 5.208
         }
       },
       {
@@ -75,20 +75,20 @@
           "kkwaenggwari_role": "kkwaenggwari_lead"
         },
         "scores": {
-          "kkwaenggwari_role": 2.525
+          "kkwaenggwari_role": 3.275
         }
       },
       {
         "id": "taepyeongso",
         "slots": {
-          "taepyeongso_form": "taepyeongso_gaeryang",
+          "taepyeongso_form": "taepyeongso_traditional",
           "taepyeongso_context": "taepyeongso_pungmul",
           "taepyeongso_body": "taepyeongso_jujube_brass"
         },
         "scores": {
-          "taepyeongso_form": 23.5,
-          "taepyeongso_context": 29.59425,
-          "taepyeongso_body": 17
+          "taepyeongso_form": 23.909499999999998,
+          "taepyeongso_context": 29.635,
+          "taepyeongso_body": 17.15
         }
       }
     ],

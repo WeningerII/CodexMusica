@@ -1,0 +1,143 @@
+{
+  "id": "folclore_cuyano",
+  "name": "Folclore cuyano",
+  "family": "global",
+  "lineage": "Guitar-duo tradition of the Cuyo region — Mendoza, San Juan and San Luis — codified in the 1920s-40s by Hilario Cuadros and Los Trovadores de Cuyo and by Buenaventura Luna, whose repertoire is the tonada cuyana sung as a serenade in slow 6/8 with an instrumental estribillo, and the cueca cuyana in brisk 6/8 danced with handkerchiefs, both scored for two guitars in punteo-and-rasguido interplay with two voices in close parallel thirds and no percussion.",
+  "recipe": "classic mid-1920s folclore cuyano, ballad Poetry, Latin am troubadour branch, iberian functional song, americas wedding andean matrimonio huayno basque kantautor. thick, breath veiled tone, straight note core, interlocked note trading. cedar pre 1940 period gut fingerpicked classical nylon-string fingerpicked parlor acoustic guitar, sitka spruce hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 509,
+  "score": 172.817,
+  "config": {
+    "traditions": [
+      "folclore_cuyano",
+      "andean_matrimonio_huayno",
+      "basque_kantautor"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 2.1799999999999997,
+          "voice_quality": 14.754999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9400000000000004,
+          "voice_articulation": 17.224999999999998,
+          "voice_microtone": 15.534999999999995,
+          "voice_tradition": 16.949999999999996,
+          "voice_mechanism_compound": 5.785,
+          "voice_estill_quality": 8.04,
+          "voice_speech_song": 18.459999999999994,
+          "voice_ensemble_config": 15.924999999999995,
+          "voice_ornament_system": 11.349999999999998,
+          "voice_pitch_organization": 3.8675000000000006,
+          "voice_processing_chain": 4.159999999999999,
+          "voice_multitrack_stack": 3.5100000000000002
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "gut_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 4.6450000000000005,
+          "string_tuning": 0,
+          "top_wood_classical": 7.494999999999999,
+          "bracing_classical": 0.44999999999999996,
+          "string_classical": 1.645,
+          "attack_technique_cl": 1.065
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 4.6450000000000005,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.435,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.8400000000000001
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.5499999999999998,
+          "orch_strings": 0.5399999999999999,
+          "orch_top_wood": 2.45,
+          "orch_back_wood": 2.9349999999999996,
+          "orch_varnish": 1.955,
+          "orch_setup_period": 3.295,
+          "orch_bow": 1.8850000000000002,
+          "orch_bow_stick": 1.975,
+          "orch_articulation": 0.63,
+          "orch_rosin": 1.5750000000000002
+        }
+      }
+    ],
+    "room": "parlor",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "huayno_2_4_andean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "huayno_2_4_andean",
+    "room": "parlor",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "shellac_78",
+    "chain_console": "console_german_tube_50s"
+  }
+}

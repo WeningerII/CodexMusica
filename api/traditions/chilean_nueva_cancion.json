@@ -3,14 +3,14 @@
   "name": "Chilean nueva canción",
   "family": "global",
   "lineage": "Chilean nueva canción (\"new song\") tradition emerging late-1960s through the Allende-era 1970-1973 to mid-1970s Pinochet-coup-era political folk-revival; centered on Víctor Jara, Violeta Parra, Quilapayún, and Inti-Illimani with Indigenous-Andean-instrument integration alongside Western-folk songwriter format",
-  "recipe": "classic Andean 1970-1973 chilean nueva canción, protest Song, iberian Latin branch, European protest song, Latin am troubadour ballad poetry, americas wedding andean matrimonio huayno milonga. thick, forward-resonance, straight note core, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, naranjillo andean premium wood cedar andean andean classical charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, ceibo canonical Argentine leguero hollowed trunk bombo andino, continuous pour slow inverting rainstick. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 739,
-  "score": 233.898,
+  "recipe": "classic Andean 1970-1973 chilean nueva canción, protest Song, iberian Latin branch, European protest song, Latin am troubadour ballad poetry, americas wedding andean matrimonio huayno greek éntechno politicized. thick, forward-resonance, straight note core, interlocked note trading. cedar walnut martin lifespan fingerpicked acoustic guitar, naranjillo andean premium wood cedar andean andean classical charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, ceibo canonical Argentine leguero hollowed trunk bombo andino, continuous pour slow inverting rainstick. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 751,
+  "score": 219.327,
   "config": {
     "traditions": [
       "chilean_nueva_cancion",
       "andean_matrimonio_huayno",
-      "milonga"
+      "greek_entechno_politicized"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "andean_quechua_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_oral_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_parallel_thirds",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 12.16,
-          "voice_quality": 13.245,
+          "voice_register": 8.59,
+          "voice_quality": 13.139999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7225,
-          "voice_articulation": 11.699999999999996,
-          "voice_microtone": 11.699999999999992,
-          "voice_tradition": 21.414999999999996,
-          "voice_mechanism_compound": 3.77,
+          "voice_vibrato": 2.9725,
+          "voice_articulation": 10.139999999999999,
+          "voice_microtone": 10.692499999999992,
+          "voice_tradition": 20.829999999999995,
+          "voice_mechanism_compound": 3.24,
           "voice_estill_quality": 11.194999999999999,
-          "voice_speech_song": 18.297499999999996,
-          "voice_ensemble_config": 13.35625,
-          "voice_ornament_system": 15.50625,
-          "voice_pitch_organization": 2.0612500000000002,
-          "voice_processing_chain": 4.609999999999999,
-          "voice_multitrack_stack": 7.085000000000001
+          "voice_speech_song": 18.167499999999997,
+          "voice_ensemble_config": 12.10625,
+          "voice_ornament_system": 15.07125,
+          "voice_pitch_organization": 4.029999999999999,
+          "voice_processing_chain": 3.5400000000000005,
+          "voice_multitrack_stack": 10.659999999999995
         }
       },
       {
@@ -58,15 +58,15 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
-          "string_acoustic": "phosphor_om",
+          "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 1.6900000000000002,
-          "back_sides": 1.6900000000000002,
-          "string_acoustic": 1.6900000000000002,
-          "acoustic_om_technique": 15.245
+          "top_wood": 1.435,
+          "back_sides": 1.57,
+          "string_acoustic": 1.69,
+          "acoustic_om_technique": 11.739999999999998
         }
       },
       {
@@ -79,11 +79,11 @@
           "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 13.27,
-          "charango_back": 4.785,
-          "charango_top_wood": 5.73125,
-          "charango_strings": 5.18625,
-          "charango_string_material": 3.625
+          "plucked_traditional_technique": 8.995,
+          "charango_back": 4.5,
+          "charango_top_wood": 5.59625,
+          "charango_strings": 4.751250000000001,
+          "charango_string_material": 3.1900000000000004
         }
       },
       {
@@ -94,8 +94,8 @@
           "quena_pitch": "quena_g"
         },
         "scores": {
-          "wind_articulation": 10.201249999999998,
-          "quena_material": 1.6300000000000001,
+          "wind_articulation": 7.976249999999999,
+          "quena_material": 1.48,
           "quena_pitch": 2
         }
       },
@@ -106,8 +106,8 @@
           "siku_size": "siku_malta"
         },
         "scores": {
-          "siku_construction": 9.555,
-          "siku_size": 0.195
+          "siku_construction": 9.42875,
+          "siku_size": 0.39
         }
       },
       {
@@ -118,21 +118,21 @@
           "bombo_andino_shell_wood": "bombo_andino_ceibo"
         },
         "scores": {
-          "bombo_andino_construction": 3.8999999999999995,
+          "bombo_andino_construction": 1.3949999999999998,
           "bombo_andino_skin": 0.3,
-          "bombo_andino_shell_wood": 2.275
+          "bombo_andino_shell_wood": 1.235
         }
       },
       {
         "id": "rainstick",
         "slots": {
-          "rainstick_form": "rainstick_form_diaguita_cactus",
+          "rainstick_form": "rainstick_form_concert_long",
           "rainstick_gesture": "rainstick_gesture_tilt_cascade",
           "rainstick_fill": "rainstick_fill_seed_grain"
         },
         "scores": {
-          "rainstick_form": -0.1,
-          "rainstick_gesture": 1.7549999999999994,
+          "rainstick_form": -0.07,
+          "rainstick_gesture": 3.9,
           "rainstick_fill": -0.1
         }
       }

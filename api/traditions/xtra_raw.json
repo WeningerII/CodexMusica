@@ -1,0 +1,138 @@
+{
+  "id": "xtra_raw",
+  "name": "Xtra Raw",
+  "family": "electronic",
+  "lineage": "A late-2010s Dutch offshoot of raw hardstyle, driven by producers such as Rebelion, Sub Sonik, Vertile and Sickmode on Gearbox and Dirty Workz — running 150-165 BPM with an extremely overdriven, screech-tailed reverse-bass kick, minor-key detuned lead screeches, heavy sidechained pumping, and drops whose energy comes from kick timbre and pitch bending rather than the euphoric melodies of classic hardstyle.",
+  "recipe": "classic 2017-2019 xtra raw, electronic Dance, hardstyle branch, techno electronic dance peak-time techno electro backbeat. thick, breath veiled tone, straight onset, interlocked note trading. TR-909, sub bass digital subtractive, sub bass wavetable synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 486,
+  "score": 186.872,
+  "config": {
+    "traditions": [
+      "xtra_raw",
+      "peak_techno",
+      "electro_backbeat"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 1.265,
+          "drum_machine_909_context": 2.6,
+          "tr909_production_origin": 0.635
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 6.385,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 17.354999999999997
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 6.385,
+          "wt_position": 7.865000000000001,
+          "wt_family": 0.345,
+          "wt_polyphony": 1.24
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.8150000000000013,
+          "voice_quality": 6.240000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.7899999999999998,
+          "voice_articulation": 16.639999999999997,
+          "voice_microtone": 19.044999999999995,
+          "voice_tradition": 3.185,
+          "voice_mechanism_compound": 2.8599999999999994,
+          "voice_estill_quality": 2.6650000000000005,
+          "voice_speech_song": 18.134999999999994,
+          "voice_ensemble_config": 18.264999999999993,
+          "voice_ornament_system": 2.19,
+          "voice_pitch_organization": 2.400000000000001,
+          "voice_processing_chain": 16.95,
+          "voice_multitrack_stack": 9.23
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 0.5199999999999999,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 15.605000000000002,
+          "sample_processing": 0.43499999999999994
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

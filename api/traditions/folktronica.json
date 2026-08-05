@@ -1,0 +1,188 @@
+{
+  "id": "folktronica",
+  "name": "Folktronica",
+  "family": "electronic",
+  "lineage": "British and North American style crystallizing circa 1999-2005 through Four Tet, Tunng, Múm and Beth Orton, splicing acoustic fingerpicked guitar, glockenspiel, dulcimer and hand percussion with chopped-sampler beats, edited breakbeats at 85-115 BPM and granular texture beds, sung in soft close-mic'd untrained voices over cyclic modal loops.",
+  "recipe": "classic mid-2000s folktronica, experimental Elec, idm glitch branch, ambient experimental electric, anglo singer song indie folk, pop experimental experimental electric indietronica bristol trip hop. thick, breath veiled tone, straight note core, interlocked note trading. indian rosewood rosewood fingerpicked acoustic guitar, mellow soft attack rubber glockenspiel, glitched textural sampler, drum machine analog, glitched textural granular singing lead analog poly synth, walnut canonical appalachian fingerpicked mountain dulcimer. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 708,
+  "score": 283.574,
+  "config": {
+    "traditions": [
+      "folktronica",
+      "indietronica",
+      "bristol_trip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 11.6095,
+          "voice_quality": 8.255,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.92,
+          "voice_articulation": 19.629999999999995,
+          "voice_microtone": 19.174999999999994,
+          "voice_tradition": 22.5425,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 18.979999999999997,
+          "voice_ensemble_config": 17.809999999999995,
+          "voice_ornament_system": 1.9605,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 13.664,
+          "voice_multitrack_stack": 3.04
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "open_d",
+          "top_wood": "cedar_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "silk_steel_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 1.0499999999999998,
+          "top_wood": 0.48000000000000004,
+          "back_sides": 1.4555,
+          "string_acoustic": 0.995,
+          "acoustic_om_technique": 5.95
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_3",
+          "glockenspiel_mallet": "glockenspiel_rubber"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 0.7050000000000001,
+          "glockenspiel_mallet": 2.15
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 24.389999999999997,
+          "sampler_archetypes": 1.5245000000000002,
+          "sampler_bit_depth": 0.43499999999999994,
+          "sampler_workflow": 24.65,
+          "sampler_classic_context": 19.792499999999997
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_high"
+        },
+        "scores": {
+          "kick_voice": 0.65,
+          "snare_voice": 0.15,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.195
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 24.389999999999997,
+          "granular_use": 1.69,
+          "granular_synth_source": 9.49
+        }
+      },
+      {
+        "id": "mountain_dulcimer",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "dulcimer_strings": "dulcimer_4",
+          "dulcimer_tuning": "mixolydian_tuning",
+          "dulcimer_body_wood": "dulcimer_walnut_canonical",
+          "dulcimer_string_material": "dulcimer_steel_modern"
+        },
+        "scores": {
+          "acoustic_technique": 5.95,
+          "dulcimer_strings": 1.45,
+          "dulcimer_tuning": 1.3599999999999999,
+          "dulcimer_body_wood": 1.3650000000000002,
+          "dulcimer_string_material": 0.39
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 7.5,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.32999999999999996,
+          "poly_maker_lineage": -1.435
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "open_tuning_singer_songwriter",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "open_tuning_singer_songwriter",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

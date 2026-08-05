@@ -1,0 +1,159 @@
+{
+  "id": "vocaloid_producer_scene",
+  "name": "Vocaloid producer scene (Niconico bokaro-P music)",
+  "family": "electronic",
+  "lineage": "Japanese bedroom-producer culture formed after the August 2007 release of Crypton's Hatsune Miku voicebank for Yamaha's Vocaloid 2 engine, codified on Niconico Douga by ryo (supercell), wowaka, Hachi, kz and Jin — songs entirely built in a DAW at 130-180 BPM around a machine-sung lead whose pitch, note-length and phoneme timing are hand-drawn, with fast syllabic wordy verses that exceed human breath capacity, four-on-floor or driving eighth-note rock backing, piano-and-synth arrangements, and a release cycle of free uploads answered by fan illustration and dance covers.",
+  "recipe": "classic late-2000s vocaloid producer scene, functional Song, east Asian pop branch, pop rock synthpop, pop experimental experimental electric, eurodance electronic dance etherpop wonky pop. lead plus third fifth 3 part stack 2000s elastic pitch edited stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, singing lead analog poly synth, singing lead digital subtractive, field textural sampler, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 738,
+  "score": 282.75,
+  "config": {
+    "traditions": [
+      "vocaloid_producer_scene",
+      "etherpop",
+      "wonky_pop"
+    ],
+    "instruments": [
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+        },
+        "scores": {
+          "multitrack_stack_density": 2.535,
+          "multitrack_stack_era_aesthetic": 2.1125,
+          "multitrack_stack_processing": 1.8199999999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 21.935,
+          "poly_archetypes": 5.98,
+          "poly_voices": 0.21,
+          "poly_maker_lineage": -0.915
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 21.935,
+          "va_archetypes": 0.845,
+          "digital_subtractive_context": 21.319999999999997
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 8.995000000000001,
+          "sampler_archetypes": 0.69,
+          "sampler_bit_depth": 0.585,
+          "sampler_workflow": 9.61,
+          "sampler_classic_context": 22.067499999999995
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 6.565000000000001,
+          "body_wood": 1.39,
+          "pickup_config": 1.195,
+          "string_type": 12.125,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.15,
+          "bass_technique": 10.34
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 18.654999999999998,
+          "drumhead": 20.699999999999996,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 19.34,
+          "grand_piano_size": 0.24,
+          "grand_piano_brand": 0.54,
+          "piano_hammer": 20.58,
+          "piano_rim": 20.234999999999996,
+          "piano_soundboard": 20.554999999999996,
+          "piano_pinblock": 0.52,
+          "piano_plate": 0.45499999999999996,
+          "piano_pitch_standard": 8.319999999999999
+        }
+      }
+    ],
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "id": "glitch_pop",
+  "name": "Glitch Pop",
+  "family": "electronic",
+  "lineage": "Turn-of-the-2000s song-form offshoot of clicks-and-cuts electronica, shaped by Múm, Lali Puna, The Postal Service and later Björk's Vespertine sessions, setting conventional verse-chorus vocal melodies and diatonic harmony over micro-edited digital percussion built from clicks, vinyl crackle and truncated samples, with brittle sine and bell timbres replacing a drum kit.",
+  "recipe": "classic mid-2000s glitch pop, experimental Elec, pop experimental branch, idm glitch experimental electric, anglo singer song bedroom singer song, lofi house house folktronica. thick, breath veiled tone, straight onset, interlocked note trading. glitched textural granular singing lead analog poly synth, glitched textural sampler, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, fingerpicked acoustic guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 625,
+  "score": 324.257,
+  "config": {
+    "traditions": [
+      "glitch_pop",
+      "folktronica",
+      "glitch_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 9.799999999999994,
+          "voice_quality": 7.605,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.9099999999999999,
+          "voice_articulation": 18.134999999999998,
+          "voice_microtone": 18.394999999999992,
+          "voice_tradition": 21.58,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 21.449999999999996,
+          "voice_ensemble_config": 17.874999999999996,
+          "voice_ornament_system": 1.7049999999999998,
+          "voice_pitch_organization": 0.345,
+          "voice_processing_chain": 17.525000000000002,
+          "voice_multitrack_stack": 8.1575
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_field"
+        },
+        "scores": {
+          "electronic_technique": 25.82,
+          "granular_use": 0.845,
+          "granular_synth_source": 9.035
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 8.769999999999998,
+          "poly_archetypes": 0.105,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 25.82,
+          "sampler_archetypes": 2.0150000000000006,
+          "sampler_bit_depth": 0.75,
+          "sampler_workflow": 26.625,
+          "sampler_classic_context": 23.919999999999998
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 17.325000000000003,
+          "grand_piano_size": 0.54,
+          "grand_piano_brand": 0.54,
+          "piano_hammer": 9.024999999999999,
+          "piano_rim": 8.725,
+          "piano_soundboard": 8.575,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.06499999999999999,
+          "piano_pitch_standard": 2.405
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "eb_standard",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0.7149999999999999,
+          "top_wood": 0.54,
+          "back_sides": 0.885,
+          "string_acoustic": 0.54,
+          "acoustic_om_technique": 4.17
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

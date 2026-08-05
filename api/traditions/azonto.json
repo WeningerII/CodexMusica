@@ -1,0 +1,157 @@
+{
+  "id": "azonto",
+  "name": "Azonto",
+  "family": "electronic",
+  "lineage": "Ghanaian dance-driven hiplife offshoot that crystallised in Accra and Tema around 2011 when producers such as EL, Sarkodie and Killbeatz set kpanlogo-derived triplet hand-clap and shaker patterns over 125-130 BPM programmed 808 kits, sparse two-bar synth hooks and clipped Twi/pidgin call-and-response hooks pitched to the codified azonto dance gestures.",
+  "recipe": "classic early-2010s azonto, electronic Dance, African dance branch, African pop functional song, Afro-diasporic MC rhythm south african pop rumba lingala. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sampler drum machine, singing lead analog poly synth, snappy to palm hand clap, mahogany thomastik infeld low tension jazz warm walking electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 558,
+  "score": 190.235,
+  "config": {
+    "traditions": [
+      "azonto",
+      "south_african_pop",
+      "rumba_lingala"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 17.469999999999995,
+          "voice_quality": 10.01,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.835,
+          "voice_articulation": 16.444999999999993,
+          "voice_microtone": 16.63999999999999,
+          "voice_tradition": 20.864999999999995,
+          "voice_mechanism_compound": 1.4299999999999997,
+          "voice_estill_quality": 2.9250000000000007,
+          "voice_speech_song": 22.099999999999994,
+          "voice_ensemble_config": 18.069999999999993,
+          "voice_ornament_system": 0.7149999999999996,
+          "voice_pitch_organization": 0.9749999999999996,
+          "voice_processing_chain": 10.535,
+          "voice_multitrack_stack": 2.275
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 2.0149999999999997,
+          "drum_machine_808_context": 2.4699999999999998,
+          "tr808_production_origin": 0.675
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 0.2,
+          "sample_bitdepth": 0.65,
+          "sample_swing": 7.125,
+          "sample_processing": 1.875
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 13.59,
+          "poly_archetypes": 0.33,
+          "poly_voices": 0.345,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 3.075,
+          "clap_capture": 0.65
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 1.8199999999999996,
+          "body_wood": 1.95,
+          "pickup_config": 0.525,
+          "string_type": 3.445,
+          "scale_length_b": 1.875,
+          "fretted_or_not": 0.69,
+          "bass_technique": 2.5
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_lagos_afrobeats_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

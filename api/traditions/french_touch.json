@@ -3,14 +3,14 @@
   "name": "French touch / filter house",
   "family": "electronic",
   "lineage": "Parisian filter-house tradition running from the mid-1990s to the mid-2000s, built from disco, funk and soul loops lifted off vinyl into an Ensoniq ASR-10 or Akai sampler and reshaped by resonant band-pass and low-pass filter sweeps, phasing and heavy kick-keyed pumping compression, the filter gesture itself carrying the arrangement — codified through Motorbass (Philippe Zdar and Étienne de Crécy, Pansoul 1996), de Crécy's Super Discount (1996) and the Solid label, Thomas Bangalter and Daft Punk (Da Funk on Soma 1995, Homework 1997, Discovery 2001) and Bangalter's Roulé label (Spinal Scratch 1995, Trax on da Rocks 1995-1997), Alan Braxe (Vertigo 1997), Stardust's Music Sounds Better With You (Roulé 1998, Bangalter with Braxe and Benjamin Diamond over a Chaka Khan Fate loop), Cassius (Zdar with Hubert \"Boom Bass\" Blanc-Francard, the album 1999 in 1999), Bob Sinclar (Gym Tonic 1998), Alex Gopher (The Child 1999), Guy-Manuel de Homem-Christo's Crydamoure, and Modjo (Lady Hear Me Tonight 2000, over Chic's Soup for One); an apartment-studio culture with no tracking room and no live band, summing sampled loops through a colored analog desk to DAT and cutting the club 12-inch at Paris lacquer houses",
-  "recipe": "classic 1995-1997 french touch / filter house, electronic Dance, continental branch, house electronic dance, soul R&B functional song, funk percussive groove percussion chicago house disco house. thick, breath veiled tone, slow rate, interlocked note trading. looped layered sampler, turntable, TR-909, fast decay focused low sub bass analog synth, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser wah / envelope filter.",
-  "recipe_chars": 583,
-  "score": 388.49,
+  "recipe": "classic 1995-1997 french touch / filter house, electronic Dance, continental branch, house electronic dance, soul R&B functional song, funk percussive groove percussion chicago house south african house. thick, breath veiled tone, slow rate, interlocked note trading. sampler, turntable, TR-909, fast decay focused low analog synth, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser wah / envelope filter.",
+  "recipe_chars": 567,
+  "score": 393.077,
   "config": {
     "traditions": [
       "french_touch",
       "chicago_house",
-      "disco_house"
+      "south_african_house"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.6650000000000005,
+          "electronic_technique": 2.1650000000000005,
           "sampler_archetypes": 3.25,
           "sampler_bit_depth": 6.1450000000000005,
-          "sampler_workflow": 1.17,
-          "sampler_classic_context": 63.83250000000002
+          "sampler_workflow": 0.7149999999999999,
+          "sampler_classic_context": 62.007500000000014
         }
       },
       {
@@ -37,7 +37,7 @@
           "turntable_technique": "turntable_chirp_baby"
         },
         "scores": {
-          "electronic_technique": 2.6650000000000005,
+          "electronic_technique": 2.1650000000000005,
           "turntable_technique": 0.745
         }
       },
@@ -49,8 +49,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 23.75,
-          "drum_machine_909_context": 7.084999999999999,
+          "tr909_voice": 20.625,
+          "drum_machine_909_context": 6.434999999999999,
           "tr909_production_origin": 0.78
         }
       },
@@ -58,16 +58,16 @@
         "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "oscillator": "sine_osc",
+          "oscillator": "saw_single",
           "filter_topology": "transistor_ladder",
           "envelope": "pluck_env",
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 3.509500000000001,
-          "oscillator": 1.4949999999999999,
-          "filter_topology": 8.3645,
-          "envelope": 2.59,
+          "electronic_technique": 2.990000000000001,
+          "oscillator": 2.2689999999999997,
+          "filter_topology": 7.8645000000000005,
+          "envelope": 2.09,
           "modulation": 0.15
         }
       },
@@ -80,8 +80,8 @@
         },
         "scores": {
           "voc_band_count": 0.15,
-          "voc_carrier": 1.845,
-          "voc_modulator": 0.65
+          "voc_carrier": 1.345,
+          "voc_modulator": 0.3
         }
       },
       {
@@ -105,22 +105,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 9.609999999999998,
-          "voice_quality": 21.678500000000007,
+          "voice_register": 13.784999999999997,
+          "voice_quality": 22.178500000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.965000000000001,
-          "voice_articulation": 33.93000000000002,
-          "voice_microtone": 33.735000000000014,
-          "voice_tradition": 9.8855,
-          "voice_mechanism_compound": 6.5145,
-          "voice_estill_quality": 8.974999999999998,
-          "voice_speech_song": 36.01000000000002,
-          "voice_ensemble_config": 36.335000000000015,
+          "voice_vibrato": 5.615,
+          "voice_articulation": 35.880000000000024,
+          "voice_microtone": 35.685000000000024,
+          "voice_tradition": 13.2605,
+          "voice_mechanism_compound": 6.164499999999999,
+          "voice_estill_quality": 11.849999999999998,
+          "voice_speech_song": 38.22000000000003,
+          "voice_ensemble_config": 38.675000000000026,
           "voice_ornament_system": 2.045,
           "voice_pitch_organization": 1.345,
-          "voice_processing_chain": 23.82,
-          "voice_multitrack_stack": 12.174999999999997
+          "voice_processing_chain": 21.169999999999998,
+          "voice_multitrack_stack": 11.024999999999995
         }
       }
     ],

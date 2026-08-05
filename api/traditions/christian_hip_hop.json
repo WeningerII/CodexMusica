@@ -3,13 +3,14 @@
   "name": "Christian hip-hop",
   "family": "hip_hop",
   "lineage": "American Christian hip-hop genre developing through 1980s onward, with major commercial-and-artistic peak in 2010s through Lecrae's Reach Records roster (Lecrae, Andy Mineo, Trip Lee, KB, Tedashii). Distinguished by explicitly Christian-evangelical lyrical content addressing salvation, faith-struggle, and biblical-theological themes, set to mainstream hip-hop production aesthetic. The 2014 Grammy Award win by Lecrae's Anomaly album for Best Gospel Album consolidated commercial-cultural visibility.",
-  "recipe": "classic mid-1980s christian hip-hop, ritual Devotional, christian gospel branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, narrative. TR-808, low sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 392,
-  "score": 194.365,
+  "recipe": "classic mid-1980s christian hip-hop, ritual Devotional, christian gospel branch, us hip hop conscious rap conscious hip-hop jazz rap. thick, rap, straight onset, narrative. TR-808, low sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 401,
+  "score": 242.4,
   "config": {
     "traditions": [
       "christian_hip_hop",
-      "conscious_hip_hop"
+      "conscious_hip_hop",
+      "jazz_rap"
     ],
     "instruments": [
       {
@@ -27,28 +28,28 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.649999999999995,
-          "voice_quality": 22.306499999999996,
+          "voice_register": 17.899999999999995,
+          "voice_quality": 28.746499999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.795999999999999,
-          "voice_articulation": 14.971499999999999,
-          "voice_microtone": 12.154999999999998,
-          "voice_tradition": 12.432499999999997,
-          "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 10.714999999999996,
-          "voice_speech_song": 21.672999999999995,
-          "voice_ensemble_config": 10.594999999999999,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 18.424999999999997,
-          "voice_multitrack_stack": 11.527999999999997
+          "voice_vibrato": 7.284499999999999,
+          "voice_articulation": 18.471499999999995,
+          "voice_microtone": 17.679999999999996,
+          "voice_tradition": 13.899999999999997,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 12.339999999999996,
+          "voice_speech_song": 27.602999999999998,
+          "voice_ensemble_config": 15.665,
+          "voice_ornament_system": 4.365000000000002,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 23.574999999999992,
+          "voice_multitrack_stack": 12.054999999999998
         }
       },
       {
@@ -59,7 +60,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 10.725,
+          "tr808_voice": 13.444999999999999,
           "drum_machine_808_context": 7.020000000000001,
           "tr808_production_origin": 0.45499999999999996
         }
@@ -68,16 +69,16 @@
         "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "oscillator": "square_pulse",
-          "filter_topology": "resonant_acid",
-          "envelope": "sustain_env",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 11.245,
-          "oscillator": 0,
-          "filter_topology": 0.273,
-          "envelope": 0.195,
+          "electronic_technique": 14.159999999999997,
+          "oscillator": 0.845,
+          "filter_topology": 1.2349999999999999,
+          "envelope": 0.39,
           "modulation": 0
         }
       }

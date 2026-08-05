@@ -1,0 +1,108 @@
+{
+  "id": "mbube",
+  "name": "Mbube",
+  "family": "global",
+  "lineage": "Zulu male-choral style named for Solomon Linda's 1939 Gallo recording 'Mbube', formed among Natal migrant workers in Johannesburg hostels — a loud, full-throated four-part bass-led homophonic choir with a soaring solo falsetto or high tenor over cycling I-IV-I-V harmony, sung in isiZulu at moderate walking tempo and staged in all-night competitive hostel contests.",
+  "recipe": "classic Southern African late-1930s mbube, functional Song, isicathamiya branch, sub saharan African praise song, christian gospel jubilee quartet apala. thick, declaimed, fast rate, interlocked note trading. choir isicathamiya, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 571,
+  "score": 192.972,
+  "config": {
+    "traditions": [
+      "mbube",
+      "jubilee_quartet",
+      "apala"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 15.409999999999998,
+          "voice_quality": 23.289999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.04,
+          "voice_articulation": 12.219999999999999,
+          "voice_microtone": 11.374999999999995,
+          "voice_tradition": 31.427499999999995,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 11.954999999999998,
+          "voice_speech_song": 16.705,
+          "voice_ensemble_config": 20.247499999999995,
+          "voice_ornament_system": 8.6125,
+          "voice_pitch_organization": 5.25,
+          "voice_processing_chain": 2.7950000000000004,
+          "voice_multitrack_stack": 5.550000000000001
+        }
+      },
+      {
+        "id": "choir_isicathamiya",
+        "slots": {
+          "choir_isicathamiya_lineup": "choir_isicathamiya_full_group",
+          "choir_isicathamiya_style": "choir_isicathamiya_hymn_repertoire",
+          "choir_isicathamiya_setting": "choir_isicathamiya_hostel_competition"
+        },
+        "scores": {
+          "choir_isicathamiya_lineup": 4.86,
+          "choir_isicathamiya_style": 2.7950000000000004,
+          "choir_isicathamiya_setting": 2.8699999999999997
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 9.229999999999999,
+          "choir_polyphonic_configuration": 3.25,
+          "choir_regional_canonical_configuration": 6.174999999999999,
+          "choir_ensemble_repertoire": 2.795
+        }
+      }
+    ],
+    "room": "johannesburg_gallo_african_studios",
+    "archetype": "arch_gallo_township_jive",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "johannesburg_gallo_african_studios",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "shellac_78",
+    "chain_console": "console_german_tube_50s"
+  }
+}

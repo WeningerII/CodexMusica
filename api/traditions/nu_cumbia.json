@@ -1,0 +1,168 @@
+{
+  "id": "nu_cumbia",
+  "name": "Nu-Cumbia",
+  "family": "electronic",
+  "lineage": "Digital cumbia diaspora formed circa 2005–2012 across Buenos Aires (ZZK Records), Mexico City and Barcelona, codified by El Remolón, Chancha Vía Circuito, Frikstailers and Toy Selectah — cumbia's 90–100 BPM paseo pattern rebuilt in the DAW from chopped chicha guitar and accordion samples over sub-bass, dub delay and sidechained synth pads.",
+  "recipe": "classic mid-2000s nu-cumbia, electronic Dance, Latin electric branch, Latin am groove percussion, Latin house house freestyle house. vocal fry, full chest belt, slow rate, interlocked note trading. sampler, roland tr 8s modern aira digital recreation TR-808, sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, wood metal fork guacharaca, turntable. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 572,
+  "score": 202.545,
+  "config": {
+    "traditions": [
+      "nu_cumbia",
+      "freestyle_house",
+      "latin_house_percussion"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.8999999999999999,
+          "sampler_archetypes": 0.3,
+          "sampler_bit_depth": 0.9,
+          "sampler_workflow": 0.8499999999999999,
+          "sampler_classic_context": 48.425
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 4.16,
+          "drum_machine_808_context": 4.225,
+          "tr808_production_origin": 1.8
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 4.030000000000001,
+          "poly_archetypes": 0.24,
+          "poly_voices": 0.585,
+          "poly_maker_lineage": -1.33
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "thumb_muted"
+        },
+        "scores": {
+          "amp_make": 3.120000000000001,
+          "body_wood": 1.2349999999999999,
+          "pickup_config": 0.69,
+          "string_type": 3.4450000000000003,
+          "scale_length_b": 1.2349999999999999,
+          "fretted_or_not": 0,
+          "bass_technique": 3.2
+        }
+      },
+      {
+        "id": "guacharaca",
+        "slots": {
+          "guacharaca_body": "guacharaca_palm_wood"
+        },
+        "scores": {
+          "guacharaca_body": 2.0099999999999993
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.625,
+          "voice_quality": 10.044999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.56,
+          "voice_articulation": 18.52499999999999,
+          "voice_microtone": 18.52499999999999,
+          "voice_tradition": 5.785,
+          "voice_mechanism_compound": 1.8200000000000003,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 18.71999999999999,
+          "voice_ensemble_config": 19.889999999999993,
+          "voice_ornament_system": 1.5399999999999998,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 17.810000000000002,
+          "voice_multitrack_stack": 5.265000000000001
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
+        },
+        "scores": {
+          "electronic_technique": 0.8999999999999999,
+          "turntable_technique": 0
+        }
+      }
+    ],
+    "room": "studio_distributed_production",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "cumbia_4_4_paseo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cumbia_4_4_paseo",
+    "room": "studio_distributed_production",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

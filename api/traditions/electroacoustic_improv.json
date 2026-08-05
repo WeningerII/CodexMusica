@@ -3,14 +3,14 @@
   "name": "Electroacoustic improvisation",
   "family": "global",
   "lineage": "1990s-onward electronics-foregrounded improvisation tradition — codified through the Erstwhile Records catalog (Jon Abbey-curated), the Tokyo Off-Site scene (Otomo Yoshihide, Sachiko M, Toshimaru Nakamura), Berlin Echtzeitmusik scene, and Vienna sin: ned label; characterized by no-input-mixer feedback, contact-mic preparations, and sustained low-amplitude texture exploration",
-  "recipe": "classic European mid-1990s electroacoustic improvisation, improv On Frame, jam free branch, musique concrete experimental electric electroacoustic composition musique concrète. modular granular emu modular 1971 1978 analog studio grade east coast precision modular modular synth, modular eurorack modular, basswood mahogany ebony low output no compression nickel humbucker electric guitar. treated studio. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
-  "recipe_chars": 513,
-  "score": 45.853,
+  "recipe": "classic European mid-1990s electroacoustic improvisation, improv On Frame, jam free branch, musique concrete experimental electric sound art electroacoustic composition. modular granular modular modular synth, modular eurorack modular, basswood mahogany ebony low output no compression nickel humbucker electric guitar. treated studio. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 443,
+  "score": 59.002,
   "config": {
     "traditions": [
       "electroacoustic_improv",
-      "electroacoustic_composition",
-      "musique_concrete"
+      "sound_art",
+      "electroacoustic_composition"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 5.751875000000001,
+          "electronic_technique": 7.500000000000001,
           "granular_use": 0.195,
-          "granular_synth_source": 2.8600000000000003
+          "granular_synth_source": 4.16
         }
       },
       {
@@ -34,9 +34,9 @@
           "eurorack_modular_context": "eurorack_modular_studio"
         },
         "scores": {
-          "electronic_technique": 5.751875000000001,
-          "eurorack_focus": 2.8600000000000003,
-          "eurorack_modular_context": 2.8600000000000003
+          "electronic_technique": 7.500000000000001,
+          "eurorack_focus": 3.7700000000000005,
+          "eurorack_modular_context": 3.7700000000000005
         }
       },
       {
@@ -44,14 +44,14 @@
         "slots": {
           "electronic_technique": "electronic_modular_patch",
           "mod_voltage_source": "mod_sequencer",
-          "mod_patch_density": "mod_west_coast",
-          "mod_lineage": "mod_emu_modular"
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 5.751875000000001,
-          "mod_voltage_source": 0.375375,
-          "mod_patch_density": 0.34149999999999997,
-          "mod_lineage": 1.17
+          "electronic_technique": 7.500000000000001,
+          "mod_voltage_source": 0.39,
+          "mod_patch_density": 0.65,
+          "mod_lineage": 0.585
         }
       },
       {
@@ -67,23 +67,23 @@
           "string_material": "pure_nickel_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 1.91,
-          "amp_make": 1.9024999999999999,
-          "body_wood": 2.1349583333333335,
-          "neck_wood": 1.011625,
-          "fretboard": 1.00375,
+          "electric_technique": 3.6839285714285714,
+          "amp_make": 1.2999999999999998,
+          "body_wood": 2.21,
+          "neck_wood": 1,
+          "fretboard": 1.1982142857142857,
           "pickup_magnet": 0.9099999999999999,
-          "pickup_winding": 2.122875,
+          "pickup_winding": 2.9899999999999998,
           "string_material": 1,
-          "bridge": 1.011625,
+          "bridge": 1,
           "scale_length": 2.21,
-          "string_gauge": 1.0135,
-          "finish": 0.045,
+          "string_gauge": 1,
+          "finish": 0.195,
           "string_tuning": 2.21
         }
       }

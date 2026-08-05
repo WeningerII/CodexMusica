@@ -1,0 +1,224 @@
+{
+  "id": "christian_country",
+  "name": "Christian Country",
+  "family": "country",
+  "lineage": "US commercial format consolidated in the late 1980s and 1990s around Nashville's inspirational-country labels and the Christian Country Music Association, applying full contemporary country production — pedal steel, Telecaster, drum kit, 70-100 BPM ballad and mid-tempo shuffle feels — to explicitly evangelical first-person testimony lyrics sung in a clean, unornamented mainstream country baritone or soprano.",
+  "recipe": "classic Southern American 1987-1989 christian country, functional Song, contemp main branch, christian gospel southern gospel, nashville country urban cowboy nashville sound. thick, breath veiled tone, straight note core, interlocked note trading. cedar koa steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu.",
+  "recipe_chars": 989,
+  "score": 739.15,
+  "config": {
+    "traditions": [
+      "christian_country",
+      "urban_cowboy",
+      "nashville_sound"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 53.20650000000001,
+          "voice_quality": 8.645,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 36.95000000000001,
+          "voice_articulation": 13.844999999999995,
+          "voice_microtone": 13.844999999999992,
+          "voice_tradition": 11.602499999999996,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 37.8265,
+          "voice_speech_song": 20.474999999999994,
+          "voice_ensemble_config": 15.079999999999995,
+          "voice_ornament_system": 2.4,
+          "voice_pitch_organization": 1.1699999999999995,
+          "voice_processing_chain": 3.6649999999999996,
+          "voice_multitrack_stack": 4.638
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 35.65,
+          "string_tuning": 0,
+          "top_wood": 2.885,
+          "back_sides": 1.2265,
+          "string_acoustic": 3.3149999999999995
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 40.588,
+          "amp_make": 35.94000000000001,
+          "pickup_steel": 2.04,
+          "string_setup": 18.07,
+          "bar_material": 2.925,
+          "pedal_steel_brand": 44.803000000000004,
+          "pedal_steel_neck_config": 39.2965,
+          "pedal_steel_strings": 42.663000000000004
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_country_chicken_pickin",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 37.355,
+          "amp_make": 35.94000000000001,
+          "body_wood": 2.04,
+          "neck_wood": 2.04,
+          "fretboard": 1.9899999999999998,
+          "pickup_magnet": 0,
+          "string_material": 2.925,
+          "string_gauge": 2.04,
+          "bridge": 0,
+          "scale_length": 2.28,
+          "finish": 0,
+          "string_tuning": 3.445
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 35.07000000000001,
+          "body_wood": 2.28,
+          "pickup_config": 0,
+          "string_type": 6.051499999999999,
+          "scale_length_b": 2.04,
+          "fretted_or_not": 0.045,
+          "bass_technique": 34.94500000000001
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 13.519999999999996,
+          "drumhead": 7.579999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 7.325,
+          "grand_piano_size": 2.1165,
+          "grand_piano_brand": 2.3745,
+          "piano_hammer": 6.124999999999999,
+          "piano_rim": 8.299999999999999,
+          "piano_soundboard": 7.324999999999999,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.8849999999999996,
+          "piano_pitch_standard": 4.51
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.585,
+          "multitrack_stack_era_aesthetic": 9.364999999999998,
+          "multitrack_stack_processing": 1.0265
+        }
+      }
+    ],
+    "room": "nashville_rca_studio_b_quonset_hut",
+    "archetype": "arch_nashville_a_team",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "country_nashville_three_chord_train_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "country_nashville_three_chord_train_beat",
+    "room": "nashville_rca_studio_b_quonset_hut",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "digital_std",
+    "chain_console": "console_british_inline_80s"
+  }
+}

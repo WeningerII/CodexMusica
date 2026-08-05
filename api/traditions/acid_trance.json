@@ -1,0 +1,115 @@
+{
+  "id": "acid_trance",
+  "name": "Acid Trance",
+  "family": "electronic",
+  "lineage": "European hybrid formed 1992-1995 in Germany, the Netherlands and the UK (Hardfloor, Union Jack, Choci, Dave Angel), joining Chicago-derived TB-303 resonant filter sweeps to trance's 135-145 BPM four-on-floor pulse, long breakdown-and-build arrangement, sustained minor-key pad chords and a squelching 303 line whose cutoff automation is the track's principal melodic event.",
+  "recipe": "classic 1992-1995 acid trance, electronic Dance, trance branch, techno electronic dance, chicago house house acid house. squelching classic acid monosynth acid bass, roland tr 8s modern aira digital recreation TR-909, analog poly roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, roland tr 8s modern aira digital recreation TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 528,
+  "score": 95.35,
+  "config": {
+    "traditions": [
+      "acid_trance",
+      "acid_house",
+      "chicago_house"
+    ],
+    "instruments": [
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 12.454500000000001,
+          "wave_acid": 0.15,
+          "filter_acid": 5.00125,
+          "accent_acid": 8.03
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 14.239999999999998,
+          "drum_machine_909_context": 9.05675,
+          "tr909_production_origin": 1.9107499999999997
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 2.14375,
+          "poly_archetypes": 2.24375,
+          "poly_voices": 2.24375,
+          "poly_maker_lineage": -0.21
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 1.17,
+          "drum_machine_808_context": 7.612499999999999,
+          "tr808_production_origin": 1.9107499999999997
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "tb_303",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 12.454500000000001,
+          "mono_oscillator": 0,
+          "mono_filter": 0.40249999999999997,
+          "mono_archetypes": 4.94,
+          "mono_maker_lineage": 7.344999999999999
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "medium_dat_pro_late80s_90s"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "colored"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "id": "detroit_trap",
+  "name": "Detroit trap",
+  "family": "hip_hop",
+  "lineage": "Emerged on Detroit's east and west sides circa 2015-2019 through Sada Baby, Tee Grizzley, 42 Dugg, Babyface Ray and producers Helluva and Antt Beatz, using 95-110 BPM double-time-feel beats with a swung shuffled hi-hat, dry punchy kick and clap rather than long 808 slides, chopped soul or eerie synth loops, and a conversational, off-kilter, punchline-dense flow that lands deliberately behind and around the grid.",
+  "recipe": "classic 2015-2019 detroit trap, mc Rhythm, modern branch, us hip hop southern, drill MC rhythm türkçe drill atl trap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, low sub bass analog poly synth, close dry hand clap, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 568,
+  "score": 297.297,
+  "config": {
+    "traditions": [
+      "detroit_trap",
+      "turkce_drill",
+      "atl_trap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.050000000000001,
+          "voice_quality": 18.112000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.1200000000000006,
+          "voice_articulation": 20.735,
+          "voice_microtone": 30.322499999999994,
+          "voice_tradition": 9.235500000000002,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 21.189999999999998,
+          "voice_ensemble_config": 20.864999999999995,
+          "voice_ornament_system": 8.190000000000003,
+          "voice_pitch_organization": 4.825,
+          "voice_processing_chain": 7.620000000000001,
+          "voice_multitrack_stack": 6.630000000000001
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 9.104000000000001,
+          "drum_machine_808_context": 4.55,
+          "tr808_production_origin": 2.8600000000000003
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 8.530000000000001,
+          "sampler_archetypes": 10.530000000000001,
+          "sampler_bit_depth": 3.705,
+          "sampler_workflow": 8.575000000000001,
+          "sampler_classic_context": 30.419999999999998
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 14.498999999999999,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 0.65,
+          "clap_capture": 1.3
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 6.110000000000001,
+          "body_wood": 1.105,
+          "pickup_config": 5.8845,
+          "string_type": 8.2095,
+          "scale_length_b": 3.9800000000000004,
+          "fretted_or_not": 1.19,
+          "bass_technique": 6.4545
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

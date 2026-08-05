@@ -1,0 +1,167 @@
+{
+  "id": "doom_blues",
+  "name": "Doom Blues",
+  "family": "rock",
+  "lineage": "Slow, minor-key blues rendered through doom metal weight, formed in Birmingham 1969-1972 when Black Sabbath recast Delta twelve-bars in tritone-heavy riffs, and revived from the 1990s by Down and Orange Goblin — 55-85 BPM, downtuned humbucker guitar through cranked valve heads, blues pentatonic bends stretched over sustained power chords, and a keening or bellowed vocal riding a lurching half-time drum feel.",
+  "recipe": "classic Midwestern American 1969-1972 doom blues, distorted Rock, doom branch, sludge metal, blues electric functional song, classic distorted rock. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 677,
+  "score": 481.71,
+  "config": {
+    "traditions": [
+      "doom_blues",
+      "sludge",
+      "sludge_metal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "lowered_larynx_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 36.77500000000002,
+          "voice_quality": 24.194999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 13.51,
+          "voice_articulation": 15.144999999999996,
+          "voice_microtone": 22.874999999999996,
+          "voice_tradition": 8.06,
+          "voice_mechanism_compound": 32.065,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 16.054999999999996,
+          "voice_ensemble_config": 15.924999999999995,
+          "voice_ornament_system": 0.325,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 4.16,
+          "voice_multitrack_stack": 5.41
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_orange",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 25.735,
+          "amp_make": 30.169999999999995,
+          "body_wood": 6.769999999999999,
+          "neck_wood": 0.39,
+          "fretboard": 0.585,
+          "pickup_magnet": 0.24,
+          "pickup_winding": 0.9099999999999999,
+          "string_material": 0.195,
+          "bridge": 0.585,
+          "scale_length": 7.294999999999999,
+          "string_gauge": 3.9000000000000004,
+          "finish": 0.045,
+          "string_tuning": 21.81
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 30.169999999999995,
+          "body_wood": 0.585,
+          "pickup_config": 0,
+          "string_type": 25.18,
+          "scale_length_b": 1.8699999999999999,
+          "fretted_or_not": 0.09,
+          "bass_technique": 26.74
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "kevlar_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 23.32,
+          "drumhead": 0.6399999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "tremolo_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 0.585,
+          "harmonica_comb": 16.325,
+          "harmonica_reed": 14.29,
+          "harmonica_technique": 17.335,
+          "harmonica_maker_school": 16.0875,
+          "harmonica_tuning": 6.825
+        }
+      }
+    ],
+    "room": "stoner_doom_garage_amplifier_room",
+    "archetype": "arch_70s_uk_class_a_rock",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "doom_sabbath_tritone_diminished",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "doom_sabbath_tritone_diminished",
+    "room": "stoner_doom_garage_amplifier_room",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Música gospel brasileira, industrialized from the early 1990s around São Paulo evangelical labels and the Universal and Assembleia de Deus congregations — 65-80 BPM power-ballad forms and 120 BPM congregational anthems with grand piano and pad foundations, stacked choir responses in Portuguese, belted modulating final choruses, and rock kit with electric guitar climaxes.",
   "recipe": "classic 1990-1993 brazilian gospel, ritual Devotional, christian gospel branch, christian gospel pentecostal, Brazilian song functional song contemporary worship adoração. thick, declaimed, straight note core, leader call answered. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, low-mid-thick articulate mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, analog poly synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 938,
-  "score": 419.333,
+  "score": 421.298,
   "config": {
     "traditions": [
       "brazilian_gospel",
@@ -41,7 +41,7 @@
           "voice_vibrato": 2.395,
           "voice_articulation": 18.99,
           "voice_microtone": 18.134999999999994,
-          "voice_tradition": 27.945,
+          "voice_tradition": 28.740000000000002,
           "voice_mechanism_compound": 4.614999999999999,
           "voice_estill_quality": 18.744999999999997,
           "voice_speech_song": 22.489999999999995,
@@ -81,7 +81,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 20.485,
+          "keyboard_technique": 20.86,
           "grand_piano_size": 0.65,
           "grand_piano_brand": 0.845,
           "piano_hammer": 2.1999999999999997,
@@ -116,7 +116,7 @@
           "neck_wood": 0.65,
           "fretboard": 0.585,
           "pickup_magnet": 0.65,
-          "pickup_winding": 0.24,
+          "pickup_winding": 0.28500000000000003,
           "string_material": 0.195,
           "bridge": 0.65,
           "scale_length": 0.65,
@@ -185,11 +185,11 @@
           "leslie_cabinet_model": "leslie_147_alt"
         },
         "scores": {
-          "keyboard_technique": 20.485,
+          "keyboard_technique": 20.86,
           "drawbar_setting": 19.529999999999998,
           "rotary_speed": 23.945,
           "percussion_setting": 2.6,
-          "tonewheel_model": 22.294999999999998,
+          "tonewheel_model": 22.669999999999998,
           "leslie_cabinet_model": 0.995
         }
       }

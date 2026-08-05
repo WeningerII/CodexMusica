@@ -1,0 +1,206 @@
+{
+  "id": "worldbeat_80s",
+  "name": "Worldbeat",
+  "family": "pop_rock",
+  "lineage": "Anglo-American pop hybrid of the mid-1980s built in flagship multitrack studios by Peter Gabriel, Paul Simon, David Byrne and Talking Heads — African and Latin percussion batteries and mbaqanga or soukous guitar figures set against gated drum sounds, Fairlight and sampled loops, fretless or high-life bass and layered guest vocalists, at mid-tempo 4/4 with tightly compressed studio polish.",
+  "recipe": "classic North American 1984-1986 worldbeat, functional Song, pop rock branch, African pop functional song, pop rock new wave, Afro-diasporic electric groove percussion rumba congolaise. thick, breath veiled tone, straight onset, interlocked note trading. iroko alternative west African talking drum, lead cowhide mid tier siam oak mid tier modern open slap hand drum congas, mbaqanga guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, singing lead analog poly synth, layered sampler, pre muffled edge muffled brushes-and-sticks drum kit, mixed satb canonical 4 part western homophonic chordal rhythm aligned sardinian cantu a tenore oche mesu contra bassu choir ensemble. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 909,
+  "score": 438.573,
+  "config": {
+    "traditions": [
+      "worldbeat_80s",
+      "new_wave",
+      "rumba_congolaise"
+    ],
+    "instruments": [
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "tama_senegal",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 1.4,
+          "talking_drum_context": 1.04,
+          "talking_drum_shell_wood": 5.525,
+          "talking_drum_head": 0.585
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": 7.4399999999999995,
+          "conga_set": 1.69,
+          "conga_skin": 3.885,
+          "conga_shell_wood": 4.56
+        }
+      },
+      {
+        "id": "mbaqanga_guitar",
+        "slots": {
+          "mbaqanga_guitar_role": "mbaqanga_rhythm",
+          "mbaqanga_guitar_tone": "mbaqanga_clean_amp",
+          "mbaqanga_guitar_tuning": "mbaqanga_standard_tuning"
+        },
+        "scores": {
+          "mbaqanga_guitar_role": 0.195,
+          "mbaqanga_guitar_tone": 0,
+          "mbaqanga_guitar_tuning": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 9.465,
+          "body_wood": 4.5,
+          "pickup_config": 0.845,
+          "string_type": 14.649999999999999,
+          "scale_length_b": 4.125,
+          "fretted_or_not": 0.195,
+          "bass_technique": 19.799999999999997
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 23.34,
+          "poly_archetypes": 6.129999999999999,
+          "poly_voices": 1.15,
+          "poly_maker_lineage": 0.5199999999999999
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_pop_production"
+        },
+        "scores": {
+          "electronic_technique": 0.8999999999999999,
+          "sampler_archetypes": 4,
+          "sampler_bit_depth": 3.9349999999999996,
+          "sampler_workflow": 1.2,
+          "sampler_classic_context": 23.299999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 23.53,
+          "drumhead": 23.18,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 40.84500000000002,
+          "voice_quality": 11.017499999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.265,
+          "voice_articulation": 20.799999999999997,
+          "voice_microtone": 40.635000000000005,
+          "voice_tradition": 29.31,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 30.874999999999996,
+          "voice_ensemble_config": 21.124999999999996,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 0.8499999999999999,
+          "voice_processing_chain": 10.325000000000001,
+          "voice_multitrack_stack": 10.855
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_renaissance"
+        },
+        "scores": {
+          "choir_size": 5.329999999999999,
+          "choir_polyphonic_configuration": 1.69,
+          "choir_regional_canonical_configuration": 3.0549999999999997,
+          "choir_ensemble_repertoire": 1.54
+        }
+      }
+    ],
+    "room": "studio_multitrack_flagship_us_80s",
+    "archetype": "arch_80s_late_analog_majorrock",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "console_soundcraft_3200_uk_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_multitrack_flagship_us_80s",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_soundcraft_3200_uk_80s"
+  }
+}

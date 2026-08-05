@@ -1,0 +1,218 @@
+{
+  "id": "orchestral_pop",
+  "name": "Orchestral Pop",
+  "family": "pop",
+  "lineage": "Popular song arranged for full studio orchestra, established in the American and British major-label studios of the late 1950s and 1960s through arrangers such as Nelson Riddle, Burt Bacharach, Jack Nitzsche and Paul Buckmaster and revived by Scott Walker, the Left Banke and Divine Comedy — song-length forms at 60-120 BPM in which strings, French horns, harp and timpani are compositional voices rather than sweetening, with written countermelodies, modulating bridges, and a lead vocal cut live against the orchestra in a large hall.",
+  "recipe": "classic North American 1957-1959 orchestral pop, functional Song, pop rock branch, crooners functional song, western common practice art music german romanticism broadway. thick, breath veiled tone, slow rate, interlocked note trading. steel sitka spruce hard rock maple acer saccharum oil varnish violin orchestral, concert harp, treble-extended projecting brass french horn, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, mallets timpani, pre muffled edge muffled brushes-and-sticks drum kit, marshall plexi amp British rock amp ernie ball slinky electric bass, rubber mallets vibraphone. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 776,
+  "score": 365.18,
+  "config": {
+    "traditions": [
+      "orchestral_pop",
+      "german_romanticism",
+      "broadway"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 16.969999999999995,
+          "voice_quality": 12.739999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.8600000000000003,
+          "voice_articulation": 25.09,
+          "voice_microtone": 25.285,
+          "voice_tradition": 15.583035714285714,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 5.329999999999999,
+          "voice_speech_song": 34.97,
+          "voice_ensemble_config": 24.83,
+          "voice_ornament_system": 2.473214285714286,
+          "voice_pitch_organization": 3.351428571428572,
+          "voice_processing_chain": 5.720000000000001,
+          "voice_multitrack_stack": 3.0550000000000006
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 5.625,
+          "orch_strings": 1.4949999999999999,
+          "orch_top_wood": 5.199999999999999,
+          "orch_back_wood": 5.226964285714285,
+          "orch_varnish": 2.5,
+          "orch_setup_period": 2.145,
+          "orch_bow": 0.39,
+          "orch_bow_stick": 2.7625,
+          "orch_articulation": 1.50875,
+          "orch_rosin": 3.5750000000000006
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 4.03125,
+          "harp_pedals": 1.4949999999999999
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 1.25,
+          "french_horn_bore": 2.275,
+          "french_horn_metal": 2.34
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 12.065,
+          "grand_piano_size": 3.7875,
+          "grand_piano_brand": 3.4926785714285713,
+          "piano_hammer": 11.936964285714286,
+          "piano_rim": 13.665,
+          "piano_soundboard": 13.125,
+          "piano_pinblock": 2.5,
+          "piano_plate": 3.545,
+          "piano_pitch_standard": 11.117142857142856
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_calfskin"
+        },
+        "scores": {
+          "percussion_technique": 4.375,
+          "timpani_size": 2.925,
+          "timpani_head": 0.195
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.815,
+          "drumhead": 13.455,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 3.39,
+          "body_wood": 0.8449999999999999,
+          "pickup_config": 0.4550000000000001,
+          "string_type": 5.308750000000001,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.3,
+          "bass_technique": 3.745
+        }
+      },
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_off",
+          "vibe_mallets": "vibe_hard_mallets"
+        },
+        "scores": {
+          "percussion_technique": 4.375,
+          "vibe_motor": 0.845,
+          "vibe_mallets": 1.4949999999999999
+        }
+      }
+    ],
+    "room": "columbia_30th_street_studio_nyc",
+    "archetype": "arch_decca_sound_orchestral",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "console_american_op_amp",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "columbia_30th_street_studio_nyc",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

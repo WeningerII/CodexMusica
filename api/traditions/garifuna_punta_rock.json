@@ -3,14 +3,14 @@
   "name": "Garifuna punta-rock (Belize/Honduras modern)",
   "family": "global",
   "lineage": "Modern-popular variant of older Garifuna punta dance-tradition, developed in 1970s-1980s Belize and Honduras. Pen Cayetano (born 1954, Dangriga) developed the punta-rock sound in mid-1970s; Andy Palacio (born 1960) extended internationally through his 2007 Wátina album (Stonetree Records). Electric instruments alongside Garifuna traditional drums (primero, segunda, tercero) and shaker.",
-  "recipe": "classic North American 1974-1976 garifuna punta-rock, functional Song, tropical song branch, Caribbean groove percussion kompa-direkt soca. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig mahogany ernie ball slinky sub heavy electric bass, behringer rd 8 modern clone analog circuit reproduction TR-808. port of spain community studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 644,
-  "score": 171.543,
+  "recipe": "classic North American 1974-1976 garifuna punta-rock, functional Song, tropical song branch, Caribbean groove percussion bomba y plena kompa-direkt. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig mahogany ernie ball slinky sub heavy electric bass, behringer rd 8 modern clone analog circuit reproduction TR-808. port of spain community studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 653,
+  "score": 162.335,
   "config": {
     "traditions": [
       "garifuna_punta_rock",
-      "kompa_direkt",
-      "soca"
+      "bomba_y_plena",
+      "kompa_direkt"
     ],
     "instruments": [
       {
@@ -22,10 +22,10 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
@@ -34,32 +34,32 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 10.435,
-          "voice_quality": 8.255,
+          "voice_register": 8.86,
+          "voice_quality": 7.410000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.93,
-          "voice_articulation": 7.474999999999999,
-          "voice_microtone": 8.275,
-          "voice_tradition": 8.3,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 1.725,
-          "voice_speech_song": 11.569999999999997,
-          "voice_ensemble_config": 8.059999999999999,
-          "voice_ornament_system": 1.7999999999999998,
-          "voice_pitch_organization": 0.42499999999999993,
-          "voice_processing_chain": 12.745,
+          "voice_vibrato": 4.28,
+          "voice_articulation": 9.489999999999998,
+          "voice_microtone": 9.684999999999999,
+          "voice_tradition": 7.2,
+          "voice_mechanism_compound": 1.4949999999999999,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 14.494999999999996,
+          "voice_ensemble_config": 9.424999999999999,
+          "voice_ornament_system": 1.2999999999999998,
+          "voice_pitch_organization": 0.625,
+          "voice_processing_chain": 11.569999999999999,
           "voice_multitrack_stack": 4.6899999999999995
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_chicken_scratch",
+          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
@@ -70,19 +70,19 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 1.57,
-          "amp_make": 5.33,
-          "body_wood": 5.135,
-          "neck_wood": 1.95,
-          "fretboard": 1.95,
-          "pickup_magnet": 3.295,
-          "pickup_winding": 3.295,
-          "string_material": 1.95,
-          "bridge": 1.645,
-          "scale_length": 5.44,
-          "string_gauge": 1.645,
+          "electric_technique": 0.4,
+          "amp_make": 4.98,
+          "body_wood": 4.785,
+          "neck_wood": 1.795,
+          "fretboard": 1.7449999999999999,
+          "pickup_magnet": 2.795,
+          "pickup_winding": 2.795,
+          "string_material": 1.45,
+          "bridge": 1.795,
+          "scale_length": 4.44,
+          "string_gauge": 1.795,
           "finish": 0,
-          "string_tuning": 5.44
+          "string_tuning": 4.44
         }
       },
       {
@@ -98,25 +98,25 @@
         },
         "scores": {
           "amp_make": 3.39,
-          "body_wood": 1.8399999999999999,
-          "pickup_config": 3.295,
+          "body_wood": 1.9899999999999998,
+          "pickup_config": 2.795,
           "string_type": 5.75,
-          "scale_length_b": 3.295,
-          "fretted_or_not": 0.09,
-          "bass_technique": 7.42
+          "scale_length_b": 2.795,
+          "fretted_or_not": 0.195,
+          "bass_technique": 6.17
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
-          "tr808_voice": "tr808_kick_long",
+          "tr808_voice": "tr808_cowbell",
           "drum_machine_808_context": "drum_machine_808_miami",
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0.585,
-          "drum_machine_808_context": 6.9875,
-          "tr808_production_origin": 3.945
+          "tr808_voice": 0.15,
+          "drum_machine_808_context": 5.265000000000001,
+          "tr808_production_origin": 2.945
         }
       }
     ],

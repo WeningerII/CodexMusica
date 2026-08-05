@@ -1,0 +1,187 @@
+{
+  "id": "classic_female_blues",
+  "name": "Classic Female Blues",
+  "family": "blues_gospel",
+  "lineage": "The first commercially recorded blues, running 1920-1930 from Mamie Smith's 'Crazy Blues' through Ma Rainey, Bessie Smith, Ida Cox and Victoria Spivey — professional vaudeville and TOBA-circuit singers performing composed twelve-bar and sixteen-bar blues with sheet-music arrangements, accompanied by jazz cornet, trombone, clarinet and stride piano, with slow-to-medium tempos, heavy behind-the-beat phrasing, wide theatrical projection and instrumental obbligato answering every sung line, cut to 78 by Okeh, Paramount and Columbia.",
+  "recipe": "classic mid-1920s classic female blues, ballad Poetry, classic blues women branch, American jazz early, blues acoustic functional song continental jazz neo-swing. thick, blues-shouter, wide pitch sway, interlocked note trading. conn vintage early jazz canon cornet, bach 42 canonical American orchestral tenor student commercial trombone, clarinet, cold pressed wurzen felt oversize maple tension resonator a 442 grand piano, Baroque setup lighter bass bar no endpin lower tension nyman double bass. blanket damped 1925-1945 commercial-major electrical era office. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 594,
+  "score": 347.233,
+  "config": {
+    "traditions": [
+      "classic_female_blues",
+      "continental_jazz",
+      "neo_swing"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 42.69000000000002,
+          "voice_quality": 17.43999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 25.025000000000006,
+          "voice_articulation": 20.279999999999998,
+          "voice_microtone": 23.075000000000003,
+          "voice_tradition": 21.644999999999996,
+          "voice_mechanism_compound": 4.614999999999999,
+          "voice_estill_quality": 7.572500000000002,
+          "voice_speech_song": 22.879999999999995,
+          "voice_ensemble_config": 20.474999999999998,
+          "voice_ornament_system": 1.5250000000000001,
+          "voice_pitch_organization": 3.5100000000000007,
+          "voice_processing_chain": 5.069999999999999,
+          "voice_multitrack_stack": 1.6
+        }
+      },
+      {
+        "id": "cornet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "cornet_pitch": "cornet_bb",
+          "cornet_context": "cornet_solo",
+          "cornet_bell_metal": "cornet_gold_brass",
+          "cornet_maker_school": "cornet_conn_vintage"
+        },
+        "scores": {
+          "wind_articulation": 1.95,
+          "cornet_pitch": 9.774999999999999,
+          "cornet_context": 1.69,
+          "cornet_bell_metal": 0.78,
+          "cornet_maker_school": 11.440000000000001
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "tailgate_slide",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 1.95,
+          "trombone_type": 16.5,
+          "trombone_mouthpiece": 16.645,
+          "trombone_mute": 0.195,
+          "trombone_technique": 1,
+          "trombone_bell_metal": 0.195,
+          "trombone_maker_school": 6.890000000000001
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "hanson_btr_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 1.95,
+          "clarinet_body": -0.05,
+          "clarinet_size": 0.345,
+          "clarinet_reed": 0.38999999999999996,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 1.005,
+          "grand_piano_size": 0.845,
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 5.785,
+          "piano_rim": 5.785,
+          "piano_soundboard": 0.975,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 1.6899999999999997
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_seven_eighth",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.32499999999999996,
+          "bass_size": 0.045,
+          "bass_strings": 0.78,
+          "bass_top_wood": 0.975,
+          "bass_back_wood": 0.9099999999999999,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 4.55,
+          "bass_play": 16.545,
+          "bass_rosin": 23.595,
+          "bass_bow_stick": -0.05
+        }
+      }
+    ],
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_acoustic_horn_pre1925",
+    "inline_chain": {
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "rb_shuffle_swing_12_8",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rb_shuffle_swing_12_8",
+    "room": "studio_electrical_era_office",
+    "chain_mic": "mic_acoustic_horn_pre1925",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "clean"
+  }
+}

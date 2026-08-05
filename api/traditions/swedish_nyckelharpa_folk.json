@@ -3,14 +3,14 @@
   "name": "Swedish nyckelharpa folk",
   "family": "global",
   "lineage": "Swedish Uppland regional folk tradition centered on the nyckelharpa (Swedish keyed fiddle with twelve sympathetic resonance strings), performed alongside ordinary fiddle (spelman tradition) for the polska dance forms (slängpolska, åttondelspolska, smedjespolska variants) at midsummer celebrations and folk festivals",
-  "recipe": "classic Northern European modern swedish nyckelharpa folk, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry, Celtic balladic Scottish ballad child ballad revival icelandic kvæði / þula recitation. thick, breath veiled tone, straight note core, interlocked note trading. spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, magic rosin modern acrylic base drone like fiddle. norwegian hardanger outdoor alpine. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 502,
-  "score": 143.413,
+  "recipe": "classic Northern European modern swedish nyckelharpa folk, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry, Celtic balladic Scottish ballad child ballad revival orkney and shetland folk. thick, breath veiled tone, slow rate, interlocked note trading. spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, synthetic magic rosin modern acrylic base drone like fiddle. norwegian hardanger outdoor alpine. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 494,
+  "score": 157.865,
   "config": {
     "traditions": [
       "swedish_nyckelharpa_folk",
       "child_ballad_revival",
-      "icelandic_kvaedi_thula"
+      "orkney_shetland_folk"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.375,
-          "voice_quality": 12.349999999999998,
+          "voice_register": 9.65,
+          "voice_quality": 7.735000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9825,
-          "voice_articulation": 6.630000000000001,
-          "voice_microtone": 8.125000000000002,
-          "voice_tradition": 31.665,
-          "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 7.865,
-          "voice_ensemble_config": 6.565000000000001,
-          "voice_ornament_system": 8.994999999999997,
-          "voice_pitch_organization": 2.075,
-          "voice_processing_chain": 5.850000000000001,
-          "voice_multitrack_stack": 2.990000000000001
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 9.49,
+          "voice_microtone": 9.945,
+          "voice_tradition": 35.015,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 4.030000000000001,
+          "voice_speech_song": 10.919999999999996,
+          "voice_ensemble_config": 9.815000000000001,
+          "voice_ornament_system": 12.444999999999999,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 4.55,
+          "voice_multitrack_stack": 5.135000000000002
         }
       },
       {
@@ -63,11 +63,11 @@
           "nyckel_mechanism": "nyckel_3_row_chromatic"
         },
         "scores": {
-          "bowed_technique": -0.05,
+          "bowed_technique": 0.09999999999999999,
           "nyckel_keys": 5.135,
-          "nyckel_strings": 9.875,
+          "nyckel_strings": 10.525000000000002,
           "nyckel_body_wood": 4.035,
-          "nyckel_string_material": 4.15,
+          "nyckel_string_material": 4.65,
           "nyckel_mechanism": -1.3099999999999998
         }
       },
@@ -75,17 +75,17 @@
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_rough_drone",
-          "fiddle_strings": "gut_wound",
+          "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "practice_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "sul_tasto"
         },
         "scores": {
-          "bowed_technique": 11.8,
-          "fiddle_strings": 0.845,
-          "fiddle_bow": 1.5,
+          "bowed_technique": 10.775000000000002,
+          "fiddle_strings": 1.1,
+          "fiddle_bow": 2.75,
           "fiddle_mute": 0.195,
-          "fiddle_articulation": 0.585
+          "fiddle_articulation": 0.5
         }
       }
     ],

@@ -1,0 +1,198 @@
+{
+  "id": "song_poem",
+  "name": "Song-Poem",
+  "family": "pop",
+  "lineage": "American vanity-record industry from the 1950s to the early 1980s, in which mail-order firms (Preview, Halmark, Film City, MSR) set amateurs' submitted lyrics to music for a fee — house bands and singers such as Rodd Keith, Gene Marshall and Bobbi Blake cutting one- or two-take tracks in Hollywood, Nashville and Los Angeles rooms, over generic three-chord country, twist or Chamberlin-organ backing, with awkward scansion and unedited lyric text as the defining marker.",
+  "recipe": "classic North American 1980-1983 song-poem, functional Song, pop rock branch, nashville country, lofi experimental electric, anglo singer song anti folk nashville sound instrumental country. thick, breath veiled tone, straight note core, interlocked note trading. upright piano, pre muffled edge muffled brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright ceramic nickel plated steel single coil electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, psychedelic foregrounded organ driven rock block chord combo organ, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 861,
+  "score": 485.07,
+  "config": {
+    "traditions": [
+      "song_poem",
+      "nashville_sound",
+      "instrumental_country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 34.94500000000002,
+          "voice_quality": 11.43999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 18.75,
+          "voice_articulation": 15.859999999999994,
+          "voice_microtone": 17.324999999999996,
+          "voice_tradition": 14.594999999999999,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 21.615,
+          "voice_speech_song": 25.024999999999995,
+          "voice_ensemble_config": 14.494999999999994,
+          "voice_ornament_system": 1.04,
+          "voice_pitch_organization": 1.7349999999999999,
+          "voice_processing_chain": 4.875,
+          "voice_multitrack_stack": 3.9650000000000007
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_honky_tonk",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 18.05,
+          "upright_use": 0.195,
+          "upright_piano_size": 1.4949999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 14.624999999999995,
+          "drumhead": 13.105,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_country_chicken_pickin",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 18.25,
+          "amp_make": 18.84,
+          "body_wood": 0.195,
+          "neck_wood": 0.195,
+          "fretboard": 0.12999999999999998,
+          "pickup_magnet": 1.045,
+          "string_material": 1.4300000000000002,
+          "string_gauge": 0.195,
+          "bridge": 0.045,
+          "scale_length": 0.195,
+          "finish": 0,
+          "string_tuning": 3.9
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b"
+        },
+        "scores": {
+          "amp_make": 18.71,
+          "body_wood": 0.195,
+          "pickup_config": 0.15,
+          "string_type": 6.005,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0,
+          "bass_technique": 16.820000000000004
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_british_60s_selmer"
+        },
+        "scores": {
+          "keyboard_technique": 13.02,
+          "combo_organ_model": 12.58,
+          "combo_organ_voicing": 13.155000000000001,
+          "combo_organ_context": 4.745,
+          "amp_make": 0.45500000000000007
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "single_coil_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 19.675,
+          "amp_make": 18.84,
+          "pickup_steel": 1,
+          "string_setup": 8.645,
+          "bar_material": 2.67,
+          "pedal_steel_brand": 25.195,
+          "pedal_steel_neck_config": 19.625000000000004,
+          "pedal_steel_strings": 24.965
+        }
+      }
+    ],
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "transformer_solid_state",
+      "console": "console_american_op_amp",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "country_nashville_three_chord_train_beat",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "country_nashville_three_chord_train_beat",
+    "room": "studio_early_tape_us_small",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

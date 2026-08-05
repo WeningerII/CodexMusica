@@ -3,14 +3,14 @@
   "name": "Bal-folk (French folk-dance revival)",
   "family": "global",
   "lineage": "French bal-folk folk-dance-revival movement emerging in 1970s post-1968 French counter-cultural folk-music revival, reconstructing the regional folk-dance repertoires (bourrée Auvergnate, mazurka, scottish, polka, valse Aveyronaise) for participatory ballroom-style social-dance contexts. Performance: small ensemble of hurdy-gurdy, cabrette or veuze bagpipe, vielle à roue, fiddle, accordion, acoustic guitar, plus voice for sung-dance pieces. Distinguished from earlier French bal-musette by bal-folk's regional-folk-revival (vs Parisian-urban-cabaret) functional context. The Bal-Folk association network and the annual Saint-Chartier (later renamed Le Son Continu) festival anchor institutional continuity.",
-  "recipe": "classic Western European mid-1970s bal-folk, functional Song, europop branch, Celtic balladic ballad poetry sean-nós solo singing swedish polska. thick, breath veiled tone, slow rate, interlocked note trading. melodic straight piano accordion, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, drone like fiddle, hurdy gurdy paired dance pulse cornemuse du centre. intimate paris small studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 524,
-  "score": 394.985,
+  "recipe": "classic Western European mid-1970s bal-folk, functional Song, europop branch, Celtic balladic ballad poetry sean-nós solo singing welsh folk. thick, breath veiled tone, straight note core, interlocked note trading. melodic straight piano accordion, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, drone like fiddle, hurdy gurdy paired dance pulse cornemuse du centre. intimate paris small studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 529,
+  "score": 393.09,
   "config": {
     "traditions": [
       "bal_folk_revival_french",
       "sean_nos_solo",
-      "swedish_polska_traditional"
+      "welsh_folk"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 29.670000000000016,
-          "voice_quality": 12.479999999999993,
+          "voice_register": 29.295000000000016,
+          "voice_quality": 9.035,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4699999999999998,
-          "voice_articulation": 9.36,
-          "voice_microtone": 8.58,
-          "voice_tradition": 53.94000000000002,
-          "voice_mechanism_compound": 3.8349999999999995,
-          "voice_estill_quality": 1.105,
-          "voice_speech_song": 10.009999999999998,
-          "voice_ensemble_config": 10.984999999999994,
-          "voice_ornament_system": 24.275,
-          "voice_pitch_organization": 0.8499999999999999,
-          "voice_processing_chain": 5.240000000000001,
-          "voice_multitrack_stack": 5.135
+          "voice_vibrato": 0.6499999999999999,
+          "voice_articulation": 9.815,
+          "voice_microtone": 10.529999999999992,
+          "voice_tradition": 56.91500000000001,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 1.6800000000000002,
+          "voice_speech_song": 13.454999999999997,
+          "voice_ensemble_config": 13.324999999999996,
+          "voice_ornament_system": 24.875,
+          "voice_pitch_organization": 1.56,
+          "voice_processing_chain": 3.7700000000000005,
+          "voice_multitrack_stack": 3.835
         }
       },
       {
@@ -60,9 +60,9 @@
           "pa_use": "pa_polka"
         },
         "scores": {
-          "free_reed_technique": 31.340000000000018,
-          "pa_size": 13.595000000000006,
-          "pa_use": 13.595000000000006
+          "free_reed_technique": 30.965000000000014,
+          "pa_size": 13.445000000000006,
+          "pa_use": 13.445000000000006
         }
       },
       {
@@ -77,11 +77,11 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "hurdy_strings": 19.79500000000001,
+          "hurdy_strings": 19.645000000000007,
           "hurdy_buzz": 4.944999999999999,
-          "hurdy_wheel_rosin": 5.55,
-          "hurdy_string_material": 20.275000000000006,
-          "hurdy_tradition": 24.695000000000007
+          "hurdy_wheel_rosin": 4.8999999999999995,
+          "hurdy_string_material": 20.125000000000004,
+          "hurdy_tradition": 24.545000000000005
         }
       },
       {
@@ -90,15 +90,15 @@
           "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "dark_rosin",
-          "fiddle_mute": "rubber_mute",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 31.075000000000014,
+          "bowed_technique": 30.700000000000014,
           "fiddle_strings": 0.63,
-          "fiddle_bow": 0.045,
+          "fiddle_bow": 0.39499999999999996,
           "fiddle_mute": 0.635,
-          "fiddle_articulation": 0.195
+          "fiddle_articulation": 1.105
         }
       },
       {
@@ -109,9 +109,9 @@
           "cornemuse_du_centre_wood": "cornemuse_du_centre_prunier"
         },
         "scores": {
-          "cornemuse_du_centre_form": 33.645,
-          "cornemuse_du_centre_repertoire": 22.475,
-          "cornemuse_du_centre_wood": 1.56
+          "cornemuse_du_centre_form": 32.845,
+          "cornemuse_du_centre_repertoire": 19.724999999999998,
+          "cornemuse_du_centre_wood": 1.755
         }
       }
     ],

@@ -1,0 +1,175 @@
+{
+  "id": "popullore_jugu",
+  "name": "Këngë Popullore e Jugut (South Albanian)",
+  "family": "global",
+  "lineage": "The lyric song and iso-polyphony of Toskëria and Labëria in southern Albania, documented from the 1930s and canonised through the Gjirokastër national folklore festival from 1968 — a taker soloist and turner second voice above a continuous held iso drone sung by the group, unmetered or slow duple, joined in urban saze ensembles by clarinet and violin trading heavily ornamented answering phrases",
+  "recipe": "classic Southern European mid-1930s këngë popullore e jugut, drone Modal, vocal branch, Mediterranean ballad ballad poetry, Slavic balkan field work moravian folk song sevdah. thick, breath veiled tone, slow rate, interlocked note trading. softer tone ebonite hard rubber klezmer tradition clarinet, silver wound lamb gut core sitka spruce European maple bosnian source violin orchestral, cedar fingerpicked classical nylon-string guitar, def turkish, drone like accordion. balkan sevdalinka kafana tavern. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 629,
+  "score": 183.356,
+  "config": {
+    "traditions": [
+      "popullore_jugu",
+      "moravian_folk",
+      "sevdah"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.7075,
+          "voice_quality": 12.414999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.575,
+          "voice_articulation": 19.239999999999995,
+          "voice_microtone": 20.73499999999999,
+          "voice_tradition": 19.5,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 3.8349999999999995,
+          "voice_speech_song": 21.449999999999996,
+          "voice_ensemble_config": 22.359999999999992,
+          "voice_ornament_system": 2.5349999999999997,
+          "voice_pitch_organization": 4.485,
+          "voice_processing_chain": 5.915,
+          "voice_multitrack_stack": 3.185
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_split_tone_overblown",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "doina_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 1.8199999999999998,
+          "clarinet_body": 1.7550000000000001,
+          "clarinet_size": 0.585,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.43499999999999994
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_klezmer_ornamented",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.8737499999999998,
+          "orch_strings": 1.625,
+          "orch_top_wood": 1.3649999999999998,
+          "orch_back_wood": 1.8199999999999998,
+          "orch_varnish": -0.035,
+          "orch_setup_period": 0.7149999999999999,
+          "orch_bow": 0.845,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 1.04,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 4.375,
+          "string_tuning": 0,
+          "top_wood_classical": 6.695,
+          "bracing_classical": 0.65,
+          "string_classical": 0.12999999999999998,
+          "attack_technique_cl": 0.525
+        }
+      },
+      {
+        "id": "def_turkish",
+        "slots": {
+          "def_jingles": "def_jingled",
+          "def_technique": "def_finger"
+        },
+        "scores": {
+          "def_jingles": 0,
+          "def_technique": 2.0925
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_hohner_gola"
+        },
+        "scores": {
+          "free_reed_technique": 4.5024999999999995,
+          "accordion_reed_material": 0.195,
+          "musette_offset": 1.4949999999999999,
+          "reed_config": 0.65,
+          "bellows": 0.3,
+          "voicing_chamber": 0.35,
+          "accordion_maker_school": 0.845
+        }
+      }
+    ],
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "archetype": "arch_comecon_state_label",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

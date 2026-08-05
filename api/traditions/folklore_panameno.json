@@ -1,0 +1,182 @@
+{
+  "id": "folklore_panameno",
+  "name": "Folklore Panameño",
+  "family": "global",
+  "lineage": "The traditional music of the Panamanian interior provinces of Herrera, Los Santos and Veraguas — the mejorana, a five-string guitar accompanying sung décimas and the socavón; the tamborito, a call-and-response women's song over three hand drums in a brisk 2/4; and cumbia panameña with accordion, violin, churuca scraper and tambor, all danced at village patronal festivals and codified for stage from the 1940s.",
+  "recipe": "classic mid-1940s folklore panameño, groove Percussion, Latin am branch, Caribbean carnival processional, tropical song functional song bahamian junkanoo rara. vocal fry, breath veiled tone, straight note core, interlocked note trading. low mid rich spectrum broken in fast cedar classical nylon-string guitar, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, leather castagnari Italian premium folk music accordion, two stick head and shell steady pulse tambora colombiana, gourd wood guiro, traditional leather maracas. adobe room. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 648,
+  "score": 193.942,
+  "config": {
+    "traditions": [
+      "folklore_panameno",
+      "caribbean_junkanoo",
+      "rara"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "plain_sheep_gut_classical_guitar",
+          "attack_technique_cl": "fingertip_only_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.12999999999999998,
+          "string_tuning": 0,
+          "top_wood_classical": 4.29,
+          "bracing_classical": 1,
+          "string_classical": 0.295,
+          "attack_technique_cl": 0.135
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_sul_ponticello",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "pizz_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "orch_strings": 0.325,
+          "orch_top_wood": 2.9575000000000005,
+          "orch_back_wood": 2.645,
+          "orch_varnish": 1.805,
+          "orch_setup_period": 0.26,
+          "orch_bow": 0.75,
+          "orch_bow_stick": 1.625,
+          "orch_articulation": 0.85,
+          "orch_rosin": 1.5750000000000002
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chromatic_jazz",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 0.975,
+          "accordion_reed_material": 0.39,
+          "musette_offset": 1.24,
+          "reed_config": 0.85,
+          "bellows": 1,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 2.91
+        }
+      },
+      {
+        "id": "tambora_colombiana",
+        "slots": {
+          "tambora_colombiana_form": "tambora_colombiana_form_momposina",
+          "tambora_colombiana_pattern": "tambora_colombiana_pattern_cumbia",
+          "tambora_colombiana_build": "tambora_colombiana_build_goatskin"
+        },
+        "scores": {
+          "tambora_colombiana_form": 9.88,
+          "tambora_colombiana_pattern": 25.35,
+          "tambora_colombiana_build": -0.10500000000000001
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_wood"
+        },
+        "scores": {
+          "guiro_origin": 1,
+          "guiro_striker": 1
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 0.78,
+          "voice_quality": 14.364999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.8449999999999999,
+          "voice_articulation": 21.644999999999992,
+          "voice_microtone": 19.95499999999999,
+          "voice_tradition": 14.54,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 23.854999999999997,
+          "voice_ensemble_config": 19.824999999999996,
+          "voice_ornament_system": 1.145,
+          "voice_pitch_organization": 2.5349999999999997,
+          "voice_processing_chain": 2.13,
+          "voice_multitrack_stack": 2.0799999999999996
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_leather",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 1.045,
+          "maracas_filling": 1
+        }
+      }
+    ],
+    "room": "adobe_room",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "cumbia_4_4_paseo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "cumbia_4_4_paseo",
+    "room": "adobe_room",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

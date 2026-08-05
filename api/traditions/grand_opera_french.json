@@ -3,53 +3,53 @@
   "name": "Grand opera (French nineteenth century)",
   "family": "classical",
   "lineage": "Nineteenth-century French operatic style characterized by five-act structure, large historical-or-mythological subjects, elaborate ballet sequences, and massive choral and orchestral forces. Daniel Auber's La muette de Portici (1828), Giacomo Meyerbeer's Les Huguenots (1836) and Le Prophète (1849), and Hector Berlioz's Les Troyens (1858) are canonical type-specimens. The Paris Opéra and the Palais Garnier (opened 1875) constitute the institutional anchors. Distinguished from Italian opera by grand-opera's spectacular-scale and French-language declamatory recitative vocabulary.",
-  "recipe": "classic British late-1820s grand opera, art Music, western common practice branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, Italian alpine spruce val di fiemme European maple sycamore maple French Polish violin orchestral. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 501,
-  "score": 341.385,
+  "recipe": "classic British late-1820s grand opera, art Music, western common practice branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. vocal fry, breath veiled tone, slow rate, interlocked note trading. oversize maple tension resonator European spruce norway spruce European tradition grand piano, Italian alpine spruce val di fiemme European maple bosnian source flamed figure violin orchestral. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 497,
+  "score": 301.623,
   "config": {
     "traditions": [
       "grand_opera_french",
       "cape_verdean_batuko",
-      "greek_entechno"
+      "morna"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 5.92,
-          "voice_quality": 28.08,
+          "voice_register": 3.6399999999999997,
+          "voice_quality": 30.029999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.6625,
-          "voice_articulation": 23.854999999999997,
-          "voice_microtone": 26.097499999999993,
-          "voice_tradition": 22.455,
-          "voice_mechanism_compound": 5.329999999999999,
-          "voice_estill_quality": 23.31,
-          "voice_speech_song": 29.672500000000003,
-          "voice_ensemble_config": 22.944999999999997,
-          "voice_ornament_system": 16.875,
-          "voice_pitch_organization": 5.1450000000000005,
-          "voice_processing_chain": 6.305,
-          "voice_multitrack_stack": 4.484999999999999
+          "voice_vibrato": 5.817499999999999,
+          "voice_articulation": 28.990000000000002,
+          "voice_microtone": 29.315,
+          "voice_tradition": 15.144999999999998,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 21.06,
+          "voice_speech_song": 31.395000000000003,
+          "voice_ensemble_config": 27.884999999999998,
+          "voice_ornament_system": 15.125,
+          "voice_pitch_organization": 4.260000000000001,
+          "voice_processing_chain": 6.954999999999999,
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -59,22 +59,22 @@
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 4.625,
+          "keyboard_technique": 2.875,
           "grand_piano_size": 2.15,
           "grand_piano_brand": 1.69,
-          "piano_hammer": 7.59,
-          "piano_rim": 10.24,
-          "piano_soundboard": 8.719999999999999,
-          "piano_pinblock": 6.99,
-          "piano_plate": 6.25,
-          "piano_pitch_standard": 11.71
+          "piano_hammer": 4.164999999999999,
+          "piano_rim": 6.467499999999999,
+          "piano_soundboard": 6.467499999999999,
+          "piano_pinblock": 3.715,
+          "piano_plate": 2.825,
+          "piano_pitch_standard": 8.584999999999999
         }
       },
       {
@@ -83,7 +83,7 @@
           "bowed_technique": "bowed_pizzicato",
           "orch_strings": "rectified_gut_violin",
           "orch_top_wood": "italian_alpine_spruce_violin",
-          "orch_back_wood": "european_maple_general_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
           "orch_varnish": "french_polish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
@@ -92,16 +92,16 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 7.875,
+          "bowed_technique": 6.125,
           "orch_strings": 0.78,
-          "orch_top_wood": 6.415000000000001,
-          "orch_back_wood": 6.355,
-          "orch_varnish": 6.68,
-          "orch_setup_period": 5.38,
-          "orch_bow": 1.4949999999999999,
-          "orch_bow_stick": 6.875,
+          "orch_top_wood": 4.665,
+          "orch_back_wood": 2.93,
+          "orch_varnish": 4.615,
+          "orch_setup_period": 2.1125,
+          "orch_bow": 1.6899999999999997,
+          "orch_bow_stick": 3.75,
           "orch_articulation": 1.4949999999999999,
-          "orch_rosin": 10.72
+          "orch_rosin": 8.32
         }
       }
     ],

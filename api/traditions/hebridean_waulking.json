@@ -5,7 +5,7 @@
   "lineage": "Scottish-Hebridean Gaelic waulking-song (òrain luaidh) tradition continuous from medieval-and-early-modern Hebridean Gaelic wool-fulling labor practice through 19th-20th century continuous performance into modern Scottish-Gaelic revival",
   "recipe": "classic Northern European early-1940s hebridean waulking song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, sub saharan African field work, north Southeast Asian baltic Southeast Asian shanty scottish hebridean iorram mande-wolof west-african harvest-and-field song. vocal fry, breath veiled tone, straight note core, interlocked note trading. scottish bothy farmhouse kitchen. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 480,
-  "score": 140.711,
+  "score": 142.6,
   "config": {
     "traditions": [
       "hebridean_waulking",
@@ -38,15 +38,15 @@
           "voice_quality": 5.3950000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8440000000000003,
+          "voice_vibrato": 2.925,
           "voice_articulation": 9.945000000000002,
           "voice_microtone": 10.529999999999994,
-          "voice_tradition": 44.11300000000001,
+          "voice_tradition": 44.81500000000001,
           "voice_mechanism_compound": 1.56,
           "voice_estill_quality": 0.78,
           "voice_speech_song": 15.924999999999997,
           "voice_ensemble_config": 10.27,
-          "voice_ornament_system": 25.833999999999996,
+          "voice_ornament_system": 26.939499999999995,
           "voice_pitch_organization": 6.759999999999999,
           "voice_processing_chain": 2.145,
           "voice_multitrack_stack": 3.185000000000001

@@ -1,0 +1,191 @@
+{
+  "id": "mevlevi_ayin",
+  "name": "Mevlevi Ayin",
+  "family": "classical",
+  "lineage": "Sufi ceremonial music of the Mevlevi order founded at Konya in the thirteenth century around Jalal al-Din Rumi, its ayin-i şerif suites composed from the fifteenth century onward by dervish composers including Köçek Mustafa Dede, Itri and Dede Efendi — a fixed liturgy of naat, taksim, peşrev and four selam sections in one makam, ney and kudüm-led over shifting usul cycles, accompanying the whirling sema turn with sung Persian and Turkish Rumi verse.",
+  "recipe": "classic East Asian early-1950s mevlevi ayin, ritual Devotional, Sufi branch, middle eastern classical art music, wind pipe drone modal türk sanat müziği armenian liturgical and folk. thick, breath veiled tone, slow rate, interlocked note trading. Sufi mystical arundo donax cane canonical Persian nine segment mevlevi Sufi konya tradition Turkish ney continuous-airflow legato ney, kanun synthetic kanun, coconut shell yemeni malay buffalo bladder yemeni gut yemeni pre modern arab legato rebab, gut legato yayli tanbur, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, def turkish, maple ribs Turkish school Lebanese cedar eastern Mediterranean la bella oud. tibetan gompa assembly hall. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 862,
+  "score": 417.725,
+  "config": {
+    "traditions": [
+      "mevlevi_ayin",
+      "turk_sanat_muzigi",
+      "armenian_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "ney",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "ney_use": "ney_sufi",
+          "ney_pitch": "ney_kerdaniye",
+          "ney_body_material": "ney_arundo_canonical",
+          "ney_lineage": "ney_sufi_mevlevi"
+        },
+        "scores": {
+          "wind_articulation": 10.915,
+          "ney_use": 3.3449999999999998,
+          "ney_pitch": 5.654999999999999,
+          "ney_body_material": 2.21,
+          "ney_lineage": 15.624999999999998
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "kanun_school": "kanun_turkish",
+          "kanun_articulation": "kanun_synthetic_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": 11.375,
+          "kanun_school": 10.685,
+          "kanun_articulation": 1.4949999999999999
+        }
+      },
+      {
+        "id": "rebab",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "rebab_region": "rebab_yemeni",
+          "rebab_context": "rebab_solo",
+          "rebab_body": "rebab_coconut_shell",
+          "rebab_skin": "rebab_buffalo_bladder",
+          "rebab_strings": "rebab_gut_yemeni"
+        },
+        "scores": {
+          "bowed_technique": 10.875,
+          "rebab_region": 3.3799999999999994,
+          "rebab_context": 3.705,
+          "rebab_body": 1.7250000000000005,
+          "rebab_skin": 1.7250000000000005,
+          "rebab_strings": 2.0799999999999996
+        }
+      },
+      {
+        "id": "yayli_tanbur",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "yayli_tanbur_form": "yayli_tanbur_form_skin_endpin",
+          "yayli_tanbur_repertoire": "yayli_tanbur_repertoire_mevlevi",
+          "yayli_tanbur_fretting": "yayli_tanbur_fretting_comma"
+        },
+        "scores": {
+          "bowed_technique": 10.875,
+          "yayli_tanbur_form": 12.4,
+          "yayli_tanbur_repertoire": 19,
+          "yayli_tanbur_fretting": 13.585
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 2.3000000000000003,
+          "voice_quality": 16.639999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 14.332499999999998,
+          "voice_articulation": 18.005,
+          "voice_microtone": 28.242499999999996,
+          "voice_tradition": 25.447499999999998,
+          "voice_mechanism_compound": 18.515,
+          "voice_estill_quality": 14.129999999999997,
+          "voice_speech_song": 20.215,
+          "voice_ensemble_config": 17.939999999999998,
+          "voice_ornament_system": 20.105,
+          "voice_pitch_organization": 22.365,
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 2.990000000000001
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 7.345000000000001,
+          "choir_polyphonic_configuration": 2.535,
+          "choir_regional_canonical_configuration": 3.0550000000000006,
+          "choir_ensemble_repertoire": 4.419999999999999
+        }
+      },
+      {
+        "id": "def_turkish",
+        "slots": {
+          "def_jingles": "def_jingled",
+          "def_technique": "def_sufi"
+        },
+        "scores": {
+          "def_jingles": 0,
+          "def_technique": 1.955
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_turkish",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_horn",
+          "oud_body_wood": "oud_maple_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_la_bella_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 11.375,
+          "oud_school": 3.12,
+          "oud_strings": 5.654999999999999,
+          "oud_pick": 0.39,
+          "oud_body_wood": 2.34,
+          "oud_soundboard_wood": 2.8600000000000003,
+          "oud_string_material": 2.34
+        }
+      }
+    ],
+    "room": "tibetan_gompa_assembly_hall",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "tibetan_gompa_assembly_hall",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

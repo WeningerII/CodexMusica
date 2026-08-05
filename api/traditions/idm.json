@@ -5,7 +5,7 @@
   "lineage": "Early-1990s onward experimental-electronic genre intentionally constructed for headphone listening rather than club-dance use, characterized by complex broken-beat programming, glitchy textural sound design, and the post-acid-house compositional ambition — codified through Aphex Twin (Selected Ambient Works 85-92 in 1992, Richard D. James Album 1996), Autechre (Tri Repetae 1995), Boards of Canada (Music Has the Right to Children 1998), Squarepusher, the Warp Records Artificial Intelligence series",
   "recipe": "classic Asian 1990-1993 idm and experimental electronic, experimental Elec, idm glitch branch, musique concrete experimental electric. drum machine analog, pad like pad analog synth, sampler drum machine. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay TC electronic 2290 delay pitch shifter ring modulator.",
   "recipe_chars": 408,
-  "score": 23.726,
+  "score": 24.58,
   "config": {
     "traditions": [
       "idm"
@@ -20,8 +20,8 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.21,
-          "snare_voice": 0.21,
+          "kick_voice": 0.525,
+          "snare_voice": 0.525,
           "hat_voice": 0,
           "shuffle_quantize": 2.5
         }
@@ -30,16 +30,16 @@
         "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "oscillator": "sine_osc",
+          "oscillator": "saw_single",
           "filter_topology": "transistor_ladder",
           "envelope": "pad_env",
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 5.009642857142858,
-          "oscillator": 0.39,
-          "filter_topology": 0.39,
-          "envelope": 2.6399285714285714,
+          "electronic_technique": 5.000000000000001,
+          "oscillator": 0.315,
+          "filter_topology": 0.3,
+          "envelope": 2.8600000000000003,
           "modulation": 1
         }
       },
@@ -53,9 +53,9 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sample_bitdepth": 0.21,
+          "sample_bitdepth": 0.525,
           "sample_swing": 8.25,
-          "sample_processing": 0.1365
+          "sample_processing": 0
         }
       }
     ],

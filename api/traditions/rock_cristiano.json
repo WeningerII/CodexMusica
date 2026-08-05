@@ -3,14 +3,14 @@
   "name": "Rock Cristiano",
   "family": "rock",
   "lineage": "Spanish-language Christian rock that took shape in Argentina and Mexico from the late 1980s, with Rescate forming in Buenos Aires in 1991 and Marcos Witt's CanZion label industrialising Latin worship recording out of Durango and Houston — mid-tempo 80-130 BPM guitar-band arrangements over pop-rock and rock-nacional forms, congregational-friendly diatonic progressions with a modulated final chorus, doubled distorted and clean guitars, and Spanish devotional or evangelistic lyrics delivered in a full chest voice with a large backing-vocal crowd.",
-  "recipe": "classic 1987-1989 rock cristiano, ritual Devotional, christian gospel branch, christian gospel pentecostal, regional distorted rock, pop rock functional song new wave yacht rock. thick, declaimed, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric cedar maple phosphor bronze modern martin strummed dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, singing lead digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 961,
-  "score": 730.265,
+  "recipe": "classic 1987-1989 rock cristiano, ritual Devotional, christian gospel branch, christian gospel pentecostal, regional distorted rock, pop rock functional song yacht rock folk rock. thick, declaimed, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric cedar koa phosphor bronze modern martin strummed dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, singing lead digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 960,
+  "score": 660.138,
   "config": {
     "traditions": [
       "rock_cristiano",
-      "new_wave",
-      "yacht_rock"
+      "yacht_rock",
+      "folk_rock"
     ],
     "instruments": [
       {
@@ -23,9 +23,9 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 67.27250000000001,
-          "voice_quality": 14.575,
+          "voice_register": 70.64750000000001,
+          "voice_quality": 14.725,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.855,
+          "voice_vibrato": 7.255000000000001,
           "voice_articulation": 19.304999999999993,
-          "voice_microtone": 60.50000000000001,
-          "voice_tradition": 20.4325,
+          "voice_microtone": 53.5,
+          "voice_tradition": 19.044999999999995,
           "voice_mechanism_compound": 5.265000000000001,
-          "voice_estill_quality": 5.3900000000000015,
-          "voice_speech_song": 24.11499999999999,
-          "voice_ensemble_config": 22.034999999999993,
+          "voice_estill_quality": 8.117500000000001,
+          "voice_speech_song": 22.424999999999997,
+          "voice_ensemble_config": 22.229999999999993,
           "voice_ornament_system": 8.65,
-          "voice_pitch_organization": 1.9499999999999997,
-          "voice_processing_chain": 14.435,
-          "voice_multitrack_stack": 10.4325
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 12.06,
+          "voice_multitrack_stack": 7.487500000000001
         }
       },
       {
@@ -61,45 +61,45 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 21.07,
-          "amp_make": 25.082499999999996,
-          "body_wood": 3.335,
+          "electric_technique": 12.92,
+          "amp_make": 20.5175,
+          "body_wood": 3.14,
           "neck_wood": 2.9,
           "fretboard": 2.85,
           "pickup_magnet": 0.195,
-          "pickup_winding": 0.195,
+          "pickup_winding": 0.105,
           "string_material": 0.5399999999999999,
           "bridge": 2.9,
           "scale_length": 3.05,
-          "string_gauge": 3.4,
+          "string_gauge": 3.0949999999999998,
           "finish": 0,
-          "string_tuning": 22.5675
+          "string_tuning": 21.252499999999998
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "drop_d",
+          "string_tuning": "open_d",
           "top_wood": "cedar",
-          "back_sides": "maple_bs",
+          "back_sides": "koa_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 19.644999999999996,
-          "string_tuning": 0.27499999999999997,
+          "acoustic_technique": 13.27,
+          "string_tuning": 0.04999999999999999,
           "top_wood": 3.05,
-          "back_sides": 1.4949999999999999,
-          "string_acoustic": 4.485
+          "back_sides": 1.3900000000000001,
+          "string_acoustic": 4.38
         }
       },
       {
@@ -114,13 +114,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 20.279999999999998,
+          "amp_make": 20.734999999999996,
           "body_wood": 3.05,
-          "pickup_config": 1.585,
-          "string_type": 43.957499999999996,
+          "pickup_config": 1.48,
+          "string_type": 43.467499999999994,
           "scale_length_b": 2.9,
-          "fretted_or_not": 0.435,
-          "bass_technique": 43.92
+          "fretted_or_not": 0.24,
+          "bass_technique": 40.19499999999999
         }
       },
       {
@@ -131,8 +131,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 39.3,
-          "drumhead": 19,
+          "drum_technique": 39.42499999999999,
+          "drumhead": 11.45,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -147,18 +147,18 @@
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 19.369999999999997,
+          "keyboard_technique": 12.594999999999999,
           "grand_piano_size": 2.9,
-          "grand_piano_brand": 2.9,
-          "piano_hammer": 21.1575,
-          "piano_rim": 20.799999999999997,
-          "piano_soundboard": 19.105,
-          "piano_pinblock": 1.4699999999999998,
-          "piano_plate": 1.715,
-          "piano_pitch_standard": 7.0025
+          "grand_piano_brand": 3.1999999999999997,
+          "piano_hammer": 20.019999999999996,
+          "piano_rim": 20.514999999999997,
+          "piano_soundboard": 11.555,
+          "piano_pinblock": 1.045,
+          "piano_plate": 1.29,
+          "piano_pitch_standard": 5.9125
         }
       },
       {
@@ -167,13 +167,13 @@
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 6.695,
-          "choir_polyphonic_configuration": 2.2874999999999996,
-          "choir_regional_canonical_configuration": 5.7524999999999995,
-          "choir_ensemble_repertoire": 1.935
+          "choir_size": 5.85,
+          "choir_polyphonic_configuration": 2.4825,
+          "choir_regional_canonical_configuration": 5.192499999999999,
+          "choir_ensemble_repertoire": 2
         }
       },
       {
@@ -184,7 +184,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 19.894999999999996,
+          "electronic_technique": 12.574999999999998,
           "va_archetypes": 1.3900000000000001,
           "digital_subtractive_context": 19.89
         }

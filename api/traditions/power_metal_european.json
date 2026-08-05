@@ -5,7 +5,7 @@
   "lineage": "European-rooted melodic metal subgenre codified through Helloween (Keeper of the Seven Keys 1987-88), Blind Guardian, Stratovarius, Sonata Arctica, Rhapsody (Italian symphonic-power) — characterized by major-key triumphant choruses, twin-guitar harmony lead lines, high-register clean vocals, and fantasy/Tolkien-derived lyrical subject matter",
   "recipe": "classic North American late-1980s power metal, distorted Rock, power branch, symphonic metal gothic metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 747,
-  "score": 309.227,
+  "score": 317.246,
   "config": {
     "traditions": [
       "power_metal_european",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 13.157499999999997,
-          "voice_quality": 6.857500000000001,
+          "voice_quality": 6.9205000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1143750000000003,
-          "voice_articulation": 8.680625,
-          "voice_microtone": 12.843124999999997,
-          "voice_tradition": 5.865625,
-          "voice_mechanism_compound": 32.348749999999995,
-          "voice_estill_quality": 4.0756250000000005,
-          "voice_speech_song": 9.610624999999997,
-          "voice_ensemble_config": 10.734374999999996,
+          "voice_vibrato": 3.145875,
+          "voice_articulation": 9.424999999999999,
+          "voice_microtone": 12.916624999999998,
+          "voice_tradition": 6.0021249999999995,
+          "voice_mechanism_compound": 32.68475,
+          "voice_estill_quality": 4.107125,
+          "voice_speech_song": 10.399999999999997,
+          "voice_ensemble_config": 11.658374999999996,
           "voice_ornament_system": 3.1500000000000004,
-          "voice_pitch_organization": 5.107500000000002,
-          "voice_processing_chain": 3.805,
-          "voice_multitrack_stack": 5.58875
+          "voice_pitch_organization": 5.2440000000000015,
+          "voice_processing_chain": 4.015000000000001,
+          "voice_multitrack_stack": 5.6202499999999995
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 37.460625,
-          "amp_make": 14.079999999999997,
-          "body_wood": 13.93,
+          "electric_technique": 38.090624999999996,
+          "amp_make": 14.436999999999996,
+          "body_wood": 14.286999999999999,
           "neck_wood": 0.080625,
           "fretboard": 0.45499999999999996,
-          "pickup_magnet": 1.31125,
+          "pickup_magnet": 1.41625,
           "pickup_winding": 0.45499999999999996,
           "string_material": 0.45499999999999996,
-          "bridge": 0.713125,
-          "scale_length": 13.849374999999998,
+          "bridge": 0.818125,
+          "scale_length": 14.206374999999998,
           "string_gauge": 2.51875,
           "finish": 0,
-          "string_tuning": 24.34875
+          "string_tuning": 25.40925
         }
       },
       {
@@ -97,13 +97,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 7.98,
+          "amp_make": 8.4945,
           "body_wood": 0.45499999999999996,
           "pickup_config": 1.3,
-          "string_type": 14.280625,
+          "string_type": 14.690125000000002,
           "scale_length_b": 0.091875,
           "fretted_or_not": 0.005625,
-          "bass_technique": 13.88625
+          "bass_technique": 14.02275
         }
       },
       {
@@ -124,14 +124,14 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
           "electronic_technique": 1.7762499999999999,
-          "poly_archetypes": 6.19875,
-          "poly_voices": 0,
-          "poly_maker_lineage": 1.1199999999999999
+          "poly_archetypes": 6.565000000000001,
+          "poly_voices": 0.0315,
+          "poly_maker_lineage": 1.17
         }
       },
       {
@@ -146,7 +146,7 @@
           "choir_size": 2.846874999999999,
           "choir_polyphonic_configuration": 3.3149999999999995,
           "choir_regional_canonical_configuration": 1.4949999999999999,
-          "choir_ensemble_repertoire": 3.3474999999999993
+          "choir_ensemble_repertoire": 3.378999999999999
         }
       }
     ],

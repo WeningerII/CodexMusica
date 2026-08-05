@@ -1,0 +1,119 @@
+{
+  "id": "tonada",
+  "name": "Tonada chilena",
+  "family": "global",
+  "lineage": "Central-Chilean strophic song of the countryside, documented and reshaped from the 1940s-60s by Margot Loyola and Violeta Parra, sung solo or in parallel thirds by women over rasgueado guitar in a 6/8-3/4 hemiola at moderate tempo, with pandero tambourine and hand claps and a closing repeated coda phrase rather than a refrain.",
+  "recipe": "classic European mid-1940s tonada chilena, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, iberian functional song catalan folk basque kantautor. thick, breath veiled tone, interlocked note trading, neutral third half flat. fingerpicked parlor acoustic guitar, tambourine orch, snappy to palm hand clap. parlor. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 442,
+  "score": 136.672,
+  "config": {
+    "traditions": [
+      "tonada",
+      "catalan_folk",
+      "basque_kantautor"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.515,
+          "voice_quality": 12.479999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.195,
+          "voice_articulation": 17.875,
+          "voice_microtone": 17.939999999999998,
+          "voice_tradition": 8.9375,
+          "voice_mechanism_compound": 4.875,
+          "voice_estill_quality": 4.485000000000001,
+          "voice_speech_song": 24.634999999999998,
+          "voice_ensemble_config": 17.875,
+          "voice_ornament_system": 8.075,
+          "voice_pitch_organization": 1.8349999999999997,
+          "voice_processing_chain": 5.459999999999999,
+          "voice_multitrack_stack": 4.387500000000001
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 6.214500000000001,
+          "string_tuning": 0.445,
+          "top_wood_parlor": 0.43499999999999994,
+          "back_sides_parlor": 0.045,
+          "string_acoustic_parlor": 0.48
+        }
+      },
+      {
+        "id": "tambourine_orch",
+        "slots": {
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_orch"
+        },
+        "scores": {
+          "tambourine_orch_jingle": 0.795,
+          "tambourine_orch_context": 0.195
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.3649999999999998,
+          "clap_capture": 0.09
+        }
+      }
+    ],
+    "room": "parlor",
+    "archetype": "arch_madrid_flamenco_tape",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "mariachi_son_6_8_3_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mariachi_son_6_8_3_4",
+    "room": "parlor",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

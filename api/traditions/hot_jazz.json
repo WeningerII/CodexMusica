@@ -1,0 +1,154 @@
+{
+  "id": "hot_jazz",
+  "name": "Hot jazz",
+  "family": "jazz",
+  "lineage": "Small-group jazz of roughly 1923-1935 that moved the New Orleans collective idiom toward the virtuoso solo, codified by King Oliver's Creole Jazz Band (Chicago, 1923) and above all Louis Armstrong's Hot Five and Hot Seven (1925-28) with parallel work by Jelly Roll Morton's Red Hot Peppers and Bix Beiderbecke — 180-240 BPM two-beat or early four-beat swing, front line of cornet, clarinet and trombone trading collective polyphony for chorus-length improvised solos, tenor banjo and tuba rhythm section giving way to guitar and string bass, all cut direct to 78 in three-minute takes.",
+  "recipe": "classic mid-1920s hot jazz, improv On Frame, early branch, American jazz stride piano, American south carnival processional new orleans brass band second-line. brass yellow brass canonical brass band conn vintage early jazz canon front line cornet, grenadilla African blackwood traditional front line clarinet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, single string tenor banjo irish, American orchestral brass red brass darkest piston valves American school besson sovereign British brass band tuba, stride upright piano, vintage ambassador asymmetric brushes-and-sticks drum kit. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 796,
+  "score": 278.792,
+  "config": {
+    "traditions": [
+      "hot_jazz",
+      "new_orleans_brass_parade",
+      "stride"
+    ],
+    "instruments": [
+      {
+        "id": "cornet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "cornet_pitch": "cornet_bb",
+          "cornet_context": "cornet_brass_band",
+          "cornet_bell_metal": "cornet_yellow_brass",
+          "cornet_maker_school": "cornet_conn_vintage"
+        },
+        "scores": {
+          "wind_articulation": 9.1015,
+          "cornet_pitch": 24.1635,
+          "cornet_context": 6.695000000000002,
+          "cornet_bell_metal": 12.805000000000001,
+          "cornet_maker_school": 17.68
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 9.1015,
+          "clarinet_body": 3.2615,
+          "clarinet_size": 0.65,
+          "clarinet_reed": 0.65,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 9.1015,
+          "trombone_type": 25.250000000000004,
+          "trombone_mouthpiece": 25.245000000000005,
+          "trombone_mute": 1.1949999999999998,
+          "trombone_technique": 1.6435,
+          "trombone_bell_metal": 7.150000000000001,
+          "trombone_maker_school": 9.620000000000001
+        }
+      },
+      {
+        "id": "tenor_banjo_irish",
+        "slots": {
+          "tenor_banjo_irish_form": "tenor_banjo_irish_19fret",
+          "tenor_banjo_irish_style": "tenor_banjo_irish_reels",
+          "tenor_banjo_irish_head": "tenor_banjo_irish_calfskin"
+        },
+        "scores": {
+          "tenor_banjo_irish_form": 0.06499999999999999,
+          "tenor_banjo_irish_style": 1.2349999999999999,
+          "tenor_banjo_irish_head": 0
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "tuba_pitch": "tuba_cc",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_red_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 1.9174999999999998,
+          "tuba_pitch": 8.775,
+          "tuba_context": 9.815000000000001,
+          "tuba_bell_metal": 7.150000000000001,
+          "tuba_valve_system": 8.125,
+          "tuba_maker_school": 12.805000000000001
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 3.4450000000000003,
+          "upright_use": 1.69,
+          "upright_piano_size": 2.5349999999999997
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 31.784999999999997,
+          "drumhead": 29.686500000000002,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "jazz_swing_eighth_4_4",
+    "room": "studio_electrical_era_office",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

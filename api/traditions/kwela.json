@@ -1,0 +1,142 @@
+{
+  "id": "kwela",
+  "name": "Kwela",
+  "family": "global",
+  "lineage": "South African township street music of the early 1950s, born on Johannesburg and Pretoria pavements and commercialized through Gallo by Spokes Mashiyane and the Lerole brothers, built on a bright pennywhistle lead improvising over a bouncing 4/4 marabi-derived I–IV–I(6/4)–V cycle at 130–160 BPM with strummed guitar, tea-chest or double bass, and a chugging offbeat.",
+  "recipe": "classic Southern African 1950-1953 kwela, functional Song, African pop branch, American jazz early, central east south African groove percussion continental jazz dixieland. African blackwood boxwood premium pre modern tin whistle, strummed open chord ringing overtones parlor acoustic guitar, tea chest venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, snappy to palm hand clap. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 715,
+  "score": 101.915,
+  "config": {
+    "traditions": [
+      "kwela",
+      "continental_jazz",
+      "dixieland"
+    ],
+    "instruments": [
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "c_whistle",
+          "whistle_ornament": "no_ornament",
+          "whistle_body_material": "whistle_wood_premium"
+        },
+        "scores": {
+          "wind_articulation": 0.52,
+          "whistle_key": 0.09,
+          "whistle_ornament": 0.195,
+          "whistle_body_material": 2.6000000000000005
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "phosphor_p"
+        },
+        "scores": {
+          "acoustic_technique": 5.75,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.57,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.48
+        }
+      },
+      {
+        "id": "tea_chest_bass",
+        "slots": {
+          "tea_chest_construction": "tea_chest_three_string"
+        },
+        "scores": {
+          "tea_chest_construction": 0.345
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_seven_eighth",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "bass_size": 0.045,
+          "bass_strings": 3.3150000000000004,
+          "bass_top_wood": 0.975,
+          "bass_back_wood": 0.9099999999999999,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 2.6000000000000005,
+          "bass_play": 14.669999999999998,
+          "bass_rosin": 21.742499999999996,
+          "bass_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 0.175,
+          "sax_size": 0.7149999999999997,
+          "sax_reed": 0.38999999999999996,
+          "sax_body_alloy": 15.574999999999998,
+          "sax_mouthpiece": 0.345,
+          "sax_technique": 14.624999999999998,
+          "sax_maker_school": 20.637499999999996
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 1.04,
+          "clap_capture": 0.09
+        }
+      }
+    ],
+    "room": "johannesburg_gallo_african_studios",
+    "archetype": "arch_gallo_township_jive",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "johannesburg_gallo_african_studios",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_medium": "shellac_78",
+    "chain_console": "console_german_tube_50s"
+  }
+}

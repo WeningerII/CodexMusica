@@ -3,14 +3,14 @@
   "name": "Metropopolis",
   "family": "electronic",
   "lineage": "Algorithmically named 2010s internet-era style of sleek electro-funk pop, made largely in home studios across Los Angeles, Auckland and Tokyo-facing online scenes and shaped by Tuxedo, Yumi Zouma, Anderson .Paak's polished side and the Japanese city-pop and French-touch revivalists — 100-118 BPM programmed or tightly played funk kit with a clean sixteenth-note hi-hat, slap or synth-octave bass, glassy FM electric-piano and chorused clean guitar chords, and a light, close, often processed or vocoded lead vocal singing over lush major-seventh and ninth harmony.",
-  "recipe": "classic mid-2010s metropopolis, functional Song, synthpop branch, pop rock yacht rock, deep house house float house. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, TR-808, vocoder, block chord electric piano tine, Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 711,
-  "score": 426.672,
+  "recipe": "classic mid-2010s metropopolis, functional Song, synthpop branch, pop rock yacht rock, deep house house tropical house. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, TR-808, vocoder, block chord electric piano tine, Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 714,
+  "score": 441.76,
   "config": {
     "traditions": [
       "metropopolis",
       "yacht_rock",
-      "float_house"
+      "tropical_house"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 38.60250000000002,
-          "voice_quality": 9.685,
+          "voice_register": 39.77800000000002,
+          "voice_quality": 9.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.03975,
-          "voice_articulation": 21.319999999999997,
-          "voice_microtone": 37.22500000000001,
-          "voice_tradition": 20.960624999999997,
-          "voice_mechanism_compound": 4.3549999999999995,
+          "voice_vibrato": 6.1155,
+          "voice_articulation": 20.085,
+          "voice_microtone": 38.85000000000001,
+          "voice_tradition": 24.323999999999998,
+          "voice_mechanism_compound": 4.55,
           "voice_estill_quality": 3.5750000000000006,
-          "voice_speech_song": 24.05,
-          "voice_ensemble_config": 21.125,
-          "voice_ornament_system": 0.8552499999999997,
-          "voice_pitch_organization": 1.455625,
-          "voice_processing_chain": 15.4455,
-          "voice_multitrack_stack": 11.007749999999998
+          "voice_speech_song": 23.205,
+          "voice_ensemble_config": 20.345,
+          "voice_ornament_system": 0.8679999999999998,
+          "voice_pitch_organization": 1.56,
+          "voice_processing_chain": 15.813,
+          "voice_multitrack_stack": 12.273499999999997
         }
       },
       {
@@ -61,9 +61,9 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 19.849249999999998,
-          "poly_archetypes": 9.715499999999999,
-          "poly_voices": 1.235,
+          "electronic_technique": 21.419499999999996,
+          "poly_archetypes": 9.815,
+          "poly_voices": 0.585,
           "poly_maker_lineage": 0.5200000000000002
         }
       },
@@ -77,11 +77,11 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 19.849249999999998,
+          "electronic_technique": 21.419499999999996,
           "fm_algorithm": 3.3,
-          "fm_modulator_ratio": 0.009375,
-          "fm_polyphony": 2.0799999999999996,
-          "fm_model_lineage": 10.529999999999998
+          "fm_modulator_ratio": 0.195,
+          "fm_polyphony": 1.885,
+          "fm_model_lineage": 11.374999999999998
         }
       },
       {
@@ -96,11 +96,11 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 10.556249999999999,
-          "body_wood": 2.2750000000000004,
+          "amp_make": 10.79,
+          "body_wood": 1.8200000000000003,
           "pickup_config": 1.6315000000000002,
-          "string_type": 19.6405,
-          "scale_length_b": 1.235,
+          "string_type": 20.256,
+          "scale_length_b": 1.4300000000000002,
           "fretted_or_not": 1,
           "bass_technique": 17.7115
         }
@@ -110,24 +110,24 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_miami",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 1.79725,
-          "drum_machine_808_context": 3.9965,
-          "tr808_production_origin": 0.8449999999999999
+          "tr808_voice": 1.8199999999999998,
+          "drum_machine_808_context": 4.7379999999999995,
+          "tr808_production_origin": 0.39
         }
       },
       {
         "id": "vocoder",
         "slots": {
           "voc_band_count": "voc_many_bands",
-          "voc_carrier": "voc_saw_carrier",
+          "voc_carrier": "voc_noise_carrier",
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
           "voc_band_count": 0.39,
-          "voc_carrier": 0.39,
+          "voc_carrier": 0.845,
           "voc_modulator": 0.105
         }
       },
@@ -139,7 +139,7 @@
           "tine_effect": "overdrive_tine"
         },
         "scores": {
-          "keyboard_technique": 17.999999999999996,
+          "keyboard_technique": 20.245,
           "tine_voicing": 0.3315,
           "tine_effect": 9.165
         }
@@ -161,18 +161,18 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 19.249999999999996,
-          "amp_make": 9.781125,
-          "body_wood": 1.625,
-          "neck_wood": 1.625,
-          "fretboard": 1.92675,
+          "electric_technique": 20.874999999999996,
+          "amp_make": 9.931,
+          "body_wood": 1.8200000000000003,
+          "neck_wood": 1.8200000000000003,
+          "fretboard": 1.908,
           "pickup_magnet": 0.39,
           "string_material": 0.39,
-          "string_gauge": 1.8850000000000002,
-          "bridge": 0.33525,
-          "scale_length": 2.7299999999999995,
+          "string_gauge": 2.08,
+          "bridge": 0.5265,
+          "scale_length": 2.275,
           "finish": 1,
-          "string_tuning": 10.39825
+          "string_tuning": 10.595
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Emo",
   "family": "rock_punk",
   "lineage": "Mid-1980s through present post-hardcore-derived confessional rock — codified through Rites of Spring (Rites of Spring 1985 on Dischord Records), Embrace, Sunny Day Real Estate (Diary 1994), Texas Is the Reason, the Promise Ring, and Mineral codifying the second-wave emo aesthetic; later mainstreamed through Jimmy Eat World (Bleed American 2001), Dashboard Confessional, and the Drive-Thru / Vagrant Records scene",
-  "recipe": "classic North American 1984-1986 emo, distorted Rock, emo branch, punk distorted rock, pop punk distorted rock, alternative distorted rock pop-punk crust punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 746,
-  "score": 596.99,
+  "recipe": "classic North American 1984-1986 emo, distorted Rock, emo branch, punk distorted rock, pop punk distorted rock, alternative distorted rock pop-punk grunge. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 756,
+  "score": 591.277,
   "config": {
     "traditions": [
       "emo",
       "pop_punk",
-      "crust_punk"
+      "grunge"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 37.14000000000002,
-          "voice_quality": 16.57499999999999,
+          "voice_register": 44.64062500000002,
+          "voice_quality": 17.41999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.705,
-          "voice_articulation": 19.694999999999997,
-          "voice_microtone": 35.85000000000001,
-          "voice_tradition": 17.919999999999998,
-          "voice_mechanism_compound": 23.86,
-          "voice_estill_quality": 2.8600000000000003,
-          "voice_speech_song": 21.839999999999993,
-          "voice_ensemble_config": 35.955,
-          "voice_ornament_system": 0.3,
-          "voice_pitch_organization": 1.15,
-          "voice_processing_chain": 9.165,
-          "voice_multitrack_stack": 8.059999999999999
+          "voice_vibrato": 4.712499999999999,
+          "voice_articulation": 17.80999999999999,
+          "voice_microtone": 40.60000000000001,
+          "voice_tradition": 20.344999999999995,
+          "voice_mechanism_compound": 23.38125,
+          "voice_estill_quality": 3.055,
+          "voice_speech_song": 20.14999999999999,
+          "voice_ensemble_config": 34.74999999999999,
+          "voice_ornament_system": 1.95,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 8.709999999999999,
+          "voice_multitrack_stack": 9.060625
         }
       },
       {
@@ -69,18 +69,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 27.249999999999996,
-          "amp_make": 45.459999999999994,
-          "body_wood": 3.485,
-          "neck_wood": 3.485,
-          "fretboard": 3.435,
+          "electric_technique": 23.999999999999993,
+          "amp_make": 43.730624999999996,
+          "body_wood": 2.835,
+          "neck_wood": 2.835,
+          "fretboard": 2.785,
           "pickup_magnet": 0.39,
           "string_material": 0.39,
-          "string_gauge": 3.6799999999999997,
-          "bridge": 1.4300000000000002,
-          "scale_length": 3.77,
+          "string_gauge": 2.925,
+          "bridge": 0.585,
+          "scale_length": 2.925,
           "finish": 0.195,
-          "string_tuning": 13.845
+          "string_tuning": 14.625
         }
       },
       {
@@ -101,19 +101,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 27.249999999999996,
-          "amp_make": 45.459999999999994,
-          "body_wood": 6.305,
-          "neck_wood": 3.485,
-          "fretboard": 3.435,
-          "pickup_magnet": 1.8200000000000003,
-          "pickup_winding": 1.2,
+          "electric_technique": 23.999999999999993,
+          "amp_make": 43.730624999999996,
+          "body_wood": 4.3549999999999995,
+          "neck_wood": 2.835,
+          "fretboard": 2.785,
+          "pickup_magnet": 0.975,
+          "pickup_winding": 1.3499999999999999,
           "string_material": 0.39,
-          "bridge": 3.485,
-          "scale_length": 3.77,
-          "string_gauge": 3.6799999999999997,
+          "bridge": 2.835,
+          "scale_length": 2.925,
+          "string_gauge": 2.925,
           "finish": 0.195,
-          "string_tuning": 15.145
+          "string_tuning": 15.47
         }
       },
       {
@@ -121,32 +121,32 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.245000000000001,
-          "body_wood": 4.975,
-          "pickup_config": 1.4300000000000002,
-          "string_type": 24.925,
-          "scale_length_b": 3.485,
+          "amp_make": 12.025,
+          "body_wood": 3.5100000000000002,
+          "pickup_config": 0.78,
+          "string_type": 28.415625000000002,
+          "scale_length_b": 2.835,
           "fretted_or_not": 0.15,
-          "bass_technique": 44.545
+          "bass_technique": 45.294999999999995
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_punk",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24.749999999999996,
-          "drumhead": 16.549999999999997,
+          "drum_technique": 22.875,
+          "drumhead": 18.174999999999997,
           "drum_kit_kick_pedal": 0
         }
       }

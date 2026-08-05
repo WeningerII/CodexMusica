@@ -1,0 +1,131 @@
+{
+  "id": "live_coding",
+  "name": "Live Coding",
+  "family": "electronic",
+  "lineage": "Formalised in Sheffield and London from 2003 by the TOPLAP collective — Alex McLean, Nick Collins and Adrian Ward — and spread through algorave events after 2012, with SuperCollider, TidalCycles and Sonic Pi as the primary tools: performers write and rewrite executing code onstage with the screen projected, generating pattern-based dance music at 120-170 BPM from sample banks and synthesis, with structure emerging from edits made in real time.",
+  "recipe": "classic early-2000s live coding, experimental Elec, idm glitch branch, techno electronic dance, western modern art music algorave industrial techno. modular granular glitched textural wavetable fm modular modular synth, sampler drum machine, monosynth acid bass. festival stage. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 413,
+  "score": 82.889,
+  "config": {
+    "traditions": [
+      "live_coding",
+      "algorave",
+      "industrial_techno"
+    ],
+    "instruments": [
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_synthesized"
+        },
+        "scores": {
+          "electronic_technique": 11,
+          "granular_use": 0,
+          "granular_synth_source": 7.15
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 11,
+          "wt_position": 7.15,
+          "wt_family": 0.9099999999999999,
+          "wt_polyphony": 0.24
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0.7,
+          "sample_swing": 14.893928571428571,
+          "sample_processing": 0.38999999999999996
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_inharmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_native_instruments_fm8"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "fm_algorithm": 1.2349999999999999,
+          "fm_modulator_ratio": 0.345,
+          "fm_polyphony": 0.24,
+          "fm_model_lineage": 0.7
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 11,
+          "mod_voltage_source": 0.845,
+          "mod_patch_density": 0.39,
+          "mod_lineage": -0.9450000000000001
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "no_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 10.7,
+          "wave_acid": 0,
+          "filter_acid": 0.28500000000000003,
+          "accent_acid": 0.845
+        }
+      }
+    ],
+    "room": "festival_stage",
+    "archetype": "arch_festival_edm_itb",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "festival_stage",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

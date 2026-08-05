@@ -1,0 +1,157 @@
+{
+  "id": "izvorna_muzika",
+  "name": "Izvorna muzika (Bosnian source music)",
+  "family": "global",
+  "lineage": "Rural dance-song style of northeastern Bosnia around Tuzla, Zvornik and Posavina, commercialised on cassette from the 1970s and named 'source music' to claim village authenticity, driven by fretted šargija long-necked lutes strumming in fast even 2/4 or 4/4 at 140-170 BPM with violin doubling, and sung by two or three male voices in shouted narrow-interval seconds derived from ganga and putnička polyphony, with unresolved harsh dissonance at the cadence.",
+  "recipe": "classic Southern European mid-1970s izvorna muzika, field Work, Slavic balkan branch, balkan drinking song, europop functional song, vocal drone modal macedonian-serbian kafana drinking song georgian supra feast-singing. thick, breath veiled tone, fast rate, interlocked note trading. steel canonical modern modern concert arif sag erkan ogur saz baglama, synthetic magic rosin modern acrylic base fiddle, fast ornamented dance driving frula, parallel thirds two voice vocal blend maple carved canonical balkan dvojnice, bolt tuned tapan. balkan sevdalinka kafana tavern. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 663,
+  "score": 289.767,
+  "config": {
+    "traditions": [
+      "izvorna_muzika",
+      "macedonian_kafana_drinking",
+      "georgian_supra_drinking"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 2.92,
+          "voice_quality": 9.555,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.185,
+          "voice_articulation": 16.89999999999999,
+          "voice_microtone": 17.54999999999999,
+          "voice_tradition": 26.685,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 3.1525000000000003,
+          "voice_speech_song": 25.21999999999999,
+          "voice_ensemble_config": 24.334999999999997,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 4.225,
+          "voice_processing_chain": 2.9899999999999998,
+          "voice_multitrack_stack": 2.9750000000000005
+        }
+      },
+      {
+        "id": "saz_baglama",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "saz_size": "cura_saz",
+          "saz_frets": "saz_chromatic_frets",
+          "saz_body_wood": "saz_walnut_body",
+          "saz_strings": "saz_steel_modern",
+          "saz_tradition": "saz_modern_concert"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.125,
+          "saz_size": 1.69,
+          "saz_frets": 1.69,
+          "saz_body_wood": 0.54,
+          "saz_strings": 1.69,
+          "saz_tradition": 1.69
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_pont"
+        },
+        "scores": {
+          "bowed_technique": 2.5149999999999997,
+          "fiddle_strings": 1.69,
+          "fiddle_bow": 3.985,
+          "fiddle_mute": 1.21,
+          "fiddle_articulation": 1.09
+        }
+      },
+      {
+        "id": "frula",
+        "slots": {
+          "frula_size_key": "frula_g_standard",
+          "frula_repertoire_style": "frula_kolo_dance",
+          "frula_body_wood": "frula_plum_wood"
+        },
+        "scores": {
+          "frula_size_key": 3.999999999999999,
+          "frula_repertoire_style": 7.5699999999999985,
+          "frula_body_wood": 0
+        }
+      },
+      {
+        "id": "dvojnice",
+        "slots": {
+          "dvojnice_bore_relationship": "dvojnice_parallel_thirds",
+          "dvojnice_hole_layout": "dvojnice_symmetric_three_four",
+          "dvojnice_context": "dvojnice_ganga_doubling",
+          "dvojnice_body": "dvojnice_body_maple_carved"
+        },
+        "scores": {
+          "dvojnice_bore_relationship": 23.119999999999997,
+          "dvojnice_hole_layout": 21.409999999999997,
+          "dvojnice_context": 18.399999999999995,
+          "dvojnice_body": 18.275
+        }
+      },
+      {
+        "id": "tapan",
+        "slots": {
+          "tapan_form": "tapan_balkan",
+          "tapan_role": "tapan_zurna_pair",
+          "tapan_build": "tapan_modern_tensioned"
+        },
+        "scores": {
+          "tapan_form": 22.624999999999996,
+          "tapan_role": 4.2,
+          "tapan_build": 3.625
+        }
+      }
+    ],
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "archetype": "arch_eastmed_cassette_kiosk",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "balkan_sevdalinka_kafana_tavern",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Social Media Pop",
   "family": "pop",
   "lineage": "Platform-native pop that consolidated after 2018 as TikTok became the primary discovery channel — written and produced by bedroom auteurs and topline camps around a fifteen-second hook placed in the first eight seconds, typically 110-140 BPM with programmed 808 or trap-adjacent drums, a single sticky vocal motif stacked in octaves and thirds, minimal harmonic movement, and conversational close-miked lead vocals treated with hard tuning and short slap delay",
-  "recipe": "classic late-2010s social media pop, functional Song, pop rock branch, pop experimental experimental electric, anglo singer song bedroom singer song, lofi experimental electric etherpop indietronica. thick, breath veiled tone, straight note core, interlocked note trading. lead plus dense cluster 5 part stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, singing lead wavetable synth, sampler drum machine, TR-808, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 639,
-  "score": 335.338,
+  "recipe": "classic late-2010s social media pop, functional Song, pop rock branch, pop experimental experimental electric, anglo singer song bedroom singer song, lofi experimental electric etherpop time lord rock. thick, breath veiled tone, interlocked note trading, equal tempered. lead plus dense cluster 5 part stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, singing lead wavetable synth, sampler drum machine, TR-808, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 637,
+  "score": 344.51,
   "config": {
     "traditions": [
       "social_media_pop",
       "etherpop",
-      "indietronica"
+      "time_lord_rock"
     ],
     "instruments": [
       {
@@ -20,12 +20,12 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 27.664999999999992,
-          "voice_quality": 10.529999999999992,
+          "voice_register": 31.364999999999995,
+          "voice_quality": 8.45,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8449999999999999,
-          "voice_articulation": 19.369999999999997,
-          "voice_microtone": 27.174999999999997,
-          "voice_tradition": 26.735,
-          "voice_mechanism_compound": 5.329999999999999,
-          "voice_estill_quality": 5.135,
-          "voice_speech_song": 23.985,
-          "voice_ensemble_config": 18.654999999999998,
-          "voice_ornament_system": 2.0149999999999997,
-          "voice_pitch_organization": 4.235000000000001,
-          "voice_processing_chain": 9.384999999999998,
-          "voice_multitrack_stack": 5.665
+          "voice_vibrato": 0.26,
+          "voice_articulation": 19.629999999999995,
+          "voice_microtone": 29.799999999999997,
+          "voice_tradition": 28.605,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 5.46,
+          "voice_speech_song": 26.455,
+          "voice_ensemble_config": 19.369999999999997,
+          "voice_ornament_system": 4.42,
+          "voice_pitch_organization": 3.435000000000001,
+          "voice_processing_chain": 5.324999999999999,
+          "voice_multitrack_stack": 5.92
         }
       },
       {
@@ -61,8 +61,8 @@
         },
         "scores": {
           "multitrack_stack_density": 3.185,
-          "multitrack_stack_era_aesthetic": 0.4225,
-          "multitrack_stack_processing": 1.6249999999999998
+          "multitrack_stack_era_aesthetic": -0.07,
+          "multitrack_stack_processing": 1.4299999999999997
         }
       },
       {
@@ -74,8 +74,8 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 24.619999999999997,
-          "wt_position": 2.9899999999999998,
+          "electronic_technique": 26.795,
+          "wt_position": 1.4949999999999999,
           "wt_family": 0.845,
           "wt_polyphony": 2.9450000000000003
         }
@@ -84,15 +84,15 @@
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
+          "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
           "sample_processing": "one_shots_layered"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sample_bitdepth": 0.845,
-          "sample_swing": 5.75,
-          "sample_processing": 1.04
+          "sample_bitdepth": 0.9500000000000001,
+          "sample_swing": 2.875,
+          "sample_processing": 0.585
         }
       },
       {
@@ -100,12 +100,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.2749999999999995,
-          "drum_machine_808_context": 3.6399999999999997,
-          "tr808_production_origin": 0.36
+          "tr808_voice": 1.625,
+          "drum_machine_808_context": 2.9899999999999998,
+          "tr808_production_origin": 0.345
         }
       },
       {
@@ -119,18 +119,18 @@
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 21.825,
-          "grand_piano_size": 1.04,
-          "grand_piano_brand": 0.285,
-          "piano_hammer": 22.035,
-          "piano_rim": 21.825,
-          "piano_soundboard": 22.05,
-          "piano_pinblock": 1.64,
-          "piano_plate": 0.6499999999999999,
-          "piano_pitch_standard": 5.589999999999998
+          "keyboard_technique": 23.849999999999998,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 0.195,
+          "piano_hammer": 23.805,
+          "piano_rim": 23.7,
+          "piano_soundboard": 23.895000000000003,
+          "piano_pinblock": 1.595,
+          "piano_plate": 0.45499999999999996,
+          "piano_pitch_standard": 5.719999999999999
         }
       }
     ],

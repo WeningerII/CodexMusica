@@ -3,14 +3,14 @@
   "name": "New Orleans Mardi Gras Indians",
   "family": "global",
   "lineage": "New Orleans Mardi Gras Indian tradition continuous from mid-19th-century Afro-American-and-Native-American cultural exchange in New Orleans through 20th-century continuous tribal-performance into modern New Orleans continuous Mardi Gras practice; the Mardi Gras Indian \"tribes\" (Wild Magnolias, Wild Tchoupitoulas, Golden Eagles, Black Eagles) perform handmade-feathered-suit processional with characteristic call-and-response chants",
-  "recipe": "classic Caribbean modern new orleans mardi gras indians, carnival Processional, American south branch, Caribbean carnival processional, sub saharan African praise song, African diasporic funeral lament bahamian junkanoo yoruba ìrèmọjẹ. vocal fry, close mic intimate, straight onset, interlocked note trading. tambourine orch, synthetic remo modern hands layered tar frame drum. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 472,
-  "score": 143.137,
+  "recipe": "classic Caribbean modern new orleans mardi gras indians, carnival Processional, American south branch, Caribbean carnival processional, sub saharan African praise song, African diasporic funeral lament bahamian junkanoo rara. vocal fry, close mic intimate, straight onset, interlocked note trading. tambourine orch, synthetic remo modern hands layered tar frame drum. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 462,
+  "score": 131.582,
   "config": {
     "traditions": [
       "mardi_gras_indians",
       "caribbean_junkanoo",
-      "yoruba_iremoje"
+      "rara"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 1.4300000000000002,
-          "voice_quality": 9.88,
+          "voice_register": 0.78,
+          "voice_quality": 8.749,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2500000000000004,
-          "voice_articulation": 11.634999999999994,
-          "voice_microtone": 11.89499999999999,
-          "voice_tradition": 43.61499999999999,
-          "voice_mechanism_compound": 4.1375,
-          "voice_estill_quality": 3.3825000000000003,
-          "voice_speech_song": 13.389999999999993,
-          "voice_ensemble_config": 11.959999999999994,
-          "voice_ornament_system": 8.352499999999997,
-          "voice_pitch_organization": 10.454999999999997,
-          "voice_processing_chain": 2.0799999999999996,
-          "voice_multitrack_stack": 1.8200000000000003
+          "voice_articulation": 17.224999999999994,
+          "voice_microtone": 15.53499999999999,
+          "voice_tradition": 22.429499999999997,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 17.224999999999994,
+          "voice_ensemble_config": 15.404999999999992,
+          "voice_ornament_system": 3.0250000000000004,
+          "voice_pitch_organization": 7.273499999999999,
+          "voice_processing_chain": 2.2749999999999995,
+          "voice_multitrack_stack": 1.5599999999999994
         }
       },
       {
@@ -73,7 +73,7 @@
           "tar_frame_head": "tar_frame_synthetic"
         },
         "scores": {
-          "percussion_technique": 3.2,
+          "percussion_technique": 4.27,
           "tar_size": 0,
           "tar_frame_drum_context": 2.535,
           "tar_frame_shell_wood": 0.195,

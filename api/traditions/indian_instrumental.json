@@ -3,41 +3,41 @@
   "name": "Indian Instrumental (raga instrumental recital)",
   "family": "global",
   "lineage": "The instrument-led branch of Hindustani and Carnatic performance codified on record from the 1950s through HMV Dum Dum and All India Radio, shaped by Ravi Shankar, Ali Akbar Khan, Vilayat Khan and Hariprasad Chaurasia: unmetered alap over a tanpura drone, then jod and jhala, then gat cycles in tintal or jhaptal with tabla, built on meend, gamak and sympathetic-string resonance rather than sung text.",
-  "recipe": "classic South Asian mid-1950s indian instrumental, improv On Frame, indian classical improv branch, south Asian art music kutiyattam sanskrit recitation telugu kirtana. calabash open jawari vilayat khan canon long sustain buzzing overtones sitar, gut 3 main playing strings legato sarangi, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, steel modern tun indian cedar alternative santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani bismillah khan banaras lineage canonical Hindustani shehnai, indian rosewood rosewood copper tabla, harmonium indian, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 893,
-  "score": 202.315,
+  "recipe": "classic South Asian mid-1950s indian instrumental, improv On Frame, indian classical improv branch, south Asian art music carnatic kacheri hindustani vocal. calabash open jawari vilayat khan canon long sustain buzzing overtones sitar, gut 3 main playing strings legato sarangi, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, steel modern tun indian cedar alternative drone like modal santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani bismillah khan banaras lineage canonical Hindustani shehnai, indian rosewood rosewood copper tabla, treble-extended vocal female harmonium indian, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 927,
+  "score": 234.789,
   "config": {
     "traditions": [
       "indian_instrumental",
-      "kutiyattam_recitation",
-      "telugu_kirtana"
+      "carnatic_kacheri",
+      "hindustani_vocal"
     ],
     "instruments": [
       {
         "id": "sitar",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
-          "sitar_neck": "teak",
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "sitar_neck": "tun",
           "sitar_resonator": "single_kaddu",
           "sitar_jawari": "camel_bone",
           "sitar_taraf": "taraf_13",
           "sitar_frets": "tied_gut_parda",
           "sitar_pluck": "wire_mizrab",
-          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_main_strings": "sitar_phosphor_bronze",
           "sitar_jawari_style": "sitar_jawari_open",
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 9.5315,
-          "sitar_neck": 0.1365,
-          "sitar_resonator": 1,
-          "sitar_jawari": 0.39,
-          "sitar_taraf": 3.0679999999999996,
-          "sitar_frets": 0.3315,
-          "sitar_pluck": 4.9399999999999995,
-          "sitar_main_strings": 0.2415,
-          "sitar_jawari_style": 4.29,
-          "sitar_gharana": 9.165
+          "plucked_traditional_technique": 12.9445,
+          "sitar_neck": 0.195,
+          "sitar_resonator": 1.09,
+          "sitar_jawari": 0.585,
+          "sitar_taraf": 3.6214999999999993,
+          "sitar_frets": 0.3765,
+          "sitar_pluck": 5.2,
+          "sitar_main_strings": 0.21,
+          "sitar_jawari_style": 4.485,
+          "sitar_gharana": 11.115
         }
       },
       {
@@ -46,17 +46,17 @@
           "bowed_technique": "bowed_legato_classical",
           "sarangi_belly": "goat_skin_sarangi",
           "sarangi_taraf": "sarangi_40_strings",
-          "sarangi_bow": "horse_hair_loose",
+          "sarangi_bow": "horse_hair_tensioned",
           "sarangi_main_strings": "sarangi_gut_main",
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "bowed_technique": 9.5315,
-          "sarangi_belly": 0.845,
-          "sarangi_taraf": 0.845,
-          "sarangi_bow": 0.1365,
-          "sarangi_main_strings": 2.405,
-          "sarangi_body_wood": 0.845
+          "bowed_technique": 10.0315,
+          "sarangi_belly": 1.4949999999999999,
+          "sarangi_taraf": 0.2265,
+          "sarangi_bow": 0.063,
+          "sarangi_main_strings": 2.21,
+          "sarangi_body_wood": 0.585
         }
       },
       {
@@ -69,30 +69,30 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 9.7815,
+          "wind_articulation": 10.25,
           "bansuri_length": 3.77,
-          "bansuri_ornament": 9.669863636363635,
-          "bansuri_body_material": 8.839999999999998,
-          "bansuri_lineage": 2.535
+          "bansuri_ornament": 9.782999999999998,
+          "bansuri_body_material": 9.945,
+          "bansuri_lineage": 2.9899999999999998
         }
       },
       {
         "id": "santoor",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
+          "plucked_traditional_technique": "plucked_drone_modal",
           "santoor_courses": "santoor_70",
-          "santoor_mallets": "walnut_mallets",
+          "santoor_mallets": "felt_tipped",
           "santoor_strings": "steel_strings_santoor",
           "santoor_body_wood": "santoor_tun",
           "santoor_lineage": "santoor_shivkumar_sharma_canon"
         },
         "scores": {
-          "plucked_traditional_technique": 9.5315,
-          "santoor_courses": 4.9399999999999995,
-          "santoor_mallets": 0.1365,
-          "santoor_strings": 5.785,
-          "santoor_body_wood": 3.6399999999999997,
-          "santoor_lineage": 0.845
+          "plucked_traditional_technique": 12.9445,
+          "santoor_courses": 5.2,
+          "santoor_mallets": 0.063,
+          "santoor_strings": 5.3950000000000005,
+          "santoor_body_wood": 6.24,
+          "santoor_lineage": 0.65
         }
       },
       {
@@ -105,11 +105,11 @@
           "shehnai_lineage": "shehnai_bismillah_khan_banaras"
         },
         "scores": {
-          "shehnai_register": 1.69,
-          "shehnai_use": 16.38,
-          "shehnai_body_wood": 5.719999999999999,
-          "shehnai_reed": 0.845,
-          "shehnai_lineage": 4.745
+          "shehnai_register": 2.34,
+          "shehnai_use": 15.145,
+          "shehnai_body_wood": 7.865,
+          "shehnai_reed": 0.6164999999999999,
+          "shehnai_lineage": 4.9399999999999995
         }
       },
       {
@@ -120,9 +120,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 8.905,
-          "tabla_bayan": 5.785,
-          "tabla_syahi": 4.875
+          "tabla_dayan": 11.764999999999999,
+          "tabla_bayan": 5.2,
+          "tabla_syahi": 4.225
         }
       },
       {
@@ -135,9 +135,9 @@
         },
         "scores": {
           "free_reed_technique": 0.19500000000000003,
-          "harmonium_action": 0.845,
-          "harmonium_voicing": 0.845,
-          "harmonium_use": 5.785
+          "harmonium_action": 2.145,
+          "harmonium_voicing": 1.6899999999999997,
+          "harmonium_use": 6.695
         }
       },
       {
@@ -150,11 +150,11 @@
           "violin_carnatic_lineage": "violin_carnatic_lalgudi"
         },
         "scores": {
-          "bowed_technique": 9.5315,
-          "violin_carnatic_tuning": 22.164999999999996,
-          "violin_carnatic_posture": 4.55,
-          "violin_carnatic_strings": 4.68,
-          "violin_carnatic_lineage": 6.76
+          "bowed_technique": 10.0315,
+          "violin_carnatic_tuning": 25.804999999999996,
+          "violin_carnatic_posture": 7.8,
+          "violin_carnatic_strings": 7.474999999999999,
+          "violin_carnatic_lineage": 2.7299999999999995
         }
       }
     ],

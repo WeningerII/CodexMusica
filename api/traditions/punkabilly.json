@@ -1,0 +1,156 @@
+{
+  "id": "punkabilly",
+  "name": "Punkabilly",
+  "family": "rock_punk",
+  "lineage": "Late-1970s to 1980s Anglo-American crossover — Stray Cats' rockabilly revival, The Clash's rooted covers, Social Distortion and later Reverend Horton Heat — pairing rockabilly's walking bass line, hollow-body twang and 12-bar shuffle with punk's downstroke electric guitar, snare-heavy 4/4 backbeat at 150-190 BPM, and flat, shouted vocals rather than hiccup-and-echo crooning.",
+  "recipe": "classic North American 1977-1979 punkabilly, distorted Rock, punk branch, pop punk distorted rock, surf rock distorted rock, americana country skate punk oshare kei. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric upright bass, pre muffled edge muffled sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 659,
+  "score": 362.528,
+  "config": {
+    "traditions": [
+      "punkabilly",
+      "skate_punk",
+      "oshare_kei"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 29.909999999999993,
+          "voice_quality": 7.085000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.575,
+          "voice_articulation": 16.249999999999996,
+          "voice_microtone": 27.770000000000003,
+          "voice_tradition": 11.504999999999999,
+          "voice_mechanism_compound": 11.8625,
+          "voice_estill_quality": 6.76,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 26.86,
+          "voice_ornament_system": 0.9099999999999997,
+          "voice_pitch_organization": 3.770000000000001,
+          "voice_processing_chain": 7,
+          "voice_multitrack_stack": 5.6875
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_palm_muted_chug",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 21.05,
+          "amp_make": 35.574999999999996,
+          "body_wood": 0.585,
+          "neck_wood": 0.585,
+          "fretboard": 0.585,
+          "pickup_magnet": 0.195,
+          "string_material": 0.18,
+          "string_gauge": 0.585,
+          "bridge": 0.585,
+          "scale_length": 0.585,
+          "finish": 1,
+          "string_tuning": 10.855000000000002
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 13.325,
+          "body_wood": 0.78,
+          "pickup_config": 0.39,
+          "string_type": 24.5375,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.3,
+          "bass_technique": 38.685
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 20.370000000000005,
+          "drumhead": 8.985,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "slap_upright"
+        },
+        "scores": {
+          "upright_strings": 0.09,
+          "upright_play": 2.8399999999999994
+        }
+      }
+    ],
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "console_sony_mxp3000",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "rockabilly_50s_walking_bass_slap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "rockabilly_50s_walking_bass_slap",
+    "room": "studio_indie_commercial_us_80s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_sony_mxp3000"
+  }
+}

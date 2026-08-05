@@ -1,0 +1,158 @@
+{
+  "id": "csardas",
+  "name": "Csárdás",
+  "family": "global",
+  "lineage": "Hungarian couple dance codified in the 1830s-40s out of verbunkos recruiting music and named for the roadside csárda tavern, built as a paired form of slow lassú in moderate duple metre followed by an accelerating friss reaching 180-200 BPM, played by Roma-led restaurant bands of prímás violin, cimbalom, kontra and bass with a heavy dotted 'Hungarian' rhythm, augmented-second Gypsy-scale inflections, cadenza-like violin flourishes and huge accelerandi.",
+  "recipe": "classic Central European mid-1830s csárdás, wedding, European branch, European drinking song, Slavic balkan field work, string improv improv on frame cimbálová muzika flemish folk. carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, thermoset resin clarinet, venice catlin high twist renaissance bass carpathian spruce European maple double bass, traditional tarogato, castagnari Italian premium folk music accordion. budapest carpathian csarda tavern. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 718,
+  "score": 99.412,
+  "config": {
+    "traditions": [
+      "csardas",
+      "cimbalova_muzika",
+      "flemish_folk"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "plain_sheep_gut_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "tremolo_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.5499999999999998,
+          "orch_strings": 0.585,
+          "orch_top_wood": 4.2250000000000005,
+          "orch_back_wood": 7.1825,
+          "orch_varnish": 2.1125,
+          "orch_setup_period": 2.4375,
+          "orch_bow": 3.945,
+          "orch_bow_stick": 2.105,
+          "orch_articulation": 0.15,
+          "orch_rosin": 1.5750000000000002
+        }
+      },
+      {
+        "id": "cimbalom",
+        "slots": {
+          "cimbalom_size": "cimbalom_concert_pedal",
+          "cimbalom_mallet": "cimbalom_cotton_wound"
+        },
+        "scores": {
+          "cimbalom_size": 24.82999999999999,
+          "cimbalom_mallet": 0
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "clarinet_body": "hanson_btr_clarinet",
+          "clarinet_size": "contra_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "clarinet_body": 1.625,
+          "clarinet_size": 1.26,
+          "clarinet_reed": 0.195,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_seven_eighth",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "bass_size": 0.045,
+          "bass_strings": 1.5999999999999999,
+          "bass_top_wood": 4.2250000000000005,
+          "bass_back_wood": 6.3375,
+          "bass_varnish": 1.625,
+          "bass_setup_period": 2.4375,
+          "bass_play": 0.045,
+          "bass_rosin": 3.27,
+          "bass_bow_stick": 2.105
+        }
+      },
+      {
+        "id": "tarogato",
+        "slots": {
+          "tarogato_type": "tarogato_schunda_soprano",
+          "tarogato_repertoire": "tarogato_verbunkos",
+          "tarogato_body_wood": "tarogato_plumwood"
+        },
+        "scores": {
+          "tarogato_type": 6.375,
+          "tarogato_repertoire": 9.125,
+          "tarogato_body_wood": 5.375
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "accordion_reed_material": "machine_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 2.325,
+          "accordion_reed_material": 0.65,
+          "musette_offset": 0.195,
+          "reed_config": 1.1099999999999997,
+          "bellows": 0,
+          "voicing_chamber": 0.45499999999999996,
+          "accordion_maker_school": 2.535
+        }
+      }
+    ],
+    "room": "budapest_carpathian_csarda_tavern",
+    "archetype": "arch_comecon_state_label",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "budapest_carpathian_csarda_tavern",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "id": "cornish_folk",
+  "name": "Cornish folk",
+  "family": "global",
+  "lineage": "Traditional music of Cornwall documented from the 1820s Sandys and Gilbert carol collections and revived from the 1970s alongside the Cornish-language movement — four-part west-gallery Christmas carols sung by male-heavy village choirs, harbour shanties from the Port Isaac and Padstow coast, the Furry Dance and Obby Oss processional tunes on melodeon and accordion, and Kernewek-language song set to modal fiddle and pipe accompaniment.",
+  "recipe": "classic mid-1820s cornish folk, ballad Poetry, Celtic balladic branch, atlantic Southeast Asian shanty, European carnival processional newfoundland outport sea-shanty and work-song american clipper-ship shanty. thick, breath veiled tone, straight onset, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional aka four part motangole ngue osese diyei global traditional polyphonic choir ensemble, Celtic straight melodeon diatonic, leather castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base drone like fiddle, bass drum. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 684,
+  "score": 220.064,
+  "config": {
+    "traditions": [
+      "cornish_folk",
+      "newfoundland_outport_shanty",
+      "american_clipper_shanty"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 10.75,
+          "voice_quality": 12.544999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.56,
+          "voice_articulation": 17.16,
+          "voice_microtone": 18.265,
+          "voice_tradition": 20.1895,
+          "voice_mechanism_compound": 2.8599999999999994,
+          "voice_estill_quality": 3.0550000000000006,
+          "voice_speech_song": 23.4,
+          "voice_ensemble_config": 18.525,
+          "voice_ornament_system": 7.775000000000002,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 3.5850000000000004,
+          "voice_multitrack_stack": 3.0550000000000006
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_aka_four_part",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 3.9,
+          "choir_polyphonic_configuration": 4.094999999999999,
+          "choir_regional_canonical_configuration": 1.95,
+          "choir_ensemble_repertoire": 6.5
+        }
+      },
+      {
+        "id": "melodeon_diatonic",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "melodeon_rows": "melodeon_2_row",
+          "melodeon_diatonic_context": "melodeon_diatonic_celtic"
+        },
+        "scores": {
+          "free_reed_technique": 9.194999999999999,
+          "melodeon_rows": 6.434999999999999,
+          "melodeon_diatonic_context": 2.0100000000000002
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 9.194999999999999,
+          "accordion_reed_material": 0.375,
+          "musette_offset": 2.1045,
+          "reed_config": 0.7,
+          "bellows": 1.15,
+          "voicing_chamber": 0.45499999999999996,
+          "accordion_maker_school": 9.1
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco"
+        },
+        "scores": {
+          "bowed_technique": 9.305,
+          "fiddle_strings": 1.69,
+          "fiddle_bow": 4.225,
+          "fiddle_mute": 0.7,
+          "fiddle_articulation": 1.4449999999999998
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_18_jazz",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.39,
+          "bass_drum_beater": 0.39
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "stone_parish_church",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

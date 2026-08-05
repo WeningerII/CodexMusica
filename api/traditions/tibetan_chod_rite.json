@@ -3,14 +3,14 @@
   "name": "Tibetan chöd rite (voice with damaru and kangling)",
   "family": "global",
   "lineage": "Chöd ('cutting') is a Tibetan Buddhist tantric practice systematized in the eleventh–twelfth centuries by the female adept Machig Labdrön, in which the practitioner symbolically severs ego-attachment by visualizing the offering of the body to spirits, often performed in charnel grounds and wild places. The sadhana is sung to characteristic melodic chant lines while the practitioner plays the damaru (double-headed hand drum) and the kangling (thighbone trumpet), whose blasts summon the guests to the feast. It crosses lineage boundaries (Nyingma, Kagyü, Gelug) and combines melodic yang-style chant with deep resonant vocalization. The tradition is transmitted through empowerment and practice-text lineages and documented in Tibetan liturgical manuscripts and modern ethnomusicology.",
-  "recipe": "classic East Asian modern tibetan chöd rite, ritual Devotional, buddhist branch shipibo-conibo icaros healing songs sufi inshad. vocal fry, breath veiled tone, straight note core, interlocked note trading. tibetan gompa assembly hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 297,
-  "score": 228.582,
+  "recipe": "classic East Asian modern tibetan chöd rite, ritual Devotional, buddhist branch shipibo-conibo icaros healing songs mongolian böö shamanic invocation. vocal fry, breath veiled tone, straight note core, interlocked note trading. tibetan gompa assembly hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 319,
+  "score": 229.668,
   "config": {
     "traditions": [
       "tibetan_chod_rite",
       "shipibo_icaros",
-      "sufi_inshad_egyptian"
+      "mongolian_boo_invocation"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "qawwali_tradition",
+          "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.4949999999999999,
-          "voice_quality": 43.095000000000034,
+          "voice_register": 0.65,
+          "voice_quality": 45.63000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.835,
-          "voice_articulation": 23.269999999999996,
-          "voice_microtone": 34.677499999999995,
-          "voice_tradition": 16.575,
-          "voice_mechanism_compound": 6.261000000000001,
-          "voice_estill_quality": 10.040375,
-          "voice_speech_song": 26.2925,
-          "voice_ensemble_config": 26.845,
-          "voice_ornament_system": 16.700000000000003,
-          "voice_pitch_organization": 4.258000000000001,
-          "voice_processing_chain": 11.7,
-          "voice_multitrack_stack": 5.525
+          "voice_articulation": 25.805,
+          "voice_microtone": 25.61,
+          "voice_tradition": 19.175,
+          "voice_mechanism_compound": 12.511000000000001,
+          "voice_estill_quality": 8.651875,
+          "voice_speech_song": 26.65,
+          "voice_ensemble_config": 30.225,
+          "voice_ornament_system": 11.775,
+          "voice_pitch_organization": 1.1699999999999995,
+          "voice_processing_chain": 12.544999999999998,
+          "voice_multitrack_stack": 6.110000000000001
         }
       }
     ],

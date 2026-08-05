@@ -1,0 +1,96 @@
+{
+  "id": "islamic_recitation_mujawwad",
+  "name": "Islamic recitation (adhān and mujawwad tilāwa)",
+  "family": "global",
+  "lineage": "The ornate melodic register of Islamic vocal recitation — the call to prayer and mujawwad Qur'anic tilāwa — as perfected by Cairo's radio reciters from the 1930s onward and disseminated through Egyptian state broadcast, in which a solo unaccompanied voice moves through a full maqam modulation cycle (bayati to saba to hijaz and back), sustains extreme melismatic elongation, and shapes each phrase to a single long breath with no fixed meter.",
+  "recipe": "classic North African mid-1930s islamic recitation, ritual Devotional, islamic branch, Persian arab improv improv on frame, Sufi ritual devotional sufi zikr chant ney taksim. vocal fry, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 627,
+  "score": 191.187,
+  "config": {
+    "traditions": [
+      "islamic_recitation_mujawwad",
+      "sufi_zikr_chant",
+      "ney_taksim"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.145,
+          "voice_quality": 15.59999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.380000000000001,
+          "voice_articulation": 16.444999999999997,
+          "voice_microtone": 26.942499999999992,
+          "voice_tradition": 18.52,
+          "voice_mechanism_compound": 5.895000000000001,
+          "voice_estill_quality": 7.029999999999999,
+          "voice_speech_song": 19.3375,
+          "voice_ensemble_config": 19.955,
+          "voice_ornament_system": 9.600000000000001,
+          "voice_pitch_organization": 8.905,
+          "voice_processing_chain": 3.8349999999999995,
+          "voice_multitrack_stack": 4.225
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 15.889999999999999,
+          "choir_polyphonic_configuration": 4.215,
+          "choir_regional_canonical_configuration": 9.554999999999998,
+          "choir_ensemble_repertoire": 2.6
+        }
+      }
+    ],
+    "room": "cairo_studio_misr_umm_kulthum_era",
+    "archetype": "arch_arab_east_state_radio",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_fairchild_670_tube",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "cairo_studio_misr_umm_kulthum_era",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

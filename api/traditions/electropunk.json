@@ -1,0 +1,172 @@
+{
+  "id": "electropunk",
+  "name": "Electropunk",
+  "family": "rock_punk",
+  "lineage": "Style running from Suicide's 1977 New York duo format through Alec Empire and Le Tigre in the 1990s, using a distorted drum machine and a screaming monophonic synth in place of a rhythm section, with shouted or slap-back-echoed vocals over relentless one-chord ostinatos at 130-160 BPM and no guitar solos or harmonic development.",
+  "recipe": "classic European mid-1990s electropunk, distorted Rock, punk branch, industrial noise experimental electric, continental electronic dance aggrotech futurepop. thick, breath veiled tone, straight note core, interlocked note trading. analog mono synth, drum machine analog, lead instrument elevated psychedelic foregrounded organ driven rock combo organ, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation power chord single coil electric guitar, drum machine 606. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 605,
+  "score": 152.807,
+  "config": {
+    "traditions": [
+      "electropunk",
+      "aggrotech",
+      "futurepop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 5.940000000000002,
+          "voice_quality": 7.995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 14.494999999999994,
+          "voice_microtone": 14.68999999999999,
+          "voice_tradition": 7.15,
+          "voice_mechanism_compound": 9.035,
+          "voice_estill_quality": 4.030000000000001,
+          "voice_speech_song": 14.949999999999992,
+          "voice_ensemble_config": 15.274999999999993,
+          "voice_ornament_system": 1.4399999999999997,
+          "voice_pitch_organization": 1.4299999999999997,
+          "voice_processing_chain": 10.255,
+          "voice_multitrack_stack": 3.380000000000001
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 1.1249999999999998,
+          "mono_oscillator": 0,
+          "mono_filter": 0.39,
+          "mono_archetypes": 0.585,
+          "mono_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.195,
+          "snare_voice": 0.195,
+          "hat_voice": 0.195,
+          "shuffle_quantize": 2.615
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_compact",
+          "combo_organ_voicing": "combo_organ_16_pedal",
+          "combo_organ_context": "combo_organ_doors_psych",
+          "amp_make": "amp_unspecified"
+        },
+        "scores": {
+          "keyboard_technique": 2.775,
+          "combo_organ_model": 1.9174999999999998,
+          "combo_organ_voicing": 2.7299999999999995,
+          "combo_organ_context": 2.6,
+          "amp_make": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "basswood",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "flatwound_elec",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 6.5,
+          "amp_make": 8.995000000000001,
+          "body_wood": 0.435,
+          "neck_wood": 0.39,
+          "fretboard": 0.325,
+          "pickup_magnet": 0.24,
+          "string_material": 0.195,
+          "string_gauge": 0.39,
+          "bridge": 0.24,
+          "scale_length": 0.39,
+          "finish": 0.045,
+          "string_tuning": 4.745
+        }
+      },
+      {
+        "id": "drum_machine_606",
+        "slots": {
+          "drum_machine_606_voice": "drum_machine_606_cymbal",
+          "drum_machine_606_context": "drum_machine_606_electro"
+        },
+        "scores": {
+          "drum_machine_606_voice": 0.585,
+          "drum_machine_606_context": 1.34
+        }
+      }
+    ],
+    "room": "concrete_basement",
+    "archetype": "arch_german_diy_converted",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

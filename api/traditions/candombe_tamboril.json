@@ -1,0 +1,130 @@
+{
+  "id": "candombe_tamboril",
+  "name": "Candombe (tamboril llamada)",
+  "family": "global",
+  "lineage": "Afro-Uruguayan drum tradition of Montevideo's Barrio Sur, Palermo and Cordón conventillos, descended from nineteenth-century Kongo-Angolan salas de nación and codified as the llamada street parade: three tamboriles of different sizes — chico marking the fastest pulse, repique improvising, piano playing the low walking line — struck with one stick and one bare hand at 90-110 BPM around the madera clave, played walking behind fire-tuned drumheads with call-and-response chant.",
+  "recipe": "classic South American modern candombe, carnival Processional, river plate branch, Latin am groove percussion, Afro-diasporic ritual devotional folklore panameño nyahbinghi. vocal fry, breath veiled tone, slow rate, interlocked note trading. full cuerda street parade staved wood cowhide head flame tuned candombe tamboriles, double bass rapid double strokes bass drum, low fundamental tuning dense rosewood claves, a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. montevideo candombe barrio sur carnival. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 682,
+  "score": 195.95,
+  "config": {
+    "traditions": [
+      "candombe_tamboril",
+      "folklore_panameno",
+      "nyahbinghi"
+    ],
+    "instruments": [
+      {
+        "id": "candombe_tamboriles",
+        "slots": {
+          "candombe_tamboriles_drum": "candombe_tamboriles_cuerda",
+          "candombe_tamboriles_context": "candombe_tamboriles_llamada",
+          "candombe_tamboriles_build": "candombe_tamboriles_wood_cowhide"
+        },
+        "scores": {
+          "candombe_tamboriles_drum": 15.654999999999998,
+          "candombe_tamboriles_context": 13.045,
+          "candombe_tamboriles_build": 2.55
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 1.885,
+          "voice_quality": 16.57499999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 5.85,
+          "voice_articulation": 16.509999999999998,
+          "voice_microtone": 16.964999999999993,
+          "voice_tradition": 8.385,
+          "voice_mechanism_compound": 7.215,
+          "voice_estill_quality": 4.030000000000001,
+          "voice_speech_song": 18.459999999999997,
+          "voice_ensemble_config": 16.639999999999997,
+          "voice_ornament_system": 3.9000000000000004,
+          "voice_pitch_organization": 3.9000000000000004,
+          "voice_processing_chain": 8.405,
+          "voice_multitrack_stack": 2.990000000000001
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 1.495,
+          "bass_drum_beater": 1.4949999999999999
+        }
+      },
+      {
+        "id": "claves",
+        "slots": {
+          "claves_pattern": "claves_rumba",
+          "claves_wood": "claves_rosewood"
+        },
+        "scores": {
+          "claves_pattern": 7.6049999999999995,
+          "claves_wood": 1.9
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 10.464999999999998,
+          "choir_polyphonic_configuration": 4.03,
+          "choir_regional_canonical_configuration": 6.249999999999999,
+          "choir_ensemble_repertoire": 3.25
+        }
+      }
+    ],
+    "room": "montevideo_candombe_barrio_sur_carnival",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "milonga_2_4_ostinato",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "milonga_2_4_ostinato",
+    "room": "montevideo_candombe_barrio_sur_carnival",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

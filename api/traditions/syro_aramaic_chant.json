@@ -1,0 +1,95 @@
+{
+  "id": "syro_aramaic_chant",
+  "name": "Syro-Aramaic chant (Beth Gazo modal cycle)",
+  "family": "global",
+  "lineage": "Liturgical chant of the Syriac churches of Tur Abdin, Mosul and Kerala, organized since the sixth-century hymnody of Jacob of Serugh and Ephrem into the eight-mode Beth Gazo treasury codified by Patriarch Yacoub III in 1913 — unaccompanied antiphonal singing in Syriac by two half-choirs, strictly syllabic strophic qole in fixed poetic meters of five, seven or twelve syllables, alternating with free unmetered melismatic sections, over an occasional held drone.",
+  "recipe": "classic Caucasian early-1910s syro-aramaic chant, ritual Devotional, christian gospel branch, christian gospel coptic, middle east n African praise song coptic hymnody ethiopian debtera liturgical incantation. thick, declaimed, fast rate, interlocked note trading. a cappella small 3 to 8 one per part antiphonal double choir alternating kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 524,
+  "score": 186.847,
+  "config": {
+    "traditions": [
+      "syro_aramaic_chant",
+      "coptic_hymn",
+      "ethiopian_debtera_incantation"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 9.669999999999998,
+          "voice_quality": 25.274999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 15.859999999999996,
+          "voice_microtone": 20.7675,
+          "voice_tradition": 13.990000000000002,
+          "voice_mechanism_compound": 5.720000000000001,
+          "voice_estill_quality": 10.510000000000002,
+          "voice_speech_song": 15.274999999999995,
+          "voice_ensemble_config": 14.364999999999997,
+          "voice_ornament_system": 11.825000000000001,
+          "voice_pitch_organization": 10.984999999999996,
+          "voice_processing_chain": 15.599999999999998,
+          "voice_multitrack_stack": 3.1200000000000006
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 4.29,
+          "choir_polyphonic_configuration": 2.99,
+          "choir_regional_canonical_configuration": 5.9799999999999995,
+          "choir_ensemble_repertoire": 6.825
+        }
+      }
+    ],
+    "room": "stone_armenian_church",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "stone_armenian_church",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

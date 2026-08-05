@@ -1,0 +1,188 @@
+{
+  "id": "music_hall",
+  "name": "Music Hall",
+  "family": "vernacular",
+  "lineage": "British urban variety song of roughly 1850-1920, born in London public-house saloon theatres and codified by Marie Lloyd, Gus Elen, Harry Champion and Vesta Tilley — brisk 2/4 and 6/8 comic patter and waltz choruses, cockney or regional dialect delivery pitched between speech and song, chorus lines written for mass audience singalong, backed by pit piano with cornet, trombone and tuba, and preserved on acoustic-horn 78s.",
+  "recipe": "classic early-1850s music hall, spoken Word, stage performance branch, crooners functional song, European drinking song dutch folk flemish folk. thick, breath veiled tone, slow rate, interlocked note trading. upright piano, yellow brass canonical brass band conn vintage early jazz canon cornet, red brass 90 10 darker orchestral bass trombone trombone, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, wood light steel clawhammer canon scruggs stelling bluegrass setup banjo 5 string, bass drum. blanket damped 1925-1945 commercial-major electrical era office. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 637,
+  "score": 201.192,
+  "config": {
+    "traditions": [
+      "music_hall",
+      "dutch_folk",
+      "flemish_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 4.97,
+          "voice_quality": 4.940000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.78,
+          "voice_articulation": 21.644999999999996,
+          "voice_microtone": 21.904999999999998,
+          "voice_tradition": 8.6125,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 30.549999999999997,
+          "voice_ensemble_config": 22.619999999999994,
+          "voice_ornament_system": 1.7549999999999994,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 4.9399999999999995,
+          "voice_multitrack_stack": 1.9349999999999998
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "upright_use": "upright_honky_tonk",
+          "upright_piano_size": "upright_piano_spinet"
+        },
+        "scores": {
+          "keyboard_technique": 0.12999999999999998,
+          "upright_use": 1.495,
+          "upright_piano_size": 1.3
+        }
+      },
+      {
+        "id": "cornet",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "cornet_pitch": "cornet_eb_high",
+          "cornet_context": "cornet_solo",
+          "cornet_bell_metal": "cornet_yellow_brass",
+          "cornet_maker_school": "cornet_conn_vintage"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "cornet_pitch": 0.9750000000000001,
+          "cornet_context": 2.795,
+          "cornet_bell_metal": 1.62,
+          "cornet_maker_school": 1.5150000000000001
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "valve_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 0.9399999999999998,
+          "trombone_type": 1.26,
+          "trombone_mouthpiece": 1.2349999999999999,
+          "trombone_mute": 0.545,
+          "trombone_technique": 0.135,
+          "trombone_bell_metal": 1.17,
+          "trombone_maker_school": 0.39
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "tuba_pitch": 2.24,
+          "tuba_context": 2.795,
+          "tuba_bell_metal": 1.17,
+          "tuba_valve_system": 0.48000000000000004,
+          "tuba_maker_school": 1.3
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.835,
+          "tone_ring": 1.2,
+          "banjo_head": 22.75,
+          "banjo_pot": 0.15,
+          "banjo_play": 0.5,
+          "banjo_rim_wood": 0.585,
+          "banjo_neck_wood": 0.9299999999999999,
+          "banjo_strings": 1.1249999999999998,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 20.085
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.195,
+          "bass_drum_beater": 0.38999999999999996
+        }
+      }
+    ],
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_acoustic_horn_pre1925",
+    "inline_chain": {
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "transformerless",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "room": "studio_electrical_era_office",
+    "chain_mic": "mic_acoustic_horn_pre1925",
+    "chain_pre": "transformerless",
+    "chain_medium": "shellac_78",
+    "chain_console": "clean"
+  }
+}

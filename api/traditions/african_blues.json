@@ -1,0 +1,197 @@
+{
+  "id": "african_blues",
+  "name": "African Blues",
+  "family": "global",
+  "lineage": "Consolidated in Mali, Niger and the wider Sahel from the 1970s onward — Ali Farka Toure, Boubacar Traore, Tinariwen and Tamikrest recast Songhai, Mande and Tuareg modal repertoire for electric guitar, keeping the ngoni and tehardent's cyclic pentatonic ostinato, one-chord drone-based harmony, calabash and hand-clap 6/8 and 4/4 patterns around 90-120 BPM, and call-and-response singing in Songhai, Bambara or Tamasheq over guitar lines that ornament rather than resolve.",
+  "recipe": "classic North African mid-1970s african blues, drone Modal, modal electric branch, blues electric functional song, west African griot ballad poetry musique soninke ngoni music. thick, breath veiled tone, wide pitch sway, interlocked note trading. fast decay low resonance percussive ebony single coil electric guitar, calabash gourd canonical bambara call-and-response ngoni, tehardent, calabash cowhide mande traditional mande hardwood local traditional kora, mid strong calabash inverted calabash, snappy to palm hand clap, djembe. saharan desert encampment. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 623,
+  "score": 325.245,
+  "config": {
+    "traditions": [
+      "african_blues",
+      "soninke_music",
+      "ngoni_jeli"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "mahogany",
+          "neck_wood": "roasted_maple",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "dadgad"
+        },
+        "scores": {
+          "electric_technique": 2.8600000000000003,
+          "amp_make": 2.725,
+          "body_wood": 0.43500000000000005,
+          "neck_wood": 0.65,
+          "fretboard": 1.1949999999999998,
+          "pickup_magnet": 0.045,
+          "string_material": 0.045,
+          "string_gauge": 1.3,
+          "bridge": 0.6950000000000001,
+          "scale_length": 0.87,
+          "finish": 0.545,
+          "string_tuning": 4.885
+        }
+      },
+      {
+        "id": "ngoni",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "ngoni_strings": "ngoni_4",
+          "ngoni_use": "ngoni_griot",
+          "ngoni_resonator": "ngoni_calabash_canonical",
+          "ngoni_skin": "ngoni_goat_skin",
+          "ngoni_string_material": "ngoni_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 38.35,
+          "ngoni_strings": 2.8499999999999996,
+          "ngoni_use": 0.585,
+          "ngoni_resonator": 3.6,
+          "ngoni_skin": 0.65,
+          "ngoni_string_material": 0.545
+        }
+      },
+      {
+        "id": "tehardent",
+        "slots": {
+          "tehardent_body": "tehardent_wood_hide",
+          "tehardent_style": "tehardent_takamba"
+        },
+        "scores": {
+          "tehardent_body": 1.3,
+          "tehardent_style": 0.26999999999999996
+        }
+      },
+      {
+        "id": "kora",
+        "slots": {
+          "plucked_traditional_technique": "plucked_call_and_response",
+          "kora_strings": "kora_21_traditional",
+          "kora_resonator": "kora_calabash_med",
+          "kora_strings_mat": "kora_fishing_line",
+          "kora_top_skin": "kora_cowhide_canonical",
+          "kora_neck_wood": "kora_hardwood_local",
+          "kora_lineage": "kora_diabate_lineage"
+        },
+        "scores": {
+          "plucked_traditional_technique": 38.35,
+          "kora_strings": 2.8499999999999996,
+          "kora_resonator": 3.145,
+          "kora_strings_mat": 0.65,
+          "kora_top_skin": 1.9500000000000002,
+          "kora_neck_wood": 1.995,
+          "kora_lineage": 3.1
+        }
+      },
+      {
+        "id": "inverted_calabash",
+        "slots": {
+          "inverted_calabash_size": "inverted_calabash_medium",
+          "inverted_calabash_technique": "inverted_calabash_cloth_sticks"
+        },
+        "scores": {
+          "inverted_calabash_size": 2.99,
+          "inverted_calabash_technique": 0.195
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 2.08,
+          "clap_capture": 0.65
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 7.32,
+          "voice_quality": 14.429999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.63,
+          "voice_articulation": 22.880000000000003,
+          "voice_microtone": 28.47,
+          "voice_tradition": 36.455,
+          "voice_mechanism_compound": 8.844999999999999,
+          "voice_estill_quality": 4.84,
+          "voice_speech_song": 26.650000000000006,
+          "voice_ensemble_config": 25.35,
+          "voice_ornament_system": 4.2,
+          "voice_pitch_organization": 2.6950000000000003,
+          "voice_processing_chain": 10.7575,
+          "voice_multitrack_stack": 5.427500000000001
+        }
+      },
+      {
+        "id": "djembe",
+        "slots": {
+          "djembe_wood": "djembe_mahogany",
+          "djembe_skin": "djembe_synthetic",
+          "djembe_play": "djembe_traditional_3"
+        },
+        "scores": {
+          "djembe_wood": 0.195,
+          "djembe_skin": 0.545,
+          "djembe_play": 0
+        }
+      }
+    ],
+    "room": "saharan_desert_encampment",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "tuareg_pentatonic_raised4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "tuareg_pentatonic_raised4",
+    "room": "saharan_desert_encampment",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

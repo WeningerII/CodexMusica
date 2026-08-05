@@ -3,14 +3,14 @@
   "name": "Irish suantraí (Irish-Gaelic lullaby)",
   "family": "global",
   "lineage": "Irish-Gaelic cradle-song tradition continuous from medieval Gaeltacht oral practice through 19th-century folksong collection and 20th-century sean-nós-revival vocal singing; suantraí is one of the three classical Irish music-genre categories (with goltraí for lament and geantraí for the joyful)",
-  "recipe": "classic modern irish suantraí, lullaby, European branch, vocal drone modal, Celtic balladic ballad poetry, Celtic traditional improv on frame sean-nós solo singing cape breton milling-frolic. vocal fry, breath veiled tone, slow rate, interlocked note trading. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 333,
-  "score": 180.282,
+  "recipe": "classic modern irish suantraí, lullaby, European branch, vocal drone modal, Celtic balladic ballad poetry, Celtic traditional improv on frame scottish gaelic folk song sean-nós singing. vocal fry, breath veiled tone, slow rate, interlocked note trading. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 327,
+  "score": 204.61,
   "config": {
     "traditions": [
       "irish_suantrai",
-      "sean_nos_solo",
-      "cape_breton_milling"
+      "scottish_gaelic_folk",
+      "sean_nos_singing"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.484999999999999,
-          "voice_quality": 8.254999999999999,
+          "voice_register": 2.9899999999999998,
+          "voice_quality": 12.869999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.615,
-          "voice_articulation": 10.724999999999994,
-          "voice_microtone": 12.869999999999994,
-          "voice_tradition": 40.33249999999999,
-          "voice_mechanism_compound": 5.46,
-          "voice_estill_quality": 4.680000000000001,
-          "voice_speech_song": 13.194999999999997,
-          "voice_ensemble_config": 11.212499999999995,
-          "voice_ornament_system": 57.88999999999999,
-          "voice_pitch_organization": 5.687500000000001,
-          "voice_processing_chain": 4.355,
-          "voice_multitrack_stack": 5.069999999999999
+          "voice_vibrato": 4.965000000000001,
+          "voice_articulation": 16.055,
+          "voice_microtone": 18.394999999999996,
+          "voice_tradition": 33.93,
+          "voice_mechanism_compound": 9.100000000000001,
+          "voice_estill_quality": 6.175000000000001,
+          "voice_speech_song": 20.085,
+          "voice_ensemble_config": 17.874999999999996,
+          "voice_ornament_system": 47.86500000000001,
+          "voice_pitch_organization": 7.67,
+          "voice_processing_chain": 5.07,
+          "voice_multitrack_stack": 3.9650000000000007
         }
       }
     ],

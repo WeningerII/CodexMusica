@@ -3,9 +3,9 @@
   "name": "Darmstadt School (total serialism)",
   "family": "classical",
   "lineage": "Post-war European avant-garde composer movement centered on the Internationale Ferienkurse für Neue Musik in Darmstadt (founded 1946), extending Webern's serial-row organization to all musical parameters (pitch, rhythm, dynamics, articulation, register) — \"total serialism\" or \"integral serialism.\" Boulez's Structures Ia (1952), Stockhausen's Kreuzspiel (1951), and Nono's Il canto sospeso (1956) constitute the canonical type-specimens. The Darmstadt School defined the European-modernist mainstream of 1950s-1960s.",
-  "recipe": "classic European mid-1950s darmstadt school, art Music, western modern branch, musique concrete experimental electric acousmatic music soundscape composition. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe": "classic European mid-1950s darmstadt school, art Music, western modern branch, musique concrete experimental electric acousmatic music soundscape composition. thick, breath veiled tone, slow rate, interlocked note trading. modern bright beech laminated maple laminated European tradition European spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 515,
-  "score": 230.403,
+  "score": 228.346,
   "config": {
     "traditions": [
       "darmstadt_school_total_serialism",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 4.05,
+          "voice_register": 4.245,
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.5,
+          "voice_vibrato": 5.9225,
           "voice_articulation": 6.5649999999999995,
-          "voice_microtone": 7.403,
-          "voice_tradition": 9.07775,
+          "voice_microtone": 6.6385,
+          "voice_tradition": 9.425,
           "voice_mechanism_compound": 4.9,
-          "voice_estill_quality": 7.398750000000001,
+          "voice_estill_quality": 7.135000000000001,
           "voice_speech_song": 9.555,
           "voice_ensemble_config": 4.8100000000000005,
           "voice_ornament_system": 6.2,
-          "voice_pitch_organization": 6.2,
-          "voice_processing_chain": 2.333,
+          "voice_pitch_organization": 6.83,
+          "voice_processing_chain": 2.18025,
           "voice_multitrack_stack": 1.8524999999999998
         }
       },
@@ -57,8 +57,8 @@
         "slots": {
           "keyboard_technique": "keyboard_avant_prepared",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "yamaha_cfx",
-          "piano_hammer": "renner_standard_hammer",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_blue_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": 10.5,
-          "grand_piano_size": 1.8199999999999998,
-          "grand_piano_brand": 0.33699999999999997,
-          "piano_hammer": 12.558,
-          "piano_rim": 12.8115,
-          "piano_soundboard": 9.0615,
+          "grand_piano_size": 1.8147499999999999,
+          "grand_piano_brand": 0.15,
+          "piano_hammer": 12.08875,
+          "piano_rim": 12.825,
+          "piano_soundboard": 9.075,
           "piano_pinblock": 8.75,
-          "piano_plate": 9.86375,
-          "piano_pitch_standard": 12.195
+          "piano_plate": 9.48875,
+          "piano_pitch_standard": 12.765
         }
       },
       {
@@ -86,22 +86,22 @@
           "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
+          "orch_bow": "baroque_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 5.105,
-          "orch_strings": 1.8199999999999998,
-          "orch_top_wood": 8.535,
+          "bowed_technique": 5,
+          "orch_strings": 1.8147499999999999,
+          "orch_top_wood": 8.685,
           "orch_back_wood": 11.35,
           "orch_varnish": 8.75,
-          "orch_setup_period": 9.86375,
-          "orch_bow": 0.15599999999999997,
-          "orch_bow_stick": 9.6025,
-          "orch_articulation": 1.8199999999999998,
-          "orch_rosin": 9.86375
+          "orch_setup_period": 9.48875,
+          "orch_bow": 0.15,
+          "orch_bow_stick": 9.292499999999999,
+          "orch_articulation": 1.8147499999999999,
+          "orch_rosin": 9.48875
         }
       }
     ],

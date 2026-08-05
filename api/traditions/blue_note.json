@@ -1,0 +1,170 @@
+{
+  "id": "blue_note",
+  "name": "Blue Note (hard bop house style)",
+  "family": "jazz",
+  "lineage": "The house style of Alfred Lion and Francis Wolff's Blue Note Records, formed in New York 1955-1967 and given its sonic signature by engineer Rudy Van Gelder at Hackensack and Englewood Cliffs — medium-up 4/4 swing at 160-240 BPM with 12/8 gospel shuffles, trumpet-and-tenor front lines over piano, walking bass and ride-cymbal-led kit, blues-and-gospel-inflected original heads in place of standards, and rehearsal-paid sessions producing tight arranged ensembles.",
+  "recipe": "classic North American mid-1960s blue note, improv On Frame, hard bop branch, American jazz soul jazz neo-bop. bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, bach 42 canonical American orchestral tenor ensemble student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 795,
+  "score": 438.346,
+  "config": {
+    "traditions": [
+      "blue_note",
+      "soul_jazz",
+      "neo_bop"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 7.955249999999999,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 37.482625000000006,
+          "brass_mute": 0.585,
+          "trumpet_technique": 7.955249999999999,
+          "trumpet_bell_metal": 0.195,
+          "trumpet_maker_school": 7.865000000000001
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 7.955249999999999,
+          "sax_size": 6.5729999999999995,
+          "sax_reed": 0.585,
+          "sax_body_alloy": 29.116750000000003,
+          "sax_mouthpiece": 0.39,
+          "sax_technique": 28.912125000000003,
+          "sax_maker_school": 36.611875000000005
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "tailgate_slide",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 7.955249999999999,
+          "trombone_type": 28.875000000000004,
+          "trombone_mouthpiece": 29.250000000000004,
+          "trombone_mute": 0.12374999999999999,
+          "trombone_technique": 0.65,
+          "trombone_bell_metal": 0.232125,
+          "trombone_maker_school": 9.165000000000001
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 13.9855,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 9.295000000000002,
+          "piano_rim": 8.385000000000002,
+          "piano_soundboard": 2.1850000000000005,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.585,
+          "piano_pitch_standard": 1.2999999999999998
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_sul_tasto",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "plywood_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "baroque_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 0.12999999999999998,
+          "bass_size": 0.195,
+          "bass_strings": 2.4699999999999998,
+          "bass_top_wood": -0.05,
+          "bass_back_wood": -0.05,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 2.6000000000000005,
+          "bass_play": 29.119500000000002,
+          "bass_rosin": 41.053125,
+          "bass_bow_stick": 0.6499999999999999
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 38.3175,
+          "drumhead": 37.541625,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "van_gelder_englewood_cliffs",
+    "archetype": "arch_van_gelder_hard_bop",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_fairchild_670_tube",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "bebop_complex_changes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "bebop_complex_changes",
+    "room": "van_gelder_englewood_cliffs",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

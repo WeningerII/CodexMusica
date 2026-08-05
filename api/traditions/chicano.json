@@ -1,0 +1,197 @@
+{
+  "id": "chicano",
+  "name": "Chicano Rock",
+  "family": "rock",
+  "lineage": "East Los Angeles Mexican-American rock and R&B scene of the late 1950s-60s, codified by Ritchie Valens, Thee Midniters, Cannibal & the Headhunters and the Whittier Boulevard dance-hall circuit — 12/8 shuffle ballads and mid-tempo 4/4 stompers built on doo-wop changes, honking tenor saxophone, Farfisa or Hammond organ, tremolo-heavy single-coil guitar, tight harmony vocals and Spanish-language interpolations of ranchera and huapango material.",
+  "recipe": "classic Los Angeles 1957-1959 chicano rock, distorted Rock, regional branch, tejano border functional song, soul R&B doowop doo-wop souldies. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs fast tremolo tonewheel organ, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, close dry group massed hand clap. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 910,
+  "score": 417.7,
+  "config": {
+    "traditions": [
+      "chicano",
+      "doo_wop",
+      "souldies"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 10.299999999999999,
+          "amp_make": 15.374999999999996,
+          "body_wood": 1.39,
+          "neck_wood": 1.39,
+          "fretboard": 1.3399999999999999,
+          "pickup_magnet": 0.045,
+          "string_material": 0.045,
+          "string_gauge": 2.6899999999999995,
+          "bridge": 0.15,
+          "scale_length": 1.4949999999999999,
+          "finish": 0.045,
+          "string_tuning": 7.39
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive"
+        },
+        "scores": {
+          "amp_make": 17.314999999999998,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0.195,
+          "string_type": 15.065,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.135,
+          "bass_technique": 14.749999999999998
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 21.449999999999996,
+          "drumhead": 3.4399999999999995,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 29.36499999999999,
+          "voice_quality": 19.240000000000006,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.0599999999999996,
+          "voice_articulation": 22.35999999999999,
+          "voice_microtone": 21.57999999999999,
+          "voice_tradition": 11.995,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 15.884999999999998,
+          "voice_speech_song": 27.299999999999997,
+          "voice_ensemble_config": 21.514999999999993,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 2.085,
+          "voice_processing_chain": 5.88,
+          "voice_multitrack_stack": 9.01
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 11.5,
+          "drawbar_setting": 14.799999999999999,
+          "rotary_speed": 17.049999999999997,
+          "percussion_setting": 5.6899999999999995,
+          "tonewheel_model": 10.725,
+          "leslie_cabinet_model": 1.2349999999999999
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "rose_brass_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 12.625,
+          "sax_size": 12.339999999999998,
+          "sax_reed": 0.135,
+          "sax_body_alloy": -0.035,
+          "sax_mouthpiece": 0.105,
+          "sax_technique": 11.149999999999999,
+          "sax_maker_school": 1.56
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_group_massed",
+          "clap_capture": "clap_close_dry"
+        },
+        "scores": {
+          "clap_technique": 2.6499999999999995,
+          "clap_capture": 1.845
+        }
+      }
+    ],
+    "room": "studio_small_la_chambers",
+    "archetype": "arch_60s_la_smallroom_chambers",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_ua_610_tube",
+      "console": "console_apinla_vintage_la",
+      "comp": "comp_1176_fet",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "doo_wop_changes_50s",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "doo_wop_changes_50s",
+    "room": "studio_small_la_chambers",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_1176_fet",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_apinla_vintage_la"
+  }
+}

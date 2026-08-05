@@ -3,53 +3,53 @@
   "name": "French berceuse (cradle song)",
   "family": "global",
   "lineage": "French cradle-song tradition continuous from medieval and Renaissance courtly-and-rural berceuse through 19th-century Romantic art-song setting (Fauré, Berlioz, Saint-Saëns) and 20th-century chanson appropriation",
-  "recipe": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 329,
-  "score": 176.967,
+  "recipe": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song morna. extended whistle, lament wail, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 290,
+  "score": 127.985,
   "config": {
     "traditions": [
       "french_berceuse",
-      "morna",
-      "cape_verdean_batuko"
+      "chanson",
+      "morna"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "fado_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.6399999999999997,
-          "voice_quality": 26.129999999999995,
+          "voice_register": 1.755,
+          "voice_quality": 12.910000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9575,
-          "voice_articulation": 24.7,
-          "voice_microtone": 25.804999999999996,
-          "voice_tradition": 15.144999999999998,
-          "voice_mechanism_compound": 5.654999999999999,
-          "voice_estill_quality": 4.5825,
-          "voice_speech_song": 33.085,
-          "voice_ensemble_config": 23.595,
+          "voice_vibrato": 2.9575000000000005,
+          "voice_articulation": 19.695,
+          "voice_microtone": 19.499999999999996,
+          "voice_tradition": 6.955000000000001,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 27.364999999999995,
+          "voice_ensemble_config": 19.89,
           "voice_ornament_system": 1.6899999999999997,
-          "voice_pitch_organization": 5.180000000000001,
-          "voice_processing_chain": 7.605000000000003,
-          "voice_multitrack_stack": 5.135
+          "voice_pitch_organization": 4.680000000000001,
+          "voice_processing_chain": 5.817499999999999,
+          "voice_multitrack_stack": 4.9399999999999995
         }
       }
     ],

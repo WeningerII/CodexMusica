@@ -3,13 +3,14 @@
   "name": "Rap metal (early-1990s hip-hop-and-metal hybrid)",
   "family": "rock_punk",
   "lineage": "Early-1990s-and-onward American heavy-rock subgenre integrating hip-hop vocal-delivery and rhythmic-foundation with heavy-metal guitar-bass-drum aesthetic. Rage Against the Machine (Los Angeles, 1991-2000, 2007-onward) is the canonical type-specimen, with explicit revolutionary-political lyric content; the parallel Body Count (Ice-T project) and (later) the 2000s wave of Hed PE and Sevendust extended the genre.",
-  "recipe": "classic Los Angeles rap metal, distorted Rock, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape digitech whammy.",
-  "recipe_chars": 629,
-  "score": 301.16,
+  "recipe": "classic Los Angeles rap metal, distorted Rock, avant branch, us hip hop conscious rap conscious hip-hop jazz rap. thick, rap, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape digitech whammy.",
+  "recipe_chars": 630,
+  "score": 364.155,
   "config": {
     "traditions": [
       "rap_metal",
-      "conscious_hip_hop"
+      "conscious_hip_hop",
+      "jazz_rap"
     ],
     "instruments": [
       {
@@ -24,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -33,29 +34,29 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 14.711749999999995,
-          "voice_quality": 24.27875,
+          "voice_register": 17.912999999999993,
+          "voice_quality": 30.669999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.924999999999999,
-          "voice_articulation": 15.34,
-          "voice_microtone": 15.144999999999998,
-          "voice_tradition": 10.61125,
-          "voice_mechanism_compound": 14.607499999999998,
-          "voice_estill_quality": 3.9655,
-          "voice_speech_song": 23.50875,
-          "voice_ensemble_config": 15.275,
-          "voice_ornament_system": 2.3900000000000006,
-          "voice_pitch_organization": 4.2787500000000005,
-          "voice_processing_chain": 18.974999999999998,
-          "voice_multitrack_stack": 8.4655
+          "voice_vibrato": 7.693999999999999,
+          "voice_articulation": 21.515,
+          "voice_microtone": 20.669999999999998,
+          "voice_tradition": 13.323749999999999,
+          "voice_mechanism_compound": 15.206,
+          "voice_estill_quality": 5.395,
+          "voice_speech_song": 29.6315,
+          "voice_ensemble_config": 20.345,
+          "voice_ornament_system": 4.485000000000002,
+          "voice_pitch_organization": 4.327500000000001,
+          "voice_processing_chain": 24.124999999999996,
+          "voice_multitrack_stack": 8.917
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_mesa_dual_rectifier",
+          "amp_make": "amp_american_fender_blackface",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
@@ -69,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 16.479,
-          "amp_make": 7.2475000000000005,
-          "body_wood": 8.58,
-          "neck_wood": 1.38025,
-          "fretboard": 1.38025,
+          "electric_technique": 17.108999999999998,
+          "amp_make": 8.55275,
+          "body_wood": 8.774999999999999,
+          "neck_wood": 1.3315000000000001,
+          "fretboard": 1.3315000000000001,
           "pickup_magnet": 0.45499999999999996,
           "pickup_winding": 0.45499999999999996,
-          "string_material": 1.38025,
-          "bridge": 0.39,
-          "scale_length": 10.465,
-          "string_gauge": 0.195,
+          "string_material": 1.3315000000000001,
+          "bridge": 0.585,
+          "scale_length": 10.660000000000002,
+          "string_gauge": 0.39,
           "finish": 1.3,
-          "string_tuning": 13.845
+          "string_tuning": 14.040000000000001
         }
       },
       {
@@ -90,18 +91,18 @@
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 9.70675,
-          "body_wood": 0.195,
-          "pickup_config": 0.45499999999999996,
-          "string_type": 9.442,
-          "scale_length_b": 0.8449999999999999,
-          "fretted_or_not": 0.0315,
+          "amp_make": 12.907749999999997,
+          "body_wood": 0.39,
+          "pickup_config": 0.8449999999999999,
+          "string_type": 12.758499999999998,
+          "scale_length_b": 1.0399999999999998,
+          "fretted_or_not": 0.063,
           "bass_technique": 7.52
         }
       },
@@ -109,12 +110,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "fiberskyn_drumhead",
+          "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.485,
-          "drumhead": 4.874999999999998,
+          "drum_technique": 23.205000000000002,
+          "drumhead": 6.566499999999999,
           "drum_kit_kick_pedal": 0
         }
       }

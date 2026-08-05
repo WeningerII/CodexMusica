@@ -3,14 +3,14 @@
   "name": "Musique concrète",
   "family": "global",
   "lineage": "Post-WWII Paris-school tape-collage composition tradition founded by Pierre Schaeffer at RTF in 1948 — Schaeffer’s Études aux chemins de fer (1948) the genre-founding work, joined by Pierre Henry (Symphonie pour un homme seul 1950), Luc Ferrari, and the GRM (Groupe de Recherches Musicales) studio that institutionalized the practice through the 1950s-1970s",
-  "recipe": "classic mid-1950s musique concrète, experimental Elec, musique concrete branch, western modern art music musical impressionism japanese soundtrack scoring. field textural sampler, modular granular synth, modular eurorack modular, modern art rock modern art rock revival post 2000 film score ondes martenot ondes martenot, moog music etherwave canonical modern reissue 1996 present theremin, structures sonores lasry baschet original experimental cristal cristal baschet. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 616,
-  "score": 92.17,
+  "recipe": "classic mid-1950s musique concrète, experimental Elec, musique concrete branch, western modern art music computer music live electronics. field textural sampler, modular granular synth, modular eurorack modular, modern art rock modern art rock revival post 2000 film score ondes martenot ondes martenot, moog music etherwave canonical modern reissue 1996 present theremin, structures sonores lasry baschet original experimental cristal cristal baschet. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 598,
+  "score": 107.525,
   "config": {
     "traditions": [
       "musique_concrete",
-      "impressionism",
-      "japanese_soundtrack"
+      "computer_music",
+      "live_electronics"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 4.575,
+          "electronic_technique": 7.200000000000001,
           "sampler_archetypes": 7.15,
-          "sampler_bit_depth": 3.055,
-          "sampler_workflow": 5.670000000000001,
-          "sampler_classic_context": 17.095000000000002
+          "sampler_bit_depth": 2.8600000000000003,
+          "sampler_workflow": 9.095,
+          "sampler_classic_context": 12.609999999999996
         }
       },
       {
@@ -38,9 +38,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 4.575,
+          "electronic_technique": 7.200000000000001,
           "granular_use": 0.195,
-          "granular_synth_source": 2.3600000000000003
+          "granular_synth_source": 3.41
         }
       },
       {
@@ -48,27 +48,27 @@
         "slots": {
           "electronic_technique": "electronic_modular_patch",
           "eurorack_focus": "eurorack_west_coast",
-          "eurorack_modular_context": "eurorack_modular_film"
+          "eurorack_modular_context": "eurorack_modular_studio"
         },
         "scores": {
-          "electronic_technique": 4.575,
-          "eurorack_focus": 2.165,
-          "eurorack_modular_context": 2.8600000000000003
+          "electronic_technique": 7.200000000000001,
+          "eurorack_focus": 3.365,
+          "eurorack_modular_context": 3.2150000000000003
         }
       },
       {
         "id": "ondes_martenot",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
+          "electronic_technique": "electronic_pad_drone",
           "ondes_martenot_model": "ondes_martenot_mark_vi",
           "ondes_martenot_context": "ondes_martenot_rock",
           "ondes_martenot_lineage": "ondes_martenot_radiohead_modern"
         },
         "scores": {
-          "electronic_technique": 0.8249999999999998,
-          "ondes_martenot_model": 1.69,
-          "ondes_martenot_context": 9.23,
-          "ondes_martenot_lineage": 10.27
+          "electronic_technique": 0.9749999999999999,
+          "ondes_martenot_model": 2.9899999999999998,
+          "ondes_martenot_context": 8.969999999999999,
+          "ondes_martenot_lineage": 10.009999999999998
         }
       },
       {
@@ -76,14 +76,14 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "theremin_model": "theremin_etherwave",
-          "theremin_technique": "theremin_drone",
+          "theremin_technique": "theremin_aerial",
           "theremin_lineage": "theremin_moog_etherwave"
         },
         "scores": {
-          "electronic_technique": 0.8249999999999998,
+          "electronic_technique": -0.1,
           "theremin_model": 5.5,
-          "theremin_technique": 0.45,
-          "theremin_lineage": 8.125
+          "theremin_technique": 0.75,
+          "theremin_lineage": 9.294999999999998
         }
       },
       {
@@ -91,12 +91,12 @@
         "slots": {
           "cristal_baschet_form": "cristal_baschet_form_structures_sonores",
           "cristal_baschet_touch": "cristal_baschet_touch_legato",
-          "cristal_baschet_resonator": "cristal_baschet_resonator_whisker"
+          "cristal_baschet_resonator": "cristal_baschet_resonator_cones"
         },
         "scores": {
-          "cristal_baschet_form": 2.275,
+          "cristal_baschet_form": 3.8550000000000004,
           "cristal_baschet_touch": -0.07,
-          "cristal_baschet_resonator": 0.09999999999999999
+          "cristal_baschet_resonator": -0.05
         }
       }
     ],

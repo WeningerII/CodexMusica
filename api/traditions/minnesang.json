@@ -1,0 +1,151 @@
+{
+  "id": "minnesang",
+  "name": "Minnesang",
+  "family": "classical",
+  "lineage": "German-language courtly love-song tradition of circa 1150-1350 at the Hohenstaufen courts, codified by Walther von der Vogelweide, Neidhart and Heinrich von Morungen and preserved in the Manesse and Jena codices — monophonic strophic song in Pythagorean-tuned church modes, Bar form (Stollen-Stollen-Abgesang), largely unmeasured declamatory delivery by a solo male voice, sometimes doubled by vielle, psaltery or portative organ in modern reconstruction.",
+  "recipe": "classic European early-1150s minnesang, art Music, western early branch, Mediterranean ballad ballad poetry, vocal drone modal icelandic traditional music. thick, breath veiled tone, slow rate, interlocked note trading. gut bourdon drone legato vielle medieval, single plectrum line monophonic melodic lead medieval psaltery, double rank octave doubled chant doubling portative organ, drone sustained legato symphonia, grenadilla African blackwood modern premium continuous-airflow legato recorder. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 588,
+  "score": 195.135,
+  "config": {
+    "traditions": [
+      "minnesang",
+      "greek_ode",
+      "icelandic_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.119999999999999,
+          "voice_quality": 7.930000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.94,
+          "voice_articulation": 14.494999999999996,
+          "voice_microtone": 15.664999999999992,
+          "voice_tradition": 14.689999999999996,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 6.5200000000000005,
+          "voice_speech_song": 20.962499999999995,
+          "voice_ensemble_config": 16.769999999999996,
+          "voice_ornament_system": 5.1850000000000005,
+          "voice_pitch_organization": 9.255,
+          "voice_processing_chain": 7.214999999999998,
+          "voice_multitrack_stack": 4.55
+        }
+      },
+      {
+        "id": "vielle_medieval",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "vielle_medieval_form": "vielle_medieval_oval_five_string",
+          "vielle_medieval_repertoire": "vielle_medieval_polyphony_doubling",
+          "vielle_medieval_stringing": "vielle_medieval_bourdon_gut"
+        },
+        "scores": {
+          "bowed_technique": 5,
+          "vielle_medieval_form": 2.3400000000000003,
+          "vielle_medieval_repertoire": 2.0149999999999997,
+          "vielle_medieval_stringing": 2.7950000000000004
+        }
+      },
+      {
+        "id": "medieval_psaltery",
+        "slots": {
+          "medieval_psaltery_form": "medieval_psaltery_form_pigs_head",
+          "medieval_psaltery_playing": "medieval_psaltery_playing_single_plectrum",
+          "medieval_psaltery_stringing": "medieval_psaltery_stringing_brass_wire"
+        },
+        "scores": {
+          "medieval_psaltery_form": 0.25,
+          "medieval_psaltery_playing": 1.8199999999999998,
+          "medieval_psaltery_stringing": 0.09999999999999999
+        }
+      },
+      {
+        "id": "portative_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "portative_organ_form": "portative_organ_form_double_rank",
+          "portative_organ_repertoire": "portative_organ_repertoire_sacred_organum",
+          "portative_organ_pipework": "portative_organ_pipework_metal"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "portative_organ_form": 4.425,
+          "portative_organ_repertoire": 3.5050000000000003,
+          "portative_organ_pipework": -0.07
+        }
+      },
+      {
+        "id": "symphonia",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "symphonia_form": "symphonia_box",
+          "symphonia_stringing": "symphonia_two_drone_one_melody"
+        },
+        "scores": {
+          "bowed_technique": 5,
+          "symphonia_form": 3.5100000000000002,
+          "symphonia_stringing": 5.07
+        }
+      },
+      {
+        "id": "recorder",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "recorder_size": "alto_recorder",
+          "recorder_context": "recorder_baroque_solo",
+          "recorder_body_wood": "recorder_grenadilla"
+        },
+        "scores": {
+          "wind_articulation": 5.1975,
+          "recorder_size": 2.6,
+          "recorder_context": 7.345000000000001,
+          "recorder_body_wood": 1.4299999999999997
+        }
+      }
+    ],
+    "room": "stone_parish_church",
+    "archetype": "arch_church_location_early_music",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pythagorean",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pythagorean",
+    "room": "stone_parish_church",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

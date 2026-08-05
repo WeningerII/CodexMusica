@@ -1,0 +1,153 @@
+{
+  "id": "baithak_gana",
+  "name": "Baithak Gana",
+  "family": "global",
+  "lineage": "Indo-Caribbean 'sitting song' tradition carried by Bhojpuri-speaking indentured laborers to Suriname, Guyana and Trinidad from the 1870s and codified as a recorded genre in 1960s-80s Paramaribo and Nickerie by singers such as Ramdew Chaitoe and Droopatie Ramgoolam, built on harmonium drone-and-melody, hard-driving dholak in fast 8-beat kaharwa/dadra cycles, ringing dhantal steel rod on every beat, and high nasal declamatory male vocals in Sarnami Hindustani.",
+  "recipe": "classic North African mid-1870s baithak gana, ballad Poetry, indian bard branch, hindu ritual devotional, south Asian wedding indian sangeet indian baraat. thick, breath veiled tone, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, synthetic remo modern stable bolt tuned modern concert stable dholak, devotional narrative steel dhantara, indian rosewood rosewood brass tabla, small open ring brass manjira. cement block broadcast booth. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 611,
+  "score": 219.004,
+  "config": {
+    "traditions": [
+      "baithak_gana",
+      "indian_sangeet",
+      "indian_baraat"
+    ],
+    "instruments": [
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_qawwali"
+        },
+        "scores": {
+          "free_reed_technique": 1.2349999999999997,
+          "harmonium_action": 0.78,
+          "harmonium_voicing": 1.69,
+          "harmonium_use": 1.69
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_synthetic_head",
+          "dholak_tensioning": "dholak_bolt_tuned"
+        },
+        "scores": {
+          "dholak_use": 0.39,
+          "dholak_construction": 1.885,
+          "dholak_head": 1.6,
+          "dholak_tensioning": 1.69
+        }
+      },
+      {
+        "id": "dhantara",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "dhantara_stringing": "dhantara_stringing_with_taraf",
+          "dhantara_role": "dhantara_role_devotional",
+          "dhantara_strings": "dhantara_strings_steel",
+          "dhantara_dress": "dhantara_dress_flowered"
+        },
+        "scores": {
+          "bowed_technique": 1.6249999999999998,
+          "dhantara_stringing": 9.700000000000001,
+          "dhantara_role": 12.057500000000001,
+          "dhantara_strings": 6.05,
+          "dhantara_dress": 9.912500000000001
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 4.549500000000001,
+          "voice_quality": 4.875000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5024999999999995,
+          "voice_articulation": 17.484999999999992,
+          "voice_microtone": 16.542499999999993,
+          "voice_tradition": 21.990500000000004,
+          "voice_mechanism_compound": 2.0999999999999996,
+          "voice_estill_quality": 3.2825000000000006,
+          "voice_speech_song": 22.912499999999994,
+          "voice_ensemble_config": 16.704999999999995,
+          "voice_ornament_system": 11.775,
+          "voice_pitch_organization": 10.4895,
+          "voice_processing_chain": 4.029999999999999,
+          "voice_multitrack_stack": 2.5999999999999996
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 8.84,
+          "tabla_bayan": 1.25,
+          "tabla_syahi": 4.874999999999999
+        }
+      },
+      {
+        "id": "manjira",
+        "slots": {
+          "manjira_form": "manjira_taal_small",
+          "manjira_stroke": "manjira_open_ringing",
+          "manjira_metal": "manjira_brass"
+        },
+        "scores": {
+          "manjira_form": 3.945,
+          "manjira_stroke": 2.4995000000000003,
+          "manjira_metal": 2.8249999999999997
+        }
+      }
+    ],
+    "room": "cement_block_broadcast_booth",
+    "archetype": "arch_tseries_cassette_devotional",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "cement_block_broadcast_booth",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
+  }
+}

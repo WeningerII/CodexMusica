@@ -5,7 +5,7 @@
   "lineage": "Yiddish-Ashkenazi cradle-song tradition continuous from medieval-and-early-modern shtetl domestic practice through 19th-and-20th-century Yiddish-theater and Klezmer-vocal-music intersection",
   "recipe": "classic modern yiddish vigndlid, lullaby, European branch, middle eastern lullaby, Jewish ritual devotional, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. klezmer ensemble. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 357,
-  "score": 188.117,
+  "score": 188.088,
   "config": {
     "traditions": [
       "yiddish_vigndlid",
@@ -38,7 +38,7 @@
           "voice_quality": 27.69,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.8100000000000005,
+          "voice_vibrato": 3.915000000000001,
           "voice_articulation": 25.09,
           "voice_microtone": 27.235,
           "voice_tradition": 17.225,
@@ -47,9 +47,9 @@
           "voice_speech_song": 30.8425,
           "voice_ensemble_config": 23.985,
           "voice_ornament_system": 2.7499999999999996,
-          "voice_pitch_organization": 6.285,
+          "voice_pitch_organization": 6.4350000000000005,
           "voice_processing_chain": 7.605000000000003,
-          "voice_multitrack_stack": 6.57
+          "voice_multitrack_stack": 6.285
         }
       },
       {
@@ -59,8 +59,8 @@
           "rhythm_section": "klez_accordion"
         },
         "scores": {
-          "sections": 1.3449999999999998,
-          "rhythm_section": 0.345
+          "sections": 1.4949999999999999,
+          "rhythm_section": 0.195
         }
       }
     ],

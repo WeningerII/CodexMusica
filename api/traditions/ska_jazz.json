@@ -1,0 +1,189 @@
+{
+  "id": "ska_jazz",
+  "name": "Ska Jazz",
+  "family": "jazz",
+  "lineage": "Kingston-rooted, New-York-codified hybrid: the Skatalites' late-1960s bebop-schooled horn section reinterpreted through the 1990s Ska Jazz Messengers and New York Ska-Jazz Ensemble, laying jazz standards and modal originals over the offbeat 'skank' guitar/piano upstroke at 130-160 BPM, walking or bubbling electric bass, one-drop-adjacent kit and extended trombone and tenor sax solos in a bop idiom.",
+  "recipe": "classic Caribbean 1967-1969 ska jazz, bass System, Jamaican branch, American jazz hard bop straight-ahead jazz. sterling silver rare premium bach 42 canonical American orchestral tenor student commercial trombone, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs fast tremolo tonewheel organ. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 986,
+  "score": 626.751,
+  "config": {
+    "traditions": [
+      "ska_jazz",
+      "hard_bop",
+      "straight_ahead_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_sterling_silver",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 10.5315,
+          "trombone_type": 36.2815,
+          "trombone_mouthpiece": 36.231500000000004,
+          "trombone_mute": 0.65,
+          "trombone_technique": 2.5915,
+          "trombone_bell_metal": 1.04,
+          "trombone_maker_school": 7.475
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 10.5315,
+          "sax_size": 8.595,
+          "sax_reed": 1.695,
+          "sax_body_alloy": 37.89,
+          "sax_mouthpiece": 1.845,
+          "sax_technique": 36.445,
+          "sax_maker_school": 38.49
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_ska_skank",
+          "trumpet_bell_metal": "trumpet_sterling_silver_bell",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 10.5315,
+          "brass_size": 1.845,
+          "trumpet_mouthpiece": 40.995,
+          "brass_mute": 0.65,
+          "trumpet_technique": 10.5,
+          "trumpet_bell_metal": 1.04,
+          "trumpet_maker_school": 5.98
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard"
+        },
+        "scores": {
+          "electric_technique": 4.325,
+          "amp_make": 13.12525,
+          "body_wood": 0.65,
+          "neck_wood": 1.65,
+          "fretboard": 1.65,
+          "pickup_magnet": 1.845,
+          "string_material": 1.65,
+          "string_gauge": 0.65,
+          "bridge": 0.3315,
+          "scale_length": 0.195,
+          "finish": 0,
+          "string_tuning": 2.8599999999999994
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking"
+        },
+        "scores": {
+          "amp_make": 16.607499999999998,
+          "body_wood": 0.195,
+          "pickup_config": 0.255,
+          "string_type": 40.1215,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.195,
+          "bass_technique": 38.1865
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_jazz",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 36.25,
+          "drumhead": 40.9575,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_short",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": 5.925,
+          "drawbar_setting": 36.676,
+          "rotary_speed": 3.335,
+          "percussion_setting": 36.295,
+          "tonewheel_model": 44.37625,
+          "leslie_cabinet_model": 0.195
+        }
+      }
+    ],
+    "room": "kingston_studio_one_brentford_road",
+    "archetype": "arch_kingston_jamaican_commercial",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_console_inline_strip",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
+    "room": "kingston_studio_one_brentford_road",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

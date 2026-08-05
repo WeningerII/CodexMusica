@@ -1,0 +1,110 @@
+{
+  "id": "vaqueiro",
+  "name": "Aboio de Vaqueiro (Brazilian cattle-herder call-song)",
+  "family": "vernacular",
+  "lineage": "Unaccompanied cattle-driving vocal genre of the Brazilian sertão — Ceará, Pernambuco, Bahia and Piauí — sung by vaqueiros to move and calm herds, documented from the colonial period and recorded ethnographically from the mid-20th century: free-meter melismatic aboio on open vowels and long descending glissandi, mixolydian and neutral-third inflections, and rhymed toada verses about drought, cattle and the leather-clad rider, sometimes answered by the herd's bells.",
+  "recipe": "classic early-1940s aboio de vaqueiro, field Work, American south branch, Latin am troubadour ballad poetry, vocal drone modal folklore surero milonga. thick, breath veiled tone, slow rate, interlocked note trading. pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira, forró tradition open closed alternation triangulo forro. open air. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 466,
+  "score": 175.072,
+  "config": {
+    "traditions": [
+      "vaqueiro",
+      "folklore_surero",
+      "milonga"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 3.7150000000000003,
+          "voice_quality": 15.794999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.0625,
+          "voice_articulation": 21.124999999999996,
+          "voice_microtone": 24.63499999999999,
+          "voice_tradition": 10.9525,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 5.2325,
+          "voice_speech_song": 26.259999999999994,
+          "voice_ensemble_config": 20.994999999999994,
+          "voice_ornament_system": 4.870000000000001,
+          "voice_pitch_organization": 2.195,
+          "voice_processing_chain": 5.654999999999999,
+          "voice_multitrack_stack": 2.795
+        }
+      },
+      {
+        "id": "viola_caipira",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "viola_caipira_courses": "viola_rio_abaixo",
+          "viola_caipira_context": "viola_caipira_caipira",
+          "viola_caipira_top_wood": "viola_caipira_pinho_brasil",
+          "viola_caipira_back_wood": "viola_caipira_imbuia",
+          "viola_caipira_strings": "viola_caipira_steel_doubled"
+        },
+        "scores": {
+          "plucked_traditional_technique": 5.5575,
+          "viola_caipira_courses": 3.2499999999999987,
+          "viola_caipira_context": 10.399999999999999,
+          "viola_caipira_top_wood": 2.4949999999999997,
+          "viola_caipira_back_wood": 2.3,
+          "viola_caipira_strings": 2.5349999999999997
+        }
+      },
+      {
+        "id": "triangulo_forro",
+        "slots": {
+          "triangulo_size": "triangulo_large_forro",
+          "triangulo_pattern": "triangulo_forro_pattern"
+        },
+        "scores": {
+          "triangulo_size": 1.625,
+          "triangulo_pattern": 3.5100000000000002
+        }
+      }
+    ],
+    "room": "open_prairie",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "baiao_2_4_beat_one_bass",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "baiao_2_4_beat_one_bass",
+    "room": "open_prairie",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Long-form conversational talk distributed as on-demand internet audio, emerging with RSS audio enclosures in the mid-2000s and codified as a two-plus-voice close-mic form by shows like Marc Maron's WTF (2009) and The Joe Rogan Experience (2009). The signature sound is each speaker on their own close dynamic microphone (the Shure SM7B became the emblematic choice) in a dry treated room, mixed in a DAW and delivered as compressed digital files. Remote 'double-ender' recording, where each participant captures their own local track over an internet call, became standard practice in the 2010s and expanded the form globally. Unscripted turn-taking conversation, running one to three-plus hours, is the defining performance mode.",
   "recipe": "classic 2004-2006 podcast conversation, spoken Word, broadcast branch sports play-by-play commentary golden-age radio drama. extended whistle, breath veiled tone, slow rate, interlocked note trading. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 314,
-  "score": 158.474,
+  "score": 158.49,
   "config": {
     "traditions": [
       "podcast_conversation",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.3886875,
+          "voice_register": 2.4050000000000002,
           "voice_quality": 31.330000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

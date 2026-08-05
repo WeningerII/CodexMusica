@@ -5,11 +5,12 @@
   "lineage": "Late-1990s UK club-music genre extending US garage through the syncopated 2-step rhythm (kick on beats 1 and 3 only, snare on the off-beats) — codified through Tuff Jam, Wookie, MJ Cole (Sincere 2000), Artful Dodger (It Ain't Enough 2000), Craig David (Born to Do It 2000), So Solid Crew, and continuing through the late-2000s revival",
   "recipe": "classic 1997-1999 uk garage and 2-step, bass System, uk soundsystem branch, garage house u s house. thick, breath veiled tone, straight onset, interlocked note trading. sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 470,
-  "score": 193.783,
+  "score": 271.522,
   "config": {
     "traditions": [
       "uk_garage_2step",
-      "garage_house_paradise"
+      "garage_house_paradise",
+      "us_garage"
     ],
     "instruments": [
       {
@@ -30,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 5.6842500000000005,
-          "voice_quality": 8.775,
+          "voice_register": 7.478000000000001,
+          "voice_quality": 11.43999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.81425,
-          "voice_articulation": 13.974999999999994,
-          "voice_microtone": 18.13499999999999,
-          "voice_tradition": 8.688125,
-          "voice_mechanism_compound": 1.5599999999999996,
-          "voice_estill_quality": 4.840000000000001,
-          "voice_speech_song": 16.184999999999995,
-          "voice_ensemble_config": 15.924999999999995,
-          "voice_ornament_system": 1.95,
-          "voice_pitch_organization": 3.7409999999999997,
-          "voice_processing_chain": 4.34875,
-          "voice_multitrack_stack": 3.2500000000000004
+          "voice_vibrato": 3.1750000000000003,
+          "voice_articulation": 19.694999999999997,
+          "voice_microtone": 23.854999999999993,
+          "voice_tradition": 9.035,
+          "voice_mechanism_compound": 2.8599999999999994,
+          "voice_estill_quality": 6.4350000000000005,
+          "voice_speech_song": 22.099999999999994,
+          "voice_ensemble_config": 22.294999999999995,
+          "voice_ornament_system": 2.27,
+          "voice_pitch_organization": 3.3765,
+          "voice_processing_chain": 10.2,
+          "voice_multitrack_stack": 4.595000000000001
         }
       },
       {
@@ -62,10 +63,10 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sampler_archetypes": 0.294,
+          "sampler_archetypes": 0.147,
           "sampler_bit_depth": 1.3649999999999998,
-          "sampler_workflow": 0.26,
-          "sampler_classic_context": 31.779625
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 49.78999999999999
         }
       },
       {
@@ -76,22 +77,22 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 11.124999999999998,
-          "drum_machine_909_context": 3.019875,
-          "tr909_production_origin": 0.04125
+          "tr909_voice": 18.75,
+          "drum_machine_909_context": 3.965,
+          "tr909_production_origin": 0.3
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "va_archetypes": "access_virus",
+          "va_archetypes": "novation_supernova",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 3.965,
-          "va_archetypes": 0.12,
-          "digital_subtractive_context": 14.364999999999998
+          "electronic_technique": 5.265,
+          "va_archetypes": 0.65,
+          "digital_subtractive_context": 20.929999999999996
         }
       },
       {
@@ -102,16 +103,16 @@
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 6.272500000000001,
+          "amp_make": 8.0635,
           "body_wood": 0.195,
-          "pickup_config": 0.037125,
-          "string_type": 5.9475,
-          "scale_length_b": 0.65,
-          "fretted_or_not": 0,
+          "pickup_config": 1.3,
+          "string_type": 7.2475000000000005,
+          "scale_length_b": 1.3,
+          "fretted_or_not": 0.195,
           "bass_technique": 2.4699999999999998
         }
       }

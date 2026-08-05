@@ -1,0 +1,124 @@
+{
+  "id": "military_cadence",
+  "name": "Military Cadence (Jody Call)",
+  "family": "vernacular",
+  "lineage": "The chanted running and marching call of the United States armed forces, conventionally traced to Private Willie Duckworth at Fort Slocum in 1944 whose Sound Off became the model, thereafter standardised across Army, Marine Corps and Navy basic training; a drill instructor calls a two- or four-bar line on a narrow two- or three-note contour and the formation answers in unison on the left-foot strike, locked to a 4/4 march at roughly 110-120 steps per minute or a faster double-time run cadence, with boot-fall and hand-clap as the only percussion.",
+  "recipe": "classic mid-1940s military cadence, groove Percussion, American marching branch, blues narrative work song, stage performance spoken word music hall poetry slam / performance poetry. thick, breath veiled tone, wide pitch sway, interlocked note trading. work shoes marching gang, bare foot wood stage foot stomp, snappy to palm hand clap, double bass rapid double strokes bass drum. open air. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 454,
+  "score": 138.59,
+  "config": {
+    "traditions": [
+      "military_cadence",
+      "music_hall",
+      "poetry_slam"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 3.5750000000000006,
+          "voice_quality": 17.939999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9799999999999995,
+          "voice_articulation": 18.849999999999998,
+          "voice_microtone": 17.354999999999997,
+          "voice_tradition": 8.32,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 4.225,
+          "voice_speech_song": 22.749999999999996,
+          "voice_ensemble_config": 18.589999999999996,
+          "voice_ornament_system": 1.1049999999999995,
+          "voice_pitch_organization": 3.575000000000001,
+          "voice_processing_chain": 5.85,
+          "voice_multitrack_stack": 6.890000000000001
+        }
+      },
+      {
+        "id": "marching_gang",
+        "slots": {
+          "marching_gang_surface": "marching_gang_gravel",
+          "marching_gang_footwear": "marching_gang_work_shoes"
+        },
+        "scores": {
+          "marching_gang_surface": 0,
+          "marching_gang_footwear": 2.145
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_bare_foot",
+          "stomp_surface": "stomp_wood_stage"
+        },
+        "scores": {
+          "stomp_footwear": 1.3,
+          "stomp_surface": 2.8600000000000003
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 4.419999999999999,
+          "clap_capture": 0.39
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.195,
+          "bass_drum_beater": 1.24
+        }
+      }
+    ],
+    "room": "open_prairie",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "open_prairie",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "broken"
+  }
+}

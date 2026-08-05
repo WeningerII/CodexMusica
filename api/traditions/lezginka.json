@@ -1,0 +1,168 @@
+{
+  "id": "lezginka",
+  "name": "Lezginka",
+  "family": "global",
+  "lineage": "North Caucasian couple-and-solo dance genre of the Lezgin, Avar, Chechen and Circassian peoples, standardized as stage repertoire by Soviet ensembles from the 1930s and by Igor Moiseyev's choreography, played at 140-180 BPM in a driving 6/8 with a constant dotted accent on the first and fourth eighths, led by zurna or accordion over relentless doubli, doira and hand-clap patterns, the melody a rapid ornamented modal line repeated in ever-tightening cycles as the dancer accelerates.",
+  "recipe": "classic Eastern European mid-1930s lezginka, wedding, middle eastern branch, European carnival processional, central east south African groove percussion liwa séga. piercing, breath veiled tone, fast rate, interlocked note trading. zurna, weltmeister east German mid tier vintage volk accordion, dhol, hand clap, naghara azerbaijani, shichepshin. field recording. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 497,
+  "score": 188.176,
+  "config": {
+    "traditions": [
+      "lezginka",
+      "liwa_swahili",
+      "sega"
+    ],
+    "instruments": [
+      {
+        "id": "zurna",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "zurna_size": "zurna_kaba",
+          "zurna_context": "zurna_sufi",
+          "zurna_body_wood": "zurna_apricot_canonical",
+          "zurna_reed": "zurna_arundo_canonical"
+        },
+        "scores": {
+          "wind_articulation": 1.1949999999999998,
+          "zurna_size": 3.0725,
+          "zurna_context": 0.45499999999999996,
+          "zurna_body_wood": 0.285,
+          "zurna_reed": 0.285
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "scottish_musette",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 0.7999999999999998,
+          "accordion_reed_material": 0.9000000000000001,
+          "musette_offset": 0.845,
+          "reed_config": 0.1532142857142857,
+          "bellows": 0.15,
+          "voicing_chamber": 0.895,
+          "accordion_maker_school": 2.6399999999999997
+        }
+      },
+      {
+        "id": "dhol",
+        "slots": {
+          "dhol_form": "dhol_punjabi",
+          "dhol_repertoire": "dhol_baraat",
+          "dhol_shell": "dhol_mango"
+        },
+        "scores": {
+          "dhol_form": 21.709999999999994,
+          "dhol_repertoire": 7.669999999999999,
+          "dhol_shell": 0.09999999999999999
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.8250000000000001,
+          "clap_capture": 0
+        }
+      },
+      {
+        "id": "naghara_azerbaijani",
+        "slots": {
+          "naghara_size": "naghara_cura",
+          "naghara_technique": "naghara_sticks"
+        },
+        "scores": {
+          "naghara_size": 0.39,
+          "naghara_technique": 0.65
+        }
+      },
+      {
+        "id": "shichepshin",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "shichepshin_form": "shichepshin_two",
+          "shichepshin_style": "shichepshin_dance",
+          "shichepshin_strings": "shichepshin_horsehair"
+        },
+        "scores": {
+          "bowed_technique": 0.12999999999999998,
+          "shichepshin_form": 0.15,
+          "shichepshin_style": 4.854642857142857,
+          "shichepshin_strings": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "whistle_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 0.59,
+          "voice_quality": 15.989999999999991,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.04,
+          "voice_articulation": 19.629999999999995,
+          "voice_microtone": 24.504999999999992,
+          "voice_tradition": 12.357857142857142,
+          "voice_mechanism_compound": 5.720000000000001,
+          "voice_estill_quality": 4.030000000000001,
+          "voice_speech_song": 21.839999999999996,
+          "voice_ensemble_config": 18.459999999999994,
+          "voice_ornament_system": 4.375,
+          "voice_pitch_organization": 4.503214285714286,
+          "voice_processing_chain": 7.02,
+          "voice_multitrack_stack": 4.16
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_melodiya_state",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_field_recorder_portable",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "field_recording",
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Malayalam-language film song of Kerala's cinema industry, recorded in Madras and Trivandrum from the 1950s and codified by composers G. Devarajan, M. S. Baburaj, Salil Chowdhury, Raveendran and later Johnson and Ouseppachan with lyricist Vayalar Ramavarma and singers K. J. Yesudas and P. Susheela — Carnatic raga-derived melodies with sparing gamaka, light 6/8 and kaiyaal-derived 4/4 rhythms carried by tabla and mridangam alongside a Western string section, harmonium and flute, and a clear un-nasal legato vocal delivery closer to concert Carnatic tone than to Bombay filmi.",
   "recipe": "classic South Asian mid-1950s mollywood, functional Song, south Asian pop branch, south Asian art music, indian bard ballad poetry rajasthani manganiyar tradition cambodian chapei dang veng. thick, breath veiled tone, slow rate, interlocked note trading. aluminum wound carpathian spruce European maple sycamore maple oil varnish violin orchestral, yamaha modern Japanese mid to premium legato flute, indian rosewood rosewood copper tabla, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, low overtone rich vocal male harmonium indian, gourd jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian drone like veena, oversize maple tension resonator European spruce norway spruce European tradition grand piano, silver wound lamb gut core carpathian spruce European maple sycamore maple cello. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio.",
   "recipe_chars": 974,
-  "score": 537.039,
+  "score": 538.3,
   "config": {
     "traditions": [
       "mollywood",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.243625,
+          "voice_register": 10.325000000000001,
           "voice_quality": 23.92,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.6375,
           "voice_articulation": 32.045,
           "voice_microtone": 34.06,
-          "voice_tradition": 23.92425,
+          "voice_tradition": 24.375,
           "voice_mechanism_compound": 8.514999999999999,
-          "voice_estill_quality": 12.9965,
+          "voice_estill_quality": 13.04,
           "voice_speech_song": 40.625,
           "voice_ensemble_config": 32.370000000000005,
-          "voice_ornament_system": 17.425,
-          "voice_pitch_organization": 16.47,
+          "voice_ornament_system": 17.605,
+          "voice_pitch_organization": 16.695,
           "voice_processing_chain": 8.775,
           "voice_multitrack_stack": 6.565000000000001
         }
@@ -64,19 +64,19 @@
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "pirastro_gold_rosin_orch"
+          "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
           "bowed_technique": 7.825000000000001,
-          "orch_strings": 3.25,
+          "orch_strings": 3.295,
           "orch_top_wood": 5.875,
           "orch_back_wood": 6.0200000000000005,
           "orch_varnish": 6.4750000000000005,
-          "orch_setup_period": 6.806500000000001,
+          "orch_setup_period": 6.670000000000001,
           "orch_bow": 0.39,
           "orch_bow_stick": 7.5075,
           "orch_articulation": 0.845,
-          "orch_rosin": 5.9615
+          "orch_rosin": 5.92
         }
       },
       {
@@ -85,15 +85,15 @@
           "wind_articulation": "wind_classical_legato",
           "flute_size": "alto_flute",
           "flute_material": "gold_flute",
-          "flute_technique": "beatboxed_flute",
+          "flute_technique": "irish_flute",
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
           "wind_articulation": 7.175000000000001,
           "flute_size": 0.65,
           "flute_material": 0.65,
-          "flute_technique": 0.42600000000000005,
-          "flute_maker_school": 5.7265
+          "flute_technique": 0.3,
+          "flute_maker_school": 5.725
         }
       },
       {
@@ -135,7 +135,7 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 2.34,
+          "free_reed_technique": 2.19,
           "harmonium_action": 3.445,
           "harmonium_voicing": 2.145,
           "harmonium_use": 4.355
@@ -153,7 +153,7 @@
           "veena_lineage": "veena_thanjavur_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 7.095000000000001,
+          "plucked_traditional_technique": 8.385,
           "veena_construction": 1.4949999999999999,
           "veena_resonator": 1.69,
           "veena_pluck": 3.055,
@@ -166,25 +166,25 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_5_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
           "keyboard_technique": 7.175000000000001,
-          "grand_piano_size": 0.105,
+          "grand_piano_size": 0.09,
           "grand_piano_brand": 1.4949999999999999,
           "piano_hammer": 9.5225,
-          "piano_rim": 9.9715,
-          "piano_soundboard": 9.9265,
+          "piano_rim": 9.775,
+          "piano_soundboard": 9.73,
           "piano_pinblock": 6.4750000000000005,
-          "piano_plate": 6.056,
-          "piano_pitch_standard": 11.30875
+          "piano_plate": 5.825,
+          "piano_pitch_standard": 11.44
         }
       },
       {
@@ -202,11 +202,11 @@
         },
         "scores": {
           "bowed_technique": 7.825000000000001,
-          "cello_strings": 2.445,
+          "cello_strings": 2.49,
           "cello_top_wood": 5.875,
           "cello_back_wood": 6.0200000000000005,
           "cello_varnish": 6.4750000000000005,
-          "cello_setup_period": 6.806500000000001,
+          "cello_setup_period": 6.670000000000001,
           "cello_bow_grip": 3.705,
           "cello_rosin": 6.865,
           "cello_bow_stick": 7.5075

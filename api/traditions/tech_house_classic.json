@@ -3,40 +3,40 @@
   "name": "Tech-house",
   "family": "global",
   "lineage": "House-and-techno hybrid subgenre codified through Mr. C’s End-Recordings, Terry Francis, Eddie Richards, Layo and Bushwacka — characterized by minimal-techno-derived rhythmic foundation with house-tempo (124-128 BPM), jazz-funk influence, and the European-clubland 2000s production aesthetic",
-  "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance detroit techno industrial techno. digital subtractive, TR-909, sound design field sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 346,
-  "score": 118.15,
+  "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance algorave proto-techno. digital subtractive, roland tr 8s modern aira digital recreation TR-909, field textural sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 375,
+  "score": 130.563,
   "config": {
     "traditions": [
       "tech_house_classic",
-      "detroit_techno",
-      "industrial_techno"
+      "algorave",
+      "proto_techno"
     ],
     "instruments": [
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "va_archetypes": "novation_supernova",
+          "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.7799999999999998,
-          "va_archetypes": 0.1095,
-          "digital_subtractive_context": 15.534999999999995
+          "electronic_technique": 1.2349999999999999,
+          "va_archetypes": 0.5,
+          "digital_subtractive_context": 19.629999999999995
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_techno",
-          "tr909_production_origin": "tr909_roland_osaka_canonical"
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 25.490000000000006,
-          "drum_machine_909_context": 5.220000000000001,
-          "tr909_production_origin": 0.7150000000000001
+          "tr909_voice": 25.615000000000006,
+          "drum_machine_909_context": 2.8600000000000003,
+          "tr909_production_origin": 1.635
         }
       },
       {
@@ -44,16 +44,16 @@
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "roland_s750",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.6249999999999996,
+          "electronic_technique": 3.4999999999999996,
           "sampler_archetypes": 0.3,
-          "sampler_bit_depth": 0.9099999999999999,
-          "sampler_workflow": 3.28,
-          "sampler_classic_context": 44.266125
+          "sampler_bit_depth": 0.59,
+          "sampler_workflow": 3.932499999999999,
+          "sampler_classic_context": 49.755
         }
       },
       {
@@ -66,11 +66,11 @@
           "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 20.124999999999996,
-          "mono_oscillator": 0.024375,
-          "mono_filter": 1.04,
-          "mono_archetypes": 1.235,
-          "mono_maker_lineage": -0.45500000000000007
+          "electronic_technique": 18.825,
+          "mono_oscillator": 0,
+          "mono_filter": 0.585,
+          "mono_archetypes": 0.585,
+          "mono_maker_lineage": -0.385
         }
       }
     ],

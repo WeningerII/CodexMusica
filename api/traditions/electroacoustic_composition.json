@@ -3,14 +3,14 @@
   "name": "Electroacoustic composition",
   "family": "global",
   "lineage": "Post-1960s academic electroacoustic concert music tradition descended from musique concrète and Cologne elektronische Musik — codified through Karlheinz Stockhausen’s tape works, Iannis Xenakis’s UPIC synthesizer compositions, the Bourges IMEB festival circuit, and CCRMA/IRCAM institutional research centers",
-  "recipe": "classic mid-1960s electroacoustic composition, experimental Elec, musique concrete branch, western modern art music musical impressionism minimalist. glitched textural granular doepfer eurorack canonical 1995 present small format standardization textural modular synth, glitched textural eurorack modular, field textural sampler. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 481,
-  "score": 53.645,
+  "recipe": "classic mid-1960s electroacoustic composition, experimental Elec, musique concrete branch, western modern art music computer music live electronics. glitched textural granular glitched textural modular synth, glitched textural eurorack modular, field textural sampler. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 420,
+  "score": 73.07,
   "config": {
     "traditions": [
       "electroacoustic_composition",
-      "impressionism",
-      "minimalist"
+      "computer_music",
+      "live_electronics"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 4.875,
+          "electronic_technique": 7.500000000000001,
           "granular_use": 0.3,
-          "granular_synth_source": 2.3600000000000003
+          "granular_synth_source": 3.41
         }
       },
       {
@@ -34,8 +34,8 @@
           "eurorack_modular_context": "eurorack_modular_film"
         },
         "scores": {
-          "electronic_technique": 4.875,
-          "eurorack_focus": 2.165,
+          "electronic_technique": 7.500000000000001,
+          "eurorack_focus": 3.365,
           "eurorack_modular_context": 3.25
         }
       },
@@ -48,10 +48,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 4.875,
+          "electronic_technique": 7.500000000000001,
           "mod_voltage_source": 0.39,
           "mod_patch_density": 0.45499999999999996,
-          "mod_lineage": 1.3650000000000002
+          "mod_lineage": 0.195
         }
       },
       {
@@ -64,11 +64,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 4.875,
+          "electronic_technique": 7.500000000000001,
           "sampler_archetypes": 7.15,
-          "sampler_bit_depth": 3.055,
-          "sampler_workflow": 4.7700000000000005,
-          "sampler_classic_context": 13.260000000000002
+          "sampler_bit_depth": 2.8600000000000003,
+          "sampler_workflow": 8.195,
+          "sampler_classic_context": 12.999999999999998
         }
       }
     ],

@@ -1,0 +1,95 @@
+{
+  "id": "puirt_a_beul",
+  "name": "Puirt-à-beul (Gaelic mouth music)",
+  "family": "global",
+  "lineage": "Scottish Gaelic 'mouth tunes' from the Hebrides and Highlands, documented in the nineteenth century and sustained through Cape Breton and the Mòd — dance tunes (strathspey, reel, jig) sung instead of played, using nonsense-heavy or bawdy Gaelic verse chosen for consonant attack, delivered at strict dance tempo (reels around 110-120 BPM in cut time) with the Scotch snap and the strathspey dotted figure articulated by the tongue, usually solo or in unison with foot-tapping and no instruments.",
+  "recipe": "classic Northern European early-1940s puirt-à-beul, domestic Rhythm, Celtic hebridean branch, Celtic balladic ballad poetry, Celtic traditional improv on frame sean-nós singing newfoundland traditional song and dance music. thick, breath veiled tone, straight note core, interlocked note trading. khoisan click articulated song syllables vocal percussion solo lead vocal percussion voice. scottish bothy farmhouse kitchen. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 497,
+  "score": 202.155,
+  "config": {
+    "traditions": [
+      "puirt_a_beul",
+      "sean_nos_singing",
+      "newfoundland_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1.1699999999999997,
+          "voice_quality": 17.029999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9100000000000006,
+          "voice_articulation": 20.28,
+          "voice_microtone": 20.734999999999992,
+          "voice_tradition": 35.425000000000004,
+          "voice_mechanism_compound": 6.569999999999999,
+          "voice_estill_quality": 7.72,
+          "voice_speech_song": 21.97,
+          "voice_ensemble_config": 20.994999999999997,
+          "voice_ornament_system": 38.150000000000006,
+          "voice_pitch_organization": 1.8449999999999998,
+          "voice_processing_chain": 3.6399999999999997,
+          "voice_multitrack_stack": 2.8600000000000008
+        }
+      },
+      {
+        "id": "vocal_percussion_voice",
+        "slots": {
+          "vocal_percussion_airstream_mechanism": "vocal_percussion_pulmonic_egressive",
+          "vocal_percussion_beatbox_articulation": "beatbox_humming_melody_dissociated",
+          "vocal_percussion_syllabic_drum_system": "syllabic_khoisan_click_song",
+          "vocal_percussion_context": "vocal_percussion_context_solo"
+        },
+        "scores": {
+          "vocal_percussion_airstream_mechanism": 0.345,
+          "vocal_percussion_beatbox_articulation": 0.89,
+          "vocal_percussion_syllabic_drum_system": 2.6650000000000005,
+          "vocal_percussion_context": 3.3799999999999994
+        }
+      }
+    ],
+    "room": "scottish_bothy_farmhouse_kitchen",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "scottish_bothy_farmhouse_kitchen",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

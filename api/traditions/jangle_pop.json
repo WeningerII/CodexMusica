@@ -3,14 +3,14 @@
   "name": "Jangle pop",
   "family": "global",
   "lineage": "1980s indie genre extending the 1960s Byrds twelve-string-electric chimey-guitar sound — codified through R.E.M. (the Athens Georgia voice, Murmur 1983, Reckoning 1984, Fables of the Reconstruction 1985), The dB s, the Smiths (the UK parallel canon, with Johnny Marrs Rickenbacker arpeggios over Morrisseys baritone), the Replacements early period, the Feelies, Game Theory, and the broader Paisley Underground Los Angeles scene (Dream Syndicate, Rain Parade, Three OClock); foundational sound: chiming Rickenbacker 12-string-electric over driving rhythm-section and melodic vocal hooks",
-  "recipe": "classic North American mid-1980s jangle pop, functional Song, pop rock branch, alternative distorted rock modern indie rock slowcore. thick, breath veiled tone, straight note core, interlocked note trading. vox ac amp British 60s amp top boost chime rotosound toaster twelve string electric, marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 709,
-  "score": 359.04,
+  "recipe": "classic North American mid-1980s jangle pop, functional Song, pop rock branch, alternative distorted rock modern indie rock hamburger schule. thick, breath veiled tone, straight note core, interlocked note trading. vox ac amp British 60s amp top boost chime rotosound toaster twelve string electric, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 753,
+  "score": 376.577,
   "config": {
     "traditions": [
       "jangle_pop",
       "modern_indie_rock_2010s",
-      "slowcore"
+      "hamburger_schule"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 34.00500000000001,
-          "voice_quality": 18.265,
+          "voice_register": 35.00500000000002,
+          "voice_quality": 19.499999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.000000000000001,
-          "voice_articulation": 10.659999999999995,
-          "voice_microtone": 31.925000000000004,
-          "voice_tradition": 13.019999999999998,
-          "voice_mechanism_compound": 3.1200000000000006,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 13.844999999999994,
-          "voice_ensemble_config": 12.674999999999994,
-          "voice_ornament_system": 0.9999999999999998,
-          "voice_pitch_organization": 3.640000000000001,
+          "voice_articulation": 12.349999999999994,
+          "voice_microtone": 31.549999999999997,
+          "voice_tradition": 13.17,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 16.184999999999995,
+          "voice_ensemble_config": 14.559999999999995,
+          "voice_ornament_system": 2.000000000000001,
+          "voice_pitch_organization": 2.2,
           "voice_processing_chain": 5.195,
-          "voice_multitrack_stack": 8.125000000000002
+          "voice_multitrack_stack": 6.825000000000001
         }
       },
       {
@@ -63,10 +63,10 @@
           "twelve_string_electric_pickup": "twelve_string_toaster_rick"
         },
         "scores": {
-          "electric_technique": 14.665000000000001,
-          "amp_make": 4.69,
+          "electric_technique": 17.314999999999998,
+          "amp_make": 4.915,
           "twelve_string_electric_model": 6.535000000000001,
-          "twelve_string_electric_context": 12.479999999999997,
+          "twelve_string_electric_context": 13.519999999999998,
           "twelve_string_electric_strings": 1.495,
           "twelve_string_electric_pickup": 5.3500000000000005
         }
@@ -75,7 +75,7 @@
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
@@ -88,18 +88,18 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 14.665000000000001,
-          "amp_make": 11.309999999999999,
-          "body_wood": 1.69,
-          "neck_wood": 1.69,
-          "fretboard": 1.625,
-          "pickup_magnet": 0.845,
+          "electric_technique": 17.314999999999998,
+          "amp_make": 14.299999999999997,
+          "body_wood": 1.8850000000000002,
+          "neck_wood": 1.8850000000000002,
+          "fretboard": 1.8200000000000003,
+          "pickup_magnet": 0.195,
           "string_material": 0.15,
-          "string_gauge": 1.69,
-          "bridge": 0.845,
-          "scale_length": 1.69,
+          "string_gauge": 1.8850000000000002,
+          "bridge": 0.195,
+          "scale_length": 1.8850000000000002,
           "finish": 0,
-          "string_tuning": 14.755000000000003
+          "string_tuning": 12.870000000000001
         }
       },
       {
@@ -114,13 +114,13 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "amp_make": 11.309999999999999,
-          "body_wood": 1.69,
+          "amp_make": 11.114999999999998,
+          "body_wood": 1.8850000000000002,
           "pickup_config": 0.845,
-          "string_type": 28.925,
-          "scale_length_b": 1.69,
+          "string_type": 28.4375,
+          "scale_length_b": 1.8850000000000002,
           "fretted_or_not": 0.105,
-          "bass_technique": 21.2
+          "bass_technique": 23.375
         }
       },
       {
@@ -131,8 +131,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.25,
-          "drumhead": 11.02,
+          "drum_technique": 20.875,
+          "drumhead": 11.169999999999998,
           "drum_kit_kick_pedal": 0
         }
       }

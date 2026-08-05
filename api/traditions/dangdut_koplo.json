@@ -1,0 +1,210 @@
+{
+  "id": "dangdut_koplo",
+  "name": "Dangdut koplo (East Javanese kendang koplo)",
+  "family": "pop",
+  "lineage": "East Javanese regional mutation of dangdut emerging around Surabaya, Pasuruan and Kediri in the late 1990s and dominating Indonesian live music through Monata, New Pallapa and singers Inul Daratista and Via Vallen — the classic dangdut 'ndut' kendang pattern is doubled and syncopated into the koplo groove at 130–160 BPM with a busy filling tabla-and-kendang dialogue, chorus-drenched single-coil guitar and suling flute answering the line, synth brass stabs, and a bright cengkok-ornamented female lead vocal cued live to a dancing crowd.",
+  "recipe": "classic 1997-1999 dangdut koplo, functional Song, east Asian pop branch, tropical song functional song, east Asian groove percussion huayno popular samul nori. extended whistle, breath veiled tone, slow rate, interlocked note trading. gamelan javanese jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, low fundamental tuning projecting brass tabla, bamboo rattan band fipple canonical javanese balinese suling, soft down tuning clean strummed single coil electric guitar, electric bass, singing lead analog poly synth, Hammond a 100 built in Leslie home spinet block chord tonewheel organ. festival stage. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 764,
+  "score": 262.378,
+  "config": {
+    "traditions": [
+      "dangdut_koplo",
+      "huayno_popular",
+      "samul_nori"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "korean_minsogak_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+        },
+        "scores": {
+          "voice_register": 9.140625,
+          "voice_quality": 17.41999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.055,
+          "voice_articulation": 22.490000000000002,
+          "voice_microtone": 21.84,
+          "voice_tradition": 12.319999999999999,
+          "voice_mechanism_compound": 4.3549999999999995,
+          "voice_estill_quality": 3.7050000000000005,
+          "voice_speech_song": 29.64,
+          "voice_ensemble_config": 25.09,
+          "voice_ornament_system": 10.2,
+          "voice_pitch_organization": 9.549999999999999,
+          "voice_processing_chain": 5.199999999999999,
+          "voice_multitrack_stack": 5.525000000000001
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_javanese",
+          "kendang_shell_wood": "kendang_jackwood_canonical",
+          "kendang_head": "kendang_buffalo_hide_canonical"
+        },
+        "scores": {
+          "kendang_size": 2.08,
+          "kendang_context": 3.5499999999999994,
+          "kendang_shell_wood": 4.334999999999999,
+          "kendang_head": 3.6849999999999996
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 0.9,
+          "tabla_bayan": 3.5100000000000002,
+          "tabla_syahi": 4.03
+        }
+      },
+      {
+        "id": "suling",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "suling_use": "suling_sundanese",
+          "suling_tuning": "suling_slendro",
+          "suling_body_material": "suling_bamboo_canonical"
+        },
+        "scores": {
+          "wind_articulation": 1.35,
+          "suling_use": 2.6649999999999996,
+          "suling_tuning": 1.4300000000000002,
+          "suling_body_material": 3.6849999999999996
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": 6.245,
+          "amp_make": 1.1699999999999995,
+          "body_wood": 0.39,
+          "neck_wood": 0.39,
+          "fretboard": 0.795,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 0.39,
+          "bridge": 0.78,
+          "scale_length": 0.39,
+          "finish": 0,
+          "string_tuning": 2.34
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_s",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 0.26,
+          "body_wood": 0.39,
+          "pickup_config": 0.39,
+          "string_type": 0.585,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0.195,
+          "bass_technique": 0.9450000000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 9.194374999999999,
+          "poly_archetypes": 1.3,
+          "poly_voices": 0.65,
+          "poly_maker_lineage": -0.41999999999999993
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "jazz_drawbars",
+          "rotary_speed": "stopped_rotor",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 7.1537500000000005,
+          "drawbar_setting": 0.7149999999999999,
+          "rotary_speed": 1.414375,
+          "percussion_setting": 0.195,
+          "tonewheel_model": 10.335,
+          "leslie_cabinet_model": -0.035
+        }
+      }
+    ],
+    "room": "festival_stage",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "southeast_asian_pentatonic_popular_vocal",
+    "room": "festival_stage",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

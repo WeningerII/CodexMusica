@@ -3,14 +3,14 @@
   "name": "Early modern classical (1890–1930)",
   "family": "classical",
   "lineage": "The Paris–Vienna–Budapest rupture of roughly 1890 to 1930, codified by Debussy's whole-tone and modal planing, Stravinsky's additive-metre ostinati in the Ballets Russes scores, Bartók's field-collected Magyar and Romanian scales, and Schoenberg's move through free atonality into the twelve-tone method — scored for expanded orchestra with divisi strings, doubled woodwinds, celesta, harp and enlarged percussion, and marked by dissolved functional cadence, shifting bar lengths, and timbre treated as a structural parameter.",
-  "recipe": "classic British early modern classical, art Music, western modern branch, western common practice art music, musique concrete experimental electric german romanticism acousmatic music. silver wound lamb gut core sitka spruce European maple sycamore maple violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello, silver yamaha modern Japanese mid to premium continuous-airflow legato flute, composite resin blackwood dust continuous-airflow legato clarinet, brass continuous-airflow legato french horn, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic timpani, concert harp, legato celesta. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 760,
-  "score": 400.332,
+  "recipe": "classic British early modern classical, art Music, western modern branch, western common practice art music, musique concrete experimental electric late romantic era german romanticism. silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, silver yamaha modern Japanese mid to premium continuous-airflow legato flute, grenadilla African blackwood traditional continuous-airflow legato clarinet, brass continuous-airflow legato french horn, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic timpani, concert harp, legato celesta. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 769,
+  "score": 426.988,
   "config": {
     "traditions": [
       "early_modern_classical",
-      "german_romanticism",
-      "acousmatic_music"
+      "late_romantic_era",
+      "german_romanticism"
     ],
     "instruments": [
       {
@@ -19,7 +19,7 @@
           "bowed_technique": "bowed_pizzicato",
           "orch_strings": "silver_wound_lamb_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
-          "orch_back_wood": "european_maple_general_violin",
+          "orch_back_wood": "bigleaf_western_maple_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
@@ -30,14 +30,14 @@
         "scores": {
           "bowed_technique": 8.625,
           "orch_strings": 3.5495,
-          "orch_top_wood": 10.3595,
-          "orch_back_wood": 15.563863636363637,
-          "orch_varnish": 14.625,
-          "orch_setup_period": 14.857545454545454,
-          "orch_bow": 1.17,
-          "orch_bow_stick": 17.5,
+          "orch_top_wood": 10.592,
+          "orch_back_wood": 16.965,
+          "orch_varnish": 15.5,
+          "orch_setup_period": 15.748,
+          "orch_bow": 0.9749999999999999,
+          "orch_bow_stick": 18.4,
           "orch_articulation": 1.8199999999999998,
-          "orch_rosin": 14.625
+          "orch_rosin": 15.5
         }
       },
       {
@@ -45,7 +45,7 @@
         "slots": {
           "bowed_technique": "bowed_pizzicato",
           "cello_strings": "cello_synthetic",
-          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_top_wood": "norway_spruce_alpine_cello",
           "cello_back_wood": "european_maple_cello_back",
           "cello_varnish": "oil_amber_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
@@ -55,14 +55,14 @@
         },
         "scores": {
           "bowed_technique": 8.625,
-          "cello_strings": 3.575,
-          "cello_top_wood": 8.735,
-          "cello_back_wood": 15.563863636363637,
-          "cello_varnish": 14.625,
-          "cello_setup_period": 14.857545454545454,
+          "cello_strings": 4.029999999999999,
+          "cello_top_wood": 8.667000000000002,
+          "cello_back_wood": 16.235,
+          "cello_varnish": 15.5,
+          "cello_setup_period": 15.748,
           "cello_bow_grip": 3.9,
-          "cello_rosin": 15.06,
-          "cello_bow_stick": 17.5
+          "cello_rosin": 15.935,
+          "cello_bow_stick": 18.4
         }
       },
       {
@@ -75,25 +75,25 @@
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 7.69,
-          "flute_size": 0.65,
-          "flute_material": 2.4050000000000002,
-          "flute_technique": 1.7550000000000001,
-          "flute_maker_school": 5.135
+          "wind_articulation": 8.365,
+          "flute_size": 1.3,
+          "flute_material": 3.5100000000000002,
+          "flute_technique": 2.21,
+          "flute_maker_school": 4.940000000000001
         }
       },
       {
         "id": "clarinet",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "clarinet_body": "buffet_greenline_clarinet",
+          "clarinet_body": "grenadilla_clarinet",
           "clarinet_size": "a_clarinet",
           "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "glissando_clarinet"
         },
         "scores": {
-          "wind_articulation": 7.69,
-          "clarinet_body": 14.625,
+          "wind_articulation": 8.365,
+          "clarinet_body": 15.652500000000002,
           "clarinet_size": 3.9,
           "clarinet_reed": 1.8199999999999998,
           "clarinet_articulation": 0.12999999999999998
@@ -107,9 +107,9 @@
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 7.69,
+          "wind_articulation": 8.365,
           "french_horn_bore": 0.585,
-          "french_horn_metal": 1.2349999999999999
+          "french_horn_metal": 2.7299999999999995
         }
       },
       {
@@ -128,13 +128,13 @@
         "scores": {
           "keyboard_technique": 7.5,
           "grand_piano_size": 2.405,
-          "grand_piano_brand": 1.4949999999999999,
-          "piano_hammer": 20.15,
-          "piano_rim": 16.98090909090909,
-          "piano_soundboard": 14.625,
-          "piano_pinblock": 14.775,
-          "piano_plate": 14.715,
-          "piano_pitch_standard": 19.519
+          "grand_piano_brand": 1.8849999999999996,
+          "piano_hammer": 21.057499999999997,
+          "piano_rim": 16.805,
+          "piano_soundboard": 15.5,
+          "piano_pinblock": 15.65,
+          "piano_plate": 15.59,
+          "piano_pitch_standard": 19.759000000000004
         }
       },
       {
@@ -147,7 +147,7 @@
         "scores": {
           "percussion_technique": 1.125,
           "timpani_size": 4.485,
-          "timpani_head": 1.7550000000000001
+          "timpani_head": 2.21
         }
       },
       {
@@ -157,8 +157,8 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 4.485,
-          "harp_pedals": 4.095
+          "harp_strings": 5.135,
+          "harp_pedals": 4.9399999999999995
         }
       },
       {
@@ -171,7 +171,7 @@
         "scores": {
           "keyboard_technique": 7.5,
           "celesta_model": 1.8199999999999998,
-          "celesta_context": 1.7550000000000001
+          "celesta_context": 2.21
         }
       }
     ],

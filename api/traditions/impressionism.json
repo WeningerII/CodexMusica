@@ -5,7 +5,7 @@
   "lineage": "French art-music current formed in Paris between roughly 1890 and 1920, codified by Claude Debussy from Prélude à l'après-midi d'un faune (1894) and extended by Maurice Ravel — whole-tone and octatonic collections, unresolved parallel ninth and seventh chords, modal borrowings from plainchant and from Javanese gamelan heard at the 1889 Exposition, blurred metric articulation with frequent 9/8 and shifting bar groupings, and orchestration built on divisi strings, solo flute and english horn, harp glissandi and celesta.",
   "recipe": "classic British early-1890s musical impressionism, art Music, western modern branch, western common practice art music, southeast Asian art music thai classical burmese mahagita. silver yamaha modern Japanese mid to premium continuous-airflow legato flute, composite resin modern climate stable buffet greenline style continuous-airflow legato english brass continuous-airflow legato french horn, composite resin blackwood dust continuous-airflow legato clarinet, concert harp, legato celesta, silver wound lamb gut core carpathian spruce European maple sycamore maple violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
   "recipe_chars": 854,
-  "score": 572.784,
+  "score": 571.972,
   "config": {
     "traditions": [
       "impressionism",
@@ -24,7 +24,7 @@
         },
         "scores": {
           "wind_articulation": 14.214999999999998,
-          "flute_size": 1.3,
+          "flute_size": 1.195,
           "flute_material": 2.535,
           "flute_technique": 1.2350000000000003,
           "flute_maker_school": 3.25
@@ -82,7 +82,7 @@
         },
         "scores": {
           "keyboard_technique": 13.874999999999998,
-          "celesta_model": 0.9806250000000001,
+          "celesta_model": 0.63,
           "celesta_context": 1.4299999999999997
         }
       },
@@ -106,9 +106,9 @@
           "orch_top_wood": 14.759999999999998,
           "orch_back_wood": 21.08,
           "orch_varnish": 20,
-          "orch_setup_period": 20.2265625,
+          "orch_setup_period": 20.22,
           "orch_bow": 1.69,
-          "orch_bow_stick": 23.519374999999997,
+          "orch_bow_stick": 23.509999999999998,
           "orch_articulation": 2.145,
           "orch_rosin": 20
         }
@@ -132,10 +132,10 @@
           "cello_top_wood": 14.759999999999998,
           "cello_back_wood": 21.08,
           "cello_varnish": 20,
-          "cello_setup_period": 20.2265625,
+          "cello_setup_period": 20.22,
           "cello_bow_grip": 7.214999999999998,
           "cello_rosin": 21.034999999999997,
-          "cello_bow_stick": 23.519374999999997
+          "cello_bow_stick": 23.509999999999998
         }
       },
       {
@@ -154,13 +154,13 @@
         "scores": {
           "keyboard_technique": 13.874999999999998,
           "grand_piano_size": 1.3649999999999998,
-          "grand_piano_brand": 1.3828125000000002,
-          "piano_hammer": 24.819374999999997,
+          "grand_piano_brand": 1.3350000000000002,
+          "piano_hammer": 24.809999999999995,
           "piano_rim": 22.794999999999998,
           "piano_soundboard": 21.65,
           "piano_pinblock": 21.099999999999998,
           "piano_plate": 20.09,
-          "piano_pitch_standard": 21.779374999999998
+          "piano_pitch_standard": 21.56
         }
       },
       {
@@ -185,7 +185,7 @@
         },
         "scores": {
           "wind_articulation": 14.214999999999998,
-          "french_horn_bore": 0.8278125000000001,
+          "french_horn_bore": 0.78,
           "french_horn_metal": 1.3
         }
       }

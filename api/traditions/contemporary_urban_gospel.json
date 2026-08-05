@@ -3,14 +3,14 @@
   "name": "Contemporary urban gospel",
   "family": "global",
   "lineage": "Late-twentieth-century-onward African-American gospel music tradition modernizing the traditional church-choir-and-piano repertoire through R-and-B, funk, hip-hop, and quiet-storm production techniques — codified through Kirk Franklin (Why We Sing 1993), Mary Mary, Yolanda Adams, Donnie McClurkin, Israel and New Breed, with the genre serving as the contemporary mainstream of African-American sacred music",
-  "recipe": "classic early-1990s contemporary urban gospel, ritual Devotional, black gospel branch, soul R&B functional song doo-wop alt-r&b. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, field sampler, contemporary full choir southern black gospel. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 842,
-  "score": 408.565,
+  "recipe": "classic early-1990s contemporary urban gospel, ritual Devotional, black gospel branch, soul R&B functional song doo-wop souldies. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, tremolo gospel runs rhodes electric, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, melodic orchestral imitation pitched sampler, contemporary full choir southern black gospel. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 864,
+  "score": 440.867,
   "config": {
     "traditions": [
       "contemporary_urban_gospel",
       "doo_wop",
-      "alt_rnb"
+      "souldies"
     ],
     "instruments": [
       {
@@ -27,29 +27,29 @@
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 30.424999999999997,
-          "voice_quality": 19.704999999999995,
+          "voice_register": 30.799999999999994,
+          "voice_quality": 20.504999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.725,
-          "voice_articulation": 22.074999999999996,
-          "voice_microtone": 14.429999999999993,
-          "voice_tradition": 24.169999999999998,
+          "voice_vibrato": 4.975,
+          "voice_articulation": 18.174999999999997,
+          "voice_microtone": 16.769999999999992,
+          "voice_tradition": 27.419999999999998,
           "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 22.4775,
-          "voice_speech_song": 18.329999999999995,
-          "voice_ensemble_config": 17.884999999999998,
+          "voice_estill_quality": 26.377499999999994,
+          "voice_speech_song": 21.58,
+          "voice_ensemble_config": 18.394999999999996,
           "voice_ornament_system": 4.525,
-          "voice_pitch_organization": 3.825,
-          "voice_processing_chain": 6.045000000000002,
-          "voice_multitrack_stack": 6.467500000000001
+          "voice_pitch_organization": 2.8499999999999996,
+          "voice_processing_chain": 7.280000000000002,
+          "voice_multitrack_stack": 7.280000000000001
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
-          "choir_regional_canonical_configuration": "choir_regional_gallura_five_voice",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 1.17,
-          "choir_polyphonic_configuration": 5.329999999999998,
-          "choir_regional_canonical_configuration": 0.585,
-          "choir_ensemble_repertoire": 5.329999999999999
+          "choir_size": 5.199999999999999,
+          "choir_polyphonic_configuration": 3.639999999999999,
+          "choir_regional_canonical_configuration": 2.4699999999999998,
+          "choir_ensemble_repertoire": 3.185
         }
       },
       {
@@ -75,15 +75,15 @@
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
           "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
-          "rhodes_pickup_position": "rhodes_pickup_centered"
+          "rhodes_pickup_position": "rhodes_pickup_close_bark"
         },
         "scores": {
-          "keyboard_technique": 23.134999999999998,
-          "rhodes_model": 0.195,
-          "rhodes_use": 4.874999999999998,
+          "keyboard_technique": 26.384999999999998,
+          "rhodes_model": 1.04,
+          "rhodes_use": 4.0299999999999985,
           "rhodes_tine_material": 0.39,
-          "rhodes_hammer_tip": -0.03500000000000003,
-          "rhodes_pickup_position": 1.04
+          "rhodes_hammer_tip": 0.5850000000000002,
+          "rhodes_pickup_position": 0.65
         }
       },
       {
@@ -92,23 +92,23 @@
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "fazioli",
-          "piano_hammer": "japanese_1980s_hammer",
-          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 23.134999999999998,
+          "keyboard_technique": 26.384999999999998,
           "grand_piano_size": 0.195,
           "grand_piano_brand": 3.4749999999999996,
-          "piano_hammer": 5.7,
-          "piano_rim": 8.415,
-          "piano_soundboard": 5.25,
+          "piano_hammer": 5.102499999999999,
+          "piano_rim": 8.6175,
+          "piano_soundboard": 3.9999999999999996,
           "piano_pinblock": 0.85,
-          "piano_plate": 4.029999999999999,
-          "piano_pitch_standard": 1.3649999999999998
+          "piano_plate": 3.835,
+          "piano_pitch_standard": 3.7049999999999996
         }
       },
       {
@@ -123,13 +123,13 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "amp_make": 14.342499999999998,
+          "amp_make": 17.4425,
           "body_wood": 0.195,
           "pickup_config": 0.39,
-          "string_type": 10.464999999999998,
+          "string_type": 15.534999999999998,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.105,
-          "bass_technique": 9.45
+          "bass_technique": 12.7
         }
       },
       {
@@ -140,26 +140,26 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.689999999999996,
-          "drumhead": 5.34,
+          "drum_technique": 17.029999999999998,
+          "drumhead": 4.09,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
+          "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.45,
+          "electronic_technique": 1.945,
           "sampler_archetypes": 3.38,
           "sampler_bit_depth": 0.39,
-          "sampler_workflow": 4.03,
-          "sampler_classic_context": 23.984999999999992
+          "sampler_workflow": 2.52,
+          "sampler_classic_context": 25.284999999999993
         }
       },
       {
@@ -172,7 +172,7 @@
         "scores": {
           "voices": 0.6025,
           "accompaniment": 2.9899999999999998,
-          "era": 16.444999999999997
+          "era": 20.669999999999998
         }
       }
     ],

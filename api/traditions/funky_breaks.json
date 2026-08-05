@@ -1,0 +1,161 @@
+{
+  "id": "funky_breaks",
+  "name": "Funky Breaks",
+  "family": "electronic",
+  "lineage": "UK and US clubs circa 1994-2003 (Bomb the Bass and Freestylers in London, Rennie Pilgrem's TCR, Florida breaks in Orlando) — 130-140 BPM chopped funk and hip-hop breakbeats over a heavy syncopated synth or sampled bassline, with turntable scratching, ragga and old-school rap samples and filtered disco stabs, assembled from vinyl samples in hardware samplers and early DAWs.",
+  "recipe": "classic mid-1990s funky breaks, bass System, bass descendants branch, uk soundsystem bass system, continental electronic dance oldschool jungle breakbeat hardcore. thick, rap, straight note core, interlocked note trading. chopped sampler, sampled chopped turntable, TR-909, low sub bass analog mono synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 591,
+  "score": 234.286,
+  "config": {
+    "traditions": [
+      "funky_breaks",
+      "oldschool_jungle",
+      "breakbeat_hardcore"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 5.76325,
+          "sampler_archetypes": 2.42,
+          "sampler_bit_depth": 0.26,
+          "sampler_workflow": 5.693250000000001,
+          "sampler_classic_context": 27.884999999999998
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 5.76325,
+          "turntable_technique": 2.275
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_clap",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 3.6250000000000004,
+          "drum_machine_909_context": 2.47,
+          "tr909_production_origin": 0
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 15.469999999999999,
+          "mono_oscillator": 0,
+          "mono_filter": 0.585,
+          "mono_archetypes": 0.585,
+          "mono_maker_lineage": -1.435
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "amp_make": 14.169999999999998,
+          "body_wood": 0.585,
+          "pickup_config": 0.045,
+          "string_type": 15.014999999999999,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0,
+          "bass_technique": 4.825
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.1301249999999996,
+          "voice_quality": 6.305,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.1374999999999997,
+          "voice_articulation": 21.319999999999993,
+          "voice_microtone": 21.514999999999997,
+          "voice_tradition": 4.095000000000001,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 21.124999999999996,
+          "voice_ensemble_config": 21.644999999999992,
+          "voice_ornament_system": 6.175,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 9.97875,
+          "voice_multitrack_stack": 5.005
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_uk_jungle_dubplate",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}
