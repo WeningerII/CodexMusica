@@ -98,11 +98,27 @@ function toFunctionResponse(name, id, result) {
     return { name, ...(id ? { id } : {}), response: { text } };
   }
   // Gemini requires `response` to be an object.
-  return {
-    name,
-    ...(id ? { id } : {}),
-    response: parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : { parsed },
-  };
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    return { name, ...(id ? { id } : {}), response: { parsed } };
+  }
+  // THE WORKSPACE COMES BACK OUT HERE TOO.
+  //
+  // Removing it from the declarations stops the model WRITING one. It did
+  // nothing about the model READING one, because every recipe tool returns the
+  // workspace in its result and this function passed the parsed payload straight
+  // through — so the object the whole design exists to keep out of the model's
+  // context was being handed to it on every start_recipe and edit_recipe.
+  //
+  // Measured on a 2-tradition, 11-card seed: 8,153 of the 11,271-character
+  // response, or 72%. And it compounds — Gemini is stateless, so every later hop
+  // re-sends the entire transcript, and a conversation with four recipe calls
+  // pays for four copies of it on every subsequent request.
+  //
+  // Nothing needs it here. The adapter has already harvested `workspace` into
+  // its own variable by the time this runs, and injects it on the way back out.
+  // The model was reading a value it cannot act on and cannot address.
+  const { workspace: _workspace, ...visible } = parsed;
+  return { name, ...(id ? { id } : {}), response: visible };
 }
 
 // Google puts the wait it wants in the error body ("Please retry in 28.6s") and
@@ -123,7 +139,24 @@ function retryDelayMs(json, attempt) {
 // MODEL rather than about the quota. The server surfaces exhaustion to the user
 // instead (see the retry budget it passes), because a chat bar that silently
 // waits 30s reads as broken.
-async function generate({ apiKey, model, body, signal, retries = 0, onRetry }) {
+// Which statuses are worth waiting out is CALLER-SPECIFIC, so it is a parameter
+// rather than a constant. The probe wants 429 retried — it is measuring the
+// model, not Google's meter, and it can afford to sleep 38 seconds. A user
+// staring at the chat bar cannot, so the server retries only the transient 5xx
+// (where the backoff is ~1s and the next attempt usually works) and reports a
+// 429 immediately as "busy".
+export const RETRY_TRANSIENT = [500, 502, 503, 504];
+export const RETRY_ALL = [429, ...RETRY_TRANSIENT];
+
+async function generate({
+  apiKey,
+  model,
+  body,
+  signal,
+  retries = 0,
+  retryStatuses = RETRY_ALL,
+  onRetry,
+}) {
   for (let attempt = 0; ; attempt++) {
     const res = await fetch(`${API_BASE}/models/${model}:generateContent`, {
       method: 'POST',
@@ -133,7 +166,7 @@ async function generate({ apiKey, model, body, signal, retries = 0, onRetry }) {
     });
     const json = await res.json().catch(() => null);
     if (res.ok) return json;
-    const retriable = res.status === 429 || res.status === 503 || res.status >= 500;
+    const retriable = retryStatuses.includes(res.status);
     if (retriable && attempt < retries) {
       const wait = retryDelayMs(json, attempt);
       if (onRetry) onRetry({ status: res.status, waitMs: wait, attempt });
@@ -182,6 +215,7 @@ export async function runTurn({
   thinking = DEFAULT_THINKING,
   limits = LIMITS,
   retries = 0,
+  retryStatuses = RETRY_ALL,
   signal,
   onEvent,
 }) {
@@ -214,6 +248,7 @@ export async function runTurn({
       body,
       signal,
       retries,
+      retryStatuses,
       onRetry: (r) => onEvent && onEvent({ type: 'retry', ...r }),
     });
     addUsage(usage, json.usageMetadata);

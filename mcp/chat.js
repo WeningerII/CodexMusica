@@ -21,7 +21,14 @@
 
 import crypto from 'node:crypto';
 import express from 'express';
-import { buildSurface, runTurn, DEFAULT_MODEL, PRICING, costOf } from './gemini_agent.js';
+import {
+  buildSurface,
+  runTurn,
+  DEFAULT_MODEL,
+  PRICING,
+  costOf,
+  RETRY_TRANSIENT,
+} from './gemini_agent.js';
 
 // ── limits ───────────────────────────────────────────────────────────────────
 //
@@ -256,10 +263,18 @@ export async function createChatRouter({
         history: priorHistory,
         workspace: priorWorkspace,
         userText: message,
-        // Not retried here. The user is waiting on this request, and the free
-        // tier's retry hint is routinely tens of seconds; a 429 they can act on
-        // beats a request that appears to hang.
-        retries: 0,
+        // One retry, and ONLY on a transient 5xx. Previously this was
+        // `retries: 0`, which meant a single blip from Google — a 500 on one hop
+        // of a nine-hop conversation — threw away the whole turn and showed the
+        // user "The engine could not answer that one", with everything they had
+        // built still intact but unreachable. The backoff for a 5xx is about a
+        // second, so the retry is invisible.
+        //
+        // 429 is deliberately NOT in this list. Its retry hint is routinely tens
+        // of seconds, and a chat bar that silently stalls for 38 seconds reads as
+        // broken; "busy, try again" is the better answer to a quota wall.
+        retries: 1,
+        retryStatuses: RETRY_TRANSIENT,
       });
       spend.usd += run.cost || costOf(run.usage, model) || 0;
       spend.turns += 1;
