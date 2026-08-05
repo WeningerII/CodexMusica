@@ -222,7 +222,10 @@ const { HTML_OUT } = require('./_paths.js');
 // reported on in place of the real artifact, so the gate could pass while
 // saying nothing about what this repo actually builds.
 const htmlPath = fs.existsSync(HTML_OUT) ? HTML_OUT : null;
-if (!htmlPath) {
+if (!IS_FIRST_SHARD) {
+  // Fixed-cost check that does not scale with the catalog: shard 1 owns it, so
+  // the union of shards stays equal to an unsharded run.
+} else if (!htmlPath) {
   // build.js runs smoke BEFORE build_html, so a missing artifact is legitimately
   // "not yet", not "broken". Record it as a SKIP — visible in the summary and
   // excluded from the denominator. It used to bank stats.ok++, which meant a
@@ -415,7 +418,8 @@ for (const scenario of IS_FIRST_SHARD ? MULTI_TRAD_SCENARIOS : []) {
 
 // Pathological stress — every card duplicated. Verifies Phase C +
 // defensive truncate hold under loads no real user would compose.
-{
+// Fixed cost, so shard 1 owns it (see the --shard note at the top).
+if (IS_FIRST_SHARD) {
   const t1 = C.TRADITIONS.find((x) => x.id === 'freak_folk_2000s');
   const t2 = C.TRADITIONS.find((x) => x.id === 'hindustani');
   if (t1 && t2) {
