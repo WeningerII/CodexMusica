@@ -810,6 +810,31 @@ record(
   );
 }
 
+// connector edits diverge from the app -> check_edit_parity.js
+//
+// The exact defect this gate was written for: set_variant as a bare field
+// assignment, with no inverse cascade and no pin, while the browser reshapes the
+// rest of the card around the same edit. It shipped that way, and every existing
+// gate stayed green — check_app_parity.js compares SEED + RENDER, so an edit that
+// diverges in between is invisible to it. Cutting the cascade back out restores
+// precisely the code that was wrong.
+{
+  const d = mkenv(['scripts', 'references', 'src', 'mcp']);
+  const f = path.join(d, 'scripts/_workspace_ops.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const marker = '  const res = inverseConfigure(card, target, { pin: [partId] });';
+  if (!src.includes(marker)) throw new Error('faults: set_variant cascade missing');
+  const cut = src.indexOf(marker);
+  const end = src.indexOf('\n  return next;\n}', cut);
+  if (end < 0) throw new Error('faults: could not bound the set_variant cascade');
+  fs.writeFileSync(f, src.slice(0, cut) + src.slice(end + 1));
+  record(
+    'connector-edit-divergence -> check_edit_parity.js',
+    gate(d, ['scripts/check_edit_parity.js', '--limit=60']),
+    /diverged|EDIT PARITY: FAIL/i
+  );
+}
+
 // icon rasters drift from favicon.svg -> build_favicon.js --check
 //
 // The defect this catches is the one the repo shipped for real until the

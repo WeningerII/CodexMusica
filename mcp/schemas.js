@@ -63,7 +63,13 @@ export const editSchema = z.object({
       'Card reference (the `card` id from a prior response, or an instrument id) — for remove_instrument / set_variant / set_environment / set_preface.'
     ),
   part: z.string().optional().describe('Part id — for set_variant (see get_instrument).'),
-  variant: z.string().optional().describe('Variant id — for set_variant (see get_instrument).'),
+  variant: z
+    .string()
+    .optional()
+    .describe(
+      'Variant id — for set_variant (see get_instrument). Setting it reshapes the rest of the ' +
+        'card toward its preface (the app does the same); this part is pinned and never reverted.'
+    ),
   preface: z
     .string()
     .optional()

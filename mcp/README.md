@@ -19,7 +19,7 @@ It reuses the shared SSOT modules in-process (`scripts/_workspace_ops.js` →
 | Tool | What it does |
 |---|---|
 | `start_recipe` | Seed a recipe from one or more `traditions` (first = primary, rest = explicit staples). Returns the recipe, a per-card summary, and the `workspace` to thread on. |
-| `edit_recipe` | Apply an ordered `edits` list to a `workspace`: `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant`, `set_environment`, `add_instrument` / `remove_instrument`, `add_tradition` / `remove_tradition`. |
+| `edit_recipe` | Apply an ordered `edits` list to a `workspace`: `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant` (sets one part, then reshapes the rest of that card toward its preface with your part pinned — the same cascade the app runs), `set_environment`, `add_instrument` / `remove_instrument`, `add_tradition` / `remove_tradition`. |
 | `render_recipe` | Re-render a `workspace` (e.g. different `format` or `max_chars`) without editing it. |
 | `search_catalog` | Free-text search → ids, across traditions, instruments, variants, rooms, tunings, arrangements, aesthetics, prefaces, chain. Resolve words before guessing. |
 | `search_prefaces` | Mood/feel words → preface ids for `set_preface`. |
