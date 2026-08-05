@@ -1,4 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Codex Musica">
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="#0f0f12"/>
-  <g transform="translate(13.00,13.00) scale(1.58333)" fill="#ffffff"><path d="M12 3V13.55C11.41 13.21 10.73 13 10 13C7.79 13 6 14.79 6 17S7.79 21 10 21 14 19.21 14 17V7H18V3H12Z" /></g>
+  <g fill="#ee1111">
+    <path d="M21.8 2 H27.7 L9.3 62 H3.4 Z"/>
+    <path d="M42.2 2 H47.4 V52.6 H42.2 Z"/>
+    <ellipse cx="37.0" cy="52.6" rx="10.4" ry="9.1"/>
+    <path d="M47.4 2 c5.4 2.6 11.2 7.4 13.2 14.2 c2.2 7.4 -0.6 14.6 -5.2 20.6 c1.4 -6.4 1.8 -13.4 -1.6 -18.8 c-1.6 -2.6 -3.8 -4.6 -6.4 -6.2 Z"/>
+  </g>
 </svg>

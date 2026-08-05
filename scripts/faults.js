@@ -810,6 +810,25 @@ record(
   );
 }
 
+// icon rasters drift from favicon.svg -> build_favicon.js --check
+//
+// The defect this catches is the one the repo shipped for real until the
+// generator existed: edit the mark, and the six PNGs beside it still show the
+// old one, because nothing derived them and nothing compared them. Recoloring
+// the SVG stands in for any edit — every raster is a pure function of it.
+{
+  const d = mkenv(['scripts', 'assets', 'favicon.svg', 'package.json']);
+  const f = path.join(d, 'favicon.svg');
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes('#ee1111')) throw new Error('faults: favicon fill missing');
+  fs.writeFileSync(f, src.replace(/#ee1111/g, '#00aa00'));
+  record(
+    'favicon-raster-drift -> build_favicon.js',
+    gate(d, ['scripts/build_favicon.js', '--check']),
+    /do not match favicon\.svg|assets:favicon/i
+  );
+}
+
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
 // a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
 // exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so
