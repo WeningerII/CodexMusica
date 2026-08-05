@@ -60,7 +60,9 @@ export const editSchema = z.object({
     .string()
     .optional()
     .describe(
-      'Card reference (the `card` id from a prior response, or an instrument id) — for remove_instrument / set_variant / set_environment / set_preface.'
+      'Card reference (the `card` id from a prior response, or an instrument id) — for remove_instrument / set_variant / set_preface. ' +
+        'OPTIONAL for set_environment: the recipe renders tuning/room/chain from the first card only, so omitting it targets that card, ' +
+        'which is what "record the whole thing in X" means.'
     ),
   part: z.string().optional().describe('Part id — for set_variant (see get_instrument).'),
   variant: z

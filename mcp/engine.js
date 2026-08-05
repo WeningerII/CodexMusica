@@ -300,12 +300,35 @@ function applyEdit(ws, e) {
       return W.removeInstrument(ws, req(ws, e, 'card'));
     case 'set_variant':
       return W.setVariant(ws, req(ws, e, 'card'), req(ws, e, 'part'), req(ws, e, 'variant'));
-    case 'set_environment':
-      return W.setEnvironment(ws, req(ws, e, 'card'), {
+    case 'set_environment': {
+      // AN OMITTED `card` MEANS THE PRIMARY CARD, because there is only one
+      // answer it could sensibly mean.
+      //
+      // The rendered recipe takes its tuning, room and signal chain from
+      // cards[0] and no other — every format, in both the connector renderer
+      // (_recipe_stack.js) and the browser (src/app.js). So "record it in a
+      // cathedral" has exactly one correct target, and requiring the caller to
+      // name it bought nothing: it was the single most common recoverable error
+      // in the probe suite, and the recovery a caller reached for was usually to
+      // repeat the edit across every instrument — nineteen writes, eighteen of
+      // which never reach the output.
+      //
+      // Deliberately NOT applied to the other card-taking actions. set_preface
+      // and set_variant really are per-instrument: each one changes only the
+      // card it names, so an omitted card there is a genuine ambiguity and still
+      // raises (with the roster listed, see req()).
+      const ref =
+        e.card == null || e.card === ''
+          ? ws.cards && ws.cards.length
+            ? ws.cards[0].id
+            : req(ws, e, 'card') // no cards at all — raise the guiding error
+          : e.card;
+      return W.setEnvironment(ws, ref, {
         room: e.room,
         tuning: e.tuning,
         chain: e.chain,
       });
+    }
     case 'set_preface':
       return W.setPreface(ws, req(ws, e, 'card'), req(ws, e, 'preface'));
     default:

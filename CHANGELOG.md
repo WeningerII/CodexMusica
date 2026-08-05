@@ -6,6 +6,33 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — `set_environment` without a `card` targets the primary card
+
+The rendered recipe takes its tuning, room and signal chain from `cards[0]` and
+no other — every format, in both `_recipe_stack.js` and `src/app.js`
+(`buildStackParts(cards[0])`), which is why the app calls that card primary.
+Instruments come from every card; the environment comes from one.
+
+Measured on a 15-card `ethio_jazz` seed: setting room + tuning on a non-primary
+card leaves the recipe BYTE-IDENTICAL. The same edit on card 1 changes the
+environment line. A non-primary card's environment is very nearly inert — over 70
+probes it moved the recipe 14 times, and only ever indirectly, by nudging that
+one card's auto-derived preface label.
+
+So "record the whole thing in a cathedral" has exactly one correct target, and
+demanding the caller name it bought nothing: a missing `card` on
+`set_environment` was the single most common recoverable error in the probe
+suite, and the recovery reached for was usually to repeat the edit across every
+instrument — nineteen writes, eighteen of which never reach the output. It now
+defaults to the primary card. `set_preface` and `set_variant` are genuinely
+per-instrument and still require an explicit card, because an omitted one there
+is a real ambiguity rather than a single obvious target.
+
+The rule is documented in AGENTS.md, both tool descriptions state it, and
+`mcp/test.mjs` asserts the default moves the RECIPE (not merely that a field was
+written — a default aimed at the wrong card would write successfully and change
+nothing visible) while the per-instrument actions keep raising.
+
 ### Fixed — `set_variant` now edits like the app, and a gate proves it
 
 Picking a variant in the browser runs an inverse cascade: the rest of the card
