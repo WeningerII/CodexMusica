@@ -81,6 +81,32 @@ module.exports = [
     claim: 'the shipped lazy shell behaves identically to the embedded build',
   },
   {
+    id: 'chain-stage-validated',
+    doc: 'AGENTS.md',
+    gate: 'check_workspace_ops.js',
+    claim:
+      'a chain override is validated for SHAPE as well as id, so a multi-select stage can never be corrupted into characters',
+  },
+  {
+    id: 'connector-tools-read-only',
+    doc: 'AGENTS.md',
+    gate: 'check_connector_contract.js',
+    claim: 'every advertised MCP tool is read-only, idempotent and closed-world',
+  },
+  {
+    id: 'connector-schema-subset',
+    doc: 'AGENTS.md',
+    gate: 'check_connector_contract.js',
+    claim:
+      'published tool schemas carry no structural keyword a restricted client cannot represent, beyond an enumerated exemption list',
+  },
+  {
+    id: 'connector-edit-visible',
+    doc: 'AGENTS.md',
+    gate: 'check_connector_contract.js',
+    claim: 'every edit a recipe call applies is visible in the response that reports it',
+  },
+  {
     id: 'connector-render-parity',
     doc: 'AGENTS.md',
     gate: 'check_app_parity.js',

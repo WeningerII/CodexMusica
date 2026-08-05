@@ -54,7 +54,21 @@ const q = (s) => JSON.stringify(s);
 // Isolated temp copy of just the items a gate needs; node_modules is symlinked.
 function mkenv(items) {
   const d = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-fault-'));
-  for (const it of items) execSync(`cp -a ${q(path.join(ROOT, it))} ${q(path.join(d, it))}`);
+  for (const it of items) {
+    // mcp/ carries its own dependency tree (the MCP SDK + zod, ~27MB). Copying
+    // it per fault class would dominate this script's runtime, so stage the
+    // source and symlink the modules — same resolution, none of the bytes.
+    if (it === 'mcp') {
+      fs.mkdirSync(path.join(d, 'mcp'), { recursive: true });
+      for (const f of fs.readdirSync(path.join(ROOT, 'mcp'))) {
+        if (f === 'node_modules') continue;
+        execSync(`cp -a ${q(path.join(ROOT, 'mcp', f))} ${q(path.join(d, 'mcp', f))}`);
+      }
+      fs.symlinkSync(path.join(ROOT, 'mcp', 'node_modules'), path.join(d, 'mcp', 'node_modules'));
+      continue;
+    }
+    execSync(`cp -a ${q(path.join(ROOT, it))} ${q(path.join(d, it))}`);
+  }
   fs.symlinkSync(path.join(ROOT, 'node_modules'), path.join(d, 'node_modules'));
   return d;
 }
@@ -606,6 +620,72 @@ record(
       /zz_fault_dupe/
     );
   }
+}
+
+// Connector contract classes. These stage `mcp` (see mkenv: source copied,
+// node_modules symlinked) because the gate drives a real in-memory MCP client
+// rather than compiling the schemas itself.
+
+// chain shape validation -> check_workspace_ops.js
+// Disabling the multi-select branch is exactly the state the fx-corruption bug
+// shipped in: a bare id written straight through, to be spread into characters
+// by the next clone.
+{
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'scripts/_workspace_ops.js');
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes('if (sec.multiSelect) {'))
+    throw new Error('faults: multiSelect branch missing');
+  fs.writeFileSync(f, src.replace('if (sec.multiSelect) {', 'if (false) {'));
+  record(
+    'chain-shape-unvalidated -> check_workspace_ops.js',
+    gate(d, ['scripts/check_workspace_ops.js']),
+    /multi-select|character|fx|chain/i
+  );
+}
+
+// out-of-subset schema keyword -> check_connector_contract.js
+// looseObject republishes the open-record shape the named stages replaced.
+{
+  const d = mkenv(['scripts', 'references', 'mcp']);
+  const f = path.join(d, 'mcp/schemas.js');
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes('.strictObject(')) throw new Error('faults: chain strictObject missing');
+  fs.writeFileSync(f, src.replace('.strictObject(', '.looseObject('));
+  record(
+    'schema-out-of-subset -> check_connector_contract.js',
+    gate(d, ['scripts/check_connector_contract.js']),
+    /structural|additionalProperties|subset|exemption/i
+  );
+}
+
+// false read-only claim -> check_connector_contract.js
+{
+  const d = mkenv(['scripts', 'references', 'mcp']);
+  const f = path.join(d, 'mcp/tools.js');
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes('readOnlyHint: true')) throw new Error('faults: readOnlyHint missing');
+  fs.writeFileSync(f, src.replace('readOnlyHint: true', 'readOnlyHint: false'));
+  record(
+    'annotation-lies -> check_connector_contract.js',
+    gate(d, ['scripts/check_connector_contract.js']),
+    /readOnly|idempotent|closed-world|annotation/i
+  );
+}
+
+// invisible edits -> check_connector_contract.js
+{
+  const d = mkenv(['scripts', 'references', 'mcp']);
+  const f = path.join(d, 'mcp/engine.js');
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes('if (changed) row.changed = changed;'))
+    throw new Error('faults: changed assembly missing');
+  fs.writeFileSync(f, src.replace('if (changed) row.changed = changed;', ''));
+  record(
+    'edit-invisible -> check_connector_contract.js',
+    gate(d, ['scripts/check_connector_contract.js']),
+    /changed|reported|visib/i
+  );
 }
 
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
