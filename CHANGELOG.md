@@ -6,6 +6,86 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — a chain override on a multi-select stage deleted the section
+
+`setEnvironment` validated chain **ids** but not chain **shape**. `fx` holds a
+list; every other stage holds a single id. A bare string written into `fx` passed
+validation and corrupted the card one edit later, because `clone()` spreads it:
+
+```
+seed tamil_filmi                     ->  chain.fx = ['plate_reverb']
+set_environment fx:'fuzz_germanium'  ->  chain.fx = 'fuzz_germanium'
+...any further edit, through clone   ->  ['f','u','z','z','_','g','e', ...]
+render                               ->  resolves no character, so the WHOLE
+                                         fx section disappears
+```
+
+The user lost the reverb they had *and* the fuzz they asked for, with no error —
+verbatim the "does not fail, it DELETES" failure the comment above that loop
+exists to prevent, and it had no coverage at all. Reachable straight through the
+shipped connector schema, which typed `chain` as `z.record(z.string(),
+z.string())` and so accepted a bare string at every stage.
+
+Fixed in the SSOT (`scripts/_workspace_ops.js`), so the browser app and the
+connector are both covered and cannot drift. A multi-select stage now lifts a
+bare id into a one-element list rather than rejecting it — that is the shape
+callers already send, so rejecting it would close working functionality. Arrays
+validate every element, `null` clears, and the value is copied rather than
+aliased. Eleven cases pin it, including the second edit that is what actually
+reproduces the corruption; three of them fail against the previous code.
+
+### Changed — connector 2.1.0: request and response shapes
+
+All strictly additive. No accepted input is narrowed, no field removed.
+
+- **`chain` publishes named stages.** `z.record` compiled to `propertyNames` +
+  `additionalProperties`, both outside the shape a restricted function-calling
+  client can represent — so the parameter that most needed describing was the one
+  such a client could not read. The eight stages are now named properties derived
+  from the catalog, not written down. `strictObject`, deliberately, at the cost of
+  one `additionalProperties: false`: a plain `z.object` silently strips a typo'd
+  stage, and a loud "Unknown chain stage" is worth one boolean.
+- **Responses are no longer pretty-printed.** No tool declares an `outputSchema`
+  and none returns `structuredContent`, so the block is opaque text whose only
+  consumer is the model. The indent spent roughly a quarter of every response on
+  leading spaces, competing with the recipe string the caller must reproduce
+  verbatim.
+- **Each card reports `changed`** — the parts, room, tuning and chain stages that
+  differ from the card as seeded. The response returned the rendered recipe and
+  the whole workspace, and neither answered "did my edit land?" cheaply: the
+  recipe is capped and therefore lossy, the workspace is a 10KB blob with no
+  baseline to diff against. Covers every field the seven edit actions can write,
+  not parts alone. Absent on an untouched card, so a clean seed costs nothing.
+
+### Added — the MCP surface is now gated
+
+`scripts/check_connector_contract.js` asserts the tool surface, the annotations,
+the published schema subset and edit visibility off **one live `listTools()` /
+`callTool()` round-trip** through an in-memory client.
+
+That detail decided the design. The SDK does not publish what a bare
+`z.toJSONSchema()` produces — it converts with `{target:'draft-7'}` — so a gate
+that compiles the schemas itself would gate a document the server never sends.
+Reading the advertised output gave the real numbers: 31 out-of-subset findings,
+of which only 4 are structural and `chain` was 2. The remaining two are empty
+`workspace.cards.items` nodes that cannot be typed without either stripping
+fields the engine needs or closing functionality, so they are enumerated
+exemptions rather than pretended fixes.
+
+Four promises join the registry (18 total, 0 orphans): `chain-stage-validated`,
+`connector-tools-read-only`, `connector-schema-subset`, `connector-edit-visible`
+— each with a doc marker, a `@covers` tag and a fault class. Fault injection is
+27 gate-classes, 0 escapes.
+
+**Rejected:** a content-addressed workspace handle store. It would make the
+connector's own `readOnlyHint`/`idempotentHint` false, it reintroduces the
+per-instance state `server_http.js` records as already tried and removed, and
+decisively it is **ungatable** — `faults.js` and the `IMMUTABLE:` assertions
+plant and assert in-process, so an adapter-side store sits outside their reach.
+A gate that stays green because the violation moved out of its blast radius has
+not preserved a promise; it has been blinded.
+
+
 ### Added — 281 traditions; catalog now 1,426
 
 The first tradition import from the screened everynoise corpus. 296 candidates

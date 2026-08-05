@@ -13,7 +13,7 @@
 // as ordinary successful answers.
 
 import { z } from 'zod';
-import { RECIPE_CHAR_CEILING } from './engine.js';
+import { RECIPE_CHAR_CEILING, CHAIN_STAGE_IDS, CHAIN_MULTI_STAGE_IDS } from './engine.js';
 
 export const renderShape = {
   format: z
@@ -72,10 +72,47 @@ export const editSchema = z.object({
     ),
   room: z.string().optional().describe('Room id — for set_environment.'),
   tuning: z.string().optional().describe('Tuning id — for set_environment.'),
+  // Named stages, not an open record.
+  //
+  // z.record compiles to propertyNames + additionalProperties, both outside the
+  // schema subset a restricted function-calling client can represent — so the
+  // one parameter that most needs describing was the one such a client could not
+  // read. The stage set is closed and small, so enumerating it publishes plain
+  // `properties` instead, and the ids come from the catalog (see engine.js) so
+  // this cannot drift from what the workspace actually accepts.
+  //
+  // strictObject, deliberately, at the cost of one additionalProperties:false.
+  // A plain z.object SILENTLY STRIPS an unrecognised key, so `{"mick":"<id>"}`
+  // would reach the engine as `{}` — a no-op the model is never told about. That
+  // is the same silent class as the fx-corruption this schema sat above; a typo
+  // must come back as "Unknown chain stage", not as nothing happening.
+  //
+  // Every stage takes ONE id, including the multi-select ones — the SSOT lifts a
+  // bare id into a list. A union of string|array would publish anyOf and buy
+  // nothing: z.record(z.string(), z.string()) never accepted an array either, so
+  // no caller loses a shape it could previously send.
   chain: z
-    .record(z.string(), z.string())
+    .strictObject(
+      Object.fromEntries(
+        CHAIN_STAGE_IDS.map((stage) => [
+          stage,
+          z
+            .string()
+            .optional()
+            .describe(
+              `${stage} id` +
+                (CHAIN_MULTI_STAGE_IDS.includes(stage)
+                  ? ' (multi-select stage; one id per call)'
+                  : '')
+            ),
+        ])
+      )
+    )
     .optional()
-    .describe('Chain stage overrides — for set_environment, e.g. {"mic":"<id>","medium":"<id>"}.'),
+    .describe(
+      `Chain stage overrides — for set_environment, e.g. {"mic":"<id>","medium":"<id>"}. ` +
+        `Stages: ${CHAIN_STAGE_IDS.join(', ')}. Ids from list_options or search_catalog types=["chain"].`
+    ),
 });
 
 // THE VALIDATION BOUNDARY, shared by every adapter.

@@ -22,6 +22,7 @@ const C = require('../scripts/_loader.js');
 const W = require('../scripts/_workspace_ops.js');
 const { tokensOf } = require('../scripts/_preface_match.js');
 const { assignDedupedPrefaces } = require('../scripts/_recipe_stack.js');
+const { seedTraditionCards, defaultParts } = require('../scripts/_seed_workspace.js');
 // The product-defining hard recipe cap — single source of truth, re-exported so
 // the tool schema (tools.js) derives its max_chars bound from the same constant.
 const { RECIPE_CHAR_CEILING } = require('../scripts/_api_contract.js');
@@ -30,7 +31,22 @@ const { RECIPE_CHAR_CEILING } = require('../scripts/_api_contract.js');
 // the machine's ICU locale, which made this ordering depend on where it ran.
 // Mirrors `_cmp` in scripts/_recipe_stack.js.
 const _cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
-export { RECIPE_CHAR_CEILING };
+
+// The chain stages, DERIVED from the catalog rather than written down.
+//
+// schemas.js enumerates these as named properties instead of accepting an open
+// record, which is what keeps the published schema free of propertyNames. It
+// needs the list to do that, and it may only depend on zod and this module (see
+// its header), so the list is exported from here where the catalog is already
+// loaded. Deriving it also means a new stage in the catalog cannot leave the
+// connector's schema quietly describing the old set — a hardcoded copy would.
+const CHAIN_STAGE_IDS = (C.CHAIN_SECTIONS || []).map((s) => s.id || s.stage);
+// `fx` is the only multi-select stage today; _workspace_ops.js lifts a bare id
+// into a one-element list for these, so the wire shape stays one plain string.
+const CHAIN_MULTI_STAGE_IDS = (C.CHAIN_SECTIONS || [])
+  .filter((s) => s.multiSelect)
+  .map((s) => s.id || s.stage);
+export { RECIPE_CHAR_CEILING, CHAIN_STAGE_IDS, CHAIN_MULTI_STAGE_IDS };
 
 class EngineError extends Error {}
 
@@ -54,6 +70,75 @@ function normWorkspace(ws, opName) {
   return { cards: ws.cards };
 }
 
+// What the model cannot otherwise see: which settings on a card are no longer
+// the ones it was seeded with.
+//
+// A recipe response returns the rendered `recipe` and the full `workspace`, and
+// neither answers "did my edit land?" cheaply. The recipe is capped at
+// RECIPE_CHAR_CEILING and so is lossy by construction, and the workspace is a
+// multi-kilobyte blob the model would have to diff against a baseline it does
+// not have. So after set_variant or set_environment the only confirmation was
+// prose that may have been truncated away.
+//
+// `changed` is that diff, computed here where the baseline is known. It is a
+// pure function of (workspace, catalog) — no state is kept between calls, and
+// the memo below is a catalog cache, not session state.
+const _baselineCards = new Map(); // traditionId -> Map(instrumentId -> seeded card)
+
+function baselineForCard(card) {
+  if (card.traditionId) {
+    let byInst = _baselineCards.get(card.traditionId);
+    if (!byInst) {
+      byInst = new Map();
+      try {
+        for (const c of seedTraditionCards(card.traditionId) || []) byInst.set(c.instrumentId, c);
+      } catch {
+        // Unknown/removed tradition: fall through to the instrument default.
+      }
+      _baselineCards.set(card.traditionId, byInst);
+    }
+    const seeded = byInst.get(card.instrumentId);
+    if (seeded) return seeded;
+  }
+  // A card added by hand (add_instrument) has no tradition baseline; its
+  // reference point is the instrument's own defaults.
+  const inst = instById(card.instrumentId);
+  return inst ? { parts: defaultParts(inst), room: null, tuning: null, chain: {} } : null;
+}
+
+// Report every field an edit action can write — parts, room, tuning and each
+// chain stage. Covering parts alone would make the summary look authoritative
+// while still hiding the result of set_environment, which is a worse contract
+// than saying nothing. Omitted entirely for an untouched card, so an unedited
+// workspace costs nothing.
+function changedForCard(card) {
+  const base = baselineForCard(card);
+  if (!base) return null;
+  const out = {};
+
+  const parts = {};
+  for (const [partId, variantId] of Object.entries(card.parts || {})) {
+    if ((base.parts || {})[partId] !== variantId) parts[partId] = variantId;
+  }
+  if (Object.keys(parts).length) out.parts = parts;
+
+  if ((card.room || null) !== (base.room || null)) out.room = card.room || null;
+  if ((card.tuning || null) !== (base.tuning || null)) out.tuning = card.tuning || null;
+
+  const chain = {};
+  const stages = new Set([...Object.keys(card.chain || {}), ...Object.keys(base.chain || {})]);
+  for (const stage of stages) {
+    const now = (card.chain || {})[stage];
+    const was = (base.chain || {})[stage];
+    // fx and friends hold lists; compare by value, not by reference.
+    const norm = (v) => (Array.isArray(v) ? v.join('\u0000') : v || null);
+    if (norm(now) !== norm(was)) chain[stage] = now === undefined ? null : now;
+  }
+  if (Object.keys(chain).length) out.chain = chain;
+
+  return Object.keys(out).length ? out : null;
+}
+
 // Compact per-card view so the model can reference cards (by id) for the next
 // edit and see each instrument's current (deduped) preface without re-reading
 // the whole workspace.
@@ -64,14 +149,19 @@ function cardsSummary(ws) {
   // assigns prefaces on its own clone.
   const view = ws.cards.map((c) => ({ ...c }));
   assignDedupedPrefaces(view);
-  return view.map((c) => ({
-    card: c.id,
-    instrument: c.instrumentId,
-    name: labelOf(instById(c.instrumentId)) || c.instrumentId,
-    tradition: c.traditionId || null,
-    preface: c.preface || null,
-    preface_locked: !!c.prefaceLock,
-  }));
+  return view.map((c) => {
+    const row = {
+      card: c.id,
+      instrument: c.instrumentId,
+      name: labelOf(instById(c.instrumentId)) || c.instrumentId,
+      tradition: c.traditionId || null,
+      preface: c.preface || null,
+      preface_locked: !!c.prefaceLock,
+    };
+    const changed = changedForCard(c);
+    if (changed) row.changed = changed;
+    return row;
+  });
 }
 
 // The standard recipe response: the deliverable string + the state to thread on.

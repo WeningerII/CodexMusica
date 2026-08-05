@@ -136,5 +136,83 @@ check(
   throws(() => W.setPreface(ws0, 'voice', 'not_a_preface'))
 );
 
+// @covers: chain-stage-validated
+//
+// A multi-select chain stage (fx) holds an ARRAY; every other stage holds one
+// id. Writing a bare string into fx type-checked fine and corrupted the card one
+// edit later, because clone() spreads chain.fx: 'fuzz_germanium' became
+// ['f','u','z','z',...], the renderer resolved none of those characters, and the
+// entire fx section vanished from the recipe — taking the seeded plate_reverb
+// with it. Silent gear deletion, reachable through the shipped connector schema.
+//
+// These cases pin the whole contract, not just the one bug: the lift, the array
+// path, the clear, the untouched single-select path, and loud failure on every
+// malformed input. The re-clone step is the one that actually reproduced it — a
+// single setEnvironment call looked fine.
+{
+  const fxSeed = W.seed(['tamil_filmi']);
+  const fxCard = fxSeed.cards[0].id;
+  const afterString = W.setEnvironment(fxSeed, fxCard, { chain: { fx: 'fuzz_germanium' } });
+  check(
+    'chain: bare string at a multi-select stage lifts to a one-element array',
+    Array.isArray(afterString.cards[0].chain.fx) &&
+      afterString.cards[0].chain.fx.length === 1 &&
+      afterString.cards[0].chain.fx[0] === 'fuzz_germanium'
+  );
+  // The regression itself: survive a SECOND edit, which is what clones the card.
+  const recloned = W.setEnvironment(afterString, afterString.cards[0].id, {
+    room: afterString.cards[0].room,
+  });
+  check(
+    'chain: fx survives a subsequent edit without spreading into characters',
+    Array.isArray(recloned.cards[0].chain.fx) &&
+      recloned.cards[0].chain.fx.length === 1 &&
+      recloned.cards[0].chain.fx[0] === 'fuzz_germanium'
+  );
+  check(
+    'chain: fx still renders after a re-clone (section not silently dropped)',
+    /germanium|fuzz/i.test(W.render(recloned, { format: 'rich', ceiling: 1000 }))
+  );
+
+  const s2 = W.seed(['tamil_filmi']);
+  check(
+    'chain: array of ids accepted at a multi-select stage',
+    JSON.stringify(
+      W.setEnvironment(s2, s2.cards[0].id, {
+        chain: { fx: ['fuzz_germanium', 'plate_reverb'] },
+      }).cards[0].chain.fx
+    ) === '["fuzz_germanium","plate_reverb"]'
+  );
+
+  const s3 = W.seed(['tamil_filmi']);
+  check(
+    'chain: null clears a multi-select stage to an empty list',
+    JSON.stringify(
+      W.setEnvironment(s3, s3.cards[0].id, { chain: { fx: null } }).cards[0].chain.fx
+    ) === '[]'
+  );
+
+  const s4 = W.seed(['tamil_filmi']);
+  check(
+    'chain: single-select stage still stores a bare id',
+    W.setEnvironment(s4, s4.cards[0].id, { chain: { mic: 'ribbon_passive' } }).cards[0].chain
+      .mic === 'ribbon_passive'
+  );
+
+  const s5 = W.seed(['tamil_filmi']);
+  const bad = (chain) => throws(() => W.setEnvironment(s5, s5.cards[0].id, { chain }));
+  check('chain: unknown fx id rejected', bad({ fx: 'not_a_real_effect' }));
+  check('chain: unknown id INSIDE an fx array rejected', bad({ fx: ['plate_reverb', 'nope'] }));
+  check('chain: unknown stage rejected', bad({ bogus: 'x' }));
+  check('chain: unknown single-select id rejected', bad({ mic: 'not_a_real_mic' }));
+  check('chain: non-string, non-array value at a multi-select stage rejected', bad({ fx: 42 }));
+
+  // IMMUTABLE: the seed workspace is untouched by every branch above.
+  check(
+    'IMMUTABLE: fx seed workspace still holds its original single effect',
+    JSON.stringify(fxSeed.cards[0].chain.fx) === '["plate_reverb"]'
+  );
+}
+
 console.log(failures === 0 ? '\nPASS' : `\nFAIL (${failures})`);
 process.exit(failures === 0 ? 0 : 1);

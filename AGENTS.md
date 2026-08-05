@@ -68,6 +68,22 @@ out, so thread the returned `workspace` into the next call.
 - `render_recipe` takes `format`: `rich` (default), `tags`, `prose`, `compact`. Every one of
   them returns the byte-identical string the app shows for the same workspace.
   <!-- @promise: connector-render-parity -->
+- Every tool is **read-only, idempotent and closed-world**: state is passed in and out, nothing is
+  stored server-side, and every answer comes from the bundled catalog. Thread the returned
+  `workspace` into the next call — there is no session to resume and no handle to hold.
+  <!-- @promise: connector-tools-read-only -->
+- Published tool schemas stay inside the shape a restricted function-calling client can represent:
+  no `additionalProperties`, `propertyNames`, `anyOf`/`oneOf`/`allOf`, `$ref` or empty schema nodes,
+  beyond a short exemption list enumerated and justified in the gate itself.
+  <!-- @promise: connector-schema-subset -->
+- Each card in a recipe response carries `changed` — the parts, room, tuning and chain stages that
+  differ from the card as it was seeded — so an edit can be confirmed without diffing the workspace
+  or trusting a recipe string that may have been truncated. Absent on an untouched card.
+  <!-- @promise: connector-edit-visible -->
+- A chain override is validated for **shape** as well as id. A multi-select stage such as `fx` holds
+  a list; passing one id is accepted and lifted, and anything else is refused loudly rather than
+  written through and silently dropped at render time.
+  <!-- @promise: chain-stage-validated -->
 
 **No MCP client?** Then use the static JSON below — it is the default recipe per tradition,
 read-only. Editing needs the connector; there is no HTTP fallback that edits.
