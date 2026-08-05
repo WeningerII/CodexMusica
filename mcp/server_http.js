@@ -154,7 +154,7 @@ app.get('/.well-known/mcp.json', (_req, res) =>
       `Deterministic recording-recipe workspace: seed a recipe from any of ${counts.traditions} music ` +
       'traditions and edit it (prefaces, part variants, room/chain/tuning, instruments) — ' +
       'the headless twin of the browser app, read-only and reproducible.',
-    version: '2.0.0',
+    version: '2.1.0',
     transport: 'streamable-http',
     endpoint: PUBLIC_MCP_URL,
     authentication: 'none',

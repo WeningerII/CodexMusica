@@ -187,7 +187,7 @@ export function registerTools(server) {
 
 export function buildServer() {
   const server = new McpServer(
-    { name: 'codex-musica', version: '2.0.0' },
+    { name: 'codex-musica', version: '2.1.0' },
     {
       instructions:
         `CodexMusica turns plain-language musical intent into a precise recording recipe over ${E.counts.traditions} ` +
