@@ -107,6 +107,20 @@ module.exports = [
     claim: 'every edit a recipe call applies is visible in the response that reports it',
   },
   {
+    id: 'connector-gemini-legal',
+    doc: 'AGENTS.md',
+    gate: 'check_connector_contract.js',
+    claim:
+      'the function declarations derived from the live tool list are accepted by a restricted function-calling client (no keyword it rejects, and no workspace parameter)',
+  },
+  {
+    id: 'chain-id-stage-known',
+    doc: 'AGENTS.md',
+    gate: 'check_connector_contract.js',
+    claim:
+      'a chain id is usable without guessing: search returns the stage that accepts it, and a real id offered to the wrong stage is refused with the stage that would take it',
+  },
+  {
     id: 'connector-render-parity',
     doc: 'AGENTS.md',
     gate: 'check_app_parity.js',

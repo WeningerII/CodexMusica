@@ -80,6 +80,16 @@ out, so thread the returned `workspace` into the next call.
   differ from the card as it was seeded — so an edit can be confirmed without diffing the workspace
   or trusting a recipe string that may have been truncated. Absent on an untouched card.
   <!-- @promise: connector-edit-visible -->
+- A chain id never needs guesswork: `search_catalog types=["chain"]` returns each hit with the
+  `stage` that accepts it (a chain id is only usable as `chain: {<stage>: <id>}`, and there are
+  eight stages), and a real id offered to the wrong stage is refused with the stage that would
+  take it rather than a bare "Unknown".
+  <!-- @promise: chain-id-stage-known -->
+- The tool surface also drives **restricted function-calling clients** (Gemini and the like), whose
+  schema dialect is narrower than MCP's. The declarations derived from a live `tools/list` carry no
+  keyword such a client rejects and no `workspace` parameter — the caller holds the workspace and
+  threads it, so the model never emits one.
+  <!-- @promise: connector-gemini-legal -->
 - A chain override is validated for **shape** as well as id. A multi-select stage such as `fx` holds
   a list; passing one id is accepted and lifted, and anything else is refused loudly rather than
   written through and silently dropped at render time.

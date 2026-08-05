@@ -245,31 +245,46 @@ const EDIT_ACTIONS = [
   'set_preface',
 ];
 
-function req(e, k) {
-  if (e[k] == null || e[k] === '') throw new EngineError(`edit "${e.action}" requires "${k}".`);
+// A missing `card` is not a typo, it is a misunderstanding of the model: room,
+// tuning and chain are per-INSTRUMENT here, so "record it in a cathedral" is one
+// edit per card and not one edit. Saying only that the field is required leaves
+// a caller to conclude it passed the wrong TYPE and try again with a different
+// value; naming the cards says what the field is for and what may go in it.
+function req(ws, e, k) {
+  if (e[k] == null || e[k] === '') {
+    const hint =
+      k === 'card' && ws
+        ? ` Room, tuning and chain are per instrument — pass one edit per card. Cards: ${(
+            ws.cards || []
+          )
+            .map((c) => c.instrumentId || c.id)
+            .join(', ')}.`
+        : '';
+    throw new EngineError(`edit "${e.action}" requires "${k}".${hint}`);
+  }
   return e[k];
 }
 
 function applyEdit(ws, e) {
   switch (e && e.action) {
     case 'add_tradition':
-      return W.addTradition(ws, req(e, 'tradition'));
+      return W.addTradition(ws, req(ws, e, 'tradition'));
     case 'remove_tradition':
-      return W.removeTradition(ws, req(e, 'tradition'));
+      return W.removeTradition(ws, req(ws, e, 'tradition'));
     case 'add_instrument':
-      return W.addInstrument(ws, req(e, 'instrument'), { tradition: e.tradition });
+      return W.addInstrument(ws, req(ws, e, 'instrument'), { tradition: e.tradition });
     case 'remove_instrument':
-      return W.removeInstrument(ws, req(e, 'card'));
+      return W.removeInstrument(ws, req(ws, e, 'card'));
     case 'set_variant':
-      return W.setVariant(ws, req(e, 'card'), req(e, 'part'), req(e, 'variant'));
+      return W.setVariant(ws, req(ws, e, 'card'), req(ws, e, 'part'), req(ws, e, 'variant'));
     case 'set_environment':
-      return W.setEnvironment(ws, req(e, 'card'), {
+      return W.setEnvironment(ws, req(ws, e, 'card'), {
         room: e.room,
         tuning: e.tuning,
         chain: e.chain,
       });
     case 'set_preface':
-      return W.setPreface(ws, req(e, 'card'), req(e, 'preface'));
+      return W.setPreface(ws, req(ws, e, 'card'), req(ws, e, 'preface'));
     default:
       throw new EngineError(
         `Unknown edit action "${e && e.action}". Valid: ${EDIT_ACTIONS.join(', ')}.`
@@ -340,7 +355,9 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
   const WORD = 3;
   const PROSE = 1;
   const rows = [];
-  const add = (type, id, name, hay) => {
+  // `extra` carries fields that make a hit USABLE, not merely findable. Today
+  // only chain rows need one — see the CHAIN_SECTIONS loop below.
+  const add = (type, id, name, hay, extra) => {
     if (!want.has(type)) return;
     const idL = String(id).toLowerCase();
     const nameL = String(name || '').toLowerCase();
@@ -365,7 +382,7 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
     // Every query term matching somewhere beats a partial match, whatever the
     // fields: "delta blues" should not lose to a record that only says "blues".
     if (hits === terms.length && terms.length > 1) score += EXACT;
-    if (score > 0) rows.push({ type, id, name: name || id, matched: score });
+    if (score > 0) rows.push({ type, id, name: name || id, matched: score, ...extra });
   };
   for (const t of C.TRADITIONS || [])
     add('tradition', t.id, t.name, `${t.lineage || ''} ${t.family || ''}`);
@@ -383,9 +400,25 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
   for (const a of C.PRODUCTION_AESTHETICS || []) add('aesthetic', a.id, a.name, '');
   for (const p of C.PREFACE_LEXICON || [])
     add('preface', p.id, p.name || p.id, tokensOf(p).join(' '));
+  // Chain hits carry the STAGE that accepts them. Every other type in this index
+  // is addressed by id alone — `set_preface` takes a preface id and that is the
+  // whole of it — but a chain id is only usable as `chain: {<stage>: <id>}`, and
+  // there are eight stages. Returning the id without the stage therefore handed
+  // the caller a one-in-eight guess on the last step of an otherwise resolved
+  // lookup, and this loop had `sec.id` in hand the entire time.
+  //
+  // Measured, not hypothesised: searching "underwater" returns exactly one row,
+  // `hydrophone_piezo`, and a hydrophone is a MICROPHONE. Gemini 3.1 Flash-Lite
+  // searched correctly, got that row, guessed `fx`, and was refused — then spent
+  // four more calls and 60k tokens re-guessing, because nothing it could reach
+  // held the missing fact. `list_options` does not either: `chain_sections`
+  // enumerates the eight stage names, not their items. The model was not wrong
+  // about the catalog; the catalog was not telling it.
   for (const sec of C.CHAIN_SECTIONS || [])
     for (const it of sec.items || [])
-      add('chain', it.id, it.name, (it.descriptors || []).join(' '));
+      add('chain', it.id, it.name, (it.descriptors || []).join(' '), {
+        stage: sec.id || sec.stage,
+      });
   rows.sort((a, b) => b.matched - a.matched || _cmp(a.id, b.id));
   return { query, total: rows.length, items: rows.slice(0, Math.min(limit, 50)) };
 }

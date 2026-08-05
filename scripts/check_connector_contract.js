@@ -10,6 +10,10 @@
 // @covers: connector-tools-read-only
 //   every edit action is visible in the response that reports it
 // @covers: connector-edit-visible
+//   the derived Gemini declarations carry nothing that client rejects
+// @covers: connector-gemini-legal
+//   a chain id can be used without guessing which of eight stages takes it
+// @covers: chain-id-stage-known
 //
 // WHY A ROUND-TRIP AND NOT z.toJSONSchema():
 // the SDK does not publish what a bare compile produces. It converts through
@@ -287,6 +291,127 @@ function scanSchema(toolName, schema) {
       'set_preface is reported in `changed`',
       pRow?.changed?.preface === prefaceId,
       JSON.stringify(pRow?.changed)
+    );
+  }
+
+  // ── the derived Gemini declarations ───────────────────────────────────────
+  //
+  // The subset scan above asks whether the PUBLISHED schema is representable.
+  // This asks the next question, which is the one the chat bar's life depends
+  // on: does the document we hand Google actually parse? They are not the same
+  // document — the adapter deletes `workspace` and drops every keyword outside
+  // Gemini's Schema type — so a schema change can leave the scan above green and
+  // still 400 every request. Deriving from `tools` (the live listTools result
+  // this gate already holds) is what makes that impossible to miss.
+  console.log('\n=== Derived Gemini function declarations ===');
+  const { toGeminiDeclarations, scanGeminiIllegal } = await import(
+    pathToFileURL(path.join(__dirname, '..', 'mcp', 'gemini_tools.js')).href
+  );
+  // The literal, NOT the adapter's own WORKSPACE_PROPERTY. Importing that
+  // constant made this gate self-consistent instead of correct: point the
+  // adapter at a property that does not exist and both sides of the comparison
+  // go empty together, so the check agreed with itself while the removal it
+  // exists to verify had stopped happening. `workspace` is the name the SERVER
+  // publishes — that is the contract, and a contract gate spells it out.
+  const WORKSPACE_PROPERTY = 'workspace';
+  const { declarations, workspaceTools } = toGeminiDeclarations(tools);
+  check(
+    `all ${tools.length} tools become declarations`,
+    declarations.length === tools.length,
+    `${declarations.length}`
+  );
+  const illegal = scanGeminiIllegal(declarations);
+  for (const hit of illegal) console.log(`  ✗ GEMINI-ILLEGAL ${hit}`);
+  check('no keyword Gemini rejects survives into the declarations', illegal.length === 0, `${illegal.length} found`);
+
+  // The workspace must be GONE, not merely tolerated. It is the one node that
+  // cannot be typed (see EXEMPT above), so if it ever reaches a declaration the
+  // adapter has stopped removing it and every call fails at Google.
+  const leaked = declarations.filter((d) => d.parameters?.properties?.[WORKSPACE_PROPERTY]);
+  check(
+    `no declaration exposes \`${WORKSPACE_PROPERTY}\``,
+    leaked.length === 0,
+    leaked.map((d) => d.name).join(', ')
+  );
+  // …and the tools that DO take one must still be recognised, or the adapter
+  // would silently stop injecting it and every edit would hit an empty recipe.
+  const publishWorkspace = tools
+    .filter((t) => t.inputSchema?.properties?.[WORKSPACE_PROPERTY])
+    .map((t) => t.name)
+    .sort();
+  check(
+    'every workspace-taking tool is flagged for injection',
+    JSON.stringify(workspaceTools.slice().sort()) === JSON.stringify(publishWorkspace),
+    `${JSON.stringify(workspaceTools)} vs ${JSON.stringify(publishWorkspace)}`
+  );
+
+  // ── a chain id is usable, not merely findable ─────────────────────────────
+  //
+  // Every other id in this catalog is addressed by itself. A chain id is only
+  // usable as `chain: {<stage>: <id>}`, so search returning the id alone left a
+  // one-in-eight guess at the end of a successful lookup — measured as a 14-call,
+  // 93k-token failure loop on a prompt that now resolves in 5 calls.
+  console.log('\n=== Chain ids carry the stage that accepts them ===');
+  const chainHits = JSON.parse(
+    (await call('search_catalog', { query: 'tape ribbon fuzz underwater', types: ['chain'], limit: 25 }))
+      .text
+  ).items;
+  check('search_catalog returns chain hits to check', chainHits.length > 0, `${chainHits.length}`);
+  const sections = JSON.parse((await call('list_options', { kind: 'chain_sections' })).text).items;
+  const stageIds = new Set(sections.map((s) => s.id));
+  const stageless = chainHits.filter((h) => !h.stage || !stageIds.has(h.stage));
+  check(
+    'every chain hit names a real stage',
+    stageless.length === 0,
+    stageless.map((h) => h.id).join(', ')
+  );
+
+  // The stage a hit claims must be the stage that actually accepts it — a label
+  // that is merely present but wrong is worse than none, because it is believed.
+  let stageAccepts = true;
+  let stageDetail = '';
+  for (const hit of chainHits.slice(0, 6)) {
+    const r = await edited([{ action: 'set_environment', card, chain: { [hit.stage]: hit.id } }]);
+    if (r.err) {
+      stageAccepts = false;
+      stageDetail = `${hit.id} → ${hit.stage}: ${r.err}`;
+      break;
+    }
+  }
+  check('the stage a hit names is the stage that takes the id', stageAccepts, stageDetail);
+
+  // And the recovery path: a REAL id filed under the wrong stage is the mistake
+  // search used to force, so the refusal has to name the stage that would take
+  // it rather than say "Unknown" and stop.
+  //
+  // The pair is SEARCHED FOR rather than named: an id that happens to exist in
+  // two stages would be accepted by both, and hardcoding such a pair would print
+  // a green row for an assertion that never ran. Finding a pair that genuinely
+  // errors is what makes the row mean something.
+  let misfiledErr = null;
+  let misfiledExpect = null;
+  let misfiledLabel = '';
+  outer: for (const hit of chainHits) {
+    for (const stage of stageIds) {
+      if (stage === hit.stage) continue;
+      const r = await edited([{ action: 'set_environment', card, chain: { [stage]: hit.id } }]);
+      if (r.err) {
+        misfiledErr = r.err;
+        // Captured here, not re-derived from the label afterwards: looking the
+        // hit up again by substring matched whichever OTHER hit's id happened to
+        // be a substring of this one, and compared against that one's stage.
+        misfiledExpect = hit.stage;
+        misfiledLabel = `${stage}:${hit.id} (really ${hit.stage})`;
+        break outer;
+      }
+    }
+  }
+  check('a misfiled chain id could be exercised at all', !!misfiledErr, 'no rejecting pair found');
+  if (misfiledErr) {
+    check(
+      'a real id in the wrong stage is refused with the stage that would take it',
+      misfiledErr.includes(`"${misfiledExpect}" stage`),
+      `${misfiledLabel} → ${misfiledErr}`
     );
   }
 
