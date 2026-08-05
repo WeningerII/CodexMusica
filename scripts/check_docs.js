@@ -114,11 +114,21 @@ for (const extra of ['llms.txt', 'index.html', 'package.json']) {
 
 // ───────────────────────── Canonical count registry ─────────────────────────
 //
-// Each pattern matches "X NOUN" but EXCLUDES when followed by qualifier words
-// like "with", "flagged", "of", "in", "are" — those phrasings denote subset
-// counts (e.g. "42 prefaces with 8 tokens", "5 traditions flagged by audit")
-// rather than canonical catalog totals. The pragma override remains available
-// for any edge case the regex misclassifies.
+// Each pattern matches "X NOUN". Whether that match is a CANONICAL claim (a
+// catalog total, which must be checked) or a SUBSET claim (which must not) is
+// decided by isSubsetClaim below, not by the pattern:
+//
+//   - a qualifier word after the noun ("with", "flagged", "of", "in", "are")
+//     marks a subset — "42 prefaces with 8 tokens", "5 traditions flagged by
+//     audit";
+//   - a totality determiner before the number ("all", "every", "the full")
+//     outranks it and marks a total — "returns all <n> traditions with their
+//     recipe strings" (no live count written here: a comment illustrating this
+//     rule is the last place that should carry a transcribed one).
+//
+// Both callers share that one function: --fix cannot repair a claim --check
+// would not flag. The pragma override remains available for any edge case it
+// misclassifies.
 
 const QUALIFIERS = [
   'with',
