@@ -163,6 +163,35 @@ function scoreConfig(config) {
 // === Move generators ===
 
 // For each instrument's each part, generate every variant-swap as a candidate move
+// Copy-on-write config clones.
+//
+// These generators run in the innermost loop of the hill-climb — one clone per
+// candidate move, thousands per search — and structuredClone was 10% of the
+// whole static-API build's runtime, with GC another 6%. It is a full deep copy
+// of every instrument, slot and staple in order to change ONE field.
+//
+// Instead each generator copies only the spine it mutates and shares the rest.
+// That is safe because a config is treated as immutable once yielded: every
+// mutation in this file happens on the fresh copy immediately after it is made,
+// and score.js / translate.js / _api_contract.js only ever read. If that stops
+// being true, structural sharing will alias sibling candidates and corrupt the
+// search — so mutate a config only through one of these helpers.
+//
+// Verified by the artifact gate: check_artifact_fresh byte-compares ~3,900
+// generated files, so any aliasing bug shows up as a diff, not as silence.
+function cloneTop(config) {
+  return { ...config };
+}
+function cloneWithTraditions(config) {
+  return { ...config, traditions: [...config.traditions] };
+}
+function cloneWithSlot(config, i) {
+  const instruments = config.instruments.slice();
+  const target = instruments[i];
+  instruments[i] = { ...target, slots: { ...(target.slots || {}) } };
+  return { ...config, instruments };
+}
+
 function* variantSwapMoves(config) {
   // Pinned slots — entries in config.pinned shaped like { instId: [partId, ...] } — are
   // exempt from variant-swap move generation. This is how --swap-variant user fiat
@@ -186,7 +215,7 @@ function* variantSwapMoves(config) {
         // pins it in by an explicit slot choice — so adding the dimension perturbs
         // no existing recipe.
         if (variant.auto === false) continue;
-        const newConfig = structuredClone(config);
+        const newConfig = cloneWithSlot(config, i);
         newConfig.instruments[i].slots[part.id] = variant.id;
         yield {
           config: newConfig,
@@ -220,7 +249,7 @@ function* chainSwapMoves(config) {
       // No room — fall back to era/region match against current archetype
       if (otherArch.era !== arch.era || otherArch.region !== arch.region) continue;
     }
-    const newConfig = structuredClone(config);
+    const newConfig = cloneTop(config);
     newConfig.archetype = otherArch.id;
     yield {
       config: newConfig,
@@ -302,7 +331,7 @@ function* traditionStapleMoves(config) {
     if (cd < ed || (cd === ed && cand < existing)) byParent.set(cp, cand);
   }
   for (const cand of byParent.values()) {
-    const newConfig = structuredClone(config);
+    const newConfig = cloneWithTraditions(config);
     newConfig.traditions.push(cand);
     yield {
       config: newConfig,
@@ -329,11 +358,11 @@ function* aestheticToggleMoves(config) {
   // Toggle each allowed aesthetic on/off
   for (const aId of allowed) {
     if (config.aesthetic === aId) {
-      const newConfig = structuredClone(config);
+      const newConfig = cloneTop(config);
       newConfig.aesthetic = null;
       yield { config: newConfig, desc: `remove aesthetic: ${aId}` };
     } else {
-      const newConfig = structuredClone(config);
+      const newConfig = cloneTop(config);
       newConfig.aesthetic = aId;
       yield { config: newConfig, desc: `add aesthetic: ${aId}` };
     }
