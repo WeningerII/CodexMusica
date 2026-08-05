@@ -33,9 +33,19 @@
   --fs-display-sub: 13px;      /* wordmark sub, italic Fraunces */
   --fs-title:    15px;     /* app-bar h1, card heading */
   --fs-body:     14px;     /* default body text, button labels */
-  --fs-caption:  12px;     /* meta info, descriptor lines, footnotes */
-  --fs-micro:    11px;     /* uppercase section labels, badges */
-  --fs-code:     11px;     /* monospace descriptor token strips */
+  /* The three small steps were raised one pixel each (12/11/11 -> 13/12/12).
+     They carry the browsable lists — preface chips, tradition rows, room names,
+     descriptor strips — which is the reading this app actually asks of a person,
+     and at 11-12px that is below where the web settled for body-ish text.
+     WCAG sets no pixel minimum; what it requires is that text survive a 200%
+     zoom, which these do (every size is a token, every layout is flex/grid).
+     16px is the industry convention for prose, but these are dense scannable
+     lists rather than paragraphs, so this is a nudge toward legibility, not a
+     jump to prose sizing — deliberately one step, since the type scale's whole
+     job is to keep the steps distinguishable from each other. */
+  --fs-caption:  13px;     /* meta info, descriptor lines, footnotes */
+  --fs-micro:    12px;     /* uppercase section labels, badges */
+  --fs-code:     12px;     /* monospace descriptor token strips */
   --fs-nano:     10px;     /* status pills, family micro-labels */
   --fs-display-detail: 26px;   /* detail-pane h1 title, Fraunces */
   --fw-regular:  400;
@@ -57,7 +67,13 @@
   --border-strong:#dadce0;
   --text:         #202124;  /* AAA on white (16.0:1) */
   --text-2:       #5f6368;  /* AAA on white (6.6:1) */
-  --text-3:       #80868b;  /* AA on white (4.5:1) — meta only */
+  /* MEASURED, not assumed. This was #80868b, annotated "AA on white (4.5:1)".
+     It is 3.68:1 — the annotation was aspirational, and it sat under the
+     smallest type in the app (section labels, counts, descriptor meta), so the
+     hardest text to read was failing on size AND contrast at once. #70767b is
+     the least darkening that actually clears 4.5:1, so the grey stays a grey
+     and nothing else in the scale has to move. */
+  --text-3:       #70767b;  /* AA on white (4.60:1) — meta only */
   --text-4:       #bdc1c6;  /* decorative only, never primary text */
   /* Semantic — Google's four primary colors, used only where they mean something.
      Blue = primary action / selected / links.
@@ -196,6 +212,19 @@ ul { list-style: none; }
 .btn-secondary:hover { background: var(--surface-2); border-color: var(--text-3); }
 .btn-ghost { background: transparent; color: var(--text-2); }
 .btn-ghost:hover { background: var(--surface-2); color: var(--text); }
+/* TONAL — the genre/tradition route, wherever it appears.
+   "Browse traditions" in the app bar and "Add a Genre" in the empty state open
+   the same picker, and looked like two unrelated controls (a ghost and an
+   outlined secondary). Same destination, same treatment.
+   This is the filled-tonal tier: colour, but a step below .btn-primary, so
+   "Add an instrument" keeps the strongest emphasis on a screen offering both.
+   Blue because this palette assigns blue to action and reserves red/yellow/
+   green for destructive/warning/success — a coloured genre button in any of
+   those would be claiming a meaning it does not have.
+   The text is --color-blue-hover, not --color-blue: #1a73e8 on #e8f0fe is
+   3.93:1 and fails AA for normal text, while #1765cc on it is 4.86:1. */
+.btn-tonal { background: var(--color-blue-soft); color: var(--color-blue-hover); border-color: transparent; }
+.btn-tonal:hover { background: #d6e4fc; border-color: transparent; }
 .btn-danger { color: var(--color-red); }
 .btn-danger:hover { background: var(--color-red-soft); }
 /* Solid-red destructive button — used inside confirmDialog for the
@@ -712,10 +741,30 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .empty-state .quick-pick-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); margin-bottom: var(--s2); }
 .empty-state .quick-pick-label-sub { margin-top: var(--s6); }
 /* Starter gallery — curated full-recipe entry points */
-.starter-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s2); margin-bottom: var(--s3); }
+/* 150px -> 195px. A tile now carries two glyphs plus the name plus the count,
+   and at 150px the name had ~70px left — enough to force "Hindustani
+   classical" into a four-line stack. The minimum is what an icon+label+badge
+   row actually needs, so it moved when the row gained an icon. auto-fit still
+   collapses the column count on narrow viewports. */
+.starter-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: var(--s2); margin-bottom: var(--s3); }
 .starter-trad { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); padding: 10px 14px; border: 1px solid var(--border-strong); border-radius: var(--r2); background: var(--surface); cursor: pointer; transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); text-align: left; }
 .starter-trad:hover { border-color: var(--color-blue); background: var(--color-blue-soft); }
-.starter-trad-name { font-size: var(--fs-caption); font-weight: var(--fw-medium); color: var(--text); }
+/* Glyphs and name travel together so the count stays pinned right when the
+   name wraps to two lines (it does — "Late Romantic symphonic"). min-width:0
+   lets the name shrink rather than push the count out of the tile. */
+.starter-trad-main { display: flex; align-items: center; gap: var(--s2); flex: 1 1 auto; min-width: 0; }
+/* min-width:0 on BOTH the row and the name. A flex item will not shrink below
+   its content width without it, so the name kept its full single-line width,
+   pushed past the tile and ran underneath the count badge — "Hindustani
+   classical 7" rendered with the 7 sitting on the word. The glyphs are what
+   made the names wrap in the first place, so the wrap had to be made to work
+   rather than the glyphs backed out. */
+/* Wraps between words, never inside one. `overflow-wrap: anywhere` also stopped
+   the collision, but by breaking "Hindustani classical" into Hindus/tani/
+   classic/al — legible in the sense that every letter was present and in no
+   other sense. The tile was given the width instead (see the grid above). */
+.starter-trad-name { font-size: var(--fs-caption); font-weight: var(--fw-medium); color: var(--text); min-width: 0; }
+.starter-trad .sb-trad-glyphs { display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0; }
 .starter-trad-count { font-size: var(--fs-micro); font-family: var(--font-mono); color: var(--text-3); background: var(--surface-2); border-radius: 999px; padding: 1px 7px; flex-shrink: 0; }
 .starter-surprise-row { display: flex; justify-content: center; margin-bottom: var(--s2); }
 .starter-surprise-row .btn { gap: 6px; }
@@ -1627,7 +1676,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
     <button class="icon-btn" id="btn-redo" data-tooltip="Redo (Ctrl/Cmd+Shift+Z)" aria-label="Redo" disabled><span data-icon="redo" data-size="14"></span></button>
     <button class="icon-btn" id="btn-attributions" data-tooltip="Image credits &amp; licenses" aria-label="Image credits"><span data-icon="info" data-size="14"></span></button>
     <span class="actions-rule" aria-hidden="true"></span>
-    <button class="btn btn-ghost" id="btn-traditions"><span data-icon="library" data-size="14"></span><span class="btn-label"><span class="lbl-full">Traditions</span><span class="lbl-compact">Genre</span></span></button>
+    <button class="btn btn-tonal" id="btn-traditions"><span data-icon="library" data-size="14"></span><span class="btn-label"><span class="lbl-full">Traditions</span><span class="lbl-compact">Genre</span></span></button>
     <button class="btn btn-ghost" id="btn-saved"><span data-icon="folder" data-size="14"></span><span class="btn-label">Saved</span></button>
     <button class="btn btn-secondary" id="btn-save"><span data-icon="save" data-size="14"></span><span class="btn-label"><span class="lbl-full">Save workspace</span><span class="lbl-compact">Save</span></span></button>
     <button class="btn btn-primary" id="btn-add"><span data-icon="plus" data-size="14"></span><span class="btn-label"><span class="lbl-full">Add instrument</span><span class="lbl-compact">Instrument</span></span></button>
@@ -1670,7 +1719,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
       <p>Each instrument is independent — its own parts, tuning, room, and signal chain. Combine freely. No combination is wrong.</p>
       <div class="empty-state-actions">
         <button class="btn btn-primary empty-state-cta" id="empty-add"><span data-icon="plus" data-size="14"></span>Add an instrument</button>
-        <button class="btn btn-secondary empty-state-cta" id="empty-add-genre"><span data-icon="plus" data-size="14"></span>Add a Genre</button>
+        <button class="btn btn-tonal empty-state-cta" id="empty-add-genre"><span data-icon="plus" data-size="14"></span>Add a Genre</button>
       </div>
       <div class="empty-state-or">
         <div class="quick-pick-label">Or load a complete recipe</div>
@@ -62348,8 +62397,15 @@ function renderEmpty() {
         const t = Tradition(id);
         if (!t) return '';
         const n = (t.instruments || []).length;
+        // The same two-axis glyph pair the tradition tree and sidebar already
+        // show for this genre — the empty state was the one place a tradition
+        // appeared bare, so a first-time opener met the plainest version of the
+        // catalog's own visual language. Decorative only (aria-hidden inside
+        // traditionGlyphsHTML): the name is the accessible label, the glyph is
+        // recognition, which is the one job an icon does better than a word.
         return `<button class="starter-trad" data-starter-trad="${esc(id)}">`
-          + `<span class="starter-trad-name">${esc(t.name)}</span>`
+          + `<span class="starter-trad-main">${traditionGlyphsHTML(id, 16)}`
+          + `<span class="starter-trad-name">${esc(t.name)}</span></span>`
           + `<span class="starter-trad-count">${n}</span></button>`;
       }).join('');
       gallery.querySelectorAll('[data-starter-trad]').forEach(b =>
@@ -62362,8 +62418,25 @@ function renderEmpty() {
     const picks = ['voice', 'electric_guitar_single_coil', 'sitar', 'drum_kit', 'analog_synth'];
     qp.innerHTML = picks.map(id => {
       const i = Inst(id);
-      return i ? `<button class="btn btn-secondary" data-quick-add="${esc(id)}">${esc(i.short || i.name)}</button>` : '';
-    }).join('') + `<button class="btn btn-secondary" id="quick-trad">Browse traditions</button>`;
+      // 16px matches the icon size the rest of the button system uses, and the
+      // label stays — an icon never replaces the word here.
+      //
+      // DIRECT REGISTRY HITS ONLY. image() falls back to a family emoji when an
+      // instrument has none of its own, which is right on a card thumbnail and
+      // wrong in a row: `sitar` inherits the plucked-strings guitar, so it
+      // rendered the identical glyph to the electric guitar sitting next to it,
+      // and two adjacent buttons showing the same picture is worse than one
+      // showing none — the glyph is there to tell them apart. familyImage()
+      // exists in this file for exactly this reason, on the picker's headings.
+      const emoji = (typeof EMOJI_REGISTRY !== 'undefined' && EMOJI_REGISTRY[id]) ? image(id, 16) : '';
+      return i ? `<button class="btn btn-secondary" data-quick-add="${esc(id)}">${emoji}${esc(i.short || i.name)}</button>` : '';
+      // "Browse traditions" opens the same picker as the app bar's Traditions
+      // and the empty state's Add a Genre, so it carries the same tonal
+      // treatment rather than reading as one more instrument chip.
+      // icon() inline, NOT a <span data-icon> placeholder: those are hydrated
+      // once in _initApp, and this markup is injected on every empty-state
+      // render — a placeholder added here would render as an empty span.
+    }).join('') + `<button class="btn btn-tonal" id="quick-trad">${icon('library', 14)}Browse traditions</button>`;
     qp.querySelectorAll('[data-quick-add]').forEach(b => b.addEventListener('click', () => {
       const iid = b.dataset.quickAdd;
       const card = addCard(iid);
