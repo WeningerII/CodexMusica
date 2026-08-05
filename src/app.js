@@ -14465,8 +14465,15 @@ function renderEmpty() {
         const t = Tradition(id);
         if (!t) return '';
         const n = (t.instruments || []).length;
+        // The same two-axis glyph pair the tradition tree and sidebar already
+        // show for this genre — the empty state was the one place a tradition
+        // appeared bare, so a first-time opener met the plainest version of the
+        // catalog's own visual language. Decorative only (aria-hidden inside
+        // traditionGlyphsHTML): the name is the accessible label, the glyph is
+        // recognition, which is the one job an icon does better than a word.
         return `<button class="starter-trad" data-starter-trad="${esc(id)}">`
-          + `<span class="starter-trad-name">${esc(t.name)}</span>`
+          + `<span class="starter-trad-main">${traditionGlyphsHTML(id, 16)}`
+          + `<span class="starter-trad-name">${esc(t.name)}</span></span>`
           + `<span class="starter-trad-count">${n}</span></button>`;
       }).join('');
       gallery.querySelectorAll('[data-starter-trad]').forEach(b =>
@@ -14479,8 +14486,25 @@ function renderEmpty() {
     const picks = ['voice', 'electric_guitar_single_coil', 'sitar', 'drum_kit', 'analog_synth'];
     qp.innerHTML = picks.map(id => {
       const i = Inst(id);
-      return i ? `<button class="btn btn-secondary" data-quick-add="${esc(id)}">${esc(i.short || i.name)}</button>` : '';
-    }).join('') + `<button class="btn btn-secondary" id="quick-trad">Browse traditions</button>`;
+      // 16px matches the icon size the rest of the button system uses, and the
+      // label stays — an icon never replaces the word here.
+      //
+      // DIRECT REGISTRY HITS ONLY. image() falls back to a family emoji when an
+      // instrument has none of its own, which is right on a card thumbnail and
+      // wrong in a row: `sitar` inherits the plucked-strings guitar, so it
+      // rendered the identical glyph to the electric guitar sitting next to it,
+      // and two adjacent buttons showing the same picture is worse than one
+      // showing none — the glyph is there to tell them apart. familyImage()
+      // exists in this file for exactly this reason, on the picker's headings.
+      const emoji = (typeof EMOJI_REGISTRY !== 'undefined' && EMOJI_REGISTRY[id]) ? image(id, 16) : '';
+      return i ? `<button class="btn btn-secondary" data-quick-add="${esc(id)}">${emoji}${esc(i.short || i.name)}</button>` : '';
+      // "Browse traditions" opens the same picker as the app bar's Traditions
+      // and the empty state's Add a Genre, so it carries the same tonal
+      // treatment rather than reading as one more instrument chip.
+      // icon() inline, NOT a <span data-icon> placeholder: those are hydrated
+      // once in _initApp, and this markup is injected on every empty-state
+      // render — a placeholder added here would render as an empty span.
+    }).join('') + `<button class="btn btn-tonal" id="quick-trad">${icon('library', 14)}Browse traditions</button>`;
     qp.querySelectorAll('[data-quick-add]').forEach(b => b.addEventListener('click', () => {
       const iid = b.dataset.quickAdd;
       const card = addCard(iid);
