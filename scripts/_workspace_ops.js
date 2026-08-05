@@ -149,13 +149,56 @@ function setEnvironment(ws, cardRef, { room, tuning, chain } = {}) {
     // wrote a value nothing resolves — which does not fail, it DELETES: the
     // renderer drops the stage it can no longer resolve, so a bogus mic id
     // quietly removes the real mic from the recipe the user is handed.
+    //
+    // A multi-select stage needs the SHAPE checked too, not just the id, and for
+    // exactly the same reason. `fx` holds an array; every other stage holds a
+    // single id. Writing a bare string into fx used to type-check fine here and
+    // corrupt the card one edit later, because clone() above spreads it:
+    //
+    //   seed tamil_filmi          -> chain.fx = ['plate_reverb']
+    //   set_environment fx:'fuzz_germanium' -> chain.fx = 'fuzz_germanium'
+    //   ...any further edit, via clone -> ['f','u','z','z','_','g','e', ...]
+    //   render                    -> multiSelect loop resolves no character,
+    //                                so the WHOLE fx section disappears
+    //
+    // The user loses the reverb they had AND the fuzz they asked for, silently.
+    // Reachable straight through the shipped connector schema, so the shape is
+    // validated here in the SSOT rather than at any one caller's boundary.
     for (const [stage, id] of Object.entries(chain)) {
       const sec = (C.CHAIN_SECTIONS || []).find((s) => s.stage === stage || s.id === stage);
       if (!sec) {
         const stages = (C.CHAIN_SECTIONS || []).map((s) => s.stage || s.id);
         throw new WorkspaceError(`Unknown chain stage: "${stage}". Valid: ${stages.join(', ')}`);
       }
-      if (id !== null && !(sec.items || []).find((it) => it.id === id)) {
+      const known = (candidate) => (sec.items || []).find((it) => it.id === candidate);
+      if (sec.multiSelect) {
+        // null clears the stage, matching the single-select clear path below.
+        if (id === null) {
+          card.chain[stage] = [];
+          continue;
+        }
+        // A bare string is a caller writing the single-select shape at a
+        // multi-select stage. Lift it rather than rejecting it: it is
+        // unambiguous, it is what every existing caller sends, and refusing it
+        // would close functionality that appears to work today.
+        const ids = typeof id === 'string' ? [id] : id;
+        if (!Array.isArray(ids)) {
+          throw new WorkspaceError(
+            `Chain stage "${stage}" takes a list of ids (or one id), got ${typeof id}.`
+          );
+        }
+        for (const one of ids) {
+          if (typeof one !== 'string' || !known(one)) {
+            throw new WorkspaceError(
+              `Unknown ${stage} id: "${one}" (use list_options or search_catalog types=["chain"]).`
+            );
+          }
+        }
+        // Fresh copy: never alias the caller's array into the workspace.
+        card.chain[stage] = ids.slice();
+        continue;
+      }
+      if (id !== null && !known(id)) {
         throw new WorkspaceError(
           `Unknown ${stage} id: "${id}" (use list_options or search_catalog types=["chain"]).`
         );
