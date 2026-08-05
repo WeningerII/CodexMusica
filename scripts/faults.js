@@ -317,6 +317,34 @@ record(
   );
 }
 
+// 10b. doc count drift in the SUPPRESSED phrasing -> check_docs.js
+//
+//      Class 10 above perturbs "<n>-tradition", which no qualifier rule touches
+//      — so it only ever proved the gate catches drift on the easy path. The
+//      phrasing that actually shipped stale was "returns all 1145 traditions
+//      WITH their recipe strings": the trailing `with` marked it a subset claim,
+//      the gate skipped it, and AGENTS.md advertised 1145 against a real 2503
+//      while check_docs printed PASS. A gate that goes green on the defect it
+//      exists to catch is worse than no gate, because it is also a claim.
+//
+//      This class is deliberately built from the qualifier list itself rather
+//      than a literal `with`, so it keeps testing the boundary if QUALIFIERS is
+//      ever edited.
+{
+  const d = mkenv(['scripts', 'references', 'SKILL.md', 'AGENTS.md', 'index.html', 'llms.txt']);
+  const f = path.join(d, 'AGENTS.md');
+  const src = fs.readFileSync(f, 'utf8');
+  const m = src.match(/all (\d+)\s*\n?traditions with/);
+  if (!m) throw new Error('faults: no "all <n> traditions with" claim in AGENTS.md to perturb');
+  const off = String(Number(m[1]) - 1);
+  fs.writeFileSync(f, src.replace(m[0], m[0].replace(m[1], off)));
+  record(
+    'count-drift-behind-qualifier -> check_docs.js',
+    gate(d, ['scripts/check_docs.js']),
+    new RegExp(`${m[1]}|${off}|drift|mismatch|count|expected`, 'i')
+  );
+}
+
 // 11. a documented command that no longer exits 0 -> check_doc_commands.js
 {
   const d = mkenv([
