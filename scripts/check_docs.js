@@ -36,8 +36,11 @@
 //   node scripts/check_docs.js --with-smoke   # + slow smoke + advisory checks
 //   node scripts/check_docs.js --all          # everything
 //   node scripts/check_docs.js --json         # machine-readable output
+//   node scripts/check_docs.js --fix          # rewrite drifted counts from the catalog
 //
-// Exits 0 if all checks pass, 1 if any drift detected.
+// Exits 0 if all checks pass, 1 if any drift detected. --fix repairs the
+// canonical counts in place and still reports what it changed (and still exits
+// 1), so a CI run can never pass by silently rewriting the docs it is auditing.
 
 const fs = require('fs');
 const path = require('path');
@@ -53,6 +56,7 @@ for (const a of process.argv.slice(2)) {
 const WITH_AUDITS = flags.audits || flags['with-audits'] || flags.all;
 const WITH_SMOKE = flags.smoke || flags['with-smoke'] || flags.all;
 const JSON_OUT = flags.json;
+const FIX = flags.fix;
 
 // ───────────────────────── Path-based exclusions ─────────────────────────
 
@@ -110,11 +114,21 @@ for (const extra of ['llms.txt', 'index.html', 'package.json']) {
 
 // ───────────────────────── Canonical count registry ─────────────────────────
 //
-// Each pattern matches "X NOUN" but EXCLUDES when followed by qualifier words
-// like "with", "flagged", "of", "in", "are" — those phrasings denote subset
-// counts (e.g. "42 prefaces with 8 tokens", "5 traditions flagged by audit")
-// rather than canonical catalog totals. The pragma override remains available
-// for any edge case the regex misclassifies.
+// Each pattern matches "X NOUN". Whether that match is a CANONICAL claim (a
+// catalog total, which must be checked) or a SUBSET claim (which must not) is
+// decided by isSubsetClaim below, not by the pattern:
+//
+//   - a qualifier word after the noun ("with", "flagged", "of", "in", "are")
+//     marks a subset — "42 prefaces with 8 tokens", "5 traditions flagged by
+//     audit";
+//   - a totality determiner before the number ("all", "every", "the full")
+//     outranks it and marks a total — "returns all <n> traditions with their
+//     recipe strings" (no live count written here: a comment illustrating this
+//     rule is the last place that should carry a transcribed one).
+//
+// Both callers share that one function: --fix cannot repair a claim --check
+// would not flag. The pragma override remains available for any edge case it
+// misclassifies.
 
 const QUALIFIERS = [
   'with',
@@ -139,7 +153,38 @@ const QUALIFIERS = [
 // the claim; the decoration around it must not decide whether we check.
 const Q = '["\u201C\u201D\u2018\u2019*_`]*';
 
-const Q_NEG = `(?!\\s+(?:${QUALIFIERS.join('|')})\\b)`;
+// A totality marker BEFORE the number outranks a qualifier after the noun.
+//
+// The qualifier list is an open-world negative: it can only ever name the
+// disqualifiers someone has already been burned by, so every miss widens it
+// again (quote decoration, line wraps, "recorded-music" — three widenings, each
+// after a production escape). This is the same failure a fourth time, and
+// adding `with` to QUALIFIERS would be the wrong repair: `with` really does
+// mark a subset in "42 prefaces with 8 tokens".
+//
+// What actually separates the two is not the qualifier, it is `all`. English
+// marks totality up front, and a subset claim never carries one of these
+// determiners. So rather than enumerating more ways to be a subset, look for
+// the positive evidence of a total. AGENTS.md's "returns all 1145 traditions
+// with their `recipe` strings" is a canonical claim that this gate reported as
+// PASS while the real count was 2503.
+//
+// This does not make the classifier complete — nothing over free prose is. It
+// makes the completeness burden fall on a closed set (the handful of English
+// totality determiners) instead of an open one (every phrasing that could ever
+// follow a noun).
+const TOTAL_MARKERS = ['all', 'every', 'the full', 'the complete', 'the entire'];
+
+const QUALIFIER_RE = new RegExp(`^\\s+(?:${QUALIFIERS.join('|')})\\b`);
+const TOTAL_RE = new RegExp(`\\b(?:${TOTAL_MARKERS.join('|')})\\s+$`, 'i');
+
+// Suppression is decided here rather than inside each pattern so that --check
+// and --fix cannot disagree about what counts as a canonical claim: one
+// classifier, both callers.
+function isSubsetClaim(content, start, end) {
+  if (!QUALIFIER_RE.test(content.slice(end, end + 32))) return false;
+  return !TOTAL_RE.test(content.slice(Math.max(0, start - 24), start));
+}
 
 // Number group accepting both "870" and "1,167". README writes prose numbers with
 // thousands separators; the agent-facing docs do not. Spelled out rather than
@@ -155,47 +200,47 @@ const COUNT_CHECKS = [
   // and \s+ so a line-wrapped "all 1195\ntraditions" still matches — both forms
   // drifted silently before this pattern was widened.
   {
-    phrase: new RegExp(`${N}(?:\\s+(?:recorded-music|music))?\\s+${Q}traditions\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}(?:\\s+(?:recorded-music|music))?\\s+${Q}traditions\\b`, 'g'),
     expected: C.TRADITIONS.length,
     kind: 'traditions',
   },
   {
-    phrase: new RegExp(`${N}\\s+${Q}instruments\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}instruments\\b`, 'g'),
     expected: C.INSTRUMENTS.length,
     kind: 'instruments',
   },
   {
-    phrase: new RegExp(`${N}\\s+${Q}prefaces\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}prefaces\\b`, 'g'),
     expected: C.PREFACE_LEXICON.length,
     kind: 'prefaces',
   },
   {
-    phrase: new RegExp(`${N}\\s+${Q}rooms\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}rooms\\b`, 'g'),
     expected: C.ROOMS.length,
     kind: 'rooms',
   },
   {
-    phrase: new RegExp(`${N}\\s+${Q}chain archetypes\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}chain archetypes\\b`, 'g'),
     expected: C.CHAIN_ARCHETYPES.length,
     kind: 'chain_archetypes',
   },
   {
-    phrase: new RegExp(`${N}\\s+${Q}production aesthetics\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}production aesthetics\\b`, 'g'),
     expected: C.PRODUCTION_AESTHETICS.length,
     kind: 'production_aesthetics',
   },
   {
-    phrase: new RegExp(`${N}\\s+${Q}tunings\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}tunings\\b`, 'g'),
     expected: C.TUNINGS.length,
     kind: 'tunings',
   },
   {
-    phrase: new RegExp(`${N}\\s+${Q}tree nodes\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}tree nodes\\b`, 'g'),
     expected: C.TREE_NODES.length,
     kind: 'tree_nodes',
   },
   {
-    phrase: new RegExp(`${N}\\s+${Q}catalog tables\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}\\s+${Q}catalog tables\\b`, 'g'),
     expected: Object.keys(C).length,
     kind: 'catalog_tables',
   },
@@ -265,16 +310,35 @@ function lineAt(content, lineNum) {
 }
 
 const numericFailures = [];
-for (const { rel, content } of activeMarkdowns) {
+// file → [{start, end, expected}] for --fix, collected during the same scan so a
+// repair can never target a claim the check would not have flagged.
+const repairs = new Map();
+for (const { rel, abs, content } of activeMarkdowns) {
   for (const check of COUNT_CHECKS) {
-    check.phrase.lastIndex = 0;
+    // Recompiled with `d` so the capture group reports its own offsets. Several
+    // patterns capture the SECOND number in a claim ("288 of 312 ids contain
+    // dots", "dominates at 733/2503"), and searching the match text for the
+    // captured digits picks the wrong one whenever the two happen to be equal.
+    // hasIndices removes the guess.
+    const re = new RegExp(check.phrase.source, check.phrase.flags + 'd');
     let m;
-    while ((m = check.phrase.exec(content)) !== null) {
+    while ((m = re.exec(content)) !== null) {
       const found = parseInt(m[1].replace(/,/g, ''), 10);
       if (found === check.expected) continue;
+      if (isSubsetClaim(content, m.index, m.index + m[0].length)) continue;
       const lineNum = lineNumberAt(content, m.index);
       const line = lineAt(content, lineNum);
       if (PRAGMA_RE.test(line)) continue;
+      const [numStart, numEnd] = m.indices[1];
+      if (!repairs.has(abs)) repairs.set(abs, []);
+      repairs.get(abs).push({
+        start: numStart,
+        end: numEnd,
+        // Preserve the source's own thousands-separator convention: README
+        // writes 1,167 and the agent docs write 1167, and a repair must not
+        // silently restyle either into the other.
+        text: m[1].includes(',') ? check.expected.toLocaleString('en-US') : String(check.expected),
+      });
       numericFailures.push({
         file: rel,
         line: lineNum,
@@ -284,6 +348,29 @@ for (const { rel, content } of activeMarkdowns) {
         context: line.trim().slice(0, 120),
       });
     }
+  }
+}
+
+// ───────────────────────── --fix: derive instead of transcribe ─────────────────────────
+//
+// The counts in these docs are a copy of a fact the catalog already holds, kept
+// in sync by hand. llms.txt does not have this problem — build_discovery.js
+// interpolates ${tindex.count} into it, so it is structurally incapable of
+// drifting. AGENTS.md cannot be generated the same way (it is served raw and is
+// mostly hand-written prose), but the NUMBERS in it can still stop being
+// something anyone types: --fix rewrites them from the loader.
+//
+// That is the difference between a smoke detector and not keeping petrol in the
+// hallway. The check stays — it is what makes the gate two-sided — but the
+// routine path after a catalog import is now `npm run fix:docs`, not "notice the
+// gate went red, then hand-edit the number the gate just told you".
+if (FIX) {
+  for (const [abs, edits] of repairs) {
+    // Right-to-left so each splice leaves earlier offsets valid.
+    edits.sort((a, b) => b.start - a.start);
+    let out = fs.readFileSync(abs, 'utf-8');
+    for (const e of edits) out = out.slice(0, e.start) + e.text + out.slice(e.end);
+    fs.writeFileSync(abs, out);
   }
 }
 

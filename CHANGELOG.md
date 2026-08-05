@@ -6,6 +6,54 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — AGENTS.md advertised 1145 traditions against a real 2503
+
+`api/all.json` holds every tradition (`count: 2503`), and the file it is
+described in said 1145 — the number an agent reads to decide whether the one-shot
+fetch is worth it. The stated size was stale the same way: `~0.8 MB` against an
+actual 1.87 MB. One sentence, two hand-maintained copies of facts the catalog and
+the artifact already hold, both rotted.
+
+The gate that exists to catch exactly this reported **PASS** the whole time.
+`check_docs.js` skips a count when a qualifier word follows the noun, because
+"42 prefaces with 8 tokens" is a subset claim rather than a catalog total — and
+"returns all 1145 traditions **with** their `recipe` strings" tripped that rule.
+
+That suppression list is an open-world negative: it can only name the
+disqualifiers someone has already been burned by, and its own history is three
+widenings, each after an escape (quote decoration, line wraps, `recorded-music`).
+Adding `with` would have been the fourth, and wrong — `with` really does mark a
+subset elsewhere. What separates the two cases is not the qualifier but the
+determiner: English marks totality up front, and a subset claim never carries
+one. A leading `all` / `every` / `the full` now outranks a trailing qualifier,
+which moves the completeness burden onto a closed set of determiners instead of
+an open set of phrasings. It does not make the classifier complete; nothing over
+free prose is.
+
+### Added — `check_docs.js --fix`, so the counts stop being transcribed
+
+The deeper cause is upstream of the gate: these numbers are a second copy of a
+fact the catalog already holds, kept in sync by hand. `llms.txt` does not have
+this problem — `build_discovery.js` interpolates `${tindex.count}` into it, so it
+is structurally incapable of drifting. Two policies for one class of fact in one
+repo, and the defect landed in the one that is not derived.
+
+AGENTS.md cannot be generated the same way (it is served raw and is mostly prose),
+but its numbers can stop being something anyone types. `npm run fix:docs`
+rewrites every canonical count from the loader. Check and repair share one
+classifier, so a repair can never touch a claim the check would not flag; the
+source's own thousands-separator style is preserved; and `--fix` still exits 1
+and still reports, so CI can never go green by rewriting the docs it audits.
+
+### Added — a fault class for the phrasing that actually shipped
+
+The existing count-drift class perturbs `"<n>-tradition"`, which no qualifier
+rule touches — so it only ever proved the gate catches drift on the easy path,
+and the gate stayed two-sided on paper while going green on the real defect. The
+new class plants the suppressed shape (`all <n> traditions with …`) and is built
+from the qualifier list itself rather than a literal `with`, so it keeps testing
+the boundary if `QUALIFIERS` is edited.
+
 ### Fixed — a chain override on a multi-select stage deleted the section
 
 `setEnvironment` validated chain **ids** but not chain **shape**. `fx` holds a

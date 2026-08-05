@@ -19,8 +19,8 @@ For any tradition, you get:
 
 Base URL: `https://weningerii.github.io/CodexMusica`
 
-**Fastest path — one fetch for everything:** `…/api/all.json` returns all 1145
-traditions with their `recipe` strings in a single file (~0.8 MB). Fetch it once and you
+**Fastest path — one fetch for everything:** `…/api/all.json` returns all 2503
+traditions with their `recipe` strings in a single file (~1.9 MB). Fetch it once and you
 have the whole catalog; no per-id requests needed. <!-- @promise: all-traditions-one-fetch -->
 
 **Do NOT fetch `codex.html`** — it is the human GUI shell (it lazy-loads this same `api/`
