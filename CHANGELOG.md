@@ -6,6 +6,30 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — new mark, and the icon set is now derived instead of hand-exported
+
+The favicon is a slash and an eighth note — `/♪`, which reads as a slash command
+and a note at once. Authored as four SVG paths in `favicon.svg`, so it is about
+430 bytes and stays crisp at every size instead of being a downscaled raster.
+
+The more useful half is underneath. `favicon.svg` was source, and the six PNGs
+beside it were derived from nothing in the repo — rendered once, elsewhere, and
+committed. No script regenerated them and no gate compared them, so editing the
+mark meant hand-exporting six files, or (far more likely) shipping a new SVG
+next to five stale PNGs still showing the old one. `scripts/build_favicon.js`
+makes every raster a pure function of the SVG, `--check` fails when they drift,
+it runs in `npm test`, and `faults.js` proves it goes red on a planted edit.
+
+`assets/og-image.png` is patched rather than rebuilt: the social card carries its
+wordmark as pixels with no text source, and re-rendering type would make the
+build depend on a font being installed. Only the mark is repainted, at a box
+measured off the card's own pixels, so every glyph survives byte-identical.
+
+`assets/ATTRIBUTION.md` no longer credits Material Design Icons for the icon.
+The MDI `music-note-eighth` glyph the old tile composited is gone from every
+shipped asset, so the attribution it required stopped applying — the note now
+records the removal rather than deleting it silently.
+
 ### Added — a chat bar on the published page, and the Gemini adapter behind it
 
 The catalog page was browsable but not askable: driving the engine in plain
