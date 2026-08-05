@@ -6,6 +6,70 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — a chat bar on the published page, and the Gemini adapter behind it
+
+The catalog page was browsable but not askable: driving the engine in plain
+language required an MCP client, which is most of a setup for someone you just
+sent a link to. `codex.html` now carries a chat dock that drives the same nine
+tools and hands back the recipe verbatim, with the tool calls that produced it
+listed underneath.
+
+The page is static, so the key lives in the Render service instead: page →
+`/chat` → Gemini → the engine. The transcript and the workspace stay in the
+browser and round-trip on every turn, so the server still stores nothing —
+`connector-tools-read-only` is a gated promise, and holding a session would have
+made it false. The envelope is HMAC-signed, so a caller can extend a transcript
+this server wrote but cannot fabricate one and use the key as a completion proxy.
+Rate limits, a daily spend cap and a tool-call ceiling are all in `mcp/chat.js`
+and all env-overridable.
+
+`workspace` is **removed** from the function declarations rather than encoded.
+It is a part-id → variant-id map over 4051 part ids across 1406 instruments, so
+it cannot be typed — the trick that fixed `chain` does not survive four thousand
+of them — and it reaches the wire as an empty node, which Gemini rejects. The
+adapter holds it and injects it; the model never emits or reads one. That deletes
+the illegal node instead of negotiating with it, costs fewer tokens than any
+encoding would, and makes a corrupted workspace impossible. Known limitation,
+named in the code: one workspace per conversation, so no branching.
+
+### Fixed — a chain id was findable but not usable
+
+`search_catalog` returned chain hits as `{type, id, name}`. A chain id is only
+usable as `chain: {<stage>: <id>}` and there are eight stages, so a successful
+lookup ended in a one-in-eight guess — and the loop building the search index had
+`sec.id` in hand the whole time. `list_options` could not close the gap either:
+`chain_sections` enumerates the eight stage names, not their items.
+
+Found by pointing the new probe at the real engine, not by reading code.
+"haunted Appalachian murder ballad, banjo like it's underwater" resolved
+`underwater` to `hydrophone_piezo` — correct, and the only hit in the catalog —
+filed it under `fx`, and was refused. A hydrophone is a microphone. With nothing
+reachable holding the stage, the model re-guessed four times and hit the step
+ceiling: 14 calls, 93.5k tokens, no recipe. With the stage reported: 5 calls,
+32.9k tokens. The model was not wrong about the catalog; the catalog was not
+telling it.
+
+Chain hits now carry `stage`, and the other dead-end refusals the probe surfaced
+carry their recovery too: a real id in the wrong stage names the stage that would
+take it, room and tuning name the lookup that answers them, `No card matching X`
+lists the cards that are there, and `set_environment` without `card` says that
+each edit targets one instrument.
+
+Two new promises — `connector-gemini-legal` and `chain-id-stage-known` — gated in
+`check_connector_contract.js` off the live `tools/list` / `tools/call` round-trip
+it already runs, each proven to fail on the unfixed code in `faults.js`. Two of
+those four fault classes ESCAPED on the first attempt: the gate imported the
+adapter's own `WORKSPACE_PROPERTY` for both sides of its comparison, so pointing
+that constant at a nonexistent property made the check agree with itself while
+the removal it exists to verify had stopped happening. It asserts the literal now.
+
+### Fixed — `scripts/**/*.mjs` matched no ESLint config block
+
+`scripts/**/*.js` is configured as CommonJS and `mcp/**/*.mjs` as ESM, but ESM
+under `scripts/` fell through both and was linted against the bare recommended
+config with no Node globals — every `process` and `console` in a new `.mjs` there
+reported as undefined. No file had occupied that gap before.
+
 ### Fixed — AGENTS.md advertised 1145 traditions against a real 2503
 
 `api/all.json` holds every tradition (`count: 2503`), and the file it is

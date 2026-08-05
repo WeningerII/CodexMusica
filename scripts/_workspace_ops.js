@@ -105,10 +105,23 @@ function addInstrument(ws, instrumentId, opts = {}) {
   return next;
 }
 
+// "No card matching X" names the one card that is NOT there and withholds the
+// ones that are, so a caller that guessed a name has nothing to correct toward
+// and guesses again. The roster is right here in the workspace and is at most a
+// couple of dozen short ids; listing it turns the retry into a lookup. Measured:
+// a model that invented the card `cajita` burned its remaining step budget
+// re-inventing it, against a recipe whose cards it could have been shown.
+function noCard(ws, cardRef) {
+  const refs = (ws.cards || []).map((c) => c.instrumentId || c.id);
+  return new WorkspaceError(
+    `No card matching "${cardRef}". Cards in this recipe: ${refs.join(', ') || '(none)'}.`
+  );
+}
+
 function removeInstrument(ws, cardRef) {
   const next = clone(ws);
   const c = findCard(next, cardRef);
-  if (!c) throw new WorkspaceError(`No card matching "${cardRef}"`);
+  if (!c) throw noCard(next, cardRef);
   next.cards = next.cards.filter((x) => x.id !== c.id);
   return next;
 }
@@ -118,7 +131,7 @@ function removeInstrument(ws, cardRef) {
 function setVariant(ws, cardRef, partId, variantId) {
   const next = clone(ws);
   const card = findCard(next, cardRef);
-  if (!card) throw new WorkspaceError(`No card matching "${cardRef}"`);
+  if (!card) throw noCard(next, cardRef);
   const inst = instById(card.instrumentId);
   const part = (inst.parts || []).find((p) => p.id === partId);
   if (!part) throw new WorkspaceError(`${card.instrumentId} has no part "${partId}"`);
@@ -132,15 +145,23 @@ function setVariant(ws, cardRef, partId, variantId) {
 function setEnvironment(ws, cardRef, { room, tuning, chain } = {}) {
   const next = clone(ws);
   const card = findCard(next, cardRef);
-  if (!card) throw new WorkspaceError(`No card matching "${cardRef}"`);
+  if (!card) throw noCard(next, cardRef);
+  // Rooms and tunings are closed id spaces with a lookup that answers them, so
+  // the refusal says which lookup. A bare "Unknown room" is a dead end: it tells
+  // the caller the guess was wrong and nothing about where the right answer
+  // lives, and a model that cannot see the space guesses a second synonym.
   if (room !== undefined) {
     if (room !== null && !(C.ROOMS || []).find((r) => r.id === room))
-      throw new WorkspaceError(`Unknown room: "${room}"`);
+      throw new WorkspaceError(
+        `Unknown room: "${room}" (search_catalog types=["room"], or list_options kind="rooms").`
+      );
     card.room = room;
   }
   if (tuning !== undefined) {
     if (tuning !== null && !(C.TUNINGS || []).find((t) => t.id === tuning))
-      throw new WorkspaceError(`Unknown tuning: "${tuning}"`);
+      throw new WorkspaceError(
+        `Unknown tuning: "${tuning}" (search_catalog types=["tuning"], or list_options kind="tunings").`
+      );
     card.tuning = tuning;
   }
   if (chain && typeof chain === 'object') {
@@ -171,6 +192,27 @@ function setEnvironment(ws, cardRef, { room, tuning, chain } = {}) {
         throw new WorkspaceError(`Unknown chain stage: "${stage}". Valid: ${stages.join(', ')}`);
       }
       const known = (candidate) => (sec.items || []).find((it) => it.id === candidate);
+      // A rejected id is one of two very different mistakes, and the caller
+      // cannot tell them apart from "Unknown fx id". Either the id does not
+      // exist, or — far more often, because search_catalog hands out real chain
+      // ids — it exists in a DIFFERENT stage and was filed under the wrong one.
+      // Naming the stage that would take it turns a dead end into a correction.
+      const elsewhere = (candidate) => {
+        for (const other of C.CHAIN_SECTIONS || []) {
+          if (other === sec) continue;
+          if ((other.items || []).some((it) => it.id === candidate)) return other.id || other.stage;
+        }
+        return null;
+      };
+      const rejectId = (candidate) => {
+        const other = elsewhere(candidate);
+        return new WorkspaceError(
+          other
+            ? `Unknown ${stage} id: "${candidate}" — that id belongs to the "${other}" stage. ` +
+                `Pass it as chain: {"${other}": "${candidate}"}.`
+            : `Unknown ${stage} id: "${candidate}" (search_catalog types=["chain"] returns each id with the stage that accepts it).`
+        );
+      };
       if (sec.multiSelect) {
         // null clears the stage, matching the single-select clear path below.
         if (id === null) {
@@ -188,21 +230,13 @@ function setEnvironment(ws, cardRef, { room, tuning, chain } = {}) {
           );
         }
         for (const one of ids) {
-          if (typeof one !== 'string' || !known(one)) {
-            throw new WorkspaceError(
-              `Unknown ${stage} id: "${one}" (use list_options or search_catalog types=["chain"]).`
-            );
-          }
+          if (typeof one !== 'string' || !known(one)) throw rejectId(one);
         }
         // Fresh copy: never alias the caller's array into the workspace.
         card.chain[stage] = ids.slice();
         continue;
       }
-      if (id !== null && !known(id)) {
-        throw new WorkspaceError(
-          `Unknown ${stage} id: "${id}" (use list_options or search_catalog types=["chain"]).`
-        );
-      }
+      if (id !== null && !known(id)) throw rejectId(id);
       card.chain[stage] = id;
     }
   }
@@ -214,7 +248,7 @@ function setPreface(ws, cardRef, prefaceId) {
   if (!prefaceById(prefaceId)) throw new WorkspaceError(`Unknown preface: "${prefaceId}"`);
   const next = clone(ws);
   const card = findCard(next, cardRef);
-  if (!card) throw new WorkspaceError(`No card matching "${cardRef}"`);
+  if (!card) throw noCard(next, cardRef);
   const res = inverseConfigure(card, prefaceId);
   if (!res)
     throw new WorkspaceError(`Cannot apply preface "${prefaceId}" to "${card.instrumentId}"`);

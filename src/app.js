@@ -17231,6 +17231,7 @@ function _initApp() {
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncAppBarHeight).catch(() => {});
   wireOverflowMenu();
   wireTreeDragAndDrop();
+  initChatDock();
   // Crossing 900px swaps the whole model — the detail panel moves between the
   // tree and the right-hand pane — so the app has to repaint, not just
   // restyle. Repaint ONLY on a crossing: a plain resize (or the address bar
@@ -18513,3 +18514,229 @@ function wireSimilarEvents(container) {
 }
 
 
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ASK THE ENGINE — the public chat dock.
+//
+// The page is static (GitHub Pages), so it cannot hold a model key and cannot
+// call Gemini. Every message goes to the MCP service, which holds the key, runs
+// the tool loop against the same engine this app is built on, and hands back the
+// recipe. The browser keeps the conversation; the server keeps nothing — which
+// is why `history`, `workspace` and `sig` travel in both directions on every
+// turn. The signature is the server's; it round-trips untouched.
+//
+// The workspace here is the CONNECTOR's workspace, not this app's canvas, and
+// the two are deliberately not wired together: importing a chat result into the
+// canvas is a different feature with its own undo semantics. What the dock
+// promises is what it does — a recipe string, reproduced exactly.
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Overridable so the dock can be pointed at a local server during development
+// without editing the shipped page.
+const CHAT_BACKEND =
+  (typeof window !== 'undefined' && window.CODEX_CHAT_ENDPOINT) ||
+  'https://codex-musica-mcp.onrender.com';
+
+const chatState = { history: null, workspace: null, sig: null, busy: false };
+
+function _chatEl(id) { return document.getElementById(id); }
+
+function _chatScroll() {
+  const log = _chatEl('chat-log');
+  if (log) log.scrollTop = log.scrollHeight;
+}
+
+function _chatAppend(html) {
+  const log = _chatEl('chat-log');
+  if (!log) return null;
+  const wrap = document.createElement('div');
+  wrap.innerHTML = html;
+  const node = wrap.firstElementChild;
+  log.appendChild(node);
+  _chatScroll();
+  return node;
+}
+
+function _chatOpenPanel() {
+  const panel = _chatEl('chat-panel');
+  if (panel) panel.hidden = false;
+}
+
+// Every string here is either escaped or a recipe rendered into textContent.
+// The reply is model output arriving over the network; treating it as markup
+// would make the endpoint an XSS vector into this page.
+function _chatRenderReply(payload) {
+  // The connector instructions tell the model to present the recipe VERBATIM,
+  // so a good answer contains the whole recipe string inside its prose — and we
+  // render that same string again, properly, in the block below. Showing it
+  // twice fills the panel with a duplicate and pushes the real one out of view.
+  // Strip the copy out of the prose and keep the block, which is the one that is
+  // monospaced, character-counted and copyable.
+  let prose = payload.reply || '';
+  if (payload.recipe && prose.includes(payload.recipe)) {
+    prose = prose.split(payload.recipe).join(' ').replace(/\s{2,}/g, ' ').trim();
+    // What is left is usually a lead-in ("Here is your recipe:") whose colon now
+    // dangles at the end of the sentence.
+    prose = prose.replace(/[:\-–—]\s*$/, '').trim();
+  }
+  const parts = [];
+  if (prose) parts.push(`<p style="margin:0;">${esc(prose)}</p>`);
+  const node = _chatAppend(`<div class="chat-msg chat-msg-engine">${parts.join('') || ''}</div>`);
+  if (!node) return;
+
+  if (payload.recipe) {
+    const box = document.createElement('div');
+    box.className = 'chat-recipe';
+    const pre = document.createElement('pre');
+    pre.className = 'chat-recipe-text';
+    // textContent, not innerHTML: the recipe is reproduced character for
+    // character and must not be re-interpreted on the way to the screen.
+    pre.textContent = payload.recipe;
+    const foot = document.createElement('div');
+    foot.className = 'chat-recipe-foot';
+    const count = document.createElement('span');
+    count.textContent = `${payload.recipe.length} / ${RECIPE_CHAR_CEILING} chars`;
+    const copy = document.createElement('button');
+    copy.className = 'btn btn-secondary';
+    copy.type = 'button';
+    copy.textContent = 'Copy';
+    copy.addEventListener('click', () =>
+      copyToClipboard(payload.recipe, 'Recipe copied', 'Could not copy')
+    );
+    foot.appendChild(count);
+    foot.appendChild(copy);
+    box.appendChild(pre);
+    box.appendChild(foot);
+    node.appendChild(box);
+  }
+
+  if (Array.isArray(payload.tools) && payload.tools.length) {
+    const trace = document.createElement('div');
+    trace.className = 'chat-tools';
+    for (const t of payload.tools) {
+      const chip = document.createElement('span');
+      chip.className = 'chat-tool' + (t.error ? ' is-error' : '');
+      chip.textContent = t.name;
+      if (t.error) chip.title = t.error;
+      trace.appendChild(chip);
+    }
+    node.appendChild(trace);
+  }
+
+  if (payload.stopped) {
+    // A truncated answer that looks complete is the worst outcome here, so the
+    // reason the loop ended is shown rather than swallowed.
+    const note = document.createElement('div');
+    note.className = 'chat-msg-note';
+    note.textContent =
+      payload.stopped === 'MAX_STEPS'
+        ? 'Stopped after the maximum number of tool calls — ask for one change at a time to go further.'
+        : `Stopped early (${payload.stopped}).`;
+    node.appendChild(note);
+  }
+  _chatScroll();
+}
+
+function _chatSetBusy(busy) {
+  chatState.busy = busy;
+  const dock = _chatEl('chat-dock');
+  const input = _chatEl('chat-input');
+  const send = _chatEl('chat-send');
+  if (dock) dock.classList.toggle('is-busy', busy);
+  if (input) input.disabled = busy;
+  if (send) send.disabled = busy;
+}
+
+function _chatReset() {
+  chatState.history = null;
+  chatState.workspace = null;
+  chatState.sig = null;
+  const log = _chatEl('chat-log');
+  if (log) log.innerHTML = '';
+  const panel = _chatEl('chat-panel');
+  if (panel) panel.hidden = true;
+  const input = _chatEl('chat-input');
+  if (input) input.focus();
+}
+
+async function _chatSubmit(e) {
+  e.preventDefault();
+  if (chatState.busy) return;
+  const input = _chatEl('chat-input');
+  const message = input ? input.value.trim() : '';
+  if (!message) return;
+
+  _chatOpenPanel();
+  _chatAppend(`<div class="chat-msg chat-msg-you">${esc(message)}</div>`);
+  if (input) input.value = '';
+  _chatSetBusy(true);
+  const pending = _chatAppend('<div class="chat-msg chat-msg-note">Working through the catalog…</div>');
+
+  try {
+    const body = { message };
+    // Only send an envelope once the server has given us one to send back.
+    if (chatState.sig) {
+      body.history = chatState.history;
+      body.workspace = chatState.workspace;
+      body.sig = chatState.sig;
+    }
+    const res = await fetch(`${CHAT_BACKEND}/chat`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const payload = await res.json().catch(() => null);
+    if (pending) pending.remove();
+
+    if (!res.ok || !payload || payload.error) {
+      const msg = (payload && payload.error) || `The engine returned ${res.status}.`;
+      _chatAppend(`<div class="chat-msg chat-msg-error">${esc(msg)}</div>`);
+      return;
+    }
+    chatState.history = payload.history;
+    chatState.workspace = payload.workspace;
+    chatState.sig = payload.sig;
+    _chatRenderReply(payload);
+  } catch (err) {
+    if (pending) pending.remove();
+    // A network failure and a server error read the same to a user; say which.
+    _chatAppend(
+      `<div class="chat-msg chat-msg-error">Could not reach the engine. ${esc(err && err.message ? err.message : '')}</div>`
+    );
+  } finally {
+    _chatSetBusy(false);
+    if (input && !input.disabled) input.focus();
+  }
+}
+
+// Reveal the dock only if the backend is actually there and configured. A chat
+// bar that is visibly present and fails on every message is a worse experience
+// than no chat bar, and the page cannot know which it is without asking.
+function initChatDock() {
+  const dock = _chatEl('chat-dock');
+  const form = _chatEl('chat-form');
+  if (!dock || !form) return;
+
+  form.addEventListener('submit', _chatSubmit);
+  const collapse = _chatEl('chat-collapse');
+  if (collapse) collapse.addEventListener('click', () => {
+    const panel = _chatEl('chat-panel');
+    if (panel) panel.hidden = true;
+  });
+  const reset = _chatEl('chat-reset');
+  if (reset) reset.addEventListener('click', _chatReset);
+
+  fetch(`${CHAT_BACKEND}/chat/status`)
+    .then(r => (r.ok ? r.json() : null))
+    .then(status => {
+      if (!status || !status.ok) return;
+      dock.hidden = false;
+      const meta = _chatEl('chat-meta');
+      if (meta) meta.textContent = status.model ? `${status.model} · ${status.tools} tools` : '';
+    })
+    .catch(() => {
+      // Offline, blocked, or not deployed. Leave the dock hidden; the catalog
+      // app itself does not depend on any of this.
+    });
+}

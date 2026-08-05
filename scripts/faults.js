@@ -716,6 +716,100 @@ record(
   );
 }
 
+// workspace leaks into the Gemini declarations -> check_connector_contract.js
+//
+// The adapter's whole job on this node is to DELETE it: `workspace.cards.items`
+// is the empty schema node the catalog's 4051 part ids make untypeable, and an
+// empty node is illegal for a restricted function-calling client. Point the
+// removal at a property that does not exist and the node survives into the
+// declarations — which the SUBSET scan above would never notice, because there
+// the same node is a justified exemption. Distinct plant, distinct gate row.
+{
+  const d = mkenv(['scripts', 'references', 'mcp']);
+  const f = path.join(d, 'mcp/gemini_tools.js');
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes("export const WORKSPACE_PROPERTY = 'workspace';"))
+    throw new Error('faults: WORKSPACE_PROPERTY declaration missing');
+  fs.writeFileSync(
+    f,
+    src.replace(
+      "export const WORKSPACE_PROPERTY = 'workspace';",
+      "export const WORKSPACE_PROPERTY = 'workspace_not_a_property';"
+    )
+  );
+  record(
+    'gemini-workspace-leak -> check_connector_contract.js',
+    gate(d, ['scripts/check_connector_contract.js']),
+    /GEMINI-ILLEGAL|Gemini rejects|exposes `workspace`|flagged for injection/i
+  );
+}
+
+// a keyword Gemini rejects survives the adapter -> check_connector_contract.js
+//
+// The sanitizer is an allowlist, so the way it breaks is by allowing too much.
+// `additionalProperties` is the realistic one: it is present in the published
+// schema (chain's strictObject) and exempted there on purpose, so admitting it
+// to the allowlist republishes it to the one client that cannot read it.
+{
+  const d = mkenv(['scripts', 'references', 'mcp']);
+  const f = path.join(d, 'mcp/gemini_tools.js');
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes("const GEMINI_KEYS = new Set([\n  'type',"))
+    throw new Error('faults: GEMINI_KEYS allowlist missing');
+  fs.writeFileSync(
+    f,
+    src.replace(
+      "const GEMINI_KEYS = new Set([\n  'type',",
+      "const GEMINI_KEYS = new Set([\n  'additionalProperties',\n  'type',"
+    )
+  );
+  record(
+    'gemini-illegal-keyword -> check_connector_contract.js',
+    gate(d, ['scripts/check_connector_contract.js']),
+    /GEMINI-ILLEGAL|Gemini rejects/i
+  );
+}
+
+// a chain hit forgets its stage -> check_connector_contract.js
+//
+// The regression this guards is the one that cost a 14-call, 93k-token failure
+// loop: search hands back a real chain id, the caller has to file it under one
+// of eight stages, and nothing it can reach says which. Dropping the `stage`
+// field restores exactly that.
+{
+  const d = mkenv(['scripts', 'references', 'mcp']);
+  const f = path.join(d, 'mcp/engine.js');
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes('stage: sec.id || sec.stage,'))
+    throw new Error('faults: chain stage tagging missing');
+  fs.writeFileSync(f, src.replace('stage: sec.id || sec.stage,', ''));
+  record(
+    'chain-hit-stageless -> check_connector_contract.js',
+    gate(d, ['scripts/check_connector_contract.js']),
+    /names a real stage|stage/i
+  );
+}
+
+// a misfiled chain id gets a dead-end refusal -> check_connector_contract.js
+{
+  const d = mkenv(['scripts', 'references', 'mcp']);
+  const f = path.join(d, 'scripts/_workspace_ops.js');
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes('that id belongs to the')) throw new Error('faults: misfiled hint missing');
+  fs.writeFileSync(
+    f,
+    src.replace(
+      /other\n\s*\? `Unknown \$\{stage\} id: "\$\{candidate\}" — that id belongs[\s\S]*?\n\s*: `Unknown/,
+      'false\n          ? ``\n          : `Unknown'
+    )
+  );
+  record(
+    'chain-misfile-dead-end -> check_connector_contract.js',
+    gate(d, ['scripts/check_connector_contract.js']),
+    /wrong stage|would take it/i
+  );
+}
+
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
 // a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
 // exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so

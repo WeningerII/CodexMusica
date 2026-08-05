@@ -1461,6 +1461,155 @@ body.is-dnd-active * { cursor: grabbing !important; }
 [data-tooltip-pos="left"]:focus-visible::after {
   transform: translateY(-50%) translateX(0);
 }
+
+/* ── Ask-the-engine chat dock ──────────────────────────────────────────────
+   Docked bottom-right on desktop, full-width above the pinned recipe bar on a
+   phone. It sits at z-index 25 — under the app bar (30) and under modals, so
+   it can never cover a control the app already owns.
+
+   The transcript panel is a SEPARATE element above the input row rather than a
+   scrolling region the bar sits inside, because the bar has to stay at a fixed
+   height and reachable while the log grows. */
+.chat-dock {
+  position: fixed;
+  z-index: 25;
+  right: var(--s5);
+  bottom: var(--s5);
+  width: min(440px, calc(100vw - 2 * var(--s5)));
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+/* `display: flex` above outranks the UA's `[hidden] { display: none }`, so both
+   of these would render while still marked hidden — the dock before the backend
+   had been reached at all, and an empty transcript panel before the first
+   message. The attribute is the state; these two rules are what make it mean
+   anything once the elements are laid out as flex containers. */
+.chat-dock[hidden],
+.chat-panel[hidden] { display: none; }
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+  overflow: hidden;
+  max-height: min(60vh, 520px);
+}
+.chat-panel-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) var(--s2) var(--s2) var(--s3);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+  flex: 0 0 auto;
+}
+.chat-panel-title { font-weight: var(--fw-semibold); font-size: var(--fs-body); white-space: nowrap; flex: 0 0 auto; }
+/* min-width:0 so this is the element that gives when the head is narrow — the
+   title wrapped to two lines on a 390px phone otherwise, because a flex item
+   will not shrink below its content without it. */
+.chat-panel-meta { flex: 1 1 auto; min-width: 0; color: var(--text-3); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chat-reset { padding: 4px 8px; font-size: 12px; }
+.chat-log {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: var(--s3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+.chat-msg { font-size: var(--fs-body); line-height: var(--lh-normal); }
+.chat-msg-you { align-self: flex-end; max-width: 85%; background: var(--surface-3); border-radius: 10px 10px 2px 10px; padding: var(--s2) var(--s3); }
+.chat-msg-engine { align-self: flex-start; max-width: 100%; color: var(--text); }
+.chat-msg-error { align-self: stretch; color: var(--accent); border-left: 2px solid var(--accent); padding-left: var(--s3); }
+.chat-msg-note { align-self: stretch; color: var(--text-3); font-size: 12px; }
+
+/* The recipe is the deliverable, so it gets a block of its own rather than
+   living inside the prose: monospace, selectable, and copyable in one action.
+   `white-space: pre-wrap` because the recipe string is reproduced VERBATIM and
+   collapsing its spaces would silently alter the thing the whole tool exists
+   to produce. */
+.chat-recipe {
+  margin-top: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+.chat-recipe-text {
+  margin: 0;
+  padding: var(--s3);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 240px;
+  overflow-y: auto;
+}
+.chat-recipe-foot {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) var(--s3);
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-3);
+}
+.chat-recipe-foot .btn { padding: 3px 8px; font-size: 12px; margin-left: auto; }
+
+/* The tool trace. Shown because this app's whole claim is that the recipe is
+   derived, not invented — naming the calls that produced it is the cheapest
+   possible evidence, and it is what makes a wrong answer diagnosable. */
+.chat-tools { display: flex; flex-wrap: wrap; gap: 4px; margin-top: var(--s2); }
+.chat-tool {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  color: var(--text-2);
+}
+.chat-tool.is-error { background: var(--accent); color: #fff; }
+
+.chat-bar {
+  display: flex;
+  gap: var(--s2);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  padding: var(--s1) var(--s1) var(--s1) var(--s4);
+  align-items: center;
+}
+.chat-input {
+  flex: 1 1 auto;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: var(--fs-body);
+  color: var(--text);
+  padding: 8px 0;
+  min-width: 0;
+}
+.chat-input:focus { outline: none; }
+.chat-input::placeholder { color: var(--text-3); }
+.chat-send { border-radius: 999px; padding: 8px 16px; flex: 0 0 auto; }
+.chat-dock.is-busy .chat-input { color: var(--text-3); }
+
+@media (max-width: 900px) {
+  /* Full width, and ABOVE the pinned recipe bar — which is itself fixed to the
+     bottom edge on a phone. Overlapping it would bury the recipe the user just
+     asked for behind the box they asked in. */
+  .chat-dock {
+    left: var(--s3);
+    right: var(--s3);
+    width: auto;
+    bottom: calc(var(--recipe-bar-height, 0px) + var(--s3));
+  }
+  .chat-panel { max-height: 50vh; }
+}
 </style>
 </head>
 <body>
@@ -1636,6 +1785,30 @@ body.is-dnd-active * { cursor: grabbing !important; }
     </div>
   </div>
 </div>
+
+<!-- Ask-the-engine chat dock.
+     Starts `hidden` and is revealed at boot ONLY if the backend answers
+     /chat/status — the page is static (GitHub Pages) and cannot hold a model
+     key, so the whole feature depends on a service that may be down, off, or
+     unconfigured. Rendering the bar first and failing on submit would promise
+     something the page cannot check; asking first costs one request. -->
+<section class="chat-dock" id="chat-dock" hidden aria-label="Ask the engine">
+  <div class="chat-panel" id="chat-panel" hidden>
+    <div class="chat-panel-head">
+      <span class="chat-panel-title">Ask the engine</span>
+      <span class="chat-panel-meta" id="chat-meta"></span>
+      <button class="btn btn-ghost chat-reset" id="chat-reset" type="button"><span class="btn-label">New recipe</span></button>
+      <button class="icon-btn" id="chat-collapse" aria-label="Collapse conversation"><span data-icon="x" data-size="14"></span></button>
+    </div>
+    <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
+  </div>
+  <form class="chat-bar" id="chat-form" autocomplete="off">
+    <input class="chat-input" id="chat-input" type="text" maxlength="600"
+           aria-label="Describe the recording you want"
+           placeholder="Describe a recording — “haunted Appalachian murder ballad, banjo like it’s underwater”">
+    <button class="btn btn-primary chat-send" id="chat-send" type="submit"><span class="btn-label">Ask</span></button>
+  </form>
+</section>
 
 <!-- Datalist for preface autocomplete; populated at boot from PREFACE_LEXICON -->
 <datalist id="preface-options"></datalist>
@@ -64941,6 +65114,7 @@ function _initApp() {
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncAppBarHeight).catch(() => {});
   wireOverflowMenu();
   wireTreeDragAndDrop();
+  initChatDock();
   // Crossing 900px swaps the whole model — the detail panel moves between the
   // tree and the right-hand pane — so the app has to repaint, not just
   // restyle. Repaint ONLY on a crossing: a plain resize (or the address bar
@@ -66223,6 +66397,232 @@ function wireSimilarEvents(container) {
 }
 
 
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ASK THE ENGINE — the public chat dock.
+//
+// The page is static (GitHub Pages), so it cannot hold a model key and cannot
+// call Gemini. Every message goes to the MCP service, which holds the key, runs
+// the tool loop against the same engine this app is built on, and hands back the
+// recipe. The browser keeps the conversation; the server keeps nothing — which
+// is why `history`, `workspace` and `sig` travel in both directions on every
+// turn. The signature is the server's; it round-trips untouched.
+//
+// The workspace here is the CONNECTOR's workspace, not this app's canvas, and
+// the two are deliberately not wired together: importing a chat result into the
+// canvas is a different feature with its own undo semantics. What the dock
+// promises is what it does — a recipe string, reproduced exactly.
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Overridable so the dock can be pointed at a local server during development
+// without editing the shipped page.
+const CHAT_BACKEND =
+  (typeof window !== 'undefined' && window.CODEX_CHAT_ENDPOINT) ||
+  'https://codex-musica-mcp.onrender.com';
+
+const chatState = { history: null, workspace: null, sig: null, busy: false };
+
+function _chatEl(id) { return document.getElementById(id); }
+
+function _chatScroll() {
+  const log = _chatEl('chat-log');
+  if (log) log.scrollTop = log.scrollHeight;
+}
+
+function _chatAppend(html) {
+  const log = _chatEl('chat-log');
+  if (!log) return null;
+  const wrap = document.createElement('div');
+  wrap.innerHTML = html;
+  const node = wrap.firstElementChild;
+  log.appendChild(node);
+  _chatScroll();
+  return node;
+}
+
+function _chatOpenPanel() {
+  const panel = _chatEl('chat-panel');
+  if (panel) panel.hidden = false;
+}
+
+// Every string here is either escaped or a recipe rendered into textContent.
+// The reply is model output arriving over the network; treating it as markup
+// would make the endpoint an XSS vector into this page.
+function _chatRenderReply(payload) {
+  // The connector instructions tell the model to present the recipe VERBATIM,
+  // so a good answer contains the whole recipe string inside its prose — and we
+  // render that same string again, properly, in the block below. Showing it
+  // twice fills the panel with a duplicate and pushes the real one out of view.
+  // Strip the copy out of the prose and keep the block, which is the one that is
+  // monospaced, character-counted and copyable.
+  let prose = payload.reply || '';
+  if (payload.recipe && prose.includes(payload.recipe)) {
+    prose = prose.split(payload.recipe).join(' ').replace(/\s{2,}/g, ' ').trim();
+    // What is left is usually a lead-in ("Here is your recipe:") whose colon now
+    // dangles at the end of the sentence.
+    prose = prose.replace(/[:\-–—]\s*$/, '').trim();
+  }
+  const parts = [];
+  if (prose) parts.push(`<p style="margin:0;">${esc(prose)}</p>`);
+  const node = _chatAppend(`<div class="chat-msg chat-msg-engine">${parts.join('') || ''}</div>`);
+  if (!node) return;
+
+  if (payload.recipe) {
+    const box = document.createElement('div');
+    box.className = 'chat-recipe';
+    const pre = document.createElement('pre');
+    pre.className = 'chat-recipe-text';
+    // textContent, not innerHTML: the recipe is reproduced character for
+    // character and must not be re-interpreted on the way to the screen.
+    pre.textContent = payload.recipe;
+    const foot = document.createElement('div');
+    foot.className = 'chat-recipe-foot';
+    const count = document.createElement('span');
+    count.textContent = `${payload.recipe.length} / ${RECIPE_CHAR_CEILING} chars`;
+    const copy = document.createElement('button');
+    copy.className = 'btn btn-secondary';
+    copy.type = 'button';
+    copy.textContent = 'Copy';
+    copy.addEventListener('click', () =>
+      copyToClipboard(payload.recipe, 'Recipe copied', 'Could not copy')
+    );
+    foot.appendChild(count);
+    foot.appendChild(copy);
+    box.appendChild(pre);
+    box.appendChild(foot);
+    node.appendChild(box);
+  }
+
+  if (Array.isArray(payload.tools) && payload.tools.length) {
+    const trace = document.createElement('div');
+    trace.className = 'chat-tools';
+    for (const t of payload.tools) {
+      const chip = document.createElement('span');
+      chip.className = 'chat-tool' + (t.error ? ' is-error' : '');
+      chip.textContent = t.name;
+      if (t.error) chip.title = t.error;
+      trace.appendChild(chip);
+    }
+    node.appendChild(trace);
+  }
+
+  if (payload.stopped) {
+    // A truncated answer that looks complete is the worst outcome here, so the
+    // reason the loop ended is shown rather than swallowed.
+    const note = document.createElement('div');
+    note.className = 'chat-msg-note';
+    note.textContent =
+      payload.stopped === 'MAX_STEPS'
+        ? 'Stopped after the maximum number of tool calls — ask for one change at a time to go further.'
+        : `Stopped early (${payload.stopped}).`;
+    node.appendChild(note);
+  }
+  _chatScroll();
+}
+
+function _chatSetBusy(busy) {
+  chatState.busy = busy;
+  const dock = _chatEl('chat-dock');
+  const input = _chatEl('chat-input');
+  const send = _chatEl('chat-send');
+  if (dock) dock.classList.toggle('is-busy', busy);
+  if (input) input.disabled = busy;
+  if (send) send.disabled = busy;
+}
+
+function _chatReset() {
+  chatState.history = null;
+  chatState.workspace = null;
+  chatState.sig = null;
+  const log = _chatEl('chat-log');
+  if (log) log.innerHTML = '';
+  const panel = _chatEl('chat-panel');
+  if (panel) panel.hidden = true;
+  const input = _chatEl('chat-input');
+  if (input) input.focus();
+}
+
+async function _chatSubmit(e) {
+  e.preventDefault();
+  if (chatState.busy) return;
+  const input = _chatEl('chat-input');
+  const message = input ? input.value.trim() : '';
+  if (!message) return;
+
+  _chatOpenPanel();
+  _chatAppend(`<div class="chat-msg chat-msg-you">${esc(message)}</div>`);
+  if (input) input.value = '';
+  _chatSetBusy(true);
+  const pending = _chatAppend('<div class="chat-msg chat-msg-note">Working through the catalog…</div>');
+
+  try {
+    const body = { message };
+    // Only send an envelope once the server has given us one to send back.
+    if (chatState.sig) {
+      body.history = chatState.history;
+      body.workspace = chatState.workspace;
+      body.sig = chatState.sig;
+    }
+    const res = await fetch(`${CHAT_BACKEND}/chat`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const payload = await res.json().catch(() => null);
+    if (pending) pending.remove();
+
+    if (!res.ok || !payload || payload.error) {
+      const msg = (payload && payload.error) || `The engine returned ${res.status}.`;
+      _chatAppend(`<div class="chat-msg chat-msg-error">${esc(msg)}</div>`);
+      return;
+    }
+    chatState.history = payload.history;
+    chatState.workspace = payload.workspace;
+    chatState.sig = payload.sig;
+    _chatRenderReply(payload);
+  } catch (err) {
+    if (pending) pending.remove();
+    // A network failure and a server error read the same to a user; say which.
+    _chatAppend(
+      `<div class="chat-msg chat-msg-error">Could not reach the engine. ${esc(err && err.message ? err.message : '')}</div>`
+    );
+  } finally {
+    _chatSetBusy(false);
+    if (input && !input.disabled) input.focus();
+  }
+}
+
+// Reveal the dock only if the backend is actually there and configured. A chat
+// bar that is visibly present and fails on every message is a worse experience
+// than no chat bar, and the page cannot know which it is without asking.
+function initChatDock() {
+  const dock = _chatEl('chat-dock');
+  const form = _chatEl('chat-form');
+  if (!dock || !form) return;
+
+  form.addEventListener('submit', _chatSubmit);
+  const collapse = _chatEl('chat-collapse');
+  if (collapse) collapse.addEventListener('click', () => {
+    const panel = _chatEl('chat-panel');
+    if (panel) panel.hidden = true;
+  });
+  const reset = _chatEl('chat-reset');
+  if (reset) reset.addEventListener('click', _chatReset);
+
+  fetch(`${CHAT_BACKEND}/chat/status`)
+    .then(r => (r.ok ? r.json() : null))
+    .then(status => {
+      if (!status || !status.ok) return;
+      dock.hidden = false;
+      const meta = _chatEl('chat-meta');
+      if (meta) meta.textContent = status.model ? `${status.model} · ${status.tools} tools` : '';
+    })
+    .catch(() => {
+      // Offline, blocked, or not deployed. Leave the dock hidden; the catalog
+      // app itself does not depend on any of this.
+    });
+}
 </script>
 </body>
 </html>

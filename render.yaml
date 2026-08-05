@@ -15,3 +15,24 @@ services:
     plan: starter
     healthCheckPath: /health
     autoDeploy: true
+    # /mcp needs none of these — it is pure deterministic compute over the
+    # bundled catalog. They exist for /chat, which is the one surface that
+    # spends money. `sync: false` means Render PROMPTS for the value instead of
+    # storing it here: a key committed to a public repo is a key that has been
+    # published, and this repo is public.
+    #
+    # With GEMINI_API_KEY unset the chat endpoint answers 503 with a legible
+    # reason and the page keeps its dock hidden. The connector is unaffected.
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      # Signs the conversation envelope. Unset is SAFE but not free: chat.js
+      # generates one per boot, so every redeploy silently ends conversations
+      # in flight (the next message starts a new recipe). Set it to survive
+      # deploys. Any long random string.
+      - key: CHAT_SECRET
+        sync: false
+      # Spend ceiling per UTC day, in USD, before /chat refuses. See
+      # CHAT_LIMITS in mcp/chat.js for the rate limits this sits on top of.
+      - key: CHAT_DAILY_USD
+        value: '2'
