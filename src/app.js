@@ -18566,20 +18566,57 @@ function _chatOpenPanel() {
 // Every string here is either escaped or a recipe rendered into textContent.
 // The reply is model output arriving over the network; treating it as markup
 // would make the endpoint an XSS vector into this page.
-function _chatRenderReply(payload) {
-  // The connector instructions tell the model to present the recipe VERBATIM,
-  // so a good answer contains the whole recipe string inside its prose — and we
-  // render that same string again, properly, in the block below. Showing it
-  // twice fills the panel with a duplicate and pushes the real one out of view.
-  // Strip the copy out of the prose and keep the block, which is the one that is
-  // monospaced, character-counted and copyable.
-  let prose = payload.reply || '';
-  if (payload.recipe && prose.includes(payload.recipe)) {
-    prose = prose.split(payload.recipe).join(' ').replace(/\s{2,}/g, ' ').trim();
-    // What is left is usually a lead-in ("Here is your recipe:") whose colon now
-    // dangles at the end of the sentence.
-    prose = prose.replace(/[:\-–—]\s*$/, '').trim();
+// The connector instructions tell the model to present the recipe VERBATIM, so a
+// good answer contains the whole recipe inside its prose — and we render that
+// same string again, properly, in the block below. Showing it twice fills the
+// panel with a duplicate and pushes the real one (monospaced, character-counted,
+// copyable) out of view.
+//
+// An exact match is the easy half. The model also produces NEAR copies: observed
+// in the wild, it wrote the recipe out with every "(parenthetical tradition
+// gloss)" dropped, which is not a substring of anything and sailed past an
+// exact-match check. So a near copy is detected by its TAIL — the last stretch
+// of a recipe is the signal chain (`…pencil-condenser, in-the-box-daw-summing.`),
+// which is not a phrase anyone writes by hand — and the prose is then cut at
+// wherever the copy began.
+//
+// Deliberately conservative: it only fires on a recipe long enough to be
+// unmistakable, and when it cannot find where the copy starts it drops the prose
+// rather than guess a cut point. Losing a sentence of preamble is cheap; showing
+// the recipe twice is what this exists to prevent.
+function _chatStripRecipeCopy(reply, recipe) {
+  let prose = (reply || '').trim();
+  if (!recipe || recipe.length < 120) return prose;
+  if (prose.includes(recipe)) {
+    prose = prose.split(recipe).join(' ');
+  } else {
+    const tailAt = prose.indexOf(recipe.slice(-60));
+    if (tailAt >= 0) {
+      // The tail says a copy is present; now find where it STARTS. The opening
+      // is the part a paraphrase mangles most (it is where the tradition glosses
+      // live), so try progressively shorter prefixes rather than one fixed
+      // length — a 40-character probe missed the observed case by four words and
+      // took a real sentence of the user's answer down with it. Searching
+      // backwards from the tail so an earlier honest mention of the genre name
+      // is not mistaken for the start of the copy.
+      let cut = -1;
+      for (const n of [60, 40, 24, 12]) {
+        cut = prose.lastIndexOf(recipe.slice(0, n), tailAt);
+        if (cut >= 0) break;
+      }
+      prose = cut >= 0 ? prose.slice(0, cut) : '';
+    }
   }
+  // Whatever survives is usually a lead-in ("Here is your recipe:") whose
+  // punctuation now dangles.
+  return prose
+    .replace(/\s{2,}/g, ' ')
+    .replace(/[:,\-–—]\s*$/, '')
+    .trim();
+}
+
+function _chatRenderReply(payload) {
+  const prose = _chatStripRecipeCopy(payload.reply, payload.recipe);
   const parts = [];
   if (prose) parts.push(`<p style="margin:0;">${esc(prose)}</p>`);
   const node = _chatAppend(`<div class="chat-msg chat-msg-engine">${parts.join('') || ''}</div>`);
