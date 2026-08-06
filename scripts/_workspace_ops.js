@@ -161,11 +161,21 @@ function setVariant(ws, cardRef, partId, variantId) {
   // the card is heading toward. A card whose preface was chosen re-shapes toward
   // that one instead.
   //
-  // `prefaceLock` is deliberately NOT set here. The app's apply() writes
-  // preface + prefaceAuto and nothing else, and prefaceLock is what tells the
-  // renderer to surface a preface verbatim rather than dedup it — a variant edit
-  // is not an explicit preface choice, so claiming the lock would make the
-  // connector render something the app does not.
+  // `prefaceLock` is deliberately NOT set here, and that is now purely a
+  // statement about the card's SHAPE rather than about how it renders. The app's
+  // apply() writes preface + prefaceAuto and nothing else, so neither does this;
+  // a variant edit is not an explicit preface choice, and prefaceLock is what
+  // reports one (engine.js cardsSummary → `preface_locked`).
+  //
+  // This comment used to end "claiming the lock would make the connector render
+  // something the app does not", which had the render backwards and cost the
+  // repo its flagship parity promise for as long as it stood. The renderer keyed
+  // on prefaceLock while the app keyed on prefaceAuto === false — the flag set
+  // two lines below — so withholding prefaceLock did not keep the two surfaces
+  // in step, it was the single thing driving them apart on every set_variant.
+  // The renderer now keys on prefaceAuto === false like the app does
+  // (_recipe_stack.js:assignDedupedPrefaces), which makes the line below
+  // sufficient on its own and this omission harmless.
   const auto = card.prefaceAuto !== false;
   const target = auto ? suggest(cardDescriptors(card, C, SIGS), C.PREFACE_LEXICON) : card.preface;
   if (!target) return next; // no token signature to steer by; the bare edit stands

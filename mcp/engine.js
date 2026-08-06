@@ -90,12 +90,32 @@ function baselineForCard(card) {
     let byInst = _baselineCards.get(card.traditionId);
     if (!byInst) {
       byInst = new Map();
+      let known = false;
       try {
-        for (const c of seedTraditionCards(card.traditionId) || []) byInst.set(c.instrumentId, c);
+        for (const c of seedTraditionCards(card.traditionId) || []) {
+          byInst.set(c.instrumentId, c);
+          known = true;
+        }
       } catch {
         // Unknown/removed tradition: fall through to the instrument default.
       }
-      _baselineCards.set(card.traditionId, byInst);
+      // Cache REAL traditions only.
+      //
+      // This line used to be unconditional, and `card.traditionId` is a string
+      // off the wire — workspaceSchema types cards as z.any(), so a caller
+      // chooses it. Every distinct value therefore minted a permanent entry in
+      // a module-global Map that nothing ever evicted, including the empty Map
+      // built for an id that resolves to no tradition. Measured: 400k made-up
+      // ids retained ~315 MB after a forced GC, on a 512 MB instance, and the
+      // memory was never returned. Roughly forty ordinary-sized requests could
+      // OOM the process for everyone, and the restart that followed reset the
+      // chat spend counter and the card-id sequence with it.
+      //
+      // The cache exists to avoid re-seeding the SAME tradition repeatedly, so
+      // it only ever needed the ids that name one. There are 2,503 of those and
+      // the catalog is immutable, so the bound is the catalog's own size — an
+      // attacker-chosen id now costs one seeding attempt and nothing lasting.
+      if (known) _baselineCards.set(card.traditionId, byInst);
     }
     const seeded = byInst.get(card.instrumentId);
     if (seeded) return seeded;
@@ -168,7 +188,13 @@ function cardsSummary(ws) {
       name: labelOf(instById(c.instrumentId)) || c.instrumentId,
       tradition: c.traditionId || null,
       preface: c.preface || null,
-      preface_locked: !!c.prefaceLock,
+      // Report what the RENDERER does, which is now the same question the app
+      // answers: a pinned card (prefaceAuto === false) keeps its preface
+      // verbatim and every other card dedups around it. Reading prefaceLock
+      // here would say "false" for a card pinned by set_variant and then print
+      // that card's preface verbatim anyway — describing the output as the
+      // opposite of what it is.
+      preface_locked: c.prefaceAuto === false,
     };
     // Diff the STORED card, not this display clone. `view` has had auto prefaces
     // assigned onto it, so diffing it would compare a rendered preface against a

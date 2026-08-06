@@ -2582,12 +2582,34 @@ function compressProseRecipe(cards, ceiling) {
   //     parts: [ { prefaces: [...], innerLabel: string|null } ] }
   // Render: parts.flatMap(p => [...p.prefaces, p.innerLabel]).filter(Boolean).join(' ')
   //         + ' ' + trailingLabel
+  // Group by trailing hyphen-segment WITHIN A KIND, never across kinds.
+  //
+  // This used to key on the trailing token alone, which let an environment
+  // label and an instrument label land in the same group whenever they happened
+  // to end in the same word — and then two separate things went wrong. The
+  // merged chunk spliced the environment's name inside the instrument's phrase,
+  // so forro_brasileiro rendered "prancing electric baiao-2-4-with-zabumba-on-
+  // beat-1 bass": the TUNING name wedged between "electric" and "bass". And the
+  // merged chunk inherited kind:'env' (any env member won), so the Phase 2 trim
+  // below — which drops env chunks wholesale as auxiliary — deleted an
+  // INSTRUMENT under budget pressure. At seven imported traditions the electric
+  // bass disappeared from the recipe entirely, with no elision notice.
+  //
+  // A catalog scan found 9+ live collision pairs: the baiao tuning against
+  // electric_bass fires in five shipped traditions, leslie-cab against
+  // pipe-organ, the milonga tuning against electric_bass. Both engines carried
+  // the same logic, so byte-parity gates were structurally blind to it —
+  // agreeing implementations, both wrong.
+  //
+  // Keying on kind + trailing token makes the collapse a within-kind operation,
+  // which is what it always meant to be: instruments collapse with instruments,
+  // environment with environment.
+  const groupKeyOf = (label) => `${(byLabel.get(label) || {}).kind}|${label.split('-').pop()}`;
   const trailingGroups = new Map();
   for (const key of labelOrder) {
-    const segs = key.split('-');
-    const trailing = segs[segs.length - 1];
-    if (!trailingGroups.has(trailing)) trailingGroups.set(trailing, []);
-    trailingGroups.get(trailing).push(key);
+    const gk = groupKeyOf(key);
+    if (!trailingGroups.has(gk)) trailingGroups.set(gk, []);
+    trailingGroups.get(gk).push(key);
   }
   const bareLabels = new Set(labelOrder);
 
@@ -2598,7 +2620,7 @@ function compressProseRecipe(cards, ceiling) {
     const c = byLabel.get(key);
     const segs = c.label.split('-');
     const trailing = segs[segs.length - 1];
-    const group = trailingGroups.get(trailing);
+    const group = trailingGroups.get(groupKeyOf(key));
 
     if (group.length >= 2 && !bareLabels.has(trailing)) {
       // Multi-member collapse
@@ -13814,12 +13836,34 @@ function compressRichRecipe(cards, ceiling) {
   // Group by trailing hyphen-segment. Collapse iff group.length ≥ 2 AND no
   // member's label is the bare trailing token. Descriptors pool across the
   // group, deduped — the merged chunk gets the union as its post-noun stack.
+  // Group by trailing hyphen-segment WITHIN A KIND, never across kinds.
+  //
+  // This used to key on the trailing token alone, which let an environment
+  // label and an instrument label land in the same group whenever they happened
+  // to end in the same word — and then two separate things went wrong. The
+  // merged chunk spliced the environment's name inside the instrument's phrase,
+  // so forro_brasileiro rendered "prancing electric baiao-2-4-with-zabumba-on-
+  // beat-1 bass": the TUNING name wedged between "electric" and "bass". And the
+  // merged chunk inherited kind:'env' (any env member won), so the Phase 2 trim
+  // below — which drops env chunks wholesale as auxiliary — deleted an
+  // INSTRUMENT under budget pressure. At seven imported traditions the electric
+  // bass disappeared from the recipe entirely, with no elision notice.
+  //
+  // A catalog scan found 9+ live collision pairs: the baiao tuning against
+  // electric_bass fires in five shipped traditions, leslie-cab against
+  // pipe-organ, the milonga tuning against electric_bass. Both engines carried
+  // the same logic, so byte-parity gates were structurally blind to it —
+  // agreeing implementations, both wrong.
+  //
+  // Keying on kind + trailing token makes the collapse a within-kind operation,
+  // which is what it always meant to be: instruments collapse with instruments,
+  // environment with environment.
+  const groupKeyOf = (label) => `${(byLabel.get(label) || {}).kind}|${label.split('-').pop()}`;
   const trailingGroups = new Map();
   for (const key of labelOrder) {
-    const segs = key.split('-');
-    const trailing = segs[segs.length - 1];
-    if (!trailingGroups.has(trailing)) trailingGroups.set(trailing, []);
-    trailingGroups.get(trailing).push(key);
+    const gk = groupKeyOf(key);
+    if (!trailingGroups.has(gk)) trailingGroups.set(gk, []);
+    trailingGroups.get(gk).push(key);
   }
   const bareLabels = new Set(labelOrder);
 
@@ -13830,7 +13874,7 @@ function compressRichRecipe(cards, ceiling) {
     const c = byLabel.get(key);
     const segs = c.label.split('-');
     const trailing = segs[segs.length - 1];
-    const group = trailingGroups.get(trailing);
+    const group = trailingGroups.get(groupKeyOf(key));
 
     if (group.length >= 2 && !bareLabels.has(trailing)) {
       const parts = [];

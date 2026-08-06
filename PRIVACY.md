@@ -24,9 +24,36 @@ to look up). The server:
   JSON-RPC method and the tool name (e.g. `tools/call start_recipe`), for uptime
   and error monitoring. Neither line contains a request body, so MCP tool
   arguments and the recipe text are not logged;
-- makes **no outbound network calls** — every response is computed from the
-  immutable catalog shipped with the server (closed-world; zero runtime
-  dependencies).
+- makes **no outbound network calls to serve an MCP tool call** — every tool
+  response is computed from the immutable catalog shipped with the server
+  (closed-world; zero runtime dependencies).
+
+That last point is scoped to the MCP surface deliberately, because the same
+deployment also serves a chat bar that does call out. See **The chat bar** below.
+
+## The chat bar (`/chat`) — this one does call out
+
+The published web page carries a chat bar, and its backend is mounted on this
+same service. It is a **separate surface** from the MCP connector, and it does
+not share the connector's no-egress property:
+
+- **Your message and the conversation history are sent to Google** — specifically
+  to the Gemini API, which turns what you type into tool calls against the local
+  engine. Nothing else in this service sends anything anywhere; this endpoint
+  does, on every turn.
+- Google processes that text under **its own terms and privacy policy**, not
+  this one. The request is made with our API key, so it is not tied to any
+  account of yours.
+- **Your workspace is withheld from the model.** The recipe workspace travels in
+  the request envelope and is passed straight to the engine; it is never placed
+  in the model's context.
+- This server still stores none of it. The conversation lives in your browser and
+  is posted back each turn; the process keeps no transcript and no session — only
+  server-level counters (rate-limit buckets, a spend total) that describe the
+  service rather than any user.
+
+If you use only the MCP connector — the tools Claude calls — no part of your
+request reaches Google or any other third party.
 
 ## Request logging
 
@@ -48,7 +75,9 @@ they are not recorded, and neither is any response or recipe text.
 
 ## What we do not do
 
-- We do not sell, rent, or share data with third parties.
+- We do not sell or rent data to anyone. The one third party that receives
+  content is Google, and only for the chat bar described above — never for an
+  MCP tool call, and never for advertising or marketing.
 - We do not use request content for analytics, advertising, profiling, or model
   training.
 - We do not store request bodies or the recipes returned.
