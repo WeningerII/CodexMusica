@@ -18,11 +18,31 @@
 // is a difference that is free to grow, and mcp/README.md meanwhile promised
 // the connector was "the headless twin of the browser app".
 //
-// WHAT IT COMPARES. For each sampled (tradition, instrument, part, variant):
-// run the browser's OWN reconfigureAfterPartEdit on a card, run the connector's
-// setVariant on the same card, and require the resulting parts / tuning / room /
-// chain / preface to match exactly. The app's real function is called through
-// _load_app.js — nothing here re-implements it.
+// WHAT IT COMPARES. Three edit actions, each run through BOTH surfaces, with
+// the resulting card AND the rendered recipe compared:
+//
+//   set_variant      app reconfigureAfterPartEdit  vs  W.setVariant
+//   set_preface      app commitPrefaceChange       vs  W.setPreface
+//   set_environment  the app's field write         vs  W.setEnvironment
+//
+// The app's real functions are called through _load_app.js — nothing here
+// re-implements a cascade. The one exception is set_environment, where the app
+// has no callable entry point (its handler assigns the field inline), so that
+// section mirrors the assignment and pins the mirroring with a source tripwire;
+// see the note above it.
+//
+// RENDERING IS PART OF THE COMPARISON, and was not always. This gate used to
+// compare card STATE and stop, while check_app_parity rendered only fresh seeds
+// — so "the connector renders what the app renders" was gated over exactly the
+// workspaces where nothing had been edited. A real divergence lived in that
+// seam: the two renderers keyed preface locking on different fields, so every
+// set_variant produced a different recipe from the same cards, in all four
+// formats, with both gates green. Matching state is necessary and not
+// sufficient, because the two surfaces are different functions OF that state.
+//
+// Each section refuses to pass vacuously — a run where no cascade fired, no
+// preface reshaped a card, or no environment case ran fails rather than
+// reporting agreement it never tested.
 //
 // Usage:
 //   node scripts/check_edit_parity.js            # default sample
@@ -30,6 +50,8 @@
 //   node scripts/check_edit_parity.js --show=5   # print up to N full diffs
 // Exit 0 if every edit agrees, 1 otherwise.
 
+const fs = require('fs');
+const path = require('path');
 const C = require('./_loader.js'); // populates globalThis for app.js
 const { loadApp } = require('./_load_app.js');
 const W = require('./_workspace_ops.js');
@@ -233,6 +255,190 @@ if (cascaded === 0) {
 }
 console.log(`  post-edit renders compared: ${rendersCompared} (${FORMATS.length} formats × cases)`);
 
+// ── set_preface ─────────────────────────────────────────────────────────────
+//
+// The second unfilled cell. set_variant was gated (above) and set_preface was
+// not, though it is the edit the connector's own instructions push hardest —
+// "mood/feel words → search_prefaces, then set_preface on EACH instrument".
+//
+// Both sides run their REAL implementation: the app's commitPrefaceChange
+// (exported through _load_app.js) against the connector's setPreface. Nothing
+// here re-implements the cascade, so the gate cannot drift into agreeing with
+// itself.
+//
+// The two are deliberately NOT identical in state — setPreface writes
+// prefaceLock and the app has no such field — which is exactly why the render
+// comparison carries the weight. shapeOf() excludes prefaceLock as "a difference
+// that is not one"; that is true of the card and was famously false of the
+// output until the renderers were aligned on prefaceAuto.
+console.log('\n=== Preface parity: app commitPrefaceChange vs connector set_preface ===');
+const prefaces = (C.PREFACE_LEXICON || []).map((p) => p.id);
+let prefaceCases = 0;
+let prefaceRefused = 0;
+let prefaceReshaped = 0;
+for (let i = 0; i < cases.length; i++) {
+  const c = cases[i];
+  const prefaceId = prefaces[i % prefaces.length];
+  if (!prefaceId) break;
+
+  // The connector REFUSES a preface it cannot inverse-configure onto an
+  // instrument; the app falls back to labelling without reshaping. That is a
+  // known, deliberate difference in error policy rather than in output, so
+  // those pairs are skipped and counted — not silently swallowed.
+  let after;
+  try {
+    after = W.setPreface({ cards: [clone(c.card)] }, c.card.id, prefaceId);
+  } catch {
+    prefaceRefused++;
+    continue;
+  }
+  const connCard = after.cards[0];
+
+  const appCard = clone(c.card);
+  app.commitPrefaceChange(appCard, prefaceId);
+  prefaceCases++;
+  if (JSON.stringify(appCard.parts) !== JSON.stringify(c.card.parts)) prefaceReshaped++;
+
+  const d = diff(appCard, connCard);
+  if (d.length) {
+    mismatches++;
+    if (shown < SHOW) {
+      shown++;
+      console.log(`  ✗ ${c.tradition} / ${c.card.instrumentId} → preface ${prefaceId}`);
+      for (const line of d.slice(0, 8)) console.log(`      ${line}`);
+    }
+  }
+  for (const format of FORMATS) {
+    const appOut = app.compileRecipeStack([clone(appCard)], format, { ceiling: CEILING });
+    const connOut = renderWorkspace(clone(after.cards), { format, ceiling: CEILING });
+    rendersCompared++;
+    if (appOut !== connOut) {
+      renderMismatches++;
+      if (shown < SHOW) {
+        shown++;
+        const at = firstDiff(appOut, connOut);
+        console.log(
+          `  ✗ RENDER ${c.tradition} / ${c.card.instrumentId} → preface ${prefaceId} [${format}] diverges at char ${at}`
+        );
+        console.log(`      app:       ${appOut.slice(Math.max(0, at - 30), at + 60)}`);
+        console.log(`      connector: ${connOut.slice(Math.max(0, at - 30), at + 60)}`);
+      }
+    }
+  }
+}
+console.log(
+  `  ${prefaceCases} preface edit(s) compared, ${prefaceReshaped} of which reshaped parts (${prefaceRefused} refused by the connector and skipped)`
+);
+// A run where every preface landed as a bare relabel would pass while proving
+// nothing about the inverse cascade — the same anti-vacuity rule the set_variant
+// section applies to its own cascade counter.
+if (prefaceCases === 0 || prefaceReshaped === 0) {
+  console.log(
+    '\nEDIT PARITY: FAIL — no preface case reshaped a card, so agreement here proves nothing.'
+  );
+  process.exit(1);
+}
+
+// ── set_environment ─────────────────────────────────────────────────────────
+//
+// The third unfilled cell, and the one that needs a word about method.
+//
+// The app has no callable set_environment: its handler writes the field inline
+// (src/app.js — `card.tuning = t.dataset.setTuning || null`, `card.room = ...`,
+// `card.chain[sId] = itemId || null`) and re-renders. So this section performs
+// that same assignment rather than calling an app function, which is the one
+// place in this gate where the app side is reproduced instead of invoked.
+//
+// That reproduction is held honest by the source tripwire below: if the app's
+// handler ever stops being a plain assignment, the assertion fails and whoever
+// changed it has to update this gate deliberately. A copied one-liner with no
+// tripwire is how a parity gate quietly starts testing itself.
+//
+// What is actually being gated is downstream of the assignment anyway: the
+// renderer reads tuning/room/chain from the PRIMARY card only, so the question
+// is whether both surfaces agree about what an environment edit does to the
+// output — and the app's real compileRecipeStack answers for the app side.
+console.log('\n=== Environment parity: app field write vs connector set_environment ===');
+const appSrc = fs.readFileSync(path.join(__dirname, '..', 'src', 'app.js'), 'utf8');
+const ENV_WRITES = [
+  { label: 'tuning', re: /card\.tuning\s*=\s*t\.dataset\.setTuning\s*\|\|\s*null/ },
+  { label: 'room', re: /card\.room\s*=\s*t\.dataset\.setRoom\s*\|\|\s*null/ },
+  { label: 'chain stage', re: /card\.chain\[sId\]\s*=\s*itemId\s*\|\|\s*null/ },
+];
+let tripwireOk = true;
+for (const w of ENV_WRITES) {
+  if (!w.re.test(appSrc)) {
+    tripwireOk = false;
+    mismatches++;
+    console.log(
+      `  ✗ TRIPWIRE: the app's ${w.label} handler is no longer the plain assignment this section mirrors — re-read src/app.js and update it.`
+    );
+  }
+}
+if (tripwireOk) console.log('  ✓ the app still writes room/tuning/chain by plain assignment');
+
+const rooms = (C.ROOMS || []).map((r) => r.id);
+const tunings = (C.TUNINGS || []).map((t) => t.id);
+const singleStages = (C.CHAIN_SECTIONS || []).filter(
+  (s) => !s.multiSelect && (s.items || []).length
+);
+let envCases = 0;
+for (let i = 0; i < cases.length; i++) {
+  const c = cases[i];
+  const room = rooms[i % rooms.length];
+  const tuning = tunings[i % tunings.length];
+  const stage = singleStages[i % singleStages.length];
+  if (!room || !tuning || !stage) break;
+  const item = stage.items[i % stage.items.length];
+
+  const appCard = clone(c.card);
+  appCard.room = room || null;
+  appCard.tuning = tuning || null;
+  appCard.chain[stage.id] = item.id || null;
+
+  const after = W.setEnvironment({ cards: [clone(c.card)] }, c.card.id, {
+    room,
+    tuning,
+    chain: { [stage.id]: item.id },
+  });
+  const connCard = after.cards[0];
+  envCases++;
+
+  const d = diff(appCard, connCard);
+  if (d.length) {
+    mismatches++;
+    if (shown < SHOW) {
+      shown++;
+      console.log(
+        `  ✗ ${c.tradition} / ${c.card.instrumentId} → room=${room} tuning=${tuning} ${stage.id}=${item.id}`
+      );
+      for (const line of d.slice(0, 8)) console.log(`      ${line}`);
+    }
+  }
+  for (const format of FORMATS) {
+    const appOut = app.compileRecipeStack([clone(appCard)], format, { ceiling: CEILING });
+    const connOut = renderWorkspace(clone(after.cards), { format, ceiling: CEILING });
+    rendersCompared++;
+    if (appOut !== connOut) {
+      renderMismatches++;
+      if (shown < SHOW) {
+        shown++;
+        const at = firstDiff(appOut, connOut);
+        console.log(
+          `  ✗ RENDER ${c.tradition} / ${c.card.instrumentId} → environment [${format}] diverges at char ${at}`
+        );
+        console.log(`      app:       ${appOut.slice(Math.max(0, at - 30), at + 60)}`);
+        console.log(`      connector: ${connOut.slice(Math.max(0, at - 30), at + 60)}`);
+      }
+    }
+  }
+}
+console.log(`  ${envCases} environment edit(s) compared`);
+if (envCases === 0) {
+  console.log('\nEDIT PARITY: FAIL — no environment case ran; agreement here proves nothing.');
+  process.exit(1);
+}
+
 // Same anti-vacuity rule the cascade check above uses: a render comparison that
 // never ran is not a render comparison that passed.
 if (rendersCompared === 0) {
@@ -249,6 +455,6 @@ if (mismatches || renderMismatches) {
   process.exit(1);
 }
 console.log(
-  '\nEDIT PARITY: PASS — a material edit reshapes the card identically in both surfaces, and the edited workspace RENDERS byte-identically in every format.'
+  `\nEDIT PARITY: PASS — set_variant, set_preface and set_environment each reshape the card identically in both surfaces, and all ${rendersCompared} post-edit renders are byte-identical across every format.`
 );
 process.exit(0);

@@ -124,8 +124,17 @@ module.exports = [
     id: 'connector-edit-parity',
     doc: 'AGENTS.md',
     gate: 'check_edit_parity.js',
+    // Scope widened when the gate did, not before. It now runs set_variant,
+    // set_preface and set_environment through BOTH surfaces and compares the
+    // card AND the rendered recipe in every format; previously it ran
+    // set_variant alone and compared card state only. The wording tracks that
+    // exactly — "an edit" rather than "a part edit", and renders included —
+    // because a claim quantified wider than its gate is the failure this repo
+    // keeps re-learning. set_preface's error policy is deliberately NOT claimed:
+    // the connector refuses a preface it cannot inverse-configure where the app
+    // relabels without reshaping, so those pairs are skipped and counted.
     claim:
-      'a part edit reshapes the card identically in the connector and the app — the same inverse cascade, pinning the edited part',
+      'an edit — set_variant, set_preface or set_environment — reshapes the card identically in the connector and the app, and the edited workspace renders byte-identically in every format',
   },
   {
     id: 'connector-render-parity',

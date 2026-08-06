@@ -23,6 +23,11 @@ const EXPORTED = [
   'reconfigureAfterPartEdit',
   'inverseConfigureForPreface',
   'suggestPrefaceForCard',
+  // The app's own set_preface. Exported so check_edit_parity can call the real
+  // browser function rather than re-implement its cascade — the same reason
+  // reconfigureAfterPartEdit is here. It runs clean headlessly: its DOM work
+  // (rerenderCard, showToast) lands on the sink proxy below.
+  'commitPrefaceChange',
 ];
 
 function loadApp() {
