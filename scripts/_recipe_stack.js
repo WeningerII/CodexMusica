@@ -56,8 +56,21 @@ function ChainItem(stage, itemId) {
 // changed no output, it only stopped the output depending on the machine.
 //
 // src/app.js carries a byte-identical `_cmp` (it is inlined into codex.html and
-// cannot require this module). The two MUST stay in step or check_app_parity.js
-// goes red — which is the point.
+// cannot require this module), and four more copies live in stack.js,
+// _preface_match.js, audit_picks.js and mcp/engine.js.
+//
+// WHAT ACTUALLY KEEPS THEM IN STEP is the ESLint rule in eslint.config.js
+// (`no-restricted-syntax`, bare localeCompare), plus the da-DK leg in CI.
+//
+// This comment used to say check_app_parity.js would go red on a regression,
+// "which is the point". That was false, and it was load-bearing false: someone
+// reading it would reasonably skip adding a real guard. The gate renders both
+// sides in ONE Node process under ONE ICU locale, so it can only catch a
+// comparator change where the runner's own locale disagrees with codepoint
+// order on catalog data — and the pin was chosen precisely because en-US
+// collation and codepoint order agree on today's catalog (see the paragraph
+// above). Demonstrated rather than argued: revert this line to bare
+// localeCompare and check_app_parity passes 2503/2503.
 const _cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
 
 // ─────────────────────────── display helpers ───────────────────────────

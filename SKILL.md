@@ -111,7 +111,12 @@ aesthetic   : {id, name, era, description, characteristic_techniques[], exemplar
 tuning      : {id, name, sub, descriptors[], note, pointer}            // "sub"/descriptors carry the system
 treeNode    : {id(=full dotted path), name, parent(id|null), description}
 tradition   : {id, name, family, lineage, instruments[], room, tuning, chain_archetype?,
-               chain_mic, chain_pre, chain_console, chain_comp, chain_eq, chain_medium, chain_amp*, production_aesthetic?}
+               chain_mic, chain_pre, chain_console, chain_comp, chain_eq, chain_medium, chain_amp*, production_aesthetic?,
+               chain_status, parts?, chain_fx?, arrangement?}
+              // chain_status is on ALL 2503; parts on 1143 (per-instrument slot pins,
+              // {instrumentId: {partId: variantId}} — these OVERRIDE the instrument's
+              // defaults, so a reader that ignores them reads the wrong configuration);
+              // chain_fx on 78; arrangement on 2
 extras[id]  : {parent(node id), axes{13 named keys, ints -2..+2}, description, exemplars[], status, crossRefs[]}
 preface     : {id, tokens[], note?}                                    // a named bundle of descriptor tokens
 ```

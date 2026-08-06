@@ -50726,8 +50726,12 @@ function _suppressSubsumed(tokens) {
 // output depending on who was looking.
 //
 // scripts/_recipe_stack.js carries a byte-identical `_cmp`. This file is inlined
-// into codex.html and cannot require() it, so the two are kept in step by
-// check_app_parity.js rather than by sharing a module.
+// into codex.html and cannot require() it, so the copies are kept in step by the
+// ESLint rule that bans bare localeCompare (eslint.config.js) and by CI's da-DK
+// leg — NOT by check_app_parity.js, which is what this comment used to claim.
+// That gate runs both renderers in one process under one ICU locale, and the pin
+// was measured to be output-neutral under en-US, so a reverted comparator sails
+// straight through it: 2503/2503 green. Verified, not assumed.
 const _cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
 
 // ===== Descriptor priority — tier + IDF ordering =====
@@ -64912,38 +64916,55 @@ function buildUpSetData(cards) {
   });
 
   const N = sets.length;
+
+  // Group tokens by WHICH SETS CONTAIN THEM, rather than testing every subset.
+  //
+  // An exclusive intersection is, by definition, the tokens whose membership is
+  // exactly some set of cards — so the intersections ARE the equivalence classes
+  // of tokens under "which cards hold you". Computing them directly is
+  // O(tokens x N); enumerating candidate subsets and filtering is O(2^N x
+  // tokens), and this used to do the latter with no cap on N.
+  //
+  // That was not a theoretical difference. Measured on real descriptor sets:
+  // N=16 -> 114ms, N=20 -> 1.6s, N=22 -> 6.5s, roughly 4x per two extra cards,
+  // so N=28 is minutes of frozen tab. The only guard was `cards.length >= 4`,
+  // and the modal recomputes on every format-button click. Two large traditions
+  // reach that range on their own (symphonic seeds 17 cards, ethio_jazz 15).
+  //
+  // Worse than slow, it went quietly WRONG at the top: `1 << 31` is negative in
+  // JS and `1 << 32` is 1, so at 31+ cards the loop body never ran and the modal
+  // reported "No descriptor overlaps to display" — a confident false answer
+  // about a workspace that overlaps plenty. Keying on a joined index list
+  // instead of a 32-bit integer removes the ceiling along with the cost.
+  //
+  // Same output as before: same groups, same setIdxs (ascending, because i
+  // ascends), empty intersections impossible rather than pruned. Token order
+  // within a group is now sorted rather than inherited from whichever member set
+  // happened to be smallest — defined instead of incidental.
+  const setsOfToken = new Map();
+  for (let i = 0; i < N; i++) {
+    for (const t of sets[i].tokens) {
+      let idxs = setsOfToken.get(t);
+      if (!idxs) { idxs = []; setsOfToken.set(t, idxs); }
+      idxs.push(i);
+    }
+  }
+  const byMembership = new Map();
+  for (const entry of setsOfToken) {
+    const token = entry[0];
+    const idxs = entry[1];
+    const key = idxs.join(',');
+    let group = byMembership.get(key);
+    if (!group) { group = { setIdxs: idxs, tokens: [] }; byMembership.set(key, group); }
+    group.tokens.push(token);
+  }
   const intersections = [];
-  for (let mask = 1; mask < (1 << N); mask++) {
-    const inIdxs = [];
-    const outIdxs = [];
-    for (let i = 0; i < N; i++) {
-      if ((mask >> i) & 1) inIdxs.push(i);
-      else outIdxs.push(i);
-    }
-    // Walk the smallest member set's tokens (minimizes candidate pool).
-    let pivot = inIdxs[0];
-    let pivotSize = sets[pivot].size;
-    for (let k = 1; k < inIdxs.length; k++) {
-      if (sets[inIdxs[k]].size < pivotSize) { pivot = inIdxs[k]; pivotSize = sets[pivot].size; }
-    }
-    const exclusive = [];
-    for (const t of sets[pivot].tokens) {
-      let ok = true;
-      for (let k = 0; k < inIdxs.length; k++) {
-        if (inIdxs[k] === pivot) continue;
-        if (!sets[inIdxs[k]].tokens.has(t)) { ok = false; break; }
-      }
-      if (!ok) continue;
-      for (let j = 0; j < outIdxs.length; j++) {
-        if (sets[outIdxs[j]].tokens.has(t)) { ok = false; break; }
-      }
-      if (ok) exclusive.push(t);
-    }
-    if (exclusive.length === 0) continue;
+  for (const group of byMembership.values()) {
+    group.tokens.sort(_cmp);
     intersections.push({
-      setIdxs: inIdxs,
-      size: exclusive.length,
-      tokens: exclusive,
+      setIdxs: group.setIdxs,
+      size: group.tokens.length,
+      tokens: group.tokens,
     });
   }
 
@@ -65313,10 +65334,18 @@ function _initApp() {
     app.similarInstFor = null;
     renderInstPicker();
   });
+  // Debounced, because the picker rebuilds its whole result list per event and
+  // a fast typist outruns it. The cap above bounds what one render costs; this
+  // bounds how many renders a burst of typing triggers, and the two together are
+  // what keep the first characters of a search from janking. 120ms is below the
+  // ~150ms that reads as lag and above a typing interval, so a normal word
+  // renders once at the end rather than once per letter.
+  let tradSearchTimer = null;
   document.getElementById('search-trad').addEventListener('input', e => {
     app.tradSearch = e.target.value;
     app.similarFor = null;
-    renderTradPicker();
+    if (tradSearchTimer) clearTimeout(tradSearchTimer);
+    tradSearchTimer = setTimeout(() => { tradSearchTimer = null; renderTradPicker(); }, 120);
   });
   const searchPreface = document.getElementById('search-preface');
   if (searchPreface) {
@@ -66229,9 +66258,27 @@ function renderTradPicker() {
       c.innerHTML = `<div class="empty-msg">No traditions match &ldquo;${esc(q)}&rdquo;</div>`;
       return;
     }
+    // Render a ranked PAGE, not every match.
+    //
+    // This used to render all of them. A one- or two-character query matches
+    // most of the catalog — `a` matches all 2503, `gu` 1814, `dr` 1719 — and
+    // each row carries a full description, an ancestor path, a 13-div
+    // fingerprint, two inline SVG glyphs and a roster line, then gets two event
+    // listeners. Typing the first letters of a name therefore parsed multiple
+    // megabytes of innerHTML into tens of thousands of nodes and wired thousands
+    // of listeners, on every keystroke, in the app's primary discovery flow. The
+    // descriptions alone are 1.7 MB.
+    //
+    // Nobody reads result 1,800. matchRank has already sorted by relevance, so
+    // the tail was pure cost — and capping it is what makes the per-keystroke
+    // work constant instead of proportional to how little the user has typed so
+    // far. The count line still reports the true total, and says what is shown.
+    const RESULT_CAP = 50;
+    const shown = matches.slice(0, RESULT_CAP);
+    const hidden = matches.length - shown.length;
     let html = `<div class="tree-search-hits">`;
-    html += `<div style="font-size: var(--fs-micro); color: var(--text-3); margin-bottom: var(--s3); text-transform: uppercase; letter-spacing: 0.06em; font-weight: var(--fw-semibold);">${matches.length} match${matches.length === 1 ? '' : 'es'}</div>`;
-    matches.forEach(t => {
+    html += `<div style="font-size: var(--fs-micro); color: var(--text-3); margin-bottom: var(--s3); text-transform: uppercase; letter-spacing: 0.06em; font-weight: var(--fw-semibold);">${matches.length} match${matches.length === 1 ? '' : 'es'}${hidden > 0 ? ` &middot; showing top ${shown.length}` : ''}</div>`;
+    shown.forEach(t => {
       const path = getAncestorPath(t.id);
       const ext = Catalog.ext(t.id) || {};
       const inst = (t.instruments || []).map(id => Inst(id)?.short || Inst(id)?.name).filter(Boolean);
@@ -66249,6 +66296,9 @@ function renderTradPicker() {
       html += `</div>`;
       html += `</div>`;
     });
+    if (hidden > 0) {
+      html += `<div class="empty-msg">${hidden} more match${hidden === 1 ? '' : 'es'} — keep typing to narrow.</div>`;
+    }
     html += `</div>`;
     c.innerHTML = html;
     wireTreeEvents(c);

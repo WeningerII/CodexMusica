@@ -36,8 +36,73 @@ jobs:
   # Anything needing Chromium, a fresh build, or minutes of CPU belongs below.
   gate:
     runs-on: ubuntu-latest
+    outputs:
+      # Whether this diff can possibly change api/ or codex.html. Consumed by the
+      # two jobs whose cost is linear in catalog size. See the step that sets it.
+      artifacts_affected: ${{ steps.scope.outputs.artifacts_affected }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          # Needed to diff against the base commit in the scope step below.
+          fetch-depth: 0
+
+      # ── Can this diff move a built artifact? ──────────────────────────────
+      #
+      # The freshness rebuild is ~30 of its ~34 minutes, the catalog shards add
+      # ~62 runner-minutes, and both ran on every push including one that only
+      # touched a README. That is the repo's single strongest deterrent to a
+      # drive-by contribution: a one-word docs fix cost a 35-minute round trip.
+      #
+      # THE ASYMMETRY IS THE WHOLE DESIGN. Deciding "rebuild" when we did not
+      # need to costs runner minutes. Deciding "skip" when we did need to ships
+      # a stale artifact — the exact failure the freshness gate exists to catch,
+      # and one that already happened twice here. So this does NOT try to work
+      # out the build's dependency closure and skip when nothing in it changed;
+      # guessing that closure wrong fails in the dangerous direction, silently.
+      #
+      # Instead it inverts the question: skip ONLY when every changed path is on
+      # a short allowlist of things that provably cannot reach a build input.
+      # Markdown, docs/, the license, issue templates. Verified rather than
+      # assumed — no artifact builder reads a .md file (grep build_static_api.js,
+      # build_html.js, _compile_worker.js, _loader.js, _split_data.js). Anything
+      # else, including anything unrecognised, means rebuild.
+      #
+      # Every uncertain case resolves to rebuild: no base commit, a force-push
+      # whose base is gone, a scheduled or manual run, a merge with no diff we
+      # can compute. The fallback is the old behaviour, which is always correct
+      # and merely slow.
+      - name: Scope — can this diff move a built artifact?
+        id: scope
+        run: |
+          set -uo pipefail
+          affected=true
+          base=""
+          case "${{ github.event_name }}" in
+            pull_request) base="${{ github.event.pull_request.base.sha }}" ;;
+            push)         base="${{ github.event.before }}" ;;
+          esac
+
+          if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ]; then
+            echo "No usable base commit — assuming artifacts affected."
+          elif ! git cat-file -e "$base^{commit}" 2>/dev/null; then
+            echo "Base commit $base is not present (force-push?) — assuming artifacts affected."
+          elif ! changed=$(git diff --name-only "$base" "${{ github.sha }}" 2>/dev/null); then
+            echo "Could not compute a diff — assuming artifacts affected."
+          elif [ -z "$changed" ]; then
+            echo "Empty diff — assuming artifacts affected."
+          else
+            echo "Changed files:"
+            echo "$changed" | sed 's/^/  /'
+            # Anything NOT matching the inert allowlist forces a rebuild.
+            if echo "$changed" | grep -qvE '(\.md$|^docs/|^LICENSE$|^\.github/ISSUE_TEMPLATE/)'; then
+              echo "→ at least one path can reach a build input; rebuilding."
+            else
+              affected=false
+              echo "→ docs-only diff; no path here is read by any artifact builder."
+            fi
+          fi
+          echo "artifacts_affected=$affected" >> "$GITHUB_OUTPUT"
+          echo "artifacts_affected=$affected"
 
       - uses: actions/setup-node@v5
         with:
@@ -121,6 +186,24 @@ jobs:
       - name: Regression (recipes, prefaces, slots, app)
         run: npm run test
 
+      # Locale invariance, tested rather than asserted.
+      #
+      # The gate renders the catalog in two child processes under deliberately
+      # different collations and byte-compares. That shape is deliberate: it is
+      # the only one that catches a comparator regression where BOTH copies drift
+      # together, which check_app_parity cannot see (it runs both engines in one
+      # process, so equally-wrong is indistinguishable from right) and which the
+      # pinned fixtures cannot see either (their snapshots were generated under
+      # the runner's own locale, and the pin was chosen to be output-neutral
+      # there). Both blind spots were confirmed by experiment before this was
+      # written — see the header of the script.
+      #
+      # Re-running existing fixtures under LANG=da_DK was tried first and is
+      # VACUOUS for this bug class: 1149/1149 still pass with the comparator
+      # reverted, because those fixtures do not exercise the affected sets.
+      - name: Locale invariance (recipe bytes identical under da-DK and C)
+        run: npm run check:locale
+
       - name: Build codex.html (lazy shell + no-table-leak + byte-ceiling check)
         run: npm run build:html
 
@@ -164,15 +247,35 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Build a fresh artifact from source
+        if: needs.gate.outputs.artifacts_affected == 'true'
         run: |
           node scripts/build_static_api.js --out="$RUNNER_TEMP/fresh/api"
           node scripts/build_html.js --out="$RUNNER_TEMP/fresh/codex.html" --quiet
 
       - name: Reproducibility — committed api/ + codex.html == fresh build (0 diff)
+        if: needs.gate.outputs.artifacts_affected == 'true'
         run: node scripts/check_artifact_fresh.js --prebuilt-api="$RUNNER_TEMP/fresh/api" --prebuilt-html="$RUNNER_TEMP/fresh/codex.html"
 
+      # Fault injection runs on EVERY diff, docs-only included, and that is
+      # deliberate: several of its classes inject into AGENTS.md / README.md /
+      # SKILL.md to prove the promise and doc-drift gates are two-sided. Skipping
+      # this job wholesale on a docs change would drop exactly the fault coverage
+      # a docs change most needs.
+      #
+      # On a docs-only diff it takes the COMMITTED artifacts as its "fresh" pair.
+      # That is not a shortcut around the reproducibility claim — it is the same
+      # claim: no artifact builder reads a .md file, so the committed pair is
+      # what a fresh build of this tree produces, and the parent commit's own
+      # freshness run proved it byte-for-byte. faults.js copies before injecting,
+      # so the working tree is untouched either way.
       - name: Fault injection — every gate is two-sided (0 escapes)
-        run: node scripts/faults.js --fresh-api="$RUNNER_TEMP/fresh/api" --fresh-html="$RUNNER_TEMP/fresh/codex.html"
+        run: |
+          if [ "${{ needs.gate.outputs.artifacts_affected }}" = "true" ]; then
+            node scripts/faults.js --fresh-api="$RUNNER_TEMP/fresh/api" --fresh-html="$RUNNER_TEMP/fresh/codex.html"
+          else
+            echo "Docs-only diff — injecting against the committed artifacts."
+            node scripts/faults.js --fresh-api=api --fresh-html=codex.html
+          fi
 
   # Catalog-wide breadth. `verify` proves depth — 1,171 pinned recipe fixtures —
   # but only smoke.js exercises EVERY tradition, blend and axis-target through the
@@ -189,6 +292,11 @@ jobs:
   # grow with the catalog.
   catalog:
     needs: gate
+    # smoke.js drives the search → score → translate engine over every tradition
+    # and reads no documentation, so a docs-only diff cannot change one of its
+    # 5,879 assertions. Same allowlist, same fail-safe default as `freshness`;
+    # this is ~62 runner-minutes that a README fix was paying for.
+    if: needs.gate.outputs.artifacts_affected == 'true'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

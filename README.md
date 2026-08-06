@@ -16,11 +16,19 @@ builds, and a gate proves the shell behaves identically to it. <!-- @promise: la
 ## Quick start
 
 ```sh
-npm ci                 # install dev tooling from the lockfile
-npm run build:html     # build the lazy-shell catalog app → codex.html (+ api/)
-npm run validate       # cross-reference integrity check
-npm run test           # recipe + preface + slot-pick + app-parity + equivalence + lazy-parity + connector-parity regression
+npm ci                          # install dev tooling from the lockfile
+npm ci --prefix mcp             # the connector's own deps (mcp/ is a separate package)
+npx playwright install chromium # browser for the UI + mobile-layout gates
+npm run build:html              # build the lazy-shell catalog app → codex.html (+ api/)
+npm run validate                # cross-reference integrity check
+npm run test                    # recipe + preface + slot-pick + app-parity + equivalence + lazy-parity + connector-parity regression
 ```
+
+The two install lines beyond `npm ci` are not optional extras: `npm run test`
+ends in gates that drive a real browser and gates that build the real MCP server,
+and without them the suite fails partway (or, worse, skips itself quietly).
+CI has always run all three — they were just never written down here, so a fresh
+clone followed this section and broke.
 
 ## Command surface
 

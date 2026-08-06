@@ -11,8 +11,9 @@ The full editable engine is a Model Context Protocol server: seed a recipe from 
 tradition, then re-pick prefaces, swap part variants, override room/chain/tuning, and
 add/remove instruments or traditions. Deterministic and side-effect-free (nothing is
 persisted); thread the returned workspace into the next call. Everything below this
-section is a read-only mirror of the DEFAULT recipe per tradition — use the connector to
-change anything.
+section is a SEPARATE read-only product — one pre-compiled recipe per tradition, built by
+a different pipeline and worded differently. Use it for bulk reads; use the connector for
+anything you want to change, and do not expect the two strings to match.
 
 - Endpoint (Streamable HTTP, no auth): https://codex-musica-mcp.onrender.com/mcp
 - Add in Claude: Settings -> Connectors -> Add custom connector -> paste the URL.
@@ -33,9 +34,15 @@ physically impossible (it is words for audio generation); the researched default
 flavor to keep or override, and every id-valid combination renders. Batch edits in one
 call; present the FINAL recipe verbatim.
 
-## Read-only mirror (static JSON — bulk reads, no editing)
-This is the DEFAULT recipe per tradition, pre-compiled. Use it to read the whole catalog
+## Pre-compiled catalog (static JSON — bulk reads, no editing)
+One recipe per tradition, pre-compiled at build time. Use it to read the whole catalog
 cheaply or to work offline; use the connector above to change anything.
+
+NOT a snapshot of what start_recipe returns. These recipes come from a search over the
+axis space, the connector's from seeding a workspace and rendering it, so the two describe
+the same tradition in different words. If you need the string a user would see in the app,
+call the connector; if you need 2503 recipes in one fetch, this is the only thing that
+does that.
 - ALL default recipes in one fetch: https://weningerii.github.io/CodexMusica/api/all.json
 - List of traditions: https://weningerii.github.io/CodexMusica/api/traditions/index.json
 - One tradition (recipe + arrangement): https://weningerii.github.io/CodexMusica/api/traditions/{id}.json

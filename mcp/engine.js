@@ -407,12 +407,83 @@ const ALL_TYPES = [
   'chain',
 ];
 
+// The variant index: one entry per DISTINCT variant id, built once.
+//
+// Variants used to be walked in place — every (instrument, part, variant) tuple
+// scored and pushed as its own row — and that was wrong twice over.
+//
+// It was wrong for the CALLER, because the row carried no owner. A variant id
+// is only usable as (card, part, variant): set_variant needs the part, and the
+// row did not say which part accepts it. That is the identical failure the
+// chain-stage fix below was written for — a resolved lookup handing back an id
+// the caller still cannot spend — and variants are the target of the single
+// most common edit. Worse, the same id was pushed once per owning tuple, so
+// searching "mahogany" returned 5,354 rows of which the top ten held two
+// distinct ids: a page of duplicates where the answer should have been.
+//
+// It was wrong for the SERVER, because mergeFamilyParts copies the 655-variant
+// materials table into every string instrument, so those tuples number 323,709
+// against 10,950 distinct ids — a 30x multiplier on the hottest tool in the
+// connector, on a single-process instance, where the work is synchronous and
+// blocks every other caller.
+//
+// So: distinct ids, each carrying the parts that accept it. Built lazily and
+// memoised because it is a pure function of an immutable catalog. Ordering is
+// catalog order throughout, with part lists sorted, so results stay
+// deterministic.
+let _variantIndex = null;
+function variantIndex() {
+  if (_variantIndex) return _variantIndex;
+  const byId = new Map();
+  for (const inst of C.INSTRUMENTS || []) {
+    for (const part of inst.parts || []) {
+      for (const v of part.variants || []) {
+        let e = byId.get(v.id);
+        if (!e) {
+          e = {
+            id: v.id,
+            name: v.name || v.id,
+            descriptors: new Set(),
+            parts: new Set(),
+            instruments: new Set(),
+          };
+          byId.set(v.id, e);
+        }
+        for (const d of v.descriptors || []) e.descriptors.add(d);
+        e.parts.add(part.id);
+        e.instruments.add(inst.id);
+      }
+    }
+  }
+  _variantIndex = [];
+  for (const e of byId.values()) {
+    _variantIndex.push({
+      id: e.id,
+      name: e.name,
+      hay: [...e.descriptors].join(' '),
+      parts: [...e.parts].sort(_cmp),
+      instrumentCount: e.instruments.size,
+    });
+  }
+  return _variantIndex;
+}
+
 // Free-text search across the catalog → ids to feed start_recipe / edit_recipe /
 // get_instrument. Multi-term: records rank by how many query terms they match.
 export function searchCatalog({ query, types, limit = 20 } = {}) {
   if (!query || !String(query).trim()) throw new EngineError('search_catalog needs a query.');
   const terms = String(query).toLowerCase().split(/\s+/).filter(Boolean);
   const want = new Set(Array.isArray(types) && types.length ? types : ALL_TYPES);
+  // One compiled matcher per TERM, not per term per row.
+  //
+  // The word-boundary RegExp used to be constructed inside the per-term loop
+  // inside add(), i.e. once for every (row, term) pair — tens of thousands of
+  // identical compilations per query, and the largest single cost in the
+  // profile after the variant blowup. The pattern depends only on the term.
+  const matchers = terms.map((t) => ({
+    t,
+    re: new RegExp(`(^|[^a-z0-9])${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^a-z0-9]|$)`),
+  }));
   // Field-weighted, because counting hits does not rank. Every row used to score
   // 1 per matched term with no regard for WHERE the term hit, so a single-term
   // query left every result tied and the codepoint tiebreak became the ordering:
@@ -437,15 +508,10 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
     const label = idL + ' ' + nameL;
     let score = 0;
     let hits = 0;
-    for (const t of terms) {
+    for (const { t, re } of matchers) {
       let best = 0;
       if (idL === t || nameL === t) best = EXACT;
-      else if (
-        new RegExp(`(^|[^a-z0-9])${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^a-z0-9]|$)`).test(
-          label
-        )
-      )
-        best = WORD;
+      else if (re.test(label)) best = WORD;
       else if (label.includes(t)) best = WORD - 1;
       else if (proseL.includes(t)) best = PROSE;
       if (best > 0) hits++;
@@ -458,12 +524,29 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
   };
   for (const t of C.TRADITIONS || [])
     add('tradition', t.id, t.name, `${t.lineage || ''} ${t.family || ''}`);
-  for (const i of C.INSTRUMENTS || []) {
-    add('instrument', i.id, i.name, i.family || '');
-    if (want.has('variant')) {
-      for (const p of i.parts || [])
-        for (const v of p.variants || [])
-          add('variant', v.id, v.name, (v.descriptors || []).join(' '));
+  for (const i of C.INSTRUMENTS || []) add('instrument', i.id, i.name, i.family || '');
+  // One row per distinct variant, carrying the parts that accept it — the fact
+  // set_variant needs and the old per-tuple rows withheld.
+  //
+  // `parts` is listed only when the list is COMPLETE. A narrowly-scoped variant
+  // is the case where the caller genuinely cannot guess the part, and there the
+  // full list makes the next call possible. A shared material like `mahogany`
+  // sits on 153 parts across 140 instruments, and printing the first six of
+  // those in id order would be six parts belonging to whatever instruments sort
+  // first — `ajaeng_body_wood` for someone holding a guitar. That is not a
+  // truncated answer, it is a wrong one, and it invites exactly the misdirected
+  // set_variant this row exists to prevent. So when the list does not fit, the
+  // row says how big it is and the caller reads the parts off their own card
+  // with get_instrument.
+  const PARTS_SHOWN = 6;
+  if (want.has('variant')) {
+    for (const v of variantIndex()) {
+      const complete = v.parts.length <= PARTS_SHOWN;
+      add('variant', v.id, v.name, v.hay, {
+        ...(complete ? { parts: v.parts } : {}),
+        part_count: v.parts.length,
+        instruments: v.instrumentCount,
+      });
     }
   }
   for (const r of C.ROOMS || []) add('room', r.id, r.name, (r.descriptors || []).join(' '));
