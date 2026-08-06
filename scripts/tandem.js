@@ -359,15 +359,23 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
   // perfectly while the check reported it broken on both. A gate that fails on
   // the correct implementation is worse than no gate: it trains you to ignore
   // it. What matters is that ties fall through to a comparison of entry ids, so
-  // that is what is asserted, under either comparator name.
-  const TIEBREAK = /(?:_cmp|localeCompare)\s*\(?\s*[\w.]*\bid\b/;
+  // that is what is asserted.
+  //
+  // `localeCompare` is NO LONGER accepted as a spelling of that tiebreak. Keeping
+  // it in the alternation made this check green on the one regression the
+  // pin-collation pass exists to prevent — a render-path comparator sliding back
+  // to the host locale would still "have an id tiebreak" and still reorder
+  // recipes per machine. The alternation was written to stop the gate failing on
+  // the correct implementation; it also stopped it failing on the wrong one.
+  // eslint.config.js bans the bare call outright now, and this agrees with it.
+  const TIEBREAK = /_cmp\s*\(?\s*[\w.]*\bid\b/;
   const htmlSuggest = htmlSrc.match(/function suggestPrefaceForCard[\s\S]*?\n\}/);
   if (!htmlSuggest) issues.push('suggestPrefaceForCard not found in HTML template');
   else if (!TIEBREAK.test(stripComments(htmlSuggest[0]))) {
-    issues.push('HTML suggestPrefaceForCard missing id tiebreak (_cmp/localeCompare on id)');
+    issues.push('HTML suggestPrefaceForCard missing id tiebreak (_cmp on id)');
   }
   if (!TIEBREAK.test(nodeCode)) {
-    issues.push('Node primitive rank() missing id tiebreak (_cmp/localeCompare on id)');
+    issues.push('Node primitive rank() missing id tiebreak (_cmp on id)');
   }
 
   if (issues.length) throw new Error(issues.join('; '));

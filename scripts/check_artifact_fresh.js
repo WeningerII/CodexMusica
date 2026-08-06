@@ -63,7 +63,10 @@ function readMaybe(p) {
 // rebuilt them and nothing compared them — sitemap.xml could silently describe a
 // catalog that no longer existed. They are cheap (they read the already-built
 // api/ indexes), so they are always regenerated here from the fresh api/.
-const DISCOVERY = ['sitemap.xml', 'llms.txt', 'robots.txt'];
+// server.json joined them after it spent an unknown number of releases telling
+// the MCP registry there were 1145 traditions and version 2.0.0, against a real
+// 2503 and 2.1.0 — the one discovery artifact this list did not cover.
+const DISCOVERY = ['sitemap.xml', 'llms.txt', 'robots.txt', 'server.json'];
 
 function buildDiscovery(apiDir) {
   // --api AND --out both matter here. build_discovery.js defaults --api to the

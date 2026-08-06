@@ -7,6 +7,35 @@
 const js = require('@eslint/js');
 const globals = require('globals');
 
+// The collation ban, applied everywhere below.
+//
+// `a.localeCompare(b)` with no locale argument sorts by the RUNTIME's locale.
+// That is a per-machine input to a product whose entire claim is that the same
+// workspace renders the same bytes everywhere, and it has already shipped once:
+// recipes ordered one way on an en-US machine and another on a da-DK browser.
+// The fix was `_cmp`, a codepoint comparator, pinned in six files.
+//
+// What guarded the pin afterwards was a pair of comments saying check_app_parity
+// would catch a regression. It would not, and that was demonstrated: revert one
+// `_cmp` to bare `localeCompare` and the gate passes 2503/2503, because both
+// sides run in the same Node process under one ICU locale and en-US collation
+// happens to agree with codepoint order on today's catalog. A guard that cannot
+// fail is not a guard, so here is one that runs on every file in every lint.
+//
+// Bare calls only. `localeCompare(b, 'en')` names its locale and is stable
+// across machines, which is what the two picker sorts in src/app.js want — they
+// order a list for human eyes, never recipe bytes.
+const NO_BARE_LOCALE_COMPARE = {
+  'no-restricted-syntax': [
+    'error',
+    {
+      selector: "CallExpression[callee.property.name='localeCompare'][arguments.length<2]",
+      message:
+        'Bare localeCompare() collates by the runtime locale and makes output machine-dependent. Use _cmp (codepoint) for anything that reaches a recipe, or pass an explicit locale for human-facing sorts.',
+    },
+  ],
+};
+
 module.exports = [
   js.configs.recommended,
   {
@@ -21,6 +50,7 @@ module.exports = [
       eqeqeq: ['error', 'smart'],
       'no-console': 'off',
       'no-empty': ['error', { allowEmptyCatch: true }],
+      ...NO_BARE_LOCALE_COMPARE,
     },
   },
   {
@@ -73,6 +103,7 @@ module.exports = [
       'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       eqeqeq: ['error', 'smart'],
       'no-empty': ['error', { allowEmptyCatch: true }],
+      ...NO_BARE_LOCALE_COMPARE,
     },
   },
   {
@@ -89,6 +120,7 @@ module.exports = [
       eqeqeq: ['error', 'smart'],
       'no-console': 'off',
       'no-empty': ['error', { allowEmptyCatch: true }],
+      ...NO_BARE_LOCALE_COMPARE,
     },
   },
   {
@@ -108,6 +140,7 @@ module.exports = [
       eqeqeq: ['error', 'smart'],
       'no-console': 'off',
       'no-empty': ['error', { allowEmptyCatch: true }],
+      ...NO_BARE_LOCALE_COMPARE,
     },
   },
   {

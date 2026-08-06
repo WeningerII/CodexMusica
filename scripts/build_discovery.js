@@ -63,8 +63,9 @@ The full editable engine is a Model Context Protocol server: seed a recipe from 
 tradition, then re-pick prefaces, swap part variants, override room/chain/tuning, and
 add/remove instruments or traditions. Deterministic and side-effect-free (nothing is
 persisted); thread the returned workspace into the next call. Everything below this
-section is a read-only mirror of the DEFAULT recipe per tradition — use the connector to
-change anything.
+section is a SEPARATE read-only product — one pre-compiled recipe per tradition, built by
+a different pipeline and worded differently. Use it for bulk reads; use the connector for
+anything you want to change, and do not expect the two strings to match.
 
 - Endpoint (Streamable HTTP, no auth): https://codex-musica-mcp.onrender.com/mcp
 - Add in Claude: Settings -> Connectors -> Add custom connector -> paste the URL.
@@ -85,9 +86,15 @@ physically impossible (it is words for audio generation); the researched default
 flavor to keep or override, and every id-valid combination renders. Batch edits in one
 call; present the FINAL recipe verbatim.
 
-## Read-only mirror (static JSON — bulk reads, no editing)
-This is the DEFAULT recipe per tradition, pre-compiled. Use it to read the whole catalog
+## Pre-compiled catalog (static JSON — bulk reads, no editing)
+One recipe per tradition, pre-compiled at build time. Use it to read the whole catalog
 cheaply or to work offline; use the connector above to change anything.
+
+NOT a snapshot of what start_recipe returns. These recipes come from a search over the
+axis space, the connector's from seeding a workspace and rendering it, so the two describe
+the same tradition in different words. If you need the string a user would see in the app,
+call the connector; if you need 2503 recipes in one fetch, this is the only thing that
+does that.
 - ALL default recipes in one fetch: ${BASE}/api/all.json
 - List of traditions: ${BASE}/api/traditions/index.json
 - One tradition (recipe + arrangement): ${BASE}/api/traditions/{id}.json
@@ -216,6 +223,47 @@ const robots = [
 ].join('\n');
 fs.writeFileSync(path.join(OUT_DIR, 'robots.txt'), robots);
 
+// ---- server.json (the MCP registry manifest) ----
+//
+// GENERATED, because hand-maintained it went stale in public and nothing could
+// say so. It advertised 1145 traditions and version 2.0.0 while the catalog held
+// 2503 and mcp/package.json read 2.1.0 — and the server's own
+// /.well-known/mcp.json card, which is built at runtime from `counts.traditions`
+// and the package version, served the true numbers the whole time. Two
+// co-advertised discovery surfaces describing the same server differently is
+// worse than either being merely out of date: a registry reads this file, a
+// client reads that card, and they disagree about what they are looking at.
+//
+// It also sat outside the freshness gate while its peers (sitemap/llms/robots)
+// were byte-compared on every PR, which is precisely why it could drift for as
+// long as it did. Generating it here puts it under that same gate.
+//
+// The description text is kept in step with the runtime card by construction:
+// same sentence, same two substituted values.
+const mcpPkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'mcp', 'package.json'), 'utf8'));
+const serverManifest = {
+  $schema: 'https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json',
+  name: 'io.github.weningerii/codex-musica',
+  title: 'Codex Musica',
+  description:
+    `Deterministic recording-recipe workspace: seed a recipe from any of ${tindex.count} music ` +
+    'traditions and edit it (prefaces, part variants, room/chain/tuning, instruments) — ' +
+    'the headless twin of the browser app, read-only and reproducible.',
+  version: mcpPkg.version,
+  websiteUrl: BASE,
+  repository: {
+    url: 'https://github.com/WeningerII/CodexMusica',
+    source: 'github',
+  },
+  remotes: [
+    {
+      type: 'streamable-http',
+      url: 'https://codex-musica-mcp.onrender.com/mcp',
+    },
+  ],
+};
+fs.writeFileSync(path.join(OUT_DIR, 'server.json'), JSON.stringify(serverManifest, null, 2) + '\n');
+
 process.stderr.write(
-  `Wrote llms.txt, sitemap.xml (${urls.length} urls), robots.txt to ${OUT_DIR}, base=${BASE}\n`
+  `Wrote llms.txt, sitemap.xml (${urls.length} urls), robots.txt, server.json to ${OUT_DIR}, base=${BASE}\n`
 );

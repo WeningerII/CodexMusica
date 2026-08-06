@@ -116,13 +116,26 @@ function sample() {
     if (!inst) continue;
     // A part with a real choice, and a variant that is NOT the current pick —
     // editing to the value already there would exercise nothing.
+    //
+    // ROTATE which eligible part is taken, rather than always the first. The
+    // sample used to `break` on the first ≥2-variant part of every instrument,
+    // which sounds like sampling but is not: across the whole run it always
+    // exercised the same slot of each instrument, so any part that is never
+    // first was never once compared, in any tradition. That is a systematic
+    // blind spot rather than a random one — the class of thing sampling is
+    // supposed to eliminate. Striding by `i` keeps the selection deterministic
+    // (same cases every run, so a failure reproduces) while spreading coverage
+    // across the parts an instrument actually has.
+    const eligible = [];
     for (const part of inst.parts || []) {
       const variants = part.variants || [];
       if (variants.length < 2) continue;
       const alt = variants.find((v) => v.id !== card.parts[part.id]);
-      if (!alt) continue;
-      cases.push({ tradition: trad.id, card, part: part.id, variant: alt.id });
-      break;
+      if (alt) eligible.push({ part: part.id, variant: alt.id });
+    }
+    if (eligible.length) {
+      const pick = eligible[i % eligible.length];
+      cases.push({ tradition: trad.id, card, part: pick.part, variant: pick.variant });
     }
   }
   return cases;

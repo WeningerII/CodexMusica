@@ -424,6 +424,49 @@ function scanSchema(toolName, schema) {
     );
   }
 
+  // ── a variant id is usable, not merely findable ───────────────────────────
+  //
+  // The same invariant as the chain block above, for the type that needed it
+  // most and did not have it. set_variant takes (card, part, variant), so a
+  // variant row without a part is the one-in-4051 version of the chain problem;
+  // and because mergeFamilyParts copies the materials table into every string
+  // instrument, the old per-tuple rows also repeated one id up to hundreds of
+  // times — "mahogany" returned 5,354 rows whose top ten held two distinct ids.
+  //
+  // Gated here because the chain fix proved the class is real and then this
+  // gate only ever checked chains: the invariant was enforced on the type that
+  // had already been fixed, and absent on the type still broken.
+  console.log('\n=== Variant hits are distinct and carry their parts ===');
+  const variantHits = JSON.parse(
+    (await call('search_catalog', { query: 'mahogany', types: ['variant'], limit: 25 })).text
+  ).items;
+  check(
+    'search_catalog returns variant hits to check',
+    variantHits.length > 0,
+    `${variantHits.length}`
+  );
+  const dupeIds = variantHits.length - new Set(variantHits.map((h) => h.id)).size;
+  check('no duplicate variant ids on a page', dupeIds === 0, `${dupeIds} duplicate row(s)`);
+  const uncounted = variantHits.filter((h) => !Number.isInteger(h.part_count) || h.part_count < 1);
+  check(
+    'every variant hit says how many parts accept it',
+    uncounted.length === 0,
+    uncounted.map((h) => h.id).join(', ')
+  );
+  // When the row DOES enumerate parts, the list must be the WHOLE list. A
+  // truncated list is worse than none: the caller cannot tell that the part
+  // their card actually uses was cut, so they pick from a sample and get
+  // refused. Either the row answers the question completely or it reports the
+  // size and sends the caller to get_instrument — never a plausible-looking
+  // prefix.
+  const enumerated = variantHits.filter((h) => Array.isArray(h.parts));
+  const truncated = enumerated.filter((h) => h.parts.length !== h.part_count);
+  check(
+    'an enumerated parts list is complete, never a truncated sample',
+    truncated.length === 0,
+    truncated.map((h) => `${h.id}: ${h.parts.length}/${h.part_count}`).join(', ')
+  );
+
   const untouched = envRes.cards?.filter((c) => c.card !== card) || [];
   check(
     'cards nobody edited carry no `changed` key',

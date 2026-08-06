@@ -72,7 +72,8 @@
         linked JSON. Do NOT fetch codex.html — it is a ~4 MB GUI shell that
         itself lazy-loads this same JSON, and it carries no instructions for you.
         The editable engine is the MCP connector listed first below; the JSON is
-        the read-only mirror of its default answers.
+        a separate pre-compiled read-only catalog, not a snapshot of the
+        connector's answers (different pipeline, different wording).
       -->
       <section class="agents">
         <h2>For AI agents / LLMs</h2>
@@ -88,8 +89,9 @@
             auth. Add it in Claude (Settings → Connectors → Add custom connector); any MCP
             client registers it the same way. Nine tools: seed a recipe from any tradition,
             then re-pick prefaces, swap part variants, override room/chain/tuning, and
-            add/remove instruments or traditions. The JSON below is the read-only mirror —
-            editing needs the connector.
+            add/remove instruments or traditions. The JSON below is a separate read-only
+            catalog, pre-compiled by a different pipeline — it reads the same catalog but
+            words its recipes differently, and editing needs the connector.
           </li>
           <li>
             <strong>All recipes in one fetch:</strong>

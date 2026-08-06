@@ -40,6 +40,7 @@
     "check:prefaces": "node scripts/check_prefaces.js",
     "check:dead-tokens": "node scripts/audit_dead_tokens.js",
     "check:names": "node scripts/check_name_isolation.js",
+    "check:locale": "node scripts/check_locale_invariance.js",
     "check:publish": "node scripts/check_publish_guard.js",
     "check:fresh": "node scripts/check_artifact_fresh.js",
     "check:df": "node scripts/build_descriptor_df.js --check",
