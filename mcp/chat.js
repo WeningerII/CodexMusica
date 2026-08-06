@@ -21,6 +21,7 @@
 
 import crypto from 'node:crypto';
 import express from 'express';
+import { Windows, clientIp } from './ratelimit.js';
 import {
   buildSurface,
   runTurn,
@@ -59,45 +60,14 @@ export const CHAT_LIMITS = {
 
 // ── rate limiting ────────────────────────────────────────────────────────────
 //
-// Fixed windows over an in-process Map. Deliberately not Redis: this is one
-// Render instance, and a limiter that needs a second service to boot is a
-// limiter that is off the first time the second service is down.
+// Windows and clientIp now live in ratelimit.js, because /mcp needs the same
+// two things — see the header there. The day's spend total below is still
+// chat-only: it is about money, and /mcp spends none.
 //
-// KNOWN LIMITATION, stated rather than hidden: process-local. A redeploy or a
-// crash resets both the buckets and the day's spend total, and a second instance
+// KNOWN LIMITATION, unchanged by the move: process-local. A redeploy or a crash
+// resets both the buckets and the day's spend total, and a second instance
 // (autoscale) would keep its own. Google's own per-key quota is the backstop
 // underneath this, and it is the one that cannot be reset by restarting us.
-class Windows {
-  constructor() {
-    this.buckets = new Map();
-  }
-
-  hit(key, windowMs, limit, now) {
-    const slot = Math.floor(now / windowMs);
-    const id = `${key}:${windowMs}:${slot}`;
-    const count = (this.buckets.get(id) || 0) + 1;
-    this.buckets.set(id, count);
-    // Opportunistic sweep: without it this Map is an unbounded leak keyed by
-    // client IP, which is the sort of thing that stays invisible until an
-    // instance has been up for a month.
-    if (this.buckets.size > 5000) {
-      for (const k of this.buckets.keys()) {
-        const [, w, s] = k.split(':');
-        if (Math.floor(now / Number(w)) !== Number(s)) this.buckets.delete(k);
-      }
-    }
-    return { ok: count <= limit, count, retryAfter: Math.ceil((slot + 1) * windowMs - now) };
-  }
-}
-
-// The client IP, taken from the proxy header Render sets. Trusting XFF is only
-// safe BEHIND a proxy that overwrites it — which Render does — so the leftmost
-// entry is the real client. Direct-to-node deploys must not use this.
-function clientIp(req) {
-  const xff = req.headers['x-forwarded-for'];
-  if (typeof xff === 'string' && xff.length) return xff.split(',')[0].trim();
-  return req.ip || req.socket?.remoteAddress || 'unknown';
-}
 
 // ── envelope signing ─────────────────────────────────────────────────────────
 //

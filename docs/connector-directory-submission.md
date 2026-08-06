@@ -132,9 +132,13 @@ Every call is idempotent and side-effect-free; repeat freely.
 ## Policy acknowledgments (the form requires all seven)
 
 1. **Directory guidelines** — compliant; read-only creative/reference tool.
-2. **First-party API usage** — the server computes entirely from its own bundled,
-   immutable catalog. It proxies no third-party API and makes **no outbound
-   network calls**.
+2. **First-party API usage** — every MCP tool computes entirely from the
+   server's own bundled, immutable catalog. No tool proxies a third-party API or
+   makes an outbound network call. _Disclosure:_ the same deployment also serves
+   the public web page's chat bar at `/chat`, which forwards that page's typed
+   messages to Google's Gemini API. It is not part of the connector surface — no
+   MCP tool reaches it, and a connector caller never triggers it — but it runs in
+   the same process, so it is named here rather than left to inference.
 3. **No financial transactions** — the connector moves no money, crypto, or
    financial assets.
 4. **No AI media generation** — it returns **deterministic text** recording
@@ -143,8 +147,12 @@ Every call is idempotent and side-effect-free; repeat freely.
 5. **Prompt-injection safety** — read-only, closed-world, no external actions; the
    worst case of any tool is returning catalog-derived text. No tool can write,
    delete, spend, or call out.
-6. **Conversation data collection** — none. Stateless; request content is not
-   persisted or used for training (see PRIVACY.md).
+6. **Conversation data collection** — none by this server. It is stateless: it
+   persists no request content and uses none of it for training. For the chat bar
+   disclosed in acknowledgment 2, the text a page visitor types is handled by
+   Google under Google's terms; we make no representation about retention or
+   training on their side, because it is not ours to make. No MCP tool call
+   reaches that path (see PRIVACY.md).
 7. **Public documentation** — `docs/connector.md` and `PRIVACY.md` are public
    (URLs above).
 
@@ -155,9 +163,12 @@ Every call is idempotent and side-effect-free; repeat freely.
 - **Stateless & safe to call repeatedly.** No sessions, no persistence, no side
   effects; an instance restart can never orphan a session. Every tool is
   idempotent and read-only.
-- **No data egress.** The server makes no outbound network calls; all responses
-  come from the bundled, immutable catalog. `npm audit` = 0 vulnerabilities; zero
-  runtime dependencies.
+- **No data egress from the connector.** No MCP tool call makes an outbound
+  network request; every tool response comes from the bundled, immutable catalog.
+  The one endpoint on this deployment that does call out is the web page's chat
+  bar (`/chat` → Google Gemini), which is a separate surface no MCP tool can
+  reach — see acknowledgment 2. `npm audit` = 0 vulnerabilities; zero runtime
+  dependencies for the engine.
 - **Length contract.** Generated recipes are hard-capped at 1,000 characters with
   graceful, lowest-value-first trimming.
 - **Annotations.** `readOnlyHint`/`idempotentHint`/`openWorldHint:false` + `title`

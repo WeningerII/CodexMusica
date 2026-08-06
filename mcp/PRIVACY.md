@@ -28,14 +28,22 @@ instrument ids, part/variant ids, axis targets, etc.), computes a recording
 ## What it shares
 
 - **Nothing is sold or shared** with third parties for marketing or advertising.
-- The only third party involved is the **hosting provider** that runs the
-  server, which processes requests solely to deliver the service.
+- For **MCP tool calls**, the only third party involved is the **hosting
+  provider** that runs the server, which processes requests solely to deliver
+  the service.
+- For the **chat bar** (`/chat`, a separate surface on the same deployment),
+  your message and the conversation history are sent to **Google's Gemini API**,
+  which is what turns typed English into tool calls. Google processes that text
+  under its own terms. The recipe workspace is withheld from the model — it
+  rides in the request envelope and goes straight to the local engine.
 
 ## Data location & determinism
 
 All "intelligence" is in the static catalog compiled at build time; outputs are
-deterministic functions of the inputs and the published dataset. The service
-makes no outbound calls to other services to fulfill a request.
+deterministic functions of the inputs and the published dataset. To fulfill an
+**MCP tool call** the service makes no outbound calls to other services. The
+chat bar is the one exception, and it is described above: it calls Google on
+every turn.
 
 ## Changes
 

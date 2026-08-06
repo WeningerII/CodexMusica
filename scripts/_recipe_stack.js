@@ -474,19 +474,48 @@ function _resolvePreface(card) {
 // shared _preface_match SSOT, then greedily resolve collisions so two cards
 // don't both land on the same dominant (signature-anchored) preface.
 function assignDedupedPrefaces(cards) {
-  // Locked prefaces: a card whose preface was explicitly baked in (prefaceLock)
-  // keeps it, and its id is excluded from every other card's pool — mirrors the
-  // app's _computeRecipeDedupedPrefaces manual-lock behavior so a requested
-  // preface (engine `prefaces` / apply_preface) surfaces verbatim instead of
-  // being overridden by a higher-precision auto-match.
+  // Locked prefaces: a card whose preface was pinned keeps it, and its id is
+  // excluded from every other card's pool, so a pinned preface surfaces verbatim
+  // instead of being overridden by a higher-precision auto-match.
+  //
+  // THE PREDICATE IS `prefaceAuto === false`, because that is the app's, and
+  // this function's whole job is to be the app's. It used to read `prefaceLock`
+  // while claiming in this very comment to "mirror the app's manual-lock
+  // behavior" — and the app has no `prefaceLock`; it locks on
+  // `prefaceAuto === false` (src/app.js:12934, :12941). Two renderers keying on
+  // two different fields is not a mirror, and the gap was exactly one edit wide:
+  // set_preface writes BOTH flags so it looked fine, while set_variant writes
+  // only prefaceAuto — so after any set_variant this side re-deduped a preface
+  // the app had pinned. Same workspace, different recipe: sacred_steel rendered
+  // "two-stepping voice" in the app and "evangelizing voice" here, in all four
+  // formats, on 33 of 200 sampled edits. The parity gates could not see it
+  // because one renders only fresh seeds and the other compares card state
+  // rather than output.
+  //
+  // Reading prefaceAuto ALONE (rather than "either flag") is what makes parity
+  // total: for every possible card shape — including hand-built ones that carry
+  // prefaceLock without prefaceAuto — both renderers now answer identically.
+  // Seeded cards are unaffected either way: _seed_workspace.js:95 stamps
+  // prefaceAuto:true and never sets prefaceLock, so seeds auto-assign exactly as
+  // before and no published artifact moves.
+  //
+  // prefaceLock survives as a REPORTING flag (engine.js cardsSummary) and as
+  // part of the measured card shape; it is simply no longer a renderer input.
+  // Two predicates, not one, because the app uses two and they differ on a card
+  // that is pinned but carries no preface: app.js:12934 requires a preface to
+  // claim an id in the locked SET, while app.js:12941 skips the card from
+  // assignment on the flag alone. Collapsing them would re-derive a preface onto
+  // a card the app deliberately leaves blank.
+  const isPinned = (c) => !!(c && c.prefaceAuto === false);
+  const claimsId = (c) => isPinned(c) && !!c.preface;
   const lockedIds = new Set();
   for (const c of cards || []) {
-    if (c && c.prefaceLock && c.preface) lockedIds.add(_resolvePreface(c) || c.preface);
+    if (claimsId(c)) lockedIds.add(_resolvePreface(c) || c.preface);
   }
   const slots = [];
   for (const card of cards || []) {
-    if (card && card.prefaceLock && card.preface) {
-      card.preface = _resolvePreface(card) || card.preface;
+    if (isPinned(card)) {
+      if (card.preface) card.preface = _resolvePreface(card) || card.preface;
       continue;
     }
     let ranked = [];
@@ -596,12 +625,34 @@ function compressProseRecipe(cards, ceiling) {
     }
   }
 
+  // Group by trailing hyphen-segment WITHIN A KIND, never across kinds.
+  //
+  // This used to key on the trailing token alone, which let an environment
+  // label and an instrument label land in the same group whenever they happened
+  // to end in the same word — and then two separate things went wrong. The
+  // merged chunk spliced the environment's name inside the instrument's phrase,
+  // so forro_brasileiro rendered "prancing electric baiao-2-4-with-zabumba-on-
+  // beat-1 bass": the TUNING name wedged between "electric" and "bass". And the
+  // merged chunk inherited kind:'env' (any env member won), so the Phase 2 trim
+  // below — which drops env chunks wholesale as auxiliary — deleted an
+  // INSTRUMENT under budget pressure. At seven imported traditions the electric
+  // bass disappeared from the recipe entirely, with no elision notice.
+  //
+  // A catalog scan found 9+ live collision pairs: the baiao tuning against
+  // electric_bass fires in five shipped traditions, leslie-cab against
+  // pipe-organ, the milonga tuning against electric_bass. Both engines carried
+  // the same logic, so byte-parity gates were structurally blind to it —
+  // agreeing implementations, both wrong.
+  //
+  // Keying on kind + trailing token makes the collapse a within-kind operation,
+  // which is what it always meant to be: instruments collapse with instruments,
+  // environment with environment.
+  const groupKeyOf = (label) => `${labelKind.get(label)}|${label.split('-').pop()}`;
   const trailingGroups = new Map();
   for (const key of labelOrder) {
-    const segs = key.split('-');
-    const trailing = segs[segs.length - 1];
-    if (!trailingGroups.has(trailing)) trailingGroups.set(trailing, []);
-    trailingGroups.get(trailing).push(key);
+    const gk = groupKeyOf(key);
+    if (!trailingGroups.has(gk)) trailingGroups.set(gk, []);
+    trailingGroups.get(gk).push(key);
   }
   const bareLabels = new Set(labelOrder);
 
@@ -612,7 +663,7 @@ function compressProseRecipe(cards, ceiling) {
     const c = mergedByLabel.get(key);
     const segs = c.label.split('-');
     const trailing = segs[segs.length - 1];
-    const group = trailingGroups.get(trailing);
+    const group = trailingGroups.get(groupKeyOf(key));
     if (group.length >= 2 && !bareLabels.has(trailing)) {
       const parts = [];
       let groupKind = 'inst';
@@ -979,12 +1030,34 @@ function compressRichRecipe(cards, ceiling) {
     }
   }
 
+  // Group by trailing hyphen-segment WITHIN A KIND, never across kinds.
+  //
+  // This used to key on the trailing token alone, which let an environment
+  // label and an instrument label land in the same group whenever they happened
+  // to end in the same word — and then two separate things went wrong. The
+  // merged chunk spliced the environment's name inside the instrument's phrase,
+  // so forro_brasileiro rendered "prancing electric baiao-2-4-with-zabumba-on-
+  // beat-1 bass": the TUNING name wedged between "electric" and "bass". And the
+  // merged chunk inherited kind:'env' (any env member won), so the Phase 2 trim
+  // below — which drops env chunks wholesale as auxiliary — deleted an
+  // INSTRUMENT under budget pressure. At seven imported traditions the electric
+  // bass disappeared from the recipe entirely, with no elision notice.
+  //
+  // A catalog scan found 9+ live collision pairs: the baiao tuning against
+  // electric_bass fires in five shipped traditions, leslie-cab against
+  // pipe-organ, the milonga tuning against electric_bass. Both engines carried
+  // the same logic, so byte-parity gates were structurally blind to it —
+  // agreeing implementations, both wrong.
+  //
+  // Keying on kind + trailing token makes the collapse a within-kind operation,
+  // which is what it always meant to be: instruments collapse with instruments,
+  // environment with environment.
+  const groupKeyOf = (label) => `${(byLabel.get(label) || {}).kind}|${label.split('-').pop()}`;
   const trailingGroups = new Map();
   for (const key of labelOrder) {
-    const segs = key.split('-');
-    const trailing = segs[segs.length - 1];
-    if (!trailingGroups.has(trailing)) trailingGroups.set(trailing, []);
-    trailingGroups.get(trailing).push(key);
+    const gk = groupKeyOf(key);
+    if (!trailingGroups.has(gk)) trailingGroups.set(gk, []);
+    trailingGroups.get(gk).push(key);
   }
   const bareLabels = new Set(labelOrder);
 
@@ -995,7 +1068,7 @@ function compressRichRecipe(cards, ceiling) {
     const c = byLabel.get(key);
     const segs = c.label.split('-');
     const trailing = segs[segs.length - 1];
-    const group = trailingGroups.get(trailing);
+    const group = trailingGroups.get(groupKeyOf(key));
     if (group.length >= 2 && !bareLabels.has(trailing)) {
       const parts = [];
       const pooledDescriptors = [];

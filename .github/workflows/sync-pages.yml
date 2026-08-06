@@ -40,9 +40,36 @@ concurrency:
 
 jobs:
   sync:
-    # Publish only when the triggering CI run succeeded. (A manual workflow_dispatch
-    # carries no workflow_run payload, so let it through for an on-demand republish.)
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    # TRUST, then freshness. Both conditions below are load-bearing; neither is
+    # about build correctness.
+    #
+    # `conclusion == 'success'` is the freshness half, and it was all this job
+    # used to check. That left the trust half open, and it was open wide: this is
+    # the `workflow_run` + `checkout head_sha` + `contents: write` triple that
+    # GitHub documents as the "pwn request". CI runs on `pull_request` (ci.yml),
+    # including from forks. `workflow_run`'s `branches:` filter matches the
+    # triggering run's HEAD BRANCH NAME, not its repository — so a fork whose
+    # branch is literally named `main` satisfies `branches: [main]` above. That
+    # run's completion would fire this job, which checked out the fork's
+    # head_sha and executed it (`npm ci` lifecycle scripts, then build scripts)
+    # while holding a contents:write token that actions/checkout has already
+    # persisted into .git/config. An outsider needed no credentials to get a
+    # write-scoped token and a push to the branch Pages serves — and, via
+    # render.yaml's autoDeploy on main, to the deployed connector.
+    #
+    # So: publish only for a CI run that was triggered by a PUSH (never a
+    # pull_request, whose head is by definition proposed rather than merged) to
+    # THIS repository (never a fork). head_repository is the run's source repo;
+    # comparing full_name is what distinguishes WeningerII/CodexMusica from
+    # anyone/CodexMusica.
+    #
+    # workflow_dispatch stays allowed: it carries no workflow_run payload, and
+    # dispatching a workflow already requires write access to this repo.
+    if: >-
+      ${{ github.event_name == 'workflow_dispatch' ||
+          (github.event.workflow_run.conclusion == 'success' &&
+           github.event.workflow_run.event == 'push' &&
+           github.event.workflow_run.head_repository.full_name == github.repository) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -50,6 +77,9 @@ jobs:
           fetch-depth: 0
           # Check out the EXACT commit CI just validated — not the branch tip, which
           # may have advanced. Manual dispatch falls back to the chosen ref.
+          #
+          # This is only ever first-party code now: the `if:` above admits pushes
+          # to this repository and manual dispatch, nothing else.
           ref: ${{ github.event.workflow_run.head_sha || github.ref }}
 
       - uses: actions/setup-node@v5
@@ -57,8 +87,16 @@ jobs:
           node-version: '22'
           cache: npm
 
+      # --ignore-scripts, defensively. The gate above is what keeps untrusted
+      # code out of this write-privileged job; this is the second lock on the
+      # same door, because `npm ci` running lifecycle scripts is the cheapest
+      # payload site in any repo (a root `postinstall`, or a dependency's).
+      # Nothing this job runs needs them: build_html.js, build_discovery.js and
+      # check_api.js import only Node built-ins and repo modules. The native
+      # dependency that would care — sharp — is used exclusively by the
+      # occasional `assets:*` builders, which never run here.
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Build site artifacts from source
         run: |

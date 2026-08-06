@@ -3,7 +3,10 @@
 //
 // This is the deployable entry point. Host it at an HTTPS URL and add it in
 // Claude → Add connectors → custom → paste the URL. No login: the engine is
-// read-only compute, so the server is open; protect it with edge rate-limiting.
+// read-only compute, so the server is open. Open is not the same as unguarded —
+// per-IP limits live below (MCP_LIMITS) and per-request size ceilings live in
+// schemas.js. An edge limiter in front is still welcome; it is no longer the
+// only thing standing between an open endpoint and a busy loop.
 //
 // STATELESS mode: a fresh server + transport is created per request and no
 // session id is issued. This is the robust pattern for a hosted connector — an
@@ -19,9 +22,30 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { counts } from './engine.js';
 import { createChatRouter } from './chat.js';
+import { Windows, clientIp } from './ratelimit.js';
 
 const PORT = process.env.PORT || 3000;
 const MCP_PATH = process.env.MCP_PATH || '/mcp';
+
+// ─────────────────────── /mcp rate limits ───────────────────────
+//
+// The header above used to say "protect it with edge rate-limiting" and that
+// was the whole of the protection: render.yaml configures no edge, so the
+// open endpoint had none, while /chat — the one that spends money — had a
+// limiter in code. Cost was guarded and CPU was not, which is backwards for a
+// synchronous engine on a single-process instance: a tool call that holds the
+// event loop holds it against /health too, and a failed health check restarts
+// the service.
+//
+// These ceilings are set for an agent, not a browser. A model working through
+// a recipe makes a handful of calls per turn — search, seed, a few edits, a
+// render — so 60/minute leaves an interactive session untouched while turning
+// "block the loop forever" into "block it, then wait".
+const MCP_LIMITS = {
+  perIpPerMinute: Number(process.env.MCP_IP_RPM) || 60,
+  perIpPerHour: Number(process.env.MCP_IP_RPH) || 600,
+};
+const mcpWindows = new Windows();
 
 const app = express();
 
@@ -190,7 +214,32 @@ function describe(body) {
   return m.method === 'tools/call' ? `tools/call ${m.params && m.params.name}` : m.method;
 }
 
+// Refuse in JSON-RPC, not in Express's default HTML: the caller is a protocol
+// client, and -32000 with a retry hint is something it can act on.
+function tooMany(res, retryAfterMs) {
+  const secs = Math.max(1, Math.ceil(retryAfterMs / 1000));
+  res.setHeader('Retry-After', String(secs));
+  res.status(429).json({
+    jsonrpc: '2.0',
+    error: { code: -32000, message: `Rate limit exceeded. Retry in ${secs}s.` },
+    id: null,
+  });
+}
+
 app.post(MCP_PATH, async (req, res) => {
+  const ip = clientIp(req);
+  const now = Date.now();
+  const perMin = mcpWindows.hit(`mcp:${ip}`, 60_000, MCP_LIMITS.perIpPerMinute, now);
+  if (!perMin.ok) {
+    console.error(`[mcp] 429 ${ip} (minute)`);
+    return tooMany(res, perMin.retryAfter);
+  }
+  const perHour = mcpWindows.hit(`mcp:${ip}`, 3_600_000, MCP_LIMITS.perIpPerHour, now);
+  if (!perHour.ok) {
+    console.error(`[mcp] 429 ${ip} (hour)`);
+    return tooMany(res, perHour.retryAfter);
+  }
+
   console.error(`[mcp] ${describe(req.body)}`);
   // Stateless: brand-new server + transport for this single request.
   const server = buildServer();

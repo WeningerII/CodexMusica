@@ -72,7 +72,11 @@ const EXCLUDED_PREFIXES = ['node_modules/', 'tests/', '.git/'];
 // advertised 1,195 traditions and 651 instruments long after the real figures were
 // 1,167 and 870, and no gate could say so. The only real obstacle was that README
 // writes numbers with thousands separators, which N below now accepts.
-const EXCLUDED_FILES = ['CHANGELOG.md'];
+// AUDIT.md joins it for the same reason from the other direction: it is a review
+// document that QUOTES wrong counts as evidence. One of its own findings is that
+// server.json advertises 1145 traditions against a real 2503 — a drift checker
+// that forces that sentence to say 2503 would delete the defect it reports.
+const EXCLUDED_FILES = ['CHANGELOG.md', 'AUDIT.md'];
 
 const STATUS_RE = /\*\*STATUS:\*\*\s+(SHIPPED|ACTED ON|MOSTLY SHIPPED)/;
 

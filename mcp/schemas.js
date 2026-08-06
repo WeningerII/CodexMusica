@@ -33,8 +33,39 @@ export const renderShape = {
     ),
 };
 
+// ── size ceilings ────────────────────────────────────────────────────────────
+//
+// The contract had no size bounds at all, and "no bound" on a public,
+// unauthenticated, single-process endpoint is a denial-of-service primitive
+// rather than a generosity. Measured before these existed: one start_recipe
+// carrying all 2,503 tradition ids ran 18.7 SECONDS of synchronous CPU and
+// built a 13,432-card, 8.2 MB workspace — and since the engine is synchronous
+// and the instance is one process, that is 18.7 seconds during which /health,
+// /chat and every other MCP caller get nothing. It cost the caller one small
+// POST, and nothing stopped them sending it in a loop.
+//
+// The numbers are chosen against what a recipe can actually SAY, not against
+// what the machine can survive. A recipe is capped at 1,000 characters; a
+// workspace of 16 traditions already overruns that ceiling by a wide margin, so
+// a caller asking for 17 is not being served worse by the refusal — they were
+// never going to see the 17th in the output. Same for cards: the largest single
+// tradition seeds 17, so 512 is roughly thirty maximal traditions' worth and
+// still an order of magnitude below where the renderer gets slow.
+//
+// These are the per-request half of the defense. ratelimit.js is the other half
+// (how OFTEN a caller may ask); neither substitutes for the other.
+export const MAX_TRADITIONS_PER_CALL = 16;
+export const MAX_EDITS_PER_CALL = 64;
+export const MAX_WORKSPACE_CARDS = 512;
+
 export const workspaceSchema = z
-  .object({ cards: z.array(z.any()) })
+  .object({
+    // z.any() on the elements is deliberate and unchanged: a card is the
+    // engine's own shape, threaded back verbatim, and re-describing it here
+    // would create a second definition to drift. The LENGTH, though, is not the
+    // engine's business to trust — the array arrives from the network.
+    cards: z.array(z.any()).max(MAX_WORKSPACE_CARDS),
+  })
   .describe('The workspace returned by the previous recipe call. Thread it through unchanged.');
 
 export const editSchema = z.object({
@@ -142,15 +173,21 @@ export const TOOL_SCHEMAS = {
     traditions: z
       .array(z.string())
       .min(1)
+      .max(MAX_TRADITIONS_PER_CALL)
       .describe(
         'Tradition ids, resolved with search_catalog. ORDER IS MEANINGFUL: the first is named first in ' +
-          'the header and is the last to lose material if the recipe reaches the character ceiling.'
+          'the header and is the last to lose material if the recipe reaches the character ceiling. ' +
+          `At most ${MAX_TRADITIONS_PER_CALL} per call — well past what a ${RECIPE_CHAR_CEILING}-character recipe can name.`
       ),
     ...renderShape,
   }),
   edit_recipe: z.object({
     workspace: workspaceSchema,
-    edits: z.array(editSchema).min(1).describe('Edits applied in order.'),
+    edits: z
+      .array(editSchema)
+      .min(1)
+      .max(MAX_EDITS_PER_CALL)
+      .describe(`Edits applied in order (at most ${MAX_EDITS_PER_CALL} per call).`),
     ...renderShape,
   }),
   render_recipe: z.object({ workspace: workspaceSchema, ...renderShape }),
