@@ -26,8 +26,9 @@ import {
   buildSurface,
   runTurn,
   DEFAULT_MODEL,
-  PRICING,
+  LIMITS,
   costOf,
+  priceFor,
   RETRY_TRANSIENT,
 } from './gemini_agent.js';
 
@@ -56,6 +57,18 @@ export const CHAT_LIMITS = {
   maxMessageChars: num('CHAT_MAX_MESSAGE', 600),
   maxHistoryBytes: num('CHAT_MAX_HISTORY_BYTES', 400_000),
   maxTurns: num('CHAT_MAX_TURNS', 12),
+  // A SECOND daily ceiling, in turns, deliberately independent of the first.
+  //
+  // The dollar cap is only as good as the pricing table behind it: it needs a
+  // known price, correct token accounting, and Google's rates not to have moved.
+  // This one needs none of those — it counts requests. If the money arithmetic
+  // is ever wrong in the cheap direction, this is what still stops the day.
+  //
+  // 400 turns at the measured ~$0.01 mean is roughly $4, comfortably above the
+  // $2 dollar cap, so in normal operation the dollar cap is what the service
+  // actually hits and this never fires. It exists for the case where the dollar
+  // cap cannot do its job.
+  maxTurnsPerDay: num('CHAT_MAX_TURNS_PER_DAY', 400),
 };
 
 // ── rate limiting ────────────────────────────────────────────────────────────
@@ -133,6 +146,27 @@ export async function createChatRouter({
   const spend = { day: null, usd: 0, turns: 0 };
   let inFlight = 0;
 
+  // Can this model be metered at all? Resolved ONCE, at construction, so the
+  // answer is visible in the boot log rather than discovered per request.
+  //
+  // If it cannot, /chat refuses to serve. That is the deliberate choice: the
+  // endpoint spends money on someone else's key, and a cap that cannot count is
+  // not a cap. Running anyway is what turned CHAT_DAILY_USD into decoration the
+  // moment GEMINI_MODEL named anything the pricing table had not heard of —
+  // which is precisely what an operator does when a model is retired.
+  //
+  // The escape hatch is CHAT_PRICE_INPUT_PER_1M / CHAT_PRICE_OUTPUT_PER_1M:
+  // state the rates and the service runs. Explicit, and it leaves a record of
+  // what the operator believed the price was.
+  const price = priceFor(model);
+  if (!price) {
+    console.error(
+      `[chat] DISABLED — no price known for "${model}". The daily cap cannot be enforced ` +
+        `without one, so /chat will refuse rather than spend unmetered. Add it to PRICING in ` +
+        `gemini_agent.js, or set CHAT_PRICE_INPUT_PER_1M and CHAT_PRICE_OUTPUT_PER_1M.`
+    );
+  }
+
   const today = () => new Date().toISOString().slice(0, 10);
   function rollDay() {
     const d = today();
@@ -150,16 +184,27 @@ export async function createChatRouter({
       model,
       // Published list price, so the page can be honest about what it is
       // spending rather than describing itself as free and hoping.
-      pricePer1M: PRICING[model] || null,
+      pricePer1M: price || null,
+      // Say so out loud. A chat bar that is off because its price is unknown
+      // should not look identical to one that is merely quiet.
+      enabled: !!price,
       spentUsdToday: Number(spend.usd.toFixed(4)),
       dailyCapUsd: limits.dailyUsd,
       turnsToday: spend.turns,
+      dailyCapTurns: limits.maxTurnsPerDay,
       tools: surface.declarations.length,
     });
   });
 
   router.post('/chat', async (req, res) => {
     rollDay();
+    // Before anything else, including the rate limiters: an unmeterable model
+    // means no request is safe to make, so there is nothing to rate-limit.
+    if (!price) {
+      return res.status(503).json({
+        error: 'The chat bar is off: this deployment has no price configured for its model.',
+      });
+    }
     const now = Date.now();
     const ip = clientIp(req);
 
@@ -181,6 +226,14 @@ export async function createChatRouter({
       return res
         .status(503)
         .json({ error: "The chat bar has hit today's budget. It resets at midnight UTC." });
+    }
+    // The turn ceiling, which does not consult the pricing table. Same answer to
+    // the user; the point is that it still fires when the dollar arithmetic
+    // cannot.
+    if (spend.turns >= limits.maxTurnsPerDay) {
+      return res
+        .status(503)
+        .json({ error: "The chat bar has hit today's limit. It resets at midnight UTC." });
     }
     if (inFlight >= limits.concurrency) {
       return res
@@ -246,7 +299,25 @@ export async function createChatRouter({
         retries: 1,
         retryStatuses: RETRY_TRANSIENT,
       });
-      spend.usd += run.cost || costOf(run.usage, model) || 0;
+      // `?? null` and not `|| 0`.
+      //
+      // The old line read `run.cost || costOf(...) || 0`, which turned an
+      // uncostable turn into a free one: spend.usd never moved, so the daily
+      // gate never tripped and the cap was decoration. A cost we cannot compute
+      // is the one case where charging nothing is the worst possible choice —
+      // it is indistinguishable from having spent nothing, and it compounds.
+      //
+      // The constructor already refuses to serve an unpriced model, so reaching
+      // this branch means the accounting broke in some way we did not predict.
+      // Charge the turn's full allowance and say so: the day closes early, which
+      // is the safe direction to be wrong in.
+      const turnUsd = run.cost ?? costOf(run.usage, model);
+      if (turnUsd === null) {
+        console.error(`[chat] turn cost could not be computed for "${model}"; charging the cap.`);
+        spend.usd += LIMITS.maxTurnUsd;
+      } else {
+        spend.usd += turnUsd;
+      }
       spend.turns += 1;
 
       const envelope = { history: run.history, workspace: run.workspace };

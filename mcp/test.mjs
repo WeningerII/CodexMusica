@@ -229,6 +229,52 @@ check('validation: actionable errors', () => {
   );
 });
 
+// ── the cost guards on /chat ────────────────────────────────────────────────
+//
+// chat.js is the only surface here that spends money, and it had no tests at
+// all — the audit counted 653 lines of credential-bearing, billable code with
+// zero coverage. These assert the four things that stand between an open
+// endpoint and a bill, and each one is a defect that was live:
+//
+//   * the daily cap read `cost || 0`, so an unpriced model contributed nothing
+//     to the day's total and the cap silently became infinite;
+//   * per-IP limits bucketed on the LEFTMOST X-Forwarded-For entry, the one
+//     field a caller writes, so every limit was opt-out;
+//   * nothing bounded a single turn in dollars, only in hops, while cost grows
+//     with the square of the transcript;
+//   * every ceiling depended on the pricing table being right.
+//
+// These need no API key and make no network call: they exercise the router's
+// refusal paths, which is exactly where the money is decided.
+{
+  const { priceFor, LIMITS, costOf: cost } = await import('./gemini_agent.js');
+  const { clientIp } = await import('./ratelimit.js');
+
+  const req = (xff) => ({ headers: { 'x-forwarded-for': xff }, socket: {}, ip: '' });
+  check('clientIp ignores a spoofed leftmost X-Forwarded-For entry', () => {
+    assert.equal(clientIp(req('1.2.3.4, 203.0.113.7')), '203.0.113.7');
+  });
+  check('clientIp gives one bucket regardless of the spoofed prefix', () => {
+    assert.equal(clientIp(req('9.9.9.9, 203.0.113.7')), clientIp(req('8.8.8.8, 203.0.113.7')));
+  });
+  check('clientIp keeps IPv6 intact', () => {
+    assert.equal(clientIp(req('2001:db8::1, 2001:db8::99')), '2001:db8::99');
+  });
+
+  check('an unpriced model has no price and no cost', () => {
+    assert.equal(priceFor('__no_such_model__'), null);
+    assert.equal(cost({ promptTokens: 1e6, candidatesTokens: 1e6 }, '__no_such_model__'), null);
+  });
+  check('a turn is bounded in dollars, not only in hops', () => {
+    assert.ok(LIMITS.maxTurnUsd > 0, 'maxTurnUsd must be set');
+    assert.ok(LIMITS.maxTurnUsd < 2, 'a single turn must not be able to spend the daily cap');
+  });
+  check('there is a daily ceiling that does not consult the pricing table', async () => {
+    const { CHAT_LIMITS } = await import('./chat.js');
+    assert.ok(CHAT_LIMITS.maxTurnsPerDay > 0, 'maxTurnsPerDay must be set');
+  });
+}
+
 // SDK-dependent: only runs if @modelcontextprotocol/sdk is installed.
 try {
   const { buildServer } = await import('./tools.js');
@@ -240,6 +286,52 @@ try {
     console.log('  --  server build skipped (SDK not installed in-container)');
   } else {
     console.error(`FAIL  server builds with all tools\n      ${err.message}`);
+    process.exitCode = 1;
+  }
+}
+
+// The refusal path end to end, in its own block so a failure here reports
+// itself rather than surfacing under the server-build label. Same SDK skip.
+try {
+  const express = (await import('express')).default;
+  const here = new URL('.', import.meta.url).pathname;
+  const sdkPath = (m) => import(require.resolve(m, { paths: [here] }));
+  const { buildServer } = await import('./tools.js');
+  const { Client } = await sdkPath('@modelcontextprotocol/sdk/client/index.js');
+  const { InMemoryTransport } = await sdkPath('@modelcontextprotocol/sdk/inMemory.js');
+  const { createChatRouter } = await import('./chat.js');
+
+  const app = express();
+  app.use(express.json());
+  app.use(
+    await createChatRouter({
+      buildServer,
+      Client,
+      InMemoryTransport,
+      apiKey: 'test-key-never-used', // never spent: the router refuses before any call
+      model: '__no_such_model__',
+    })
+  );
+  const server = app.listen(0);
+  await new Promise((r) => server.once('listening', r));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  const posted = await fetch(`${base}/chat`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ message: 'hello' }),
+  });
+  const status = await (await fetch(`${base}/chat/status`)).json();
+  server.close();
+
+  assert.equal(posted.status, 503, `expected 503 for an unpriced model, got ${posted.status}`);
+  assert.equal(status.enabled, false, '/chat/status must report enabled:false');
+  console.log('  ok  /chat refuses to spend on a model it cannot price');
+  passed++;
+} catch (err) {
+  if (/Cannot find package|Cannot find module/.test(err.message)) {
+    console.log('  --  /chat refusal check skipped (SDK not installed in-container)');
+  } else {
+    console.error(`FAIL  /chat refuses to spend on a model it cannot price\n      ${err.message}`);
     process.exitCode = 1;
   }
 }

@@ -36,3 +36,21 @@ services:
       # CHAT_LIMITS in mcp/chat.js for the rate limits this sits on top of.
       - key: CHAT_DAILY_USD
         value: '2'
+      # The SECOND daily ceiling, counted in turns rather than dollars, and
+      # deliberately independent of the pricing table: it still fires if the
+      # cost arithmetic is ever wrong in the cheap direction. In normal
+      # operation CHAT_DAILY_USD is what the service hits first.
+      - key: CHAT_MAX_TURNS_PER_DAY
+        value: '400'
+      # What ONE turn may spend before it stops between hops. maxSteps bounds
+      # the hop count, but every hop re-sends the whole transcript, so cost
+      # grows faster than the step counter does. Measured worst prompt: $0.033.
+      - key: CHAT_MAX_TURN_USD
+        value: '0.1'
+      # How many proxies sit in front of this process — Render is one. The per-IP
+      # limiters count back this many entries from the RIGHT of X-Forwarded-For,
+      # which is the part a caller cannot forge. Raising it above the real hop
+      # count walks back into client-supplied text and makes every limit
+      # opt-out, so only change it if the topology actually changes.
+      - key: TRUSTED_PROXY_HOPS
+        value: '1'
