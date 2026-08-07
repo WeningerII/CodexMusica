@@ -13539,6 +13539,11 @@ function commitPrefaceChange(card, prefaceId) {
     : null;
   if (result) {
     result.apply();
+    // A preface pick re-derives the whole card by design, so the part pins it
+    // just overwrote are spent. Carrying them forward would make the next
+    // material edit restore values this call deliberately moved. Mirrors
+    // scripts/_workspace_ops.js:setPreface.
+    card.pinnedParts = [];
   } else {
     // Target not in lexicon (free-form word) — just set the label without
     // reshaping. The inverse can't run without a token signature.
@@ -13581,8 +13586,20 @@ function reconfigureAfterPartEdit(card, editedPartId) {
     ? (typeof suggestPrefaceForCard === 'function' ? suggestPrefaceForCard(card) : null)
     : card.preface;
   if (!target) return;
+  // Accumulate the pins, and hold the environment fixed. Both rules are
+  // explained in full over scripts/_workspace_ops.js:setVariant — the cascade is
+  // forked between that file and this one, so the two have to agree literally,
+  // and the parity gate compares them after every sampled edit.
+  //
+  // Short version: pinning only the part being edited handed the PREVIOUS edit's
+  // part back to the optimizer (a three-edit batch kept two of three), and
+  // letting the cascade reach tuning/room/chain meant one variant change could
+  // silently move the recording to a different room.
+  if (!Array.isArray(card.pinnedParts)) card.pinnedParts = [];
+  if (!card.pinnedParts.includes(editedPartId)) card.pinnedParts.push(editedPartId);
+  const ENV_AXES = ['__tuning__', '__room__', 'mic', 'pre', 'medium', 'console'];
   const result = (typeof inverseConfigureForPreface === 'function')
-    ? inverseConfigureForPreface(card, target, { pin: [editedPartId] })
+    ? inverseConfigureForPreface(card, target, { pin: card.pinnedParts.concat(ENV_AXES) })
     : null;
   if (!result) {
     // Free-form / no-token target (not in the lexicon): keep the re-derived label,

@@ -113,6 +113,106 @@ check(
   W.findCard(ws0, 'electric_guitar_single_coil').parts.body_wood === 'alder'
 );
 
+// ── what the cascade may NOT touch ──────────────────────────────────────────
+//
+// Asserted here rather than left to check_edit_parity, because that gate
+// compares the two SURFACES against each other: both regressing together reads
+// as agreement. These are properties of the operation itself, so they hold or
+// fail on one surface alone — the same reason the locale gate had to compare
+// two runs instead of two implementations.
+//
+// 1. A part edit must not move the environment. Reproduced before the fix:
+//    set the room, change one unrelated variant, and the room came back as a
+//    different room entirely, silently.
+const wsEnv0 = W.setEnvironment(ws0, 'electric_guitar_single_coil', {
+  room: 'ainu_cise_wooden_interior',
+});
+const envBefore = W.findCard(wsEnv0, 'electric_guitar_single_coil');
+const wsEnv1 = W.setVariant(wsEnv0, 'electric_guitar_single_coil', 'body_wood', 'mahogany');
+const envAfter = W.findCard(wsEnv1, 'electric_guitar_single_coil');
+check(
+  'set_variant leaves an explicitly set room alone',
+  envAfter.room === 'ainu_cise_wooden_interior',
+  `room became ${envAfter.room}`
+);
+check('set_variant leaves tuning alone', envAfter.tuning === envBefore.tuning);
+check(
+  'set_variant leaves the chain alone',
+  JSON.stringify(envAfter.chain) === JSON.stringify(envBefore.chain)
+);
+
+// 2. Pins accumulate. Before the fix the cascade was told about the CURRENT
+//    part only, so each edit handed the previous edit's part back to the
+//    optimizer and a multi-edit batch silently lost settings.
+//
+//    THE CONTROL RUN IS THE POINT. Most parts do not fight each other, so a
+//    sequence picked at random keeps every pin under the old scope too — the
+//    first version of this check passed against the very defect it was written
+//    for. So the same sequence runs twice: once normally, and once with the
+//    accumulator cleared between calls, which is exactly the old behaviour. The
+//    assertion is that the first keeps everything AND the second does not. If
+//    the catalog ever drifts to where the control stops losing pins, this fails
+//    as "no longer discriminates" rather than passing on a case that proves
+//    nothing.
+const PIN_SEED = 'homeric_rhapsode';
+const PIN_CARD = 'voice';
+const pinInst = (C.INSTRUMENTS || []).find((i) => i.id === PIN_CARD);
+const pinParts = (pinInst.parts || []).filter((p) => (p.variants || []).length > 1).slice(0, 4);
+
+function runPinSequence(accumulate) {
+  let w = W.seed([PIN_SEED]);
+  const asked = [];
+  let finalCard = null;
+  for (const p of pinParts) {
+    const cur = W.findCard(w, PIN_CARD).parts[p.id];
+    const alt = (p.variants || []).map((v) => v.id).find((v) => v !== cur);
+    if (!alt) continue;
+    if (!accumulate) {
+      // Simulate the old scope through the public API: with no accumulator, the
+      // cascade is told about the current part only.
+      const c = W.findCard(w, PIN_CARD);
+      if (c) c.pinnedParts = [];
+    }
+    w = W.setVariant(w, PIN_CARD, p.id, alt);
+    asked.push([p.id, alt]);
+  }
+  finalCard = W.findCard(w, PIN_CARD);
+  return {
+    asked,
+    ws: w,
+    card: finalCard,
+    lost: asked.filter(([pid, alt]) => finalCard.parts[pid] !== alt),
+  };
+}
+
+const accumulated = runPinSequence(true);
+const control = runPinSequence(false);
+check(
+  `every pin survives a ${accumulated.asked.length}-edit sequence`,
+  accumulated.asked.length >= 2 && accumulated.lost.length === 0,
+  accumulated.lost
+    .map(([pid, alt]) => `${pid}: asked ${alt}, got ${accumulated.card.parts[pid]}`)
+    .join('; ')
+);
+check(
+  'the pin sequence actually discriminates (control loses at least one)',
+  control.lost.length > 0,
+  'control kept every pin too — this case no longer proves accumulation'
+);
+
+// 3. set_preface spends the pins, because it re-derives the whole card. Leaving
+//    them set would make the NEXT part edit restore what the preface moved.
+check(
+  'the pin sequence left pins to clear',
+  (accumulated.card.pinnedParts || []).length > 0,
+  'nothing accumulated, so the next check would pass vacuously'
+);
+const wsPref = W.setPreface(accumulated.ws, PIN_CARD, 'howling');
+check(
+  'set_preface clears the accumulated pins',
+  (W.findCard(wsPref, PIN_CARD).pinnedParts || []).length === 0
+);
+
 // ── error handling ──────────────────────────────────────────────────────────
 console.log('\nerrors:');
 const throws = (fn) => {
