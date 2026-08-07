@@ -58,14 +58,43 @@ export class Windows {
   }
 }
 
-// The client IP, taken from the proxy header Render sets.
+// How many proxies sit in front of this process. Render is one; a deploy behind
+// an extra CDN would be two. Same meaning as Express's numeric `trust proxy`.
+const TRUSTED_PROXY_HOPS = Math.max(1, Number(process.env.TRUSTED_PROXY_HOPS) || 1);
+
+// The client IP, counted back from the RIGHT of X-Forwarded-For.
 //
-// Trusting XFF is only safe BEHIND a proxy that overwrites it — which Render
-// does — so the leftmost entry is the real client. Direct-to-node deploys must
-// not use this: with nothing overwriting the header, the leftmost entry is
-// whatever the caller typed, and every bucket below becomes free to choose.
+// This used to read the leftmost entry, and the leftmost entry is the one place
+// in that header a caller can write. XFF is built by appending: each proxy adds
+// the address it received the connection FROM, so the header reads
+// `<whatever the client sent>, <client as seen by proxy 1>, <...>`. A request
+// that arrives carrying `X-Forwarded-For: 1.2.3.4` leaves Render's proxy as
+// `1.2.3.4, <real client>` — and the old code bucketed on `1.2.3.4`, a value
+// the caller chose. Every per-IP limit here was therefore opt-out: change the
+// header each request and you get a fresh bucket every time, which makes the
+// limits decorative against exactly the traffic they exist to stop.
+//
+// Counting back one hop from the right lands on the entry the nearest trusted
+// proxy wrote, which the client cannot forge — it is the address Render
+// actually saw. Anything further left may be spoofed and is ignored.
+//
+// DIRECT-TO-NODE DEPLOYS MUST NOT SET TRUSTED_PROXY_HOPS ABOVE THE REAL COUNT.
+// Trusting more hops than exist walks left past the proxy-written entries and
+// back into caller-controlled text, which is the bug this replaced.
 export function clientIp(req) {
   const xff = req.headers['x-forwarded-for'];
-  if (typeof xff === 'string' && xff.length) return xff.split(',')[0].trim();
+  if (typeof xff === 'string' && xff.length) {
+    const hops = xff
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
+    if (hops.length) {
+      // hops.length - TRUSTED_PROXY_HOPS, clamped: a header shorter than the
+      // configured hop count means something upstream did not append what we
+      // expected, so fall back to the leftmost real entry rather than undefined.
+      const idx = Math.max(0, hops.length - TRUSTED_PROXY_HOPS);
+      return hops[idx];
+    }
+  }
   return req.ip || req.socket?.remoteAddress || 'unknown';
 }

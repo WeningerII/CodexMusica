@@ -63,10 +63,44 @@ export const LIMITS = {
   maxSteps: 14, // tool round-trips per user turn (baseline observed: 6-9)
   maxOutputTokens: 2048,
   temperature: 0,
+  // A ceiling in DOLLARS on one turn, checked between hops.
+  //
+  // maxSteps already bounds the hop count, but hops are not the unit that
+  // costs money: every hop re-sends the whole transcript, so cost grows with
+  // the SQUARE of the conversation rather than with the step counter. The
+  // measured worst prompt in the probe suite ran $0.033; ten cents is three
+  // times that, so an ordinary bad turn never sees this and a pathological one
+  // stops before it matters. Without it the only per-request bound was step
+  // count, and a turn that grew a large workspace could spend far more inside
+  // fourteen legal hops than fourteen ordinary hops ever would.
+  maxTurnUsd: Number(process.env.CHAT_MAX_TURN_USD) || 0.1,
 };
 
+// The price for a model, or null if we do not know it.
+//
+// `null` is the whole point of this function: it is what lets the caller REFUSE
+// to run rather than run uncosted. The spend cap used to be computed as
+// `cost || 0`, so an unpriced model contributed nothing to the day's total and
+// the cap never tripped — the ceiling silently became infinite at exactly the
+// moment someone pointed the service at a model this table had not heard of.
+// That is also the guaranteed operator response to a model retirement, so the
+// failure was scheduled rather than hypothetical.
+//
+// A new model is therefore a DELIBERATE act: add it to PRICING above, or state
+// its rates in the environment. Both are explicit; neither is a shrug.
+export function priceFor(model) {
+  const listed = PRICING[model];
+  if (listed) return listed;
+  const input = Number(process.env.CHAT_PRICE_INPUT_PER_1M);
+  const output = Number(process.env.CHAT_PRICE_OUTPUT_PER_1M);
+  if (Number.isFinite(input) && Number.isFinite(output) && input >= 0 && output >= 0) {
+    return { input, output, declared: true };
+  }
+  return null;
+}
+
 export function costOf(usage, model) {
-  const price = PRICING[model];
+  const price = priceFor(model);
   if (!price) return null;
   const input = usage.promptTokens || 0;
   // Thoughts are billed as output and are NOT included in candidatesTokenCount.
@@ -324,6 +358,22 @@ export async function runTurn({
     }
     // Gemini takes tool output back on the `user` turn.
     contents.push({ role: 'user', parts: responses });
+
+    // Stop between hops once this turn has spent its allowance. Checked HERE,
+    // after the tool responses are appended, so the transcript handed back is
+    // still coherent and the next user message can continue from it — an abort
+    // mid-hop would strand a functionCall with no functionResponse, which
+    // Gemini rejects on the following turn.
+    //
+    // A null cost means the model is unpriced, which the caller is supposed to
+    // have refused before getting here; if one reaches this loop anyway, stop
+    // rather than run on unmetered.
+    const soFar = costOf(usage, model);
+    if (limits.maxTurnUsd > 0 && (soFar === null || soFar >= limits.maxTurnUsd)) {
+      stopped = soFar === null ? 'UNPRICED_MODEL' : 'MAX_TURN_COST';
+      if (onEvent) onEvent({ type: 'stopped', reason: stopped, usd: soFar });
+      break;
+    }
     if (step === limits.maxSteps - 1) stopped = 'MAX_STEPS';
   }
 
