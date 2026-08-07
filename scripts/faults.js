@@ -211,6 +211,14 @@ if (FRESH_API && FRESH_HTML) {
     'sitemap.xml',
     'llms.txt',
     'robots.txt',
+    // mcp/ because server.json is generated, and its version field is read from
+    // mcp/package.json — the single source it exists to stop drifting from.
+    // Without it build_discovery.js throws ENOENT inside check_artifact_fresh,
+    // and the gate then fails for that reason instead of the planted stale
+    // recipe: a WRONG-REASON escape, which is exactly what this harness is
+    // built to notice. mkenv symlinks the module tree rather than copying it,
+    // so staging it costs almost nothing.
+    'mcp',
   ]);
   const f = path.join(d, 'api/traditions/bluegrass.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
