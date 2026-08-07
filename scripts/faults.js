@@ -830,9 +830,17 @@ record(
   const d = mkenv(['scripts', 'references', 'src', 'mcp']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   const src = fs.readFileSync(f, 'utf8');
-  const marker = '  const res = inverseConfigure(card, target, { pin: [partId] });';
-  if (!src.includes(marker)) throw new Error('faults: set_variant cascade missing');
-  const cut = src.indexOf(marker);
+  // Matched by shape, not by the exact argument list. This used to pin the
+  // literal `{ pin: [partId] }`, which was the cascade's whole pin set at the
+  // time — and then the pin set grew (accumulated part pins plus the frozen
+  // environment axes) and this threw "set_variant cascade missing" against a
+  // cascade that was right there. A fault class that breaks when the code it
+  // guards is legitimately improved trains people to edit the fault, and the
+  // thing it actually needs to find is the inverseConfigure call.
+  const marker = /^ {2}const res = inverseConfigure\(card, target, \{ pin: .*\}\);$/m;
+  const m = src.match(marker);
+  if (!m) throw new Error('faults: set_variant cascade missing');
+  const cut = src.indexOf(m[0]);
   const end = src.indexOf('\n  return next;\n}', cut);
   if (end < 0) throw new Error('faults: could not bound the set_variant cascade');
   fs.writeFileSync(f, src.slice(0, cut) + src.slice(end + 1));

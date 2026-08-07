@@ -130,6 +130,26 @@ function removeInstrument(ws, cardRef) {
 
 // ── per-card overrides ────────────────────────────────────────────────────────
 
+// The non-part axes the inverse cascade can reach: tuning, room, and the four
+// chain stages that contribute descriptors. Ids are the ones
+// _inverse_configure.js gives those axes, and the same list appears in
+// src/app.js:reconfigureAfterPartEdit — the cascade is forked between the two
+// surfaces, so this has to be spelled the same way twice.
+//
+// set_variant pins ALL of them, unconditionally. A part edit is a statement
+// about the instrument ("this guitar has a mahogany body"), and it was silently
+// answering a different question ("...and you are now in a different room").
+// Measured before this: set the room to ainu_cise_wooden_interior, change one
+// unrelated variant on the same card, and the room came back
+// honky_tonk_dance_hall. No error, no notice — the environment the caller had
+// deliberately chosen was gone, and set_environment exists precisely so that
+// choice can be made deliberately.
+//
+// set_preface still moves them, and that asymmetry is the point: re-deriving
+// the whole card toward a mood is what set_preface is FOR and what it says it
+// does, while set_variant claims only to change one material.
+const ENV_AXES = ['__tuning__', '__room__', 'mic', 'pre', 'medium', 'console'];
+
 function setVariant(ws, cardRef, partId, variantId) {
   const next = clone(ws);
   const card = findCard(next, cardRef);
@@ -141,6 +161,20 @@ function setVariant(ws, cardRef, partId, variantId) {
     throw new WorkspaceError(`${card.instrumentId}.${partId} has no variant "${variantId}"`);
   }
   card.parts[partId] = variantId;
+
+  // Remember every part the caller has pinned, not just this one.
+  //
+  // The cascade below pins what it is told to pin and re-derives everything
+  // else, and it used to be told about the CURRENT part only — so each edit
+  // quietly handed the previous edit's part back to the optimizer. Measured: a
+  // three-edit batch kept two of its three settings, and the lost one reverted
+  // to a value the caller never asked for. Pins have to accumulate, because
+  // "never reverted" is a claim about the whole session and not about the last
+  // call.
+  //
+  // set_preface clears this list — see the note there.
+  card.pinnedParts = Array.isArray(card.pinnedParts) ? card.pinnedParts.slice() : [];
+  if (!card.pinnedParts.includes(partId)) card.pinnedParts.push(partId);
 
   // A material edit RESHAPES THE REST OF THE CARD, exactly as it does in the app.
   //
@@ -180,7 +214,7 @@ function setVariant(ws, cardRef, partId, variantId) {
   const target = auto ? suggest(cardDescriptors(card, C, SIGS), C.PREFACE_LEXICON) : card.preface;
   if (!target) return next; // no token signature to steer by; the bare edit stands
 
-  const res = inverseConfigure(card, target, { pin: [partId] });
+  const res = inverseConfigure(card, target, { pin: [...card.pinnedParts, ...ENV_AXES] });
   if (!res) {
     // Free-form / no-token target: keep the re-derived label, no reshape
     // possible. Mirrors the app's null-result branch.
@@ -313,6 +347,11 @@ function setPreface(ws, cardRef, prefaceId) {
   card.preface = prefaceId;
   card.prefaceLock = true; // renderer surfaces it verbatim; others dedup around it
   card.prefaceAuto = false;
+  // A preface pick re-derives the whole card by design, so the part pins it just
+  // overwrote are spent. Carrying them forward would make the NEXT set_variant
+  // restore values this call deliberately moved — the cascade handing back what
+  // the user had asked it to replace.
+  card.pinnedParts = [];
   return next;
 }
 

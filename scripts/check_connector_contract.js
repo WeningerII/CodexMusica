@@ -69,11 +69,14 @@ const STRUCTURAL = [
 //
 //     Measured, so this stops being a judgment call anyone re-litigates. A card
 //     is {id, instrumentId, parts, tuning, room, chain, traditionId, preface,
-//     prefaceAuto, prefaceLock} — that union is stable across seeding all 2503
-//     traditions and exercising every edit action, and `prefaceLock` appears
-//     ONLY after set_preface, which is precisely the field a hand-written type
-//     drops on the floor. Every scalar there is typeable. `chain` is typeable,
-//     and is typed (CHAIN_STAGE_IDS, eight named stages).
+//     prefaceAuto, prefaceLock, pinnedParts} — that union is stable across
+//     seeding all 2503 traditions and exercising every edit action, and
+//     `prefaceLock` appears ONLY after set_preface, which is precisely the field
+//     a hand-written type drops on the floor. `pinnedParts` is the same shape of
+//     thing: it appears only after set_variant, and it is what makes a pin
+//     survive the NEXT edit rather than only the one that set it. Every scalar
+//     there is typeable. `chain` is typeable, and is typed (CHAIN_STAGE_IDS,
+//     eight named stages).
 //
 //     `parts` is what makes it impossible: a map from part id to variant id,
 //     and the catalog holds 4051 distinct part ids across 1406 instruments.
