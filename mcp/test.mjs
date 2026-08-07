@@ -3,6 +3,7 @@
 // installed (npm ci in mcp/). Run: npm test
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
+import { readFileSync } from 'node:fs';
 import * as E from './engine.js';
 
 // Raw merged catalog (with the universal cross-instrument materials present) so the
@@ -272,6 +273,31 @@ check('validation: actionable errors', () => {
   check('there is a daily ceiling that does not consult the pricing table', async () => {
     const { CHAT_LIMITS } = await import('./chat.js');
     assert.ok(CHAT_LIMITS.maxTurnsPerDay > 0, 'maxTurnsPerDay must be set');
+  });
+
+  // The blueprint names a model; the pricing table must be able to price it.
+  //
+  // Otherwise the fail-closed guard does its job at DEPLOY time — the chat bar
+  // goes dark and the first anyone knows is a dead dock on the live page. This
+  // is the same failure caught one step earlier, where a diff is still in front
+  // of someone. render.yaml pins GEMINI_MODEL precisely so this check has
+  // something to read.
+  //
+  // Scanned rather than YAML-parsed: mcp/ has no YAML dependency and this is a
+  // two-line shape in a file we control. A declaration that stops matching this
+  // shape reads as "not declared", which fails loudly below rather than
+  // silently passing.
+  check('the model named in render.yaml is one we can price', () => {
+    const blueprint = readFileSync(new URL('../render.yaml', import.meta.url), 'utf8');
+    const m = blueprint.match(/-\s*key:\s*GEMINI_MODEL\s*\n\s*value:\s*['"]?([\w.-]+)['"]?/);
+    assert.ok(m, 'render.yaml must declare GEMINI_MODEL so the deployed model is auditable');
+    const declared = m[1];
+    assert.ok(
+      priceFor(declared),
+      `render.yaml declares GEMINI_MODEL=${declared}, which has no price. ` +
+        `/chat would refuse to serve on deploy. Add it to PRICING in gemini_agent.js, ` +
+        `or declare CHAT_PRICE_INPUT_PER_1M / CHAT_PRICE_OUTPUT_PER_1M alongside it.`
+    );
   });
 }
 
