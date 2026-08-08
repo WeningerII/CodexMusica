@@ -27,6 +27,7 @@
 //   drifted frozen DF   -> build_descriptor_df.js --check (app.js DF block != the JSON)
 //   stale frozen DF     -> build_descriptor_df.js --check (the freeze fell behind the catalog)
 //   stdout lost to exit -> check_cli_output.js      (process.exit drops the unflushed pipe queue)
+//   corrupt spend file -> mcp/test.mjs  (a negative usd would hand spent budget back)
 //   connector over-cascades -> check_edit_parity.js (guard the app has, the connector lacked)
 //   renderer fork drift -> check_edit_differential.js (one engine's copy changes, the other's doesn't)
 //   input outside closure -> check_build_closure.js  (CI would skip a rebuild it needed)
@@ -918,6 +919,35 @@ record(
     'build-input-outside-closure -> check_build_closure.js',
     gate(d, ['scripts/check_build_closure.js']),
     /classified inert|outside the closure/i
+  );
+}
+
+// a corrupt spend file hands budget back -> mcp/test.mjs
+//
+// mcp/spend_store.js reads the daily spend counters from disk when the
+// deployment has somewhere to keep them. That file is the ONE input that can
+// RAISE the remaining budget, so it is validated on read: anything not a finite
+// non-negative number is zero. Drop the validation and a negative `usd` — from a
+// truncated write, a half-flushed crash, or anyone who can touch the disk —
+// restores budget that was already spent, and the cap silently stops capping.
+//
+// Planted by making the validator an identity function, which is exactly the
+// shape "just parse the JSON" would have.
+{
+  // render.yaml and src/ are staged because mcp/test.mjs also asserts the
+  // deployed model is priceable and that the chat field's maxlength matches the
+  // server's — both read the repo. Without them those two checks fail for a
+  // missing file, which is noise that could mask the planted defect.
+  const d = mkenv(['mcp', 'scripts', 'references', 'render.yaml', 'src']);
+  const f = path.join(d, 'mcp/spend_store.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const marker = 'const num = (v) => (Number.isFinite(v) && v >= 0 ? v : 0);';
+  if (!src.includes(marker)) throw new Error('faults: spend_store validator not found');
+  fs.writeFileSync(f, src.replace(marker, 'const num = (v) => v;'));
+  record(
+    'corrupt-spend-file-widens-cap -> mcp/test.mjs',
+    gate(d, ['mcp/test.mjs']),
+    /cannot widen the cap|negative spend must not restore budget/i
   );
 }
 

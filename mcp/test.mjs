@@ -306,6 +306,86 @@ check('validation: actionable errors', () => {
     assert.ok(CHAT_LIMITS.maxTurnsPerDay > 0, 'maxTurnsPerDay must be set');
   });
 
+  // The daily counter survives a restart when the deployment gives it somewhere
+  // to live, and says so when it does not. See mcp/spend_store.js for why this
+  // is opt-in rather than always-on: render.yaml declares no disk, so writing to
+  // the container filesystem would reset on the exact event (a deploy) that
+  // motivated the fix.
+  check('the spend counter persists across a restart when it has a file', async () => {
+    const { SpendStore } = await import('./spend_store.js');
+    const fs = await import('node:fs');
+    const os = await import('node:os');
+    const path = await import('node:path');
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'spend-test-'));
+    const file = path.join(dir, 'nested', 'spend.json');
+    try {
+      const first = new SpendStore(file);
+      assert.equal(first.durable, true, 'a writable path must report durable');
+      first.rollDay('2026-01-02');
+      first.state.usd = 1.75;
+      first.state.turns = 9;
+      first.save();
+
+      // A NEW instance is what a restarted process gets.
+      const restarted = new SpendStore(file);
+      assert.equal(restarted.state.usd, 1.75, 'spend must survive the restart');
+      assert.equal(restarted.state.turns, 9, 'turn count must survive the restart');
+      assert.equal(restarted.state.day, '2026-01-02', 'the day must survive the restart');
+
+      // A UTC rollover still zeroes, which is the behaviour the cap is named for.
+      restarted.rollDay('2026-01-03');
+      assert.equal(restarted.state.usd, 0, 'a new UTC day starts from zero');
+      assert.equal(restarted.state.turns, 0, 'a new UTC day starts from zero');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  // The file is the ONLY input that can raise the remaining budget, so it is
+  // treated as hostile: anything that is not a finite non-negative number reads
+  // as zero. A negative `usd` would otherwise hand back budget that was spent.
+  check('a corrupt spend file cannot widen the cap', async () => {
+    const { SpendStore } = await import('./spend_store.js');
+    const fs = await import('node:fs');
+    const os = await import('node:os');
+    const path = await import('node:path');
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'spend-bad-'));
+    const file = path.join(dir, 'spend.json');
+    try {
+      fs.writeFileSync(file, JSON.stringify({ day: '2026-01-02', usd: -9999, turns: 'lots' }));
+      const s = new SpendStore(file);
+      assert.equal(s.state.usd, 0, 'a negative spend must not restore budget');
+      assert.equal(s.state.turns, 0, 'a non-numeric turn count must read as zero');
+
+      fs.writeFileSync(file, '{ not json');
+      const t = new SpendStore(file);
+      assert.equal(t.state.usd, 0, 'unparseable must read as zero');
+      assert.equal(t.state.day, null, 'unparseable must not claim a day');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  // An unusable path must degrade to in-memory rather than take the endpoint
+  // down. /etc/hostname is a file, so creating a directory under it is ENOTDIR.
+  check('an unusable spend path degrades instead of throwing', async () => {
+    const { SpendStore } = await import('./spend_store.js');
+    let logged = '';
+    const s = new SpendStore('/etc/hostname/sub/spend.json', { log: (m) => (logged = m) });
+    assert.equal(s.durable, false, 'an unusable path must not report durable');
+    assert.match(logged, /not usable/, 'the fallback must be logged, not silent');
+    s.state.usd = 1;
+    s.save(); // must not throw
+    assert.equal(s.rollDay('2026-01-02'), true, 'rollDay still works in-memory');
+  });
+
+  // The status endpoint must not present a partial total as the day's total.
+  check('/chat/status discloses whether the cap survives a restart', () => {
+    const src = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    assert.match(src, /capDurable:\s*spendStore\.durable/, 'status must report capDurable');
+    assert.match(src, /countingSince/, 'status must report when the counter last zeroed');
+  });
+
   // The page's maxlength and the server's maxMessageChars are the same bound
   // written twice, and they drift silently in the direction that hurts: raise
   // the server and the field still truncates, so the extra room is invisible

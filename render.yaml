@@ -59,10 +59,44 @@ services:
       # ceiling below. The turn cap is what bounds spend, not this.
       - key: CHAT_MAX_MESSAGE
         value: '5000'
-      # Spend ceiling per UTC day, in USD, before /chat refuses. See
-      # CHAT_LIMITS in mcp/chat.js for the rate limits this sits on top of.
+      # Spend ceiling in USD before /chat refuses. See CHAT_LIMITS in mcp/chat.js
+      # for the rate limits this sits on top of.
+      #
+      # READ THE NEXT BLOCK BEFORE TRUSTING THE WORD "DAY". With no
+      # CHAT_SPEND_FILE this counter lives in process memory, and autoDeploy
+      # below restarts the service on every push to main — so what this actually
+      # bounds is an uptime period that happens to reset at UTC midnight too.
+      # This used to be described here as a per-day cap with no qualification
+      # (audit F128). /chat/status now reports `capDurable: false` and
+      # `countingSince`, and the service logs the same thing at boot, so the
+      # limitation is visible rather than inferred.
       - key: CHAT_DAILY_USD
         value: '2'
+      # Where the daily counters live, so they survive a restart.
+      #
+      # UNSET TODAY, DELIBERATELY, because this blueprint declares no `disk:` —
+      # Render rebuilds the container on deploy, so a path on the container
+      # filesystem would reset on precisely the event that motivated the fix.
+      # Pointing this at an unmounted path would be worse than leaving it unset:
+      # the service would report `capDurable: true` and still lose the count.
+      #
+      # To make the cap real, add a disk to this service and point this at it:
+      #
+      #   disk:
+      #     name: chat-spend
+      #     mountPath: /data
+      #     sizeGB: 1
+      #   ...
+      #   - key: CHAT_SPEND_FILE
+      #     value: /data/spend.json
+      #
+      # A disk pins the service to a single instance, which costs nothing here:
+      # CHAT_CONCURRENCY is 2 and the service has never needed to scale out. An
+      # unusable path degrades to in-memory with a log line rather than failing
+      # the endpoint (mcp/spend_store.js), and the counters are validated on read
+      # so a corrupt file can never hand budget back.
+      # - key: CHAT_SPEND_FILE
+      #   value: /data/spend.json
       # The SECOND daily ceiling, counted in turns rather than dollars, and
       # deliberately independent of the pricing table: it still fires if the
       # cost arithmetic is ever wrong in the cheap direction. In normal

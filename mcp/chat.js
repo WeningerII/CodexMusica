@@ -22,6 +22,7 @@
 import crypto from 'node:crypto';
 import express from 'express';
 import { Windows, clientIp } from './ratelimit.js';
+import { createSpendStore } from './spend_store.js';
 import {
   buildSurface,
   runTurn,
@@ -150,7 +151,11 @@ export async function createChatRouter({
   const callTool = (name, args) => client.callTool({ name, arguments: args });
 
   const windows = new Windows();
-  const spend = { day: null, usd: 0, turns: 0 };
+  // The daily counters, behind a store that persists them when the deployment
+  // has somewhere to put them (CHAT_SPEND_FILE + a mounted disk) and reports
+  // honestly when it does not. Today it does not — see spend_store.js.
+  const spendStore = createSpendStore(process.env);
+  const spend = spendStore.load();
   let inFlight = 0;
 
   // Can this model be metered at all? Resolved ONCE, at construction, so the
@@ -175,13 +180,18 @@ export async function createChatRouter({
   }
 
   const today = () => new Date().toISOString().slice(0, 10);
-  function rollDay() {
-    const d = today();
-    if (spend.day !== d) {
-      spend.day = d;
-      spend.usd = 0;
-      spend.turns = 0;
-    }
+  const rollDay = () => spendStore.rollDay(today());
+  // When this process's counter last started from zero. With a durable store
+  // that is the last UTC rollover; without one it is boot, which is the whole
+  // point of reporting it.
+  const countingSince = new Date().toISOString();
+
+  if (!spendStore.durable) {
+    console.error(
+      '[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, ' +
+        `so CHAT_DAILY_USD ($${limits.dailyUsd}) bounds an uptime period rather than a UTC day. ` +
+        'Set CHAT_SPEND_FILE to a path on a mounted disk to make it durable.'
+    );
   }
 
   router.get('/chat/status', (_req, res) => {
@@ -199,6 +209,21 @@ export async function createChatRouter({
       dailyCapUsd: limits.dailyUsd,
       turnsToday: spend.turns,
       dailyCapTurns: limits.maxTurnsPerDay,
+      // WHAT THE TWO NUMBERS ABOVE ACTUALLY COVER.
+      //
+      // `spentUsdToday` reads as the day's total, and with no spend file it is
+      // only this process's share of it: render.yaml sets autoDeploy, so every
+      // push restarts the service and the counter starts again from zero while
+      // the date has not changed. The cap was "$2 per uptime period" described
+      // as "$2 per UTC day" (audit F128).
+      //
+      // Rather than leave the reader to infer that, say it. `capDurable` is
+      // false when the counter cannot survive a restart, and `countingSince`
+      // gives the instant it last started from zero — so a status response
+      // taken minutes after a deploy is self-evidently a partial total rather
+      // than a reassuring one.
+      capDurable: spendStore.durable,
+      countingSince,
       tools: surface.declarations.length,
     });
   });
@@ -326,6 +351,11 @@ export async function createChatRouter({
         spend.usd += turnUsd;
       }
       spend.turns += 1;
+      // Persist immediately after accounting, not at the end of the response:
+      // the money is already spent by this point, and a crash between here and
+      // the reply would otherwise lose the record of it. A no-op when the
+      // deployment has no spend file.
+      spendStore.save();
 
       const envelope = { history: run.history, workspace: run.workspace };
       const lastRecipe = [...run.calls].reverse().find((c) => c.recipe && !c.isError);
