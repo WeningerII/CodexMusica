@@ -154,10 +154,28 @@ check(
 //    the catalog ever drifts to where the control stops losing pins, this fails
 //    as "no longer discriminates" rather than passing on a case that proves
 //    nothing.
-const PIN_SEED = 'homeric_rhapsode';
-const PIN_CARD = 'voice';
+// MUST be an instrument with several MATERIAL parts, and that is not incidental.
+//
+// This used to run on `voice` in homeric_rhapsode, chosen when setVariant
+// cascaded on every part. It no longer does: the connector now matches the
+// browser and cascades only for parts carrying lent (`expanded`) material
+// variants, and `voice` has none — so nothing reshaped, every pin survived
+// trivially in BOTH runs, and the control stopped discriminating. The gate said
+// exactly that rather than passing on a case that proved nothing, which is what
+// the control is for.
+//
+// acoustic_guitar_dread has three material parts (top_wood, back_sides,
+// string_acoustic), so each edit really does run the inverse cascade over the
+// previous edits' choices — the only condition under which pin accumulation
+// means anything. Chosen by searching every (tradition, instrument) pair for the
+// strongest discriminator rather than by guessing: here the control loses 2 of
+// its 3 pins, against 1 for the next-best candidates.
+const PIN_SEED = 'outlaw_country';
+const PIN_CARD = 'acoustic_guitar_dread';
 const pinInst = (C.INSTRUMENTS || []).find((i) => i.id === PIN_CARD);
-const pinParts = (pinInst.parts || []).filter((p) => (p.variants || []).length > 1).slice(0, 4);
+const pinParts = (pinInst.parts || [])
+  .filter((p) => (p.variants || []).length > 1 && (p.variants || []).some((v) => v.expanded))
+  .slice(0, 4);
 
 function runPinSequence(accumulate) {
   let w = W.seed([PIN_SEED]);

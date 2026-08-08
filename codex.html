@@ -61545,6 +61545,41 @@ function commitPrefaceChange(card, prefaceId) {
   }
 }
 
+// THE STATE HALF OF A VARIANT PICK. Everything the browser does to a card when a
+// human chooses a variant, minus the DOM.
+//
+// Extracted because it was inline in handleCardClick, which meant no gate could
+// call it: check_edit_parity and check_edit_differential both reached past it to
+// reconfigureAfterPartEdit, so they compared the CASCADE against the connector's
+// cascade and agreed — while the browser was not running a cascade at all for
+// most parts. The guard below is the difference, and it applies to the large
+// majority of the catalog: only 354 of 1406 instruments carry a part with lent
+// (`expanded`) material variants, so on the other 1052 a variant pick re-derives
+// the preface and nothing else. Measured before this was extracted: 66 of 1321
+// single-variant edits rendered a DIFFERENT recipe through the two surfaces,
+// every one of them on a non-material part and none on a material part.
+//
+// Returns whether the edit ran the full cascade, which is exactly the condition
+// under which the browser pushes a history entry — the caller owns pushHistory()
+// and rerenderCard(), as it did when this was inline.
+function applyPartEdit(card, partId) {
+  const inst = Inst(card.instrumentId);
+  const partDef = inst ? (inst.parts || []).find(p => p.id === partId) : null;
+  // Material parts (those carrying the universal cross-instrument materials)
+  // trigger the full inverse cascade toward the re-derived preface — the same
+  // machinery a preface pick runs — pinning the touched part so the user's
+  // choice is preserved, and surfacing every auto-applied change (shifts panel
+  // + toast). One history entry → one Ctrl+Z. Other parts keep the lightweight
+  // re-derive.
+  const isMaterialPart = !!(partDef && (partDef.variants || []).some(v => v.expanded));
+  if (isMaterialPart) {
+    reconfigureAfterPartEdit(card, partId);
+    return true;
+  }
+  if (card.prefaceAuto) card.preface = suggestPrefaceForCard(card);
+  return false;
+}
+
 // A manual part edit (picking a material / variant) reshapes the REST of the card
 // toward the preface the new sound implies — the same inverse cascade a preface
 // pick runs — while PINNING the edited part so the user's choice is never reverted.
@@ -64833,14 +64868,8 @@ function handleCardClick(e, card) {
     // machinery a preface pick runs — pinning the touched part so the user's choice
     // is preserved, and surfacing every auto-applied change (shifts panel + toast).
     // One history entry → one Ctrl+Z. Other parts keep the lightweight re-derive.
-    const inst = Inst(card.instrumentId);
-    const partDef = inst ? (inst.parts || []).find(p => p.id === partId) : null;
-    const isMaterialPart = !!(partDef && (partDef.variants || []).some(v => v.expanded));
-    if (isMaterialPart) {
-      reconfigureAfterPartEdit(card, partId);
+    if (applyPartEdit(card, partId)) {
       if (typeof pushHistory === 'function') pushHistory();
-    } else if (card.prefaceAuto) {
-      card.preface = suggestPrefaceForCard(card);
     }
     rerenderCard(card);
     return;

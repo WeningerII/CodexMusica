@@ -27,6 +27,7 @@
 //   drifted frozen DF   -> build_descriptor_df.js --check (app.js DF block != the JSON)
 //   stale frozen DF     -> build_descriptor_df.js --check (the freeze fell behind the catalog)
 //   stdout lost to exit -> check_cli_output.js      (process.exit drops the unflushed pipe queue)
+//   connector over-cascades -> check_edit_parity.js (guard the app has, the connector lacked)
 //   renderer fork drift -> check_edit_differential.js (one engine's copy changes, the other's doesn't)
 //   input outside closure -> check_build_closure.js  (CI would skip a rebuild it needed)
 //
@@ -917,6 +918,34 @@ record(
     'build-input-outside-closure -> check_build_closure.js',
     gate(d, ['scripts/check_build_closure.js']),
     /classified inert|outside the closure/i
+  );
+}
+
+// the connector cascades where the browser does not -> check_edit_parity.js
+//
+// A variant pick takes one of two paths in the browser (src/app.js:applyPartEdit):
+// a MATERIAL part runs the full inverse cascade, anything else re-derives the
+// preface and stops. Only 354 of 1406 instruments have a material part, so the
+// second path is the common one.
+//
+// This is the defect the repo actually shipped: _workspace_ops.setVariant
+// cascaded unconditionally, and BOTH parity gates missed it because they called
+// reconfigureAfterPartEdit directly — reaching past the guard, comparing cascade
+// against cascade, and agreeing. Measured at the time: 66 of 1321 single-variant
+// edits rendered a different recipe across the two surfaces.
+//
+// Planted by neutering the guard, which is exactly the prior state.
+{
+  const d = mkenv(['scripts', 'references', 'src']);
+  const f = path.join(d, 'scripts/_workspace_ops.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const marker = '  if (!isMaterialPart) {';
+  if (!src.includes(marker)) throw new Error('faults: setVariant material guard not found');
+  fs.writeFileSync(f, src.replace(marker, '  if (false) {'));
+  record(
+    'connector-cascades-where-app-does-not -> check_edit_parity.js',
+    gate(d, ['scripts/check_edit_parity.js']),
+    /diverged in card state|post-edit render\(s\) diverged/i
   );
 }
 

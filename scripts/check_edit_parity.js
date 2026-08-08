@@ -148,16 +148,38 @@ function sample() {
     // supposed to eliminate. Striding by `i` keeps the selection deterministic
     // (same cases every run, so a failure reproduces) while spreading coverage
     // across the parts an instrument actually has.
-    const eligible = [];
+    // BOTH BRANCHES, deliberately. A variant pick takes one of two paths in the
+    // browser (src/app.js:applyPartEdit): a material part runs the full inverse
+    // cascade, anything else re-derives the preface and stops. Only 354 of 1406
+    // instruments carry a material part, so a sampler that ignores the split
+    // lands almost entirely on one side — and this gate's whole job is the
+    // comparison, which means it has to exercise both. Split the eligible parts
+    // and alternate on `i`, keeping the selection deterministic so a failure
+    // reproduces.
+    const material = [];
+    const plain = [];
     for (const part of inst.parts || []) {
       const variants = part.variants || [];
       if (variants.length < 2) continue;
       const alt = variants.find((v) => v.id !== card.parts[part.id]);
-      if (alt) eligible.push({ part: part.id, variant: alt.id });
+      if (!alt) continue;
+      const isMat = variants.some((v) => v.expanded);
+      (isMat ? material : plain).push({ part: part.id, variant: alt.id, material: isMat });
     }
-    if (eligible.length) {
-      const pick = eligible[i % eligible.length];
-      cases.push({ tradition: trad.id, card, part: pick.part, variant: pick.variant });
+    // Prefer the under-represented side on alternating strides, falling back to
+    // whichever pool is non-empty.
+    const first = i % 2 === 0 ? material : plain;
+    const second = i % 2 === 0 ? plain : material;
+    const pool = first.length ? first : second;
+    if (pool.length) {
+      const pick = pool[i % pool.length];
+      cases.push({
+        tradition: trad.id,
+        card,
+        part: pick.part,
+        variant: pick.variant,
+        material: pick.material,
+      });
     }
   }
   return cases;
@@ -173,10 +195,17 @@ let cascaded = 0;
 let renderMismatches = 0;
 let rendersCompared = 0;
 for (const c of cases) {
-  // APP: mutate the part on its own card copy, then run the browser's cascade.
+  // APP: mutate the part on its own card copy, then run the browser's REAL
+  // branch — guard included.
+  //
+  // This called reconfigureAfterPartEdit directly, which is the cascade the
+  // browser runs only for MATERIAL parts. Reaching past the guard made this gate
+  // compare cascade against cascade, so it agreed while the two surfaces
+  // disagreed on every non-material edit — 1052 of 1406 instruments have no
+  // material part at all. applyPartEdit is the branch a click actually takes.
   const appCard = clone(c.card);
   appCard.parts[c.part] = c.variant;
-  app.reconfigureAfterPartEdit(appCard, c.part);
+  app.applyPartEdit(appCard, c.part);
 
   // CONNECTOR: the same edit through the workspace op.
   const ws = { cards: [clone(c.card)] };
@@ -246,10 +275,26 @@ for (const c of cases) {
   }
 }
 
+const matCases = cases.filter((c) => c.material).length;
+const plainCases = cases.length - matCases;
 console.log(`\n  cases where the cascade moved something else: ${cascaded}/${cases.length}`);
+console.log(`  branch coverage: ${matCases} material (cascade), ${plainCases} non-material`);
 if (cascaded === 0) {
   console.log(
     '\nEDIT PARITY: FAIL — no case exercised the cascade, so agreement here proves nothing.'
+  );
+  process.exit(1);
+}
+// BOTH branches, or this gate is back to proving one thing about two. The
+// non-material branch is where the two surfaces actually diverged: the app
+// re-derives the preface and stops, the connector used to run the full cascade,
+// and this gate agreed anyway because it called the cascade directly instead of
+// the branch. A run confined to one side would recreate that blind spot.
+if (matCases === 0 || plainCases === 0) {
+  console.log(
+    `\nEDIT PARITY: FAIL — only one branch of applyPartEdit was sampled ` +
+      `(${matCases} material, ${plainCases} non-material). A variant pick takes one of two ` +
+      'paths in the browser and this gate exists to compare both.'
   );
   process.exit(1);
 }

@@ -210,7 +210,37 @@ function setVariant(ws, cardRef, partId, variantId) {
   // The renderer now keys on prefaceAuto === false like the app does
   // (_recipe_stack.js:assignDedupedPrefaces), which makes the line below
   // sufficient on its own and this omission harmless.
+  // ONLY MATERIAL PARTS CASCADE, because that is what the browser does.
+  //
+  // The comment above says this is "a port of src/app.js:reconfigureAfterPartEdit,
+  // which is what runs when a human picks a variant in the browser". The first
+  // half was true and the second half was not: the browser calls that cascade
+  // only behind a guard (src/app.js:applyPartEdit), and for a part with no lent
+  // material variants it re-derives the preface and stops. Only 354 of 1406
+  // instruments have such a part, so this cascaded on the large majority of
+  // edits where the app does not.
+  //
+  // Both parity gates missed it by construction — they called
+  // reconfigureAfterPartEdit directly, reaching past the guard, so they compared
+  // cascade against cascade and agreed. Measured with the guard modelled
+  // faithfully: 66 of 1321 single-variant edits rendered a DIFFERENT recipe
+  // across the two surfaces, all of them on non-material parts.
+  //
+  // The app is the reference — mcp/README.md calls this "the headless twin of
+  // the browser app" — so the guard moves here rather than the browser losing
+  // it. The bug the cascade was added to fix stays fixed: a non-material edit is
+  // still not a bare field assignment, it re-derives the preface exactly as the
+  // app's else-branch does.
+  const partDef = (inst.parts || []).find((p) => p.id === partId);
+  const isMaterialPart = !!(partDef && (partDef.variants || []).some((v) => v.expanded));
   const auto = card.prefaceAuto !== false;
+  if (!isMaterialPart) {
+    if (auto) {
+      const derived = suggest(cardDescriptors(card, C, SIGS), C.PREFACE_LEXICON);
+      if (derived) card.preface = derived;
+    }
+    return next;
+  }
   const target = auto ? suggest(cardDescriptors(card, C, SIGS), C.PREFACE_LEXICON) : card.preface;
   if (!target) return next; // no token signature to steer by; the bare edit stands
 
