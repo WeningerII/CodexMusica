@@ -62755,7 +62755,9 @@ function renderSidebarFilter() {
 function renderSidebarTraditions() {
   const host = document.getElementById('sidebar-traditions');
   if (!host) return;
-  if (app.cards.length === 0) { host.innerHTML = ''; return; }
+  // Clear the paint key with the tree: an empty workspace followed by a rebuild
+  // to the same shape would otherwise skip a repaint it needed.
+  if (app.cards.length === 0) { host.innerHTML = ''; host._codexTreeHtml = ''; return; }
 
   const primaryCardId = _determinePrimaryCard(app.cards);
   const primaryCard = app.cards.find(c => c.id === primaryCardId);
@@ -62794,7 +62796,7 @@ function renderSidebarTraditions() {
   // has no down-arrow. __ungrouped__ always sorts last and isn't movable.
   const movableKeys = keys.filter(k => k !== '__ungrouped__');
 
-  host.innerHTML = keys.map(tradId => {
+  const treeHtml = keys.map(tradId => {
     const cards = groups.get(tradId);
     // Phase 4a: sort pinned cards first within each tradition group. Stable
     // sort preserves the existing within-pinned-bucket and within-unpinned-
@@ -62847,6 +62849,34 @@ function renderSidebarTraditions() {
       '</section>'
     );
   }).join('');
+
+  // IDENTICAL TREE ALREADY MOUNTED → leave it, and its listeners, alone.
+  //
+  // renderSidebar() runs on every interaction, and this is the expensive part
+  // of it: reassigning innerHTML throws away the whole subtree, reparses it,
+  // and then the six querySelectorAll loops below re-attach a listener per
+  // header, per move button, per delete button, per card and per add button.
+  // Measured in jsdom at a 42-card / 8-tradition roster: 91.4ms and 94 listener
+  // attachments for a render where nothing had changed (audit F136).
+  //
+  // The guard is the rendered HTML itself rather than a summary of the inputs.
+  // That is the point: a content key that IS the output cannot disagree with the
+  // output, so there is no set of app state this can get wrong — if one byte of
+  // the tree would differ, the string differs and we rebuild.
+  //
+  // Only the innerHTML write and the listeners are skipped. Anything a caller
+  // does to the host ELEMENT — classes, attributes, scroll position — is
+  // untouched by this and must stay outside the guard, which is why the check
+  // sits here and not at the top of the function. renderSidebarRecipePreview is
+  // the live example: it toggles is-expanded / is-collapsed on its host from
+  // state the innerHTML does not encode, so guarding that function on its HTML
+  // alone would freeze the chevron.
+  //
+  // The key lives on the element, so replacing the host (or reloading) loses it
+  // and the next render repaints — a cache miss, never a stale tree.
+  if (host._codexTreeHtml === treeHtml) return;
+  host.innerHTML = treeHtml;
+  host._codexTreeHtml = treeHtml;
 
   // Wire group-header toggles
   host.querySelectorAll('.sb-tradition-header').forEach(h => {
