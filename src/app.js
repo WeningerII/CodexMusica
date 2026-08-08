@@ -2480,6 +2480,29 @@ function buildStackParts(card) {
   });
   return out;
 }
+// WHICH card the one rendered environment comes from. Byte-mirror of
+// envCardOf in scripts/_recipe_stack.js — see that copy for the full note.
+//
+// Every format carries the environment exactly once and every one of them used
+// to read cards[0] unconditionally. That is right whenever cards[0] has an
+// environment, and silently wrong when it doesn't: a card built outside a
+// tradition has none (importTradition seeds one shared env across a tradition's
+// cards; a bare instrument card gets null tuning, null room, empty chain), and
+// adding a tradition APPENDS, so a bare instrument added first sits at index 0
+// forever. Start from one instrument, add a genre, and the recipe renders no
+// tuning, no room and none of the seven chain stages while the header still
+// names the genre.
+//
+// First card that HAS an environment, and that card's environment WHOLE — not a
+// field-by-field merge, which would render a combination no card actually
+// holds. Can only ADD environment to renders that had none, so existing recipe
+// bytes are unchanged.
+function envCardOf(cards) {
+  if (!cards || !cards.length) return null;
+  const has = (c) => !!c && (c.tuning || c.room ||
+    Object.values(c.chain || {}).some(v => Array.isArray(v) ? v.length > 0 : !!v));
+  return cards.find(has) || cards[0];
+}
 function compileStack(card, format) {
   const parts = buildStackParts(card);
   if (parts.length === 0) return '';
@@ -2597,7 +2620,7 @@ function compressProseRecipe(cards, ceiling) {
     });
   }
   if (cards.length > 0) {
-    for (const p of buildStackParts(cards[0])) {
+    for (const p of buildStackParts(envCardOf(cards))) {
       if (p.kind === 'instrument') continue;
       let label = p.label;
       const colonIdx = label.indexOf(': ');
@@ -13683,7 +13706,7 @@ function compressTagsRecipe(cards, ceiling) {
   // chunks will still carry per-card descriptors; the env chunks below just
   // surface what card[0] has. Acceptable for tags-mode density.
   if (cards.length > 0) {
-    const envParts = buildStackParts(cards[0]);
+    const envParts = buildStackParts(envCardOf(cards));
     for (const p of envParts) {
       if (p.kind === 'instrument') continue;
       chunks.push(_buildChunk(p.label, p.descriptors));
@@ -13714,7 +13737,7 @@ function compressTagsRecipe(cards, ceiling) {
     } : null;
   }).filter(Boolean);
   if (cards.length > 0) {
-    for (const p of buildStackParts(cards[0])) {
+    for (const p of buildStackParts(envCardOf(cards))) {
       if (p.kind === 'instrument') continue;
       rebuilt.push({
         kind: 'env',
@@ -13827,7 +13850,7 @@ function compressCompactRecipe(cards, ceiling) {
   // string, with no error and nothing to notice. Say it once instead. Every
   // other format already carries the environment exactly once, from cards[0].
   const envLine = cards.length
-    ? buildStackParts(cards[0]).filter(p => p.kind !== 'instrument').map(p => p.label).join(' · ')
+    ? buildStackParts(envCardOf(cards)).filter(p => p.kind !== 'instrument').map(p => p.label).join(' · ')
     : '';
   if (envLine) {
     out = instLines.concat(envLine + ',').join('\n');
@@ -13877,7 +13900,7 @@ function compressRichRecipe(cards, ceiling) {
     });
   }
   if (cards.length > 0) {
-    for (const p of buildStackParts(cards[0])) {
+    for (const p of buildStackParts(envCardOf(cards))) {
       if (p.kind === 'instrument') continue;
       let label = p.label;
       const colonIdx = label.indexOf(': ');

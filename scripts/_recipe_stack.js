@@ -469,6 +469,44 @@ function buildStackParts(card) {
   return out;
 }
 
+// @inline
+// WHICH card the one rendered environment comes from.
+//
+// Every format carries the environment exactly once, and every format used to
+// take it from cards[0] unconditionally. That is right whenever cards[0] has an
+// environment — which every tradition-seeded card does, since seedTraditionCards
+// hands one shared env object to all of a tradition's cards — and silently wrong
+// when it doesn't.
+//
+// A card built outside a tradition has no environment: addInstrument without a
+// { tradition } context calls makeCard(id, {}), whose tuning, room and chain are
+// all empty. addTradition APPENDS, so a bare instrument added first stays at
+// index 0 and wins the lookup forever. Start from one instrument, add a genre,
+// and the recipe renders with no tuning, no room and none of the seven chain
+// stages, while the header still names the genre. Reachable from the app and,
+// via add_instrument + remove_tradition, from the connector.
+//
+// The rule is the first card that HAS an environment, and that card's
+// environment WHOLE. Deliberately not a field-by-field merge across cards: that
+// would render a room/tuning/chain combination no card actually holds, which is
+// worse than rendering none, because nothing in stored state could contradict
+// it. Whole-card keeps "the environment shown belongs to exactly one card" true,
+// which is checkable.
+//
+// This can only ADD environment to renders that had none. Whenever cards[0]
+// carries anything the answer is still cards[0], so every existing recipe byte
+// is unchanged — asserted by rebuilding the static API and byte-comparing, and
+// by the fixture suites.
+function envCardOf(cards) {
+  if (!cards || !cards.length) return null;
+  const has = (c) =>
+    !!c &&
+    (c.tuning ||
+      c.room ||
+      Object.values(c.chain || {}).some((v) => (Array.isArray(v) ? v.length > 0 : !!v)));
+  return cards.find(has) || cards[0];
+}
+
 // ─────────────────────────── preface resolution + dedup ───────────────────────────
 const _sanitizePreface = (raw) => (raw == null ? '' : String(raw).replace(/[,.]/g, '').trim());
 function _resolvePreface(card) {
@@ -604,7 +642,7 @@ function compressProseRecipe(cards, ceiling) {
     });
   }
   if (cards.length > 0) {
-    for (const p of buildStackParts(cards[0])) {
+    for (const p of buildStackParts(envCardOf(cards))) {
       if (p.kind === 'instrument') continue;
       let label = p.label;
       const colonIdx = label.indexOf(': ');
@@ -846,7 +884,7 @@ function compressTagsRecipe(cards, ceiling) {
     chunks.push(_tagsChunk(inst.label, inst.descriptors, _resolvePreface(card)));
   }
   if (cards.length > 0) {
-    for (const p of buildStackParts(cards[0])) {
+    for (const p of buildStackParts(envCardOf(cards))) {
       if (p.kind === 'instrument') continue;
       chunks.push(_tagsChunk(p.label, p.descriptors));
     }
@@ -870,7 +908,7 @@ function compressTagsRecipe(cards, ceiling) {
     })
     .filter(Boolean);
   if (cards.length > 0) {
-    for (const p of buildStackParts(cards[0])) {
+    for (const p of buildStackParts(envCardOf(cards))) {
       if (p.kind === 'instrument') continue;
       rebuilt.push({
         kind: 'env',
@@ -981,7 +1019,7 @@ function compressCompactRecipe(cards, ceiling) {
   // string, with no error and nothing to notice. Say it once instead. Every
   // other format already carries the environment exactly once, from cards[0].
   const envLine = cards.length
-    ? buildStackParts(cards[0])
+    ? buildStackParts(envCardOf(cards))
         .filter((p) => p.kind !== 'instrument')
         .map((p) => p.label)
         .join(' · ')
@@ -1011,7 +1049,7 @@ function compressRichRecipe(cards, ceiling) {
     });
   }
   if (cards.length > 0) {
-    for (const p of buildStackParts(cards[0])) {
+    for (const p of buildStackParts(envCardOf(cards))) {
       if (p.kind === 'instrument') continue;
       let label = p.label;
       const colonIdx = label.indexOf(': ');

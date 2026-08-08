@@ -204,6 +204,19 @@ jobs:
       - name: Locale invariance (recipe bytes identical under da-DK and C)
         run: npm run check:locale
 
+      # Differential: the same seeded random edit script through both surfaces.
+      #
+      # check_edit_parity is a matrix of single actions on a freshly seeded card.
+      # It cannot reach "set_variant on a card a set_preface already reshaped, in
+      # a workspace whose first card was removed" — and divergence between two
+      # hand-maintained forks of one renderer hides in the third move, not the
+      # first. This walks random op sequences through the app's real functions
+      # and the connector's ops in lockstep, byte-comparing all four formats
+      # after every op, and refuses to report success unless the run actually
+      # explored every op, multi-card rosters, and env-less-head states.
+      - name: Edit differential (random scripts, both surfaces, byte-compared)
+        run: npm run check:differential
+
       # CLI output survives a pipe.
       #
       # Node writes to a file synchronously and to a pipe ASYNCHRONOUSLY, and

@@ -28,6 +28,14 @@ const EXPORTED = [
   // reconfigureAfterPartEdit is here. It runs clean headlessly: its DOM work
   // (rerenderCard, showToast) lands on the sink proxy below.
   'commitPrefaceChange',
+  // The app's roster mutations, exported so check_edit_differential can drive
+  // add/remove through the browser's own code paths. Same reason as the two
+  // above: a harness that re-implemented `push a card` would be comparing the
+  // connector against the harness's idea of the app, which is the one thing a
+  // parity gate must never do.
+  'addCard',
+  'rmCard',
+  'makeCard',
 ];
 
 function loadApp() {

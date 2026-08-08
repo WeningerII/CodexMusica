@@ -27,6 +27,7 @@
 //   drifted frozen DF   -> build_descriptor_df.js --check (app.js DF block != the JSON)
 //   stale frozen DF     -> build_descriptor_df.js --check (the freeze fell behind the catalog)
 //   stdout lost to exit -> check_cli_output.js      (process.exit drops the unflushed pipe queue)
+//   renderer fork drift -> check_edit_differential.js (one engine's copy changes, the other's doesn't)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -868,6 +869,37 @@ record(
     'favicon-raster-drift -> build_favicon.js',
     gate(d, ['scripts/build_favicon.js', '--check']),
     /do not match favicon\.svg|assets:favicon/i
+  );
+}
+
+// one renderer fork drifts from the other -> check_edit_differential.js
+//
+// The two engines carry duplicate renderers, and the whole risk of that fork is
+// a change landing in one copy and not the other. This plants exactly that: put
+// the Node engine's environment lookup back to the unconditional cards[0] while
+// src/app.js keeps envCardOf.
+//
+// The plant is invisible to the single-action matrix — check_edit_parity edits
+// ONE freshly seeded card, whose cards[0] always carries a tradition's
+// environment, so both spellings agree there. It only shows up in a composed
+// state (add a bare instrument, drop the tradition that seeded the workspace),
+// which is the space this harness explores and the matrix cannot enumerate.
+// That is the point of having both gates, so the plant is chosen to separate
+// them rather than to be caught by either.
+{
+  const d = mkenv(['scripts', 'references', 'src']);
+  const f = path.join(d, 'scripts/_recipe_stack.js');
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes('buildStackParts(envCardOf(cards))'))
+    throw new Error('faults: _recipe_stack.js env lookup not found');
+  fs.writeFileSync(
+    f,
+    src.replace(/buildStackParts\(envCardOf\(cards\)\)/g, 'buildStackParts(cards[0])')
+  );
+  record(
+    'renderer-fork-drift -> check_edit_differential.js',
+    gate(d, ['scripts/check_edit_differential.js']),
+    /bytes differ|divergence/i
   );
 }
 
