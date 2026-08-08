@@ -28,6 +28,7 @@
 //   stale frozen DF     -> build_descriptor_df.js --check (the freeze fell behind the catalog)
 //   stdout lost to exit -> check_cli_output.js      (process.exit drops the unflushed pipe queue)
 //   renderer fork drift -> check_edit_differential.js (one engine's copy changes, the other's doesn't)
+//   input outside closure -> check_build_closure.js  (CI would skip a rebuild it needed)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -869,6 +870,53 @@ record(
     'favicon-raster-drift -> build_favicon.js',
     gate(d, ['scripts/build_favicon.js', '--check']),
     /do not match favicon\.svg|assets:favicon/i
+  );
+}
+
+// a build input falls outside the closure -> check_build_closure.js
+//
+// The CI scope step skips the 30-minute rebuild when no changed path is in the
+// artifact build closure. If a real build input is ever classified inert, that
+// skip fires on a diff that needed the rebuild and a stale artifact ships with
+// every other gate green — the failure this repo has already had twice.
+//
+// So plant exactly that: widen an inert rule to swallow scripts/, which is where
+// eleven real inputs live. Nothing about the build changes; only the classifier
+// lies. Caught only by the trace — no static review of the rule would notice,
+// which is why the gate runs a real build instead of reading its own list.
+{
+  // build_discovery.js refuses to emit a sitemap URL with no file behind it, so
+  // the staged tree needs every ENTRY_POINTS target (build_discovery.js:169) —
+  // it only stats them, never reads them, which is also why editing a .md
+  // cannot move sitemap.xml and the docs-only skip was sound to begin with.
+  const d = mkenv([
+    'scripts',
+    'references',
+    'src',
+    'mcp',
+    'api',
+    'package.json',
+    'index.html',
+    'codex.html',
+    'AGENTS.md',
+    'SKILL.md',
+    'server.json',
+  ]);
+  const f = path.join(d, 'scripts/_build_closure.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const marker = "if (p.startsWith('scripts/')) {";
+  if (!src.includes(marker)) throw new Error('faults: _build_closure.js scripts branch not found');
+  fs.writeFileSync(
+    f,
+    src.replace(
+      marker,
+      `${marker}\n    return { kind: 'inert', why: 'FAULT: scripts are never inputs' };`
+    )
+  );
+  record(
+    'build-input-outside-closure -> check_build_closure.js',
+    gate(d, ['scripts/check_build_closure.js']),
+    /classified inert|outside the closure/i
   );
 }
 

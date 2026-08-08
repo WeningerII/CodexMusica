@@ -56,16 +56,29 @@ jobs:
       # THE ASYMMETRY IS THE WHOLE DESIGN. Deciding "rebuild" when we did not
       # need to costs runner minutes. Deciding "skip" when we did need to ships
       # a stale artifact — the exact failure the freshness gate exists to catch,
-      # and one that already happened twice here. So this does NOT try to work
-      # out the build's dependency closure and skip when nothing in it changed;
-      # guessing that closure wrong fails in the dangerous direction, silently.
+      # and one that already happened twice here.
       #
-      # Instead it inverts the question: skip ONLY when every changed path is on
-      # a short allowlist of things that provably cannot reach a build input.
-      # Markdown, docs/, the license, issue templates. Verified rather than
-      # assumed — no artifact builder reads a .md file (grep build_static_api.js,
-      # build_html.js, _compile_worker.js, _loader.js, _split_data.js). Anything
-      # else, including anything unrecognised, means rebuild.
+      # This step used to answer the question with a docs-only allowlist, and
+      # said in as many words that it deliberately did NOT compute the build's
+      # dependency closure, because guessing that closure wrong fails in the
+      # dangerous direction, silently. That objection was right about GUESSING,
+      # so scripts/_build_closure.js does not guess:
+      #
+      #   • the script side is DERIVED — the transitive require() graph of the
+      #     three artifact builders, recomputed from source on every run;
+      #   • everything else is DENY-BY-DEFAULT — a path is in the closure unless
+      #     it matches an explicit inert rule carrying a reason, so anything new
+      #     or unrecognised still means rebuild, exactly as before;
+      #   • and check_build_closure.js (in this job, below) proves the derivation
+      #     by tracing a REAL build of all three artifacts and failing if any file
+      #     they actually read sits outside the closure. That check found a
+      #     genuine hole on its first run — build_html.js splices
+      #     _card_descriptors.js in by path rather than requiring it — which is
+      #     the failure mode a hand-written list would have shipped.
+      #
+      # So the allowlist got precise instead of getting trusted: a gate script, a
+      # workflow edit, or an mcp/ change no longer pays a 30-minute rebuild,
+      # while the answer for anything unclassified is still "rebuild".
       #
       # Every uncertain case resolves to rebuild: no base commit, a force-push
       # whose base is gone, a scheduled or manual run, a merge with no diff we
@@ -93,12 +106,15 @@ jobs:
           else
             echo "Changed files:"
             echo "$changed" | sed 's/^/  /'
-            # Anything NOT matching the inert allowlist forces a rebuild.
-            if echo "$changed" | grep -qvE '(\.md$|^docs/|^LICENSE$|^\.github/ISSUE_TEMPLATE/)'; then
-              echo "→ at least one path can reach a build input; rebuilding."
+            # Classify every changed path against the derived closure. Prints
+            # true/false; CODEX_CLOSURE_VERBOSE puts the per-path reason in the
+            # log so a "rebuilding" decision is always attributable to a file.
+            # Uses only node builtins + git, so it runs before setup-node/npm ci.
+            if [ "$(CODEX_CLOSURE_VERBOSE=1 node scripts/check_build_closure.js --affected $changed)" = "true" ]; then
+              echo "→ at least one changed path is in the artifact build closure; rebuilding."
             else
               affected=false
-              echo "→ docs-only diff; no path here is read by any artifact builder."
+              echo "→ no changed path is read by any artifact builder."
             fi
           fi
           echo "artifacts_affected=$affected" >> "$GITHUB_OUTPUT"
@@ -123,6 +139,14 @@ jobs:
 
       - name: Docs drift + documented-command validity
         run: npm run check-docs
+
+      # Proves the scope decision above. Traces a real build of all three
+      # artifacts and fails if anything it reads is classified inert — i.e. if
+      # the step above could ever skip a rebuild that was needed. Runs on every
+      # diff, docs-only included, because the closure can rot from either side:
+      # a builder gaining an input, or an inert rule widening to swallow one.
+      - name: Build closure is sound (scope decision is provable)
+        run: npm run check:closure
 
   verify:
     needs: gate
