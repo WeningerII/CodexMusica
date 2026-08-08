@@ -32,6 +32,22 @@ services:
       # deploys. Any long random string.
       - key: CHAT_SECRET
         sync: false
+      # The model the chat bar runs on, declared rather than defaulted.
+      #
+      # This was previously unset, so the deployed model was whatever
+      # gemini_agent.js:DEFAULT_MODEL happened to be — and could be changed from
+      # the Render dashboard with no trace anywhere in this repo. Nothing here
+      # said what was live, which is the same invisibility that let the spend cap
+      # sit disarmed: a model this repo has never heard of is exactly the input
+      # that used to turn CHAT_DAILY_USD into decoration.
+      #
+      # It is pinned to the current default, so this changes no behaviour today.
+      # What it changes is that swapping the model is now a REPO edit, reviewable
+      # like any other, and mcp/test.mjs asserts the value named here is one the
+      # pricing table can price — so a model swap that would disable the chat bar
+      # fails in CI rather than at deploy.
+      - key: GEMINI_MODEL
+        value: gemini-3.1-flash-lite
       # Spend ceiling per UTC day, in USD, before /chat refuses. See
       # CHAT_LIMITS in mcp/chat.js for the rate limits this sits on top of.
       - key: CHAT_DAILY_USD
