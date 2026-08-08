@@ -338,8 +338,20 @@ const _TEXTURE_TOKENS = new Set([
   'dense',
 ]);
 
+// Memoised — byte-mirror of the cache in src/app.js. The tags trim loop re-scores
+// the last token of EVERY chunk on every pop, and a 42-card roster pops hundreds
+// of times. Pure function of the token (the sets and regexes are module
+// constants), so this changes the clock and nothing else.
+const _TIER_MEMO = new Map();
 function _descriptorTier(token) {
   if (typeof token !== 'string') return 2;
+  const hit = _TIER_MEMO.get(token);
+  if (hit !== undefined) return hit;
+  const tier = _descriptorTierUncached(token);
+  _TIER_MEMO.set(token, tier);
+  return tier;
+}
+function _descriptorTierUncached(token) {
   const segs = token.toLowerCase().split('-');
   for (const seg of segs) {
     if (_MATERIAL_SEGMENTS.has(seg) || _GEAR_SEGMENTS.has(seg)) return 1;
@@ -918,13 +930,18 @@ function compressTagsRecipe(cards, ceiling) {
       });
     }
   }
-  const renderAll = () => {
-    const rendered = rebuilt.map((c) => {
-      const head = c.preface ? `${c.preface} ${_kebab(c.label)}` : _kebab(c.label);
-      return c.descs.length ? `${head}: ${c.descs.join(' ')}` : head;
-    });
-    return _collapseSharedSuffixes(rendered).join(', ');
+  // Byte-mirror of src/app.js. The head is fixed for the life of the trim — the
+  // phases below pop descriptors and splice whole chunks, never rename one — so
+  // _kebab (three regex passes per chunk per pop) is hoisted out of the loop.
+  // And since a pop changes exactly ONE chunk, the other N-1 chunk strings are
+  // the ones renderAll just built, so each chunk caches its text and only the
+  // popped chunk invalidates. Same strings, same order, same output.
+  for (const c of rebuilt) c.head = c.preface ? `${c.preface} ${_kebab(c.label)}` : _kebab(c.label);
+  const chunkText = (c) => {
+    if (c.text === undefined) c.text = c.descs.length ? `${c.head}: ${c.descs.join(' ')}` : c.head;
+    return c.text;
   };
+  const renderAll = () => _collapseSharedSuffixes(rebuilt.map(chunkText)).join(', ');
 
   // Phase A: pop the lowest-priority token, chunk by chunk, until under budget.
   // Each chunk's descs arrive pre-sorted by _sortDescriptorsByPriority, so the
@@ -955,6 +972,7 @@ function compressTagsRecipe(cards, ceiling) {
     }
     if (target < 0) break;
     rebuilt[target].descs.pop();
+    rebuilt[target].text = undefined; // the one chunk whose cached text is now stale
   }
   while (renderAll().length > TRIM_TARGET && rebuilt.some((c) => c.kind === 'env')) {
     for (let i = rebuilt.length - 1; i >= 0; i--) {
