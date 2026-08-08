@@ -36769,6 +36769,21 @@ const INSTRUMENTS = [
         { id: 'phorminx_aoidos', default: true, name: 'Bardic epic recitation (aoidos)', descriptors: ['declamatory', 'sparse', 'formulaic'], match_tokens: ['epic-recitation', 'song-accompaniment'] },
         { id: 'phorminx_dance', name: 'Dance and paean accompaniment', descriptors: ['lilting', 'rhythmic', 'bright-attack'], match_tokens: ['strummed', 'dance-rhythm'] },
       ] },
+      // The phorminx had form and playing role but nothing you could make it
+      // OUT of, so it was one of the instruments on which "change the material"
+      // was not an available move at all. Its sibling the kithara — same
+      // family, same class, same repertoire — carries exactly this part, and
+      // the two were strung the same way: twisted sheep gut, with sinew or
+      // flax as the older and drier alternative.
+      //
+      // Named "String material" so it reads the way the kithara's does, which
+      // is also what makes the universal string palette reach it: the merge
+      // keys on a part whose name says `string` and is not about count,
+      // tuning or gauge (scripts/_merge.js:isStringMaterialPart).
+      { id: 'phorminx_strings', surface: false, name: 'String material', variants: [
+        { id: 'phorminx_gut', default: true, name: 'Twisted sheep-gut strings (phorminx)', descriptors: ['warm', 'quick-decay'], match_tokens: ['gut-strung'] },
+        { id: 'phorminx_sinew', name: 'Sinew and flax cord (phorminx)', descriptors: ['dry', 'archaic'], match_tokens: ['sinew-strung'] },
+      ] },
     ]
   },
   {

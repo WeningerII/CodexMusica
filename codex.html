@@ -38898,6 +38898,21 @@ INSTRUMENTS.push({
         { id: 'phorminx_aoidos', default: true, name: 'Bardic epic recitation (aoidos)', descriptors: ['declamatory', 'sparse', 'formulaic'], match_tokens: ['epic-recitation', 'song-accompaniment'] },
         { id: 'phorminx_dance', name: 'Dance and paean accompaniment', descriptors: ['lilting', 'rhythmic', 'bright-attack'], match_tokens: ['strummed', 'dance-rhythm'] },
       ] },
+      // The phorminx had form and playing role but nothing you could make it
+      // OUT of, so it was one of the instruments on which "change the material"
+      // was not an available move at all. Its sibling the kithara — same
+      // family, same class, same repertoire — carries exactly this part, and
+      // the two were strung the same way: twisted sheep gut, with sinew or
+      // flax as the older and drier alternative.
+      //
+      // Named "String material" so it reads the way the kithara's does, which
+      // is also what makes the universal string palette reach it: the merge
+      // keys on a part whose name says `string` and is not about count,
+      // tuning or gauge (scripts/_merge.js:isStringMaterialPart).
+      { id: 'phorminx_strings', surface: false, name: 'String material', variants: [
+        { id: 'phorminx_gut', default: true, name: 'Twisted sheep-gut strings (phorminx)', descriptors: ['warm', 'quick-decay'], match_tokens: ['gut-strung'] },
+        { id: 'phorminx_sinew', name: 'Sinew and flax cord (phorminx)', descriptors: ['dry', 'archaic'], match_tokens: ['sinew-strung'] },
+      ] },
     ]
   },
   {
@@ -39674,8 +39689,10 @@ INSTRUMENTS.push({
         { id: 'silnyen_brass', name: 'Brass (lower-grade)', descriptors: ['duller', 'short-decay'], match_tokens: ['ritual-cymbals'] },
       ] },
     ]
-  },
-  {
+  });
+</script>
+<script>// ─── 02_instruments.js [8/8] ───
+INSTRUMENTS.push({
     id: 'drilbu',
     name: 'Drilbu (Tibetan Buddhist ritual handbell)',
     family: 'percussion',
@@ -39698,10 +39715,8 @@ INSTRUMENTS.push({
         { id: 'drilbu_bronze', name: 'Plain bronze', descriptors: ['clean', 'focused'], match_tokens: ['handbell'] },
       ] },
     ]
-  });
-</script>
-<script>// ─── 02_instruments.js [8/8] ───
-INSTRUMENTS.push({
+  },
+  {
     id: 'dung_dkar',
     name: 'Dung dkar (Tibetan conch-shell trumpet)',
     family: 'wind',
@@ -47884,9 +47899,18 @@ function mergeFamilyParts(instruments, familyParts) {
     // school") and clapsticks_bilma_form ("Regional form"), whose variants
     // merely MENTION a wood. Offering mahogany as a technique is worse than
     // offering nothing, because it is indistinguishable from a real answer.
-    if (/\b(shell|frame|body|bar|slab|block|tongue|resonator)\b/i.test(nm) && /\b(wood|material|timber)\b/i.test(nm))
+    // Plurals, because a part is as likely to be called "Build and materials" as
+    // "Body material" and the difference is not meaningful. Measured: the
+    // singular-only form excluded exactly one instrument, and it was the aulos —
+    // whose `aulos_build` part is literally named "Build and materials" and
+    // carries turned boxwood and sycamore. It was one character away from
+    // already working.
+    if (
+      /\b(shells?|frames?|bod(y|ies)|bars?|slabs?|blocks?|tongues?|resonators?)\b/i.test(nm) &&
+      /\b(woods?|materials?|timbers?)\b/i.test(nm)
+    )
       return true;
-    if (/\bwood\b/i.test(nm) || /\bmaterial\b/i.test(nm)) return true;
+    if (/\bwoods?\b/i.test(nm) || /\bmaterials?\b/i.test(nm)) return true;
     return false;
   };
   augmentUniversalMaterial(instruments, 'wood', isTonewoodPart, isWoodVariant);

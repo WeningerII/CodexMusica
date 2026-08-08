@@ -179,12 +179,18 @@ function mergeFamilyParts(instruments, familyParts) {
     // school") and clapsticks_bilma_form ("Regional form"), whose variants
     // merely MENTION a wood. Offering mahogany as a technique is worse than
     // offering nothing, because it is indistinguishable from a real answer.
+    // Plurals, because a part is as likely to be called "Build and materials" as
+    // "Body material" and the difference is not meaningful. Measured: the
+    // singular-only form excluded exactly one instrument, and it was the aulos —
+    // whose `aulos_build` part is literally named "Build and materials" and
+    // carries turned boxwood and sycamore. It was one character away from
+    // already working.
     if (
-      /\b(shell|frame|body|bar|slab|block|tongue|resonator)\b/i.test(nm) &&
-      /\b(wood|material|timber)\b/i.test(nm)
+      /\b(shells?|frames?|bod(y|ies)|bars?|slabs?|blocks?|tongues?|resonators?)\b/i.test(nm) &&
+      /\b(woods?|materials?|timbers?)\b/i.test(nm)
     )
       return true;
-    if (/\bwood\b/i.test(nm) || /\bmaterial\b/i.test(nm)) return true;
+    if (/\bwoods?\b/i.test(nm) || /\bmaterials?\b/i.test(nm)) return true;
     return false;
   };
   augmentUniversalMaterial(instruments, 'wood', isTonewoodPart, isWoodVariant);

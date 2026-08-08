@@ -508,7 +508,12 @@ function scanSchema(toolName, schema) {
     const inst = (cat.INSTRUMENTS || []).find((i) => i.id === id);
     return !!inst && (inst.parts || []).some((p) => (p.variants || []).some((v) => v.expanded));
   };
-  for (const id of ['djembe', 'congas', 'drum_kit', 'atabaque', 'bodhran']) {
+  // The drums are the predicate-coverage cases. phorminx and aulos are the two
+  // the audit named by hand, and they failed for two DIFFERENT reasons worth
+  // keeping pinned: the aulos already had a materials part called "Build and
+  // materials" and was excluded by the plural alone, while the phorminx had no
+  // material part at all until one was authored (references/02_instruments.js).
+  for (const id of ['djembe', 'congas', 'drum_kit', 'atabaque', 'bodhran', 'aulos', 'phorminx']) {
     check(`${id} can take a material edit`, lends(id), 'no part carries lent material variants');
   }
   const lendCount = (cat.INSTRUMENTS || []).filter((i) =>
