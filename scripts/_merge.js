@@ -103,23 +103,40 @@ function mergeFamilyParts(instruments, familyParts) {
         }
       }
     }
+    // ONE lent copy per union variant, SHARED by every part that borrows it.
+    //
+    // This used to Object.assign a fresh copy per (part, variant) pair, which is
+    // the same object rebuilt over and over: the three overridden fields are
+    // constant for a given kind, so every copy of `mahogany` lent as a tonewood
+    // was byte-identical to every other. At 508,418 tuples that is half a million
+    // allocations to produce a few hundred distinct values, and the cost showed
+    // up as GC noise on every page load.
+    //
+    // Sharing is safe because nothing anywhere mutates a variant object —
+    // checked across scripts/, src/app.js and mcp/ before relying on it. The
+    // renderers read id, name and descriptors; the edit paths write the variant
+    // ID onto a CARD, never into the catalog. If that ever stops being true this
+    // becomes aliasing, so it is stated here rather than left to be rediscovered.
+    const lent = union.map((v) =>
+      Object.assign({}, v, { auto: false, expanded: kind, default: false })
+    );
     for (const inst of instruments || []) {
       if (!Array.isArray(inst.parts)) continue;
       // Build NEW part objects for the augmented parts. Do NOT mutate the existing
       // part object: for a full-override own-part it is the SAME reference held in
       // inst._ownParts, and mutating it would pollute _ownParts (which other code
       // and the published API serialize) with the expanded variants.
+      // default:false is critical — a copied variant must never become an
+      // instrument's default (its own curated default stays), or a part with no
+      // own default could pick up a borrowed one and change its recipe.
       inst.parts = inst.parts.map((p) => {
         if (!isTargetPart(p)) return p;
         const have = {};
         for (const v of p.variants || []) have[v.id] = true;
         const additions = [];
-        for (const v of union) {
-          if (have[v.id]) continue;
-          // default:false is critical — a copied variant must never become an
-          // instrument's default (its own curated default stays), or a part with no
-          // own default could pick up a borrowed one and change its recipe.
-          additions.push(Object.assign({}, v, { auto: false, expanded: kind, default: false }));
+        for (let k = 0; k < union.length; k++) {
+          if (have[union[k].id]) continue;
+          additions.push(lent[k]);
         }
         return additions.length
           ? Object.assign({}, p, { variants: (p.variants || []).concat(additions) })
@@ -194,6 +211,66 @@ function mergeFamilyParts(instruments, familyParts) {
     return false;
   };
   augmentUniversalMaterial(instruments, 'wood', isTonewoodPart, isWoodVariant);
+
+  // Membranes — any drumhead on any part that carries one.
+  //
+  // The catalog had exactly two universal pools, strings and tonewoods, which
+  // between them describe a guitar. A drum is made of a shell and a HEAD, and
+  // the head is the half that decides how it sounds: calfskin and goatskin and
+  // Mylar are not interchangeable in any sense a listener would miss. There was
+  // no pool for them, so an instrument whose only material choice was its head
+  // — 71 of them, on parts named exactly "Head material" and "Skin material" —
+  // could not take a material edit at all.
+  //
+  // Same shape as the two above, and the same primary gate: the part must
+  // already carry a CURATED variant of this kind. The name gate then keeps it
+  // to parts that are ABOUT the head, so a technique or a tuning part whose
+  // prose happens to say "skin" is not offered 262 drumheads.
+  const MEMBRANE =
+    /(calf.?skin|goat.?skin|sheep.?skin|kid.?skin|snake.?skin|fish.?skin|kangaroo|deer.?skin|horse.?hide|camel|buffalo|rawhide|\bhide\b|\bskins?\b|vellum|parchment|mylar|\bremo\b|weatherking|plastic head|synthetic head|membrane|drum.?head)/i;
+  const isMembraneVariant = function (v) {
+    return MEMBRANE.test(v.name || v.label || '');
+  };
+  const isMembranePart = function (p) {
+    const nm = p.name || p.label || p.id || '';
+    // Strings are the string pool's business, and a gut string is not a head.
+    if (/string/i.test(nm)) return false;
+    if (!(p.variants || []).some((v) => !v.expanded && isMembraneVariant(v))) return false;
+    if (/\b(heads?|skins?|membranes?|batter|resonant|drum.?heads?)\b/i.test(nm)) return true;
+    return /\b(materials?)\b/i.test(nm);
+  };
+  augmentUniversalMaterial(instruments, 'membrane', isMembranePart, isMembraneVariant);
+
+  // Metals — shells, jingles, reeds, bars, bells.
+  //
+  // The other half the two original pools missed. A timbale shell is steel or
+  // brass, a tambourine's jingles are bronze or German silver, an accordion's
+  // reeds are steel — all real, audible choices on parts named "Shell metal",
+  // "Jingle material", "Reed material", and all of them dead ends because the
+  // catalog knew how to lend a tonewood and not an alloy.
+  //
+  // The `string` exclusion matters more here than anywhere else: string
+  // materials ARE metals ("nickel-plated steel"), and without it this pool
+  // would collide with the string pool on every wound-string part and offer
+  // cymbal bronze as a guitar string.
+  const METAL =
+    /(bronze|brass|\bsteel\b|stainless|\biron\b|silver|\bgold\b|copper|nickel|alumin|titanium|\btin\b|pewter|zinc|monel|German.?silver)/i;
+  const isMetalVariant = function (v) {
+    return METAL.test(v.name || v.label || '');
+  };
+  const isMetalPart = function (p) {
+    const nm = p.name || p.label || p.id || '';
+    if (/string/i.test(nm)) return false;
+    if (!(p.variants || []).some((v) => !v.expanded && isMetalVariant(v))) return false;
+    if (
+      /\b(shells?|jingles?|reeds?|plates?|bars?|tines?|frames?|cymbals?|gongs?|bells?|keys?|tongues?)\b/i.test(
+        nm
+      )
+    )
+      return true;
+    return /\b(metals?|alloys?|materials?)\b/i.test(nm);
+  };
+  augmentUniversalMaterial(instruments, 'metal', isMetalPart, isMetalVariant);
 
   return instruments;
 }

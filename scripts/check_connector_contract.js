@@ -516,16 +516,32 @@ function scanSchema(toolName, schema) {
   for (const id of ['djembe', 'congas', 'drum_kit', 'atabaque', 'bodhran', 'aulos', 'phorminx']) {
     check(`${id} can take a material edit`, lends(id), 'no part carries lent material variants');
   }
+  // One per POOL, because there are four and each can die independently. A drum
+  // whose only material choice is its head needs the membrane pool; a timbale
+  // shell or a tambourine's jingles need the metal one. Neither existed until
+  // the partition showed 71 and 68 instruments sitting on parts named "Head
+  // material" and "Shell metal" with nowhere to draw from.
+  const lentKinds = new Set();
+  for (const i of cat.INSTRUMENTS || [])
+    for (const p of i.parts || [])
+      for (const v of p.variants || []) if (v.expanded) lentKinds.add(v.expanded);
+  for (const kind of ['string', 'wood', 'membrane', 'metal']) {
+    check(
+      `the ${kind} material pool is populated`,
+      lentKinds.has(kind),
+      `no variant carries expanded:${kind}`
+    );
+  }
   const lendCount = (cat.INSTRUMENTS || []).filter((i) =>
     (i.parts || []).some((p) => (p.variants || []).some((v) => v.expanded))
   ).length;
   // A floor rather than an equality: the catalog grows, and a gate that has to
   // be re-numbered on every import is a gate people edit without reading. 440
   // sits just under the measured 459 — low enough not to be brittle, high
-  // enough that reverting the predicate (354) fails it.
+  // enough that losing a pool, or reverting the predicate (354), fails it.
   check(
-    'the tonewood/string palette reaches at least 440 instruments',
-    lendCount >= 440,
+    'the material palette reaches at least 600 instruments',
+    lendCount >= 600,
     `only ${lendCount} instruments carry lent material variants`
   );
 
