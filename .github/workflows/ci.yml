@@ -368,6 +368,54 @@ jobs:
       - name: Catalog-wide smoke (every tradition through the live pipeline)
         run: node scripts/smoke.js --shard=${{ matrix.shard }}/4
 
+  # An always-reporting summary over the catalog shards, so the repo's broadest
+  # gate can actually be a REQUIRED status check.
+  #
+  # `catalog` cannot be required directly, for two independent reasons:
+  #
+  #   1. It is a matrix, so it publishes four expanded check names
+  #      ("catalog (shard 1/4)" …). Requiring names that carry a matrix value
+  #      means the required set has to be re-edited every time the shard count
+  #      changes — and the shard count exists to track catalog growth, so it will.
+  #
+  #   2. It is CONDITIONAL: skipped whenever no changed path can move an
+  #      artifact. A required check that never reports blocks the merge forever,
+  #      and that failure mode is silent until someone opens a docs-only PR and
+  #      finds it un-mergeable.
+  #
+  # A conditional job does still report a `skipped` conclusion — `tandem` does
+  # exactly that. But `tandem` has neither a matrix nor a `needs:`, and `catalog`
+  # has both, so that is evidence about a different shape of job rather than
+  # proof about this one. This job removes the question instead of betting on the
+  # answer: fixed name, no matrix, `if: always()`, so it reports on every run
+  # whatever the shards did.
+  #
+  # Passes when the shards succeeded, and when they were legitimately skipped.
+  # Fails on anything else. `needs.catalog.result` is the AGGREGATE across the
+  # matrix, and `fail-fast: false` means every shard runs, so one red shard
+  # surfaces here rather than being masked by a sibling.
+  catalog-result:
+    needs: catalog
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aggregate the catalog shards
+        run: |
+          result="${{ needs.catalog.result }}"
+          echo "catalog aggregate result: $result"
+          case "$result" in
+            success)
+              echo "All shards passed."
+              ;;
+            skipped)
+              echo "Shards skipped — the scope step found no changed path in the artifact build closure."
+              ;;
+            *)
+              echo "::error::catalog shards reported '$result'"
+              exit 1
+              ;;
+          esac
+
   # tandem.js — the cross-artifact meta-test. Weekly and on demand, not per-PR.
   #
   # Most of what it checks is now covered per-PR and better: its [4/4] textual
