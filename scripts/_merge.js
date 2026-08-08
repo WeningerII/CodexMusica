@@ -153,11 +153,38 @@ function mergeFamilyParts(instruments, familyParts) {
   };
   const isTonewoodPart = function (p) {
     const nm = p.name || p.label || p.id || '';
+    // THE PRIMARY GATE, and the one doing the real work: the part must already
+    // carry a CURATED wood variant. A part somebody authored maple and birch
+    // onto is a wood-material part, whatever it is called. Everything below is a
+    // secondary filter to exclude parts where a wood name appears incidentally.
     if (!(p.variants || []).some((v) => !v.expanded && isWoodVariant(v))) return false;
     if (/\b(top|back|bowl|ribs?|body)\b/i.test(nm) && /\bwood\b/i.test(nm)) return true;
     if (/\bsoundboard\b/i.test(nm)) return true;
     if (/\btop construction\b/i.test(nm)) return true;
     if (/\bback\s*&\s*sides\b/i.test(nm)) return true;
+    // The list above is a lutherie vocabulary — top, back, sides, soundboard —
+    // and it silently excluded everything that resonates without being a guitar.
+    // Measured: 178 instruments carried curated wood variants on a part this
+    // predicate did not recognise, almost all of them drums, on parts named
+    // exactly what a drum's wood is called: atabaque_shell_wood, djembe_wood,
+    // drum_kit.shell_wood, conga_shell_wood. A djembe is a resonant wooden body
+    // by any definition; it was outside the palette on a naming technicality.
+    //
+    // So: a part that is ABOUT material — its name says wood, timber or
+    // material, or it names a resonating member and says so — counts too.
+    //
+    // Deliberately NOT "drop the name test and trust the wood variant alone".
+    // That was measured as well: it would pull in 95 more instruments through
+    // parts like hambone_technique ("Technique"), ghatam_school ("Clay-temper
+    // school") and clapsticks_bilma_form ("Regional form"), whose variants
+    // merely MENTION a wood. Offering mahogany as a technique is worse than
+    // offering nothing, because it is indistinguishable from a real answer.
+    if (
+      /\b(shell|frame|body|bar|slab|block|tongue|resonator)\b/i.test(nm) &&
+      /\b(wood|material|timber)\b/i.test(nm)
+    )
+      return true;
+    if (/\bwood\b/i.test(nm) || /\bmaterial\b/i.test(nm)) return true;
     return false;
   };
   augmentUniversalMaterial(instruments, 'wood', isTonewoodPart, isWoodVariant);

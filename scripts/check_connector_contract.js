@@ -486,6 +486,44 @@ function scanSchema(toolName, schema) {
   //
   // Gated because it is invisible when it breaks: dropping the flag again would
   // change no count, throw no error, and fail no other check here.
+  // ── the material palette reaches things that are not guitars ──────────────
+  //
+  // augmentUniversalMaterial lends the tonewood union to parts that carry a
+  // curated wood variant, gated by a name test. That test was written in a
+  // lutherie vocabulary — top, back, sides, soundboard — and silently excluded
+  // every resonant wooden body that is not shaped like a guitar. Measured: 178
+  // instruments carried curated wood variants on a part the predicate did not
+  // recognise, nearly all drums, on parts named exactly what a drum's wood is
+  // called (djembe_wood, conga_shell_wood, drum_kit.shell_wood).
+  //
+  // Gated on the drums specifically, and on the aggregate, because this is a
+  // REGEX. It narrows by accident — one more clause, one changed word boundary
+  // — and nothing else here would notice: no count changes in the API (the
+  // static build strips lent variants), no recipe changes (lent variants are
+  // never defaults), no error. It would simply stop being possible to make a
+  // djembe out of maple.
+  console.log('\n=== The material palette is not guitar-shaped ===');
+  const cat = require('./_loader.js');
+  const lends = (id) => {
+    const inst = (cat.INSTRUMENTS || []).find((i) => i.id === id);
+    return !!inst && (inst.parts || []).some((p) => (p.variants || []).some((v) => v.expanded));
+  };
+  for (const id of ['djembe', 'congas', 'drum_kit', 'atabaque', 'bodhran']) {
+    check(`${id} can take a material edit`, lends(id), 'no part carries lent material variants');
+  }
+  const lendCount = (cat.INSTRUMENTS || []).filter((i) =>
+    (i.parts || []).some((p) => (p.variants || []).some((v) => v.expanded))
+  ).length;
+  // A floor rather than an equality: the catalog grows, and a gate that has to
+  // be re-numbered on every import is a gate people edit without reading. 440
+  // sits just under the measured 459 — low enough not to be brittle, high
+  // enough that reverting the predicate (354) fails it.
+  check(
+    'the tonewood/string palette reaches at least 440 instruments',
+    lendCount >= 440,
+    `only ${lendCount} instruments carry lent material variants`
+  );
+
   console.log('\n=== A borrowed variant is marked as one ===');
   const kithara = JSON.parse(
     (await call('get_instrument', { id: 'kithara', part: 'kithara_strings', limit: 6 })).text
