@@ -54,7 +54,14 @@ export const CHAT_LIMITS = {
   perIpPerHour: num('CHAT_IP_RPH', 30),
   concurrency: num('CHAT_CONCURRENCY', 2),
   dailyUsd: num('CHAT_DAILY_USD', 2),
-  maxMessageChars: num('CHAT_MAX_MESSAGE', 600),
+  // 600 was too tight to describe a recording in the terms this thing rewards —
+  // a mood, a room, an era, a piece of gear, and which instrument each applies
+  // to — so a user with a real brief had to cut it down before asking. At the
+  // deployed model's input price 5000 chars is ~1250 tokens, and even re-sent on
+  // every hop of a 12-step turn that is under $0.002, against the $0.10
+  // per-turn ceiling maxTurnUsd already enforces. The cap that actually bounds
+  // spend is that one, not this.
+  maxMessageChars: num('CHAT_MAX_MESSAGE', 5000),
   maxHistoryBytes: num('CHAT_MAX_HISTORY_BYTES', 400_000),
   maxTurns: num('CHAT_MAX_TURNS', 12),
   // A SECOND daily ceiling, in turns, deliberately independent of the first.

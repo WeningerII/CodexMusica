@@ -24,14 +24,38 @@ for (const inst of C.INSTRUMENTS || [])
     for (const v of p.variants || []) if (v.expanded) EXPANDED.add(`${inst.id}|${p.id}|${v.id}`);
 
 let passed = 0;
+// Async checks are awaited, which they were not.
+//
+// This used to be a bare `fn()` inside a try/catch. An `async` callback returns
+// a promise immediately and throws nothing synchronously, so the catch never
+// fired: the check printed `ok`, incremented `passed`, and any assertion inside
+// it became an unhandled rejection that changed no exit code. Both async checks
+// in this file were therefore reporting success unconditionally — verified by
+// planting a real mismatch in one and watching it still say `ok`.
+//
+// A promise-returning check is queued and settled before the summary rather
+// than awaited here, so every call site stays `check(...)` and no future one
+// can reintroduce the bug by forgetting an `await`. The cost is that async
+// checks report out of order, after the sync ones.
+const pending = [];
 function check(name, fn) {
-  try {
-    fn();
+  const ok = () => {
     console.log(`  ok  ${name}`);
     passed++;
-  } catch (err) {
+  };
+  const bad = (err) => {
     console.error(`FAIL  ${name}\n      ${err.message}`);
     process.exitCode = 1;
+  };
+  try {
+    const result = fn();
+    if (result && typeof result.then === 'function') {
+      pending.push(result.then(ok, bad));
+      return;
+    }
+    ok();
+  } catch (err) {
+    bad(err);
   }
 }
 // Simulate the model threading state: round-trip the workspace through JSON.
@@ -282,6 +306,26 @@ check('validation: actionable errors', () => {
     assert.ok(CHAT_LIMITS.maxTurnsPerDay > 0, 'maxTurnsPerDay must be set');
   });
 
+  // The page's maxlength and the server's maxMessageChars are the same bound
+  // written twice, and they drift silently in the direction that hurts: raise
+  // the server and the field still truncates, so the extra room is invisible
+  // and nobody can tell whether the limit moved. (The other direction is merely
+  // rude — the field accepts text the server then rejects with a 400.)
+  //
+  // The template is the source codex.html is built from, so this reads the
+  // template rather than the artifact and stays honest between rebuilds.
+  check('the chat field and the server agree on the message ceiling', async () => {
+    const { CHAT_LIMITS } = await import('./chat.js');
+    const tpl = readFileSync(new URL('../src/index.template.html', import.meta.url), 'utf8');
+    const m = tpl.match(/id="chat-input"[^>]*maxlength="(\d+)"/);
+    assert.ok(m, 'the chat input must declare a maxlength');
+    assert.equal(
+      Number(m[1]),
+      CHAT_LIMITS.maxMessageChars,
+      `chat-input maxlength=${m[1]} but the server accepts ${CHAT_LIMITS.maxMessageChars}`
+    );
+  });
+
   // The blueprint names a model; the pricing table must be able to price it.
   //
   // Otherwise the fail-closed guard does its job at DEPLOY time — the chat bar
@@ -368,5 +412,9 @@ try {
     process.exitCode = 1;
   }
 }
+
+// Settle the queued async checks before counting. Without this the summary
+// prints while they are still in flight and reports a total that excludes them.
+await Promise.all(pending);
 
 console.log(`\n${passed} checks passed${process.exitCode ? ' (with failures)' : ''}`);

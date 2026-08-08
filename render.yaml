@@ -48,6 +48,17 @@ services:
       # fails in CI rather than at deploy.
       - key: GEMINI_MODEL
         value: gemini-3.1-flash-lite
+      # Longest message /chat will accept, in characters. Declared rather than
+      # defaulted because the page's `maxlength` is the same bound written twice
+      # — mcp/test.mjs asserts the two agree, and that assertion reads the repo,
+      # so a value set only in the Render dashboard would move the server bound
+      # while the field kept truncating and CI kept passing.
+      #
+      # ~1250 tokens at the deployed model's input price; re-sent on every hop of
+      # a 12-step turn that is still under $0.002, against the $0.10 CHAT_MAX_TURN_USD
+      # ceiling below. The turn cap is what bounds spend, not this.
+      - key: CHAT_MAX_MESSAGE
+        value: '5000'
       # Spend ceiling per UTC day, in USD, before /chat refuses. See
       # CHAT_LIMITS in mcp/chat.js for the rate limits this sits on top of.
       - key: CHAT_DAILY_USD
