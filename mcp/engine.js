@@ -446,12 +446,21 @@ function variantIndex() {
             descriptors: new Set(),
             parts: new Set(),
             instruments: new Set(),
+            curatedOn: new Set(),
           };
           byId.set(v.id, e);
         }
         for (const d of v.descriptors || []) e.descriptors.add(d);
         e.parts.add(part.id);
         e.instruments.add(inst.id);
+        // Where this material was actually AUTHORED, as opposed to offered.
+        // The universal-materials merge lends every string material to every
+        // string part, so `instruments` counts availability and says nothing
+        // about provenance: `ernie_ball_slinky_bass` is offered on 300
+        // instruments and belongs to a handful. Without the second number a
+        // caller reads the first as popularity and picks bass strings for a
+        // lyre thinking the catalog recommended them.
+        if (!v.expanded) e.curatedOn.add(inst.id);
       }
     }
   }
@@ -463,6 +472,7 @@ function variantIndex() {
       hay: [...e.descriptors].join(' '),
       parts: [...e.parts].sort(_cmp),
       instrumentCount: e.instruments.size,
+      curatedCount: e.curatedOn.size,
     });
   }
   return _variantIndex;
@@ -545,7 +555,11 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
       add('variant', v.id, v.name, v.hay, {
         ...(complete ? { parts: v.parts } : {}),
         part_count: v.parts.length,
+        // `instruments` is availability, `curated_for` is provenance. They are
+        // wildly different numbers for a shared material and identical for a
+        // specific one, which is exactly the distinction a caller needs.
         instruments: v.instrumentCount,
+        curated_for: v.curatedCount,
       });
     }
   }
@@ -656,27 +670,66 @@ export function getInstrument({ id, part, query, limit } = {}) {
       return { v, score };
     });
     const matched = terms.length ? scored.filter((x) => x.score > 0) : scored;
-    matched.sort((a, b) => b.score - a.score || (b.v.default ? 1 : 0) - (a.v.default ? 1 : 0));
+    // Curated ahead of borrowed, explicitly. It was already true incidentally —
+    // _merge appends borrowed copies after the authored ones and this sort was
+    // stable — but the hint below now tells the caller that curated variants are
+    // listed first, and a claim in a response should not rest on the incidental
+    // ordering of an upstream concat.
+    matched.sort(
+      (a, b) =>
+        b.score - a.score ||
+        (a.v.expanded ? 1 : 0) - (b.v.expanded ? 1 : 0) ||
+        (b.v.default ? 1 : 0) - (a.v.default ? 1 : 0)
+    );
     const shown = matched.slice(0, cap).map((x) => x.v);
     if (!shown.some((v) => v.default)) {
       const def = all.find((v) => v.default);
       if (def) shown.unshift(def);
     }
+    // CURATED vs BORROWED, which the caller could not previously tell apart.
+    //
+    // mergeFamilyParts offers every string material on every string-material
+    // part, and every tonewood on every soundbox — deliberately, because this
+    // catalog synthesizes audio and is not bound by buildability (see the note
+    // above augmentUniversalMaterial in scripts/_merge.js). Those borrowed
+    // copies carry `expanded` and are never auto-seeded.
+    //
+    // This function dropped that flag. So `kithara` — an ancient Greek lyre
+    // with exactly two authored string materials, gut and sinew — answered with
+    // 803 variants in which `kithara_gut` and `ernie_ball_slinky_bass` looked
+    // equally like answers, and nothing in the response said otherwise. The
+    // freedom is the point; presenting it as if the catalog had researched 803
+    // string types for a kithara is not. A caller that cannot see the
+    // distinction cannot honour the period defaults OR knowingly override them,
+    // which are the only two things it might reasonably want to do.
+    //
+    // Absence means curated, so the common case costs no bytes.
+    const curatedCount = all.filter((v) => !v.expanded).length;
     const rec = {
       id: p.id,
       name: labelOf(p) || p.id,
       variant_count: all.length,
+      curated_count: curatedCount,
       variants: shown.map((v) => ({
         id: v.id,
         name: labelOf(v) || v.id,
         default: !!v.default,
+        ...(v.expanded ? { borrowed: true } : {}),
       })),
     };
     if (shown.length < all.length) {
       rec.truncated = true;
+      // Say WHICH ones were cut. "803 variants; showing 5" reads as though the
+      // instrument has 803 researched options and the caller is seeing a
+      // fraction; "2 curated, the rest borrowed" says the two that were
+      // authored for this instrument are both right there.
+      const borrowedNote =
+        curatedCount < all.length
+          ? ` ${curatedCount} of these are curated for this instrument (listed first); the rest are borrowed from other instruments and marked \`borrowed\`.`
+          : '';
       rec.hint = terms.length
-        ? `${matched.length} of ${all.length} variants match "${query}"; showing ${shown.length}. Raise \`limit\` or refine \`query\`.`
-        : `${all.length} variants; showing ${shown.length}. Pass \`query\` to filter (e.g. "mahogany"), \`part\` to focus one part, or raise \`limit\`.`;
+        ? `${matched.length} of ${all.length} variants match "${query}"; showing ${shown.length}. Raise \`limit\` or refine \`query\`.${borrowedNote}`
+        : `${all.length} variants; showing ${shown.length}. Pass \`query\` to filter (e.g. "mahogany"), \`part\` to focus one part, or raise \`limit\`.${borrowedNote}`;
     }
     return rec;
   });
