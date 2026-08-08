@@ -26,6 +26,7 @@
 //   stale voice-parts   -> _gen_voice_parts.js --check (Node voice maps drift from src/app.js)
 //   drifted frozen DF   -> build_descriptor_df.js --check (app.js DF block != the JSON)
 //   stale frozen DF     -> build_descriptor_df.js --check (the freeze fell behind the catalog)
+//   stdout lost to exit -> check_cli_output.js      (process.exit drops the unflushed pipe queue)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -867,6 +868,33 @@ record(
     'favicon-raster-drift -> build_favicon.js',
     gate(d, ['scripts/build_favicon.js', '--check']),
     /do not match favicon\.svg|assets:favicon/i
+  );
+}
+
+// stdout truncated by process.exit -> check_cli_output.js
+//
+// The defect this plants is one line: restore the process.exit(0) that used to
+// end list.js's --traditions branch. Nothing about the output changes when the
+// command is run normally, redirected to a file, or watched in a terminal —
+// only when stdout is a pipe whose reader has not drained it yet, which is when
+// Node discards the queue it never got to write. Before the fix that cost 989
+// of 2503 entries at exit 0.
+//
+// Scoped with --only so the class costs one command rather than all 33, and
+// pinned to --traditions because it is the mode whose 227KB is far enough past
+// the 64KB pipe buffer for the loss to be unambiguous.
+{
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'scripts/list.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const tail =
+    '    console.log(`${t.id}  parent=${parent}  family=${t.family}  ${t.name}`);\n  }\n  return;';
+  if (!src.includes(tail)) throw new Error('faults: list.js --traditions tail not found');
+  fs.writeFileSync(f, src.replace(tail, tail.replace(/return;$/, 'process.exit(0);')));
+  record(
+    'stdout-truncated-by-exit -> check_cli_output.js',
+    gate(d, ['scripts/check_cli_output.js', '--only=scripts/list.js --traditions']),
+    /LOST \d+b of \d+b through the pipe|EXITED while its output was still unread/i
   );
 }
 

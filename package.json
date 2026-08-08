@@ -61,7 +61,8 @@
     "assets:fetch:emoji": "node scripts/fetch_emoji.js",
     "assets:fetch:icons": "node scripts/fetch_icons.js",
     "assets:fetch:commons": "node scripts/fetch_commons.js",
-    "check:mobile": "node scripts/check_mobile_layout.js"
+    "check:mobile": "node scripts/check_mobile_layout.js",
+    "check:cli": "node scripts/check_cli_output.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",

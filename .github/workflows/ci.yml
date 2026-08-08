@@ -204,6 +204,20 @@ jobs:
       - name: Locale invariance (recipe bytes identical under da-DK and C)
         run: npm run check:locale
 
+      # CLI output survives a pipe.
+      #
+      # Node writes to a file synchronously and to a pipe ASYNCHRONOUSLY, and
+      # process.exit() discards the unflushed pipe queue. Every mode of list.js
+      # ended in process.exit(0), so `list.js --traditions | wc -l` answered 989
+      # for a 2503-entry catalog — a different wrong number each run, exit 0
+      # every time. SKILL.md tells agents to pipe these commands.
+      #
+      # This runs the same invocation to a file and three times through a pipe
+      # and requires identical digests. Three, because the failure is a race and
+      # a single piped run can pass by luck.
+      - name: CLI output complete through a pipe
+        run: npm run check:cli
+
       - name: Build codex.html (lazy shell + no-table-leak + byte-ceiling check)
         run: npm run build:html
 

@@ -155,4 +155,11 @@ module.exports = [
     gate: 'check_mobile_layout.js',
     claim: 'the shipped page fits the device width on a phone, with every header control tappable',
   },
+  {
+    id: 'cli-output-complete',
+    doc: 'SKILL.md',
+    gate: 'check_cli_output.js',
+    claim:
+      'a read-only CLI writes the same bytes and returns the same exit code whether stdout is a file, a terminal or a pipe',
+  },
 ];
