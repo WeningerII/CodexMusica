@@ -7,8 +7,15 @@ import { readFileSync } from 'node:fs';
 import * as E from './engine.js';
 
 // Raw merged catalog (with the universal cross-instrument materials present) so the
-// guard below can tell a curated variant from a borrowed (expanded, auto:false) one —
-// getInstrument strips expanded variants, so it can't be used for this.
+// guard below can tell a curated variant from a borrowed (expanded, auto:false) one.
+//
+// This comment used to end "getInstrument strips expanded variants, so it can't
+// be used for this", and getInstrument does not strip them — it returns all 803
+// of kithara's string variants, of which 2 are authored for a kithara. It is the
+// STATIC API build that strips them, which is why api/instruments/kithara.json
+// lists exactly gut and sinew. Two surfaces, opposite policies, one sentence
+// conflating them; the borrowed copies now come back marked, so the raw catalog
+// is no longer the only place the difference is visible.
 const require = createRequire(import.meta.url);
 const C = require('../scripts/_loader.js');
 const EXPANDED = new Set();

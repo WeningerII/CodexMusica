@@ -470,6 +470,53 @@ function scanSchema(toolName, schema) {
     truncated.map((h) => `${h.id}: ${h.parts.length}/${h.part_count}`).join(', ')
   );
 
+  // ── a borrowed variant says so ────────────────────────────────────────────
+  //
+  // mergeFamilyParts lends every string material to every string part and every
+  // tonewood to every soundbox, deliberately — this catalog synthesizes audio
+  // and is not bound by buildability. The consequence is that 96.4% of all
+  // (instrument, part, variant) tuples are borrowed rather than authored:
+  // 311,908 of 323,709, across 354 instruments.
+  //
+  // That is fine as a capability and indefensible as an undifferentiated list.
+  // get_instrument used to return all 803 of kithara's string variants with
+  // `ernie_ball_slinky_bass` and `kithara_gut` shaped identically, so a caller
+  // could neither honour the period default nor knowingly override it. The
+  // distinction existed in the data and died at the serializer.
+  //
+  // Gated because it is invisible when it breaks: dropping the flag again would
+  // change no count, throw no error, and fail no other check here.
+  console.log('\n=== A borrowed variant is marked as one ===');
+  const kithara = JSON.parse(
+    (await call('get_instrument', { id: 'kithara', part: 'kithara_strings', limit: 6 })).text
+  );
+  const strings = (kithara.parts || [])[0] || {};
+  const vs = strings.variants || [];
+  check(
+    'the part reports how many variants are curated for this instrument',
+    Number.isInteger(strings.curated_count) && strings.curated_count < strings.variant_count,
+    `curated_count=${strings.curated_count} variant_count=${strings.variant_count}`
+  );
+  check(
+    'curated variants are listed before borrowed ones',
+    vs.length > 1 && !vs[0].borrowed && vs[vs.length - 1].borrowed,
+    vs.map((v) => v.id + (v.borrowed ? '[b]' : '')).join(', ')
+  );
+  check(
+    'the borrowed ones carry the flag and the curated ones do not',
+    vs.some((v) => v.borrowed) && vs.some((v) => !v.borrowed),
+    `${vs.filter((v) => v.borrowed).length} borrowed of ${vs.length} shown`
+  );
+  const mahogany = JSON.parse(
+    (await call('search_catalog', { query: 'mahogany', types: ['variant'], limit: 5 })).text
+  ).items;
+  check(
+    'a search hit separates where it is OFFERED from where it is AUTHORED',
+    mahogany.length > 0 &&
+      mahogany.every((h) => Number.isInteger(h.instruments) && Number.isInteger(h.curated_for)),
+    JSON.stringify(mahogany[0] || null)
+  );
+
   const untouched = envRes.cards?.filter((c) => c.card !== card) || [];
   check(
     'cards nobody edited carry no `changed` key',

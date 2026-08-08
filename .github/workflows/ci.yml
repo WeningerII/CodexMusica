@@ -204,6 +204,33 @@ jobs:
       - name: Locale invariance (recipe bytes identical under da-DK and C)
         run: npm run check:locale
 
+      # Differential: the same seeded random edit script through both surfaces.
+      #
+      # check_edit_parity is a matrix of single actions on a freshly seeded card.
+      # It cannot reach "set_variant on a card a set_preface already reshaped, in
+      # a workspace whose first card was removed" — and divergence between two
+      # hand-maintained forks of one renderer hides in the third move, not the
+      # first. This walks random op sequences through the app's real functions
+      # and the connector's ops in lockstep, byte-comparing all four formats
+      # after every op, and refuses to report success unless the run actually
+      # explored every op, multi-card rosters, and env-less-head states.
+      - name: Edit differential (random scripts, both surfaces, byte-compared)
+        run: npm run check:differential
+
+      # CLI output survives a pipe.
+      #
+      # Node writes to a file synchronously and to a pipe ASYNCHRONOUSLY, and
+      # process.exit() discards the unflushed pipe queue. Every mode of list.js
+      # ended in process.exit(0), so `list.js --traditions | wc -l` answered 989
+      # for a 2503-entry catalog — a different wrong number each run, exit 0
+      # every time. SKILL.md tells agents to pipe these commands.
+      #
+      # This runs the same invocation to a file and three times through a pipe
+      # and requires identical digests. Three, because the failure is a race and
+      # a single piped run can pass by luck.
+      - name: CLI output complete through a pipe
+        run: npm run check:cli
+
       - name: Build codex.html (lazy shell + no-table-leak + byte-ceiling check)
         run: npm run build:html
 

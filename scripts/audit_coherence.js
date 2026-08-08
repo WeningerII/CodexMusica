@@ -349,9 +349,15 @@ for (const [name, fn] of Object.entries(ALL)) {
 }
 
 // ─────────── output ───────────
+// No process.exit() past this point. Node's writes to a PIPE are async, and
+// process.exit() discards whatever is still queued — `--full` emits 65KB, just
+// over the 64KB pipe buffer, and lost between 6KB and 26KB of its own findings
+// per run while still exiting 0. See the header of scripts/list.js for the full
+// diagnosis; check_cli_output.js gates both files. Setting process.exitCode and
+// returning lets the loop drain first.
 if (flags.json) {
   console.log(JSON.stringify(findings, null, 2));
-  process.exit(0);
+  return;
 }
 
 const bySection = {};
@@ -369,7 +375,7 @@ const sections = [...new Set([...order, ...Object.keys(bySection)])].filter((s) 
 
 if (findings.length === 0) {
   console.log('COHERENCE CLEAN — no coherence findings.');
-  process.exit(0);
+  return;
 }
 const limit = flags.full ? Infinity : 15;
 console.log(`COHERENCE — ${findings.length} finding(s) across ${sections.length} section(s):\n`);
@@ -380,5 +386,4 @@ for (const s of sections) {
   if (items.length > limit) console.log(`  ... +${items.length - limit} more (use --full)`);
   console.log('');
 }
-if (flags.strict && findings.length > 0) process.exit(1);
-process.exit(0);
+if (flags.strict && findings.length > 0) process.exitCode = 1;

@@ -883,6 +883,12 @@ data; run from the repo root. Add `--json` where noted for machine-readable outp
 
 ### Browse & look things up
 
+These commands are safe to pipe. Every one of them writes the same bytes and
+returns the same exit code whether stdout is your terminal, a redirect, or the
+left-hand side of a `|` — so `list.js --traditions | wc -l` counts the whole
+catalog, and `--json` piped into `jq` is always complete JSON.
+<!-- @promise: cli-output-complete -->
+
 | In the app | Agent command |
 |---|---|
 | Browse traditions / instruments / rooms / tunings | `node scripts/list.js --traditions` (or `--instruments`, `--rooms`, `--archetypes`, `--aesthetics`, `--tunings`, `--tree`, `--variants --instrument=<id>`) — filters are per-section: `--traditions` takes `--family=`/`--parent=`; `--instruments` takes `--family=`/`--has-part=`; `--rooms`/`--archetypes` take `--era=`/`--region=`/`--scale=` |

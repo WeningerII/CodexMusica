@@ -17,7 +17,28 @@
 //   node scripts/list.js --inst-axes                       9 instrument axis definitions
 //
 // Add --json for machine-readable output. Add --ids to list bare ids only.
-
+//
+// NOTHING IN THIS FILE MAY CALL process.exit(). It used to, on all 26 exit
+// paths, and that silently truncated the output of every mode that outgrew the
+// 64KB pipe buffer.
+//
+// Node writes to a pipe ASYNCHRONOUSLY (to a file or a TTY, synchronously —
+// which is why this was invisible interactively and in any `> file` run).
+// console.log queues; process.exit() tears the process down immediately and
+// discards whatever is still queued. `--traditions` writes 227KB, so a pipe got
+// whatever happened to have drained — measured at 66484, 32110, 14970, 41830 and
+// 14970 bytes across five consecutive runs of the same command. `--traditions
+// --json` lost 93% of 4MB. Exit code 0 every time.
+//
+// That is the worst shape a bug can have: `node scripts/list.js --traditions |
+// wc -l` answered 989 where the catalog holds 2503, reported success, and
+// answered differently on the next run. It was found because eval_capabilities
+// S11 (">=1000 entries") started flapping.
+//
+// So: set process.exitCode and `return` (legal at CommonJS module top level).
+// The module ends, the event loop drains stdout, and Node exits with that code
+// on its own. check_cli_output.js pipes every mode here and fails if a single
+// byte differs from the same command redirected to a file.
 const C = require('./_loader.js');
 
 const args = process.argv.slice(2);
@@ -81,10 +102,11 @@ if (flags.section) {
   if (!sec) {
     console.error(`Unknown section: ${flags.section}`);
     console.error(`Available: ${C.CHAIN_SECTIONS.map((s) => s.id).join(', ')}`);
-    process.exit(2);
+    process.exitCode = 2;
+    return;
   }
   emit(sec.items, ['name', 'descriptors']);
-  process.exit(0);
+  return;
 }
 
 // --rooms
@@ -96,7 +118,7 @@ if (flags.rooms !== undefined) {
     scale: 'scale_tier',
   });
   emit(filtered, ['cluster', 'era', 'region', 'scale_tier', 'descriptors']);
-  process.exit(0);
+  return;
 }
 
 // --instruments
@@ -109,35 +131,37 @@ if (flags.instruments !== undefined) {
   }
   if (flags.json) {
     console.log(JSON.stringify(filtered, null, 2));
-    process.exit(0);
+    return;
   }
   if (flags.ids) {
     for (const i of filtered) console.log(i.id);
-    process.exit(0);
+    return;
   }
   for (const i of filtered) {
     const partCount = (i.parts || []).length;
     console.log(`${i.id}  family=${i.family}  parts=${partCount}  ${i.short || i.name}`);
   }
-  process.exit(0);
+  return;
 }
 
 // --variants
 if (flags.variants !== undefined) {
   if (!flags.instrument) {
     console.error('--variants requires --instrument=<id>');
-    process.exit(2);
+    process.exitCode = 2;
+    return;
   }
   const inst = C.INSTRUMENTS.find((i) => i.id === flags.instrument);
   if (!inst) {
     console.error(`Unknown instrument: ${flags.instrument}`);
-    process.exit(2);
+    process.exitCode = 2;
+    return;
   }
   let parts = inst.parts || [];
   if (flags.part) parts = parts.filter((p) => p.id === flags.part);
   if (flags.json) {
     console.log(JSON.stringify(parts, null, 2));
-    process.exit(0);
+    return;
   }
   for (const p of parts) {
     console.log(`${p.id}  (${p.name})`);
@@ -146,7 +170,7 @@ if (flags.variants !== undefined) {
       console.log(`  ${v.id}  ${v.name}  [${desc}]`);
     }
   }
-  process.exit(0);
+  return;
 }
 
 // --archetypes
@@ -158,11 +182,11 @@ if (flags.archetypes !== undefined) {
   });
   if (flags.json) {
     console.log(JSON.stringify(filtered, null, 2));
-    process.exit(0);
+    return;
   }
   if (flags.ids) {
     for (const a of filtered) console.log(a.id);
-    process.exit(0);
+    return;
   }
   for (const a of filtered) {
     console.log(`${a.id}  era=${a.era}  region=${a.region}  scale=${a.scale_tier}`);
@@ -172,7 +196,7 @@ if (flags.archetypes !== undefined) {
         .join('  ')}`
     );
   }
-  process.exit(0);
+  return;
 }
 
 // --aesthetics
@@ -180,13 +204,13 @@ if (flags.aesthetics !== undefined) {
   const filtered = filterBy(C.PRODUCTION_AESTHETICS || [], { era: 'era' });
   if (flags.json) {
     console.log(JSON.stringify(filtered, null, 2));
-    process.exit(0);
+    return;
   }
   for (const p of filtered) {
     console.log(`${p.id}  era=${p.era}  locus=${p.production_locus}`);
     console.log(`  techniques: ${(p.characteristic_techniques || []).join(', ')}`);
   }
-  process.exit(0);
+  return;
 }
 
 // --traditions
@@ -202,24 +226,24 @@ if (flags.traditions !== undefined) {
   }
   if (flags.json) {
     console.log(JSON.stringify(filtered, null, 2));
-    process.exit(0);
+    return;
   }
   if (flags.ids) {
     for (const t of filtered) console.log(t.id);
-    process.exit(0);
+    return;
   }
   for (const t of filtered) {
     const e = C.TRADITION_EXTRAS[t.id];
     const parent = e ? e.parent : '?';
     console.log(`${t.id}  parent=${parent}  family=${t.family}  ${t.name}`);
   }
-  process.exit(0);
+  return;
 }
 
 // --tunings
 if (flags.tunings !== undefined) {
   emit(C.TUNINGS, ['name', 'descriptors']);
-  process.exit(0);
+  return;
 }
 
 // --tree
@@ -232,46 +256,46 @@ if (flags.tree !== undefined) {
   nodes = nodes.filter((n) => (n.id.match(/\./g) || []).length <= maxDepth);
   if (flags.json) {
     console.log(JSON.stringify(nodes, null, 2));
-    process.exit(0);
+    return;
   }
   for (const n of nodes) {
     const depth = (n.id.match(/\./g) || []).length;
     const indent = '  '.repeat(depth);
     console.log(`${indent}${n.id}  ${n.name || ''}`);
   }
-  process.exit(0);
+  return;
 }
 
 // --axes
 if (flags.axes !== undefined) {
   if (flags.json) {
     console.log(JSON.stringify(C.AXIS_DEFINITIONS, null, 2));
-    process.exit(0);
+    return;
   }
   for (const a of C.AXIS_DEFINITIONS) {
     console.log(`${a.id.padEnd(14)} ${a.name}`);
     console.log(`  -2 ← ${a.neg}  ${a.neg_anchor ? '(' + a.neg_anchor + ')' : ''}`);
     console.log(`  +2 → ${a.pos}  ${a.pos_anchor ? '(' + a.pos_anchor + ')' : ''}`);
   }
-  process.exit(0);
+  return;
 }
 
 // --inst-axes
 if (flags['inst-axes'] !== undefined) {
   if (flags.json) {
     console.log(JSON.stringify(C.INSTRUMENT_AXIS_DEFINITIONS, null, 2));
-    process.exit(0);
+    return;
   }
   for (const a of C.INSTRUMENT_AXIS_DEFINITIONS) {
     console.log(`${a.id.padEnd(14)} ${a.name}`);
     console.log(`  -2 ← ${a.neg}`);
     console.log(`  +2 → ${a.pos}`);
   }
-  process.exit(0);
+  return;
 }
 
 // No mode given
 console.error('Specify a mode: --section, --rooms, --instruments, --variants, --archetypes,');
 console.error('               --aesthetics, --traditions, --tunings, --tree, --axes, --inst-axes');
 console.error('Add --help for syntax.');
-process.exit(2);
+process.exitCode = 2;
