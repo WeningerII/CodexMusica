@@ -98,3 +98,19 @@ Doctrine additions, earned from the first run — do not drift from these either
    model "L2-L4 below theta" makes it reach for the highest-scoring rhyme,
    which is the most predictable one. A revision protocol must push away from
    the optimum: pass the band, but not by taking the modal candidate.
+10. **The quality layer has NO demonstrated cross-design signal.** After the
+   within-item respecification: 1/8 hits in each experiment, Exp 1 at 0.604
+   (n=15, does not exclude chance), Exp 2 still 0.877 (style, not quality).
+   Do not build on these features or cite their earlier numbers. The one
+   surviving feature, wi_predictability_advantage, has an AUC mathematically
+   identical to its absolute form -- recentring is a monotone transform, so it
+   buys cross-tradition comparability and exactly zero power.
+11. **Two features have now been caught reading period, not quality.**
+   syntactic_inversion_rate is an Early Modern English archaism detector, and
+   rhyme_predictability's cross-design replication was an OOV artifact (an
+   unreadable word was scored as maximally rare, so CMUdict's inability to
+   read Shakespeare registered as his unpredictability). Assume any new
+   feature is doing this until a within-item version says otherwise.
+12. **Wimsatt binding is unsupported here, under two operationalizations.**
+   Raw differing-category fraction: null. Excess over a permutation null from
+   the item's own line-final tags: also null. Stop rescuing it.
