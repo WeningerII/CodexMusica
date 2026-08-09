@@ -57,9 +57,47 @@ if (argv[0] === '--affected') {
   process.exit(0);
 }
 
-const tracked = execFileSync('git', ['ls-files'], { cwd: ROOT, encoding: 'utf8' })
-  .split('\n')
-  .filter(Boolean);
+// The file list, from git when there is a git, and from the filesystem when
+// there is not.
+//
+// This used to be a bare `git ls-files`, which is correct in a checkout and
+// throws in the one place that proves this gate works: faults.js stages a plain
+// directory tree with no .git, so the planted defect produced a git error
+// instead of a closure violation and the fault suite reported WRONG-REASON —
+// which counts as an escape and turned CI red. The local check that "verified"
+// the fault class had copied .git into the temp dir by hand, so it tested a
+// situation the real harness never creates.
+//
+// The walk is deliberately conservative: it skips .git and node_modules and
+// enumerates everything else. Any extra file an untracked tree carries is
+// classified like any other, and deny-by-default puts anything unrecognised in
+// the closure, so the fallback can only over-report — never under-report, which
+// is the direction that would matter.
+function repoFiles() {
+  try {
+    return execFileSync('git', ['ls-files'], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+      .split('\n')
+      .filter(Boolean);
+  } catch {
+    const out = [];
+    (function walk(dir, rel) {
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        if (e.name === '.git' || e.name === 'node_modules') continue;
+        const abs = path.join(dir, e.name);
+        const r = rel ? `${rel}/${e.name}` : e.name;
+        if (e.isSymbolicLink()) continue;
+        if (e.isDirectory()) walk(abs, r);
+        else out.push(r);
+      }
+    })(ROOT, '');
+    return out;
+  }
+}
+const tracked = repoFiles();
 
 if (argv.includes('--explain')) {
   const inClosure = tracked.filter((p) => classify(p).kind === 'closure');
