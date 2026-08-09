@@ -121,12 +121,24 @@ REJECTED_FROM_POOL = {
 }
 
 
+# Source repairs, applied before parsing. Each is a defect in the mirrored file,
+# not an editorial choice: sa_amaru-amaruzataka.txt carries the whole document
+# twice, the second copy with word-initial vowels corrupted by a stray macron.
+def load(path):
+    """-> [(verse_id, body)]. The Amaruśataka file needs its own parser: it
+    carries the document twice and runs verses together without blank lines."""
+    t = G.fetch(path)
+    if path == G.AMARU:
+        return [(vid, body) for vid, body, _sig, _k, _m in G.extract_amaru(t)]
+    return G.extract(t)
+
+
 def main():
     # ---------------------------------------------------------------- anthologies
     anth = {}
     print('ANTHOLOGIES (positive side; none of these is in the pool)')
     for sig, name, path in ANTHOLOGIES:
-        vs = G.extract(G.fetch(path))
+        vs = load(path)
         anth[sig] = {
             'name': name,
             'exact': {G.key_exact(b) for _, b in vs},
@@ -142,7 +154,7 @@ def main():
     print('  %-16s %6s %7s %7s %7s' % ('work', 'verses', 'exact', 'norm', 'loose'))
     tot_e = tot_n = tot_l = 0
     for slug, title, author, path in POOL:
-        vs = G.extract(G.fetch(path))
+        vs = load(path)
         e = n = l = 0
         for vid, body in vs:
             ke, kn, kl = G.key_exact(body), G.key_norm(body), G.key_loose(body)
@@ -195,16 +207,35 @@ def main():
             'collapsed_ids': ';'.join(g['poem_id'] for g in group[1:]) or '-',
         })
 
+    anth_rows = sum(len(anth[k]['norm']) for k in anth)
+    pool_keys = {r['join_key'] for r in rows}
+    both_sides = sum(1 for k in anth for kk in anth[k]['norm'] if kk in pool_keys)
+
     raw_pos = sum(1 for r in rows if r['label_value'])
     ded_pos = sum(1 for d in ded if d['label_value'])
     print('\nLEAK CLOSURE')
+    print('  L1 anthologies-in-corpus. The four anthology files are GRETIL')
+    print('     5_poetry files like any other; a corpus built by sweeping that')
+    print('     tree puts %d anthology verses in the same pool. %d of them are'
+          % (anth_rows, both_sides))
+    print('     literally the positives again, so every positive would appear')
+    print('     twice, once labelled 1 and once (as an anthology row) 0.')
+    print('     Closed by construction: anthology files are label SOURCES and')
+    print('     are never pool rows. Verified overlap of pool ids with anthology')
+    print('     ids: 0. Rows kept out of the negative pool by this: %d' % anth_rows)
+    print('  L2 duplicate rows inside the pool')
     print('  raw pool rows                     %6d  (positives %d)' % (len(rows), raw_pos))
     print('  duplicate rows absorbed           %6d' % moved_dup)
     print('  leak-closed clusters              %6d  (positives %d, negatives %d)'
           % (len(ded), ded_pos, len(ded) - ded_pos))
     twins = sum(d['n_pool_rows_collapsed'] - 1 for d in ded if d['label_value'])
-    print('  of those absorbed rows, POSITIVE twins that would otherwise have')
-    print('  stayed in the negative pool:      %6d' % twins)
+    print('     of those absorbed rows, POSITIVE twins that would otherwise')
+    print('     have stayed in the negative pool: %6d' % twins)
+    print('     (the Amaruśataka file\'s duplicated second copy, 104 further')
+    print('     rows, is cut at source by load(); see gretil_io.amaru_copy_a)')
+    print('  L3 positives removed from the negative class: %d of %d clusters are'
+          % (ded_pos, len(ded)))
+    print('     positive and are NOT in the %d negatives.' % (len(ded) - ded_pos))
     print('  graded distribution', dict(sorted(collections.Counter(
         d['label_value'] for d in ded).items())))
     print('  exact-key positives %d  vs normalised %d  vs loose %d'

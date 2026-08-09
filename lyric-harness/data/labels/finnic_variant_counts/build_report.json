@@ -6,6 +6,8 @@
       "parish_spread_mean": 58.351,
       "parish_spread_median": 62,
       "rows": 54229,
+      "rows_dedup": 54066,
+      "rows_dropped_by_dedup": 163,
       "rows_whose_label_changes_pct": 24.39,
       "rows_whose_label_changes_under_exact_dedup": 13227,
       "variant_count_max": 1118,
@@ -19,6 +21,8 @@
       "parish_spread_mean": 101.247,
       "parish_spread_median": 72,
       "rows": 61174,
+      "rows_dedup": 59918,
+      "rows_dropped_by_dedup": 1256,
       "rows_whose_label_changes_pct": 61.86,
       "rows_whose_label_changes_under_exact_dedup": 37841,
       "variant_count_max": 1628,
@@ -32,6 +36,8 @@
       "parish_spread_mean": 40.325,
       "parish_spread_median": 28,
       "rows": 15776,
+      "rows_dedup": 15750,
+      "rows_dropped_by_dedup": 26,
       "rows_whose_label_changes_pct": 39.48,
       "rows_whose_label_changes_under_exact_dedup": 6229,
       "variant_count_max": 1628,
@@ -45,6 +51,8 @@
       "parish_spread_mean": 75.097,
       "parish_spread_median": 48,
       "rows": 10527,
+      "rows_dedup": 9807,
+      "rows_dropped_by_dedup": 720,
       "rows_whose_label_changes_pct": 66.64,
       "rows_whose_label_changes_under_exact_dedup": 7015,
       "variant_count_max": 1628,
@@ -190,6 +198,24 @@
     "normalised_recall_pct": 47.33,
     "normalised_recovered": 51171,
     "true_pairs": 108120
+  },
+  "parish_measure_audit": {
+    "as_published_any_place_row": {
+      "max": 362,
+      "mean": 8.128,
+      "single": 3216,
+      "types": 7555
+    },
+    "corrected_place_type_parish_only": {
+      "max": 349,
+      "mean": 7.784,
+      "single": 3097,
+      "types": 7555
+    }
+  },
+  "places_in_release": {
+    "county": 41,
+    "parish": 861
   },
   "pool_all_rows": 294367,
   "pool_by_collection": {

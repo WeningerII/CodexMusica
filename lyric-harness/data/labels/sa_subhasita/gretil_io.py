@@ -114,3 +114,51 @@ def key_loose(s):
     s = re.sub(r'(?<=r)([kgcjṭḍtdpbmnyvlśṣs])\1', r'\1', s)
     s = re.sub(r'ṅ(?=[kg])|ñ(?=[cj])|ṇ(?=[ṭḍ])|n(?=[td])|m(?=[pb])', 'ṃ', s)
     return s
+
+
+# --------------------------------------------------------- Amaruśataka repair
+AMARU = '5_poetry/2_kavya/sa_amaru-amaruzataka.txt'
+_AM_MARK = re.compile(r'\|\|\s*(\d+)\s*(?:\(\s*\?\s*\)\s*)?\|\|(?:\s*\(\s*(\d+)\s*\))?')
+_AM_APP = re.compile(r'\|\|\s*\(\s*(\d+)\s*\)')
+_AM_EDIT = re.compile(r'ṭīkāyām|arjunavarmadeva|prakṣipto|ślokasya|ślokaḥ|śloko|'
+                      r'rūpagosvāmipād|padyāvalyām|iti |apādāḥ|^\s*\(', re.M)
+
+
+def amaru_copy_a(text):
+    """The file carries the whole document TWICE; the second copy has word-initial
+    vowels corrupted by a stray macron ('ābbreviations'). Return copy A only."""
+    return text[:text.index('\nText\n', 10)]
+
+
+def _am_clean(span):
+    span = re.sub(r'\([^()]*\)', ' ', span)
+    return '\n'.join(ln for ln in span.split('\n')
+                     if ln.strip() and not _AM_EDIT.search(ln) and '*' not in ln)
+
+
+def extract_amaru(text):
+    """[(verse_id, body, [sigla])] for the Amaruśataka file. Needed because this
+    edition runs verses together without a blank line and appends footnotes after
+    the verse marker, so the generic paragraph parser loses 17 of 106."""
+    from_a = amaru_copy_a(text)
+    body = from_a[from_a.index('Main Text') + len('Main Text'):]
+    sig_re = re.compile(r'(?<![a-zāīūṛṃśṣḥñṅṇṭḍ])'
+                        r'(su\.|sad\.|subh\.|sū\.|pad\.|śā\.)\s*\d')
+    marks = list(_AM_MARK.finditer(body))
+    out = []
+    for i, m in enumerate(marks):
+        start = marks[i - 1].end() if i else 0
+        end = marks[i + 1].start() if i + 1 < len(marks) else len(body)
+        out.append((m.group(1), _am_clean(body[start:m.start()]),
+                    sorted(set(sig_re.findall(body[m.end():end]))), 'main',
+                    m.group(2) or '-'))
+    tag = 'Verses found in Arjunavarmadeva'
+    if tag in body:
+        app = body[body.index(tag):]
+        prev = 0
+        for m in _AM_APP.finditer(app):
+            out.append(('app' + m.group(1), _am_clean(app[prev:m.start()]),
+                        sorted(set(sig_re.findall(app[m.end():m.end() + 200]))),
+                        'appendix', m.group(1)))
+            prev = m.end()
+    return out

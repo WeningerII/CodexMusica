@@ -524,12 +524,20 @@ def emit(out, poems, lang, links, canon_n, canon_e, parishes,
         # .dedup.tsv keeps ONE row per distinct text. Without it two re-entries
         # of one poem can straddle a train/test split, which is the same leak
         # again one level down: the test item is verbatim in the training set.
-        seen, ded = set(), []
+        # It collapses on the normalised text key with NO length floor, unlike
+        # the counting dedup which requires MINLEN. The two jobs differ: for
+        # counting, collapsing two distinct 2-line runos that share a formula
+        # would understate a type's real attestation, so the floor is
+        # protective; for split safety the risk runs the other way, and a
+        # verbatim repeat is a leak however short it is.
+        seen_c, seen_k, ded = set(), set(), []
         for r in rs:
-            c = canon_n(r[0])
-            if c in seen:
+            c, k = canon_n(r[0]), r[9]
+            if c in seen_c or (k and k in seen_k):
                 continue
-            seen.add(c)
+            seen_c.add(c)
+            if k:
+                seen_k.add(k)
             ded.append(r)
         for label, col, fname in (('variant_count', 1, 'label_variant_count'),
                                   ('parish_spread', 2, 'label_parish_spread')):
