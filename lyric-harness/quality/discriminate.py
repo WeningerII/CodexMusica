@@ -26,6 +26,7 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 from quality.corpus import (SONNET_SCHEME, labelled_sonnets,  # noqa: E402
                             load_generated, load_sonnets)
 from quality.features import QualityFeatures  # noqa: E402
+from quality.within_item import WithinItemFeatures  # noqa: E402
 
 CACHE = os.path.join(HERE, "..", "data", "feature_cache.json")
 N_PERM = 20000
@@ -114,20 +115,21 @@ def _clean(rows_a, rows_b, name):
     return a, b
 
 
-def run_experiment(title, rows_a, rows_b, label_a, label_b, note=""):
+def run_experiment(title, rows_a, rows_b, label_a, label_b, note="",
+                   feats=QualityFeatures):
     print(f"\n{'=' * 78}\n{title}\n{'=' * 78}")
     print(f"  {label_a}: n={len(rows_a)}    {label_b}: n={len(rows_b)}")
     if note:
         print(f"  {note}")
 
     results = []
-    for name in QualityFeatures.NAMES:
+    for name in feats.NAMES:
         a, b = _clean(rows_a, rows_b, name)
         if len(a) < 3 or len(b) < 3:
             results.append((name, float("nan"), 1.0, False, 0, 0))
             continue
         auc, p = permutation_test(a, b)
-        predicted = QualityFeatures.DIRECTION[name]
+        predicted = feats.DIRECTION[name]
         # AUC > 0.5 means class A scores higher on this feature
         observed = "higher" if auc > 0.5 else "lower"
         results.append((name, auc, p, observed == predicted, len(a), len(b)))
@@ -152,15 +154,16 @@ def run_experiment(title, rows_a, rows_b, label_a, label_b, note=""):
             verdict, mark = "uncorrected only", " "
         else:
             verdict, mark = "null", " "
-        pred = QualityFeatures.DIRECTION[name]
+        pred = feats.DIRECTION[name]
         print(f" {mark}{name:32s} {auc:6.3f} {p:8.4f}  {pred:>9s}  {verdict}")
 
     print(f"\n  pre-registered hits surviving BH-FDR at q={FDR_Q}: "
-          f"{hits}/{len(QualityFeatures.NAMES)}")
+          f"{hits}/{len(feats.NAMES)}")
     return results, keep, hits
 
 
-def joint_classifier(rows_a, rows_b, names=None, folds=5, seed=SEED):
+def joint_classifier(rows_a, rows_b, names=None, folds=5, seed=SEED,
+                     feats=QualityFeatures):
     """Held-out AUC for all features used jointly.
 
     The per-feature table answers 'does this feature track the label'. This
@@ -180,7 +183,7 @@ def joint_classifier(rows_a, rows_b, names=None, folds=5, seed=SEED):
         print("\n  (joint classifier skipped: scikit-learn not installed)")
         return None
 
-    names = names or QualityFeatures.NAMES
+    names = names or feats.NAMES
     X = np.array([[r.get(n, np.nan) for n in names] for _, r in rows_a]
                  + [[r.get(n, np.nan) for n in names] for _, r in rows_b],
                  dtype=float)
@@ -198,51 +201,80 @@ def joint_classifier(rows_a, rows_b, names=None, folds=5, seed=SEED):
     return float(roc_auc_score(y, oof))
 
 
-def report_joint(rows_a, rows_b, label_a, label_b):
-    full = joint_classifier(rows_a, rows_b)
+def report_joint(rows_a, rows_b, label_a, label_b, feats=QualityFeatures,
+                 solo_names=None):
+    full = joint_classifier(rows_a, rows_b, feats=feats)
     if full is None:
-        return
-    print(f"\n  joint held-out AUC, all 10 features ({label_a} vs {label_b})"
+        return None
+    n = len(feats.NAMES)
+    print(f"\n  joint held-out AUC, all {n} features ({label_a} vs {label_b})"
           f": {full:.3f}")
-    solo = joint_classifier(rows_a, rows_b,
-                            names=["rhyme_predictability_mean",
-                                   "rhyme_predictability_min"])
-    print(f"  joint held-out AUC, rhyme-predictability only          "
-          f": {solo:.3f}")
+    solo_names = solo_names or ["rhyme_predictability_mean",
+                               "rhyme_predictability_min"]
+    solo_names = [x for x in solo_names if x in feats.NAMES]
+    if solo_names:
+        solo = joint_classifier(rows_a, rows_b, names=solo_names, feats=feats)
+        print(f"  joint held-out AUC, predictability only"
+              f"{'':<24}: {solo:.3f}")
+    return full
 
 
 def main():
-    qf = QualityFeatures()
     cache = {}
     if os.path.exists(CACHE):
         cache = json.load(open(CACHE))
 
-    # ---------------- Experiment 1: within-author survival ----------------
     survived, forgotten = labelled_sonnets()
-    rows_s = compute(qf, survived, SONNET_SCHEME, cache, "son")
-    rows_f = compute(qf, forgotten, SONNET_SCHEME, cache, "son")
-    run_experiment(
-        "EXPERIMENT 1 — within-Shakespeare: anthologized vs not",
-        rows_s, rows_f, "survived", "forgotten",
-        note=("one author, one form, one era, one register — confounds "
-              "eliminated by construction; power is the cost"))
-    report_joint(rows_s, rows_f, "survived", "forgotten")
-
-    # ---------------- Experiment 2: generated-text detection --------------
     generated = load_generated()
-    if generated:
-        allsn = load_sonnets()
-        human = [(n, l) for n, l in sorted(allsn.items())]
-        rows_h = compute(qf, human, SONNET_SCHEME, cache, "son")
-        rows_g = compute(qf, generated, SONNET_SCHEME, cache, "gen")
-        run_experiment(
-            "EXPERIMENT 2 — Shakespeare vs model-generated sonnets",
-            rows_h, rows_g, "human", "generated",
-            note=("CONFOUNDED: generation-in-imitation leaves pastiche "
-                  "artifacts; a hit here may detect imitation, not slop"))
-        report_joint(rows_h, rows_g, "human", "generated")
-    else:
-        print("\n(Experiment 2 skipped: no generated corpus staged)")
+    allsn = load_sonnets()
+    human = [(n, l) for n, l in sorted(allsn.items())]
+    summary = {}
+
+    for tag, feats, solo in (
+            ("ABSOLUTE (original ten)", QualityFeatures, None),
+            ("WITHIN-ITEM (respecified eight)", WithinItemFeatures,
+             ["wi_predictability_advantage"])):
+        print(f"\n\n{'#' * 78}\n# {tag}\n{'#' * 78}")
+        qf = feats()
+        pfx = "abs" if feats is QualityFeatures else "wi"
+
+        rows_s = compute(qf, survived, SONNET_SCHEME, cache, f"{pfx}son")
+        rows_f = compute(qf, forgotten, SONNET_SCHEME, cache, f"{pfx}son")
+        _, _, h1 = run_experiment(
+            "EXPERIMENT 1 — within-Shakespeare: anthologized vs not",
+            rows_s, rows_f, "survived", "forgotten",
+            note=("one author, one form, one era, one register — confounds "
+                  "eliminated by construction; power is the cost"),
+            feats=feats)
+        a1 = report_joint(rows_s, rows_f, "survived", "forgotten", feats, solo)
+
+        a2 = h2 = w2 = None
+        if generated:
+            rows_h = compute(qf, human, SONNET_SCHEME, cache, f"{pfx}son")
+            rows_g = compute(qf, generated, SONNET_SCHEME, cache, f"{pfx}gen")
+            res2, keep2, h2 = run_experiment(
+                "EXPERIMENT 2 — Shakespeare vs model-generated sonnets",
+                rows_h, rows_g, "human", "generated",
+                note=("CONFOUNDED: generation-in-imitation leaves pastiche "
+                      "artifacts; a hit here may detect imitation, not slop"),
+                feats=feats)
+            a2 = report_joint(rows_h, rows_g, "human", "generated", feats,
+                              solo)
+            w2 = sum(1 for (n, auc, p, ok, _, _), sig in zip(res2, keep2)
+                     if sig and not ok)
+        summary[tag] = (h1, a1, h2, a2, w2)
+
+    print(f"\n\n{'=' * 78}\nHEAD TO HEAD\n{'=' * 78}")
+    print(f"  {'':34s} {'Exp1 hits':>10s} {'Exp1 AUC':>9s} "
+          f"{'Exp2 hits':>10s} {'Exp2 AUC':>9s} {'Exp2 wrong':>11s}")
+    for tag, (h1, a1, h2, a2, w2) in summary.items():
+        f = lambda x, d=3: ("--" if x is None else f"{x:.{d}f}")
+        print(f"  {tag:34s} {h1:>10d} {f(a1):>9s} "
+              f"{'--' if h2 is None else h2:>10} {f(a2):>9s} "
+              f"{'--' if w2 is None else w2:>11}")
+    print("\n  P1 (pre-registered): Exp2 AUC must FALL substantially under "
+          "within-item.\n  P2: Exp1 AUC must hold or improve."
+          "\n  P3: Exp2 wrong-sign count must fall below five.")
 
     os.makedirs(os.path.dirname(CACHE), exist_ok=True)
     json.dump(cache, open(CACHE, "w"))
