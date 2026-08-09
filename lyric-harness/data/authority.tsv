@@ -1,0 +1,15 @@
+author_key	death_year	qid	verification_source	verified_on	note
+ephrem_the_syrian	373	Q311844	critical_edition	2026-08-09	CSCO edition of the madrashe; date from the printed critical edition apparatus
+jacob_of_serugh	521		critical_edition	2026-08-09	Bedjan, Homiliae selectae Mar-Jacobi Sarugensis
+narsai	502		critical_edition	2026-08-09	Mingana, Narsai doctoris Syri homiliae et carmina
+imru_al_qays	544		dataset_field:OpenITI	2026-08-09	death date carried in OpenITI metadata (AH/CE)
+al_mutanabbi	965		dataset_field:OpenITI	2026-08-09	death date carried in OpenITI metadata
+solomon_ibn_gabirol	1058		dataset_field:benyehuda	2026-08-09	Wikidata QID present in Ben-Yehuda author_uris
+yehuda_halevi	1141		dataset_field:benyehuda	2026-08-09	Wikidata QID present in Ben-Yehuda author_uris
+khushal_khan_khattak	1689		printed_authority	2026-08-09	PD portion of the Pashto corpus; 4,257 couplets
+rahman_baba	1711		printed_authority	2026-08-09	PD portion of the Pashto corpus
+# --- entries below are MODEL RECALL and must NOT admit under strict mode ---
+im_hwa	1953		model_recall	2026-08-09	KPoEM poet; recalled date, NOT verified against an authority record
+laxmi_prasad_devkota	1959		model_recall	2026-08-09	Nepali; recalled date, NOT verified
+some_1930s_spaniard	1936		model_recall	2026-08-09	DISCO tail; recalled date, NOT verified
+recalled_victorian	1900		model_recall	2026-08-09	recalled date that WOULD clear the term; exists to isolate strict vs non-strict

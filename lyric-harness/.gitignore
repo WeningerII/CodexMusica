@@ -9,3 +9,8 @@ wordfreq20k.txt
 # Derived
 __pycache__/
 *.pyc
+
+# Provenance data — evidence tables, reviewed by hand. Ledger is derived.
+!data/sources.tsv
+!data/authority.tsv
+data/provenance_ledger.tsv

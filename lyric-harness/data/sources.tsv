@@ -1,0 +1,15 @@
+source_id	licence	pd_affirmed	contested	generated	evidence	note
+projectbenyehuda/public_domain_dump	public domain	true	false	false	project states all works are PD and free of permission	12,252 native-Hebrew poems, 387 poets; ships Wikidata QIDs in author_uris
+openscriptures/morphhb	public domain	true	false	false	README states WLC text is Public Domain	4,783 verses across the five poetic books; morphology layer separately CC-BY-4.0
+srophe/syriac-corpus	cc-by-4.0	false	false	false	CC-BY-4.0 stated verbatim in repo README	open licence is a redistribution grant, NOT a PD claim; items must clear on date
+OpenITI/RELEASE	""	false	false	false	no LICENSE file present (verified absent at repo root and sidebar)	PD defensible on age only; metadata carries author death dates in AH -> dataset_field route
+arbml/ashaar	""	false	false	false	README: released under fair use for research development only, not for commercial purposes	explicit restriction; not admissible as a PD source
+AliMuhammad73/Pashto-Poetry	cc-by-4.0	false	true	false	tag cannot cover contents: only ~6,459 of 35,637 couplets are PD	CONTESTED: source affirmation void, every item must clear on a verified date
+nafisehNik/ganjoor-ipa-scansion	cc-by-4.0	false	false	true	IPA column is Homo-GE2PE MODEL OUTPUT; ~21% of meters reconstructed	generated: scoring the IPA scores a G2P model, not Persian phonology
+Ericu950/AncientGreek	""	false	false	true	1.7M of 2.1M rows are the LLM-rewritten 'repaired' split	generated; also has no verse flag in schema
+VenkataRamanaKurumallajaddangi/Telugu-Synthetic-Poems-20k	cc-by-4.0	false	false	true	dataset name and card state synthetic	LLM-generated; poison as a positive class
+Sefaria/hebrew_library	gpl-3.0	false	false	false	GPL tag covers Sefaria code, not per-text rights	software licence on text is incoherent; must not admit
+pruizf/disco	cc-by-4.0	false	false	false	LICENSE = CC Attribution 4.0	~327 of 4,530 rows by authors dying up to 1936; open licence is not a PD claim
+linhd-postdata/metrique-en-ligne	""	false	false	false	LICENSE returns HTTP 404	third-party academic re-host; age-PD only
+linhd-postdata/biblioteca_italiana	""	false	false	false	LICENSE returns HTTP 404	third-party academic re-host; age-PD only
+AKS-DHLAB/KPoEM	mit	false	false	false	MIT tag applies to annotations	software licence on text; five modern poets, one d.1953
