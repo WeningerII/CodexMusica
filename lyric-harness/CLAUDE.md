@@ -114,3 +114,18 @@ Doctrine additions, earned from the first run — do not drift from these either
 12. **Wimsatt binding is unsupported here, under two operationalizations.**
    Raw differing-category fraction: null. Excess over a permutation null from
    the item's own line-final tags: also null. Stop rescuing it.
+13. **Any resource used to score a cell must be INDEPENDENT of that cell's
+   label.** Frequency lists, background corpora, positive controls and
+   correction calibrators all count as resources. A drafted matrix design was
+   blocked on exactly this: it built per-cell frequency lists from the labelled
+   pool, so in Finnish a word in a 362-variant type had corpus count 361 after
+   leave-one-out while a singleton-type word had 0 -- making the feature a
+   monotone function of the label. Where independence is impossible, state the
+   dependence and argue its direction BEFORE the run.
+14. **A control may not be defined in terms of the quantity it controls.** The
+   same design's positive control replaced each rhyme partner with the
+   highest-frequency member of its own candidate field, while the feature is
+   the percentile of the realised partner in that field -- so the control
+   equalled its ceiling by construction. ~52 of 80 tests were identities. Build
+   controls by shuffling within a cell, and never let a calibrator be something
+   Zipf's law guarantees will fire.
