@@ -1,5 +1,11 @@
-# Large downloaded lexicons — refetched by quality/fetch_data.py
+# Downloaded lexicons — refetched by quality/fetch_data.py and lyric_harness.py
 data/*.txt
 data/*.zip
 data/nltk/
-corpus/generated/
+data/feature_cache.json
+cmudict.dict
+wordfreq20k.txt
+
+# Derived
+__pycache__/
+*.pyc
