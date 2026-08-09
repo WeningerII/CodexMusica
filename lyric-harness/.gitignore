@@ -16,3 +16,7 @@ __pycache__/
 data/provenance_ledger.tsv
 data/authority_src/
 data/authority_src/
+
+# Derived label tables — regenerate with data/labels/*/build_*.py
+# The build scripts and build_report.json ARE tracked; the outputs are not.
+data/labels/**/*.tsv

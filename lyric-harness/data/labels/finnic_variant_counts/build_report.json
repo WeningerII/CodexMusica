@@ -1,0 +1,90 @@
+{
+  "cells": {
+    "et": {
+      "ge10_after_loo": 51092,
+      "parish_spread_max": 112,
+      "parish_spread_mean": 58.354,
+      "rows": 54229,
+      "variant_count_max": 1118,
+      "variant_count_mean": 271.377,
+      "zero_after_loo": 567
+    },
+    "fi": {
+      "ge10_after_loo": 55665,
+      "parish_spread_max": 349,
+      "parish_spread_mean": 101.734,
+      "rows": 61174,
+      "variant_count_max": 1628,
+      "variant_count_mean": 312.299,
+      "zero_after_loo": 1399
+    },
+    "izh_vot": {
+      "ge10_after_loo": 14851,
+      "parish_spread_max": 349,
+      "parish_spread_mean": 41.595,
+      "rows": 15776,
+      "variant_count_max": 1628,
+      "variant_count_mean": 167.237,
+      "zero_after_loo": 200
+    },
+    "krl": {
+      "ge10_after_loo": 9741,
+      "parish_spread_max": 349,
+      "parish_spread_mean": 75.835,
+      "rows": 10527,
+      "variant_count_max": 1628,
+      "variant_count_mean": 292.386,
+      "zero_after_loo": 208
+    }
+  },
+  "cleanup_links_removed": {
+    "C2_placeholder": 335,
+    "C3_pseudo_type": 81040,
+    "C4_kanteletar_toc": 676
+  },
+  "dedup_curated_pairs_merged": 1082,
+  "dedup_distinct_texts": 286932,
+  "dedup_exact": {
+    "clusters": 1063,
+    "rows_collapsed": 1429,
+    "rows_in_clusters": 2492
+  },
+  "dedup_normalised": {
+    "clusters": 3926,
+    "rows_collapsed": 6353,
+    "rows_in_clusters": 10279
+  },
+  "leak_closure": {
+    "kr_rows_excluded_from_pool": 10544,
+    "rows_folded_into_a_duplicate_master": 2950,
+    "rows_leave_one_out_corrected": 141706,
+    "singleton_rows_1_to_0": 2374
+  },
+  "links_clean": 202761,
+  "links_orphan_dropped": 5,
+  "links_raw": 284812,
+  "ortho_gap": {
+    "exact": 25828,
+    "exact_ambiguous": 140,
+    "normalised": 51171,
+    "normalised_ambiguous": 1149,
+    "pairs": 108120,
+    "undercount_pct": 49.52609876687968
+  },
+  "poems_with_text": 291681,
+  "pool_all": 294367,
+  "pool_by_collection": {
+    "erab": 108969,
+    "jr": 85607,
+    "kr": 10544,
+    "skvr": 89247
+  },
+  "type_parishes_max_clean": 349,
+  "type_parishes_mean_clean": 8.427,
+  "type_variants_argmax": "skvr_t060500_2700",
+  "type_variants_max_clean": 1629,
+  "types_clean": 10037,
+  "types_ge10": 2853,
+  "types_singleton": 3671,
+  "types_total": 10037
+}
