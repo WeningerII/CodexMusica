@@ -40,13 +40,25 @@ JOIN KEY: `join_key` = the GRETIL verse number within this file (poem_id is
   text. `join_key_text` additionally carries the normalised body key, so the
   table can be joined against sa_subhasita (which is keyed on that).
 
+LICENCE. GRETIL is CC BY-NC-SA 4.0, so the TEXT is inadmissible to this
+  project while the LABEL is fine. `join_key_text` is the verse minus its
+  punctuation, i.e. the text -- so this .tsv inherits the NC licence and is
+  gitignored. Drop that one column, join on `join_key` or `join_key_sha1`, and
+  what is left carries no GRETIL text at all.
+
 SUBSET LEAK. The positives sit inside the same 105-verse pool, and closure is
   the same operation as everywhere else: cluster by normalised body, one row
   per cluster, label = max over the cluster. Rows moved are reported below.
 """
 import collections, csv, hashlib, os, re, sys
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# gretil_io lives next to the sibling builder that also uses it. Import it by
+# path rather than symlinking it in: a symlinked module resolves __file__ to the
+# LINK, so each symlink silently spawns its own copy of the CC BY-NC-SA source
+# cache, and a tracked symlink walked past this repo's cache ignore rule once
+# already (commit a654c70).
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                '..', 'sa_subhasita'))
 import gretil_io as G
 
 HERE = os.path.dirname(os.path.abspath(__file__))

@@ -97,3 +97,67 @@ attestation — are the ones to build on, because both measure transmission
 rather than editorial opinion, and the Chinese one measures agreement across
 *independently compiled* selections, which is the decorrelation property the
 whole matrix argument rests on.
+
+
+---
+
+# Chinese multi-anthology label — built, verified, and one source disqualified
+
+Pool 311,855 shi rows (全唐诗 57,607 + 全宋诗 254,248). Graded attestation 0..5.
+687 positives (0.220%): 499 at grade 1, 146 at 2, 35 at 3, 7 at 4.
+
+**The prior pass replicated exactly.** Restricted to the three book anthologies
+for comparability, the all-three count is **17** — the same figure the earlier
+label hunt reported, reached by a different build. The ≥1 and ≥2 counts came
+out higher (641 vs 620, 151 vs 143) because a near-body channel recovers
+textual variants the earlier pass missed.
+
+## One "independent" anthology is a derivative of the pool
+
+The 唐诗三百首 label draws on two printings, and they behave completely
+differently:
+
+| printing | exact | normalised | gap |
+|---|---|---|---|
+| `全唐诗/唐诗三百首.json` | 366 | 366 | **0.0%** |
+| `蒙学/tangshisanbaishou.json` | 72 | 141 | **61.1% under-count** |
+
+A 0.0% gap is not a good result, it is a **tell**. That file is an in-repo
+derivative of the pool and byte-identical to it, so matching it against the pool
+is matching the pool against itself. Counting it as an independent witness would
+inflate the attestation grade with a self-match — **doctrine 13 inside the
+label**: a resource derived from the data it scores.
+
+The two printings must therefore be unioned as ONE source, which the build does,
+and the independence count for the decorrelation argument is **three
+anthologies, not four**.
+
+Aggregating the printings hides this entirely — the union gap is only +1 row —
+which is why per-source gaps have to be reported and not just the union.
+
+## The matching-strategy cost, now measured per source
+
+- 蒙学 printing of 唐诗三百首: exact finds **38.9%** of normalised
+- 千家诗: exact finds **48.9%** of normalised (51.1% under-count)
+- Overall positives: exact hashing misses **219 of 687 (31.9%)**
+
+That sharpens the earlier "~58%" estimate into per-source figures, and confirms
+its direction. Exact body hashing is not a conservative choice; it is a wrong
+one that silently parks a third of the positive class in the negative pool.
+
+## Leak closure
+
+Two-stage: an anthology entry marks *every* pool row sharing its normalised key,
+then the flag propagates across the whole content-key duplicate group. **219
+rows moved out of the negative pool.** 56 positives sit in 27 multi-row content
+groups, so a one-row-per-entry design would have marked 27 and left 29 identical
+copies labelled 0. Verified: zero leak violations across all five per-label
+files, and zero content keys carrying mixed positive/negative rows.
+
+## 古文观止 — a small result that is not noise
+
+Only 3 pool rows match, and whole-body matching finds none at all: a ~434-char
+prose selection can never equal a ~40-char poem. All three arrive through a
+containment match and were checked by hand — they are verse codas embedded
+inside prose pieces. Correct behaviour, and a reminder that a prose anthology
+cannot be joined to a verse pool by any whole-body key.

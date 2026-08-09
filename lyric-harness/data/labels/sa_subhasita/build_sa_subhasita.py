@@ -59,11 +59,17 @@ SUBSET LEAK AND ITS CLOSURE
   .tsv        = raw pool rows, one per parsed verse (leak still present)
   .dedup.tsv  = the joinable, leak-closed table, one row per cluster
 
-LICENCE. GRETIL is CC BY-NC-SA 4.0. The NC clause makes the TEXT inadmissible
-  to this project. This label is still usable, because what it ships is a verse
-  id and an integer -- no body text is written to either .tsv, only the
-  normalised key needed to join, and a hash of it for anyone who wants to join
-  without carrying the key. Treat the label as admissible and the text as not.
+LICENCE, stated plainly. GRETIL is CC BY-NC-SA 4.0 (catalog.csv `license`,
+  783 of 784 texts). The NC clause makes the TEXT inadmissible to this project,
+  which ships only PD / PD-affirmed corpora. The LABEL is admissible: a verse
+  id and an integer count are facts about the text, not the text.
+  BUT BE HONEST ABOUT THE JOIN KEY. `join_key` is the verse with its
+  punctuation removed -- that IS the text, lightly damaged. So these .tsv files
+  inherit CC BY-NC-SA and are gitignored, like every other fetched source here.
+  For an NC-clean table drop `join_key` and join on `join_key_sha1`, which is
+  carried for exactly that purpose. What survives the deletion -- poem_id,
+  label_value, work, author, the counts -- is the label, and it is usable even
+  though the corpus it describes is not.
 """
 import collections, csv, hashlib, os, sys
 
@@ -185,7 +191,11 @@ def main():
     ded = []
     moved_dup = 0
     for k, group in clusters.items():
-        lab = max(g['label_value'] for g in group)
+        # the cluster's unit is the TEXT, so the label is the UNION of the
+        # anthologies its copies were found in, not the max over copies.
+        sig = sorted({a for g in group for a in g['anthologies'].split(',')
+                      if a != '-'})
+        lab = len(sig)
         rep = sorted(group, key=lambda g: g['poem_id'])[0]
         if len(group) > 1:
             moved_dup += len(group) - 1
@@ -195,10 +205,7 @@ def main():
             'join_key': k,
             'join_key_sha1': rep['join_key_sha1'],
             'label_binary': int(lab > 0),
-            'anthologies': rep['anthologies'] if lab else
-                           (','.join(sorted({a for g in group
-                                             for a in g['anthologies'].split(',')
-                                             if a != '-'})) or '-'),
+            'anthologies': ','.join(sig) or '-',
             'work': rep['work'], 'work_title': rep['work_title'],
             'author': rep['author'], 'verse_id': rep['verse_id'],
             'label_exact': max(g['label_exact'] for g in group),
