@@ -1,4 +1,10 @@
-# Results — first run, English cell
+# Results — English cell
+
+> **SUPERSEDED IN PART.** The numbers in the first two sections are the
+> pre-fix run. Two defects were found later by running the code against a
+> tradition it was not designed for; see "Post-fix rerun" below, which is
+> the current state. The headline conclusion CHANGED. The original numbers
+> are kept rather than overwritten so the correction is auditable.
 
 Reproduce with `python3 quality/fetch_data.py && python3 quality/discriminate.py`.
 Permutation seed is fixed; the numbers below are exact, not approximate.
@@ -166,3 +172,72 @@ Reported because a pre-registration that only reports its wins is decoration.
    languages, and Brysbaert concreteness is an English norming study. A feature
    that cannot be stated without reference to English cannot be a universal, and
    should not be carried into a second cell unchanged.
+
+
+---
+
+# Post-fix rerun — the headline conclusion changed
+
+Two defects were fixed (see `quality/test_crosslinguistic.py` and the commit
+that added it): the anchor never skipped a **radif**, and a word absent from
+the pronunciation lexicon was scored as *maximally rare* rather than as
+*unknown*. Only the second one moves the English numbers.
+
+| feature | Exp 1 before | Exp 1 after | Exp 2 before | Exp 2 after |
+|---|---|---|---|---|
+| rhyme_predictability_mean | 0.313 HIT | **0.304 HIT** (p .0117) | 0.353 HIT | **0.422 null** (p .13) |
+| rhyme_predictability_min | 0.454 null | **0.337 HIT** (p .0386) | 0.391 HIT | **0.494 null** (p .92) |
+| concreteness_mean | 0.673 uncorrected | **0.673 HIT** | 0.271 wrong sign | 0.271 wrong sign |
+| pre-registered hits | 2/10 | **4/10** | 4/10 | **2/10** |
+| joint held-out AUC | 0.709 | **0.659** | 0.971 | **0.975** |
+| predictability-only AUC | 0.670 | **0.676** | 0.617 | **0.560** |
+
+## What this means, stated plainly
+
+**The cross-design replication of `rhyme_predictability` was an artifact of
+archaic vocabulary falling out of CMUdict.**
+
+The old code gave an out-of-vocabulary rhyme word `rank = MAX_RANK`, i.e.
+treated "I cannot read this" as "this is the rarest possible word," which
+scored it as maximally *un*predictable. Shakespeare's rhyme words are
+frequently OOV — the battery reports `mayst`(12), `beauteous`(9), `o'er`(9),
+`canst`(7) among many others. So Shakespeare scored as choosing unpredictable
+rhymes partly *because the dictionary could not read him*, which happened to
+match the predicted human-vs-generated direction.
+
+Stop scoring unreadable words and the Experiment 2 effect **collapses to
+chance**: predictability alone drops from 0.617 to **0.560** held-out, and
+neither variant clears significance (p = .13, p = .92).
+
+This is the same failure mode as `syntactic_inversion_rate`, which the
+typology audit identified as an Early Modern English archaism detector. Two of
+the ten features were reading *period*, and one of them was the feature this
+project had designated its candidate universal.
+
+## The corrected claim
+
+- **`rhyme_predictability` survives as a *within-tradition survival* signal.**
+  In Experiment 1 it got *stronger* after the fix — both variants now clear
+  FDR, where before only one did. Within one author, OOV is roughly uniform
+  across poems, so removing it cut noise rather than signal.
+- **It does not detect generated text.** 0.560 is chance. The earlier claim
+  that it was "the only feature clearing FDR in both designs with the
+  predicted sign" is **withdrawn**. It clears one design.
+- **Experiment 2's 0.975 is carried entirely by `mattr`, `function_word_ratio`
+  and the five wrong-sign features** — that is, by register and period, not by
+  quality. It is a very good Shakespeare-vs-contemporary classifier. It is not
+  demonstrated to be a slop detector.
+- **Experiment 1's joint AUC fell from 0.709 to 0.659**, so the survival
+  result is weaker overall even as individual features got cleaner. At n=15
+  it does not exclude chance.
+
+## Cross-linguistic defects found, and their status
+
+| defect | status | note |
+|---|---|---|
+| Radif blindness — anchor lands on the refrain, all pairs return an identical value | **FIXED** | zero variance, not inverted signal; verified at 16 decimal places |
+| OOV scored as maximally rare | **FIXED** | unreadable pairs skipped; NaN instead of a confident 0.0 |
+| Monorhyme length confound — draw-without-replacement makes longer poems look better for free | **DOCUMENTED, NOT FIXED** | 0.9009 (2 couplets) to 0.8793 (40) at constant skill; any monorhyme cell must regress on line count first |
+| No tone channel biases cross-language comparison | **NOT REPRODUCED** | simulated field inflation 1x-8x: mean shift +0.0000. Field size is mean-neutral for a normalized rank |
+| `syntactic_inversion_rate` is an archaism detector | **OPEN** | should be retired rather than ported |
+| `function_word_ratio` presumes a clean function/content split | **OPEN** | fails by variance collapse in agglutinative languages |
