@@ -1,0 +1,5 @@
+# Large downloaded lexicons — refetched by quality/fetch_data.py
+data/*.txt
+data/*.zip
+data/nltk/
+corpus/generated/
