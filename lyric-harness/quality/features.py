@@ -221,8 +221,23 @@ class QualityFeatures:
         for i, j in pairs:
             if i >= len(lines) or j >= len(lines):
                 continue
-            call, answer = self._endword(lines[i]), self._endword(lines[j])
+            # Strip any radif before anchoring. Without this the anchor lands
+            # on the refrain in every line of a ghazal, the feature compares
+            # the refrain with itself, and every pair returns an identical
+            # value -- zero variance, i.e. no signal at all rather than a
+            # wrong one. Verified against an English radif ghazal: six pairs
+            # returned 0.7757085020242915 to the last digit, scoring the
+            # refrain against English function words and never once looking
+            # at the qafiya. Normal end rhyme has no common tail, so this is
+            # a no-op there.
+            call, answer, radif = self._strip_radif(lines[i], lines[j])
             if not call or not answer:
+                continue
+            # A word absent from the pronunciation lexicon has an UNKNOWN
+            # rank, not a maximal one. Treating it as maximally rare returned
+            # a confident 0.0 for transliterated Persian -- a number is worse
+            # than a NaN here, because it propagates into a mean.
+            if not self._pronounceable(call) or not self._pronounceable(answer):
                 continue
             fld = self.field.field(call)
             if not fld:
@@ -230,13 +245,43 @@ class QualityFeatures:
             words = [w for w, _, _ in fld]
             if answer in words:
                 pos = words.index(answer)
-            else:
-                # not in the common-word field: rank it by frequency against it
-                rank = self.lex.freq_rank.get(answer, MAX_RANK)
+            elif answer in self.lex.freq_rank:
+                # in the frequency list but outside the rhyme field
                 ranks = [r for _, r, _ in fld]
-                pos = bisect_left(ranks, rank)
+                pos = bisect_left(ranks, self.lex.freq_rank[answer])
+            else:
+                continue          # pronounceable but unranked: no basis
             vals.append(1.0 - pos / max(1, len(words)))
         return vals
+
+    def _pronounceable(self, word):
+        """True if the lexicon can transcribe it. Guards against silently
+        scoring text the phonology layer cannot actually read."""
+        if not word:
+            return False
+        phones, _ = self.lex.transcribe_word(word)
+        return bool(phones)
+
+    @classmethod
+    def _strip_radif(cls, line_a, line_b):
+        """Remove the longest shared trailing word-run from a rhyme pair.
+
+        In Persian, Urdu, Turkish and Arabic ghazal/qasida the rhyme unit is
+        qafiya + radif, where the radif is a fixed repetend closing every
+        line. The rhyme-bearing element is what precedes it. Returns
+        (call, answer, radif_len).
+        """
+        wa, wb = cls._tokens(line_a), cls._tokens(line_b)
+        k = 0
+        while (k < len(wa) - 1 and k < len(wb) - 1
+               and wa[-1 - k].lower().strip("'-.,;:!?")
+               == wb[-1 - k].lower().strip("'-.,;:!?")):
+            k += 1
+        if k:
+            wa, wb = wa[:-k], wb[:-k]
+        ca = wa[-1].lower().strip("'-.,;:!?") if wa else ""
+        cb = wb[-1].lower().strip("'-.,;:!?") if wb else ""
+        return ca, cb, k
 
     def extract(self, lines, scheme=None):
         """Feature vector for one poem/lyric. `scheme` supplies the mandated
