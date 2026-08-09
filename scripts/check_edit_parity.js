@@ -128,14 +128,36 @@ function diff(a, b) {
 function sample() {
   const trads = (C.TRADITIONS || []).filter((t) => (t.instruments || []).length);
   const cases = [];
+  const famCount = {};
   const stride = Math.max(1, Math.floor(trads.length / LIMIT));
   for (let i = 0; i < trads.length && cases.length < LIMIT; i += stride) {
     const trad = trads[i];
     const cards = W.seed([trad.id]).cards;
     if (!cards.length) continue;
-    const card = cards[i % cards.length];
+    // Take the card from the LEAST-represented family so far, rather than
+    // `cards[i % cards.length]`. Almost every tradition seeds a voice, so index
+    // rotation handed `voice` 51 of 120 cases — 42% of the sample spent on one
+    // family, while plucked_traditional and free_reed got one each and a family
+    // got none at all. Nothing in either surface branches on family, so this is
+    // not a correctness axis; it is a variety-of-part-shapes axis, and 42% on
+    // the family with the fewest parts is the least informative way to spend it.
+    // Ties break on roster order, so the selection stays deterministic.
+    const famOf = (cd) => {
+      const it = (C.INSTRUMENTS || []).find((x) => x.id === cd.instrumentId);
+      return it ? it.family : '(unknown)';
+    };
+    let card = cards[0];
+    let bestSeen = Infinity;
+    for (const cd of cards) {
+      const seen = famCount[famOf(cd)] || 0;
+      if (seen < bestSeen) {
+        bestSeen = seen;
+        card = cd;
+      }
+    }
     const inst = (C.INSTRUMENTS || []).find((x) => x.id === card.instrumentId);
     if (!inst) continue;
+    famCount[inst.family] = (famCount[inst.family] || 0) + 1;
     // A part with a real choice, and a variant that is NOT the current pick —
     // editing to the value already there would exercise nothing.
     //
@@ -166,10 +188,30 @@ function sample() {
       const isMat = variants.some((v) => v.expanded);
       (isMat ? material : plain).push({ part: part.id, variant: alt.id, material: isMat });
     }
-    // Prefer the under-represented side on alternating strides, falling back to
-    // whichever pool is non-empty.
-    const first = i % 2 === 0 ? material : plain;
-    const second = i % 2 === 0 ? plain : material;
+    // FOUR branches, not two. A variant pick is guarded on whether the part is
+    // material (src/app.js:applyPartEdit) AND on whether the card's preface is
+    // still auto-derived — `const auto = card.prefaceAuto !== false` in
+    // _workspace_ops.setVariant, and the app's else-branch only re-derives when
+    // `card.prefaceAuto`. That is 2×2, and the sampler used to reach two of them:
+    // every seeded card has prefaceAuto true, so both LOCKED branches were
+    // measured across 120 cases and appeared exactly 0 times.
+    //
+    // The two surfaces do agree there today — checked over 2,644 constructed
+    // cases, 0 rendered divergences — so this is not a bug being fixed. It is
+    // the same shape as the one that WAS: an untested branch where the two forks
+    // are free to drift, and nothing would say so.
+    //
+    // Cycling on `i % 4` keeps the selection deterministic, so a failure names a
+    // reproducible case rather than a lucky one.
+    // Cycle on the CASE index, not the strided tradition index. `i` advances by
+    // `stride` (2503/120 ≈ 20), so `i % 2` and `i % 4` are CONSTANT — the first
+    // version of this cycled on `i` and pinned both axes to a single value,
+    // which the coverage assertions below caught immediately. `cases.length` is
+    // dense and still deterministic.
+    const n = cases.length;
+    const wantMaterial = n % 4 < 2;
+    const first = wantMaterial ? material : plain;
+    const second = wantMaterial ? plain : material;
     const pool = first.length ? first : second;
     if (pool.length) {
       const pick = pool[i % pool.length];
@@ -179,6 +221,8 @@ function sample() {
         part: pick.part,
         variant: pick.variant,
         material: pick.material,
+        locked: n % 2 === 1,
+        family: inst.family,
       });
     }
   }
@@ -194,6 +238,10 @@ let shown = 0;
 let cascaded = 0;
 let renderMismatches = 0;
 let rendersCompared = 0;
+let lockedCases = 0;
+// A real lexicon id to lock with. Taken from the catalog rather than written in,
+// so it cannot go stale, and from a fixed offset so the run stays reproducible.
+const LOCK_PREFACE = ((C.PREFACE_LEXICON || [])[7] || {}).id || null;
 for (const c of cases) {
   // APP: mutate the part on its own card copy, then run the browser's REAL
   // branch — guard included.
@@ -203,13 +251,42 @@ for (const c of cases) {
   // compare cascade against cascade, so it agreed while the two surfaces
   // disagreed on every non-material edit — 1052 of 1406 instruments have no
   // material part at all. applyPartEdit is the branch a click actually takes.
-  const appCard = clone(c.card);
+  // Half the cases first LOCK the card's preface, because both surfaces branch
+  // on that and the sampler used to reach only the auto side. Reached through
+  // the REAL set_preface op on each surface rather than by assigning the two
+  // fields, so the state under test is one a user can actually get to — and so a
+  // divergence introduced by set_preface itself shows up in the section that
+  // owns it rather than as noise here.
+  let appCard = clone(c.card);
+  let ws = { cards: [clone(c.card)] };
+  if (c.locked && LOCK_PREFACE) {
+    try {
+      ws = W.setPreface(ws, c.card.id, LOCK_PREFACE);
+      app.commitPrefaceChange(appCard, LOCK_PREFACE);
+      lockedCases++;
+    } catch {
+      // The connector refuses some preface ids the app accepts — a known,
+      // deliberate difference in error policy, already counted by the
+      // set_preface section below. Fall back to the unlocked case rather than
+      // dropping the (instrument, part) pair entirely.
+      appCard = clone(c.card);
+      ws = { cards: [clone(c.card)] };
+    }
+  }
+
+  // APP: mutate the part on its own card copy, then run the browser's REAL
+  // branch — guard included.
+  //
+  // This called reconfigureAfterPartEdit directly, which is the cascade the
+  // browser runs only for MATERIAL parts. Reaching past the guard made this gate
+  // compare cascade against cascade, so it agreed while the two surfaces
+  // disagreed on every non-material edit — 1052 of 1406 instruments have no
+  // material part at all. applyPartEdit is the branch a click actually takes.
   appCard.parts[c.part] = c.variant;
   app.applyPartEdit(appCard, c.part);
 
   // CONNECTOR: the same edit through the workspace op.
-  const ws = { cards: [clone(c.card)] };
-  const after = W.setVariant(ws, c.card.id, c.part, c.variant);
+  const after = W.setVariant(ws, ws.cards[0].id, c.part, c.variant);
   const connCard = after.cards[0];
 
   // Did the cascade actually do something beyond the edited part? A run where
@@ -295,6 +372,38 @@ if (matCases === 0 || plainCases === 0) {
     `\nEDIT PARITY: FAIL — only one branch of applyPartEdit was sampled ` +
       `(${matCases} material, ${plainCases} non-material). A variant pick takes one of two ` +
       'paths in the browser and this gate exists to compare both.'
+  );
+  process.exit(1);
+}
+// The OTHER axis. Both surfaces also branch on whether the card's preface is
+// still auto-derived, and every seeded card has prefaceAuto true — so this
+// sample reached the locked side 0 times out of 120 until it was made to. An
+// untested branch is where two hand-maintained forks drift without anyone
+// hearing about it, which is exactly how the material guard got out of step.
+if (lockedCases === 0) {
+  console.log(
+    '\nEDIT PARITY: FAIL — no case locked a preface, so only the auto branch of ' +
+      'set_variant was compared. Both surfaces read `prefaceAuto` and take a different ' +
+      'path when it is false.'
+  );
+  process.exit(1);
+}
+// Spread, so the sample cannot quietly collapse onto one family. Not a
+// correctness axis — nothing branches on family — but a sample that spends 42%
+// of itself on `voice` is testing one part shape over and over, and the cap is
+// what stops the balancer silently regressing to that.
+const famTally = {};
+for (const c of cases) famTally[c.family] = (famTally[c.family] || 0) + 1;
+const famList = Object.entries(famTally).sort((a, b) => b[1] - a[1]);
+const [topFam, topN] = famList[0];
+console.log(
+  `  spread: ${famList.length} instrument families, largest ${topFam} at ${topN}/${cases.length}` +
+    `, preface locked on ${lockedCases}`
+);
+if (topN / cases.length > 0.35) {
+  console.log(
+    `\nEDIT PARITY: FAIL — ${topFam} is ${Math.round((100 * topN) / cases.length)}% of the sample. ` +
+      'The family balancer has regressed; the run is testing one part shape repeatedly.'
   );
   process.exit(1);
 }
