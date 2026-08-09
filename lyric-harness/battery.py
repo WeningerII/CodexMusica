@@ -4,11 +4,21 @@ Oracle: forms are self-labeled (sonnet=ABABCDCDEFEFGG, limerick=AABBA).
 Every violation is triaged to a layer: ingestion / projection / anchor /
 comparator / band / structure. The disagreement log is the fitting corpus."""
 
+import os
 import re
 import sys
 from collections import Counter
 from lyric_harness import (Lexicon, Declaration, check_scheme, infer_chains,
                            anchor, syllabify, score)
+
+CORPUS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "corpus")
+
+
+def corpus_path(name):
+    """Corpora live in corpus/; fall back to the script directory so an older
+    layout still runs."""
+    p = os.path.join(CORPUS, name)
+    return p if os.path.exists(p) else name
 
 lex = Lexicon()
 decl = Declaration()
@@ -38,7 +48,7 @@ def parse_sonnets(path):
 
 
 def sonnet_battery():
-    sonnets = parse_sonnets("sonnets.txt")
+    sonnets = parse_sonnets(corpus_path("sonnets.txt"))
     print(f"SONNET ORACLE: {len(sonnets)} sonnets parsed, "
           f"scheme ABABCDCDEFEFGG, declaration = General American")
     total_pairs = 0
@@ -96,7 +106,7 @@ def limerick_battery():
 
 # ----------------------------------------------------- negative control
 def whitman_battery():
-    text = open("whitman.txt", encoding="utf-8").read()
+    text = open(corpus_path("whitman.txt"), encoding="utf-8").read()
     lines = [l.strip() for l in text.splitlines()]
     # grab Song of Myself opening region: contiguous verse lines
     start = next(i for i, l in enumerate(lines)
