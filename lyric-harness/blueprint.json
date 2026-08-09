@@ -1,0 +1,8 @@
+{"sections":[
+ {"name":"Verse 1","type":"verse","lines":4,"scheme":"ABAB"},
+ {"name":"Chorus","type":"chorus","lines":4,"scheme":"AABB"},
+ {"name":"Verse 2","type":"verse","lines":4,"scheme":"ABAB"},
+ {"name":"Chorus","type":"chorus","ref":"Chorus"},
+ {"name":"Bridge","type":"bridge","lines":4,"scheme":"ABAB"},
+ {"name":"Chorus","type":"chorus","ref":"Chorus"}
+]}
