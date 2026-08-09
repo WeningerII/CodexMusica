@@ -14,3 +14,4 @@ __pycache__/
 !data/sources.tsv
 !data/authority.tsv
 data/provenance_ledger.tsv
+data/authority_src/
