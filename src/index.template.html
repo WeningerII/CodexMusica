@@ -1645,6 +1645,34 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .chat-input:focus { outline: none; }
 .chat-input::placeholder { color: var(--text-3); }
 .chat-send { border-radius: 999px; padding: 8px 16px; flex: 0 0 auto; }
+/* Character counter against the field's own maxlength. Same three bands and the
+   same amber as .rp-count in the sidebar recipe preview, because it is the same
+   idea — a ceiling you are approaching — and the two should not read as two
+   different conventions. `flex: 0 0 auto` so it never gets squeezed into an
+   ellipsis; the input carries min-width:0 and does the shrinking. */
+.chat-count {
+  flex: 0 0 auto;
+  font-size: var(--fs-micro);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--text-3);
+}
+.chat-count.is-amber { color: #b87a26; }
+.chat-count.is-red { color: var(--color-red); }
+/* Screen-reader-only live region for the same information. The visible counter
+   is aria-hidden: a live region that fires on every keystroke is unusable, so
+   the announcements below are emitted only when a band CHANGES. */
+.chat-count-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 .chat-dock.is-busy .chat-input { color: var(--text-3); }
 
 @media (max-width: 900px) {
@@ -1858,7 +1886,15 @@ body.is-dnd-active * { cursor: grabbing !important; }
          caller posting to /chat directly. mcp/test.mjs asserts the two agree. -->
     <input class="chat-input" id="chat-input" type="text" maxlength="5000"
            aria-label="Describe the recording you want"
+           aria-describedby="chat-count-sr"
            placeholder="Describe a recording — “haunted Appalachian murder ballad, banjo like it’s underwater”">
+    <!-- Filled by _chatSyncCount in src/app.js, which reads the ceiling off the
+         maxlength above rather than declaring it again — so the counter cannot
+         name a bound different from the one the field enforces. Stays hidden
+         until the field is 70% full; an empty bar has nothing to report, and on
+         a phone a permanent "0 / 5000" would cost the input the width. -->
+    <span class="chat-count" id="chat-count" hidden aria-hidden="true"></span>
+    <span class="chat-count-sr" id="chat-count-sr" role="status" aria-live="polite"></span>
     <button class="btn btn-primary chat-send" id="chat-send" type="submit"><span class="btn-label">Ask</span></button>
   </form>
 </section>

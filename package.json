@@ -23,7 +23,7 @@
     "test:recipes": "node scripts/regression_recipes.js",
     "test:prefaces": "node scripts/regression_prefaces.js",
     "test:slots": "node scripts/check_slot_picks.js",
-    "test:app": "node scripts/app_recipe_regression.js && node scripts/check_mobile_layout.js",
+    "test:app": "node scripts/app_recipe_regression.js && node scripts/check_mobile_layout.js && node scripts/check_chat_counter.js",
     "test:equiv": "node scripts/equivalence.js",
     "test:lazy": "node scripts/check_lazy_app.js",
     "test:connector": "node scripts/_gen_voice_parts.js --check && node scripts/build_descriptor_df.js --check && node scripts/check_connector_parity.js && node scripts/check_workspace_ops.js && node scripts/check_app_parity.js && node scripts/check_edit_parity.js && node scripts/check_edit_differential.js && node scripts/check_connector_contract.js && node mcp/test.mjs && node scripts/check_name_isolation.js && node scripts/check_publish_guard.js",

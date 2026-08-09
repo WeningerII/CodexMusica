@@ -1037,6 +1037,34 @@ record(
   );
 }
 
+// the ask bar's counter names its own ceiling -> check_chat_counter.js
+//
+// The counter exists because `maxlength` is a silent wall — the field simply
+// stops accepting keystrokes — and its one hard requirement is that it read the
+// ceiling off the attribute instead of restating it. The attribute is already
+// pinned to the server's CHAT_MAX_MESSAGE by mcp/test.mjs, so sourcing it from
+// the DOM keeps one number in one place across three files.
+//
+// Planted as `const max = 5000;` — the shape a well-meaning edit takes, since
+// 5000 is the correct value TODAY and the diff looks like a no-op. It is not:
+// it survives the next raise, and the counter then confidently reports the old
+// ceiling while the field enforces the new one. A counter that lies is worse
+// than no counter, because it turns "I wonder why it stopped" into a wrong
+// answer the user believes.
+{
+  const d = mkenv(['scripts', 'references', 'src']);
+  const f = path.join(d, 'src/app.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const marker = '  const max = input.maxLength;';
+  if (!src.includes(marker)) throw new Error('faults: chat counter ceiling read not found');
+  fs.writeFileSync(f, src.replace(marker, '  const max = 5000;'));
+  record(
+    'chat-counter-restates-ceiling -> check_chat_counter.js',
+    gate(d, ['scripts/check_chat_counter.js']),
+    /naming a ceiling of its own/i
+  );
+}
+
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
 // a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
 // exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so
