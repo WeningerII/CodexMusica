@@ -49,6 +49,14 @@ CLEANUP (all four diagnosed before this build; all four enforced here)
       Kanteletar ('I. Tyttoin lauluja', 'Tansseissa ja kisoissa'), i.e. book
       sections, not song types. Rejected on the same ground as Thirukkural
       paal/iyal: one book's own chapter list separates nothing.
+  C5  FOUND BY THIS BUILD, not handed to it. The previously published spread
+      figure -- "max 362 parishes, mean 8.13, 3,216 of 7,555 types in a single
+      parish" -- counted every row of poem_place.csv as a parish. It is not a
+      parish table: places.csv carries 861 parishes AND 41 COUNTIES, and a poem
+      localised only to a county ('Viena', 'Virumaa') contributed a phantom
+      parish. Reproduced exactly here (see parish_measure_audit) and corrected
+      by restricting to place_type == 'parish': max 362 -> 349, mean 8.128 ->
+      7.784, single-parish types 3,216 -> 3,097, on the identical universe.
 
 MATCHING -- EXACT vs NORMALISED, PRICED, NOT ASSERTED
   The label's own join is by native poem id and is exact and lossless: the type
@@ -366,16 +374,34 @@ def main():
             p = places.get(p['place_parent_id'])
         return p['place_name'] if p else None
 
+    out['places_in_release'] = dict(collections.Counter(
+        p['place_type'] for p in places.values()))
     parishes, counties = collections.defaultdict(set), collections.defaultdict(set)
+    anyplace = collections.defaultdict(set)
     for r in rows('poem_place.csv'):
         if r['poem_id'] not in poems:
             continue
+        anyplace[r['poem_id']].add(r['place_id'])
         pl = places.get(r['place_id'])
         if pl and pl['place_type'] == 'parish':
             parishes[r['poem_id']].add(r['place_id'])
         c = county(r['place_id'])
         if c:
             counties[r['poem_id']].add(c)
+
+    # C5 audit: reproduce the published figure, then show the corrected one on
+    # the identical universe, so the correction is a delta and not an assertion.
+    def spread_audit(m):
+        d = collections.defaultdict(set)
+        for r in raw_links:
+            if r['type_id'].startswith('skvr_t'):
+                d[r['type_id']] |= m.get(r['poem_id'], set())
+        v = [len(x) for x in d.values()]
+        return {'types': len(v), 'max': max(v), 'mean': round(sum(v) / float(len(v)), 3),
+                'single': sum(1 for x in v if x == 1)}
+    out['parish_measure_audit'] = {
+        'as_published_any_place_row': spread_audit(anyplace),
+        'corrected_place_type_parish_only': spread_audit(parishes)}
     lang = {p: language_of(c, counties.get(p, set())) for p, c in poems.items()}
     out['pool_by_language'] = dict(collections.Counter(
         '%s/%s' % (poems[p], lang[p]) for p in poems))
@@ -495,21 +521,34 @@ def emit(out, poems, lang, links, canon_n, canon_e, parishes,
     out['cells'] = {}
     for L, rs in sorted(cells.items()):
         rs.sort()
+        # .dedup.tsv keeps ONE row per distinct text. Without it two re-entries
+        # of one poem can straddle a train/test split, which is the same leak
+        # again one level down: the test item is verbatim in the training set.
+        seen, ded = set(), []
+        for r in rs:
+            c = canon_n(r[0])
+            if c in seen:
+                continue
+            seen.add(c)
+            ded.append(r)
         for label, col, fname in (('variant_count', 1, 'label_variant_count'),
                                   ('parish_spread', 2, 'label_parish_spread')):
-            path = os.path.join(HERE, '%s.%s.tsv' % (fname, L))
-            with open(path, 'w', encoding='utf-8', newline='') as f:
-                w = csv.writer(f, delimiter='\t', lineterminator='\n')
-                w.writerow(HDR)
-                for r in rs:
-                    w.writerow([r[0], r[col], r[0], 'filter_poem_id', r[3], r[4],
-                                r[5], r[8] if label == 'variant_count' else '',
-                                r[6], r[7], r[9], r[10]])
+            for suffix, data in (('', rs), ('.dedup', ded)):
+                path = os.path.join(HERE, '%s.%s%s.tsv' % (fname, L, suffix))
+                with open(path, 'w', encoding='utf-8', newline='') as f:
+                    w = csv.writer(f, delimiter='\t', lineterminator='\n')
+                    w.writerow(HDR)
+                    for r in data:
+                        w.writerow([r[0], r[col], r[0], 'filter_poem_id', r[3], r[4],
+                                    r[5], r[8] if label == 'variant_count' else '',
+                                    r[6], r[7], r[9], r[10]])
         vals = [r[1] for r in rs]
         sp = [r[2] for r in rs]
         disagree = sum(1 for r in rs if r[1] != r[8])
         out['cells'][L] = {
             'rows': len(rs),
+            'rows_dedup': len(ded),
+            'rows_dropped_by_dedup': len(rs) - len(ded),
             'variant_count_max': max(vals), 'variant_count_mean': round(sum(vals) / len(vals), 3),
             'variant_count_median': sorted(vals)[len(vals) // 2],
             'zero_after_leave_one_out': sum(1 for v in vals if v == 0),

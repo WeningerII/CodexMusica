@@ -20,3 +20,10 @@ data/authority_src/
 # Derived label tables — regenerate with data/labels/*/build_*.py
 # The build scripts and build_report.json ARE tracked; the outputs are not.
 data/labels/**/*.tsv
+# Fetched source-text caches under label builders. NEVER commit these: they
+# hold upstream corpus text, including corpora the provenance gate REFUSED
+# (GRETIL is CC BY-NC-SA). Committing them would reintroduce, as repo content,
+# exactly the material the gate exists to keep out.
+data/labels/**/.*_cache/
+data/labels/**/*_cache/
+data/labels/**/*.err
