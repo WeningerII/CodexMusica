@@ -4,16 +4,26 @@
 versus `features.py`: the labels and predicted directions below were fixed first,
 so no feature can be fitted to a label it has already seen.
 
-## Why this corpus and not Tin Pan Alley
+## Why this corpus, and why no corpus is privileged
 
-The design we want is *survived vs. forgotten, same era, same idiom, same
-publishing system*. The intended corpus was sheet-music lyrics 1900–1929 (Levy,
-IN Harmony, LOC American Sheet Music, HathiTrust). **All of those hosts are
-403-blocked by this environment's network policy**, along with Project Gutenberg
-and every mirror tested. Only GitHub, PyPI and npm are reachable.
+The design is *survived vs. forgotten, holding era, idiom and publishing system
+constant*. That design is **language-agnostic by construction**: it requires only
+a tradition with high production volume and a surviving curation record, and
+those exist in many traditions. No single corpus — in any language — is the
+oracle, and none should be named as the intended one.
 
-So this runs the same design on the cleanest contrast that *is* reachable, and
-states its limits rather than pretending it is the intended experiment.
+That is not a stylistic preference. It is forced by this study's own result:
+five of ten features **invert** between the two experiments below. A feature set
+fitted to one corpus does not return a narrow answer, it returns a confidently
+wrong one. Privileging any single corpus makes every downstream conclusion hang
+on that choice, which is precisely the failure mode to avoid.
+
+This run uses Shakespeare because it is the only contrast reachable from this
+container (see the network note in `fetch_data.py`) and because within-author
+comparison eliminates confounds by construction. It is **an instance of the
+design, not the referent of it.** English is one cell in a matrix. Results here
+are not evidence about verse in general until at least one non-English cell has
+been run.
 
 ## Experiment 1 — within-author survival (clean design, weak power)
 

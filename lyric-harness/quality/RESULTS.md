@@ -125,10 +125,13 @@ Reported because a pre-registration that only reports its wins is decoration.
 
 ## Caveats that materially limit these numbers
 
-1. **The intended corpus was unreachable.** Tin Pan Alley 1900–1929 — mass
-   production plus a curation record, the actual survived/forgotten contrast —
-   is 403 at this environment's gateway, as are Gutenberg, archive.org, Levy,
-   HathiTrust and Wikisource. Everything here is the substitute.
+1. **This is one cell, and English is not the referent.** The survived/forgotten
+   design needs only a tradition with high production volume and a surviving
+   curation record; many traditions qualify. Shakespeare is used here because it
+   is the only contrast reachable from this container, not because English is
+   central. Nothing below is evidence about verse in general until a non-English
+   cell has been run — and the inversion result above is the reason to insist on
+   that rather than treat it as diligence.
 2. **The survival label is model-derived.** Anthologization is a fact about the
    world, not a taste judgment, which is what makes it admissible — but it was
    not read from an anthology concordance, because those are behind the same
@@ -149,12 +152,17 @@ Reported because a pre-registration that only reports its wins is decoration.
 
 1. **Rebuild the survival label from an anthology concordance** (Palgrave, Oxford
    Book of English Verse — both public domain). Removes caveat 2 entirely.
-2. **Get the Tin Pan Alley corpus.** Needs either a network policy that permits
-   the archive hosts, or the files staged locally. This is the difference between
-   a proxy experiment and the real one.
+2. **Run a second cell in a different language before trusting any feature.**
+   The inversion result makes single-corpus conclusions unsafe by demonstration,
+   not by principle. Which tradition goes second is an open question for the
+   research pass, and should be chosen on phonological tractability and the
+   existence of a curation record — not on corpus size or familiarity.
 3. **Second and third generators for Experiment 2**, so 0.971 becomes a claim
    about generated verse rather than about this model's sonnets.
-4. **Port to the second tradition.** Arabic is the cheapest — the grammarians
-   specify the qafiya components directly, the dīwān tradition has the curation
-   record, and APCD/Shamela are large. The first cross-tradition comparison is
-   where "universal" stops being a guess.
+4. **Establish which of these ten features are language-agnostic at all.**
+   Several are English artifacts on their face: `syntactic_inversion_rate`
+   presumes configurational word order, `function_word_ratio` presumes a
+   function/content split that is not clean in agglutinative or polysynthetic
+   languages, and Brysbaert concreteness is an English norming study. A feature
+   that cannot be stated without reference to English cannot be a universal, and
+   should not be carried into a second cell unchanged.

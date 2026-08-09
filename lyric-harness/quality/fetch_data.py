@@ -2,9 +2,16 @@
 """Stage the lexical resources the quality layer needs.
 
 Everything here is fetched from hosts this environment's network policy
-permits (GitHub raw, PyPI). The archive hosts that would give us a real
-survived/forgotten song corpus -- Gutenberg, archive.org, Levy, HathiTrust,
-Wikisource -- are all 403 at the gateway; see quality/PREREGISTRATION.md.
+permits (GitHub raw, PyPI). Most text-archive hosts, including Gutenberg and
+archive.org, are 403 at the gateway, which is why the corpus used in the first
+run is the one that happened to be reachable rather than one chosen on merit.
+See quality/PREREGISTRATION.md -- no corpus here is privileged, and English is
+one cell in a matrix, not the referent.
+
+Note also that the resources staged below are English-specific: Brysbaert
+concreteness is an English norming study and the tagger is an English model.
+Any port to a second tradition needs its own equivalents, and features that
+cannot be restated without them are not language-agnostic.
 """
 
 import os
