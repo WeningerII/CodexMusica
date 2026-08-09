@@ -76,3 +76,25 @@ lines only -> re-check. Model never self-certifies.
 Never abbreviate project names: Codex Musica, Pantheon Registry,
 Deus ex Homine, Chocolate Secrets. No artist/producer names as
 descriptors in any generation-facing output — era+region+technique.
+
+## Quality layer (quality/)
+Separate from the correctness engine above and deliberately so: the harness
+grades whether a rhyme is *correct*, this grades whether the writing is any
+good. Ten pre-registered features (quality/PREREGISTRATION.md), a
+discrimination test (quality/discriminate.py), results in quality/RESULTS.md.
+
+Doctrine additions, earned from the first run — do not drift from these either:
+6. **No weighted quality score, ever.** The features stay a vector. The
+   exchange rate between surprise and clarity is not derivable; it is a
+   genre's answer, so it belongs in a declaration, not in a constant.
+7. **Rejection, not selection.** Detecting bad writing held-out at AUC 0.971;
+   ranking good writing at 0.709. Enforce a floor, do not order the permitted
+   region.
+8. **Never fit on one tradition.** Five of ten features INVERT between the
+   two experiments. A single corpus does not give a narrow answer, it gives a
+   confidently wrong one; Experiment 2 alone would have recommended optimizing
+   toward archaic pastiche. Cross-tradition replication is the error bar.
+9. **Optimizing toward the phonetic maximum is the slop direction.** Handing a
+   model "L2-L4 below theta" makes it reach for the highest-scoring rhyme,
+   which is the most predictable one. A revision protocol must push away from
+   the optimum: pass the band, but not by taking the modal candidate.

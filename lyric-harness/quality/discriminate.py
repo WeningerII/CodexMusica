@@ -160,6 +160,57 @@ def run_experiment(title, rows_a, rows_b, label_a, label_b, note=""):
     return results, keep, hits
 
 
+def joint_classifier(rows_a, rows_b, names=None, folds=5, seed=SEED):
+    """Held-out AUC for all features used jointly.
+
+    The per-feature table answers 'does this feature track the label'. This
+    answers the product question instead: could the feature set actually gate
+    text it has never seen. Cross-validated, because a fit reported on its own
+    training data is not evidence of anything.
+    """
+    try:
+        import numpy as np
+        from sklearn.linear_model import LogisticRegression
+        from sklearn.model_selection import StratifiedKFold
+        from sklearn.metrics import roc_auc_score
+        from sklearn.pipeline import make_pipeline
+        from sklearn.preprocessing import StandardScaler
+        from sklearn.impute import SimpleImputer
+    except ImportError:
+        print("\n  (joint classifier skipped: scikit-learn not installed)")
+        return None
+
+    names = names or QualityFeatures.NAMES
+    X = np.array([[r.get(n, np.nan) for n in names] for _, r in rows_a]
+                 + [[r.get(n, np.nan) for n in names] for _, r in rows_b],
+                 dtype=float)
+    y = np.array([1] * len(rows_a) + [0] * len(rows_b))
+    n_min = min(int((y == 1).sum()), int((y == 0).sum()))
+    if n_min < folds:
+        folds = max(2, n_min)
+    pipe = make_pipeline(SimpleImputer(strategy="median"), StandardScaler(),
+                         LogisticRegression(max_iter=2000, C=1.0))
+    skf = StratifiedKFold(n_splits=folds, shuffle=True, random_state=seed)
+    oof = np.zeros(len(y), dtype=float)
+    for tr, te in skf.split(X, y):
+        pipe.fit(X[tr], y[tr])
+        oof[te] = pipe.predict_proba(X[te])[:, 1]
+    return float(roc_auc_score(y, oof))
+
+
+def report_joint(rows_a, rows_b, label_a, label_b):
+    full = joint_classifier(rows_a, rows_b)
+    if full is None:
+        return
+    print(f"\n  joint held-out AUC, all 10 features ({label_a} vs {label_b})"
+          f": {full:.3f}")
+    solo = joint_classifier(rows_a, rows_b,
+                            names=["rhyme_predictability_mean",
+                                   "rhyme_predictability_min"])
+    print(f"  joint held-out AUC, rhyme-predictability only          "
+          f": {solo:.3f}")
+
+
 def main():
     qf = QualityFeatures()
     cache = {}
@@ -175,6 +226,7 @@ def main():
         rows_s, rows_f, "survived", "forgotten",
         note=("one author, one form, one era, one register — confounds "
               "eliminated by construction; power is the cost"))
+    report_joint(rows_s, rows_f, "survived", "forgotten")
 
     # ---------------- Experiment 2: generated-text detection --------------
     generated = load_generated()
@@ -188,6 +240,7 @@ def main():
             rows_h, rows_g, "human", "generated",
             note=("CONFOUNDED: generation-in-imitation leaves pastiche "
                   "artifacts; a hit here may detect imitation, not slop"))
+        report_joint(rows_h, rows_g, "human", "generated")
     else:
         print("\n(Experiment 2 skipped: no generated corpus staged)")
 
