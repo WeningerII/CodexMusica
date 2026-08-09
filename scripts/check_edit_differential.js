@@ -205,10 +205,14 @@ const OPS_TABLE = {
       return { idx, part: part.id, variant: vs[Math.floor(rnd() * vs.length)].id };
     },
     label: (a) => `set_variant(#${a.idx}, ${a.part}=${a.variant})`,
+    // applyPartEdit, not reconfigureAfterPartEdit: the latter is the cascade the
+    // browser runs ONLY for material parts, so calling it directly reached past
+    // the guard and made this harness blind to the difference on the 1052 of
+    // 1406 instruments that have no material part.
     appply: (a) => {
       const card = app.app.cards[a.idx];
       card.parts[a.part] = a.variant;
-      app.reconfigureAfterPartEdit(card, a.part);
+      app.applyPartEdit(card, a.part);
     },
     conn: (ws, a) => W.setVariant(ws, ws.cards[a.idx].id, a.part, a.variant),
   },

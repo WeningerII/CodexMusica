@@ -36,6 +36,12 @@ const EXPORTED = [
   'addCard',
   'rmCard',
   'makeCard',
+  // The REAL browser branch for a variant pick, guard included. The parity gates
+  // used to call reconfigureAfterPartEdit directly, which reaches past the guard
+  // and made them blind to the one difference that mattered: the app cascades
+  // only on material parts, and 1052 of 1406 instruments have none. Gates must
+  // call this, not the cascade.
+  'applyPartEdit',
 ];
 
 function loadApp() {

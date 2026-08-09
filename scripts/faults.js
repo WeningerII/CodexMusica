@@ -27,7 +27,10 @@
 //   drifted frozen DF   -> build_descriptor_df.js --check (app.js DF block != the JSON)
 //   stale frozen DF     -> build_descriptor_df.js --check (the freeze fell behind the catalog)
 //   stdout lost to exit -> check_cli_output.js      (process.exit drops the unflushed pipe queue)
+//   corrupt spend file -> mcp/test.mjs  (a negative usd would hand spent budget back)
+//   connector over-cascades -> check_edit_parity.js (guard the app has, the connector lacked)
 //   renderer fork drift -> check_edit_differential.js (one engine's copy changes, the other's doesn't)
+//   input outside closure -> check_build_closure.js  (CI would skip a rebuild it needed)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -869,6 +872,110 @@ record(
     'favicon-raster-drift -> build_favicon.js',
     gate(d, ['scripts/build_favicon.js', '--check']),
     /do not match favicon\.svg|assets:favicon/i
+  );
+}
+
+// a build input falls outside the closure -> check_build_closure.js
+//
+// The CI scope step skips the 30-minute rebuild when no changed path is in the
+// artifact build closure. If a real build input is ever classified inert, that
+// skip fires on a diff that needed the rebuild and a stale artifact ships with
+// every other gate green — the failure this repo has already had twice.
+//
+// So plant exactly that: widen an inert rule to swallow scripts/, which is where
+// eleven real inputs live. Nothing about the build changes; only the classifier
+// lies. Caught only by the trace — no static review of the rule would notice,
+// which is why the gate runs a real build instead of reading its own list.
+{
+  // build_discovery.js refuses to emit a sitemap URL with no file behind it, so
+  // the staged tree needs every ENTRY_POINTS target (build_discovery.js:169) —
+  // it only stats them, never reads them, which is also why editing a .md
+  // cannot move sitemap.xml and the docs-only skip was sound to begin with.
+  const d = mkenv([
+    'scripts',
+    'references',
+    'src',
+    'mcp',
+    'api',
+    'package.json',
+    'index.html',
+    'codex.html',
+    'AGENTS.md',
+    'SKILL.md',
+    'server.json',
+  ]);
+  const f = path.join(d, 'scripts/_build_closure.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const marker = "if (p.startsWith('scripts/')) {";
+  if (!src.includes(marker)) throw new Error('faults: _build_closure.js scripts branch not found');
+  fs.writeFileSync(
+    f,
+    src.replace(
+      marker,
+      `${marker}\n    return { kind: 'inert', why: 'FAULT: scripts are never inputs' };`
+    )
+  );
+  record(
+    'build-input-outside-closure -> check_build_closure.js',
+    gate(d, ['scripts/check_build_closure.js']),
+    /classified inert|outside the closure/i
+  );
+}
+
+// a corrupt spend file hands budget back -> mcp/test.mjs
+//
+// mcp/spend_store.js reads the daily spend counters from disk when the
+// deployment has somewhere to keep them. That file is the ONE input that can
+// RAISE the remaining budget, so it is validated on read: anything not a finite
+// non-negative number is zero. Drop the validation and a negative `usd` — from a
+// truncated write, a half-flushed crash, or anyone who can touch the disk —
+// restores budget that was already spent, and the cap silently stops capping.
+//
+// Planted by making the validator an identity function, which is exactly the
+// shape "just parse the JSON" would have.
+{
+  // render.yaml and src/ are staged because mcp/test.mjs also asserts the
+  // deployed model is priceable and that the chat field's maxlength matches the
+  // server's — both read the repo. Without them those two checks fail for a
+  // missing file, which is noise that could mask the planted defect.
+  const d = mkenv(['mcp', 'scripts', 'references', 'render.yaml', 'src']);
+  const f = path.join(d, 'mcp/spend_store.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const marker = 'const num = (v) => (Number.isFinite(v) && v >= 0 ? v : 0);';
+  if (!src.includes(marker)) throw new Error('faults: spend_store validator not found');
+  fs.writeFileSync(f, src.replace(marker, 'const num = (v) => v;'));
+  record(
+    'corrupt-spend-file-widens-cap -> mcp/test.mjs',
+    gate(d, ['mcp/test.mjs']),
+    /cannot widen the cap|negative spend must not restore budget/i
+  );
+}
+
+// the connector cascades where the browser does not -> check_edit_parity.js
+//
+// A variant pick takes one of two paths in the browser (src/app.js:applyPartEdit):
+// a MATERIAL part runs the full inverse cascade, anything else re-derives the
+// preface and stops. Only 354 of 1406 instruments have a material part, so the
+// second path is the common one.
+//
+// This is the defect the repo actually shipped: _workspace_ops.setVariant
+// cascaded unconditionally, and BOTH parity gates missed it because they called
+// reconfigureAfterPartEdit directly — reaching past the guard, comparing cascade
+// against cascade, and agreeing. Measured at the time: 66 of 1321 single-variant
+// edits rendered a different recipe across the two surfaces.
+//
+// Planted by neutering the guard, which is exactly the prior state.
+{
+  const d = mkenv(['scripts', 'references', 'src']);
+  const f = path.join(d, 'scripts/_workspace_ops.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const marker = '  if (!isMaterialPart) {';
+  if (!src.includes(marker)) throw new Error('faults: setVariant material guard not found');
+  fs.writeFileSync(f, src.replace(marker, '  if (false) {'));
+  record(
+    'connector-cascades-where-app-does-not -> check_edit_parity.js',
+    gate(d, ['scripts/check_edit_parity.js']),
+    /diverged in card state|post-edit render\(s\) diverged/i
   );
 }
 

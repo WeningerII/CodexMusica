@@ -352,20 +352,78 @@ Six findings were refuted outright. Each teaches something about the repo:
 
 | # | Action | Effort | Clears |
 |---|---|---|---|
-| 1 | **Fix the pwn request.** Gate `sync-pages.yml` on `workflow_run.event == 'push'` **and** `head_repository.full_name == github.repository`, or move publishing into the trusted `push` workflow. Add `--ignore-scripts` to the publish install. | S | F039, F193 |
-| 2 | **Correct the privacy claims.** Both `PRIVACY.md` and the connector-directory submission state "no outbound network calls" while chat forwards conversations to Google. Rewrite before any code work — it is a factual misstatement in a published policy. | S | F089, F091 |
-| 3 | **Bound the connector's inputs.** `.max()` on `traditions`, `edits`, and `workspace.cards` in `schemas.js`; only cache known `traditionId`s and bound `_baselineCards`; add in-process rate limiting to `/mcp`. | S | F179, F183, F184, F022 |
-| 4 | **Align the preface lock predicate** across both renderers (one field, one meaning), and add render-after-edit cases to `check_edit_parity.js`. | S | F015, F054, F077, F090 |
-| 5 | **Fix the chunk-kind collapse** in `compressProseRecipe`/`compressRichRecipe`: never let an env chunk absorb an instrument chunk, and emit the elision notice when a card is dropped. | S | F001 |
-| 6 | **Make `search_catalog` usable and fast**: dedupe variants by id, attach the owning `(instrument, part)`, hoist the per-row RegExp, build a lowercased index at boot. | M | F023, F045, F167, F168, F169, F170 |
-| 7 | **Cap and debounce the UI hot paths**: top-50 rendered rows with delegated listeners in the tradition picker; membership-mask iteration replacing the 2^N loop. | M | F047, F002, F136, F135, F134 |
-| 8 | **Hash the input closure for CI**: when `references/` and the engine scripts are unchanged, skip the 30-minute rebuild and reuse the committed `api/`. | M | F049, F131 |
+| 1 | ~~**Fix the pwn request.** Gate `sync-pages.yml` on `workflow_run.event == 'push'` **and** `head_repository.full_name == github.repository`, or move publishing into the trusted `push` workflow. Add `--ignore-scripts` to the publish install.~~ **DONE** — `workflow_run.event == 'push'` + `head_repository.full_name == github.repository`, `npm ci --ignore-scripts`. | S | F039, F193 |
+| 2 | ~~**Correct the privacy claims.** Both `PRIVACY.md` and the connector-directory submission state "no outbound network calls" while chat forwards conversations to Google. Rewrite before any code work — it is a factual misstatement in a published policy.~~ **DONE** — both files now scope the claim to the MCP surface and disclose the `/chat` → Google Gemini egress. | S | F089, F091 |
+| 3 | ~~**Bound the connector's inputs.** `.max()` on `traditions`, `edits`, and `workspace.cards` in `schemas.js`; only cache known `traditionId`s and bound `_baselineCards`; add in-process rate limiting to `/mcp`.~~ **DONE** — `MAX_TRADITIONS_PER_CALL` / `MAX_EDITS_PER_CALL` / `MAX_WORKSPACE_CARDS`, bounded `_baselineCards`, shared per-IP limiter in `mcp/ratelimit.js`. | S | F179, F183, F184, F022 |
+| 4 | ~~**Align the preface lock predicate** across both renderers (one field, one meaning), and add render-after-edit cases to `check_edit_parity.js`.~~ **DONE** — both renderers key on `prefaceAuto === false`, and `check_edit_parity` now compares the rendered recipe after each edit, not only card state. | S | F015, F054, F077, F090 |
+| 5 | ~~**Fix the chunk-kind collapse** in `compressProseRecipe`/`compressRichRecipe`: never let an env chunk absorb an instrument chunk, and emit the elision notice when a card is dropped.~~ **DONE** — `groupKeyOf` partitions the collapse by chunk kind, so an env chunk can no longer absorb an instrument chunk. | S | F001 |
+| 6 | ~~**Make `search_catalog` usable and fast**: dedupe variants by id, attach the owning `(instrument, part)`, hoist the per-row RegExp, build a lowercased index at boot.~~ **DONE** — variants deduped by id with their owning (instrument, part), per-term matchers hoisted, lowercased index built at boot; `curated_for` added so availability and provenance are distinguishable. | M | F023, F045, F167, F168, F169, F170 |
+| 7 | ~~**Cap and debounce the UI hot paths**: top-50 rendered rows with delegated listeners in the tradition picker; membership-mask iteration replacing the 2^N loop.~~ **DONE**. Picker cap + 30ms debounce + search index and the membership-mask rewrite landed first (F047, F002). The three perf findings followed, each measured before and after: F135 `compressTagsRecipe` 102.9→48.6ms by hoisting `_kebab` out of the trim loop, memoising `_descriptorTier` and caching per-chunk text; F134 the sidebar's recipe compile 36.19→0.10ms on a click that changes nothing, memoised on a content key; F136 `renderSidebarTraditions` 91.4→6.9ms and 94→10 listener attachments, by skipping the `innerHTML` write when the rendered HTML is byte-identical to what is already mounted. | M | F047, F002, F136, F135, F134 |
+| 8 | ~~**Hash the input closure for CI**: when `references/` and the engine scripts are unchanged, skip the 30-minute rebuild and reuse the committed `api/`.~~ **DONE** — `scripts/_build_closure.js` + `check_build_closure.js`. The prior scope step deliberately refused to compute a closure, on the grounds that guessing it wrong fails silently in the dangerous direction. That objection was right about *guessing*, so nothing is guessed: the script side is the derived require-graph of the three builders, everything else is deny-by-default, and the derivation is proven by tracing a real build and failing on any input classified inert. That trace found a genuine hole on its first run (`build_html.js` splices `_card_descriptors.js` in by path, not by `require`). | M | F049, F131 |
 | 9 | ~~**Replace the parity matrix with one seeded differential harness** that applies random edit scripts through both surfaces and byte-compares renders; add a non-default-locale CI leg and a lint ban on bare `localeCompare`; correct the two in-source comments that claim protection that does not exist.~~ **DONE** — `scripts/check_edit_differential.js`. Not a *replacement*: the matrix stays. It names behaviours in readable prose and localises a failure to one action; the harness explores the composition space the matrix cannot enumerate. Demonstrated rather than argued — a one-sided renderer-fork plant is caught by the harness and **passed by both `check_edit_parity` and `check_app_parity`**. Locale leg (`check_locale_invariance.js`), `localeCompare` lint ban, and the two false comments were done earlier. | L | F059, F084, F139, F140, F156, F200, F202, F203, F155 |
 | 10 | **Tell the truth in the metadata**: regenerate `server.json` and byte-gate it like its peers; reconcile the two "default recipe" pipelines in `llms.txt`/`AGENTS.md`; add `npx playwright install` to the README quick start; decide whether the `LICENSE` matches the invitation the docs extend. | S | F093, F094, F056, F129, F130, F186, F095 |
+| 11 | **Protect `main`** — added after the audit, and it outranks everything above it. `main` is unprotected (`"protected": false`, live API), so every gate in this document is advisory: #135 merged 8 seconds after opening with CI not started, #125 merged with `verify` and `freshness` both red. `catalog-result` has been added so the broadest gate can be required, and `docs/branch-protection.md` carries the config. Applying it is a repository setting, so it is the one item here that cannot be done in a commit. | S | F206 |
 
 Items 1–5 are all small and together clear the critical finding, both DoS classes, the flagship broken promise, and the corrupted output. They are one afternoon's work and they change the repo's risk profile completely.
 
 ---
+
+## 9b. Remediation log — what actually shipped
+
+The plan above is what was recommended. This is what was done, and where the
+doing disagreed with the recommendation. Every number here was measured on this
+repository rather than estimated.
+
+**Nine of the ten plan items are complete; two decisions remain open, and both
+are the user's rather than an engineer's.** Item 10 is done except for the
+`LICENSE` question — the file says "All rights reserved… proprietary and
+confidential" while the docs invite clone-and-run, and which of those is wrong is
+a business call. Item 11, which the audit did not find, needs a repository
+setting applied.
+
+The 650 instruments with no material data authored are also left open
+deliberately: writing plausible-sounding materials for hundreds of instruments
+that cannot be verified is a different activity from everything else here, and it
+would put unsourced claims into a catalog whose whole value is that its defaults
+are researched.
+
+Four things the remediation learned that the audit did not:
+
+1. **Two of the gates that guard the forked renderers were blind by
+   construction.** `check_edit_parity` and `check_edit_differential` both called
+   `reconfigureAfterPartEdit` directly — the cascade, not the branch — so they
+   compared cascade against cascade and agreed, while the browser was not
+   cascading at all for the 1052 of 1406 instruments with no material part. The
+   registered promise `connector-edit-parity` was false for the majority of
+   variant edits while its gate was green. 66 of 1321 single-variant edits
+   rendered a different recipe across the two surfaces; 0 after the fix.
+
+2. **A gate can pass on the defect it was written for.** The first version of
+   `check_cli_output` piped each command three times and compared byte counts,
+   and it passed with the truncation defect reinjected — the bug is a race that
+   only fires when the reader lags. The rewrite forces the condition by holding
+   the pipe unread. Written down because "I added a gate" is not the same claim
+   as "the gate goes red", and the difference was invisible here.
+
+3. **Async assertions in `mcp/test.mjs` never ran.** `check()` called `fn()`
+   inside a try/catch; an async callback returns a promise rather than throwing,
+   so the catch never fired and both async checks reported success
+   unconditionally. Found by planting a real mismatch and watching it still say
+   `ok`.
+
+4. **"Missing catalog data" was mostly missing predicates.** Of the instruments
+   that could not take a material edit, 178 already carried curated wood variants
+   on parts the tonewood name-test did not recognise, 1 (the aulos) was excluded
+   by a plural, and 139 more sat on membrane and metal parts for which no
+   universal pool existed at all. Exactly one instrument, the phorminx, needed
+   data authored. 354 → 643 instruments, with the merge ending up *faster* than
+   it started (183ms → 142ms) once the per-part `Object.assign` was replaced by
+   one shared copy per lent variant.
+
+Where the remediation declined a recommendation, it says so in the finding:
+F060's structural hoist (declined, reasons recorded) and the parity matrix, which
+item 9 proposed replacing and which was kept alongside the new harness because a
+plant that separates them exists and is now a fault class.
 
 ## 10. Appendix — all findings
 
@@ -374,6 +432,7 @@ Every finding raised, including those refuted or merged. `CONFIRMED` means an in
 | ID | Sev | Status | Category | Location | Finding |
 |---|---|---|---|---|---|
 | F039 | critical | CONFIRMED | ci-security | `.github/workflows/sync-pages.yml:53` | sync-pages.yml checks out and executes workflow_run head_sha with contents:write — fork-PR code-execution / main-branch compromise path |
+| F206 | critical | CONFIRMED (post-audit) | ci-security | repository settings | `main` is unprotected — `"protected": false` from the live branches API — so no gate in this document is required to pass before a merge. Measured on real history: #135 merged 8 seconds after opening with its only CI run not yet started; #125 merged with `verify` and `freshness` both red; #136 merged with no run on main at all. This is also the answer to the long-standing "why did #136/#137 produce no CI run" question: nothing required one. Not fixable in a commit — `docs/branch-protection.md` carries the ruleset config, and `catalog-result` was added to `ci.yml` so the catalog shards can be required without a matrix-name or skipped-job deadlock. |
 | F001 | high | CONFIRMED | correctness | `src/app.js:2612` | Prose/Rich trailing-token collapse merges environment chunks into instrument chunks, garbling recipes and deleting instrument identity under budget pressure |
 | F002 | high | CONFIRMED | performance | `src/app.js:16940` | Recipe-stack modal enumerates all 2^N-1 descriptor-set subsets with no card cap — multi-minute UI freeze at ~22-30 cards, silently wrong at 31+ |
 | F015 | high | CONFIRMED | correctness | `scripts/_workspace_ops.js:168` | set_variant renders a different preface label in the connector than in the app on every material edit |
@@ -561,7 +620,7 @@ Every finding raised, including those refuted or merged. `CONFIRMED` means an in
 | F031 | medium | merged | correctness | `scripts/_recipe_stack.js:932` | Prose/compact final truncation uses slice(0, ceiling-16) without the Math.max(0,...) guard, so small ceilings return far MORE than requested |
 | F034 | medium | merged | correctness | `scripts/_workspace_ops.js:101` | addInstrument's guest-card path drops the tradition's chain and parts overrides despite the docstring promising env inheritance |
 | F040 | medium | merged | security | `mcp/chat.js:234` | Unauthenticated POST /chat with a 64-char non-hex `sig` throws in verify() outside the try block → 500 + leaked stack trace |
-| F060 | medium | PARTLY FIXED | architecture | `scripts/_workspace_ops.js:299` | Environment is stored per-card, rendered from cards[0] only, and optimized on any card — the seam where the next feature hurts most. **The predicted break happened**: a card built outside a tradition has no environment, and `addTradition` appends, so a bare instrument added first sat at index 0 and every format rendered NO tuning, room or chain while the header still named the genre. Reachable from the app and (via `add_instrument` + `remove_tradition`) from the connector. Fixed at the render seam by `envCardOf` — first card that HAS an environment, taken whole, deliberately not a field-by-field merge that would render a combination no card holds. Byte-safe: the full `api/` rebuild is identical across all 2,503 traditions. The structural fix — hoisting environment out of cards onto the workspace — remains open. |
+| F060 | medium | FIXED AT THE SEAM, HOIST DECLINED | architecture | `scripts/_workspace_ops.js:299` | Environment is stored per-card, rendered from one card only, and optimizable on any card — the seam where the next feature hurts most. **The predicted break happened**: a card built outside a tradition has no environment and `addTradition` appends, so a bare instrument added first sat at index 0 and every format rendered NO tuning, room or chain while the header still named the genre. Reachable from the app and, via `add_instrument` + `remove_tradition`, from the connector. Fixed at the render seam by `envCardOf` — first card that HAS an environment, taken whole, deliberately not a field-by-field merge that would render a combination no card holds. Byte-safe: the full `api/` rebuild was identical across all 2,503 traditions. **The structural hoist (one workspace environment instead of N replicas) is DECLINED**, not deferred. Three reasons, checked rather than assumed: the user-visible defect is gone, so the remaining benefit is internal tidiness; the workspace is threaded back verbatim by the model between calls and its cards are typed `z.array(z.any())` (`mcp/schemas.js:67`), so changing the card shape breaks every conversation in flight across a deploy, for no output change; and `set_environment` takes a per-card `card` argument (`mcp/schemas.js:90`, defaulting to `ws.cards[0].id` at `mcp/engine.js:349`) that a hoist makes meaningless — leaving callers a parameter that is either removed or silently ignored. **Residual, stated rather than closed over**: per-card storage still permits a card whose environment no format renders, so an edit to a non-primary card can report a change that never reaches the recipe (the F032 phantom-env shape). `envCardOf` narrowed that but did not remove it. The cheap mitigation, if it ever bites, is for the connector to FLAG divergent environments in its response rather than for the data model to make divergence impossible. |
 | F068 | medium | merged | docs | `scripts/_preface_match.js:91` | _preface_match.js justifies rank()'s sort order with a claim its own consumer disproves |
 | F069 | medium | merged | docs | `scripts/_inverse_configure.js:61` | Stale 'the connector/CLI don't pin today' comment survives in _inverse_configure.js while a sibling file narrates its fix in past tense |
 | F097 | medium | merged | testing | `scripts/faults.js:861` | 'Every gate is proven to fail on a planted defect' (gates-two-sided) is enforced only over registry-bound gates; the flagship regression suites have no fault class |

@@ -2958,8 +2958,22 @@ const _TEXTURE_TOKENS = new Set([
   'sweet','mellow','rich','full','open','tight','loose','airy','dense',
 ]);
 
+// Memoised because the tags trim loop asks the same question thousands of times
+// per render: it re-scores the last token of EVERY chunk on every single pop,
+// and a 42-card roster pops hundreds of times. The answer is a pure function of
+// the token — the sets and regexes below are module constants — so caching it
+// cannot change a byte, only the clock. Keyed by the raw token, so the
+// non-string early return is handled before the cache is consulted.
+const _TIER_MEMO = new Map();
 function _descriptorTier(token) {
   if (typeof token !== 'string') return 2;
+  const hit = _TIER_MEMO.get(token);
+  if (hit !== undefined) return hit;
+  const tier = _descriptorTierUncached(token);
+  _TIER_MEMO.set(token, tier);
+  return tier;
+}
+function _descriptorTierUncached(token) {
   // Tier 1 — physical reference via segment match
   const segs = token.toLowerCase().split('-');
   for (const seg of segs) {
@@ -13595,6 +13609,41 @@ function commitPrefaceChange(card, prefaceId) {
   }
 }
 
+// THE STATE HALF OF A VARIANT PICK. Everything the browser does to a card when a
+// human chooses a variant, minus the DOM.
+//
+// Extracted because it was inline in handleCardClick, which meant no gate could
+// call it: check_edit_parity and check_edit_differential both reached past it to
+// reconfigureAfterPartEdit, so they compared the CASCADE against the connector's
+// cascade and agreed — while the browser was not running a cascade at all for
+// most parts. The guard below is the difference, and it applies to the large
+// majority of the catalog: only 354 of 1406 instruments carry a part with lent
+// (`expanded`) material variants, so on the other 1052 a variant pick re-derives
+// the preface and nothing else. Measured before this was extracted: 66 of 1321
+// single-variant edits rendered a DIFFERENT recipe through the two surfaces,
+// every one of them on a non-material part and none on a material part.
+//
+// Returns whether the edit ran the full cascade, which is exactly the condition
+// under which the browser pushes a history entry — the caller owns pushHistory()
+// and rerenderCard(), as it did when this was inline.
+function applyPartEdit(card, partId) {
+  const inst = Inst(card.instrumentId);
+  const partDef = inst ? (inst.parts || []).find(p => p.id === partId) : null;
+  // Material parts (those carrying the universal cross-instrument materials)
+  // trigger the full inverse cascade toward the re-derived preface — the same
+  // machinery a preface pick runs — pinning the touched part so the user's
+  // choice is preserved, and surfacing every auto-applied change (shifts panel
+  // + toast). One history entry → one Ctrl+Z. Other parts keep the lightweight
+  // re-derive.
+  const isMaterialPart = !!(partDef && (partDef.variants || []).some(v => v.expanded));
+  if (isMaterialPart) {
+    reconfigureAfterPartEdit(card, partId);
+    return true;
+  }
+  if (card.prefaceAuto) card.preface = suggestPrefaceForCard(card);
+  return false;
+}
+
 // A manual part edit (picking a material / variant) reshapes the REST of the card
 // toward the preface the new sound implies — the same inverse cascade a preface
 // pick runs — while PINNING the edited part so the user's choice is never reverted.
@@ -13747,13 +13796,22 @@ function compressTagsRecipe(cards, ceiling) {
       });
     }
   }
-  const renderAll = () => {
-    const rendered = rebuilt.map(c => {
-      const head = c.preface ? `${c.preface} ${_kebab(c.label)}` : _kebab(c.label);
-      return c.descs.length ? `${head}: ${c.descs.join(' ')}` : head;
-    });
-    return _collapseSharedSuffixes(rendered).join(', ');
+  // The head — preface + kebab'd label — is fixed for the life of the trim: the
+  // phases below only pop descriptors and splice whole chunks, never rename one.
+  // It used to be rebuilt inside renderAll, which runs once per popped token, so
+  // _kebab (three regex passes) ran per chunk per pop and was the single largest
+  // cost in the tags renderer. Hoisting it changes no output.
+  for (const c of rebuilt) c.head = c.preface ? `${c.preface} ${_kebab(c.label)}` : _kebab(c.label);
+  // A pop changes exactly ONE chunk, so the other N-1 chunk strings are the same
+  // ones renderAll just built. Cache each chunk's text and invalidate only the
+  // chunk that was popped; the phases below splice whole chunks out, which needs
+  // no invalidation because the survivors are untouched. Same strings in the
+  // same order reach _collapseSharedSuffixes, so the output is unchanged.
+  const chunkText = (c) => {
+    if (c.text === undefined) c.text = c.descs.length ? `${c.head}: ${c.descs.join(' ')}` : c.head;
+    return c.text;
   };
+  const renderAll = () => _collapseSharedSuffixes(rebuilt.map(chunkText)).join(', ');
 
   // Phase A: round-robin pop of the lowest-priority token across chunks
   // until under ceiling. Each chunk's descs are pre-sorted by
@@ -13781,6 +13839,7 @@ function compressTagsRecipe(cards, ceiling) {
     }
     if (target < 0) break;
     rebuilt[target].descs.pop();
+    rebuilt[target].text = undefined; // the one chunk whose cached text is now stale
   }
 
   // Phase B: descriptor-trim exhausted. Drop env chunks from the end —
@@ -14760,7 +14819,9 @@ function renderSidebarFilter() {
 function renderSidebarTraditions() {
   const host = document.getElementById('sidebar-traditions');
   if (!host) return;
-  if (app.cards.length === 0) { host.innerHTML = ''; return; }
+  // Clear the paint key with the tree: an empty workspace followed by a rebuild
+  // to the same shape would otherwise skip a repaint it needed.
+  if (app.cards.length === 0) { host.innerHTML = ''; host._codexTreeHtml = ''; return; }
 
   const primaryCardId = _determinePrimaryCard(app.cards);
   const primaryCard = app.cards.find(c => c.id === primaryCardId);
@@ -14799,7 +14860,7 @@ function renderSidebarTraditions() {
   // has no down-arrow. __ungrouped__ always sorts last and isn't movable.
   const movableKeys = keys.filter(k => k !== '__ungrouped__');
 
-  host.innerHTML = keys.map(tradId => {
+  const treeHtml = keys.map(tradId => {
     const cards = groups.get(tradId);
     // Phase 4a: sort pinned cards first within each tradition group. Stable
     // sort preserves the existing within-pinned-bucket and within-unpinned-
@@ -14852,6 +14913,34 @@ function renderSidebarTraditions() {
       '</section>'
     );
   }).join('');
+
+  // IDENTICAL TREE ALREADY MOUNTED → leave it, and its listeners, alone.
+  //
+  // renderSidebar() runs on every interaction, and this is the expensive part
+  // of it: reassigning innerHTML throws away the whole subtree, reparses it,
+  // and then the six querySelectorAll loops below re-attach a listener per
+  // header, per move button, per delete button, per card and per add button.
+  // Measured in jsdom at a 42-card / 8-tradition roster: 91.4ms and 94 listener
+  // attachments for a render where nothing had changed (audit F136).
+  //
+  // The guard is the rendered HTML itself rather than a summary of the inputs.
+  // That is the point: a content key that IS the output cannot disagree with the
+  // output, so there is no set of app state this can get wrong — if one byte of
+  // the tree would differ, the string differs and we rebuild.
+  //
+  // Only the innerHTML write and the listeners are skipped. Anything a caller
+  // does to the host ELEMENT — classes, attributes, scroll position — is
+  // untouched by this and must stay outside the guard, which is why the check
+  // sits here and not at the top of the function. renderSidebarRecipePreview is
+  // the live example: it toggles is-expanded / is-collapsed on its host from
+  // state the innerHTML does not encode, so guarding that function on its HTML
+  // alone would freeze the chevron.
+  //
+  // The key lives on the element, so replacing the host (or reloading) loses it
+  // and the next render repaints — a cache miss, never a stale tree.
+  if (host._codexTreeHtml === treeHtml) return;
+  host.innerHTML = treeHtml;
+  host._codexTreeHtml = treeHtml;
 
   // Wire group-header toggles
   host.querySelectorAll('.sb-tradition-header').forEach(h => {
@@ -15088,6 +15177,9 @@ function renderSidebarStaple() {
 }
 // full workspace, with char count against the 1000-char ceiling, 3-band
 // progress bar, fade-truncated text, and "Open full stack →" → modal-recipe-stack.
+// Last compiled sidebar recipe, keyed on the card state that produced it. See
+// the lookup below for why this is a content key and not a dirty flag.
+let _recipePreviewCache = { key: null, text: '' };
 function renderSidebarRecipePreview() {
   const host = document.getElementById('sidebar-recipe-preview');
   if (!host) return;
@@ -15101,7 +15193,29 @@ function renderSidebarRecipePreview() {
   // pass. Earlier this called compressRichRecipe directly, which produced
   // a headerless body and skipped the dedup overrides; the two surfaces
   // had drifted apart visibly.
-  try { text = compileRecipeStack(app.cards, 'rich', { ceiling: CEILING }) || ''; } catch { text = ''; }
+  // Memoised on the cards themselves, because renderSidebar() runs on EVERY
+  // interaction — including ones that change no card at all, like collapsing a
+  // tradition group or toggling an accordion — and this line is the expensive
+  // part of it. Measured at 28-45ms for a 42-card roster on fast hardware, and
+  // mid-range mobile runs this class of JS 4-8x slower, so a pure-UI click was
+  // paying a fifth of a second to recompute a string that had not changed.
+  //
+  // Keyed on a serialisation of the cards rather than on a dirty flag: a flag
+  // has to be set at every mutation site and is wrong the first time someone
+  // adds a site and forgets. The key costs one pass over the cards against a
+  // compile that is orders of magnitude more work, and it cannot go stale.
+  //
+  // compileRecipeStack assigns deduped prefaces onto the cards as it runs, so
+  // the first call after a real edit changes the key it was looked up under.
+  // That settles on the second call (the dedup is a fixed point) and the cache
+  // hits from then on, which is exactly the pure-UI-click case this is for.
+  const key = CEILING + ' ' + JSON.stringify(app.cards);
+  if (_recipePreviewCache.key === key) {
+    text = _recipePreviewCache.text;
+  } else {
+    try { text = compileRecipeStack(app.cards, 'rich', { ceiling: CEILING }) || ''; } catch { text = ''; }
+    _recipePreviewCache = { key: CEILING + ' ' + JSON.stringify(app.cards), text };
+  }
   const len = text.length;
   const pct = Math.min(100, Math.round((len / CEILING) * 100));
   const band = pct > 90 ? 'is-red' : (pct > 70 ? 'is-amber' : '');
@@ -16848,14 +16962,8 @@ function handleCardClick(e, card) {
     // machinery a preface pick runs — pinning the touched part so the user's choice
     // is preserved, and surfacing every auto-applied change (shifts panel + toast).
     // One history entry → one Ctrl+Z. Other parts keep the lightweight re-derive.
-    const inst = Inst(card.instrumentId);
-    const partDef = inst ? (inst.parts || []).find(p => p.id === partId) : null;
-    const isMaterialPart = !!(partDef && (partDef.variants || []).some(v => v.expanded));
-    if (isMaterialPart) {
-      reconfigureAfterPartEdit(card, partId);
+    if (applyPartEdit(card, partId)) {
       if (typeof pushHistory === 'function') pushHistory();
-    } else if (card.prefaceAuto) {
-      card.preface = suggestPrefaceForCard(card);
     }
     rerenderCard(card);
     return;

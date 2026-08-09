@@ -82,6 +82,36 @@
           ]
         }
       ]
+    },
+    {
+      "id": "phorminx_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "phorminx_gut",
+          "default": true,
+          "name": "Twisted sheep-gut strings (phorminx)",
+          "descriptors": [
+            "warm",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "phorminx_sinew",
+          "name": "Sinew and flax cord (phorminx)",
+          "descriptors": [
+            "dry",
+            "archaic"
+          ],
+          "match_tokens": [
+            "sinew-strung"
+          ]
+        }
+      ]
     }
   ],
   "_ownParts": [
@@ -148,6 +178,36 @@
           "match_tokens": [
             "strummed",
             "dance-rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phorminx_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "phorminx_gut",
+          "default": true,
+          "name": "Twisted sheep-gut strings (phorminx)",
+          "descriptors": [
+            "warm",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "gut-strung"
+          ]
+        },
+        {
+          "id": "phorminx_sinew",
+          "name": "Sinew and flax cord (phorminx)",
+          "descriptors": [
+            "dry",
+            "archaic"
+          ],
+          "match_tokens": [
+            "sinew-strung"
           ]
         }
       ]

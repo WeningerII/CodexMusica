@@ -486,6 +486,65 @@ function scanSchema(toolName, schema) {
   //
   // Gated because it is invisible when it breaks: dropping the flag again would
   // change no count, throw no error, and fail no other check here.
+  // ── the material palette reaches things that are not guitars ──────────────
+  //
+  // augmentUniversalMaterial lends the tonewood union to parts that carry a
+  // curated wood variant, gated by a name test. That test was written in a
+  // lutherie vocabulary — top, back, sides, soundboard — and silently excluded
+  // every resonant wooden body that is not shaped like a guitar. Measured: 178
+  // instruments carried curated wood variants on a part the predicate did not
+  // recognise, nearly all drums, on parts named exactly what a drum's wood is
+  // called (djembe_wood, conga_shell_wood, drum_kit.shell_wood).
+  //
+  // Gated on the drums specifically, and on the aggregate, because this is a
+  // REGEX. It narrows by accident — one more clause, one changed word boundary
+  // — and nothing else here would notice: no count changes in the API (the
+  // static build strips lent variants), no recipe changes (lent variants are
+  // never defaults), no error. It would simply stop being possible to make a
+  // djembe out of maple.
+  console.log('\n=== The material palette is not guitar-shaped ===');
+  const cat = require('./_loader.js');
+  const lends = (id) => {
+    const inst = (cat.INSTRUMENTS || []).find((i) => i.id === id);
+    return !!inst && (inst.parts || []).some((p) => (p.variants || []).some((v) => v.expanded));
+  };
+  // The drums are the predicate-coverage cases. phorminx and aulos are the two
+  // the audit named by hand, and they failed for two DIFFERENT reasons worth
+  // keeping pinned: the aulos already had a materials part called "Build and
+  // materials" and was excluded by the plural alone, while the phorminx had no
+  // material part at all until one was authored (references/02_instruments.js).
+  for (const id of ['djembe', 'congas', 'drum_kit', 'atabaque', 'bodhran', 'aulos', 'phorminx']) {
+    check(`${id} can take a material edit`, lends(id), 'no part carries lent material variants');
+  }
+  // One per POOL, because there are four and each can die independently. A drum
+  // whose only material choice is its head needs the membrane pool; a timbale
+  // shell or a tambourine's jingles need the metal one. Neither existed until
+  // the partition showed 71 and 68 instruments sitting on parts named "Head
+  // material" and "Shell metal" with nowhere to draw from.
+  const lentKinds = new Set();
+  for (const i of cat.INSTRUMENTS || [])
+    for (const p of i.parts || [])
+      for (const v of p.variants || []) if (v.expanded) lentKinds.add(v.expanded);
+  for (const kind of ['string', 'wood', 'membrane', 'metal']) {
+    check(
+      `the ${kind} material pool is populated`,
+      lentKinds.has(kind),
+      `no variant carries expanded:${kind}`
+    );
+  }
+  const lendCount = (cat.INSTRUMENTS || []).filter((i) =>
+    (i.parts || []).some((p) => (p.variants || []).some((v) => v.expanded))
+  ).length;
+  // A floor rather than an equality: the catalog grows, and a gate that has to
+  // be re-numbered on every import is a gate people edit without reading. 440
+  // sits just under the measured 459 — low enough not to be brittle, high
+  // enough that losing a pool, or reverting the predicate (354), fails it.
+  check(
+    'the material palette reaches at least 600 instruments',
+    lendCount >= 600,
+    `only ${lendCount} instruments carry lent material variants`
+  );
+
   console.log('\n=== A borrowed variant is marked as one ===');
   const kithara = JSON.parse(
     (await call('get_instrument', { id: 'kithara', part: 'kithara_strings', limit: 6 })).text

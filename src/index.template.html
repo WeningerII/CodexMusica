@@ -1852,7 +1852,11 @@ body.is-dnd-active * { cursor: grabbing !important; }
     <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
   </div>
   <form class="chat-bar" id="chat-form" autocomplete="off">
-    <input class="chat-input" id="chat-input" type="text" maxlength="600"
+    <!-- Keep in step with CHAT_MAX_MESSAGE in mcp/chat.js (and render.yaml). The
+         attribute is a courtesy that stops the field accepting text the server
+         will refuse; the server bound is the real one, since nothing stops a
+         caller posting to /chat directly. mcp/test.mjs asserts the two agree. -->
+    <input class="chat-input" id="chat-input" type="text" maxlength="5000"
            aria-label="Describe the recording you want"
            placeholder="Describe a recording — “haunted Appalachian murder ballad, banjo like it’s underwater”">
     <button class="btn btn-primary chat-send" id="chat-send" type="submit"><span class="btn-label">Ask</span></button>

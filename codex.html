@@ -1852,7 +1852,11 @@ body.is-dnd-active * { cursor: grabbing !important; }
     <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
   </div>
   <form class="chat-bar" id="chat-form" autocomplete="off">
-    <input class="chat-input" id="chat-input" type="text" maxlength="600"
+    <!-- Keep in step with CHAT_MAX_MESSAGE in mcp/chat.js (and render.yaml). The
+         attribute is a courtesy that stops the field accepting text the server
+         will refuse; the server bound is the real one, since nothing stops a
+         caller posting to /chat directly. mcp/test.mjs asserts the two agree. -->
+    <input class="chat-input" id="chat-input" type="text" maxlength="5000"
            aria-label="Describe the recording you want"
            placeholder="Describe a recording — “haunted Appalachian murder ballad, banjo like it’s underwater”">
     <button class="btn btn-primary chat-send" id="chat-send" type="submit"><span class="btn-label">Ask</span></button>
@@ -38894,6 +38898,21 @@ INSTRUMENTS.push({
         { id: 'phorminx_aoidos', default: true, name: 'Bardic epic recitation (aoidos)', descriptors: ['declamatory', 'sparse', 'formulaic'], match_tokens: ['epic-recitation', 'song-accompaniment'] },
         { id: 'phorminx_dance', name: 'Dance and paean accompaniment', descriptors: ['lilting', 'rhythmic', 'bright-attack'], match_tokens: ['strummed', 'dance-rhythm'] },
       ] },
+      // The phorminx had form and playing role but nothing you could make it
+      // OUT of, so it was one of the instruments on which "change the material"
+      // was not an available move at all. Its sibling the kithara — same
+      // family, same class, same repertoire — carries exactly this part, and
+      // the two were strung the same way: twisted sheep gut, with sinew or
+      // flax as the older and drier alternative.
+      //
+      // Named "String material" so it reads the way the kithara's does, which
+      // is also what makes the universal string palette reach it: the merge
+      // keys on a part whose name says `string` and is not about count,
+      // tuning or gauge (scripts/_merge.js:isStringMaterialPart).
+      { id: 'phorminx_strings', surface: false, name: 'String material', variants: [
+        { id: 'phorminx_gut', default: true, name: 'Twisted sheep-gut strings (phorminx)', descriptors: ['warm', 'quick-decay'], match_tokens: ['gut-strung'] },
+        { id: 'phorminx_sinew', name: 'Sinew and flax cord (phorminx)', descriptors: ['dry', 'archaic'], match_tokens: ['sinew-strung'] },
+      ] },
     ]
   },
   {
@@ -39670,8 +39689,10 @@ INSTRUMENTS.push({
         { id: 'silnyen_brass', name: 'Brass (lower-grade)', descriptors: ['duller', 'short-decay'], match_tokens: ['ritual-cymbals'] },
       ] },
     ]
-  },
-  {
+  });
+</script>
+<script>// ─── 02_instruments.js [8/8] ───
+INSTRUMENTS.push({
     id: 'drilbu',
     name: 'Drilbu (Tibetan Buddhist ritual handbell)',
     family: 'percussion',
@@ -39694,10 +39715,8 @@ INSTRUMENTS.push({
         { id: 'drilbu_bronze', name: 'Plain bronze', descriptors: ['clean', 'focused'], match_tokens: ['handbell'] },
       ] },
     ]
-  });
-</script>
-<script>// ─── 02_instruments.js [8/8] ───
-INSTRUMENTS.push({
+  },
+  {
     id: 'dung_dkar',
     name: 'Dung dkar (Tibetan conch-shell trumpet)',
     family: 'wind',
@@ -47804,23 +47823,40 @@ function mergeFamilyParts(instruments, familyParts) {
         }
       }
     }
+    // ONE lent copy per union variant, SHARED by every part that borrows it.
+    //
+    // This used to Object.assign a fresh copy per (part, variant) pair, which is
+    // the same object rebuilt over and over: the three overridden fields are
+    // constant for a given kind, so every copy of `mahogany` lent as a tonewood
+    // was byte-identical to every other. At 508,418 tuples that is half a million
+    // allocations to produce a few hundred distinct values, and the cost showed
+    // up as GC noise on every page load.
+    //
+    // Sharing is safe because nothing anywhere mutates a variant object —
+    // checked across scripts/, src/app.js and mcp/ before relying on it. The
+    // renderers read id, name and descriptors; the edit paths write the variant
+    // ID onto a CARD, never into the catalog. If that ever stops being true this
+    // becomes aliasing, so it is stated here rather than left to be rediscovered.
+    const lent = union.map((v) =>
+      Object.assign({}, v, { auto: false, expanded: kind, default: false })
+    );
     for (const inst of instruments || []) {
       if (!Array.isArray(inst.parts)) continue;
       // Build NEW part objects for the augmented parts. Do NOT mutate the existing
       // part object: for a full-override own-part it is the SAME reference held in
       // inst._ownParts, and mutating it would pollute _ownParts (which other code
       // and the published API serialize) with the expanded variants.
+      // default:false is critical — a copied variant must never become an
+      // instrument's default (its own curated default stays), or a part with no
+      // own default could pick up a borrowed one and change its recipe.
       inst.parts = inst.parts.map((p) => {
         if (!isTargetPart(p)) return p;
         const have = {};
         for (const v of p.variants || []) have[v.id] = true;
         const additions = [];
-        for (const v of union) {
-          if (have[v.id]) continue;
-          // default:false is critical — a copied variant must never become an
-          // instrument's default (its own curated default stays), or a part with no
-          // own default could pick up a borrowed one and change its recipe.
-          additions.push(Object.assign({}, v, { auto: false, expanded: kind, default: false }));
+        for (let k = 0; k < union.length; k++) {
+          if (have[union[k].id]) continue;
+          additions.push(lent[k]);
         }
         return additions.length
           ? Object.assign({}, p, { variants: (p.variants || []).concat(additions) })
@@ -47854,14 +47890,107 @@ function mergeFamilyParts(instruments, familyParts) {
   };
   const isTonewoodPart = function (p) {
     const nm = p.name || p.label || p.id || '';
+    // THE PRIMARY GATE, and the one doing the real work: the part must already
+    // carry a CURATED wood variant. A part somebody authored maple and birch
+    // onto is a wood-material part, whatever it is called. Everything below is a
+    // secondary filter to exclude parts where a wood name appears incidentally.
     if (!(p.variants || []).some((v) => !v.expanded && isWoodVariant(v))) return false;
     if (/\b(top|back|bowl|ribs?|body)\b/i.test(nm) && /\bwood\b/i.test(nm)) return true;
     if (/\bsoundboard\b/i.test(nm)) return true;
     if (/\btop construction\b/i.test(nm)) return true;
     if (/\bback\s*&\s*sides\b/i.test(nm)) return true;
+    // The list above is a lutherie vocabulary — top, back, sides, soundboard —
+    // and it silently excluded everything that resonates without being a guitar.
+    // Measured: 178 instruments carried curated wood variants on a part this
+    // predicate did not recognise, almost all of them drums, on parts named
+    // exactly what a drum's wood is called: atabaque_shell_wood, djembe_wood,
+    // drum_kit.shell_wood, conga_shell_wood. A djembe is a resonant wooden body
+    // by any definition; it was outside the palette on a naming technicality.
+    //
+    // So: a part that is ABOUT material — its name says wood, timber or
+    // material, or it names a resonating member and says so — counts too.
+    //
+    // Deliberately NOT "drop the name test and trust the wood variant alone".
+    // That was measured as well: it would pull in 95 more instruments through
+    // parts like hambone_technique ("Technique"), ghatam_school ("Clay-temper
+    // school") and clapsticks_bilma_form ("Regional form"), whose variants
+    // merely MENTION a wood. Offering mahogany as a technique is worse than
+    // offering nothing, because it is indistinguishable from a real answer.
+    // Plurals, because a part is as likely to be called "Build and materials" as
+    // "Body material" and the difference is not meaningful. Measured: the
+    // singular-only form excluded exactly one instrument, and it was the aulos —
+    // whose `aulos_build` part is literally named "Build and materials" and
+    // carries turned boxwood and sycamore. It was one character away from
+    // already working.
+    if (
+      /\b(shells?|frames?|bod(y|ies)|bars?|slabs?|blocks?|tongues?|resonators?)\b/i.test(nm) &&
+      /\b(woods?|materials?|timbers?)\b/i.test(nm)
+    )
+      return true;
+    if (/\bwoods?\b/i.test(nm) || /\bmaterials?\b/i.test(nm)) return true;
     return false;
   };
   augmentUniversalMaterial(instruments, 'wood', isTonewoodPart, isWoodVariant);
+
+  // Membranes — any drumhead on any part that carries one.
+  //
+  // The catalog had exactly two universal pools, strings and tonewoods, which
+  // between them describe a guitar. A drum is made of a shell and a HEAD, and
+  // the head is the half that decides how it sounds: calfskin and goatskin and
+  // Mylar are not interchangeable in any sense a listener would miss. There was
+  // no pool for them, so an instrument whose only material choice was its head
+  // — 71 of them, on parts named exactly "Head material" and "Skin material" —
+  // could not take a material edit at all.
+  //
+  // Same shape as the two above, and the same primary gate: the part must
+  // already carry a CURATED variant of this kind. The name gate then keeps it
+  // to parts that are ABOUT the head, so a technique or a tuning part whose
+  // prose happens to say "skin" is not offered 262 drumheads.
+  const MEMBRANE =
+    /(calf.?skin|goat.?skin|sheep.?skin|kid.?skin|snake.?skin|fish.?skin|kangaroo|deer.?skin|horse.?hide|camel|buffalo|rawhide|\bhide\b|\bskins?\b|vellum|parchment|mylar|\bremo\b|weatherking|plastic head|synthetic head|membrane|drum.?head)/i;
+  const isMembraneVariant = function (v) {
+    return MEMBRANE.test(v.name || v.label || '');
+  };
+  const isMembranePart = function (p) {
+    const nm = p.name || p.label || p.id || '';
+    // Strings are the string pool's business, and a gut string is not a head.
+    if (/string/i.test(nm)) return false;
+    if (!(p.variants || []).some((v) => !v.expanded && isMembraneVariant(v))) return false;
+    if (/\b(heads?|skins?|membranes?|batter|resonant|drum.?heads?)\b/i.test(nm)) return true;
+    return /\b(materials?)\b/i.test(nm);
+  };
+  augmentUniversalMaterial(instruments, 'membrane', isMembranePart, isMembraneVariant);
+
+  // Metals — shells, jingles, reeds, bars, bells.
+  //
+  // The other half the two original pools missed. A timbale shell is steel or
+  // brass, a tambourine's jingles are bronze or German silver, an accordion's
+  // reeds are steel — all real, audible choices on parts named "Shell metal",
+  // "Jingle material", "Reed material", and all of them dead ends because the
+  // catalog knew how to lend a tonewood and not an alloy.
+  //
+  // The `string` exclusion matters more here than anywhere else: string
+  // materials ARE metals ("nickel-plated steel"), and without it this pool
+  // would collide with the string pool on every wound-string part and offer
+  // cymbal bronze as a guitar string.
+  const METAL =
+    /(bronze|brass|\bsteel\b|stainless|\biron\b|silver|\bgold\b|copper|nickel|alumin|titanium|\btin\b|pewter|zinc|monel|German.?silver)/i;
+  const isMetalVariant = function (v) {
+    return METAL.test(v.name || v.label || '');
+  };
+  const isMetalPart = function (p) {
+    const nm = p.name || p.label || p.id || '';
+    if (/string/i.test(nm)) return false;
+    if (!(p.variants || []).some((v) => !v.expanded && isMetalVariant(v))) return false;
+    if (
+      /\b(shells?|jingles?|reeds?|plates?|bars?|tines?|frames?|cymbals?|gongs?|bells?|keys?|tongues?)\b/i.test(
+        nm
+      )
+    )
+      return true;
+    return /\b(metals?|alloys?|materials?)\b/i.test(nm);
+  };
+  augmentUniversalMaterial(instruments, 'metal', isMetalPart, isMetalVariant);
 
   return instruments;
 }
@@ -50890,8 +51019,22 @@ const _TEXTURE_TOKENS = new Set([
   'sweet','mellow','rich','full','open','tight','loose','airy','dense',
 ]);
 
+// Memoised because the tags trim loop asks the same question thousands of times
+// per render: it re-scores the last token of EVERY chunk on every single pop,
+// and a 42-card roster pops hundreds of times. The answer is a pure function of
+// the token — the sets and regexes below are module constants — so caching it
+// cannot change a byte, only the clock. Keyed by the raw token, so the
+// non-string early return is handled before the cache is consulted.
+const _TIER_MEMO = new Map();
 function _descriptorTier(token) {
   if (typeof token !== 'string') return 2;
+  const hit = _TIER_MEMO.get(token);
+  if (hit !== undefined) return hit;
+  const tier = _descriptorTierUncached(token);
+  _TIER_MEMO.set(token, tier);
+  return tier;
+}
+function _descriptorTierUncached(token) {
   // Tier 1 — physical reference via segment match
   const segs = token.toLowerCase().split('-');
   for (const seg of segs) {
@@ -61527,6 +61670,41 @@ function commitPrefaceChange(card, prefaceId) {
   }
 }
 
+// THE STATE HALF OF A VARIANT PICK. Everything the browser does to a card when a
+// human chooses a variant, minus the DOM.
+//
+// Extracted because it was inline in handleCardClick, which meant no gate could
+// call it: check_edit_parity and check_edit_differential both reached past it to
+// reconfigureAfterPartEdit, so they compared the CASCADE against the connector's
+// cascade and agreed — while the browser was not running a cascade at all for
+// most parts. The guard below is the difference, and it applies to the large
+// majority of the catalog: only 354 of 1406 instruments carry a part with lent
+// (`expanded`) material variants, so on the other 1052 a variant pick re-derives
+// the preface and nothing else. Measured before this was extracted: 66 of 1321
+// single-variant edits rendered a DIFFERENT recipe through the two surfaces,
+// every one of them on a non-material part and none on a material part.
+//
+// Returns whether the edit ran the full cascade, which is exactly the condition
+// under which the browser pushes a history entry — the caller owns pushHistory()
+// and rerenderCard(), as it did when this was inline.
+function applyPartEdit(card, partId) {
+  const inst = Inst(card.instrumentId);
+  const partDef = inst ? (inst.parts || []).find(p => p.id === partId) : null;
+  // Material parts (those carrying the universal cross-instrument materials)
+  // trigger the full inverse cascade toward the re-derived preface — the same
+  // machinery a preface pick runs — pinning the touched part so the user's
+  // choice is preserved, and surfacing every auto-applied change (shifts panel
+  // + toast). One history entry → one Ctrl+Z. Other parts keep the lightweight
+  // re-derive.
+  const isMaterialPart = !!(partDef && (partDef.variants || []).some(v => v.expanded));
+  if (isMaterialPart) {
+    reconfigureAfterPartEdit(card, partId);
+    return true;
+  }
+  if (card.prefaceAuto) card.preface = suggestPrefaceForCard(card);
+  return false;
+}
+
 // A manual part edit (picking a material / variant) reshapes the REST of the card
 // toward the preface the new sound implies — the same inverse cascade a preface
 // pick runs — while PINNING the edited part so the user's choice is never reverted.
@@ -61679,13 +61857,22 @@ function compressTagsRecipe(cards, ceiling) {
       });
     }
   }
-  const renderAll = () => {
-    const rendered = rebuilt.map(c => {
-      const head = c.preface ? `${c.preface} ${_kebab(c.label)}` : _kebab(c.label);
-      return c.descs.length ? `${head}: ${c.descs.join(' ')}` : head;
-    });
-    return _collapseSharedSuffixes(rendered).join(', ');
+  // The head — preface + kebab'd label — is fixed for the life of the trim: the
+  // phases below only pop descriptors and splice whole chunks, never rename one.
+  // It used to be rebuilt inside renderAll, which runs once per popped token, so
+  // _kebab (three regex passes) ran per chunk per pop and was the single largest
+  // cost in the tags renderer. Hoisting it changes no output.
+  for (const c of rebuilt) c.head = c.preface ? `${c.preface} ${_kebab(c.label)}` : _kebab(c.label);
+  // A pop changes exactly ONE chunk, so the other N-1 chunk strings are the same
+  // ones renderAll just built. Cache each chunk's text and invalidate only the
+  // chunk that was popped; the phases below splice whole chunks out, which needs
+  // no invalidation because the survivors are untouched. Same strings in the
+  // same order reach _collapseSharedSuffixes, so the output is unchanged.
+  const chunkText = (c) => {
+    if (c.text === undefined) c.text = c.descs.length ? `${c.head}: ${c.descs.join(' ')}` : c.head;
+    return c.text;
   };
+  const renderAll = () => _collapseSharedSuffixes(rebuilt.map(chunkText)).join(', ');
 
   // Phase A: round-robin pop of the lowest-priority token across chunks
   // until under ceiling. Each chunk's descs are pre-sorted by
@@ -61713,6 +61900,7 @@ function compressTagsRecipe(cards, ceiling) {
     }
     if (target < 0) break;
     rebuilt[target].descs.pop();
+    rebuilt[target].text = undefined; // the one chunk whose cached text is now stale
   }
 
   // Phase B: descriptor-trim exhausted. Drop env chunks from the end —
@@ -62692,7 +62880,9 @@ function renderSidebarFilter() {
 function renderSidebarTraditions() {
   const host = document.getElementById('sidebar-traditions');
   if (!host) return;
-  if (app.cards.length === 0) { host.innerHTML = ''; return; }
+  // Clear the paint key with the tree: an empty workspace followed by a rebuild
+  // to the same shape would otherwise skip a repaint it needed.
+  if (app.cards.length === 0) { host.innerHTML = ''; host._codexTreeHtml = ''; return; }
 
   const primaryCardId = _determinePrimaryCard(app.cards);
   const primaryCard = app.cards.find(c => c.id === primaryCardId);
@@ -62731,7 +62921,7 @@ function renderSidebarTraditions() {
   // has no down-arrow. __ungrouped__ always sorts last and isn't movable.
   const movableKeys = keys.filter(k => k !== '__ungrouped__');
 
-  host.innerHTML = keys.map(tradId => {
+  const treeHtml = keys.map(tradId => {
     const cards = groups.get(tradId);
     // Phase 4a: sort pinned cards first within each tradition group. Stable
     // sort preserves the existing within-pinned-bucket and within-unpinned-
@@ -62784,6 +62974,34 @@ function renderSidebarTraditions() {
       '</section>'
     );
   }).join('');
+
+  // IDENTICAL TREE ALREADY MOUNTED → leave it, and its listeners, alone.
+  //
+  // renderSidebar() runs on every interaction, and this is the expensive part
+  // of it: reassigning innerHTML throws away the whole subtree, reparses it,
+  // and then the six querySelectorAll loops below re-attach a listener per
+  // header, per move button, per delete button, per card and per add button.
+  // Measured in jsdom at a 42-card / 8-tradition roster: 91.4ms and 94 listener
+  // attachments for a render where nothing had changed (audit F136).
+  //
+  // The guard is the rendered HTML itself rather than a summary of the inputs.
+  // That is the point: a content key that IS the output cannot disagree with the
+  // output, so there is no set of app state this can get wrong — if one byte of
+  // the tree would differ, the string differs and we rebuild.
+  //
+  // Only the innerHTML write and the listeners are skipped. Anything a caller
+  // does to the host ELEMENT — classes, attributes, scroll position — is
+  // untouched by this and must stay outside the guard, which is why the check
+  // sits here and not at the top of the function. renderSidebarRecipePreview is
+  // the live example: it toggles is-expanded / is-collapsed on its host from
+  // state the innerHTML does not encode, so guarding that function on its HTML
+  // alone would freeze the chevron.
+  //
+  // The key lives on the element, so replacing the host (or reloading) loses it
+  // and the next render repaints — a cache miss, never a stale tree.
+  if (host._codexTreeHtml === treeHtml) return;
+  host.innerHTML = treeHtml;
+  host._codexTreeHtml = treeHtml;
 
   // Wire group-header toggles
   host.querySelectorAll('.sb-tradition-header').forEach(h => {
@@ -63020,6 +63238,9 @@ function renderSidebarStaple() {
 }
 // full workspace, with char count against the 1000-char ceiling, 3-band
 // progress bar, fade-truncated text, and "Open full stack →" → modal-recipe-stack.
+// Last compiled sidebar recipe, keyed on the card state that produced it. See
+// the lookup below for why this is a content key and not a dirty flag.
+let _recipePreviewCache = { key: null, text: '' };
 function renderSidebarRecipePreview() {
   const host = document.getElementById('sidebar-recipe-preview');
   if (!host) return;
@@ -63033,7 +63254,29 @@ function renderSidebarRecipePreview() {
   // pass. Earlier this called compressRichRecipe directly, which produced
   // a headerless body and skipped the dedup overrides; the two surfaces
   // had drifted apart visibly.
-  try { text = compileRecipeStack(app.cards, 'rich', { ceiling: CEILING }) || ''; } catch { text = ''; }
+  // Memoised on the cards themselves, because renderSidebar() runs on EVERY
+  // interaction — including ones that change no card at all, like collapsing a
+  // tradition group or toggling an accordion — and this line is the expensive
+  // part of it. Measured at 28-45ms for a 42-card roster on fast hardware, and
+  // mid-range mobile runs this class of JS 4-8x slower, so a pure-UI click was
+  // paying a fifth of a second to recompute a string that had not changed.
+  //
+  // Keyed on a serialisation of the cards rather than on a dirty flag: a flag
+  // has to be set at every mutation site and is wrong the first time someone
+  // adds a site and forgets. The key costs one pass over the cards against a
+  // compile that is orders of magnitude more work, and it cannot go stale.
+  //
+  // compileRecipeStack assigns deduped prefaces onto the cards as it runs, so
+  // the first call after a real edit changes the key it was looked up under.
+  // That settles on the second call (the dedup is a fixed point) and the cache
+  // hits from then on, which is exactly the pure-UI-click case this is for.
+  const key = CEILING + ' ' + JSON.stringify(app.cards);
+  if (_recipePreviewCache.key === key) {
+    text = _recipePreviewCache.text;
+  } else {
+    try { text = compileRecipeStack(app.cards, 'rich', { ceiling: CEILING }) || ''; } catch { text = ''; }
+    _recipePreviewCache = { key: CEILING + ' ' + JSON.stringify(app.cards), text };
+  }
   const len = text.length;
   const pct = Math.min(100, Math.round((len / CEILING) * 100));
   const band = pct > 90 ? 'is-red' : (pct > 70 ? 'is-amber' : '');
@@ -64780,14 +65023,8 @@ function handleCardClick(e, card) {
     // machinery a preface pick runs — pinning the touched part so the user's choice
     // is preserved, and surfacing every auto-applied change (shifts panel + toast).
     // One history entry → one Ctrl+Z. Other parts keep the lightweight re-derive.
-    const inst = Inst(card.instrumentId);
-    const partDef = inst ? (inst.parts || []).find(p => p.id === partId) : null;
-    const isMaterialPart = !!(partDef && (partDef.variants || []).some(v => v.expanded));
-    if (isMaterialPart) {
-      reconfigureAfterPartEdit(card, partId);
+    if (applyPartEdit(card, partId)) {
       if (typeof pushHistory === 'function') pushHistory();
-    } else if (card.prefaceAuto) {
-      card.preface = suggestPrefaceForCard(card);
     }
     rerenderCard(card);
     return;
