@@ -13,3 +13,9 @@ pruizf/disco	cc-by-4.0	false	false	false	LICENSE = CC Attribution 4.0	~327 of 4,
 linhd-postdata/metrique-en-ligne	""	false	false	false	LICENSE returns HTTP 404	third-party academic re-host; age-PD only
 linhd-postdata/biblioteca_italiana	""	false	false	false	LICENSE returns HTTP 404	third-party academic re-host; age-PD only
 AKS-DHLAB/KPoEM	mit	false	false	false	MIT tag applies to annotations	software licence on text; five modern poets, one d.1953
+shabados/database	public-domain-mark	true	false	false	README: 'We identify it as being in the public domain' with a link to the PD Mark 1.0 deed	pa; 60,555 SGGS lines + Dasam/Varan/Kabit; MIT covers CODE only, PD Mark covers the TEXTS
+sks190/SKVR	cc-by-4.0	false	false	false	README: 'distributed under the Creative Commons Attribution 4.0 International license'	fi; CC-BY is a redistribution grant, NOT a PD affirmation. Anonymous folk poetry has no author to date, so it needs a VERIFIED PUBLICATION YEAR for the SKVR printed volumes. Not yet established -- fails closed.
+rahvaluule/erab		false	false	false	no LICENSE file: LICENSE, LICENSE.md and LICENCE all return 404	et; same anonymous-folk situation as SKVR, and without even a redistribution grant
+chinese-poetry/chinese-poetry	mit	false	false	false	LICENSE fetched and confirmed: 'The MIT License (MIT) Copyright (c) 2016 JackeyGao'	lzh; MIT is a software licence and cannot grant over the texts. Admits via route 2 on dynasty-bounded author dates.
+tokushige-koyasan/gretil-corpus	cc-by-nc-sa-4.0	false	false	false	CC BY-NC-SA 4.0 per the inventory sweep	sa; NC clause makes it neither PD nor cleanly reusable
+tnhaider/DLK		false	false	false	no LICENSE file in the repo	de; also carries verse TRANSLATIONS (Voss's Homer, Schlegel's Shakespeare) with no translation filter

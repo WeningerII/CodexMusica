@@ -160,6 +160,7 @@ def main():
 
     ar, ar_stats = harvest_openiti(poetry_only=not args.all_arabic)
     he, he_stats = harvest_benyehuda()
+    zh, zh_stats = harvest_chinese()
 
     print("OpenITI (ar)")
     for k, v in ar_stats.most_common():
@@ -176,6 +177,10 @@ def main():
         print(f"  {k:22s} {v:>8,}")
     print(f"  with a Wikidata QID     "
           f"{sum(1 for q in he.values() if q):>8,}/{len(he):,}")
+
+    print("\nchinese-poetry (lzh) — dynasty-bounded, not exact dates")
+    for k, v in zh_stats.most_common():
+        print(f"  {k:22s} {v:>8,}")
 
     path = os.path.join(DATA, "authority.tsv")
     have = existing_keys(path)
@@ -198,6 +203,16 @@ def main():
                      f"the catalogue — admits via source PD affirmation only"])
         have.add(k)
 
+    for key, (bound, dyn, why) in sorted(zh.items()):
+        if key in have:
+            continue
+        rows.append([key, str(bound), "",
+                     f"dataset_field:chinese-poetry/authors.{dyn}.json",
+                     "2026-08-09",
+                     f"UPPER BOUND from dynasty partition, not an exact death "
+                     f"year: {why}"])
+        have.add(key)
+
     print(f"\nnew rows to add: {len(rows):,}")
     if not args.write:
         print("(dry run — pass --write to append)")
@@ -210,6 +225,59 @@ def main():
         for r in rows:
             w.writerow(r)
     print(f"appended to {path}")
+
+
+
+
+# ---------------------------------------------------------------------------
+# Classical Chinese: dynasty-bounded dates
+# ---------------------------------------------------------------------------
+
+CP_RAW = ("https://raw.githubusercontent.com/chinese-poetry/chinese-poetry/"
+          "master")
+
+#: The corpus partitions authors by dynasty in the file name. A dynasty has a
+#: known end, so the partition yields a conservative UPPER BOUND on a poet's
+#: death year -- not an exact date, and recorded as such. The bounds below sit
+#: roughly seven centuries before the term cutoff, so the imprecision cannot
+#: change any admission decision; it would matter only for a corpus whose
+#: authors died near the boundary.
+DYNASTY_BOUND = {
+    "tang": (1000, "Tang ended 907 CE; bound allows for poets living into the "
+                   "Five Dynasties"),
+    "song": (1350, "Song ended 1279 CE; bound allows for poets living into "
+                   "the early Yuan"),
+}
+
+
+def harvest_chinese(dynasties=("tang", "song")):
+    """-> {author_key: (bound_year, dynasty, evidence)}. Names only; the
+    corpus carries no dates, so the dynasty partition is the evidence."""
+    import json
+    import urllib.request
+    out, stats = {}, Counter()
+    quoted = {"tang": "%E5%85%A8%E5%94%90%E8%AF%97",
+              "song": "%E5%85%A8%E5%94%90%E8%AF%97"}
+    for dyn in dynasties:
+        url = f"{CP_RAW}/{quoted[dyn]}/authors.{dyn}.json"
+        try:
+            with urllib.request.urlopen(url, timeout=120) as r:
+                data = json.loads(r.read().decode("utf-8"))
+        except Exception as e:                      # noqa: BLE001
+            stats[f"{dyn}_fetch_failed"] += 1
+            print(f"  {dyn}: fetch failed ({e})", file=sys.stderr)
+            continue
+        bound, why = DYNASTY_BOUND[dyn]
+        for a in data:
+            name = (a.get("name") or "").strip()
+            if not name:
+                continue
+            stats[f"{dyn}_authors"] += 1
+            key = slug(name)
+            # keep the LATER bound if an author appears in two dynasties
+            if key not in out or bound > out[key][0]:
+                out[key] = (bound, dyn, why)
+    return out, stats
 
 
 if __name__ == "__main__":

@@ -74,12 +74,36 @@ def syriac_items():
     return out
 
 
+CP_RAW = ("https://raw.githubusercontent.com/chinese-poetry/chinese-poetry/"
+          "master/%E5%85%A8%E5%94%90%E8%AF%97")
+
+
+def chinese_items():
+    """The 唐詩三百首 anthology — the LABELLED POSITIVE CLASS for the Chinese
+    cell. The full 57,607-poem negative pool lives in 58 shard files and is not
+    fetched here; this demonstrates admission, not the whole corpus."""
+    import json
+    import urllib.request
+    url = f"{CP_RAW}/%E5%94%90%E8%AF%97%E4%B8%89%E7%99%BE%E9%A6%96.json"
+    try:
+        with urllib.request.urlopen(url, timeout=120) as r:
+            data = json.loads(r.read().decode("utf-8"))
+    except Exception as e:                              # noqa: BLE001
+        print(f"  chinese-poetry: fetch failed ({e})")
+        return []
+    return [Item(item_id=str(p.get("id", i)), language="lzh",
+                 source_id="chinese-poetry/chinese-poetry",
+                 author_key=slug((p.get("author") or "").strip()))
+            for i, p in enumerate(data)]
+
+
 def main():
     gate = ProvenanceGate()
     items = []
     for name, fn in (("OpenITI (ar)", openiti_items),
                      ("Ben-Yehuda (he)", benyehuda_items),
-                     ("Syriac corpus (syc)", syriac_items)):
+                     ("Syriac corpus (syc)", syriac_items),
+                     ("唐詩三百首 (lzh)", chinese_items)):
         try:
             got = fn()
         except FileNotFoundError:

@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 """Provenance gate — nothing enters a cell without positive evidence.
 
-Two independent admission routes, per the project decision:
+Three independent admission routes:
 
   1. EXPRESS PD AFFIRMATION at the source level — the corpus itself states that
      its texts are public domain (or CC0 / PD-mark).
   2. VERIFIED DATE at the item level — the author's death year comes from an
      authority record, and clears the declared term.
+  3. VERIFIED PUBLICATION YEAR, for ANONYMOUS works only — copyright in an
+     anonymous work runs from publication, not from an author's death. Without
+     this, folk and oral-traditional corpora could never admit: they have no
+     author to date, so route 2 is structurally unavailable to them, and an
+     entire class of tradition would be excluded on a technicality rather than
+     on the law. It is restricted to items with no named author, so it cannot
+     be used as a loophole around route 2.
 
 Everything else is rejected and logged with a reason. The gate reports what it
 dropped and why, so "how much do we lose by being strict" is answered with a
@@ -53,13 +60,17 @@ DATA = os.path.join(HERE, "..", "data")
 # Verdicts
 ADMIT_PD_AFFIRMED = "ADMIT_PD_AFFIRMED"
 ADMIT_DATE_VERIFIED = "ADMIT_DATE_VERIFIED"
+ADMIT_PUBLICATION_VERIFIED = "ADMIT_PUBLICATION_VERIFIED"
 REJECT_GENERATED = "REJECT_GENERATED"
 REJECT_CONTESTED_NO_DATE = "REJECT_CONTESTED_NO_DATE"
 REJECT_UNVERIFIED_DATE = "REJECT_UNVERIFIED_DATE"
 REJECT_TOO_RECENT = "REJECT_TOO_RECENT"
 REJECT_NO_EVIDENCE = "REJECT_NO_EVIDENCE"
 
-ADMITTED = {ADMIT_PD_AFFIRMED, ADMIT_DATE_VERIFIED}
+REJECT_PUBLICATION_TOO_RECENT = "REJECT_PUBLICATION_TOO_RECENT"
+
+ADMITTED = {ADMIT_PD_AFFIRMED, ADMIT_DATE_VERIFIED,
+            ADMIT_PUBLICATION_VERIFIED}
 
 #: licence strings that constitute an express public-domain affirmation
 PD_AFFIRMATIONS = {
@@ -92,6 +103,12 @@ class ProvenanceDeclaration:
     #: to clear the longest term in play (life+80, Spain pre-1987) with margin,
     #: rather than the life+70 that covers most jurisdictions.
     term_years: int = 95
+    #: term for ANONYMOUS works, which run from publication rather than from
+    #: an author's death. Folk and oral-traditional corpora are anonymous by
+    #: nature, so without this route they can never clear on route 2 -- there
+    #: is no author to date -- and an entire class of tradition is excluded on
+    #: a technicality rather than on the law.
+    anon_term_years: int = 95
     #: reject dates whose verification source is not in TRUSTED_VERIFICATION
     strict: bool = True
     #: a source-level PD affirmation admits every item from that source
@@ -101,6 +118,9 @@ class ProvenanceDeclaration:
 
     def cutoff_death_year(self):
         return self.current_year - self.term_years
+
+    def cutoff_publication_year(self):
+        return self.current_year - self.anon_term_years
 
 
 @dataclass
@@ -112,6 +132,9 @@ class Source:
     evidence: str = ""                 # URL or quoted statement
     contested: bool = False            # affirmation cannot cover the contents
     generated: bool = False            # content or a key column is model output
+    #: publication year of the edition, for anonymous/traditional material
+    publication_year: int = None
+    publication_evidence: str = ""
     note: str = ""
 
 
@@ -123,6 +146,8 @@ class Item:
     source_id: str
     author_key: str = ""
     generated: bool = False
+    #: per-item publication year, overriding the source's, when known
+    pub_year: int = None
 
 
 @dataclass
@@ -162,6 +187,10 @@ def load_sources(path=None):
             evidence=(r.get("evidence") or "").strip(),
             contested=(r.get("contested") or "").strip().lower() == "true",
             generated=(r.get("generated") or "").strip().lower() == "true",
+            publication_year=(int(r["publication_year"])
+                              if (r.get("publication_year") or "").strip().isdigit()
+                              else None),
+            publication_evidence=(r.get("publication_evidence") or "").strip(),
             note=(r.get("note") or "").strip(),
         )
         out[s.source_id] = s
@@ -237,6 +266,22 @@ class ProvenanceGate:
             return REJECT_TOO_RECENT, (
                 f"author died {rec.death_year}, inside the declared "
                 f"{self.decl.term_years}-year term")
+
+        # route 3 -- anonymous/traditional work cleared by PUBLICATION year.
+        # Only for items with no author: if an author is named, route 2 is the
+        # correct test and falling through to publication would be a loophole.
+        if not item.author_key:
+            pub = item.pub_year or (src.publication_year if src else None)
+            if pub is not None:
+                if pub <= self.decl.cutoff_publication_year():
+                    ev = (src.publication_evidence if src else "") or "stated"
+                    return ADMIT_PUBLICATION_VERIFIED, (
+                        f"anonymous work published {pub}, clears the "
+                        f"{self.decl.anon_term_years}-year publication term "
+                        f"({ev})")
+                return REJECT_PUBLICATION_TOO_RECENT, (
+                    f"anonymous work published {pub}, inside the declared "
+                    f"{self.decl.anon_term_years}-year publication term")
 
         if src and src.contested:
             return REJECT_CONTESTED_NO_DATE, (
