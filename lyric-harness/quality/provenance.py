@@ -109,6 +109,11 @@ class ProvenanceDeclaration:
     #: is no author to date -- and an entire class of tradition is excluded on
     #: a technicality rather than on the law.
     anon_term_years: int = 95
+    #: when True the declaration's anon term wins over any per-source term.
+    #: Without this the declaration cannot TIGHTEN a source that declared a
+    #: shorter term, so "apply one conservative rule everywhere" would be
+    #: unexpressible -- the per-source value would silently always win.
+    override_source_terms: bool = False
     #: reject dates whose verification source is not in TRUSTED_VERIFICATION
     strict: bool = True
     #: a source-level PD affirmation admits every item from that source
@@ -135,6 +140,13 @@ class Source:
     #: publication year of the edition, for anonymous/traditional material
     publication_year: int = None
     publication_evidence: str = ""
+    #: jurisdiction whose term governs this source, and an optional override of
+    #: the declaration's anonymous term. Applying one country's term uniformly
+    #: is not conservatism, it is using the wrong law: the anonymous-work term
+    #: is 70 years from publication in the EU and 95 in the US, so a uniform 95
+    #: silently misclassifies every European corpus.
+    jurisdiction: str = ""
+    anon_term_years: int = None
     note: str = ""
 
 
@@ -191,6 +203,10 @@ def load_sources(path=None):
                               if (r.get("publication_year") or "").strip().isdigit()
                               else None),
             publication_evidence=(r.get("publication_evidence") or "").strip(),
+            jurisdiction=(r.get("jurisdiction") or "").strip(),
+            anon_term_years=(int(r["anon_term_years"])
+                             if (r.get("anon_term_years") or "").strip().isdigit()
+                             else None),
             note=(r.get("note") or "").strip(),
         )
         out[s.source_id] = s
@@ -273,15 +289,20 @@ class ProvenanceGate:
         if not item.author_key:
             pub = item.pub_year or (src.publication_year if src else None)
             if pub is not None:
-                if pub <= self.decl.cutoff_publication_year():
+                src_term = src.anon_term_years if src else None
+                if self.decl.override_source_terms or not src_term:
+                    term = self.decl.anon_term_years
+                else:
+                    term = src_term
+                juris = (src.jurisdiction if src else "") or "unspecified"
+                if pub + term <= self.decl.current_year:
                     ev = (src.publication_evidence if src else "") or "stated"
                     return ADMIT_PUBLICATION_VERIFIED, (
-                        f"anonymous work published {pub}, clears the "
-                        f"{self.decl.anon_term_years}-year publication term "
-                        f"({ev})")
+                        f"anonymous work published {pub}, clears the {term}-year "
+                        f"publication term for {juris} ({ev})")
                 return REJECT_PUBLICATION_TOO_RECENT, (
-                    f"anonymous work published {pub}, inside the declared "
-                    f"{self.decl.anon_term_years}-year publication term")
+                    f"anonymous work published {pub}, inside the {term}-year "
+                    f"publication term for {juris}")
 
         if src and src.contested:
             return REJECT_CONTESTED_NO_DATE, (
