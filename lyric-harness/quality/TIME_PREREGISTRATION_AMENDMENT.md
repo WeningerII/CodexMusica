@@ -1,5 +1,17 @@
 # Amendment 1 to the time-layer pre-registration
 
+> **RAP ARM WITHDRAWN.** Every rap figure in this document came from
+> `verse.txt`, an in-copyright commercial transcription that predated the
+> provenance gate, was never declared in `data/sources.tsv`, and was never run
+> through it. It is deleted. Under `ProvenanceDeclaration(term_years=95,
+> current_year=2026)` the cutoff is **1931** and rap begins in **1979**, so no
+> rap corpus is admissible here before roughly 2075 — the arm cannot be
+> replicated, only replaced. The aggregate statistics are kept as an audit
+> trail; the text is gone. H1's positive half is **untestable under the
+> provenance policy** rather than refuted, and its replacement is a
+> cross-family corpus defined by structural property rather than genre
+> (`quality/POSITIVE_CONTROL.md`).
+
 Committed **before** the amended analysis is run, for the same reason the
 original was: `git log` has to show the parameters were fixed before the
 numbers existed.

@@ -107,7 +107,8 @@ relation-level checks, which do not depend on length.
 
 ## Out-of-domain behaviour, on material already in the repo
 
-`verse.txt`, a 62-line rap verse at 632 tokens, is outside every profile. The
+`verse.txt` (a 62-line rap verse at 632 tokens, since DELETED as in-copyright --
+see data/sources.tsv) was outside every profile. The
 gate declines the length-sensitive checks, says so, and reports only what it
 can actually measure: one cliché pair (baby/crazy) and four self-rhymes.
 

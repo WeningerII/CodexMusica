@@ -29,7 +29,10 @@ Codex Musica describes the recording, this disciplines the words.
    rhyme against a metric period, phase-invariant and self-normalizing,
    with family-wise error control across each position's ~15-comparison
    family. Saturation 6-16%, false-event rate measured at 5.4% against a
-   declared 5.0%. No arm survives BH on either grid.
+   declared 5.0%. Statistic VALIDATED against a planted signal (power
+   1.00 at ceiling, 0.05 at chance) -- but UNDERPOWERED at real item
+   sizes: 8 events needs ~75% of rhymes on one phase to reach 0.80
+   power. Sonnet arm null with pooled power (Fisher p=0.950, k=23).
    Still no beat grid — there is no audio, so isochrony is an assumed
    coordinate, not a measurement, and "on the beat" is not a claim this
    project can make). 
@@ -58,7 +61,11 @@ prasa K L... | demo
   General American dialect, which is correct and now named). Whitman
   20.0% chained at theta 0.82, down from 26.0%: the band tightened the
   negative control, which is why it ships and the fitted matrix does
-  not. Rap chains (verse.txt) stable at theta 0.75.
+  not. verse.txt DELETED 2026-08-10: it was an in-copyright rap
+  transcription that predated the provenance gate and was never
+  declared in data/sources.tsv or run through it, yet the time layer's
+  entire rap arm (n=1) rested on it. No rap corpus can EVER be admitted
+  under a 95-year term -- the cutoff is 1931 and the genre starts 1979.
 - Triage every failure to a layer: ingestion / projection / anchor /
   comparator / band / structure / value. Fix only when a category
   accumulates. Every fixed case becomes a permanent regression.
@@ -279,3 +286,30 @@ Doctrine additions, earned from the first run — do not drift from these either
    Do not report the first as if it were the second, and do not let a
    correction that finally delivers power get filed as a refactor — it changes
    what the negative result means.
+31. **Run the positive control before believing any null.** The time layer
+   produced nulls across three instrument versions before anyone asked whether
+   its statistic could detect a signal it was pointed at. It can — power 1.00
+   on a planted signal, 0.05 at chance — but at the 5-8 events a real item
+   carries it needs ~75% of an item's rhymes on one phase to see anything.
+   Every earlier null was evidence about sample size, not about verse. A
+   synthetic planted-signal control is cheap, language-agnostic and needs no
+   corpus, so there was never an excuse for it coming fourth.
+32. **A corpus is defined by the property under test, not by a genre or a
+   language.** The replacement for the deleted rap arm is "forms in which
+   sound-repetition is constrained to fixed metrical positions", which spans
+   nine language families (quality/POSITIVE_CONTROL.md). Proposing "a second
+   rap corpus", and then one tradition swapped for another, was doctrine 8
+   broken twice over: single source AND single language. No tradition
+   conceptualizes the property the same way, which is the reason to take many
+   rather than a reason to pick one.
+33. **Correcting across items is not combining evidence across them.**
+   Benjamini-Hochberg answers "which items are discoveries"; it never asks
+   whether the arm as a whole shows the effect. Fisher's method does, and is
+   legitimate here because each item's KL is phase-invariant so the p-values
+   are comparable even when the phases are not. The aggregate question had gone
+   unasked for the whole life of the layer.
+34. **Every corpus file must have a row in data/sources.tsv, including the
+   local ones.** verse.txt sat in the repo from the first import, was never
+   declared, was never run through the provenance gate it would have failed,
+   and carried an entire experimental arm. Fixtures, generated text and
+   PD downloads all now carry rows -- a file with no row is the defect.

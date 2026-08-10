@@ -1,5 +1,28 @@
 # Results — family-wise error control in the time layer
 
+> **RAP ARM WITHDRAWN.** Every rap figure in this document came from
+> `verse.txt`, an in-copyright commercial transcription that predated the
+> provenance gate, was never declared in `data/sources.tsv`, and was never run
+> through it. It is deleted. Under `ProvenanceDeclaration(term_years=95,
+> current_year=2026)` the cutoff is **1931** and rap begins in **1979**, so no
+> rap corpus is admissible here before roughly 2075 — the arm cannot be
+> replicated, only replaced. The aggregate statistics are kept as an audit
+> trail; the text is gone. H1's positive half is **untestable under the
+> provenance policy** rather than refuted, and its replacement is a
+> cross-family corpus defined by structural property rather than genre
+> (`quality/POSITIVE_CONTROL.md`).
+
+> **AND THE NULLS ARE WEAKER THAN THEY READ.** `quality/POSITIVE_CONTROL.md`
+> measured the layer's minimum detectable effect for the first time. At the
+> 5-8 events a corrected item actually carries, the statistic needs ~75% of an
+> item's internal rhymes on ONE phase to reach 0.80 power; at 60% concentration
+> it has 0.13. So a single item could never have answered the question, and the
+> withdrawn rap arm's p = 0.132 / 0.626 / 0.087 did not mean "no effect", they
+> meant **no power**. H1's positive half was never once tested. The sonnet arm
+> IS genuinely null and now has pooled power behind it: Fisher across items
+> gives p = 0.950 (stress, k=23) and p = 0.617 (syllable, k=26).
+
+
 Run against `FWER_PREREGISTRATION.md`, committed before the code.
 Regressions: `python3 quality/test_fwer.py`.
 

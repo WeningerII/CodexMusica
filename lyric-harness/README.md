@@ -47,7 +47,7 @@ frequency list beside the script.
   the point.
 
 ## Graph mode (the primary object)
-`python3 lyric_harness.py graph verse.txt [theta]` — full pairwise score
+`python3 lyric_harness.py graph metidja.txt [theta]` — full pairwise score
 matrix as a weighted graph, maximal cliques extracted (tolerance classes).
 Cliques may OVERLAP; overlapping nodes are structures with no letter-scheme
 representation (chained slant). Letter schemes, chains, and blueprints are
@@ -75,7 +75,7 @@ letters; Welsh mutation and 'n' rules not modeled; weight is an English
 mapping of guru/laghu.
 
 ## Discovery mode (through-composed verse)
-`python3 lyric_harness.py chains verse.txt` — no predeclared scheme. Detects
+`python3 lyric_harness.py chains lyric.txt` — no predeclared scheme. Detects
 serial rhyme chains: a line joins by matching either of the chain's last two
 rhyming members (interleave-safe for xAxA odd-rhyme structures); one
 non-matching line is held as a filler if the next line rejoins. Reports
