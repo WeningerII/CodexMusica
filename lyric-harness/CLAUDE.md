@@ -454,3 +454,19 @@ Doctrine additions, earned from the first run — do not drift from these either
    frequent band-passing candidates as FORBIDDEN and verify() rejects a
    revision that takes one. A principle that lives only in prose gets followed
    exactly as often as someone remembers it.
+49. **Re-test the channel map before believing a NOT-FOUND row.** Two channels
+   were discovered mid-round that no earlier search had used: plain `git clone`
+   of any public GitHub repo works, and GUTENBERG IS MIRRORED ON GITHUB as the
+   GITenberg org. The second directly overturned a NOT-FOUND row this project
+   had already written and committed — the Finnish Kalevala, recorded as
+   unreachable, fetched in one call and validated at 81.2% alliteration. A
+   sourcing failure is a claim about the network at a moment, not about the
+   world; date it and re-run it when the map changes.
+50. **An orthographic layer can silently destroy the very constraint a cell
+   measures.** Modernised Icelandic inserts epenthetic -ur (Laetr -> Laetur),
+   breaking the six-syllable drottkvaett line so hending POSITIONS become
+   unrecoverable; Irish text_standard normalises spelling and destroys the
+   orthographic rhymes; Somali's whole 1972 script postdates its own copyright
+   cutoff. Three traditions, three different ways for a transcription to look
+   fine and be unusable. Ask what the ORTHOGRAPHY does to the constraint before
+   accepting any text.

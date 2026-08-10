@@ -318,6 +318,70 @@ blocked. Until one of them is sourced, every positive control available to this
 project is positional by construction, and its passing says only that the
 instrument runs.
 
+## Part E — the sourcing round, six cells in parallel
+
+Six independent sourcing units, each returning a `data/sources.tsv` row rather
+than a conclusion. Four found admissible text, two did not, and the two
+failures are as informative as the finds.
+
+| cell | outcome | scale |
+|---|---|---|
+| Persian ghazal | **FOUND** `kavehbc/hafez`, MIT + author d.1390 | 495 ghazals, radif visible in **297** |
+| Finnish Kalevala | **FOUND** `GITenberg/Kalevala_7000`, PD both routes | **22,822 verse lines**, 81.2% alliterate |
+| Finnish SKVR | already held; row sharpened | 87,898 poems / 1,305,915 lines |
+| Sanskrit | **FOUND** DCS, **CC BY 4.0** | 270 texts; yamaka sarga complete |
+| Old Norse | **CONTESTED** `sagadb.org`; Háttatal **blocked** | 1,228 lines / 814 blocked |
+| Irish | **FOUND at n=1** | one 1655 poem, 42 quatrains |
+| Malay | **NOT FOUND** — network, not rights | target identified exactly |
+
+### The channel map was wrong, twice
+
+Both corrections came out of the parallel round and neither was the thing being
+looked for.
+
+**`git clone` of any public GitHub repo works.** I briefed all six agents that
+only raw fetches work and search is scoped. A whole repository is fetchable
+from its *name*, without knowing paths — verified directly.
+
+**Gutenberg is mirrored on GitHub as `GITenberg`, and GitHub is reachable.**
+`gutenberg.org` is 403 at the gateway;
+`raw.githubusercontent.com/GITenberg/<slug>_<PGID>/master/<PGID>-8.txt` is 200.
+This **directly overturns a NOT-FOUND row this project had already written**:
+the Finnish Kalevala was recorded as unreachable and is now fetched, 636 KB,
+validated at 81.2% alliteration. Every earlier search that failed *because
+Gutenberg is blocked* should be re-run through it — including Welsh.
+
+### Two finds that change what the layer can test
+
+**Sanskrit gives explicit half-verse boundaries.** DCS marks `sent_counter` and
+`sent_subcounter` per line, so pāda boundaries are machine-readable. That is
+exactly what the Irish cell lacks — there the quatrains are flattened into one
+string and must be re-segmented by syllable count before anything internal can
+be scored.
+
+**Old Norse holds the best positive control this project has found, and cannot
+use it.** Háttatal is 814 lines, all dróttkvætt, and it ships *Snorri's own
+worked examples of the two hendings* — a 13th-century built-in ground truth for
+an internal-constraint detector. It is blocked on Guðni Jónsson's 1935–54
+edition. Finnur Jónsson (d. 1934) would clear it outright and exists only on
+hosts the gateway denies.
+
+### Two orthographic traps, both caught before use
+
+Both are the same shape as the Somali bind and neither was predicted:
+
+- **Old Norse modernised Icelandic inserts epenthetic `-ur`** (`Lætr` →
+  `Lætur`), which breaks the six-syllable dróttkvætt line and makes hending
+  positions unrecoverable. 5,270 lines rejected on that basis.
+- **Irish `text_standard`** carries modernised spelling that destroys the
+  orthographic rhymes. Present in the same file as the usable text.
+
+And one bind that did **not** apply: Malay Rumi orthography *predates* the
+cutoff (Wilkinson 1904, van Ophuijsen 1901), so unlike Somali there is a
+genuine pre-1931 pantun collection in a readable script. Wilkinson & Winstedt
+1914 is identified precisely and is purely egress-blocked. One URL would
+convert it.
+
 ### Order of work
 
 1. **Part A is done** and it gates everything: the instrument is sound, and the
