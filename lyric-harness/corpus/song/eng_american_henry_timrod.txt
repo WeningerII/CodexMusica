@@ -1,4 +1,6 @@
 # author: Henry Timrod (1828-1867)
+# source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79
+# licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # source: GITenberg/Poems-of-American-History_47476 47476.txt md5 8066e20ffa0ea5545750e0c8b92a34ac
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # source: GITenberg/Poems-of-Henry-Timrod--with-Memoir_845 845.txt md5 5281d4046e905150bb5243bf47eafe41
@@ -6,6 +8,54 @@
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
+
+--- TITLE: Carolina
+--- SOURCE: PG15553
+--- NOTE: Golden Treasury of American Songs and Lyrics text; the state name stands alone as a one-word burden closing every half-stanza.
+[VERSE 1]
+  The despot treads thy sacred sands,
+  Thy pines give shelter to his bands,
+  Thy sons stand by with idle hands,
+              Carolina!
+  He breathes at ease thy airs of balm,
+  He scorns the lances of thy palm;
+  Oh! who shall break thy craven calm,
+              Carolina!
+  Thy ancient fame is growing dim,
+  A spot is on thy garment's rim;
+  Give to the winds thy battle-hymn,
+              Carolina!
+
+[VERSE 2]
+  Call on thy children of the hill,
+  Wake swamp and river, coast and rill,
+  Rouse all thy strength and all thy skill,
+              Carolina!
+  Cite wealth and science, trade and art,
+  Touch with thy fire the cautious mart,
+  And pour thee through the people's heart,
+              Carolina!
+  Till even the coward spurns his fears,
+  And all thy fields, and fens, and meres
+  Shall bristle like thy palm with spears,
+              Carolina!
+
+[VERSE 3]
+  I hear a murmur as of waves
+  That grope their way through sunless caves,
+  Like bodies struggling in their graves,
+              Carolina!
+  And now it deepens; slow and grand
+  It swells, as, rolling to the land,
+  An ocean broke upon thy strand,
+              Carolina!
+  Shout! Let it reach the startled Huns!
+  And roar with all thy festal guns!
+  It is the answer of thy sons,
+              Carolina!
+
+[VERSE 4]
+H. TIMROD.
 
 --- TITLE: A Cry to Arms
 --- SOURCE: PG845
@@ -428,132 +478,66 @@ The lenient future of his fate
 There, where some rotting ships and crumbling quays
 Shall one day mark the Port which ruled the Western seas.
 
---- TITLE: A CRY TO ARMS
---- SOURCE: PG47476
+--- TITLE: Hymn Sung at the Consecration of Magnolia Cemetery, Charleston, S.C.
+--- SOURCE: PG845
 [VERSE 1]
-Ho, woodsmen of the mountain-side!
-  Ho, dwellers in the vales!
-Ho, ye who by the chafing tide
-  Have roughened in the gales!
-Leave barn and byre, leave kin and cot,
-  Lay by the bloodless spade;
-Let desk and case and counter rot,
-  And burn your books of trade!
+Whose was the hand that painted thee, O Death!
+ In the false aspect of a ruthless foe,
+Despair and sorrow waiting on thy breath--
+ O gentle Power! who could have wronged thee so?
 
 [VERSE 2]
-The despot roves your fairest lands;
-  And till he flies or fears,
-Your fields must grow but armd bands,
-  Your sheaves be sheaves of spears!
-Give up to mildew and to rust
-  The useless tools of gain,
-And feed your country's sacred dust
-  With floods of crimson rain!
+Thou rather shouldst be crowned with fadeless flowers,
+ Of lasting fragrance and celestial hue;
+Or be thy couch amid funereal bowers,
+ But let the stars and sunlight sparkle through.
 
 [VERSE 3]
-Come with the weapons at your call--
-  With musket, pike, or knife;
-He wields the deadliest blade of all
-  Who lightest holds his life.
-The arm that drives its unbought blows
-  With all a patriot's scorn,
-Might brain a tyrant with a rose
-  Or stab him with a thorn.
+So, with these thoughts before us, we have fixed
+ And beautified, O Death! thy mansion here,
+Where gloom and gladness--grave and garden--mixed,
+ Make it a place to love, and not to fear.
 
 [VERSE 4]
-Does any falter? Let him turn
-  To some brave maiden's eyes,
-And catch the holy fires that burn
-  In those sublunar skies.
-Oh, could you like your women feel,
-  And in their spirit march,
-A day might see your lines of steel
-  Beneath the victor's arch!
+Heaven! shed thy most propitious dews around!
+ Ye holy stars! look down with tender eyes,
+And gild and guard and consecrate the ground
+ Where we may rest, and whence we pray to rise.
 
-[VERSE 5]
-What hope, O God! would not grow warm
-  When thoughts like these give cheer?
-The lily calmly braves the storm,
-  And shall the palm-tree fear?
-No! rather let its branches court
-  The rack that sweeps the plain;
-And from the lily's regal port
-  Learn how to breast the strain.
-
-[VERSE 6]
-Ho, woodsmen of the mountain-side!
-  Ho, dwellers in the vales!
-Ho, ye who by the roaring tide
-  Have roughened in the gales!
-Come, flocking gayly to the fight,
-  From forest, hill, and lake;
-We battle for our country's right,
-  And for the lily's sake!
-
---- TITLE: CHARLESTON
---- SOURCE: PG47476
+--- TITLE: Hymn Sung at an Anniversary of the Asylum of Orphans at Charleston
+--- SOURCE: PG845
 [VERSE 1]
-Calm as that second summer which precedes
-  The first fall of the snow,
-In the broad sunlight of heroic deeds,
-  The city bides the foe.
+We scarce, O God! could lisp thy name,
+ When those who loved us passed away,
+And left us but thy love to claim,
+ With but an infant's strength to pray.
 
 [VERSE 2]
-As yet, behind their ramparts, stern and proud,
-  Her bolted thunders sleep,--
-Dark Sumter, like a battlemented cloud,
-  Looms o'er the solemn deep.
+Thou gav'st that Refuge and that Shrine,
+ At which we learn to know thy ways;
+Father! the fatherless are thine!
+ Thou wilt not spurn the orphan's praise.
 
 [VERSE 3]
-No Calpe frowns from lofty cliff or scaur
-  To guard the holy strand;
-But Moultrie holds in leash her dogs of war
-  Above the level sand.
+Yet hear a single cry of pain!
+ Lord! whilst we dream in quiet beds,
+The summer sun and winter rain
+ Beat still on many homeless heads.
 
 [VERSE 4]
-And down the dunes a thousand guns lie couched,
-  Unseen, beside the flood,--
-Like tigers in some Orient jungle crouched,
-  That wait and watch for blood.
+And o'er this weary earth, we know,
+ Young outcasts roam the waste and wave;
+And little hands are clasped in woe
+ Above some tender mother's grave.
 
 [VERSE 5]
-Meanwhile, through streets still echoing with trade,
-  Walk grave and thoughtful men,
-Whose hands may one day wield the patriot's blade
-  As lightly as the pen.
+Ye winds! keep every storm aloof,
+ And kiss away the tears they weep!
+Ye skies, that make their only roof,
+ Look gently on their houseless sleep!
 
 [VERSE 6]
-And maidens, with such eyes as would grow dim
-  Over a bleeding hound,
-Seem each one to have caught the strength of him
-  Whose sword she sadly bound.
-
-[VERSE 7]
-Thus girt without and garrisoned at home,
-  Day patient following day,
-Old Charleston looks from roof and spire and dome,
-  Across her tranquil bay.
-
-[VERSE 8]
-Ships, through a hundred foes, from Saxon lands
-  And spicy Indian ports,
-Bring Saxon steel and iron to her hands,
-  And summer to her courts.
-
-[VERSE 9]
-But still, along yon dim Atlantic line,
-  The only hostile smoke
-Creeps like a harmless mist above the brine,
-  From some frail floating oak.
-
-[VERSE 10]
-Shall the spring dawn, and she, still clad in smiles,
-  And with an unscathed brow,
-Rest in the strong arms of her palm-crowned isles,
-  As fair and free as now?
-
-[VERSE 11]
-We know not; in the temple of the Fates
-  God has inscribed her doom:
-And, all untroubled in her faith, she waits
-  The triumph or the tomb.
+And thou, O Friend and Father! find
+ A home to shield their helpless youth!
+Dear hearts to love--sweet ties to bind--
+ And guide and guard them in the truth!

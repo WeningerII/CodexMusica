@@ -794,3 +794,20 @@ Doctrine additions, earned from the first run — do not drift from these either
    31 said run the positive control; this says REPORT ITS SENSITIVITY next to
    the null, because a null without a detection floor is an unfalsifiable
    claim wearing a number.
+77. **Parallel cells share a scratchpad, so working files must be namespaced.**
+   The British sourcing cell lost ~30 fetches mid-run because a sibling
+   overwrote its `fetch.sh` and clobbered `scratchpad/raw/`. Only the uniquely
+   named DELIVERABLES were safe. Every brief in that round told cells where to
+   write their outputs and said nothing about their intermediates, which is an
+   orchestration defect, not a cell's mistake. Give each cell its own
+   subdirectory and say so in the brief.
+78. **A parallel round needs one shared channel-map, updated as it runs.**
+   Six cells independently rediscovered that gutenberg.org is blocked, and
+   between them found ELEVEN further blocked hosts -- wikisource, wikipedia,
+   archive.org, hathitrust, gutendex, ccel, hymnary, the Bodleian broadsides,
+   gsarchive, codeload, jsdelivr -- plus two working channels nobody had:
+   `WebFetch` on the GITenberg org HTML search page (no rate limit, unlike
+   `search_repositories`, which throttles after ~8 calls), and `thabz/Kalliope`.
+   That is six times the same probing. The map belongs in one file the cells
+   read and append to.
+
