@@ -317,15 +317,156 @@ def anchor(sylls, mode="last_stressed"):
     return sylls[idx:]
 
 
+# ---------------------------------------------------------------------------
+# Readability — the recorded refusal
+#
+# An unreadable word must produce a RECORDED REFUSAL, never a missing relation.
+# The whole doctrine of this project is that unknown never produces an answer;
+# on this path it was producing SILENCE, which is worse, because silence is
+# indistinguishable from a measurement.
+# ---------------------------------------------------------------------------
+
+#: The relation `score()` already returns when either side has no anchor. It is
+#: a REFUSAL, not a verdict: nothing was compared. Consumers must never fold it
+#: into a "does not rhyme" count -- doing so attributes to the poet a failure
+#: that belongs to the dictionary.
+NO_ANCHOR = "NO_ANCHOR"
+
+
+def line_tokens(text):
+    """The line's word tokens, in order, before any dictionary filtering.
+
+    Factored out of `line_anchors` and `word_syllable_map`, which carried the
+    same three lines twice. This is the only definition of "the words of a
+    line" the rhyme path may use; see `raw_final_token`.
+    """
+    norm = text.replace("’", "'").replace("‘", "'")
+    norm = re.sub(r"\([^)]*\)", " ", norm)
+    return [t for t in re.findall(r"[A-Za-z'\-]+", norm)
+            if re.search(r"[A-Za-z]", t)]
+
+
+def raw_final_token(text):
+    """The line's ACTUAL last word, before any dictionary filtering.
+
+    This is the token an end-rhyme is ON, and every rhyme-word lookup in this
+    file has to agree with it. A path that instead takes the last word the
+    DICTIONARY COULD READ substitutes an earlier word without saying so: on
+    `i saw the cat zzzqx` it reports the rhyme word as `cat`, and on
+    Shakespeare's `Thou dost beguile the world, unbless some mother. / ...
+    grow'st` it reports `thou`. Measured in `_qafiya_parts` (which reads
+    `word_syllable_map`, and that map emits nothing at all for an unreadable
+    word) at 5.14% of corpus/song/ lines and 2.87% of sonnet lines before this
+    was fixed. Compare against this function before trusting any end word.
+    """
+    toks = line_tokens(text)
+    return toks[-1] if toks else None
+
+
+def line_readability(lex, text, anchors=None):
+    """Per-line readability record -- the RECORDED REFUSAL.
+
+    The rhyme path has exactly one way to fail on an unreadable word, and it is
+    not an error: `line_anchors` returns no anchor, `score` returns relation
+    NO_ANCHOR with total 0.0, and every band test then says "not a rhyme".
+    That answer is wrong in kind. The harness did not judge the pair and find
+    it wanting; it could not read one of the words. A caller must be able to
+    tell those apart, so every entry point that reports relations now also
+    reports these records.
+
+    NO PRONUNCIATION IS GUESSED. CLAUDE.md known gap 1 proposes g2p-en as a
+    transcribe fallback; that is a separate, declared decision and it is not
+    taken here. Guessing a pronunciation for `zzzqx` would replace a silent
+    deletion with a silent invention, which is the worse of the two. This
+    refuses and records.
+
+    -> dict:
+      final_token          the raw last word (`raw_final_token`), or None
+      readable             False iff the END RHYME cannot be read
+      final_unreadable     the end word specifically produced no anchor
+      unreadable           every token in the line CMUdict could not read
+      interior_unreadable  unreadable tokens before the last
+      reason               a sentence naming the instrument, or None
+    """
+    toks = line_tokens(text)
+    final = toks[-1] if toks else None
+    _, _, oov = lex.transcribe(text)
+    unreadable = list(dict.fromkeys(oov))
+    if final is None:
+        return {"text": text, "final_token": None, "readable": False,
+                "final_unreadable": False, "unreadable": unreadable,
+                "interior_unreadable": unreadable,
+                "reason": "no word tokens in the line: nothing to anchor on"}
+    if anchors is None:
+        anchors, _, _ = line_anchors(lex, text)
+    # The refusal condition is defined by the shipped path itself: an end word
+    # is unreadable exactly when `line_anchors` yields nothing for it. Deriving
+    # it any other way would let the record and the behaviour drift apart.
+    final_unreadable = not anchors
+    fin = fold_apostrophes(final).lower()
+    interior = [w for w in unreadable if fold_apostrophes(w).lower() != fin]
+    reason = None
+    if final_unreadable:
+        reason = (f"CMUdict has no pronunciation for the end word {final!r}; "
+                  f"the harness refuses rather than guessing one (no G2P "
+                  f"fallback). This line's end-rhyme is UNKNOWN, not absent.")
+    elif interior:
+        reason = (f"end word {final!r} is readable, but "
+                  f"{len(interior)} interior token(s) are not "
+                  f"({', '.join(sorted(interior))}); a multi-syllable anchor "
+                  f"reaching back past one of them is reading a line with a "
+                  f"hole in it.")
+    return {"text": text, "final_token": final,
+            "readable": not final_unreadable,
+            "final_unreadable": final_unreadable,
+            "unreadable": unreadable, "interior_unreadable": interior,
+            "reason": reason}
+
+
+def readability_records(lex, lines, anchors=None):
+    """`line_readability` over a list, with 1-based line numbers attached."""
+    out = []
+    for i, line in enumerate(lines):
+        rec = line_readability(lex, line,
+                               anchors[i] if anchors is not None else None)
+        rec["line"] = i + 1
+        out.append(rec)
+    return out
+
+
+def refusals_for_pairs(records, pairs):
+    """Which of `pairs` (0-based `(i, j)`) cannot be judged, and why.
+
+    A pair is REFUSED when either side's end word is unreadable. Refused pairs
+    are not violations and must never be counted as any: the denominator of a
+    violation rate is the pairs that were JUDGED.
+    """
+    out = []
+    for i, j in pairs:
+        bad = [r for r in (records[i], records[j]) if r["final_unreadable"]]
+        if bad:
+            out.append({
+                "lines": (i + 1, j + 1),
+                "endwords": (records[i]["final_token"],
+                             records[j]["final_token"]),
+                "unreadable": [r["final_token"] for r in bad],
+                "reason": bad[0]["reason"],
+            })
+    return out
+
+
 def line_anchors(lex, text, promote=False):
     """All anchor readings of a line: the last word cycles through its
     dictionary pronunciation variants (homographs: live, wind, read).
     promote=True adds the metrically-promoted bare-final-syllable variant —
-    licensed only by a declared metrical template (verification mode)."""
-    norm = text.replace("\u2019", "'").replace("\u2018", "'")
-    norm = re.sub(r"\([^)]*\)", " ", norm)
-    words = [t for t in re.findall(r"[A-Za-z'\-]+", norm)
-             if re.search(r"[A-Za-z]", t)]
+    licensed only by a declared metrical template (verification mode).
+
+    On an unreadable end word this returns NO anchors -- it does not fall back
+    to the preceding word. That much was always right (measured). What was
+    wrong is that every caller threw the third return value away; see
+    `line_readability`.
+    """
+    words = line_tokens(text)
     if not words:
         return [], "", []
     prefix = " ".join(words[:-1])
@@ -646,6 +787,17 @@ def check_meter(lex, lines, template=None):
 # ---------------------------------------------------------------------------
 
 def check_scheme(lex, lines, scheme, decl, profile=None):
+    """Diff the graph against the declared letters.
+
+    A mandated pair whose end word cannot be read is a REFUSAL, not a
+    violation. It used to be reported as `below theta_rhyme`, which says
+    "these lines do not rhyme" about a pair the harness never compared -- on
+    the sonnet battery that misattribution was 50 of 123 violations (40.7%),
+    and it named Shakespeare rather than CMUdict as the thing at fault. The
+    refusals now leave `violations` and appear in `refusals`, and the counts
+    that make a rate computable are returned explicitly: divide by
+    `pairs_judged`, never by `pairs_mandated`.
+    """
     assert len(scheme) == len(lines), "scheme length must equal line count"
     anchors, endwords = [], []
     for line in lines:
@@ -653,9 +805,14 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                                      promote=decl.final_promotion)
         anchors.append(ancs)
         endwords.append(last)
+    records = readability_records(lex, lines, anchors)
     n = len(lines)
     matrix = [[None] * n for _ in range(n)]
     violations, collisions = [], []
+    mandated = [(i, j) for i in range(n) for j in range(i + 1, n)
+                if scheme[i].upper() == scheme[j].upper()]
+    refusals = refusals_for_pairs(records, mandated)
+    refused = {r["lines"] for r in refusals}
     for i in range(n):
         for j in range(i + 1, n):
             s = best_score(anchors[i], anchors[j], decl,
@@ -663,6 +820,8 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
             matrix[i][j] = s
             same = scheme[i].upper() == scheme[j].upper()
             if same:
+                if (i + 1, j + 1) in refused:
+                    continue          # refused: recorded, never judged
                 if s["relation"] == "REPEAT":
                     violations.append(
                         (i + 1, j + 1, s["total"],
@@ -671,6 +830,12 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     violations.append(
                         (i + 1, j + 1, s["total"],
                          f"{s['relation']} not rhyme (conjunctive band)"))
+                elif s["relation"] == NO_ANCHOR:
+                    # Unreachable via an unreadable END word (those are already
+                    # in `refusals`); reachable if a line has no word tokens.
+                    violations.append(
+                        (i + 1, j + 1, s["total"],
+                         "NO_ANCHOR: nothing to compare (not a rhyme verdict)"))
                 elif s["total"] < decl.theta_rhyme:
                     violations.append(
                         (i + 1, j + 1, s["total"],
@@ -680,8 +845,12 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     collisions.append(
                         (i + 1, j + 1, s["total"],
                          "unintended rhyme across scheme letters"))
-    # transitivity defect within letter groups: a~b, b~c, a!~c
+    # transitivity defect within letter groups: a~b, b~c, a!~c.
+    # A triangle containing a refused edge is UNKNOWN, not defective: a missing
+    # edge there is a missing measurement. Counting it would manufacture a
+    # structural finding out of an unreadable word.
     defect = 0
+    unknown_triangles = 0
     groups = {}
     for idx, letter in enumerate(scheme.upper()):
         groups.setdefault(letter, []).append(idx)
@@ -693,6 +862,10 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     def ok(x, y):
                         s = matrix[min(x, y)][max(x, y)]
                         return admits(s, decl.theta_rhyme)
+                    if any((min(x, y) + 1, max(x, y) + 1) in refused
+                           for x, y in ((i1, i2), (i2, i3), (i1, i3))):
+                        unknown_triangles += 1
+                        continue
                     edges = [ok(i1, i2), ok(i2, i3), ok(i1, i3)]
                     if sum(edges) == 2:
                         defect += 1
@@ -704,7 +877,13 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                  "flags": matrix[i][j]["flags"]}
                 for i in range(n) for j in range(i + 1, n)],
             "violations": violations, "collisions": collisions,
-            "transitivity_defect_triangles": defect}
+            "refusals": refusals,
+            "readability": records,
+            "pairs_mandated": len(mandated),
+            "pairs_refused": len(refusals),
+            "pairs_judged": len(mandated) - len(refusals),
+            "transitivity_defect_triangles": defect,
+            "transitivity_unknown_triangles": unknown_triangles}
 
 
 # ---------------------------------------------------------------------------
@@ -728,18 +907,33 @@ def rhyme_graph(lex, lines, decl, theta=None, profile=None):
     """Full pairwise score matrix -> weighted graph -> maximal cliques
     (tolerance classes). Cliques may OVERLAP: those structures have no
     letter-scheme representation. The graph is the answer; everything
-    else is a view."""
+    else is a view.
+
+    An unreadable end word used to make a node vanish from the graph in
+    complete silence: `line_anchors` gave nothing, `score` said NO_ANCHOR,
+    `admits` said no, the node ended up isolated, and the `oov` this function
+    already computed was DISCARDED from the return value. A reader then could
+    not tell an isolated node from an unread one. Isolation is now typed:
+    `unreadable_nodes` names the nodes nothing could be measured about, and
+    `refused_edges` names the pairs that were never compared. An edge missing
+    for a refused pair is a missing MEASUREMENT, not a measured non-relation.
+    """
     if theta is None:
         theta = decl.theta_rhyme
     data = []
     for line in lines:
         ancs, last, oov = line_anchors(lex, line)
         data.append({"anchor": ancs, "endword": last, "oov": oov})
+    records = readability_records(lex, lines, [d["anchor"] for d in data])
     n = len(data)
     edges = []
+    refused = []
     adj = {i: set() for i in range(n)}
     for i in range(n):
         for j in range(i + 1, n):
+            if records[i]["final_unreadable"] or records[j]["final_unreadable"]:
+                refused.append((i, j))
+                continue
             s = best_score(data[i]["anchor"], data[j]["anchor"], decl,
                            data[i]["endword"], data[j]["endword"],
                            profile=profile)
@@ -757,7 +951,16 @@ def rhyme_graph(lex, lines, decl, theta=None, profile=None):
     return {"endwords": [d["endword"] for d in data],
             "edges": edges, "cliques": cliques,
             "overlapping_nodes": overlapping,
-            "letter_representable": not overlapping}
+            "letter_representable": not overlapping,
+            "readability": records,
+            "unreadable_nodes": [
+                {"node": r["line"] - 1, "line": r["line"],
+                 "endword": r["final_token"], "reason": r["reason"]}
+                for r in records if r["final_unreadable"]],
+            "refused_edges": refusals_for_pairs(records, refused),
+            "pairs_total": n * (n - 1) // 2,
+            "pairs_refused": len(refused),
+            "pairs_judged": n * (n - 1) // 2 - len(refused)}
 
 
 # ---------------------------------------------------------------------------
@@ -770,13 +973,23 @@ def infer_chains(lex, lines, decl, theta_chain=None, comparator=None):
     xAxA odd-rhyme structures). One consecutive non-matching line is held as
     a filler if the following line rejoins; two consecutive misses close the
     chain. Chains may drift (neighbor coherence, not global): the tolerance
-    structure."""
+    structure.
+
+    The per-chain `oov` field used to be collected over MEMBERS only. An
+    unreadable line cannot match anything, so it is exactly the line that ends
+    up a FILLER -- which means the one field that recorded unreadability
+    systematically dropped it in the only case where it mattered. Measured on
+    the constructed case: a chain whose filler is `zzzqx` reported `oov: []`.
+    `oov` now covers fillers too, and `unreadable` names, per chain, which of
+    its lines the harness could not read and why.
+    """
     if theta_chain is None:
         theta_chain = decl.theta_rhyme
     data = []
     for line in lines:
         ancs, last, oov = line_anchors(lex, line)
         data.append({"anchor": ancs, "endword": last, "oov": oov})
+    records = readability_records(lex, lines, [d["anchor"] for d in data])
 
     def match(i, j):
         s = best_score(data[i]["anchor"], data[j]["anchor"], decl,
@@ -846,7 +1059,15 @@ def infer_chains(lex, lines, decl, theta_chain=None, comparator=None):
             "mean_coherence": (round(sum(pairs) / len(pairs), 3)
                                if pairs else None),
             "max_drift": (round(min(pairs), 3) if pairs else None),
-            "oov": sorted({w for m in members for w in data[m]["oov"]}),
+            # members AND fillers: a filler is where an unreadable line lands.
+            "oov": sorted({w for m in list(members) + list(fillers)
+                           for w in data[m]["oov"]}),
+            "unreadable": [
+                {"line": m + 1, "endword": records[m]["final_token"],
+                 "role": "member" if m in members else "filler",
+                 "reason": records[m]["reason"]}
+                for m in sorted(set(members) | set(fillers))
+                if records[m]["final_unreadable"]],
         })
     return out
 
@@ -893,7 +1114,14 @@ def parse_lyric_sections(text):
 
 
 def group_sounds(lex, lines, scheme, decl):
-    """Representative end-anchor per scheme letter (first line of each group)."""
+    """Representative end-anchor per scheme letter (first line of each group).
+
+    A letter whose representative line is unreadable gets an EMPTY anchor, and
+    `check_song` then skips it in every cross-section comparison -- silently,
+    as though the group had been checked and found novel. The empty anchor is
+    kept (callers test it) and the reason is carried alongside so the skip is
+    visible.
+    """
     sounds = {}
     for i, letter in enumerate(scheme.upper()):
         if letter not in sounds and i < len(lines):
@@ -908,7 +1136,8 @@ def check_song(lex, blueprint, lyric_text, decl):
     Advisory flags: structural monotony, cross-verse sound reuse,
     bridge non-novelty."""
     got = parse_lyric_sections(lyric_text)
-    report = {"sections": [], "violations": [], "advisories": []}
+    report = {"sections": [], "violations": [], "advisories": [],
+              "refusals": []}
     first_instance = {}          # section name -> lines (for refs)
     verse_sounds = []            # [(section, letter, anchor, endword)]
     schemes_seen = []
@@ -950,10 +1179,18 @@ def check_song(lex, blueprint, lyric_text, decl):
             res = check_scheme(lex, glines, scheme, decl)
             entry["scheme_violations"] = res["violations"]
             entry["collisions"] = res["collisions"]
+            entry["scheme_refusals"] = res["refusals"]
             for v in res["violations"]:
                 report["violations"].append(
                     f"{spec['name']} L{v[0]}-L{v[1]}: {v[3]} "
                     f"(score {v[2]})")
+            # A refused pair is NOT a violation. It has to surface anyway, or
+            # an unreadable end word makes a mandated rhyme disappear from the
+            # song report entirely.
+            for r in res["refusals"]:
+                report["refusals"].append(
+                    f"{spec['name']} L{r['lines'][0]}-L{r['lines'][1]}: "
+                    f"{r['reason']}")
             schemes_seen.append((spec["name"], spec["type"], scheme))
             sounds = group_sounds(lex, glines, scheme, decl)
             # cross-section sound reuse / bridge novelty
@@ -1002,10 +1239,15 @@ def line_weights(lex, text):
 
 
 def word_syllable_map(lex, text):
-    text = text.replace("\u2019", "'").replace("\u2018", "'")
-    text = re.sub(r"\([^)]*\)", " ", text)
-    words = [t for t in re.findall(r"[A-Za-z'\-]+", text)
-             if re.search(r"[A-Za-z]", t)]
+    """Syllables of a line, each tagged with the word and word index it came
+    from.
+
+    A word CMUdict cannot read contributes NO syllables, so `out[-1]["word"]`
+    is the last word the dictionary could READ, which is not in general the
+    line's last word. Anything that wants the rhyme word must use
+    `raw_final_token`, and `widx` is kept so a caller can see the gap.
+    """
+    words = line_tokens(text)
     out = []
     for k, w in enumerate(words):
         phones = []
@@ -1081,6 +1323,15 @@ def internal_matches(lex, text_a, decl, text_b=None, theta=None,
 
 
 def rhyme_density(lex, lines, decl, theta=None):
+    """Share of a line's syllables caught in an internal or cross-line match.
+
+    `internal_matches` reads `word_syllable_map`, so an unreadable word is not
+    in the denominator OR the numerator -- the density is computed over the
+    readable part of the line and printed as if it were the line. Measured: two
+    lines whose end word is `zzzqx` return 0.75 with no indication that a word
+    was skipped. The number is left as it was (it is a fact about the readable
+    material) and `unreadable` now says what was not in it.
+    """
     per_line = []
     matched = [set() for _ in lines]
     totals = []
@@ -1102,7 +1353,12 @@ def rhyme_density(lex, lines, decl, theta=None):
         per_line.append(round(d, 3))
     overall = (sum(len(m) for m in matched) / sum(totals)
                if sum(totals) else 0.0)
-    return {"per_line": per_line, "overall": round(overall, 3)}
+    records = readability_records(lex, lines)
+    return {"per_line": per_line, "overall": round(overall, 3),
+            "readability": records,
+            "unreadable": [{"line": r["line"], "words": r["unreadable"],
+                            "reason": r["reason"]}
+                           for r in records if r["unreadable"]]}
 
 
 def consonant_skeleton(sylls):
@@ -1315,10 +1571,35 @@ RIDF_CLASS = {"AA": "alif", "UW": "waw", "OW": "waw",
 
 
 def _qafiya_parts(lex, line):
+    """Rawi/ridf/ta'sis/wasl of a line's rhyme word, or a REFUSAL.
+
+    This is where the shipped file carried `relations.py`'s bug: it took
+    `word_syllable_map(...)[-1]["word"]`, the last word the DICTIONARY COULD
+    READ, and called it the rhyme word. When the line's real last word is out
+    of dictionary the two disagree and an earlier word is silently promoted to
+    rhyme word -- measured at 9,812 of 190,804 corpus/song/ lines (5.14%) and
+    61 of 2,128 sonnet lines (2.87%). Shakespeare's `grow'st` lines reported
+    their rhyme word as `thou`; `zun` reported `the`. The whole qafiya profile
+    is a MAJORITY over these, so a few substituted function words move the
+    established rawi for every other line as well.
+
+    It now refuses instead. Returning None was also not safe: `check_qafiya`
+    read None as "radif/refrain line: licensed", turning 241 unreadable
+    corpus/song/ lines into clean passes, so the refusal is typed.
+    """
+    final = raw_final_token(line)
     sylls = word_syllable_map(lex, line)
-    if not sylls:
-        return None
+    if not sylls or final is None:
+        return {"unreadable": True, "endword": final,
+                "reason": (f"no readable syllable in the line; CMUdict reads "
+                           f"none of it. Refused, not licensed.")}
     endword = sylls[-1]["word"]
+    if endword != final:
+        return {"unreadable": True, "endword": final,
+                "reason": (f"CMUdict has no pronunciation for the end word "
+                           f"{final!r}; the last READABLE word is "
+                           f"{endword!r}. Refused rather than rhyming on "
+                           f"{endword!r}, which is not the rhyme word.")}
     ws = [s for s in sylls if s["word"] == endword]
     ri = None
     for i in range(len(ws) - 1, -1, -1):
@@ -1338,7 +1619,8 @@ def _qafiya_parts(lex, line):
                    for s in ws[ri + 1:])
     wasl_nucleus = ws[ri + 1]["nucleus"] if ri + 1 < len(ws) else None
     return {"endword": endword, "rawi": rawi, "ridf": ridf,
-            "tasis": tasis, "wasl": wasl, "wasl_nucleus": wasl_nucleus}
+            "tasis": tasis, "wasl": wasl, "wasl_nucleus": wasl_nucleus,
+            "unreadable": False, "reason": None}
 
 
 def check_qafiya(lex, lines, decl):
@@ -1350,18 +1632,29 @@ def check_qafiya(lex, lines, decl):
              for i in range(len(lines))]
 
     def majority(key):
-        vals = [p[key] for p in parts if p and p[key] is not None]
+        # A refused line contributes NOTHING to the established profile. It
+        # used to contribute a substituted function word, and the profile is a
+        # majority, so one unreadable end word could move the declared rawi for
+        # every other line in the poem.
+        vals = [p[key] for p in parts
+                if p and not p.get("unreadable") and p[key] is not None]
         if not vals:
             return None
         return max(set(vals), key=vals.count)
 
     prof = {k: majority(k) for k in ("rawi", "ridf", "tasis",
                                      "wasl", "wasl_nucleus")}
-    audit, seen = [], {}
+    audit, seen, refusals = [], {}, []
     for i, p in enumerate(parts):
         defects = []
         if p is None:
             audit.append((i + 1, "", ["radif/refrain line: licensed"]))
+            continue
+        if p.get("unreadable"):
+            refusals.append({"line": i + 1, "endword": p["endword"],
+                             "reason": p["reason"]})
+            audit.append((i + 1, p["endword"] or "",
+                          [f"REFUSED (not a defect): {p['reason']}"]))
             continue
         if p["rawi"] != prof["rawi"]:
             defects.append(f"rawi differs ({p['rawi']} vs "
@@ -1384,7 +1677,10 @@ def check_qafiya(lex, lines, decl):
         else:
             seen[ew] = i + 1
         audit.append((i + 1, p["endword"], defects))
-    return {"profile": prof, "audit": audit}
+    return {"profile": prof, "audit": audit, "refusals": refusals,
+            "lines_total": len(lines), "lines_refused": len(refusals),
+            "lines_judged": len(lines) - len(refusals)
+            - sum(1 for p in parts if p is None)}
 
 
 def _fmt_score(w1, w2, s):
@@ -1471,6 +1767,9 @@ def main():
         for i, d in enumerate(res["per_line"]):
             print(f"  L{i+1}: {d}")
         print(f"  overall density: {res['overall']}")
+        for u in res["unreadable"]:
+            print(f"  UNREADABLE L{u['line']}: {u['words']} "
+                  f"(not in the numerator or the denominator)")
 
     elif cmd == "cynghanedd":
         rest = args[1:]
@@ -1491,7 +1790,9 @@ def main():
                  if len(args) == 2 else args[1:])
         lines = [l.strip() for l in lines if l.strip()]
         res = check_qafiya(lex, lines, decl)
-        print(f"  established profile: {res['profile']}")
+        print(f"  established profile: {res['profile']}   "
+              f"(from {res['lines_judged']} judged line(s); "
+              f"{res['lines_refused']} refused)")
         for n, ew, defects in res["audit"]:
             print(f"  L{n} ({ew}): "
                   + ("; ".join(defects) if defects else "sound"))
@@ -1501,7 +1802,13 @@ def main():
                  if l.strip() and not l.strip().startswith("[")]
         th = float(args[2]) if len(args) > 2 else None
         g = rhyme_graph(lex, lines, decl, theta=th)
-        print(f"nodes {len(g['endwords'])}  edges {len(g['edges'])}")
+        print(f"nodes {len(g['endwords'])}  edges {len(g['edges'])}  "
+              f"pairs judged {g['pairs_judged']}/{g['pairs_total']}"
+              + (f"  REFUSED {g['pairs_refused']}"
+                 if g["pairs_refused"] else ""))
+        for u in g["unreadable_nodes"]:
+            print(f"  UNREADABLE L{u['line']} ({u['endword']}): "
+                  f"{u['reason']}")
         for i, j, sc, rel in g["edges"]:
             print(f"  L{i+1}({g['endwords'][i]}) -- L{j+1}"
                   f"({g['endwords'][j]})  {sc}  {rel}")
@@ -1542,6 +1849,9 @@ def main():
                      f" drift-floor {ch['max_drift']}" if not single else "")
                   + fill
                   + (f"   OOV {ch['oov']}" if ch["oov"] else ""))
+            for u in ch["unreadable"]:
+                print(f"    UNREADABLE L{u['line']} ({u['endword']}, "
+                      f"{u['role']}): {u['reason']}")
 
     elif cmd == "song":
         blueprint = json.load(open(args[1]))
@@ -1551,10 +1861,14 @@ def main():
             print(f"  section: {s['name']:<10} lines {s['lines']}")
         for v in res["violations"]:
             print(f"  VIOLATION: {v}")
+        for r in res["refusals"]:
+            print(f"  REFUSED:   {r}")
         for a in res["advisories"]:
             print(f"  advisory:  {a}")
         if not res["violations"]:
-            print("  structure: clean")
+            print("  structure: clean"
+                  + (" on what could be read; see REFUSED above"
+                     if res["refusals"] else ""))
 
     elif cmd == "scheme":
         scheme = args[1]
@@ -1573,10 +1887,19 @@ def main():
                   + (f"  [{', '.join(p['flags'])}]" if p["flags"] else ""))
         for v in res["violations"]:
             print(f"  VIOLATION L{v[0]}-L{v[1]} score {v[2]}: {v[3]}")
+        for r in res["refusals"]:
+            print(f"  REFUSED   L{r['lines'][0]}-L{r['lines'][1]}: "
+                  f"{r['reason']}")
         for c in res["collisions"]:
             print(f"  COLLISION L{c[0]}-L{c[1]} score {c[2]}: {c[3]}")
+        print(f"  mandated {res['pairs_mandated']}  judged "
+              f"{res['pairs_judged']}  refused {res['pairs_refused']}"
+              + ("   (a violation RATE divides by judged, not mandated)"
+                 if res["pairs_refused"] else ""))
         print(f"  transitivity defect triangles: "
-              f"{res['transitivity_defect_triangles']}")
+              f"{res['transitivity_defect_triangles']}"
+              + (f"  (unknown: {res['transitivity_unknown_triangles']})"
+                 if res["transitivity_unknown_triangles"] else ""))
 
     elif cmd == "demo":
         print("DECLARATION")

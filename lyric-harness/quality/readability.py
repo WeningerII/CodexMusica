@@ -1,0 +1,230 @@
+#!/usr/bin/env python3
+"""Readability of a text to the shipped lexicon — the recorded refusal.
+
+WHAT THIS IS FOR
+
+`lyric_harness` refuses on a word CMUdict cannot read: `line_anchors` returns
+no anchor and `score` returns relation NO_ANCHOR. That refusal is correct. What
+was wrong, until the fix this module accompanies, is that every consumer threw
+it away, so an unreadable end word came out of the harness as one of three
+things, none of them a refusal:
+
+  1. `check_scheme`  — a VIOLATION reading `below theta_rhyme=0.75`. That
+     sentence says "these lines do not rhyme". Measured on the sonnet battery:
+     50 of 123 violations (40.7%) were this, including `viewest`/`renewest`,
+     `gazeth`/`amazeth`, `receivest`/`deceivest` and `sweetness`/`meetness`.
+     The harness was naming Shakespeare as the thing at fault.
+  2. `rhyme_graph`   — nothing at all. The node lost every edge and the `oov`
+     the function had already computed was dropped from the return value, so an
+     isolated node and an unread node looked identical.
+  3. `check_qafiya`  — the rhyme word SILENTLY REPLACED by an earlier word,
+     because `word_syllable_map` emits no syllable for an unreadable word and
+     `_qafiya_parts` took the last surviving one. `zun` reported as `the`,
+     `grow'st` reported as `thou`. 5.14% of corpus/song/ lines, 2.87% of sonnet
+     lines. An entirely unreadable line was reported as
+     "radif/refrain line: licensed" — an unreadable line passing as a refrain.
+
+The rule this enforces: AN UNREADABLE WORD PRODUCES A RECORDED REFUSAL, NEVER A
+MISSING RELATION. A caller must always be able to tell "these lines do not
+rhyme" from "I could not read one of them".
+
+WHAT THIS DELIBERATELY DOES NOT DO
+
+It does not guess a pronunciation. CLAUDE.md known gap 1 proposes g2p-en as a
+transcribe fallback; that is a separate decision, it is not taken here, and
+taking it in this module would be the worse error — a silent deletion replaced
+by a silent invention. `zzzqx` has no pronunciation the harness is entitled to,
+and neither does `hwome`. The measured rates below are the SIZE OF THE GAP, and
+they are the argument for or against g2p; they are not something to make go
+away by filling the gap with guesses.
+
+Run:  python3 quality/readability.py corpus/song/*.txt
+"""
+
+import os
+import re
+import sys
+from dataclasses import dataclass, field
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, ".."))
+sys.path.insert(0, os.path.join(HERE, "..", ".."))
+
+from lyric_harness import (Declaration, Lexicon, line_anchors,  # noqa: E402
+                           line_readability, line_tokens,
+                           raw_final_token, readability_records,
+                           word_syllable_map)
+
+
+@dataclass
+class Finding:
+    """Same shape as `quality.floor.Finding`, deliberately: a caller that
+    already renders floor findings renders these with no new code. Declared
+    here rather than imported so this module stands alone — reading a text is
+    upstream of grading it."""
+    code: str
+    severity: str            # "flag" | "note"
+    message: str
+    evidence: str
+    locations: list = field(default_factory=list)
+
+    def __str__(self):
+        loc = f" (lines {', '.join(map(str, self.locations))})" if \
+            self.locations else ""
+        return f"[{self.severity.upper():4}] {self.code}: {self.message}{loc}\n" \
+               f"         {self.evidence}"
+
+
+#: A line counts for the rate iff it yields at least one word token. A blank
+#: line, a bracketed section header and a line that is nothing but a stripped
+#: parenthetical all have no end word, so there is nothing to refuse about
+#: them. Stated here rather than left to each caller, because doctrine 58 says
+#: a bare n-of-N is a coordinate of some setting nobody wrote down.
+def countable(text):
+    return bool(line_tokens(text))
+
+
+def report(lex, lines):
+    """-> dict. The per-line records, the counts, and the findings.
+
+    `lines_countable` is the denominator for every rate here. Divide by it and
+    not by `len(lines)`.
+    """
+    records = readability_records(lex, lines)
+    countables = [r for r in records if r["final_token"] is not None]
+    unread_final = [r for r in countables if r["final_unreadable"]]
+    interior_only = [r for r in countables
+                     if not r["final_unreadable"] and r["interior_unreadable"]]
+    n = len(countables)
+    out = {
+        "lines_total": len(lines),
+        "lines_countable": n,
+        "lines_unreadable_final": len(unread_final),
+        "lines_interior_unreadable_only": len(interior_only),
+        "rate_unreadable_final": (len(unread_final) / n) if n else 0.0,
+        "unreadable_final_words": sorted(
+            {r["final_token"].lower() for r in unread_final}),
+        "records": records,
+        "findings": [],
+    }
+    if unread_final:
+        out["findings"].append(Finding(
+            code="UNREADABLE_END_WORD",
+            severity="flag",
+            message=(f"{len(unread_final)} of {n} lines end in a word CMUdict "
+                     f"cannot read; their end-rhyme is UNKNOWN, not absent"),
+            evidence=("No pronunciation is guessed (no G2P fallback). Every "
+                      "relation these lines would have entered is REFUSED and "
+                      "recorded, not silently dropped. Words: "
+                      + ", ".join(sorted({r["final_token"]
+                                          for r in unread_final})[:20])),
+            locations=[r["line"] for r in unread_final],
+        ))
+    if interior_only:
+        out["findings"].append(Finding(
+            code="UNREADABLE_INTERIOR_WORD",
+            severity="note",
+            message=(f"{len(interior_only)} line(s) are readable at the end "
+                     f"but have an unreadable word before it"),
+            evidence=("The end-rhyme is sound. A multi-syllable anchor that "
+                      "reaches back past the gap (mosaic rhyme: 'spit in it') "
+                      "is joining phones across a hole, and the internal-rhyme "
+                      "and consonant-skeleton paths skip the word entirely."),
+            locations=[r["line"] for r in interior_only],
+        ))
+    return out
+
+
+def substitution_report(lex, lines):
+    """Lines where the last READABLE word is not the last word.
+
+    This is the `relations.py` `_loci('line_final_token')` defect, and the
+    shipped file carried it in `_qafiya_parts`. It is a strict subset of the
+    unreadable-final lines (the map has to keep at least one earlier word), and
+    it is the more dangerous half, because the substituted word is a plausible
+    English word and nothing about the output looks wrong.
+    """
+    out = []
+    for i, text in enumerate(lines):
+        final = raw_final_token(text)
+        if final is None:
+            continue
+        smap = word_syllable_map(lex, text)
+        if smap and smap[-1]["word"] != final:
+            out.append({"line": i + 1, "true_final": final,
+                        "would_have_used": smap[-1]["word"], "text": text})
+    return out
+
+
+def read_lines(path):
+    """Corpus lines, as every measurement in this project reads them: stripped,
+    non-empty, and carrying at least one Latin letter."""
+    with open(path, encoding="utf-8", errors="replace") as f:
+        return [ln.strip() for ln in f
+                if ln.strip() and re.search(r"[A-Za-z]", ln)]
+
+
+def corpus_rate(lex, paths):
+    """-> dict. The pinned corpus measurement, aggregated over files.
+
+    Kept separate from `report` so the regression test and the CLI compute the
+    identical number from the identical definition. If this rate moves, either
+    the corpus changed or the lexicon path did, and both are things a reader of
+    any recorded number needs told.
+    """
+    tot = unread = subst = 0
+    words = {}
+    per_file = []
+    for p in sorted(paths):
+        lines = read_lines(p)
+        recs = readability_records(lex, lines)
+        c = [r for r in recs if r["final_token"] is not None]
+        u = [r for r in c if r["final_unreadable"]]
+        s = substitution_report(lex, lines)
+        tot += len(c)
+        unread += len(u)
+        subst += len(s)
+        for r in u:
+            w = r["final_token"].lower()
+            words[w] = words.get(w, 0) + 1
+        per_file.append({"file": os.path.basename(p), "lines": len(c),
+                         "unreadable_final": len(u),
+                         "rate": (len(u) / len(c)) if c else 0.0})
+    return {"files": len(per_file), "lines_countable": tot,
+            "unreadable_final": unread,
+            "rate": (unread / tot) if tot else 0.0,
+            "substituted_end_word": subst,
+            "distinct_unreadable_finals": len(words),
+            "top_unreadable_finals": sorted(words.items(),
+                                            key=lambda kv: (-kv[1], kv[0]))[:20],
+            "per_file": per_file}
+
+
+def main(argv):
+    paths = argv[1:]
+    lex = Lexicon()
+    if not paths:
+        print(__doc__)
+        return 0
+    res = corpus_rate(lex, paths)
+    print(f"files {res['files']}   countable lines {res['lines_countable']}")
+    print(f"unreadable end word : {res['unreadable_final']} "
+          f"({res['rate']:.2%})")
+    print(f"  of which the rhyme word would have been SILENTLY SUBSTITUTED by "
+          f"an earlier word: {res['substituted_end_word']}")
+    print(f"distinct unreadable finals: {res['distinct_unreadable_finals']}")
+    print("most frequent:")
+    for w, n in res["top_unreadable_finals"]:
+        print(f"  {n:>5}x  {w}")
+    worst = sorted(res["per_file"], key=lambda d: -d["rate"])[:8]
+    print("worst files:")
+    for d in worst:
+        print(f"  {d['rate']:6.2%}  {d['unreadable_final']:>5}/"
+              f"{d['lines']:<6} {d['file']}")
+    print("\nNo pronunciation was guessed. These are refusals, and the rate is "
+          "the size of the gap.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

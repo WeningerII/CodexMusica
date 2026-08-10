@@ -34,6 +34,8 @@ name are the ones worth writing in.
 
   2. SPAN -- how many syllables the anchor covers.
         1 masculine · 2 feminine · 3 dactylic · 4+ extended/multisyllabic
+     AND SPAN IS DECLARED PER MEMBER, see axis 8: how far the span runs, and
+     in which direction, is a property of each side's own anchor.
 
   3. LEXICAL IDENTITY -- same sound, and then what?
         distinct word (rhyme) · same word (REPEAT) · homograph/homophone
@@ -49,6 +51,8 @@ name are the ones worth writing in.
   5. POSITION -- where the two members sit relative to the line
         end · internal · leonine (caesura to line end) · cross (line end to
         next line's interior) · head (line-initial) · holorhyme (whole line)
+     POSITION IS COMPUTED FROM A FRAME OR IT IS NOT ASSERTED AT ALL, see
+     "POSITION WAS INERT" below.
 
   6. WORD BOUNDARY
         simple (one word each side) · mosaic/compound (one word against
@@ -58,6 +62,10 @@ name are the ones worth writing in.
         equal · additive (one side carries extra material) · subtractive ·
         apocopated (final syllable dropped to make the match)
 
+  8. ANCHOR -- WHAT FIXES THE ORIGIN OF THE SPAN INSIDE ITS MEMBER.
+     DECLARED PER MEMBER, WITH A DETERMINACY. See the next section: this axis
+     was missing, and its absence was a defect and not merely a gap.
+
   Plus one flag that is orthogonal to all of it: REALISATION -- phonetic
   (it sounds), eye (it is spelled alike and does not sound), or historical
   (it rhymed in an earlier pronunciation and no longer does). Eye and
@@ -65,13 +73,98 @@ name are the ones worth writing in.
   relation is real anyway, so they cannot be a cell of (1); they are a
   separate axis.
 
+THE ANCHOR AXIS, AND WHY IT IS PER MEMBER
+
+Before this axis existed, `classify_pair(a, b, phon)` compared `sa[-n:]`
+against `sb[-n:]`. Suffix-aligned, both sides, always. The `position`
+parameter was passed to the `RhymeType` constructor and never touched the
+span computation, so `position='head'` changed the LABEL and not one
+comparison. Measured, on the phonology whose whole relation is head
+alliteration:
+
+    classify_pair('kukka', 'kalevala', fin)
+      -> compares 'kuk' against 'va' and 'ka' against 'la'
+      -> per-syllable cells (no-name, PERFECT RHYME), verdict False
+    fin.alliterates('kukka', 'kalevala') -> True
+
+A false negative on the actual relation and a false-positive label, in one
+call, because the origin of the span was fixed by a rule nobody declared.
+
+ANCHOR VALUES, attested across the traditions this repo reads. Each is a rule
+for locating ONE origin inside ONE member:
+
+    unanchored                       the span is the whole member
+    word-initial                     syllable 0 (Kalevala alliteration)
+    word-final                       the last syllable
+    fixed-index                      a declared index in the placement frame
+                                     (Sanskrit dvitiyakshara = 1; the Old
+                                     Norse vidhrhending = -2 of the LINE)
+    first-prominent                  first stressed syllable of a RUN
+    last-prominent                   nucleus of the LAST stressed syllable
+                                     (the English end-rhyme rule)
+    prominent-onset                  onset of A prominent syllable -- plural,
+                                     so its determinacy is normally SEARCHED
+                                     (Old Norse studlar, the frumhending pool)
+    final-unprominent                the final UNSTRESSED syllable
+                                     (syllabic / unaccented rhyme)
+    penultimate-prominent            the penultimate stressed syllable
+                                     (apocopated rhyme)
+    token-edge                       the edge of a token run, side declared
+    line-edge                        the edge of the LINE, side declared
+    half-line-head                   the head of a half-line
+    half-line-final-accented-vowel   the last prominent nucleus of a half-line
+    rawi                             the rawi consonant of a qafiya
+
+and a DETERMINACY saying how the value got fixed:
+
+    rule-fixed   the language's or the form's rule fixes it
+    declared     the caller states it, and the module records that they did
+    searched     it is found by trying candidates -- and the number tried is
+                 REPORTED, because taking the best of k is k hypotheses
+                 (doctrine 56) and a searched rate is not an unsearched one
+
+PER MEMBER IS NOT OPTIONAL, AND WELSH PROVES IT
+
+In cynghanedd draws the first half-line's consonant skeleton is answered as
+the TAIL of the second half-line's, after an unanswered bridge: side A is
+head-anchored and exhaustive, side B is tail-anchored and its origin is
+searched. In cynghanedd groes the two skeletons must be equal: both sides
+head-anchored. Suffix-align both and you get traws right and croes wrong;
+head-align both and you get croes right and traws wrong. No single global
+alignment covers the pair -- measured on 1,558 lines of Alun in
+`test_taxonomy.py`. Welsh even has a name, sain drosgl, for a relation whose
+two members are located by different rules; cynghanedd lusg is the same
+shape at the syllable level and is checked here.
+
+Three named types share their placement and their channels and differ ONLY
+by anchor: perfect rhyme (last stressed syllable), syllabic rhyme (final
+unstressed syllable), apocopated rhyme (penultimate stressed syllable). Under
+the old model two of the three were coded on the STRESS and LENGTH axes,
+which is why `length='apocopated'` was a value nothing could ever compute.
+
+POSITION WAS INERT, AND AN INERT PARAMETER THAT LOOKS LIVE IS WORSE THAN AN
+ABSENT ONE
+
+`position` is now either COMPUTED from a `Frame` -- the line each member sits
+in, and where its caesura is -- or it is not set. A caller who declares a
+position without handing over the frame that would verify it gets
+`Unverifiable`, not a label. `RhymeType.position` may be None, and None means
+UNLOCATED: the relation was read, its placement was not.
+
 WHAT THIS MODULE IS NOT
 
 It does not transcribe. It defines and enumerates the space, and `classify()`
 takes channel agreements that a phonology has already computed -- English from
 `lyric_harness`, or any of the eight declared modules in `quality/phonology/`.
 Keeping it phonology-free is what lets a Welsh or Persian relation be located
-in the same space as an English one instead of being a special case.
+in the same space as an English one instead of being a special case. The
+anchor rules are stated over `Syllable.prominence`, which every module already
+carries, and NOT over stress -- doctrine 35, prominence is not always stress:
+in `san` it is guru/laghu and in `ltc` it is the tone class, so an anchor rule
+written as "last stressed syllable" would be reading a quantity as an accent.
+Where a phonology carries no prominence at all (`som`, `msa`, `fas`) every
+prominence-dependent anchor RAISES. That refusal predates this axis and is
+the repo conceding the anchor rule is a coordinate.
 
 POSITION IN THE SONG IS NOT HERE, DELIBERATELY
 
@@ -104,6 +197,161 @@ POSITION = ("end", "internal", "leonine", "cross", "head", "holorhyme")
 BOUNDARY = ("simple", "mosaic", "broken", "phrasal")
 LENGTH = ("equal", "additive", "subtractive", "apocopated")
 REALISATION = ("phonetic", "eye", "historical")
+
+#: UNLOCATED. `position=None` on a RhymeType is not a missing value to be
+#: filled with the modal one; it is the statement that the relation was read
+#: and its placement was not measured, because no frame was supplied.
+UNLOCATED = None
+
+# ---------------------------------------------------------------------------
+# AXIS 8 -- ANCHOR, PER MEMBER
+# ---------------------------------------------------------------------------
+
+#: Every anchor rule this module can resolve. Grouped by what each one NEEDS,
+#: because that grouping is the whole reason the axis exists: a rule with no
+#: referent in a language is refused rather than defaulted to the tail.
+ANCHOR_RULES = (
+    # need nothing but the member's syllables
+    "unanchored",
+    "word-initial",
+    "word-final",
+    "fixed-index",
+    # need the phonology to carry prominence -- refused where it does not
+    "first-prominent",
+    "last-prominent",
+    "prominent-onset",
+    "final-unprominent",
+    "penultimate-prominent",
+    # need a frame the caller must supply -- refused where it is absent
+    "token-edge",
+    "line-edge",
+    "half-line-head",
+    "half-line-final-accented-vowel",
+    "rawi",
+)
+
+#: Rules that read `Syllable.prominence`. In `som`, `msa` and `fas` prominence
+#: is None for every syllable and all five of these RAISE.
+PROMINENCE_RULES = ("first-prominent", "last-prominent", "prominent-onset",
+                    "final-unprominent", "penultimate-prominent")
+
+#: Rules that need a Frame. Without one they raise; they never fall back.
+FRAME_RULES = ("line-edge", "half-line-head",
+               "half-line-final-accented-vowel", "rawi")
+
+DETERMINACY = ("rule-fixed", "declared", "searched")
+
+#: Span RULES, as opposed to an integer span. An integer is a count of
+#: syllables FROM the anchor: positive runs rightward, negative leftward, and
+#: `span=1` is the anchor syllable alone.
+SPAN_RULES = ("to-end", "to-start", "whole")
+
+SIDES = ("initial", "final")
+
+
+@dataclass(frozen=True)
+class Anchor:
+    """Where ONE member's span starts, how it got fixed, and how far it runs.
+
+    Anchor and span are one object because an anchor without a span is only
+    half a locator: 'the last stressed syllable' does not say whether the
+    relation runs from there to the word end (perfect rhyme) or covers that
+    syllable alone (a hending).
+    """
+    rule: str = "last-prominent"
+    determinacy: str = "rule-fixed"
+    span: object = "to-end"        # 'to-end' | 'to-start' | 'whole' | int
+    index: object = None           # fixed-index: which index
+    side: object = None            # token-edge / line-edge: 'initial'|'final'
+
+    def __post_init__(self):
+        if self.rule not in ANCHOR_RULES:
+            raise ValueError(
+                f"{self.rule!r} is not a declared anchor rule; declared rules "
+                f"are {list(ANCHOR_RULES)}. Anchoring is a coordinate, so an "
+                f"undeclared rule is refused rather than approximated.")
+        if self.determinacy not in DETERMINACY:
+            raise ValueError(
+                f"{self.determinacy!r} is not a determinacy; declared values "
+                f"are {list(DETERMINACY)}.")
+        if not (self.span in SPAN_RULES or isinstance(self.span, int)):
+            raise ValueError(
+                f"span={self.span!r}; declared span rules are "
+                f"{list(SPAN_RULES)} or an integer count of syllables from "
+                f"the anchor (negative runs leftward).")
+        if isinstance(self.span, int) and self.span == 0:
+            raise ValueError("a span of zero syllables locates nothing")
+        if self.rule == "fixed-index" and self.index is None:
+            raise ValueError(
+                "anchor rule 'fixed-index' with no index. The index IS the "
+                "rule; leaving it out is the defect this axis removes.")
+        if self.rule == "unanchored" and self.span != "whole":
+            raise ValueError(
+                "'unanchored' means there is no origin, so its only coherent "
+                "span is 'whole'. A span measured from an origin that does "
+                "not exist is the inert-parameter defect again.")
+        if self.side is not None and self.side not in SIDES:
+            raise ValueError(f"side={self.side!r}; declared sides are "
+                             f"{list(SIDES)}")
+
+    @property
+    def direction(self):
+        if self.span == "to-end":
+            return "rightward"
+        if self.span == "to-start":
+            return "leftward"
+        if self.span == "whole":
+            return "rightward"
+        return "rightward" if self.span > 0 else "leftward"
+
+    @property
+    def needs_prominence(self):
+        return self.rule in PROMINENCE_RULES
+
+    @property
+    def needs_frame(self):
+        return self.rule in FRAME_RULES
+
+    def describe(self):
+        s = self.span if isinstance(self.span, str) else f"{self.span:+d} syl"
+        extra = ""
+        if self.index is not None:
+            extra += f" index={self.index}"
+        if self.side is not None:
+            extra += f" side={self.side}"
+        return f"{self.rule}[{self.determinacy}]{extra} span={s}"
+
+
+#: The English end-rhyme locator, and the module default. It is a COORDINATE
+#: and not a universal; naming it here is the point.
+LAST_PROMINENT = Anchor("last-prominent", "rule-fixed", "to-end")
+#: The head locator. Kalevala alliteration, higaad, studlar.
+WORD_INITIAL = Anchor("word-initial", "rule-fixed", 1)
+#: The final unstressed syllable -- syllabic / unaccented rhyme.
+FINAL_UNPROMINENT = Anchor("final-unprominent", "rule-fixed", "to-end")
+#: The penultimate stressed syllable -- apocopated rhyme.
+PENULTIMATE_PROMINENT = Anchor("penultimate-prominent", "rule-fixed", "to-end")
+#: Sanskrit dvitiyakshara-prasa: the SECOND aksara of the pada, by the form.
+SECOND_AKSARA = Anchor("fixed-index", "rule-fixed", 1, index=1)
+#: Old Norse vidhrhending: the penultimate syllable of the LINE, by the metre.
+LINE_PENULT = Anchor("fixed-index", "rule-fixed", 1, index=-2)
+#: Old Norse frumhending: searched among the line's prominent onsets.
+PROMINENT_ONSET_SEARCH = Anchor("prominent-onset", "searched", 1)
+#: Welsh cynghanedd lusg: the final word answers on its stressed PENULT, which
+#: is not its final syllable, and the earlier member is searched.
+WELSH_PENULT = Anchor("last-prominent", "rule-fixed", 1)
+
+#: Named locator PAIRS, so a caller declares a form rather than two anchors.
+#: A preset is a declaration, not a detection: nothing here sniffs a language.
+PRESETS = {
+    "english-end-rhyme": (LAST_PROMINENT, LAST_PROMINENT),
+    "kalevala-alliteration": (WORD_INITIAL, WORD_INITIAL),
+    "syllabic-rhyme": (FINAL_UNPROMINENT, FINAL_UNPROMINENT),
+    "apocopated-rhyme": (PENULTIMATE_PROMINENT, PENULTIMATE_PROMINENT),
+    "dvitiyakshara-prasa": (SECOND_AKSARA, SECOND_AKSARA),
+    "drottkvaett-hending": (PROMINENT_ONSET_SEARCH, LINE_PENULT),
+    "cynghanedd-lusg": (PROMINENT_ONSET_SEARCH, WELSH_PENULT),
+}
 
 
 def agreement_cells(ternary=False):
@@ -142,10 +390,14 @@ class RhymeType:
     agreement: tuple            # per-syllable (onset, nucleus, coda) tuples
     identity: str = "distinct"
     stress: str = "aligned"
-    position: str = "end"
+    position: object = "end"    # a POSITION value, or None = UNLOCATED
     boundary: str = "simple"
     length: str = "equal"
     realisation: str = "phonetic"
+    #: axis 8, per member. Defaults keep every pre-anchor registry entry
+    #: resolving exactly as it did.
+    anchor_a: Anchor = LAST_PROMINENT
+    anchor_b: Anchor = LAST_PROMINENT
 
     @property
     def span(self):
@@ -154,6 +406,14 @@ class RhymeType:
     @property
     def span_name(self):
         return span_name(self.span)
+
+    @property
+    def anchors_differ(self):
+        """True when the two members are located by different rules.
+
+        This is the sain drosgl case, and the reason the axis is per member.
+        """
+        return self.anchor_a != self.anchor_b
 
     @property
     def determined(self):
@@ -167,63 +427,154 @@ class RhymeType:
         return [(i, CHANNELS[j]) for i, syl in enumerate(self.agreement)
                 for j, v in enumerate(syl) if v is None]
 
+    def realises(self, *channels, at=0):
+        """-> True / False / None: do the named channels ALL agree at `at`?
+
+        `at` counts steps FROM EACH MEMBER'S OWN ANCHOR, which is what makes a
+        head-anchored member comparable with a tail-anchored one. The tri-state
+        propagates: one unknown channel makes the whole predicate unknown.
+
+        This is what lets one coordinate answer several relations without a
+        second detector -- `realises('onset')` is alliteration and
+        `realises('nucleus', 'coda')` is rhyme, off the same read.
+        """
+        if not channels:
+            raise ValueError("name at least one channel of " + str(CHANNELS))
+        if not -len(self.agreement) <= at < len(self.agreement):
+            return None
+        syl = self.agreement[at]
+        vals = []
+        for c in channels:
+            if c not in CHANNELS:
+                raise ValueError(f"{c!r} is not a channel; declared channels "
+                                 f"are {list(CHANNELS)}")
+            vals.append(syl[CHANNELS.index(c)])
+        if any(v is None for v in vals):
+            return None
+        return all(bool(v) for v in vals)
+
     def verdict(self):
         """Do these rhyme? True / False / None, propagating the unknown.
 
         None is not a failure path. It is the answer whenever the decision
         rests on a channel the phonology declined to read.
         """
-        first = self.agreement[0]
-        nuc, cod = first[1], first[2]
-        if nuc is None or cod is None:
-            return None
-        return bool(nuc and cod)
+        return self.realises("nucleus", "coda")
+
+    def alliterates(self):
+        """Do these alliterate? The same read, a different predicate."""
+        return self.realises("onset")
 
     def cells(self):
         return [CELL_NAMES.get(a, ()) for a in self.agreement]
 
     def key(self):
         return (self.agreement, self.identity, self.stress, self.position,
-                self.boundary, self.length, self.realisation)
+                self.boundary, self.length, self.realisation,
+                self.anchor_a, self.anchor_b)
 
-    def names(self):
-        """-> the traditional names for this exact point, possibly empty."""
-        return NAMED.get(self.key(), ())
+    def names(self, ignoring=()):
+        """-> the traditional names at this coordinate, possibly empty.
+
+        Exact points first, then REGIONS. Not every traditional name is a
+        point: 'Kalevala alliteration' is defined by a head anchor and the
+        onset channel and says nothing whatever about whether one word is
+        longer than the other, so registering it at `length='equal'` would
+        make it unreachable for every real pair where the two words differ in
+        length -- which is most of them. `FREE` records, per registered name,
+        exactly which axes that name leaves open, so a region is a declaration
+        and not a fuzzy match.
+
+        `ignoring` is the caller's own projection, on top of that, and it must
+        be named: `names(ignoring=('length',))` says out loud which coordinate
+        is being thrown away to get an answer.
+        """
+        bad = [k for k in ignoring if k not in AXIS_INDEX]
+        if bad:
+            raise ValueError(f"{bad} are not axes; declared axes are "
+                             f"{sorted(AXIS_INDEX)}")
+        out = list(NAMED.get(self.key(), ()))
+        mine = self.key()
+        for k, free in FREE.items():
+            if k == mine:
+                continue
+            skip = set(free) | set(ignoring)
+            if all(mine[i] == k[i] for ax, i in AXIS_INDEX.items()
+                   if ax not in skip):
+                out.extend(n for n in NAMED[k] if n not in out)
+        if ignoring:
+            for k in NAMED:
+                if k == mine or k in FREE:
+                    continue
+                if all(mine[i] == k[i] for ax, i in AXIS_INDEX.items()
+                       if ax not in set(ignoring)):
+                    out.extend(n for n in NAMED[k] if n not in out)
+        return tuple(out)
 
     def describe(self):
         nm = self.names()
         head = " / ".join(nm) if nm else "UNNAMED"
         per = ", ".join(
             (CELL_NAMES.get(a) or ("no-name",))[0] for a in self.agreement)
+        pos = "UNLOCATED" if self.position is None else self.position
+        anc = (self.anchor_a.describe() if not self.anchors_differ
+               else f"A {self.anchor_a.describe()} | B {self.anchor_b.describe()}")
         return (f"{head} — {self.span_name} ({self.span} syl: {per}), "
-                f"{self.identity}, {self.stress} stress, {self.position}, "
-                f"{self.boundary}, {self.length}, {self.realisation}")
+                f"{self.identity}, {self.stress} stress, {pos}, "
+                f"{self.boundary}, {self.length}, {self.realisation}; "
+                f"anchor {anc}")
 
 
-def space_size(max_span=3):
-    """How many distinct rhyme types exist up to a given anchor span."""
+#: How many distinct Anchor VALUES the axis carries, counted honestly: every
+#: rule crossed with every determinacy. `fixed-index` and the two edge rules
+#: additionally carry an index or a side, which is unbounded, so this is a
+#: floor on the anchor axis and stated as one.
+ANCHOR_VALUES = len(ANCHOR_RULES) * len(DETERMINACY)
+
+
+def space_size(max_span=3, anchors=False):
+    """How many distinct rhyme types exist up to a given anchor span.
+
+    `anchors=False` counts the seven PLACEMENT axes only, which is the number
+    this module reported before the anchor axis existed and is kept so the
+    two are comparable. `anchors=True` multiplies in the per-member anchor
+    coordinate -- twice, because it is declared per member -- and that
+    multiple, ANCHOR_VALUES ** 2, is the size of the hole the old model had.
+    """
     total = 0
     for s in range(1, max_span + 1):
         total += (8 ** s) * len(IDENTITY) * len(STRESS) * len(POSITION) \
             * len(BOUNDARY) * len(LENGTH) * len(REALISATION)
-    return total
+    return total * (ANCHOR_VALUES ** 2) if anchors else total
 
 
-def enumerate_types(max_span=2, **fixed):
+def enumerate_types(max_span=2, anchors=(), **fixed):
     """Yield every RhymeType up to `max_span`. `fixed` pins any axis, which is
-    how a caller asks for a tractable slice -- e.g. position='internal'."""
+    how a caller asks for a tractable slice -- e.g. position='internal'.
+
+    The anchor axis is NOT enumerated by default and that is a tractability
+    choice, stated rather than hidden: crossing it in would multiply every
+    slice by ANCHOR_VALUES ** 2 = 1,764. Pass `anchors=[Anchor(...), ...]` to
+    enumerate over a declared set of locators; `space_size(anchors=True)`
+    reports the full size either way.
+    """
     axes = {"identity": IDENTITY, "stress": STRESS, "position": POSITION,
             "boundary": BOUNDARY, "length": LENGTH,
             "realisation": REALISATION}
     for k, v in fixed.items():
         if k not in axes:
             raise ValueError(f"{k!r} is not an axis; declared axes are "
-                             f"{sorted(axes)} plus the agreement pattern")
+                             f"{sorted(axes)} plus the agreement pattern and "
+                             f"the per-member anchors")
         axes[k] = (v,)
+    pairs = [(LAST_PROMINENT, LAST_PROMINENT)] if not anchors else \
+        list(itertools.product(anchors, repeat=2))
     for s in range(1, max_span + 1):
         for agr in itertools.product(agreement_cells(), repeat=s):
             for combo in itertools.product(*axes.values()):
-                yield RhymeType(agreement=agr, **dict(zip(axes, combo)))
+                for aa, ab in pairs:
+                    yield RhymeType(agreement=agr, anchor_a=aa, anchor_b=ab,
+                                    **dict(zip(axes, combo)))
 
 
 # ---------------------------------------------------------------------------
@@ -231,6 +582,14 @@ def enumerate_types(max_span=2, **fixed):
 # ---------------------------------------------------------------------------
 
 NAMED = {}
+#: key -> the axes that name leaves FREE. A traditional name is sometimes a
+#: point and sometimes a region, and which it is has to be declared rather
+#: than discovered by a caller whose lookup came back empty.
+FREE = {}
+#: axis name -> its index in `RhymeType.key()`.
+AXIS_INDEX = {"agreement": 0, "identity": 1, "stress": 2, "position": 3,
+              "boundary": 4, "length": 5, "realisation": 6,
+              "anchor_a": 7, "anchor_b": 8}
 PERFECT = (0, 1, 1)
 RICH = (1, 1, 1)
 ASSON = (0, 1, 0)
@@ -239,9 +598,14 @@ ALLIT = (1, 0, 0)
 PARA = (1, 0, 1)
 
 
-def name(t, *names):
+def name(t, *names, free=()):
+    bad = [k for k in free if k not in AXIS_INDEX]
+    if bad:
+        raise ValueError(f"{bad} are not axes")
     NAMED.setdefault(t.key(), ())
     NAMED[t.key()] = NAMED[t.key()] + names
+    if free:
+        FREE[t.key()] = tuple(free)
     return t
 
 
@@ -313,12 +677,75 @@ name(RhymeType((PERFECT,), position="end"), "qafiya", "antya-prasa")
 name(RhymeType((ALLIT,), position="internal"),
      "dvitiyakshara-prasa", "anuprasa")
 
+# ---------------------------------------------------------------------------
+# THE SAME NAMES, KEYED ON THE ANCHOR THAT ACTUALLY LOCATES THEM
+#
+# Everything above this line keys 'where the relation sits' on `position`,
+# which is a fact about the LINE, and several of those entries were using it
+# to mean 'where the span starts inside the WORD', which is the anchor. The
+# entries below are the anchor-keyed forms; they are what `classify_pair` can
+# now emit, and they leave the originals untouched so nothing that resolved
+# before stops resolving.
+#
+# The three that prove the axis: same channels, same placement, and they
+# separate ONLY on the anchor.
+# ---------------------------------------------------------------------------
 
-def named_count(max_span=2):
+name(RhymeType((PERFECT,), position=UNLOCATED,
+               anchor_a=LAST_PROMINENT, anchor_b=LAST_PROMINENT),
+     "perfect rhyme (last stressed syllable)")
+name(RhymeType((PERFECT,), position=UNLOCATED,
+               anchor_a=FINAL_UNPROMINENT, anchor_b=FINAL_UNPROMINENT),
+     "syllabic rhyme (final unstressed syllable)")
+name(RhymeType((PERFECT,), position=UNLOCATED,
+               anchor_a=PENULTIMATE_PROMINENT, anchor_b=PENULTIMATE_PROMINENT),
+     "apocopated rhyme (penultimate stressed syllable)")
+
+# head-anchored alliteration, which is what 'head' was standing in for
+name(RhymeType((ALLIT,), position=UNLOCATED,
+               anchor_a=WORD_INITIAL, anchor_b=WORD_INITIAL),
+     "Kalevala alliteration (weak)", "higaad", "studlar/hofudstafr",
+     "head alliteration")
+name(RhymeType(((1, 1, 0),), position=UNLOCATED,
+               anchor_a=WORD_INITIAL, anchor_b=WORD_INITIAL),
+     "Kalevala alliteration (strong)")
+name(RhymeType((RICH,), position=UNLOCATED,
+               anchor_a=WORD_INITIAL, anchor_b=WORD_INITIAL),
+     "Kalevala alliteration (strong, closed syllable)")
+
+# Sanskrit: the anchor is an INDEX in the pada, not a stress
+name(RhymeType((ALLIT,), position=UNLOCATED,
+               anchor_a=SECOND_AKSARA, anchor_b=SECOND_AKSARA),
+     "dvitiyakshara-prasa", "anuprasa (second-aksara)")
+name(RhymeType((RICH,), position=UNLOCATED,
+               anchor_a=SECOND_AKSARA, anchor_b=SECOND_AKSARA),
+     "dvitiyakshara-prasa (full aksara)")
+
+# Old Norse: the two members of ONE relation, located by DIFFERENT rules
+name(RhymeType((CONSON,), position=UNLOCATED,
+               anchor_a=PROMINENT_ONSET_SEARCH, anchor_b=LINE_PENULT),
+     "skothending")
+name(RhymeType((RICH,), position=UNLOCATED,
+               anchor_a=PROMINENT_ONSET_SEARCH, anchor_b=LINE_PENULT),
+     "adalhending")
+name(RhymeType(((0, 1, 1),), position=UNLOCATED,
+               anchor_a=PROMINENT_ONSET_SEARCH, anchor_b=LINE_PENULT),
+     "adalhending (differing onsets)")
+
+# Welsh: sain drosgl in miniature -- searched against rule-fixed
+name(RhymeType((PERFECT,), position=UNLOCATED,
+               anchor_a=PROMINENT_ONSET_SEARCH, anchor_b=WELSH_PENULT),
+     "cynghanedd lusg")
+name(RhymeType((RICH,), position=UNLOCATED,
+               anchor_a=PROMINENT_ONSET_SEARCH, anchor_b=WELSH_PENULT),
+     "cynghanedd lusg (identical onsets)")
+
+
+def named_count(max_span=2, **kw):
     """-> (named, total, unnamed_fraction) over the enumerated slice."""
     total = 0
     named = 0
-    for t in enumerate_types(max_span=max_span):
+    for t in enumerate_types(max_span=max_span, **kw):
         total += 1
         if t.names():
             named += 1
@@ -351,11 +778,289 @@ class Indeterminate(Exception):
     """The phonology cannot supply what the requested span needs."""
 
 
+class Unverifiable(Indeterminate):
+    """A coordinate was DECLARED that this call has no way to check.
+
+    Subclasses Indeterminate so a caller that already refuses on 'cannot
+    resolve' also refuses on 'cannot verify'; they are different failures and
+    both are refusals.
+    """
+
+
+@dataclass(frozen=True)
+class Frame:
+    """What a member sits inside.
+
+    Anchors that name a line, a half-line or a rawi have no referent without
+    one, and `position` cannot be computed without one either. A Frame is
+    always the CALLER's declaration -- nothing here parses a poem.
+    """
+    line_a: object = None
+    line_b: object = None
+    #: token index at which each line's SECOND half begins. Doctrine 55: a
+    #: caesura is either printed or searched, never inferred from punctuation.
+    caesura_a: object = None
+    caesura_b: object = None
+    #: the declared rawi consonant of a qafiya
+    rawi: object = None
+
+    def line(self, which):
+        return self.line_a if which == "a" else self.line_b
+
+    def caesura(self, which):
+        return self.caesura_a if which == "a" else self.caesura_b
+
+
 def _cmp(x, y):
     """Ternary channel comparison. None means the phonology declined."""
     if x is None or y is None:
         return None
     return x == y
+
+
+def _read(text, phon):
+    """-> (syllables, owner token index per syllable) or None.
+
+    A member may be several tokens -- a half-line, a mosaic rhyme, a whole
+    dróttkvætt line. Multi-token members are read TOKEN BY TOKEN and the
+    results concatenated, which is what `non.scan` and `cym.skeleton` already
+    do.
+
+    IT IS NOT WHAT `san.scan_pada` DOES, and that module says so: Sanskrit
+    resyllabifies across word boundaries in saṃhitā, so `yam ayuṅkta` scans
+    ya-ma-yuṅk-ta and a token-by-token join would put the boundaries in the
+    wrong place -- and every anchor rule here is an INDEX, so wrong boundaries
+    are wrong anchors. A phonology that declares `scan_pada` gets it used, and
+    the token owners come back None, because saṃhitā has dissolved the token
+    edges and `token-edge` must then refuse rather than read a word boundary
+    that the scansion no longer contains.
+
+    If any token is unreadable the WHOLE member is refused, for the same
+    reason: a scansion with a hole in it has the wrong indices after the hole.
+    """
+    toks = str(text).split()
+    if not toks:
+        return None
+    if len(toks) > 1 and hasattr(phon, "scan_pada"):
+        s = phon.scan_pada(text)
+        return (list(s), None) if s else None
+    if len(toks) == 1:
+        s = phon.syllabify(toks[0])
+        return (list(s), [0] * len(s)) if s else None
+    out, owner = [], []
+    for i, t in enumerate(toks):
+        s = phon.syllabify(t)
+        if not s:
+            return None
+        out.extend(s)
+        owner.extend([i] * len(s))
+    return out, owner
+
+
+def _prominence_present(sylls):
+    return any(s.prominence is not None for s in sylls)
+
+
+def resolve_anchor(anchor, sylls, owner=None, frame=None, which="a"):
+    """-> tuple of candidate origin indices into `sylls`.
+
+    One index when the rule fixes it, several when the determinacy is
+    SEARCHED. Raises `Indeterminate` where the rule has no referent in this
+    member, this phonology or this frame -- it never falls back to the tail,
+    because defaulting to the tail is the defect the axis removes.
+    """
+    n = len(sylls)
+    if n == 0:
+        raise Indeterminate("an empty member has no anchor")
+    r = anchor.rule
+    if r == "token-edge" and owner is None:
+        raise Indeterminate(
+            "this member was read as one scanned unit, so its token edges are "
+            "not in the scansion and 'token-edge' has no referent. That is "
+            "saṃhitā doing what it does, not a missing feature.")
+    owner = owner if owner is not None else [0] * n
+
+    if anchor.needs_prominence and not _prominence_present(sylls):
+        raise Indeterminate(
+            f"anchor rule {r!r} reads Syllable.prominence, and this phonology "
+            f"carries none -- som declines a stress grid because Somali has "
+            f"pitch accent, msa because Malay stress is contested, fas because "
+            f"classical Persian metre is quantitative. The rule has no "
+            f"referent here; declare an index or a word edge instead. The rule "
+            f"is a coordinate, not a universal.")
+    if anchor.needs_frame and frame is None:
+        raise Indeterminate(
+            f"anchor rule {r!r} is located inside a frame -- a line, a "
+            f"half-line or a declared rawi -- and no Frame was supplied. "
+            f"Refusing rather than defaulting to a word edge.")
+
+    if r == "unanchored":
+        return (0,)
+    if r == "word-initial":
+        return (0,)
+    if r == "word-final":
+        return (n - 1,)
+    if r == "fixed-index":
+        i = anchor.index
+        j = i if i >= 0 else n + i
+        if not 0 <= j < n:
+            raise Indeterminate(
+                f"fixed-index {i} has no referent in a member of {n} "
+                f"syllables. The index is the rule, so an out-of-range index "
+                f"is a refusal and not a clamp to the nearest edge.")
+        return (j,)
+    if r == "first-prominent":
+        for i in range(n):
+            if sylls[i].prominence == 1:
+                return (i,)
+        raise Indeterminate("no prominent syllable in this member")
+    if r == "last-prominent":
+        for i in range(n - 1, -1, -1):
+            if sylls[i].prominence == 1:
+                return (i,)
+        raise Indeterminate("no prominent syllable in this member")
+    if r == "penultimate-prominent":
+        pro = [i for i in range(n) if sylls[i].prominence == 1]
+        if len(pro) < 2:
+            raise Indeterminate(
+                f"this member has {len(pro)} prominent syllable(s), so it has "
+                f"no PENULTIMATE one. Apocopated rhyme needs two.")
+        return (pro[-2],)
+    if r == "final-unprominent":
+        for i in range(n - 1, -1, -1):
+            if sylls[i].prominence == 0:
+                return (i,)
+        raise Indeterminate(
+            "no unprominent syllable in this member, so 'the final unstressed "
+            "syllable' has nothing to point at")
+    if r == "prominent-onset":
+        pool = tuple(i for i in range(n)
+                     if sylls[i].prominence == 1 and sylls[i].onset)
+        if not pool:
+            raise Indeterminate(
+                "no prominent syllable with an onset; the alliterating "
+                "consonant of a vowel-initial lift is a separate class and is "
+                "not silently read as the empty onset here")
+        if anchor.determinacy != "searched" and len(pool) > 1:
+            raise Indeterminate(
+                f"{len(pool)} prominent onsets in this member and the "
+                f"determinacy is {anchor.determinacy!r}. A rule that names "
+                f"several positions is SEARCHED; saying it is rule-fixed and "
+                f"then taking the first is an argmax nobody declared "
+                f"(doctrine 19).")
+        return pool
+    if r == "token-edge":
+        if anchor.side is None:
+            raise Indeterminate("'token-edge' needs a declared side")
+        edges = []
+        for i in range(n):
+            first = i == 0 or owner[i] != owner[i - 1]
+            last = i == n - 1 or owner[i] != owner[i + 1]
+            if (anchor.side == "initial" and first) or \
+                    (anchor.side == "final" and last):
+                edges.append(i)
+        if anchor.determinacy == "searched":
+            return tuple(edges)
+        return (edges[0],) if anchor.side == "initial" else (edges[-1],)
+    if r == "line-edge":
+        if anchor.side is None:
+            raise Indeterminate("'line-edge' needs a declared side")
+        span = _member_span(frame, which)
+        if span is None:
+            raise Indeterminate(
+                "the frame does not say where this member sits in its line, "
+                "so 'line edge' cannot be checked")
+        start, stop, ntok = span
+        if anchor.side == "initial" and start != 0:
+            raise Indeterminate(
+                f"this member starts at token {start} of its line, so it is "
+                f"not at the line's initial edge")
+        if anchor.side == "final" and stop != ntok:
+            raise Indeterminate(
+                f"this member ends at token {stop} of {ntok}, so it is not at "
+                f"the line's final edge")
+        return (0,) if anchor.side == "initial" else (n - 1,)
+    if r == "half-line-head":
+        span = _member_span(frame, which)
+        cae = frame.caesura(which)
+        if span is None or cae is None:
+            raise Indeterminate(
+                "'half-line-head' needs both the line and its caesura. "
+                "Doctrine 55: the caesura is printed or searched, never "
+                "inferred, so this module will not invent one.")
+        start, _stop, _ntok = span
+        if start not in (0, cae):
+            raise Indeterminate(
+                f"this member starts at token {start}; the half-lines start "
+                f"at 0 and {cae}, so it is not a half-line head")
+        return (0,)
+    if r == "half-line-final-accented-vowel":
+        span = _member_span(frame, which)
+        cae = frame.caesura(which)
+        if span is None or cae is None:
+            raise Indeterminate(
+                "'half-line-final-accented-vowel' needs the line and its "
+                "caesura")
+        for i in range(n - 1, -1, -1):
+            if sylls[i].prominence == 1:
+                return (i,)
+        raise Indeterminate("no accented vowel in this half-line")
+    if r == "rawi":
+        if frame.rawi is None:
+            raise Indeterminate(
+                "'rawi' is the declared rhyme consonant of a qafiya and no "
+                "rawi was declared. The module will not guess which consonant "
+                "the poet chose.")
+        hits = tuple(i for i in range(n)
+                     if frame.rawi in tuple(sylls[i].coda)
+                     or frame.rawi in tuple(sylls[i].onset))
+        if not hits:
+            raise Indeterminate(
+                f"the declared rawi {frame.rawi!r} does not occur in this "
+                f"member")
+        return hits if anchor.determinacy == "searched" else (hits[-1],)
+    raise Indeterminate(f"anchor rule {r!r} has no resolver")
+
+
+def _member_span(frame, which):
+    """-> (start token, stop token, line token count) or None.
+
+    The frame carries the LINE; this locates the member inside it. It is only
+    called from anchors and positions that need the line, and it returns None
+    rather than a guess when the line is absent.
+    """
+    return getattr(frame, "_spans", {}).get(which) if frame else None
+
+
+def _locate(member, line):
+    """-> (start, stop, ntok) of `member`'s tokens inside `line`, or None."""
+    mt, lt = str(member).split(), str(line).split()
+    if not mt or not lt:
+        return None
+    for i in range(len(lt) - len(mt) + 1):
+        if lt[i:i + len(mt)] == mt:
+            return (i, i + len(mt), len(lt))
+    return None
+
+
+def _span_indices(n, origin, span):
+    """-> syllable indices ORDERED FROM THE ANCHOR OUTWARD.
+
+    Outward-from-the-anchor is what makes a head-anchored member comparable
+    with a tail-anchored one: offset i means 'i steps from this member's own
+    origin', so a mixed pair zips coherently instead of needing one global
+    alignment that Welsh proves does not exist.
+    """
+    if span == "whole":
+        return list(range(n))
+    if span == "to-end":
+        return list(range(origin, n))
+    if span == "to-start":
+        return list(range(origin, -1, -1))
+    k = int(span)
+    if k > 0:
+        return list(range(origin, min(n, origin + k)))
+    return list(range(origin, max(-1, origin + k), -1))
 
 
 def _anchor(sylls):
@@ -365,24 +1070,61 @@ def _anchor(sylls):
     `som` refuses a stress grid because Somali has pitch accent, `msa` because
     Malay stress is contested, `fas` because classical Persian metre is
     quantitative. For those, the caller must state a span.
+
+    Kept as the one-line form of `resolve_anchor(LAST_PROMINENT, ...)`, which
+    is what everything now goes through.
     """
-    if all(s.prominence is None for s in sylls):
-        raise Indeterminate(
-            "this phonology carries no prominence, so 'last stressed syllable "
-            "to end' has no referent. Pass an integer span instead of "
-            "'anchor' — the rule is a coordinate, not a universal.")
-    for i in range(len(sylls) - 1, -1, -1):
-        if sylls[i].prominence == 1:
-            return i
-    return 0
+    return resolve_anchor(LAST_PROMINENT, sylls)[0]
 
 
-def classify_pair(a, b, phon, span="anchor", position="end",
-                  boundary="simple", realisation="phonetic"):
-    """Two words and a phonology -> a RhymeType coordinate, or None.
+def _score(pairs):
+    """How good an alignment is, for choosing among SEARCHED origins.
 
-    None means at least one word is outside the phonology's declared
-    inventory. A coordinate whose channels contain None means the words were
+    Counts channels that AGREE and subtracts nothing for unknowns, so a
+    searched anchor never prefers a position because the phonology refused
+    there. Ties are broken by the EARLIEST origin, fixed and stated, because
+    a tie broken by iteration order is a result that does not reproduce
+    (doctrine 66).
+    """
+    return sum(1 for _i, syl in enumerate(pairs) for v in syl if v is True)
+
+
+def _position(a, b, frame, spans):
+    """Compute POSITION from the frame. Never asserted, never defaulted."""
+    sa, sb = spans.get("a"), spans.get("b")
+    if sa is None or sb is None:
+        raise Unverifiable(
+            "position is computed from the frame, and this member could not "
+            "be located in its line. Refusing to label a placement that was "
+            "not measured.")
+    (sta, spa, na), (stb, spb, nb) = sa, sb
+    whole_a, whole_b = (sta == 0 and spa == na), (stb == 0 and spb == nb)
+    same_line = (str(frame.line_a).split() == str(frame.line_b).split())
+    if whole_a and whole_b and not same_line:
+        return "holorhyme"
+    end_a, end_b = spa == na, spb == nb
+    head_a, head_b = sta == 0, stb == 0
+    if same_line:
+        cae = frame.caesura_a if frame.caesura_a is not None else frame.caesura_b
+        if cae is not None and ((spa == cae and end_b) or (spb == cae and end_a)):
+            return "leonine"
+        return "internal"
+    if end_a and end_b:
+        return "end"
+    if head_a and head_b:
+        return "head"
+    if end_a or end_b:
+        return "cross"
+    return "internal"
+
+
+def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
+                  realisation="phonetic", anchor_a=None, anchor_b=None,
+                  preset=None, frame=None):
+    """Two members and a phonology -> a RhymeType coordinate, or None.
+
+    None means at least one member is outside the phonology's declared
+    inventory. A coordinate whose channels contain None means the members were
     READ and a channel could not be DECIDED — a different thing, and
     `RhymeType.unknown_channels` says which.
 
@@ -390,30 +1132,114 @@ def classify_pair(a, b, phon, span="anchor", position="end",
     returning syllables carrying onset / nucleus / coda / prominence, which is
     every module in `quality/phonology/`. That is what lets a Welsh, Persian
     and Sanskrit relation land in one space rather than three special cases.
+
+    THE ANCHORS ARE PER MEMBER AND THEY MOVE THE SPAN.
+
+      anchor_a / anchor_b   an `Anchor` each. Different rules on the two sides
+                            are the point, not an edge case: see PRESETS
+                            ['drottkvaett-hending'] and ['cynghanedd-lusg'].
+      preset                a name in PRESETS, which sets both at once.
+      span                  the legacy form. An integer here means what it
+                            always meant -- the last n syllables of each
+                            member -- which is `Anchor('word-final',
+                            'declared', -n)`. It is now NAMED rather than
+                            assumed, and it is the only path that does not
+                            need prominence.
+
+    POSITION IS COMPUTED OR IT IS NOT SET. Pass a `Frame` and it is measured
+    from the line; pass `position=` without one and this raises `Unverifiable`
+    rather than stamping a label on an unmeasured placement.
+
+    The result carries `.searched` -- how many origins were tried on each side
+    -- because taking the best of k is k hypotheses (doctrine 56) and a caller
+    comparing a searched rate with an unsearched one needs the k to do it.
     """
-    sa, sb = phon.syllabify(a), phon.syllabify(b)
-    if not sa or not sb:
+    if preset is not None:
+        if preset not in PRESETS:
+            raise ValueError(f"{preset!r} is not a declared preset; declared "
+                             f"presets are {sorted(PRESETS)}")
+        if anchor_a is not None or anchor_b is not None:
+            raise ValueError("declare a preset OR the two anchors, not both")
+        anchor_a, anchor_b = PRESETS[preset]
+    if span is not None and (anchor_a is not None or anchor_b is not None):
+        raise ValueError(
+            "span= is the legacy locator (the last n syllables, i.e. a "
+            "word-final anchor running leftward). Declaring it beside an "
+            "explicit anchor is two locators for one member; pick one.")
+    if span is not None:
+        if span == "anchor":
+            anchor_a = anchor_b = LAST_PROMINENT
+        else:
+            k = int(span)
+            if k < 1:
+                raise ValueError("a legacy span is a positive syllable count")
+            leg = Anchor("word-final", "declared", -k)
+            anchor_a = anchor_b = leg
+    anchor_a = anchor_a if anchor_a is not None else LAST_PROMINENT
+    anchor_b = anchor_b if anchor_b is not None else LAST_PROMINENT
+
+    if position is not None and frame is None:
+        raise Unverifiable(
+            f"position={position!r} was declared and there is no Frame to "
+            f"check it against. This parameter used to be accepted and never "
+            f"consulted -- it reached the label and never the span -- so a "
+            f"declared placement is now either verified or refused. Pass "
+            f"Frame(line_a=..., line_b=...).")
+
+    ra, rb = _read(a, phon), _read(b, phon)
+    if ra is None or rb is None:
         return None
+    sa, oa = ra
+    sb, ob = rb
 
-    if span == "anchor":
-        n = min(len(sa) - _anchor(sa), len(sb) - _anchor(sb))
-    else:
-        n = min(int(span), len(sa), len(sb))
-    n = max(1, n)
+    spans = {}
+    if frame is not None:
+        for which, member, line in (("a", a, frame.line_a),
+                                    ("b", b, frame.line_b)):
+            if line is not None:
+                loc = _locate(member, line)
+                if loc is None:
+                    raise Unverifiable(
+                        f"member {member!r} does not occur as a token run in "
+                        f"the declared line {line!r}, so nothing about its "
+                        f"placement can be measured.")
+                spans[which] = loc
+        frame = _with_spans(frame, spans)
 
-    agr = tuple(
-        (_cmp(x.onset, y.onset), _cmp(x.nucleus, y.nucleus),
-         _cmp(x.coda, y.coda))
-        for x, y in zip(sa[-n:], sb[-n:]))
+    cand_a = resolve_anchor(anchor_a, sa, oa, frame, "a")
+    cand_b = resolve_anchor(anchor_b, sb, ob, frame, "b")
 
-    if a.strip().lower() == b.strip().lower():
+    best = None
+    for ia in cand_a:
+        xa = _span_indices(len(sa), ia, anchor_a.span)
+        for ib in cand_b:
+            xb = _span_indices(len(sb), ib, anchor_b.span)
+            m = min(len(xa), len(xb))
+            if m == 0:
+                continue
+            agr = tuple(
+                (_cmp(sa[i].onset, sb[j].onset),
+                 _cmp(sa[i].nucleus, sb[j].nucleus),
+                 _cmp(sa[i].coda, sb[j].coda))
+                for i, j in zip(xa[:m], xb[:m]))
+            sc = _score(agr)
+            if best is None or sc > best[0]:
+                best = (sc, agr, ia, ib, xa[:m], xb[:m])
+    if best is None:
+        raise Indeterminate(
+            "no origin pair yields a non-empty span; the anchors resolved and "
+            "the spans they declare do not overlap the members")
+    _sc, agr, ia, ib, xa, xb = best
+
+    same_text = str(a).strip().lower() == str(b).strip().lower()
+    if same_text and ia == ib and anchor_a == anchor_b:
         identity = "same_word"
     elif all(v is True for syl in agr for v in syl):
         identity = "rich"
     else:
         identity = "distinct"
 
-    pa, pb = sa[-n].prominence, sb[-n].prominence
+    pa, pb = sa[ia].prominence, sb[ib].prominence
     if pa is None or pb is None:
         stress = "aligned"
     elif pa == 1 and pb == 1:
@@ -423,16 +1249,49 @@ def classify_pair(a, b, phon, span="anchor", position="end",
     else:
         stress = "wrenched"
 
-    if len(sa) == len(sb):
+    # LENGTH is about the material each member carries BEYOND the compared
+    # span, which is what 'additive' has always meant. Measuring it on whole
+    # members was measuring the words, not the relation.
+    tail_a, tail_b = len(sa) - len(xa), len(sb) - len(xb)
+    if tail_a == tail_b:
         length = "equal"
-    elif len(sa) > len(sb):
+    elif tail_a > tail_b:
         length = "additive"
     else:
         length = "subtractive"
 
-    return RhymeType(agreement=agr, identity=identity, stress=stress,
-                     position=position, boundary=boundary, length=length,
-                     realisation=realisation)
+    if frame is not None and (frame.line_a is not None
+                              and frame.line_b is not None):
+        got = _position(a, b, frame, spans)
+        if position is not None and got != position:
+            raise Unverifiable(
+                f"position={position!r} was declared and the frame measures "
+                f"{got!r}. A declared coordinate that contradicts the "
+                f"measurement is refused, not overwritten in either "
+                f"direction.")
+        position = got
+    elif position is not None:
+        raise Unverifiable(
+            "a Frame was supplied without both lines, so position could not "
+            "be computed and the declared one cannot be checked.")
+
+    t = RhymeType(agreement=agr, identity=identity, stress=stress,
+                  position=position, boundary=boundary, length=length,
+                  realisation=realisation, anchor_a=anchor_a,
+                  anchor_b=anchor_b)
+    object.__setattr__(t, "origins", (ia, ib))
+    object.__setattr__(t, "offsets", (tuple(xa), tuple(xb)))
+    object.__setattr__(t, "searched", (len(cand_a), len(cand_b)))
+    object.__setattr__(t, "member_text", (
+        tuple(sa[i].text for i in xa), tuple(sb[j].text for j in xb)))
+    return t
+
+
+def _with_spans(frame, spans):
+    f = Frame(frame.line_a, frame.line_b, frame.caesura_a, frame.caesura_b,
+              frame.rawi)
+    object.__setattr__(f, "_spans", spans)
+    return f
 
 
 def verdict(a, b, phon, **kw):
@@ -441,8 +1300,25 @@ def verdict(a, b, phon, **kw):
     return None if t is None else t.verdict()
 
 
+def alliterates(a, b, phon, preset="kalevala-alliteration", **kw):
+    """-> True / False / None, on the HEAD anchor by default.
+
+    Alliteration is a head relation, so its default locator is the head. The
+    old producer had no way to say that: it compared the two members' tails
+    and reported `position='head'` as a label, which is a false negative on
+    the relation and a false-positive label in one call.
+    """
+    t = classify_pair(a, b, phon, preset=preset, **kw)
+    return None if t is None else t.alliterates()
+
+
 __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
            "LENGTH", "REALISATION", "CELL_NAMES", "RhymeType",
            "agreement_cells", "classify_pair", "verdict", "Indeterminate",
            "span_name", "space_size", "enumerate_types", "NAMED",
-           "named_count", "classify"]
+           "named_count", "classify", "Anchor", "ANCHOR_RULES", "DETERMINACY",
+           "SPAN_RULES", "PROMINENCE_RULES", "FRAME_RULES", "ANCHOR_VALUES",
+           "PRESETS", "Frame", "Unverifiable", "resolve_anchor", "alliterates",
+           "UNLOCATED", "LAST_PROMINENT", "WORD_INITIAL", "FINAL_UNPROMINENT",
+           "PENULTIMATE_PROMINENT", "SECOND_AKSARA", "LINE_PENULT",
+           "PROMINENT_ONSET_SEARCH", "WELSH_PENULT"]

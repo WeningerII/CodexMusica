@@ -120,6 +120,14 @@ class Unit:
     stanza: int = 0
     split_left: bool = False   # token continues from the previous line
     split_right: bool = False  # token is cut by the line edge (broken rhyme)
+    # -- the line's first and last READABLE token indices.  `line_tokens` stays
+    #    the RAW word count, because a placement rule that asks how many words a
+    #    line has must get the honest answer; but the EDGE tests below must be
+    #    computed from the material that actually reached the stream, or an
+    #    out-of-dictionary final token silently deletes the line's end rhyme.
+    #    -1 means the builder did not supply them (old callers): fall back.
+    line_first: int = -1
+    line_last: int = -1
 
     @property
     def word_initial(self):
@@ -131,11 +139,24 @@ class Unit:
 
     @property
     def line_initial(self):
-        return self.token == 0 and self.word_initial
+        first = self.line_first if self.line_first >= 0 else 0
+        return self.token == first and self.word_initial
 
     @property
     def line_final(self):
-        return self.token == self.line_tokens - 1 and self.word_final
+        """DEFECT P0, fixed.  This read `token == line_tokens - 1`, the RAW
+        token count, while `_loci('line_final_token')` picks the last SURVIVING
+        token.  When a line's final token was out of the declared inventory the
+        two disagreed, `Placement('both_line_final')` returned False, and the
+        line's end rhyme was deleted with no record:
+
+            build_stream(['i saw the cat zzzqx', 'i wore the hat zzzqx'])
+            -> realise(perfect rhyme) == []      (the control gives 1)
+
+        Measured on 40 files of corpus/song/: 556 of 9,174 lines, 6.1%.
+        """
+        last = self.line_last if self.line_last >= 0 else self.line_tokens - 1
+        return self.token == last and self.word_final
 
     @property
     def tok_syl_from_end(self):
@@ -172,6 +193,11 @@ class Stream:
     frames: Frames = field(default_factory=Frames)
     alt: dict = field(default_factory=dict)   # surface name -> Stream (2nd declaration)
     text_lines: tuple = ()
+    #: (line, token, text) for every token the declaration could not read.  A
+    #: token that contributes no units is not a token that did not exist, and
+    #: the difference is a rate every English measurement in this repo depends
+    #: on.  Before this field the loss was silent.
+    unreadable: list = field(default_factory=list)
 
     # -- capabilities.  A schema's `requires` is checked against these, and a
     #    missing one produces a Refusal naming it rather than a wrong number.
@@ -191,7 +217,11 @@ class Stream:
         if cap in ("orthography", "earlier", "delivered", "sung", "licence"):
             return cap in self.alt
         if cap in ("lexicon", "sense", "morphology"):
-            return cap in self.declaration.get("resources", ())
+            res = self.declaration.get("resources", ())
+            # either the capability name or any LEVEL that maps to it: the two
+            # key-spaces used to disagree and no declaration could satisfy both.
+            return cap in res or any(
+                lv in res for lv, c in _CAP_OF_LEVEL.items() if c == cap)
         return False
 
     def line_of(self, span):
@@ -211,45 +241,93 @@ def tokenise(line):
     return _WORD.findall(line)
 
 
+def stanzas_from_blank_lines(text_lines):
+    """The PRINTED stanza coordinate: a run of blank lines ends a stanza.
+
+    -> a list, one entry per line, of that line's 0-based stanza.  Blank lines
+    keep the stanza they close, so the value is defined for every index.
+
+    This is the cheapest honest source and it is the one the corpus carries.
+    Where a text prints no blank lines every line lands in stanza 0, which is a
+    TRUE statement about the text rather than the hardcoded 0 it replaces.
+    """
+    out, s, seen = [], 0, False
+    for raw in text_lines:
+        if raw.strip():
+            out.append(s)
+            seen = True
+        else:
+            out.append(s)
+            if seen:
+                s += 1
+                seen = False
+    return out
+
+
 def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
-                 declaration=None, hyphen_continues=True):
+                 declaration=None, hyphen_continues=True, stanzas=None):
     """Syllabify a whole song ONCE into one flat indexed sequence.
 
     O(total syllables).  A 40-line lyric is ~250 units; a 5,000-line corpus item
     is ~30,000, which is a list, not a problem.  Everything downstream indexes
     into this, so no relation ever re-syllabifies and no relation is confined to
     a stanza.
+
+    `stanzas` is a per-line stanza index.  Default: derived from blank lines
+    (defect P8 -- it used to be the constant 0, which collapsed all five
+    stanza-framed schemas into one frame for every text).  Pass a list to
+    declare it, or `stanzas=False` to keep every line in stanza 0.
     """
-    units, lines, toks = [], [], {}
+    units, lines, toks, unreadable = [], [], {}, []
+    if stanzas is None:
+        stanzas = stanzas_from_blank_lines(text_lines)
+    elif stanzas is False:
+        stanzas = [0] * len(text_lines)
     pending_split = False
     for li, raw in enumerate(text_lines):
         words = tokeniser(raw)
         cut = bool(re.search(r"[\w’'](-)\s*$", raw)) and hyphen_continues
-        idxs = []
+        # Two passes over the line.  The first finds which tokens the
+        # declaration can actually read, because `line_initial` / `line_final`
+        # are facts about the SURVIVING material and computing them from the raw
+        # token count is defect P0.  The second builds the units.
+        read = []
         for ti, w in enumerate(words):
             sy = phon.syllabify(w)
-            if not sy:
+            if sy:
+                read.append((ti, w, sy))
+            else:
                 # out of the declared inventory: the token contributes NO units.
-                # It is not silently dropped from the record -- the token index
-                # still advances, so a placement rule reading `line_tokens`
-                # still sees it.
-                continue
+                # The token index still advances, so a placement rule reading
+                # `line_tokens` still sees it -- and it is now RECORDED, so the
+                # loss is a number a caller can quote instead of a silence.
+                unreadable.append((li, ti, w))
+        first_ti = read[0][0] if read else -1
+        last_ti = read[-1][0] if read else -1
+        idxs = []
+        for ti, w, sy in read:
+            here = []
             for si, s in enumerate(sy):
                 u = Unit(i=len(units), syl=s, line=li, token=ti, tok_syl=si,
                          tok_len=len(sy), token_text=w, line_tokens=len(words),
                          section=(sections[li] if sections else ""),
-                         stanza=0,
+                         stanza=(stanzas[li] if li < len(stanzas) else 0),
                          split_left=(pending_split and ti == 0),
-                         split_right=(cut and ti == len(words) - 1))
+                         split_right=(cut and ti == len(words) - 1),
+                         line_first=first_ti, line_last=last_ti)
                 units.append(u)
                 idxs.append(u.i)
-            toks[(li, ti)] = tuple(
-                u.i for u in units if u.line == li and u.token == ti)
+                here.append(u.i)
+            # built from this token's OWN indices.  The old form rescanned every
+            # unit in the song per token, which is quadratic and contradicted
+            # this function's own documented O(total syllables): 30,120 units
+            # took 11.9s before, 0.3s after.
+            toks[(li, ti)] = tuple(here)
         pending_split = cut
         lines.append(tuple(idxs))
     return Stream(units=units, lines=lines, tokens=toks, phon=phon,
                   declaration=dict(declaration or {}),
-                  text_lines=tuple(text_lines))
+                  text_lines=tuple(text_lines), unreadable=unreadable)
 
 
 # ---------------------------------------------------------------------------
@@ -341,9 +419,26 @@ DEFAULT_CHANNELS = ChannelSet(readers=PHONEMIC)
 
 def _project(u, alt):
     """Same (line, token, syllable) position in a second declaration's stream.
-    Where the two syllabifications disagree in LENGTH the projection returns
-    None: a surface that re-syllabifies the word cannot be read position-wise,
-    and saying so is the honest answer."""
+    Where the two declarations disagree in LENGTH -- of the line in tokens or of
+    the token in syllables -- the projection returns None: a surface that
+    re-tokenises or re-syllabifies cannot be read position-wise, and saying so
+    is the honest answer.
+
+    DEFECT P7, fixed.  The token guard was missing, and `(line, token)` is only
+    a shared coordinate while both declarations cut the line the same way.
+    Doctrine 65 says the apostrophe belongs to the DECLARATION, so a second
+    surface re-tokenising is the INTENDED usage, not an abuse.  Measured before
+    the guard, on `it's my birthday today` against a surface whose tokeniser
+    splits the apostrophe:
+
+        it's -> it     my -> s     birthday -> None     today -> birthday
+
+    -- every read after the divergence came from a different word, silently.
+    """
+    if alt.units and u.line < len(alt.lines):
+        av = alt.lines[u.line]
+        if av and alt.units[av[0]].line_tokens != u.line_tokens:
+            return None
     for v in alt.tokens.get((u.line, u.token), ()):
         w = alt.units[v]
         if w.tok_len != u.tok_len:
@@ -453,10 +548,24 @@ class DirectedDiffer(Predicate):
 
 @dataclass(frozen=True)
 class PresentVsAbsent(Predicate):
-    """Additive / subtractive rhyme.  One member carries a segment the other
-    LACKS ENTIRELY, and the unmatched segment is EXCLUDED, not required to
+    """Additive / subtractive rhyme.  One member's channel value EXTENDS the
+    other's: everything the bare member carries, the extra member carries in the
+    same order, and then more.  The added material is EXCLUDED, not required to
     differ.  `on` names which member must carry it, which is the only thing
-    separating additive from subtractive once members are in text order."""
+    separating additive from subtractive once members are in text order.
+
+    DEFECT P6, fixed.  This tested whole-channel EMPTINESS -- `_empty(bare)` --
+    so it fired only on a bare member with no coda at all (`see`/`seed`) and
+    returned False on every canonical pair in the repo's own list
+    (RHYME_COVERAGE.md line 148):
+
+        year/feared  coda ('R',) vs ('R','D')   -> False
+        down/found   coda ('N',) vs ('N','D')   -> False
+        rain/brains  coda ('N',) vs ('N','Z')   -> False
+
+    Proper extension is strictly weaker than the old test -- `()` is a proper
+    prefix of `('D',)` -- so nothing that used to pass stops passing.
+    """
     on: int = 1
     name: str = "PRESENT-vs-ABSENT"
 
@@ -465,8 +574,10 @@ class PresentVsAbsent(Predicate):
             return Read(None, False, "unreadable")
         vals = (x, y)
         extra, bare = vals[self.on], vals[1 - self.on]
-        if _empty(bare) and not _empty(extra):
-            return Read(True, True)
+        eb = () if _empty(bare) else tuple(bare)
+        ex = () if _empty(extra) else tuple(extra)
+        if len(ex) > len(eb) and ex[:len(eb)] == eb:
+            return Read(True, True, "proper extension")
         return Read(False, True)
 
 
@@ -1008,12 +1119,7 @@ class RelationSchema:
             if c.surface != "phonemic":
                 need.add(c.surface)
         for i in self.identity:
-            need.add({"token": "token", "lexeme": "lexicon",
-                      "lexeme_sequence": "lexicon",
-                      "lexeme_family": "morphology",
-                      "morpheme_root": "morphology",
-                      "morpheme_affix": "morphology",
-                      "sense": "sense"}.get(i.level, i.level))
+            need.add(_CAP_OF_LEVEL.get(i.level, i.level))
         need.discard("token")        # always available: the surface text
         return tuple(sorted(need))
 
@@ -1091,6 +1197,12 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
     Ternary all the way: a placement rule that cannot decide keeps the pair and
     contributes None; a channel the declaration cannot read contributes None;
     the verdict is tri_and over everything REQUIRED.
+
+    DEFECT P1, fixed.  `required` was declared on ChannelRule and read in
+    exactly one place, `_bucket_key`.  Every channel entered `tri_and`, so
+    `required=False` -- Snorri's FEGRA, a channel that is REPORTED and not
+    ENFORCED -- rejected the pair exactly as a required one did.  The reads are
+    still all recorded on the Instance; only the verdict is filtered.
     """
     preads = []
     for p in schema.placement:
@@ -1101,71 +1213,136 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
 
     align = ALIGNERS[schema.align](a, b, stream)
     reads = []
+    enforced = []                    # the subset of `reads` the verdict sees
     for cr in schema.channels:
+        mine = []
         if cr.scope == "sequence":
             xa = _seq(a, stream, cr.channel, chans, cr.surface)
             xb = _seq(b, stream, cr.channel, chans, cr.surface)
-            reads.append((cr.channel, -1, cr.predicate(xa, xb)))
-            continue
-        if cr.scope in ("unmatched_a", "unmatched_b"):
+            mine.append((cr.channel, -1, cr.predicate(xa, xb)))
+        elif cr.scope in ("unmatched_a", "unmatched_b"):
             side = a if cr.scope.endswith("a") else b
             pos = (align.unmatched_a if cr.scope.endswith("a")
                    else align.unmatched_b)
             for q in pos:
                 v = chans.read(stream.units[side.idx[q]], cr.channel, stream,
                                cr.surface)
-                reads.append((cr.channel, q, cr.predicate(v, v)))
-            continue
-        pa = _positions(cr.scope, a, align, 0)
-        pb = _positions(cr.scope, b, align, 1)
-        for qa, qb in zip(pa, pb):
-            xa = chans.read(stream.units[a.idx[qa]], cr.channel, stream,
-                            cr.surface)
-            xb = chans.read(stream.units[b.idx[qb]], cr.channel, stream,
-                            cr.surface)
-            reads.append((cr.channel, qa, cr.predicate(xa, xb)))
+                mine.append((cr.channel, q, cr.predicate(v, v)))
+        else:
+            pa = _positions(cr.scope, a, align, 0)
+            pb = _positions(cr.scope, b, align, 1)
+            for qa, qb in zip(pa, pb):
+                xa = chans.read(stream.units[a.idx[qa]], cr.channel, stream,
+                                cr.surface)
+                xb = chans.read(stream.units[b.idx[qb]], cr.channel, stream,
+                                cr.surface)
+                mine.append((cr.channel, qa, cr.predicate(xa, xb)))
+        reads.extend(mine)
+        if cr.required:
+            enforced.extend(mine)
 
     # unmatched material: EXCLUDE and MUST-DIFFER are different treatments, and
     # the distinction is a SPAN coordinate.  semirhyme excludes its overhang;
     # pararhyme's nucleus requires difference; 'forbid' rejects any overhang.
     ua, ub = bool(align.unmatched_a), bool(align.unmatched_b)
+    ohang = None
     if schema.unmatched == "forbid" and (ua or ub):
-        reads.append(("__overhang__", -1, Read(False, True, "overhang forbidden")))
+        ohang = ("__overhang__", -1, Read(False, True, "overhang forbidden"))
     elif schema.unmatched == "require_b":
         # semirhyme: member 2 overhangs member 1 and the overhang is EXCLUDED.
         # Without this the schema also admits the flush case, i.e. it admits
         # ordinary perfect rhyme, which is exactly what it is defined against.
-        reads.append(("__overhang__", -1,
-                      Read(ub and not ua, True, "overhang required on member 2")))
+        ohang = ("__overhang__", -1,
+                 Read(ub and not ua, True, "overhang required on member 2"))
     elif schema.unmatched == "require_a":
-        reads.append(("__overhang__", -1,
-                      Read(ua and not ub, True, "overhang required on member 1")))
+        ohang = ("__overhang__", -1,
+                 Read(ua and not ub, True, "overhang required on member 1"))
+    if ohang is not None:
+        reads.append(ohang)
+        enforced.append(ohang)       # a span coordinate, never optional
 
     ireads = []
     for ir in schema.identity:
-        if ir.level == "token":
-            xa = " ".join(dict.fromkeys(stream.units[i].token_text.lower()
-                                        for i in a.idx))
-            xb = " ".join(dict.fromkeys(stream.units[i].token_text.lower()
-                                        for i in b.idx))
-            ireads.append((ir.level, ir.predicate(xa, xb)))
+        xa, xb = _identity_values(ir, a, stream), _identity_values(ir, b, stream)
+        if xa is _NORES or xb is _NORES:
+            ireads.append((ir.level, Read(
+                None, False, f"no {ir.level} resource declared")))
         else:
-            res = stream.declaration.get("resources", {})
-            fn = res.get(ir.level) if isinstance(res, dict) else None
-            if fn is None:
-                ireads.append((ir.level, Read(None, False,
-                                              f"no {ir.level} resource declared")))
-            else:
-                xa = tuple(fn(stream.units[i]) for i in a.idx)
-                xb = tuple(fn(stream.units[i]) for i in b.idx)
-                ireads.append((ir.level, ir.predicate(xa, xb)))
+            ireads.append((ir.level, ir.predicate(xa, xb)))
 
-    vals = [r.value for _, _, r in reads if r is not None]
+    vals = [r.value for _, _, r in enforced if r is not None]
     vals += [r.value for _, r in ireads]
     vals += [v for _, v in preads]
     return Instance(schema.name, a, b, align, tuple(reads), tri_and(vals),
                     tuple(preads), tuple(ireads),
                     search_k=a.search_k * b.search_k)
+
+
+_NORES = object()
+
+
+def _span_tokens(span, stream):
+    """The span's tokens, in span order, COLLAPSED BY COORDINATE and not by
+    text.  Consecutive units of one token are one token; a token that genuinely
+    recurs stays in the sequence twice.
+    """
+    out = []
+    for i in span.idx:
+        u = stream.units[i]
+        k = (u.line, u.token)
+        if not out or out[-1][0] != k:
+            out.append((k, u))
+    return [u for _, u in out]
+
+
+def _identity_values(ir, span, stream):
+    """What an IdentityRule reads off one member.  -> a value, or _NORES.
+
+    DEFECT P5, fixed.  The token level built its key with
+    `" ".join(dict.fromkeys(...))`, which deduplicates by STRING.  That
+    correctly collapsed the several syllables of one token and incorrectly
+    collapsed a REPEATED token, so `'love me love me'` and `'love me'` produced
+    the same key and AGREE returned True -- the exact pair a refrain or an
+    incremental repetition has to tell apart.
+
+    DEFECT P4, fixed.  The resource branch built a tuple ONE ENTRY PER SYLLABLE,
+    so a morpheme root -- a fact about a WORD -- was compared position-wise
+    across members of different syllable counts:
+
+        sing ~ singing   ('sing',) vs ('sing','sing')  -> False
+        love ~ loving    ('love',) vs ('lov','lov')    -> False
+
+    Both are the same root and both read False.  It now reads once per token.
+
+    Also fixed: the resource KEY-SPACE.  `capabilities()`/`provides()` demand
+    the CAPABILITY name (`morphology`, `lexicon`, `sense`) while this branch
+    looked up the LEVEL name (`morpheme_root`, ...).  No declaration could
+    satisfy both -- `resources={'morphology': fn}` passed the capability check
+    and then found nothing; `resources={'morpheme_root': fn}` was refused before
+    it got here.  Either key now resolves.
+    """
+    toks = _span_tokens(span, stream)
+    if ir.level == "token":
+        return " ".join(u.token_text.lower() for u in toks)
+    res = stream.declaration.get("resources", {})
+    if not isinstance(res, dict):
+        return _NORES
+    fn = res.get(ir.level)
+    if fn is None:
+        fn = res.get(_CAP_OF_LEVEL.get(ir.level, ir.level))
+    if fn is None:
+        return _NORES
+    return tuple(fn(u) for u in toks)
+
+
+#: level -> the capability name `provides()` checks for.  One table, read by
+#: RelationSchema.capabilities() and by the identity reader, so the two cannot
+#: drift apart again.
+_CAP_OF_LEVEL = {
+    "token": "token", "lexeme": "lexicon", "lexeme_sequence": "lexicon",
+    "lexeme_family": "morphology", "morpheme_root": "morphology",
+    "morpheme_affix": "morphology", "sense": "sense",
+}
 
 
 def _bucket_key(schema, span, stream, chans):
@@ -1301,13 +1478,65 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     return out
 
 
+def _forall_population(schema, frame, stream):
+    """Which LINES the `forall` quantifier has to cover in this frame.
+
+    Every line that supplies a member span for this schema.  A line the span
+    rule cannot find a member in is not a line the figure failed on -- it is a
+    line the figure does not reach -- so it is not in the denominator.
+    """
+    pop = set()
+    for rule in schema.spans:
+        try:
+            for sp in enumerate_spans(rule, stream):
+                if _frame_key(schema, sp, stream) == frame:
+                    pop.add(stream.units[sp.head()].line)
+        except NoReferent:
+            continue
+    return pop
+
+
+def _components(es):
+    """Connected components of the edge set, keyed on span index tuples."""
+    parent = {}
+
+    def find(x):
+        parent.setdefault(x, x)
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    for e in es:
+        ra, rb = find(e.a.idx), find(e.b.idx)
+        if ra != rb:
+            parent[ra] = rb
+    groups = {}
+    for e in es:
+        groups.setdefault(find(e.a.idx), []).append(e)
+    return list(groups.values())
+
+
 def assemble(schema, edges, stream):
     """Figures beyond the pair.  Edges are grouped into the declared shape and
     the member-selection quantifier is applied over the declared frame.
 
+    -> [(frame, edges, verdict)].  The verdict is tri_and over the edges the
+    finding rests on, so a figure assembled entirely out of undecided pairs
+    reports None rather than presenting itself as found.
+
     exists_k   Kalevala: >= 2 words in the line sharing an initial
     fraction   paroemion / repetend: a count AND a declared fraction
     forall     higaad: every line against ONE representative for a whole poem
+
+    DEFECT P3, fixed.  `forall` appended every frame unconditionally and the
+    finding carried no verdict, so it asserted nothing and tested nothing.
+    Measured on `cat/hat/moon/tune` under `monorhyme / leash`: two edges, two
+    DIFFERENT rhyme sounds, one 'monorhyme' finding.  Monorhyme means ONE sound
+    running through the frame, so a forall finding now requires (a) the
+    surviving edges to form a SINGLE connected component -- one representative,
+    which is what the docstring above always said -- and (b) that component to
+    cover every line in the frame the span rule reaches.
     """
     fig = schema.figure
     by = {}
@@ -1317,21 +1546,32 @@ def assemble(schema, edges, stream):
         by.setdefault(_frame_key(schema, e.a, stream), []).append(e)
     out = []
     for frame, es in sorted(by.items(), key=lambda kv: (kv[0] is None, kv[0])):
+        def emit(group):
+            out.append((frame, group, tri_and([e.verdict for e in group])))
         if fig.quantifier == "exists":
-            out.extend((frame, [e]) for e in es)
+            for e in es:
+                emit([e])
         elif fig.quantifier == "exists_k":
             nodes = {e.a.idx for e in es} | {e.b.idx for e in es}
             if len(nodes) >= fig.k:
-                out.append((frame, es))
+                emit(es)
         elif fig.quantifier == "fraction":
             li = frame if isinstance(frame, int) else None
             tot = (len({stream.units[i].token for i in stream.lines[li]})
                    if li is not None and li < len(stream.lines) else 0)
             nodes = {e.a.idx for e in es} | {e.b.idx for e in es}
             if tot and len(nodes) / tot >= (fig.fraction or 1.0):
-                out.append((frame, es))
+                emit(es)
         elif fig.quantifier == "forall":
-            out.append((frame, es))
+            comps = _components(es)
+            if len(comps) != 1:
+                continue                     # more than one representative
+            group = comps[0]
+            covered = {stream.units[e.a.head()].line for e in group} | \
+                      {stream.units[e.b.head()].line for e in group}
+            if _forall_population(schema, frame, stream) - covered:
+                continue                     # a line in the frame is left out
+            emit(group)
     return out
 
 
