@@ -789,7 +789,6 @@ class Persian(Phonology):
                 out.append(t[-len(rtoks) - 1])
             else:
                 out.append(None)
-
         return rad, out
 
     def coverage(self, text):

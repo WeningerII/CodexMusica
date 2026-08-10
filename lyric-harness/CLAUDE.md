@@ -538,3 +538,50 @@ Doctrine additions, earned from the first run — do not drift from these either
    0.6. Read the gap to the null's max, or raise n until p moves off the floor.
    Doctrine 20 said inconclusive-by-construction is not a null; this is the
    same error wearing a significant-looking number.
+58. **A recorded COUNT is a threshold nobody wrote down.** `data/sources.tsv`
+   said the Hafez corpus showed radif in 297 of 495 ghazals. A fresh
+   implementation found 315 and was told to report the discrepancy rather than
+   tune to it. Neither number was wrong: 297 is EXACTLY `min_fraction=1.0` and
+   315 is 0.60, on a sweep that runs 318/318/315/311/310/306/301/297. The
+   disagreement was never about the text; it was about a parameter the first
+   count had not stated. Any bare n-of-N in this repo is a coordinate of some
+   setting -- write the setting next to the number, or the next person to
+   measure it will think one of you is wrong. (And neither threshold dominates
+   here: 0.60 wrongly admits ghazal 100, 1.00 truncates ghazal 422's radif from
+   `amade i` to `i`. Both are reported for that reason.)
+59. **Refusing on SCRIPT has a measurable cost, and it should be paid in the
+   open.** `fas.rhymes` returns None on 60.2% of 20,388 real Hafez pairs,
+   because unvocalised Perso-Arabic does not write short vowels -- that is the
+   designed outcome, not a failure. The 1.0% that come back False are almost
+   all molamma' lines: Arabic hemistichs rhyming on an unwritten i'rab case
+   vowel, which read as Persian end in a consonant. The module refuses by
+   SCRIPT rather than by language, so Arabic-in-Arabic-script is accepted and
+   those Falses are the price. Left standing and declared rather than patched,
+   because a patch would be a language detector nobody calibrated.
+60. **Derive a refusal from what the RELATION needs, not from which relation
+   looks vulnerable.** Doctrine 53 said Guðni Jónsson's ǫ/ø->ö merger corrupts
+   aðalhending (vowel identity) and leaves skothending (consonants) alone, and
+   that instruction was handed to the implementer in those words. It is wrong
+   in one direction. Skothending requires the vowels to DIFFER, so two
+   IDENTICALLY merged graphemes -- `jörð : hörð` -- cannot say they differ
+   either, and returning True there asserts a distinction the edition already
+   destroyed. It refuses in that case only. The asymmetry is real but it is a
+   RATE, not a clean split: on the Háttatal text skothending refuses 1.0% of
+   positions and aðalhending 6.9%. `jörð : fyrðum` stays definite in both, as
+   predicted. Reason from the predicate's own requirements every time.
+61. **A rule that fires more often is not a better rule.** Four readings of
+   which consonants carry a hending were tested against shuffled-line controls
+   rather than argued about. "First post-vocalic consonant only" FINDS THE MOST
+   -- 75.0% -- and is the WORST of the four, because its chance rate nearly
+   triples to 31.9%. Yield is not evidence; lift over a matched control is.
+   This is doctrine 56 arriving from the other side: there the search inflated
+   the measurement, here a looser rule definition would have. Any time a rule
+   has variants, pick between them by lift, and record the table.
+62. **The tradition frequently states the rule you were about to invent.**
+   Snorri's own Háttatal prose supplies two things a modern summary omits, and
+   both are load-bearing: that the ONSETS MUST DIFFER for a hending to count --
+   which is doctrine 3 written in the 1220s -- and a málfylling list of
+   function words, which is doctrine 46 attested rather than assumed. Without
+   the second, Snorri's own line 5 reads as three vowel-initial words and his
+   own stanza reports as malformed. Read the tradition's own statement of its
+   rules before writing a checker for them; the primary source is a spec.

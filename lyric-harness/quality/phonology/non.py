@@ -573,10 +573,11 @@ class OldNorse(Phonology):
         """Half rhyme: the same consonants after DIFFERENT vowels, different
         onsets. -> True / False / None.
 
-        ON VOWEL LENGTH, which is a real editorial question: length is
-        phonemic here, so `a` and `á` are two different vowels and a pair that
-        differs only in quantity SATISFIES "different vowels" -- this returns
-        True for `fara : fára`. The alternative view, that a hending is heard
+        ON VOWEL LENGTH, which is a real editorial question: vowel length is
+        phonemic in Old Norse, so `a` and `á` are two different vowels and a
+        pair differing only in quantity SATISFIES "different vowels" -- this
+        returns True for `fara : sára` (and False for `fara : fára`, whose
+        onsets are the same). The alternative view, that a hending is heard
         as a change of vowel colour and a bare length contrast is too weak to
         count, is a defensible reading and is NOT taken; a caller who wants it
         must compare qualities itself. Nothing in Snorri's prose settles it,
@@ -698,13 +699,14 @@ class OldNorse(Phonology):
         wo, we = _tokens(odd), _tokens(even)
         if not wo or not we:
             return None, None, "empty line"
-        head = None
+        head, head_word = None, None
         for w in we:
             if _norm(w) in PARTICLES:
                 continue
             head = self.alliterating_unit(w)
             if head is None:
                 return None, None, f"{w!r} not readable"
+            head_word = w
             break
         if head is None:
             return None, None, "the even line is all málfylling"
@@ -717,7 +719,7 @@ class OldNorse(Phonology):
                 return None, None, f"{w!r} not readable"
             if u == head:
                 hits.append(w)
-        detail = (f"höfuðstafr {head or 'vowel'!r} on {we[0]!r}; stuðlar "
+        detail = (f"höfuðstafr {head or 'vowel'!r} on {head_word!r}; stuðlar "
                   f"{hits}")
         if head == "":
             vowels = {self.syllabify(w)[0].nucleus for w in hits}
