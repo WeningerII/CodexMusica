@@ -4,7 +4,8 @@
 # licence: public domain -- author d. 1911; libretti published 1875-1896; this printing Philadelphia: Henry Altemus, undated (c.1900), NO copyright notice in the volume
 # orthography: standard literary English; Gilbert's elisions (p'r'aps, 'em, o'clock) and his eye-rhyme spellings are kept
 # note: the Bab Ballads that open this volume are RECITATION verse, not song, and are excluded. Extraction starts at THE ENGLISHMAN.
-# note: the source prints no patter label; [PATTER] is emitted only where the lyric names itself patter (Ruddigore's 'this particularly rapid, unintelligible patter').
+# note: PATTER. The Altemus volume prints NO patter label anywhere, so nothing in the 53 songs above is tagged [PATTER] -- that would be an editorial guess. The last entry in this file is the exception: it is lifted from a DIFFERENT source, GITenberg/The-Complete-Plays-of-Gilbert-and-Sullivan_808 (808.txt md5 1d4846817ecaf0db2fd16698f95d0936, 1295989 bytes, the fourteen libretti 1871-1896), where Ruddigore Act II carries the centred heading 'PATTER-TRIO.' in the source itself. Its solo stanzas are [PATTER] and its ensemble tags are [CHORUS]. This is the syllable-to-beat density contrast gap G-1 asks for; measure it against THE MODERN MAJOR-GENERAL and against a ballad such as SORRY HER LOT in the same file.
+# note: PG 808 holds all fourteen libretti complete, ~349 musical numbers with printed SONG/DUET/TRIO/CHORUS/FINALE headings. Only the one patter number was taken here. THAT FILE IS THE OBVIOUS NEXT EXTRACTION for this author and it is reachable: raw.githubusercontent.com/GITenberg/The-Complete-Plays-of-Gilbert-and-Sullivan_808/master/808.txt
 # note: REJECTED for this author -- GITenberg/The-Bab-Ballads-With-Which-are-Included-Songs-of-a-Savoyard_54452, whose title page prints '_This book is copyright in all countries which are signatories to the Berne Convention_' and lists reprints to 1953 and 1960. Contents are Gilbert's and PD, but that EDITION is not <=1931 and carries an express claim, so the undated Altemus printing was preferred.
 
 --- TITLE: THE ENGLISHMAN
@@ -1521,7 +1522,7 @@
   A source of innocent merriment,
 [BURDEN]
          Of innocent merriment!
-[CHORUS]
+[VERSE 2]
   All prosy dull society sinners,
     Who chatter and bleat and bore,
       Are sent to hear sermons
@@ -1549,8 +1550,9 @@
       And make each prisoner pent
       Unwillingly represent
   A source of innocent merriment,
+[BURDEN]
          Of innocent merriment!
-[VERSE 2]
+[VERSE 3]
   The advertising quack who wearier
     With tales of countless cures.
       His teeth, I've enacted,
@@ -1571,7 +1573,7 @@
       On a cloth untrue
       With a twisted cue,
     And elliptical billiard balls!
-[VERSE 3]
+[VERSE 4]
       My object all sublime
       I shall achieve in time--
   To let the punishment fit the crime--
@@ -2050,3 +2052,58 @@
     And I grew cold and coy,
   At last, one morning, I became
     Another's love-sick boy!
+
+--- TITLE: PATTER-TRIO: My eyes are fully open to my awful situation (Ruddigore, Act II) -- ROBIN, DESPARD and MARGARET
+[VERSE]
+                        ROBIN, DESPARD, and MARGARET.
+[PATTER]
+  ROB. My eyes are fully open to my awful situation--
+       I shall go at once to Roderic and make him an oration.
+       I shall tell him I've recovered my forgotten moral senses,
+       And I don't care twopence-halfpenny for any consequences.
+       Now I do not want to perish by the sword or by the dagger,
+       But a martyr may indulge a little pardonable swagger,
+       And a word or two of compliment my vanity would flatter,
+       But I've got to die tomorrow, so it really doesn't matter!
+[CHORUS]
+  DES.                So it really doesn't matter--
+[CHORUS]
+  MAR.                So it really doesn't matter--
+[CHORUS]
+  ALL. So it really doesn't matter, matter, matter, matter, matter!
+[PATTER]
+  MAR. If were not a little mad and generally silly
+       I should give you my advice upon the subject, willy-nilly;
+       I should show you in a moment how to grapple with the
+            question,
+       And you'd really be astonished at the force of my
+            suggestion.
+       On the subject I shall write you a most valuable letter,
+       Full of excellent suggestions when I feel a little better,
+       But at present I'm afraid I am as mad as any hatter,
+       So I'll keep 'em to myself, for my opinion doesn't matter!
+[CHORUS]
+  DES.                Her opinion doesn't matter--
+[CHORUS]
+  ROB.                Her opinion doesn't matter--
+[CHORUS]
+  ALL. Her opinion doesn't matter, matter, matter, matter,
+            matter!
+[PATTER]
+  DES. If I had been so lucky as to have a steady brother
+       Who could talk to me as we are talking now to one another--
+       Who could give me good advice when he discovered I was
+            erring
+       (Which is just the very favour which on you I am
+            conferring),
+       My story would have made a rather interesting idyll,
+       And I might have lived and died a very decent indiwiddle.
+       This particularly rapid, unintelligible patter
+       Isn't generally heard, and if it is it doesn't matter!
+[CHORUS]
+  ROB.                If it is it doesn't matter--
+[CHORUS]
+  MAR.                If it is it doesn't matter--
+[CHORUS]
+  ALL. If it is it doesn't matter, matter, matter, matter,
+            matter!

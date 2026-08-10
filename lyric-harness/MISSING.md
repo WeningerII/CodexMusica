@@ -31,11 +31,28 @@ be written down here.
 **Why it matters:** every refrain, burden, tag, hook-return and radif is line
 IDENTITY, not rhyme. `schemes.py` already admits this in a note on its own
 villanelle entry and did not act on it.
+**A third form nobody anticipated, found in the corpus 2026-08-10: LINE
+IDENTITY BY REFERENCE.** Printed songsters abbreviate a chorus return as
+`Oh, my poor Nelly Gray, &c.` — a stub that POINTS at the chorus instead of
+reproducing it. There are **941** in the staged corpus. Its last token strips
+to `&c`, which is not a word and entered the rhyme data as one until
+`lyric_harness.is_chorus_stub()` was added. A stub must be excluded from rhyme
+extraction AND resolved against its target; only the exclusion is built.
+**And the position is not fixed:** hymnals print the chorus after verse 1 in
+some books and after the AUTHOR ATTRIBUTION at the end in others (the "sung
+after every verse" convention). Both are in the corpus, source order preserved.
+It broke the hymn cell's first parser.
 
 ### A-2 · Repetition-with-variation `OPEN`
 **Missing:** a chorus that returns with one word changed is neither "the same
 line" nor "a different line". No representation for partial return, answer
 lines, or call-and-response pairs.
+**Evidence, verified 2026-08-10:** Hanby's *Darling Nelly Gray* keeps the rhyme
+scheme and the tune slot and rewrites the words — `they have taken you away /
+I'll never see my darling any more` returns as `up in heaven there they say /
+they'll never take you from me any more`. Russell's *Cheer, Boys, Cheer* alters
+the interior lines and keeps the first and last. Staged under
+`corpus/song/eng_parlour_*.txt`, tagged `[CHORUS 2]`.
 
 ### A-3 · Scheme space beyond 26 sounds is untested at song length `PARTIAL`
 **Now:** `label()` falls through to `A1 B1 …` past Z. Round-trip is tested to

@@ -211,7 +211,7 @@ class Lexicon:
 
     def transcribe_word(self, word):
         """Return (phones, oov_flag). Naive fallback for out-of-vocabulary."""
-        w = word.lower().strip("'\"“”‘’.,;:!?()[]")
+        w = fold_apostrophes(word).lower().strip("'\"“”‘’.,;:!?()[]")
         if not w:
             return [], False
         if w in self.entries:
@@ -332,7 +332,7 @@ def line_anchors(lex, text, promote=False):
     last = words[-1]
     pre_phones, _, pre_oov = (lex.transcribe(prefix, phrase_final=False)
                               if prefix else ([], [], []))
-    lw = last.lower().strip("'\".,;:!?()[]")
+    lw = fold_apostrophes(last).lower().strip("'\".,;:!?()[]")
     variants = lex.entries.get(lw, [])[:4]
     oov = list(pre_oov)
     if not variants:
@@ -1014,7 +1014,7 @@ def word_syllable_map(lex, text):
                 continue
             p, _ = lex.transcribe_word(piece)
             phones.extend(p)
-        lw = w.lower().strip("'\".,;:!?()[]")
+        lw = fold_apostrophes(w).lower().strip("'\".,;:!?()[]")
         final = (k == len(words) - 1)
         if lw in WEAK_ALWAYS or (lw in WEAK_NONFINAL and not final):
             phones = [re.sub(r"[12]$", "0", ph) for ph in phones]
@@ -1121,6 +1121,46 @@ def consonant_skeleton(sylls):
         elif i == li:
             cons.extend(s["onset"])
     return cons
+
+
+
+#: Typographic apostrophes fold to U+0027 BEFORE any word is extracted.
+#:
+#: Doctrine 26 was written after a curly apostrophe split `prepar'd` and put
+#: the token `d` into an English rhyme table 75 times, which FLIPPED TWO
+#: REGISTERED VERDICTS. The fix went into cym.py and fas.py and never came
+#: back here: three strip sites in this file, and only ONE of them listed the
+#: curly forms -- and stripping edges never helped anyway, because in `weep'd`
+#: the apostrophe is INSIDE the word.
+#:
+#: The song corpus made it unavoidable: 7,550 curly apostrophes across 30
+#: files, against 41,925 straight ones, so the SAME WORD arrives in two
+#: typographies from two printers and produced two different end words.
+APOSTROPHES = "\u2019\u2018\u02bc\u02bb\u055a\uff07`\u00b4"
+
+
+def fold_apostrophes(text):
+    """-> text with every typographic apostrophe folded to U+0027."""
+    for ch in APOSTROPHES:
+        text = text.replace(ch, "'")
+    return text
+
+
+#: A line that is not a line: `Oh, my poor Nelly Gray, &c.` is the printer's
+#: shorthand for "and the rest of the chorus", i.e. LINE IDENTITY BY
+#: REFERENCE. There are 941 of them in the song corpus. Its last token strips
+#: to `&c`, which is not a word and would enter the rhyme data as one.
+CHORUS_STUB = re.compile(r"&c\.?\s*$|&amp;c\.?\s*$|\betc\.\s*$", re.I)
+
+
+def is_chorus_stub(line):
+    """True if the line is an abbreviated chorus return rather than sung text.
+
+    Such a line must be EXCLUDED from rhyme extraction and RESOLVED against
+    the chorus it points at -- it is not evidence about rhyme, it is a
+    pointer. See MISSING.md A-1.
+    """
+    return bool(CHORUS_STUB.search(line.strip()))
 
 
 def _final_bits(sylls):
