@@ -109,6 +109,45 @@ def test_kalevala_lines_alliterate():
           f"{n} words share an initial")
 
 
+def test_finnish_marks_inside_words():
+    print("\n5b. Finnish — the two word-internal marks do OPPOSITE things")
+    f = get("fin")
+    # The apostrophe blocks a VOWEL MERGER; the hyphen blocks RESYLLABIFICATION
+    # across a compound seam. Both were once out-of-inventory, which returned []
+    # and dropped the word out of every alliteration class -- 223 hyphen tokens
+    # in the Kalevala, `iän-ikuinen` alone 50 times.
+    check("a compound seam is kept, not resyllabified across",
+          [s.text for s in f.syllabify("iän-ikuinen")]
+          == ["i", "än", "i", "kui", "nen"],
+          str([s.text for s in f.syllabify("iän-ikuinen")]))
+    check("and WITHOUT the seam the same letters do resyllabify",
+          [s.text for s in f.syllabify("iänikuinen")]
+          == ["i", "ä", "ni", "kui", "nen"],
+          "so the hyphen carries information -- deleting it, which is the "
+          "right rule for Welsh, would be the wrong rule here")
+    check("a hyphenated compound alliterates on its first element",
+          f.alliterates("iän-ikuinen", "ikuinen") is True)
+    # The token class admits ' and - because they occur inside words, so it
+    # also matched them standing alone: 60 bare apostrophes and 46 bare hyphens
+    # in the Kalevala, inflating the word count a caller divides by.
+    check("bare punctuation is not a word",
+          f.line_alliteration("- veessä on väkeä paljo -")[1] == 4,
+          str(f.line_alliteration("- veessä on väkeä paljo -")))
+    # The winning class was chosen by max() over a SET, so it depended on
+    # PYTHONHASHSEED. The count was stable; the identity of the sound was not.
+    import subprocess
+    import sys as _s
+    got = {subprocess.run(
+        [_s.executable, "-c",
+         "from quality.phonology import get;"
+         "print(get('fin').line_alliteration('kala kukka mies meri')[2])"],
+        capture_output=True, text=True, cwd=os.path.join(HERE, ".."),
+        env={"PYTHONHASHSEED": str(s), "PATH": os.environ.get("PATH", "")}
+    ).stdout.strip() for s in (1, 3, 7)}
+    check("the winning class is the same under every hash seed",
+          len(got) == 1, f"seeds 1/3/7 gave {got}")
+
+
 def test_finnish_vowel_initial_class():
     print("\n5. Finnish — vowel-initial words alliterate as one class")
     f = get("fin")
@@ -406,6 +445,7 @@ if __name__ == "__main__":
                test_finnish_hiatus_is_not_a_diphthong,
                test_finnish_stress_is_free,
                test_kalevala_lines_alliterate,
+               test_finnish_marks_inside_words,
                test_finnish_vowel_initial_class,
                test_somali_syllable_shape,
                test_somali_refuses_a_stress_grid,

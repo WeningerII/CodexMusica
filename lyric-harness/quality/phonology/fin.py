@@ -38,7 +38,18 @@ CONSONANTS = set("bcdfghjklmnpqrstvwxzšžBCDFGHJKLMNPQRSTVWXZŠŽ")
 
 
 def _tokens(text):
-    return re.findall(r"[A-Za-zÀ-ÿŠšŽžÄäÖöÅå'\-]+", text)
+    """Words. A run of bare punctuation is NOT one.
+
+    The character class admits `'` and `-` because they occur inside words, and
+    it therefore also matched a lone `'` (60 times in the Kalevala) and a lone
+    `-` (46 times) as if they were words. They were never classified, so no
+    alliteration RATE was wrong -- but they were counted in the word total that
+    `line_alliteration` returns, so `- veessä on väkeä paljo -` reported six
+    words where there are four. Any caller dividing by that denominator was
+    dividing by an inflated one.
+    """
+    return [t for t in re.findall(r"[A-Za-zÀ-ÿŠšŽžÄäÖöÅå'\-]+", text)
+            if t.strip("'-’")]
 
 
 class Finnish(Phonology):
@@ -55,6 +66,22 @@ class Finnish(Phonology):
         w = word.strip("'-").lower()
         if not w:
             return []
+        # The HYPHEN is a compound seam, and it carries information the
+        # apostrophe does not: it BLOCKS RESYLLABIFICATION across the join.
+        # `iän-ikuinen` is iän + ikuinen, not i.ä.ni.kui.nen -- the `n` belongs
+        # to the first element and does not become the onset of the second.
+        # Removing the hyphen (which is what cym.py correctly does for Welsh,
+        # where it joins) would get the syllable boundary wrong here, so each
+        # element is syllabified independently and the results concatenated.
+        # Before this the hyphen was simply out of inventory, so the whole word
+        # returned [] and dropped out of every alliteration class: 223 tokens
+        # and 88 types in the Kalevala, `iän-ikuinen` alone 50 times.
+        if "-" in w:
+            out = []
+            for part in w.split("-"):
+                if part:
+                    out.extend(self.syllabify(part))
+            return out
         # The APOSTROPHE is a hiatus marker, not a phoneme. In `saa'ani` it
         # forbids the two a's from merging into one long nucleus across a
         # morpheme boundary -- so it forces a syllable break and is then
@@ -168,7 +195,14 @@ class Finnish(Phonology):
         seen = [h for h in heads if h is not None]
         if not seen:
             return 0, len(ws), None
-        best = max(set(seen), key=seen.count)
+        # `max(set(seen), key=seen.count)` iterated a SET, so which of two
+        # equally-common classes won depended on PYTHONHASHSEED --
+        # `kala kukka mies meri` returned ('k','') under one seed and ('m','')
+        # under another. The COUNT was stable, so no rate this project has
+        # reported is affected, but a tally of WHICH SOUND carries the
+        # alliteration would not reproduce across runs. The tie-break below is
+        # arbitrary; what matters is that it is fixed and stated.
+        best = max(sorted(set(seen)), key=seen.count)
         return seen.count(best), len(ws), best
 
 

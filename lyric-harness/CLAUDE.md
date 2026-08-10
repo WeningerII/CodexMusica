@@ -585,3 +585,39 @@ Doctrine additions, earned from the first run — do not drift from these either
    the second, Snorri's own line 5 reads as three vowel-initial words and his
    own stanza reports as malformed. Read the tradition's own statement of its
    rules before writing a checker for them; the primary source is a spec.
+63. **Check whether your null is the identity map before you trust it.**
+   Kalevala alliteration is "at least two words in the line share an initial",
+   which is a SYMMETRIC function of the line's word multiset -- so shuffling
+   words WITHIN the line changes nothing and returns the observation exactly.
+   Run at 200 replicates it gives p=1.0000, and a cell that had reached for the
+   obvious null without thinking would have reported a clean null and concluded
+   the Kalevala does not alliterate. The right randomisation destroys what the
+   predicate is actually sensitive to -- here, WHICH WORDS SHARE A LINE, so the
+   null permutes the whole token sequence and re-cuts on the original line
+   lengths. Doctrine 56 said run a null; this says the null is a modelling
+   decision and a wrong one is worse than none, because it looks like rigour.
+   State what each null PRESERVES and what it DESTROYS, every time.
+64. **A big true effect and an uninterpretable headline are compatible.**
+   Kalevala weak alliteration is 82.6% observed against a null max of 30.6% --
+   the constraint is real and the excess is 51.7 points. It is also true that
+   nearly a THIRD of lines alliterate with their words redealt at random, so
+   only 63.7% of the hits are above chance. "81.2% of Kalevala lines
+   alliterate" was never wrong and was never usable. Report the excess over the
+   null, not the rate; a rate is a statement about the language's redundancy as
+   much as about the poet.
+65. **The same mark means opposite things in two languages, and both are
+   right.** In Welsh the apostrophe is an elision mark and JOINS; in Finnish it
+   blocks a vowel merger and SPLITS. In Welsh the hyphen joins a compound into
+   one phonological word; in Finnish it marks a compound seam that BLOCKS
+   RESYLLABIFICATION, so `ian-ikuinen` is ian + ikuinen and deleting the hyphen
+   -- the correct Welsh rule -- moves a consonant across the boundary and gets
+   the syllabification wrong. Both languages had the mark treated as
+   out-of-inventory at some point, which returned [] and dropped the word from
+   every class silently. Never port a punctuation rule between modules; derive
+   it from what the mark does in THAT language.
+66. **A tie broken by iterating a set is a result that does not reproduce.**
+   `max(set(seen), key=seen.count)` picked a different alliterating sound under
+   different PYTHONHASHSEED values. The COUNT was stable, so no rate this
+   project reported was affected -- but a tally of which sound carries the
+   alliteration would silently differ between runs, and nothing would have
+   said so. Any tie-break is arbitrary; it has to be FIXED and stated.
