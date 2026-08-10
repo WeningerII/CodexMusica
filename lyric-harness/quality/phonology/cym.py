@@ -29,6 +29,38 @@ digraphs that are single consonants**: ch dd ff ng ll ph rh th. Split them
 naively and `ll` becomes two /l/, `dd` two /d/, and every skeleton is wrong in
 a way that would still produce plausible-looking output.
 
+THE SECOND DEFECT THIS FIXES: THE SPAN STOPPED IN ONE PLACE FOR EVERY LINE
+
+Welsh strict metre classes a line by its two DIWEDDEBAU -- the accentuation of
+the end of each half -- and the class decides where the answered span STOPS.
+`skeleton()` used to stop at the onset of the last accented syllable, in every
+half of every line. That is the *cytbwys acennog* rule and it is correct only
+there; applied to the other classes it reads too little of the line. Measured
+on the staged corpus, per candidate caesura placement, against the same
+within-line-shuffle null the rest of the Welsh work uses (Alun, 1,558 lines,
+20 shuffles; obs / null):
+
+    class                    n     croes acennog-rule   croes class-rule
+    cytbwys acennog        943      5.1% / 0.5%          5.1% / 0.5%   (same)
+    cytbwys ddiacen       1556      6.4% / 1.6%          8.2% / 2.1%
+    anghytbwys ddisgyn.   1135      1.3% / 0.3%          1.5% / 0.2%
+      -- and its traws                6.3% / 4.9%          5.6% / 2.3%
+    anghytbwys ddyrchaf.  1178      1.5% / 0.2%          0.3% / 0.1%
+      -- and its traws                3.5% / 4.0%          0.9% / 1.5%
+
+Two readings were tested and rejected by the same table, so the rule is not an
+assumption: running a *ddiacen* span to the END of the half (final coda
+included) collapses it to 0.3% observed against 0.0% null, and running an
+*acennog* span to the end collapses that class from 5.1% to 0.0%. The terminus
+is the half's FINAL VOWEL in the balanced classes -- which for an accented end
+is the accented vowel, so the old rule was right there and only there.
+
+*Anghytbwys ddyrchafedig* -- first end unaccented, second accented -- is not a
+class of the consonantal cynghanedd; the tradition works three. It is REFUSED
+by default rather than given a span (`dyrchafedig="rising"` reaches the other
+reading), and the table above is why: at those placements the traws rate sits
+BELOW its own null under either reading.
+
 DECLARED AMBIGUITIES, rather than resolved ones
 
 - **ng** is /ŋ/ in `llong`, but /ŋg/ in `Bangor` and across some morpheme
@@ -219,39 +251,172 @@ class Welsh(Phonology):
 
     # -- cynghanedd -------------------------------------------------------
 
-    def skeleton(self, text):
-        """Consonants up to and including the stressed syllable's onset.
+    def _syllables(self, text):
+        """The half-line as one flat syllable sequence. None if unreadable.
 
-        This is the object cynghanedd is defined on. Consonants after the
-        stressed vowel of the last word do not count toward the answer, which
-        is why the stressed syllable is where the skeleton stops.
+        Flat, because a diweddeb is a property of the HALF-LINE and not of its
+        last word: `dwr dan` ends on a proclitic, so its accent is in the word
+        before, and a rule that keyed on the final word would call that end
+        accented when it is not.
         """
-        out = []
         words = [w for w in WORD_RE.findall(normalise(text))
                  if w.strip("'-")]
         if not words:
             return None
-        # Stop at the onset of the LAST STRESSED SYLLABLE IN THE HALF-LINE,
-        # not merely in the last word. A half-line can end in a proclitic --
-        # `dwr dan`, where `dan` is the preposition -- and then the final word
-        # carries no stress at all; keying only on it ran past the end and
-        # swept the final coda into the skeleton, so an otherwise exact answer
-        # stopped matching.
-        stop = None
-        for wi, w in enumerate(words):
+        out = []
+        for w in words:
             syls = self.syllabify(w)
             if not syls:
                 return None
-            for si, syl in enumerate(syls):
-                if syl.prominence == 1:
-                    stop = (wi, si)
-        for wi, w in enumerate(words):
-            for si, syl in enumerate(self.syllabify(w)):
-                out.extend(syl.onset)
-                if stop == (wi, si):
-                    return out
-                out.extend(syl.coda)
+            out.extend(syls)
         return out
+
+    #: The three places a span can stop. Which one applies is decided by the
+    #: line's accentuation class, never by the caller's convenience.
+    EXTENTS = ("acen", "llafariad", "llawn")
+
+    def skeleton(self, text, extent):
+        """The answered consonants of ONE HALF-LINE, stopping where `extent`
+        says. -> list of units, or None when the half cannot be read.
+
+          "acen"       consonants before the ACCENTED vowel. The *cytbwys
+                       acennog* span: what follows the last accent is free.
+          "llafariad"  consonants before the half's FINAL vowel. In an
+                       accented end that is the same thing; in an unaccented
+                       end it takes in the consonants between the accented
+                       vowel and the final one, which the balanced-unaccented
+                       class requires to be answered.
+          "llawn"      every consonant in the half, final coda included. The
+                       accented half of an *anghytbwys ddisgynedig* line: its
+                       final consonant is answered by the one that opens the
+                       last syllable of the other half -- `Darn fal haul |
+                       dyrnfol heli`, where haul's `l` is answered by heli's.
+
+        THERE IS NO DEFAULT. This argument used to be absent, which is the same
+        thing as defaulting it to "acen", and that silently applied the
+        accented-ending rule to lines of the other three classes. A caller who
+        does not know the class cannot know the span, and should be calling
+        `answer()`, which works the class out.
+        """
+        if extent not in self.EXTENTS:
+            raise ValueError(
+                f"extent={extent!r}; the declared spans are {self.EXTENTS}, "
+                f"and which one applies is decided by the line's accentuation "
+                f"class -- see answer().")
+        syls = self._syllables(text)
+        if syls is None:
+            return None
+        if extent == "acen":
+            stop = None
+            for i, s in enumerate(syls):
+                if s.prominence == 1:
+                    stop = i
+            if stop is None:
+                return None          # no accent, so no accented span
+        elif extent == "llafariad":
+            stop = len(syls) - 1
+        else:
+            stop = None              # run to the end of the half
+        out = []
+        for i, syl in enumerate(syls):
+            out.extend(syl.onset)
+            if i == stop:
+                return out
+            out.extend(syl.coda)
+        return out
+
+    # -- the diweddebau, and the class they make --------------------------
+
+    def diwedd(self, half):
+        """The DIWEDDEB of one half: how its end is accented.
+
+        -> ("acennog"|"diacen", reason="") or (None, reason).
+
+        Welsh stress is penultimate, so an end is `acennog` when the accent
+        falls on the half's LAST syllable and `diacen` when it falls on the
+        penult. Anything else -- two or more unaccented syllables trailing the
+        accent, or no accent at all because the half is nothing but proclitics
+        -- is not a diweddeb the strict metre recognises, and it is refused.
+        Refused, specifically, rather than read as `acennog`, which is what
+        the missing argument on `skeleton()` amounted to.
+        """
+        syls = self._syllables(half)
+        if syls is None:
+            return None, "unreadable"
+        acc = None
+        for i, s in enumerate(syls):
+            if s.prominence == 1:
+                acc = i
+        if acc is None:
+            return None, ("no accented syllable in this half, so it has no "
+                          "diweddeb")
+        tail = len(syls) - 1 - acc
+        if tail == 0:
+            return "acennog", ""
+        if tail == 1:
+            return "diacen", ""
+        return None, (f"the accent falls {tail} syllables from the end of "
+                      f"this half; a diweddeb is accented or penultimate")
+
+    #: The accentuation classes, keyed by the two diweddebau, with the span
+    #: each half contributes. This table IS the fix: the class decides where
+    #: each side stops, and three of the four stop somewhere other than the
+    #: accent. `None` is a refusal -- see `answer`.
+    DOSBARTH = {
+        ("acennog", "acennog"): ("cytbwys acennog",
+                                 ("llafariad", "llafariad")),
+        ("diacen", "diacen"): ("cytbwys ddiacen",
+                               ("llafariad", "llafariad")),
+        ("acennog", "diacen"): ("anghytbwys ddisgynedig",
+                                ("llawn", "llafariad")),
+        # first end unaccented, second accented. "llafariad" on the second
+        # half is the same span as "acen" there, by definition of an accented
+        # end; it is written this way so the row reads as what it is -- the
+        # first half's post-accent consonants answered BEFORE the second
+        # half's accent. Reachable only with dyrchafedig="rising".
+        ("diacen", "acennog"): ("anghytbwys ddyrchafedig",
+                                ("llafariad", "llafariad")),
+    }
+
+    def answer(self, first, second, dyrchafedig="refuse"):
+        """The two spans this line's CLASS requires, worked out from the
+        phonology of its two halves.
+
+        -> {"class", "first", "second", "why"}; `first`/`second` are None when
+        the line is refused and `why` says which end refused it.
+
+        `dyrchafedig` is a declared coordinate, not a silent choice:
+
+          "refuse"  an *anghytbwys ddyrchafedig* line -- unaccented end then
+                    accented -- is not read as a consonantal cynghanedd at
+                    all. The tradition works three classes, and the corpus
+                    agrees: at those placements the traws rate sits below its
+                    own within-line-shuffle null. This is the default.
+          "rising"  read it anyway, first half to its final vowel and second
+                    to its accent, so the alternative is measurable rather
+                    than merely asserted.
+        """
+        if dyrchafedig not in ("refuse", "rising"):
+            raise ValueError(
+                f"dyrchafedig={dyrchafedig!r}; declared values are 'refuse' "
+                f"(the tradition's three classes) and 'rising' (read the "
+                f"fourth anyway, so the choice can be measured).")
+        da, wa = self.diwedd(first)
+        if da is None:
+            return {"class": None, "first": None, "second": None,
+                    "why": f"first half: {wa}"}
+        db, wb = self.diwedd(second)
+        if db is None:
+            return {"class": None, "first": None, "second": None,
+                    "why": f"second half: {wb}"}
+        name, (ea, eb) = self.DOSBARTH[(da, db)]
+        if name == "anghytbwys ddyrchafedig" and dyrchafedig == "refuse":
+            return {"class": name, "first": None, "second": None,
+                    "why": (f"{name}: the consonantal cynghanedd is not "
+                            f"written with an unaccented end answered by an "
+                            f"accented one")}
+        return {"class": name, "first": self.skeleton(first, ea),
+                "second": self.skeleton(second, eb), "why": ""}
 
     def llusg(self, line):
         """Cynghanedd lusg: the final word is polysyllabic and stressed on its
@@ -299,7 +464,7 @@ class Welsh(Phonology):
         parts = [p.strip() for p in raw if WORD_RE.findall(p or "")]
         return parts if len(parts) >= 2 else None
 
-    def cynghanedd_scan(self, line, caesura="search"):
+    def cynghanedd_scan(self, line, caesura="search", dyrchafedig="refuse"):
         """Search every word boundary for a caesura that makes the line work.
 
         -> {"type", "detail", "positions_tried", "caesura"}
@@ -326,20 +491,24 @@ class Welsh(Phonology):
         for cut in two:
             a = " ".join(words[:cut[0]])
             b = " ".join(words[cut[0]:])
-            sa, sb = self.skeleton(a), self.skeleton(b)
+            ans = self.answer(a, b, dyrchafedig=dyrchafedig)
+            sa, sb = ans["first"], ans["second"]
             if sa is None or sb is None or not sa:
                 continue
             if sa == sb:
                 return {"type": "croes",
-                        "detail": f"skeleton {sa} answered exactly across "
-                                  f"{a!r} | {b!r} (1 of {tried} placements)",
-                        "positions_tried": tried, "caesura": cut}
+                        "detail": f"{ans['class']}: skeleton {sa} answered "
+                                  f"exactly across {a!r} | {b!r} "
+                                  f"(1 of {tried} placements)",
+                        "positions_tried": tried, "caesura": cut,
+                        "class": ans["class"]}
             if best is None and len(sb) > len(sa) and sb[-len(sa):] == sa:
                 best = {"type": "traws",
-                        "detail": f"skeleton {sa} answered after bridge "
-                                  f"{sb[:-len(sa)]} across {a!r} | {b!r} "
-                                  f"(1 of {tried} placements)",
-                        "positions_tried": tried, "caesura": cut}
+                        "detail": f"{ans['class']}: skeleton {sa} answered "
+                                  f"after bridge {sb[:-len(sa)]} across "
+                                  f"{a!r} | {b!r} (1 of {tried} placements)",
+                        "positions_tried": tried, "caesura": cut,
+                        "class": ans["class"]}
         if best:
             return best
         for i, j in three:
