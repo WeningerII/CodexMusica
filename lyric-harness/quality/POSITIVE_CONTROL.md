@@ -118,13 +118,34 @@ something other than form.
 
 ### The two blockers, stated rather than discovered later
 
-**Phonology.** Known gap 6 has always said it: Welsh, Indic and Old Norse are
-"blocked on transcription". The layer needs syllable boundaries and a
-sound-identity relation per language. Some cells are cheap — Finnish is close
-to phonemic, Somali alliteration is on the initial consonant, and Chinese rhyme
-categories are lexicalized in rime tables. Others need real G2P. **A cell
-without phonology cannot be run, and listing it here is a plan, not a
-capability.**
+**Phonology — THE THREE CHEAPEST ARE NOW UNBLOCKED.** `quality/phonology/`
+ships `fin`, `som` and `ltc`, tested in `quality/test_phonology.py`. They were
+cheap for three *different* reasons, which is why they are three
+implementations and not one G2P with three tables:
+
+| cell | why it was cheap | what it gives |
+|---|---|---|
+| `fin` | near-phonemic orthography, fully regular syllabification, stress fixed on syllable 1 | Kalevala alliteration, strong and weak grades |
+| `som` | phonemic 1972 Latin script, (C)V(V)(C), no onset clusters | gabay higaad, measured as a share of lines |
+| `ltc` | one character = one syllable, sound classes lexicalised | rhyme category (韻, 聲) and the 平/仄 binary |
+
+Two results from building them are worth more than the code.
+
+**Prominence is not always stress.** Somali has pitch accent and quantitative
+metre, so `som` declares `grid_unit = "mora"` and **raises** rather than
+returning a stress pattern. Middle Chinese has no stress at all; its binary is
+平/仄, which is what the regulated-verse template constrains. Either module
+could have returned a plausible-looking stress pattern and nobody would have
+caught it in the numbers.
+
+**A rime dictionary is finer than any poet worked to.** The Qieyun distinguishes
+193 rhymes; Tang practice authorised 同用 groupings. On raw lookup 流 (尤) and
+樓 (侯) do **not** rhyme — and they are the rhyme of 登鸛雀樓. The grouping is
+load-bearing, and it is validated against canonical verse rather than trusted.
+
+**Still blocked:** Welsh, Indic and Old Norse, exactly as gap 6 has always
+said. A cell without phonology cannot be run, and listing one here is a plan,
+not a capability.
 
 **Reachability.** Measured this session: Project Gutenberg returns nothing
 (blocked), GitHub *search* is scoped to this repository so it cannot discover
@@ -140,8 +161,8 @@ translator's apparatus.
 
 1. **Part A is done** and it gates everything: the instrument is sound, and the
    binding constraint is events per item, not corpus choice.
-2. **Phonology before corpora.** A cell with text and no G2P contributes
-   nothing. Finnish, Somali and Chinese are the cheapest three.
+2. ~~**Phonology before corpora.**~~ **DONE for the cheapest three** —
+   `fin`, `som`, `ltc`. Welsh, Indic and Old Norse remain blocked.
 3. **Pooling before more items.** Fisher across items is already implemented in
    this document's Part A analysis and recovers most of what n=1 threw away.
 4. Then the positive cells, in family order, each with its own provenance row.

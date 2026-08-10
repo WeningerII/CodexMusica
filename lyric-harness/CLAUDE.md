@@ -81,24 +81,39 @@ prasa K L... | demo
    NO_ANCHOR). Fix: g2p-en or equivalent as transcribe fallback.
 2. **Fitted substitution matrix — BUILT, and it does not help.**
    quality/fit_matrix.py, RESULTS_MATRIX.md. The floor IS removed: the
-   free 0.15 stress gift became -0.107 bits, and empty/empty coda went
-   from 1.0 to -0.000. But held-out separation is unchanged (0.9031 vs
-   0.9043) and the Whitman negative control got worse (35.3% vs 18.7%
-   at matched FPR), so the floor was not costing accuracy. NOT the
-   default; Declaration.fitted stays False and a test enforces it.
+   free 0.15 stress gift became -0.0999 bits, and empty/empty coda went
+   from 1.0 to -0.000. Held-out separation gains +0.003 (0.9177 vs
+   0.9146) -- real in sign, inside anyone's noise -- and the Whitman
+   negative control still got worse (21.3% vs 18.0% at matched FPR).
+   NOT the default; Declaration.fitted stays False and a test enforces
+   it. (Both figures here are the CLEAN ones; the first run was fitted
+   on 9.2% corrupted end words.)
    Remaining: sun/much needs a CONJUNCTIVE band rule, not a comparator
    -- its nucleus is identical, so it was never a floor case.
 3. **Time layer.** Placement half built, POWERED and null. The blocker
    was never the comparator: it was multiplicity, and family-wise error
    control fixed it (RESULTS_FWER.md). The beat grid still does not
-   exist and cannot until audio or a declared tempo enters. Next is a
-   second rap corpus -- n=1 -- not a fourth instrument.
+   exist and cannot until audio or a declared tempo enters. NOT a
+   second rap corpus -- that was doctrine 8 broken twice (single
+   source, single language) and no rap is admissible anyway. The
+   binding constraint is EVENTS PER ITEM: 8 events needs ~75% of an
+   item's rhymes on one phase to reach 0.80 power, so a cell needs ~40
+   events or pooling to reach it. See POSITIVE_CONTROL.md.
 4. **Cross-line internal walk.** internal_matches supports two lines;
    no verse-wide positional graph yet.
 5. **Assonance corpus.** Moncrieff Song of Roland (1919, PD) pending
    verification that translation preserves laisse assonance.
-6. **Non-English phonology.** Welsh (real cynghanedd), Indic (prasa),
-   Old Norse (hendings) all blocked on transcription.
+6. **Non-English phonology.** THREE CELLS UNBLOCKED (quality/phonology/):
+   fin, som, ltc — cheap for three DIFFERENT reasons, so three
+   implementations rather than one G2P with three tables. Finnish: a
+   near-phonemic orthography, regular syllabification, stress fixed on
+   syllable 1 (rules only, nothing to licence). Somali: phonemic 1972
+   Latin script, (C)V(V)(C), and it REFUSES a stress grid — pitch
+   accent, not stress, so grid_unit is the mora. Middle Chinese: not
+   G2P at all but a lookup, data/qieyun_mc.tsv (CC0), 19,499 chars,
+   plus the 平水韻 同用 grouping without which 流/樓 do not rhyme.
+   STILL BLOCKED: Welsh (real cynghanedd), Indic (prasa), Old Norse
+   (hendings).
 7. **Blueprint identity-with-variation.** Outro-extends-intro,
    chorus variation. Current refs are verbatim-only.
 
@@ -313,3 +328,23 @@ Doctrine additions, earned from the first run — do not drift from these either
    declared, was never run through the provenance gate it would have failed,
    and carried an entire experimental arm. Fixtures, generated text and
    PD downloads all now carry rows -- a file with no row is the defect.
+35. **Prominence is not always stress, and faking it is invisible in the
+   numbers.** The time layer indexes on a stress grid because English is
+   stress-timed. Somali has PITCH ACCENT and quantitative metre, so its grid is
+   the mora and quality/phonology/som.py raises rather than returning a stress
+   pattern. Middle Chinese has no stress at all; its binary is 平/仄, which is
+   what the regulated-verse template actually constrains. A module that
+   returned a plausible-looking stress pattern for either would have produced
+   numbers nobody could have caught.
+36. **A rime dictionary is finer than any poet worked to.** The Qieyun
+   distinguishes 193 rhymes; Tang practice authorised 同用 groupings and 平水韻
+   collapsed them to ~106. Raw lookup makes 流 (尤) and 樓 (侯) non-rhyming, and
+   they are the rhyme of 登鸛雀樓. The lesson generalises past Chinese: the
+   granularity a REFERENCE WORK records is not the granularity a FORM works at,
+   and using the former because it is the one that ships is a silent error.
+37. **Test a phonology against its tradition, not against its own rules.** A
+   syllabifier that satisfies only its author is untested. Kalevala lines that
+   are known to alliterate must alliterate; canonical regulated verse that is
+   known to rhyme must rhyme. That check is what caught the Finnish hiatus
+   apostrophe: `saa'ani` was unreadable, so a line that alliterates reported
+   that it did not.
