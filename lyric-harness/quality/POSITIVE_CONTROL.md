@@ -184,6 +184,39 @@ AUTHOR, and has no concept of an edition or transcription layer with its own
 date and its own rights. For most corpora that gap is harmless. For an oral
 tradition it is the whole question.
 
+### cynghanedd: PHONOLOGY BUILT, TEXT NOT REACHABLE
+
+Cynghanedd is the cell that would matter most, because its constraint is
+**internal to the line** rather than line-final — the one thing every control
+this project can currently reach lacks (see Part D, arm C1).
+
+**The corpus is blocked.** Hugging Face holds 25 Welsh datasets and no strict
+metre; the Hub's own full-text search on `cynghanedd englyn cywydd` returns
+empty; PyPI has no such distribution; 16 GitHub raw probes 404; Gutenberg and
+Wikisource are **403 CONNECT policy denials**, confirmed in the proxy relay log
+rather than inferred. The closest miss is `openai/welsh-texts` — CC-BY-SA-4.0,
+National Library of Wales authorised — and it is **prose**: a 1716 history and
+a biographical dictionary, 3 GB of page scans.
+
+**The phonology is now built anyway**, because the blocker was never
+difficulty. `quality/phonology/cym.py` handles the eight digraphs
+(ch dd ff ng ll ph rh th) that are single consonants, the diphthongs,
+penultimate stress, and implements croes / traws / sain on Welsh units.
+Splitting `ll` into two /l/ would corrupt every consonant skeleton in the
+language *and still look plausible*, which is precisely why this could not be
+approximated with an English G2P.
+
+**And it exposed a defect in the existing checker.**
+`lyric_harness.check_cynghanedd` has existed since the first commit and builds
+its skeleton with `word_syllable_map` — CMUdict. It checks the **rule shape
+against English phonology** and has never read a word of Welsh. The seven rule
+errors CLAUDE.md credits to it are real findings about the rules; they are not
+findings about Welsh.
+
+So the state is: capability unblocked, corpus unreachable. The moment any
+Welsh strict-metre text arrives — a licence conversation, a manual paste — the
+cell runs.
+
 ### 律詩: SOURCED AND VALIDATED — this is the cell that runs
 
 `chinese-poetry/chinese-poetry`, already on disk from the earlier label work.

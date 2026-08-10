@@ -103,7 +103,7 @@ prasa K L... | demo
    no verse-wide positional graph yet.
 5. **Assonance corpus.** Moncrieff Song of Roland (1919, PD) pending
    verification that translation preserves laisse assonance.
-6. **Non-English phonology.** THREE CELLS UNBLOCKED (quality/phonology/):
+6. **Non-English phonology.** FOUR CELLS UNBLOCKED (quality/phonology/):
    fin, som, ltc — cheap for three DIFFERENT reasons, so three
    implementations rather than one G2P with three tables. Finnish: a
    near-phonemic orthography, regular syllabification, stress fixed on
@@ -112,8 +112,19 @@ prasa K L... | demo
    accent, not stress, so grid_unit is the mora. Middle Chinese: not
    G2P at all but a lookup, data/qieyun_mc.tsv (CC0), 19,499 chars,
    plus the 平水韻 同用 grouping without which 流/樓 do not rhyme.
-   STILL BLOCKED: Welsh (real cynghanedd), Indic (prasa), Old Norse
-   (hendings).
+   Welsh: near-phonemic, and its EIGHT DIGRAPHS (ch dd ff ng ll ph rh
+   th) are single consonants -- split them and every consonant
+   skeleton in the language is wrong while still looking plausible.
+   cym implements croes/traws/sain on Welsh units. NOTE:
+   lyric_harness.check_cynghanedd has always built its skeleton with
+   word_syllable_map, i.e. CMUdict -- it checks the RULE SHAPE against
+   ENGLISH phonology and has never read a word of Welsh. The seven
+   recorded rule errors were found that way, which is real, but it is
+   not cynghanedd on Welsh.
+   PHONOLOGY still blocked: Indic (prasa), Old Norse (hendings).
+   TEXT blocked for Welsh: see SEARCH:welsh-cynghanedd-corpus in
+   data/sources.tsv. The capability is built; the corpus is not
+   reachable.
 7. **Blueprint identity-with-variation.** Outro-extends-intro,
    chorus variation. Current refs are verbatim-only.
 
@@ -383,3 +394,16 @@ Doctrine additions, earned from the first run — do not drift from these either
    Every positive control this project can currently reach is positional by
    construction, so a cell whose mandated constraint is INTERNAL --
    dróttkvætt, cynghanedd, gabay -- is what would actually test the claim.
+43. **A checker can implement a tradition's rules and never have read that
+   tradition's language.** lyric_harness.check_cynghanedd builds its consonant
+   skeleton with word_syllable_map -- CMUdict -- so it has always tested the
+   cynghanedd RULE SHAPE against English phonology. That is a real
+   contribution and it is not cynghanedd on Welsh, and nothing in the code
+   said so. Before crediting a checker with a tradition, look at which
+   language its phonology comes from.
+44. **The blocker is not always difficulty.** Welsh was listed as blocked on
+   transcription from the first commit; it turned out to be as cheap as
+   Finnish once someone looked -- near-phonemic, eight digraphs, penultimate
+   stress, an afternoon. What is actually blocked is the TEXT. Separate
+   "hard to build" from "cannot obtain" in every gap entry, because the two
+   have completely different remedies.

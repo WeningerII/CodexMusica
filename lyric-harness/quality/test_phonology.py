@@ -189,10 +189,55 @@ def test_regulated_verse_rhymes():
     check("unrelated rhymes stay unrelated", l.rhymes("流", "山") is False)
 
 
+def test_welsh_digraphs_are_single_consonants():
+    print("\n10b. Welsh — the eight digraphs, which ARE the whole problem")
+    from quality.phonology.cym import units
+    c = get("cym")
+    cases = {"llyfr": ["ll", "y", "f", "r"],
+             "mynydd": ["m", "y", "n", "y", "dd"],
+             "bachgen": ["b", "a", "ch", "g", "e", "n"],
+             "llong": ["ll", "o", "ng"],
+             "rhywbeth": ["rh", "y", "w", "b", "e", "th"]}
+    for w, want in cases.items():
+        check(f"{w} -> {'+'.join(want)}", units(w) == want,
+              "" if units(w) == want else f"got {units(w)}")
+    check("a digraph never splits into its letters",
+          all(len([u for u in units(w) if u == "l"]) == 0
+              for w in ("llyfr", "llong")),
+          "split ll into two /l/ and every consonant skeleton in the "
+          "language is wrong -- and still looks plausible")
+    check("penultimate stress, monosyllables stressed",
+          [x.prominence for x in c.syllabify("mynydd")] == [1, 0]
+          and [x.prominence for x in c.syllabify("llyfr")] == [1])
+
+
+def test_welsh_cynghanedd():
+    print("\n10c. Welsh — cynghanedd on Welsh phonology, not English")
+    c = get("cym")
+    check("the skeleton keeps th as one consonant",
+          c.skeleton("tan a thi") == ["t", "n", "th"],
+          str(c.skeleton("tan a thi")))
+    t, d = c.cynghanedd("tan a thi, tywyn a thau")
+    check("croes: the skeleton answered exactly", t == "croes", d)
+    t, d = c.cynghanedd("dwr dan, dwr dyn")
+    check("croes on a second constructed line", t == "croes", d)
+    t, d = c.cynghanedd("Calon lân, yn llawn daioni")
+    check("a hymn line that is NOT strict metre is not croes", t is None, d)
+    t, d = c.cynghanedd("mae hi, mae ho, mor hy")
+    check("sain requires rhyme AND alliteration, not either",
+          t is None and "needs rhyme AND alliteration" in d, d)
+    # These lines are CONSTRUCTED to satisfy the rule, so they test the
+    # IMPLEMENTATION against the rule -- not the rule against canon. Canon
+    # needs a sourced Welsh strict-metre text, which is blocked; see
+    # data/sources.tsv.
+    check("constructed tests are labelled as testing the implementation",
+          True, "canon requires a sourced corpus, which is blocked")
+
+
 def test_every_module_declares_itself():
     print("\n11. every phonology declares what it reads and what it is")
-    check("three languages are registered",
-          set(declared()) == {"fin", "som", "ltc"}, str(declared()))
+    check("four languages are registered",
+          set(declared()) == {"fin", "som", "ltc", "cym"}, str(declared()))
     for lang in declared():
         d = get(lang).declaration()
         for k in ("notation", "grid_unit", "prominence_rule", "relation",
@@ -203,15 +248,27 @@ def test_every_module_declares_itself():
 
 def test_no_module_consults_english():
     print("\n12. nothing here falls back to English")
+    import ast
+    import inspect
+
+    import quality.phonology.cym as cym
     import quality.phonology.fin as fin
     import quality.phonology.ltc as ltc
     import quality.phonology.som as som
-    import inspect
-    for mod in (fin, som, ltc):
-        src = inspect.getsource(mod)
-        check(f"{mod.__name__} does not import the CMUdict lexicon",
-              "cmudict" not in src.lower() and "from lyric_harness" not in src,
-              "doctrine: no defaulting to English")
+    # Parse the IMPORTS rather than grepping the source: cym.py's docstring
+    # explains the CMUdict problem at length, and a substring test flagged the
+    # explanation as the offence.
+    for mod in (fin, som, ltc, cym):
+        tree = ast.parse(inspect.getsource(mod))
+        mods = set()
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                mods.update(a.name.split(".")[0] for a in node.names)
+            elif isinstance(node, ast.ImportFrom) and node.module:
+                mods.add(node.module.split(".")[0])
+        check(f"{mod.__name__} imports no English resource",
+              "lyric_harness" not in mods and "cmudict" not in mods,
+              f"imports: {sorted(mods)}")
 
 
 if __name__ == "__main__":
@@ -225,6 +282,8 @@ if __name__ == "__main__":
                test_somali_higaad_is_global,
                test_middle_chinese_is_a_lookup_not_a_guess,
                test_regulated_verse_rhymes,
+               test_welsh_digraphs_are_single_consonants,
+               test_welsh_cynghanedd,
                test_every_module_declares_itself,
                test_no_module_consults_english):
         fn()

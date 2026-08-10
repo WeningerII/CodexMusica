@@ -7,6 +7,8 @@ and Chinese as the three cheapest to unblock, and they are cheap for three
 DIFFERENT reasons, which is why they get three different implementations rather
 than one G2P with three tables:
 
+  cym  a near-phonemic orthography whose EIGHT DIGRAPHS are single
+       consonants -- and the consonant skeleton is the whole of cynghanedd
   fin  a near-phonemic orthography and fully regular syllabification rules
   som  a phonemic 1972 Latin orthography with a very restrictive syllable shape
   ltc  one character = one syllable, and the sound classes are LEXICALISED in a
@@ -123,4 +125,4 @@ def declared():
     return sorted(_REGISTRY)
 
 
-from quality.phonology import fin, ltc, som  # noqa: E402,F401
+from quality.phonology import cym, fin, ltc, som  # noqa: E402,F401
