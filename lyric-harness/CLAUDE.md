@@ -558,6 +558,14 @@ Doctrine additions, earned from the first run — do not drift from these either
    SCRIPT rather than by language, so Arabic-in-Arabic-script is accepted and
    those Falses are the price. Left standing and declared rather than patched,
    because a patch would be a language detector nobody calibrated.
+   **AMENDED, and the amendment matters more than the original.** This item as
+   first written implied the 60.2% None was a flat tax spread over all pairs.
+   It is not. On RANDOM Hafez word pairs the module is decisive ~95% of the
+   time -- it returns False. The refusal concentrates almost entirely on pairs
+   that already agree on the written consonant skeleton, which is to say on the
+   candidate rhymes. It refuses where the question is hard and answers where it
+   is easy. That is the designed behaviour and it was asserted here before it
+   was measured. See doctrine 67.
 60. **Derive a refusal from what the RELATION needs, not from which relation
    looks vulnerable.** Doctrine 53 said Guðni Jónsson's ǫ/ø->ö merger corrupts
    aðalhending (vowel identity) and leaves skothending (consonants) alone, and
@@ -621,3 +629,32 @@ Doctrine additions, earned from the first run — do not drift from these either
    project reported was affected -- but a tally of which sound carries the
    alliteration would silently differ between runs, and nothing would have
    said so. Any tie-break is arbitrary; it has to be FIXED and stated.
+67. **A refusal rate is not a tax -- measure WHERE it falls.** `fas.rhymes`
+   returns None on 60.2% of real Hafez rhyme pairs, and doctrine 59 read that
+   as the price of refusing on script. Measured against random pairs drawn from
+   the same corpus, the module answers False 92% of the time and refuses only
+   ~5%. So the refusal is not spread evenly: it lands on exactly the pairs that
+   already share a written consonant skeleton, the ones where the unwritten
+   short vowel actually decides the answer. Among pairs it DOES decide, True is
+   97.5% observed against a 2.2% null max. A high None-rate can mean the
+   instrument is blunt or that it is aimed; only a matched control tells you
+   which, and this project asserted the wrong one for a day.
+68. **The identity-map trap has more than one shape.** Doctrine 63 caught it in
+   Finnish, where the predicate is symmetric over the line's word multiset. It
+   turned up again the same day in Persian by a different route: permuting the
+   final token WITHIN a ghazal is degenerate because a ghazal that has a radif
+   has identical finals, and permuting identical elements changes nothing --
+   94.5% of detected ghazals came back byte-for-byte unchanged, p=1.000. Two
+   cells, two languages, two mechanisms, one failure. Before trusting a null,
+   check what fraction of replicates differ from the observation at all. A
+   randomisation that can be run, look rigorous, and test nothing is the most
+   dangerous object in this repo.
+69. **A null can be a null about the wrong thing.** The Persian cell predicted
+   a within-line shuffle would inflate the radif excess, left the prediction in
+   the file, and was wrong: it gives the SMALLEST separation of the three nulls
+   because a ghazal repeats its own function words, so the shuffle throws the
+   same `ke`/`o`/`kard` to the end of several lines of the same ghazal. It is
+   not a conservative null; it is a null about vocabulary. Doctrine 28 said a
+   within-item null contains what the item contains -- this is that, and the
+   lesson is that "more conservative" is not a property you can reason your way
+   to. Name what each null is a null ABOUT, then check it empirically.

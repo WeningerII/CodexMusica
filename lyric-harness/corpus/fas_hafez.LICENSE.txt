@@ -1,0 +1,89 @@
+ATTRIBUTION AND LICENCE FOR corpus/fas_hafez.json
+=================================================
+
+SCOPE. This file covers exactly one path: `corpus/fas_hafez.json`. It covers
+nothing else in `corpus/`. (Doctrine 54: a licence name without a scope is not
+evidence.)
+
+TWO LAYERS, SEPARATED (doctrine 40)
+-----------------------------------
+INNER — the work. 495 ghazals of Hafez of Shiraz (خواجه شمس‌الدین محمد حافظ
+شیرازی), d. 1390 CE. Six centuries out of any copyright term in any
+jurisdiction. Public domain by age of the author.
+
+OUTER — the compilation. The digital text was compiled and published by Kaveh
+Bakhtiyari as the `kavehbc/hafez` repository / PyPI package, under the MIT
+Licence, whose notice is reproduced in full below as that licence requires.
+
+PROVENANCE
+----------
+Upstream    https://github.com/kavehbc/hafez
+File        hafez/data/hafez.json  (branch `master`; `main` 404s)
+Fetch       curl -sSL https://raw.githubusercontent.com/kavehbc/hafez/master/hafez/data/hafez.json
+Fetched     2026-08-10
+Upstream sha256  fd58ddee9407c7f2316ddbf84395e5515207386afe62c8be9a85ff65de1db98f
+                 (2,430,773 bytes)
+
+WHAT WAS REMOVED, AND WHY
+-------------------------
+`corpus/fas_hafez.json` is NOT the upstream file. It is the cleared PROJECTION
+of it: each record keeps `id` and `poem` and nothing else. Three upstream
+fields are dropped deliberately, per the `kavehbc/hafez` row in
+`data/sources.tsv`:
+
+  interpretation      495 modern Persian fal-divination prose entries, author
+  alt_interpretation  unstated, date unstated. NOT cleared for provenance.
+  mp3                 URLs to third-party recitation audio. Not ours to ship.
+
+Only `poem[]` carries the 14th-century text. This is the old-text /
+new-apparatus trap living inside a single JSON file, and the projection is
+where it is cut.
+
+STAGED FILE
+-----------
+Path        corpus/fas_hafez.json
+sha256      a87fc7ed6de8b422769dc8bb8f26020556700e796f148ca33cccd2698783f1ab
+Shape       JSON list of 495 objects, each {"id": int, "poem": [hemistich, ...]}
+Size        495 ghazals, 8,384 hemistichs, 263,809 characters of Persian text
+Text layer  plain UNVOWELLED Perso-Arabic. Zero ḥarakāt across the whole text;
+            FARSI YEH U+06CC and KEHEH U+06A9 throughout, no ARABIC YEH U+064A,
+            no ARABIC KAF U+0643, no ZWNJ U+200C. No critical apparatus, no
+            variants, no translation; recension unstated.
+Regenerate  python3 -c "import json;d=json.load(open('hafez.json'));
+            json.dump([{'id':g['id'],'poem':g['poem']} for g in d],
+            open('corpus/fas_hafez.json','w'),ensure_ascii=False,indent=1)"
+            (then append a trailing newline)
+
+Reader      quality/phonology/fas.py
+Measured by quality/hafez_rate.py
+
+NOTE FOR data/sources.tsv (doctrine 34)
+---------------------------------------
+`data/sources.tsv` already carries a row for the SOURCE `kavehbc/hafez`. That
+row records the upstream fetch; it does not yet name this staged path. The row
+should be amended to name `corpus/fas_hafez.json` and the projection above.
+This file did not amend it — `data/sources.tsv` was outside the writing cell's
+permitted set while sibling cells were running.
+
+---------------------------------------------------------------------------
+MIT License
+
+Copyright (c) 2023-2024 Kaveh Bakhtiyari
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

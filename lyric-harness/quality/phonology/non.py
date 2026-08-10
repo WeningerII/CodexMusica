@@ -546,9 +546,23 @@ class OldNorse(Phonology):
             return False                 # "stafir eru eftir hljóðstaf": a
         if ra[1] != rb[1]:               # hending needs consonants after the
             return False                 # vowel, so an open syllable has none
-        if oa == ob:
-            return False                 # "upphafstafir greina orðin"
         same = self._vowel_verdict(ra[0], rb[0], ae_merged)
+        if oa == ob:
+            # "upphafstafir greina orðin" -- THE INITIAL LETTERS distinguish
+            # the words. Reading that as onset-tuple inequality is wrong for
+            # vowel-initial words, because two of them both have onset () and
+            # so compared equal: `Iðrask : yðrum` came back False on a textbook
+            # skothending. When there is no consonant onset the initial letter
+            # IS the vowel, and the pair is distinguished exactly when the
+            # vowels differ -- which is also, and not by coincidence, the
+            # skothending condition itself.
+            if oa:
+                return False             # the same real onset is repetition
+            if same is None:
+                return None              # merged: cannot tell if distinguished
+            if same:
+                return False             # same vowel and no onset either
+            return kind == "skot"        # different vowels: a real hending
         if kind == "adal":
             return same                  # None here is the doctrine-53 refusal
         if same is None:
