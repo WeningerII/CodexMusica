@@ -1,222 +1,519 @@
-author	born	died	tradition	pd_route	pd_expired	status	corpus_path	note
-Robert Burns	1759	1796	scots	b (verified author death year)	1866	SOURCED	corpus/song/eng_celtic_robert_burns.txt	
-Isaac Watts	1674	1748	hymn	b (verified author death year)	1818	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_watts.txt	
-Charles Wesley	1707	1788	hymn	b (verified author death year)	1858	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_charles_wesley.txt	
-John Newton	1725	1807	hymn	b (verified author death year)	1877	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_newton.txt	
-William Cowper	1731	1800	hymn	b (verified author death year)	1870	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_cowper.txt	
-Augustus Toplady	1740	1778	hymn	b (verified author death year)	1848	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_toplady.txt	
-John Gay	1685	1732	stage	b (verified author death year)	1802	SOURCED	corpus/song/eng_hall_john_gay.txt	
-Charles Dibdin	1745	1814	stage	b (verified author death year)	1884	NOT_FOUND		
-Sarah Josepha Hale	1788	1879	american	b (verified author death year)	1949	SOURCED	corpus/song/eng_american_sarah_josepha_hale.txt	
-Jane Taylor	1783	1824	nursery	b (verified author death year)	1894	SOURCED	corpus/song/eng_american_jane_taylor.txt	
-Ann Taylor	1782	1866	nursery	b (verified author death year)	1936	SOURCED	corpus/song/eng_american_ann_taylor.txt	
-Thomas Moore	1779	1852	irish	b (verified author death year)	1922	SOURCED	corpus/song/eng_celtic_thomas_moore.txt	
-Carolina Oliphant, Lady Nairne	1766	1845	scots	b (verified author death year)	1915	SOURCED	corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt	
-Reginald Heber	1783	1826	hymn	b (verified author death year)	1896	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_heber.txt	
-Thomas Haynes Bayly	1797	1839	drawing_room	b (verified author death year)	1909	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_thomas_haynes_bayly.txt	
-Samuel Lover	1797	1868	irish	b (verified author death year)	1938	SOURCED	corpus/song/eng_celtic_samuel_lover.txt	
-Henry Francis Lyte	1793	1847	hymn	b (verified author death year)	1917	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_lyte.txt	
-James Montgomery	1771	1854	hymn	b (verified author death year)	1924	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_montgomery.txt	
-Sarah Flower Adams	1805	1848	hymn	b (verified author death year)	1918	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_sarah_flower_adams.txt	
-Edmund Sears	1810	1876	hymn	b (verified author death year)	1946	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_sears.txt	
-Cecil Frances Alexander	1818	1895	hymn	b (verified author death year)	1965	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_cf_alexander.txt	
-Joseph Scriven	1819	1886	hymn	b (verified author death year)	1956	NOT_FOUND		
-Horatio Spafford	1828	1888	hymn	b (verified author death year)	1958	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_spafford.txt	
-Philip Bliss	1838	1876	hymn	b (verified author death year)	1946	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_bliss.txt	
-Frances Ridley Havergal	1836	1879	hymn	b (verified author death year)	1949	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_havergal.txt	
-Josiah Gilbert Holland	1819	1881	american	b (verified author death year)	1951	SOURCED	corpus/song/eng_american_josiah_gilbert_holland.txt	
-Phillips Brooks	1835	1893	hymn	b (verified author death year)	1963	NOT_FOUND		
-Ray Palmer	1808	1887	hymn	b (verified author death year)	1957	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_ray_palmer.txt	
-John Greenleaf Whittier	1807	1892	american	b (verified author death year)	1962	SOURCED	corpus/song/eng_american_john_greenleaf_whittier.txt	
-Oliver Wendell Holmes Sr.	1809	1894	american	b (verified author death year)	1964	SOURCED	corpus/song/eng_american_oliver_wendell_holmes_sr.txt	
-Henry Wadsworth Longfellow	1807	1882	american	b (verified author death year)	1952	SOURCED	corpus/song/eng_american_henry_wadsworth_longfellow.txt	
-Walt Whitman	1819	1892	american	b (verified author death year)	1962	SOURCED	corpus/whitman.txt	
-Christina Rossetti	1830	1894	british	b (verified author death year)	1964	SOURCED	corpus/song/eng_british_christina_rossetti.txt	
-Alfred Tennyson	1809	1892	british	b (verified author death year)	1962	SOURCED	corpus/song/eng_british_alfred_tennyson.txt	
-Robert Louis Stevenson	1850	1894	british	b (verified author death year)	1964	SOURCED	corpus/song/eng_british_robert_louis_stevenson.txt	
-Elizabeth Barrett Browning	1806	1861	british	b (verified author death year)	1931	SOURCED	corpus/song/eng_british_elizabeth_barrett_browning.txt	
-Robert Browning	1812	1889	british	b (verified author death year)	1959	SOURCED	corpus/song/eng_british_robert_browning.txt	
-Matthew Arnold	1822	1888	british	b (verified author death year)	1958	SOURCED	corpus/song/eng_british_matthew_arnold.txt	
-William Blake	1757	1827	british	b (verified author death year)	1897	SOURCED	corpus/song/eng_british_william_blake.txt	
-Percy Bysshe Shelley	1792	1822	british	b (verified author death year)	1892	SOURCED	corpus/song/eng_british_percy_bysshe_shelley.txt	
-John Keats	1795	1821	british	b (verified author death year)	1891	SOURCED	corpus/song/eng_british_john_keats.txt	
-Lord Byron	1788	1824	british	b (verified author death year)	1894	SOURCED	corpus/song/eng_british_lord_byron.txt	
-William Wordsworth	1770	1850	british	b (verified author death year)	1920	SOURCED	corpus/song/eng_british_william_wordsworth.txt	
-Samuel Taylor Coleridge	1772	1834	british	b (verified author death year)	1904	SOURCED	corpus/song/eng_british_samuel_taylor_coleridge.txt	
-Edgar Allan Poe	1809	1849	american	b (verified author death year)	1919	SOURCED	corpus/song/eng_american_edgar_allan_poe.txt	
-William Cullen Bryant	1794	1878	american	b (verified author death year)	1948	SOURCED	corpus/song/eng_american_william_cullen_bryant.txt	
-James Russell Lowell	1819	1891	american	b (verified author death year)	1961	SOURCED	corpus/song/eng_american_james_russell_lowell.txt	
-Stephen Foster	1826	1864	parlour	b (verified author death year)	1934	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_stephen_foster.txt	
-Francis Scott Key	1779	1843	american	b (verified author death year)	1913	SOURCED	corpus/song/eng_american_francis_scott_key.txt	
-John Howard Payne	1791	1852	parlour	b (verified author death year)	1922	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_john_howard_payne.txt	
-Samuel Francis Smith	1808	1895	hymn	b (verified author death year)	1965	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_sf_smith.txt	
-Henry Clay Work	1832	1884	parlour	b (verified author death year)	1954	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_henry_clay_work.txt	
-George Frederick Root	1820	1895	parlour	b (verified author death year)	1965	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_george_frederick_root.txt	
-Daniel Decatur Emmett	1815	1904	minstrel	b (verified author death year)	1974	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_daniel_decatur_emmett.txt	
-Septimus Winner	1827	1902	parlour	b (verified author death year)	1972	NOT_FOUND		
-Charles Graham	1866	1899	parlour	b (verified author death year)	1969	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_charles_graham.txt	
-Gussie Lord Davis	1863	1899	parlour	b (verified author death year)	1969	NOT_FOUND		
-Harry Clifton	1832	1872	music_hall	b (verified author death year)	1942	NOT_FOUND		
-Henry Russell	1812	1900	parlour	b (verified author death year)	1970	COMPOSER_NOT_LYRICIST		composer — every text in the staged file is by another hand (Morris, Mackay, Cook, Dickens). FOURTH composer found on this list.
-Walter Kittredge	1834	1905	parlour	b (verified author death year)	1975	NOT_FOUND		
-Will S. Hays	1837	1907	parlour	b (verified author death year)	1977	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_will_s_hays.txt	
-Bob Cole	1868	1911	parlour	b (verified author death year)	1981	NOT_FOUND		
-Paul Laurence Dunbar	1872	1906	american	b (verified author death year)	1976	SOURCED	corpus/song/eng_american_paul_laurence_dunbar.txt	
-Paul Dresser	1858	1906	parlour	b (verified author death year)	1976	NOT_FOUND		
-Edward Harrigan	1844	1911	stage	b (verified author death year)	1981	NOT_FOUND		
-Hughie Cannon	1877	1912	parlour	b (verified author death year)	1982	NOT_FOUND		
-Ren Shields	1868	1913	parlour	b (verified author death year)	1983	NOT_FOUND		
-Monroe H. Rosenfeld	1861	1918	parlour	b (verified author death year)	1988	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_monroe_h_rosenfeld.txt	
-Stanley Murphy	1875	1919	parlour	b (verified author death year)	1989	NOT_FOUND		
-Harry Dacre	1857	1922	music_hall	b (verified author death year)	1992	NOT_FOUND		
-Thomas P. Westendorf	1848	1923	parlour	b (verified author death year)	1993	NOT_FOUND		
-Charles B. Lawlor	1852	1925	parlour	b (verified author death year)	1995	NOT_FOUND		
-Jean Havez	1869	1925	parlour	b (verified author death year)	1995	NOT_FOUND		
-Arthur J. Lamb	1870	1928	parlour	b (verified author death year)	1998	NOT_FOUND		
-Eben E. Rexford	1848	1916	parlour	b (verified author death year)	1986	NOT_FOUND		
-Katharine Lee Bates	1859	1929	american	b (verified author death year)	1999	NOT_FOUND		
-Julia Ward Howe	1819	1910	american	b (verified author death year)	1980	SOURCED	corpus/song/eng_american_julia_ward_howe.txt	
-James A. Bland	1854	1911	minstrel	b (verified author death year)	1981	NOT_FOUND		
-Fanny Crosby	1820	1915	hymn	b (verified author death year)	1985	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_crosby.txt	
-Ada Habershon	1861	1918	hymn	b (verified author death year)	1988	NOT_FOUND		
-Elisha Hoffman	1839	1929	hymn	b (verified author death year)	1999	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_hoffman.txt	
-Sabine Baring-Gould	1834	1924	hymn	b (verified author death year)	1994	NOT_FOUND		
-Anna Bartlett Warner	1827	1915	hymn	b (verified author death year)	1985	NOT_FOUND		
-W. S. Gilbert	1836	1911	stage	b (verified author death year)	1981	SOURCED	corpus/song/eng_hall_ws_gilbert.txt	
-Percy French	1854	1920	irish	b (verified author death year)	1990	NOT_FOUND		
-Thomas Hastings	1784	1872	hymn	b (verified author death year)	1942	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_hastings.txt	
-Lowell Mason	1792	1872	hymn	b (verified author death year)	1942	COMPOSER_NOT_LYRICIST		wrote the TUNE, not the text. Will never source as a lyricist; reclassify or drop. HOMONYM TRAP recorded by the sourcing cell: hymnals attribute texts to 'John Mason' (17th c.) and 'G.W. Doane' (George Washington Doane 1799-1859) — a surname match would wrongly credit these two.
-William Bradbury	1816	1868	hymn	b (verified author death year)	1938	COMPOSER_NOT_LYRICIST		composer — music for 'Jesus Loves Me' (text: Anna Warner) and 'He Leadeth Me' (text: Gilmore). Will never source as a lyricist; reclassify or drop. HOMONYM TRAP recorded by the sourcing cell: hymnals attribute texts to 'John Mason' (17th c.) and 'G.W. Doane' (George Washington Doane 1799-1859) — a surname match would wrongly credit these two.
-Robert Lowry	1826	1899	hymn	b (verified author death year)	1969	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_lowry.txt	
-William Howard Doane	1832	1915	hymn	b (verified author death year)	1985	COMPOSER_NOT_LYRICIST		composer — Fanny Crosby's tune-writer. Will never source as a lyricist; reclassify or drop. HOMONYM TRAP recorded by the sourcing cell: hymnals attribute texts to 'John Mason' (17th c.) and 'G.W. Doane' (George Washington Doane 1799-1859) — a surname match would wrongly credit these two.
-Annie S. Hawks	1836	1918	hymn	b (verified author death year)	1988	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_hawks.txt	
-Elizabeth C. Clephane	1830	1869	hymn	b (verified author death year)	1939	NOT_FOUND		
-Jane Borthwick	1813	1897	hymn	b (verified author death year)	1967	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_borthwick.txt	
-Edward Perronet	1726	1792	hymn	b (verified author death year)	1862	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_perronet.txt	
-John Fawcett	1740	1817	hymn	b (verified author death year)	1887	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_fawcett.txt	
-Robert Robinson	1735	1790	hymn	b (verified author death year)	1860	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_robinson.txt	
-Joseph Hart	1712	1768	hymn	b (verified author death year)	1838	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_hart.txt	
-Philip Doddridge	1702	1751	hymn	b (verified author death year)	1821	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_doddridge.txt	
-John Cennick	1718	1755	hymn	b (verified author death year)	1825	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_cennick.txt	
-Anne Steele	1717	1778	hymn	b (verified author death year)	1848	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_steele.txt	
-William Williams Pantycelyn	1717	1791	welsh	b (verified author death year)	1861	NOT_FOUND		
-Thomas Ken	1637	1711	hymn	b (verified author death year)	1781	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_ken.txt	
-Nahum Tate	1652	1715	hymn	b (verified author death year)	1785	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_tate.txt	
-Nicholas Brady	1659	1726	hymn	b (verified author death year)	1796	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_brady.txt	
-George Herbert	1593	1633	british	b (verified author death year)	1703	NOT_SOURCED		
-John Milton	1608	1674	british	b (verified author death year)	1744	NOT_SOURCED		
-Richard Baxter	1615	1691	hymn	b (verified author death year)	1761	NOT_FOUND		
-Joseph Addison	1672	1719	hymn	b (verified author death year)	1789	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_addison.txt	
-Samuel Stennett	1727	1795	hymn	b (verified author death year)	1865	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_stennett.txt	
-John Byrom	1692	1763	hymn	b (verified author death year)	1833	NOT_FOUND		
-Christopher Smart	1722	1771	hymn	b (verified author death year)	1841	NOT_FOUND		
-Ben Jonson	1572	1637	lute	b (verified author death year)	1707	SOURCED	corpus/song/eng_british_ben_jonson.txt	
-Thomas Campion	1567	1620	lute	b (verified author death year)	1690	SOURCED	corpus/song/eng_british_thomas_campion.txt	
-John Dowland	1563	1626	lute	b (verified author death year)	1696	SOURCED	corpus/song/eng_british_john_dowland.txt	ATTRIBUTION CAVEAT from the sourcing cell: Bullen's 1887 preface states 'as a rule, the composers are responsible only for the music', naming Campion as the exception who wrote both. Dowland's file is staged as SONG-BOOK LYRICS UNDER HIS BOOKS, not as verse he is proved to have written. Fifth composer-attribution problem on this list.
-Robert Herrick	1591	1674	lute	b (verified author death year)	1744	SOURCED	corpus/song/eng_british_robert_herrick.txt	
-Thomas Carew	1595	1640	lute	b (verified author death year)	1710	SOURCED	corpus/song/eng_british_thomas_carew.txt	
-Richard Lovelace	1617	1657	lute	b (verified author death year)	1727	SOURCED	corpus/song/eng_british_richard_lovelace.txt	
-Sir John Suckling	1609	1642	lute	b (verified author death year)	1712	SOURCED	corpus/song/eng_british_sir_john_suckling.txt	
-Thomas D'Urfey	1653	1723	stage	b (verified author death year)	1793	SOURCED	corpus/song/eng_hall_thomas_durfey.txt	
-Henry Carey	1687	1743	stage	b (verified author death year)	1813	NOT_FOUND		
-Allan Ramsay	1686	1758	scots	b (verified author death year)	1828	CONTESTED		
-James Hogg	1770	1835	scots	b (verified author death year)	1905	SOURCED	corpus/song/eng_celtic_james_hogg.txt	
-Walter Scott	1771	1832	scots	b (verified author death year)	1902	SOURCED	corpus/song/eng_celtic_walter_scott.txt	
-William Motherwell	1797	1835	scots	b (verified author death year)	1905	SOURCED	corpus/song/eng_celtic_william_motherwell.txt	
-Charles Mackay	1814	1889	british	b (verified author death year)	1959	SOURCED	corpus/song/eng_british_charles_mackay.txt	
-Eliza Cook	1818	1889	british	b (verified author death year)	1959	SOURCED	corpus/song/eng_british_eliza_cook.txt	
-Felicia Hemans	1793	1835	british	b (verified author death year)	1905	SOURCED	corpus/song/eng_british_felicia_hemans.txt	
-Letitia Elizabeth Landon	1802	1838	british	b (verified author death year)	1908	NOT_FOUND		
-Emily Bronte	1818	1848	british	b (verified author death year)	1918	SOURCED	corpus/song/eng_british_emily_bronte.txt	
-Charles Kingsley	1819	1875	british	b (verified author death year)	1945	SOURCED	corpus/song/eng_british_charles_kingsley.txt	
-Arthur Hugh Clough	1819	1861	british	b (verified author death year)	1931	SOURCED	corpus/song/eng_british_arthur_hugh_clough.txt	
-Edward Lear	1812	1888	nonsense	b (verified author death year)	1958	SOURCED	corpus/song/eng_british_edward_lear.txt	
-Lewis Carroll	1832	1898	nonsense	b (verified author death year)	1968	SOURCED	corpus/song/eng_british_lewis_carroll.txt	
-William Barnes	1801	1886	dialect	b (verified author death year)	1956	SOURCED	corpus/song/eng_hall_william_barnes.txt	
-John Clare	1793	1864	dialect	b (verified author death year)	1934	SOURCED	corpus/song/eng_hall_john_clare.txt	
-George Pope Morris	1802	1864	american	b (verified author death year)	1934	SOURCED	corpus/song/eng_american_george_pope_morris.txt	
-Nathaniel Parker Willis	1806	1867	american	b (verified author death year)	1937	SOURCED	corpus/song/eng_american_nathaniel_parker_willis.txt	
-Thomas Buchanan Read	1822	1872	american	b (verified author death year)	1942	SOURCED	corpus/song/eng_american_thomas_buchanan_read.txt	
-Sidney Lanier	1842	1881	american	b (verified author death year)	1951	SOURCED	corpus/song/eng_american_sidney_lanier.txt	
-Henry Timrod	1828	1867	american	b (verified author death year)	1937	SOURCED	corpus/song/eng_american_henry_timrod.txt	
-Frances Ellen Watkins Harper	1825	1911	american	b (verified author death year)	1981	SOURCED	corpus/song/eng_american_frances_ellen_watkins_harper.txt	
-Phillis Wheatley	1753	1784	american	b (verified author death year)	1854	SOURCED	corpus/song/eng_american_phillis_wheatley.txt	
-John Pierpont	1785	1866	american	b (verified author death year)	1936	SOURCED	corpus/song/eng_american_john_pierpont.txt	
-James Ryder Randall	1839	1908	american	b (verified author death year)	1978	SOURCED	corpus/song/eng_american_james_ryder_randall.txt	
-Abram Joseph Ryan	1838	1886	american	b (verified author death year)	1956	SOURCED	corpus/song/eng_american_abram_joseph_ryan.txt	
-Bayard Taylor	1825	1878	american	b (verified author death year)	1948	SOURCED	corpus/song/eng_american_bayard_taylor.txt	
-Alice Cary	1820	1871	american	b (verified author death year)	1941	SOURCED	corpus/song/eng_american_alice_cary.txt	
-Phoebe Cary	1824	1871	american	b (verified author death year)	1941	SOURCED	corpus/song/eng_american_phoebe_cary.txt	
-Lydia Maria Child	1802	1880	american	b (verified author death year)	1950	SOURCED	corpus/song/eng_american_lydia_maria_child.txt	
-Clement Clarke Moore	1779	1863	american	b (verified author death year)	1933	SOURCED	corpus/song/eng_american_clement_clarke_moore.txt	
-Samuel Woodworth	1784	1842	american	b (verified author death year)	1912	SOURCED	corpus/song/eng_american_samuel_woodworth.txt	
-Joseph Rodman Drake	1795	1820	american	b (verified author death year)	1890	SOURCED	corpus/song/eng_american_joseph_rodman_drake.txt	
-Fitz-Greene Halleck	1790	1867	american	b (verified author death year)	1937	SOURCED	corpus/song/eng_american_fitz_greene_halleck.txt	
-Richard Henry Dana Sr.	1787	1879	american	b (verified author death year)	1949	SOURCED	corpus/song/eng_american_richard_henry_dana_sr.txt	
-Charles Fenno Hoffman	1806	1884	american	b (verified author death year)	1954	SOURCED	corpus/song/eng_american_charles_fenno_hoffman.txt	
-Theodore O'Hara	1820	1867	american	b (verified author death year)	1937	SOURCED	corpus/song/eng_american_theodore_ohara.txt	
-Ethelinda Beers	1827	1879	american	b (verified author death year)	1949	SOURCED	corpus/song/eng_american_ethelinda_beers.txt	
-Marion Dix Sullivan	1802	1860	parlour	b (verified author death year)	1930	NOT_FOUND		
-Benjamin Hanby	1833	1867	parlour	b (verified author death year)	1937	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_benjamin_hanby.txt	
-John Hill Hewitt	1801	1890	parlour	b (verified author death year)	1960	NOT_FOUND		caution: 'All Quiet Along the Potomac' is reachable but the WORDS are Ethel Lynn Beers's — who is on this list as Ethelinda Beers. Attributing it to Hewitt would credit the composer and lose the lyricist.
-Charles Carroll Sawyer	1833	1891	parlour	b (verified author death year)	1961	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_charles_carroll_sawyer.txt	
-George Cooper	1840	1927	parlour	b (verified author death year)	1997	NOT_FOUND		
-Frank Howard	1854	1893	parlour	b (verified author death year)	1963	NOT_FOUND		
-Edward Fitzball	1792	1873	stage	b (verified author death year)	1943	NOT_FOUND		
-Thomas Osborne Davis	1814	1845	irish	b (verified author death year)	1915	SOURCED	corpus/song/eng_celtic_thomas_osborne_davis.txt	
-Charles Joseph Kickham	1828	1882	irish	b (verified author death year)	1952	SOURCED	corpus/song/eng_celtic_charles_joseph_kickham.txt	
-John Keegan Casey	1846	1870	irish	b (verified author death year)	1940	NOT_FOUND		
-Michael Joseph Barry	1817	1889	irish	b (verified author death year)	1959	NOT_FOUND		
-Timothy Daniel Sullivan	1827	1914	irish	b (verified author death year)	1984	NOT_FOUND		
-Edward Walsh	1805	1850	irish	b (verified author death year)	1920	SOURCED	corpus/song/eng_celtic_edward_walsh.txt	
-James Clarence Mangan	1803	1849	irish	b (verified author death year)	1919	SOURCED	corpus/song/eng_celtic_james_clarence_mangan.txt	
-Gerald Griffin	1803	1840	irish	b (verified author death year)	1910	SOURCED	corpus/song/eng_celtic_gerald_griffin.txt	
-Dion Boucicault	1820	1890	irish	b (verified author death year)	1960	NOT_FOUND		
-Henry Sambrooke Leigh	1837	1883	music_hall	b (verified author death year)	1953	NOT_FOUND		
-J. B. Geoghegan	1816	1889	music_hall	b (verified author death year)	1959	NOT_FOUND		
-George Leybourne	1842	1884	music_hall	b (verified author death year)	1954	NOT_FOUND		
-Alfred Lee	1840	1906	music_hall	b (verified author death year)	1976	NOT_FOUND		
-G. W. Hunt	1839	1904	music_hall	b (verified author death year)	1974	NOT_FOUND		
-Edward Oxenford	1848	1929	music_hall	b (verified author death year)	1999	NOT_FOUND		
-Fred Gilbert	1850	1903	music_hall	b (verified author death year)	1973	NOT_FOUND		
-Frederick Weatherly	1848	1929	drawing_room	b (verified author death year)	1999	NOT_FOUND		
-Clifton Bingham	1859	1913	drawing_room	b (verified author death year)	1983	NOT_FOUND		
-Edwin Waugh	1817	1890	dialect	b (verified author death year)	1960	SOURCED	corpus/song/eng_hall_edwin_waugh.txt	
-Samuel Laycock	1826	1893	dialect	b (verified author death year)	1963	NOT_FOUND		
-Joseph Skipsey	1832	1903	dialect	b (verified author death year)	1973	NOT_FOUND		
-Tommy Armstrong	1848	1920	dialect	b (verified author death year)	1990	NOT_FOUND		
-Ned Corvan	1830	1865	dialect	b (verified author death year)	1935	NOT_FOUND		
-George Ridley	1835	1864	dialect	b (verified author death year)	1934	NOT_FOUND		
-Joe Wilson	1841	1875	dialect	b (verified author death year)	1945	NOT_FOUND		
-Robert Anderson	1770	1833	dialect	b (verified author death year)	1903	NOT_FOUND		
-Ebenezer Elliott	1781	1849	labour	b (verified author death year)	1919	SOURCED	corpus/song/eng_hall_ebenezer_elliott.txt	
-Thomas Cooper	1805	1892	labour	b (verified author death year)	1962	NOT_FOUND		
-Gerald Massey	1828	1907	labour	b (verified author death year)	1977	NOT_FOUND		
-Ernest Jones	1819	1869	labour	b (verified author death year)	1939	NOT_FOUND		
-William James Linton	1812	1897	labour	b (verified author death year)	1967	NOT_FOUND		
-Henry Sutton	1825	1901	labour	b (verified author death year)	1971	NOT_FOUND		
-William Henry Bellamy	1800	1866	drawing_room	b (verified author death year)	1936	NOT_FOUND		
-Edward Fitzgerald	1809	1883	british	b (verified author death year)	1953	NOT_SOURCED		
-Adelaide Anne Procter	1825	1864	british	b (verified author death year)	1934	SOURCED	corpus/song/eng_british_adelaide_anne_procter.txt	
-Jean Ingelow	1820	1897	british	b (verified author death year)	1967	SOURCED	corpus/song/eng_british_jean_ingelow.txt	
-Dinah Maria Craik	1826	1887	british	b (verified author death year)	1957	SOURCED	corpus/song/eng_british_dinah_maria_craik.txt	
-Menella Bute Smedley	1820	1877	british	b (verified author death year)	1947	NOT_FOUND		
-Caroline Norton	1808	1877	british	b (verified author death year)	1947	SOURCED	corpus/song/eng_british_caroline_norton.txt	
-Frances Anne Kemble	1809	1893	british	b (verified author death year)	1963	SOURCED	corpus/song/eng_british_frances_anne_kemble.txt	
-Mary Howitt	1799	1888	british	b (verified author death year)	1958	NOT_FOUND		
-Eliza Acton	1799	1859	british	b (verified author death year)	1929	NOT_FOUND		
-Emma Willard	1787	1870	american	b (verified author death year)	1940	SOURCED	corpus/song/eng_american_emma_willard.txt	
-Hannah Flagg Gould	1789	1865	american	b (verified author death year)	1935	SOURCED	corpus/song/eng_american_hannah_flagg_gould.txt	
-Elizabeth Oakes Smith	1806	1893	american	b (verified author death year)	1963	NOT_FOUND		
-Sarah Helen Whitman	1803	1878	american	b (verified author death year)	1948	NOT_FOUND		
-Maria Gowen Brooks	1794	1845	american	b (verified author death year)	1915	SOURCED	corpus/song/eng_american_maria_gowen_brooks.txt	
-Margaret Junkin Preston	1820	1897	american	b (verified author death year)	1967	SOURCED	corpus/song/eng_american_margaret_junkin_preston.txt	
-Rose Terry Cooke	1827	1892	american	b (verified author death year)	1962	SOURCED	corpus/song/eng_american_rose_terry_cooke.txt	
-Lucy Larcom	1824	1893	american	b (verified author death year)	1963	SOURCED	corpus/song/eng_american_lucy_larcom.txt	
-Celia Thaxter	1835	1894	american	b (verified author death year)	1964	SOURCED	corpus/song/eng_american_celia_thaxter.txt	
-Louise Chandler Moulton	1835	1908	american	b (verified author death year)	1978	SOURCED	corpus/song/eng_american_louise_chandler_moulton.txt	
-Nora Perry	1831	1896	american	b (verified author death year)	1966	SOURCED	corpus/song/eng_american_nora_perry.txt	
-Mary Mapes Dodge	1831	1905	american	b (verified author death year)	1975	SOURCED	corpus/song/eng_american_mary_mapes_dodge.txt	
-Josephine Pollard	1834	1892	american	b (verified author death year)	1962	NOT_FOUND		
-Marianne Farningham	1834	1909	british	b (verified author death year)	1979	NOT_FOUND		
-Richard Davies (Mynyddog)	1833	1877	welsh	b (verified author death year)	1947	FOUND_NOT_ON_LIST		Welsh song lyricist writing TO existing tunes. GITenberg Gwaith-Mynyddog.-Cyfrol-II_14547, reachable today. Not on the 220-name list; found by the celtic cell. The project already has a Welsh phonology, so this is immediately usable.
+author	lang	born	died	tradition	pd_route	pd_expired	status	corpus_path	note
+Robert Burns	eng	1759	1796	scots	b (verified author death year)	1866	SOURCED	corpus/song/eng_celtic_robert_burns.txt	
+Isaac Watts	eng	1674	1748	hymn	b (verified author death year)	1818	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_watts.txt	
+Charles Wesley	eng	1707	1788	hymn	b (verified author death year)	1858	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_charles_wesley.txt	
+John Newton	eng	1725	1807	hymn	b (verified author death year)	1877	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_newton.txt	
+William Cowper	eng	1731	1800	hymn	b (verified author death year)	1870	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_cowper.txt	
+Augustus Toplady	eng	1740	1778	hymn	b (verified author death year)	1848	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_toplady.txt	
+John Gay	eng	1685	1732	stage	b (verified author death year)	1802	SOURCED	corpus/song/eng_hall_john_gay.txt	
+Charles Dibdin	eng	1745	1814	stage	b (verified author death year)	1884	NOT_FOUND		
+Sarah Josepha Hale	eng	1788	1879	american	b (verified author death year)	1949	SOURCED	corpus/song/eng_american_sarah_josepha_hale.txt	
+Jane Taylor	eng	1783	1824	nursery	b (verified author death year)	1894	SOURCED	corpus/song/eng_american_jane_taylor.txt	
+Ann Taylor	eng	1782	1866	nursery	b (verified author death year)	1936	SOURCED	corpus/song/eng_american_ann_taylor.txt	
+Thomas Moore	eng	1779	1852	irish	b (verified author death year)	1922	SOURCED	corpus/song/eng_celtic_thomas_moore.txt	
+Carolina Oliphant, Lady Nairne	eng	1766	1845	scots	b (verified author death year)	1915	SOURCED	corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt	
+Reginald Heber	eng	1783	1826	hymn	b (verified author death year)	1896	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_heber.txt	
+Thomas Haynes Bayly	eng	1797	1839	drawing_room	b (verified author death year)	1909	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_thomas_haynes_bayly.txt	
+Samuel Lover	eng	1797	1868	irish	b (verified author death year)	1938	SOURCED	corpus/song/eng_celtic_samuel_lover.txt	
+Henry Francis Lyte	eng	1793	1847	hymn	b (verified author death year)	1917	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_lyte.txt	
+James Montgomery	eng	1771	1854	hymn	b (verified author death year)	1924	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_montgomery.txt	
+Sarah Flower Adams	eng	1805	1848	hymn	b (verified author death year)	1918	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_sarah_flower_adams.txt	
+Edmund Sears	eng	1810	1876	hymn	b (verified author death year)	1946	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_sears.txt	
+Cecil Frances Alexander	eng	1818	1895	hymn	b (verified author death year)	1965	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_cf_alexander.txt	
+Joseph Scriven	eng	1819	1886	hymn	b (verified author death year)	1956	NOT_FOUND		
+Horatio Spafford	eng	1828	1888	hymn	b (verified author death year)	1958	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_spafford.txt	
+Philip Bliss	eng	1838	1876	hymn	b (verified author death year)	1946	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_bliss.txt	
+Frances Ridley Havergal	eng	1836	1879	hymn	b (verified author death year)	1949	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_havergal.txt	
+Josiah Gilbert Holland	eng	1819	1881	american	b (verified author death year)	1951	SOURCED	corpus/song/eng_american_josiah_gilbert_holland.txt	
+Phillips Brooks	eng	1835	1893	hymn	b (verified author death year)	1963	NOT_FOUND		
+Ray Palmer	eng	1808	1887	hymn	b (verified author death year)	1957	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_ray_palmer.txt	
+John Greenleaf Whittier	eng	1807	1892	american	b (verified author death year)	1962	SOURCED	corpus/song/eng_american_john_greenleaf_whittier.txt	
+Oliver Wendell Holmes Sr.	eng	1809	1894	american	b (verified author death year)	1964	SOURCED	corpus/song/eng_american_oliver_wendell_holmes_sr.txt	
+Henry Wadsworth Longfellow	eng	1807	1882	american	b (verified author death year)	1952	SOURCED	corpus/song/eng_american_henry_wadsworth_longfellow.txt	
+Walt Whitman	eng	1819	1892	american	b (verified author death year)	1962	SOURCED	corpus/whitman.txt	
+Christina Rossetti	eng	1830	1894	british	b (verified author death year)	1964	SOURCED	corpus/song/eng_british_christina_rossetti.txt	
+Alfred Tennyson	eng	1809	1892	british	b (verified author death year)	1962	SOURCED	corpus/song/eng_british_alfred_tennyson.txt	
+Robert Louis Stevenson	eng	1850	1894	british	b (verified author death year)	1964	SOURCED	corpus/song/eng_british_robert_louis_stevenson.txt	
+Elizabeth Barrett Browning	eng	1806	1861	british	b (verified author death year)	1931	SOURCED	corpus/song/eng_british_elizabeth_barrett_browning.txt	
+Robert Browning	eng	1812	1889	british	b (verified author death year)	1959	SOURCED	corpus/song/eng_british_robert_browning.txt	
+Matthew Arnold	eng	1822	1888	british	b (verified author death year)	1958	SOURCED	corpus/song/eng_british_matthew_arnold.txt	
+William Blake	eng	1757	1827	british	b (verified author death year)	1897	SOURCED	corpus/song/eng_british_william_blake.txt	
+Percy Bysshe Shelley	eng	1792	1822	british	b (verified author death year)	1892	SOURCED	corpus/song/eng_british_percy_bysshe_shelley.txt	
+John Keats	eng	1795	1821	british	b (verified author death year)	1891	SOURCED	corpus/song/eng_british_john_keats.txt	
+Lord Byron	eng	1788	1824	british	b (verified author death year)	1894	SOURCED	corpus/song/eng_british_lord_byron.txt	
+William Wordsworth	eng	1770	1850	british	b (verified author death year)	1920	SOURCED	corpus/song/eng_british_william_wordsworth.txt	
+Samuel Taylor Coleridge	eng	1772	1834	british	b (verified author death year)	1904	SOURCED	corpus/song/eng_british_samuel_taylor_coleridge.txt	
+Edgar Allan Poe	eng	1809	1849	american	b (verified author death year)	1919	SOURCED	corpus/song/eng_american_edgar_allan_poe.txt	
+William Cullen Bryant	eng	1794	1878	american	b (verified author death year)	1948	SOURCED	corpus/song/eng_american_william_cullen_bryant.txt	
+James Russell Lowell	eng	1819	1891	american	b (verified author death year)	1961	SOURCED	corpus/song/eng_american_james_russell_lowell.txt	
+Stephen Foster	eng	1826	1864	parlour	b (verified author death year)	1934	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_stephen_foster.txt	
+Francis Scott Key	eng	1779	1843	american	b (verified author death year)	1913	SOURCED	corpus/song/eng_american_francis_scott_key.txt	
+John Howard Payne	eng	1791	1852	parlour	b (verified author death year)	1922	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_john_howard_payne.txt	
+Samuel Francis Smith	eng	1808	1895	hymn	b (verified author death year)	1965	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_sf_smith.txt	
+Henry Clay Work	eng	1832	1884	parlour	b (verified author death year)	1954	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_henry_clay_work.txt	
+George Frederick Root	eng	1820	1895	parlour	b (verified author death year)	1965	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_george_frederick_root.txt	
+Daniel Decatur Emmett	eng	1815	1904	minstrel	b (verified author death year)	1974	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_daniel_decatur_emmett.txt	
+Septimus Winner	eng	1827	1902	parlour	b (verified author death year)	1972	NOT_FOUND		
+Charles Graham	eng	1866	1899	parlour	b (verified author death year)	1969	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_charles_graham.txt	
+Gussie Lord Davis	eng	1863	1899	parlour	b (verified author death year)	1969	NOT_FOUND		
+Harry Clifton	eng	1832	1872	music_hall	b (verified author death year)	1942	NOT_FOUND		
+Henry Russell	eng	1812	1900	parlour	b (verified author death year)	1970	COMPOSER_NOT_LYRICIST		composer — every text in the staged file is by another hand (Morris, Mackay, Cook, Dickens). FOURTH composer found on this list.
+Walter Kittredge	eng	1834	1905	parlour	b (verified author death year)	1975	NOT_FOUND		
+Will S. Hays	eng	1837	1907	parlour	b (verified author death year)	1977	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_will_s_hays.txt	
+Bob Cole	eng	1868	1911	parlour	b (verified author death year)	1981	NOT_FOUND		
+Paul Laurence Dunbar	eng	1872	1906	american	b (verified author death year)	1976	SOURCED	corpus/song/eng_american_paul_laurence_dunbar.txt	
+Paul Dresser	eng	1858	1906	parlour	b (verified author death year)	1976	NOT_FOUND		
+Edward Harrigan	eng	1844	1911	stage	b (verified author death year)	1981	NOT_FOUND		
+Hughie Cannon	eng	1877	1912	parlour	b (verified author death year)	1982	NOT_FOUND		
+Ren Shields	eng	1868	1913	parlour	b (verified author death year)	1983	NOT_FOUND		
+Monroe H. Rosenfeld	eng	1861	1918	parlour	b (verified author death year)	1988	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_monroe_h_rosenfeld.txt	
+Stanley Murphy	eng	1875	1919	parlour	b (verified author death year)	1989	NOT_FOUND		
+Harry Dacre	eng	1857	1922	music_hall	b (verified author death year)	1992	NOT_FOUND		
+Thomas P. Westendorf	eng	1848	1923	parlour	b (verified author death year)	1993	NOT_FOUND		
+Charles B. Lawlor	eng	1852	1925	parlour	b (verified author death year)	1995	NOT_FOUND		
+Jean Havez	eng	1869	1925	parlour	b (verified author death year)	1995	NOT_FOUND		
+Arthur J. Lamb	eng	1870	1928	parlour	b (verified author death year)	1998	NOT_FOUND		
+Eben E. Rexford	eng	1848	1916	parlour	b (verified author death year)	1986	NOT_FOUND		
+Katharine Lee Bates	eng	1859	1929	american	b (verified author death year)	1999	NOT_FOUND		
+Julia Ward Howe	eng	1819	1910	american	b (verified author death year)	1980	SOURCED	corpus/song/eng_american_julia_ward_howe.txt	
+James A. Bland	eng	1854	1911	minstrel	b (verified author death year)	1981	NOT_FOUND		
+Fanny Crosby	eng	1820	1915	hymn	b (verified author death year)	1985	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_crosby.txt	
+Ada Habershon	eng	1861	1918	hymn	b (verified author death year)	1988	NOT_FOUND		
+Elisha Hoffman	eng	1839	1929	hymn	b (verified author death year)	1999	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_hoffman.txt	
+Sabine Baring-Gould	eng	1834	1924	hymn	b (verified author death year)	1994	NOT_FOUND		
+Anna Bartlett Warner	eng	1827	1915	hymn	b (verified author death year)	1985	NOT_FOUND		
+W. S. Gilbert	eng	1836	1911	stage	b (verified author death year)	1981	SOURCED	corpus/song/eng_hall_ws_gilbert.txt	
+Percy French	eng	1854	1920	irish	b (verified author death year)	1990	NOT_FOUND		
+Thomas Hastings	eng	1784	1872	hymn	b (verified author death year)	1942	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_hastings.txt	
+Lowell Mason	eng	1792	1872	hymn	b (verified author death year)	1942	COMPOSER_NOT_LYRICIST		wrote the TUNE, not the text. Will never source as a lyricist; reclassify or drop. HOMONYM TRAP recorded by the sourcing cell: hymnals attribute texts to 'John Mason' (17th c.) and 'G.W. Doane' (George Washington Doane 1799-1859) — a surname match would wrongly credit these two.
+William Bradbury	eng	1816	1868	hymn	b (verified author death year)	1938	COMPOSER_NOT_LYRICIST		composer — music for 'Jesus Loves Me' (text: Anna Warner) and 'He Leadeth Me' (text: Gilmore). Will never source as a lyricist; reclassify or drop. HOMONYM TRAP recorded by the sourcing cell: hymnals attribute texts to 'John Mason' (17th c.) and 'G.W. Doane' (George Washington Doane 1799-1859) — a surname match would wrongly credit these two.
+Robert Lowry	eng	1826	1899	hymn	b (verified author death year)	1969	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_lowry.txt	
+William Howard Doane	eng	1832	1915	hymn	b (verified author death year)	1985	COMPOSER_NOT_LYRICIST		composer — Fanny Crosby's tune-writer. Will never source as a lyricist; reclassify or drop. HOMONYM TRAP recorded by the sourcing cell: hymnals attribute texts to 'John Mason' (17th c.) and 'G.W. Doane' (George Washington Doane 1799-1859) — a surname match would wrongly credit these two.
+Annie S. Hawks	eng	1836	1918	hymn	b (verified author death year)	1988	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_hawks.txt	
+Elizabeth C. Clephane	eng	1830	1869	hymn	b (verified author death year)	1939	NOT_FOUND		
+Jane Borthwick	eng	1813	1897	hymn	b (verified author death year)	1967	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_borthwick.txt	
+Edward Perronet	eng	1726	1792	hymn	b (verified author death year)	1862	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_perronet.txt	
+John Fawcett	eng	1740	1817	hymn	b (verified author death year)	1887	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_fawcett.txt	
+Robert Robinson	eng	1735	1790	hymn	b (verified author death year)	1860	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_robinson.txt	
+Joseph Hart	eng	1712	1768	hymn	b (verified author death year)	1838	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_hart.txt	
+Philip Doddridge	eng	1702	1751	hymn	b (verified author death year)	1821	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_doddridge.txt	
+John Cennick	eng	1718	1755	hymn	b (verified author death year)	1825	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_cennick.txt	
+Anne Steele	eng	1717	1778	hymn	b (verified author death year)	1848	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_steele.txt	
+William Williams Pantycelyn	eng	1717	1791	welsh	b (verified author death year)	1861	NOT_FOUND		
+Thomas Ken	eng	1637	1711	hymn	b (verified author death year)	1781	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_ken.txt	
+Nahum Tate	eng	1652	1715	hymn	b (verified author death year)	1785	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_tate.txt	
+Nicholas Brady	eng	1659	1726	hymn	b (verified author death year)	1796	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_brady.txt	
+George Herbert	eng	1593	1633	british	b (verified author death year)	1703	NOT_SOURCED		
+John Milton	eng	1608	1674	british	b (verified author death year)	1744	NOT_SOURCED		
+Richard Baxter	eng	1615	1691	hymn	b (verified author death year)	1761	NOT_FOUND		
+Joseph Addison	eng	1672	1719	hymn	b (verified author death year)	1789	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_addison.txt	
+Samuel Stennett	eng	1727	1795	hymn	b (verified author death year)	1865	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_hymn_stennett.txt	
+John Byrom	eng	1692	1763	hymn	b (verified author death year)	1833	NOT_FOUND		
+Christopher Smart	eng	1722	1771	hymn	b (verified author death year)	1841	NOT_FOUND		
+Ben Jonson	eng	1572	1637	lute	b (verified author death year)	1707	SOURCED	corpus/song/eng_british_ben_jonson.txt	
+Thomas Campion	eng	1567	1620	lute	b (verified author death year)	1690	SOURCED	corpus/song/eng_british_thomas_campion.txt	
+John Dowland	eng	1563	1626	lute	b (verified author death year)	1696	SOURCED	corpus/song/eng_british_john_dowland.txt	ATTRIBUTION CAVEAT from the sourcing cell: Bullen's 1887 preface states 'as a rule, the composers are responsible only for the music', naming Campion as the exception who wrote both. Dowland's file is staged as SONG-BOOK LYRICS UNDER HIS BOOKS, not as verse he is proved to have written. Fifth composer-attribution problem on this list.
+Robert Herrick	eng	1591	1674	lute	b (verified author death year)	1744	SOURCED	corpus/song/eng_british_robert_herrick.txt	
+Thomas Carew	eng	1595	1640	lute	b (verified author death year)	1710	SOURCED	corpus/song/eng_british_thomas_carew.txt	
+Richard Lovelace	eng	1617	1657	lute	b (verified author death year)	1727	SOURCED	corpus/song/eng_british_richard_lovelace.txt	
+Sir John Suckling	eng	1609	1642	lute	b (verified author death year)	1712	SOURCED	corpus/song/eng_british_sir_john_suckling.txt	
+Thomas D'Urfey	eng	1653	1723	stage	b (verified author death year)	1793	SOURCED	corpus/song/eng_hall_thomas_durfey.txt	
+Henry Carey	eng	1687	1743	stage	b (verified author death year)	1813	NOT_FOUND		
+Allan Ramsay	eng	1686	1758	scots	b (verified author death year)	1828	CONTESTED		
+James Hogg	eng	1770	1835	scots	b (verified author death year)	1905	SOURCED	corpus/song/eng_celtic_james_hogg.txt	
+Walter Scott	eng	1771	1832	scots	b (verified author death year)	1902	SOURCED	corpus/song/eng_celtic_walter_scott.txt	
+William Motherwell	eng	1797	1835	scots	b (verified author death year)	1905	SOURCED	corpus/song/eng_celtic_william_motherwell.txt	
+Charles Mackay	eng	1814	1889	british	b (verified author death year)	1959	SOURCED	corpus/song/eng_british_charles_mackay.txt	
+Eliza Cook	eng	1818	1889	british	b (verified author death year)	1959	SOURCED	corpus/song/eng_british_eliza_cook.txt	
+Felicia Hemans	eng	1793	1835	british	b (verified author death year)	1905	SOURCED	corpus/song/eng_british_felicia_hemans.txt	
+Letitia Elizabeth Landon	eng	1802	1838	british	b (verified author death year)	1908	NOT_FOUND		
+Emily Bronte	eng	1818	1848	british	b (verified author death year)	1918	SOURCED	corpus/song/eng_british_emily_bronte.txt	
+Charles Kingsley	eng	1819	1875	british	b (verified author death year)	1945	SOURCED	corpus/song/eng_british_charles_kingsley.txt	
+Arthur Hugh Clough	eng	1819	1861	british	b (verified author death year)	1931	SOURCED	corpus/song/eng_british_arthur_hugh_clough.txt	
+Edward Lear	eng	1812	1888	nonsense	b (verified author death year)	1958	SOURCED	corpus/song/eng_british_edward_lear.txt	
+Lewis Carroll	eng	1832	1898	nonsense	b (verified author death year)	1968	SOURCED	corpus/song/eng_british_lewis_carroll.txt	
+William Barnes	eng	1801	1886	dialect	b (verified author death year)	1956	SOURCED	corpus/song/eng_hall_william_barnes.txt	
+John Clare	eng	1793	1864	dialect	b (verified author death year)	1934	SOURCED	corpus/song/eng_hall_john_clare.txt	
+George Pope Morris	eng	1802	1864	american	b (verified author death year)	1934	SOURCED	corpus/song/eng_american_george_pope_morris.txt	
+Nathaniel Parker Willis	eng	1806	1867	american	b (verified author death year)	1937	SOURCED	corpus/song/eng_american_nathaniel_parker_willis.txt	
+Thomas Buchanan Read	eng	1822	1872	american	b (verified author death year)	1942	SOURCED	corpus/song/eng_american_thomas_buchanan_read.txt	
+Sidney Lanier	eng	1842	1881	american	b (verified author death year)	1951	SOURCED	corpus/song/eng_american_sidney_lanier.txt	
+Henry Timrod	eng	1828	1867	american	b (verified author death year)	1937	SOURCED	corpus/song/eng_american_henry_timrod.txt	
+Frances Ellen Watkins Harper	eng	1825	1911	american	b (verified author death year)	1981	SOURCED	corpus/song/eng_american_frances_ellen_watkins_harper.txt	
+Phillis Wheatley	eng	1753	1784	american	b (verified author death year)	1854	SOURCED	corpus/song/eng_american_phillis_wheatley.txt	
+John Pierpont	eng	1785	1866	american	b (verified author death year)	1936	SOURCED	corpus/song/eng_american_john_pierpont.txt	
+James Ryder Randall	eng	1839	1908	american	b (verified author death year)	1978	SOURCED	corpus/song/eng_american_james_ryder_randall.txt	
+Abram Joseph Ryan	eng	1838	1886	american	b (verified author death year)	1956	SOURCED	corpus/song/eng_american_abram_joseph_ryan.txt	
+Bayard Taylor	eng	1825	1878	american	b (verified author death year)	1948	SOURCED	corpus/song/eng_american_bayard_taylor.txt	
+Alice Cary	eng	1820	1871	american	b (verified author death year)	1941	SOURCED	corpus/song/eng_american_alice_cary.txt	
+Phoebe Cary	eng	1824	1871	american	b (verified author death year)	1941	SOURCED	corpus/song/eng_american_phoebe_cary.txt	
+Lydia Maria Child	eng	1802	1880	american	b (verified author death year)	1950	SOURCED	corpus/song/eng_american_lydia_maria_child.txt	
+Clement Clarke Moore	eng	1779	1863	american	b (verified author death year)	1933	SOURCED	corpus/song/eng_american_clement_clarke_moore.txt	
+Samuel Woodworth	eng	1784	1842	american	b (verified author death year)	1912	SOURCED	corpus/song/eng_american_samuel_woodworth.txt	
+Joseph Rodman Drake	eng	1795	1820	american	b (verified author death year)	1890	SOURCED	corpus/song/eng_american_joseph_rodman_drake.txt	
+Fitz-Greene Halleck	eng	1790	1867	american	b (verified author death year)	1937	SOURCED	corpus/song/eng_american_fitz_greene_halleck.txt	
+Richard Henry Dana Sr.	eng	1787	1879	american	b (verified author death year)	1949	SOURCED	corpus/song/eng_american_richard_henry_dana_sr.txt	
+Charles Fenno Hoffman	eng	1806	1884	american	b (verified author death year)	1954	SOURCED	corpus/song/eng_american_charles_fenno_hoffman.txt	
+Theodore O'Hara	eng	1820	1867	american	b (verified author death year)	1937	SOURCED	corpus/song/eng_american_theodore_ohara.txt	
+Ethelinda Beers	eng	1827	1879	american	b (verified author death year)	1949	SOURCED	corpus/song/eng_american_ethelinda_beers.txt	
+Marion Dix Sullivan	eng	1802	1860	parlour	b (verified author death year)	1930	NOT_FOUND		
+Benjamin Hanby	eng	1833	1867	parlour	b (verified author death year)	1937	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_benjamin_hanby.txt	
+John Hill Hewitt	eng	1801	1890	parlour	b (verified author death year)	1960	NOT_FOUND		caution: 'All Quiet Along the Potomac' is reachable but the WORDS are Ethel Lynn Beers's — who is on this list as Ethelinda Beers. Attributing it to Hewitt would credit the composer and lose the lyricist.
+Charles Carroll Sawyer	eng	1833	1891	parlour	b (verified author death year)	1961	SOURCED	/home/user/CodexMusica/lyric-harness/corpus/song/eng_parlour_charles_carroll_sawyer.txt	
+George Cooper	eng	1840	1927	parlour	b (verified author death year)	1997	NOT_FOUND		
+Frank Howard	eng	1854	1893	parlour	b (verified author death year)	1963	NOT_FOUND		
+Edward Fitzball	eng	1792	1873	stage	b (verified author death year)	1943	NOT_FOUND		
+Thomas Osborne Davis	eng	1814	1845	irish	b (verified author death year)	1915	SOURCED	corpus/song/eng_celtic_thomas_osborne_davis.txt	
+Charles Joseph Kickham	eng	1828	1882	irish	b (verified author death year)	1952	SOURCED	corpus/song/eng_celtic_charles_joseph_kickham.txt	
+John Keegan Casey	eng	1846	1870	irish	b (verified author death year)	1940	NOT_FOUND		
+Michael Joseph Barry	eng	1817	1889	irish	b (verified author death year)	1959	NOT_FOUND		
+Timothy Daniel Sullivan	eng	1827	1914	irish	b (verified author death year)	1984	NOT_FOUND		
+Edward Walsh	eng	1805	1850	irish	b (verified author death year)	1920	SOURCED	corpus/song/eng_celtic_edward_walsh.txt	
+James Clarence Mangan	eng	1803	1849	irish	b (verified author death year)	1919	SOURCED	corpus/song/eng_celtic_james_clarence_mangan.txt	
+Gerald Griffin	eng	1803	1840	irish	b (verified author death year)	1910	SOURCED	corpus/song/eng_celtic_gerald_griffin.txt	
+Dion Boucicault	eng	1820	1890	irish	b (verified author death year)	1960	NOT_FOUND		
+Henry Sambrooke Leigh	eng	1837	1883	music_hall	b (verified author death year)	1953	NOT_FOUND		
+J. B. Geoghegan	eng	1816	1889	music_hall	b (verified author death year)	1959	NOT_FOUND		
+George Leybourne	eng	1842	1884	music_hall	b (verified author death year)	1954	NOT_FOUND		
+Alfred Lee	eng	1840	1906	music_hall	b (verified author death year)	1976	NOT_FOUND		
+G. W. Hunt	eng	1839	1904	music_hall	b (verified author death year)	1974	NOT_FOUND		
+Edward Oxenford	eng	1848	1929	music_hall	b (verified author death year)	1999	NOT_FOUND		
+Fred Gilbert	eng	1850	1903	music_hall	b (verified author death year)	1973	NOT_FOUND		
+Frederick Weatherly	eng	1848	1929	drawing_room	b (verified author death year)	1999	NOT_FOUND		
+Clifton Bingham	eng	1859	1913	drawing_room	b (verified author death year)	1983	NOT_FOUND		
+Edwin Waugh	eng	1817	1890	dialect	b (verified author death year)	1960	SOURCED	corpus/song/eng_hall_edwin_waugh.txt	
+Samuel Laycock	eng	1826	1893	dialect	b (verified author death year)	1963	NOT_FOUND		
+Joseph Skipsey	eng	1832	1903	dialect	b (verified author death year)	1973	NOT_FOUND		
+Tommy Armstrong	eng	1848	1920	dialect	b (verified author death year)	1990	NOT_FOUND		
+Ned Corvan	eng	1830	1865	dialect	b (verified author death year)	1935	NOT_FOUND		
+George Ridley	eng	1835	1864	dialect	b (verified author death year)	1934	NOT_FOUND		
+Joe Wilson	eng	1841	1875	dialect	b (verified author death year)	1945	NOT_FOUND		
+Robert Anderson	eng	1770	1833	dialect	b (verified author death year)	1903	NOT_FOUND		
+Ebenezer Elliott	eng	1781	1849	labour	b (verified author death year)	1919	SOURCED	corpus/song/eng_hall_ebenezer_elliott.txt	
+Thomas Cooper	eng	1805	1892	labour	b (verified author death year)	1962	NOT_FOUND		
+Gerald Massey	eng	1828	1907	labour	b (verified author death year)	1977	NOT_FOUND		
+Ernest Jones	eng	1819	1869	labour	b (verified author death year)	1939	NOT_FOUND		
+William James Linton	eng	1812	1897	labour	b (verified author death year)	1967	NOT_FOUND		
+Henry Sutton	eng	1825	1901	labour	b (verified author death year)	1971	NOT_FOUND		
+William Henry Bellamy	eng	1800	1866	drawing_room	b (verified author death year)	1936	NOT_FOUND		
+Edward Fitzgerald	eng	1809	1883	british	b (verified author death year)	1953	NOT_SOURCED		
+Adelaide Anne Procter	eng	1825	1864	british	b (verified author death year)	1934	SOURCED	corpus/song/eng_british_adelaide_anne_procter.txt	
+Jean Ingelow	eng	1820	1897	british	b (verified author death year)	1967	SOURCED	corpus/song/eng_british_jean_ingelow.txt	
+Dinah Maria Craik	eng	1826	1887	british	b (verified author death year)	1957	SOURCED	corpus/song/eng_british_dinah_maria_craik.txt	
+Menella Bute Smedley	eng	1820	1877	british	b (verified author death year)	1947	NOT_FOUND		
+Caroline Norton	eng	1808	1877	british	b (verified author death year)	1947	SOURCED	corpus/song/eng_british_caroline_norton.txt	
+Frances Anne Kemble	eng	1809	1893	british	b (verified author death year)	1963	SOURCED	corpus/song/eng_british_frances_anne_kemble.txt	
+Mary Howitt	eng	1799	1888	british	b (verified author death year)	1958	NOT_FOUND		
+Eliza Acton	eng	1799	1859	british	b (verified author death year)	1929	NOT_FOUND		
+Emma Willard	eng	1787	1870	american	b (verified author death year)	1940	SOURCED	corpus/song/eng_american_emma_willard.txt	
+Hannah Flagg Gould	eng	1789	1865	american	b (verified author death year)	1935	SOURCED	corpus/song/eng_american_hannah_flagg_gould.txt	
+Elizabeth Oakes Smith	eng	1806	1893	american	b (verified author death year)	1963	NOT_FOUND		
+Sarah Helen Whitman	eng	1803	1878	american	b (verified author death year)	1948	NOT_FOUND		
+Maria Gowen Brooks	eng	1794	1845	american	b (verified author death year)	1915	SOURCED	corpus/song/eng_american_maria_gowen_brooks.txt	
+Margaret Junkin Preston	eng	1820	1897	american	b (verified author death year)	1967	SOURCED	corpus/song/eng_american_margaret_junkin_preston.txt	
+Rose Terry Cooke	eng	1827	1892	american	b (verified author death year)	1962	SOURCED	corpus/song/eng_american_rose_terry_cooke.txt	
+Lucy Larcom	eng	1824	1893	american	b (verified author death year)	1963	SOURCED	corpus/song/eng_american_lucy_larcom.txt	
+Celia Thaxter	eng	1835	1894	american	b (verified author death year)	1964	SOURCED	corpus/song/eng_american_celia_thaxter.txt	
+Louise Chandler Moulton	eng	1835	1908	american	b (verified author death year)	1978	SOURCED	corpus/song/eng_american_louise_chandler_moulton.txt	
+Nora Perry	eng	1831	1896	american	b (verified author death year)	1966	SOURCED	corpus/song/eng_american_nora_perry.txt	
+Mary Mapes Dodge	eng	1831	1905	american	b (verified author death year)	1975	SOURCED	corpus/song/eng_american_mary_mapes_dodge.txt	
+Josephine Pollard	eng	1834	1892	american	b (verified author death year)	1962	NOT_FOUND		
+Marianne Farningham	eng	1834	1909	british	b (verified author death year)	1979	NOT_FOUND		
+Richard Davies (Mynyddog)	eng	1833	1877	welsh	b (verified author death year)	1947	FOUND_NOT_ON_LIST		Welsh song lyricist writing TO existing tunes. GITenberg Gwaith-Mynyddog.-Cyfrol-II_14547, reachable today. Not on the 220-name list; found by the celtic cell. The project already has a Welsh phonology, so this is immediately usable.
+Dafydd ap Gwilym	cym	1315	1350	welsh	c (author death year circa, not verified)	1420	PENDING_TEXT		table life: c. 1315–c. 1350; death bounded at 1350 (circa), not verified
+Gruffudd ab Adda ap Dafydd	cym			welsh	d (floruit only; upper bound assumed)	1480	PENDING_TEXT		table life: fl. c. 1340–1370; death bounded at 1410 (floruit), not verified
+Gruffudd Llwyd ap Dafydd ab Einion Llygliw	cym			welsh	d (floruit only; upper bound assumed)	1520	PENDING_TEXT		table life: fl. c. 1380–1410; death bounded at 1450 (floruit), not verified
+Dafydd Nanmor	cym			welsh	d (century only; upper bound assumed)	1570	PENDING_TEXT		table life: 15th century; death bounded at 1500 (century), not verified
+Guto'r Glyn	cym	1440	1493	welsh	b (verified author death year)	1563	PENDING_TEXT		table life: 1440–1493
+Lewis Glyn Cothi	cym			welsh	d (floruit only; upper bound assumed)	1596	PENDING_TEXT		table life: fl. 1447–1486; death bounded at 1526 (floruit), not verified
+Rhys Goch Glyndyfrdwy	cym			welsh	d (floruit only; upper bound assumed)	1570	PENDING_TEXT		table life: fl. c. 1460; death bounded at 1500 (floruit), not verified
+Tudur Aled	cym			welsh	d (floruit only; upper bound assumed)	1636	PENDING_TEXT		table life: fl. 1480–1526; death bounded at 1566 (floruit), not verified
+William Williams Pantycelyn	cym	1717	1791	welsh	b (verified author death year)	1861	PENDING_TEXT		table life: 1717–1791
+Morgan Rhys	cym	1716	1779	welsh	b (verified author death year)	1849	PENDING_TEXT		table life: 1716–1779
+Edward Parry	cym	1723	1786	welsh	b (verified author death year)	1856	PENDING_TEXT		table life: 1723–1786
+John Williams	cym	1728	1806	welsh	b (verified author death year)	1876	PENDING_TEXT		table life: 1728–1806
+David William	cym	1720	1794	welsh	b (verified author death year)	1864	PENDING_TEXT		table life: 1720–1794
+Dafydd Jones	cym	1711	1777	welsh	b (verified author death year)	1847	PENDING_TEXT		table life: 1711–1777
+William Lewis	cym			welsh	d (floruit only; upper bound assumed)	1904	PENDING_TEXT		table life: fl. 1786–1794; death bounded at 1834 (floruit), not verified
+John James (Ioan ap Iago)	cym			welsh	d (century only; upper bound assumed)	1970	PENDING_TEXT		table life: 18th–19th century; death bounded at 1900 (century), not verified
+William Owen (Gwilym Alaw)	cym	1762	1853	welsh	b (verified author death year)	1923	PENDING_TEXT		table life: 1762–1853
+Jonathan Powell	cym	1764	1823	welsh	b (verified author death year)	1893	PENDING_TEXT		table life: 1764–1823
+William Jones	cym	1764	1822	welsh	b (verified author death year)	1892	PENDING_TEXT		table life: 1764–1822
+Thomas Lewis	cym	1759	1842	welsh	b (verified author death year)	1912	PENDING_TEXT		table life: 1759–1842
+Thomas William	cym	1761	1844	welsh	b (verified author death year)	1914	PENDING_TEXT		table life: 1761–1844
+John James	cym	1777	1848	welsh	b (verified author death year)	1918	PENDING_TEXT		table life: 1777–1848
+John Hughes	cym	1775	1854	welsh	b (verified author death year)	1924	PENDING_TEXT		table life: 1775–1854
+Evan Evans (Ieuan Glan Geirionydd)	cym	1795	1850	welsh	b (verified author death year)	1920	PENDING_TEXT		table life: 1795–1850
+Mary Owen	cym	1796	1875	welsh	b (verified author death year)	1945	PENDING_TEXT		table life: 1796–1875
+David Saunders (Dafydd Glan Teifi)	cym	1769	1840	welsh	b (verified author death year)	1910	PENDING_TEXT		table life: 1769–1840
+John Robert Jones (Alltud Glyn Maelor)	cym	1800	1881	welsh	b (verified author death year)	1951	PENDING_TEXT		table life: 1800–1881
+William Griffith	cym	1801	1881	welsh	b (verified author death year)	1951	PENDING_TEXT		table life: 1801–1881
+William Thomas	cym	1790	1861	welsh	b (verified author death year)	1931	PENDING_TEXT		table life: 1790–1861
+John Phillips (Tegidon)	cym	1810	1877	welsh	b (verified author death year)	1947	PENDING_TEXT		table life: 1810–1877
+William Morgan (Gwilym Gelli-deg)	cym	1808	1878	welsh	b (verified author death year)	1948	PENDING_TEXT		table life: 1808–1878
+William Alonzo Griffiths	cym	1842	1893	welsh	b (verified author death year)	1963	PENDING_TEXT		table life: 1842–1893
+Rees Jenkin Jones	cym	1835	1924	welsh	b (verified author death year)	1994	PENDING_TEXT		table life: 1835–1924
+William Morgan (Penfro)	cym	1846	1918	welsh	b (verified author death year)	1988	PENDING_TEXT		table life: 1846–1918
+David William Lewis	cym	1845	1920	welsh	b (verified author death year)	1990	PENDING_TEXT		table life: 1845–1920
+Rūdakī	fas	858	941	persian	c (author death year circa, not verified)	1011	PENDING_TEXT		table life: c. 858–941; death bounded at 941 (circa), not verified
+Shahīd Balkhī	fas		936	persian	b (verified author death year)	1006	PENDING_TEXT		table life: d. 936
+Abū Shakūr Balkhī	fas	915		persian	c (birth year only; upper bound assumed)	1085	PENDING_TEXT		table life: b. 915; death bounded at 1015 (birth), not verified
+Daqīqī	fas	935	980	persian	c (author death year circa, not verified)	1050	PENDING_TEXT		table life: c. 935–980; death bounded at 980 (circa), not verified
+Kisāʾī Marvazī	fas	953		persian	c (death bounded below only; upper bound assumed)	1112	PENDING_TEXT		table life: 953–after 1002; death bounded at 1042 (after), not verified
+Firdawsī	fas	940	1020	persian	b (verified author death year)	1090	PENDING_TEXT		table life: 940–1020
+Farrukhī Sīstānī	fas		1037	persian	b (verified author death year)	1107	PENDING_TEXT		table life: d. 1037
+ʿUnṣurī	fas		1039	persian	b (verified author death year)	1109	PENDING_TEXT		table life: d. 1039
+ʿAsjadī	fas		1040	persian	c (author death year circa, not verified)	1110	PENDING_TEXT		table life: d. c. 1040; death bounded at 1040 (circa), not verified
+Manūchihrī	fas		1040	persian	b (verified author death year)	1110	PENDING_TEXT		table life: d. 1040
+Bābā Ṭāhir	fas	1000	1055	persian	c (author death year circa, not verified)	1125	PENDING_TEXT		table life: c. 1000–1055; death bounded at 1055 (circa), not verified
+Abū Saʿīd Abū al-Khayr	fas	967	1049	persian	b (verified author death year)	1119	PENDING_TEXT		table life: 967–1049
+Fakhr al-Dīn Asʿad Gurgānī	fas			persian	d (floruit only; upper bound assumed)	1160	PENDING_TEXT		table life: fl. 1050; death bounded at 1090 (floruit), not verified
+Nāṣir Khusraw	fas	1004	1088	persian	b (verified author death year)	1158	PENDING_TEXT		table life: 1004–1088
+Masʿūd Saʿd Salmān	fas	1046	1121	persian	b (verified author death year)	1191	PENDING_TEXT		table life: 1046–1121
+ʿUmar Khayyām	fas	1048	1131	persian	b (verified author death year)	1201	PENDING_TEXT		table life: 1048–1131
+Sanāʾī	fas	1080	1131	persian	b (verified author death year)	1201	PENDING_TEXT		table life: 1080–1131
+Muʿizzī	fas	1048	1125	persian	b (verified author death year)	1195	PENDING_TEXT		table life: 1048–1125
+Azraqī Haravī	fas		1130	persian	c (author death year circa, not verified)	1200	PENDING_TEXT		table life: d. c. 1130; death bounded at 1130 (circa), not verified
+Anvarī	fas	1126	1189	persian	b (verified author death year)	1259	PENDING_TEXT		table life: 1126–1189
+Khāqānī	fas	1122	1190	persian	b (verified author death year)	1260	PENDING_TEXT		table life: 1122–1190
+Niẓāmī Ganjavī	fas	1141	1209	persian	b (verified author death year)	1279	PENDING_TEXT		table life: 1141–1209
+Ẓahīr Fāryābī	fas		1201	persian	b (verified author death year)	1271	PENDING_TEXT		table life: d. 1201
+Mahsatī Ganjavī	fas			persian	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: fl. 12th c.; death bounded at 1200 (century), not verified
+ʿAṭṭār	fas	1145	1221	persian	c (author death year circa, not verified)	1291	PENDING_TEXT		table life: c. 1145–1221; death bounded at 1221 (circa), not verified
+Kamāl al-Dīn Ismāʿīl	fas		1237	persian	b (verified author death year)	1307	PENDING_TEXT		table life: d. 1237
+Bahāʾ al-Dīn Valad	fas	1151	1231	persian	b (verified author death year)	1301	PENDING_TEXT		table life: 1151–1231
+Rūmī	fas	1207	1273	persian	b (verified author death year)	1343	PENDING_TEXT		table life: 1207–1273
+Saʿdī	fas	1210	1292	persian	c (author death year circa, not verified)	1362	PENDING_TEXT		table life: c. 1210–1292; death bounded at 1292 (circa), not verified
+Fakhr al-Dīn ʿIrāqī	fas	1213	1289	persian	b (verified author death year)	1359	PENDING_TEXT		table life: 1213–1289
+Awḥad al-Dīn Kirmānī	fas	1164	1238	persian	b (verified author death year)	1308	PENDING_TEXT		table life: 1164–1238
+Sayf Farghānī	fas		1348	persian	c (author death year circa, not verified)	1418	PENDING_TEXT		table life: d. c. 1348; death bounded at 1348 (circa), not verified
+Amīr Khusraw Dihlavī	fas	1253	1325	persian	b (verified author death year)	1395	PENDING_TEXT		table life: 1253–1325
+Awḥadī Marāghaʾī	fas	1274	1338	persian	b (verified author death year)	1408	PENDING_TEXT		table life: 1274–1338
+Khwājū Kirmānī	fas	1280	1352	persian	b (verified author death year)	1422	PENDING_TEXT		table life: 1280–1352
+ʿUbayd Zākānī	fas		1370	persian	b (verified author death year)	1440	PENDING_TEXT		table life: d. 1370
+Ibn Yamīn	fas	1286	1368	persian	b (verified author death year)	1438	PENDING_TEXT		table life: 1286–1368
+Salmān Sāvajī	fas	1300	1376	persian	b (verified author death year)	1446	PENDING_TEXT		table life: 1300–1376
+Ḥāfiẓ	fas	1315	1390	persian	c (author death year circa, not verified)	1460	PENDING_TEXT		table life: c. 1315–1390; death bounded at 1390 (circa), not verified
+Kamāl Khujandī	fas		1400	persian	b (verified author death year)	1470	PENDING_TEXT		table life: d. 1400
+Maghribī	fas	1349	1407	persian	b (verified author death year)	1477	PENDING_TEXT		table life: 1349–1407
+Shāh Niʿmatullāh Valī	fas	1330	1431	persian	b (verified author death year)	1501	PENDING_TEXT		table life: 1330–1431
+Qāsim al-Anvār	fas	1356	1433	persian	b (verified author death year)	1503	PENDING_TEXT		table life: 1356–1433
+Kātibī Turshīzī	fas		1436	persian	b (verified author death year)	1506	PENDING_TEXT		table life: d. 1436
+ʿAbd al-Raḥmān Jāmī	fas	1414	1492	persian	b (verified author death year)	1562	PENDING_TEXT		table life: 1414–1492
+Hilālī Chaghatāʾī	fas		1529	persian	b (verified author death year)	1599	PENDING_TEXT		table life: d. 1529
+Bābā Fighānī	fas		1519	persian	b (verified author death year)	1589	PENDING_TEXT		table life: d. 1519
+Vaḥshī Bāfqī	fas	1532	1583	persian	b (verified author death year)	1653	PENDING_TEXT		table life: 1532–1583
+Muḥtasham Kāshānī	fas	1528	1588	persian	b (verified author death year)	1658	PENDING_TEXT		table life: 1528–1588
+ʿUrfī Shīrāzī	fas	1555	1591	persian	b (verified author death year)	1661	PENDING_TEXT		table life: 1555–1591
+Naẓīrī Nīshāpūrī	fas		1614	persian	b (verified author death year)	1684	PENDING_TEXT		table life: d. 1614
+Ṭālib Āmulī	fas	1580	1626	persian	b (verified author death year)	1696	PENDING_TEXT		table life: 1580–1626
+Fayḍī	fas	1547	1595	persian	b (verified author death year)	1665	PENDING_TEXT		table life: 1547–1595
+Ẓuhūrī Turshīzī	fas		1616	persian	b (verified author death year)	1686	PENDING_TEXT		table life: d. 1616
+Kalīm Kāshānī	fas	1585	1651	persian	b (verified author death year)	1721	PENDING_TEXT		table life: 1585–1651
+Ṣāʾib Tabrīzī	fas	1592	1676	persian	b (verified author death year)	1746	PENDING_TEXT		table life: 1592–1676
+Qudsī Mashhadī	fas		1646	persian	b (verified author death year)	1716	PENDING_TEXT		table life: d. 1646
+Fayḍ Kāshānī	fas	1598	1680	persian	b (verified author death year)	1750	PENDING_TEXT		table life: 1598–1680
+ʿAlī Rizā Tajallī	fas		1673	persian	b (verified author death year)	1743	PENDING_TEXT		table life: d. 1673
+Bīdil Dihlavī	fas	1642	1720	persian	b (verified author death year)	1790	PENDING_TEXT		table life: 1642–1720
+Nāṣir ʿAlī Sirhindī	fas		1697	persian	b (verified author death year)	1767	PENDING_TEXT		table life: d. 1697
+Shawkat Bukhārāʾī	fas		1695	persian	b (verified author death year)	1765	PENDING_TEXT		table life: d. 1695
+Ghanī Kashmīrī	fas		1661	persian	b (verified author death year)	1731	PENDING_TEXT		table life: d. 1661
+Hātif Iṣfahānī	fas		1783	persian	b (verified author death year)	1853	PENDING_TEXT		table life: d. 1783
+Mushtāq Iṣfahānī	fas		1757	persian	b (verified author death year)	1827	PENDING_TEXT		table life: d. 1757
+Āẕar Bīgdilī	fas	1722	1781	persian	b (verified author death year)	1851	PENDING_TEXT		table life: 1722–1781
+Ṣabāḥī Bīdgulī	fas		1806	persian	b (verified author death year)	1876	PENDING_TEXT		table life: d. 1806
+Fatḥ ʿAlī Khān Ṣabā	fas		1822	persian	b (verified author death year)	1892	PENDING_TEXT		table life: d. 1822
+Nashāṭ Iṣfahānī	fas	1761	1828	persian	b (verified author death year)	1898	PENDING_TEXT		table life: 1761–1828
+Vaṣāl Shīrāzī	fas	1779	1846	persian	b (verified author death year)	1916	PENDING_TEXT		table life: 1779–1846
+Furūghī Bisṭāmī	fas	1798	1857	persian	b (verified author death year)	1927	PENDING_TEXT		table life: 1798–1857
+Qāʾānī Shīrāzī	fas	1808	1854	persian	b (verified author death year)	1924	PENDING_TEXT		table life: 1808–1854
+Yaghmā Jandaqī	fas	1782	1859	persian	b (verified author death year)	1929	PENDING_TEXT		table life: 1782–1859
+Surūsh Iṣfahānī	fas	1813	1868	persian	b (verified author death year)	1938	PENDING_TEXT		table life: 1813–1868
+Ṭāhira Qurrat al-ʿAyn	fas	1814	1852	persian	b (verified author death year)	1922	PENDING_TEXT		table life: 1814–1852
+Shaybānī	fas	1825	1890	persian	b (verified author death year)	1960	PENDING_TEXT		table life: 1825–1890
+Mikael Agricola	fin	1510	1557	finnish	c (author death year circa, not verified)	1627	PENDING_TEXT		table life: c. 1510–1557; death bounded at 1557 (circa), not verified
+Jaakko Finno (Jacob Finnus)	fin	1540	1588	finnish	c (author death year circa, not verified)	1658	PENDING_TEXT		table life: c. 1540–1588; death bounded at 1588 (circa), not verified
+Hemming of Masku (Hemming Henriksson)	fin	1550	1619	finnish	c (author death year circa, not verified)	1689	PENDING_TEXT		table life: c. 1550–1619; death bounded at 1619 (circa), not verified
+Elias Lönnrot	fin	1802	1884	finnish	b (verified author death year)	1954	PENDING_TEXT		table life: 1802–1884
+Jaakko Juteini (Jacob Judén)	fin	1781	1855	finnish	b (verified author death year)	1925	PENDING_TEXT		table life: 1781–1855
+Aleksis Kivi	fin	1834	1872	finnish	b (verified author death year)	1942	PENDING_TEXT		table life: 1834–1872
+Julius Krohn	fin	1835	1888	finnish	b (verified author death year)	1958	PENDING_TEXT		table life: 1835–1888
+Kaarlo Kramsu	fin	1855	1895	finnish	b (verified author death year)	1965	PENDING_TEXT		table life: 1855–1895
+Paavo Cajander	fin	1846	1913	finnish	b (verified author death year)	1983	PENDING_TEXT		table life: 1846–1913
+J. H. Erkko (Juhana Heikki Erkko)	fin	1849	1906	finnish	b (verified author death year)	1976	PENDING_TEXT		table life: 1849–1906
+Kasimir Leino	fin	1866	1919	finnish	b (verified author death year)	1989	PENDING_TEXT		table life: 1866–1919
+Eino Leino	fin	1878	1926	finnish	b (verified author death year)	1996	PENDING_TEXT		table life: 1878–1926
+Oskar Merikanto	fin	1868	1924	finnish	b (verified author death year)	1994	PENDING_TEXT		table life: 1868–1924
+Aleksanteri Aava	fin	1883	1925	finnish	b (verified author death year)	1995	PENDING_TEXT		table life: 1883–1925
+Qu Yuan (屈原)	ltc			chinese	a (antiquity, out of any term)	-930	PENDING_TEXT		table life: c. 340–278 BCE; death bounded at -1000 (BCE), not verified
+Song Yu (宋玉)	ltc			chinese	a (antiquity, out of any term)	-930	PENDING_TEXT		table life: 3rd century BCE; death bounded at -1000 (BCE), not verified
+Cao Cao (曹操)	ltc	155	220	chinese	b (verified author death year)	290	PENDING_TEXT		table life: 155–220
+Tao Yuanming (陶淵明)	ltc	365	427	chinese	b (verified author death year)	497	PENDING_TEXT		table life: 365–427
+Xie Lingyun (謝靈運)	ltc	385	433	chinese	b (verified author death year)	503	PENDING_TEXT		table life: 385–433
+Yu Xin (庾信)	ltc	513	581	chinese	b (verified author death year)	651	PENDING_TEXT		table life: 513–581
+Chen Zi'ang (陳子昂)	ltc	661	702	chinese	b (verified author death year)	772	PENDING_TEXT		table life: 661–702
+Wang Wei (王維)	ltc	699	761	chinese	b (verified author death year)	831	PENDING_TEXT		table life: 699–761
+Li Bai (李白)	ltc	701	762	chinese	b (verified author death year)	832	PENDING_TEXT		table life: 701–762
+Du Fu (杜甫)	ltc	712	770	chinese	b (verified author death year)	840	PENDING_TEXT		table life: 712–770
+Bai Juyi (白居易)	ltc	772	846	chinese	b (verified author death year)	916	PENDING_TEXT		table life: 772–846
+Liu Yuxi (劉禹錫)	ltc	772	842	chinese	b (verified author death year)	912	PENDING_TEXT		table life: 772–842
+Meng Jiao (孟郊)	ltc	751	814	chinese	b (verified author death year)	884	PENDING_TEXT		table life: 751–814
+Li He (李賀)	ltc	790	816	chinese	b (verified author death year)	886	PENDING_TEXT		table life: 790–816
+Du Mu (杜牧)	ltc	803	852	chinese	b (verified author death year)	922	PENDING_TEXT		table life: 803–852
+Li Shangyin (李商隱)	ltc	813	858	chinese	c (author death year circa, not verified)	928	PENDING_TEXT		table life: c. 813–858; death bounded at 858 (circa), not verified
+Wen Tingyun (溫庭筠)	ltc	812	866	chinese	c (author death year circa, not verified)	936	PENDING_TEXT		table life: c. 812–866; death bounded at 866 (circa), not verified
+Li Yu (李煜)	ltc	937	978	chinese	b (verified author death year)	1048	PENDING_TEXT		table life: 937–978
+Yan Shu (晏殊)	ltc	991	1055	chinese	b (verified author death year)	1125	PENDING_TEXT		table life: 991–1055
+Liu Yong (柳永)	ltc	984	1053	chinese	c (author death year circa, not verified)	1123	PENDING_TEXT		table life: c. 984–1053; death bounded at 1053 (circa), not verified
+Ouyang Xiu (歐陽修)	ltc	1007	1072	chinese	b (verified author death year)	1142	PENDING_TEXT		table life: 1007–1072
+Fan Zhongyan (范仲淹)	ltc	989	1052	chinese	b (verified author death year)	1122	PENDING_TEXT		table life: 989–1052
+Zhang Xian (張先)	ltc	990	1078	chinese	b (verified author death year)	1148	PENDING_TEXT		table life: 990–1078
+Yan Jidao (晏幾道)	ltc	1038	1110	chinese	b (verified author death year)	1180	PENDING_TEXT		table life: 1038–1110
+Su Shi (蘇軾)	ltc	1037	1101	chinese	b (verified author death year)	1171	PENDING_TEXT		table life: 1037–1101
+Qin Guan (秦觀)	ltc	1049	1100	chinese	b (verified author death year)	1170	PENDING_TEXT		table life: 1049–1100
+Huang Tingjian (黃庭堅)	ltc	1045	1105	chinese	b (verified author death year)	1175	PENDING_TEXT		table life: 1045–1105
+Zhou Bangyan (周邦彥)	ltc	1056	1121	chinese	b (verified author death year)	1191	PENDING_TEXT		table life: 1056–1121
+Li Qingzhao (李清照)	ltc	1084	1155	chinese	c (author death year circa, not verified)	1225	PENDING_TEXT		table life: 1084–c. 1155; death bounded at 1155 (circa), not verified
+Xin Qiji (辛棄疾)	ltc	1140	1207	chinese	b (verified author death year)	1277	PENDING_TEXT		table life: 1140–1207
+Jiang Kui (姜夔)	ltc	1154	1221	chinese	b (verified author death year)	1291	PENDING_TEXT		table life: 1154–1221
+Wu Wenying (吳文英)	ltc	1200	1260	chinese	c (author death year circa, not verified)	1330	PENDING_TEXT		table life: c. 1200–1260; death bounded at 1260 (circa), not verified
+Zhang Yan (張炎)	ltc	1248	1320	chinese	b (verified author death year)	1390	PENDING_TEXT		table life: 1248–1320
+Guan Hanqing (關漢卿)	ltc	1241	1320	chinese	c (author death year circa, not verified)	1390	PENDING_TEXT		table life: c. 1241–1320; death bounded at 1320 (circa), not verified
+Ma Zhiyuan (馬致遠)	ltc	1250	1321	chinese	c (author death year circa, not verified)	1391	PENDING_TEXT		table life: c. 1250–1321; death bounded at 1321 (circa), not verified
+Zhang Kejiu (張可久)	ltc	1270	1348	chinese	c (author death year circa, not verified)	1418	PENDING_TEXT		table life: c. 1270–1348; death bounded at 1348 (circa), not verified
+Gao Qi (高啟)	ltc	1336	1374	sanqu	b (verified author death year)	1444	PENDING_TEXT		table life: 1336–1374
+Tang Yin (唐寅)	ltc	1470	1524	sanqu	b (verified author death year)	1594	PENDING_TEXT		table life: 1470–1524
+Yang Shen (楊慎)	ltc	1488	1559	sanqu	b (verified author death year)	1629	PENDING_TEXT		table life: 1488–1559
+Xu Wei (徐渭)	ltc	1521	1593	sanqu	b (verified author death year)	1663	PENDING_TEXT		table life: 1521–1593
+Li Zhi (李贄)	ltc	1527	1602	sanqu	b (verified author death year)	1672	PENDING_TEXT		table life: 1527–1602
+Yuan Hongdao (袁宏道)	ltc	1568	1610	sanqu	b (verified author death year)	1680	PENDING_TEXT		table life: 1568–1610
+Tang Xianzu (湯顯祖)	ltc	1550	1616	sanqu	b (verified author death year)	1686	PENDING_TEXT		table life: 1550–1616
+Feng Menglong (馮夢龍)	ltc	1574	1646	sanqu	b (verified author death year)	1716	PENDING_TEXT		table life: 1574–1646
+Li Yu (李漁)	ltc	1611	1680	sanqu	b (verified author death year)	1750	PENDING_TEXT		table life: 1611–1680
+Wu Weiye (吳偉業)	ltc	1609	1672	sanqu	b (verified author death year)	1742	PENDING_TEXT		table life: 1609–1672
+Nalan Xingde (納蘭性德)	ltc	1655	1685	sanqu	b (verified author death year)	1755	PENDING_TEXT		table life: 1655–1685
+Zhu Yizun (朱彝尊)	ltc	1629	1709	sanqu	b (verified author death year)	1779	PENDING_TEXT		table life: 1629–1709
+Gu Yanwu (顧炎武)	ltc	1613	1682	sanqu	b (verified author death year)	1752	PENDING_TEXT		table life: 1613–1682
+Wang Shizhen (王士禛)	ltc	1634	1711	sanqu	b (verified author death year)	1781	PENDING_TEXT		table life: 1634–1711
+Yuan Mei (袁枚)	ltc	1716	1797	sanqu	b (verified author death year)	1867	PENDING_TEXT		table life: 1716–1797
+Zhao Yi (趙翼)	ltc	1727	1814	sanqu	b (verified author death year)	1884	PENDING_TEXT		table life: 1727–1814
+Huang Jingren (黃景仁)	ltc	1749	1783	sanqu	b (verified author death year)	1853	PENDING_TEXT		table life: 1749–1783
+Gong Zizhen (龔自珍)	ltc	1792	1841	sanqu	b (verified author death year)	1911	PENDING_TEXT		table life: 1792–1841
+Wei Yuan (魏源)	ltc	1794	1857	sanqu	b (verified author death year)	1927	PENDING_TEXT		table life: 1794–1857
+Huang Zunxian (黃遵憲)	ltc	1848	1905	sanqu	b (verified author death year)	1975	PENDING_TEXT		table life: 1848–1905
+Qiu Jin (秋瑾)	ltc	1875	1907	sanqu	b (verified author death year)	1977	PENDING_TEXT		table life: 1875–1907
+Su Manshu (蘇曼殊)	ltc	1884	1918	sanqu	b (verified author death year)	1988	PENDING_TEXT		table life: 1884–1918
+Wang Guowei (王國維)	ltc	1877	1927	sanqu	b (verified author death year)	1997	PENDING_TEXT		table life: 1877–1927
+Hamzah Fansuri	msa		1590	malay	c (author death year circa, not verified)	1660	PENDING_TEXT		table life: d. c. 1590; death bounded at 1590 (circa), not verified
+Shamsuddin al-Sumatrani	msa		1630	malay	c (author death year circa, not verified)	1700	PENDING_TEXT		table life: d. c. 1630; death bounded at 1630 (circa), not verified
+Nuruddin al-Raniri	msa		1658	malay	c (author death year circa, not verified)	1728	PENDING_TEXT		table life: d. c. 1658; death bounded at 1658 (circa), not verified
+Tun Sri Lanang	msa	1565	1659	malay	c (author death year circa, not verified)	1729	PENDING_TEXT		table life: c. 1565–c. 1659; death bounded at 1659 (circa), not verified
+Bukhari al-Jauhari	msa			malay	d (century only; upper bound assumed)	1770	PENDING_TEXT		table life: fl. early 17th century; death bounded at 1700 (century), not verified
+Raja Ali Haji	msa	1808	1873	malay	b (verified author death year)	1943	PENDING_TEXT		table life: 1808–1873
+Abdullah bin Abdul Kadir (Munshi Abdullah)	msa	1797	1854	malay	b (verified author death year)	1924	PENDING_TEXT		table life: 1797–1854
+Raja Ali Kelana	msa	1868	1927	malay	b (verified author death year)	1997	PENDING_TEXT		table life: 1868–1927
+Bragi Boddason	non			old_norse	d (century only; upper bound assumed)	970	PENDING_TEXT		table life: fl. first half 9th c.; death bounded at 900 (century), not verified
+Þjóðólfr ór Hvini	non			old_norse	d (century only; upper bound assumed)	970	PENDING_TEXT		table life: fl. 9th c.; death bounded at 900 (century), not verified
+Þorbjǫrn hornklofi	non			old_norse	d (century only; upper bound assumed)	1070	PENDING_TEXT		table life: fl. 9th–early 10th c.; death bounded at 1000 (century), not verified
+Glúmr Geirason	non			old_norse	d (century only; upper bound assumed)	1070	PENDING_TEXT		table life: fl. late 10th c.; death bounded at 1000 (century), not verified
+Egill Skalla-Grímsson	non	910	990	old_norse	c (author death year circa, not verified)	1060	PENDING_TEXT		table life: c. 910–c. 990; death bounded at 990 (circa), not verified
+Eyvindr skáldaspillir Finnsson	non			old_norse	d (century only; upper bound assumed)	1070	PENDING_TEXT		table life: fl. 10th c.; death bounded at 1000 (century), not verified
+Kormákr Ögmundarson	non			old_norse	d (century only; upper bound assumed)	1070	PENDING_TEXT		table life: fl. 10th c.; death bounded at 1000 (century), not verified
+Einar Helgason skálaglamm	non			old_norse	d (century only; upper bound assumed)	1070	PENDING_TEXT		table life: fl. late 10th c.; death bounded at 1000 (century), not verified
+Tindr Hallkelsson	non			old_norse	d (century only; upper bound assumed)	1070	PENDING_TEXT		table life: fl. late 10th c.; death bounded at 1000 (century), not verified
+Hallfreðr vandræðaskáld Óttarsson	non			old_norse	d (floruit only; upper bound assumed)	1111	PENDING_TEXT		table life: fl. c. 990–1001; death bounded at 1041 (floruit), not verified
+Eilífr Goðrúnarson	non			old_norse	d (floruit only; upper bound assumed)	1110	PENDING_TEXT		table life: fl. c. 1000; death bounded at 1040 (floruit), not verified
+Gunnlaugr ormstunga	non	983	1008	old_norse	c (author death year circa, not verified)	1078	PENDING_TEXT		table life: c. 983–c. 1008; death bounded at 1008 (circa), not verified
+Sigvatr Þórðarson	non			old_norse	d (floruit only; upper bound assumed)	1150	PENDING_TEXT		table life: fl. c. 1010–1040; death bounded at 1080 (floruit), not verified
+Óttarr svarti	non			old_norse	d (century only; upper bound assumed)	1170	PENDING_TEXT		table life: fl. early 11th c.; death bounded at 1100 (century), not verified
+Þormóðr Kolbrúnarskáld	non	997	1030	old_norse	c (author death year circa, not verified)	1100	PENDING_TEXT		table life: c. 997–1030; death bounded at 1030 (circa), not verified
+Arnórr jarlaskáld	non	1012	1075	old_norse	c (author death year circa, not verified)	1145	PENDING_TEXT		table life: c. 1012–1075; death bounded at 1075 (circa), not verified
+Einarr Skúlason	non	1100		old_norse	c (death bounded below only; upper bound assumed)	1269	PENDING_TEXT		table life: c. 1100–after 1159; death bounded at 1199 (after), not verified
+Bragi Hallsson	non			old_norse	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 12th c.; death bounded at 1200 (century), not verified
+Kálfr Hallsson	non			old_norse	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 12th c.; death bounded at 1200 (century), not verified
+Einarr Gilsson	non	1300	1340	old_norse	c (author death year circa, not verified)	1410	PENDING_TEXT		table life: c. 1300–1340; death bounded at 1340 (circa), not verified
+Snorri Sturluson	non	1179	1241	old_norse	b (verified author death year)	1311	PENDING_TEXT		table life: 1179–1241
+Sturla Þórðarson	non	1214	1284	old_norse	b (verified author death year)	1354	PENDING_TEXT		table life: 1214–1284
+Óláfr Þórðarson hvítaskáld	non	1210	1259	old_norse	c (author death year circa, not verified)	1329	PENDING_TEXT		table life: c. 1210–1259; death bounded at 1259 (circa), not verified
+Þórarinn loftunga	non			old_norse	d (century only; upper bound assumed)	1170	PENDING_TEXT		table life: 11th c.; death bounded at 1100 (century), not verified
+Sighvatr Sturluson	non			old_norse	d (century only; upper bound assumed)	1370	PENDING_TEXT		table life: 13th c.; death bounded at 1300 (century), not verified
+Vālmīki	san			sanskrit	d (era only; upper bound assumed)	570	PENDING_TEXT		table life: traditionally ancient; dates uncertain; death bounded at 500 (era), not verified
+Vyāsa	san			sanskrit	d (era only; upper bound assumed)	570	PENDING_TEXT		table life: traditionally ancient; dates uncertain; death bounded at 500 (era), not verified
+Aśvaghoṣa	san		150	sanskrit	c (author death year circa, not verified)	220	PENDING_TEXT		table life: c. 80–150; death bounded at 150 (single), not verified
+Bhāsa	san			sanskrit	d (century only; upper bound assumed)	370	PENDING_TEXT		table life: c. 2nd–3rd century; death bounded at 300 (century), not verified
+Kālidāsa	san			sanskrit	d (century only; upper bound assumed)	570	PENDING_TEXT		table life: c. 4th–5th century; death bounded at 500 (century), not verified
+Bhartṛhari	san			sanskrit	d (century only; upper bound assumed)	570	PENDING_TEXT		table life: c. 5th century; death bounded at 500 (century), not verified
+Amaruka (Amaru)	san			sanskrit	d (century only; upper bound assumed)	770	PENDING_TEXT		table life: 7th century; death bounded at 700 (century), not verified
+Bhāravi	san			sanskrit	d (century only; upper bound assumed)	670	PENDING_TEXT		table life: 6th century; death bounded at 600 (century), not verified
+Daṇḍin	san			sanskrit	d (century only; upper bound assumed)	870	PENDING_TEXT		table life: c. 7th–8th century; death bounded at 800 (century), not verified
+Bhavabhūti	san			sanskrit	d (century only; upper bound assumed)	870	PENDING_TEXT		table life: c. 8th century; death bounded at 800 (century), not verified
+Māgha	san			sanskrit	d (century only; upper bound assumed)	870	PENDING_TEXT		table life: c. 7th–8th century; death bounded at 800 (century), not verified
+Bāṇabhaṭṭa	san			sanskrit	d (century only; upper bound assumed)	770	PENDING_TEXT		table life: 7th century; death bounded at 700 (century), not verified
+Harṣa	san			sanskrit	d (century only; upper bound assumed)	770	PENDING_TEXT		table life: c. 7th century; death bounded at 700 (century), not verified
+Bilhaṇa	san			sanskrit	d (century only; upper bound assumed)	1170	PENDING_TEXT		table life: 11th century; death bounded at 1100 (century), not verified
+Kṣemendra	san	990	1070	sanskrit	c (author death year circa, not verified)	1140	PENDING_TEXT		table life: c. 990–1070; death bounded at 1070 (circa), not verified
+Śrīharṣa	san			sanskrit	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 12th century; death bounded at 1200 (century), not verified
+Jayadeva	san			sanskrit	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 12th century; death bounded at 1200 (century), not verified
+Govardhana	san			sanskrit	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 12th century; death bounded at 1200 (century), not verified
+Vidyākara	san			sanskrit	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 11th–12th century; death bounded at 1200 (century), not verified
+Śrīdharadāsa	san			sanskrit	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 12th century; death bounded at 1200 (century), not verified
+Jalhaṇa	san			sanskrit	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 12th century; death bounded at 1200 (century), not verified
+Vallabhadeva	san			sanskrit	d (century only; upper bound assumed)	1370	PENDING_TEXT		table life: 12th–13th century; death bounded at 1300 (century), not verified
+Vedānta Deśika	san	1269	1370	sanskrit	b (verified author death year)	1440	PENDING_TEXT		table life: 1269–1370
+Bilvamaṅgala (Līlāśuka)	san			sanskrit	d (century only; upper bound assumed)	1370	PENDING_TEXT		table life: traditionally 13th century; death bounded at 1300 (century), not verified
+Rūpa Gosvāmin	san	1489	1564	sanskrit	c (author death year circa, not verified)	1634	PENDING_TEXT		table life: c. 1489–1564; death bounded at 1564 (circa), not verified
+Jīva Gosvāmin	san	1513	1598	sanskrit	c (author death year circa, not verified)	1668	PENDING_TEXT		table life: c. 1513–1598; death bounded at 1598 (circa), not verified
+Kṛṣṇadāsa Kavirāja	san	1496	1598	sanskrit	c (author death year circa, not verified)	1668	PENDING_TEXT		table life: c. 1496–c. 1598; death bounded at 1598 (circa), not verified
+Vadirāja Tīrtha	san	1480	1600	sanskrit	b (verified author death year)	1670	PENDING_TEXT		table life: 1480–1600
+Prabodhānanda Sarasvatī	san			sanskrit	d (century only; upper bound assumed)	1670	PENDING_TEXT		table life: 16th century; death bounded at 1600 (century), not verified
+Nīlakaṇṭha Dīkṣita	san			sanskrit	d (century only; upper bound assumed)	1770	PENDING_TEXT		table life: 17th century; death bounded at 1700 (century), not verified
+Appayya Dīkṣita	san	1520	1593	sanskrit	b (verified author death year)	1663	PENDING_TEXT		table life: 1520–1593
+Rāmabhadra Dīkṣita	san			sanskrit	d (century only; upper bound assumed)	1770	PENDING_TEXT		table life: 17th century; death bounded at 1700 (century), not verified
+Śaṅkaradeva	san	1449	1568	sanskrit	b (verified author death year)	1638	PENDING_TEXT		table life: 1449–1568
+Kavikarṇapūra	san	1524	1571	sanskrit	c (author death year circa, not verified)	1641	PENDING_TEXT		table life: c. 1524–1571; death bounded at 1571 (circa), not verified
+Kṛṣṇānanda	san			sanskrit	d (era only; upper bound assumed)	1670	PENDING_TEXT		table life: medieval period; death bounded at 1600 (era), not verified
+Rāmapāṇivāda	san			sanskrit	d (century only; upper bound assumed)	1870	PENDING_TEXT		table life: 18th century; death bounded at 1800 (century), not verified
+Vāsudeva	san			sanskrit	d (era only; upper bound assumed)	1870	PENDING_TEXT		table life: medieval/early modern period; death bounded at 1800 (era), not verified
+Veṅkaṭādhvarin	san			sanskrit	d (century only; upper bound assumed)	1770	PENDING_TEXT		table life: 17th century; death bounded at 1700 (century), not verified
+Vādirāja Tīrtha	san	1480	1600	sanskrit	b (verified author death year)	1670	PENDING_TEXT		table life: 1480–1600
+Kṛṣṇamācārya	san			sanskrit	d (era only; upper bound assumed)	1670	PENDING_TEXT		table life: medieval period; death bounded at 1600 (era), not verified
+Cidambara	san			sanskrit	d (era only; upper bound assumed)	1870	PENDING_TEXT		table life: early modern period; death bounded at 1800 (era), not verified
+Kavirāja	san			sanskrit	d (era only; upper bound assumed)	1870	PENDING_TEXT		table life: early modern period; death bounded at 1800 (era), not verified
+Sūrya Kavi	san			sanskrit	d (era only; upper bound assumed)	1870	PENDING_TEXT		table life: early modern period; death bounded at 1800 (era), not verified
+Hemacandra	san	1088	1172	sanskrit	b (verified author death year)	1242	PENDING_TEXT		table life: 1088–1172
+Padmagupta	san			sanskrit	d (century only; upper bound assumed)	1170	PENDING_TEXT		table life: c. 10th–11th century; death bounded at 1100 (century), not verified
+Sandhyākaranandin	san			sanskrit	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 11th–12th century; death bounded at 1200 (century), not verified
+Kalhaṇa	san	1100	1160	sanskrit	c (author death year circa, not verified)	1230	PENDING_TEXT		table life: c. 1100–c. 1160; death bounded at 1160 (circa), not verified
+Māṅkha	san			sanskrit	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 12th century; death bounded at 1200 (century), not verified
+Śivasvāmin	san			sanskrit	d (century only; upper bound assumed)	970	PENDING_TEXT		table life: 9th century; death bounded at 900 (century), not verified
+Rājaśekhara	san	880	920	sanskrit	c (author death year circa, not verified)	990	PENDING_TEXT		table life: c. 880–920; death bounded at 920 (circa), not verified
+Bhatti	san			sanskrit	d (century only; upper bound assumed)	770	PENDING_TEXT		table life: 6th–7th century; death bounded at 700 (century), not verified
+Kumāradāsa	san			sanskrit	d (century only; upper bound assumed)	670	PENDING_TEXT		table life: c. 6th century; death bounded at 600 (century), not verified
+Ratnākara	san			sanskrit	d (century only; upper bound assumed)	970	PENDING_TEXT		table life: 9th century; death bounded at 900 (century), not verified
+Jayānaka	san			sanskrit	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 12th century; death bounded at 1200 (century), not verified
+Nayacandra Sūri	san			sanskrit	d (century only; upper bound assumed)	1570	PENDING_TEXT		table life: 14th–15th century; death bounded at 1500 (century), not verified
+Vastupāla	san			sanskrit	d (century only; upper bound assumed)	1370	PENDING_TEXT		table life: c. 12th–13th century; death bounded at 1300 (century), not verified
+Śārṅgadhara	san			sanskrit	d (century only; upper bound assumed)	1470	PENDING_TEXT		table life: 14th century; death bounded at 1400 (century), not verified
+Sāyaṇa	san	1315	1387	sanskrit	c (author death year circa, not verified)	1457	PENDING_TEXT		table life: c. 1315–1387; death bounded at 1387 (circa), not verified
+Śilhaṇa	san			sanskrit	d (century only; upper bound assumed)	1270	PENDING_TEXT		table life: 12th century; death bounded at 1200 (century), not verified
+Kusumadeva	san			sanskrit	d (era only; upper bound assumed)	1670	PENDING_TEXT		table life: medieval period; death bounded at 1600 (era), not verified
+Śambhu	san			sanskrit	d (era only; upper bound assumed)	1670	PENDING_TEXT		table life: medieval period; death bounded at 1600 (era), not verified
+Harikavi	san			sanskrit	d (era only; upper bound assumed)	1670	PENDING_TEXT		table life: medieval period; death bounded at 1600 (era), not verified
+Raage Ugaas	som			somali	d (century only; upper bound assumed)	1970	BLOCKED_ORTHOGRAPHY		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 18th–19th century; death bounded at 1900 (century), not verified
+Xirsi Garaad Faarax “Wiilwaal”	som			somali	d (century only; upper bound assumed)	1970	BLOCKED_ORTHOGRAPHY		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th century; death bounded at 1900 (century), not verified
+Cali Bucul	som			somali	d (century only; upper bound assumed)	1970	BLOCKED_ORTHOGRAPHY		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th century; death bounded at 1900 (century), not verified
+Aadan-Gurey Maxamed Cabdille	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired
+Faarax Afcad	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired
+Qawdhan Ducaale	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired
+Cali Jaamac Haabiil	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired
+Maxamed Cabdille Xasan (Sayyid Maxamed)	som	1856	1920	somali	b (verified author death year)	1990	BLOCKED_ORTHOGRAPHY		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 1856–1920
+Xuseen Maxamuud Faarax “Xuseen Dhiqle”	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired
+Saahid Qamaan	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired
+Qamaan Bulxan	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired
+Nuur Ugaas Rooble	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired
+Cilmi Boodheri / Cilmi Bowndheri	som	1900	1940	somali	b (verified author death year)	2010	BLOCKED_ORTHOGRAPHY		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 1900–1940
+Faarax Shuuriye	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired
+Cumar Xuseen “Ostreeliya”	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired
+Muuse Xaaji Ismaaciil Galaal	som	1910	1980	somali	c (author death year circa, not verified)	2050	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: c. 1910–1980; death bounded at 1980 (circa), not verified; life+70 = 2050 has not expired
+Axmed Maxamed Good “Shimbir”	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired
+Cali Dhuux Aadan	som			somali	d (century only; upper bound assumed)	2070	REFUSED_DATE		Somali BLOCKED regardless of author date: the Latin orthography dates from 1972 and the cutoff is 1931 (MISSING.md K-5, doctrine 38); table life: 19th–20th century; death bounded at 2000 (century), not verified; life+70 = 2070 has not expired

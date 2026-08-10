@@ -53,6 +53,7 @@ def sonnet_battery():
           f"scheme ABABCDCDEFEFGG, declaration = General American")
     total_pairs = 0
     viol = []
+    refused = []
     oov_all = Counter()
     for idx, sn in enumerate(sonnets, 1):
         res = check_scheme(lex, sn, "ABABCDCDEFEFGG", decl)
@@ -60,13 +61,23 @@ def sonnet_battery():
             i, j, sc, why = v
             viol.append((idx, res["endwords"][i - 1],
                          res["endwords"][j - 1], sc))
+        for r in res.get("refusals", []):
+            refused.append((idx, r))
         total_pairs += 7  # rhyme-mandated pairs per sonnet
         for line in sn:
             _, _, oov = lex.transcribe(line)
             oov_all.update(w.lower() for w in oov)
-    rate = len(viol) / total_pairs
-    print(f"  mandated pairs {total_pairs}, violations {len(viol)} "
-          f"({rate:.1%})")
+    # THE DENOMINATOR IS THE JUDGED PAIRS, NOT THE MANDATED ONES.
+    # 50 of the 123 pairs this used to call violations were REFUSALS -- the end
+    # word is absent from CMUdict, so the harness could not read the line and
+    # said so. Counting a refusal as a rhyme failure reported Shakespeare as
+    # failing to rhyme viewest/renewest, gazeth/amazeth, receivest/deceivest.
+    # 123/1064 = 11.6% was never a violation rate; 73/1014 = 7.2% is.
+    judged = total_pairs - len(refused)
+    rate = len(viol) / judged if judged else 0.0
+    print(f"  mandated pairs {total_pairs}, judged {judged}, "
+          f"refused {len(refused)} (end word not in CMUdict)")
+    print(f"  violations {len(viol)} ({rate:.1%} of JUDGED pairs)")
     pair_counts = Counter((a.lower(), b.lower()) for _, a, b, _ in viol)
     print("  most frequent failing pairs:")
     for (a, b), n in pair_counts.most_common(12):

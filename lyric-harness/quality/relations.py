@@ -2614,6 +2614,7 @@ def capability_report(stream):
 
 
 __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
+           "stanzas_from_blank_lines",
            "Span", "SpanRule", "enumerate_spans", "Alignment", "ALIGNERS",
            "Placement", "ChannelRule", "IdentityRule", "Figure",
            "RelationSchema", "Instance", "Refusal", "NoReferent",

@@ -147,6 +147,19 @@ class Reviser:
                     "SCHEME_VIOLATION", "flag",
                     f"L{i} and L{j} are both '{scheme[i - 1]}' but do not rhyme",
                     f"{why} (score {total:.3f})", [i, j]))
+            # A REFUSAL IS NOT A VIOLATION. Before the readability fix these
+            # arrived as violations and this loop briefed a model to rewrite
+            # lines that rhyme perfectly well -- Barnes's Dorset `drong`/`zong`
+            # among them. Now they arrive separately and the brief says the
+            # harness could not read the line, which is a different
+            # instruction to a writer than "this does not rhyme".
+            for r in rep.get("refusals", []):
+                ln = r[1] if isinstance(r, (list, tuple)) and len(r) > 1 else j
+                per.setdefault(ln, []).append(Finding(
+                    "SCHEME_UNREADABLE", "note",
+                    "the harness could not read this line's end word, so its "
+                    "rhyme is UNKNOWN rather than absent",
+                    str(r), [ln] if isinstance(ln, int) else []))
             for (i, j, total, why) in rep["collisions"]:
                 per.setdefault(j, []).append(Finding(
                     "SCHEME_COLLISION", "note",

@@ -377,7 +377,17 @@ def _syl_knowledge(phon, name, syl):
     """Ask the phonology first. Persian's nucleus is a SET of phonemes the
     orthography permits; English's is a value. Neither is privileged: a module
     that defines `channel_knowledge` supplies its own, and the default reads
-    the Syllable fields every module already populates."""
+    the Syllable fields every module already populates.
+
+    THE NUCLEUS DISTINGUISHES None FROM EMPTY, and it is the whole reason this
+    module exists.  It used to read `ABS if not syl.nucleus else kn(...)`, and
+    `not None` is True -- so `fas.syllabify('گل')`, whose nucleus is None
+    because unvocalised Perso-Arabic does not WRITE short vowels, came back as
+    `frozenset({'∅'})`: a CERTAIN, READ absence.  Two of those then satisfy
+    `agree()` at (True, False) instead of (None, False), which is doctrine 25
+    inverted -- an unreadable channel manufacturing agreement.  `prominence`
+    two lines down always got this right; the nucleus did not.
+    """
     hook = getattr(phon, "channel_knowledge", None)
     if hook is not None:
         got = hook(name, syl)
@@ -386,6 +396,8 @@ def _syl_knowledge(phon, name, syl):
     if name == "onset":
         return kn_seq(syl.onset)
     if name == "nucleus":
+        if syl.nucleus is None:
+            return UNREADABLE            # cannot be read; NOT an empty nucleus
         return ABS if not syl.nucleus else kn(syl.nucleus)
     if name == "coda":
         return kn_seq(syl.coda)

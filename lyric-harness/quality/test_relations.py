@@ -506,6 +506,34 @@ def test_refusal_is_not_false():
 # What is still broken. These assert the DEFECT, so they fail when it closes.
 # ---------------------------------------------------------------------------
 
+def test_rhyme_constraints_unreadable_nucleus():
+    """The sibling module in this triage. One defect, same class as the rest:
+    a coordinate that exists and was read wrongly."""
+    print("\nrhyme_constraints.py — an UNREADABLE nucleus is not an EMPTY one")
+    import quality.rhyme_constraints as C
+    from quality.phonology import fas
+
+    utt = C.build(["گل", "دل"], fas.PERSIAN)
+    vals = [C.read_channel(utt, "nucleus",
+                           C.Extent(sites=(s.i,), unit="syllable", slot=0))
+            for s in utt.sites]
+    check("fas writes no short vowel, so the nucleus is None",
+          all(s.nucleus is None for s in fas.PERSIAN.syllabify("گل")))
+    check("...and the knowledge read is UNREADABLE, not a certain absence",
+          all(v == (None,) for v in vals),
+          f"{vals} — was (frozenset({{'∅'}}),), which two syllables then AGREE "
+          f"on at (True, False)")
+    check("agree() on two unreadables refuses",
+          C.agree(None, None) == (None, False))
+    check("agree() on two genuinely ABSENT codas still agrees, muted "
+          "(doctrine 25: see/free)",
+          C.agree(C.ABS, C.ABS) == (True, False))
+    check("an English nucleus is still certain knowledge",
+          C.read_channel(C.build(["cat"], ENG), "nucleus",
+                         C.Extent(sites=(0,), unit="syllable", slot=0))
+          == (frozenset({"AE"}),))
+
+
 def test_known_open_defects():
     print("\nOPEN — asserted so they are visible, and so closing one is a "
           "test failure that has to be read")
@@ -550,6 +578,7 @@ if __name__ == "__main__":
     test_sequence_predicates_are_implemented()
     test_head_anchored_relations_are_reachable()
     test_refusal_is_not_false()
+    test_rhyme_constraints_unreadable_nucleus()
     test_known_open_defects()
     print("=" * 66)
     if FAILURES:

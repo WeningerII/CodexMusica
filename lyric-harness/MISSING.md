@@ -411,6 +411,52 @@ hending detector reads.
 ### K-5 · Somali can never have a corpus `BLOCKED`
 **Constraint:** the Latin orthography dates from 1972 and the provenance cutoff
 is 1931. Every written gabay is a modern transcription and in copyright.
+**Now quantified:** 18 named Somali poets are staged in `data/lyricists.tsv` and
+**every one of them is unusable**, by two independent routes. 13 fail the DATE
+gate on their own — their lives are recorded only as "19th–20th century", whose
+upper bound is 1900+70 past the term, and one (Muuse Xaaji Ismaaciil Galaal,
+c. 1910–1980) fails outright with life+70 = 2050. The remaining 5 clear the date
+and are marked `BLOCKED_ORTHOGRAPHY`, because K-5 bites regardless of when the
+poet died. Two gates, and the poets who pass the first are stopped by the second.
+
+### K-6 · Eight non-English phonologies, ZERO songs `OPEN`
+**Found 2026-08-10, while closing K-1.** K-1 built a song corpus and every one
+of its 143 files is English. The eight phonology cells (cym fin fas ltc msa non
+san som) between them hold **four** text files — `cym_alun_strict.txt`,
+`cym_twm_or_nant_cywydd.txt`, `fin_kalevala.txt`, `fas_hafez.json`,
+`san_dcs_verse.txt` — and not one of them is a song. `ltc`, `msa`, `non` and
+`som` have no text at all. So the corpus is saturated in one corner and starved
+everywhere else, which is doctrine 8 arriving through the back door: the only
+tradition we can measure a song against is the one tradition.
+**Staged, not sourced:** 297 non-English lyricists now carry rows in
+`data/lyricists.tsv` with a `lang` column (added in the same commit; the 221
+pre-existing rows are backfilled `eng`, which is the gap stated as data).
+Author-gate outcome:
+
+| lang | staged | refused | blocked |
+|---|---:|---:|---:|
+| fas | 76 | 0 | 0 |
+| san | 62 | 0 | 0 |
+| ltc | 59 | 0 | 0 |
+| cym | 35 | 0 | 0 |
+| non | 25 | 0 | 0 |
+| fin | 14 | 0 | 0 |
+| msa | 8 | 0 | 0 |
+| som | 0 | 13 | 5 |
+
+**The author gate is the cheaper of the two gates and clearing it means little
+here.** Every row is `PENDING_TEXT`, never `SOURCED`: for a 14th-century Welsh
+cywydd or a Tang shi the author has been dead for six centuries and the binding
+constraint is the EDITION (doctrine 38) — `provenance.py` keys admission on the
+AUTHOR and models no transcription layer with its own date and rights. Doctrines
+50/52/53 are the record of what an edition can do to a text that clears every
+author check: a modernised orthography, a corrupt OCR, or a collapsed vowel
+merger, each admissible for one predicate and biased toward the positive for
+another.
+**Where the bound is a guess, the row says so.** A life given as a floruit or a
+century is bounded at the END of that window, not its middle, and `pd_route`
+carries `d (century only; upper bound assumed)` rather than pretending to a
+verified year. 18 rows across cym/som/san are on that footing.
 
 ---
 
