@@ -913,4 +913,77 @@ Doctrine additions, earned from the first run — do not drift from these either
    channel path getting it wrong and the default path getting it right. A
    doctrine whose demonstration has been optimised away is a sentence nobody
    can check, which is the argument that keeps `modal_exclusion=0` reachable.
+85. **An express NON-COMMERCIAL grant is a rejection, and it has to bind the
+   same way in every language.** 4,347 ci and 734 樂府 were located, extracted,
+   validated at 99.03% character coverage and measured against 311-year-old
+   ground truth — and then refused, because the digitiser's grant quoted inside
+   the files is `資料自由使用，但不得為商業用途`. This repo had ALREADY rejected
+   `irfanzainudin/pantunis-data` for a quoted non-commercial restriction on the
+   OTA layer, and CELT before it. Admitting Chinese on terms that refused Malay
+   would make the gate a function of how much the corpus was wanted. The ci half
+   fails twice over: its stated base is 唐圭璋's 《全宋詞》 (1940) and he died in
+   1990, so life+70 runs to 2060 — and the sourcing cell's own measurement shows
+   his PUNCTUATION is the signal (45.2% rhyme agreement at 。-ends against 2.7%
+   at ，-ends and a 2.8% matched null), so we would be building ON the
+   in-copyright contribution rather than around it. What survives is 花間集,
+   500 songs, whose own last line is 王鵬運's 1893 四印齋 colophon and whose
+   chain quotes no restriction at all. **Record the unblock route in the same
+   breath as the refusal**: kanripo/KR4j 白文 (文淵閣四庫全書, 1782) segmented by
+   the 欽定詞譜 (1715) reaches the same corpus with no living copyright anywhere.
+86. **Doctrine 50 finally has a POSITIVE instance, and it inverts the reflex.**
+   Every previous case was an orthographic layer DESTROYING a constraint. Here a
+   20th-century editor's punctuation *supplies* one: 。 at line ends carries
+   45.2% rhyme agreement against 2.7% at ，, on a matched null of 2.8% that the
+   ，-ends land exactly on. Song ci circulated unpunctuated, so every line
+   boundary a rhyme detector reads in a modern ci edition is an editorial act.
+   The rule is not "modern layers are dangerous" — it is **name the layer and
+   measure what it does to the channel under test**, because sometimes it IS the
+   channel, which makes it more load-bearing rather than less. And doctrine 70's
+   converse is wrong too: reaching for the older witness fails here, since the
+   1782 四庫 manuscript reads at 94.77% against a modern transcription's 98.05%
+   and the Siku scribes have their own variant set. When the reference work is
+   keyed on a third norm, NEITHER end of the age range is safe and the fix is a
+   normalisation layer, not a choice of witness.
+87. **Doctrine 51's first NEGATIVE instance, and it is the more useful half.**
+   Two editions of the same 500 花間集 songs — the 1893 四印齋 line and the
+   網路展書讀 line — share only 91 of 369 matched poems character-for-character
+   (24.7%) and disagree on the tune name in 22. The test is still DISTINCT
+   BYTES; here the bytes genuinely differ, which is what let each witness
+   correct the other: 卷第七's heading line is missing from one, and its 卷六
+   contents list prints 和學士凝十三首 where the 1782 四庫 prints 二十首 — and
+   13+13+18=44 contradicts the 卷 heading's own declared 51 two lines away,
+   while 13+20+18 hits it exactly. Corroboration is worth having; **agreement
+   was never the point, independence was.**
+88. **A rime dictionary keyed on ONE orthographic norm silently refuses the
+   character that NAMES a rhyme group.** `data/qieyun_mc.tsv` has no entry for
+   魂 while 477 characters carry 魂 as their rhyme label; 窗 is absent and
+   窓/牕/窻 are present. Of the 24 commonest unreadable characters in a real ci
+   corpus, **23 are recoverable by an 異體字 map to a variant already in the
+   table** (魂→䰟, 窗→窓, 匆→悤, 劍→劒, 峰→峯, 群→羣, 閑→閒 …) and the remaining
+   five (怎 樣 褪 做 你) are Song–Yuan vernacular characters that postdate the
+   rime book, where refusal is CORRECT. Nothing currently tells an ingestion
+   defect from a correct refusal, which is doctrine 79's error in a second
+   layer: a refusal rate is uninterpretable until its two causes are separated.
+   Also unmeasured until now: a SIMPLIFIED corpus reads at 70.95% against
+   traditional's 99.03%, with **31.7% of line-final rhyme positions unreadable**,
+   and OpenCC is not the fix — characters that were separate Middle Chinese
+   words resolve, so the corpus fails loudly on some merges and **silently
+   returns a different word's rhyme** on the rest.
+89. **Report the excess as a SERIES, because a falling raw rate can hide a
+   collapsing constraint.** Finnish alliteration runs 82.3% (Kalevala) → 81.8%
+   (Kanteletar) → 71.8% (Lönnrot's own 1840 "newer songs") → 58.4% (Kivi), which
+   reads as a gentle 24-point decline. The excess over a matched null runs
+   +50.8 → +15.7 → +15.0, a **3.4x collapse**, because the null RISES with the
+   observation as lines lengthen (29.9% → 46.8%). Doctrine 64 said report the
+   excess rather than the rate; this says the two can move in different
+   directions across a series and the rate will tell you the wrong story about
+   the trend, not merely an inflated one about the level. Two things this run
+   settled: the SUNG book out-alliterates the narrative epic (strong 60.2% vs
+   55.7%), and the negative control was **nominated by the source's own editor**
+   — Lönnrot writes that in the newer songs the alliteration is `sattumoissa`,
+   by accident. Measured, he is right in direction and wrong in degree: +15.7 is
+   3.2x smaller and no shuffle in 200 reached it. He also says he pruned those
+   songs and that one of them is in the old metre, so the control is impure by
+   its own editor's admission — and it was LEFT impure, because dropping that
+   song would be tuning a control to the result it exists to test.
 

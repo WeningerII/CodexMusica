@@ -1,0 +1,2294 @@
+# author: TRADITIONAL / anonymous. Collected by Owen M. Edwards (1858-1920) over
+#         "dros ugain mlynedd" (his own preface). No individual author is claimed for
+#         any item and none is asserted here.
+# lang: cym  |  half: SONG (sung lyric; the form is DEFINED by being sung)
+# source: GITenberg/Yr-Hwiangerddi_8194  file 8194-0.txt (UTF-8)
+#         md5 5666f6e48fd2060838a6557fb39de6c8, 85,954 bytes, HTTP 200 2026-08-10
+#         raw.githubusercontent.com/GITenberg/Yr-Hwiangerddi_8194/master/8194-0.txt
+# licence: public domain. metadata.yaml verbatim: rights 'Public domain in the USA.',
+#         rights_url creativecommons.org/about/pdm; language: cy; author Edwards,
+#         Owen Morgan, Sir 1858-1920; lcsh 'Nursery rhymes, Welsh'. Edition 1911 <=
+#         1931. Anonymous traditional material: 1911 + 70 = 1981, expired.
+#         NOTE the PG text header line says 'Language: English' and is WRONG -- the
+#         book is monolingual Welsh; metadata.yaml has language: cy. That header line
+#         is why a 'Language: Welsh' code search over org:GITenberg found this repo
+#         only through its body text and not through its header.
+# edition: Owen M. Edwards (casglwyd gan), 'Yr Hwiangerddi', Llanuwchllyn: Ab Owen,
+#         1911, darluniau gan Winifred Hartley; PG header verbatim 'Transcribed from
+#         the 1911 Ab Owen, Llanuwchllyn edition by David Price'.
+# orthography: pre-1928 Welsh, UNNORMALISED, UTF-8 with real circumflexes and curly
+#         apostrophes. cym.py reads 100.00% of 7,351 tokens.
+# structure: [VERSE n]. Items are numbered I-CCC in the edition; the numeral is kept
+#         in the title. 274 of the 300 items are here -- the 26 losses are one-line
+#         items and items whose heading did not match the numeral+title shape.
+# stripped: PG header/footer, Rhagymadrodd, plate captions, the footnote block.
+# tune: NO tune is named. The evidence that these are sung is the FORM: hwiangerdd is
+#         a cradle-song, and the edition's own footnotes give singing directions --
+#         {14b} 'Weithiau cenid "A chwe nichog ynddi"' ("sometimes it was SUNG..."),
+#         {91} 'Newidier yn wen, goch, las... hyd nes y cysgro'r plentyn' (substitute
+#         words until the child sleeps). That is a repeat structure declared by the
+#         source, and it is why this file is in corpus/song/.
+# caesura: NOT PRINTED (11 of 1,408 lines, 0.8%, all punctuation).
+# songs: 274
+# lines: 1408
+
+--- TITLE: I.  BACHGEN
+[VERSE 1]
+Y BACHGEN boch-goch,
+A’r bochau brechdan,
+A’r bais dew,—
+O ble doist ti?
+
+--- TITLE: II.  YR EBOL MELYN
+[VERSE 1]
+MAE gen i ebol melyn,
+Yn codi’n bedair ced,
+A phedair pedol arian
+O dan ei bedwar troed;
+Mi neidia ac mi brancia
+O dan y feinir wen,
+Fe reda ugain milldir
+Heb dynnu’r ffrwyn o’i ben.
+
+--- TITLE: III.  GYRRU I GAER
+[VERSE 1]
+GYRRU, gyrru, gyrru i Gaer;
+I briodi merch y maer;
+Gyrru, gyrru, gyrru adre,
+Wedi priodi ers diwrnodie.
+
+--- TITLE: IV.  I’R FFAIR
+[VERSE 1]
+AR garlam, ar garlam,
+I ffair Abergele;
+Ar ffrwst, ar ffrwst,
+I ffair Lanrwst.
+
+--- TITLE: V.  DAU GI BACH
+[VERSE 1]
+DAU gi bach yn mynd i’r coed,
+Dan droi’u fferrau, dan droi’u troed;
+Dau gi bach yn dyfod adre,
+Blawd ac eisin hyd eu coese.
+
+--- TITLE: VI.  CERDDED
+[VERSE 1]
+DANDI di, dandi do,
+Welwch chwi ’i sgidie newydd o?
+Ar i fyny, ar i wared,
+Bydd y bachgen bach yn cerdded.
+
+--- TITLE: VII., VIII.  Y CEFFYL BACH
+[VERSE 1]
+YMLAEN, geffyl bach,
+I’n cario ni’n dau
+Dros y mynydd
+I hela cnau.
+[VERSE 2]
+Ymlaen, geffyl bach,
+I’n cario ni’n tri
+Dros y mynydd
+I hela cnu.
+
+--- TITLE: IX.  SION A SIAN
+[VERSE 1]
+SION a Sian, oddeutu’r tân,
+Yn bwyta blawd ac eisin mân.
+
+--- TITLE: X., XI.  MYND I LUNDAIN
+[VERSE 1]
+BETI bach a finnau
+Yn mynd i Lundain G’lanmai;
+Os na chawn ni’r ffordd yn rhydd,
+Mi neidiwn dros y cloddiau.
+[VERSE 2]
+Beti bach a finne,
+Yn mynd i Lundain Glame;
+Mae dŵr y môr yn oer y nos,
+Gwell inni aros gartre.
+
+--- TITLE: XII.  GWLAD BRAF
+[VERSE 1]
+LODES ei mam, a lodes ei thad,
+A fentri di gyda fi allan o’r wlad,
+Lle mae gwin yn troi melinau,
+A chan punt am gysgu’r borau?
+
+--- TITLE: XIII.  CYSUR LLUNDAIN
+[VERSE 1]
+MI af i Lundain Glamai
+Os byddai byw ac iach,
+Ni ’rosa i ddim yng Nghymru
+I dorri ’nghalon bach;
+Mae digon o arian yn Llundain,
+A swper gyda’r nos,
+A mynd i ’ngwely’n gynnar,
+A chodi wyth o’r gloch.
+
+--- TITLE: XIV.  LLONG YN MYND
+[VERSE 1]
+SI hei-li-lwli, ’r babi,
+Mae’r llong yn mynd i ffwrdd;
+Si hei-li-lwli, ’r babi,
+Mae’r capten ar y bwrdd.
+
+--- TITLE: XV.  DAFAD WEN
+[VERSE 1]
+CHWE dafad gorniog,
+A chwe nod arni,
+Ac ar y bryniau garw,
+’Roedd rheiny i gyd yn pori;
+Dafad wen, wen, wen,
+Ie benwen, benwen, benwen;
+Ystlys hir a chynffon wen,
+Wen, wen.
+
+--- TITLE: XVI.  IAR FACH DLOS
+[VERSE 1]
+IAR fach dlos
+Yw fy iar fach i;
+Pinc a melyn,
+A choch a du.
+
+--- TITLE: XVII.  GWCW FACH
+[VERSE 1]
+GWCW fach, ond ’twyt ti’n ffolog,
+Ffal di ral di rw dw ti rei tei O,
+Yn canu ’mhlith yr eithin pigog,
+Ffal di ral di rw dw ti rei tei O;
+Dos i blwy Dolgellau dirion,
+Ffal di ral di rw dw ti rei tei O;
+Ti gei lwyn o fedw gwyrddion,
+Ffal di ral di rw dw ti rei tei O.
+
+--- TITLE: XVIII.  LLYGOD A MALWOD
+[VERSE 1]
+LLYGOD mân yn chwythu’r tân,
+A’r malfod yn gweu melfed.
+
+--- TITLE: XIX.  I’R DRE
+[VERSE 1]
+GYRRU, gyrru, drot i’r dre,
+Dwad adre erbyn te.
+
+--- TITLE: XX.  I GAERDYDD
+[VERSE 1]
+GYRRU, gyrru, i Gaerdydd,
+Mofyn pwn o lestri pridd;
+Gyrru, gyrru’n ol yn glau,
+Llestri wedi torri’n ddau.
+
+--- TITLE: XXI.  Y CEFFYL DU BACH
+[VERSE 1]
+PANDY, pandy, melin yn malu,
+Gweydd yn gweu a’r ffidil yn canu;
+Ceffyl bach du a’r gynffon wen
+Yn cario Gwen a Mari.
+
+--- TITLE: XXII.  I’R FFAIR
+[VERSE 1]
+TOMOS Jones yn mynd i’r ffair,
+Ar gefn ei farch a’i gyfrwy aur;
+Ac wrth ddod adre cwyd ei gloch,
+Ac yn ei boced afal coch.
+
+--- TITLE: XXIII.  AR DROT
+[VERSE 1]
+’AR drot, ar drot, i dŷ Shon Pot,
+Ar whîl, ar whîl, i dŷ Shon Pîl;
+Ar garlam, ar garlam, i dŷ Shon Rolant,
+Bob yn gam, bob yn gam, i dŷ f’ewythr Sam.
+
+--- TITLE: XXIV.  AR GARLAM
+[VERSE 1]
+IOHN bach a finne,
+Yn mynd i Lunden Glame;
+Ac os na chawn ni’r ffordd yn glir,
+Ni neidiwn dros y cloddie.
+
+--- TITLE: XXV.  Y DDAFAD FELEN
+[VERSE 1]
+CROEN y ddafad felen,
+Yn towlu’i throed allan;
+Troed yn ol, a throed ymlaen,
+A throed yn towlu allan.
+
+--- TITLE: XXVI.  CNUL Y BACHGEN COCH
+[VERSE 1]
+“DING dong,” medd y gloch,
+Canu cnul y bachgen coch;
+Os y bachgen coch fu farw,
+Ffarwel fydd i’r gwin a’r cwrw.
+
+--- TITLE: XXVII.  DAU FOCHYN BACH
+[VERSE 1]
+DACW tada’n gyrru’r moch,
+Mochyn gwyn, a mochyn coch;
+Un yn wyn yn mynd i’r cwt,
+A’r llall yn goch a chynffon bwt.
+
+--- TITLE: XXVIII.  COLLI ESGID
+[VERSE 1]
+DAU droed bach yn mynd i’r coed,
+Esgid newydd am bob troed;
+Dau droed bach yn dwad adre
+Wedi colli un o’r ’sgidie.
+
+--- TITLE: XXIX.  I’R FELIN
+[VERSE 1]
+DAU droed bach yn mynd i’r felin,
+I gardota blawd ac eithin;
+Dau droed bach yn dyfod adra,
+Dan drofera, dan drofera.
+
+--- TITLE: XXX.  IANTO
+[VERSE 1]
+Carreg o’r Nant,
+Wnaiff Iant;
+Carreg o’r to,
+Wnaiff o,—
+Ianto.
+
+--- TITLE: XXXI.  DEIO BACH
+[VERSE 1]
+DEIO bach a minne
+Yn mynd i werthu pinne;
+Un res, dwy res,
+Tair rhes am ddime.
+
+--- TITLE: XXXII.  Y BYSEDD
+[VERSE 1]
+MODRYB y fawd,
+Bys yr uwd,
+Pen y cogwr,
+Dic y peipar,
+Joli cwt bach.
+
+--- TITLE: XXXIII.  HOLI’R BYSEDD
+[VERSE 1]
+“DDOI di i’r mynydd?” meddai’r fawd,
+“I beth?” meddai bys yr uwd;
+“I hela llwynog” meddai’r hir-fys;
+“Beth os gwel ni?” meddai’r canol-fys;
+“Llechu dan lechen” meddai bys bychan.
+
+--- TITLE: XXXIV.  RHODD
+[VERSE 1]
+BUARTH, baban, cryman, croes;
+Modrwy aur i’r oreu ’i moes.
+
+--- TITLE: XXXV., XXXVI.  I’R YSGOL
+[VERSE 1]
+MI af i’r ysgol fory,
+A’m llyfyr yn fy llaw;
+Heibio’r Castell Newydd,
+A’r cloc yn taro naw;
+Dacw mam yn dyfod,
+Ar ben y gamfa wen,
+A rhywbeth yn ei barclod,
+A phiser ar ei phen.
+[VERSE 2]
+Mi af i’r ysgol fory,
+A’m llyfyr yn fy llaw,
+Heibio’r Sgubor Newydd,
+A’r cloc yn taro naw;
+O, Mari, Mari, codwch,
+Mae heddyw’n fore mwyn,
+Mae’r adar bach yn canu,
+A’r gôg ar frig y llwyn.
+
+--- TITLE: XXXVII.  LLE DIFYR
+[VERSE 1]
+MI fum yn gweini tymor
+Yn ymyl Ty’n y Coed,
+A’dyna’r lle difyrraf
+Y bum i ynddo ’rioed;
+Yr adar bach yn canu,
+A’r coed yn suo ynghyd,—
+Fy nghalon fach a dorrodd,
+Er gwaetha rhain i gyd.
+
+--- TITLE: XXXVIII.  COLLI BLEW
+[VERSE 1]
+PWSI mew, pwsi mew,
+Lle collaist ti dy flew?
+“Wrth gario tân
+I dŷ modryb Sian,
+Yng nghanol eira a rhew.”
+
+--- TITLE: XXXIX.  BODDI CATH
+[VERSE 1]
+SHINCIN SION o’r Hengoed
+Aeth i foddi cath,
+Mewn cwd o lian newydd,
+Nad oedd e damed gwaeth;
+Y cwd a aeth ’da’r afon,
+A’r gath a ddaeth i’r lan,
+A Shincin Sion o’r Hengoed
+Gas golled yn y fan.
+
+--- TITLE: XL.  WEL, WEL
+[VERSE 1]
+“WEL, wel,”
+Ebe ci Jac Snel,
+“Rhaid i mi fynd i hel,
+Ne glemio.”
+
+--- TITLE: XLI., XLII.  PWSI MEW
+[VERSE 1]
+PWSI meri mew,
+Ble collaist ti dy flew?
+“Wrth fynd i Lwyn Tew
+Ar eira mawr a rhew.”
+[VERSE 2]
+“Pa groeso gest ti yno.
+Beth gefaist yn dy ben?”
+“Ces fara haidd coliog,
+A llaeth yr hen gaseg wen.”
+
+--- TITLE: XLIII.  CALANMAI
+[VERSE 1]
+LLIDIART newydd ar gae ceirch,
+A gollwng meirch o’r stablau;
+Cywion gwyddau, ac ebol bach,
+Bellach ddaw Calanmai.
+[VERSE 2]
+XLIV.—XLVI.  DA.
+[VERSE 3]
+MAE gen i darw penwyn,
+A gwartheg lawer iawn;
+A defaid ar y mynydd,
+A phedair dâs o fawn.
+[VERSE 4]
+Mae gen i gwpwrdd cornel,
+A set o lestri te;
+A dresser yn y gegin,
+A phopeth yn ei le.
+[VERSE 5]
+Mae gen i drol a cheffyl,
+A merlyn bychan twt,
+A phump o wartheg tewion,
+Yn pori yn y clwt.
+
+--- TITLE: XLVII.  DACW DY
+[VERSE 1]
+DACW dŷ, a dacw do,
+Dacw efail Sion y go;
+Dacw Mali wedi codi,
+Dacw Sion a’i freichiau i fyny.
+
+--- TITLE: XLVIII.  COFIO’R GATH
+[VERSE 1]
+AR y ffordd wrth fynd i Ruthyn,
+Gwelais ddyn yn gwerthu brethyn;
+Gofynnais iddo faint y llath,
+Fod arnaf eisio siwt i’r gath.
+
+--- TITLE: XLIX.  YSTURMANT
+[VERSE 1]
+(I ddynwared swn ysturmant.)
+DWR glân gloew,
+Bara chaws a chwrw.
+
+--- TITLE: L.  YSGUTHAN
+[VERSE 1]
+(I ddynnwared Cân Ysguthan.)
+Cyrch du, du,
+Yn ’y nghwd i.
+
+--- TITLE: LI.  SIAN
+[VERSE 1]
+SIAN bach anwyl,
+Sian bach i;
+Fi pia Sian,
+A Sian pia fi.
+
+--- TITLE: LII.  SIAN A SION
+[VERSE 1]
+PAN brioda Sion a minnau,
+Fe fydd cyrn ar bennau’r gwyddau;
+Ieir y mynydd yn bluf gwynion;
+Ceiliog twrci fydd y person.
+
+--- TITLE: LIII.  SION A SIAN
+[VERSE 1]
+SION a Sian yn mynd i’r farchnad,
+Sian yn mynd i brynnu iar,
+A Sion i werthu dafad.
+
+--- TITLE: LIV.  Y CROCHAN
+[VERSE 1]
+RHOWCH y crochan ar y tân,
+A phen y frân i ferwi;
+A dau lygad y gath goed,
+A phedwar troed y wenci.
+
+--- TITLE: LV.  UST
+[VERSE 1]
+UST, O taw!  Ust, O taw,
+Aeth dy fam i Loeger draw;
+Hi ddaw adre yn y man,
+A llond y cwd o fara cann.
+
+--- TITLE: LVI.  CYSGU
+[VERSE 1]
+BACHGEN bach ydi’r bachgen gore,
+Gore, gore;
+Cysgu’r nos, a chodi’n fore,
+Fore, fore.
+
+--- TITLE: LVII.  FFAFRAETH
+[VERSE 1]
+HEN fenyw fach Cydweli
+Yn gwerthu losin du;
+Yn rhifo deg am geiniog,
+Ond un ar ddeg i fi.
+
+--- TITLE: LVIII.  MERCH EI MAM
+[VERSE 1]
+MORFUDD fach, ferch ei mham,
+Gaiff y gwin a’r bara cann;
+Hi gaiff ’falau per o’r berllan,
+Ac yfed gwin o’r llester arian.
+
+--- TITLE: LIX.  MERCH EI THAD
+[VERSE 1]
+MORFUDD fach, merch ei thad,
+Gaiff y wialen fedw’u rhad;
+Caiff ei rhwymo wrth bost y gwely
+Caiff ei chwipio bore yfory.
+
+--- TITLE: LX.  COLLED
+[VERSE 1]
+WHIC a whiw!
+Aeth y barcud a’r ciw;
+Os na feindwch chwi ato,
+Fe aiff ag un eto.
+
+--- TITLE: LXI.  ANODD COELIO
+[VERSE 1]
+MAE gen i hen iar dwrci,
+A mil o gywion dani;
+Pob un o rheiny yn gymaint ag ych,—
+Ond celwydd gwych yw hynny?
+
+--- TITLE: LXII.  DODWY DA
+[VERSE 1]
+MAE gen i iar a cheiliog
+A brynnais i ar ddydd Iau;
+Mae’r iar yn dodwy wy bob dydd,
+A’r ceiliog yn dodwy dau.
+
+--- TITLE: LXIII.  BYW DETHEU
+[VERSE 1]
+MAE gen i iar a cheiliog,
+A hwch a mochyn tew;
+Rhwng y wraig a finne,
+’R ym ni’n eig wneyd hi’n lew.
+
+--- TITLE: LXIV.  DA
+[VERSE 1]
+MAE gen i ebol melyn
+A merlen newydd spon,
+A thair o wartheg blithion
+Yn pori ar y fron;
+Mae gen i iar a cheiliog,
+Mi cefais er dydd Iau,
+Mae’r iar yn dodwy wy bob dydd
+A’r ceiliog yn dodwy dau.
+[VERSE 2]
+LXV.  Go-Go-Go!
+[VERSE 3]
+SHONI Brica Moni
+Yn berchen buwch a llo;
+A gafar fach, a mochyn,
+A cheiliog, go-go-go!
+
+--- TITLE: LXVI.  CYNFFON
+[VERSE 1]
+MI welais nyth pioden,
+Fry, fry, ar ben y goeden,—
+A’i chynffon hi mas.
+
+--- TITLE: LXVII.  TAITH DAU
+[VERSE 1]
+DAFI bach a minne,
+Yn mynd i Aberdâr,
+Dafi’n mofyn ceiliog,
+A minne’n ’mofyn giar.
+
+--- TITLE: LXVIII.  YSGWRS
+[VERSE 1]
+“WEL,” meddai Wil wrth y wal,
+Wedodd y wal ddim wrth Wil.
+
+--- TITLE: LXIX.  HOFF BETHAU
+[VERSE 1]
+MAE’N dda gan hen wr uwd a lla’th
+Mae’n dda gan gath lygoden;
+Mae’n dda gan ’radwr flaen ar swch,
+Mae’n dda gan hwch y fesen.
+
+--- TITLE: LXX.  CLOC
+[VERSE 1]
+MAE gen i, ac mae gen lawer,
+Gloc ar y mur i gadw amser;
+Mae gan Moses, Pant y Meusydd,
+Gloc ar y mur i gadw’r tywydd.
+
+--- TITLE: LXXI.  DWY FRESYCHEN
+[VERSE 1]
+MI welais ddwy gabetsen,
+Yn uwch na chlochdy Llunden;
+A deunaw gŵr yn hollti ’rhain,
+A phedair cainc ar hugain.
+
+--- TITLE: LXXII.  TOI A GWAU
+[VERSE 1]
+MI welais i beth na welodd pawb,—
+Y cwd a’r blawd yn cerdded;
+Y frân yn toi ar ben y ty,
+A’r malwod yn gwau melfed.
+
+--- TITLE: LXXIII.  MALWOD A MILGWN
+[VERSE 1]
+MI welais innau falwen goch,
+A dwy gloch wrth ei chlustiau;
+A dau faen melin ar ei chefn,
+Yn curo’r milgwn gorau.
+
+--- TITLE: LXXIV.  GWENNOL FEDRUS
+[VERSE 1]
+DO, mi welais innau wennol,
+Ar y traeth yn gosod pedol;
+Ac yn curo hoel mewn diwrnod,—
+Dyna un o’r saith rhyfeddod.
+
+--- TITLE: LXXV.  LLYNCU DEWR
+[VERSE 1]
+MI weles beth na welodd pawb,—
+Y cwd a’r blawd yn cerdded,
+Y frân yn toi ar ben y ty,
+A’r gŵr mor hy a hedeg;
+A hogyn bach, dim mwy na mi,
+Yn Ilyncu tri dyniawed.
+
+--- TITLE: LXXVI., LXXVII.  Y DDAFAD YN Y BALA
+[VERSE 1]
+’ROEDD gen i ddafad gorniog,
+Ac arni bwys o wlan,
+Yn pori ar lan yr afon
+Ymysg y cerrig mân;
+Fe aeth yr hwsmon heibio,
+Hanosodd arni gi;
+Ni welais i byth mo’m dafad,
+Ys gwn i a welsoch chwi?
+[VERSE 2]
+Mi gwelais hi yn y Bala,
+Newydd werthu ei gwlan,
+Yn eistedd yn ei chadair,
+O flaen tanllwyth mawr o dân;
+A’i phibell a’i thybaco,
+Yn smocio’n abal ffri,
+A dyna lle mae y ddafad,—
+Gwd morning, Jon, how di!
+
+--- TITLE: LXXVIII.  IAR Y PENMAEN MAWR
+[VERSE 1]
+’ROEDD gen i iar yn gorri,
+Ar ben y Penmaen Mawr,
+Mi eis i droed y Wyddfa
+I alw arni i lawr;
+Mi hedodd ac mi hedodd,
+A’i chywion gyda hi,
+I ganol tir y Werddon,—
+Good morning, John!  How di?
+
+--- TITLE: LXXIX.  I BLE?
+[VERSE 1]
+TROI a throsi, troi i ble?
+I Abergele i yfed te.
+
+--- TITLE: LXXX.  MORIO
+[VERSE 1]
+FUOST ti erioed yn morio?
+“Do, mewn padell ffrio;
+Chwythodd y gwynt fi i Eil o Man,
+A dyna lle bum i’n crio.”
+
+--- TITLE: LXXXI.  LLONG FY NGHARIAD
+[VERSE 1]
+DACW long yn hwylio’n hwylus,
+Heibio’r trwyn, ac at yr ynys;
+Os fy nghariad i sydd ynddi,
+Hwyliau sidan glas sydd arni.
+
+--- TITLE: LXXXII.  CWCH BACH
+[VERSE 1]
+CWCH bach ar y môr,
+A phedwar dyn yn rhwyfo;
+A Shami pwdwr wrth y llyw
+Yn gwaeddi,—“Dyn a’n helpo.”
+
+--- TITLE: LXXXIII.  GLAN Y MOR
+[VERSE 1]
+MAE gen i dŷ bach del,
+O dŷ bach del, O dŷ bach del,
+A’r gwynt i’r drws bob amser;
+Agorwch dipyn o gil y ddôr,
+O gil y ddôr, o gil y ddôr,
+Cewch weld y môr a’r llongau.
+
+--- TITLE: LXXXIV.  DWR Y MOR
+[VERSE 1]
+IOAN bach a finnau
+Yn mynd i ddwr y môr;
+Ioan yn codi ’i goesau,
+A dweyd fod dŵr yn oer.
+
+--- TITLE: LXXXV.  TRI
+[VERSE 1]
+TRI graienyn, tri maen melin,
+Tair llong ar fôr, tri môr, tri mynydd;
+A’r tri aderyn a’r traed arian,
+Yn tiwnio ymysg y twyni mân.
+
+--- TITLE: LXXXVI.  WEDI DIGIO
+[VERSE 1]
+MAE fy nghariad wedi digio,
+Nis gwn yn wir pa beth ddaeth iddo;
+Pan ddaw’r gwibed bach a chywion,
+Gyrraf gyw i godi ei galon.
+
+--- TITLE: LXXXVII.  CARN FADRYN
+[VERSE 1]
+MI af oddiyma i ben Carn Fadryn,
+Er mwyn cael gweled eglwys Nefyn;
+O ddeutu hon mae’r plant yn chware,
+Lle dymunwn fy mod inne.
+
+--- TITLE: LXXXVIII.  SIGLO’R CRYD
+[VERSE 1]
+SIGLO’R cryd â’m troed wrth bobi,
+Siglo’r cryd â’m troed wrth olchi;
+Siglo’r cryd ymhob hysywaeth,
+Siglo’r cryd sy raid i famaeth.
+
+--- TITLE: LXXXIX.  Y LLEUAD
+[VERSE 1]
+MAE nhw’n dwedyd yn Llanrhaiad,
+Mai rhyw deiliwr wnaeth y lleuad;
+A’r rheswm am fod goleu drwyddo,
+Ei fod heb orffen cael ei bwytho.
+
+--- TITLE: LXL.  COES UN DDEL
+[VERSE 1]
+COES un ddel, ac hosan ddu,
+Fel a’r fel, fel a’r fu;
+Fel a’r fu, fel a’r fel,
+Ac hosan ddu coes un ddel.
+
+--- TITLE: LXLI.  Y BRYN A’R AFON
+[VERSE 1]
+Y BRYN,—“Igam Ogam, ble’r ei di?”
+Yr Afon,—“Moel dy ben, nis gwaeth i ti.”
+Y Bryn,—“Mi dyf gwallt ar fy mhen i
+Cyn unioni’th arrau ceimion di.”
+
+--- TITLE: LXLII.  DECHREU CANU
+[VERSE 1]
+PAN es i gynta i garu,
+O gwmpas tri o’r gloch,
+Mi gurais wrth y ffenestr,
+Lle’r oedd yr hogen goch.
+
+--- TITLE: LXLIII.  SIGLO
+[VERSE 1]
+TRI pheth sy’n hawdd eu siglo,—
+Llong ar fôr pan fydd hi’n nofio,
+Llidiart newydd ar glawdd helyg,
+A march dan gyfrwy merch fonheddig.
+
+--- TITLE: LXLIV.  ARFER PENLLYN
+[VERSE 1]
+DYMA arfer pobl Penllyn,—
+Canu a dawnsic hefo’r delyn,
+Dod yn ol wrth oleu’r lleuad,
+Dwyn y llwdn llwyd yn lladrad.
+
+--- TITLE: LXLV.  DILLAD NEWYDD
+[VERSE 1]
+CAF finnau ddillad newydd
+O hyn i tua’r Pasg,
+Mi daflaf rhain i’r potiwr,
+Fydd hynny fawr o dasg;
+Caf wedyn fynd i’r pentre,
+Fel sowldiwr bach yn smart,
+A phrynnaf wn a chledde,
+I ladd ’rhen Fonipart.
+
+--- TITLE: LXLVI.  LLE RHYFEDD
+[VERSE 1]
+EGLWYS fach Pencarreg,
+Ar ben y ddraenen wen;
+A chlochdy mawr Llanbydder
+Yn Nheifi dros ei ben.
+
+--- TITLE: LXLVII.  SEL WIL Y PANT
+[VERSE 1]
+PAN oedd y ci ryw noson,
+Yn ceisio crafu’r crochon,
+’Roedd Wil o’r Pant, nai Beti Sian,
+Yn cynnal bla’n ’i gynffon.
+
+--- TITLE: LXLVIII.  CARIO CEILIOG
+[VERSE 1]
+TWM yr ieir aeth lawr i’r dre,
+A giar a cheiliog gydag e;
+Canodd y ceiliog,—“Go-go-go”;
+Gwaeddodd Twm,—“Halo!  Halo!”
+
+--- TITLE: LXLIX.  FE DDAW
+[VERSE 1]
+FE ddaw Gwyl Fair, fe ddaw Gwyl Ddewi,
+Fe ddaw’r hwyaden fach i ddodwy.
+
+--- TITLE: C.  CEL BACH, CEL MAWR
+[VERSE 1]
+HEI, gel bach, tua Chaerdydd,
+’Mofyn pwn o lestri pridd;
+Hei, gel mawr, i Aberhonddu,
+Dwmbwr dambar, llestri’n torri.
+
+--- TITLE: CI.  I’R DRE
+[VERSE 1]
+GYRRU, gyrru, drot i’r dre,
+’Mofyn bara cann a the.
+
+--- TITLE: CII.  I FFAIR HENFEDDAU
+[VERSE 1]
+GYRRU, gyrru, i ffair Henfeddau,
+’Mofyn pinnau, ’mofyn ’falau.
+
+--- TITLE: CIII.  I FFAIR Y RHOS
+[VERSE 1]
+GYRRU, gyrru, i ffair y Rhos;
+Mynd cyn dydd a dod cyn nos.
+
+--- TITLE: CIV.  I FFAIR Y FENNI
+[VERSE 1]
+GYRRU, gyrru, i ffair y Fenni;
+’Mofyn cledd i ladd y bwci.
+
+--- TITLE: CV.  CEL BACH DEWR
+[VERSE 1]
+WELWCH chwi cel bach
+Yn ein cario ni’n dau?
+Mynd i ochor draw’r afon
+Gael eirin a chnau.
+
+--- TITLE: CVI.  CEFFYL JOHN JONES
+[VERSE 1]
+MAM gu, mam gu, dewch maes o’r ty,
+Gael gweld John Jones ar gefn y ci.
+
+--- TITLE: CVII.  MARI
+[VERSE 1]
+MARI lân, a Mari lon,
+A Mari dirion doriad,
+Mari ydyw’r fwyna’n fyw,
+A Mari yw fy nghariad;
+Ac onid ydyw Mari’n lân,
+Ni wiw i Sian mo’r siarad.
+
+--- TITLE: CVIII.  TROT, TROT
+[VERSE 1]
+TROT, trot, tua’r dre,
+‘Mofyn pwn o lestri te;
+Trot, trot, tua’r dre,
+I mofyn set o lestri te;
+Galop, galop, tua chartre,
+Torri’r pwn a’r llestri’n gate.
+
+--- TITLE: CIX.  FFIDIL A FFON
+[VERSE 1]
+MARI JOHN, ffidil a ffon,
+Cyllell a bilwg i chware ding dong.
+
+--- TITLE: CX.  ENNILL
+[VERSE 1]
+SION a Siani Siencyn,
+Sy’n byw yn sir y Fflint;
+Sian yn ennill chweugain,
+A Sion yn ennill punt.
+
+--- TITLE: CXI.  DYNA’R FFORDD
+[VERSE 1]
+DAFI Siencyn Morgan,
+Yn codi’r dôn ei hunan;
+A’i isaf en e nesa i fiwn,
+A dyna’r ffordd i ddechre tiwn.
+
+--- TITLE: CXII.  ROBIN A’R DRYW
+[VERSE 1]
+ROBIN goch a’r Dryw bach
+Yn fy nghuro i fel curo sach;
+Mi godais innau i fyny’n gawr,
+Mi drewais Robin goch i lawr.
+
+--- TITLE: CXIII.  Y JI BINC
+[VERSE 1]
+JI binc, ji binc, ar ben y banc,
+Yn pwyso hanner cant o blant.
+
+--- TITLE: CXIV.  Y FRAN
+[VERSE 1]
+SHINC a Ponc a finne
+Yn mynd i ffair y pinne;
+Dod yn ol ar gefn y frân,
+A phwys o wlan am ddime.
+
+--- TITLE: CXV.  ROBIN GOCH
+[VERSE 1]
+ROBIN goch ar ben y rhiniog,
+Yn gofyn tamaid heb un geiniog;
+Ac yn dwedyd yn ysmala,—
+“Mae hi’n oer, mi ddaw yn eira.”
+
+--- TITLE: CXVI.  JAC Y DO
+[VERSE 1]
+SI so, Jac y Do,
+Dal y deryn dan y to,
+Gwerthu’r fuwch a lladd y llo,
+A mynd i Lunden i roi fro;
+Dene diwedd Jac y Do.
+
+--- TITLE: CXVII.  DAWNS
+[VERSE 1]
+Y DYRNWR yn dyrnu,
+Y ffidil yn canu;
+A Robin goch bach
+Yn dawnsio’n y beudy.
+
+--- TITLE: CXVIII.  MYND I GARU
+[VERSE 1]
+RHOWCH imi fenthyg ceffyl,
+I fyned dros y lan,
+I garu’r ferch fach ifanc
+Sy’n byw ’da ’i thad a’i mham;
+Ac oni ddaw yn foddus,
+A’i gwaddol gyda hi,
+Gadawaf hi yn llonydd,
+Waith bachgen pert wyf fi.
+
+--- TITLE: CXIX.  FY EIDDO
+[VERSE 1]
+MAE gennyf dŷ cysurus,
+A melin newydd dwt,
+A chwpwrdd yn y gornel,
+A mochyn yn y cwt.
+
+--- TITLE: CXX.  SEN I’R GWAS
+[VERSE 1]
+Y LLEPYN llo a’r gwyneb llwyd,
+Ti fyti fwyd o’r goer;
+Pe torrit gwys fel torri gaws,
+Fe fyddai’n haws dy ddiodde.
+
+--- TITLE: CXXI.  PRUN?
+[VERSE 1]
+DIC GOLT a gysgodd yn y cart,
+Fe’i speiliwyd o’i geffyle;
+A phan ddihunodd, holi wnai,—
+“Ai Dic wyf fi, ai nage?
+Os Dic wyf fi, ces golled flin,—
+Mi gollais fy ngheffyle;
+Ac os nad Dic, ’rwy’n fachgen smart,
+Enillais gart yn rhywle.”
+
+--- TITLE: CXXII.  DAMWAIN
+[VERSE 1]
+SHIGWTI wen Shon-Gati,
+Mae crys y gŵr heb olchi,
+Fe aeth yr olchbren gyda’r nanf,
+A’r wraig a’r plant yn gwaeddi.
+
+--- TITLE: CXXIII.  COED TAN
+[VERSE 1]
+GWERN a helyg
+Hyd Nadolig.
+Bedw, os cair,
+Hyd Wyl Fair;
+Cringoed caeau
+O hynny hyd Glamai;
+Briwydd y frân
+O hynny ymlaen.
+
+--- TITLE: CXXIV.  FFAIR PWLLHELI
+[VERSE 1]
+AETH fy Ngwen i ffair Pwllheli,
+Eisio padell bridd oedd arni;
+Rhodd am dani saith o sylltau,
+Cawswn i hi am dair a dimau.
+
+--- TITLE: CXXV.  BORE GOLCHI
+[VERSE 1]
+AETH fy Ngwen ryw fore i olchi,
+Eisio dillad glân oedd arni;
+Tra bu Gwen yn ’mofyn sebon,
+Aeth y dillad hefo’r afon.
+
+--- TITLE: CXXVI.  BORE CORDDI
+[VERSE 1]
+AETH fy Ngwen ryw fore i gorddi,
+Eisio menyn ffres oedd arni;
+Tra bo Gwen yn ’mofyn halen,
+Aeth y ci a’r menyn allan.
+
+--- TITLE: CXXVII.  SEREN DDU
+[VERSE 1]
+SEREN ddu a mwnci,
+Sion y gof yn dyrnu,
+Modryb Ann yn pigo pys,
+A minnau’n chwys dyferu.
+
+--- TITLE: CXXVIII.  BENTHYG LLI
+[VERSE 1]
+SI so gorniog,
+Grot â pheder ceiniog,
+Un i mi, ac un i chwi,
+Ac un i’r dyn,
+Am fenthyg y lli gorniog.
+
+--- TITLE: CXXIX.  LLAWER O HONYNT
+[VERSE 1]
+CEILIOG bach y Wyddfa
+Yn canu ar y bryn,
+Hwyaid Aber Glaslyn
+Yn nofio ar y llyn;
+Gwyddau Hafod G’regog
+Yn gwaeddi “wich di wach,”
+A milgwn Jones Ynysfor
+Ar ol y llwynog bach.
+
+--- TITLE: CXXX.  LLE MAE PETHAU
+[VERSE 1]
+MAE yn y Bala flawd ar werth,
+Mae’n Mawddwy berth i lechu,
+Mae yn Llyn Tegid ddwr a gro,
+Mae’n Llundain o i bedoli;
+Ac yng Nghastell Dinas Brân
+Mae ffynnon lân i ymolchi.
+
+--- TITLE: CXXXI.  HEN LANC
+[VERSE 1]
+BRIODI di?
+Na wnaf byth!
+Wyt ti’n siwr?
+Ydw’n siwr.
+[VERSE 2]
+Hen lanc yn byw fy hunan
+Ydwyf fi;
+Yn meddu cwrs o arian,
+Ydwyf fi;
+Yn meddwl am briodi?
+Priodi, na wnaf byth;
+Waeth beth fydd gennyf wedyn,
+Ond poenau lond fy nyth.
+
+--- TITLE: CXXXII.  CARU FFYDDLON
+[VERSE 1]
+MAE nhw’n dwedyd ac yn son
+Mod i’n caru yn sir Fon;
+Minne sydd yn caru’n ffyddlon
+Dros y dŵr yn sir Gaernarfon.
+
+--- TITLE: CXXXIII.  CARU YMHELL
+[VERSE 1]
+CARU yng Nghaer, a charu yng Nghorwen,
+Caru yn Nyffryn Clwyd a Derwen;
+Caru ’mhellach dros y mynydd,
+Cael yng Nghynwyd gariad newydd.
+
+--- TITLE: CXXXIV.  ELISABETH
+[VERSE 1]
+ELISABETH bach, a briodwch chwi fi?
+Dyma’r amser gore i chwi;
+Tra bo’r drym yn mynd trwy’r dre,
+Tra bo’ch calon bach yn ei lle.
+
+--- TITLE: CXXXV.  SHONTYN
+[VERSE 1]
+SHONTYN, Shontyn, y gwr tynn;
+Clywed y cwbl, a dweyd dim.
+
+--- TITLE: CXXXVI.  GLAW
+[VERSE 1]
+MAE’N bwrw glaw allan,
+Mae’n hindda’n y ty,
+A merched Tregaron
+Yn chwalu’r gwlan du.
+
+--- TITLE: CXXXVII.  Y CARWR TRIST
+[VERSE 1]
+BACHGEN bach o Ddowles,
+Yn gweithio’n ngwaith y tân,
+Bron a thorri ’i galon
+Ar ol y ferch fach lân;
+Ei goesau fel y pibau,
+A’i freichiau fel y brwyn,
+Ei ben e fel pytaten,
+A hanner llath o drwyn.
+
+--- TITLE: CXXXVIII.  JOHN
+[VERSE 1]
+AR y ffordd wrth fynd i Lerpwl,
+Gwelais Iohn ar ben y cwpwr;
+Gofynnnis iddo beth oedd o’n wneyd;
+“Bwyta siwgwr, paid a deyd.”
+
+--- TITLE: CXXXIX.  BREUDDWYD
+[VERSE 1]
+GWELAIS neithiwr, drwy fy hun,
+Lanciau Llangwm bod yg un;
+Rhai mewn uwd, a rhai mewn llymru,
+A rhai mewn buddai, wedi boddi.
+
+--- TITLE: CXL.  PEDOLI, PEDINC
+[VERSE 1]
+PEDOLI, pedoli, pe-dinc,
+Mae’n rhaid i ni bedoli
+Tae e’n costio i ni bunt;
+Pedol yn ol, a phedol ymlaen,
+Pedol yn eise o dan y droed ase,—
+Bi-dinc, bi-dinc, bi-dinc.
+
+--- TITLE: CXLI.  PEDOLI, PEDROT
+[VERSE 1]
+PEDOLI, pedoli, pedoli, pe-drot,
+Mae’n rhaid i ni bedoli
+Tae e’n costio i ni rot;
+Pedol yn ol, a phedol ymlaen,
+Pedol yn eise o dan y droed ase,—
+Bi-drot, bi-drot, bi-drot.
+
+--- TITLE: CXLII.  PEDOLI’R CEFFYL GWYN
+[VERSE 1]
+PEDOLI, pedoli, pe-din,
+Pedoli’r ceffyl gwyn;
+Pedoli, pedoli, pe-doc,
+Pedoli’r ebol broc.
+
+--- TITLE: CXLIII.  ROBIN DIR-RIP
+[VERSE 1]
+ROBIN dir-rip,
+A’i geffyl a’i chwip;
+A’i gap yn ei law,
+Yn rhedeg trwy’r baw.
+
+--- TITLE: CXLIV.  GWCW!
+[VERSE 1]
+“GW-CW!” medd y gog,
+Ar y gangen gonglog;
+“Gw-cw!” medd y llall,
+Ar y gangen arall.
+
+--- TITLE: CXLV.  GARDYSON
+[VERSE 1]
+SHONI moni, coesau meinion,
+Cwtws y gath yu lle gardyson.
+
+--- TITLE: CXLVI.  ESGIDIAU
+[VERSE 1]
+LLE mae ’i sgidie?
+Pwy sgidie?
+Sgidie John.
+Pwy John?
+John diti.
+Pwy diti?
+Diti ’i fam.
+Pwy fam?
+I fam e’.
+Pwy e’?
+E’ ’i hunan.
+
+--- TITLE: CXLVII.  ROBIN GOCH
+[VERSE 1]
+ROBIN goch ar ben y rhiniog,
+A’i ddwy aden yn anwydog;
+Ac yn dwedyd yn ysmala,—
+“Mae hi’n oer, mi ddaw yn eira.”
+
+--- TITLE: CXLVIII.  CHWARE
+[VERSE 1]
+CANWCH y gloch!
+(_Tynnu yn un o’r cudynau gwallt_)
+Curwch y drws!
+(_Taro’r talcen a’r bys_)
+Codwch y glicied!
+(_Gwasgu blaen y trwyn i fyny_)
+Dowch i mewn, dowch i mewn, dowch i mewn!
+(_Rhoi’r bys ar y wefus_).
+
+--- TITLE: CXLIX.  CARIAD
+[VERSE 1]
+MAE gen i gariad glân, glân,
+Gwrid coch a dannedd mân;
+Ei dwy ael fel ede sidan,
+Gwallt ei phen fel gwiail arian.
+
+--- TITLE: CL.  DEWIS OFER
+[VERSE 1]
+MYND i’r ardd i dorri pwysi,
+Gwrthod lafant, gwrthod lili;
+Pasio’r pinc a’r rhosod cochion,
+Dewis pwysi o ddanadl poethion.
+
+--- TITLE: CLI.  LADI FACH BENFELEN
+[VERSE 1]
+LADI bach benfelen,
+Yn byw ar ben y graig,
+Mi bobith ac mi olchith,
+Gwnaiff imi burion gwraig;
+Mi startsith ac mi smwddith,
+Gwnaiff imi burion bwyd,
+Fe wnaiff i’r haul dywynnu
+Ar ben y Garreg Lwyd.
+
+--- TITLE: CLII.  CYDYMDEIMLAD
+[VERSE 1]
+TRUENI mawr oedd gweled
+Y merlyn bach diniwed,
+Ac arno fe y chwys yn drwyth,
+Wrth lusgo llwyth o ddefed.
+
+--- TITLE: CLIII.  APEL
+[VERSE 1]
+GLAW bach, cerr ffordd draw,
+A gad i’r haul ddod yma.
+
+--- TITLE: CLIV.  SAETHU LLONGAU
+[VERSE 1]
+WELSOCH chwi wynt, welsoch chwi law?
+Welsoch chwi dderyn bach ffordd draw?
+Welsoch chwi ddyn â photasen ledr,
+Yn saethu llongau brenin Lloegr?
+
+--- TITLE: CLV.  CEINIOG I MI
+[VERSE 1]
+SI so, si so,
+Deryn bach ar ben y to;
+Ceiniog i ti,
+Ceiniog i mi,
+A cheiniog i’r iar am ddodwy,
+A cheiniog i’r ceiliog am ganu.
+
+--- TITLE: CLVI.  Y TYWYDD
+[VERSE 1]
+BYS i fyny, teg yfory;
+Bys i lawr, glaw mawr.
+
+--- TITLE: CLVII., CLVIII.  CALANMAI
+[VERSE 1]
+DAW Clame, daw Clame,
+Daw dail ar bob twyn,—
+Daw meistr a meistres
+I edrych yn fwyn.
+[VERSE 2]
+A minne, ’rwy’n coelio,
+Yn hela i’m co,
+I’r gunog laeth enwyn
+Fod ganwaith dan glo.
+
+--- TITLE: CLIX.  CATH DDU
+[VERSE 1]
+AMEN, person pren,
+Cath ddu a chynffon wen.
+
+--- TITLE: CLX.  MYND A DOD
+[VERSE 1]
+HEI ding, diri diri dywn,
+Gyrru’r gwyddau bach i’r cawn;
+Dwad ’nol yn hwyr brynhawn,
+A’u crombilau bach yn llawn.
+
+--- TITLE: CLXI.  GYRU GWYDDAU
+[VERSE 1]
+HEN wraig bach yn gyrru gwyddau,
+Ar hyd y nos;
+O Langollen i Ddolgellau,
+Ar hyd y nos;
+Ac yn dwedyd wrth y llanciau,
+“Gyrrwch chwi, mi ddaliaf finnau,”
+O Langollen i Ddolgellau,
+Ar hyd y nos.
+
+--- TITLE: CLXII.  BWRW EIRA
+[VERSE 1]
+HEN wraig yn pluo gwyddau,
+Daw yn fuan ddyddiau’r gwyliau.
+
+--- TITLE: CLXIII.  BETH SYDD GENNYF
+[VERSE 1]
+MAE gen i iar, mae gen i geiliog,
+Mae gen i gywen felen gopog;
+Mae gen i fuwch yn rhoi i mi lefrith,
+Mae gen i gyrnen fawr o wenith.
+
+--- TITLE: CLXIV.  TAIR GWYDD
+[VERSE 1]
+GWYDD o flaen gŵydd,
+Gŵydd ar ol gŵydd,
+A rhwng pob dwy ŵydd, gŵydd;
+Sawl gŵydd oedd yno?
+
+--- TITLE: CLXV., CLXVI.  CARIAD Y MELINYDD
+[VERSE 1]
+MI af i’r eglwys Ddywsul nesa,
+Yn fy sidan at fy sodla;
+Dwed y merched wrth eu gilydd,—
+“Dacw gariad Wil Felinydd.”
+Os Wil Felinydd wyf yn garu,
+Rhoddaf bupur iddo falu;
+Llefrith gwyn i yrru’r felin,
+A chocos arian ar yr olwyn.
+
+--- TITLE: CLXVII.  CARIAD ARALL
+[VERSE 1]
+MAE’N dda gen i fuwch,
+Mae’n dda gen i oen,
+Mae’n dda gen i geffyl
+Yn llydan ei ffroen;
+Mae’n dda gen i ’r adar
+Sy’n canu yn y llwyn.
+Mae’n dda gen i fachgen
+A chrwb ar ei drwyn;
+A thipyn bach bach o ol y frech wen,
+Yn gwisgo het befer ar ochor ei ben.
+
+--- TITLE: CLXVIII.  GWRAIG
+[VERSE 1]
+MI fynnai wraig, mi wranta,
+Caiff godi’r bore’n nghynta;
+Troed yn ol a throed ymlaen,
+A throed i gicio’r pentan.
+
+--- TITLE: CLXIX., CLXX.  PRY BACH
+[VERSE 1]
+PRY bach yn mynd i’r coed,
+Dan droi ’i ferrau, dan droi ’i droed;
+Dwad adre yn y bore,
+Wedi colli un o’i sgidie.
+[VERSE 2]
+Pry bach yn edrych am dwll,
+Yn edrych am dwll, yn edrych am dwll,
+Pry bach yn edrych am dwll,
+A _dyma_ dwll, dwll, dwll, dwll, dwll.
+
+--- TITLE: BOWDEN,
+[VERSE 1]
+Gwas y Fowden,
+Libar labar,
+Gwas y stabal,
+Bys bach, druan gŵr,
+Dorrodd ’i ben wrth gario dŵr
+I mam i dylino.
+
+--- TITLE: CLXXII.  CHWARE’R BYSEDD
+[VERSE 1]
+“I’R coed,” medde Modryb y Mawd,
+“I be?” medde Bys yr Uwd;
+“I ladrata,” medde Hirfys;
+“Beth os dalian ni?” medde’r Canol-fys;
+“Dengwn, dengwn, rhag iddo’n dal ni,”
+Medde’r Bys Bach.
+
+--- TITLE: CLXXIII.  BWGAN
+[VERSE 1]
+BWGAN bo lol, a thwll yn ’i fol,
+Digon o le i geffyl a throl.
+
+--- TITLE: CLXXIV.  YR ENETH BENFELEN
+[VERSE 1]
+MAE geneth deg ben-felen
+Yn byw ym Mhen y Graig,
+Dymunwn yn fy nghalon
+Gael honno imi’n wraig;
+Hi fedr bobi a golchi,
+A thrin y tamaid bwyd,
+Ac ennill llawer ceiniog
+Er lles y bwthyn llwyd.
+
+--- TITLE: CLXXV.  Y WYLAN
+[VERSE 1]
+Y WYLAN fach adnebydd
+Pan fo’n gyfnewid tywydd;
+Hi hed yn deg, ar aden wen,
+O’r môr i ben ymynydd.
+
+--- TITLE: CLXXVI.  FY NGHARIAD
+[VERSE 1]
+DACW ’nghariad ar y dyffryn,
+Llygaid hwch a dannedd mochyn;
+A dau droed fel gwadn arad,
+Fel dyllhuan mae hi’n siarad.
+
+--- TITLE: CLXXVII.  DAU DDEWR
+[VERSE 1]
+DAU lanc ifanc yn mynd i garu,
+Ar noswaith dywell fel y fagddu;
+Swn cacynen yn y rhedyn
+A’u trodd nhw adre’n fawr eu dychryn.
+
+--- TITLE: CLXXVIII.  LLANC
+[VERSE 1]
+MI briodaf heddyw yn ddi-nam,
+Heb ddweyd un gair wrth nhad na mam.
+
+--- TITLE: CLXXIX.  YMFFROST
+[VERSE 1]
+CHWARELWR oedd fy nhaid,
+Chwarelwr oedd fy nhad;
+Chwarelwr ydwyf finnau,
+Y goreu yn y wlad;
+Chwarelwr ydyw’r baban
+Sy’n cysgu yn ei gryd,
+Ond tydi o’n beth rhyfedd
+Ein bod ni’n chwarelwyr i gyd?
+
+--- TITLE: CLXXX.  Y RHYBELWR BACH
+[VERSE 1]
+RHYBELWR bychan ydwyf,
+Yn gweithio hefo nhad,
+Mi allaf drin y cerrig
+Yn well na neb o’r wlad;
+’Rwy’n medru naddu _Princes_,
+Y _Squares_, a’r _Counties_ bach,
+Cyn hir caf finnau fargen,
+Os byddaf byw ac iach.
+
+--- TITLE: CLXXXI.  LLIFIO
+[VERSE 1]
+LLIFIO, llifio, llifio’n dynn,
+Grot y dydd y flwyddyn hyn;
+Os na lifiwn ni yn glau,
+’Nillwn ni ddim grot yn dau.
+
+--- TITLE: CLXXXII.  GOLCHI LLESTRI
+[VERSE 1]
+DORTI, Dorti, bara gwyn yn llosgi,
+Dŵr ar y tân i olchi’r llestri.
+
+--- TITLE: CLXXXIII.  CAP
+[VERSE 1]
+MORUS y gwynt,
+Ac Ifan y glaw,
+Daflodd fy nghap
+I ganol y baw.
+
+--- TITLE: CLXXXIV.  CLOCS
+[VERSE 1]
+MAE gen i bâr o glocs,
+A rheini’n bâr go dda,
+Fe barant dros y gaea,
+A thipyn bach yr ha;
+Os can nhw wadnau newydd,
+Fe barant dipyn hwy;
+A saith a dime’r glocsen,
+A phymtheg am y ddwy.
+
+--- TITLE: CLXXXV.  GLAW
+[VERSE 1]
+GLAW, glaw, cerdda draw;
+Haul, haul, tywynna.
+
+--- TITLE: CLXXXVI.  MERCHED DOL ’R ONNEN
+[VERSE 1]
+MAE’N bwrw glaw allan,
+Mae’n deg yn y tŷ,
+A merched Dol ’r Onnen
+Yn cribo’r gwlan du.
+
+--- TITLE: CLXXXVII.  LLIW’R GASEG
+[VERSE 1]
+CASEG winnau, coesau gwynion,
+Groenwen denau, garnau duon;
+Garnau duon, groenwen denau,
+Coesau gwynion, caseg winnau.
+
+--- TITLE: CLXXXVIII.  BERWI POTEN
+[VERSE 1]
+HEI, ding-a-ding, diri,
+Mae poten yn berwi,
+Shini a Shani yn gweithio tân dani;
+Shani’n ei phuro â phupur a fflŵr,
+Ychydig o laeth, a llawer o ddŵr.
+
+--- TITLE: CLXXXIX.  WRTH Y TAN
+[VERSE 1]
+DORTI, Dorti, bara gwyn yn llosgi,
+Dŵr ar y tân i olchi’r llestri;
+Crafwch y crochan gael creifion i’r ci,
+A hefyd gwnewch gofio
+Rhoi llaeth i’r gath ddu.
+
+--- TITLE: CXC.  PAWB WRTHI
+[VERSE 1]
+Y CI mawr yn pobi,
+Y ci bach yn corddi,
+A’r gath ddu yn golchi
+Ei gwyneb yn lân;
+Y wraig yn y popty
+Yn gwylio’r bara’n crasu,
+A’r llygod yn rhostio
+Y cig wrth y tân.
+
+--- TITLE: CXCI., CXCII.  TE A SIWGR GWYN
+[VERSE 1]
+HEN ferched bach y pentre,
+Yn gwisgo capie lasie,
+Yfed te a siwgr gwyn,
+A chadw dim i’r llancie.
+[VERSE 2]
+Bara a llaeth i’r llancie,
+Ceirch i’r hen geffyle,
+Cic yn ol, a chic ymlaen,
+A dim byd i’r genod.
+
+--- TITLE: CXCIII.  SI SO
+[VERSE 1]
+SI so, jac y do,
+Yn gwneyd ei nyth drwy dyllu’r to,
+Yn gwerthu’r mawn a phrynnu’r glo,
+Yn lladd y fuwch a blino’r llo,
+Yn cuddio’r arian yn y gro,
+A mynd i’r Werddon i roi tro,
+Si so, jac y do.
+
+--- TITLE: CXCIV.  I’R SIOP
+[VERSE 1]
+MAE gen i ebol melyn
+Yn codi’n bedair oed,
+A phedair pedol arian
+O dan ei bedwar troed;
+I’r siop fe geiff garlamu,
+I geisio llonnaid sach
+O de a siwgr candi
+I John a Mari fach.
+
+--- TITLE: CXCV.  CADW CATH DDU
+[VERSE 1]
+MAE gen i gath ddu,
+Fu erioed ei bath hi,
+Hi gurith y clagwydd,
+Hi dynnith ei blu;
+Mae ganddi winedd a barf,
+A rheini mor hardd,
+Hi helith y llygod
+Yn lluoedd o’r ardd;
+Daw eilwaith i’r ty,
+Hi gurith y ci,—
+Mi rown i chwi gyngor
+I gadw cath ddu.
+
+--- TITLE: CXCVI.  NEWID BYD
+[VERSE 1]
+AR ol bod yn ferch ifanc,
+A gwisgo fy ffrog wen,
+A’m gwallt i wedi ei blethu
+Fel coron ar fy mhen;
+A’m sgidiau wedi eu polsio,
+A’r rheiny’n cau yn glos,—
+Ar ol i mi briodi
+Rhaid i mi wisgo clocs.
+
+--- TITLE: CXCVII.  SIOM
+[VERSE 1]
+’ROWN i’n meddwl, ond priodi,
+Na chawn i ddim ond dawnsio a chanu;
+Ond y peth a ges i wedi priodi,
+Oedd siglo’r cryd a suo’r babi.
+
+--- TITLE: CXCVIII.  RHY WYNION
+[VERSE 1]
+MAE mam ynghyfraith, hwnt i’r afon,
+Yn gweld fy nillad yn rhy wynion;
+Mae hi’n meddwl yn ei chalon
+Mai ’mab hi sy’n prynnu’r sebon.
+
+--- TITLE: CXCIX.  DIM GWAITH
+[VERSE 1]
+YSGAFN boced, dillad llwyd,
+Mawr drugaredd yw cael bwyd;
+Mynd o gwmpas, troi o gwmpas,
+Ar hyd y fro;
+Ymofyn gwaith, dim gwaith,
+Trwm yw’r tro.
+
+--- TITLE: CC.  PWY FU FARW?
+[VERSE 1]
+PWY fu farw?
+“Sion Ben Tarw.”
+Pwy geiff y gwpan?
+“Sion Ben Tympan.”
+Pwy geiff y llwy?
+“Pobol y plwy.”
+
+--- TITLE: CCI.  P’LE MAE DY FAM?
+[VERSE 1]
+TITW bytaten, i ble’r aeth dy fam?
+Hi aeth i lygota a chafodd beth cam;
+Gwraig y ty nesaf a’i triniodd hi’n frwnt,
+Hi gurodd ei dannedd yng nghaead y stwnt.
+
+--- TITLE: CCII.  DAU ROBIN
+[VERSE 1]
+CRIO, crio, crio,
+Mae Robin ni yn groch;
+Canu, canu, canu,
+O hyd, mae Robin goch.
+
+--- TITLE: CCIII., CCIV.  SION
+[VERSE 1]
+SION i fyny, Sion i wared,
+Sion i garthu tan y gwartheg;
+Sion a ŵyr yn well na’r merched
+Pa sawl torth a wneir o beced.
+[VERSE 2]
+Fe geir pedair torth o phioled,
+Fe geir wyth o hanner peced;
+Ac os bydd y wraig yn hyswi,
+Fe geir teisen heblaw hynny.
+
+--- TITLE: CCV.  ABER GWESYN
+[VERSE 1]
+ABERGWESYN, cocyn coch,
+Mae cloch yn Abertawe;
+Mae eidion coch yng nghoed Plas Gwent,
+A pharlament yn Llunden.
+
+--- TITLE: CCVI.  CORWEN
+[VERSE 1]
+NEIDIODD llyffant ar ei naid
+O Lansantffraid i Lunden,
+Ac yn ei ol yr eilfed waith
+Ar ganllaw pont Llangollen;
+Ond yn lle disgynnedd y drydedd waith
+Ond ynghanol caerau Corwen.
+
+--- TITLE: CCVII.  DYFED
+[VERSE 1]
+DINCYLL, doncell, yn y Bridell;
+Tair cloch arian yng Nghilgeran;
+Uch ac och yn Llandudoch;
+Llefain a gwaeddi yn Aberteifi;
+Llaeth a chwrw yn Eglwys Wrw;
+Cario ceffyl pren trwy Eglwys Wen.
+
+--- TITLE: CCVIII.  RHUDDLAN
+[VERSE 1]
+Y COBLER coch o Ruddlan
+A aeth i foddi cath,
+Mewn cwd o lian newydd
+Nad oedd o damed gwaeth;
+Y cwd aeth hefo’r afon,
+Y gath a ddaeth i’r lan,
+Ow’r cobler coch o Ruddlan,
+On’d oedd o’n foddwr gwan?
+
+--- TITLE: CCIX., CCX.  AMEN
+[VERSE 1]
+“JOHN, John, gymri di jin?”
+“Cymra, cymra, os ca i o am ddim;”
+“Amen,” meddai’r ffon,
+“Dwgyd triswllt o siop John.”
+[VERSE 2]
+Lleuad yn oleu, plant bach yn chwareu,
+Lladron yn dwad dan weu hosanau,
+Taflu y ’sanau dros ben y cloddiau;
+“Amen,” meddai’r ffon,
+“Dwgyd sofren o siop John.”
+
+--- TITLE: CCXI.  JINI
+[VERSE 1]
+WELSOCH chwi Jini mewn difri?
+Yn tydi hi’n grand aneiri?
+Heten grand, a bwcwl a band,
+Yn tydi hi’n grand, mewn difri?
+
+--- TITLE: CCXII.  DAFYDD
+[VERSE 1]
+BACHGEN da ’di Dafydd,
+Gwisgo’i sgidie newydd;
+Cadw’r hen rai tan yr ha,
+Bachgen da ’di Dafydd.
+
+--- TITLE: CCXIII.  MAM YN DOD
+[VERSE 1]
+DACW mam yn dwad
+Wrth y garreg wen,
+Menyn yn ’i ffedog,
+A blawd ar ’i phen;
+[VERSE 2]
+Mae’r fuwch yn y beudy
+Yn brefu am y llo,
+A’r llo yr ochr arall
+Yn chware banjo.
+
+--- TITLE: CCXIV.  ROBIN YN DOD
+[VERSE 1]
+CLIRIWCH y stryd, a sefwch yn rhenc;
+Mae Robin, ding denc, yn dwad.
+
+--- TITLE: CCXV.  BACHGEN BACH OD
+[VERSE 1]
+BACHGEN bach o Felin y Wig,
+Welodd o ’rioed damaid o gig;
+Gwelodd falwen ar y bwrdd,
+Cipiodd ei gap, a rhedodd i ffwrdd.
+
+--- TITLE: CCXVI.  CAM A FI
+[VERSE 1]
+DI-LING, di-ling, pwdin yn brin;
+Meistr yn cael tamed, finne’n cael dim.
+
+--- TITLE: CCXVII.  NED DDRWG
+[VERSE 1]
+NEDI ddrwg, o dwll y mŵg,
+Gwerthu ’i fam am ddime ddrwg.
+
+--- TITLE: CCXVIII.  OED Y BACHGEN
+[VERSE 1]
+“BE ’di dy oed di?”
+Yr un oed a bawd fy nhroed,
+A thipyn hŷn na nannedd.
+
+--- TITLE: CCXIX.  Y BYSEDD
+[VERSE 1]
+FINI, fini, Fawd,
+Brawd y Fini Fawd,
+Wil Bibi,
+Sion Bobwr,
+Bys bach, druan gŵr,
+Dal ’i ben o dan y dŵr.
+
+--- TITLE: CCXX.  SI BEI
+[VERSE 1]
+CYSGA bei, babi,
+Yng nghôl dadi;
+Neu daw’r baglog mawr
+I dy mo’yn di’n awr.
+
+--- TITLE: CCXXI.  GA I FENTHYG CI?
+[VERSE 1]
+WELWCH chwi fi, a welwch chwi fi?
+Welwch chwi’n dda ga i fenthyg ci?
+Mae ci modryb Ann
+Wedi mynd i’r Llan;
+Mae ci modryb Elin
+Wedi mynd i’r felin;
+Mae ci modryb Catrin
+Allan ers meityn;
+Mae ci modryb Jane
+Wedi mynd yn hen;
+Mae ci modryb Sioned
+Yn methu a gweled;
+Mae ci tad-cu, a chi mam-gu,
+Wedi mynd allan hefo’n ci ni;
+A chi modryb Ann Ty’n y Coed
+Wedi llosgi ’i droed
+Mewn padell fawr o bwdin.
+
+--- TITLE: CCXXII.  CHWALU
+[VERSE 1]
+CHWLLIO’r tŷ a chwalu’r to,
+A thynnu efo thennyn,
+O forfa Caer i furiau Cent,
+Nadolig sy yn dilyn;
+A dal y lladron cas a hy,
+Fu’n torri ym Mhlas y Celyn.
+
+--- TITLE: CCXXIII.  PONT LLANGOLLEN
+[VERSE 1]
+MI weles ddwy lygoden,
+Yn cario pont Llangollen;
+Yn ol a blaen o gylch y ddôl,
+Ac yn eu hol drachefen.
+
+--- TITLE: CCXXIV.  ROBIN GOCH RHIWABON
+[VERSE 1]
+ROBIN goch o blwy Rhiwabon,
+Lyncodd bâr o fachau crochon;
+Bu’n edifar ganddo ganwaith,
+Eisieu llyncu llai ar unwaith.
+
+--- TITLE: CCXXV.  MEDR ELIS
+[VERSE 1]
+TRI pheth a fedr Elis,—
+Rhwymo’r eisin sil yn gidys,
+Dal y gwynt a’i roi mewn coden,
+Rhoi llyffethair ar draed malwen.
+
+--- TITLE: CCXXVI.  BWCH Y WYDDFA
+[VERSE 1]
+’ROEDD bwch yn nhroed y Wyddfa
+Yn rhwym wrth aerwy pren,
+A’r llall yn Ynys Enlli,
+Yn ymryson taro pen;
+Wrth swn y rhain yn taro,
+Mae hyn yn chwedl chwith,
+Fe syrthiodd clochdy’r Bermo,
+Ac ni chodwyd mohono byth.
+
+--- TITLE: CCXXVII.  CEFFYL JOHN BACH
+[VERSE 1]
+HEI gel, i’r dre; hei gel, adre,—
+Ceffyl John bach mor gynted a nhwnte.
+
+--- TITLE: CCXXVIII.  DADL DAU
+[VERSE 1]
+SION a Gwen sarrug,
+Ryw nos wrth y tân,
+Wrth son am eu cyfoeth,
+I ymremian yr aen;
+Sion fynnai ebol
+I bori ar y bryn,
+A Sian fynnai hwyaid
+I nofio ar y llyn.
+
+--- TITLE: CCXXIX.  YR HAFOD LOM
+[VERSE 1]
+MI af oddiyma i’r Hafod Lom,
+Er ei bod hi’n drom o siwrne,
+Mi gaf yno ganu cainc
+Ar ymyl mainc y simdde;
+Ac, ond odid; dyna’r fan
+Y bydda i tan y bore.
+
+--- TITLE: CCXXX.  COED Y PLWY
+[VERSE 1]
+HELYG a bedw, gwern a derw,
+Cyll, a mall, a bocs, ac yw;
+A choed shirins a gwsberins,
+A chelynen werddlas wiw.
+
+--- TITLE: CCXXXI.  HEN WRAIG SIARADUS
+[VERSE 1]
+HEN wraig o ymyl Rhuthyn,
+Aeth i’r afon i olchi pwdin;
+Tra bu’n siarad â’i chymdogion,
+Aeth y pwdin efo’r afon,
+Ar ol y cwd.
+
+--- TITLE: CCXXXII.  MOCHYN BACH
+[VERSE 1]
+JIM Cro crystyn,
+Wan, tw, and ffôr;
+Mochyn bach yn eistedd
+Yn ddel ar y stol.
+
+--- TITLE: CCXXXIII.  RHYFEDD IAWN
+[VERSE 1]
+AETH hen wraig i’r dre i brynnu pen tarw,
+Pan ddaeth hi’n ol ’roedd y plant wedi marw;
+Aeth i’r llofft i ganu’r gloch,
+Cwympodd lawr i stwnd y moch.
+
+--- TITLE: CCXXXIV.  Y STORI
+[VERSE 1]
+HEN wraig bach yn y gornel,
+A phib yn ei phen;
+Yn smocio llaeth enwyn,—
+Dyna’r stori ar ben.
+
+--- TITLE: CCXXXV.  CARLAM
+[VERSE 1]
+CALAP ar galap, a’r asyn ar drot,
+A finne’n clunhercan yn ddigon o sport.
+
+--- TITLE: CCXXXVI.  CALENNIG
+[VERSE 1]
+CALENNIG i mi, calennig i’r ffon,
+Calennig i fwyta, y noson hon;
+Calennig i’m tad am glytio’m sgidiau,
+Calennig i’m mam am drwsio’m sanau.
+
+--- TITLE: CCXXXVII.  CARTREF
+[VERSE 1]
+Dacw nhad yn naddu,
+A mam a nain yn nyddu,
+Y naill a’r droell fawr, a’r llall a’r droell fach,
+A nhaid yn y gornel yn canu.
+
+--- TITLE: CCXXXVIII.  DAFAD
+[VERSE 1]
+DAFAD ddu
+Finddu, fonddu,
+Felen gynffonddu,
+Foel, a chudyn a chynffon ddu.
+
+--- TITLE: CCXXXIX.  ADERYN Y BWN
+[VERSE 1]
+ADERYN y bwn a bama,
+A aeth i rodio’r gwylia,
+Ac wrth ddod adra ar hyd y nos,
+Fe syrthiodd i ffos y Wyddfa.
+
+--- TITLE: CCXL.  TAITH
+[VERSE 1]
+MALI bach a finna,
+Yn mynd i ffair y Bala;
+Dod yn ol ar gefn y frân,
+A phwys o wlan am ddima.
+
+--- TITLE: CCXLI.  CYFOETH SHONI
+[VERSE 1]
+SHONI o Ben y Clogwyn
+Yn berchen buwch a llo,
+A gafar bach a mochyn,
+A cheiliog,—go-go-go!
+
+--- TITLE: CCXLII.  A DDOI DI?
+[VERSE 1]
+A DDOI di, Mari anwyl,
+I’r eglwys gyda mi?
+Fy nghariad, a fy nghoron,
+A’m calon ydwyt ti.
+
+--- TITLE: CCXLIII.  GWLAN CWM DYLI
+[VERSE 1]
+FAINT ydyw gwIan y defaid breision,
+Hob y deri dando,
+Sydd yn pori yn sir Gaernarfon?
+Dyna ganu eto.
+“Ni gawn goron gron eleni,”—
+Tewch, taid, tewch,—
+“Am oreu gwlan yn holl Eryri.”
+Hei ho!  Hali ho!
+Gwlan Cwm Dyli, dyma fo.
+
+--- TITLE: CCXLIV., CCXLV.  BUM YN BYW
+[VERSE 1]
+BUM yn byw yn gynnil, gynnil,
+Aeth un ddafad imi’n ddwyfil;
+Bum yn byw yn afrad, afrad,
+Aeth y ddwyfil yn un ddafad.
+[VERSE 2]
+Bum yn byw yn afrad, afrad,
+Aeth y ddwyfil yn un ddafad;
+Bum yn byw yn gynnil, gynnil,
+Aeth un ddafad imi’n ddwyfil.
+
+--- TITLE: CCXLVI.  PEN Y MYNYDD DU
+[VERSE 1]
+PLE mae mam-gu?
+“Ar ben y Mynydd Du.”
+Pwy sydd gyda hi?
+“Oen gwyn a myharen ddu.
+Fe aeth i lan dros yr Heol Gan,
+Fe ddaw i lawr dros yr Heol Fawr.”
+
+--- TITLE: CCXLVII.  GWAITH TRI
+[VERSE 1]
+’ROEDD Sion, a Sian, a Siencyn,
+Yn byw yn sir y Fflint;
+Aeth Sion i hela’r cadno,
+A Sian i hela’r gwynt;
+A Siencyn fu
+Yn cadw’r ty.
+
+--- TITLE: CCXLVIII.  LADIS
+[VERSE 1]
+LADIS bach y pentre,
+Yn gwisgo cap a leise;
+Yfed te a siwgwr gwyn,
+A chadw dim i’r llancie;
+A modrwy aur ar ben pob bys,
+A chwrr eu crys yn llapre.
+
+--- TITLE: CCXLIX.  Y DARAN
+[VERSE 1]
+CLYWCH y tarw coch cethin,
+Yn rhuo draw yn y cae eithin;
+Clywir o bell, ni welir o byth.
+
+--- TITLE: CCL.  ENWAU
+[VERSE 1]
+MAE gennyf edefyn sidan,
+Mi dorraf f’ enw f hunan;
+M ac A ac O ac U,
+A dybl U for William.
+
+--- TITLE: CCLI.  PADELL FFRIO
+[VERSE 1]
+DU, du, fel y frân,
+Llathen o gynffon, a thwll yn ei blaen.
+
+--- TITLE: CCLII.  COES Y FRAN
+[VERSE 1]
+CWCW Glame, cosyn dime,
+Coes y frân ar ben y shime.
+[VERSE 2]
+CCLIII.—CCLVII.  CALENNIG.
+[VERSE 3]
+CALENNIG yn gyfan
+Ar fore dydd Calan,
+Unwaith, dwywaith, tair.
+[VERSE 4]
+Mi godais yn fore,
+Mi gerddais yn ffyrnig,
+At dŷ Mr Jones i ofyn calennig;
+Os gwelwch yn dda,
+Am swllt a chwecheiniog,
+Blwyddyn newydd dda
+Am ddimai neu geiniog.
+[VERSE 5]
+Dydd Calan, cynta’r flwyddyn,
+’Rwy’n dyfod ar eich traws,
+I ymofyn am y geiniog,
+Neu glwt o fara a chaws;
+Edrychwch arna i ’n siriol,
+Newidiwch ddim o’ch gwedd,
+Cyn daw Dydd Calan nesaf
+Bydd llawer yn y bedd.
+[VERSE 6]
+Mi godes heddi mas o ’nhy,
+A’m ffon a’m cwdyn gyda fi;
+A thyma’m neges ar eich traws,
+Yw llanw ’nghwd o fara a chaws.
+[VERSE 7]
+Dydd Calan yw heddy, onite?
+Na rowch chwi ddim i blant y dre;
+Ond rhowch galennig pert dros ben
+I blant Cwm Coi a phlant Dre Wen.
+
+--- TITLE: CCLVIII.  DWY WYDD RADLON
+[VERSE 1]
+DWY ŵydd radlon,
+Yn pori’n nglan yr afon,
+Yn rhadloned a’r rhadlonaf ŵydd,
+Dwy ŵydd radlon.
+
+--- TITLE: CCLIX.  IAR DDA
+[VERSE 1]
+’ROEDD gen i iar yn gori
+Ar ben y Frenni Fawr;
+A deg o wyau dani,—
+Daeth un ar ddeg i lawr.
+
+--- TITLE: CCLX.  PLE’R A’R ADAR
+[VERSE 1]
+B’LE ti’n mynd, b’le ti’n mynd,
+Yr hen dderyn bach?
+I sythu cyn bo ti’n marw?
+Pwy mor uchel wyt ti’n byw,
+Gael dweyd wrth Ddafydd Huw?
+O, trueni am yr hen dderyn bach.
+
+--- TITLE: CCLXI.  WEL, WEL
+[VERSE 1]
+MI weles ferch yn godro,
+A menyg am ei dwylo,
+Yn sychu’r llaeth yng nghwrr ei chrys,
+A merch Dai Rhys oedd honno.
+
+--- TITLE: CCLXII.  TEIMLAD DA
+[VERSE 1]
+MAE’N dda gen i ddefaid, mae’n dda gen i ŵyn,
+Mae’n dda gen i feinwen a phant yn ei thrwyn;
+A thipyn bach bach o ol y frech wen,
+Yn gwisgo het befar ar ochr ei phen.
+
+--- TITLE: CCLXIII.  DAU GANU
+[VERSE 1]
+MAE gen i ganu byrr bach,—
+Ffiol a llwy, a sucan a llaeth;
+Mae gen i ganu byrr bach sy hwy,—
+Ffiol a llaeth, a sucan a llwy.
+
+--- TITLE: CCLXIV.  TARW CORNIOG
+[VERSE 1]
+TARW corniog, torri cyrnau,
+Heglau baglog, higlau byglau;
+Higlau byglau, heglau baglog,
+Torri cyrnau tarw corniog.
+
+--- TITLE: CCLXV.  PE TASAI
+[VERSE 1]
+PE tasai’r Wyddfa i gyd yn gaws,
+Fe fuasai’n haws cael enllyn;
+A Moel Eiddia’n fara gwyn,
+A’r llyn yn hufen melyn.
+
+--- TITLE: CCLXVI.  TRO FFOL
+[VERSE 1]
+FY modryb, iy modryb, a daflodd ei chwd,
+Dros bont Aber Glaslyn, i ganol y ffrwd;
+Cnau ac afalau oedd ynddo fo’n dynn,
+Mi wn fod yn ’difar i’w chalon cyn hyn.
+
+--- TITLE: CCLXVII.  FEL DAW TADA ADRE
+[VERSE 1]
+DYDD Gwener a dydd Sadwrn
+Sydd nesa at ddydd Sul;
+Daw dada bach tuag adre,
+Mewn trol a bastard mul.
+
+--- TITLE: CCLXVIII.  BUWCH
+[VERSE 1]
+MAE gennyf fuwch a dau gorn arian,
+Mae gennyf fuwch yn godro’i hunan;
+Mae gennyf fuwch yn llanw’r stwcau,
+Fel mae’r môr yn llanw’r beiau.
+
+--- TITLE: CCLXIX.  LLE PORI
+[VERSE 1]
+MARC a Meurig, b’le buoch chwi’n pori?
+“Ar y Waen Las, gerllaw Llety Brongu.”
+Beth gawsoch chwi yno yn well nag yma?
+“Porfa fras, a dŵr ffynhonna.”
+
+--- TITLE: CCLXX.  O GWCW
+[VERSE 1]
+O GWCW, O gwcw, b’le buost ti cyd
+Cyn dod i Benparce?  Ti aethost yn fud.
+“Meddyliais fod yma bythefnos yn gynt,
+Mi godais fy aden i fyny i’r gwynt;
+Ni wnes gamgymeriad, nid oeddwn mor ffol,
+Corwynt o’r gogledd a’m cadwodd i’n ol.”
+
+--- TITLE: CCLXXI.  LLIFIO
+[VERSE 1]
+LLIFIO â llif,
+Am geiniog y dydd;
+Llifio pren bedw,
+Yng nghoed yr hen widw;
+Bocs i John, a bocs i finne,
+Bocs i bawb drwy’r tŷ ’s bydd eise.
+
+--- TITLE: CCLXXII.  AR OL Y LLYGOD
+[VERSE 1]
+WIL ffril ffralog
+A’i gledde tair ceiniog,
+Yn erlid y llygod trwy’r llydi;
+Aeth y llygod i’r dowlad,
+Aeth Wil i ’mofyn lletwad;
+Aeth llygod i’r ddol.
+Aeth Wil ar eu hol,
+Aeth y llygod i foddi,
+Aeth Wil i gysgu.
+
+--- TITLE: CCLXXIII.  ELRINEN
+[VERSE 1]
+HEN wraig bach, den, den,
+Pais ddu, a het wen,
+Calon garreg, a choes bren.
+
+--- TITLE: CCLXXIV.  CREMPOG
+[VERSE 1]
+OS gwelwch chwi’n dda, ga’i grempog?
+Mae mam yn rhy dlawd
+I brynnu blawd,
+A nhad yn rhy ddiog i weithio;
+Halen i’r ci bach,
+Bwyd i’r gath bach,
+Mae ngheg i’n grimpin eisiau crempog.
+
+--- TITLE: CCLXXV.  YR AWYR
+[VERSE 1]
+DOL las lydan,
+Lot o wyddau bach penchwiban,
+A chlagwydd pen aur, a gwydd ben arian.
+
+--- TITLE: CCLXXVI.  NYTH Y DRYW
+[VERSE 1]
+Y NEB a dynno nyth y dryw,
+Ni wel ddaioni tra bo byw.
+
+--- TITLE: CCLXXVII.  NYTH YR EHEDYDD
+[VERSE 1]
+Y NEB a dynno nyth ehedydd,
+Cyll oddiar ei ben ei fedydd.
+
+--- TITLE: CCLXXVIII.  NYTH ROBIN
+[VERSE 1]
+OS tynni nyth y robin,
+Ti gei gorco yn dy goffin.
+
+--- TITLE: CCLXXIX.  CARU CYNTAF
+[VERSE 1]
+PAN eis i gynta i garu,
+Nid own ond bachgen bach,
+Yn methu cyrraedd cusan
+Heb fynd i ben stol fach;
+Pan es i garu wedyn,
+Yr own yn fachgen mawr,
+Yn gallu cyrraedd cusan
+A ’nwy droed ar y llawr.
+
+--- TITLE: CCLXXX.  CHWYTHU
+[VERSE 1]
+Y GWYNT ffalwm ar fawr hwthrwm,
+Chwyth dy dŷ di’n bendramwgwm.
+
+--- TITLE: CCLXXXI.  CAMGYMERIAD
+[VERSE 1]
+PAN own i’n mynd â brâg tua’r felin,
+Meddylies i fi gwrdd â brenin;
+Erbyn edrych, beth oedd yno?
+Hen gel gwyn oedd bron a thrigo.
+
+--- TITLE: CCLXXXII.  CAN IAR
+[VERSE 1]
+A GLYWAIST ti
+Gân ein iar ni?—
+“Dodwy, dodwy ’rioed,
+Heb un esgid am fy nhroed;
+A phe bawn yn dodwy byth,
+Ni chawn ond _un_ wy yn fy nyth.”
+“Taw’r ffolog,” ebai’r ceiliog,
+“Wnaeth y crydd ’rioed esgid fforchog.”
+
+--- TITLE: CCLXXXIII.  CAN IAR ARALL
+[VERSE 1]
+“MI ddodwas wy heddyw, mi ddodwas wy ddoe;
+Mi wn i’r lle’r aeth,—
+Morwyn y tŷ holws, gwraig y ty triniws,
+Gŵr y ty bytws,—a dyna lle’r aeth.”
+
+--- TITLE: CCLXXXIV.  MYND
+[VERSE 1]
+AR garlam, ar garlam, i ffair Abergele,
+Ar ffrwst, ar ffrwst, i ffair Lanrwst,
+Ar dith, ar dith, i ffair y Ffrith,
+Ar drot, ar drot, i ffair Llan-mot,
+O gam i gam i dŷ Modryb Ann.
+
+--- TITLE: CCLXXXV.  AMSER CODI
+[VERSE 1]
+MAE’R ceiliog coch yn canu,
+Mae’n bryd i minne godi,
+Mae’r bechgyn drwg yn mynd tua’r glo,
+A’r fuwch a’r llo yn brefu.
+
+--- TITLE: CCLXXXVI.  IAR FACH
+[VERSE 1]
+IAR fach bert yw ngiar fach i,
+Gwyn a choch a melyn a du;
+Fe aeth i’r coed i ddodwy wy,
+Cwnmws ei chwt, a ffwrdd â hi.
+[VERSE 2]
+CCLXXXVII.—CCXCI.  MEDDE BIBYN WRTH BOBYN.
+[VERSE 3]
+“A ddoi di i’r coed?” medde Bibyn wrth Bobyn,
+“A ddoi di i’r coed?” medde Richard wrth Robin,
+“A ddoi di i’r coed?” medde’r bachgen ei hun,
+“A ddoi di i’r coed?” medde nhw bod yg un.
+[VERSE 4]
+“Beth wnawn ni yno?” medde Bibyn wrth Bobyn,
+“Beth wnawn ni yno?” medde Richard wrth Robin,
+“Beth wnawn ni yno?” medde’r bachgen ei hun,
+“Beth wnawn ni yno?” medde nhw bod yg un.
+[VERSE 5]
+“Hela’r dryw bach,” medde Bibyn wrth Bobyn,
+“Hela’r dryw bach,” medda Richard wrth Robin,
+“Hela’r dryw bach,” medde’r bachgen ei hun,
+“Hela’r dryw bach,” medde nhw bod yg un.
+[VERSE 6]
+“Beth wnawn ni wedyn?” medde Bibyn wrth Bobyn,
+“Beth wnawn ni wedyn?” medde Richard wrth Robin,
+“Beth wnawn ni wedyn?” medde’r bachgen ei hun,
+“Beth wnawn ni wedyn?” medda nhw bod yg un.
+[VERSE 7]
+“Gwneyd potes â fo,” medde Bibyn wrth Bobyn,
+“Gwneyd potes â fo,” medde Richard wrth Robin,
+“Gwneyd potes â fo,” medde’r bachgen ei hun;
+A boddi mewn potes ddaru nhw, bod yg un.
+
+--- TITLE: CCXCII.  STORIAU HEN GASEG
+[VERSE 1]
+MI ddeuda i ti stori,—
+Hen gaseg yn pori.
+Mi ddeuda i ti ddwy,—
+Hen gaseg ar y plwy.
+Mi ddeuda i ti dair,—
+Hen gaseg yn y ffair.
+Mi ddeuda i ti beder,—
+Hen gaseg yn colli pedol.
+Mi ddeuda i ti bump,—
+Hen gaseg ar ei phwmp.
+Mi ddeuda i ti chwech,—
+Hen gaseg frech.
+Mi ddeuda i ti saith,—
+Hen gaseg fraith.
+Mi ddeuda i ti wyth,—
+Hen gaseg yn rhoi pwyth.
+Mi ddeuda i ti naw,—
+Hen gaseg yn y baw.
+Mi ddeuda i ti ddeg,—
+Hen gaseg ar y clwt teg.
+
+--- TITLE: CCXCIII.  GYNT
+[VERSE 1]
+PAN oeddwn yn ferch ifanc,
+Ac yn fy ffedog wen,
+Yn gwisgo’m cnotyn sidan
+Yn uchel ar fy mhen,
+Mi neidiwn gainc yn wisgi,
+Mi ddaliwn ’nghorff yn syth,
+Meddyliais y pryd hynny,—
+“Ddaw henaint ata i byth.”
+
+--- TITLE: CCXCIV.  Y DERYN BACH SYW
+[VERSE 1]
+I ble ti’n mynd heddy ’deryn bach syw?
+I mofyn bara, os bydda’i byw;
+I beth ti’n mo’yn a bara, ’deryn bach syw?
+I ddodi yn ’y nghawl, os bydda’i byw;
+I beth ti’n mo’yn a cawl, ’deryn bach syw?
+I ddodi yn ’y mola, os bydda’i byw;
+I beth ti’n mo’yn a bola, ’deryn bach syw?
+Wel, ond bai bola, byddwn ni ddim byw.
+
+--- TITLE: CCXCV.  TLODI
+[VERSE 1]
+Nid oes gen i na buwch na dafad,
+Na giar na cheiliog wrth fy ngalwad,
+Ond bwth o dŷ, a hwnw’n fudur,
+A thwll o ffenast heb un gwydyr.
+
+--- TITLE: CCXCVI.  UNO
+[VERSE 1]
+Gwelais neithiwr trwy fy hun,
+Dair gwlad yn mynd yn un;
+Fala’n tyfu ar friga’r brwyn,
+A phob hen wraig yn eneth fach, fwyn.
+
+--- TITLE: CCXCVII.  PRIODI FFOL
+[VERSE 1]
+Mae mwy ysywaeth yn priodi,
+Nag sydd a chig at Sul i ferwi.
+
+--- TITLE: CCXCVIII.  BRITH Y FUCHES
+[VERSE 1]
+MAE nhw’n dwedyd am yr adar,
+Nad oes un o’r rhain heb gymar;
+Gwelais dderyn brith y fuches,
+Heb un cymar na chymhares.
+
+--- TITLE: CCXCIX.  CALON DROM
+[VERSE 1]
+MAE’M calon i mor drymed
+A’r march sy’n dringo’r rhiw,
+Wrth geisio bod yn llawen,
+Nis medraf yn fy myw;
+Mae’r esgid fach yn gwasgu
+Mewn man nas gwyddoch chwi,
+A llawer gofid meddwl
+Sy’n torri ’nghalon i.
+
+--- TITLE: CCC.  NOS DA
+[VERSE 1]
+DOS i’th wely ’rwan,
+Dos i’th wely ’rwan;
+Dos i’th wely fel yr wyt,

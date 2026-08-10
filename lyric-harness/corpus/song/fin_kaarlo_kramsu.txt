@@ -1,0 +1,1191 @@
+# author: Kaarlo Kramsu (1855-1895)
+# source: GITenberg PG 16395 -- file raw_16395-8.txt, ISO-8859-1
+# licence: public domain -- GITenberg metadata.yaml rights 'Public domain in the
+#         USA.', rights_url creativecommons.org/about/pdm; author died 1895,
+#         which clears the project's 1931 cutoff by author-death route (2).
+# edition: Runoelmia -- the file carries the imprint line 'Werner Söderström 1887.'
+# SELECTION -- THIS IS A SUBSET AND THE RULE IS DECLARED (doctrine 32).
+#         The source volume is a collected-POEMS book. A poem is staged only on
+#         positive evidence that it was SUNG, and '--- SUNG-EVIDENCE' names the
+#         route for every block:
+#           tune     the source prints 'Nuotti: X' over the poem -- a
+#                    CONTRAFACTUM, a text written to a named existing melody.
+#                    Strongest route. Rendered as [air: X] on the TITLE line,
+#                    matching corpus/song/eng_celtic_thomas_moore.txt.
+#           refrain  a 1-4 line group recurring VERBATIM at least twice, at
+#                    stanza boundaries. Structural, language-independent.
+#           title    the title names a sung form (laulu, virsi, marssi, hymni,
+#                    juomalaulu, kehtolaulu ...). WEAKEST route, and labelled.
+#         17 poems staged, 37 left behind, out of 54 units the
+#         volume was split into. The split is TYPOGRAPHIC: a title is a line of
+#         <= 60 characters preceded by >= 3 blank lines and followed by >= 1.
+#         Section headings therefore appear as units and fall out unstaged,
+#         which is why the 'left behind' count is the honest denominator.
+# orthography: 19th-century Finnish as printed, UNNORMALISED. The apostrophe is
+#         the Finnish hiatus/elision mark that SPLITS (doctrine 65) and
+#         quality/phonology/fin.py reads it so; the hyphen is a compound seam
+#         that blocks resyllabification.
+# structure: [VERSE n] stanza as printed; [REFRAIN] the verbatim repeated group.
+
+--- TITLE: Haihtumaton muisto.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x2 (4 lines)
+
+[REFRAIN]
+Muut muistot haihtuu, katoaa,
+Yks säilyy yksinään:
+Onk' iloinen vai suruinen,
+En tiedä itsekään.
+
+[VERSE 1]
+Kun riemun päivyt loistettaan
+Mun elontiellein luo,
+Kuin varjo aina muassain
+Käy muiston haamu tuo.
+
+[VERSE 2]
+Kun murhe mielen valloittaa
+Ja silmä kyyneltyy,
+Ei murhe sitä yksin tee:
+Se on myös muiston syy.
+
+[VERSE 3]
+Se mukanani vaeltaa,
+Jos minne kulkenen;
+Sit' aattelen, jos puhelen
+Tai muita kuuntelen.
+
+[VERSE 4]
+Siit' erota en tahdokaan,
+Se kanssain vanhentuu.
+Se minun on! Ei niitäkään
+Siit' tiedä kenkään muu.
+
+[REFRAIN]
+Muut muistot haihtuu, katoaa,
+Yks säilyy yksinään:
+Onk' iloinen vai suruinen,
+En tiedä itsekään.
+
+--- TITLE: Taneli Luukkonen.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Näin Luukkonen rohkea lausui:
+"Nyt teille mä tarjoan,
+Te korpien väijyvät sissit,
+Urotyön niin loistavan".
+
+[VERSE 2]
+"Teit' ajohon otuksen kutsun
+Niin uljahan, voimakkaan,
+Ett'ei sen vertaista nähty
+Ole saloilla Suomenmaan."
+
+[VERSE 3]
+"Sen otuksen pyytää mä tahdon;
+Mua siinä te auttakaa!
+Kuningas siit' teitä kiittää
+Ja Ruotsin ja Suomen maa."
+
+[VERSE 4]
+"Nyt Venäjän mahtava Tsaari
+Lähitienoilla majailee,
+Hän, jonka rautainen koura
+Sulo maatamme runtelee."
+
+[VERSE 5]
+"Nyt kuivata voimme kaikki
+Verikyyneleet Suomenmaan.
+Ken sortoa enään pelkäis,
+Otus semmoinen saaliinaan?"
+
+[VERSE 6]
+Ja riemuiten sissit huusi:
+"Sua seuraamme, Luukkonen!"
+Mut Långström, iloinen veikko,
+Hän huudahti nauraen:
+
+[VERSE 7]
+"Mä leikissä myös olen myötä,
+Mut sitä te muistakaat:
+Nuo otukset suuret ne potkii,
+Ja koivet on voimakkaat."
+
+[VERSE 8]
+Jo nukkui levossa Tsaari,
+Mut äkkiä heräjää,
+Kun ulkona huudot kaikuu
+Ja asehet helähtää.
+
+[VERSE 9]
+Nuo metsien hurjat sissit
+Ovat tulleet peitossa yön
+Nyt Tsaarin he vangita tahtoo,
+Nyt alkavat verityön.
+
+[VERSE 10]
+Mut Tsaarin vartijamiehet
+On uljaat taistelemaan.
+Ei kuolemata he kammo,
+Ei väisty he paikaltaan.
+
+[VERSE 11]
+Ja vihdoin kun taistelu lakkas,
+Ja vastus voitettu on,
+Niin nähtihin, että Tsaari
+Pois päässyt on pakohon.
+
+[VERSE 12]
+Ja Luukkonen kuolleita katsoi,
+Veriuhreja urhotyön:
+"En teidän tähden mä tänne
+Ole rientänyt halki yön".
+
+[VERSE 13]
+"Otus oiva täällä on nähty.
+Sitä pyytää mä halusin.
+Mut kurjien orjain ruumiit,
+Mitä niistä mä huolisin?"
+
+[VERSE 14]
+Mut Långström, iloinen veikko,
+Hän naurahti, lausuen:
+"Ei saalista aina saada,
+Vaikk' ollaan jäljillä sen".
+
+[VERSE 15]
+"Vaan siitä sä ylpeillä taidat,
+Ett' ajettu milloinkaan
+Niin jaloa otust' ei ennen
+Ole saloilla Suomenmaan."
+
+[VERSE 16]
+"Enk' usko, ett' edes vasta
+Niin uljahan otuksen
+Käy kimppuhun talonpoika,
+Kuin käynyt on Luukkonen!"
+
+--- TITLE: Vanha lauluni.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Mä lauloin kerran laulusen,
+Ei suuri ollut arvo sen;
+Mut sydämestäni laulu kulki,
+Sisimmät tunteeni saattain julki.
+
+[VERSE 2]
+On mennyt aikaa -- hiukka vaan
+Taas käteeni tuon laulun saan.
+Mut outo on se! Nuo sanat miksi
+On kaikki käyneet niin vierahiksi?
+
+[VERSE 3]
+Kyll' lauluni on entinen,
+Ei muuttuneet oo sanat sen;
+Mut sydän muutti kai sisimpänsä:
+Ei tunne entistä itseänsä.
+
+--- TITLE: Wäinämöisen kantele.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x5 (2 lines)
+
+[VERSE 1]
+Wäinö mielin murheisin
+Maan hylkäs isiensä,
+Niin kanteleensa kuitenkin
+Hän jätti jälkehensä.
+Ei sittemmin oo kuitenkaan
+Tuo kannel soinut milloinkaan.
+
+[VERSE 2]
+Tää kantele, niin kerrotaan,
+Jäi onnen tuottajaksi:
+Kun soipi se, se soitollaan
+Saa Suomen onnelaksi.
+Ei sittemmin oo kuitenkaan
+Tuo kannel soinut milloinkaan.
+
+[VERSE 3]
+Kun kuuluu ääni kanteleen,
+Niin yhtyy Suomen kansa,
+Mi sortuneena hajalleen
+On surrut onneansa.
+Ei sittemmin oo kuitenkaan
+Tuo kannel soinut milloinkaan.
+
+[VERSE 4]
+Tuo soiton ääni tenhoinen
+On ääni Jumalitten:
+Se kutsuu veljet veljien
+Sylihin surevitten.
+Ei sittemmin oo kuitenkaan
+Tuo kannel soinut milloinkaan.
+
+[VERSE 5]
+Heit' usko, tavat vieroita
+Ei enää toisistansa!
+Oi, miks' ei sulo kannelta
+Jo kuule Suomen kansa?
+Ei sittemmin oo kuitenkaan
+Tuo kannel soinut milloinkaan.
+
+[VERSE 6]
+Ei löytynyt lie soittajaa;
+Se syynä olla voisko?
+Vai turhaa utu-unelmaa
+Tää tarina vaan oisko?
+Ei sittemmin oo ainakaan
+Tuo kannel soinut milloinkaan.
+
+--- TITLE: Hannu Krankka.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Läks joukko reipas, nuori
+Lakeilta Limingan,
+Sotahan itsens suori
+Uhaksi sortajan.
+
+[VERSE 2]
+Käy Hannu Krankka heitä,
+Mies uljas, johtamaan;
+Vienassa surman teitä
+Jo oppi astumaan.
+
+[VERSE 3]
+Levinnyt kaikkialla
+On tieto kamalin:
+"On lyöty Nokialla
+Jo joukko Ilkankin."
+
+[VERSE 4]
+Mut suremaan ken jouti,
+Kun tullut tieto on,
+Ett' tulossa on vouti
+Jo Abram Melchersson!
+
+[VERSE 5]
+Hän luulee voivans, houkko,
+Lannistaa Pohjanmaan,
+Ja sotilaita joukko
+Häll' onpi seurassaan.
+
+[VERSE 6]
+Mut Krankka tämän kuullen
+Näin mietti mielessään:
+Sit' ennen, niin mä luulen,
+Viel' leikki leikitään.
+
+[VERSE 7]
+Vaan lähteissänsä vielä
+Käy luo hän tietäjän:
+"Kuink', ukko, sodan tiellä
+Sä näät mun kestävän?"
+
+[VERSE 8]
+Ja vanhus kohoaapi
+Ja häneen katsahtaa:
+"Verissäns valittaapi
+Koht' armas Suomenmaa."
+
+[VERSE 9]
+"Ja vainon valta vankka
+Se maassa vallitsee;
+Mut sua, Hannu Krankka,
+Ain' onnes suojelee."
+
+[VERSE 10]
+"Vaan mieleesi sä paina
+Tää neuvo totinen:
+Sä karhu tapa aina,
+Ennenkuin nyljet sen."
+
+[VERSE 11]
+Ja joukko reipas lähti
+Lakeilta Limingan,
+Ja joutuisasti ehti
+Se luoksi Kokkolan.
+
+[VERSE 12]
+Nyt siellä Hannu Krankka
+Tarkastaa joukkoaan:
+Iin väki tuima, vankka
+Ei väisty milloinkaan.
+
+[VERSE 13]
+Ja Kemin kookas kansa,
+Nuo urhot rotevat,
+Ylpeillen voimistansa,
+Ain' itseens luottavat.
+
+[VERSE 14]
+Mut miehet reippaat, sorjat
+Ja liukkaat Limingan,
+On taistelussa norjat
+Ja uljaat ainian.
+
+[VERSE 15]
+Vaan odotus ei työnä
+Heill' ole kauankaan.
+Jo vouti talviyönä
+Myös rientää Kokkolaan.
+
+[VERSE 16]
+Ja Krankan joukkokunta
+Nyt verileikin saa,
+Ja hurmevirrat lunta
+Lämpöiset sulattaa.
+
+[VERSE 17]
+Ei Nuijajoukko taivu,
+Saa vouti tappion:
+Ken verihins ei vaivu,
+Hän pyrkii pakohon.
+
+[VERSE 18]
+Pakohon hevosensa
+Myös vouti käännättää,
+Kun hänen rinnallensa
+Jo Krankka ennättää.
+
+[VERSE 19]
+Ei vastustus nyt auta,
+Hän Krankan vanki on:
+"Nyt ilkitöistäs hauta
+Sun perii kunnoton."
+
+[VERSE 20]
+"Mut ennen kuin mä sulle
+Kaikk' kostan konnantyös,
+Sä turkkis anna mulle,
+Se hyv' on talviyöss'."
+
+[VERSE 21]
+Hän turkin hältä riisti
+Ja yllens puki sen.
+Se oli pulska, siisti,
+Mut turmiollinen.
+
+[VERSE 22]
+Sill' urhot innossansa
+Jo vainoo uhriaan:
+"Tuoll' on hän, turkistansa
+Hän kyllä tunnetaan."
+
+[VERSE 23]
+Ja käsivarret tuimat
+Aseita heiluttaa,
+Ja sivallukset huimat
+Miest' uhkaa uhkeaa.
+
+[VERSE 24]
+Rajusti Krankka torjui
+Nuo iskut päältähän,
+Ja Nuijajoukko horjui,
+Kun jälleen iski hän.
+
+[VERSE 25]
+Ei iskut häntä yllä,
+Ja miehet huutamaan:
+"Hän Krankka on, hän kyllä
+Kädestä tunnetaan."
+
+[VERSE 26]
+Ja melske huima herkes,
+Ja kukin ä'issään,
+Niin nopeaan kuin kerkes.
+Taas voudin etsintään.
+
+[VERSE 27]
+Mut hänt' ei löytynynnä,
+On turhaa kaikki työ:
+On vouti lymynnynnä,
+Ja suojanans on yö.
+
+[VERSE 28]
+Ja Krankka hymyhuulin
+Näin lausui huo'aten:
+"Mä neuvon viisaan kuulin,
+Mut ymmärtänyt en."
+
+[VERSE 29]
+"Jos muistanut mä oisin
+Tuon neuvon mielevän,
+Niin nähnyt oisin toisin
+Tään leikin päättyvän."
+
+[VERSE 30]
+"Ei voitto loistossansa
+Niin uljas, verinen,
+Ois ollut lopussansa
+Niin hullunkurinen."
+
+[VERSE 31]
+"Siis sanaa taidokasta
+Kaikk' urhot muistakoot:
+"Sä karhu nylje vasta,
+Kun tappanut sen oot."
+
+--- TITLE: Jaakkima Berends.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x2 (4 lines)
+
+[VERSE 1]
+Berends herra hovissansa
+Mies ol' aimo aikanaan,
+Kauas kaikui kunniansa
+Yli suuren Suomenmaan.
+
+[VERSE 2]
+Jalo oli herran henki,
+Suuria se mietti vaan:
+Rovon rosvos viimeisenki
+Köyhältä hän miekallaan.
+
+[VERSE 3]
+Naapurina Peipon maata
+Talonpoika omistaa.
+Koskaan tavata et saata
+Talonpoikaa parempaa.
+
+[VERSE 4]
+Naapurihin Berends kerran
+Hovistansa ratsastaa.
+Uljas oli ryhti herran,
+Uljaast' orhi korskuaa.
+
+[VERSE 5]
+Joutuisasti hepo juoksi,
+Kohta kulunut on tie:
+Peippolahan, talon luoksi,
+Ratsu isäntänsä vie,
+
+[VERSE 6]
+Katsojalle kaunoisasti
+Viljapellot vihannoi.
+Talonpoika taitavasti
+Raataa siellä, minkä voi.
+
+[VERSE 7]
+Mutkat halpaa halvemmiksi
+Herran jalo mieli ties.
+Asiansa ajoi siksi
+Suoraan Berends, niinkuin mies.
+
+[VERSE 8]
+"Maistasi", hän ärjyy, "näistä
+Luovu, minulle ne suo.
+Tieltä voimakkaamman väistä,
+Tapa viisahan on tuo."
+
+[REFRAIN]
+Talonpoika joutuisasti,
+Herran eessä paljain päin,
+Kumartaapi maahan asti,
+Vastaa herralle nyt näin:
+
+[VERSE 9]
+"Vieroittaa te ette saata
+Talonpoikaa tavastaan:
+Ei hän tahdo toisen maata
+Eikä luovu omastaan."
+
+[VERSE 10]
+Berends herra aikanansa
+Aina oli aimo mies.
+Työnsä kerran alkamansa
+Myöskin lopettaa hän ties.
+
+[VERSE 11]
+Maaksi Peippolan ens yönä
+Tuli tuima tasoittaa.
+Muu ei isännällä työnä:
+Vaivojaan vaan valittaa.
+
+[VERSE 12]
+"Mut ei hädäst' itku päästä",
+Niin hän miettii vihdoinkin;
+"Itse auttaa itsens hä'ästä,
+Se lie keino viisahin."
+
+[VERSE 13]
+Aika riensi. Riemahdellen
+Piti Berends pitojaan.
+Vieraista yks ilkkuellen
+Silloin alkoi kertomaan:
+
+[VERSE 14]
+"Hyöty suuri rovioista
+Olevan ei näytäkään:
+Peippola nous raunioista
+Ehompana entistään."
+
+[VERSE 15]
+Hovistansa vielä kerran
+Berends herra ratsastaa.
+Tulta iski silmä herran,
+Tulta orhi korskuaa.
+
+[VERSE 16]
+Joutuisasti hepo juoksi,
+Kohta kulunut on tie.
+Ratsu talon uuden luoksi
+Isäntänsä tuiman vie.
+
+[VERSE 17]
+Talonpoika pellollansa
+Työssä on kuin ennenkin,
+Hälle herra ratsultansa
+Ärjyy äänin vihaisin:
+
+[VERSE 18]
+"Julkeutt' en vielä moista
+Nähnyt ole milloinkaan!
+Kuinka taloa teet toista?
+Teetkö senkin palamaan?"
+
+[REFRAIN]
+Talonpoika joutuisasti,
+Herran eessä paljain päin,
+Kumartaapi maahan asti,
+Vastaa herralle nyt näin:
+
+[VERSE 19]
+"Se on talonpojan työksi
+Aina tullut Suomenmaass':
+Minkä herra maahan syöksi,
+Rakens' talonpoika taas."
+
+--- TITLE: Huokaavat kentät.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Isäinmaani muistorikkaat, murherikkaat tantereet,
+Joita isät ennen ovat hurmeellansa kastelleet,
+Eikö idä hurmekylvö, verilaiho nousekaan?
+Turhaanko he henkens heitti parhaat miehet Suomenmaan?
+
+[VERSE 2]
+Oi, te Suomen sadat kentät, sadat tappotantereet,
+Joita verivirrat ennen lämpöiset on huuhtoneet,
+Voisko lämmittää ne vielä verta polven nykyisen?
+Voisko sulattaa ne jäätä tyhjäin, kylmäin sydänten?
+
+[VERSE 3]
+Näin mä usein kysellynnä teilt' oon yli kaiken maan,
+Mutta vastaukseks aina huokauksen vaan mä saan.
+Huokaus se povistanne syvä, synkkä kohoaa;
+Mutta usvat teidät peittää, ne sen äänen haihduttaa.
+
+[VERSE 4]
+Isäinmaani muistorikkaat, murherikkaat tantereet,
+Huokailkaatte siksi, kunnes usvat kaikk' on selvinneet;
+Huokailkaatte siksi, kunnes Suomen sydän sykähtää,
+Kunnes veri kuohahtaapi, sulaa vuosisatain jää!
+
+--- TITLE: Esi-isäin ääni.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Ei koskaan maailmoita
+Isämme voittaneet,
+Ei töitä mainioita
+He muistoks jättäneet.
+
+[VERSE 2]
+Ei laulujensa laine
+Oo kauas vierinyt,
+Ei Suomen suvun maine
+Oo niissä levinnyt.
+
+[VERSE 3]
+Ei suuriin muisteloihin
+Työt isäin syytä suo;
+Mut töihin mainioihin
+Tok' kutsuu meitä nuo.
+
+[VERSE 4]
+Näin ääni haudoistansa
+Soi yli Suomenmaan:
+"Nyt työhön uusi kansa,
+Vie Suomi kunniaan!"
+
+[VERSE 5]
+"Niin synkän varjon heitti
+Sun maalles valta yön:
+Se pimeyteen peitti
+Sun isiesi työn".
+
+[VERSE 6]
+"Ja pimeästä yöstä
+Nous joukko peikkojen;
+Ne tahtoi kansas syöstä
+Joukosta kansojen".
+
+[VERSE 7]
+"Ei Suomi vaikeroinut,
+Se taistellut vaan on,
+Ja murtaa sitä voinut
+Ei käsi kohtalon".
+
+[VERSE 8]
+"Nyt poistunut on taika,
+Mi meit' on sitonut:
+On mennyt öinen aika,
+On aamu alkanut".
+
+[VERSE 9]
+"Nyt näyttää voimiansa
+Saa kansa Suomenmaan:
+Siis työhön uusi kansa,
+Vie Suomi kunniaan!"
+
+--- TITLE: Kosken laulu.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x2 (2 lines); title names a sung form
+
+[VERSE 1]
+Istui kosken partahalla
+Päiväkaudet poikanen,
+Katsoi kosken aaltoloita,
+Laulua sen kuunnellen.
+
+[VERSE 2]
+Lauloi koski voimakkaasti
+Ikivanhaa lauluaan.
+Haaveet kummat kuulijalle
+Mieleen nosti kuohustaan.
+
+[VERSE 3]
+Viekotellen, hurmaavasti
+Kosken huima laulu soi.
+Vaivoin poika kotiin mennä,
+Erota sen luota voi.
+
+[VERSE 4]
+"Mitä koski lauleleepi,
+Kertoo aalto vaahtopää?
+Laulun sanat kuulen, mutta
+Niit' en taida käsittää".
+
+[VERSE 5]
+"Kosken huminasta soivat
+Sanat kauniit, kamalat;
+Selittää kun niitä koitan,
+Toisiinsa ne haihtuvat".
+
+[VERSE 6]
+"Kyllä kerran kosken kumman
+Laulun täysin ymmärrän:
+Kyllä mieltä ikä antaa,
+Silloin sanat selitän".
+
+[VERSE 7]
+Näin hän mietti. Vuodet vieri;
+Mieheks varttui poikanen.
+Harhailtuans maailmalla,
+Joutui kotiin lapsuuden.
+
+[VERSE 8]
+Lauloi koski voimakkaasti
+Ikivanhaa lauluaan.
+Kaukaa laulun kuuli, tunsi
+Kumman tunnon rinnassaan.
+
+[VERSE 9]
+Mielt' ol' ikä antanunna,
+Nyt hän laulun käsittää.
+Näin ne laulaa kosken aallot,
+Matkamiestä tervehtää:
+
+[VERSE 10]
+"Kaukaa turhaan ihmislapsi
+Rauhaa etsii, anelee;
+Vaikka koski vieressänsä
+Rauhan hälle tarjoilee".
+
+[VERSE 11]
+"Täällä haihtuu elon tuskat
+Reunains yli yltyneet:
+Tänne riennä, hautaa tänne
+Elos toiveet pettyneet!"
+
+--- TITLE: Hullu Sanna.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+Tuoll' luona jylhäin petäjäin
+On mökki matalainen,
+Siell' asui vielä äskettäin
+Kyyryinen vanha nainen.
+Hänt' etäiset ja tuttavat
+"Hulluksi Sannaks" sanoivat.
+
+[VERSE 2]
+Näin kylän vanhat hänest' ties:
+Ei nuorna vertaistansa,
+Ja häneen rakastuikin mies
+Ja Sanna häneen kanssa,
+Ja Sanna nautti onneaan
+Ja naureli ja tanssi vaan.
+
+[VERSE 3]
+Mut kohta onni tummentui,
+Sen köyhyys ensin peitti.
+Mies hiukeni ja sairastui
+Ja pian henkens heitti.
+Ja muisto Sannall' onnestaan
+On poika, vuoden vanha vaan.
+
+[VERSE 4]
+Ja pojan tähden pienokkaan
+Hän kyyneleensä nieli,
+Ja työhön ryhtyi ahkeraan,
+Vaikk' karvas oli mieli.
+Mut poika kasvoi, voimistui,
+Ja äidin mieli rauhoittui.
+
+[VERSE 5]
+Ja vuodet vieri, haluaa
+Merille poika päästä;
+Mut äiti pyytää, varoittaa
+Ja kyyneleit' ei säästä,
+Vaan suostuu vihdoin kuitenkin,
+Ja poika laivall' lähtikin.
+
+[VERSE 6]
+Nyt Sanna, kaiho mielessään,
+Kotona töitäns jatkaa,
+Ja peloin miettii yksinään
+Tuon rakkaan lapsen matkaa.
+Ja aika kuluu, kuluu vaan,
+Ei mitään kuule lapsestaan.
+
+[VERSE 7]
+Nyt usein kesken kiiruunkin
+Riens rannan äyrähille
+Ja katsoi silmin vetisin
+Laineille läikkyville.
+Ne kuohuilee, ne vaahtoaa,
+Mut tietoja ei niiltä saa.
+
+[VERSE 8]
+Vaan vihdoin tiedot saapuvat,
+Joist' tyyntyne ei mieli:
+"Sun poikas aallot ahnahat
+Tuoll' ulapalla nieli.
+Jo vuotta toista ollut on
+Hän hotehissa Vellamon"
+
+[VERSE 9]
+Se isku sattui sydämeen,
+Rajusti Sanna parkas,
+Ja kavahtaen seisalleen
+Hän rantaan meren karkas.
+Siell' aallot tuimat kuohuilee,
+Hän kysyin niitä katselee.
+
+[VERSE 10]
+Mut vihdoin huus hän raivossaan:
+"Ei Luoja sitä sallis!
+Ja valhetta en uskokaan,
+Eloss' on poika kallis!
+Ja kohta, kohta saapuu hän
+Luo äitins hellän, itkevän".
+
+[VERSE 11]
+Ja siitä päivin järkeään
+Ei Sanna enää saanut,
+Yks miete vaan ol' mielessään,
+Ja hokemast' ei laannut:
+"Jo kohta, kohta saapuu hän
+Luo äitins hellän, itkevän!"
+
+[VERSE 12]
+Ja vuodet pitkät vietti hän
+Näin synkkää eloansa
+Rannalla meren hyrskyvän,
+Höpisten lausettansa.
+Ei muuta enää sanokaan,
+Nuo sanat vaan on huulillaan.
+
+[VERSE 13]
+Mut kerran rantaan mökkisen
+Venheessä vieras sousi,
+Mies pitkä, tumma, partainen,
+Ja siinä maalle nousi,
+Ja huusi: "äiti, tunnethan
+Sä poikas ainoon, armahan!"
+
+[VERSE 14]
+Mut Sanna nauroi ilkkuen:
+"En usko kavaloita!
+Mä poikani kai tuntenen,
+Mua pettää älä koita.
+Hän on niin hieno, valkoinen,
+Ei musta noin, ei karvainen!"
+
+[VERSE 15]
+He kahden sitten elelee
+Mökissä matalassa,
+Mut äiti yhä käyskelee
+Rannassa katsomassa,
+Ett' eikö saavu poikanen
+Tuo hieno, punaposkinen.
+
+[VERSE 16]
+Ja vuodet vieri, vanhuuttaan
+Jo kuoloon Sanna vaipuu
+Ja höpis vielä kuollessaan,
+Äänessä toivo, kaipuu:
+"Jo kohta, kohta saapuu hän
+Luo äitins hellän, itkevän!"
+
+[VERSE 17]
+Mut pappi lausui, manalaan
+Menneeksi Sannan kuullen:
+"Näin moni vartoo onneaan,
+Sen etähällä luullen,
+Ja tiedä viel' ei kuollessaan,
+Kuink' eli likell' onneaan."
+
+--- TITLE: Laulumme.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Miks moitit, Suomi, että laulajoillas
+On heikko ääni, heikko kuntokin,
+Ja että Wäinön kannel vainioillas
+Ei enää kaiu sulo sävelin?
+
+[VERSE 2]
+Ken vapaaks syntyi, kituu kahleissansa
+Ja intons sumeassa surkastuu;
+Ei voimakkaana virtaa laulantansa,
+Vaan vienoks valitukseks muodostuu.
+
+[VERSE 3]
+Mutta jos Suomi kerran rohkeasti
+Sä astut vapauden taistohon
+Ja murrat kahleet, joihin viekkahasti
+Sun voimas, onnes kiedottuina on.
+
+[VERSE 4]
+Niin silloin kanteleelta katoaapi
+Se este, joka tukehdutti sen,
+Ja korkealle laulu kohoaapi,
+Kuin lintu häkistänsä paeten.
+
+--- TITLE: Keisari Aleksander III:nen kruunauspäivänä.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+(Lausuttu Suomalaisen Teaatterin juhlanäytännössä Toukokuun 27 p. 1883).
+
+[VERSE 2]
+Synkän tien ja vaivaloisen Luoja kansallemme soi;
+Verta uhkui joka askel, uuden tuskan tuntoon loi.
+Valoon pyrki kansan mieli, pimeähän tiensä vei,
+Johtajaksens tähden toivoi; tähti loistanunna ei.
+
+[VERSE 3]
+Öiset vallat surmaa uhkas, kutsui kansan kuolemaan:
+Turhalt' taistelu jo näytti, turhalt' toivo Jumalaan.
+Mut ei uskallusta vienyt uhka vaarain väijyväin:
+Suomen kansa polun kulki, raivas tiensä eteenpäin.
+
+[VERSE 4]
+Kuka kertoa ne voisi epätoivon taistelut,
+Voitot verta uhkuvaiset, pimeässä voitetut!
+Voitot loisti maailmalle, kansamme jäi pimeään:
+Toiset niistä loiston saivat, kansamme ei mitäkään.
+
+[VERSE 5]
+Valoon, valoon kansa pyrki, valoa huus' Luojaltaan,
+Valon tähden uljaast' uhras sydänverens vuotamaan
+Kuuli Luoja rukoukset, avun antoi armokas:
+Jalost' täytti Luojan tahdon kuulu, jalo ruhtinas.
+
+[VERSE 6]
+*Ensimäinen Aleksander*! kuolla ei voi muistos sun;
+Kansain joukkoon nostit kansan murtunehen, poljetun.
+Vuosisatain sumut poistui, pääsi päivä loistamaan
+Tielle synkän kamalalle, päälle kansan Suomenmaan.
+
+[VERSE 7]
+"*Aleksander*", nimi armas, aina sinut kuullessaan,
+Sydän sykkää Suomalaisen, tunteet kohoo kuohumaan!
+Kiitoksensa puhtahimman, tunteet pyhät lahjastas
+Suomalainen uhraa sulle, *valontuoja ruhtinas*!
+
+[VERSE 8]
+Mut ei vielä öiset vallat luopuisi näin saaliistaan:
+Eloon päässeen kansan syöstä tahtoisi ne kuolemaan,
+Kahlehtia kansan mielen, ryöstää kansan kielenkin,
+Kauan taistellehen murtaa vihdoin juonin kavalin.
+
+[VERSE 9]
+Vasta noussut päivä poistuu, eksyy Suomi polultaan:
+*Toinen Aleksander* nousi kansaa vapauttamaan.
+Juonet katkoi kavalitten, valon kansalle taas toi,
+Vapahana kiitostansa Suomen kansan kieli soi.
+
+[VERSE 10]
+Polun kansallemme raivas, jolle johti eksyneen:
+Valkeuteen polku viepi, viepi onneen, vapauteen!
+Kansat monet kiittää töitä jalon ruhtinaamme tään:
+Hartaammin kuin Suomen kansa kiitä hänt' ei yksikään,
+
+[VERSE 11]
+"*Aleksander*", nimi armas, aina sinut kuullessaan
+Sydän sykkää Suomalaisen, tunteet kohoo kuohumaan!
+Surun synkän Suomalaisen rintaan loi sun kuolemas,
+Kun ei kuolla saanut eestäs, *vapauttajaruhtinas*!
+
+[VERSE 12]
+Vapahana valon tielle Suomen kansa käynyt on,
+Epätoivon vaihtanunna valoisahan toivohon.
+Entisyys nyt tiellens luopi turhaan tummaa varjoaan:
+Vaikka suruja se toikin, häpeää ei milloinkaan.
+
+[VERSE 13]
+Synkkä polku Suomen kansan; harvoin loisti tähtikään,
+Avun-huokaukset hukkui epätoivon pimeään.
+Kova onni kansaa murti, epäilykseen syöksi sen;
+Mut ei syöstä voinut tieltä oikeuden, totuuden.
+
+[VERSE 14]
+Nyt on päivä koittanunna, Suomen kevät alkanut,
+Suomen kansa herännynnä, valohon jo astunut.
+Mikä öinen valta voisi nyt sen saada horjumaan
+Taistelussa eestä maansa, eestä rakkaan ruhtinaan?
+
+[VERSE 15]
+Kevät luonnossa nyt onpi, kansalla myös kevät on:
+Kevättoivoin rinnassansa käy se uuteen elohon.
+Uusi Aleksander nousi! Mikä rinta kylmäks jää
+Nyt, kun kansa luottain nuorta ruhtinastans tervehtää!
+
+[VERSE 16]
+"*Aleksander*", nimi armas, aina sinut kuullessaan,
+Sydän sykkää Suomalaisen, tunteet kohoo kuohumaan!
+Luojaltansa Suomi tänään rukoileepi onneas,
+Siunausta toimillesi, *kevättoivoin ruhtinas*!
+
+[VERSE 17]
+Kirkas nyt on toivon taivas; mut sen pilvet peittää vois,
+Nousta myrskyt riehumahan, rauhan riistää maasta pois.
+Käyköön niinkin: Suomalainen taisteluhun riehuvaan
+Riemulla käy eestä maansa, eestä rakkaan ruhtinaan.
+
+--- TITLE: Heräämätön.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x5 (2 lines)
+
+[VERSE 1]
+Riehui muinen vainon tuuli,
+Pilvet päivän peittivät;
+Kuolleeks Suomen moni luuli,
+Multaa hautaan heittivät
+Mutta Suomi nukkui vaan,
+Uutta aikaa vartoissaan.
+
+[VERSE 2]
+Haudan päälle nostettihin
+Patsas raskas, kivinen;
+Patsaasehen piirrettihin
+Nimi vieraskielinen.
+Mutta Suomi nukkui vaan,
+Uutta aikaa vartoissaan.
+
+[VERSE 3]
+Omat lapset haudallansa
+Pilkkailivat äitiään;
+Vieras mieli rinnoissansa,
+Vieras myrkky mielessään.
+Mutta Suomi nukkui vaan,
+Uutta aikaa vartoissaan.
+
+[VERSE 4]
+Mutta vihdoin päivä valkes,
+Koitti aamu Suomenkin,
+Raskas hautapaasi halkes,
+Loisti säteet hautaankin.
+Mutta Suomi nukkui vaan,
+Uutta aikaa vartoissaan.
+
+[VERSE 5]
+Haudan luona, viipyin hetken,
+Uuden ajan henki huus:
+"Alkanut jo olen retken,
+Ala Suomi elo uus!"
+Mutta Suomi nukkui vaan,
+Uutta aikaa vartoissaan.
+
+[VERSE 6]
+"Hengen ääni soi vaan kerran:
+Jok' ei kuule, kuolkohon!"
+Suomi havahtui sen verran,
+Että sanat kuullut on:
+Kylkens sitten käänsi vaan,
+Uutta aikaa vartoissaan.
+
+--- TITLE: Laulu-Hansa.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Ukko pieni, käyräselkäinen,
+Nuorille ja aikaisille tuttu,
+Laulunsa jo lauloi viimeisen.
+Lyhyt onpi elämänsä juttu:
+Pitkä tiensä, ahdas maailmansa,
+Muust' ei huolinut kuin lauluistansa.
+
+[VERSE 2]
+Nuori oli. -- Tuoni isän vei. --
+Peri maan ja tuli isännäksi.
+Teki lauluja, vaan työtä ei.
+Vietiin maa. Hän mieron tielle läksi.
+Vanhaks tuli, käyräks varreltansa,
+Sama vaan ain' oli luonnoltansa.
+
+[VERSE 3]
+Kyläst' toiseen, huoletonna vaan
+Huomisesta, kulki Laulu-Hansa,
+Lapsiparvi aina seurassaan,
+Kylän teitä hänen astuissansa.
+Sitten kuulemahan lauleloita
+Tulvaamalla tulvas kuulijoita.
+
+[VERSE 4]
+Suur' ei ollut mahti laulujen,
+Pilviin kohonnut ei niiden henki,
+Vaikka kyllä kultasirusen
+Joukosta löys joskus rikkojenki.
+Mutta Hansa lauloi, eikä moista
+Miettinyt ees kenkään kuulijoista.
+
+[VERSE 5]
+Ruokaa hälle kyllin tarjottiin,
+Saipa pirtiss' sitten viettää yötä.
+Vielä pilkattiin ja soimattiin,
+Ett' ol' laiska eikä tehnyt työtä.
+Mutta, kuullen pilkan, katkeruuden,
+Laulu-Hansa mietti laulun uuden.
+
+[VERSE 6]
+Pilkkaa kärsi kyllin eläissään,
+Vaan kun kuolemastans levis tiedot,
+Kuulunut ei ivan ääntäkään:
+Suri silloin lapsiparvet liedot;
+Aikaisetkin, mielet murenessa,
+Kyyneltyivät Hansaa muistellessa.
+
+[VERSE 7]
+Näinpä puhkes moni lausumaan:
+"Kullakin on täällä tehtävänsä,
+Jonka saanut onpi Luojaltaan,
+Jonka täyttää tulee eläissänsä.
+Ehkä kulkulaisna laulaissansa
+Tehtäväns juur' täytti Laulu-Hansa!"
+
+--- TITLE: Juomalaulu.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Pois huolemme kaikki jo poistukohon:
+Vaan riemua varten tää maailma on.
+Niin paljon, niin paljon on riemuja maan;
+Ken hullu siis huolista huolisikaan?
+
+[VERSE 2]
+Ken riemuita tahtoo, hän joutukohon
+Ja juokoon; jo pullomme puolillaan on.
+Jo hukkukoon huomenna taivas ja maa,
+Kun siksi vaan juoda ja riemuita saa.
+
+[VERSE 3]
+On joutuva viimeinkin kuoleman yö:
+Se pullomme kaataa ja pirstoiksi lyö,
+Se pois meidät kantaapi riemuista maan.
+Ei peljätä tarvis. Se tulkohon vaan!
+
+[VERSE 4]
+Kyll' lienevät kuivia Tuonelan maat,
+Ja viiniä turhaan ehk' etsiä saat;
+Mut muistaa jos voinee: nyt riemuisna juo!
+Ja muistosi sielläkin riemuja luo.
+
+--- TITLE: Kohtalon iva.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Keinuu venhe pieni aaltoloilla,
+Nuorukainen siinä haaveilee.
+Mieli täyttyy kuvill' ihanoilla,
+Silmät loistaa, huulet hymyilee:
+
+[VERSE 2]
+"Viel' oon nuori, outo maailmalle,
+Mutta voiman tunnen rinnassain.
+Se mun nostaa kerran korkealle,
+Vertaiseksi henkein mahtavain."
+
+[VERSE 3]
+"Nimetönnä paisun mahtavaksi,
+Enkä jouda hukkaan joutumaan.
+Kun on mennyt vuosi taikka kaksi,
+Nimi uusi loistaa yli maan."
+
+[VERSE 4]
+Venhe aaltoloilla keinuileepi,
+Nuorukainen siinä haaveilee.
+Myrsky nousee, aallot kuohuileepi,
+Saalistansa meri ahnailee.
+
+[VERSE 5]
+Vuotta kaksi virtaans aika peitti.
+Kirkkomaahan ruumis kätketään,
+Ruumis, jonka aallot rantaan heitti. --
+Tuntenut ei sitä yksikään.
+
+--- TITLE: Ei lauluista apua.
+--- SOURCE: PG16395
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Sulle, Suomi, lempeänsä
+Laulaa sadat laulajat.
+Herätellä äänellänsä
+Onneasi koittavat.
+
+[VERSE 2]
+Lapses sulle lauleloilla
+Uutta aikaa valmistaa:
+Sävelitten aaltoloilla
+Onnes linna kohoaa.
+
+[VERSE 3]
+Laulurinnat kilvoitellen
+Toiveitansa helkyttää,
+Kunnes Suomi tuskitellen
+Vihdoin heille äännähtää:
+
+[VERSE 4]
+"Laulajoista sulosuista
+Tok' ei hyödy onni maan.
+Ei se synny lauleluista,
+Työtä siihen tarvitaan."

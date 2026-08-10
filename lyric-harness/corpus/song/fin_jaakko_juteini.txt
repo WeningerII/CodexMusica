@@ -1,0 +1,240 @@
+# author: Jaakko Juteini (1781-1855)
+# source: GITenberg PG 33949 -- file raw_33949-8.txt, ISO-8859-1
+# licence: public domain -- GITenberg metadata.yaml rights 'Public domain in the
+#         USA.', rights_url creativecommons.org/about/pdm; author died 1855,
+#         which clears the project's 1931 cutoff by author-death route (2).
+# edition: Valikoima Jaakko Juteinin runoja. No printing named by Project Gutenberg.
+# SELECTION -- THIS IS A SUBSET AND THE RULE IS DECLARED (doctrine 32).
+#         The source volume is a collected-POEMS book. A poem is staged only on
+#         positive evidence that it was SUNG, and '--- SUNG-EVIDENCE' names the
+#         route for every block:
+#           tune     the source prints 'Nuotti: X' over the poem -- a
+#                    CONTRAFACTUM, a text written to a named existing melody.
+#                    Strongest route. Rendered as [air: X] on the TITLE line,
+#                    matching corpus/song/eng_celtic_thomas_moore.txt.
+#           refrain  a 1-4 line group recurring VERBATIM at least twice, at
+#                    stanza boundaries. Structural, language-independent.
+#           title    the title names a sung form (laulu, virsi, marssi, hymni,
+#                    juomalaulu, kehtolaulu ...). WEAKEST route, and labelled.
+#         4 poems staged, 21 left behind, out of 25 units the
+#         volume was split into. The split is TYPOGRAPHIC: a title is a line of
+#         <= 60 characters preceded by >= 3 blank lines and followed by >= 1.
+#         Section headings therefore appear as units and fall out unstaged,
+#         which is why the 'left behind' count is the honest denominator.
+# orthography: 19th-century Finnish as printed, UNNORMALISED. The apostrophe is
+#         the Finnish hiatus/elision mark that SPLITS (doctrine 65) and
+#         quality/phonology/fin.py reads it so; the hyphen is a compound seam
+#         that blocks resyllabification.
+# structure: [VERSE n] stanza as printed; [REFRAIN] the verbatim repeated group.
+
+--- TITLE: Vilu-taudista.
+--- SOURCE: PG33949
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Muinen vanha vilu-tauti
+viksi-huuli, vihta-parta,
+roima-housu, home-silmä,
+jonga kallon harmaat' karvat
+paistavat kuin päiväisellä
+tuohi-koivut kuusistossa --
+muinen vanha vilu-tauti
+kyssä-selkä, kongo-nokka,
+leuka-peräin louskuttaja,
+kulki kylmänä kesällä
+kauhtanassa karheassa,
+tappuraisessa takissa.
+Äijä hassu hallavana
+pitkin maata matkusteli
+ynnä pahan puolisonsa
+poltto-taudin tuskallisen.
+
+[VERSE 2]
+Tämä paha pari-kunda,
+emä eripuraisuuden,
+viipyi kerran vierahana
+kauan minun majassani,
+yli määrän matka-miehen.
+
+[VERSE 3]
+Ukko, se ukura-silmä,
+kova-koura, kylmä-kynsi,
+majans' jääksi jähdyttäjä,
+jolla ombi otsan alla,
+ryppy-kynnöksen rajalla
+silmä-ripseet riippuvaiset
+kaharassa kahden puolen
+nenän juurta juurevata,
+nosti menon ja metelin.
+Tämä ukko täydellinen,
+tämä kuuluisa kupilas,
+ärjästeli äkeästi,
+kauas karkoitti kotoa
+ensin aina emändänsä,
+kovin hammastans' kiristi,
+että silmät sameroiset
+iskit tulda tuimuudesta,
+parta jäisenä järisi,
+tukka luminen tutisi
+hartioilla hajallansa.
+Tämä ukko täydellinen,
+niin kuin nyt on nimitetty,
+ravisteli ruhoansa,
+että itse isännängin
+ruumis tärisi tuvassa,
+helisivät hambahatkin.
+
+[VERSE 4]
+Vaan ei vaimot myöden anna
+miehen kourissa kovangan.
+Miimbä tässäkin todella
+tulduansa takaperin
+vino-silmä, vipsu-huuli
+akka aina voiton otti.
+Ämmän posket punehtuivat,
+eukko otsansa rypisti,
+veti löylyn laupiolle
+kylmyydestäkin kovasta,
+ajoi pakkaisen pakohon
+että virsut vilahtelit,
+josta jälle julma vaiva,
+tuska polttava povehen
+tuli tuvan haldialle,
+että kurkkukin kihisi
+kieldä kastaissa vetehen,
+hiki kiehui karvan päihin
+ruumihista riutuvasta,
+tauti päätäni porotti.
+
+[VERSE 5]
+Saan mä neuvoksi sanoa,
+mainita muillekin vielä
+kautta oman koetuksen,
+kuingan vasta viekkahasti
+pääsin vieraista vapaaksi:
+minä syötin, minä juotin
+heitä häpeemättömiä
+ensin vierahan varoilla;
+mutta koskan koetellen
+tulin tavat tundemahan,
+syötin heillä karvaat kaakut,
+juotin juomat katkerammat,
+annoin maistaa kiinan kuorta,
+latkia leivätä liendä.
+-- -- Näin on moni muukin ennen
+vieras viipyvä paennut
+huonon räätin rakettua.
+
+--- TITLE: Laulu elämän nautinnosta.
+--- SOURCE: PG33949
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Luonnon suuren lapsukaiset avaruuden alla,
+nauttikamme elämätä iloll' ihanalla;
+pois, pois karvaus,
+vältä, veljen', huolet, --
+pois, pois valitus,
+taita tuskan nuolet.
+
+[VERSE 2]
+Rakkaus on tuskan alla rinnassamme täällä
+aina niin kuin päivän paiste syksyisellä säällä;
+pois, pois vihainen
+välildämme vaino, --
+pois, pois salainen
+kateuskin kaino.
+
+[VERSE 3]
+Elon aamu autuas on nytkin alkavainen,
+riemun päivä ruskottaapi kaunis, koittavainen;
+pois, pois turmelus,
+hyvin hyvä käytä, --
+pois, pois huokaus,
+toivoll' onni täytä.
+
+[VERSE 4]
+Hyvä, niin kuin kuutamolla kuljeskellessamme,
+ombi toivo, sielun valo, vaelluksessamme;
+pois, pois epäilys
+erhetyksen yöstä, --
+pois, pois pimeys
+tunnosta ja työstä.
+
+[VERSE 5]
+Kyllä kalma ennustaapi, ettäs olet mulda,
+että kaikki katoaapi kauneus ja kulda;
+pois, pois kuitengin
+kuolon pelko peitä, --
+pois, pois pikemmin
+murhe musta sieltä.
+
+[VERSE 6]
+Missä liene muuttumaton olo maamme päällä?
+tytyväisyys ombi vasta onnen täyte täällä;
+pois, pois viipykön
+murhe-päivä meildä, --
+pois, pois pysykön
+itku ilon teildä.
+
+--- TITLE: Juoma-laulu.
+--- SOURCE: PG33949
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Juoma janon sammuttaa,
+janotakin juoda saa
+kuiva-kaulainen.
+poikajoukko, laula, juo;
+kallis ombi kannu tuo
+vahto-harjainen.
+
+[VERSE 2]
+Olut onnen vahvistaa,
+kannu kestin kaunistaa
+hurratessamme.
+Riemu rinnat ylendää,
+vaivammekin vähendää
+lorutessamme.
+
+[VERSE 3]
+Kyllä joskus seura suo,
+että poikajoukko juo
+ämbäristäkin.
+Älä näänny, naapurin,
+laula, laula, toverin,
+näändyneenäkin.
+
+--- TITLE: Kesti laulu.
+--- SOURCE: PG33949
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Nautitse, Naapurin, ilolla aina
+elämän autuutta enendäin,
+maljasta hunaja huulilles paina
+vaivangin tundoa vähendäin.
+
+[VERSE 2]
+Päivämme julkiset, juhliksi pannut,
+viettäkän riemua rakastain;
+pöydäld' ei puutu nyt kinkut ei kannut
+iloa elämän ennustain.
+
+[VERSE 3]
+Kannusta pojes on kaadettu kalja
+kunniaa oluen kuuluttain.
+Kannata käsilläs makea malja
+olutta huulilles heruttain.
+
+[VERSE 4]
+Unhota, ystävän', murheetkin mustat
+pikarit, pokaalit pyllistäin;
+kuoleta kannuhun tuimatkin tuskat,
+oluell' upota vähittäin.
+
+[VERSE 5]
+Sauvamme nojalla, seuramme tähden
+juokan me tynnyrit tyhjendäin;
+juokan näin julkisen tytöngin nähden
+sydämet seurassa yhdistäin.

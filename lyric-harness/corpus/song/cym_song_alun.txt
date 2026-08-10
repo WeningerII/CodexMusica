@@ -1,0 +1,299 @@
+# author: John Blackwell, "Alun" (1797-1840)
+# lang: cym  |  half: SONG (3 hymns + 3 songs; the free-metre half of Gwaith Alun,
+#         which the earlier extraction discarded)
+# source: GITenberg/Gwaith-Alun_14865  file 14865.txt (ISO-646-US ASCII)
+#         md5 e0472c7b67725f34b8d51d58ad8ea7e3, 135,793 bytes, HTTP 200 2026-08-10
+#         raw.githubusercontent.com/GITenberg/Gwaith-Alun_14865/master/14865.txt
+#         SAME BYTES as the file already recorded for corpus/cym_alun_strict.txt.
+#         One source, two extractions, not two sources (doctrine 51). The strict-metre
+#         extraction took the four awdl/cywydd pieces and left the sung ones; this
+#         takes the sung ones and leaves the strict-metre ones. NO OVERLAP.
+# licence: public domain. metadata.yaml verbatim: rights 'Public domain in the USA.',
+#         rights_url creativecommons.org/about/pdm; author Blackwell, John, Alun
+#         1797-1840 (corroborated in the text: 'Bu farw Mai 19, 1840'); editor
+#         O. M. Edwards 1858-1920. Edition 1909 <= 1931.
+# edition: O. M. Edwards (ed.), 'Gwaith Alun', Llanuwchllyn: Ab Owen, 1909; PG header
+#         verbatim 'Transcribed from the 1909 Ab Owen edition by David Price'.
+#         metadata.yaml declares 'language: [en, cy]' -- the book is BILINGUAL and
+#         contains three English prose essays; they are excluded here as they were
+#         from the strict-metre file.
+# orthography: pre-1928 Welsh, UNNORMALISED, ASCII so circumflexes are flattened.
+#         cym.py reads 100.00% of 1,061 tokens.
+# structure: [VERSE n].
+# stripped: PG header/footer, the English essays and letters, the four strict-metre
+#         pieces (already staged), the contents table, plate captions, footnote
+#         markers, and the scripture reference the hymnal convention prints under a
+#         hymn title (kept as '# text:' where present).
+# tune: NO tune is named by this edition. The SUNG property is declared by the pieces'
+#         own titles, which is why only six of Alun's forty-four pieces are here:
+#         EMYN (hymn) x1, CERDD (song) x1, CATHL (song/melody) x1, CAN (song) x1, plus
+#         'IDDO EF.' which names itself a can in its first line ("'Does testun gwiw i'm
+#         can") and carries a scripture reference like a hymn-book entry, and SEREN
+#         BETHLEHEM, a Welsh setting of H. K. White's hymn 'The Star of Bethlehem'.
+#         Every other piece in the book was REFUSED for want of evidence that it was
+#         sung -- a lyric poem is not a song (doctrine 32).
+# metre: NOT PRINTED. The edition gives no metre index. The stanza shapes are visible
+#         in the text (EMYN PASG is 8.7.8.7.D, 'IDDO EF.' is 6.6.4.6.6.6.4) but no
+#         metre is asserted here, because counting syllables off a flattened-ASCII
+#         text and calling it the edition's metre index would be inventing a field.
+# caesura: NOT PRINTED (0 of 216 lines).
+# songs: 6
+# lines: 215
+
+--- TITLE: "IDDO EF."
+# text: Dat. i. 5
+[VERSE 1]
+'Does testun gwiw i'm can
+Ond cariad f' Arglwydd glan
+A'i farwol glwy;
+Griddfanau Calfari,
+Ac angau Iesu cu,
+Yw nghan a mywyd i,
+Hosanna mwy.
+[VERSE 2]
+Paham bu i ddeddf y net
+Ymaflyd ynddo EF,
+A rhoi iddo glwy?
+Fe roddwyd yn y drefn,
+Fy meiau ar ei gefn;
+Pwy na roi floedd drachefn--
+Hosanna mwy.
+[VERSE 3]
+Ergydiwyd ato EF,
+Gan uffern, byd, a nef,
+Eu saethau hwy:
+Arhodd ei fwa'n gry',
+Nes maeddu uffern ddu,
+A phrynu mywyd i,
+Hosanna mwy.
+[VERSE 4]
+Caniadau'r nefol gor,
+Sydd oll i'm Harglwydd Ior
+A'i ddwyfol glwy;
+Y frwydr wedi troi,
+Ellyllon wedi ffoi,--
+Sy'n gwneyd i'r dyrfa roi
+Hosanna mwy.
+[VERSE 5]
+O faint ei gariad EF!
+Nis gall holl ddoniau'r nef,
+Ei dreiddio drwy:
+Mae hyn i mi'n beth syn,
+I ruddfan pen y bryn
+Droi'n gan i mi fel hyn,
+Hosanna mwy.
+[VERSE 6]
+Pan ddelo'r plant ynghyd,
+O bedair rhan y byd,
+I'w mangre hwy;
+Tan obaith yn ddilyth,
+Cael telyn yn eu plith,
+I ganu heb gwyno byth,
+Hosanna mwy.
+[VERSE 7]
+Tra bwyf ar riwiau serth,
+Preswylydd mawr y berth,
+Rho'th gwmni trwy;
+Mae cofio am y loes
+Dan arw gur y groes,
+Yn rhyw feluso f'oes,
+Hosanna mwy.
+[VERSE 8]
+Na ddigied neb o'r plant,
+Am imi ganu ar dant
+O'u telyn hwy:
+Myfyrio'r tywydd du
+Fu ar ein Iesu cu,
+A droes fy nghan mor hy',
+Hosanna mwy.
+
+--- TITLE: CERDD CALAN GWYLIEDYDD Y WYDDGRUG
+[VERSE 1]
+Ymysgydwch o'ch cysgadrwydd--
+Yn filoedd dowch i foli Duw;
+Torrodd gwawr ar flwyddyn newydd,
+Gobeithiaf mai un ddedwydd yw:
+Mae pob Calan fel yn gwaeddi,
+A'r tymhorau bob yr un,--
+Yn eu dull yn dwys bregethu--
+"Derfydd dyddiau byrion dyn."
+[VERSE 2]
+Heddyw'm gorchwyl innau dderfydd,
+Alwai'n chwaneg mo'no chwi;
+Drwy fy nghylch yn bur wyliedydd
+A lladmerydd y bum i;
+Mi fynegwn ddull y tywydd,
+P'un ai teg ai garw'r gwaith,
+Fel y gwypech ar obenydd
+Ai addas oedd y dydd i daith.
+[VERSE 3]
+Do, mi wyliais gylch eich drysau
+Ar ryw oerion oriau hir,
+Rhag i ddynion drwg eu nwydau
+Dorri eich aneddau'n wir;
+Tywydd garw, mwy nag oerni,
+Ni wnai nhroi oddiar fy nhaith,
+A chan ofal i'ch gwas'naethu
+Methais gysgu lawer gwaith.
+[VERSE 4]
+Daeth fy ystod at ei therfyn,
+Darfu'm tro oddeutu'ch tre',
+Un galenig wyf yn ofyn
+Am fy llafur yn y lle;
+Chwi sy'n meddu da a moddion--
+Digon sy'n eich llety llawn,--
+Gwnai ychydig o'ch gweddillion
+DIC a'i deulu'n llawen iawn.
+
+--- TITLE: EMYN PASG
+[VERSE 1]
+Wele'r Ceidwad gaed yn Meth'lem
+Acw'n marw dan ei loes,
+A gwyryfon tyner Salem
+'N gwlychu a dagrau droed ei groes:
+Caua'r haul ei lygaid llachar
+Rhag gweld clwyfo'r Sanct ei hun;
+Ei ruddfanau sigla'r ddaear,
+Cryna pob peth ond y dyn.
+Deuwch saint, gollyngwch ddagrau
+Uwch trychineb Calfari,
+Dros yr hwn a roes ochneidiau
+Dan y baich haeddasoch chwi;
+Drosoch hidlodd ddafnau heilltion
+Is arteithiau gwg y nen,
+Nid o ddwfr, ond gwaed ei galon,
+Yna trengodd ar y pren.
+[VERSE 2]
+Dyma dristwch heb ei debyg,
+Gras a chariad pur y'nglyn,
+Duw'r gogoniant dan y dirmyg,
+Ac yn marw i brynu dyn:
+Ond wele achos llawenychu!
+Testun can dragwyddel fydd,--
+Iesu'r Ceidwad sy'n dadebru
+'N gynnar ar y trydydd dydd.
+[VERSE 3]
+Gwelwch fel mae'n concro angau!
+Syllwch ar ei ddwyfol wedd!
+Grym ei fraich, a gair ei enau,
+Sydd yn dryllio bolltau'r bedd:
+Llengau'r nef, anrhaethol nifer,
+A'i gwarchodant tua'i wlad--
+Rhwygai cerddi yr ehangder,
+Cerddi croeso i lys ei Dad.
+[VERSE 4]
+Bellach, saint, eich dagrau sychwch,
+T'rewch y gu dragwyddol gan,
+C'weiriwch eich telynau, cenwch
+Wyrthiau eich Gwaredwr glan:
+Dwedwch iddo fathru'r gelyn,
+'Speilio lluoedd certh di ri',
+T'wyso angau du mewn cadwyn,
+A chysegru'r bedd i chwi.
+[VERSE 5]
+Bloeddiwch, 'Ryfedd Frenin Sion,
+Doed y ddaear dan dy iau!
+Ganwyd ti'n Waredydd dynion,
+Wyt yn gadarn i iachau.'
+Gofynnwch wedyn i'r anghenfil,
+'Ple mae'th golyn oer yn awr?
+Fedd ymffrostgar, ddu dy grombil,
+P'le mae'th fuddugoliaeth fawr?'
+
+--- TITLE: SEREN BETHLEHEM
+# setting: (Cyfieithiad o Saesoneg H. K. White.)
+[VERSE 1]
+Pan bo ser anhraethol nifer
+Yn britho tywyll lenni'r nen,
+At _un_ yn unig drwy'r eangder
+Y tal i'r euog godi ei ben;
+Clywch!  Hosanna'n felus ddwndwr
+Red i Dduw o em i em,
+Ond _un_ sy'n datgan y Gwaredwr,
+Honno yw Seren Bethlehem.
+[VERSE 2]
+Unwaith hwyliais ar y cefnfor
+A'r 'storm yn gerth, a'r nos yn ddu,
+Minnau heb na llyw, nac angor,
+Na gwawr, na gobaith o un tu,
+Nerth a dyfais wedi gorffen,
+Dim ond soddi yn fy nhrem,
+Ar fy ing y cododd seren,
+Seren nefol Bethlehem.
+[VERSE 3]
+Bu'n llusern a thywysydd imi,
+Lladdodd ofn y dyfrllyd fedd,
+Ac o erchyll safn y weilgi
+Dug fi i borthladd dwyfol hedd;--
+Mae'n awr yn deg, a minnau'n canu,
+F'achub o'r ystorom lem,
+A chanaf pan bo'r byd yn ffaglu
+Seren! Seren! Bethlehem!
+
+--- TITLE: CATHL I'R EOS
+[VERSE 1]
+Pan guddio nos ein daear gu
+O dan ei du adenydd,
+Y clywir dy delori mwyn,
+A chor y llwyn yn llonydd;
+Ac os bydd pigyn dan dy fron
+Yn peri i'th galon guro,
+Ni wnai, nes torro'r wawrddydd hael,
+Ond canu a gadael iddo.
+[VERSE 2]
+A thebyg it' yw'r feinir war
+Sydd gymar gwell na gemau,
+Er cilio haul, a hulio bro
+A miloedd o gymylau;
+Pan dawo holl gysurwyr dydd,
+Hi lyna yn ffyddlonaf;
+Yn nyfnder nos o boen a thrais
+Y dyry lais felusaf.
+[VERSE 3]
+Er dichon fod ei chalon wan
+Yn delwi dan y dulid,
+Ni chwyna, i flino'i hanwyl rai,--
+Ei gwen a guddia'i gofid:
+Ni pheidia'i chan trwy ddunos faith,
+Nes gweled gobaith goleu
+Yn t'wynu, megys llygad aur,
+Trwy bur amrantau'r boreu.
+
+--- TITLE: CAN GWRAIG Y PYSGOTWR
+[VERSE 1]
+Gorffwys donn, dylifa'n llonydd,
+Paid a digio wrth y creigydd;
+Y mae anian yn noswylio,
+Pa'm y byddi di yn effro?
+Dwndwr daear sydd yn darfod,--
+Cysga dithau ar dy dywod.
+[VERSE 2]
+Gorffwys for! mae ar dy lasdon
+Un yn dwyn serchiadau 'nghalon;
+Nid ei ran yw bywyd segur,
+Ar dy lifiant mae ei lafur;
+Bydd dda wrtho, for diddarfod,
+Cysga'n dawel ar dy dywod.
+[VERSE 3]
+Paid a grwgnach, bydd yn ddiddig,
+Dyro ffrwyn ym mhen dy gesig;
+A pha esgus iti ffromi?
+Nid oes gwynt ym mrig y llwyni:
+Tyrd a bad fy ngwr i'r diddos
+Cyn cysgodion dwfn y ceunos.
+[VERSE 4]
+Iawn i wraig yw teimlo pryder
+Pan bo'i gwr ar gefn y dyfnder;
+Ond os cyffry dig dy donnau,
+Pwy a ddirnad ei theimladau?
+O bydd dirion wrth fy mhriod,--
+Cysga'n dawel ar dy dywod.
+[VERSE 5]
+Byddar ydwyt i fy ymbil,
+For didostur, ddofn dy grombil;
+Trof at Un a all dy farchog
+Pan bo'th donnau yn gynddeiriog;
+Cymer Ef fy ngwr i'w gysgod,
+A gwna di'n dawel ar dy dywod.
+[VERSE 6]
+Un yn dwyn serchiadau 'nghalon.": alun105.jpg]

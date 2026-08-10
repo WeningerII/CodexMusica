@@ -1,0 +1,890 @@
+# author: Thomas Edwards, "Twm o'r Nant" (1739-1810)
+# lang: cym  |  half: SONG (sung lyric; named airs printed by the edition)
+# source: GITenberg/Gwaith-Twm-o-r-Nant-Cyfrol-2_2734  file 2734-0.txt (UTF-8)
+#         md5 c06c87a5726accb810067445d9347ba9, 140,153 bytes, HTTP 200 2026-08-10
+#         raw.githubusercontent.com/GITenberg/Gwaith-Twm-o-r-Nant-Cyfrol-2_2734/master/2734-0.txt
+#         SAME BYTES as the file already recorded in data/sources.tsv for
+#         corpus/cym_twm_or_nant_cywydd.txt -- one source, two extractions, not two
+#         sources (doctrine 51).
+# licence: public domain. GITenberg metadata.yaml verbatim: rights 'Public domain in
+#         the USA.', rights_url creativecommons.org/about/pdm. Author Edwards, Thomas
+#         1739-1810; editor Edwards, Owen Morgan, Sir 1858-1920. Edition 1910 <= 1931.
+#         All three routes hold independently.
+# edition: Owen M. Edwards (ed.), 'Gwaith Twm o'r Nant', Cyfrol II, Llanuwchllyn:
+#         Ab Owen, 1910; PG header verbatim 'Transcribed from the 1910 Llanuwchllyn:
+#         Ab Owen edition by David Price'. Pre-1931 edition, no modern editorial layer.
+# orthography: pre-1928 Welsh, UNNORMALISED (deugen, gwilydd, ddie, cymin', geirie).
+#         The 1928 'Orgraff yr Iaith Gymraeg' has not been applied and must not be:
+#         the eight digraphs are intact and quality/phonology/cym.py reads 100.00% of
+#         4,182 tokens. Curly apostrophes U+2019 throughout -- cym.normalise() folds
+#         them, and in Welsh the apostrophe ELIDES and JOINS (doctrine 65).
+#         Long-s OCR damage is recorded for this text in data/sources.tsv (ftraeth for
+#         ffraeth); it is in the interlude prose, not in these sung passages.
+# structure: [VERSE n]. The interlude numbers are printed inside quotation marks, with
+#         the spoken dialogue outside them carrying speaker tags; the quotes are the
+#         edition's own marking of what is sung and are stripped here.
+# stripped: PG header/footer, O. M. Edwards's Rhagymadrodd, the contents table, plate
+#         captions, spoken dialogue, stage directions, footnote markers {n}.
+# tune: THE AIR IS NAMED FOR ALL 12 SONGS, in the edition's own '(_Alaw_--"X")' line.
+#         11 distinct airs. These are the tunes the words were written TO; the air is
+#         primary metadata, not decoration.
+# caesura: THIS EDITION PRINTS NO CAESURA. 1 line of 759 carries a mark cym.py would
+#         read as one (0.1%), and it is ordinary punctuation. caesura='marked' has
+#         nothing to read here and says so: 6.1% observed against a 5.7% null median,
+#         p=0.303, 45 of 46 hits position-free llusg (doctrine 55/56).
+# songs: 12
+# lines: 759
+
+--- TITLE: DAU FYWYD  [air: Rodney]
+[VERSE 1]
+Y puraidd Robert Parri,
+Maddeuwch imi ’mod
+Yn awr yn cynnyg gyrru canu,
+I geisio clymu clod
+I chwi, sy’n byw mewn llawnder,
+A’ch pleser, yn eich Plas,
+Gyda’ch meibion yn heddychlon,
+Heb unrhyw galon gas;
+Teulu ydych hoew wladaidd,
+Yn byw’n ddifalch ac yn ddofaidd,
+Nid hel “Meistr” ac ymestyn,
+A champ-godi a chwympo gwedy’n;
+Wrth fyw’n gytun at ddaioni
+Fe ddaeth mawrhydi i’ch rhan:
+Eigion rhediad ac anrhydedd
+Yw’ch mawredd yn eich man;
+Mae eich maesydd, wych rymusiant,
+A’ch ’nifeiliaid, i chwi’n foliant;
+Ychen, defaid, a cheffylau,
+A da blithog, laethog lwythau;
+Pob angenrheidiau ’n rhadus,
+A threfnus yma a thraw,
+A Duw’r heddwch, mae’n arwyddo,
+’N eu llwyddo dan eich llaw.
+[VERSE 2]
+Maith yma John a Thomas,
+Cyweithas frodyr cu;
+A da yw’ch golwg chwi, ’r hen geiliog,
+Awch talog wrth eich ty:
+Mae’n hwythau ’n ddynion ethol,
+Naturiol ym mhob taith,
+A di ynfydrwydd ill dau’n fedrus,
+A gweddus yn eu gwaith;
+Felly rhyngoch yn llwyr wingo,
+Mawrhydi’ch llwyddiant a’ch holl eiddo,
+Nes eich myned, hwylied helaeth,
+Yma’n degwch i’ch cym’dogaeth;
+A chywaeth tai a chaeau,
+Sydd i’ch meddiannau’n ddwys;
+Fe dâl eich llawnder, a’ch call undeb,
+Drwy burdeb aur da bwys:
+Rhyfedd fendith, rhyfedd fwynder,
+Sy’n ddymunol dan eich maner;
+Rhyfedd rhagor chwi fawrhyged,
+A m’fi ac eraill yn fegeried;
+Chwi ar led mor lydan,
+A’ch arian glân drwy glod—
+Minnau’n ffwlyn, dwlyn, diles,
+Anghynnes, gwag y ’nghod.
+[VERSE 3]
+Chwi’n magu anifeiliaid,
+Moch, a defaid iawn
+Gweirgloddiau, a chauau, tai, a’ch heol,
+Sy’n llwyddol ac yn llawn:
+Minnau dim fagais
+At fantais eto i fyw,
+Ond lladd ceffylau, dilyn ffoledd,
+Anrhydedd oeredd yw:
+A’r hyn a fagais o’m rhywogeth,
+Mewn twrr o gwynion, oedd tair geneth;
+Mae rhei’ny a’u mam mewn dinam dyniad,
+Er fy ’mgeledd lawer galwad
+Mae’r merched bawb am orchwyl,
+Yn ol eu hwyl eu hun,
+Yn troi eu helynt at ryw alwad,
+A’u teimlad yn gytun;
+Eu mam a minnau sydd yn myned,
+Fel rhai eraill, ar i wared;
+Tua’r bedd mae gwedd ogwyddiad,
+Rhieni’n mynd, a’r plant yn dwad:
+Mae treigliad asiad oesau
+Fel tonnau miniau môr,
+Neu ffrwd gyffredin olwyn melin,
+Yn dirwyn yn ddi dor.
+[VERSE 4]
+A chan nad oes mewn bywyd
+Un rhydid yn parhau,
+Gwnewch o’ch mammon gyfion gyfaill,
+Ceiff eraill eich coflau;
+Dadgenir hyn ond odid,
+O’ch plegyd chwi a’ch plant,
+Pan f’o chwi byddar yn eich beddau,
+Tan odlau Twm o’r Nant;
+A’r hyn o gysur wy’n ei geisio,
+Ni ddymunwn feddu mo’no,
+Oni cheir e’n gwbl fodlon,
+Heb un gilwg yn y galon;
+A’ch rhoddion os cyrhaeddaf,
+Cyhoeddaf chwi o hyd;
+[VERSE 5]
+Ac os y bennod ni dderbynia’,
+Nis gwn a fyddai’n fud:
+Cerdod wlan yw ’nghân a ’nghwynion,
+Am hynny gwyliwch dorri’ch calon;
+Mae rhagor didwyll rhwng cardode,
+A hyn chwi wyddoch, rhowch a wedde’:
+Ac oni rhowch o’r achos,
+Ni wiw mo’r dangos dant,
+Fe fu fwy dychryn ar y dechrau,
+Na hynny, ’n ochrau’r Nant.
+[VERSE 6]
+Ond Nant a’i cheunant chwannog,
+Sy’n lle afrywiog fri;
+Pe rhoech o’ch gog’yd lwyth eich gwagen,
+Ni lanwe’i hagen hi;
+Pe b’ai ond sych ben sached,
+O wyched fydde’i wawr,
+Ceid y teulu i gyd at olud,
+A’u llwyrfryd i’r droell fawr;
+Mi gawn frethyn cryf i’r eithaf,
+Imi’n goat erbyn gaeaf;
+Gallwn addo i’r wraig mor haw’gar,
+Eto fantell at y fentar—
+Dull anwar ydyw llunio,
+Ag addo o’ch eddo chwi;
+Mawrhygu rhoddion cyn y caffon’
+Llawenydd cynffon ci;
+Pe’ch holl rodd o fodd a fydde’
+Ond briwsionyn at bar ‘sane’,
+Mwy fyddai hynny i’w feddu’n foddus
+Nag a haeddwn ni’n gyhoeddus:
+Ffarwel yn bwyllus bellach,
+Fe dderfydd afiach wên,
+Gwisgiad gore’, gras cyn ange’,
+I chwi a minne’, Amen.
+
+--- TITLE: BONEDD A CHYFFREDIN  [air: Y Galon Drom]
+[VERSE 1]
+Robert Davies, rhyw bert ofyn
+A yrraist i mi, yn wers dwymyn,
+Oblegid bonedd, blagiad bennau,
+A’r cyffredin gyffroiadau;
+Nid wy’ teilwng nodi at olwg
+Am y cyfryw
+Faith iawn ymliw, fyth yn amlwg;
+Dyn truenus, boenus beunydd,
+Ydwy’n wyrdraws,
+Rhy ofernaws i’m rhoi’n farnydd.
+[VERSE 2]
+Wele’r farn yn gadarn gydwedd
+A geir inni o’r gwirionedd,—
+Mai ffrwyth pechod, arfod hirfaith
+O dir uffern, ydyw’r effaith;
+Hwn yw’r achos yn oruchel
+Cynhyrfiedig;
+Pawb am ryfyg, pob ymraf’el;
+Yr un anian sy ynnom ninnau,
+Ag oedd yn gosod
+Cynnyg isod Cain ac Esay.
+[VERSE 3]
+’Roedd esgus Adda o’i droseddau,
+Y Wraig,” medd ef; “Y Sarff,” medd hithau;
+Felly’r wlad, a’u nad annedwydd,
+Bawb a’u hesgus dros eu hysgwydd,
+Gwael eu gwedd, a bonedd, beunydd
+Sy’n ymliw’n amlwg
+Orwag olwg ar eu gilydd;
+Fal pren ar demestl, prawf di amau,
+Mawr fydd ffwndwr
+Acw y’nghynnwr’ y canghennau.
+[VERSE 4]
+A’r ceinciau’n raddau sy’n cyrhaeddyd
+Sefyllfaoedd yr holl fywyd;
+Tyfiad pawb, o dlawd i frenin,
+Sy’n llygreddawl o’r un gwreiddyn;
+Nid oes heddyw’n gwneyd eu swyddau,
+’N un gelfyddyd,
+Neb a’i fywyd na bo feiau,
+Naws a gewch mewn is ag uchod
+I ryw ddichell,
+Ymhob bachell am eu pechod.
+[VERSE 5]
+Mae rhai penaethiaid, euraidd araith,
+A’u hawdurdod yn ddi effaith;
+Esiamplau drwg, mewn golwg helaeth,
+Sy’n wall anfeidrol mewn llywodraeth
+Rhai ynadon rhy niweidiol,
+A chyfreithwyr
+Sydd anrheithwyr swydd anrhaethol,
+A rhai personiaid, pwy resyna?
+Ymhob ffiaidd
+Naws aflunaidd, nhw’ sy’ flaena.
+[VERSE 6]
+A thra fo’r blaenaf heb oleuni,
+Yn twyso’r dall i ffos trueni,
+Swn digofaint sy’n dygyfor
+Yspryd Saul, elynol flaenor,
+Lladd y plant er mwyn dieithriaid,
+I geisio cadw
+Yn ’r ymyl acw’r Amaleciaid;
+Cryfhau breichiau annuwioldeb
+Mewn drygioni,
+Daw’n warth i ni, a Duw’n wrthwyneb.
+[VERSE 7]
+Mae’r saith angel ar eu siwrnau,
+Yn dechreu tywallt eu phiolau;
+Llawer gwae sy’n llwyra gwewyr,
+I’w rhoi yma i’r rhai amhur;
+Gwae rhai gydiant faes at faesydd,
+Nes bod gwendid,
+Oes wall ofid, eisiau llefydd;
+Mae n ddi ameu’n anhawdd yma
+I dylodion,
+Ac elw byrion, gael eu bara.
+[VERSE 8]
+Dawn medrusgall dyn rhodresgar,
+Gwneyd ei dduw o gnwd y ddaear;
+Ysguboriau gwaliau’n gwlwm,
+A _storehouses_, ys da rheswm;
+Ond geill naws ing dywyllnos angau,
+Alw’r ynfyd,
+I ado’i buryd cyn y borau.
+Ameu’r Arglwydd am ei lawndra,
+Cofiwn heddyw,
+Am wr sy’n marw ’mhorth Samaria.
+[VERSE 9]
+Cofia, ’speiliwr cenhedlaethau,
+Y bobloedd a’th yspeilia dithau;
+Am waed dynion mewn galanas,
+Ac am dy drais mewn tir a dinas,
+Gwae elwo elw drwg i’w berchen,
+Yn falch ’i af’el,
+I nythu’n uchel—noeth yn ochen;
+Ac os yw Lloegr dan ’r un llygriad,
+Caiff gan yr Arglwydd,
+’R un cul dywydd a’r Caldea’d.
+[VERSE 10]
+Beth yw plasau, trasau trysor,
+Ond gorseddfeydd annuwiol gyngor?
+Mae gwin, a bwyd, a gwyniau bydol,
+Yna i’w moedro, ’n anghymedrol;
+Meibion Scefa ’mhob naws gaf’el,
+Heb yr Arglwydd,
+Sy dan chwithrwydd dyn a chythrel;
+Chwys y tlawd yw’r cnawd a’r cnydau,
+Rhwysg a balchder,
+Y swn a’r pleser, sy’n eu plasau.
+[VERSE 11]
+Fe wasg y mawrion dewrion dyrus
+Y llafurwyr, â’u llaw farus;
+A’r llafurwyr, a’u holl fwriad,
+Gwisgo’r gwyn, a gwasgu’r gweinia’d;
+Gwasgu sydd, a gwisgo swyddau,
+Nes yr aethon’
+I faela dynion, fel eidionau;
+Gwerthu’r cyfion er ariannau,
+A’r tlawd truan
+Er pris gwadan par esgidiau.
+[VERSE 12]
+Dyma’r byd ac ergyd gwyrgas,
+Y sydd yn awr a’i swyddau’n eirias;
+Memi melin flin aflonydd,
+Egni galed yn cnoi ’gilydd;
+Pawb ar eraill a weryran’,
+A neb yn cwyno
+Ei wyrni heno arno’i hunan;
+A phob enwau, tlawd a bonedd,
+Oll yn euog,
+Tan’r un warog, trwy anwiredd.
+Gwedi chwalu gwawd uchelwyr,
+Pa faint ffurmach ydyw’r ffarmwyr,
+Sydd mor feilchion, gw’chion gyhoedd,
+Rymus droediad, a’u meistradoedd?
+Pell yw peirch eu meirch a’u merched,
+Hwy rygyngant
+Fwy nac allant yn ddigolled:
+Lle bo addysg byd neu eiddo,
+Dyna ragrith,
+Wyniau melldith, yn ymwylltio.
+Ac os ewch i ddangos ochain,
+Babel droiau’r bobl druain;
+Llygredd llun, a gwyn drygioni,
+Swn yr hunan sy’ yn y rhei’ny;
+Meddwi a hwrio, mawr ddihirwch,
+Bawb lle gallant
+A ddilynant aflawenwch;
+Anesmwythdra, lleithdra llwythdrwm,
+Byw’n ddi’g’wilydd
+Dan eu gwarthrudd, dyna’u gorthrwm.
+A phwy ond diafol, awdwr pechod,
+Sydd yma y’nghadfa pob anghydfod?
+Pan ddarfu’r tyn offeryn Pharo
+Bwytho ar ddynion, beth oedd yno?
+Nid ffast wenwyn, na phastynau,
+Mewn cynddaredd,
+Oedd eu buchedd dan eu beichiau;
+Ond o’u cyfyngder eger eigion,
+At Dduw’n ddibaid
+’Roedd eu hochenaid a’u hachwynion.
+A than bwysau’r ieuau ’rwan,
+Geifr a moch sy’n croch ysgrechian;
+Ymroi a diodde’n ddi w’radwyddiad
+Dan iau’n ddyfal a wna ddafad;
+I ddefaid Crist mae’r iau’n esmwythdra,
+Cariad Isr’el,
+Goruwch fug’el, a’u gorchfyga;
+A’r rhai orchfygant awch arfogaeth
+Chwantau’r gelyn,
+Mae’r Iesu’n dilyn iau’r dystiolaeth.
+[VERSE 13]
+Beth yw rhyfel boeth, hir ofid,
+Ond melus chwantau beiau bywyd?
+Olwyn fawr digofaint gyfion,
+Sy’n troi’n boenus trwy ddibenion:
+Ac os y tlawd raid heddyw ddiodde’,
+Caiff gwyr mawrion,
+Taer annoethion, eu tro nhwythe’,
+Fel mae amser i bob amcan
+Trefn Ragluniaeth,
+Drwy wahaniaeth Duw ei hunan.
+[VERSE 14]
+Angenrhaid yw o ran cyflyrau,
+Byd rhai astrus, yw bod rhwystrau;
+Gwenith glân ’does ofon sefyll,
+Pan godo’r gwantan gyda’r gwintyll;
+Tan y groes, mewn oes yn isel,
+Mae lle’r Cristion.
+Fe ddaw’n gyfion o bob gaf’el;
+A Duw anwyl, er daioni,
+Drotho’n buchedd
+At wirionedd, o’n trueni.
+
+--- TITLE: HAFGAN  [air: Spaen-Wenddydd]
+[VERSE 1]
+Y teulu mwyn hael-gu mewn hedd,
+Rhowch osteg, rai glandeg eu gwedd;
+I ddatgan un haf-gan yn hy,
+Hen dirion arferion a fu,
+Mewn llawer ty ’roedd cennad da,
+Ac enw hyf i ganu Ha;
+Fel pob creadur sy’n ei ryw,
+_Ag aml dôn yn canmol Duw_.
+Mae’r ddaear oedd fyddar, wedd fud,
+Mae’r coedydd, mae’r bronnydd mawr bryd,
+Mae’r dyffryn yn deffro ei holl wraidd,
+Mae eginoedd y gwenith a’r haidd,
+Mae llaeth a maidd, mae llwythau mwyn,
+O ffrwythydd haf yn ffraeth ymddwyn;
+Mae pob creadur yn ei ryw
+_Ag aml dôn yn canmol Duw_.
+Gan hynny gwnawn synnu ’mhob swydd,
+Ystyriwn a gwelwn i’n gŵrydd,
+Ddoethineb dawn undeb Duw Ne,
+Yn trefnu pob peth yn ei le;
+Y mawr dymhorau, ffrwythau ffri,
+Er hynny, anufudd ydym ni,
+A phob creadur yn ei ryw
+_Ag aml dôn yn canmol Duw_.
+Rhoed i ni, heb fawr brofi mo’r braw
+Bob mwynder a llawnder i’n llaw;
+’Nifeiliaid a defaid ar dir,
+Y rhei’ny sy’n hardd inni’n wir,
+Pob peth yn glir i’n porthi’n glau,
+A ninnau er hyn heb ’difarhau;
+A gweled pob greadur gwiw
+_Ag aml dôn yn canmol Duw_.
+[VERSE 2]
+Mae r holl greadigaeth fel drych,
+Rhai deimlant a welant yn wych,
+Bod pob peth yn datguddio’n gytun,
+Ddaioni’r Creawdwr ei hun;
+Ond natur dyn sy fwya’ dall,
+Tan gwmwl balchder ofer wall,
+Ni fyn ddarostwng o’i dda ryw
+_Un cymal dewr er canmol Duw_.
+[VERSE 3]
+Pa beth yw rhyfeloedd y byd,
+Ond balchder ac uchder i gyd?
+Fel ’r angel nerth uchel wnaeth ef
+I ormesu teyrnasu tu’r nef;
+A dyna’n llef sydd fyth rhagllaw,
+Yn ffrwd gyffredin dryghin draw,
+O eisiau bod yn Iesu byw
+_Bob cymal dewr yn canmol Duw_.
+[VERSE 4]
+O! rhyfedd yw’n buchedd trwy’r byd,
+Mewn gwagedd a llygredd a llid,
+Heb geisio gwir deimlo gair Duw
+Sy’n ein galw ni o feirw i ail fyw;
+Ond Och! mae’n clyw ni wedi cloi,
+Ac ysbryd dall i ymbarotoi;
+’Rym ni yn gysglyd oerllyd ryw,
+_Ac eisieu’n deffro i ganmol Duw_.
+[VERSE 5]
+Cynhyrfwn, a gwelwn mai gwir
+Y cawn feirw, cwyn arw, cyn hir;
+Gwybyddwn na ffaeliwn yn ffol,
+Mae’r bywyd trag’wyddol yn ol;
+Ymwnawn mewn rhol am ffrwythau’r hâ,
+Lle mae gorfoledd diwedd da;
+Dyna r fan lle caffom fyw,
+Amen, a ’stad, _yn mynwes Duw_.
+
+--- TITLE: ANWYL GYFAILL  [air: Y Galon Drom]
+[VERSE 1]
+ANWYL gyfaill, rwy’n dy gofio,
+A gweddi mynych, gan ddymuno
+I Dduw roi llwyddiant er pob lludded
+Yn graff i’th onest gorff a’th ene’d;
+A dal dy draed ar Graig yr oesoedd,
+Er pob helynt,
+Eiddig oeddynt, a ddigwyddodd;
+Ac er pob peth a ddigwydd eto,
+Duw fo i’th dywys,
+Yn gyhoeddus, rhag tramgwyddo.
+[VERSE 2]
+Cefaist yma lawer damwain,
+Megys rhybudd cerydd cywrain;
+Mae’r Saer-celfydd ymhob cilfach,
+Am dy docio i’th wneyd yn decach,
+Torri ceinciau d’ anystyriaeth,
+Harddu’r Eglwys,
+Caer hoff wiw-lwys, mewn corpholaeth,
+Bwrw’r gwarthus bnynu a gwerthu
+Hwnt o’r deml,
+I fan isel a fyn Iesu.
+[VERSE 3]
+Gwel fod ffraeth ragoriaeth gaerog
+Rhwng gwir blentyn a gwas cyflog;
+Rhaid i’r plentyn etifeddol,
+Gyrraedd didwyll gerydd tadol;
+Nid ydyw rhai na chânt yn weddaidd
+Fflangell barod,
+Bwys awdurdod, ond bastardaidd;
+Dal dy sêl a gwel y gwaelod,
+Plentyn cyfan
+Wyd ti dy hunan i’r Tad hynod.
+[VERSE 4]
+Cariad Crist a ddarfu’n dirion
+Deg arwyddo’n dy geryddon;
+Efe, cofia, sydd drwy’r cyfan,
+A’i ddawn ollawl i’th ddwyn allan;
+Ar Job gynt ca’dd Satan weithio;
+Darfu’n rhydost
+Gnoi, di a’i gwyddost, gnawd ac eiddo;
+Ond cadwe ’i enaid gwedi hynny—
+Rhyfedd, nerthol,
+Anhebgorol, mae Duw’n caru.
+[VERSE 5]
+A gadwo Duw a fydd cadwedig
+Trwy ddwfr a thân, a gwawd a dirmyg;
+Nid oes dim all niweid egraidd
+I rai garant Dduw’n gywiraidd;
+Mae pob rhyw bethau’n rhannau’r rhei’ny
+Yn gweithio beunydd
+Oreu deunydd er daioni;
+A gwyn ei fyd y diwyd ffyddlon
+A ail aned,
+A Duw’n gywled yn ei galon.
+[VERSE 6]
+Yr Eglwys ydyw’r hardd dreftadaeth,
+A chalon dyn yw’r pren gwybodaeth;
+Mae’n ffrwyth gwa’rddedig ynddi’n canlyn,
+Gwyliwn drwyddo goelio’r gelyn;
+Pwyll a sobrwydd sydd angenrhaid,
+Dal ar orchwyl
+Oen Duw anwyl yn dy enaid:
+Fy mab,” medd Duw, “moes im’ dy galon”;
+Dyna’r d’ioni,
+Gyda nyni, ymgadw yn union.
+[VERSE 7]
+Y galon yw’r ystafell addas,
+Tŵr puredig, ty’r briodas;
+Os gwelir un hen wŷn yn honno,
+Ac heb y wisg briodas ganddo,
+Rhwymwch, deliwch, draed a dwylo,
+I’r t’w’llwch enbyd,
+Lwyra gofid, ’lawr ag efo;
+Caiff pawb ond plant y ddinas burlan,
+Eu troi, dyallwch,
+I’r tywyllwch, o’r tu allan.
+[VERSE 8]
+Cans oddi allan mewn swydd hyllig
+Mae’r cwn a’r swyn-gyf’reddwyr eiddig,
+Puteinwyr a llofruddwyr gwaedlyd,
+A phob celwyddwyr, yfwyr hefyd,
+Addolwyr eulyn, ddwl oer alwad,
+Ni ’dwaenant olau,
+Dawn a geiriau Duw, na’i gariad;
+A’r holl broffeswyr hunan-gnawdol,
+Nid yw eu rhyfyg,
+A’u dull unig, ond allanol.
+[VERSE 9]
+Gwyliwn fod ar nôd annedwydd,
+Rhaid dal yn agos at yr Anglwydd,
+A ffoi i Soar am anrhydedd:
+Ni thal sefyll ar wastadedd,
+Fel gwraig Lot, a ddarfu gychwyn,
+Ei gwlad a’i chartre,
+Fodd anaele, fu iddi’n elyn.
+Chwant y cnawd, a llygredd cyhoedd,
+Allant dyfu
+I’th anafu o borth y nefoedd.
+[VERSE 10]
+Llawer ffordd a llawer cwestiwn
+Sydd yn t’wyso rhyw demtasiwn;
+Gormod cyfle, a mynych arfer,
+Eill ein hudo ni o’n llawn hyder;
+Er bod doethineb mawr yn Sal’mon,
+Merched lledrydd,
+Draws eu gilydd, droes ei galon;
+Er gwneyd teml Dduw yn ’i ddechreu,
+F’ aeth i weithio,
+Dan wenh’eithio, i’w duwiau nhwytheu.
+[VERSE 11]
+O! mor llithrig ydyw llwybyr
+Tuedd dyn i fynd wrth natur;
+Rhyfedd gariad a thrugaredd,
+Fod rhai’n sefyll hyd y diwedd;
+Os ai fel Pedr dros y llwybrau,
+Gweddia’n fynych,
+I Dduw edrych, di ddoi adrau:
+Golwg Iesu a’n galwo’n gyson,
+A’i air fo’n llosgiad,
+Unig hwyliad yn ein calon.
+
+--- TITLE: PEDAIR COLOFN GWLADWRIAETH  [air: DYDD LLUN Y BORE]
+[VERSE 1]
+Wel, gwelwch i gyd,
+Trwy’r byd yn wybodol y rheol sy’m rhan,
+I mi mae anrhydedd, a mawredd pob man;
+I’r Brenin mae’r braint,
+Wir gywraint ragorieth, yn benneth mawr barch,
+A phob ryw reoleth trwy’i daleth hyd arch;
+I mi mae’r awdurdod, a mawr air Emerod,
+I mi mae’n bri hynod yn barod mewn byd,
+I mi mae’r gair uchaf, beth bynnag a archaf,
+Mae’n dynion sydd danaf, mi brofaf i’m bryd,
+Hwy wnant fel y mynnwyf pan alwyf yn nghyd;
+Os archaf eu hanfon i ryfel echryslon,
+Yn erbyn gelynion, yn union hwy an’,
+Hwy laddant, hwy leddir, gorchfygant, gorchfygir,
+Trwy ddyfroedd y mentrir, nid ofnir mawr dân,
+Dangosant eu cryfdwr iawn ledwr yn lân.
+[VERSE 2]
+Fy awdurdod sydd gry’,
+Mewn gallu teg ’wyllys yn ddawnus tan Dduw,
+I mi mae gor’chafieth, rheoleth pob rhyw,
+I mi mae mawrhâd,
+Pob gwlad enwog lydan sy’n rhwyddlan i’m rhan,
+Mae’r deyrnged i’m gafael, er mael o bob man;
+Mae danaf, nod union, arglwyddi a marchogion,
+Pob math ar wŷr mawrion, sydd ffraethlon swydd ffri,
+Pob offisers diwad, pawb gwiwlan, pob galwad,
+Pob cyfoeth, pob cofiad, mewn rhad mwy na rhi’,
+Sy’n dirwyn o diroedd a mofoedd i mi;
+Gan hynny gwybyddwch, heb gilwg, o gwelwch,
+’Rwy’n cario’r hawddgarwch ar degwch pob dyn,
+I mi mae’n holl arwydd, a’r goron deg wiwrwydd,
+Tan fraint ardderchawgrwydd, nef hylwydd ei hun,
+Dylwn gael i’m cyfarch bur barch gan bob un.
+
+--- TITLE: PEDAIR COLOFN GWLADWRIAETH  [air: SWEET WILLIAM]
+[VERSE 1]
+Pob ladi o ddynes led ddiddeunydd,
+Gwrandewch ar gwynion gwrach ddigynnydd;
+Y fi sy’n adrodd fy musgrellni,
+A maint o aflwydd a ddaeth imi,
+Erwina digwydd, o ran diogi.
+[VERSE 2]
+Pan es i ddechre donie dinerth,
+Trin y byd a phob rhyw drafferth,
+Cefais ganwaith, cofus gen’i,
+Am ddilyn mynych serthnych swrthni,
+Golledion dygyn, o ran diogi.
+[VERSE 3]
+Pob trawsneiddwch trist anniddan,
+Pob taeog walle yn tŷ ac allan,
+Pob rhyw anhap a thrueni,
+Pob aruthr ddamwain a ddaeth imi,
+Anrhaith dugas; o warth diogi.
+[VERSE 4]
+Fy hyswieth doreth dyrus,
+Aeth yn ofer waith anafus,
+Y cig, y caws, a’r menyn gen’i,
+A spwyliai’n aml o ran imi
+Wneyd cam-drinogeth yn fy niogi.
+[VERSE 5]
+Gan hynny, ferched, ’rwy’n eich annog,
+I gym’ryd siampl rhag troi’n ddiog,
+Mae un anhwsmon yn well i’w gyfri,
+Ac yn gynhesach nag anhyswi,
+Lle bo redegog bâr a diogi.
+[VERSE 6]
+Mae’r gwr doeth yn rhoi canmolieth
+I wraig dda rinweddol berffeth;
+’Rwyf finne’n llwyn wrthwyneb iddi,
+Cymerwch rybudd o’m trueni,
+Ym mhob ymddygiad gwyliwch ddiogi.
+
+--- TITLE: PEDAIR COLOFN GWLADWRIAETH  [air: AMOR ELIS / IANTO'R COED]
+[VERSE 1]
+Clyw, Eglwys Loeger, ffraethber ffri,
+Hap lwyra ’stad, pa le ’reist ti,
+Yng nghanol d’urddol frawdol fri,
+I’r fath drueni anian.
+’Nol dwediad Gildas atgas wawr,
+Y gwyfaist awr yn gyfan;
+Cans dy weinidogion sydd dan sêr,
+Yn haeddu eger ogan.
+[VERSE 2]
+Trwm achos ofni’n enbyd sy,
+Beth wneiff y wlad gyffredin lu,
+Tra bo’r blaenoriaid harddblaid hy’,
+Wedi’u dallu gan dywyllwch;
+A’r dall truenus warthus wall,
+Yn t’wyso’r dall, dyellwch
+Mai yn y ffos, anniddos nerth,
+Mewn galar serth, y syrthiwch.
+[VERSE 3]
+O! chwi rai deillion llyrfion llawn,
+Sy’n sôn am Grist a’i ddidrist ddawn,
+Ac heb adnabod eto’n iawn,
+Mo’i hollol gyfiawn allu;
+Pa fodd y byddwch, tristwch trwm,
+Pan ddarfo swm rhesymu?
+Ni feddwch geidwad yn eich plith,
+Ond melldith, rhagrith rhygry’.
+[VERSE 4]
+Gan hynny profwn bawb ger bron,
+Beth dâl rhyw enw llanw llon,
+Am ffurfiau’r Eglwys hardd-ddwys hon,
+Dyst oerion heb ystyried;
+Na chael erioed iach oleu-ryw,
+Gwirionedd Duw i’r ened,
+A chym’ryd ffalster yn lle ffydd,
+Bydd prudd y dydd diweddied.
+[VERSE 5]
+Ffarwel yn awr, yr wy’n mynd ymeth,
+Gweddied pawb am wir wybodeth,
+Dallineb ysbryd enbyd wawr,
+Sy heddyw’n fawr ysyweth.
+
+--- TITLE: PEDAIR COLOFN GWLADWRIAETH  [air: GONSET GRUFFYDD AP CYNAN]
+[VERSE 1]
+Chwychwi gyfreithwyr, barnwyr byd,
+Dewch ynghyd, braf yw’n bryd,
+Yma ar hyd, mewn mawr anrhydedd.
+I ni mae’r mawredd ymhob man,
+I ni yma’n awr mae’n fawr y fael,
+Gwych a gwael a raid ein cael,
+O, mor ddiffael yw mawrdra ffylied!
+I ni mewn rhediad yn ein rhan,
+Er bod y gyfraith rwyddfaith rad
+Yn dda’n ei lle trwy ddawn wellhad;
+Nyni’n mhob gwlad sy’n chwanog ledio,
+Ffordd bo ni’n leicio, am eiddo a mael,
+Wrth fedru chwareu mewn awch hy’,
+Y gath ddwy gynffon yma’n gu,
+’Ry’m ni ymhob llu yn medru moedro
+Dan gyfryw gwafro i gogio’r gwael.
+[VERSE 2]
+Tan rith cyfiawnder llawnder llwydd,
+Yr y’m ni’n rhwydd yn trin ein swydd,
+Rhaid in’ o’n gŵydd trwy guddio’n dyfes,
+Os mynwn fantes yma i fyw,
+Wrth ddweyd yn deg a thido’n dost,
+O ddelio’n rhydost mae’r mawrhydi,
+I gadarn godi, a llonni ein lliw.
+Er teced cyfraith ffraethwaith ffri,
+Ag arian hardd ni a’i gwyrwn hi,
+I brynnu bri neu dorri’r dyrus,
+Y wobr drefnus a wna’r tro,
+I ni mae’r braint, i ni mae’r bryd,
+I ni mae’r parch, i ni mae’r byd,
+I ni o hyd mae hyder cywaeth,
+Tra dalio cyfraith yn ein co’.
+
+--- TITLE: PEDAIR COLOFN GWLADWRIAETH  [air: PRINCE RUPERT]
+[VERSE 1]
+Yr hwsmon mwyn rhadlon hyfrydlon ei fryd,
+Sy’n haeddu’i ddyrchafu a’i barchu trwy’r byd,
+Er bod i’r brenin barch a braint,
+A’r esgob enwog swyddog saint,
+Mewn pwer foddus pwy ŵyr faint, pur fantes eu byd;
+A’r ustus mawr ei ystyr,
+A’r cownslors a’r cyfreithwyr, sy’n brysur eu bryd,
+Trwy’r hwsmon a’i drafel mae’u gafel nhwy i gyd.
+[VERSE 2]
+Ond llafur yr hwsmon, wr esmwyth ei ryw,
+Sy’n cynnal y brenin a’i fyddin yn fyw,
+Efe sy’n llanw eu dannedd dig,
+A’r bara, a’r caws, a’r bir a’r cig,
+Pob lleidr balch â’n llwyd ei big, heb aredig i’r ŷd,
+Gan yr hwsmon mae trinogeth,
+Llin, gwlân, a holl raglunieth bywiolieth y byd,
+Trwy’r hwsmon a’i drafel mae’u gafel nhwy i gyd.
+[VERSE 3]
+Yr esgob a rwysgant a’i ogoniant i’w gôt,
+Rown i, onibai’r degwm, am ei reswm ef rôt,
+Ac yntau’r deon fwynlon fant,
+A’r offeiriadon chwerwon chwant,
+Ar gefn y plwyf maen’ hwy a’u plant, a’u holiant o hyd,
+Mae’n rhaid i’r gweilch bon’ddigedd,
+Gael bara dan eu dannedd o rinwedd yr ŷd,
+Trwy’r hwsmon a’i drafel mae’u gafel nhwy i gyd.
+[VERSE 4]
+Efe yw tad-bedydd pob gwledydd yn glir,
+A phen pob celfyddyd rhai diwyd ar dir,
+Rhaid i bob crefftwr gweithiwr gwan,
+Ymofyn yr hwsmon iddo’n rhan,
+Ni all neb fyw mewn tref neu lan, heb lunieth mewn pryd,
+Digonedd o haidd a gwenith,
+Sy’n porthi pob athrylith â bendith mewn pryd,
+Trwy’r hwsmon a’i drafel mae’u gafel nhwy i gyd.
+
+--- TITLE: PEDAIR COLOFN GWLADWRIAETH  [air: SPAIN WENDDYDD]
+[VERSE 1]
+Wel, teimled a barned pob un,
+’Rwy’n chwennych gwneyd heddwch cytun,
+Pa fodd y gall hwsmon gael lles,
+Er cymaint ei rinwedd a’i wres,
+Beth fydd e’n nes wrth feddu’n wir
+Anrhydedd teg o ffrwythau tir,
+Onibae fod gwlad faith râd a thref
+Yn treulio’i foddion unicn ef?
+[VERSE 2]
+A pheth a wnai’r hwsmon dan ’rhod,
+Heb frenin a byddin yn bod,
+Dysgawdwyr a sawdwyr i’w swydd,
+Rhag blinion elynion di lwydd?
+Y rhei’ny’n rhwydd wnai aflwydd noeth,
+Yn neutu’r byd â’u natur boeth,
+Onibai penaethied nerthol glau,
+Ni fydde un heddwch î’w fwynhau.
+[VERSE 3]
+A’r ustus, ŵr trefnus bob tro,
+Sydd berffeth a’i gyfreth i’w go’,
+Yn taeru, ac yn rhannu ’mhob rhith,
+Gyfiawnder, mewn plainder i’n plith:
+Neu bydde melldith ym mhob man,
+Lledrata a lladd trwy dref a llan,
+Oni bai fod cyfraith araith wir,
+Hi ai’n anrhaith hwyl ar fôr a thir.
+[VERSE 4]
+Mae pob galwedigeth ar dwyn,
+Wedi’i threfnu a’i sefydllu’n bur fwyn
+Fel cerrig mewn adail hwy wnan’,
+Yn y murie rai mawrion a mân,
+Pob un yn lân a geidw le,
+I glod a thrinieth gwlad a thre’,
+Pob swydd, pob sail, pob dail, pob dyn
+Sy’n dda’n ei hardd sefyllfa’i hun.
+[VERSE 5]
+Mae’r deyrnas mewn urddas a nerth,
+Gwedi’i rhol fel un corff lanw certh,
+Yn y pen y mae’r synwyr a’r pwyll,
+A’r galon yw’r golwg ar dwyll;
+Y pen yw canwyll, cynnydd maeth,
+Aelodau’r corff a’u lediwr caeth,
+Mae’r dwylo a’r traed mewn daliad drud,
+A’r bysedd bach tan bwyse’r byd.
+[VERSE 6]
+Nid alliff, deallwch, un dyn,
+Fyw’n gryno yma heno arno’i hun,
+Rhai’n barchus, neu drefnus iawn draw,
+Rhai’n weinied yslafied islaw,
+Pob un a ddaw a’i ben i’r ddôl,
+Yn ol sefyllfa rhedfa rhol,
+Fel cocys melin wedi rhoi
+Rhwng ffyn y droell i’w phwnio i droi.
+[VERSE 7]
+Gan hynny ’rwy’n deisyf ar bob dyn,
+Na ymffrostied yn ei alwad ei hun,
+Ni ellir byw’n ddifyr ddi-wall
+Mewn llwyddiant, y naill heb y llall;
+Ow! barna’n gall, pwy bynnag wyd,
+Fod rhaid i’r adar mân gael bwyd,
+Mae pob sefyllfa a’i gyrfa’n gaeth,
+I ogoneddu’r Hwn a’i gwnaeth.
+
+--- TITLE: PEDAIR COLOFN GWLADWRIAETH  [air: SPANISH HAVEN]
+[VERSE 1]
+Pob rhyw ddyfeisgar feddylgar ddyn,
+A phob ystraeol wagffol un,
+A wnelo hyn ohono ei hun,
+I daenu gwŷn a gwenwyn;
+A phan ddelo ar ffrwst ryw drwst i droi,
+Gwneiff pawb esgusion am le i ’sgoi,
+Ac felly’r anair a gaiff ei roi
+Ar Rywun.
+[VERSE 2]
+Mae’n natur hon yn glynu’n rhwydd,
+Pan bechodd Adda sertha swydd,
+Rhodd yntau ar Efa, llesga llwydd,
+Y bai a’r digwydd dygyn;
+Ac ar y sarff y rhoddes hi,
+A hyn yw’r nod o’n hanwir ni,
+Hoff gennym fyth roi’r euog fry
+Ar Rywun.
+[VERSE 3]
+Gan hynny gwelwn wraidd ein gwall,
+Na byddir nes trwy ddyfes ddall.
+Er taflu’r llwyth o’r naill i’r llall,
+Mewn coegfall oerwall erwin;
+Ni chafodd Adda un lle i ffoi,
+Fe ddaeth y drwg heb hir ymdroi,
+I’w ben ei hun er ceisio ei roi
+Ar Rywun.
+[VERSE 4]
+Ac felly ninne, f’alle’n wir,
+Drwy’r deyrnas hon ymhob rhyw sir,
+Ansiriol siarad holiad hir,
+A fftydir gan gyffredin;
+Mae’r gair dew lid mewn gwir di lai
+Fod ar benaethied amryw fai,
+Fel hyn mae barn gan bob rhyw rai
+Ar Rywun.
+[VERSE 5]
+Ond wedi’r cwbl drwbl drud,
+O’r chwyrnu a’r barnu sy’n y byd,
+Daw’r amser pan grynhoir ynghyd
+Bob dirfawr fryd i derfyn;
+Pan fo’r gydwybod flin yn cnoi,
+’Cheiff esgus ffals un lle i ffoi,
+Sait pawb i’w tam, ni wiw ei roi
+Ar Rywun.
+[VERSE 6]
+Gan hynny holed pawb ei hun,
+Mae barn, rhag barn, yn dda i bob un,
+Cydwybod oleu, ei llwybre a’i llun,
+Sydd oreu i ddyn ei ddilyn;
+Gwae lwytho arno ei hun glai tew,
+Ni all llewpart newid lliw ei flew,
+Pan d’wyno’r haul fe dodda rhew
+Dydd Rhywun.
+[VERSE 7]
+Ni chana’i chwaneg, nosdawch heno,
+Dyma gysgod y celwydd yn awr yn cilio,
+Rhaid i bawb syfell dan ei faich ei hun,
+Ni wiw am Rywun ruo.
+
+--- TITLE: PEDAIR COLOFN GWLADWRIAETH  [air: SUNSELIA]
+[VERSE 1]
+Pwy heno’n wahanol, dduli dynol, all ddweyd,
+Na ddarfu Duw gynuyg yn unig ei wneyd
+Yn ddawnus feddiannol o reol ei ras,
+Ond ein bod ni drwy bechod yn gwrthod yn gas;
+Trwy glefyd a gloes, a llawer byd croes,
+Trwy amryw rybuddion, arwyddion a roes;
+Mae’n cynnyg oes gwiw i’r gwaetha sy’n fyw,
+Rhyfeddwn ei foddion, mor dirion yw Duw.
+[VERSE 2]
+Mae’n cynnyg ymwared er trymed ein trwyth,
+Rhag torri neu gospi’r ffigysbren di ffrwyth,
+Mae’n erfyn caei blwyddyn er sugyn i’w sail,
+Gan gloddio i’w adfywio, ac anturio rhoi tail;
+Ac yna os dmwg wawr a fydd, er poen mawr,
+Y farn a’r gair taeredd yw, Torr ef i lawr!
+A hon yw’r farn ffri.  O! crynwn mewn cri,
+Rhag ofn mai rhai diffrwyth mewn adwyth y’m ni.

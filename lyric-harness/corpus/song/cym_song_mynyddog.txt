@@ -1,0 +1,3412 @@
+# author: Richard Davies, "Mynyddog" (1833-1877)
+# lang: cym  |  half: SONG (sung lyric; the caneuon of a working song-lyricist)
+# source: GITenberg/Gwaith-Mynyddog.-Cyfrol-II_14547  file 14547.txt (US-ASCII)
+#         md5 45dd3039d65df30fee820ce5968239cf, 120,311 bytes, HTTP 200 2026-08-10
+#         raw.githubusercontent.com/GITenberg/Gwaith-Mynyddog.-Cyfrol-II_14547/master/14547.txt
+#         NOTE the file is <id>.txt: <id>-0.txt and <id>-8.txt both 404, the same
+#         naming exception already recorded for Gwaith-Alun_14865.
+# licence: public domain. metadata.yaml verbatim: rights 'Public domain in the USA.',
+#         rights_url creativecommons.org/about/pdm; language: cy; author Mynyddog
+#         (Davies, Richard) 1833-1877; editor Edwards, Owen Morgan, Sir 1858-1920.
+#         Edition 1915 <= 1931. All three routes.
+# edition: Owen M. Edwards (ed.), 'Gwaith Mynyddog', Cyfrol II, Llanuwchllyn: Ab Owen,
+#         1915; PG header verbatim 'Transcribed from the 1915 Ab Owen edition by
+#         David Price'.
+# orthography: pre-1928 Welsh, UNNORMALISED. The transcription is ISO-646-US ASCII, so
+#         the circumflexes (a-e-i-o-u-w-y with ^) are FLATTENED. Harmless for
+#         cynghanedd, which is built on the consonant skeleton: the eight digraphs are
+#         intact and cym.py reads 100.00% of 16,444 tokens. It is NOT harmless for
+#         vowel-length work, and any such use must declare the loss.
+# structure: [VERSE n] / [REFRAIN]. [REFRAIN] is the abbreviated refrain cue the
+#         edition prints at the foot of a stanza ("Dyna'i hewyrth, &c."). That is the
+#         '&c.' chorus-stub convention MISSING.md A-1 records 941 times in the ENGLISH
+#         corpus, here in Welsh: 30 instances. A stub is not a line and must be
+#         excluded from rhyme extraction (lyric_harness.is_chorus_stub).
+# stripped: PG header/footer, Rhagair, the Darluniau plate list, plate captions,
+#         footnote markers {n}, trailing date colophons ("Medi 13, '75.").
+# tune: 1 named air ([air: Marseillaise], from the edition's '(Geiriau i'r
+#         "Marseillaise.")' = 'words to the Marseillaise'); 8 songs carry a named
+#         COMPOSER instead ([music: X] -- D. Emlyn Evans x4, Joseph Parry x3, Gwilym
+#         Gwent x1), which is the same evidence arriving from the other side: a song
+#         with a composer named in the book was written to be sung. A further 13
+#         parentheticals are kept verbatim as '# setting:' lines and include (EMYN),
+#         (Cantawd), (Harlech), ("Cambrian War Song," gan Mr. Brinley Richards) and
+#         (Just as I am) -- form and tune-model declarations that are NOT parsed here
+#         because parsing them would be guessing.
+# caesura: NOT PRINTED. 54 lines of 2,758 (2.0%) carry a dash cym.py would read as a
+#         caesura and every one inspected is punctuation ("William, William,--anwyl i
+#         mi."), not a gwant. Use caesura='search' only.
+# songs: 98
+# lines: 2758
+
+--- TITLE: HEN ADGOFION
+[VERSE 1]
+O na chawn fynd yn ol ar hynt
+Drwy'r adeg ddedwydd, iach,
+I brofi y breuddwydion gynt
+Pan oeddwn blentyn bach;
+Cawn syllu eilwaith oriau hir
+Ar flodau gwanwyn oes,
+Ac ail fwynhau ei awyr glir
+Heb gwmwl du na loes.
+[VERSE 2]
+O na chawn dreulio eto'n llawn
+Yr adeg lon, ddi-gur,
+Pan gylch fy llwybrau fore a nawn
+'Roedd blodau cariad pur;
+Nid yw ond megis ddoe o'r bron
+Im gofio ienctid ffol;
+Ond dyma sydd yn rhwygo 'mron,
+Ddaw'r adeg byth yn ol.
+
+--- TITLE: CHWI FEIBION DEWRION  [air: Marseillaise]
+[VERSE 1]
+Chwi feibion dewrion gwlad y bryniau,
+Clywch, clywch yr udgorn croch o draw,
+Llywelyn sydd yn chwifio'i ddreigiau
+A'i gleddyf gloew yn ei law;
+Mae dagrau baban gwan a'r weddw
+Yn gwaeddi'n uwch na chorn y gad,
+Fod rhyddid hoff ein hanwyl wlad
+O dan ei chlwyf ymron a marw;
+Ymlaen! ymlaen i'r gad,
+Dadweinied pawb ei gledd,
+Ni awn, ni awn dros freiniau'n gwlad
+I ryddid neu i'r bedd!
+[VERSE 2]
+Ystormydd rhyfel sy'n ymruo,
+Yr holl awyrgylch sydd yn ddu,
+Mae cledd dialedd wedi deffro,
+Gwae, gwae i'r holl elynol lu;
+Ni allwn edrych ar gelanedd
+Estroniaid yn arteithio'n gwlad,
+Gan ddwyn aneddau'n mam a'n tad
+A gwneud ein gwlad i gyd yn garnedd;
+Ymlaen!
+[VERSE 3]
+Deffroed ysbryd hyf ein teidiau
+I danio mynwes ddewr pob dyn,
+Mae'r ddraig yn edrych lawr o'r bryniau
+Gan ddisgwyl gweled Cymru'n un;
+Bu'n gwlad am oesau'n araf waedu,
+Ond sych dy ddagrau, Walia Wen,
+Mae seren gobaith uwch dy ben,
+Daeth cledd Llywelyn i'th waredu.
+Ymlaen!
+
+--- TITLE: CYMRU, GWLAD Y GAN
+[VERSE 1]
+Pa beth sy'n Nghymru, gwlad y gan,--
+Ai diliau glwys, ai dolydd glan,
+Ai gwastad diroedd heb eu hail,
+Yn dwyn eu blodau teg a'u dail?
+Na, na, nid dyna'r harddwch sydd
+Yn teg addurno Gwalia rydd.
+[VERSE 2]
+Pa beth sy'n Nghymru, gwlad y gan?
+Rhaeadrau gwyllt a nentydd glan,
+Clogwyni serth a chreigiau ban,
+A harddwch.  Eden ym mhob man!
+Ac O! mae yno fwthyn cu
+Sy'n werth palasau'r byd i mi.
+[VERSE 3]
+Mae tyrrau cestyll Gwalia Wen
+Yn pwyntio i fyny tua'r nen,
+Gan ddweyd mai anfarwoldeb sydd
+Yn eiddo dewrion Cymru rydd;
+O boed i mi gael byw yn hon,
+A beddrod yn ei thyner fron.
+[VERSE 4]
+Mae adsain bloedd y dewrion fu,
+Heb farw rhwng ein bryniau cu,
+Ac ysbryd ym mhob awel wynt
+Yn adrodd hanes Cymru gynt;
+O boed i mi gael byw yn hon,
+A beddrod yn ei thyner fron.
+
+--- TITLE: SIOM SERCH
+[VERSE 1]
+Daeth ef i geisio denu'r ferch,
+A phlannu'i galon yn ei bron;
+Cyn iddi ddysgu pwyso serch,
+Fe ddysgodd garu'r llencyn llon;
+Aeth ef a'r lili dyner, wen,
+Oedd ar ei bron, angyles ne,
+A phlannai'n ol ar galon Gwen
+Hardd rosyn cariad yn ei lle.
+[VERSE 2]
+Rhodd iddo'r cyfan feddai'n awr,
+Ei geiriau mel a'i gwenau drud,
+Rhodd iddo hefyd galon fawr
+Yn llawn o gariad byw i gyd;
+Cydwylai hi fel gwlith y nef
+Pan wylai ef o dan ryw gur,
+A chwarddai pan y chwarddai ef,
+A'r cyfan er mwyn cariad pur.
+[VERSE 3]
+Ond oerodd bron y llanc cyn hir,
+Ac ymaith aeth gan adael hon,
+Heb feddwl fawr fel treiddiai cur
+Fel saeth i lawr i'w gwaedlyd fron;
+Diangai gobaith teg ei wawr
+'Run fath a'r lili oddiar y ferch,
+Gan adael iddi hi yn awr
+Wywedig ros twyllodrus serch.
+
+--- TITLE: TARO YR HOEL AR EI PHEN
+[VERSE 1]
+Mae ambell i saer gyda'i forthwyl
+Yn taro yr hoelen yn gam,
+Ac ambell i un sydd mor drwsgwl
+A phe bai'n rhoi'r morthwyl i'w fam;
+Ond hyn sydd yn iawn a dymunol,
+Pan godi dy forthwyl i'r nen,
+Gofala wrth daro, 'n wastadol,
+I daro yr hoel ar ei phen.
+[VERSE 2]
+Mae llawer areithiwr go ddoniol,
+'Nol dodi y testyn i lawr,
+Yn dwedyd pob peth amgylchiadol,
+Heb son am ei destyn am awr;
+Siarada mor ddiflas a phlentyn,
+A thry wyn ei lygaid i'r nen,
+Paham nad ai'r dyn at ei destyn,
+A tharo yr hoel ar ei phen?
+[VERSE 3]
+Aeth bardd i wneud pryddest anghomon,
+A'r testyn oedd ci Ty'n y March,
+Dechreuodd yng nghwymp yr angylion,
+A'r cwn aeth at Noah i'r arch;
+'Rol canu pum mil o linellau,
+Gwnaeth bennill i'r ci yn y pen;
+Paham na bae beirdd y pryddestau
+Yn taro yr hoel ar ei phen?
+[VERSE 4]
+Aeth llencyn am dro gyda'i gariad,
+A soniai mor braf oedd yr hin,
+A'i bod hi mor bethma yn wastad
+Os na fyddai'r tywydd yn flin;
+Pam na fuasai'r llelo anghelfydd
+Yn gofyn addewid gan Gwen,
+A siarad am fodrwy lle'r tywydd,
+A tharo yr hoel ar ei phen?
+
+--- TITLE: CYMRU FU, A CHYMRU FYDD
+[VERSE 1]
+"I'r gad!"  "I'r gad!" ddaw gyda'r gwynt
+O faesydd gwaedlyd Cymru gynt,
+I'r gad i gyd, i'r gad ar goedd,
+Ar creigiau'n clecian gan y floedd;
+Er treiglo am fil o oesau chwith,
+Mae'r floedd "I'r gad" heb farw byth;
+Mae fel yn adsain nos a dydd,
+Mai "Cymru fu a Chymru fydd."
+[VERSE 2]
+Ar faesydd gwaedlyd Cymru fu
+Fe dyfa blodau cariad cu;
+"I'r gad" yn awr heb saeth na chledd,
+"I'r gad" dan faner glaerwen hedd;
+Mae'r cleddyf dur mewn hun di-fraw,
+Ac arfau rhinwedd ar bob llaw;
+Pelydra heulwen hanner dydd
+Ar Gymru fu a Chymru fydd.
+
+--- TITLE: PERTHYNASAU'R WRAIG
+[VERSE 1]
+Mi wnes beth unwaith yn fy oes
+Na wnaf mo hono mwy,
+Priodais gyda geneth lan,
+Y lanaf yn y plwy;
+Mi wyddwn eisoes fod gan hon
+Berthnasau yn y byd,
+Ond chydig a feddyliais am
+Briodi'r rhain i gyd;
+[REFRAIN]
+Dyna'i hewyrth, dyna'i modryb, &c., &c.
+[VERSE 2]
+Pan b'wyf yn gofyn i ryw ffrynd
+I droi i mewn i'r ty,
+I gael ymgom am hanner awr
+O hanes dyddiau fu,
+Cyn dechreu siarad gylch y tan,
+Na phrofi unrhyw saig,
+Fe gymer imi hanner awr
+I introdiwsio'r wraig.
+[REFRAIN]
+Dyna'i hewyrth, &c.
+[VERSE 3]
+Mi eis i'r dref yn fore ddoe
+Yng nghwmni Sion y Graig,
+A dyma'm hunig neges i
+Oedd prynnu watch i'r wraig;
+Pan rois yr oriawr yn ei llaw,
+Dywedai 'mhen rhyw hyd,--
+"A brynsoch chwi ddim pob 'i watch
+I'm perthynasau i gyd?"
+Prynnu watch i'r lot i gyd?
+[VERSE 4]
+Wrth weld fod pethau'n troi fel hyn,
+Dechreuais fynd o 'ngho',
+A dywedais yn fy natur ddrwg
+Na wnai hi byth mo'r tro;
+Dechreuai 'i thafod hithau fynd
+I drin a hel o hyd,
+Ac nid yn unig hi ei hun,
+Ond unai'r lleill i gyd.
+[REFRAIN]
+"Peidiwch byth rhoi y goreu iddo," meddai ei thad, &c., &c.
+
+--- TITLE: GORNANT FECHAN
+# setting: (Goethe)
+[VERSE 1]
+Gornant fechan, loew, dlos,
+Treiglo'r wyt y dydd a'r nos;
+Beth yw'th neges?  Beth yw'th nod?
+I ble yn mynd?--O ble yn dod?
+[VERSE 2]
+"'Rwy'n dod dros greigiau erchyll draw,
+'Rwy'n gadael dolydd ar bob llaw,
+Gan dynnu darlun ar fy mron
+O'r cwmwl gwyn a'r nefoedd lon.
+[VERSE 3]
+"Yn llawn plentynaidd ffydd 'rwy'n mynd,
+Ond i ba le, nis gwn, fy ffrynd;
+Yr Hwn rodd fod i'm dafnau llaith
+Yw'r Hwn a'm harwain hyd fy nhaith.
+
+--- TITLE: Y DERYN YSGAFNAF YN UCHAF
+[VERSE 1]
+Mae ambell aderyn lled fychan,
+Mae ambell aderyn lled fawr,
+Mae rhai yn ehedeg yn uchel,
+Ac ereill yn ymyl y llawr;
+Ceir rhai ddigon ysgafn i hedeg
+I ymyl y lleuad mor llon,
+A'r lleill sydd yn llawer rhy drymion
+I hedeg 'run dwylath o'r bron;
+Ond dyma'r gwirionedd yn hanes y byd,
+Mai'r deryn ysgafnaf yw'r uchaf o hyd.
+[VERSE 2]
+Os gwelwch ysgogyn go wyntog
+Yn chwyddo'n anferthol o fawr,
+O'r braidd y mae gan ei ysgafnder
+Yn cyffwrdd ei draed yn y llawr;
+'Does ryfedd ei fod yn ymgodi
+I fyny fel pluen i'r nen,
+'Does ganddo ddim pwysau'n ei boced,
+Na gronyn o bwysau'n ei ben.
+[REFRAIN]
+Ond dyma'r gwirionedd, &c.
+[VERSE 3]
+Ceir ambell i eneth benchwiban
+Yn gwerthu gwyleidd-dra a moes,
+Ysgafnder yw nodwedd ei meddwl,
+Ysgafnder yw nodwedd ei hoes;
+Nid rhaid iddi bluo ei bonnet,
+Na llenwi ei gwallt gyda charth,
+Mae digon o bluf yn ei henaid
+I'w chario i amharch a gwarth.
+[REFRAIN]
+Ond dyma'r gwirionedd, &c.
+[VERSE 4]
+Edrychwch i'r ffair ac i'r farchnad,
+Ysgafnder sydd yno'n mhob man,
+Ynghanol brefiadau y lloiau
+Mae'n codi yr uchaf i'r lan;
+Mae Satan yn pluo adenydd
+Rhai dynion i'w codi am awr;
+Ond cofiwch mai eu codi mae Satan
+Er mwyn cael eu taro i lawr.
+[REFRAIN]
+Ond dyma'r gwirionedd, &c.
+
+--- TITLE: PURDEB
+# setting: (Arddull T. Carew)
+[VERSE 1]
+Y sawl a fynn y rudd sydd goch
+A gwefus gwrel, llygad du,
+Y gwddw gwyn, y rhosawg foch
+I gynneu fflam ei gariad cu,--
+Daw amser hen i wywo'r gruddiau,
+A diffydd fflam ei lygad yntau.
+[VERSE 2]
+Ond y meddwl tawel, pur,
+Gyda ffyddlon dwyfron lan,
+Calon gara fel y dur,
+Hyn sy'n cynneu bythol dan;
+Lle na cheir hyn, peth eithaf annghall
+Yw caru llygad, boch, na grudd, nac arall.
+
+--- TITLE: DDAW HI DDIM
+[VERSE 1]
+Yr o'wn i 'n hogyn gwirion gynt,
+Yn destyn gwawd y plwy,
+Awn gyda phawb yn llon fy hyttt,
+Pwy bynnag fyddent hwy;
+Ond os ceisia dyn fy nhwyllo'n awr,
+'Rwy'n edrych llawn mor llym,
+A rhoddaf daw ar fach a mawr
+Wrth ateb,--"Ddaw hi ddim."
+[VERSE 2]
+'Rwy'n adwaen ffrynd, a'i arfer yw
+Benthyca pres yn ffol;
+Ond dyna'r drwg, 'dyw'r llencyn gwiw
+Ddim byth yn talu'n ol;
+Ryw dridiau'n ol, mi cwrddais ef
+Wrth fyned tua'r ffair,
+Gofynnodd im' cyn mynd i'r dref
+Am fenthyg tri a thair.
+[REFRAIN]
+Ond os ceisia dyn, &c.
+[VERSE 3]
+Fe ddwedodd cyfaill wrthyf fi
+Y gwyddai hanes merch,
+A wnaethai'r tro i'r dim i mi
+I fod yn wrthrych serch;
+Gwraig weddw oedd, yn berchen stor
+O bopeth, heb ddim plant,
+A chanddi arian lond dwy dror,
+Ac yn ddim ond hanner cant.
+[REFRAIN]
+Ond os ceisia dyn, &c.
+[VERSE 4]
+Bum i ryw dro ers blwydd neu ddwy,
+Ar bwynt priodi un;
+Cyn mynd at allor llan y plwy,
+Fel hyn gofynnai'r fun,--
+"Mae gennyf fam a phedair chwaer
+Sy'n anwyl iawn gen i,
+A gaiff y rhain, wrth fegio'n daer,
+I gyd fyw gyda ni?"
+[REFRAIN]
+Ond os ceisia dyn, &c.
+
+--- TITLE: AWN, AWN I'R GAD  [music: Gwilym Gwent]
+[VERSE 1]
+Awn, awn i'r gad,
+Awn, awn yn awr;
+Awn dros ein gwlad,
+Awn, awn yn awr;
+Calon y dewr
+Gura yn gynt,
+Baner a chledd
+Sy'n chwyfio yn y gwynt;
+Blaenor y llu
+Sy'n arwain i glod,
+A geiriau o dan
+O'i enau yn dod.
+[VERSE 2]
+Seren y goncwest sy'n gwenu fry
+Dros ein hanwyl wlad;
+Cael tynnu'r cledd sydd wledd i ni.
+
+--- TITLE: EISTEDD MEWN BERFA
+[VERSE 1]
+Tra'r oeddwn yn rhodio un diwrnod,
+A'r haul yn tywynnu mor llon,
+Mi ddaethum 'nol hir bererindod
+I bentref ar ochr y fron;
+A gwelwn ryw hogyn segurllyd
+Yn eistedd mewn berfa fel dyn,
+Gan wneud pob ymdrechion a allai
+Ar ferfa i yrru ei hun;
+Fel hwnnw yn union mae ambell i ddyn
+Yn eistedd mewn berfa i yrru ei hun.
+[VERSE 2]
+Os gwelwch chwi grefftwr go gywrain
+Yn gadael ei fwyall neu'i ordd,
+I sefyll tu allan i'w weithdy
+I siarad a phawb ar y ffordd;
+Neu holi am weithdai'r gymdogaeth
+A hanes y gweithwyr bob un,
+Heb feddwl am weithio ei hunan
+Y gwaith sy'n ei weithdy ei hun;
+Mae hwnnw'n lled debyg bob amser i ddyn
+Sy'n eistedd mewn berfa i yrru ei hun.
+[VERSE 3]
+Ceir ambell amaethwr dioglyd
+Na welwyd erioed arno frys,
+Mae'n well ganddo orwedd pythefnos
+Na cholli dyferyn o chwys;
+Ni chreda mewn cael ei gynhaeaf
+Tra'r haul yn tywynnu ar fryn,
+Ond creda mewn gadael ei feusydd
+I ofal y gweision a'r chwyn;
+Mae ffarmwr fel yna bob amser yn ddyn
+Sy'n eistedd mewn berfa i yrru ei hun.
+[VERSE 4]
+Pan welir masnachydd neu siopwr
+Yn gadael eu masnach trwy'r dydd,
+I ofal prentisiaid a chlercod,
+Nid 'chydig y difrod a fydd;
+Ond odid na chlywir yn fuan
+Am feili yn dod i roi stop,
+A'r writ mae'n ei roi i'r perchennog
+Sy'n dweyd, "Aeth yr hwch trwy y siop;"
+Mae siopwr fel yna bob amser yn ddyn
+Sy'n eistedd mewn berfa i yrru ei hun.
+
+--- TITLE: Y FRWYDR
+[VERSE 1]
+Clywch, clywch
+Y fyddin yn dod i'r gad,
+Uwch, uwch
+Y cenir i gledd ein gwlad;
+Calon a chleddyf i gyd yn ddur,
+Rhyddid yn rhoi
+Gelynion i ffoi
+O flaen ein gwyr.
+[VERSE 2]
+Clywch y tabwrdd yn awr
+Yn adseinio sydd,
+Clywch floedd fychan a mawr
+Wedi cael y dydd;
+Mae gwawr eto'n dod yn y dwyrain dir,
+Daw haul ar ein gwlad
+Mewn hwyl a mwynhad,
+Cawn heddwch cyn hir.
+
+--- TITLE: ENWAU
+[VERSE 1]
+Mi ganaf gan mewn cywair llon,
+Os gwrendy pawb yr un,
+Rhyw gan ar enwau ydyw hon,
+Ond heb gael enw ei hun;
+Mae rhai'n rhoi enwau mawrion, hir,
+Ar hogiau bychain, man,
+Ond dyma'r enwau sy'n mhob sir
+Trwy Gymru yw Sion a Sian,--
+[REFRAIN]
+Sian Jones, &c.
+[VERSE 2]
+Mae'r Sais yn chwerthin am ein pen
+Fod Taffy i'r back bones,
+Am alw plant hen Gymru wen
+Yn John a Jenny Jones;
+Mae Smith a Brown a John a Jane
+Yn Lloegr bron mor llawn,
+Ac O! mae enwau'r Saeson glan
+Ag ystyr ryfedd iawn.
+[VERSE 3]
+'Roedd Mr. Woodside gynt yn byw
+Yn High Street Number Ten,
+Cyfieithwch hynny i'r Gymraeg
+Mae'n Meistar Ochor Pren;
+'Roedd Squiar Woodall gynt yn byw
+Ym mhalas Glan y Rhyd,
+Os trowch chwi hynny i'r Gymraeg,
+Mae'n Sgwiar Pren i Gyd.
+[VERSE 4]
+'Dwy'n hoffi dim o'r arfer hon
+A geir yng Nghymru iach,
+Rhoi'r taid yn Sion a'r tad yn John,
+A'r wyr yn Johnny bach;
+A galw mam y wraig yn Sian,
+A'r wraig yn Jeanny ni,
+A galw'r wyres fechan, lan,
+Yn Jeanny No. 3.
+[REFRAIN]
+Sian Jones, &c.
+
+--- TITLE: YR HEULWEN  [music: D. Emlyn Evans]
+[VERSE 1]
+Daw yr heulwen a'i gusanau,
+Iechyd chwardda yn y gwynt,
+Cymyl sydd fel heirdd lumanau
+Bron a sefyll ar eu hynt;
+Gawn ni fynd a'r haf o'r gweunydd,
+Dwyn cusanau'r haul yn llu,
+Ar ein bochau gwridog beunydd,
+I addurno cartref cu?
+[VERSE 2]
+Dringwn fry i gartre'r hedydd,
+Chwarddwn, neidiwn megis plant,
+Lle mae'r cwmwl yn cael bedydd
+Yng ngrisialaidd ddwfr y nant;
+Canwn gerddi a dyriau,
+Casglwn flodau gwyllt y wlad,
+Ac mi gadwn y pwysiau
+Harddaf oll i'n mam a'n tad.
+
+--- TITLE: FFUGENWAU
+[VERSE 1]
+Ceir llawer i glefyd ar hyd ein hen wlad,
+Rhai'n berygl ryfeddol a hir eu parhad;
+Mae clefyd Eisteddfod yn dod yn ei dro,
+A chlefyd excursions a chanu Soh, Doh;
+Ond clefyd ffugenwau yw'r gwaethaf a gaed,
+Mae'n drymach na chlefyd y genau a'r traed.
+[VERSE 2]
+Mae Eos y Weirglodd ac Eos y Bryn,
+Ac Eos yr Afon, ac Eos y Llyn,
+A llewod ac arthod, eryrod a brain,
+Ac ambell i fwnci ynghanol y rhain.
+[VERSE 3]
+Os digwydd i hogyn wneud pennill o gan,
+A'i anfon i'r print ac oddiyno i'r tan,
+Dechreua droi gwyn ei ddau lygad i'r nen,
+A'i fam yn ochneidio dan ysgwyd ei phen;
+Rhaid ei gipio i'r orsedd pe bai yn ei glocs,
+A'i blastro ag enw fel label ar focs.
+[REFRAIN]
+Mae Eos y Weirglodd, &c.
+[VERSE 4]
+Rhaid gwneud dyn yn bencerdd os gwelodd o don,
+Mae Pencerdd Sir Benfro a Phencerdd Sir Fon,
+Os delir i urddo fel hyn ym mhob sir,
+Cawn afael ar Bencerdd Caergwydion cyn hir;
+'Rwy'n cynnyg cael urddo hen geiliog fy nhad,
+A'i alw yn bencerdd ceiliogod y wlad.
+[REFRAIN]
+Mae Eos y Weirglodd, &c.
+[VERSE 5]
+Y ffasiwn ddiweddaf a ddaeth fel mae son,
+Dweyd enw a ffugenw a'r surname yn y bon,
+Dweyd John Arfon Jones a dweyd Rhys Meirion Rhys,
+A Lloyd Maldwyn Lloyd, gyda Prys Teifi Prys,
+A chyda'r rhai yna daw Morris--
+Llanfairmathafarn eithaf
+Rhosllanerchrugog,
+Llanrhaiadr Mochnant,
+Hugh,
+A William Carey Williams a Dafydd--
+Llanfairpwllgwyngyll gogerychwyrndrobwll
+Dysilio gogo goch
+Pugh.
+
+--- TITLE: FY NGHALON FACH
+[VERSE 1]
+Fy nghalon fach, paham mae'r wawr
+I'w gweld fel hwyr y dydd,
+A'r hedydd llon uwchben y llawr,
+A'i gan mewn sain mor brudd?
+Ateba fy chwyddedig fron,--
+Mae rhywun ffwrdd tudraw i'r donn.
+[VERSE 2]
+Fy nghalon lawn, mae'r rhod yn troi,
+A'r rhew a'r eira'n dod,
+Er hyn mae gwg y gaea'n ffoi
+Er oered yw yr od;
+Mae'r gwynt yn sibrwd dros y ddol
+Fod rhywun hoff yn dod yn ol.
+
+--- TITLE: TYSTEBAU
+[VERSE 1]
+Fu 'rioed y fath oes yn yr oesau,
+A'r oes 'rydym ynddi yn byw,
+Fe'i gelwir yn oes y peiriannau,
+Ac oes rhoddi'r mellt dan y sgriw;
+Mae'n oes i roi tanllyd gerbydau
+I chwiban dan fynydd a bryn,
+'Rwy'n meddwl mai oes y tystebau
+Y dylid ei galw er hyn.
+[VERSE 2]
+Os bydd dyn yn myned o'i ardal,
+Rhaid rhoi iddo dysteb lled fawr,
+Neu'n aros,--rhaid gwneud un llawn cystal
+I rwymo ei draed wrth y llawr;
+Rhoir tysteb am waith ac am ddiogi,
+Rhoir tysteb i'r du ac i'r gwyn,
+Ceir tysteb am gysgu'n y gwely,
+Os pery tystebau fel hyn.
+[VERSE 3]
+Gwneud tysteb o nod genedlaethol
+A wneir i bob crwtyn yn awr,
+Argreffir colofnau i'w ganmol,
+A'i godi'n anferthol o fawr;
+Mae'r gair cenedlaethol yn barod,--
+A helpo y genedl, a'r gair,
+Er mwyn cael cyfodi corachod
+A llenwi eu llogell ag aur.
+[VERSE 4]
+Mae mul yn hen felin Llanodol,
+'Rwy'n cynnyg cael tysteb i hwn,
+A honno'n un wir genedlaethol,
+Am gario ar ei gefn lawer pwn;
+Paham na chai dysteb ragorol
+I'w rwystro am byth gadw nad?
+Mae'r mul yn hen ful cenedlaethol,
+A haedda ei weld gan y wlad.
+[VERSE 5]
+Mae'n cario yr yd mor ddigyffro
+Dros fynydd, a dyffryn, a dol,
+Ac wedyn caiff eisin i'w ginio
+I aros i'r blawd fynd yn ol;
+Rhag c'wilydd i genedl y Cymry
+Am fod eu syniadau mor gul,
+Fe ddylid gwneud ymdrech o ddifri
+I gychwyn y dysteb i'r mul.
+[VERSE 6]
+Mae'i glustiau'n mynd lawr dros ei lygaid,
+O! clywch ef yn codi ei gri,
+Mae'n g'wilydd fod tad y ffyddloniaid
+Heb dysteb pryd hyn ddyliwn i;
+Oferedd im' fyddai ei ganmol,
+Mae gweithio i'w wlad bron a'i ladd,
+Rhowch dysteb i'r mul cenedlaethol,--
+Nid ef fydd y cyntaf a'i ca'dd.
+
+--- TITLE: RHOWCH BROC I'R TAN
+[VERSE 1]
+Ar ol bod trwy'r dydd yn llafurio
+A'r morthwyl, y trosol, neu'r rhaw,
+A dioddef eich gwlychu a'ch curo
+Gan genllysg a gwyntoedd a gwlaw;
+'Rol cyrraedd eich bwthyn eich hunan,
+Mor ddifyr fydd cau'r drws yn hy,
+A'r oerfel a'r t'w'llwch tu allan,
+A'r cariad a'r tan yn y ty;
+Rhowch broc i'r tan,
+A chanwch gan,
+I gadw cwerylon o'r aelwyd lan.
+[VERSE 2]
+Pan fyddo y gwr wedi monni,
+A'i weflau'n lled lipa i lawr,
+A'i lygaid gan dan yn gwreichioni,
+A'i drwyn braidd yn hir ac yn fawr;
+Edryched y gwragedd dan wenu,
+A pheidiwch dweyd gair wrtho fe,
+Daw amser a'r gwr at ei ganu,
+A'r gweflau a'r llygaid i'w lle.
+[REFRAIN]
+Rhowch, &c.
+[VERSE 3]
+Os bydd rhai o'r gwragedd ar brydiau
+Yn edrych yn sarrug a sur,
+A'u llygaid fel cwmwl taranau
+Yn lluchio y mellt at y gwyr;
+Mae cariad yn well yn y diwedd
+Ar ol bod mewn helbul ei hun,
+'Dyw'r mellt sydd yn llygaid y gwragedd
+Erioed wedi lladd yr un dyn.
+[REFRAIN]
+Rhowch, &c.
+[VERSE 4]
+Pan fyddo yr aelwyd yn oeri,
+A'r anwyd yn dyfod i'r gwaed,
+Pan fyddo y trwyn wedi rhewi,
+A'r winrhew ar fysedd y traed,
+Pan fo Catherine Anne wedi briwo,
+A Dafydd y gwas ddim yn iach,
+A'r babi yn nadu a chrio,
+A'r gath wedi crafu John bach,
+[REFRAIN]
+Rhowch, &c.
+
+--- TITLE: MI SAETHAIS GAN
+# setting: (O Longfellow)
+[VERSE 1]
+Mi saethais gan i fyny i'r ne',
+A disgyn wnaeth nas gwyddwn ple,
+Can's ni fu 'rioed un llygad llym
+All ddilyn saeth ar hediad chwim.
+[VERSE 2]
+Anadlais gan i wynt y ne',
+Aeth gyda'r gwynt nas gwyddwn ple,
+Oblegid nid oes llygad glan
+All ddilyn llwybrau adlais can.
+[VERSE 3]
+'Mhen blwyddau hir mewn calon pren
+Y saeth a gefais ar ei phen,
+A'r gan a gefais wedi mynd
+A glynu i gyd mewn calon ffrynd.
+
+--- TITLE: WELWCH CHWI FI?
+[VERSE 1]
+Mi glywsoch y testyn a welwch chwi V,
+A chan arno hefyd cyn clywed f'un i;
+Os ydyw y pwnc yn un diflas a thrist,
+Rhoed pawb sy'n diflasu ei fys yn ei glust;
+Os na fydd y gan o un diben i chwi,
+Trowch yma a sylwch a welwch chwi V.
+[REFRAIN]
+A welwch, &c.
+[VERSE 2]
+Mae ambell i sgogyn yn tramwy trwy'r fro,
+A balchder a hunan yn byw arno fo,
+Mae starch yn ei gefn, a rhew yn ei warr,
+A chuddia ei hunan yn mwg ei sigar;
+Ysgydwa'i ffon geiniog wrth gerdded mewn bri,
+A thala am fwg i ddweyd welwch chwi V.
+A welwch chwi V,
+Uchelgais ei fywyd yw "Welwch chwi fi?"
+[VERSE 3]
+Mae hithau'r ferch ieuanc yn gwneud gwallt ei phen
+Fel math o ryw golofn fry fry yn y nen,
+A het ar ben hynny, a rhosyn ar hon,
+A phluen ar hynny i fyny fel ffon;
+Prin gwelir y top heb gael telescop cry',
+Ond gwelir mai'r diben yw "Welwch chwi fi?"
+A welwch chwi fi?
+Arwyddair y ffasiwn yw "Welwch chwi fi?"
+[VERSE 4]
+"A welwch chwi fi?" meddai llawer gwr mawr,
+"A welwch chwi finnau?" medd y bychan ar lawr;
+Mae hynny yn dangos yn amlwg, wrth gwrs,
+Mai nid yn y dillad ac nid yn y pwrs
+Mae gwreiddyn y drwg am gael dringo i fri,
+Ond calon y dyn sy'n dweyd "Welwch chwi V?"
+A welwch chwi V?
+Y galon yw cartref y "Welwch chwi V,"
+Gocheled y galon rhag "Welwch chwi V."
+
+--- TITLE: "WILLIAM."
+[VERSE 1]
+" * * * Her lover died, and she wept a song over his grave."
+[VERSE 2]
+Ddoi di yn ol ataf, William, William,
+Gyda'r sirioldeb oedd gynt gennyt ti?
+Mi fyddwn am byth iti'n berffaith ffyddlon,
+William, William,--anwyl i mi.
+[VERSE 3]
+Byth ni ro'wn air i dy ddigio, William,
+Gwenwn fel angel o'r nef arnat ti;
+Fel yr oe't ti pan yn gwenu yn hawddgar,
+William, William,--anwyl i mi.
+[VERSE 4]
+Cofio yr wyf am y dyddiau hynny,
+Cyn dy gymeryd i'r nefoedd fry;
+A wyddost ti 'nawr fel 'rwyf fi'n dy garu?
+William, William,--anwyl i mi.
+[VERSE 5]
+Nid oeddwn yn deilwng o honot, William,
+Oer oedd fy nghalon yn ymyl d'un di;
+Ond wedi dy golli, mae'r byd fel cysgod,
+William, William,--anwyl i mi.
+[VERSE 6]
+Estyn dy law i mi, William, William,--
+Dyfera faddeuant fel gwlith oddi fry,
+Mae nghalon yn gorwedd ym medd fy William;
+William, William,--anwyl i mi.
+[VERSE 7]
+Yn malu yd o fore i nawn i fagu gwraig a phlant.": myn32.jpg]
+
+--- TITLE: GEIRIAU LLANW
+[VERSE 1]
+Mae llawer o hen eiriau llanw
+I'w cael ym mhob Llan a phob lle,
+Yn debyg i bethma a hwnnw,
+Fel tau ac fel tase, yn te,
+Yn te meddai'r dyn sydd yn holi,
+Fel tase, yn te, meddai'r llall,
+Yn ddigon a gwneud dyn i daeru
+'Dyw hanner y byd ddim yn gall.
+Fel tau, fel tase, yn te,
+Ofnatsen gynddeirus, yn te,
+Peth hwnnw yw gweled rhai'n bethma
+Fel tase, fel tau, yn te.
+[VERSE 2]
+Ym Mon chwi gewch glywed miawn mynyd,
+A llawer o siarad a stwr,
+A phawb fel pe tae yn dywedyd
+Cymraeg o'r "sort oreu reit siwr."
+Pan ddeuwch chwi drosodd i Arfon,
+Cewch "firi di-wedd" ym mhob lle,
+A'r enw roir yno ar feddwon
+Yw "chwil ulw beipan" yn te.
+[REFRAIN]
+Fel tau, &c.
+[VERSE 3]
+Os ewch tua Meirion a morol,
+Cewch giasag i fynd ar ei thraws,
+A ciariad, a ciarag, a cianol,
+A ciamu, a ciamfa, a ciaws;
+Ac yno fel pobman trwy'r gogledd,
+Mae'r pla wedi taenu'n mhob lle,
+Yn te ydyw'r dechreu a'r diwedd,
+Yn te ydyw'r bethma yn te.
+[REFRAIN]
+Fel tau, &c.
+[VERSE 4]
+Os ewch chwi i lawr tua'r Deheu,
+'Run siwt mae hi obry yn awr,
+Mae pawb gan ta pun ar ei oreu
+Yn dishgwl yn ffamws i lawr;
+Mae pawb yno'n grwt neu yn grotan,
+Yn whleia a'u giddil o hyd,
+Wy'n sposo taw dyna y bachan
+Sy'n cwnni yn awr yn y byd.
+[REFRAIN]
+Fel tau, &c.
+[VERSE 5]
+Chwef., '73.
+
+--- TITLE: GWRANDO'N RASOL AR EIN CRI
+# setting: (EMYN)
+[VERSE 1]
+Groesaw'n awr!  I Iesu'n brawd,
+Ar liniau Mair mewn natur dyn,
+Ac ar y groes cymerai'n gwawd
+A'n beiau trymion arno'i hun;
+Clyw ein gweddi, Geidwad cu,
+Gwrando'n rasol ar ein cri.
+[VERSE 2]
+Dros bechadur, rhedai'n lli
+Waed a dwfr, o'i anwyl fron.
+Dyma'r ffynnon!  Boed i ni
+Olchi'n beiau i ffwrdd yn hon;
+Clyw ein gweddi, Geidwad cu,
+Gwrando'n rasol ar ein cri.
+
+--- TITLE: Y MEDLEY CYMRAEG
+[VERSE 1]
+Fel 'roeddwn yn rhodio ar doriad y wawrddydd,
+Pan ganai yr adar yn felus a llon,
+Pan dyfai'r blodionos ar gloddiau y dolydd,
+A'r gwlith ar eu gruddiau o amgylch Llwyn Onn,
+'Roedd geneth yn godro yn ddifyr tan ganu,
+A nesais i weled pwy ydoedd y ferch,
+A gwelwn
+[VERSE 2]
+Ferch Megan ei hun
+Mor iached a'r rhosyn,
+A'i llygaid yn dan o fywyd a serch;
+'Roedd adar y llwyn
+Yn tewi i wrando
+Er clywed y gan a ganai fel
+[VERSE 3]
+Hen ferch yn gwau ei hosan,
+Ar hyd y nos,
+A'i gweill bach glic glic yn clecian
+Ar hyd y nos,
+Canai'r gath ar ben y pentan,
+Canai hithau ganig ddiddan,
+Tra y canai'r gwynt tu allan
+Ar hyd y nos;
+Rhedai'i meddwl tra yn canu
+At wroldeb yr hen Gymry
+[VERSE 4]
+Pan oedd gwaedlyd y gyflafan,
+Gan wyr Harlech ruthrent allan
+Nes adseiniai bryniau anian
+Floedd y rhain i'r gad;
+Benyr grogent ar hen greigiau,
+A neuaddoedd y mynyddau
+Ail ddywedent y bloeddiadau
+Dros ein hanwyl wlad;
+Rhuthrent tua'r dyffryn,
+Gledd yng nghledd a'r gelyn,
+Gwyr mewn gwaedd oedd gylch eu traed
+Ynghanol braw a dychryn,
+Nes y
+[VERSE 5]
+Gelyn giliai ar Nos Galan,
+Fa la la, &c.,
+Ac aeth pawb i'w fwth ei hunan,
+Fa la la, &c.,
+Tynnu diliau tannau'r delyn,
+Fa la la, &c.,
+Wnaent i'w gilydd heb un gelyn,
+[REFRAIN]
+Fa la la, &c.
+
+--- TITLE: DYCHWELIAD Y MORWR
+[VERSE 1]
+Trwy'r tonnau y llong ddaw yn nes i'r lan--
+Dacw y foel a dacw y fan;
+'Rwy'n gweld y pant a'r gornant gu,
+'Rwy'n gweld y coed, 'rwy'n gweld y ty;
+Mae adlais anwyliaid yn dod i'r llong,
+A swn hen gloch y llan, ding dong.
+
+--- TITLE: DYSGWCH DDWEYD "NA."
+[VERSE 1]
+Fe ddysgir dweyd llawer o eiriau
+Na ddylid dim dysgu eu dweyd,
+Ac hefyd anghofir rhai geiriau
+Y dylid eu dysgu a'u gwneud;
+Beth bynnag a ddysgwch wrth ddysgu yr iaith,
+Beth bynnag a gofiwch drwy droion y daith,
+Faint bynnag o eiriau a ddysgwch yn dda,
+Gofalwch bob amser am ddysgu dweyd "Na;"
+Dysgwch ddweyd "Na,"
+'Does dim sydd mor ddiogel a dysgu dweyd "Na."
+[VERSE 2]
+Os gwelwch chwi gwmni afradlon
+Yn mynd i oferedd yn ffol,
+Gan wawdio rhinweddau'u cymdogion,
+A gadael pob moesau ar ol;
+Mae trwst y rhai yma wrth gadw eu rhoch
+Mor wag a diafael ag adsain y gloch,
+'Ran hynny, mae pennau y clychau a rhain
+Yn wag fel eu gilydd, 'blaw tafod bach main;
+Ac os daw y giwaid hon rywdro i geisio tynnu rhai o honoch i ddinistr,
+[REFRAIN]
+Dysgwch ddweyd "Na," &c.
+[VERSE 3]
+Os gwelwch chwi eneth brydweddol
+Yn gwisgo yn stylish dros ben,
+Cyn son am y pwnc priodasol,
+Rhowch brawf ar gynhwysiad ei phen,
+Os ffeindiwch chwi allan wrth chwilio'r fath yw,
+Ei bod hi fel clomen o ran dull o fyw,
+A'i llygaid, a'i gwddw, a'i haden, a'i phlu',
+Yn loewach o lawer na dim sy'n ei thy,
+Ac os bydd rhywun o honoch am roi cynnyg ar Miss,
+[REFRAIN]
+Dysgwch ddweyd "Na," &c.
+[VERSE 4]
+Mae gennyf un gair i'r genethod
+Wrth ddechreu eu taith drwy y byd,
+Mae llanciau ar brydiau i'w canfod
+Heb fod yn lan galon i gyd;
+Mae'n bosibl cael gwr fydd a'i galon yn graig,
+Mae'n bosibl cael gwr fydd yn gas wrth ei wraig,
+Heb gym'ryd yn bwyllus, mae'n bosibl i Gwen
+Gael gwr heb na chariad, na phoced, na phen,
+A'r cyngor sydd gennyf i'r ladies (hynny yw, os na fyddant, dyweder,
+oddiar 35 oed),
+[REFRAIN]
+Dysgwch ddweyd "Na," &c.
+
+--- TITLE: GEIRIAU CYDGAN GYSEGREDIG
+[VERSE 1]
+Doed holl drigolion daear lawr
+I ateb llef y nef yn awr,
+Nes byddo tan eu moliant hwy
+Yn eirias mwy i'r Iesu mawr.
+[VERSE 2]
+Dyma'r un oddefodd bwysau
+Holl bechodau dynol ryw,
+Ac o'i fodd oddefodd loesau
+Miniog gledd dialedd Duw;
+Ac a ddrylliodd deyrnas angau
+Pan y daeth o'i fedd yn fyw.
+
+--- TITLE: OWEN TUDUR
+# setting: (Cantawd)
+[VERSE 1]
+Mae Owen Glyndwr yn ei fedd,
+Ar ol tymhestlog ddiwrnod,
+A'r gwaed a erys ar ei gledd
+I ddweyd ei hanes hynod;
+Y rhosyn gwyllt wrth glywed hyn
+Ar fedd y gwron hwnnw
+Sydd fel rhyw angel yn ei wyn
+Yn gwenu dros y marw.
+[VERSE 2]
+Dewch, delynorion, cenwch don
+Ar ol cael hir orffwyso,
+Mae gwr yn byw'n Mhenmynydd Mon
+A gyfyd Gymru eto;
+Er fod priddellau Cymru wen
+Yn feddrod i'w thrigolion,
+Hil Cymro glan fydd bia'r pen
+Gaiff eto wisgo'r goron.
+[VERSE 3]
+Dyma delyn anwyl Cymru,
+Dyma fysedd eto i'w chanu,
+Er fod gormes bron a llethu
+Ysbryd pur y gan;
+Byw yw'n hiaith a byw yw'r galon
+Gura ym mynwesau'n dewrion,
+Mae gan Gymru eto feibion
+A'u teimladau'n dan;
+Pan fo'r cledd yn deffro,
+Ac eisiau llaw i'w chwyfio,
+Mae hon i'w chael o oes i oes
+Wrth ysgwydd hael pob Cymro.
+[VERSE 4]
+Fflamia'i lygad, chwydda'i galon,
+Pan y gwel ormesdeyrn creulon,
+Cadw'i wlad rhag brad yr estron
+Yw ei bennaf nod;
+Mae llwch ein hanwyl dadau,
+Sy'n nghadw dan garneddau,
+Yn dweyd yng nghlust pob Cymro dewr
+Am gadw ei iawnderau;
+Ac mae'n bryniau uchel beilchion,
+A'n hafonydd gwyllt a gloewon,
+Yn rhoi awgrym cryf mai rhyddion
+Ydym byth i fod.
+
+--- TITLE: Y GENNAD,--
+[VERSE 1]
+At bendefigion Cymru
+Sy'n hannu o uchel fon,
+Mae gennyf genadwri
+O blas Penmynydd Mon;
+Cynygiodd Owen Tudur
+Ei galon gyda'i law
+I Catherine, y frenhines,
+Mae hithau'n dweyd y daw.
+Os na ddaw rhyw atalfa,
+Priodant yn ddioed,
+Mae'r ddau mor hoff o'u gilydd
+Ag unrhyw ddau fu 'rioed;
+Ai tybed bydd 'run Cymro,
+Pan ddaw y dydd i ben,
+Heb roi hawddamor iddo
+Nes crynno'r Wyddfa wen?
+
+--- TITLE: PENDEFIG,--
+[VERSE 1]
+Fel un sy'n teimlo gwaed Cymreig
+Yn berwi yn fy mynwes,
+'Rwy'n methu'n glir a chael boddhad
+Wrth wrando ar yr hanes;
+Mae gwaed brenhinol Brython hyf
+Yn curo'n mynwes Owen,
+A dylid cadw hwn mor bur
+Ag awyr Ynys Brydain.
+
+--- TITLE: PENDEFIG ARALL,--
+[VERSE 1]
+Gadewch rhwng cariad a Rhagluniaeth
+A phriodi dynol ryw,
+Mae gwaed y Sais a gwaed y Cymro
+Bron 'run drwch a bron 'run lliw;
+Feallai bydd yr uniad yma,
+Pan ry'r olwyn dro i ben,
+Yn agor ffordd i gerbyd heddwch
+Dramwy drwy yr Ynys Wen.
+[VERSE 2]
+Gwened blodau gwylltion Cymru
+Ar eu modrwy loew dlos,
+A boed haul yn gwenu arni,
+Gwened lloer a ser y nos;
+Gwened Sais a gwened Cymro,
+Na foed gwg ar unrhyw ael,
+A gwened nef uwch law y cyfan,
+Mae gwen o'r nef yn werth ei chael.
+
+--- TITLE: PENDEFIGES,--
+[VERSE 1]
+Heblaw gweniadau'r lleuad wen,
+A gwenau'r haul o fynwes nen,
+Heblaw gweniadau'r nefoedd fry,
+Cant wen rhianedd Cymru gu;
+Boed meibion Gwalia ddydd yr wyl
+Yn dyrchu banllef lawn o hwyl,
+Anadlwn ninnau weddi wan
+I glustiau'r nefoedd ar eu rhan;
+Pob bryn fo'n dal ei faner wen,
+Pob cloch fo'n canu nerth ei phen,
+Ni daenwn ninnau flodau fyrdd
+A dail byth-wyrddion ar eu ffyrdd.
+
+--- TITLE: CYDGAN,--
+[VERSE 1]
+Mae gwawr yn torri dros sir Fon,
+A Chymru'n gwenu arni,
+Mae swn llawenydd yn y don,
+A diolch yn y weddi;
+Mae'r clychau'n effro ym mhob llan
+Yn prysur ddweyd y newydd,
+A'r awel fach yn gwneud ei rhan
+I'w gludo draws y gwledydd.
+
+--- TITLE: Y BARDD,--
+[VERSE 1]
+Methodd Owen Glyndwr rwymo
+Teimlad pawb mewn rhwymau hedd,
+Megis tonn mewn craig yn taro
+Oedd dylanwad min ei gledd;
+Ond mae Owen Tudur dirion
+Wedi uno'r ynys lon,
+Gwnaeth i'r Cymry dewr a'r Saeson
+Wenu'n nghylch y fodrwy gron.
+
+--- TITLE: CYDGAN,--
+[VERSE 1]
+Chwyther yr udgorn ar lethrau'r Eryri
+Nes bo'r clogwyni'n dafodau i gyd,
+Bannau Brycheiniog fo'n llawn o goelcerthi
+Er mwyn gwefreiddio y wlad ar ei hyd;
+Llonned y delyn bob treflan a phentref,
+Heded y cerddi ar ddiwrnod yr wyl,
+Ar flaen adenydd alawon y Cymry,
+Nes bo pob ardal yn eirias o hwyl.
+[VERSE 2]
+Fe gwympodd ein gwrolion
+Wrth gadw hawl ein coron,
+Rhag iddi fynd o Walia Wen
+I harddu pen rhyw estron.
+[VERSE 3]
+Mae llef oddiwrth y meirw
+Sy'n dweyd yn ddigon croew,
+Yn adlais glir ar lan pob bedd,
+Na fedrai'r cledd mo'i chadw.
+[VERSE 4]
+Deallodd Owen Tudur
+Athroniaeth bennaf natur,
+Ein coron trwyddo ef a gawn
+Heb nemawr iawn o lafur.
+
+--- TITLE: CYDGAN,--
+[VERSE 1]
+Mae modrwy a chariad yn curo y cledd
+Heb aberth o fywyd nac eiddo,
+Ca'r bwa a'r bicell gyd-huno mewn hedd,
+A heddwch ac undeb flodeuo;
+Teyrnwialen a choron ein hynys bob pryd
+A ddelir gan hil meibion Gwalia,
+A chryma teyrnwiail brenhinoedd y byd
+Yn ymyl teyrnwialen Britannia.
+[VERSE 2]
+Ar ddydd y briodas cenhinen y Cymry
+Wisgwyd gan Owen i harddu ei fron,
+A rhosyn y Saeson osodwyd i harddu
+Bron ei anwylyd edrychai mor llon;
+A byth wedi hynny mae'r ddau'n un blodeuglwm,
+Mae'r rhos a'r genhinen yn harddu'r un fron;
+Bu bysedd dwy genedl yn gosod y cwlwm,
+A thyfa y ddau yn y fodrwy fach gron.
+[VERSE 3]
+Os hoffech gael gwybod effeithiau'r briodas,
+Holwch briddellau maes Bosworth yn awr,
+Yno coronwyd dymuniad y deyrnas,
+Ac yno y syrthiodd gormesdeyrn i lawr;
+Mae adsain y fanllef fuddugol trwy'r oesau
+Yn gwibio o glogwyn i glogwyn trwy'n gwlad,
+Bydd clod Harri Tudur a dewrder ein tadau
+Ar ol y fath ymdrech mewn bythol fawrhad.
+[VERSE 4]
+Esgynnwn i'n mynyddau,
+A holwn hen garneddau
+Sy'n cadw llwch ein tadau
+Ar ol blinderus hynt;
+Ateba'u llwch o'r beddau
+Fod gwaed ar hyd eu llwybrau,
+A myrdd o orthrymderau
+Yn blino Cymru gynt.
+[VERSE 5]
+Ond wedi i'r Tuduriaid
+Gael dod yn benaduriaid,
+Cyduna'r holl Brydeiniaid
+I ufuddhau i'w pen;
+Mae aeron per y blodau
+Yn tyfu'n meusydd brwydrau,
+A heddwch lond calonnau
+Hen deulu'r Ynys Wen.
+[VERSE 6]
+Ar orsedd bena'r ddaear,
+Dan goron hardda'r byd,
+Eistedda Buddug hawddgar
+Dan wenau'r nef bob pryd;
+Mae gwaed brenhinol Owain
+Yn llifo trwy'r llaw sydd
+Yn dal teyrnwialen Prydain
+Uwchben miliynnau rhydd.
+[VERSE 7]
+Y fesen a blanwyd ar ddydd y briodas
+Dyfodd yn dderwen gadarna'n y byd,
+Dau begwn y ddaear yw terfyn y deyrnas,
+A chariad yn rhwymo y deiliaid ynghyd;
+Gogledd a deau sy'n dangos eu miloedd
+O ddeiliaid i orsedd Victoria a dwng,--
+"Mae gan ein Brenhines ddigonedd o diroedd
+I'r llew mawr Brytanaidd i ysgwyd ei fwng."
+[VERSE 8]
+Na foed adseiniau'n cymoedd
+Yn cael eu deffro mwy
+I ateb swn rhyfeloedd
+Ar hyd eu llethrau hwy;
+Tywysog gwlad y bryniau
+A ddalio tra bo byw,
+Yn noddwr i rinweddau
+Dan nodded llaw ei Dduw.
+
+--- TITLE: Y DDRAENEN WEN
+[VERSE 1]
+Eisteddais dan y ddraenen wen
+Pan chwarddai bywyd Ebrill cu
+Mewn mil o ddail o gylch fy mhen,
+A myrdd o friall o bob tu;
+Eisteddai William gyda'i Wen,
+Ac Ebrill yn ei ruddiau gwiw,
+Tra canai'r fwyalch uwch ein pen
+Ei chalon yn ei chan i Dduw;
+Rhoi William friall ar fy mron,
+A modrwy aur yn llaw ei Wen;
+Mi gofiaf byth yr adeg hon
+Wrth eistedd dan y ddraenen wen.
+
+--- TITLE: IFAN FY NGHEFNDER
+[VERSE 1]
+Dyma godl yn dwbl odli;
+'E wnes y prawf o ran spri.
+[VERSE 2]
+Aeth Ifan fy nghefnder yn ysgafn ei droed,
+Ryw noson i hebrwng ei Fari;
+A phan wrth y gamfa sy'n troi at Ty'n Coed,
+Fe daflodd ei fraich am ei gwarr hi.
+[VERSE 3]
+Ond cyn iddo prin i gael amser i ddweyd,--
+"Pa bryd caf dy weled di eto?"
+Na gwybod yn hollol pa beth oedd o 'n wneud,
+Aeth awel o wynt gyda'i het o.
+[VERSE 4]
+A phan oedd o 'n rhedeg a dim am ei ben,
+I geisio, a ffaelu dal honno,
+Fe welai ar ol dod yn ol at ei wen
+Fod y ci wedi dianc a'i ffon o.
+[VERSE 5]
+Heb hidio rhyw lawer am het nag am ffon,
+Siaradai a Mari'n ddi-daro;
+Ond cyn iddo ddechreu cynhesu ei fron,
+Fe drawodd rhyw stitch yn ei warr o.
+[VERSE 6]
+"A ddoi di, f'anwylyd," dywedai yn syn,
+"I chwilio am fodrwy'n ddioedi?"
+Ac er mwyn rhoi sel ar ddywediad fel hyn,
+Fe sangodd y brawd ar ei throed hi.
+[VERSE 7]
+"A wnei di roi ateb, O Mari, fy mun?"
+A'i gruddiau ddechreusant a chochi;
+Ac Ifan nesaodd at Mari fel dyn,
+A rhoddodd ddau gus ar ei boch hi.
+[VERSE 8]
+Wrth weled rhyw hyfdra fel hyn yn y brawd,
+Ni ddarfu'r cusanu ei swyno;
+Dywedodd "Nos da" gyda dirmyg a gwawd,
+A rhedodd i ffwrdd dan ei drwyn o.
+[VERSE 9]
+Aeth Ifan i'r gwely yn sobr a syn,
+A dwedai fel dyn wedi monni,--
+"Gwyn fyd na f'ai serch rhyw hogenod fel hyn
+Yn cadw am byth o fy mron i."
+[VERSE 10]
+Er hynny, tae Mari'n dod heibio ei dy,
+Ac Ifan ar ganol breuddwydio;
+Mae cariad yn meddu atyniad mor gry',
+Ni synwn un blewyn na chwyd hi o.
+
+--- TITLE: YR HWN FU FARW AR Y PREN
+[VERSE 1]
+Yr Hwn fu farw ar y pren
+Dros euog ddyn o'i ryfedd ras,
+O! agor byrth y nefoedd wen
+I'n dwyn uwchlaw gelynion cas.
+[VERSE 2]
+Y diolch byth, y clod a'r mawl
+Fo i'r anfeidrol Un yn Dri,
+Gwna ni yn etifeddion gwawl
+Y Ganan nefol gyda Thi.
+
+--- TITLE: CHWEDL Y TORRWR BEDDAU
+[VERSE 1]
+Roedd y lleuad yn ieuanc, a'r flwyddyn yn hen,
+A natur gan oerfel yn colli ei gwen,
+Fe rewai'r dwfr fel gweren oer,
+Tra prudd edrychai yr ieuanc loer
+Cydrhwng canghennau'r coed;
+Yng ngolau'r nos, mewn mynwent laith,
+'Roedd torrwr beddau wrth ei waith;
+Un hen oedd ef, ac wrth ei ffon,
+A'i esgyrn oeddynt cyn syched bron
+A'r esgyrn dan ei droed.
+[VERSE 2]
+Ymgodai'r gwynt,--a'i anadl ef
+A fferrai lwynau natur gref,
+A'r torrwr beddau yn ddifraw,
+Wrth bwyso'n bruddaidd ar ei raw,
+Besychai am ryw hyd,
+Ryw "beswch mynwent" dwfn a blin;
+'Roedd ei groen a'i gob yn rhy deneu i'r him,
+Ac yna fe dynnodd ryw botel gron
+O'i logell,--ond potel wag oedd hon;
+A churai 'i ddaint ynghyd.
+[VERSE 3]
+Ond llawen oedd pawb yn yr "Eryr Mawr,"
+Y dafarn hyna'n y dref yn awr,
+Fe chwyrnai'r tegell ar y tan,
+A chwyrnai'r gath ar yr aelwyd lan
+Tra'n gorwedd ar gefn y ci.
+'Roedd mab yr yswain yno mor hyf,
+Yr hwn oedd yn llencyn gwridog, cryf,
+A gwr Tyddyn Uchaf, ynghyd a'r aer,
+A'r gof, a'r teiliwr, a'r crydd, a'r saer,
+Cyn dewed a dau o'r rhai tewa'n y wlad
+Yn siarad a dau neu dri.
+[VERSE 4]
+Y torrwr beddau edrychai'n glau,
+A gwelai y goleu, a'r drws heb ei gau,
+Ac yntau'n hen wr go lon yn ei ddydd
+Yn hoffi pibell, ae yfed fel hydd,
+'Doedd ryfedd fod arno fo flys;--
+"Waeth i mi roi fyny," ebe'r sexton yn syn,--
+"Peth caled yw tirio trwy esgyrn fel hyn,
+A ch'letach fyth pan deimlwch chwi'ch hun
+Yn taro ynghyd ag asgwrn pen dyn!
+Felly 'rwy am fynd i'r 'Eryr Mawr,'
+Mae'r gwynt yn ddigon a tharo dyn lawr."
+Ac i mewn ag ef ar frys.
+[VERSE 5]
+Fe wenai pawb wrth ei weled e'
+Y torrwr beddau yn cymeryd ei le
+O dan y fantell simnai fawr,
+(A chwarddai y tan dan ruo'n awr),
+Oblegid 'roedd pawb yn ei garu ef,
+O fab yr yswain i'r tlota'n y dref.
+[VERSE 6]
+"Wel, dowch a stori," ebe gwr y ty,
+"Rhyw chwedl ddifyr am bethau a fu."
+'Roedd pawb yn gwybod mai ef oedd tad
+Adroddwr chwedlau yr holl wlad.
+Fe wyddai am bob yspryd bron
+Fu'n tramwy hyd y ddaear hon;
+Fe fedrai ddychryn calon wan,
+A'i gwneud yn ysgafn yn y fan;
+Fe allai gau ac agor clwy',
+A medrai ddynwared pawb yn y plwy'.
+[VERSE 7]
+"Mae'r torrwr beddau mewn syched braidd,
+Rhowch iddo gornied o gwrw brag haidd,"
+Ebe gwr y ty yn awr;
+"Mae stori sych yn ddigon o bla
+Os na fydd llymaid o ddiod dda
+Yn helpu y stori lawr."
+
+--- TITLE: Y CHWEDL
+[VERSE 1]
+I.
+[VERSE 2]
+Ar nos Nadolig oer a llaith,
+Ers deugain o flynyddau maith,
+Bu farw Harri Huws;--'roedd ef
+Yn cael ei garu gan bawb trwy'r dref.
+Bu ef i mi yn gyfaill pur.
+A chalon gywir fel y dur,
+A diwrnod tywyll, prudd ei wedd,
+Oedd y dydd rhoed Harri yn ei fedd.
+[VERSE 3]
+Gadawodd eneth ysgafn droed
+O'i ol,--yn un ar bymtheg oed;
+'Roedd iechyd ar ei gruddiau cu,
+A chwarddai serch o'i llygad du.
+Bum i yn dysgu'r eneth hon
+I ddweyd A B yn blentyn llon,
+Ac wrth ei dysgu, credais i
+Y dysgai'r ferch fy ngharu fi;
+Ond ffoledd oedd i'r eneth dirion
+I feddwl caru hen wr gwirion.
+[VERSE 4]
+Daeth morwr llon i siarad a hi,
+A dygodd fy Elen oddi arnaf fi,
+Ond dd'wedais i air erioed wrth hon
+O'r hyn a deimlais dan fy mron;
+Na gair yn erbyn y morwr chwaith,
+Oblegid hwy fuont am flynyddau maith
+Yn chwareu a'u gilydd fel y mae plant
+Ar ochr y bryn neu lan y nant;
+Ond waeth tewi na siarad, ryw noson ddu
+Aeth y morwr ymaith ag Elen gu!
+[VERSE 5]
+Nis gallaf ddirnad byth er hyn
+Pa fodd yr aeth bore'i bywyd gwyn
+O dan fath gwmwl, na pha fodd
+Y daeth amheuaeth ag y todd
+Gymeriad oedd mor bur;
+'Doedd neb yn meddwl yn y wlad
+Y buasai impyn tyner, mad,
+Yn dwyn fath ffrwythau sur.
+[VERSE 6]
+Agorai'r wawr ei hamrant clau,
+Ac ymaith a fi ar ol y ddau,
+A digwydd wnaethum fynd 'run ffordd,
+Tra curai'm calon megis gordd,
+Dan bwys briwedig fron;
+Mi cefais hwy.  Nis gallaf ddweyd
+Pa un ai gofid oedd yn gwneud
+I'm dagrau redeg dros fy ngrudd,
+Ai ynte ryw lawenydd prudd;
+Ond rhedeg wnaethant fel y lli'
+Pan ddaeth y newydd gynta 'i mi
+Fod Mari'n wraig i John.
+
+--- TITLE: II
+[VERSE 1]
+Pan gwrddodd Mari gyda fi,
+Ei dagrau redent fel y lli;
+Hi deimlai'n ddedwydd ar un llaw,
+Ac o'r tu arall, ofn a braw
+A lanwai'i bron.  Hi ddwedai'r oll
+Oedd yn ei theimlad yn ddigoll;
+Agorai'i bron, can's roeddwn i
+Yn gyfaill mebyd iddi hi.
+[VERSE 2]
+Datodai glo ei chalon fawr,
+A dwedai'i thywydd imi'n awr,
+A'r fath onestrwydd yn ei phryd
+Nes teimlwn i'm teimladau i gyd
+Yn toddi'n llwyr; a gwenau hon
+A wnaent i minnau wenu'n llon,
+A gweld ei dagrau'n treiglo'n lli
+A sugnent ddagrau 'nghalon i.
+[VERSE 3]
+Ond pan yn tynnu tua phen
+Ei chwedl brudd, fy ngeneth wen
+A ddwedai, gyda'i llygad du
+Yn saethu teimlad ar bob tu,--
+"O fel yr ofnwn wg fy mam,
+Yr hon a'm gwyliodd ar bob cam:
+A balchder gyda thanllyd serch
+A'i gwnaeth yn ffol uwch ben ei merch.
+[VERSE 4]
+"Priodi a wnaethum heb wybod i mam--
+'Roedd hynny, 'rwy'n addef, yn bechod a cham;
+Ond beth oedd i'w wneud, a pheth ddaethai i'm rhan,
+Pan oedd cariad mor gryf, a minnau mor wan?
+Ni allwn gyfaddef i mam er y byd,
+Ond wedi priodi, ni aethom ynghyd
+I ofyn maddeuant ei mynwes dinam,
+Ond serch wedi'i gloi erbyn hyn oedd gan mam.
+[VERSE 5]
+"Hi allodd gau y drws a'i gloi
+Ar ol ei merch, a medrodd droi
+Clust fyddar at fy ymbil taer,
+A dweyd yng ngolen'r lleuad glaer,--
+'Gan iti fynnu'th ffordd bob cam,
+A chroesi 'wyllys gref dy fam,
+Dos gydag ef, yr hoeden ffol,
+A phaid a dychwel byth yn ol.'"
+[VERSE 6]
+Fe wylai Mari'n hidl fan hon,
+Agorodd holl argaeau'i bron,
+A d'wedai,--"'Nawr, fy nghyfaill pur,
+Cyn darfod adrodd chwedl fy nghur,
+A wnewch chwi addaw'r funud hon
+I gloi y chwedl yn eich bron
+O wydd pob dyn trwy'r byd;
+Er imi dynnu arnaf gam,
+Ac er im' ddigio mynwes mam,
+Fy mam oedd hi o hyd.
+[VERSE 7]
+"Aeth heibio flwyddyn gron, fy ffrynd,
+A holl dafodau'r lle yn mynd
+Yn gyflym gyda'm hanes prudd,
+A mam rhy falch o ddydd i ddydd
+I geisio clirio'i geneth wen,
+A cheisiai gadw i fyny'i phen
+Drwy fynd i'r eglwys yn ei du,
+Fel pe buasai'i geneth gu
+Yn gorwedd yn ei thawel fedd,
+Lle gorffwys pawb mewn hun a hedd."
+[VERSE 8]
+Un noson oer, mewn gaeaf du,
+Eisteddwn ar fy aelwyd gu,
+Gan wylio'r marwor mawn a choed
+Yn syrthio'n lludw wrth fy nhroed,
+Yn ddrych o ddynion llon eu gwedd
+Yn goleu i ddiffodd yn y bedd.
+Fy meddwl grwydrai'n rhydd a ffol.
+Pan yn ddisymwth o'm tu ol
+'Roedd swn cerddediad!--pan y trois,
+Mi glywn fy enw mewn acen gyffrous,
+A phwy oedd yno ger fy mron
+Ond Mari a'i baban ar ei bron!
+[VERSE 9]
+Ei llygaid gloewon, gleision, mawr,
+A safent yn ei phen yn awr;--
+Edrychai i'r tywyllwch prudd
+Fel pe buasai'n gweld ynghudd
+Ysbrydion ei mwynderau gynt
+Yn gwibio o'i chylch ar gyflym hynt!
+Dechreuai ddweyd ei chwyn a'i chais
+Mewn math o anaearol lais,
+A theimlwn fel pe buasai ddelw o faen
+Yn sefyll,--yn edrych,--a siarad o'm blaen.
+[VERSE 10]
+"Mi eis at ddrws fy mam yr ail waith,
+Ac eilwaith trodd fi ffwrdd;
+Yr unrhyw galed, oeraidd iaith,
+Oedd yno yn fy nghwrdd.
+[VERSE 11]
+"Mi ddaliais hyn fel arwr glew,
+Can's 'roedd fy nghalon fel y rhew,
+Ond pan y gwgodd f'anwyl fam
+Wrth wel'd fy maban baeh dinam,
+Aeth cleddyf trwy fy mron yn syth--
+Mae'r archoll hwnnw yno byth.
+[VERSE 12]
+"Ac am fy ngwr--fy anwyl John,
+'Roedd ef ar wyllt bellderau'r donn;
+Un dydd wrth fynd am dro o'r dref,
+Ni gawsom ffrae, a ffwrdd ag ef.
+Nis gallswn weithio yn fy myw,
+Na phlygu'm glin o flaen fy Nuw;
+'Doedd dim ond troi yr adeg hon
+A'm baban tyner ar fy mron
+At mam;--ond honno, er fy nghur,
+Oedd fel y garreg yn y mur.
+Fy Nuw a wyr fel snddais i
+O dan ei geiriau cerrig hi;
+A'r oll o'm serch yr adeg hon
+Oedd yn fy maban ar fy mron."
+[VERSE 13]
+Fe beidiai Mari lefaru yn awr,
+A minnau yn edrych yn syn ar y llawr;
+Ac fel mewn eiliad--'roedd fy ffrynd
+A'i baban serchus wedi mynd!
+[VERSE 14]
+Deallais wedyn iddi droi
+Ei gwyneb tua Llundain bell,
+Pan nad oedd mam na neb i roi
+I'w mab a hithau gynnes gell.
+O! pwy all ddweyd na meddwl chwaith
+Ei theimlad ar y brif-ffordd faith,
+Heb ddillad cynnes am ei chefn,
+A'i chalon FU'n llawn serch drachefn,
+Gan chwerw drallod, honno wnaed
+Mor oer a'r brif-ffordd dan ei thraed.
+[VERSE 15]
+'Roedd pob anadliad roddai hon
+Yn sugno ochenaid ddofn o'r bron,
+A phob cam roddai 'n tynnu gwaed
+O'i thyner flin ddolurus draed.
+O gam i gam, o awr i awr
+Cyrhaeddyd wnaeth i'r ddinas fawr;
+Ac ar y palmant caled, oer,
+Llewygu wnaeth yng ngolau'r lloer.
+[VERSE 16]
+Yr oedd hi'n nos, ac nid oedd neb
+A sychai chwys ei dwyrudd wleb
+Heblaw y gwynt, ac ni wnai ef
+Ond chwiban heibio hyd y dref.
+Ond pan oreurai'r wawr y ne'
+Daeth rhyw Samaritan i'r lle,
+A chodai hi fel delw wen,
+A rhoddai bwys ei thyner ben
+[VERSE 17]
+Ar fron tosturi,--a'r baban bach
+A gysgai hun ddiniwaid iach,
+Ar hyd y nos flinderus faith
+Ar fron mor oer a'r garreg laith.
+[VERSE 18]
+Aeth ef a'r ddau yn ol i'w dy,
+A'i wraig drugarog, serchus, gu,
+A'u hymgeleddai gyda serch
+A chydymdeimlad calon merch,
+Gwreichionen olaf bywyd brau
+Gyneuai'n ol dan law y ddau.
+[VERSE 19]
+Deffroai Mari gyda hyn
+I gael ei hun mewn gwely gwyn,
+A gwen trugaredd uwch ei phen
+Yn edrych ar ei dwyrudd wen.
+[VERSE 20]
+Nid oedd gan wr a gwraig y ty
+(Lle dodwyd Mari),--blentyn cu,
+A gall mai dyna'r rheswm pam
+Y carai'r rheiny gael y fam,
+Er mwyn cael gwylio'i baban bach
+Yn tyfu'n llencyn gwridog, iach.
+[VERSE 21]
+Dechreuai'r bychan chwareu'n rhydd,
+A rhosyn iechyd ar ei rudd,
+A gweithiai'r fam a chalon rwydd
+Wrth weld ei gobaith yn ei gwydd
+Yn tyfu'n hogyn gwyneb crwn,
+A'i serch ymglymai o gylch hwn.
+[VERSE 22]
+* * * * *
+[VERSE 23]
+Awn heibio i flynyddau maith,--
+Fe dyfai'r llanc,--gwnai'r fam y gwaith,
+Ac ni fu'r blwyddau meithion hyn
+Heb ambell smotyn hafaidd, gwyn.
+[VERSE 24]
+Edrycha'i llanc yn hoew a chryf,
+A'i natur fywiog, hoenus, hyf,
+A godai awydd yn ei fron
+I fynd yn forwr nwyfus, llon;
+Dychmygai nad oedd unrhyw ddor
+Yn agor iddo ond y mor.
+[VERSE 25]
+Fe deimlai'i fam, a theimlai'n flin,
+Ond ni ddaeth gair dros drothwy'i min,
+A'r bore ddaeth i'r llanc dinam
+I rwygo'i hun oddiwrth ei fam.
+
+--- TITLE: III
+[VERSE 1]
+Y storm a aeth heibio, a'r dwylaw wnaent gwrdd
+I gyfarch eu gilydd yn llon ar y bwrdd;
+"Mae'r cyfan yn fyw," ebe'r Capten yn llon,
+A diolch a gweddi yn llanw ei fron:
+"Na!--arhoswch; pa le y mae William ddinam,
+Y llencyn oedd newydd roi ffarwel i'w fam?"
+Ond dwedai rhyw un ag ochenaid ddofn, ddofn,
+"Nid ydwyf yn sicr, ond y mae arnaf ofn
+Fod drwg wedi digwydd, pan ruai y gwynt,
+Gan luchio a thaflu y llong ar ei hynt,"
+'Roedd William yn mrigyn yr hwylbren, hir, praff,
+Yn ceisio ategu yr hwyl gyda rhaff;
+Fe ruthrai y gwynt, ac mewn eiliad neu ddwy
+'Roedd y llanc wedi myned na welwyd ef mwy.
+[VERSE 2]
+Y tu ol i'r llestr, draw, draw ar y donn,
+Yn ymladd am fywyd, 'roedd llanc a fu'n llon,
+A'i obaith a'i nerth ar ddiffygio yn llwyr,
+A'r t'w'llwch yn dechreu cau amrant yr hwyr;
+Ar hyn, dacw gwch yn nesau ato ef,
+A'i hwyliau fel edyn rhyw angel o'r nef;
+A phan yr oedd William yn suddo i lawr,
+Wele forwr yn estyn ei ddeheu law fawr
+I safn y dyfnderau, glafoerllyd, di rol,
+Gan godi y bachgen i fywyd yn ol.
+[VERSE 3]
+Am oriau bu'n hollol ddideimlad fan hon,
+Ond rhith weledigaeth oedd fel ger ei fron;
+Fe welai ei fam yn sylldremio o'r lan,
+A chlywai'i hochenaid yn esgyn yn wan;
+A gwelai ofidiau gordrymion a phrudd
+Yn tynnu eu herydr ar hyd ei dwy rudd;
+A gwelai ei gartref yn ymyl y nant,
+A'r pentref, a'r felin, a'r ysgol, a'r plant,
+Ac yntau ei hunan yn chwareu'n ddinam--
+A deigryn yn treiglo o lygad ei fam.
+[VERSE 4]
+Gofynnai'n ei freuddwyd,--"Mam, pam yr ydych chwi
+Yn wylo eich dagrau cariadus yn lli?"
+A hithau yn ateb fel hyn yn y fan,--
+"'Rwy'n cofio fy machgen yn faban bach gwan,
+Ac wedyn yn tyfu mewn nerth ac mewn oed
+I neidio a chwareu o amgylch fy nhroed."
+Ar hyn daeth rhyw niwl dros ei feddwl yn chwim,
+A'i fam a ddiflannodd fel cysgod yn ddim;
+A gwelai len arall yn lledu o'i flaen,
+A breuddwyd mewn breuddwyd yn agor o'i flaen.
+[VERSE 5]
+Ymhellach yn ol, fe welai ei fam
+Yn suo a hwian ei baban dinam,
+Ar hyn, dyna rywun yn cnocio yn hy,
+A morwr cryf, barfog, yn dyfod i'r ty,
+A safai cyn dechreu llefaru;
+Nid hir y bu yno cyn gweled ei wraig,
+A deigryn a safai ar rudd oedd fel craig,
+Ymgrymai i roddi ei gusan i hon,
+A'r cwbl a ddwedodd a'i ben ar ei bron,--
+"Fy Mari, O fy Mari!"
+[VERSE 6]
+Ond William ddeffroai yn raddol ar hyn,
+A bywyd ail wridai ei wyneb gwyn, gwyn,
+A gwybu yn fuan mai morwr cryf, llon,
+A'i cipiodd mor wyrthiol o afael y donn;
+'Roedd hwnnw ac ereill yn dianc o Ffrainc,
+Pan oedd yr hen Boni yn llywydd y fainc.
+[VERSE 7]
+A phan y daeth William i fywyd yn ol,
+'Roedd y wawr yn ymgodi a'r haul yn ei chol,
+Gan chwalu y t'w'llwch a'r caddug ar daen,
+A bryniau hen Gymru 'n ymgodi o'i flaen.
+[VERSE 8]
+Edrychai'n fyfyriol ymlaen tua'r tir,
+A'i freuddwyd yn gwibio trwy'i feddwl mor glir,
+A syllai bob 'nail ar y morwr hardd, cryf,
+Yr hwn a achubodd ei fywyd mor hyf;
+A chofiai ei freuddwyd, ei gartref, a'r dyn
+Yn curo y drws, ac yn agor ei hun,
+Ac nis gall anghofio y dyn yn ei fyw,
+Wrth weled y morwr yn gweithio y llyw.
+[VERSE 9]
+"Paham yr edrychwch i'm gwyneb o hyd?"
+Gofynnai y morwr, tra gwrol ei bryd;
+"Myfyrio yr oeddwn ar freuddwyd tra ffol,"
+Medd William, gan syllu i'r glannau yn ol,
+"Lle gwelais fy hunan yn blentyn di-nam,
+Yn chwareu o amgylch i liniau ei fam;--
+Lle clywais i rywun yn curo yn hy',
+A morwr o rywle yn dyfod i'r ty,
+A synnu yr oeddwn, mor debyg i chwi
+Oedd hwnnw a welais yn dod i'n ty ni."
+[VERSE 10]
+"Dywedwch i mi," ebe'r morwr yn awr,
+Gan syllu drwy bellder goleuni y wawr,
+"A oes gan eich mam lygad glas yn ei phen
+Sy'n ganmil disgleiriach na glesni y nen?
+Oes ganddi hi ruddiau, dywedwch yn rhwydd,
+A wrident yr eira pe bae yn eu gwydd?
+Oes ganddi hi wallt fel y nos ar ei phen
+Yn disgyn fel cwmwl ar hyd ei grudd wen?
+Ond gall, o ran hynny, fod main gennych chwi
+Yn ateb i'r darlun a dynnir gen i,
+A mi heb ei gweled mewn llan nac mewn llys,
+Ond,--welsoch chwi fodrwy ryw dro ar ei bys,
+A math o lun calon mewn perlau yn hon,
+A gwallt yn ei chanol yn ddolen fach gron?"
+[VERSE 11]
+"Mae gan fy mam lygaid fel glesni y nen,
+A gwallt sydd fel hanner y nos ar ei phen,
+Mae harddwch yn byw ar ei gwefus a'i gen,
+Ac ysbryd serchawgrwydd yn dawnsio'n ei gwen;
+Ac hefyd, wrth feddwl, mae adgof gen i
+Am fodrwy 'run fath a'r un hon ddwedsoch chwi,
+A math o lun calon mewn perlau yn hon,
+A gwallt yn ei chanol yn ddolen fach gron!"
+[VERSE 12]
+"Ai breuddwyd yw hyn?" ebe'r morwr yn rhydd,
+A'i deimlad a'i galon yn neidio i'w rudd,
+"Ai'm mab a achubais o afael y donn?
+Ai delw fy Mari yw'r llygad byw, llon,
+A welaf o'm blaen?  'Rwyf yn diolch i'r Nef,
+Mae Mari yn fyw, a fy machgen yw ef!"
+
+--- TITLE: IV
+[VERSE 1]
+"Roedd annedd fy Mari a minnau a'r ddor
+A'i gwyneb i waered at lan y mor,
+Ac ni fu dedwyddach dau yn y byd
+Na Mari a minnau tra buom yn nghyd.
+Ryw noson anhapus--mi cofiaf hi byth--
+Daeth ysbryd anghydfod dros drothwy ein nyth,
+A Mari a minnau a gawsom air croes,--
+Y cyntaf a gawsom erioed yn ein hoes.
+[VERSE 2]
+"Eis allan yn sydyn, a chauais y ddor,
+A chrwydro y bum ar hyd erchwyn y mor,
+Yn gwylio y tonnau yn chwareu'n y fan
+Ym mynwes eu gilydd hyd ymyl y lan;
+Dan chwerthin a neidio o amgylch fy nhroed,
+Yn orlawn o fywyd fel plant deuddeg oed.
+Meddyliais mor ffol y bum i gyda'r fun
+A garwn yn fwy na fy enaid fy hun;
+Ac eistedd a wnaethum mewn myfyr tra syn,
+A chenais gan fechan yn debyg i hyn,--
+[VERSE 3]
+"'Mari anwyl, wnei di faddeu
+Fy ymadrodd creulon, ffol,
+Gaf fi yfed gwin dy wenau
+Pan y deuaf yna'n ol?
+Pam y rhaid i gariad cywir
+Fod yn llanw ac yn drai?
+Arnaf fi, fy Mari anwyl,
+Arnaf fi yr oedd y bai.
+[VERSE 4]
+"'Mynnaf brynnu gown o sidan
+Goreu fedd yr hollfyd crwn,
+I'w roi i Mari a'm llaw fy hunan,
+I wneud fyny'r cweryl hwn;
+Gwn y medr Mari faddeu
+Holl ffaeleddau cariad gwir,
+A thrawsffurfio gyda'i gwenau
+Gwmwl du yn awyr glir.'
+[VERSE 5]
+"Pan oeddwn yn dychwel a'r gown i fy mun,
+Gan deimlo yn ddig wrth fy ffoledd fy hun,
+A theimlo y mynnwn i wneuthur fy rhan
+I garu y cweryl o'r ty yn y fan;
+Ar hynny! mi deimlwn ryw law nerthol, fawr,
+O'm hol yn fy nhynnu yn llegach i'r llawr,
+A phedwar o forwyr a'm rhwyment mewn brad,
+Ac ymaith y'm cipiwyd i lawr at y bad!
+Un cilgwth!--un floedd a drywanai fy mron,
+A dyna ni'n nofio ar wyneb y donn.
+[VERSE 6]
+"Llong ryfel angorai draw, draw ar y donn,
+A rhwyfai y morwyr yn union at hon,
+A mi, fel mewn breuddwyd, a gefais fy hun
+(Yn lle bod yn gofyn maddeuant fy mun)
+Yn nghanol y milwyr, a'r morwyr llawn brad
+Yn hwylio i ryfel yn syth o fy ngwlad."
+[VERSE 7]
+V.
+[VERSE 8]
+Ryw fore, rhoi'r postman ddau guriad i ddor
+Y bwthyn bach hwnnw yn ymyl y mor,
+A Mari a glybu, ond teimlai ryw fraw
+Yn mynd at ei chalon, a chrynnai ei llaw,
+A methai gan ofnau a myned ymlaen,
+'Roedd blwyddau er pan gadd hi lythyr o'r blaen.
+[VERSE 9]
+Hi gafodd y llythyr ar drothwy y ddor,
+A gwelai ei fod wedi dod dros y mor;
+Llawysgrif pwy ydoedd?  O ba wlad y daeth?
+Ai William sy'n glaf, neu a oes newydd gwaeth?
+Agorodd y sel, a darllennodd--ond och!
+'Roedd gwaed y cynhyrfiad yn rhewi ar ei boch;
+Y capten a'i gyrrodd i ddweyd fel y bu--
+Fod storm wedi codi, fod corwynt a'i ru
+Bron wedi achosi llongddrylliad tra erch,
+Ac hefyd fod William, canolbwynt ei serch,
+Yng nghanol y ddrycin, a'r storm, wedi cwrdd
+A damwain, a syrthio i'r mor dros y bwrdd.
+[VERSE 10]
+Fe dorrodd y newydd ar deimlad y fam
+Fel taranfollt erchyll, a'i chalon rodd lam;
+Mor hynod ddisymwth bu'r ergyd i hon,
+Nes clodd y fath newydd ei dagrau'n ei bron;
+Ni wyddai p'le i droi, na pha beth i'w wneud,
+Ond teimlai lais distaw'n ei mynwes yn dweyd,--
+"Feallai fod gobaith, feallai i'th Dduw
+Ofalu am William, a'i fod ef yn fyw."
+[VERSE 11]
+Hi syrthiodd ar ei gliniau
+A chodai fyny ei llef,
+Trwy'r storm o orthrymderau,
+At un sydd yn y nef;
+Ond ofnai fod ei gweddi
+Yn gofyn gan yr Ior
+Am achub un oedd wedi
+Ei gladdu yn y mor.
+[VERSE 12]
+Daeth eilwaith adlais distaw
+O fewn i'w mynwes wyw,
+I ddweyd er hyn y gallai
+Fod William eto'n fyw;
+A'r adlais hwnnw roddodd
+Ail nerth i'w gweddi gref,
+Nes gyrrodd mewn ochenaid
+Ei chalon tua'r nef.
+
+--- TITLE: VI
+[VERSE 1]
+Ust! ust! dyna gnoc! pwy sy'n curo mor hy?
+O diolch--a William yn dyfod i'r ty!
+Pwy draetha'u teimladau pan syrthiodd y ddau
+Ar yddfau eu gilydd i gyd lawenhau?
+[VERSE 2]
+Dechreuai William ddweyd yn awr
+Ei hanes prudd, pan syrthiodd lawr,
+Ac fel 'r achubwyd ef mor hyf
+Gan law ddieithr morwr cryf;
+[VERSE 3]
+"O na chawn ei weled," atebai y fam,
+"Y morwr achubodd fy mhlentyn rhag cam,
+Cai ddiolch fy nghalon am achub o'r lli.
+Yr hwn sy'n anwylach na mywyd i mi."
+"Myfi yw y gwr," ebe llais yn y ddor,
+"Achubodd y bachgen rhag marw'n y mor,"--
+"Fy Nuw!"--ebe Mari, pan welodd y dyn,
+A syrthiodd i freichiau ei phriod ei hun.
+Dechreuwyd a holi ac adrodd mor hy,
+A'r tri yn cydwylo wrth ddweyd sut y fu,
+Y tad yn rhoi darlun o droion y daith,
+A'r fam yn rhoi darlun o'i phryder tra maith.
+[VERSE 4]
+'Mhen awr, fe ddaeth cenad i'r bwthyn dinam
+At Mari yn dweyd fel bu farw ei mam;
+Y clefyd ddadglodd gloion rhydlyd ei serch,
+A phwnc ei myfyrdod oedd Mari ei merch,
+"Rwy'n maddeu i Mari fy merch," ebe hi,
+A deigr edifeirwch yn treiglo yn lli;
+A neidiodd o'i gwely, ac allan yr aeth,
+A chodi ei dwylaw i'r nefoedd a wnaeth,
+Ar drothwy y drws lle cilgwthiodd ei merch,
+Am roi ei deheulaw lle rhoddodd ei serch;
+Gweddiodd yn daer am faddeuant yr Ior,
+Ac yno bu farw ar drothwy y ddor.
+[VERSE 5]
+Bu'r morwr a Mari am flwyddau hir, hir,
+Yn byw mewn dedwyddwch dan awyr serch clir,
+A William a dyfodd yn addurn i'w wlad,
+Yn eilun ei fam, ac yn bopeth ei dad.
+[VERSE 6]
+* * * * *
+[VERSE 7]
+Y sexton ar hynny eisteddodd i lawr,
+A'r tan oedd yn llosgi yn isel yn awr;
+Aeth pawb tuag adref 'rol cael y fath wledd,
+Aeth yntau i'r fynwent i dorri y bedd.
+[VERSE 8]
+Ei galon, er hynny, sydd dyner a phur.": myn64.jpg]
+
+--- TITLE: SYR WATCYN WILLIAMS WYNN
+[VERSE 1]
+Ym mhlith yr holl foneddwyr
+A geir yng Nghymru lan,
+Mae rhai boneddwyr mawrion,
+A'r lleill yn od o fan;
+Ond gwnewch un bwndel anferth
+O fonedd Cymru 'nghyd,
+Syr Watcyn, brenin Cymru,
+Sy'n fwy na'r lot i gyd.
+[VERSE 2]
+Lle bynnag tyfa glaswellt,
+Lle bynnag t'wynna haul,
+Fel tirfeddiannwr hynaws
+Ni welwyd un o'i ail;
+Mae'n frenin gwlad y bryniau,
+A chyda hyn o ran,
+Mae'n frenin yng nghalonnau
+Ei ddeiliaid ym mhob man.
+[VERSE 3]
+Ewch at y weddw unig,
+Ewch at amddifad tlawd,
+Syr Watcyn yw eu noddwr,
+Syr Watcyn yw eu brawd;
+Trwy ddagrau diolchgarwch
+Ar ruddiau llawer un
+Argraffwyd yr ymadrodd,--
+"Syr Watcyn ydyw'r dyn."
+[VERSE 4]
+Mae ef yn wir foneddwr,
+'Does neb all ameu hyn,
+Mae'i glod fel llanw'n llifo
+Dros lawer bro a bryn;
+Ac nid yn unig hynny,--
+Mae'n Gymro pur o waed,
+A Chymro glan bob modfedd
+O'i goryn hyd ei draed.
+[VERSE 5]
+Hir oes i'r mwyn bendefig,
+Medd calon myrdd pryd hyn,
+A byw ddwy oes a hanner
+A wnelo Lady Wynn;
+Hir oes i'r holl hiliogaeth,
+A chyfoeth heb ddim trai,
+A bendith nef fo'n aros
+Ar deulu hen Wynnstay.
+
+--- TITLE: LILI CWM DU
+[VERSE 1]
+Rhwng hafnau'r bryn uchel mae'r awel erioed
+Yn smalio a chwareu yn ysgafn ei throed;
+A mynd gyda'r awel i bob cornel gu
+Mae adgof i feddwl am Lili Cwm Du.
+[VERSE 2]
+Mae lili y dwfr yn ymddyrchu o'r llyn,
+Gan gym'ryd goleuni i sychu'i phen gwyn;
+Mae hithau fel pe bai yn edrych bob tu
+I feddwl a meddwl am Lili Cwm Du.
+[VERSE 3]
+Mae gwlithos yr hwyrddydd yn dyfod bob nos
+A'u diod gwsg dyner i anian fawr dlos;
+Yn ol yn siomedig ant gyda'r wawr gu
+Am na chawsant gusan gan Lili Cwm Du.
+[VERSE 4]
+Oferedd i'r gwlithos i ddyfod i lawr
+I chwilio am hon ymysg blodau y llawr;
+I fyny mae hi, ac ni fedd y nef gu
+Un lili brydferthach na Lili Cwm Du.
+
+--- TITLE: FFARWEL Y FLWYDDYN
+[VERSE 1]
+Ar noson ddrychinog, a gwyntog, ac oer,
+Ysgubai'r ystormydd dros wyneb y lloer;
+'Roedd delw y gaeaf ar ddaear a nen,
+A thymor y flwyddyn yn dyfod i ben.
+[VERSE 2]
+"Ffarwel," ebe'r flwyddyn, "fe ddarfu fy ngwen,
+Fy meibion, y misoedd, a'm gwnaethant yn hen;
+Ces amdo yn barod, o lwydrew yn haen,
+A dor tragwyddoldeb sy'n agor o'm blaen.
+[VERSE 3]
+"Ffarwel," ebe'r flwyddyn, "'rwy'n estyn fy llaw,
+A honno yn wleb gan y ddrycin a'r gwlaw;
+'Rwy'n mynd i fyd arall i gloddio fy medd,
+A'm chwaer sydd yn dyfod wrth droedfainc fy sedd.
+[VERSE 4]
+"Pan anwyd fi gyntaf, 'roedd gwywder ar daen,
+A mynwent prydferthwch o'm hol ac o'm blaen;
+Daeth gwanwyn 'rol hynny, a'r blodyn morgun
+A gododd ei sedd ar ei feddrod ei hun.
+[VERSE 5]
+"Fe chwarddai y ddaear, a gwridai yr haul,
+A minnau'n ysmalio mewn glesni a dail;
+A chanai y gog ei Sol-ffa y fan draw,
+A'r fronfraith a ganai'r hen nodiant gerllaw.
+[VERSE 6]
+"Daeth Mai gyda hynny a hirddydd a haf,
+Ar fynwent y gaeaf daeth gerddi mor braf;
+Priodais a harddwch gan gredu yn siwr
+Fod llawnder Mehefin yn gyfoeth i'm gwr.
+[VERSE 7]
+"Pryd hynny, agorai'r amaethwr ei geg,
+A dywedai,--''Nawr, flwyddyn, mae eisieu hin deg;'
+Ond er iddo waeddi, y gwlaw oedd yn dod,
+A'r m'linydd yn diolch am ddwr ar ei rod.
+[VERSE 8]
+"Mi gefais fy meio am wlawio cyhyd,
+A gwneuthur cryn niwed i'r gwair ac i'r yd;
+Ond cofiwch chwi, ddynion, beth bynnag fu'r drefn,
+'Roedd Duw a Rhagluniaeth o hyd wrth fy nghefn.
+[VERSE 9]
+"O ddiwrnod i ddiwrnod, aeth haf ar ei hynt,--
+Gostyngodd yr heulwen, a chododd y gwynt;
+Daeth llwydrew fel lleidr, pan giliai yr haul,
+Rhodd wenwyn ym mywyd y blodau a'r dail.
+[VERSE 10]
+"Dechreuais cyn nemawr a wylo yn hallt,--
+Dechreuodd y stormydd a thynnu fy ngwallt;
+Aeth haf a'i brydferthwch i mi yn ddi goel,
+'Rwy' heno yn marw yn dlawd ac yn foel.
+[VERSE 11]
+"Mi glywais y clychau yn canu mor llon,
+Wrth weled babanod yn dod at y fron;
+Bum i gyda'r mamau yn siriol eu pryd
+Yn gwenu a siglo uwch ben llawer crud.
+[VERSE 12]
+"Mi glywais y clychau,--daeth mab a daeth merch
+At allor yr eglwys i roi cwlwm serch;
+Ar ol i mi farw, d'wed gwragedd di ri',--
+'Wel hon oedd y flwyddyn ro'dd fodrwy i mi.'
+[VERSE 13]
+"Mi glywais y clychau yn brudd lawer gwaith,--
+Mi welais yr elor yn myned i'w thaith;
+Ar filoedd ar filoedd ce's weld yn ddiau
+Y beddrod yn agor,--yn derbyn,--a chau!
+[VERSE 14]
+"Ffarwel iti, ddaear,--ffarwel iti, ddyn,
+Ffarwel yr hen bobol,--ffarwel, fab a mun;
+Mae'n rhaid i ni 'madael, 'rwy'n marw, fy ffrynd,--
+'Rwyt tithau yn dod os y fi sydd yn mynd.
+[VERSE 15]
+"Ffarwel iti, Gristion, mae'm llyfrau ar gael,
+Mae'm cyfrif fan honno i'r gwych ac i'r gwael;
+'Rwy' wedi 'sgrifennu yn rhad ac yn rhydd,
+MADDEUANT ar gyfer dy enw bob dydd.
+[VERSE 16]
+"Ffarwel, ddyn annuwiol, mae gennyf ar lawr
+Hen fill yn dy erbyn sy'n hynod o fawr;
+'Rwy' heno'n rhy wanllyd i ddweyd yr amount,
+Cawn oleu byd arall i setlo'r accmmt!"
+
+--- TITLE: CORN Y GAD  [music: D. Emlyn Evans]
+[VERSE 1]
+Mae corn y gad yn galw'n hyf,
+A'n nghalon innau'n ateb hwnnw,
+Mae'n galw ar y dewr a'r cryf
+I fuddugoliaeth neu i farw,--
+Ffarwel, f'anwylyd!  Ail-adseinia'r nen
+I gorn y gad--ffarwel fy Ngwen.
+[VERSE 2]
+"Ti wyddost nad yw'n iawn i ferch
+I dynnu cledd ar faesydd gwaedlyd,
+Er hyn gall anfon gweddi serch
+At Dduw i'r nef dros ei hanwylyd;
+Cei di fy mendith, Arthur, ar dy ben,
+A'r nefoedd deimlo gweddi Gwen."
+[VERSE 3]
+'Does neb ond y dewr yn haeddu cael bod
+Yn deilwng i'w caru, yn deilwng o glod;
+Na neb ond gwladgarol a ffyddlon hoff fun
+Yn haeddu cael calon y milwr a'r dyn.
+
+--- TITLE: GWYL DEWI SANT
+[VERSE 1]
+Da gan Gymry gydgyfarfod,
+Wyl Dewi Sant,
+A iaith y Cymry ar bob tafod,
+Wyl Dewi Sant;
+Son am Gymru gynt a'i hanes
+Gyda gwen a chalon gynnes,
+A chalon Cymro ym mhob mynwes,
+Wyl Dewi Sant.
+[VERSE 2]
+Gwened haul ar ben y Wyddfa,
+Wyl Dewi Sant,
+Chwardded ffrydiau gloewon Gwalia,
+Wyl Dewi Sant;
+Gwyl hudolaidd, gwyl y delyn,
+Gwyl y canu, gwyl y cenin,
+Nyddu can a phlethu englyn,
+Wyl Dewi Sant.
+[VERSE 3]
+Cadwn hen ddefodan Cymru,
+Wyl Dewi Sant,
+Cinio cynnes cyn y canu,
+Wyl Dewi Sant;
+Llawer Cymro calon gynnes
+Wisga genin ar ei fynwes,
+A'r lleill ro'nt genin yn eu potes,
+Wyl Dewi Sant.
+[VERSE 4]
+Mae pob Sais yn hanner gwallgo,
+Wyl Dewi Sant,
+Eisieu o galon bod yn Gymro,
+Wyl Dewi Sant;
+Dwed y Sais dan wisgo'i faueg,--
+"Fi yn leicio'r Welsh bob adeg,
+Ag fi ddim dweyd un gair o Sasneg,"
+Wyl Dewi Sant.
+[VERSE 5]
+Y ganwyll frwyn fo'n goleu'n siriol,
+Wyl Dewi Sant,
+A'r tanllwyth mawn fo'n twymo'r gongol,
+Wyl Dewi Sant;
+Ac wrth oleu mawn y mynydd,
+Pur wladgarwch elo ar gynnydd,
+A'n serch fo'n ennyn at ein gilydd,
+Wyl Dewi Sant.
+
+--- TITLE: 'RWY'N DISGWYL Y POST
+[VERSE 1]
+'Rwy'n disgwyl y post gyda llythyr i mi,
+'Rwy'n disgwyl ei guriad bob awr wrth y ddor,
+Ond nid oes un adsain na churiad yn dod,
+Ond curiad fy nghalon a snad y mor;
+Mac'r awel yn dyner, ac weithiau yn gref,
+'Rwy'n disgwyl, yn disgwyl am air gyda hi,
+Ond ofer yw disgwyl wrth awel y nef,
+Ac ofer yw disgwyl wrth donnau y lli;
+Gwneud storm yn fy mynwes mae storm yn y nen,
+A thynnu fy nagrau mae dafnau y gwlaw,
+O eisieu bod rhywun yn cofio ei Wen,
+Ac eisieu cael gweled ysgrifen ei law.
+Daw'r mellt mewn trugaredd
+Drwy swynol gyfaredd,
+A newydd i rai dros y gwyrddlas li,
+Ond llawn o gynddaredd
+Yw'r mellt a'r taranau uwchben ein ty ni;
+Mi rois iddo 'nghalon, a rhois iddo'm llaw,
+'Rwy'n disgwyl, 'rwy'n disgwyl, a disgwyl nes daw.
+
+--- TITLE: CLYWCH Y FLOEDD I'R FEWYDR
+# setting: ("Cambrian War Song," gan Mr. Brinley Richards)
+[VERSE 1]
+Clywch y floedd i'r frwydr,
+Bloedd dros ryddid Cymru,
+Ar y mynydd uchel draw
+Llysg tafodau tan;
+Clywch gleddyfau'n tincian,
+A banerau'n clecian,
+Cymry sydd yn dyfod allan,
+Dros hen wlad y gan;
+Er fod rhengau'r gelyn
+Yn ymgau i'n herbyn,
+Mynnwn weled Cymru'n rhydd,
+Neu farw yn y gad;
+Fyny a'r banerau,
+Chwifiwn ein cleddyfau,
+Codwn floedd nes rhwygo'r nen,
+Cymru ddaw yn rhydd.
+[VERSE 2]
+Swn y gwynt pruddglwyfus
+Sua yn y coed,
+Hithau'r gornant nwyfus,
+Chwery wrth fy nhroed;
+Huno y mae popeth
+Dan y cwrlid rhew,
+Tra ffarwelia geneth
+Gyda'i milwr glew.
+[VERSE 3]
+Clywch y floedd yn codi,--
+Bloedd dros ryddid Cymru,
+Mynnwn weled Cymru'n rhydd
+Neu farw dros ein gwlad;
+Rhyddid ddaw i'n gwenau
+Gyda gwawr y borau
+Gwaedda ysbryd Cymru gynt,--
+"Awn ymlaen i'r gad."
+Fyny a'r banerau,
+Chwifiwn ein cleddyfau,
+Codwn floedd nes rhwygo'r nen,
+Cymru ddaw yn rhydd;
+Clywch y floedd yn codi,
+Mynnwn weld hen Gymru'n rhydd.
+
+--- TITLE: DYMA BEDWAR GWEITHIWR
+[VERSE 1]
+Dyma bedwar gweithiwr dedwydd
+Gyda chydymdeimlad llwyr,
+Gydgychwynant gyda'r wawrddydd,
+Gyd-ddychwelant gyda'r hwyr;
+Maent yn meddu gwragedd hawddgar,
+Gyda phedwar bwthyn iach,
+Ae mae gan bob un o'r pedwar
+Bob i bedwar plentyn bach.
+[VERSE 2]
+Dringa'r pedwar aeliau'r creigydd,
+Tyllant gernau'r clogwyn cas,
+Ac a'r pedwar dan y mynydd
+Ar ol gwythi'r lechen las;
+Pedwar diben sydd i'r pedwar,
+Tra mae'r pedwar yn cydfyw,
+Caru'u gwaith, eu gwragedd hawddgar,
+Caru'u gwlad, a charu Duw.
+[VERSE 3]
+(Caneuon y Chwarelwyr, ar ymor yn agos i'r Werddon, Mawrth 10fed, '77).
+
+--- TITLE: HEN AWRLAIS TAL Y TEULU
+[VERSE 1]
+Glywch chwi gloch yr awrlais
+Sydd yn taro awr 'rol awr?
+Mal "un, dau, tri, pedwar, pump, chwech,"
+Medd hen awrlais tal y teulu;
+Ar y pared yma bu
+Yn amser ein hen deidiau,
+Fel rhyw fynach yn ei ddn
+Yn rhifo en munudau;
+Dyma ddwed o bryd i bryd,--
+"Byrr yw'ch amser yn y byd,
+'Rwy'n dweyd 'r un peth o hyd o hyd,"
+Medd hen awrlais tal y teulu.
+[VERSE 2]
+Darnio amser yw ei waith,
+A thra'n darnio oesau maith,
+Mal "un, dau, tri, pedwar, pump, chwech,"
+Medd hen awrlais tal y teulu;
+Canodd gloch uwch ben y orud
+Pan anwyd llawer babi;
+Canu bu o bryd i bryd
+Ar lawer dydd priodi;
+"Clywch y gloch fu uwch y crud
+Yn canu cnul o bryd i bryd,
+I lawer oes fn yn y byd,"
+Medd hen awrlais tal y tenlu.
+"'Rwy'n dweyd 'run peth o hyd o hyd,"
+Medd hen awrlais tal y tenlu.
+
+--- TITLE: HEN GYMRY OEDD FY NHADAU
+[VERSE 1]
+Hen Gymry oedd fy nhadau gynt,
+A Chymro glan wyf fi,
+A charu'r wyf yr awel wynt
+A hed dros Gymru gu;
+'Rwy'n caru'r wlad a'm magodd,
+Ei rhyddid pur a'i chlod,
+Ac yn y wlad bu farw nhad
+'Rwyf finnau fyth am fod;
+Mi glywais am ryw wledydd
+Sydd yn uwch mewn parch a bri,
+Ond Cymru,--anwyl Gymru,
+Sydd yn ddigon hardd gen i.
+A'r sawl sy'n dewis gadael hon,
+'Rwy'n dwedyd i ti, ffrynd,
+Os cei di'n rhywle wlad sydd well,
+Mae croesaw i ti fynd.
+[VERSE 2]
+Feallai nad yw'n Gwyddfa ni
+Mor uchel yn y nen,
+A gallai nad oes cymaint trwch
+O eira ar ei phen;
+Feallai fod mynyddau mwy
+I'w cael mewn gwledydd pell,
+A gallai fod eu dolydd hwy
+Yn frasach ac yn well;
+Ond gennym ni mae'r cymoedd,
+Gyda'u nentydd gloewon, glan,
+Lle cenir tonau heddwch pur
+Ar fil o dannau man;
+Mae yno ryddid ar bob bryn
+Yn chwareu yn y gwynt,
+A hen adgofion ym mhob glyn
+Am ddewrder Cymry gynt.
+[VERSE 3]
+Mae llynges Prydain ar y mor
+Yn ben llynghesau'r byd,
+Gall Prydain gau ac agor dor
+Yr eigion ar ei hyd;
+Mae llawer Cymro ar ei bwrdd
+A chalon fel y llew,
+Yn barod ar bob pryd i gwrdd
+A'r gelyn mwyaf glew;
+Ni gadwn undeb calon,
+Gyda modrwy aur y gwir,
+Tra fyddo modrwy loew'r mor
+Yn amgylchynu'n tir;
+Os rhaid, ni godwn gleddyf dur,
+Ac unwn yn y gad
+Dros ryddid hoff a chrefydd bur,
+A gorsedd aur ein gwlad.
+[VERSE 4]
+Mawrth, 1877.
+
+--- TITLE: DYFODIAD YR HAF
+[VERSE 1]
+Mi glywais fronfraith yn y llwyn
+Yn canu bore heddyw,
+A dwedai yn ei hanthem fwyn,--
+"Mae'r gaeaf wedi marw."
+Tra cana'r fronfraith beraidd glod,
+Mae'r haul yn gwenu'n llon uwchben,
+A'r briaill man wrth fon y pren
+Yn edrych fyny tua'r nen,
+I weld yr haf yn dod.
+
+--- TITLE: DALEN CYFAILL
+[VERSE 1]
+Nis gallaf alw'r ddalen hon
+Yn ddalen i athrylith,
+Ni hoffwn fritho'i gwyneb llon
+A gweigion eiriau rhagrith;
+Addurno'u dail ag ysgrif hardd
+Adawaf i rai ereill,
+Os caf fi alw dalen bardd
+Yn ddalen cywir gyfaill.
+[VERSE 2]
+Paid byth a meddwl, gyfaill mwyn,
+Am gyfeillgarwch trylen,
+Y gall yr awen byth ei ddwyn
+I bennill ar un ddalen;
+Na, na, mae cyfeillgarwch byw
+Yn uwch, yn is ei syniad,
+Mae'n hirach, lletach, dyfnach yw
+Na holl ddalennau'r cread.
+[VERSE 3]
+Ond un peth yn y ddalen hon
+Sy'n hynod debyg iddo,
+Mae'n berffaith wyn a phur ei bron
+Cyn i fy llaw ei britho;
+Peth arall yn y ddalen wen
+A ddeii gymhariaeth eto,
+Mae cyfeillgarwch pur fel llen
+Yn hawdd i weled trwyddo.
+[VERSE 4]
+Gall llaw ddiystyr ddod ryw dro
+I rwygo hyn o ddalen,
+Pan fyddwn ni ein dau'n y gro
+Heb fywyd, gwres, nac awen;
+Gall dwylaw malais ddod ryw bryd
+I aflonyddu'n heddwch,
+Ond gofyn gwaetha dwylaw'r byd
+I rwygo'n cyfeillgarwch.
+
+--- TITLE: DEWCH I GNEUA
+[VERSE 1]
+GEIRIAU RHANGAN (Part Song).
+[VERSE 2]
+(Y Gerddoriaeth gan Mr. D. Lewis, Llanwrtyd).
+[VERSE 3]
+O dewch i gneua tua'r coed,
+Fa, la, la,
+Yn llawen galon, ysgafn droed,
+Fa, la, la;
+Cawn eistedd dan y gwyrddion ddail,
+A chwareu ym mhelydrau'r haul,
+A thorri cneuen bob yn ail,
+Fa, la, la.
+Cawn weld dedwyddwch 'deryn bach,
+Fa, la, la,
+Yn trwsio pluf ei aden iach,
+Fa, la, la;
+A'i weld yn esgyn fry i'r nen,
+Neu'n canu ar y gainc uwchben,
+A ninnau'n canu wrth fon y pren,
+Fa, la, la.
+Ar ol yspeilio'r llwyni cyll,
+Fa, la, la,
+Cawn ddychwel adref gyda'r gwyll,
+Fa, la, la;
+Cawn gydymdwymno a mwynhau
+Wrth danllwyth mawn y bwthyn clau,
+A chanu can, a thorri cnau,
+Fa, la, la.
+
+--- TITLE: LOLIAN A LILI
+[VERSE 1]
+O'r anwyl, y mae fy rhieui
+Am imi roi 'mwriad ar Mari,
+Tra gwyddant eu dau
+Nad allaf fwynhau
+Fy hunan heb lolian a Lili.
+[VERSE 2]
+Be waeth am athroniaeth rhieni?
+Anghariad yw ceisio 'nghynghori,
+Mae rheswm mor bwl
+Yn siarad fel ffwl
+Er pan eis i lolian a Lili.
+[VERSE 3]
+Gofynwyd im' gynnyg ar Gweni,
+Sy' a dwyfil o wyn ar lan Dyfi;
+Pob parch i Gwen fwyn
+A'i defaid a'i hwyn,
+Ond gwell gen i lolian a Lili.
+[VERSE 4]
+Fe drinir fy mod yn pendroni,
+A mod i 'n rhoi 'nhraed yn y rhwydi;
+Mae 'nhraed ddigon rhydd,--
+Fy nghalon i sydd
+Mewn rhwyd ar ol lolian a Lili.
+[VERSE 5]
+Gwyn fyd na fa'i'r rhaeadr yn rhewi
+I atal ei gan i'r clogwyni,
+Er mwyn im' gael awr
+O eistedd i lawr
+Yn dawel i lolian a Lili.
+[VERSE 6]
+Pe bai gennyf ddawn i farddoni,
+Anadlwn fy serch wrth fwyn odli;
+Cae'r awen fad rydd
+Bob nos a phob dydd,
+Ddigonedd o lolian a Lili.
+[VERSE 7]
+Yn smalio a chwareu yn ysgafn ei throed.": myn80.jpg]
+
+--- TITLE: Y FFARMWR
+[VERSE 1]
+Y ffarmwr yw bywyd y gwledydd,
+Rhwng dau gorn yr aradr mae'n byw,
+Efe yw tywysog y meusydd,
+Ni phlyga i neb ond ei Dduw;
+Os ydyw yn chwysu'r cynhaeaf,
+Ynghanol ei lafur fe gan,
+Ca wledda yn oerni y gaeaf,
+A chanu yn ymyl y tan.
+[VERSE 2]
+Pan rua y gwyntoedd a'r stormydd,
+A phan y daw gwanwyn dilyth,
+Pan chwery yr wyn ar y dolydd,
+A robin yn gwneuthur ei nyth,
+A'r ffarmwr i'r maes gyda'r hadau,
+A haua ei had yn ei bryd,
+Er llenwi ei holl ysguboriau
+A bara i borthi y byd.
+[VERSE 3]
+Pan gasgla ei wenith i'w ydlan,
+A'i wartheg i'r beudy gerllaw,
+Fe eistedd yn ymyl y pentan,
+A chwardda 'r y gwyntoedd a'r gwlaw;
+Ni wyr am uchelgais na balchder,
+Ond gwna ei ddyledswydd fel dyn,
+A cheidw ei feddwl bob amser
+Ynghanol ei fusnes ei hun.
+
+--- TITLE: O DEWCH TUA'R MOELYDD
+[VERSE 1]
+O dewch tua'r moelydd,
+Lle mae grug y mynydd
+Yn gwenu yn ei ddillad newydd grai,
+Mae glesni yr entrych
+Yn gwenu mor geinwych,
+Wrth syllu lawr ar geinion mwynion Mai;
+Dewch i gyd,
+Dewch tua bro'r grug a'r brwyn,
+Mae'r dolydd yn deilio,
+A'r byd yn blodeuo,
+A'r adar yn llonni yn y llwyn.
+[VERSE 2]
+Ar bennau'r mynyddoedd
+Mae awel y nefoedd,
+Yn siarad wrth y nef yng nghlustiau y llawr,
+Mae dylif o iechyd
+A ffrwd bur o fywyd,
+Yng nghol awelon iach y mynydd mawr,
+[REFRAIN]
+Dewch i gyd, &c.
+[VERSE 3]
+Dewch, gwelwch y clogwyn
+Fel pe bae'n ymestyn
+Gan godi'i law i'n gwahodd ar ei gefn,
+Cawn redeg a chwareu
+Fel iyrchod y creigiau,
+A chanu can drachefn ar ol trachefn;
+[REFRAIN]
+Dewch i gyd, &c.
+[VERSE 4]
+Mehefin 22, '69,
+
+--- TITLE: Y GOF  [music: Proffeswr Parry]
+[VERSE 1]
+Ynghanol haearn, mwg, a than,
+Mae'r gof yn gwneud ei waith,
+Ar hyd y dydd, gan gann can
+O fawl i'w wlad a'i iaith.
+[VERSE 2]
+Gewynau ei fraich sydd mor galed a'r dur,
+Ei galon, er hynny, sydd dyner a phnr;
+Mae cyrn ar ei ddwylaw mor gelyd a'r graiw,
+A dwedir fod corn ar dafod ei wraig.
+[VERSE 3]
+Dechreua holi
+Sion Jones Ty'n y Nant,--
+"Oes eisieu pedoli?
+Pa sut mae y plant?"
+Sion Jones yw'r mwyaf gwrol
+Am daro i wneuthur pedol,--
+"On'd yw hi'n dywydd od o bethma,
+Weithiau'n wlaw, ac weithiau'n eira,--
+Chwytha'r tan yn gryfach, Mocyn,
+Paid a chysgu wrth y fegin,--
+Dacw gawod ar y bryniau,
+'Does dim coel ar almanaciau,--
+Sefwch o ffordd y gwreichion, blant,
+Cliriwch le i wr Ty'n Nant."
+[VERSE 4]
+Dacw Rolant Tyddyn Einion,
+Eisieu rhwymo par o olwynion,
+A dyma Dafydd o Blas Iolyn
+Eisieu peg yn nhrwyn y mochyn;
+Gwyn fyd na f'ai peg yn ei drwyn ef ei hun,
+I'w rwystro i'w stwffio i fusnes pob dyn.
+[VERSE 5]
+"Dyma aradr yn dod, a dacw og,
+Chwytha'r tan, Mocyn, on'd wyt ti'n hen rog,--
+Huw Huws, Blaen y Ddol, a fu yma ers tro,
+Eisieu gwneud blaen ar y big-fforch o'i go',
+'Does neb yn y byd all wneud blaen arno fo.
+[VERSE 6]
+"Holo! dacw Sian Ty'n y Canol,
+Hi gollodd bedolau ei chlocs ar yr heol,
+Gwyn fyd na fa'i thafod yn colli'i phedolau,
+Er mwyn iddi gloffi yn lle cario chwedlau;
+Chwytha'r tan, Mocyn, ymhell y bo'th galon,--
+Sefwch 'nol, Mr. Jones, rhag ofn y gwreichion,
+Chwi welwch, Sion Jones, fod digon o waith
+Yn dyfod i'r Efel i chwe gof neu saith."
+[VERSE 7]
+Fel hyn, ynghanol mwg a than,
+Mae'r gof yn gwneud ei waith,
+Ar hyd y dydd, gan ganu can
+O fawl i'w wlad a'i iaith.
+
+--- TITLE: CLYWCH Y FLOEDD I'R GAD
+[VERSE 1]
+(Geiriau Cymraeg ar ymdeithdon newydd Mr. B. Richards, "Let ihe hills
+resound.")
+[VERSE 2]
+Clywch y floedd i'r gad--i'r gad!
+Yn adseinio bryniau'r wlad;
+Ymdonna'r ddraig
+Ar ben bob craig,
+Fry yn y nen;
+Tra saif yr ieuanc wawr
+I orenro'r Wyddfa fawr,
+Fe saif y Cymro dewr
+Dros ei Walia wen.
+[VERSE 3]
+Dewrder pur
+A lanwo'r galon ddur;
+O dewch yn llu
+Dros Gymru fu
+A Chymru fydd;
+Rhyw hawddfyd llon
+Gorona'r ymdrech hon;
+A chanu wnawn,
+A'n bronnau'n llawn
+'Nol cael y dydd.
+[REFRAIN]
+Clywch y floedd, &c., &c.
+[VERSE 4]
+Anwyl wlad, fy anwyl wlad,
+Nefoedd o fwynhad
+Ydyw byw a marw
+Yn bur i ti;
+Rhydd dy nentydd bach,
+A dy awyr iach,
+Nerth yn fy mraich
+A fy nghalon i:
+Trig cerdd a chan
+Rhwng dy fryniau glan,
+A chaniadau mwyn dy delynau mad;
+Ac mae'r awen wir
+Yn llenwi'th dir--
+Gwynfa y byd yw fy anwyl wlad.
+[REFRAIN]
+Clywch y floedd, &c., &c.
+
+--- TITLE: Y DDWY BRIODFERCH
+# setting: (Efelychiad)
+[VERSE 1]
+Mi welais yn yr eglwys
+Ddwy eneth heirdd eu gwedd;
+'Roedd un mewn gwisg priodas,
+A'r llall yng ngwisg y bedd.
+[VERSE 2]
+Darllenwyd y gwasanaeth,--
+"I'r byw, i fyw," aeth un;
+A'r llall yng nglynn marwolaeth
+Briododd Angeu'i hun.
+[VERSE 3]
+Fe aeth y ddwy i'w cartref
+Yn ieuanc iawn en gwedd;
+Aeth un i'r palas gorwych,
+A'r llall i'r tywyll fedd.
+[VERSE 4]
+Deffroai un y bore
+Mewn byd llawn poen a chlwy;
+Y llall oedd fil mwy dedwydd,
+Cael peidio deffro mwy.
+
+--- TITLE: BETH SYDD ANWYL?
+[VERSE 1]
+Pan yn nyddiau ie'netid cu,
+Beth sy'n anwyl?
+Cael pleserau, a chariadau,
+Hyn sy'n anwyl:
+Crwydro drwy y coed a'r dail,
+Son am gariad bob yn ail;
+Gwneuthur coron flodan hardd
+I f' anwylyd yn yr ardd,
+Pan yn nyddiau ie'enctid cu,
+Hyn sydd anwyl.
+[VERSE 2]
+Pan y tyfa'r llanc yn ddyn,
+Beth sy'n anwyl?
+Tyrru elw--gwneuthur enw--
+Hyn sy'n anwyl;
+Cario'n faich ofidiau gant,
+Casglu eyfoeth, magu plant,
+Codi cestyll yn y gwynt,
+Cestyll breuddwyd dyddiau gynt,
+Pan y tyfa'r llanc yn ddyn,
+Hyn sydd anwyl.
+[VERSE 3]
+Ar brydnawnddydd byrr yr oes,
+Beth sydd anwyl?
+Hyder gwastad, ffydd a chariad,
+Hyn sy'n anwyl;
+Troi y cefn ar ofal byd,
+Gweddi daer, a chartref clyd;
+Cael cydwybod heb un briw,
+Heddwch bron, a ffydd yn Nuw,
+Ar brydnawnddydd byrr yr oes,
+Hyn sy'n anwyl.
+
+--- TITLE: Y DDAU
+[VERSE 1]
+Pan fyddo'r rhew yn gwydro'r llyn,
+A gwywo'r meillion mad,
+A'r disglair od fel arian gwyn
+Ar hyd bob glyn a gwlad;
+Pan fyddo'r gwynt yn chwythu'n gry'
+A'r storm yn tramwy'r fro,
+Mae'n dda cael glo i dwymno'r ty,
+A llechi ar y to.
+
+--- TITLE: Y GLOWR
+[VERSE 1]
+Myfi yw'r glowr du ei liw,
+Sy'n mynd i lawr, i lawr,
+I agor cistiau gwerthfawr Duw,
+Sy'n nghroth y ddaear fawr;
+O! cofiwch weithiau am fy mhoen
+Tra'n twymno gylch y tan;
+Os aflan yw fy ngwisg a nghroen,
+Mae gennyf galon lan.
+
+--- TITLE: Y DDAU
+[VERSE 1]
+Cydweithiwn megis Cymry glan
+I godi Gwalia wen,
+I'r byd i gyd ni roddwn dan
+A chysgod uwch ei ben.
+
+--- TITLE: Y CHWARELWR
+[VERSE 1]
+Chwarelwr siriol ydwyf fi
+Yn byw ar ddant y graig,
+I dynnu dail o'i chalon hi
+I gadw ty a gwraig;
+Os rhuo clod mae'r fflamau tan
+I'r glowr am y glo,
+Dadganu clod chwarelwr glan
+Mae'r cenllysg ar y to.
+
+--- TITLE: Y DDAU
+[VERSE 1]
+Cydweithiwn megis Cymry glan
+I godi Gwalia wen;
+I'r byd i gyd ni roddwn dan
+A chysgod uwch ei ben.
+
+--- TITLE: BAD-GAN
+[VERSE 1]
+Rhwyfwn, rhwyfwn yn ein badau,
+Canwn gyda bron ddiglwyf,
+Tynnwn, tynnwn drwy y tonnau,--
+Cadwn amser gyda'r rhwyf;
+Dacw faner gwawr y borau
+Yn ymdorri ar y bryn,
+Ac yn taflu rhes o'r bryniau
+Ar eu pennau i lawr i'r llyn.
+[REFRAIN]
+Rhwyfwn, rhwyfwn, &c., &c.
+[VERSE 2]
+Dyfnach, dyfnach, a y tonnau,
+A'r cysgodion yn fwy clir,
+Gloewach, gloewach a'r wybrenau
+Fel yr awn oddiwrth y tir;
+Ar y lan mae'r lili swynol
+Yn ymbincio yn ei gwyn,
+Ac mae'r cymyl gloewon siriol
+Fel rhyw elyrch gwynion nefol
+Yn ymdrochi yn y llyn.
+[REFRAIN]
+Rhwyfwn, rhwyfwn, &c., &c.
+
+--- TITLE: Y FRENHINES
+[VERSE 1]
+Brysiwch, fellt, ar hyd y gwifrau,
+Saethwch dros y bryn a'r ddol,
+Treiddiwch lawr i'r erch ddyfnderau,
+Dewch a'r newydd i ni'n ol,
+A oes gobaith i'r gwroniaid
+Gipio yspail angau du,
+A rhoi goleu i'r trueiniaid
+O glaer lusern gobaith cu.
+
+--- TITLE: Y GLOWR
+[VERSE 1]
+Ofnadwy fu'r pryder,--y dychryn oedd fawr,
+Ar drothwy bytholfyd yn disgwyl yr awr,
+Ond pan ddaeth curiadau'n cydweithwyr i'n clyw,
+Deallem fod tan cydymdeimlad yn fyw;
+A bron ein brenhines o'i gorsedd wen, fawr,
+Yn toddi o serch dros y glowyr yn awr.
+
+--- TITLE: Y FRENHINES
+[VERSE 1]
+Gwisga'r eurdlos ar dy ddwyfron,
+Gyda llawryf werdd y gwron
+Cana'r ddaear oll dy fawl.
+
+--- TITLE: Y GLOWR
+[VERSE 1]
+Cymer dithau, Buddug dirion,
+Ddiolchgarwch glowr ffyddlon,
+I wladgarwch pura'i galon
+Y mae gennyt gyflawn hawl.
+Daeth teimlad dyngarol fel tan nef ei hun
+I rwymo brenhines a glowr yn un,
+Mae gorsedd a thlodi'n diflannu draw, draw,
+I rinwedd a chariad gael cydysgwyd llaw.
+
+--- TITLE: DYCHYMYG HEDA
+[VERSE 1]
+Dychymyg heda uwch y bedd
+Lle claddwyd priod anwyl,
+Ac yno mynn gael gwneud ei sedd
+I ddisgwyl, ac i ddisgwyl;
+A gwaeddi'i henw a fynn ef
+Gan ddisgwyl iddi ateb,
+Ond ni adseinia dynol lef
+Yn awyr tragwyddoldeb.
+[VERSE 2]
+Lle gwraig sy'n wag trwy'r oll o'r ty,
+A gwraig heb ail yn unman;
+Lle mam sy'n wag--"y man lle bu"
+Adseinia'r gwagle'n mhobman;
+Ac uwch ei llun y serch a ddaw
+I sylweddoli'r cyfryw;
+Ond adlais rheswm dd'wed o draw,
+"Y llun yn unig ydyw!"
+[VERSE 3]
+Pwy geidw'r plant rhag derbyn cam,--
+Pwy wylia dros y rhei'ny?
+I'r tair sy'n galw am eu mam--
+Gair gwag am byth yw "mami!"
+Ond hyn sy'n gysur, onid yw,
+Tra'n wylo uwch y marw,
+Fod Tad amddifaid eto'n fyw--
+
+--- TITLE: OS DU YW'R CWMWL
+[VERSE 1]
+(Llinellau er coffadwriaeth am Mrs. Sarah Davies, 153, St. George Street
+East, Llundain).
+[VERSE 2]
+Os du yw'r cwmwl uwch eich pen,
+Wrth golli'ch anwyl briod,
+Os nad oes rhwygiad yn y llen
+I weld pa beth sydd uchod;
+Mae Tad y gweddwon eto'n fyw,
+A'r cwmwl a symuda,
+Cewch weld fod gwenau wyneb Duw
+Tu ol i'r cwmwl yna.
+[VERSE 3]
+Y teimlad ddwed,--"Mae niwl y glyn
+Yn oeraidd i'm hanwylyd,
+Mor gas i serch yw'r amdo gwyn,
+Yr arch, a phridd y gweryd:"
+Ond ffydd sy'n edrych dros y bedd
+Draw, draw, i'r nefol hafan,
+Lle mae eich priod byth mewn bedd
+Mor bur a Duw ei human.
+[VERSE 4]
+Gofyna teimlad eto'n brudd,--
+"Beth wna'r amddifaid heddyw?
+Pwy sycha'r deigryn ar y rudd
+Ar ol y fam fu farw?"
+Ond yn y nef uwch ben y glyn
+Mae aur lythrennau telaid
+Yn ffurfio'r geiriau melus hyn,--
+
+--- TITLE: "MAE DUW YN DAD AMDDIFAID."
+[VERSE 1]
+Os ydyw cwpan galar du
+Yn llawn o chwerw wermod,
+Mae'n rhaid ei yfed, gyfaill cu,--
+Cewch fel cyn dod i'r gwaelod;
+Mae olwyn fawr Rhagluniaeth Duw
+Yn llawn o lygaid goleu,
+A gweld mae'r Hwn sydd wrth y llyw
+Y diwedd cyn y dechreu.
+[VERSE 2]
+Mae'r holl sirioldeb yn y nef,
+A'r dagrau ar y ddaear,--
+Mae yno'n foliant "Iddo Ef,"
+Ac yma'n llawn o alar;
+Mae hwn yn fyd i gario'r groes,
+Mae yno'n gario'r goron,
+Mae'r wylo i lawr ym myd y loes,
+A'r gan tu hwnt i'r afon.
+[VERSE 3]
+Chwef., 1875.
+
+--- TITLE: CWSG, FILWR, CWSG
+# setting: ("Rest, warrior, rest,"--SIR W. SCOTT)
+[VERSE 1]
+(Y gerddoriaeth gan Mr. J. H. Roberts, Mus. Bac., Cantab).
+[VERSE 2]
+Cwsg, filwr, cwsg, aeth heibio'th gur,
+Cwsg yr hun na wyr am ddeffro,
+Darfu tynnu'r cleddyf dur
+Ddydd a nos mewn gwaed a chyffro;
+Taena dwylaw duwies hedd
+Esmwyth flodau ar dy galon,
+Ac o gylch dy dawel fedd,
+Clywir adsain can angylion;
+Nid oes gyffro yn dy fron,
+Darfu rhu a thwrf magnelau,
+Ond mae ar dy wyneb llon
+Gysgod adgyfodiad golau.
+
+--- TITLE: AR GANOL DYDD
+# setting: (Er cof am Mrs. James, Ynyseidiol)
+[VERSE 1]
+"Yr hyn a allodd hon, hi a'i gwnaeth."--MARC xiv. 8.
+[VERSE 2]
+Ar ganol dydd ei bywyd cu,
+Ar ganol llwybr crefydd,
+O ganol serch cyfeillion cu,
+O ganol cartref dedwydd;
+Ynghanol defnyddioldeb llawn,
+Ar ganol gwaith ei bywyd,
+Hi ga'dd ei hun yn ddedwydd iawn
+Ynghanol cylch y gwynfyd.
+[VERSE 3]
+Nid oedd ei thaith ar hyd y glyn,--
+Y glyn rhwng byd a bywyd,
+Ca'dd groesi'r lleoedd tywyll hyn
+Heb brofi fawr o'u hadfyd;
+Y t'w'llwch sy'n y glyn, nid yw
+I'r sawl mae'r Iesu'n garu,
+Ond cysgod aden dyner Duw
+Yn dod i'w diogelu.
+[VERSE 4]
+Na choder colofn ar ei bedd,--
+Na cherfier gair i'w chofio,
+Bydd dagrau'r eglwys drist ei gwedd
+Yn ddisglair byth fan honno;
+Ac ar y bedd yn alar byw,
+Y tlawd ollynga berlau,
+Mor ddisglair, fel y cenfydd Duw
+Ei hunan yn y dagrau.
+
+--- TITLE: RHYWUN
+# setting: (O'r Saesneg)
+[VERSE 1]
+Mae rhywun yn dod bore fory,
+Ond pwy--eich gwaethaf i ddweyd,
+'Rwy' am fynd i'w gwrdd bore fory,
+Fy nghalon ddwed rhaid i mi wneud;
+Nid ydyw yn unrhyw berthynas,
+Nid oes ganddo gyfoeth na chlod,
+Ond rhywun sy'n dod bore fory,
+Gwyn fyd na bae fory yn dod.
+[VERSE 2]
+Ces lythyr ers echdoe gan rywun,
+Agorais y sel yn y fan,
+Yn hwnnw fe sonnir gan rywun
+Am gariad, a modrwy, a llan;
+Mae'i eiriau'n felusach na'r diliau,
+A'i lygad fel awyr las, glir,
+Mae'n dwedyd y car fi hyd angeu,
+A gwn nad all ddweyd ond y gwir.
+[VERSE 3]
+Mae rhywun yn dod bore fory,
+Mae'n sicr o ddod yn ddi-feth,
+Mae rhywun a finnau'n priodi,
+Ond pwy ydyw rhywun yw'r peth;
+Ie, pwy ydyw rhywun yw'r cwestiwn,
+Mae'i ruddiau cyn hardded a'r rhos,
+Os daw bore fory, mi fyddaf
+'Run enw a rhywun cyn nos.
+
+--- TITLE: YSGYDWAD Y LLAW  [music: Jos. Parry Mus. Doc]
+[VERSE 1]
+Bum yn ysgwyd fy llaw a llawer,
+A'u gafael yn oer ddi-fraw;
+Nid ydoedd y galon gynnes
+I'w theimlo yn dod i'r llaw;
+Mae ereill ymron ag ofni
+I'w llaw gael llychwino'i gwawr,
+Ond caraf gael llaw i'w hysgwyd
+A galedwyd gan lafur mawr.
+[VERSE 2]
+Bum yn ysgwyd y llaw wen, dyner,
+Pe buasai y rhos di-ail
+Rhwng bysedd y llaw wen honno
+Ni buasai yn siglo'i ddail;
+Ond teimlais guriadau'r galon
+Yn rhedeg i ben pob bys,
+A theimlais onestrwydd yno
+Fel yn gwefrio y fron ar frys.
+[VERSE 3]
+Fe ddywedir fod iaith y galon
+I'w darllen ar ruddiau dyn,
+Ac y saetha o'r llygaid gariad,
+Sydd yn gryfach na nerth ei hun;
+Ond gwelais fod twyll mewn gwenau,
+Edrychant yn deg o draw,
+Ond ni cha'dd fy mron ei thwyllo
+Erioed pan yn ysgwyd llaw.
+
+--- TITLE: GRUFFYDD AP CYNAN
+[VERSE 1]
+Ar fore teg flynyddau'n ol,
+Ffarweliodd Gruffydd gyda fi,
+Wrth ysgwyd llaw dros gamfa'r ddol,
+Ein dagrau redent fel y lli;
+Ysgydwai'i gledd yn nhrofa'r ffordd
+I ddwedyd wrthyf ffarwel mud,
+Tra'm calon innau megis gordd
+Yn curo'n gynt, yn gynt o hyd.
+[VERSE 2]
+Cychwynnai ef i'r rhyfel trwm,
+I ganol erch elynol lu,
+A chyda chalon fel y plwm,
+Cychwynnais innau'n ol i'r ty;
+Ond gyrrodd Gruffydd weddi fyw
+Gynhwysai f'enw i i'r nef,
+A chlywodd clust agored Duw
+Fy ngweddi innau drosto ef.
+[VERSE 3]
+Ar ddydd y frwydr trwy'r prynhawn,
+Tra'r o'wn yn synfyfyrio'n ffol,
+Breuddwydiais freuddwyd rhyfedd iawn,--
+Fod Gruffydd wedi dod yn ol;
+Y bore ddaeth, a daeth y post,
+Gan gludo newydd prudd dros ben,
+Fod Gruffydd wedi'i glwyfo'n dost,
+Ag eisieu gweld ei eneth wen.
+[VERSE 4]
+Cychwynais ato yn y fan,--
+Ce's edrych ar ei welw rudd,--
+Cyn hedeg o'i anfarwol ran
+I weld ei Dduw mewn gwlad o ddydd;
+"Ffarwel, fy ngeneth," ebai ef,
+"Mae telyn yn fy nisgwyl i,
+A honno, meddai engyl nef,
+Y nesaf un i'th delyn di."
+
+--- TITLE: Y BLODYN GWYWEDIG
+[VERSE 1]
+Tra'n eistedd fy hunan un hwyr dinam,
+Yn ymyl y ffenestr at fachlud haul,
+Yn fy llaw yr oedd llyfr ges gan fy mam,
+Ac yno dechreuais a throi ei ddail;
+Cyn hir, syrthiai blodyn gwywedig i lawr;
+Rhwng y dail y bu am flynyddau maith,
+A gweled y blodyn gwywedig yn awr
+Dynnai'r dagrau yn lli o'm llygaid llaith;
+A chofio a wnawn am y dyddiau gynt
+Pan wyliai fy mam dros ei phlentyn bach,
+A phan redwn i yn rhydd fel y gwynt,
+Heb ofal am ddim, a fy nghalon yn iach.
+[VERSE 2]
+Edrychais i weled y ddalen gu
+Lle dodwyd y blodyn gwywedig, gwan,
+Gwelais yno eiriau a'm toddai i,
+Geiriau gweddi f'anwylaf fam ar fy rhan;
+Meddyliais fod mam wedi dianc draw
+I ardal lle nad yw y blodau yn wyw,
+Os syrthiodd ei chorff lawr i'r bedd gerllaw,
+Anfarwoldeb flodeua yng ngardd fy Nuw;
+Mi godais y blodyn oedd wrth flaen fy nhroed,
+Ac ar weddi fy mam y dodais ef,
+A gollyngais fry un ochenaid fawr
+Am gael mynd cyn hir at fy mam i'r nef.
+
+--- TITLE: WYLWN!  WYLWN!  [music: J. Parry, Mus. Bac]
+[VERSE 1]
+Wylwn, wylwn! cwympa'r cedyrn,
+Cwympa cedyrn Seion wiw,
+Wylwn, wylwn! dianc adref
+Y mae cewri Mynydd Duw;
+Cydalarwn dan y stormydd,
+Crogwn ein telynau'n syn,--
+Crogwn hefyd ein llawenydd
+Ar hen helyg prudd y glyn:
+Y cadarn a syrthiodd!  Mae bwlch ar y mur,
+A Seion ar suddo mewn tristwch a chur.
+[VERSE 2]
+Ond ndgorn Duw a rwyga feddau'r llawr,
+A syrth y ser yn deilchion ar un awr;--
+Dydd dial Duw!--dydd gwae i fyrddiwn fydd,
+A dydd gollyngdod teulu'r Nef yn rhydd.
+[VERSE 3]
+Clywaf lais o'r Ne'n llefaru,
+Treiddia trwy hen niwl y glyn,
+"Rhai sy'n meirw yn yr Iesu
+Gwyn eu byd y meirw hyn;"
+Diolch am yr enfys nefol
+Sydd fel bwa am y bedd,
+Dyma yr addewid ddwyfol
+Gaed o wlad yr hedd.
+[VERSE 4]
+Moliannwn,--Gorfoleddwn,--
+Cawn gwrdd i gyd-ganu,--cyd-foli,--cyd-fyw,
+Mae allwedd marwolaeth wrth wregys ein Duw.
+
+--- TITLE: MAM
+[VERSE 1]
+Eisteddai geneth lwyd ei gwedd
+I ddweyd ei chwyn a'i cham,
+Ar noson oer yn myl bedd,
+A hwnnw'n fedd ei mam;
+Hi syllai fyny tua'r nen,
+A'i llygaid prudd yn llyn,
+Ac yng ngoleuni'r lleuad wen,
+Hi wylai gan fel hyn,--
+"Mam! mam, O fy mam!
+'Does neb yn y byd
+Mor anwyl a mam.
+[VERSE 2]
+"Ai llygad mam yw'r seren dlos
+Sydd yn y nefoedd fry,
+Yn wincio arnaf yn y nos
+I esgyn ati hi?
+Ai llais fy mam yw'r awel iach
+Sy'n hedeg dros y tir,
+Yn dwedyd wrth ei geneth fach,--
+"Cei ddod i'r nef cyn hir?"
+Mam! mam, O fy mam!
+Pa bryd caf fi fynd
+I fynwes fy mam?"
+
+--- TITLE: Y LLYGAID DUON  [music: D. Emlyn Evans]
+[VERSE 1]
+Mae gloewder hanner dydd
+Mewn llygaid gleision iach,
+Ond llygaid duon sydd
+Yn loewach dipyn bach;
+Ac O! mae edrych arnynt hwy
+Yn clwyfo ac yn gwella'r clwy'.
+[VERSE 2]
+Fel mae y seren dlos
+Yn wincio fry uwchben,
+Trwy d'w'llwch hanner nos,
+Yn fantell dros y nen;
+Fe wincia seren cariad cu
+Trwy hanner nos y llygaid du.
+[VERSE 3]
+Mae beirdd pob gwlad ac oes
+Yn rhyfedd iawn fel hyn,
+Yn gweld pob peth yn groes,--
+Yn gweld y du yn wyn;
+Pa dduaf bo y llygaid hardd,
+Goleuaf yw yng ngolwg bardd.
+
+--- TITLE: CWYNAI CYMRU
+[VERSE 1]
+Cwynai Cymru pan yn colli
+Mil o ddewrion gloewon gledd,
+Cwynai Cymru wedi hynny
+Roi Llywelyn yn ei fedd;
+Ond ar feddau'r dewrion hynny
+Mae angylion hedd yn llu,
+Er ys oesau yn dadganu
+Cydgan rhyddid Cymru gu.
+[VERSE 2]
+Cwynai Cymru weld cyfeillion
+Yn ei gwawdio yn ei chefn,
+Cwynai hefyd weld ei meibion
+Yn bradychu'u hiaith drachefn;
+Ond mae heulwen wodi codi
+Ar ein hiaith ac ar ein gwlad,
+Ac mae pawb yn uno i foli
+Iaith a moesau Cymru fad.
+[VERSE 3]
+Cwynai Cymru weld ei thelyn
+Heb un llaw i ddeffro'i thant,
+Gweld yr awen gyda deigryn
+Ar ei grudd am fyrdd o'i phlant;
+Ond mae'r deigryn wedi'i sychu,
+Hen delynau'n fyw o gan,
+Gyda mil o leisiau'n canu
+Hen alawon Cymru lan.
+
+--- TITLE: GALAR!  GALAR!  GALAR!
+[VERSE 1]
+Galar, galar, galar,
+Mae cewri y cysegr yn cilio o'r byd,
+Galar, galar, galar,
+A chenedl hiraethus yn ddagrau i gyd,
+Seion a wisga'i galarwisg mewn braw,
+A thannau ei thelyn yn ddarnau'n ei llaw.
+[VERSE 2]
+Doder serch cerddorion, bellach,
+Yn goronbleth uwch y bedd,
+Cafodd ef goronbleth harddach
+Gan gerddorion gwlad yr hedd,
+Darfu swn hen delyn daear
+Megis dan ei swynol law,
+Hedodd yntau uwch pob galar
+At aur delyn Gwynfa draw.
+[VERSE 3]
+Huna, huna, blentyn Iesu,
+Gorffwys wedi llafur maith,
+Melus rhoi y cledd o'r neilldu
+A chael llawryf pen y daith;
+Cymysg oedd y cur a'r moliant
+Tra yn rhodio 'r dyffryn du,
+Mawl yw'r oll yng ngwlad gogoniant,
+Mawl i enw'r Ceidwad cu.
+
+--- TITLE: MAES GARMON
+# setting: (Harlech)
+[VERSE 1]
+Codwn faner hedd a gwynfyd
+Fry i hofran trwy'r nen hyfryd,
+Chwifiwn ein cleddyfau gwaedlyd
+Pan yn troi o'r gad;
+Garmon fawr gyhoedda arwest
+Wedi troi o faes yr ornest,
+Bloeddiwn ninnau gan y gonewest
+Nes y crynna'r wlad;
+Adsain Haleliwia
+Darfai fron y dewra,
+Haleliwia dynnai'r nef
+I ddilyn cleddyf Gwalia;
+Bloeddiwn Haleliwia eilwaith,
+Wedi cael yr oruchafiaeth,
+Nes adseinio'r dywysogaeth
+Gyda nerth ein llef;
+Os yw'r gwaed yn llifo,--
+Os yw'r meirw'n rhifo
+Fel y glaswellt ger ein bron
+Ar hyd Faes Garmon heno,
+Pwy all rifo y bendithion
+Ddaw trwy frwydr fawr Maes Garmon,
+Pan aeth Haleliwia'n dewrion
+Fry i glustiau'r nef!
+[VERSE 2]
+Marw mae gwaeddiadau rhyfel
+Yn y pellder gyda'r awel,
+Ac mae gwawrddydd heddwch tawel
+Yn ymgodi draw;
+Gormes drengodd ar Faes Garmon,
+Yno gorwedd gyda'r meirwon,
+A daw rhyddid gyda'i rhoddion
+Yn ei deheu law;
+Canwn gerddi heddwch
+Wedi nos o dristwch,
+Aed ein Haleliwia glir
+Ar aden gwir ddedwyddwch
+Dros y bryniau, trwy'r dyffrynnoedd,
+Hyd y glannau, trwy y glynnoedd,
+Ac i fyny hyd y nefoedd
+Fel taranau'r Ior;
+Crogwn ein banerau
+Gyda'n dur bicellau,
+Sychwn wrid y gwaed heb goll
+Oddiar ein holl gleddyfau;
+Rhed y newydd trwy bob talaeth
+Am ein teilwng oruchafiaeth,
+Nes adseinia Buddugoliaeth
+Draw o for i for.
+
+--- TITLE: Y DYN HANNER PAN
+[VERSE 1]
+Fe safai'r hanner pan a'i fys yn ei geg,
+I edrych ar bobl yn myned heibio,
+A phawb a gyd-ddwedent, 'nol barnu yn deg,
+Fod diffyg go fawr i'w weld arno;
+Er hynny ceid ganddo ryw fath o ffraethineb
+Tu hwnt i'r cyffredin mewn ambell i ateb.
+[VERSE 2]
+Ryw ddiwrnod fe welai ysmociwr lled hy'
+Yn pasio dan fygu'n aruthrol,
+A dywedai'r hanner pan,--"Peth od, ddyliwn i,
+Na buasai ei sifnai ar y canol;
+Mae arogl tra rhyfedd ar hwn gallwn dybied,
+Gan y rhaid iddo fygu i atal y gwybed."
+[VERSE 3]
+Rhyw dri crach foneddwr a basient y fan
+Lle'r oedd yr hanner pan yn sefyll,
+Gofynnodd un iddo, oedd Gymro go wan,--
+"Ers pryd 'rwyt ti yma, yr ellyll?"
+"Mi glywais gan rywun y pasiai tri mwnci,
+Mi redais i edrych ai gwir oedd y stori."
+[VERSE 4]
+Dyn meddw a ddaeth o'r naill ochr i'r llall,
+Gan dyngu a rhegu'n erwinol;
+Arllwysai ei wawd ar y dyn hanner call,
+Gan dybio ei hun yn synwyrol;
+"Mi glywais ddiareb," atebai'r hanner pan,
+"Fod padell yn danod ei dduwch i'r crochan."
+[VERSE 5]
+Fe basiai merch ieuanc brydweddol a theg,
+Yn troi mewn rhyw gylchoedd tra phwysig;
+Ar ol iddi basio rhyw naw llath neu ddeg,
+Fe waeddai'r hanner pan yn ffyrnig,--
+"Oes peryg', my dear, i chwi ddadgymalu?--
+Pwy ydyw y cooper a fu yn eich cylchu!"
+[VERSE 6]
+Un arall a basiai 'mhen dwy awr neu dair,
+A chwpl o blu' ar ei hetan,
+Ro'wn innau yn gwrando, fel mochyn mewnhaidd,
+I glywed sylwadau'r hanner pan;
+A dywedai,--"Mi glywais fod merched yn wylltion,
+Mae nhw'n magu plu'--ant i 'hedeg yn union."
+
+--- TITLE: O DEWCH I BEN Y MYNYDD  [music: D. Emlyn Evans]
+[VERSE 1]
+O dewch i ben y mynydd draw,
+I weld yr haul yn machlud,
+A natur gyda'i thyner law
+Yn cau amrantau bywyd.
+[VERSE 2]
+Fel arwr dan ei glwyf yr huan cun
+Orwedda'n bruddaidd yn ei waed ei hun,
+A'r llen sy'n derfyn rhwng y nos a'r dydd
+A deflir dros ei wyneb prudd.
+[VERSE 3]
+Ond wele'r ser yn filoedd
+Ar hyd yr wybren dlos,
+Mor ddisglair y cabolwyd
+Botymau gwisg y nos;
+Os yw yr haul yn dangos
+Prydferthion daear gref,
+Mae'r nos, er twylled ydyw,
+Yn dangos mwy o'r nef.
+
+--- TITLE: OS YDYM AM FYND TRWY Y BYD
+[VERSE 1]
+Os ydym am fynd trwy y byd
+Heb gwrdd a phrofedigaeth,
+A chael yr haul uwch ben o hyd,
+Heb gwmwl siomedigaeth;
+A throi gofidiau o bob rhyw,
+I gyd yn fel a menyn,
+Y ffordd i ni yw dysgu byw
+I gyd 'run fath a'r gwenyn.
+[VERSE 2]
+Awn fel y gwenyn at ein gwaith,
+Pan d'wyna haul y borau,
+Bydd melus dod yn ol o'r daith
+Dan lwyth o'r golud gorau;
+Dos, ddyn, i'r maes, ac yno gwel
+Ryw gyfoeth ar bob cangen,
+Mae Duw yn dangos lle mae'r mel
+I'r sawl sydd arno'i angen.
+[VERSE 3]
+Os gwlawia'r nen drallodion lawr,
+Paid bod yn llwfrddyn claear,
+A phaid a gwneud rhyw fynydd mawr
+O dwmpath pridd twrch daear;
+Os gweli rywdro yspryd syn,
+Wel, paid a mynd i grynu,
+Sylldremia yn ei wyneb gwyn,
+Mae'n sicr o ddychrynu.
+[VERSE 4]
+Os daw ynfydion ar eu taith
+I gynnyg dy hyfforddi,
+Dos di ymlaen i wneud dy waith
+Ynghanol eu baldorddi;
+Os daw celwyddau gyda'r gwynt,
+'Run fath a'r gwynt darfyddant,
+Mae rhaffau celwydd ym mhob hynt
+Yn crogi'r rhai a'u nyddant.
+[VERSE 5]
+Mae'n rhaid i'r storm gael rhuo'n brudd,
+A ffyliaid fod yn ffyliaid,
+Er hynny, synwyr wel y dydd
+I gladdu pennau byliaid;
+Gan hynny rhwym dy wregys cryf
+Pan fflachia'r mellt yn d'ymyl,
+Ac edrych am yr haul yn hyf--
+Mae ef tu ol i'r cymyl.
+[VERSE 6]
+Os wyt am gadw ar ffordd y gwir
+A gochel bradus heidiau,
+Gwell iti gadw'th draed o dir
+Gwleidyddiaeth a'i holl bleidiau;
+Mae "A. B. C." gwleidyddwyr tynn
+A "V" ar ben y wyddor,
+Ond main yw'r lle a geir i'r hyn
+A elwir yn egwyddor.
+[VERSE 7]
+Paid gwisgo'th galon ar dy fraich
+Os na fydd eisieu hynny,
+A phaid a chrymu dan dy faich,
+Ond cwyd dy ben i fyny;
+Boed gwres ymroddiad yn dy waed,
+A dywed trwy bob tywydd,
+Fod daear rhyddid dan dy draed,
+A Duw uwch ben yn llywydd.
+
+--- TITLE: MIL MWY HUDOL
+[VERSE 1]
+Byron enwog fu'n darlunio
+Merch a blodau yn ei llaw,
+Y peth tlysaf a fedd natur,
+Er ei chwilio drwyddi draw;
+A! ti fethaist, Byron ddawnus,
+Er dy fost, dy glod, a'th fri,
+Swyn i'r llygad sydd yn unig
+Yn dy arlun clodfawr di.
+[VERSE 2]
+Mil mwy liudol i fy nghalon
+Clywed merch, cartrefle swyn,
+Fel yn arllwys ei llais treiddgar
+Am ben llais piano mwyn;
+Seiniau natur yn ymblethu
+Gyda sain offeryn hardd,--
+Dawn a dysg yn ymgofleidio
+Dodda galon dyner bardd.
+[VERSE 3]
+Wrth im' weld ei bysedd meinion
+Fel yn dawnsio gyda hoen,
+Ar allweddau yr offeryn--
+Ffoai gofid, ciliai poen;
+Teimlwn fysedd cudd tynerwch
+Ar holl dannau'm calon wan,
+Bron na syrthiais i ber-lewyg
+Gan y swyn oedd yn y fan.
+[VERSE 4]
+Anwyl eneth, wrth im' wrando
+Ar eich llais, oedd imi'n wledd--
+Gweled delw gwir brydferthwch
+Fel yn eistedd ar eich gwedd,
+Dychymygais mewn mynydyn
+Fod angylion Gwynfa lan,
+Rhwng eich dysg, eich moes, a'ch doniau,
+Yn eiddigus wrth eich can.
+
+--- TITLE: O!  DEDWYDD BOED DY HUN
+# setting: ("Oh! happy be thy dreams")
+[VERSE 1]
+O! dedwydd, dedwydd, bo dy hun,
+Llawn o ddedwyddwch fo'th freuddwydion di;
+Y bryniau aur sydd byth dan heulog hin,
+A'r awyr las sy'n ddwyfol glir i ti;
+Fry, fry, mae ysbryd pur dy fam,
+Draw'n gwylio dros dy hun rhag it' gael cam,
+Mor bur a'r ser sy'n gwylio dros dy lun,
+O! dedwydd, dedwydd, bo dy hun.
+[VERSE 2]
+O! dedwydd, dedwydd, bo dy fywyd di,
+Mae'th fam yn gwylio'th gwsg o'r nef yn awr;
+A'r llaw fu'n arwain hon i'r gwynfyd fry
+Fo eto i'th arwain di trwy'r cystudd mawr;
+Bydd llygaid engyl gyda llygad mam
+Byth, byth, i'th gadw rhag cael unrhyw gam,
+Cwsg tra mae'r ser yn gwylio uwch dy lun,
+O! dedwydd, dedwydd, bo dy hun.
+
+--- TITLE: 'RWY'N DOD, 'RWY'N DOD
+# setting: (Just as I am)
+[VERSE 1]
+Er mwyn y gwaed, fy Iesu hael,
+Mae gobaith i bechadur gwael;
+Ac fel yr un aflana'n bod,
+At orsedd gras--'rwy'n dod, 'rwy'n dod.
+[VERSE 2]
+Ni oedaf funud awr yn hwy
+Heb guddio f' hun mewn marwol glwy',
+Wrth droed dy groes yw'r fan i fod,
+Fy Nghrist, fy Nuw,--'rwy'n dod, 'rwy'n dod.
+[VERSE 3]
+Er cael fy nhaflu ar bob llaw,
+Gan ofn gelynion yma a thraw;
+Ac er fod ofnau cas yn bod,
+O fewn fy mron,--'rwy'n dod, 'rwy'n dod.
+[VERSE 4]
+Er mod i 'n ddall, yn noeth, yn dlawd,
+Mae'r Hollgyfoethog imi'n frawd,
+A thrysor penna'r nef sy'n bod,
+Yng nghroes fy Nuw,--'rwy'n dod, 'rwy'n dod.
+[VERSE 5]
+'Rwy'n credu'r hen addewid wiw,
+Fod maddeu'n nghalon dyner Duw;
+Cael claddu'm meiau yw fy nod,
+Yng nghlwyfau'r Oen,--'rwy'n dod, 'rwy'n dod.
+[VERSE 6]
+Gwnaeth cariad Crist y ffordd yn rhydd,
+O wlad y nos i wlad y dydd;
+Mae miloedd yno'n canu 'i glod,
+'Rwyf finnau'r gwan, yn dod, yn dod.
