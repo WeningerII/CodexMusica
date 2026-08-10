@@ -210,6 +210,22 @@ def test_position_reaches_across_the_word_boundary():
           [x.text for x in S.syllabify("vṛttiṃ")] == ["vṛ", "ttiṃ"],
           "which is what Devanāgarī does: a conjunct is written attached to "
           "the vowel that follows it")
+    # Found by running the module over the whole corpus rather than over its
+    # author's examples: four DCS tokens have NO VOWEL at all. `'py` is `api`
+    # after o-sandhi, `hy` is `hi`, `nv` is `nu`, `tv` is `tu`. A vowelless
+    # token has no syllable of its own, and its consonants are the onset of
+    # the next word's first vowel -- which is what sandhi means.
+    VOWELLESS = ("parair aparyāsitavīryasampadāṃ parābhavo "
+                 "'py utsava eva māninām")          # Kirātārjunīya 1.41
+    check("a vowelless sandhi remnant has no syllable of its own",
+          san.units("'py") == ["p", "y"] and S.syllabify("'py") == [],
+          "'py is api after o-sandhi; [] is the right answer for a token with "
+          "no nucleus, and it is not a refusal — units() reads it fine")
+    check("and the pāda containing it still scans exactly",
+          S.scans_as(VOWELLESS, pada_template(VAMSASTHA)) is True,
+          f"Kir 1.41 {S.pattern(VOWELLESS)} — the p+y attach to the u of "
+          f"utsava. A module that scanned word by word would have dropped "
+          f"this token and shifted every position after it")
 
 
 def test_unicode_normalisation_is_explicit():

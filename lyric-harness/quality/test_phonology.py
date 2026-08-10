@@ -349,8 +349,18 @@ def test_welsh_proclitics_are_unstressed():
 
 def test_every_module_declares_itself():
     print("\n11. every phonology declares what it reads and what it is")
-    check("four languages are registered",
-          set(declared()) == {"fin", "som", "ltc", "cym"}, str(declared()))
+    # Not a fixed count. A hardcoded set fails the moment a language is added,
+    # which trains whoever adds one to edit the assertion rather than read it
+    # -- and the assertion that matters is not HOW MANY are registered but that
+    # each is registered under its own declared name. A module registered under
+    # a copy-pasted key is reachable as the wrong language, which is the exact
+    # failure this whole layer exists to prevent.
+    check("the four originally unblocked languages are still registered",
+          {"fin", "som", "ltc", "cym"} <= set(declared()), str(declared()))
+    for lang in declared():
+        check(f"{lang} is registered under the name it declares",
+              get(lang).language == lang,
+              f"registry key {lang!r} vs declared {get(lang).language!r}")
     for lang in declared():
         d = get(lang).declaration()
         for k in ("notation", "grid_unit", "prominence_rule", "relation",
@@ -362,16 +372,23 @@ def test_every_module_declares_itself():
 def test_no_module_consults_english():
     print("\n12. nothing here falls back to English")
     import ast
+    import importlib
     import inspect
 
-    import quality.phonology.cym as cym
-    import quality.phonology.fin as fin
-    import quality.phonology.ltc as ltc
-    import quality.phonology.som as som
+    # Iterate the REGISTRY, not a hand-written list. The list version had four
+    # names in it and a fifth module was added without being checked -- the
+    # test would have kept passing while the thing it exists to prevent walked
+    # in beside it. Anything reachable through get() is tested here by
+    # construction.
+    mods_under_test = [importlib.import_module(f"quality.phonology.{lang}")
+                       for lang in declared()]
+    check("every REGISTERED module is checked, not a hardcoded list",
+          {m.__name__.rsplit(".", 1)[-1] for m in mods_under_test}
+          == set(declared()), str(declared()))
     # Parse the IMPORTS rather than grepping the source: cym.py's docstring
     # explains the CMUdict problem at length, and a substring test flagged the
     # explanation as the offence.
-    for mod in (fin, som, ltc, cym):
+    for mod in mods_under_test:
         tree = ast.parse(inspect.getsource(mod))
         mods = set()
         for node in ast.walk(tree):

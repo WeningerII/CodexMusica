@@ -58,6 +58,15 @@ that is a parsing problem with a large lexicon behind it, and nothing here
 attempts it: input must arrive already split into words. That is a large part
 of why the Digital Corpus of Sanskrit is the right corpus -- it ships the split.
 
+Segmented is not the same as syllabic. Four DCS tokens across the 10,993 in the
+two validated texts have NO VOWEL at all -- `'py` (api after o-sandhi), `hy`,
+`nv`, `tv` -- because sandhi has eaten the vowel that carried them.
+`syllabify()` returns [] for such a token, which is the right answer and not a
+refusal: a token with no nucleus has no syllable. `scan_pada()` absorbs its
+consonants into the following word's onset, which is what sandhi means, and
+the pāda scans exactly. A caller who scanned word by word would drop the token
+and shift every metrical position after it.
+
 The mirror-image hazard is doctrine 50, and it is REAL in this corpus rather
 than hypothetical. The DCS `# text =` line is word-segmented, and its degree of
 sandhi retention varies by text: 17.2% of Kirātārjunīya tokens differ from
@@ -341,6 +350,11 @@ class Sanskrit(Phonology):
         Returns [] if any word is out of inventory. It refuses the whole pāda
         rather than scanning the readable part, because a scansion with a hole
         in it has the wrong positions after the hole.
+
+        ONE pāda. Hand it a half-verse of two pādas and only the last position
+        is treated as anceps, because that is the only pāda end it can see.
+        Where the internal boundary falls is a property of the metre and the
+        DCS does not record it, so splitting is the caller's declaration.
         """
         st = _stream(text)
         if st is None:
