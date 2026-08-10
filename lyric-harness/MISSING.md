@@ -198,6 +198,37 @@ harmony (Turkish, Finnish, Hungarian) as a rhyme constraint; consonant mutation
 (Celtic); root-and-pattern morphology (Semitic), where shared consonantal root
 changes what rhyme even means.
 
+### F-3 · Dialect orthography is a per-dialect SYSTEM, not a spelling quirk `OPEN`
+**Found in the corpus 2026-08-10, and it contradicts what is already built.**
+Three English dialects in the staged song corpus use the apostrophe and hyphen
+for four different jobs, and the existing modules would corrupt three of them:
+
+- **Lancashire (Waugh):** final-consonant elision on function words — `o'`=of,
+  `an'`=and, `wi'`=with, `th'`=the. But `i'th` and `o'th` are **one token with
+  one apostrophe standing for TWO elisions**; splitting there invents a syllable.
+- **Dorset (Barnes):** three jobs at once — *initial*-onset loss (`'ithin`,
+  `'twer`, `'oman`), unlike Lancashire; final loss (`o'`, `an'`); and the
+  a-prefix is a **HYPHEN, never an apostrophe** (`a-vallen`, `a-done`). A
+  hyphen-splitting tokeniser destroys it — and `cym.py` DELETES internal
+  hyphens while `fin.py` treats them as compound seams, so both are wrong here.
+- **18th-c stage (Gay, D'Urfey):** `'d` for `-ed` is purely metrical — a
+  syllable **deletion** mark, the OPPOSITE function from the dialect elisions,
+  and the one case where the apostrophe changes the syllable count.
+
+**Why it matters:** doctrine 65 records four behaviours for the apostrophe
+across four languages. This is four more inside ENGLISH ALONE, and the count
+is now high enough that per-language is too coarse — it has to be per-DIALECT,
+declared, like everything else in `quality/phonology/`.
+
+### F-4 · A transcription can invent a letter `OPEN`
+**Verified 2026-08-10, inside a single Gutenberg record.** Barnes exists as two
+files: `21785.txt` (ASCII) flattens the a-diaeresis to the two-letter sequence
+`ae`, printing `Greaeve` and `Feaeir` — **inventing a letter in every affected
+word** — while `21785-8.txt` (ISO-8859-1) keeps the single character. The
+Latin-1 file is staged and the reason is in its header. Doctrine 50 with the
+sharpest instance yet: same text, same repository, same day, and one encoding
+silently changes the phonology.
+
 ---
 
 ## G. Syllable and prosodic fit
