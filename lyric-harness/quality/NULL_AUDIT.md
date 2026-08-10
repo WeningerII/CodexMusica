@@ -431,7 +431,7 @@ independently. *Also reached by a sibling cell* (commit `22876d1`).
 
 | claim | source | re-run |
 |---|---|---|
-| sonnet battery 123/1064 = 11.6% violations | RESULTS_BAND P3 | `battery.py` — exact |
+| sonnet battery 123/1064 = 11.6% violations | RESULTS_BAND P3 | `battery.py` — exact, **and the reproduction was the defect**: see §3.2 |
 | P4 held-out AUC 0.9177 (fitted) vs 0.9146 (hand-set) | RESULTS_MATRIX | `eval_matrix.py` — exact |
 | P6 19.1% vs 19.5% at 5% FPR, n=1010 | RESULTS_MATRIX | exact |
 | P2 stress −0.0999 bits; P3 empty/empty −0.000 | RESULTS_MATRIX | exact |
@@ -460,6 +460,20 @@ artifact.
    0.75 with the band, and a 5%-FPR calibrated cut on 1010 held-out pairs).
    Only the run output names them. A reader comparing 19.1% with 11.6% is
    comparing coordinates.
+   **SUPERSEDED 2026-08-10, and this entry filed the wrong complaint.** The
+   defect was not that 8.0% and 11.6% carry an unstated threshold. It is that
+   both are computed over a denominator of 1064 MANDATED pairs, 50 of which the
+   harness REFUSED because the end word is absent from CMUdict — and those 50
+   were also counted in both NUMERATORS, so Shakespeare was recorded as failing
+   to rhyme `viewest`/`renewest`. §2.5 reproduced 123/1064 "exact", which is
+   precisely what an audit that checks reproducibility rather than construction
+   will do: the number regenerates perfectly and measures the wrong thing. On
+   the 1014 pairs the harness actually JUDGED the rates are **3.5% band-off and
+   7.2% band-on** (35 and 73 violations; 85−50 and 123−50, so no count moved).
+   The correction ENLARGES P3 — the band more than doubles the violation rate
+   rather than raising it 45% — and it means this audit's own §2.5 heading, "no
+   defect found", was true only of the arithmetic. Reproducing a number is not
+   auditing it.
 3. **"253 poems / 88.1%" and "300 poems / 264 = 88.0%"** are the same statistic
    at two values of `tang_poems(limit=…)`.
 4. **Kalevala 22,822 vs 22,796 verse lines** — a filter difference, almost

@@ -248,7 +248,10 @@ complete poem. Loosening the grouping to absorb these would raise the number by
 fitting the reference table to the data, which is the same error as tuning a
 threshold to a result. 88.1% is a **measurement of how closely Tang practice
 matches the standard that codified it centuries later** — the exact analogue of
-the sonnet battery's 11.6% Early Modern residue, named rather than removed.
+the sonnet battery's Early Modern residue, named rather than removed. (That
+residue was quoted here as 11.6%; corrected 2026-08-10 to **7.2%** — the old
+figure divided by the 1064 MANDATED pairs while 50 of them were refusals the
+harness declined to judge. See RESULTS_BAND.md.)
 
 ## Part D — Part B run on the real corpora
 

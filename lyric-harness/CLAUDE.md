@@ -77,10 +77,24 @@ cynghanedd [--lang=cym|eng] "line" | prasa K L... | demo
 ## Test discipline
 - `python3 battery.py` — sonnet oracle (152 sonnets, ABABCDCDEFEFGG),
   Lear limerick known-answers, Whitman negative control.
-- Current baselines, WITH the conjunctive band: sonnets 11.6%
-  violations (123/1064, up from 8.0% pre-band — the rise is the typed
-  residue: love/prove and its class are CONSONANCE in the declared
-  General American dialect, which is correct and now named). Whitman
+- Current baselines, WITH the conjunctive band: sonnets **7.2%
+  violations (73/1014 JUDGED pairs, up from 3.5% pre-band)** — the rise
+  is the typed residue: love/prove and its class are CONSONANCE in the
+  declared General American dialect, which is correct and now named.
+  **THE OLD FIGURES 11.6% AND 8.0% WERE 123/1064 AND 85/1064 AND BOTH
+  DENOMINATORS AND NUMERATORS WERE WRONG IN THE SAME WAY.** 50 of the
+  1064 mandated pairs are REFUSALS — the end word is absent from
+  CMUdict, so the harness could not read the line and said so
+  (viewest/renewest, gazeth/amazeth, receivest/deceivest). Counting a
+  refusal as a rhyme failure charged the COMPARATOR for the INGESTION
+  layer's misses, which is the triage discipline three lines below this
+  one, violated in the headline number. 123-50=73 and 85-50=35, so no
+  count changed: what changed is that the harness now says which
+  question it declined to answer. The band's effect is unchanged in
+  direction and LARGER in size than the record claimed — it more than
+  DOUBLES the violation rate (3.5% -> 7.2%), where 8.0% -> 11.6% read
+  as a 45% rise. A rate whose denominator silently includes the cases
+  the instrument refused is not a rate. Whitman
   20.0% chained at theta 0.82, down from 26.0%.
   **THAT DROP IS OVERTURNED AS EVIDENCE (quality/NULL_AUDIT.md, verified
   independently).** Permute Whitman's LINES within the item -- every
@@ -810,4 +824,43 @@ Doctrine additions, earned from the first run — do not drift from these either
    `search_repositories`, which throttles after ~8 calls), and `thabz/Kalliope`.
    That is six times the same probing. The map belongs in one file the cells
    read and append to.
+79. **A REFUSAL is not a failure, and putting it in the numerator charges the
+   wrong layer.** The sonnet battery divided violations by the 1064 pairs the
+   form MANDATES. 50 of those have an end word absent from CMUdict, so the
+   harness never had a verdict — and it counted every one as a rhyme violation,
+   recording Shakespeare as failing to rhyme `viewest`/`renewest`. That is this
+   file's own triage rule (ingestion / projection / anchor / comparator / band /
+   structure / value) broken in the headline number: an ingestion miss was billed
+   to the comparator. The rates on JUDGED pairs are 3.5% band-off and 7.2%
+   band-on; 85−50 and 123−50, so NO COUNT MOVED. The lesson is not that the old
+   numbers were large — it is that the correction ENLARGES the band's effect,
+   from a 45% rise to more than a doubling, so a rate polluted this way is not
+   even conservative in a predictable direction. And NULL_AUDIT.md had already
+   listed 123/1064 under "reproduced exactly, no defect found": reproducing a
+   number checks the arithmetic, never the construction. Report refused,
+   judged and mandated as three separate counts, always.
+80. **Provenance has TWO gates and the author is the cheap one.** 297 non-English
+   lyricists are now staged and 284 clear the author gate trivially — a
+   14th-century cywydd poet has been dead six centuries. Not one is SOURCED,
+   because the binding constraint is the EDITION, and `provenance.py` keys
+   admission on the AUTHOR and models no transcription layer with its own date
+   and rights (doctrine 38). Doctrines 50/52/53 are the record of what an
+   edition does to a text that passes every author check: a modernised
+   orthography that destroys the constraint, an OCR that eats exactly the
+   consonants under test, a vowel merger admissible for one predicate and
+   biased toward the positive for the other. Somali shows both gates at once
+   — 13 of 18 poets fail the DATE gate (lives recorded as "19th–20th century",
+   whose upper bound has not expired) and the 5 who pass are still blocked by a
+   script that postdates the cutoff by 41 years. A staged row says
+   PENDING_TEXT, never SOURCED.
+81. **Bound a vague life at the END of its window, and say in the row that you
+   did.** "fl. c. 1340–1370", "15th century" and "medieval period" are not
+   dates. Taking their midpoint is a guess that will be quoted back as a fact,
+   so every such row is bounded at the latest year the author could have died
+   and `pd_route` carries `d (century only; upper bound assumed)` rather than
+   the `b (verified author death year)` that 221 English rows earned. 18 rows
+   are on that footing and are visible as such by grep. The cost is paid in
+   refusals — 13 Somali poets are refused on a bound they very probably clear —
+   and that is the correct direction for a ledger that is evidence rather than
+   an estimate.
 

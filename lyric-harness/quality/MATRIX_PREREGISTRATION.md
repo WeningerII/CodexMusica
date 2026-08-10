@@ -106,6 +106,12 @@ rate.
 **P6 — the sonnet battery improves.** Held-out mandated-pair violations fall
 below the documented 8.0% (85/1064).
 
+> **POST-HOC NOTE, 2026-08-10.** The 8.0% baseline is miscomputed: 50 of the
+> 1064 mandated pairs are REFUSALS, counted in both numerator and denominator.
+> The pre-band baseline on judged pairs is 35/1014 = 3.5%. P6 was scored against
+> a 5%-FPR calibrated cut and reported 19.1% vs 19.5%, a comparison internal to
+> that run and unaffected. The prediction text is left exactly as registered.
+
 **P7 — the payoff: the time layer becomes measurable.** At a threshold
 calibrated to the same FPR, event saturation in `quality/time_layer.py` falls
 below its 0.75 ceiling on the corpora that ran at 87–97%. This is the whole

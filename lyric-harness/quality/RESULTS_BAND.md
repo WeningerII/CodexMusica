@@ -12,7 +12,7 @@ negative control tightens — which is what the fitted matrix could not do.**
 |---|---|
 | P1 — `sun`/`much` stops being admitted as rhyme | **CONFIRMED** — types as ASSONANCE |
 | P2 — no flattening | **CONFIRMED** — vocabulary 3 names → 5 |
-| P3 — the residue decomposes, violations rise | **CONFIRMED** — 8.0% → 11.6% |
+| P3 — the residue decomposes, violations rise | **CONFIRMED** — 3.5% → 7.2% (recorded here as 8.0% → 11.6%; see below) |
 | P4 — the negative control tightens | **CONFIRMED** — Whitman 26.0% → **20.0%** |
 | P5 — TRIPWIRE: open-syllable rhymes survive | **did not fire** |
 
@@ -68,11 +68,31 @@ life of the project as an undifferentiated "Early Modern -y class, archaic -st
 morphology, rhotic ER/AOR class", now carries names, and the names say
 *dialect mismatch* rather than *failure*.
 
-Sonnet battery: **85/1064 (8.0%) → 123/1064 (11.6%)**. The rise of 38 pairs is
-predicted — a conjunctive rule is strictly stricter than a scalar one — and
-88.4% of Shakespeare's mandated pairs still type as RHYME, well short of the
+Sonnet battery, **as recorded at the time**: 85/1064 (8.0%) → 123/1064 (11.6%).
+The rise of 38 pairs is predicted — a conjunctive rule is strictly stricter than
+a scalar one.
+
+**CORRECTED 2026-08-10, and the correction makes P3 stronger, not weaker.**
+Both denominators counted the 50 mandated pairs the harness REFUSED, where the
+end word is absent from CMUdict and there was never a verdict to be right or
+wrong about — Shakespeare was being recorded as failing to rhyme
+`viewest`/`renewest`, `gazeth`/`amazeth`, `receivest`/`deceivest`. Both
+numerators counted them too. Re-measured band-off and band-on over the identical
+152 sonnets:
+
+| | mandated | refused | judged | violations | rate |
+|---|---:|---:|---:|---:|---:|
+| band off | 1064 | 50 | 1014 | 35 | **3.5%** |
+| band on | 1064 | 50 | 1014 | 73 | **7.2%** |
+
+85 − 50 = 35 and 123 − 50 = 73, so **no count moved**: the 50 simply stopped
+being called violations. The rise of 38 pairs is the same 38. What changes is
+the size of the claim — the band **more than doubles** the violation rate on
+pairs the harness could actually read, where 8.0% → 11.6% read as a 45% rise.
+92.8% of the JUDGED pairs still type as RHYME, still well short of the
 registered falsification threshold ("large enough that the `full` profile
-rejects most genuine sonnet rhymes").
+rejects most genuine sonnet rhymes"). Charging the comparator for the ingestion
+layer's misses is the triage rule in CLAUDE.md broken in the headline number.
 
 ## P4 — the negative control, which is the real test
 

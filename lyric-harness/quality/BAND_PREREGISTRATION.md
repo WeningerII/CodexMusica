@@ -73,6 +73,14 @@ acquire names. Direction: the RHYME-only violation count **rises**, because a
 conjunctive rule is strictly stricter than a scalar one, and the rise is
 reported rather than hidden.
 
+> **POST-HOC NOTE, 2026-08-10 — the prediction above is unchanged and stands;
+> the BASELINE it quotes was miscomputed.** 50 of those 1064 mandated pairs are
+> refusals (end word absent from CMUdict), counted in both the numerator and
+> the denominator. The pre-band baseline on JUDGED pairs is 35/1014 = 3.5%. P3's
+> direction is confirmed either way and its magnitude is larger than recorded.
+> Nothing above this line has been edited — a registered prior that gets rewritten
+> after the run is not a prior.
+
 `love`/`prove` is the case to watch: coda V-V agrees, nucleus AH/UW does not, so
 it types as **CONSONANCE** — which is correct for the declared dialect (CMUdict
 General American), where it is not a rhyme. The residue is a dialect mismatch
