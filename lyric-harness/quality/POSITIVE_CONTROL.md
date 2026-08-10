@@ -217,6 +217,74 @@ threshold to a result. 88.1% is a **measurement of how closely Tang practice
 matches the standard that codified it centuries later** — the exact analogue of
 the sonnet battery's 11.6% Early Modern residue, named rather than removed.
 
+## Part D — Part B run on the real corpora
+
+`python3 quality/run_positive_control.py`, on 300 全唐诗 poems of eight uniform
+lines of five or seven characters. Grid unit **syllable**, because one
+character is exactly one syllable and the grid is therefore perfect. Periods
+swept (2,4,5,7,10,14) — a 5-character couplet is 10 syllables, a 7-character
+couplet is 14.
+
+| arm | n | refused | sat | median p | sig | Fisher |
+|---|---|---|---|---|---|---|
+| **A** mandated rhyme, lines 2/4/6/8 | 264 | 36 | 10.0% | 0.000 | **264/264** | **0** |
+| **B** internal, line-finals excluded | 300 | 0 | 50.0% | 0.529 | 18/300 | **0.883** |
+| **C1** same positions, rhyme NOT required | 300 | 0 | 10.0% | 0.000 | **300/300** | **0** |
+| **C2** rhyming, positions randomised | 264 | 36 | 10.0% | 0.584 | 15/264 | **1** |
+
+### Arm A passed, and C1 shows the pass was tautological
+
+Arm A is unanimous — every one of 264 poems significant, Fisher p = 0. It
+establishes something real and something the project had never had: **the
+plumbing works on natural non-English text.** A stream built by `ltc` rather
+than CMUdict, indexed, run through the statistic and its permutation null, on
+1,200-year-old verse.
+
+It establishes **nothing about rhyme**, and C1 is why. Drop the rhyme
+requirement — take every line-final of lines 2/4/6/8 whether or not `ltc` says
+they rhyme — and the result is *identical*: 300/300, Fisher p = 0. Arm A's
+p-value is carried entirely by **line length**. Every second line-end in an
+isosyllabic form is periodic whether or not anything rhymes there.
+
+That is the H3 tripwire from `TIME_PREREGISTRATION.md`, and it bites **harder
+in Chinese than in English**. English sonnets are isosyllabic but not
+iso-*stress*-count, so line-final position varies on the stress grid and the
+English `against_all` control came out null. In Chinese, one character is one
+syllable, so the degeneracy is exact and total.
+
+C2 is the control that behaves: keep the rhyme, randomise the positions, and it
+goes to Fisher p = 1. The same number of events placed at random detects
+nothing. Between C1 and C2 the attribution is unambiguous — **position, not
+rhyme**.
+
+### Arm B is the real question, and it replicates the English null
+
+With the guaranteed line-final periodicity excluded, internal rhyme placement
+in Tang regulated verse shows **no periodic structure**: 18/300 at α=0.05,
+Fisher p = 0.883.
+
+That is the Chinese analogue of H1, and it agrees with the English sonnet arm
+(Fisher p = 0.950, k=23). **Two language families, two unrelated prosodic
+systems, same answer.** Forms fix sound-repetition at line ends; they do not
+additionally organise internal rhyme against a period. This is the
+cross-family replication the corpus specification was built to get, and the
+answer it returns is negative in both cells.
+
+Saturation in arm B runs at 50% — Chinese rhyme categories are coarse (58
+groups), so half of all positions share a category with something. That is high
+but under the 0.75 ceiling, and it is a property of the writing system's rhyme
+inventory rather than of the verse.
+
+### What Part D changes
+
+The layer now has a validated non-English path and a second family reporting
+the same null. What it still does not have is a cell where the *mandated*
+constraint is internal rather than line-final — which is exactly what
+dróttkvætt, cynghanedd and gabay would have supplied, and all three remain
+blocked. Until one of them is sourced, every positive control available to this
+project is positional by construction, and its passing says only that the
+instrument runs.
+
 ### Order of work
 
 1. **Part A is done** and it gates everything: the instrument is sound, and the

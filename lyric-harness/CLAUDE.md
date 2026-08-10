@@ -366,3 +366,20 @@ Doctrine additions, earned from the first run — do not drift from these either
    layers separate cleanly.** chinese-poetry ships MIT; the Tang and Song verse
    inside it is a millennium out of any term. Read the outer layer for the
    collection and the inner layer for the work, and say which is which.
+41. **A positive control can pass for the wrong reason, and only a second
+   control tells you which.** Arm A of the Tang run was unanimous -- 264/264,
+   Fisher p = 0 -- and dropping the rhyme requirement entirely gave the
+   IDENTICAL result, 300/300. The p-value was carried by line length, not by
+   rhyme: every second line-end in an isosyllabic form is periodic whether or
+   not anything rhymes there. It bites harder in Chinese than English because
+   one character is exactly one syllable, so the grid is perfect, whereas
+   English sonnets are isosyllabic but not iso-stress-count. Pair every
+   positive control with a same-positions-no-signal arm before believing it.
+42. **The cross-family replication came back negative, twice.** Internal rhyme
+   placement shows no periodicity in Shakespeare's sonnets (Fisher p = 0.950,
+   k=23) or in Tang regulated verse (Fisher p = 0.883, n=300). Two families,
+   two unrelated prosodic systems, same answer: forms fix sound-repetition at
+   LINE ENDS and do not additionally organise it internally against a period.
+   Every positive control this project can currently reach is positional by
+   construction, so a cell whose mandated constraint is INTERNAL --
+   dróttkvætt, cynghanedd, gabay -- is what would actually test the claim.

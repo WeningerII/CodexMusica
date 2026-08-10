@@ -425,16 +425,25 @@ def phase_statistic(coords, event_coords, periods):
 
 
 def analyse(lex, lines, decl=None, tdecl=None, events=None,
-            eligible_filter=None, comparator=None):
+            eligible_filter=None, comparator=None, stream=None):
     """Run the layer on one item.
 
     Returns a dict with the observed statistic, its permutation null, the
     recovered period and everything needed to argue with the result. Never
     returns a score, and never says 'beat'.
+
+    `stream` lets a caller supply a syllable stream built by ANY phonology
+    (quality/phonology/), so the layer is not tied to CMUdict. Each entry needs
+    'stress', 'line', 'line_final' and 'widx'. Without it the English path is
+    used, which is a default rather than an assumption -- the whole point of
+    the phonology package is that "syllable" and "prominence" mean different
+    things per language, and a layer that could only ever index English would
+    make the cross-family corpus unrunnable.
     """
     decl = decl or Declaration()
     tdecl = tdecl or TimeDeclaration()
-    stream = syllable_stream(lex, lines)
+    if stream is None:
+        stream = syllable_stream(lex, lines)
     gidx = grid_index(stream, tdecl.grid_unit)
 
     def eligible(i):
