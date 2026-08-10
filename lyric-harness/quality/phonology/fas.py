@@ -100,9 +100,29 @@ Two costs, both named because they are silent:
   (ناولها joined, مشکل ها spaced, in the SAME ghazal), and never with ZWNJ.
   A token-level radif therefore misses lines where the enclitic is joined.
   That is reported, not patched.
+
+TWO LIMITS MEASURED AGAINST HAFEZ AND LEFT STANDING
+
+Both surfaced from reading the `False` tail of the corpus run rather than its
+summary, and both are consequences of declared decisions, so they are named
+here instead of being tuned away.
+
+- **Molammaʿ.** Nine of Hafez's macaronic Arabic-Persian ghazals rhyme an
+  Arabic hemistich against a Persian one: بالعراق /bi-l-ʿirāqi/ against
+  اشتیاقی, السلطان /as-sulṭāni/ against ایلخانی, قبس /qabasi/ against نفسی.
+  They rhyme on the Arabic iʿrāb case vowel, which Arabic does not write and
+  Persian does not have. Read as Persian — which is all this module can do,
+  having refused on script rather than language — those words end in a
+  consonant and `rhymes()` returns **False**. That accounts for essentially
+  all of the 204 False verdicts the corpus produces, across 15 of 495 ghazals.
+- **الله.** Written with no ا at all, its /ā/ carried by a dagger alef that
+  this corpus does not print. `normalise()` folds U+0670 to ا where a source
+  supplies it, but where the source omits it there is nothing to fold and
+  الله/ماه comes back False. A missing long vowel is a worse loss than a
+  missing short one, because a long vowel is the thing the module can normally
+  be certain about.
 """
 
-import re
 import unicodedata
 
 from quality.phonology import Phonology, Syllable, Unsupported, register
@@ -131,6 +151,10 @@ FOLDS = {
     "إ": "ا",   # ALEF WITH HAMZA BELOW  إ -> ALEF ا
     "ٱ": "ا",   # ALEF WASLA        ٱ -> ALEF ا
     "ؤ": "و",   # WAW WITH HAMZA    ؤ -> WAW و
+    "ٰ": "ا",   # SUPERSCRIPT ALEF U+0670 -> ALEF ا. NOT a deletion: the dagger
+                # alef is a LONG ā that no base letter records (الله, هٰذا), so
+                # dropping it with the ḥarakāt would destroy a long vowel and
+                # not merely a short one. See the الله note in `rhymes`.
     "ة": "ه",   # TEH MARBUTA       ة -> HEH ه   (Persian practice)
     "ۀ": "ه",   # HEH WITH YEH ABOVE ۀ -> HEH ه  (ezāfe clitic dropped)
     "ہ": "ه",   # HEH GOAL (Urdu)   ہ -> HEH ه
@@ -151,7 +175,6 @@ DELETE = (
     "".join(chr(c) for c in range(0x064B, 0x0660))   # ḥarakāt incl. shadda
     + "".join(chr(c) for c in range(0x06D6, 0x06EE))  # Quranic annotation
     + "ـ"      # TATWEEL / kashida — typographic stretch, not a letter
-    + "ٰ"      # SUPERSCRIPT ALEF
     + "ء"      # bare HAMZA ء — Persian normalisation drops it
     + "‍"      # ZERO WIDTH JOINER
     + "​‎‏⁠﻿­"   # zero-width / bidi / BOM / SHY
@@ -233,12 +256,13 @@ def normalise(text):
     2. **Letter folds** (see FOLDS): ARABIC YEH U+064A, ALEF MAKSURA U+0649,
        YEH BARREE U+06D2, E U+06D0 and YEH-WITH-HAMZA U+0626 all become FARSI
        YEH U+06CC; ARABIC KAF U+0643 and SWASH KAF U+06AA become KEHEH U+06A9;
-       أ إ ٱ become ا; ؤ becomes و; ة ۀ ہ ۂ ھ become ه; both Arabic-Indic digit
-       blocks become ASCII.
+       أ إ ٱ become ا; ؤ becomes و; ة ۀ ہ ۂ ھ become ه; SUPERSCRIPT (dagger)
+       ALEF U+0670 becomes ا, because it is a LONG vowel and not a ḥaraka;
+       both Arabic-Indic digit blocks become ASCII.
     3. **Deletions** (see DELETE): all ḥarakāt U+064B–U+065F — fatḥa, kasra,
        ḍamma, tanwīn, SHADDA, sukūn — plus Quranic marks U+06D6–U+06ED,
-       superscript alef U+0670, tatwīl U+0640, bare hamza U+0621, ZWJ U+200D,
-       and the zero-width / bidi / BOM / soft-hyphen family.
+       tatwīl U+0640, bare hamza U+0621, ZWJ U+200D, and the zero-width /
+       bidi / BOM / soft-hyphen family.
     4. **ZWNJ U+200C becomes a SPACE**, along with NBSP and the other Unicode
        spaces. See the TO_SPACE note for why space and not deletion.
     5. **Punctuation becomes a space**, so a trailing ، or . cannot make one
@@ -535,6 +559,21 @@ def _tail_verdict(ta, tb):
 #: itself. RADIF_MIN_COUNT and RADIF_MIN_LINES exist because a shared trailing
 #: run alone licenses anything (doctrine 18): a repetend needs BOTH a count
 #: and a declared fraction, and a single pair is no evidence either way.
+#:
+#: CALIBRATION, measured over the 495 Hafez ghazals and reported rather than
+#: fitted. The best single-token trailing fraction is sharply bimodal — 297
+#: ghazals at exactly 1.0, 168 at 0.1–0.2, and 23 spread across everything
+#: between — so the threshold sits in a trough and not on a slope. Detections
+#: over the whole sweep: 318 at 0.40/0.50, 315 at 0.60, 311 at 0.70, 306 at
+#: 0.80, 301 at 0.90, 297 at 1.00. min_count is NOT binding on this corpus
+#: (every ghazal has at least six rhyming lines, so 0.60 already implies a
+#: count of four); it is here for the short inputs this corpus does not
+#: contain, which is exactly where doctrine 18's two-of-thirty-one case lived.
+#: 0.60 was written down before the sweep was run and is kept: of the 18
+#: ghazals it finds that 1.00 does not, 16 are mechanically explained by the
+#: radif being written JOINED on the missing lines, and at 1.00 ghazal 422's
+#: radif is reported WRONG — 'ای' instead of 'آمده ای' — because the strict
+#: threshold forces a fallback to a shorter tail.
 RADIF_MIN_COUNT = 3
 RADIF_MIN_FRACTION = 0.60
 RADIF_MIN_LINES = 4
@@ -618,9 +657,10 @@ class Persian(Phonology):
         "36 distinct codepoints, and uses FARSI YEH U+06CC and KEHEH U+06A9 "
         "throughout with no ARABIC YEH U+064A, no ARABIC KAF U+0643 and no "
         "ZWNJ U+200C. normalise() folds NFKC, then ي ى ے ې ئ -> ی, ك ڪ -> ک, "
-        "أ إ ٱ -> ا, ؤ -> و, ة ۀ ہ ۂ ھ -> ه, both Arabic-Indic digit blocks -> "
-        "ASCII; deletes all ḥarakāt U+064B–U+065F (fatḥa kasra ḍamma tanwīn "
-        "SHADDA sukūn), Quranic marks U+06D6–U+06ED, U+0670, tatwīl U+0640, "
+        "أ إ ٱ -> ا, ؤ -> و, ة ۀ ہ ۂ ھ -> ه, dagger alef U+0670 -> ا (a LONG "
+        "vowel, so it is folded and not deleted), both Arabic-Indic digit "
+        "blocks -> ASCII; deletes all ḥarakāt U+064B–U+065F (fatḥa kasra ḍamma "
+        "tanwīn SHADDA sukūn), Quranic marks U+06D6–U+06ED, tatwīl U+0640, "
         "bare hamza U+0621, ZWJ and the zero-width/bidi/BOM family; maps ZWNJ "
         "U+200C and all Unicode spaces and punctuation to U+0020; collapses "
         "whitespace. Short vowels are NOT written and are NOT supplied.")

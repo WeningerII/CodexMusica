@@ -45,7 +45,9 @@ both are load-bearing:
    second element of `jörð : fyrðum` as "fyrð" -- the whole post-vocalic
    cluster, across the syllable boundary -- and of `friðrofs : ofsa` as "ofs".
    A checker keyed on the coda of a maximal-onset syllabification reads those
-   as "fyr" and "of" and finds nothing. See `_hending_consonants`.
+   as "fyr" and "of" and finds neither. See `_hending_consonants`, where the
+   rule is chosen by measurement against three alternatives rather than
+   asserted.
 
 ALLITERATION, in the Germanic way
 
@@ -135,10 +137,11 @@ DECLARED APPROXIMATIONS, rather than hidden ones
 - **`x` is read as `k`+`s` and `z` as `t`+`s`.** Not cosmetic: Snorri's second
   demonstration stanza rhymes `braks : axla`, which is an aðalhending only if
   `x` is two consonants.
-- **A post-consonantal `r` is not part of the hending.** `Lætr : heitir`,
-  `Sjalfr : Elfar` and `gramr : fremri` are all Snorri's own, and none of them
-  matches with the `r` kept. Declared as a rule about the desinential and
-  suffixal `-r`, not discovered per word.
+- **A trailing glide is not part of the hending.** `Lætr : heitir`, `Sjalfr :
+  Elfar`, `gramr : fremri`, `hylr : skylja` are all Snorri's own and none of
+  them matches with the desinential `-r` or the palatal `j` kept. Declared as
+  a rule, measured against three alternatives, not discovered per word: see
+  `_hending_consonants`.
 - **The hending consonants are truncated to two.** A longer run in this
   orthography signals a morpheme boundary rather than a tautosyllabic cluster
   (`gunn|seið` gives `nns`). This can only make the checker looser, never
@@ -146,6 +149,32 @@ DECLARED APPROXIMATIONS, rather than hidden ones
 - **Homographs are not disambiguated.** `á` is both the preposition and 'owns';
   it is listed as málfylling, which is right in the usual case and wrong when
   it is the verb. Same shape as the Welsh PROCLITICS problem (doctrine 46).
+
+THE ENCLISIS RESIDUE, which is reported rather than smoothed away
+
+Snorri's line is six syllables and his own printed first line is seven:
+
+    Lætr sá, er Hákun heitir,          lætr.sá.er.há.kun.hei.tir
+
+`sá er` is one metrical syllable (`sás`), and `þar er` in stanza 2 is `þars`.
+Resolving that needs morphology this module does not have, so `scan()` returns
+SEVEN and says so. Forcing six by dropping a syllable somewhere would move
+every position after it, and the position of the viðrhending is the whole
+measurement -- a silently renumbered line is worse than a line that reports an
+honest seven. The hending is unaffected: it is anchored to the penultimate
+syllable, which enclisis does not move.
+
+WHAT THIS RECOVERS, AND WHAT IT DOES NOT
+
+On Snorri's two demonstration stanzas of plain dróttkvætt: **16 of 16
+hendingar, and 8 of 8 couplets with exactly two stuðlar.** Across the 51
+stanzas of the whole clavis whose every line scans to six syllables: 67.6% of
+skothendingar and 63.7% of aðalhendingar, against a shuffled-line control of
+11.4% and 2.4%. The shortfall is not separated here into metrical variation
+(Háttatal is a clavis metrica -- most of its hundred stanzas are demonstrating
+a DIFFERENT metre, and several vary the hending deliberately) and this
+module's declared approximations. Do not read 67.6% as an error rate; read it
+as an unseparated upper bound on both at once.
 """
 
 import re
@@ -309,19 +338,40 @@ def _hending_consonants(coda, next_onset):
     """The consonants a hending is measured on -- NOT the syllable coda.
 
     Snorri cites the second element of `jörð : fyrðum` as **fyrð** and of
-    `friðrofs : ofsa` as **ofs**, so the run crosses the syllable boundary: it
-    is the coda plus the FIRST consonant of the following onset. That single
-    rule is what makes every one of the sixteen hendingar in Háttatal 1-2 come
-    out, and a coda-only reading finds none of them.
+    `friðrofs : ofsa` as **ofs**, so the hending run crosses the syllable
+    boundary: it is EVERY consonant between this nucleus and the next, which
+    is the coda plus the whole following onset. A checker keyed on the coda of
+    a maximal-onset syllabification reads those two as `fyr` and `of` and
+    finds neither.
 
     Then two declared normalisations, in this order:
-      - a trailing `r` after another consonant is dropped (desinential and
-        suffixal `-r`: `Lætr : heitir`, `Sjalfr : Elfar`, `gramr : fremri`);
-      - the result is truncated to two consonants (a longer run signals a
-        morpheme boundary this module cannot see: `gunn|seið` -> `nns`).
+      - a trailing GLIDE, `r` or `j`, is dropped while anything remains. That
+        is the desinential and suffixal `-r` (`Lætr : heitir`, `Sjalfr :
+        Elfar`, `gramr : fremri`) and the palatal `j` (`hylr : skylja`) --
+        six of Snorri's own hendingar, none of which matches with them kept;
+      - the result is truncated to two consonants, because a longer run in
+        this orthography signals a morpheme boundary the module cannot see
+        (`gunn|seið` -> `nns`). This is the one step here with no attestation
+        behind it, and it can only loosen the checker.
+
+    MEASURED, rather than asserted. Three readings were run over the 51
+    Háttatal stanzas whose every line scans to six syllables, each against a
+    negative control that keeps the viðrhending and draws the candidate
+    syllables from a DIFFERENT line (doctrine 41 -- a positive control with no
+    same-positions-no-signal arm proves nothing):
+
+      reading                          Snorri st.1-2   skot real/chance   aðal real/chance
+      coda + first onset consonant        16/16        63.2% / 12.3%      61.8% / 2.8%
+      whole run, only `r` dropped         15/16        66.2% / 10.8%      63.2% / 2.2%
+      whole run, `r` and `j` dropped      16/16        67.6% / 11.4%      63.7% / 2.4%   <-- this
+      first post-vocalic consonant only   16/16        75.0% / 31.9%      73.0% / 6.3%
+
+    The last row is the cautionary one: it "finds" the most and is the worst
+    skothending detector in the corpus, because its chance rate nearly
+    triples. Recovery is not the figure to maximise.
     """
-    r = list(coda) + list(next_onset[:1])
-    while len(r) > 1 and r[-1] == "r":
+    r = list(coda) + list(next_onset)
+    while len(r) > 1 and r[-1] in ("r", "j"):
         r.pop()
     return tuple(r[:2])
 
