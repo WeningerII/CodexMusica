@@ -168,6 +168,7 @@ class MissingDeclaredInput(DeclaredInputError):
                f"missing.",
                f"  NEEDS   {f.needs.field}: {f.needs.type_}",
                f"  SHAPE   {f.needs.example}",
+               f"  KEYED   {f.needs.granularity}",
                f"  DECLARE {f.needs.constructor}"]
         if self.missing:
             out.append(f"  ABSENT  {self.missing}")
@@ -1198,6 +1199,7 @@ def capability_report():
         out += [f"{code} · {f.name}   [{f.status} / {f.route}]",
                 f"    needs     {f.needs.field}: {f.needs.type_}",
                 f"    example   {f.needs.example}",
+                f"    keyed     {f.needs.granularity}",
                 f"    why       {f.why}"]
         if f.blocked_on:
             out.append(f"    waiting   {f.blocked_on}")
