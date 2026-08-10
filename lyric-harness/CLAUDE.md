@@ -521,10 +521,15 @@ Doctrine additions, earned from the first run — do not drift from these either
    consonants, same length, arrangement destroyed -- and it still reports
    cynghanedd on about a quarter of them. So a bare "26% of lines carry
    cynghanedd", obtained by search, is quoting the null back at itself. The
-   real corpus scores 54.1% against that ~24% floor; the excess is the part
-   attributable to the poet, and it is the only part worth reporting. This is
-   the `infer_chains` comparator bug in a new place: whatever advantage the
-   hypothesis gets, the comparator gets too. `quality/cynghanedd_rate.py`.
+   excess over the shuffled null is the part attributable to the poet, and it
+   is the only part worth reporting. Two editions, 200 shuffles each:
+   Alun 54.1% vs null max 27.8% (+26.3); Twm o'r Nant 51.3% vs 36.5% (+14.7).
+   This is the `infer_chains` comparator bug in a new place: whatever advantage
+   the hypothesis gets, the comparator gets too. `quality/cynghanedd_rate.py`.
+   Note what the same file says about `caesura='marked'` on Twm o'r Nant --
+   3.2% observed against a 5.1% null, p=0.975, BELOW chance. That is not a
+   finding about Welsh. It is the mode reporting, correctly, that this edition
+   prints no caesura and it has nothing to read.
 57. **An empirical p sitting at 1/(n+1) is reporting the resolution, not the
    effect.** With 200 shuffles the smallest p obtainable is 0.005, so p=0.005
    means "no shuffle reached the observed value" and NOTHING about how far
