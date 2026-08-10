@@ -263,8 +263,21 @@ def test_nothing_was_lost_on_the_sonnets():
 def test_corpus_song_rate_is_pinned():
     print("\n5. corpus/song/ unreadable-end-word rate — fails if it moves")
     import glob
-    paths = sorted(glob.glob(os.path.join(SONG, "*.txt")))
-    check("143 song files present", len(paths) == 143, f"{len(paths)}")
+    # SCOPED TO ENGLISH 2026-08-10, when corpus/song/ stopped being
+    # monolingual. This rate is a fact about CMUdict reading English song
+    # text. Running it over 花間集 or the Kanteletar would not raise the
+    # number, it would make it a category error -- 100% of a Welsh file is
+    # "unreadable" to an English dictionary, which says nothing about either.
+    # A rate over a mixture reads the mixture (doctrine 8/32), and the file
+    # set is part of the number (doctrine 58).
+    paths = sorted(glob.glob(os.path.join(SONG, "eng_*.txt")))
+    others = sorted(glob.glob(os.path.join(SONG, "*.txt")))
+    check("143 ENGLISH song files present", len(paths) == 143, f"{len(paths)}")
+    check("and the corpus is no longer monolingual, which is why the scope "
+          "is now explicit", len(others) > len(paths),
+          f"{len(others)} files total across "
+          f"{len(set(os.path.basename(p).split('_')[0] for p in others))} "
+          f"language prefixes; MISSING K-6")
     r = corpus_rate(LEX, paths)
     # Pinned 2026-08-10 against the shipped cmudict.dict and the line
     # definition in quality/readability.read_lines (stripped, non-empty, has a

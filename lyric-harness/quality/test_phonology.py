@@ -565,6 +565,18 @@ def test_no_module_consults_english():
                 mods.update(a.name.split(".")[0] for a in node.names)
             elif isinstance(node, ast.ImportFrom) and node.module:
                 mods.add(node.module.split(".")[0])
+        # AMENDED 2026-08-10. This rule is about the EIGHT non-English cells
+        # not silently falling back to CMUdict when their own rules run out --
+        # the monoculture error the module was built to prevent. `eng` is the
+        # ninth cell (MISSING F-1, now closed) and consulting CMUdict is its
+        # entire job; exempting it by name keeps the rule sharp for the eight
+        # it was written for, rather than deleting it.
+        if mod.__name__.endswith(".eng"):
+            check("eng DOES import the English resource, by declaration",
+                  "lyric_harness" in mods,
+                  "an explicitly declared eng is the opposite of a DEFAULT to "
+                  "English: get('cym') cannot reach it (doctrine: registry)")
+            continue
         check(f"{mod.__name__} imports no English resource",
               "lyric_harness" not in mods and "cmudict" not in mods,
               f"imports: {sorted(mods)}")

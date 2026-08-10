@@ -68,11 +68,20 @@ Codex Musica describes the recording, this disciplines the words.
    hand-set weights held-out, do not ship it because it is fancier.
 
 ## Commands (python3 lyric_harness.py ...)
+**Run `wiring` first.** It prints which verb runs on which layer and lists
+every production module with no caller and no `__main__`, so "is this plugged
+in?" is a command rather than an audit. Doctrine 48: a principle that lives
+only in prose gets followed exactly as often as someone remembers it.
 declaration | score A -- B | candidates W [n] | meter TEMPLATE L... |
 scheme LETTERS [--profile assonance|rawi] L... | song blueprint.json
 lyric.txt | chains FILE [theta] | graph FILE [theta] | internal "line" |
 density FILE | weight "line" | qafiya FILE|L... |
 cynghanedd [--lang=cym|eng] "line" | prasa K L... | demo
+THE QUALITY LAYER, REACHABLE SINCE 2026-08-10 (it was not, and that was the
+single largest defect in the project): wiring | types W1 -- W2 [--lang=]
+[--preset=] | partition FILE|L... | cycle N/D [a+b+c] | relations FILE
+[--schema=] | grid BLUEPRINT | brief FILE [SCHEME] |
+verify BEFORE AFTER [SCHEME] [lines] | readability FILE
 
 ## Test discipline
 - `python3 battery.py` — sonnet oracle (152 sonnets, ABABCDCDEFEFGG),

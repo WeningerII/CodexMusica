@@ -22,7 +22,15 @@ THE COMMITMENTS, INHERITED FROM quality/ipa.py
    this and it matters more here: a Middle Chinese character absent from the
    rime book must NOT quietly fall back to modern Mandarin, which is a
    different language for rhyme purposes.
-3. **No defaulting to English.** Nothing here consults CMUdict.
+3. **No defaulting to English.** No language falls back to English when its
+   own rules run out. AMENDED 2026-08-10: `eng` is now a DECLARED module and
+   it does consult CMUdict, which is the opposite of a default -- the registry
+   returns it only when a caller asks for `eng` by name, and `get('cym')`
+   cannot reach it. What the commitment forbids is a Middle Chinese character
+   quietly scored as Mandarin, and that is still forbidden. MISSING F-1 was
+   this gap, and the cost was not cosmetic: every module in `quality/` takes a
+   `phon` argument, so with no `eng` the whole layer was unreachable from
+   English and each test built its own CMUdict fixture instead.
 
 WHAT THE TIME LAYER NEEDS, AND WHY PROMINENCE IS NOT ALWAYS STRESS
 
@@ -125,4 +133,5 @@ def declared():
     return sorted(_REGISTRY)
 
 
-from quality.phonology import cym, fas, fin, ltc, msa, non, san, som  # noqa: E402,F401
+from quality.phonology import (cym, eng, fas, fin, ltc, msa, non,  # noqa: E402,F401
+                               san, som)  # noqa: F401

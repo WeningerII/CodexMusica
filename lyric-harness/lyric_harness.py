@@ -1695,6 +1695,20 @@ def _fmt_score(w1, w2, s):
     return "\n".join(lines)
 
 
+def _rel_show(stream, inst):
+    """One relation instance as text: the two spans, in words."""
+    def span_text(sp):
+        us = [stream.units[i] for i in sp.idx if 0 <= i < len(stream.units)]
+        toks, seen = [], set()
+        for u in us:
+            if (u.line, u.token) not in seen:
+                seen.add((u.line, u.token))
+                toks.append(u.token_text)
+        lines = sorted({u.line + 1 for u in us})
+        return f"L{'/'.join(map(str, lines))} {' '.join(toks)}"
+    return f"{span_text(inst.a)}  ~  {span_text(inst.b)}"
+
+
 def main():
     decl = Declaration()
     args = sys.argv[1:]
@@ -1706,7 +1720,22 @@ def main():
               "  meter  'template' L...  meter check ('.'=weak '/'=strong)\n"
               "  scheme SCHEME L1 L2 ... scheme check, e.g. AABB\n"
               "  demo                    run the acceptance suite\n"
-              "  declaration             print the active declaration")
+              "  declaration             print the active declaration\n"
+              "\nthe quality layer (each says which module answered):\n"
+              "  wiring                  which verb runs on which layer,\n"
+              "                          plus any STRANDED module\n"
+              "  types  W1 -- W2         full rhyme-type coordinate: 9 axes,\n"
+              "                          per-member anchor, traditional names\n"
+              "  partition FILE|L...     the rhyme scheme as a SET PARTITION,\n"
+              "                          canonical RGS, crossings/nestings --\n"
+              "                          and it refuses when the cliques\n"
+              "                          overlap, because then no letter\n"
+              "                          scheme exists at all\n"
+              "  cycle  N/D [a+b+c]      metric cycle in exact rationals\n"
+              "  relations FILE          named relation instances found\n"
+              "  brief  FILE [SCHEME]    what to revise, and what is FORBIDDEN\n"
+              "  verify BEFORE AFTER [SCHEME] [lines]  did the revision earn it\n"
+              "  readability FILE        what the ingestion layer could not read")
         return
     cmd = args[0]
     lex = Lexicon()
@@ -1900,6 +1929,367 @@ def main():
               f"{res['transitivity_defect_triangles']}"
               + (f"  (unknown: {res['transitivity_unknown_triangles']})"
                  if res["transitivity_unknown_triangles"] else ""))
+
+    # ---------------------------------------------------------------------
+    # THE QUALITY LAYER, REACHABLE.  Until this block existed, lyric_harness
+    # imported nothing from quality/ but `quality.phonology.get`, so 11,540
+    # lines of tested production code -- the whole rhyme-type space, the
+    # set-partition scheme space, the metric-cycle system, the revision loop
+    # -- could not be run by any user-facing path.  Every verb below declares
+    # which layer answered it; `wiring` prints the map.
+    #
+    # These are ADDITIVE.  The fifteen original verbs are untouched, because
+    # battery.py is the only calibrated oracle in the project and silently
+    # re-pointing `score` or `scheme` at a different comparator would move
+    # every recorded number without a single test noticing.
+    # ---------------------------------------------------------------------
+    elif cmd == "wiring":
+        import importlib
+        import os as _os
+        rows = [
+            ("score / candidates / graph / chains", "lyric_harness.py", "spine"),
+            ("scheme (letters)", "lyric_harness.py", "spine"),
+            ("meter (template)", "lyric_harness.py", "spine"),
+            ("song / qafiya / prasa / cynghanedd", "lyric_harness.py", "spine"),
+            ("types", "quality/rhyme_types.py", "9-axis coordinate + anchor"),
+            ("partition", "quality/schemes.py", "set partitions, Bell numbers"),
+            ("cycle", "quality/meter.py", "exact-rational metric cycles"),
+            ("relations", "quality/relations.py", "77 named relation schemas"),
+            ("brief / verify", "quality/revise.py", "the revision loop"),
+            ("readability", "quality/readability.py", "ingestion refusals"),
+            ("grid", "quality/grid.py", "bar grid, stanza lock"),
+        ]
+        print("VERB -> LAYER")
+        for verb, mod, what in rows:
+            print(f"  {verb:38s} {mod:28s} {what}")
+        print("\nIMPORT REACHABILITY (production modules with no non-test caller)")
+        # AST, not regex.  The first version of this check used a regular
+        # expression and under-reported: it could not see a parenthesised
+        # multi-name import, nor a LAZY import inside a function body -- which
+        # is exactly how this file reaches quality/, to avoid the base->quality
+        # cycle.  A wiring audit that reports a wired module as STRANDED is
+        # worse than no audit, so it walks the tree.
+        import ast as _ast
+        base = _os.path.dirname(_os.path.abspath(__file__))
+        prod = []
+        for root, _, fs in _os.walk(base):
+            if any(x in root for x in (".git", "__pycache__")):
+                continue
+            for f in fs:
+                if f.endswith(".py"):
+                    prod.append(_os.path.relpath(_os.path.join(root, f), base))
+        imported = set()
+        for m in prod:
+            if _os.path.basename(m).startswith("test_"):
+                continue
+            try:
+                tree = _ast.parse(open(_os.path.join(base, m),
+                                       errors="replace").read())
+            except SyntaxError:
+                continue
+            for node in _ast.walk(tree):
+                names = []
+                if isinstance(node, _ast.Import):
+                    names = [a.name for a in node.names]
+                elif isinstance(node, _ast.ImportFrom):
+                    root_mod = node.module or ""
+                    names = [root_mod] + [f"{root_mod}.{a.name}"
+                                          for a in node.names]
+                for n in names:
+                    for part in (n, n.split(".")[-1]):
+                        imported.add(part)
+                    imported.add(n.replace(".", "/") + ".py")
+        def _stranded(m):
+            b = _os.path.basename(m)
+            if b.startswith("test_") or b == "__init__.py":
+                return False
+            if "data/" in m or b == "lyric_harness.py":
+                return False
+            return _os.path.splitext(b)[0] not in imported
+        orphan = [m for m in sorted(prod) if _stranded(m)]
+        # "Runnable as a script" is the honest signal for a one-shot runner,
+        # not a filename prefix: quality/kalevala_rate.py and hafez_rate.py are
+        # exactly as standalone as audit_*.py and were being reported as
+        # stranded because they do not happen to start with the right word.
+        # A `__main__` block is the author saying this is meant to be RUN.
+        def _runnable(m):
+            try:
+                t = _ast.parse(open(_os.path.join(base, m),
+                                    errors="replace").read())
+            except SyntaxError:
+                return False
+            return any(isinstance(n, _ast.If)
+                       and _ast.dump(n.test).find("__main__") >= 0
+                       for n in t.body)
+        runners = [m for m in orphan if _runnable(m)]
+        stranded = [m for m in orphan if m not in runners]
+        print(f"  one-shot runners, standalone by design "
+              f"(`__main__`): {len(runners)}")
+        tot = 0
+        for m in stranded:
+            n = sum(1 for _ in open(_os.path.join(base, m), errors="replace"))
+            tot += n
+            print(f"  STRANDED  {m}  ({n} lines) — a library with no caller "
+                  f"and no way to run it")
+        if not stranded:
+            print("  STRANDED  none — every production module is either "
+                  "imported or runnable")
+        else:
+            print(f"  stranded total: {tot:,} lines")
+
+    elif cmd == "types":
+        from quality import rhyme_types as RT
+        from quality.phonology import get as _getphon
+        rest, lang, preset = args[1:], "eng", None
+        keep = []
+        for a in rest:
+            if a.startswith("--lang="):
+                lang = a.split("=", 1)[1]
+            elif a.startswith("--preset="):
+                preset = a.split("=", 1)[1]
+            else:
+                keep.append(a)
+        w1, w2 = [s.strip() for s in " ".join(keep).split("--")]
+        phon = _getphon(lang)
+        kw = {"preset": preset} if preset else {}
+        try:
+            t = RT.classify_pair(w1, w2, phon, **kw)
+        except RT.Indeterminate as e:
+            print(f"  INDETERMINATE: {e}")
+            return
+        if t is None:
+            print(f"  UNREADABLE in {lang}: the phonology refuses one or both "
+                  f"members. That is a refusal, not a non-rhyme.")
+            return
+        print(f"  phonology: {lang} — {phon.name}")
+        print(f"  agreement (onset,nucleus,coda) per syllable: {t.agreement}")
+        print(f"  cells: {t.cells()}")
+        for side, a in (("A", t.anchor_a), ("B", t.anchor_b)):
+            print(f"  anchor {side}: {a.rule} / {a.determinacy} / span "
+                  f"{a.span}" + (f" / index {a.index}" if a.index is not None
+                                 else ""))
+        for ax in ("identity", "stress", "position", "boundary", "length",
+                   "realisation"):
+            print(f"  {ax}: {getattr(t, ax)}")
+        names = t.names()
+        _un = ("UNNAMED at this coordinate — the space is larger than the "
+               "vocabulary, and that is the point of it being a space")
+        print(f"  NAMES: {', '.join(names) if names else _un}")
+        print(f"  verdict: {t.verdict()}   alliterates: {t.alliterates()}")
+        route = getattr(t, "route", None)
+        if route:
+            print(f"  route: {route}   "
+                  f"(doctrine 84 — 'declared_relation' means the phonology "
+                  f"answered, not the channels)")
+
+    elif cmd == "partition":
+        from quality import schemes as SC
+        src = args[1:]
+        if len(src) == 1 and os.path.exists(src[0]):
+            lines = [l.strip() for l in open(src[0]).read().splitlines()
+                     if l.strip() and not l.strip().startswith("[")]
+        else:
+            lines = src
+        g = rhyme_graph(lex, lines, decl)
+        cov = SC.Cover(n_lines=len(lines),
+                       groups=[sorted(c) for c in g["cliques"]])
+        part = cov.to_partition()
+        print(f"lines {len(lines)}   cliques {len(g['cliques'])}")
+        if part is None:
+            print("  NO LETTER SCHEME EXISTS for this text.")
+            print("  The maximal cliques OVERLAP, so no assignment of one "
+                  "letter per line can represent it (doctrine 2). The graph "
+                  "is the object; a letter scheme is a lossy projection and "
+                  "here the projection does not exist.")
+            for v, cs in g["overlapping_nodes"].items():
+                print(f"    L{v+1} ({g['endwords'][v]}) in cliques {cs}")
+            return
+        code = SC.canonical(part)
+        c = SC.coordinates(code)
+        print(f"  canonical RGS: {code}")
+        print(f"  letters:       {SC.label(code)}")
+        print(f"  sounds {c.n_sounds}  block sizes {c.block_sizes}  "
+              f"singletons {c.singletons}")
+        print(f"  max span {c.max_span}  mean span {c.mean_span}  "
+              f"crossings {c.crossings}  nestings {c.nestings}  "
+              f"adjacencies {c.adjacencies}")
+        n = len(lines)
+        print(f"  this is ONE of B({n}) = {SC.bell(n):,} partitions of "
+              f"{n} lines")
+        named = SC.identify(code)
+        _un = ("UNNAMED — and the harness says so rather than snapping to "
+               "the nearest named scheme")
+        print(f"  identified as: {named or _un}")
+
+    elif cmd == "cycle":
+        from fractions import Fraction as _F
+        from quality import meter as MT
+        spec = args[1] if len(args) > 1 else "4/4"
+        num, den = spec.split("/")
+        groups = tuple(int(x) for x in args[2].split("+")) if len(args) > 2 \
+            else ()
+        cy = MT.Cycle(pulses=_F(num), unit=int(den), groups=groups)
+        print(f"  cycle {spec}   pulses {cy.pulses}  unit {cy.unit}")
+        print(f"  bar duration: {cy.pulses}/{cy.unit} = "
+              f"{_F(cy.pulses, cy.unit)} whole notes (exact rational, so "
+              f".125/1 through 64/32 and fractional numerators all hold)")
+        pg = cy.pulse_groups()
+        print(f"  pulse groups: {pg if pg else 'NONE DECLARED'}")
+        if pg is None:
+            n = int(cy.pulses) if cy.pulses.denominator == 1 else 0
+            if n:
+                print(f"    {spec} admits {MT.n_compositions(n):,} ordered "
+                      f"groupings ({', '.join('+'.join(map(str, c)) for c in list(MT.compositions(n))[:4])}"
+                      f", ...). The harness returns None rather than asserting "
+                      f"one -- a conventional grouping is a CONVENTION and is "
+                      f"labelled as such by conventional_grouping().")
+                print(f"    conventional: {cy.conventional_grouping()}")
+
+    elif cmd == "relations":
+        from quality import relations as RL
+        from quality.phonology import get as _getphon
+        rest, lang, want = args[1:], "eng", None
+        keep = []
+        for a in rest:
+            if a.startswith("--lang="):
+                lang = a.split("=", 1)[1]
+            elif a.startswith("--schema="):
+                want = a.split("=", 1)[1]
+            else:
+                keep.append(a)
+        # Blank lines are KEPT: relations.py derives the stanza frame from
+        # them (its P8 fix), and five schemas declare frame="stanza". Stripping
+        # them first -- which every other verb here does -- would silently put
+        # the whole text in stanza 0 and make those five unreachable.
+        raw = [l.rstrip() for l in open(keep[0]).read().splitlines()
+               if not l.strip().startswith("[")]
+        lines = [l for l in raw if l.strip()]
+        phon = _getphon(lang)
+        st = RL.build_stream(raw, phon,
+                             stanzas=RL.stanzas_from_blank_lines(raw))
+        print(f"  phonology {lang}   lines {len(lines)}   "
+              f"units {len(st.units)}   UNREADABLE tokens "
+              f"{len(st.unreadable)}")
+        if st.unreadable:
+            print(f"    dropped: {[u for u in st.unreadable[:8]]}"
+                  f"{' ...' if len(st.unreadable) > 8 else ''}")
+        found = refused = 0
+        for sch in RL.all_schemas().values():
+            if want and want.lower() not in sch.name.lower():
+                continue
+            out = RL.realise(sch, st)
+            if isinstance(out, RL.Refusal):
+                refused += 1
+                if want:
+                    print(f"  REFUSED {sch.name}: needs "
+                          f"{out.capability} — {out.detail}")
+                continue
+            hits = [i for i in out if i.verdict is True]
+            if hits:
+                found += 1
+                print(f"  {sch.name}  ({len(hits)} instance(s))")
+                for i in hits[:4]:
+                    print(f"      {_rel_show(st, i)}")
+        print(f"  schemas finding something: {found}   "
+              f"refusing on a capability {lang} does not have: {refused}")
+        print("  TWO THINGS THESE COUNTS ARE NOT:")
+        print("   1. EVIDENCE. `search_k` is carried on every span and "
+              "nothing consumes it, so there is no matched control here "
+              "(doctrines 56/61). These are instances.")
+        print("   2. CLAIMS ABOUT A TRADITION. `RelationSchema.traditions` "
+              "is declared on all 77 schemas and populated on ZERO of them, "
+              "so every schema is run against every language and there is no "
+              "honest filter to apply. When 'Middle Chinese end rhyme "
+              "(同用 group)' fires on English, the RULE SHAPE matched — the "
+              "tradition did not (doctrine 43). This verb will not pretend "
+              "otherwise by hiding the row.")
+
+    elif cmd == "grid":
+        from fractions import Fraction as _F
+        from quality import grid as GR
+        bp = json.load(open(args[1]))
+        secs, lines = [], []
+        for s in bp.get("sections", []):
+            m = s.get("meter", {})
+            secs.append(GR.Section(
+                name=s["name"], bars=int(s["bars"]),
+                start_bar=int(s.get("start_bar", 1)),
+                meter=GR.Meter(beats=int(m.get("beats", 4)),
+                               unit=int(m.get("unit", 4)),
+                               groups=tuple(m.get("groups", ())))))
+        for l in bp.get("lines", []):
+            lines.append(GR.Line(
+                text=l.get("text", ""), bar=int(l["bar"]),
+                beat=_F(str(l.get("beat", 1))),
+                duration=_F(str(l.get("duration", 4))),
+                section=l.get("section", "")))
+        song = GR.Song(sections=secs, lines=lines)
+        total = sum(s.bars for s in secs)
+        print(f"  sections {len(secs)}  bars {total}  lines {len(lines)}")
+        for s in secs:
+            g = s.meter.groups or "none declared"
+            print(f"    {s.name:<12} bars {s.bars:>3}  "
+                  f"{s.meter.beats}/{s.meter.unit}  groups {g}")
+        u = GR.uniformity(song)
+        print(f"  uniformity: {u}")
+        findings = GR.stanza_lock(song)
+        if not findings:
+            print("  STANZA LOCK: not fired — the song is not one shape "
+                  "repeated")
+        for f in findings:
+            print(f"  [{f.code}] {f.message}")
+            if f.evidence:
+                print(f"      {f.evidence}")
+        pp = GR.phrase_profile(song)
+        print(f"  phrase profile: {pp}")
+
+    elif cmd == "readability":
+        from quality import readability as RD
+        lines = RD.read_lines(args[1])
+        rep = RD.report(lex, lines)
+        for f in rep["findings"]:
+            print(f"  [{f.severity.upper()}] {f.code}: {f.message}")
+            if f.evidence:
+                print(f"      {f.evidence}")
+        print(f"  lines {len(lines)}   refusals {len(rep.get('refusals', []))}")
+
+    elif cmd in ("brief", "verify"):
+        from quality.revise import Reviser
+        rv = Reviser(lex=lex, decl=decl)
+        if cmd == "brief":
+            lines = [l.rstrip() for l in open(args[1]).read().splitlines()
+                     if l.strip() and not l.strip().startswith("[")]
+            scheme = args[2] if len(args) > 2 else None
+            briefs = rv.brief(lines, scheme)
+            if not briefs:
+                print("  nothing flagged — every mandated pair passes the "
+                      "band on the lines the harness could read")
+            for b in briefs:
+                print(f"  L{b.line_no}: {b.text}")
+                for f in b.findings:
+                    print(f"      FINDING {f}")
+                if b.must_rhyme_with:
+                    print(f"      must rhyme with L{b.must_rhyme_with}")
+                if b.forbidden_modal:
+                    print(f"      FORBIDDEN (modal — doctrine 9): "
+                          f"{', '.join(b.forbidden_modal)}")
+                if b.candidates:
+                    print(f"      offered: {', '.join(b.candidates[:12])}")
+        else:
+            before = [l.rstrip() for l in open(args[1]).read().splitlines()
+                      if l.strip() and not l.strip().startswith("[")]
+            after = [l.rstrip() for l in open(args[2]).read().splitlines()
+                     if l.strip() and not l.strip().startswith("[")]
+            scheme = args[3] if len(args) > 3 else None
+            targeted = ({int(x) for x in args[4].split(",")}
+                        if len(args) > 4 else None)
+            v = rv.verify(before, after, scheme, targeted=targeted)
+            print(f"  VERDICT: {'ACCEPTED' if v.get('accepted') else 'REJECTED'}")
+            for r in v.get("reasons", []):
+                print(f"    {r}")
+            for k in ("fixed", "broken", "untargeted", "modal_taken"):
+                if v.get(k):
+                    print(f"    {k}: {v[k]}")
 
     elif cmd == "demo":
         print("DECLARATION")

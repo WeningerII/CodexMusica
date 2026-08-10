@@ -559,9 +559,27 @@ def test_known_open_defects():
           and isinstance(ENG.syllabify("wind")[0].nucleus, str),
           "Syllable.nucleus is a str, so a homograph cannot be held. "
           "rhyme_constraints.py's knowledge SETS are the shape of the fix.")
-    check("no `eng` phonology is declared anywhere in quality/phonology",
-          not os.path.exists(os.path.join(HERE, "phonology", "eng.py")),
-          "MISSING F-1. The fixture in this file is a fixture.")
+    # MISSING F-1 CLOSED 2026-08-10. This check used to assert the gap was
+    # open; closing a gap must fail a test that has to be read, and it did.
+    # What replaces it pins the two properties that make `eng` usable here --
+    # it exists, and it REFUSES rather than guessing.
+    from quality.phonology import get as _get, declared as _declared
+    check("an `eng` phonology is declared (MISSING F-1 closed)",
+          "eng" in _declared(),
+          f"declared: {_declared()}")
+    _e = _get("eng")
+    check("eng REFUSES an out-of-dictionary word rather than guessing",
+          _e.syllabify("hypotenuse") == [] and bool(_e.syllabify("nation")),
+          "known gap 1's canary. An empty syllabification is a refusal, not a "
+          "zero-syllable word, and doctrine 79 says it must not land in a "
+          "violation numerator.")
+    check("eng leaves `rhymes()` as the inherited stub, deliberately",
+          _e.rhymes("nation", "station") is None,
+          "doctrine 84: a phonology that DECLARES a relation wins over the "
+          "channels. English's rhyme relation IS the channel comparison under "
+          "Declaration's theta, so implementing it here would hard-code one "
+          "threshold inside the phonology and hide it from the declaration "
+          "tuple (doctrine 1).")
 
 
 if __name__ == "__main__":

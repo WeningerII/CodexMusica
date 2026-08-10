@@ -663,6 +663,32 @@ stotra/pada literature — Vedānta Deśika, Bilvamaṅgala, the Gosvāmins,
 `m` 1,078 times and `ṃ` 3 times; the Caurapañcāśikā does the opposite. A
 final-akṣara rhyme key is **not comparable across DCS texts without folding**.
 
+### M-15 · `RelationSchema.traditions` is declared on 77 schemas and populated on ZERO `OPEN`
+**Found the moment the layer became reachable, which is the argument for
+wiring.** Run `relations` on four lines of English and "Middle Chinese end
+rhyme (同用 group)", "pantun ABAB" and "Scots vowel-length rhyme (Aitken's Law)"
+all fire. They are not wrong — the RULE SHAPE matched — but nothing in the
+output could say so, because the field that would scope a schema to its
+tradition exists and is empty everywhere. This is doctrine 43 with a mechanism:
+a checker implementing a tradition's rules while never having read that
+tradition's language. It is the third declared-but-inert coordinate in that
+file, after `Span.unit` and `SpanRule.terminator`.
+**Not filtered, deliberately.** Inventing a language scope from the schema
+NAMES would be guessing, so the `relations` verb prints the row and states in
+its own output that the tradition did not match, the rule shape did.
+
+### M-16 · One module is genuinely stranded, and it is the one already shelved `OPEN`
+`python3 lyric_harness.py wiring` now reports this mechanically instead of
+requiring an audit. After wiring: **`quality/rhyme_constraints.py`, 1,325
+lines** — a library with no caller and no `__main__`. Cell 3's triage already
+recommended shelving it (20 relation types against `relations.py`'s 77, three
+predicates against nine, no `SequenceEqual`/`SequenceSuffix`/`SubsequenceOf` so
+amphisbaenic, parechesis and the Norse cluster span are unreachable in it) while
+mining its one genuine advance, **knowledge sets** — a `frozenset` per channel,
+which is the right shape for the P11 homograph gap and for partial nuclei.
+Decision owed: mine the idea into `relations.py` and delete the file, or give it
+a `__main__` and keep it as a comparison runner.
+
 ### M-10 · GITenberg enumeration misses about a third by any single method `OPEN`
 Repo-name WebFetch → 5 Welsh holdings; `filename:metadata.yaml "language: cy"`
 → 5, missing three files that contain that exact string; `"Language: Welsh"` →
