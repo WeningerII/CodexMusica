@@ -28,9 +28,11 @@ Codex Musica describes the recording, this disciplines the words.
    Perception (theta is a function: per-genre theta_chain, promotion
    licensed only by declared meter). Value (cliche pairs, shared-suffix
    stem check, REPEAT flags; doggerel = value failure, not rhyme type).
-5. **Weights are `fitted: false`.** Hand-set. The fitting path is
-   Hirjee-Brown log-odds estimated from the accumulated disagreement
-   log. Do not tune by single examples — accumulate, then fit.
+5. **Weights are `fitted: false`.** Hand-set, and they stay that way:
+   the Hirjee-Brown path has now been walked (quality/fit_matrix.py)
+   and its answer is that it buys nothing. Do not tune by single
+   examples — accumulate, then fit — and if the fit does not beat the
+   hand-set weights held-out, do not ship it because it is fancier.
 
 ## Commands (python3 lyric_harness.py ...)
 declaration | score A -- B | candidates W [n] | meter TEMPLATE L... |
@@ -58,8 +60,15 @@ prasa K L... | demo
 1. **G2P for OOV.** CMUdict lacks hypotenuse, shiesty, coinages.
    Canary test: score "lot o' news" -- "hypotenuse" (currently
    NO_ANCHOR). Fix: g2p-en or equivalent as transcribe fallback.
-2. **Fitted substitution matrix.** Log-odds from annotated pairs kills
-   the additive-floor leak (sun/much at .777, dawn/again class).
+2. **Fitted substitution matrix — BUILT, and it does not help.**
+   quality/fit_matrix.py, RESULTS_MATRIX.md. The floor IS removed: the
+   free 0.15 stress gift became -0.107 bits, and empty/empty coda went
+   from 1.0 to -0.000. But held-out separation is unchanged (0.9031 vs
+   0.9043) and the Whitman negative control got worse (35.3% vs 18.7%
+   at matched FPR), so the floor was not costing accuracy. NOT the
+   default; Declaration.fitted stays False and a test enforces it.
+   Remaining: sun/much needs a CONJUNCTIVE band rule, not a comparator
+   -- its nucleus is identical, so it was never a floor case.
 3. **Time layer.** Placement half built and null; the beat grid still
    does not exist and cannot until audio or a declared tempo enters.
    Its blocker is gap 2 below: the comparator's additive floor made
@@ -186,3 +195,28 @@ Doctrine additions, earned from the first run — do not drift from these either
    measured nothing. The layer now refuses above a declared saturation ceiling
    rather than returning a weak p, and the refusal names the instrument — not
    the verse — as what needs fixing.
+21. **Removing a floor does not remove COMPENSATION, and they are different
+   defects.** `sun`/`much` was called an additive-floor leak from the first
+   commit. Its nucleus is *identical* — half the score was earned — so it was
+   never a floor case. Log-odds killed the floor and `sun`/`much` still clears,
+   because summing evidence across channels lets a strong nucleus outweigh a
+   coda mismatch exactly as adding weighted similarities did. What it needs is a
+   conjunctive band rule, which is a property of the band, not the comparator.
+   The floor cases (dawn/again at 69% floor) did close.
+22. **State a threshold as a false-positive rate, not as a point on a scale.**
+   Nobody knew that theta 0.75 was an 11.8% FPR on random pairs and theta 0.90
+   was 2.4%, so "raise theta" and "tighten the gate" were not the same
+   sentence. Calibrating every threshold against the same random-pair
+   background made two years of tuning decisions comparable in one table, and
+   immediately showed that the time layer's saturation was a
+   multiple-comparisons problem: ~135 comparisons per stressed syllable, so
+   even a 2.4% per-pair FPR gives 96% saturation. A per-pair threshold cannot
+   fix a family-wise error.
+23. **A fix can remove one unconditional gift and hand out another.** The
+   fitted matrix zeroed the stress channel for stressed-stressed, exactly as
+   predicted, and then paid +5.71 bits for unstressed-unstressed on 200 real
+   observations — true of the corpus, and not evidence of rhyme. The Whitman
+   negative control caught it at three times the false-positive rate; nothing
+   else would have. Anchor stress is CONDITIONING information, saying which
+   anchors are comparable, and putting it in a likelihood ratio whose
+   background treats it as independent is a modelling error.

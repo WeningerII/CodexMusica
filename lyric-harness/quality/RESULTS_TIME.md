@@ -1,5 +1,18 @@
 # Results — the time layer
 
+> **ONE EXPLANATION HERE IS SUPERSEDED.** This document attributes the
+> instrument's saturation to the comparator's additive floor. That was wrong,
+> and `RESULTS_MATRIX.md` shows why: fitting the matrix removed the floor and
+> saturation got *worse* at matched false-positive rate (97% against 95%).
+> Saturation is a **multiple-comparisons artifact** — ~135 comparisons per
+> stressed syllable, so even the amendment's theta 0.90, which is a 2.4%
+> per-pair FPR, gives `1 - 0.976^135 ~ 96%`. Holding saturation near 30% would
+> need a per-pair FPR of ~0.26%, far stricter than any theta in use. The fix is
+> family-wise error control across the window, or a smaller window — which is
+> why the amendment's window change from 32 to 16 did most of the work. The
+> null results below are unaffected; only the diagnosis of the first failure
+> changes.
+
 Run against `TIME_PREREGISTRATION.md` as amended by
 `TIME_PREREGISTRATION_AMENDMENT.md`. Both were committed before the numbers
 existed; `git log` proves the order. Reproduce with
@@ -128,11 +141,10 @@ It does not establish that rap is unmetrical. Three limits, all structural:
 
 ## What would move this forward
 
-1. **The fitted substitution matrix (known gap 2).** The instrument saturated
-   because the comparator's additive floor puts unrelated pairs above
-   threshold. Fixing the comparator is what would let theta return to 0.75
-   without the event set consuming every slot — and it is the difference
-   between measuring strong rhyme and measuring rhyme.
+1. **Family-wise error control across the window.** This was written as "fit
+   the substitution matrix", and the matrix has since been fitted: it does not
+   help, and at matched FPR it saturates worse. The blocker is the number of
+   comparisons, not the quality of any one of them. See RESULTS_MATRIX.md.
 2. **More rap, from more writers.** n=1 is not a corpus. This is the same
    lesson as doctrine 8, arriving in a new layer.
 3. **Audio, or a declared tempo.** Everything above is conditional on an

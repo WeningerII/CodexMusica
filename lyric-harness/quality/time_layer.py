@@ -138,7 +138,7 @@ def grid_index(stream, unit):
 # Events — which stream positions carry a rhyme relation
 # ---------------------------------------------------------------------------
 
-def rhyme_events(lex, stream, decl, tdecl):
+def rhyme_events(lex, stream, decl, tdecl, comparator=None):
     """-> set of stream positions participating in an internal rhyme.
 
     Anchors start on a stressed syllable and run 1..max_span syllables, which
@@ -164,9 +164,17 @@ def rhyme_events(lex, stream, decl, tdecl):
                 if {x["widx"] for x in stream[a:b]} & \
                         {x["widx"] for x in stream[c2:d]}:
                     continue          # a word cannot rhyme with itself
-                s = score(stream[a:b], stream[c2:d], decl,
-                          _words(stream, a, b), _words(stream, c2, d))
-                if s["total"] >= tdecl.theta:
+                if comparator is not None:
+                    # Fitted log-odds. The scale has a true zero, so theta
+                    # here is a calibrated false-positive rate rather than a
+                    # point on a [0,1] similarity.
+                    t, _ = comparator.score(stream[a:b], stream[c2:d])
+                    hit = t is not None and t >= tdecl.theta
+                else:
+                    s = score(stream[a:b], stream[c2:d], decl,
+                              _words(stream, a, b), _words(stream, c2, d))
+                    hit = s["total"] >= tdecl.theta
+                if hit:
                     events.update(range(a, b))
                     events.update(range(c2, d))
     return events
@@ -214,7 +222,7 @@ def phase_statistic(coords, event_coords, periods):
 
 
 def analyse(lex, lines, decl=None, tdecl=None, events=None,
-            eligible_filter=None):
+            eligible_filter=None, comparator=None):
     """Run the layer on one item.
 
     Returns a dict with the observed statistic, its permutation null, the
@@ -237,7 +245,7 @@ def analyse(lex, lines, decl=None, tdecl=None, events=None,
 
     slots = [i for i in range(len(stream)) if eligible(i)]
     if events is None:
-        events = rhyme_events(lex, stream, decl, tdecl)
+        events = rhyme_events(lex, stream, decl, tdecl, comparator)
     ev = sorted(i for i in events if eligible(i))
 
     saturation = len(ev) / len(slots) if slots else 1.0

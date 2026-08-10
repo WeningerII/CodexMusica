@@ -676,7 +676,7 @@ def rhyme_graph(lex, lines, decl, theta=None, profile=None):
 # Chain inference — discovery mode for through-composed verse
 # ---------------------------------------------------------------------------
 
-def infer_chains(lex, lines, decl, theta_chain=None):
+def infer_chains(lex, lines, decl, theta_chain=None, comparator=None):
     """Discovery mode: no predeclared scheme. A line joins the open chain by
     matching either of the chain's last TWO rhyming members (interleave-safe:
     xAxA odd-rhyme structures). One consecutive non-matching line is held as
@@ -693,6 +693,17 @@ def infer_chains(lex, lines, decl, theta_chain=None):
     def match(i, j):
         s = best_score(data[i]["anchor"], data[j]["anchor"], decl,
                        data[i]["endword"], data[j]["endword"])
+        if comparator is not None:
+            # Fitted log-odds. theta_chain is then a calibrated
+            # false-positive rate, not a point on a [0,1] similarity.
+            best = None
+            for aa in (data[i]["anchor"] or [[]]):
+                for ab in (data[j]["anchor"] or [[]]):
+                    t, _ = comparator.score(aa, ab)
+                    if t is not None and (best is None or t > best):
+                        best = t
+            return (best is not None and best >= theta_chain) or \
+                s["relation"] == "REPEAT"
         return s["total"] >= theta_chain or s["relation"] == "REPEAT"
 
     chains = []
