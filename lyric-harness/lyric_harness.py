@@ -163,6 +163,20 @@ class Declaration:
     theta_rhyme: float = 0.75                 # lower edge of the match band
     theta_repeat_onset: float = 0.95          # onset similarity above which full
                                               # identity is REPEAT/rime riche band
+    # --- the conjunctive band (quality/BAND_PREREGISTRATION.md) -------------
+    # A scalar band lets a strong nucleus BUY a coda mismatch: sun/much has an
+    # identical nucleus (AH) and reaches .772 against a .75 band. That is
+    # channel compensation, a property of any additive rule, so no comparator
+    # fixes it -- RESULTS_MATRIX.md fitted one and it still cleared.
+    #
+    # The rule TYPES the edge rather than rejecting it. A relation the coda
+    # does not support is ASSONANCE, which is a named member of the taxonomy,
+    # not a non-relation. Rejecting it outright would delete assonance,
+    # consonance, oblique and slant rhyme from a harness built to represent
+    # them, which would be a worse defect than the leak.
+    conjunctive_band: bool = True
+    theta_coda: float = 0.60      # coda AGREEMENT, not coda evidence
+    theta_nucleus: float = 0.60
     final_promotion: bool = True              # verse promotes unstressed finals:
                                               # argument/spent rhymes on -ment
     fitted: bool = False                      # weights hand-set, not corpus-fitted
@@ -406,6 +420,51 @@ def cluster_sim(a, b):
     return 2.0 * dp[n][m] / (n + m)
 
 
+RHYME_RELATIONS = {"RHYME", "RIME_RICHE"}
+#: Named relations the conjunctive band produces that are NOT rhyme. They are
+#: members of the taxonomy, not failures, and consumers that ask "is this a
+#: rhyme?" must answer no while the graph keeps the name.
+NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
+
+
+def admits(s, theta):
+    """Does this scored pair count as RHYME at `theta`?
+
+    Two conditions, and the second is what the conjunctive band adds: the
+    scalar has to clear the band AND the relation has to be a rhyme relation.
+    Before this, an ASSONANCE edge whose nucleus carried it over theta was
+    admitted as rhyme -- that is the sun/much leak, and it lives here rather
+    than in the comparator.
+    """
+    return s is not None and s["total"] >= theta and \
+        s["relation"] in RHYME_RELATIONS
+
+
+def channel_agreement(anc_a, anc_b, decl):
+    """Does each channel AGREE across the whole anchor? -> (nucleus, coda).
+
+    AGREEMENT IS NOT EVIDENCE, and conflating them breaks the language. Two
+    ABSENT codas carry no evidence -- the fitted matrix correctly scored
+    empty-vs-empty at 0.000 bits -- but they plainly agree, and see/free is a
+    perfect rhyme. Reading both-empty as disagreement would silently delete
+    every open-syllable rhyme in English, which is a quarter of the mandated
+    pairs in the sonnets.
+
+    Conjunctive across syllables as well as channels: the weakest aligned
+    syllable decides, so a strong first syllable cannot buy a weak second.
+    """
+    n = min(len(anc_a), len(anc_b))
+    if not n:
+        return False, False
+    nuc = min(vowel_sim(anc_a[i]["nucleus"], anc_b[i]["nucleus"])
+              for i in range(n))
+    codas = []
+    for i in range(n):
+        ca, cb = anc_a[i]["coda"], anc_b[i]["coda"]
+        codas.append(1.0 if (not ca and not cb) else cluster_sim(ca, cb))
+    return nuc >= decl.theta_nucleus, min(codas) >= decl.theta_coda
+
+
 def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
     """Score two anchors. Returns dict with total, per-channel sub-scores,
     relation (RHYME / REPEAT / RIME_RICHE band flags), and value flags."""
@@ -452,6 +511,31 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
     out["total"] = round(max(0.0, total), 3)
     if extra == 1:
         out["flags"].append("semirhyme")
+    # band-pass, typed: a relation the coda does not support is ASSONANCE, and
+    # one the nucleus does not support is CONSONANCE. Both are named members of
+    # the taxonomy, so this relabels rather than rejects.
+    #
+    # The `assonance` profile turns the rule OFF by declaring theta_coda 0 --
+    # that profile exists precisely to score nucleus-only agreement, and
+    # applying a coda requirement to it would be incoherent. `rawi` already
+    # carries require_final_consonant, which is this rule's stricter special
+    # case for a form that demands one.
+    conj = decl.conjunctive_band and not (prof and prof.get("weights", {})
+                                          .get("coda", 1.0) == 0.0)
+    if conj and out["relation"] == "RHYME":
+        nuc_ok, coda_ok = channel_agreement(anc_a, anc_b, decl)
+        if nuc_ok and not coda_ok:
+            out["relation"] = "ASSONANCE"
+            out["flags"].append(
+                "conjunctive band: nucleus agrees, coda does not")
+        elif coda_ok and not nuc_ok:
+            out["relation"] = "CONSONANCE"
+            out["flags"].append(
+                "conjunctive band: coda agrees, nucleus does not")
+        elif not nuc_ok and not coda_ok:
+            out["relation"] = "NO_RELATION"
+            out["flags"].append("conjunctive band: neither channel agrees")
+
     # band-pass: identity is not rhyme
     if word_a and word_b:
         wa, wb = word_a.lower().strip(), word_b.lower().strip()
@@ -583,6 +667,10 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     violations.append(
                         (i + 1, j + 1, s["total"],
                          "REPEAT not rhyme (identical word)"))
+                elif s["relation"] in NEAR_RELATIONS:
+                    violations.append(
+                        (i + 1, j + 1, s["total"],
+                         f"{s['relation']} not rhyme (conjunctive band)"))
                 elif s["total"] < decl.theta_rhyme:
                     violations.append(
                         (i + 1, j + 1, s["total"],
@@ -604,7 +692,7 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     i1, i2, i3 = members[a], members[b], members[c]
                     def ok(x, y):
                         s = matrix[min(x, y)][max(x, y)]
-                        return s and s["total"] >= decl.theta_rhyme
+                        return admits(s, decl.theta_rhyme)
                     edges = [ok(i1, i2), ok(i2, i3), ok(i1, i3)]
                     if sum(edges) == 2:
                         defect += 1
@@ -655,7 +743,7 @@ def rhyme_graph(lex, lines, decl, theta=None, profile=None):
             s = best_score(data[i]["anchor"], data[j]["anchor"], decl,
                            data[i]["endword"], data[j]["endword"],
                            profile=profile)
-            if s["total"] >= theta or s["relation"] == "REPEAT":
+            if admits(s, theta) or s["relation"] == "REPEAT":
                 edges.append((i, j, s["total"], s["relation"]))
                 adj[i].add(j)
                 adj[j].add(i)
@@ -702,9 +790,14 @@ def infer_chains(lex, lines, decl, theta_chain=None, comparator=None):
                     t, _ = comparator.score(aa, ab)
                     if t is not None and (best is None or t > best):
                         best = t
-            return (best is not None and best >= theta_chain) or \
-                s["relation"] == "REPEAT"
-        return s["total"] >= theta_chain or s["relation"] == "REPEAT"
+            # The conjunctive band is ORTHOGONAL to the comparator and must
+            # apply to both, or the two are not comparable. Without this the
+            # fitted path was measured band-off against a band-on hand-set
+            # baseline, which conflates two separate changes.
+            ok = (best is not None and best >= theta_chain
+                  and s["relation"] in RHYME_RELATIONS)
+            return ok or s["relation"] == "REPEAT"
+        return admits(s, theta_chain) or s["relation"] == "REPEAT"
 
     chains = []
     members, fillers, pending = [0], [], None

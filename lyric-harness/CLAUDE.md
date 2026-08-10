@@ -14,10 +14,15 @@ Codex Musica describes the recording, this disciplines the words.
    projections. Maximal cliques may OVERLAP = structures with no letter
    representation (chained slant). Never rebuild a projection-first
    architecture.
-3. **Band-pass.** Identity is not rhyme. Relations: RHYME (graded),
-   REPEAT (same word), RIME_RICHE (same sound, different word). The
-   band inverts by context: REPEAT is a violation inside a verse, the
-   requirement across chorus instances, licensed as radif/refrain.
+3. **Band-pass, TYPED.** Identity is not rhyme. Relations: RHYME
+   (graded), REPEAT (same word), RIME_RICHE (same sound, different
+   word), ASSONANCE (nucleus agrees, coda does not), CONSONANCE (coda
+   agrees, nucleus does not). The band inverts by context: REPEAT is a
+   violation inside a verse, the requirement across chorus instances,
+   licensed as radif/refrain. The conjunctive coda rule RELABELS, never
+   rejects — `sun`/`much` is assonance, not a non-relation — because a
+   rule that closed the leak by deleting assonance from the taxonomy
+   would be a worse defect than the leak. See RESULTS_BAND.md.
 4. **Four layers.** Signal (phoneme channels: nucleus/coda/onset/stress,
    scored separately). Time (BUILT, and it found nothing: quality/
    time_layer.py, RESULTS_TIME.md. Placement of rhyme against a metric
@@ -44,9 +49,13 @@ prasa K L... | demo
 ## Test discipline
 - `python3 battery.py` — sonnet oracle (152 sonnets, ABABCDCDEFEFGG),
   Lear limerick known-answers, Whitman negative control.
-- Current baselines: sonnets 8.0% violations (residue = Early Modern
-  -y class, archaic -st morphology, rhotic ER/AOR class). Whitman ~26%
-  chained at theta 0.82. Rap chains (verse.txt) stable at theta 0.75.
+- Current baselines, WITH the conjunctive band: sonnets 11.6%
+  violations (123/1064, up from 8.0% pre-band — the rise is the typed
+  residue: love/prove and its class are CONSONANCE in the declared
+  General American dialect, which is correct and now named). Whitman
+  20.0% chained at theta 0.82, down from 26.0%: the band tightened the
+  negative control, which is why it ships and the fitted matrix does
+  not. Rap chains (verse.txt) stable at theta 0.75.
 - Triage every failure to a layer: ingestion / projection / anchor /
   comparator / band / structure / value. Fix only when a category
   accumulates. Every fixed case becomes a permanent regression.
@@ -220,3 +229,26 @@ Doctrine additions, earned from the first run — do not drift from these either
    else would have. Anchor stress is CONDITIONING information, saying which
    anchors are comparable, and putting it in a likelihood ratio whose
    background treats it as independent is a modelling error.
+24. **When a rule would delete a category, make it RELABEL instead.** The
+   conjunctive coda rule exists because `sun`/`much` has an identical nucleus
+   and no comparator can stop a strong channel buying a weak one. Written as
+   "rhyme requires the coda to match" it would have deleted assonance,
+   consonance, oblique and slant rhyme from a harness built to represent them.
+   Written as a type — nucleus-only is ASSONANCE, coda-only is CONSONANCE —
+   it closes the leak and the vocabulary grows from three names to five. The
+   test of such a rule is whether the harness can say MORE afterwards.
+25. **Agreement is not evidence, and one channel can need both predicates.**
+   The fitted matrix scored two ABSENT codas at 0.000 bits, correctly: they
+   carry no evidence. The band asks whether they AGREE, and they do — `see`/
+   `free` is a perfect rhyme. A quarter of the sonnets' mandated pairs have two
+   empty codas, so conflating the predicates would have deleted them all while
+   the case that motivated the change still looked fixed. Registered as the
+   tripwire and checked first.
+26. **Normalize U+2019 anywhere a word is extracted from text.** `endword()`
+   in the matrix fitter did not, so `prepar’d` split and the bare letter "d"
+   became an end word 75 times; 9.2% of the training pairs were corrupted, and
+   two of the eight registered predictions flipped verdict once it was fixed.
+   `word_syllable_map` had always normalized it — the defect was a new function
+   not inheriting an old lesson. Found by reading which pairs had the LOWEST
+   coda agreement and seeing `d/held` in the list, i.e. by looking at the tail
+   of a distribution rather than its summary.

@@ -48,8 +48,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from lyric_harness import (Declaration, Lexicon, score,  # noqa: E402
-                           word_syllable_map)
+from lyric_harness import (RHYME_RELATIONS, Declaration,  # noqa: E402
+                           Lexicon, score, word_syllable_map)
 
 
 @dataclass
@@ -169,11 +169,19 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None):
                     # here is a calibrated false-positive rate rather than a
                     # point on a [0,1] similarity.
                     t, _ = comparator.score(stream[a:b], stream[c2:d])
-                    hit = t is not None and t >= tdecl.theta
+                    s = score(stream[a:b], stream[c2:d], decl,
+                              _words(stream, a, b), _words(stream, c2, d))
+                    hit = (t is not None and t >= tdecl.theta
+                           and s["relation"] in RHYME_RELATIONS)
                 else:
                     s = score(stream[a:b], stream[c2:d], decl,
                               _words(stream, a, b), _words(stream, c2, d))
-                    hit = s["total"] >= tdecl.theta
+                    # The conjunctive band applies here too: an ASSONANCE edge
+                    # is a named relation but it is not a rhyme, and counting
+                    # it as a rhyme event is exactly what made this layer
+                    # saturate.
+                    hit = (s["total"] >= tdecl.theta
+                           and s["relation"] in RHYME_RELATIONS)
                 if hit:
                     events.update(range(a, b))
                     events.update(range(c2, d))

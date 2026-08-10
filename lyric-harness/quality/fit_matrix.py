@@ -320,7 +320,19 @@ def mandated_pairs(lines, scheme):
 
 
 def endword(line):
+    """The rhyme-bearing word at the end of a line.
+
+    The curly-apostrophe normalization is load-bearing and was missing in the
+    first version of this file. Gutenberg's sonnets use U+2019, which is not in
+    the token character class, so `prepar’d` split into `prepar` and `d` and
+    the LAST token -- the end word -- became the bare letter "d". It appeared
+    75 times, with "st" 6 and "er" 1, and 95 of 1028 mandated training pairs
+    (9.2%) had a corrupted side. `word_syllable_map` in the harness has always
+    normalized it; this function did not, so the fitted matrix was trained on
+    a tenth of a corpus of nonsense before this was found.
+    """
     import re
+    line = line.replace("’", "'").replace("‘", "'")
     toks = [t for t in re.findall(r"[A-Za-z'\-]+", line)
             if any(c.isalpha() for c in t)]
     return toks[-1].lower().strip("'-") if toks else ""

@@ -7,52 +7,75 @@ own training folds.
 
 ## Headline
 
-**The additive floor is genuinely gone. Removing it bought nothing, and cost
-something.**
+**The additive floor is genuinely gone. Removing it buys a marginal
+improvement in separation and still doubles the false-positive rate on free
+verse.**
 
-| prediction | verdict |
-|---|---|
-| P1 — the documented leak closes | **FAILED** |
-| P2 — stress goes to zero unprompted | **CONFIRMED in substance, marginal on the letter** |
-| P3 — an absent coda stops paying full price | **CONFIRMED** |
-| P4 — held-out separation improves | **FAILED** (0.9031 vs 0.9043) |
-| P5 — the negative control tightens | **FAILED badly** (35.3% vs 18.7%) |
-| P6 — the sonnet battery improves | **FAILED** (21.4% vs 21.2%) |
-| P7 — the time layer becomes measurable | **FAILED** (97% vs 95% saturation) |
-| P8 — TRIPWIRE: Early Modern sound changes | **FIRED** |
+> **THE FIRST RUN OF THIS EVALUATION WAS WRONG AND IS CORRECTED HERE.** Its
+> training data was contaminated: `endword()` did not normalize the U+2019
+> apostrophe that Gutenberg's sonnets use, so `prepar’d` split into `prepar`
+> and `d`, and the bare letter **"d" appeared as an end word 75 times** ("st"
+> 6, "er" 1). **95 of 1028 mandated training pairs — 9.2% — had a corrupted
+> side.** `word_syllable_map` in the harness has always normalized it; this
+> function did not. The defect was found while calibrating the conjunctive
+> band, by looking at which mandated pairs had the lowest coda agreement and
+> seeing `d/held`, `breast/d`, `rest/d` in the list.
+>
+> On clean data **P4 and P6 flip from FAILED to CONFIRMED**, and P5's margin
+> shrinks a long way. The recommendation below does not change, but the
+> reasoning does, and the numbers below are the corrected ones.
 
-The registered falsification criterion for P4 read: *"the fitted score
-separates no better than the hand-set one, in which case the additive floor was
-not costing accuracy and only the scale was wrong."* That is what happened.
+| prediction | verdict | contaminated first run |
+|---|---|---|
+| P1 — the documented leak closes | **FAILED** | FAILED |
+| P2 — stress goes to zero unprompted | **CONFIRMED** (−0.0999) | marginal (−0.107) |
+| P3 — an absent coda stops paying full price | **CONFIRMED** | CONFIRMED |
+| P4 — held-out separation improves | **CONFIRMED, marginally** (0.9177 vs 0.9146) | FAILED (0.9031 vs 0.9043) |
+| P5 — the negative control tightens | **FAILED** (21.3% vs 18.0%) | FAILED badly (35.3% vs 18.7%) |
+| P6 — the sonnet battery improves | **CONFIRMED, marginally** (19.1% vs 19.5%) | FAILED (21.4% vs 21.2%) |
+| P7 — the time layer becomes measurable | **FAILED** (97% vs 95% saturation) | FAILED |
+| P8 — TRIPWIRE: Early Modern sound changes | **FIRED** | FIRED |
 
-**Recommendation: do not ship it as the default comparator.**
-`Declaration.fitted` stays `False`, and a regression test enforces that nothing
-switches by accident.
+**Recommendation, unchanged: do not ship it as the default comparator.**
+The separation gain is +0.003 AUC, which is inside anyone's noise, and the
+negative control is still worse. `Declaration.fitted` stays `False`, and a
+regression test enforces that nothing switches by accident.
+
+P5's earlier 35.3% was inflated twice over — once by the contamination and once
+by an unfair comparison: `infer_chains` applied the conjunctive band to the
+hand-set branch and bypassed it for the comparator. The band is orthogonal to
+the comparator and now applies to both, which is why the honest figure is
+21.3% against 18.0%.
 
 ## What did work
 
 **P2 — the free 0.15 stopped being free.** The anchor is defined as the last
 primary stress, so both sides are stressed by construction and the hand-set
 comparator handed 0.15 of a 0.75 band to every pair, rhyming or not. Fitted,
-that cell is **−0.107 bits** — it fails to be earned rather than being zeroed
-by hand. The registered band was ±0.10, so this misses the letter of the
-prediction by 0.007 bits and is reported as marginal rather than as a win.
+that cell is **−0.0999 bits** — it fails to be earned rather than being zeroed
+by hand, and lands just inside the registered ±0.10 band. On the contaminated
+first run it was −0.107 and was reported as marginal.
 
 **P3 — two absent codas stopped scoring like two matching ones.**
 `cluster_sim([], [])` returned 1.0, the full coda weight for having nothing in
 common. Fitted: **empty/empty −0.000 bits**, against matching consonant codas
-at N +3.17, T +2.94, D +3.54, S +3.79, L +4.45.
+at N +3.22, T +3.06, D +3.41, S +3.81, L +4.41.
 
 Both structural gifts are gone, and the scale now has a true zero: a
 substitution no more likely under rhyme than chance scores 0, and one less
 likely scores negative. `channel_weights` is eliminated — the relative
 contribution of nucleus, coda and onset falls out of estimation rather than
 being hand-set. Doctrine 5's fitting path is now walked, and its answer is that
-walking it does not help.
+walking it gains +0.003 AUC — real in sign, negligible in size, and not worth
+the register-specificity it drags along.
 
 ## Why P1 failed: the floor was not what carried `sun`/`much`
 
-`sun`/`much` scores **+3.532 bits against a +2.522 threshold** — still inside
+> **P1 is now fixed, elsewhere.** The diagnosis below led directly to
+> `quality/BAND_PREREGISTRATION.md` and the conjunctive band, which closes
+> `sun`/`much` by typing it ASSONANCE. See `RESULTS_BAND.md`.
+
+`sun`/`much` scores **+3.600 bits against a +2.614 threshold** — still inside
 the band. The project has called this an "additive-floor leak" since the first
 commit, and that diagnosis was **wrong about its own example**.
 
@@ -63,9 +86,9 @@ large positive nucleus term outweigh a negative coda term, exactly as adding
 weighted similarities did. Removing an unconditional floor does nothing about
 compensation, because they are different defects.
 
-`dawn`/`again`, which really was a floor case at 69% floor, now correctly
-rejects (+2.488 against +2.522). `eye`/`memory` rejects at −2.158. `cat`/`dog`
-rejects at +0.245. The floor cases closed; the compensation case did not.
+`eye`/`memory` rejects at −2.013 and `cat`/`dog` at +0.352. On clean data
+`dawn`/`again` now sits exactly at the threshold. The compensation case did not
+close, and no comparator was ever going to close it.
 
 Closing `sun`/`much` needs a **conjunctive band rule** — rhyme requires the
 coda to match, not merely for the total to clear a bar — which is a property of
@@ -111,10 +134,15 @@ On 150 lines of Whitman free verse, at matched 5% FPR:
 
 | comparator | lines captured in chains |
 |---|---|
-| hand-set, theta 0.82 (documented baseline) | 26.0% |
-| hand-set, theta 0.85 (= 5% FPR) | **18.7%** |
-| fitted, as registered | **63.3%** |
-| fitted, stress channel dropped (post-hoc) | **35.3%** |
+| hand-set, theta 0.82 | 20.0% |
+| hand-set, theta 0.85 (= 5% FPR) | **18.0%** |
+| fitted at 5% FPR, stress channel dropped | **21.3%** |
+| fitted at 10% FPR | 26.0% |
+
+(All four rows have the conjunctive band applied, which is why the hand-set
+baseline reads 20.0% rather than its pre-band 26.0%. The contaminated run
+reported 63.3% and 35.3% here; both were inflated by the corrupted end words
+and by the band being applied to only one side of the comparison.)
 
 The negative control caught a defect in the new code. The stress channel, which
 went to ≈0 for the stressed–stressed case exactly as predicted, went to
