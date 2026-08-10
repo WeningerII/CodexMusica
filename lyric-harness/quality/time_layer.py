@@ -289,9 +289,25 @@ def analyse(lex, lines, decl=None, tdecl=None, events=None,
         k, _p = phase_statistic(slot_coords, draw, tdecl.periods)
         null.append(k)
     hits = sum(1 for k in null if k >= obs)
+    pval = (hits + 1) / (tdecl.n_perm + 1)
+    # THE RECOVERED PERIOD IS BIASED and must not be read off a null result.
+    # KL's small-sample bias grows with bin count -- E[KL] ~ (P-1)/2n on
+    # noise -- so a maximum over the sweep almost always lands on the largest
+    # period offered. Measured on pure noise at n=40 over 120 slots, the
+    # sweep chose P=8 65% of the time and P=6 35%, and the observed sonnet
+    # split was 27/40 and 13/40, i.e. indistinguishable from noise. The
+    # p-value is unaffected because the null takes the same maximum, but the
+    # argmax carries no information unless the p-value says the observation
+    # is unlike the null in the first place.
     result.update(
-        kl=obs, period=per,
-        p=(hits + 1) / (tdecl.n_perm + 1),
+        kl=obs,
+        period=per if pval < 0.05 else None,
+        period_argmax=per,
+        period_note="argmax over the sweep is biased toward the largest "
+                    "period (E[KL] grows with bin count), so it is reported "
+                    "as `period` only when p < .05; otherwise see "
+                    "`period_argmax`, which on a null result is noise",
+        p=pval,
         null_mean=sum(null) / len(null),
         null_p95=sorted(null)[int(0.95 * len(null))],
         note="KL is positively biased at small n. The null draws the SAME "
@@ -361,8 +377,13 @@ def report(res, label="", stream=sys.stdout):
     if res.get("refused"):
         print(f"  REFUSED          {res['refused']}", file=stream)
         return res
-    print(f"  KL               {res['kl']:.4f} nats at period "
-          f"{res['period']}", file=stream)
+    if res.get("period") is not None:
+        print(f"  KL               {res['kl']:.4f} nats at period "
+              f"{res['period']}", file=stream)
+    else:
+        print(f"  KL               {res['kl']:.4f} nats; period WITHHELD "
+              f"(argmax {res['period_argmax']}, but p is not significant and "
+              f"the argmax is biased toward the largest period)", file=stream)
     print(f"  permutation null mean {res['null_mean']:.4f}, "
           f"p95 {res['null_p95']:.4f}", file=stream)
     print(f"  p                {res['p']:.4f}"

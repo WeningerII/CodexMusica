@@ -19,7 +19,12 @@ Codex Musica describes the recording, this disciplines the words.
    band inverts by context: REPEAT is a violation inside a verse, the
    requirement across chorus instances, licensed as radif/refrain.
 4. **Four layers.** Signal (phoneme channels: nucleus/coda/onset/stress,
-   scored separately). Time (NOT BUILT — no beat grid anywhere). 
+   scored separately). Time (BUILT, and it found nothing: quality/
+   time_layer.py, RESULTS_TIME.md. Placement of rhyme against a metric
+   period, phase-invariant and self-normalizing. No arm survives BH.
+   Still no beat grid — there is no audio, so isochrony is an assumed
+   coordinate, not a measurement, and "on the beat" is not a claim this
+   project can make). 
    Perception (theta is a function: per-genre theta_chain, promotion
    licensed only by declared meter). Value (cliche pairs, shared-suffix
    stem check, REPEAT flags; doggerel = value failure, not rhyme type).
@@ -55,8 +60,12 @@ prasa K L... | demo
    NO_ANCHOR). Fix: g2p-en or equivalent as transcribe fallback.
 2. **Fitted substitution matrix.** Log-odds from annotated pairs kills
    the additive-floor leak (sun/much at .777, dawn/again class).
-3. **Time layer.** Beat grid, bar as unit, on/off-grid placement.
-   Needed for chopped-and-screwed / Bone Thugs test. Nothing exists.
+3. **Time layer.** Placement half built and null; the beat grid still
+   does not exist and cannot until audio or a declared tempo enters.
+   Its blocker is gap 2 below: the comparator's additive floor made
+   87-97% of stressed syllables count as rhyme events, so the first
+   registered run had no power. theta 0.90 works around it; a fitted
+   matrix would fix it.
 4. **Cross-line internal walk.** internal_matches supports two lines;
    no verse-wide positional graph yet.
 5. **Assonance corpus.** Moncrieff Song of Roland (1919, PD) pending
@@ -159,3 +168,21 @@ Doctrine additions, earned from the first run — do not drift from these either
    two of thirty-one rap couplets ending in "it" as a refrain. A repetend now
    needs both a count and a declared fraction of the item's pairs, and where
    one pair gives no evidence either way the gate says so instead of deciding.
+19. **An argmax over a swept parameter is biased toward whichever end of the
+   sweep has more degrees of freedom, and must be withheld on a null result.**
+   The time layer sweeps a tactus period and reports the maximizing one. KL's
+   small-sample bias grows with bin count (E[KL] ~ (P-1)/2n), so on pure noise
+   the sweep chose the largest period offered 65% of the time and the
+   second-largest 35% — against an observed sonnet split of 68%/32%,
+   indistinguishable. The p-value is safe because the null takes the same
+   maximum; the recovered period is not, and reporting it beside a null p is
+   an invitation to read tea leaves. `analyse()` now returns period=None
+   unless p < .05.
+20. **"Inconclusive by construction" is not "null", and collapsing the two is
+   a false negative dressed as a finding.** The time layer's first registered
+   run marked 87-97% of eligible slots as rhyme events, so the event and slot
+   distributions coincided by construction and the test had no power. It
+   returned p = 0.087 on the rap verse, which reads like a near-miss and
+   measured nothing. The layer now refuses above a declared saturation ceiling
+   rather than returning a weak p, and the refusal names the instrument — not
+   the verse — as what needs fixing.

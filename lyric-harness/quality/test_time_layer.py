@@ -172,6 +172,33 @@ def test_registered_h3_control_is_a_tautology_and_says_so():
           f"{res['n_slots']}")
 
 
+def test_period_is_withheld_on_a_null_result():
+    print("\n4d. the recovered period is biased and must not be read off noise")
+    import random
+    from quality.time_layer import phase_statistic
+    rng = random.Random(1)
+    slots = list(range(120))
+    picks = Counter(phase_statistic(slots, rng.sample(slots, 40),
+                                    (2, 3, 4, 6, 8))[1] for _ in range(200))
+    check("on pure noise the sweep concentrates on the largest periods",
+          picks.most_common(1)[0][0] == 8 and set(picks) <= {6, 8},
+          f"{dict(picks)} — E[KL] grows with bin count, so argmax lands on "
+          f"the largest period offered. The observed sonnet split was 27/40 "
+          f"at P=8 and 13/40 at P=6, indistinguishable from this")
+    lines = ["the cat came back and sat upon the mat",
+             "a dog ran out and stood beside the road",
+             "she took the coat and left it on the chair",
+             "he paid the man and carried home the load"]
+    res = analyse(LEX, lines, tdecl=TimeDeclaration(n_perm=300))
+    if res.get("kl") is not None and res["p"] >= 0.05:
+        check("a non-significant result withholds its period",
+              res["period"] is None and res["period_argmax"] is not None,
+              f"p={res['p']:.3f}, argmax {res['period_argmax']} kept only in "
+              f"period_argmax")
+        check("and says why in the result itself",
+              "biased" in res.get("period_note", ""))
+
+
 def test_h4_shuffle_destroys_the_pairing_not_the_marginals():
     print("\n5. H4 — the null preserves every marginal it should")
     lines = ["the cat came back and sat upon the mat",
@@ -237,6 +264,7 @@ if __name__ == "__main__":
                test_h3_tripwire_line_final_in_isosyllabic_form,
                test_saturation_refuses_rather_than_returning_a_weak_p,
                test_registered_h3_control_is_a_tautology_and_says_so,
+               test_period_is_withheld_on_a_null_result,
                test_h4_shuffle_destroys_the_pairing_not_the_marginals,
                test_grid_units_are_different_measurements,
                test_declares_that_it_does_not_measure_time,
