@@ -1,0 +1,947 @@
+# author: Walter Scott (1771-1832)
+# source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
+#         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
+# licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.',
+#          rights_url creativecommons.org/about/pdm
+# edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel; or, The Songs of Scotland of the Past Half
+#          Century', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857 (title page reproduced in the file).
+#          Editor Rogers d. 1890. Pre-1931 edition; no modern editorial layer.
+# orthography: Scots, UNNORMALISED. NOTE THE EDITION'S TYPOGRAPHY: Rogers prints a SPACE before enclitic
+#          's / 'll / 're ("There 's high and low", "Wha 'll buy caller herrin'"). That space is the 1855
+#          compositor's convention, NOT modern spelling, and it has been left in place. A whitespace
+#          tokeniser will therefore see "'s" as its own token here but not in the Burns file.
+#          The apostrophe in a' o' wi' frae marks ELISION, as in Burns.
+# structure: [VERSE n] / [CHORUS] / [REFRAIN]; [REFRAIN] is the abbreviated refrain cue ('Wha 'll buy
+#          caller herrin'? &c.') the edition prints at the foot of each stanza.
+# stripped: PG header/footer, editor's biographical memoirs, [n] footnote markers and footnote bodies,
+#          glossary, tables of contents
+# tune: 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
+
+--- TITLE: IT WAS AN ENGLISH LADYE BRIGHT
+[VERSE 1]
+It was an English ladye bright
+  (The sun shines fair on Carlisle wall),
+And she would marry a Scottish knight,
+  For Love will still be lord of all.
+[VERSE 2]
+Blithely they saw the rising sun,
+  When he shone fair on Carlisle wall;
+But they were sad ere day was done,
+  Though Love was still the lord of all.
+[VERSE 3]
+The sire gave brooch and jewel fine,
+  Where the sun shines fair on Carlisle wall;
+Her brother gave but a flask of wine,
+  For ire that Love was lord of all.
+[VERSE 4]
+For she had lands, both meadow and lea,
+  Where the sun shines fair on Carlisle wall,
+And he swore her death, ere he would see
+  A Scottish knight the lord of all.
+[VERSE 5]
+That wine she had not tasted well
+  (The sun shines fair on Carlisle wall),
+When dead in her true love's arms she fell,
+  For Love was still the lord of all.
+[VERSE 6]
+He pierced her brother to the heart,
+  Where the sun shines fair on Carlisle wall--
+So perish all would true love part,
+  That Love may still be lord of all!
+[VERSE 7]
+And then he took the cross divine
+  (Where the sun shines fair on Carlisle wall),
+And died for her sake in Palestine,
+  So Love was still the lord of all.
+[VERSE 8]
+Now all ye lovers, that faithful prove,
+  (The sun shines fair on Carlisle wall)
+Pray for their souls who died for love,
+  For Love shall still be lord of all!
+
+--- TITLE: LOCHINVAR
+[VERSE 1]
+Oh, young Lochinvar is come out of the west,
+Through all the wide border his steed was the best;
+And save his good broadsword he weapons had none,
+He rode all unarm'd, and he rode all alone.
+So faithful in love, and so dauntless in war,
+There never was knight like the young Lochinvar.
+[VERSE 2]
+He stay'd not for brake, and he stopp'd not for stone,
+He swam the Eske river where ford there was none;
+But ere he alighted at Netherby gate,
+The bride had consented, the gallant came late:
+For a laggard in love, and a dastard in war,
+Was to wed the fair Ellen of brave Lochinvar.
+[VERSE 3]
+So boldly he enter'd the Netherby Hall,
+Among bridesmen, and kinsmen, and brothers, and all:
+Then spoke the bride's father, his hand on his sword,
+(For the poor craven bridegroom said never a word)
+"Oh, come ye in peace here, or come ye in war,
+Or to dance at our bridal, young Lord Lochinvar?"
+[VERSE 4]
+"I long woo'd your daughter, my suit you denied;--
+Love swells like the Solway, but ebbs like its tide--
+And now am I come, with this lost love of mine,
+To lead but one measure, drink one cup of wine;
+There are maidens in Scotland more lovely by far,
+That would gladly be bride to the young Lochinvar."
+[VERSE 5]
+The bride kiss'd the goblet; the knight took it up,
+He quaff'd off the wine, and he threw down the cup;
+She look'd down to blush, and she look'd up to sigh,
+With a smile on her lips, and a tear in her eye.
+He took her soft hand, ere her mother could bar--
+"Now tread we a measure!" said young Lochinvar.
+[VERSE 6]
+So stately his form, and so lovely her face,
+That never a hall such a galliard did grace;
+While her mother did fret, and her father did fume,
+And the bridegroom stood dangling his bonnet and plume;
+And the bride-maidens whisper'd, "'Twere better, by far,
+To have match'd our fair cousin with young Lochinvar."
+[VERSE 7]
+One touch to her hand, and one word in her ear,
+When they reach'd the hall-door, and the charger stood near;
+So light to the croupe the fair lady he swung,
+So light to the saddle before her he sprung!
+"She is won! we are gone, over bank, bush, and scaur;
+They 'll have fleet steeds that follow," quoth young Lochinvar.
+[VERSE 8]
+There was mounting 'mong Græmes of the Netherby clan;
+Forsters, Fenwicks, and Musgraves, they rode and they ran:
+There was racing, and chasing, on Cannobie Lea,
+But the lost bride of Netherby ne'er did they see.
+So daring in love, and so dauntless in war,
+Have ye e'er heard of gallant like young Lochinvar?
+
+--- TITLE: WHERE SHALL THE LOVER REST
+[VERSE 1]
+Where shall the lover rest,
+  Whom the fates sever
+From his true maiden's breast,
+  Parted for ever?
+Where, through groves deep and high,
+  Sounds the far billow;
+Where early violets die
+  Under the willow.
+[CHORUS]
+          Eleu loro, &c.
+        Soft shall be his pillow.
+[VERSE 2]
+There, through the summer day,
+  Cool streams are laving;
+There, while the tempests sway,
+  Scarce are boughs waving;
+There, thy rest shalt thou take,
+  Parted for ever;
+Never again to wake,
+  Never, O never!
+[CHORUS]
+          Eleu loro, &c.
+        Never, O never!
+[VERSE 3]
+Where shall the traitor rest,
+  He, the deceiver,
+Who could win maiden's breast,
+  Ruin, and leave her?
+In the lost battle,
+  Borne down by the flying,
+Where mingle war's rattle
+  With groans of the dying.
+[CHORUS]
+          Eleu loro, &c.
+        There shall he be lying.
+[VERSE 4]
+Her wing shall the eagle flap
+  O'er the false-hearted;
+His warm blood the wolf shall lap
+  Ere life be parted.
+Shame and dishonour sit
+  By his grave ever;
+Blessing shall hallow it,--
+  Never, O never!
+[CHORUS]
+          Eleu loro, &c.
+        Never, O never!
+
+--- TITLE: SOLDIER, REST! THY WARFARE O'ER
+[VERSE 1]
+Soldier, rest! thy warfare o'er,
+  Sleep the sleep that knows not breaking;
+Dream of battle-fields no more,
+  Days of danger, nights of waking.
+In our isle's enchanted hall,
+  Hands unseen thy couch are strewing,
+Fairy strains of music fall,
+  Every sense in slumber dewing.
+Soldier, rest! thy warfare o'er,
+Dream of fighting fields no more;
+Sleep the sleep that knows not breaking,
+Morn of toil, nor night of waking.
+[VERSE 2]
+No rude sound shall reach thine ear,
+  Armour's clang, or war-steed champing;
+Trump nor pibroch summon here,
+  Mustering clan, or squadron tramping.
+Yet the lark's shrill fife may come
+  At the daybreak from the fallow;
+And the bittern sound his drum,
+  Booming from the sedgy shallow.
+Ruder sounds shall none be near,
+Guards nor wardens challenge here;
+Here 's no war-steed's neigh and champing,
+Shouting clans, or squadrons' stamping.
+[VERSE 3]
+Huntsman, rest! thy chase is done;
+  While our slumbrous spells assail ye,
+Dream not, with the rising sun,
+  Bugles here shall sound reveillé.
+Sleep! the deer is in his den;
+Sleep! nor dream in yonder glen,
+  How thy gallant steed lay dying.
+Huntsman, rest! thy chase is done,
+Think not of the rising sun,
+For at dawning to assail ye,
+Here no bugles sound reveillé.
+
+--- TITLE: HAIL TO THE CHIEF WHO IN TRIUMPH ADVANCES!
+[VERSE 1]
+Hail to the chief who in triumph advances!
+  Honour'd and bless'd be the ever-green pine!
+Long may the tree, in his banner that glances,
+  Flourish, the shelter and grace of our line!
+        Heaven send it happy dew,
+        Earth lend it sap anew,
+    Gaily to bourgeon, and broadly to grow,
+        While every Highland glen
+        Sends our shout back agen,
+    Roderigh Vich Alpine dhu, ho! ieroe!
+[VERSE 2]
+Ours is no sapling, chance-sown by the fountain,
+  Blooming at Beltane, in winter to fade;
+When the whirlwind has stripp'd every leaf on the mountain,
+  The more shall Clan-Alpine exult in her shade;
+        Moor'd in the rifted rock
+        Proof to the tempest shock,
+    Firmer he roots him the ruder it blow;
+        Menteith and Breadalbane, then,
+        Echo his praise agen,
+    Roderigh Vich Alpine dhu, ho! ieroe!
+[VERSE 3]
+Proudly our pibroch has thrill'd in Glen Fruin,
+  And Bannochar's groans to our slogan replied;
+Glen Luss and Ross-dhu, they are smoking in ruin,
+  And the best of Loch Lomond lie dead on her side.
+        Widow and Saxon maid
+        Long shall lament our raid,
+    Think of Clan-Alpine with fear and with woe;
+        Lennox and Leven-Glen
+        Shake when they hear agen,
+    Roderigh Vich Alpine dhu, ho! ieroe!
+[VERSE 4]
+Row, vassals, row, for the pride of the Highlands!
+  Stretch to your oars for the ever-green pine!
+Oh, that the rosebud that graces yon islands
+  Were wreathed in a garland around him to twine!
+        O that some seedling gem,
+        Worthy such noble stem,
+    Honour'd and bless'd in their shadow might grow!
+        Loud should Clan-Alpine then
+        Ring from the deepmost glen,
+    Roderigh Vich Alpine dhu, ho! ieroe!
+
+--- TITLE: THE HEATH THIS NIGHT MUST BE MY BED
+[VERSE 1]
+The heath this night must be my bed,
+The bracken curtains for my head,
+My lullaby the warder's tread,
+  Far, far from love and thee, Mary.
+[VERSE 2]
+To-morrow eve, more stilly laid,
+My couch may be the bloody plaid,
+My vesper song, thy wail, sweet maid!
+  It will not waken me, Mary!
+[VERSE 3]
+I may not, dare not, fancy now
+The grief that clouds thy lovely brow,
+I dare not think upon thy vow,
+  And all it promised me, Mary.
+[VERSE 4]
+No fond regret must Norman know;
+When bursts Clan-Alpine on the foe,
+His heart must be like bended bow,
+  His foot like arrow free, Mary.
+[VERSE 5]
+A time will come with feeling fraught,
+For if I fall in battle fought,
+Thy hapless lover's dying thought
+  Shall be a thought on thee, Mary.
+[VERSE 6]
+And if return'd from conquer'd foes,
+How blithely will the evening close,
+How sweet the linnet sing repose
+  To my young bride and me, Mary!
+
+--- TITLE: THE IMPRISONED HUNTSMAN
+[VERSE 1]
+My hawk is tired of perch and hood,
+My idle greyhound loathes his food,
+My horse is weary of his stall,
+And I am sick of captive thrall;
+I wish I were as I have been,
+Hunting the hart in forest green,
+With bended bow and bloodhound free,
+For that 's the life is meet for me.
+[VERSE 2]
+I hate to learn the ebb of time
+From yon dull steeple's drowsy chime,
+Or mark it as the sunbeams crawl,
+Inch after inch, along the wall.
+The lark was wont my matins ring,
+The sable rook my vespers sing:
+These towers, although a king's they be,
+Have not a hall of joy for me.
+[VERSE 3]
+No more at dawning morn I rise
+And sun myself in Ellen's eyes,
+Drive the fleet deer the forest through,
+And homeward wend with evening dew;
+A blithesome welcome blithely meet
+And lay my trophies at her feet,
+While fled the eve on wing of glee--
+That life is lost to love and me!
+
+--- TITLE: HE IS GONE ON THE MOUNTAIN
+[VERSE 1]
+He is gone on the mountain,
+  He is lost to the forest,
+Like a summer-dried fountain,
+  When our need was the sorest.
+The font re-appearing,
+  From the rain-drops shall borrow;
+But to us comes no cheering,
+  To Duncan no morrow!
+[VERSE 2]
+The hand of the reaper
+  Takes the ears that are hoary,
+But the voice of the weeper
+  Wails manhood in glory.
+The autumn winds rushing
+  Wafts the leaves that are searest,
+But our flower was in flushing
+  When blighting was nearest.
+[VERSE 3]
+Fleet foot on the corrie,
+  Sage counsel in cumber,
+Red hand in the foray,
+  How sound is thy slumber!
+Like the dew on the mountain,
+  Like the foam on the river,
+Like the bubble on the fountain,
+  Thou art gone, and for ever.
+
+--- TITLE: A WEARY LOT IS THINE, FAIR MAID
+[VERSE 1]
+"A weary lot is thine, fair maid,
+  A weary lot is thine!
+To pull the thorn thy brow to braid,
+  And press the rue for wine!
+A lightsome eye, a soldier's mien,
+  A feather of the blue,
+A doublet of the Lincoln green,
+  No more of me ye knew, my love!
+  No more of me ye knew.
+[VERSE 2]
+"This morn is merry June, I trow,
+  The rose is budding fain;
+But she shall bloom in winter snow,
+  Ere we two meet again."
+He turn'd his charger as he spake,
+  Upon the river shore,
+He gave his bridle-reins a shake,
+  Said, "Adieu for evermore, my love!
+  And adieu for evermore."
+
+--- TITLE: ALLEN-A-DALE
+[VERSE 1]
+Allen-a-Dale has no faggot for burning,
+Allen-a-Dale has no furrow for turning,
+Allen-a-Dale has no fleece for the spinning,
+Yet Allen-a-Dale has red gold for the winning;
+Come, read me my riddle! come, hearken my tale!
+And tell me the craft of bold Allen-a-Dale.
+[VERSE 2]
+The Baron of Ravensworth prances in pride,
+And he views his domains upon Arkindale side,
+The mere for his net, and the land for his game,
+The chase for the wild, and the park for the tame;
+Yet the fish of the lake and the deer of the vale
+Are less free to Lord Dacre than Allen-a-Dale.
+[VERSE 3]
+Allen-a-Dale was ne'er belted a knight,
+Though his spur be as sharp, and his blade be as bright;
+Allen-a-Dale is no baron or lord,
+Yet twenty tall yeomen will draw at his word;
+And the best of our nobles his bonnet will vail,
+Who at Rere-cross on Stanmore meets Allen-a-Dale.
+[VERSE 4]
+Allen-a-Dale to his wooing is come;
+The mother she asked of his household and home;
+"Though the castle of Richmond stand fair on the hill,
+My hall," quoth bold Allen, "shows gallanter still;
+'Tis the blue vault of heaven, with its crescent so pale,
+And with all its bright spangles," said Allen-a-Dale.
+[VERSE 5]
+The father was steel and the mother was stone,
+They lifted the latch, and they bade him be gone;
+But loud, on the morrow, their wail and their cry,
+He had laugh'd on the lass with his bonny black eye,
+And she fled to the forest to hear a love-tale,
+And the youth it was told by was Allen-a-Dale.
+
+--- TITLE: THE CYPRESS WREATH
+[VERSE 1]
+Oh, lady! twine no wreath for me,
+Or twine it of the cypress-tree!
+Too lively glow the lilies' light,
+The varnish'd holly 's all too bright,
+The mayflower and the eglantine
+May shade a brow less sad than mine;
+But, lady, weave no wreath for me,
+Or weave it of the cypress-tree!
+[VERSE 2]
+Let dimpled mirth his temples twine
+With tendrils of the laughing vine;
+The manly oak, the pensive yew,
+To patriot and to sage be due;
+The myrtle bough bids lovers live
+But that Matilda will not give;
+Then, lady, twine no wreath for me,
+Or twine it of the cypress-tree!
+[VERSE 3]
+Let merry England proudly rear
+Her blended roses, bought so dear;
+Let Albin bind her bonnet blue
+With heath and harebell dipp'd in dew.
+On favour'd Erin's crest be seen
+The flower she loves of emerald green;
+But, lady, twine no wreath for me,
+Or twine it of the cypress-tree!
+[VERSE 4]
+Strike the wild harp while maids prepare
+The ivy meet for minstrel's hair;
+And, while his crown of laurel-leaves,
+With bloody hand the victor weaves,
+Let the loud trump his triumph tell;
+But when you hear the passing-bell,
+Then, lady, twine a wreath for me,
+And twine it of the cypress-tree!
+[VERSE 5]
+Yes, twine for me the cypress bough;
+But, O Matilda, twine not now!
+Stay till a few brief months are past
+And I have look'd and loved my last!
+When villagers my shroud bestrew
+With pansies, rosemary, and rue,--
+Then, lady, weave a wreath for me,
+And weave it of the cypress-tree!
+
+--- TITLE: THE CAVALIER
+[VERSE 1]
+While the dawn on the mountain was misty and gray,
+My true love has mounted his steed and away,
+Over hill, over valley, o'er dale, and o'er down;--
+Heaven shield the brave gallant that fights for the crown!
+[VERSE 2]
+He has doff'd the silk doublet the breastplate to bear,
+He has placed the steel cap o'er his long flowing hair,
+From his belt to his stirrup his broadsword hangs down--
+Heaven shield the brave gallant that fights for the crown!
+[VERSE 3]
+For the rights of fair England that broadsword he draws,
+Her king is his leader, her church is his cause,
+His watchword is honour, his pay is renown,--
+God strike with the gallant that strikes for the crown!
+[VERSE 4]
+They may boast of their Fairfax, their Waller, and all
+The roundheaded rebels of Westminster Hall;
+But tell these bold traitors of London's proud town,
+That the spears of the north have encircled the crown.
+[VERSE 5]
+There 's Derby and Cavendish, dread of their foes;
+There 's Erin's high Ormond, and Scotland's Montrose!
+Would you match the base Skippon, and Massey, and Brown,
+With the barons of England that fight for the crown?
+[VERSE 6]
+Now joy to the crest of the brave cavalier,
+Be his banner unconquer'd, resistless his spear,
+Till in peace and in triumph his toils he may drown,
+In a pledge to fair England, her church, and her crown!
+
+--- TITLE: HUNTING SONG
+[VERSE 1]
+Waken, lords and ladies gay,
+On the mountain dawns the day,
+All the jolly chase is here,
+With hawk, and horse, and hunting-spear!
+Hounds are in their couples yelling,
+Hawks are whistling, horns are knelling,
+Merrily, merrily, mingle they--
+"Waken, lords and ladies gay."
+[VERSE 2]
+Waken, lords and ladies gay,
+The mist has left the mountain gray,
+Springlets in the dawn are steaming,
+Diamonds on the brake are gleaming:
+And foresters have busy been
+To track the buck in thicket green;
+Now we come to chant our lay,
+"Waken, lords and ladies gay."
+[VERSE 3]
+Waken, lords and ladies gay,
+To the green-wood haste away;
+We can shew you where he lies,
+Fleet of foot and tall of size;
+We can shew the marks he made
+When 'gainst the oak his antlers fray'd;
+You shall see him brought to bay,
+"Waken, lords and ladies gay."
+[VERSE 4]
+Louder, louder chant the lay,
+Waken, lords and ladies gay!
+Tell them youth, and mirth, and glee,
+Run a course as well as we;
+Time, stern huntsman! who can baulk,
+Stanch as hound, and fleet as hawk?
+Think of this, and rise with day,
+Gentle lords and ladies gay.
+
+--- TITLE: OH, SAY NOT, MY LOVE, WITH THAT MORTIFIED AIR
+[VERSE 1]
+Oh, say not, my love, with that mortified air,
+  That your spring-time of pleasure is flown;
+Nor bid me to maids that are younger repair,
+  For those raptures that still are thine own.
+[VERSE 2]
+Though April his temples may wreathe with the vine,
+  Its tendrils in infancy curl'd;
+'Tis the ardour of August matures us the wine,
+  Whose life-blood enlivens the world.
+[VERSE 3]
+Though thy form, that was fashion'd as light as a fay's,
+  Has assumed a proportion more round,
+And thy glance, that was bright as a falcon's at gaze,
+  Looks soberly now on the ground--
+[VERSE 4]
+Enough, after absence to meet me again,
+  Thy steps still with ecstacy move;
+Enough, that those dear sober glances retain
+  For me the kind language of love.
+[VERSE 5]
+*       *       *       *       *
+
+--- TITLE: THE SONG OF WINTER
+[VERSE 1]
+This is selected as a specimen of Mackay's descriptive poetry. It
+is in a style peculiar to the Highlands, where description runs so
+entirely into epithets and adjectives, as to render recitation
+breathless, and translation hopeless. Here, while we have retained
+the imagery, we have been unable to find room, or rather rhyme, for
+one half of the epithets in the original. The power of alliterative
+harmony in the original song is extraordinary.
+[VERSE 2]
+I.
+[VERSE 3]
+  At waking so early
+    Was snow on the Ben,
+And, the glen of the hill in,
+The storm-drift so chilling
+The linnet was stilling,
+    That couch'd in its den;
+And poor robin was shrilling
+    In sorrow his strain.
+[VERSE 4]
+II.
+[VERSE 5]
+  Every grove was expecting
+    Its leaf shed in gloom;
+The sap it is draining,
+Down rootwards 'tis straining,
+And the bark it is waning
+    As dry as the tomb,
+And the blackbird at morning
+    Is shrieking his doom.
+[VERSE 6]
+III.
+[VERSE 7]
+  Ceases thriving, the knotted,
+    The stunted birk-shaw;
+While the rough wind is blowing,
+And the drift of the snowing
+Is shaking, o'erthrowing,
+    The copse on the law.
+[VERSE 8]
+IV.
+[VERSE 9]
+  'Tis the season when nature
+    Is all in the sere,
+When her snow-showers are hailing,
+Her rain-sleet assailing,
+Her mountain winds wailing,
+    Her rime-frosts severe.
+[VERSE 10]
+V.
+[VERSE 11]
+  'Tis the season of leanness,
+    Unkindness, and chill;
+Its whistle is ringing,
+An iciness bringing,
+Where the brown leaves are clinging
+    In helplessness, still,
+And the snow-rush is delving
+    With furrows the hill.
+[VERSE 12]
+VI.
+[VERSE 13]
+  The sun is in hiding,
+    Or frozen its beam
+On the peaks where he lingers,
+On the glens, where the singers,
+With their bills and small fingers
+    Are raking the stream,
+Or picking the midstead
+    For forage--and scream.
+[VERSE 14]
+VII.
+[VERSE 15]
+  When darkens the gloaming
+    Oh, scant is their cheer!
+All benumb'd is their song in
+The hedge they are thronging,
+And for shelter still longing,
+    The mortar they tear;
+Ever noisily, noisily
+    Squealing their care.
+[VERSE 16]
+VIII.
+[VERSE 17]
+  The running stream's chieftain
+    Is trailing to land,
+So flabby, so grimy,
+So sickly, so slimy,--
+The spots of his prime he
+    Has rusted with sand;
+Crook-snouted his crest is
+    That taper'd so grand.
+[VERSE 18]
+IX.
+[VERSE 19]
+  How mournful in winter
+    The lowing of kine;
+How lean-back'd they shiver,
+How draggled their cover,
+How their nostrils run over
+    With drippings of brine,
+So scraggy and crining
+    In the cold frost they pine.
+[VERSE 20]
+X.
+[VERSE 21]
+  'Tis hallow-mass time, and
+    To mildness farewell!
+Its bristles are low'ring
+With darkness; o'erpowering
+Are its waters, aye showering
+    With onset so fell;
+Seem the kid and the yearling
+    As rung their death-knell.
+[VERSE 22]
+XI.
+[VERSE 23]
+  Every out-lying creature,
+    How sinew'd soe'er,
+Seeks the refuge of shelter;
+The race of the antler
+They snort and they falter,
+    A-cold in their lair;
+And the fawns they are wasting
+    Since their kin is afar.
+[VERSE 24]
+XII.
+[VERSE 25]
+  Such the songs that are saddest
+    And dreariest of all;
+I ever am eerie
+In the morning to hear ye!
+When foddering, to cheer the
+    Poor herd in the stall--
+While each creature is moaning,
+    And sickening in thrall.
+
+--- TITLE: A FRAGMENT
+[VERSE 1]
+Mackay was entertained by Macechan, who was a respectable
+store-farmer, from his earliest life to his marriage. According to
+his reverend biographer, the last lines of the elegy, of which
+the following is a translation, were much approved.
+[VERSE 2]
+I see the wretch of high degree,
+  Though poverty has struck his race,
+  Pass with a darkness on his face
+That door of hospitality.
+[VERSE 3]
+I see the widow in her tears,
+  Dark as her woe--I see her boy--
+  From both, want reaves the dregs of joy;
+The flash of youth through rags appears.
+[VERSE 4]
+I see the poor's--the minstrel's lot--
+  As brethren they--no boon for song!
+  I see the unrequited wrong
+Call for its helper, who is not.
+[VERSE 5]
+You hear my plaint, and ask me, why?
+  You ask me _when_ this deep distress
+  Began to rage without redress?
+"With Ian Macechan's dying sigh!"
+
+--- TITLE: THE SONG OF THE FORSAKEN DROVER
+[VERSE 1]
+During a long absence on a droving expedition, Mackay was deprived of
+his mistress by another lover, whom, in fine, she married. The discovery
+he made, on his return, led to this composition; which is a sequel to
+another composed on his distant journey, in which he seems to
+prognosticate something like what happened. Both are selected by Sir
+Walter Scott as specimens of the bard, and may be found paraphrastically
+rendered in a prose version, in the _Quarterly Review_, vol. xlv., p.
+371, and in the notes to the last edition of "The Highland Drover," in
+"Chronicles of the Canongate." With regard to the present specimen, it
+may be remarked, that part of the original is either so obscure, or so
+freely rendered by Sir Walter Scott's translator, that we have attempted
+the present version, not without some little perplexity as to the sense
+of one or two allusions. We claim, on the whole, the merit of almost
+literal fidelity.
+[VERSE 2]
+I.
+[VERSE 3]
+I fly from the fold, since my passion's despair
+No longer must harbour the charms that are there;
+Anne's slender eyebrows, her sleek tresses so long,
+Her turreted bosom--and Isabel's song;
+[CHORUS]
+    What has been, and is not--woe 's my thought!
+    It must not be spoken, nor can be forgot.
+[VERSE 4]
+II.
+[VERSE 5]
+I wander'd the fold, and I rambled the grove,
+And each spot it reported the kiss of my love;
+But I saw her caressing another--and feel
+'Tis distraction to hear them, and see them so leal.
+[REFRAIN]
+    What has been, and is not, &c.
+[VERSE 6]
+III.
+[VERSE 7]
+Since 'twas told that a rival beguil'd thee away,
+The dreams of my love are the dreams of dismay;
+Though unsummon'd of thee, love has captured thy thrall,
+And my hope of redemption for ever is small.
+[CHORUS]
+    Day and night, though I strive aye
+    To shake him away, still he clings like the ivy.
+[VERSE 8]
+IV.
+[VERSE 9]
+But, auburn-hair'd Anna! to tell thee my plight,
+'Tis old love unrequited that prostrates my might,
+In presence or absence, aye faithful, my smart
+Still racks, and still searches, and tugs at my heart--
+[CHORUS]
+    Broken that heart, yet why disappear
+    From my country, without one embrace from my dear?
+[VERSE 10]
+V.
+[VERSE 11]
+She answers with laughter and haughty disdain--
+"To handle my snood you petition in vain;
+Six suitors are mine since the year thou wert gone,
+What art _thou_, that thou should'st be the favourite one?
+[CHORUS]
+    Art thou sick? Ha, ha, for thy woe!
+    Art thou dying for love? Troth, love's payment was slow."
+[VERSE 12]
+VI.
+[VERSE 13]
+Though my anger may feign it requites thy disdain,
+And vaunts in thy absence, it threatens in vain--
+All in vain! for thy image in fondness returns,
+And o'er thy sweet likeness expectancy burns;
+[CHORUS]
+    And I hope--yes, I hope once more,
+    Till my hope waxes high as a tower in its soar.
+
+--- TITLE: TO A PIOBRACH TUNE
+[VERSE 1]
+This is one of those lyrics, of which there are many in Gaelic poetry,
+that are intended to imitate pipe music. They consist of three parts,
+called Urlar, Siubhal, and Crunluath. The first is a slow, monotonous
+measure, usually, indeed, a mere repetition of the same words or tones;
+the second, a livelier or brisker melody, striking into description or
+narrative; the third, a rapid finale, taxing the reciter's or
+performer's powers to their utmost pitch of expedition. The heroine of
+the song is the same Isabel who is introduced towards the commencement
+of the "Forsaken Drover;" and it appears, from other verses in Mackay's
+collection, that it was not her fate to be "alone" through life. It is
+to be understood that when the verses were composed, she was in charge
+of her father's extensive pastoral _manége_, and not a mere milk-maid or
+dairy-woman.
+[VERSE 2]
+URLAR.
+[VERSE 3]
+Isabel Mackay is with the milk kye,
+  And Isabel Mackay is alone;
+Isabel Mackay is with the milk kye,
+  And Isabel Mackay is alone, &c.
+Seest thou Isabel Mackay with the milk kye,
+  At the forest foot--and alone?
+[VERSE 4]
+SIUBHAL.
+[VERSE 5]
+By the Virgin and Son!
+Thou bride-lacking one,
+  If ever thy time
+    Is coming, begone,
+  The occasion is prime,
+For Isabel Mackay
+Is with the milk kye
+  At the skirts of the forest,
+    And with her is none.
+[REFRAIN]
+      By the Virgin and Son, &c.
+[VERSE 6]
+Woe is the sign!
+  It is not well
+  With the lads that dwell
+    Around us, so brave,
+When the mistress fine
+  Of Riothan-a-dave
+Is out with the kine,
+  And with her is none.
+[REFRAIN]
+          O, woe is the sign, &c.
+[VERSE 7]
+Whoever he be
+  That a bride would gain
+Of gentle degree,
+  And a drove or twain,
+  His speed let him strain
+To Riothan-a-dave,
+And a bride he shall have.
+  Then, to her so fain!
+[REFRAIN]
+          Whoever he be, &c.
+[VERSE 8]
+And a bride he shall have,
+  The maid that's alone.
+        Isabel Mackay, &c.
+Oh, seest not the dearie
+  So fit for embracing,
+  Her patience distressing,
+  The bestial a-chasing,
+      And she alone!
+[VERSE 9]
+'Tis a marvellous fashion
+  That men should be slack,
+  When their bosoms lack
+An object of passion,
+To look such a lass on,
+  Her patience distressing,
+  The bestial a-chasing,
+    In the field, alone.
+[VERSE 10]
+CRUNLUATH (FINALE).
+[VERSE 11]
+Oh, look upon the prize, sirs,
+That where yon heights are rising,
+The whole long twelvemonth sighs in,
+    Because she is alone.
+Go, learn it from my minstrelsy,
+  Who list the tale to carry,
+The maiden shuns the public eye,
+  And is ordain'd to tarry
+'Mid stoups and cans, and milking ware,
+Where brown hills rear their ridges bare,
+And wails her plight the livelong year,
+    To spend the day alone.
+
+--- TITLE: EVAN'S ELEGY
+[VERSE 1]
+Mackay was benighted on a deer-stalking expedition, near a wild hut
+or shealing, at the head of Loch Eriboll. Here he found its only
+inmate a poor asthmatic old man, stretched on his pallet,
+apparently at the point of death. As he sat by his bed-side, he
+"crooned," so as to be audible, it seems, to the patient, the
+following elegiac ditty, in which, it will be observed, he alludes
+to the death, then recent, of Pelham, an eminent statesman of
+George the Second's reign. As he was finishing his ditty, the old
+man's feelings were moved in a way which will be found in the
+appended note. This is one of Sir Walter Scott's extracts in the
+_Quarterly_, and is now attempted in the measure of the original.
+[VERSE 2]
+How often, Death! art waking
+  The imploring cry of Nature!
+When she sees her phalanx breaking,
+  As thou'dst have all--grim feature!
+Since Autumn's leaves to brownness,
+  Of deeper shade were tending,
+We saw thy step, from palaces,
+  To Evan's nook descending.
+    Oh, long, long thine agony!
+      A nameless length its tide;
+    Since breathless thou hast panted here,
+      And not a friend beside.
+    Thine errors what, I judge not;
+      What righteous deeds undone;
+    But if remains a se'ennight,
+      Redeem it, dying one!
+[VERSE 3]
+Oh, marked we, Death! thy teachings true,
+  What dust of time would blind?
+Such thy impartiality
+  To our highest, lowest kind.
+Thy look is upwards, downwards shot,
+  Determined none to miss;
+It rose to Pelham's princely bower,
+  It sinks to shed like this!
+      Oh, long, long, &c.!
+So great thy victims, that the noble
+  Stand humbled by the bier;
+So poor, it shames the poorest
+  To grace them with a tear.
+Between the minister of state
+  And him that grovels there,
+Should one remain uncounselled,
+  Is there one whom dool shall spare?
+      Oh, long, long, &c.!
+The hail that strews the battle-field
+  Not louder sounds its call,
+Than the falling thousands round us
+  Are voicing words to all.
+Hearken! least of all the nameless;
+  Evan's hour is going fast;
+Hearken! greatest of earth's great ones--
+  Princely Pelham's hour is past.
+      Oh, long, long, &c.!
+Friends of my heart! in the twain we see
+  A type of life's declining;
+'Tis like the lantern's dripping light,
+  At either end a-dwining.
+Where was there one more low than thou--
+  Thou least of meanest things?
+And where than his was higher place
+  Except the throne of kings?
+      Oh, long, long, &c.!
