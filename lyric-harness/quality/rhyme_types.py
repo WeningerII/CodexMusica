@@ -90,7 +90,14 @@ from dataclasses import dataclass
 
 CHANNELS = ("onset", "nucleus", "coda")
 
-SPAN = {1: "masculine", 2: "feminine", 3: "dactylic", 4: "extended"}
+#: Span NAMES. The span itself is an unbounded integer -- these are labels for
+#: the low end, not a ceiling. A 5-syllable multisyllabic rhyme is span 5 and
+#: reports "5-syllable", not "extended".
+SPAN = {1: "masculine", 2: "feminine", 3: "dactylic"}
+
+
+def span_name(n):
+    return SPAN.get(n, f"{n}-syllable multisyllabic")
 IDENTITY = ("distinct", "same_word", "rich")
 STRESS = ("aligned", "wrenched", "unstressed")
 POSITION = ("end", "internal", "leonine", "cross", "head", "holorhyme")
@@ -99,9 +106,20 @@ LENGTH = ("equal", "additive", "subtractive", "apocopated")
 REALISATION = ("phonetic", "eye", "historical")
 
 
-def agreement_cells():
-    """All 8 single-syllable agreement patterns, as (onset, nucleus, coda)."""
-    return list(itertools.product((0, 1), repeat=3))
+def agreement_cells(ternary=False):
+    """Single-syllable agreement patterns as (onset, nucleus, coda).
+
+    BINARY (8 cells) is the fully-determined subset. TERNARY (27) is the real
+    space, because a channel can be UNKNOWN and that is not a third kind of
+    disagreement -- it is a refusal.
+
+    This is the rhyme-side of the same defect `meter.py` fixed: a binary
+    channel forces `fas.py`'s unwritten short vowel to be coerced to agrees or
+    differs, and both are assertions the orthography does not support. 60.2%
+    of real Hafez rhyme pairs land there.
+    """
+    vals = (False, True, None) if ternary else (False, True)
+    return list(itertools.product(vals, repeat=3))
 
 
 #: The eight cells, named where English has a name and left NAMELESS where it
@@ -135,7 +153,31 @@ class RhymeType:
 
     @property
     def span_name(self):
-        return SPAN.get(self.span, SPAN[4])
+        return span_name(self.span)
+
+    @property
+    def determined(self):
+        """True when every channel of every syllable has an answer."""
+        return all(v is not None for syl in self.agreement for v in syl)
+
+    @property
+    def unknown_channels(self):
+        """-> [(syllable_index, channel_name)] the phonology could not decide.
+        The list a caller needs to know WHY a verdict is None."""
+        return [(i, CHANNELS[j]) for i, syl in enumerate(self.agreement)
+                for j, v in enumerate(syl) if v is None]
+
+    def verdict(self):
+        """Do these rhyme? True / False / None, propagating the unknown.
+
+        None is not a failure path. It is the answer whenever the decision
+        rests on a channel the phonology declined to read.
+        """
+        first = self.agreement[0]
+        nuc, cod = first[1], first[2]
+        if nuc is None or cod is None:
+            return None
+        return bool(nuc and cod)
 
     def cells(self):
         return [CELL_NAMES.get(a, ()) for a in self.agreement]
@@ -295,7 +337,112 @@ def classify(agreement, **kw):
                                      for syl in agreement), **kw)
 
 
+
+# ---------------------------------------------------------------------------
+# THE PRODUCER (gap E-1)
+#
+# Until this existed the seven-axis space was a vocabulary with nothing that
+# could look at two words and return a coordinate. `classify()` took channel
+# agreements a caller must already have computed, and no caller existed.
+# ---------------------------------------------------------------------------
+
+
+class Indeterminate(Exception):
+    """The phonology cannot supply what the requested span needs."""
+
+
+def _cmp(x, y):
+    """Ternary channel comparison. None means the phonology declined."""
+    if x is None or y is None:
+        return None
+    return x == y
+
+
+def _anchor(sylls):
+    """Index of the last STRESSED syllable — the English anchor rule.
+
+    Raises rather than guessing when the phonology carries no prominence:
+    `som` refuses a stress grid because Somali has pitch accent, `msa` because
+    Malay stress is contested, `fas` because classical Persian metre is
+    quantitative. For those, the caller must state a span.
+    """
+    if all(s.prominence is None for s in sylls):
+        raise Indeterminate(
+            "this phonology carries no prominence, so 'last stressed syllable "
+            "to end' has no referent. Pass an integer span instead of "
+            "'anchor' — the rule is a coordinate, not a universal.")
+    for i in range(len(sylls) - 1, -1, -1):
+        if sylls[i].prominence == 1:
+            return i
+    return 0
+
+
+def classify_pair(a, b, phon, span="anchor", position="end",
+                  boundary="simple", realisation="phonetic"):
+    """Two words and a phonology -> a RhymeType coordinate, or None.
+
+    None means at least one word is outside the phonology's declared
+    inventory. A coordinate whose channels contain None means the words were
+    READ and a channel could not be DECIDED — a different thing, and
+    `RhymeType.unknown_channels` says which.
+
+    Nothing is transcribed here. `phon` is any object with `.syllabify(word)`
+    returning syllables carrying onset / nucleus / coda / prominence, which is
+    every module in `quality/phonology/`. That is what lets a Welsh, Persian
+    and Sanskrit relation land in one space rather than three special cases.
+    """
+    sa, sb = phon.syllabify(a), phon.syllabify(b)
+    if not sa or not sb:
+        return None
+
+    if span == "anchor":
+        n = min(len(sa) - _anchor(sa), len(sb) - _anchor(sb))
+    else:
+        n = min(int(span), len(sa), len(sb))
+    n = max(1, n)
+
+    agr = tuple(
+        (_cmp(x.onset, y.onset), _cmp(x.nucleus, y.nucleus),
+         _cmp(x.coda, y.coda))
+        for x, y in zip(sa[-n:], sb[-n:]))
+
+    if a.strip().lower() == b.strip().lower():
+        identity = "same_word"
+    elif all(v is True for syl in agr for v in syl):
+        identity = "rich"
+    else:
+        identity = "distinct"
+
+    pa, pb = sa[-n].prominence, sb[-n].prominence
+    if pa is None or pb is None:
+        stress = "aligned"
+    elif pa == 1 and pb == 1:
+        stress = "aligned"
+    elif pa == 0 and pb == 0:
+        stress = "unstressed"
+    else:
+        stress = "wrenched"
+
+    if len(sa) == len(sb):
+        length = "equal"
+    elif len(sa) > len(sb):
+        length = "additive"
+    else:
+        length = "subtractive"
+
+    return RhymeType(agreement=agr, identity=identity, stress=stress,
+                     position=position, boundary=boundary, length=length,
+                     realisation=realisation)
+
+
+def verdict(a, b, phon, **kw):
+    """-> True / False / None. The tri-state a caller usually wants."""
+    t = classify_pair(a, b, phon, **kw)
+    return None if t is None else t.verdict()
+
+
 __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
            "LENGTH", "REALISATION", "CELL_NAMES", "RhymeType",
-           "agreement_cells", "space_size", "enumerate_types", "NAMED",
+           "agreement_cells", "classify_pair", "verdict", "Indeterminate",
+           "span_name", "space_size", "enumerate_types", "NAMED",
            "named_count", "classify"]

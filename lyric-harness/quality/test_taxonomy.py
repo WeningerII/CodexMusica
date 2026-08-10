@@ -218,6 +218,65 @@ def _raises(fn):
     return False
 
 
+
+def test_the_producer_closes_E1():
+    print("\n9. gap E-1 — two words and a phonology now yield a coordinate")
+    from quality.phonology import get
+    from quality.rhyme_types import Indeterminate, classify_pair, verdict
+    # ONE space, many phonologies. Nothing is transcribed here; `phon` is any
+    # object with .syllabify(), which is every module in quality/phonology/.
+    for lang, a, b, kw in (("cym", "llais", "llon", {}),
+                           ("fin", "kukka", "kukko", {}),
+                           ("msa", "burong", "tolong", {"span": 1}),
+                           ("san", "rāma", "kāma", {"span": 1})):
+        t = classify_pair(a, b, get(lang), **kw)
+        check(f"{lang}: {a}~{b} lands in the space",
+              t is not None and t.verdict() in (True, False, None),
+              t.describe()[:74] if t else "None")
+    # NB the first fixture here was `wolf`/`hound`, which FAILED — both are
+    # legal Welsh orthography (w is a VOWEL in Welsh). The test was wrong, not
+    # the code. Welsh lacks k, q and x, so those are the real refusal.
+    check("an out-of-inventory word gives None, not a guess",
+          classify_pair("quiz", "kex", get("cym")) is None,
+          "Welsh has no k, q or x")
+    check("and a word that only LOOKS foreign is read, correctly",
+          classify_pair("wolf", "hound", get("cym")) is not None,
+          "w is a vowel in Welsh; refusing this would be the opposite error")
+    # THE TERNARY PATH. A binary channel would force this to True or False and
+    # both are assertions the orthography does not support.
+    P = get("fas")
+    t = classify_pair("دل", "گل", P, span=1)
+    check("Persian: an unwritten short vowel propagates as UNKNOWN",
+          t is not None and t.verdict() is None and not t.determined
+          and t.unknown_channels == [(0, "nucleus")],
+          "the channel is named, so a caller knows WHY the verdict is None")
+    check("and it agrees with the phonology's own independent answer",
+          t.verdict() == P.rhymes("دل", "گل") is None,
+          "two separately written paths, same tri-state")
+    # Refusal where the anchor rule has no referent.
+    check("'anchor' is REFUSED where the phonology carries no prominence",
+          _raises(lambda: classify_pair("burong", "tolong", get("msa"))),
+          "som/msa/fas decline a stress grid, so 'last stressed syllable to "
+          "end' has nothing to point at — the rule is a coordinate, not a "
+          "universal")
+    check("verdict() is the tri-state a caller wants",
+          verdict("burong", "tolong", get("msa"), span=1) is True)
+
+
+def test_ternary_channels_and_unbounded_span():
+    print("\n10. the channel space is 27, not 8; span has no ceiling")
+    check("binary is the fully-DETERMINED subset",
+          len(T.agreement_cells()) == 8
+          and len(T.agreement_cells(ternary=True)) == 27)
+    check("span names do not cap at 4",
+          T.span_name(5) == "5-syllable multisyllabic"
+          and T.span_name(2) == "feminine",
+          "the old SPAN dict lumped everything 4+ into 'extended'")
+    check("an undetermined type reports UNNAMED rather than a nearest cell",
+          T.RhymeType(((False, None, True),)).names() == ()
+          and T.RhymeType(((False, None, True),)).verdict() is None)
+
+
 if __name__ == "__main__":
     for fn in (test_the_space_is_the_bell_numbers,
                test_canonical_form,
@@ -226,7 +285,9 @@ if __name__ == "__main__":
                test_named_forms_are_coordinates_not_the_taxonomy,
                test_the_partition_is_a_floor_not_a_ceiling,
                test_the_type_space,
-               test_types_resolve_and_refuse):
+               test_types_resolve_and_refuse,
+               test_the_producer_closes_E1,
+               test_ternary_channels_and_unbounded_span):
         fn()
     print("=" * 62)
     if FAILURES:

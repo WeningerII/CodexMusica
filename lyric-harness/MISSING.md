@@ -170,19 +170,37 @@ the form — the shape a listener actually experiences.
 
 ## E. Rhyme
 
-### E-1 · The type taxonomy has NO PRODUCER `OPEN`
-**Now (verified):** nothing in the repo calls `quality/rhyme_types.py` except
-its own test. `classify()` takes channel agreements that some caller must have
-computed, and no caller exists.
-**Missing:** a function that takes two words and a phonology and returns a
-coordinate. Until then the seven-axis space is a vocabulary, not an instrument.
+### E-1 · The type taxonomy has NO PRODUCER `CLOSED` 2026-08-10
+**Was:** nothing called `rhyme_types.py` except its own test. It was a
+vocabulary with nothing that could look at two words and return a coordinate.
+**Now:** `classify_pair(a, b, phon)` and `verdict(a, b, phon)`. `phon` is any
+object with `.syllabify()` — every module in `quality/phonology/` — so Welsh,
+Finnish, Malay, Sanskrit, Old Norse and Persian relations land in ONE space
+rather than six special cases. Nothing is transcribed in this file.
+**AND THE CHANNELS ARE TERNARY.** A binary channel forced Persian's unwritten
+short vowel to be coerced to agrees-or-differs, and both are assertions the
+orthography does not support — the rhyme-side of the same defect `meter.py`
+fixed. The cell space is **27**, of which the 8 named ones are the
+fully-DETERMINED subset. `verdict()` propagates the unknown and
+`unknown_channels` names which channel caused it. Cross-checked: on دل/گل the
+generic path and `fas.rhymes()` independently return None.
+**Refusals kept honest:** `'anchor'` (last stressed syllable to end) RAISES
+where the phonology carries no prominence — som, msa and fas all decline a
+stress grid — because the anchor rule is a coordinate, not a universal.
 
 ### E-2 · English still has five relations `PARTIAL`
 **Now:** `lyric_harness.py` recognises RHYME, REPEAT, RIME_RICHE, ASSONANCE,
 CONSONANCE.
-**Missing detection for:** masculine/feminine/dactylic span, multisyllabic
-rhyme, mosaic/compound, broken, wrenched, apocopated, additive/subtractive,
-pararhyme, eye rhyme, historical rhyme.
+**Now detected by `classify_pair`:** span (masculine/feminine/dactylic and
+UNBOUNDED beyond — the old SPAN dict capped everything 4+ as "extended"),
+identity (distinct/same_word/rich), stress alignment including wrenched,
+length match (equal/additive/subtractive), and all 27 ternary channel cells
+including pararhyme and the two English never named.
+**Still missing:** mosaic/compound and broken boundary detection (the axis
+exists, nothing infers it from text), apocopation, and eye/historical
+realisation — all three need the ORTHOGRAPHY beside the phonology, which no
+caller currently passes. `lyric_harness.py` itself still runs its own
+five-relation path and does not call this.
 
 ### E-3 · Internal rhyme is two-line only `OPEN`
 **Now:** `internal_matches` supports a pair of lines. No verse-wide or
