@@ -863,4 +863,54 @@ Doctrine additions, earned from the first run — do not drift from these either
    refusals — 13 Somali poets are refused on a bound they very probably clear —
    and that is the correct direction for a ledger that is evidence rather than
    an estimate.
+82. **A span that belongs to ONE class was applied to all four, and it under-read
+   the line in both directions.** Welsh `skeleton()` stopped at the onset of the
+   half-line's last accented syllable — which is the *cytbwys acennog* rule, and
+   only that rule. For **croes** a short span is too permissive; for **traws**,
+   which is a suffix test, dropping the post-accent consonant breaks the suffix
+   and the line is MISSED. Alun's attested `Trwy Gwalia | tir y gelyn` compared
+   `[t,r,g,l]` against `[t,r,g]` and found nothing. The terminus is a property of
+   the DIWEDDEB — the half's final vowel in the balanced classes, its final
+   consonant in the accented half of an *anghytbwys ddisgynedig* — so `extent`
+   now has NO DEFAULT and an absent argument raises. 113 Alun lines gained, and
+   **zero of them are cytbwys acennog**, exactly as the mechanism predicts.
+   The reading was chosen by doctrine 61, not argued: gap to the shuffled null
+   max goes +26.3 -> +35.3 on Alun and +14.7 -> +19.2 on Twm o'r Nant, and Twm
+   is the row to read because the rule fires **5.1 points LESS often** and is
+   still better, since its null falls 9.6. Yield is not evidence. `anghytbwys
+   ddyrchafedig` is REFUSED by default — its apparent croes lift is duplicate
+   placements created by consonant-free proclitics sliding across the seam —
+   and `dyrchafedig="rising"` reaches the other reading so the choice stays
+   measurable rather than settled by fiat.
+83. **A locator is per-MEMBER, and suffix alignment was the function rather than
+   a parameter of it.** `classify_pair` computed `sa[-n:]` against `sb[-n:]`,
+   so `position='head'` set a FIELD on the result and never touched the span:
+   `kukka`/`kalevala` compared `kuk`~`va`, `ka`~`la`, returned False, and was
+   labelled **"perfect rhyme"** — a false negative on the relation and a
+   false-positive label in one call, while `fin.alliterates` said True. ANCHOR is
+   now axis 8, an `Anchor(rule, determinacy, span, index, side)` **per member**
+   inside `key()`: 14 rules x 3 determinacies, declared independently on each
+   side. That it must be per-member is measured, not asserted — cynghanedd lusg
+   is recovered on **104/104** Alun lines with side A searched-prominent and
+   side B rule-fixed, and on **0/104** with the same anchor on both sides; on
+   559 croes/traws lines side B's origin is at its head on 184/184 croes and
+   0/375 traws, so no single global alignment covers the pair. The rules are
+   written on PROMINENCE, never "stress", because in `san` prominence is
+   guru/laghu and in `ltc` it is tone class (doctrine 35). Consequence worth
+   keeping: `length='apocopated'` was a value nothing could ever compute, and
+   perfect/syllabic/apocopated now separate on nothing but the two anchors.
+84. **Ask the phonology in its own declared relation — and keep the channel path
+   reachable.** 流/樓 is False on every channel and True under `ltc.rhymes`,
+   because 平水韻 authorises a 同用 grouping the raw Qieyun does not (doctrine
+   36). So where a phonology DECLARES a relation and IMPLEMENTS the predicate,
+   the producer asks it and its answer wins, with `route` recording which path
+   answered and `disagreements` reporting conflicts left unresolved. Two things
+   this must not do. It must not silently swallow a refusal: a stub `rhymes()`
+   inherited from a base class is distinguished from `fas`'s genuine None, or
+   the designed 60.2% refusal would be overwritten with a channel guess. And it
+   must not make the defect unreachable — `consult=False` still reproduces the
+   documented wrong answer, and `test_declared_inputs.py` now pins BOTH: the
+   channel path getting it wrong and the default path getting it right. A
+   doctrine whose demonstration has been optimised away is a sentence nobody
+   can check, which is the argument that keeps `modal_exclusion=0` reachable.
 

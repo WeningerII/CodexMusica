@@ -925,8 +925,8 @@ Turkish şemalar as a declared tuple · kap family · chan family*
   set applies unchanged — a provenance declaration, not a structure)
 
 **D9 · faults as structure + inverted normative status** — 61 of the 601 entries are named faults.
-Each maps to a structure already in the canon with NORM=forbidden or deprecated, except the seven
-listed at R48, R69, R86, R100, R112 and the two below, which are structures in their own right.
+Each maps to a structure already in the canon with NORM=forbidden or deprecated, except those at
+R48, R69, R100, R112 and the two below (R113, R114), which are structures in their own right.
 - from: C34 C35 C36 C37 C38 C39 C40 S23 S24 S25 S26 S27 S28 S29 S30 S31 S32 S33 S34 I37 I64 I74
   X9 X10 X11 X12 X13 X17 X18 S85 S86 S87 X96 X147 X73 ✓E66
 
@@ -1117,26 +1117,28 @@ pedagogical artefact was a direct consequence of seeing one language.
 | | structures | notes |
 |---|---|---|
 | previous synthesis | **106** | derived from 85 of 601 entries (14.1%) |
-| this merge — relation structures | **114** (R1–R114) | |
-| this merge — non-relation declarations | **9** (D1–D9) | classes of object the canon must hold separately |
-| **total distinct structural objects** | **123** | |
+| this merge — relation structures | **117** (R1–R116, R66b) | every one of the 601 entries maps to exactly one |
+| this merge — non-relation declaration classes | **9** (D1–D9) | objects a relation is declared *against* |
+| **total distinct structural objects** | **126** | |
 
-The 114 is **not** 106 + 8. Of the previous 106:
+The 117 is **not** 106 + 11. The two lists overlap in a shape worth stating exactly. Of the
+previous 106:
 
-- ~34 survive unchanged as canonical structures.
-- ~29 are absorbed as *placement variants* or *cadence variants* of a structure already present
-  (they remain distinct points, and are counted here, but under fewer heads).
-- **12 collapse into one structure at twelve grains** once GRAIN is a coordinate (§4.2).
+- **80** map onto structures in this canon. Not one-to-one: several of its entries are one structure
+  here at different placements, cadences or span magnitudes, so those 80 cover **57** of the 117.
+- **12 collapse into a single structure at twelve grains** once GRAIN is a coordinate (§4.2) —
+  family rhyme, 同用-grouped rhyme, and ten more that were invisible to it.
 - **11 are not structures at all** and move to D1–D9 (selectors, licences, substrates, absences,
   query labels, form declarations) — including its own #93 (Welsh accentuation classes), #106
-  (Rhyme Genie residue, which it marked UNKNOWN), #104 (half rhyme, which its own collision #25
-  correctly calls "not a type").
+  (Rhyme Genie residue, which it marked UNKNOWN throughout), and #104 (half rhyme, which its own
+  collision #25 correctly calls "not a type").
 - **3 are wrong on the recovered evidence**: #81 antya-prāsa (onset inclusion is constitutive, R3);
-  #100 proest (missing the lleddf/talgron clause and the predicate shape, R11); #86 gabay higaad
-  (**no source in the 601 at all** — Somali appears nowhere in any inventory cell; it came from repo
-  doctrine).
+  #100 proest (missing the lleddf/talgron clause, and missing that its predicate shape is a distinct
+  predicate, R11); #86 gabay higaad (**no source in the 601 at all** — Somali appears nowhere in any
+  inventory cell; it came from repo doctrine, as §5.4 sets out).
 
-Against that, **60 structures in this canon have no counterpart of any kind in the previous 106**.
+80 + 12 + 11 + 3 = 106. Against that, **63 of the 117 structures here have no counterpart of any
+kind in the previous canon**, and they are the 63 tabulated by cell in §5.3.
 
 ### 5.2 The structures the synthesis never saw, and which nobody would have designed against
 
@@ -1193,12 +1195,15 @@ where the tradition's structures are least like English:
 
 | cell | entries | reached synthesis | structures in this canon with no previous counterpart |
 |---|---|---|---|
-| english | 74 | 74 (100%) | 0 |
+| english | 74 | 74 (100%) | 1 |
 | celtic | 64 | ~11 (17%) | 14 |
-| germanic/finnic | 89 | 0 | 8 |
+| germanic/finnic | 89 | 0 | 9 |
 | semitic-persian | 126 | 0 | 19 |
 | indic-seasian | 74 | 0 | 9 |
-| east-asian-romance | 174 | 0 | 10 |
+| east-asian-romance | 174 | 0 | 11 |
+
+(The single English row is R115, *rhyming slang*, which the synthesis saw and dropped. It is the
+only structure in the canon that was visible and lost rather than never seen.)
 
 The 106 canonical structures are, in effect, **the English rhyme taxonomy plus the first third of
 cynghanedd plus whatever the repository already believed.** Its cross-linguistic entries are not
@@ -1322,5 +1327,7 @@ Splits the recovered entries force:
 ---
 
 *Merged by analysis cell 2 from the complete 601-entry recovery. Every canonical structure above
-cites the inventory entries it merges; every entry of the 601 is accounted for in exactly one of
-R1–R114 or D1–D9. Entries marked ✓ were visible to the previous synthesis; the rest were not.*
+cites the inventory entries it merges; coverage of all 601 indices was checked mechanically — every
+entry is accounted for in exactly one of R1–R116/R66b or D1–D9, with none missing and none double-
+counted. Entries marked ✓ were visible to the previous synthesis; the rest were not. This file
+writes no code and changes none; it is the evidence a corrected model would be built against.*

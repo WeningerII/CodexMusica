@@ -266,8 +266,8 @@ def test_welsh_cynghanedd():
     print("\n10c. Welsh — cynghanedd on Welsh phonology, not English")
     c = get("cym")
     check("the skeleton keeps th as one consonant",
-          c.skeleton("tan a thi") == ["t", "n", "th"],
-          str(c.skeleton("tan a thi")))
+          c.skeleton("tan a thi", "acen") == ["t", "n", "th"],
+          str(c.skeleton("tan a thi", "acen")))
     # The caesura is marked with `|`. It used to be marked with a comma, and
     # these fixtures passed for a reason that turned out to be a defect: the
     # checker split on `[,/|]`, so ordinary PUNCTUATION was being read as
@@ -294,10 +294,11 @@ def test_welsh_cynghanedd():
     # ending in it has its last stress on the FIRST word. Keying the skeleton
     # only on the last word ran past the end and swept in the final coda.
     check("a half-line ending in a proclitic stops at the real last stress",
-          c.skeleton("dwr dan") == ["d"], str(c.skeleton("dwr dan")))
+          c.skeleton("dwr dan", "acen") == ["d"],
+          str(c.skeleton("dwr dan", "acen")))
     check("a digraph onset survives into the skeleton",
-          c.skeleton("llais llon")[:1] == ["ll"],
-          str(c.skeleton("llais llon")))
+          c.skeleton("llais llon", "acen")[:1] == ["ll"],
+          str(c.skeleton("llais llon", "acen")))
     # Doctrine 41 in reverse: a NEGATIVE control can pass for the wrong reason
     # too. With the comma no longer a caesura this line would be refused for
     # having no caesura at all, which proves nothing about the rule -- so the
@@ -343,6 +344,135 @@ def test_welsh_cynghanedd():
     # data/sources.tsv.
     check("constructed tests are labelled as testing the implementation",
           True, "canon requires a sourced corpus, which is blocked")
+
+
+#: ATTESTED. Lines of the two staged Welsh corpora (corpus/cym_alun_strict.txt,
+#: corpus/cym_twm_or_nant_cywydd.txt), which are strict metre end to end -- so
+#: every line carries cynghanedd by construction and a line the checker cannot
+#: read is the CHECKER's failure. Each of these was found by the class rule and
+#: by nothing the acennog-for-everything rule could do at any placement.
+ATTESTED = [
+    # line, corpus, expected type, expected class, the halves it falls into
+    ("Draw'n sisial deyrn y Saeson,--", "Alun", "croes", "cytbwys ddiacen",
+     ("Draw'n sisial", "deyrn y Saeson")),
+    ("Trwy Gwalia, tir y gelyn;", "Alun", "croes", "cytbwys ddiacen",
+     ("Trwy Gwalia", "tir y gelyn")),
+    ("O flaen gorsedd felenwawr", "Alun", "traws", "anghytbwys ddisgynedig",
+     ("O flaen", "gorsedd felenwawr")),
+    ("A luniodd pob galanas;", "Twm o'r Nant", "traws", "cytbwys ddiacen",
+     ("A luniodd", "pob galanas")),
+]
+
+
+def test_welsh_accentuation_classes():
+    print("\n10f. Welsh — the accentuation class decides where the span stops")
+    c = get("cym")
+    # The DIWEDDEB is a property of the HALF-LINE, not of its last word.
+    check("an end on the accent is acennog",                     # CONSTRUCTED
+          c.diwedd("tywyn a thau")[0] == "acennog")
+    check("an end one syllable past the accent is diacen",       # CONSTRUCTED
+          c.diwedd("cerdda'n llonydd")[0] == "diacen")
+    check("a half ending in a PROCLITIC is diacen, not acennog", # CONSTRUCTED
+          c.diwedd("dwr dan")[0] == "diacen",
+          "the accent is on `dwr` and `dan` is the preposition, so the end "
+          "is unaccented -- doctrine 46's edge case turns out to have a CLASS")
+    # `ar hyd` is the third and fourth words of the first line of the Alun
+    # corpus. Both are prepositions, so the fragment has no accent at all.
+    check("a half of nothing but proclitics is refused, not read",  # ATTESTED
+          c.diwedd("ar hyd") == (None, "no accented syllable in this half, "
+                                       "so it has no diweddeb"),
+          str(c.diwedd("ar hyd")))
+    check("an accent further back than the penult is refused",   # ATTESTED
+          c.diwedd("Geiriau yr")[0] is None
+          and "2 syllables from the end" in c.diwedd("Geiriau yr")[1],
+          c.diwedd("Geiriau yr")[1])
+    # The three spans are three different objects, and on an unaccented end
+    # they differ. `skeleton` has NO default extent for exactly this reason.
+    check("the three extents differ on an unaccented end",       # CONSTRUCTED
+          (c.skeleton("dwr dan", "acen"),
+           c.skeleton("dwr dan", "llafariad"),
+           c.skeleton("dwr dan", "llawn"))
+          == (["d"], ["d", "r", "d"], ["d", "r", "d", "n"]),
+          str([c.skeleton("dwr dan", x) for x in c.EXTENTS]))
+    check("and coincide on an accented one, which is why the old rule was "
+          "right THERE and only there",                          # CONSTRUCTED
+          c.skeleton("tan a thi", "acen")
+          == c.skeleton("tan a thi", "llafariad"))
+    check("an extent must be declared, never defaulted",
+          _raises(lambda: c.skeleton("tan a thi")),
+          "no argument is the same thing as defaulting to the acennog span, "
+          "which is the defect")
+    check("and an undeclared extent raises rather than guessing",
+          _raises(lambda: c.skeleton("tan a thi", "hyd yr acen")))
+
+    for line, src, want_type, want_class, (a, b) in ATTESTED:
+        ans = c.answer(a, b)
+        check(f"[{src}, ATTESTED] {line[:34]:<34} is {want_class}",
+              ans["class"] == want_class, str(ans["class"]))
+        hit = c.cynghanedd_scan(line)
+        check(f"[{src}, ATTESTED] ... and reads as {want_type}",
+              hit["type"] == want_type and hit["class"] == want_class,
+              hit["detail"][:96])
+        # The load-bearing half of the regression: the acennog span, applied
+        # where the class does not license it, does not answer.
+        sa = c.skeleton(a, "acen")
+        sb = c.skeleton(b, "acen")
+        answered = sa == sb or (len(sb) > len(sa) and sb[-len(sa):] == sa)
+        check(f"[{src}, ATTESTED] ... and the acennog span does NOT answer it",
+              not answered, f"acen: {sa} | {sb}")
+
+    # ATTESTED from the literature rather than from the staged corpus: this
+    # line of Dafydd ap Gwilym is the one quoted for the ddisgynedig rule,
+    # that the consonant after the accent is answered by the one opening the
+    # last syllable of the other half -- haul's `l` by heli's.
+    ans = c.answer("Darn fal haul", "dyrnfol heli")
+    check("[Dafydd ap Gwilym, ATTESTED] Darn fal haul | dyrnfol heli",
+          ans["class"] == "anghytbwys ddisgynedig"
+          and ans["first"] == ans["second"] == ["d", "r", "n", "f", "l",
+                                                "h", "l"],
+          f"{ans['class']}: {ans['first']} | {ans['second']}")
+    check("... and the acennog span drops the very consonant the class "
+          "exists to answer",
+          c.skeleton("Darn fal haul", "acen") == ["d", "r", "n", "f", "l",
+                                                  "h"],
+          "it still comes out croes here, one consonant short -- a looser "
+          "rule agreeing with a stricter one is not evidence that it is right")
+
+    # anghytbwys ddyrchafedig: an unaccented end answered by an accented one.
+    # The tradition works three classes, and this placement is refused.
+    ans = c.answer("A'i gorn teg i", "gern y twr")               # ATTESTED
+    check("[Alun, ATTESTED] a ddyrchafedig placement is refused, not scored",
+          ans["class"] == "anghytbwys ddyrchafedig"
+          and ans["first"] is None, ans["why"][:88])
+    check("... and the acennog span WOULD have called it croes",
+          c.skeleton("A'i gorn teg i", "acen")
+          == c.skeleton("gern y twr", "acen"),
+          "the seam falls either side of a consonant-free proclitic, so a "
+          "real cytbwys acennog line grows a duplicate placement one word "
+          "over -- which is what that class's apparent lift was made of")
+    hit = c.cynghanedd_scan("A'i gorn teg i gern y twr:")
+    check("... while the LINE still reads, at the placement that is legal",
+          hit["type"] == "croes" and hit["class"] == "cytbwys acennog",
+          hit["detail"][:96])
+    check("the fourth class is reachable by name, so the choice is measurable",
+          c.answer("A'i gorn teg i", "gern y twr",
+                   dyrchafedig="rising")["first"] is not None)
+    check("and an undeclared dyrchafedig value raises",
+          _raises(lambda: c.answer("dwr dyn", "dwr dawn",
+                                   dyrchafedig="allow")))
+
+    # A half with no diweddeb is refused rather than read as accented. Under
+    # the old rule this placement was a croes on a two-consonant skeleton.
+    ans = c.answer("Geiriau yr", "euog Iorwerth")                # ATTESTED
+    check("[Alun, ATTESTED] a half with no diweddeb refuses the whole "
+          "placement", ans["class"] is None and ans["first"] is None,
+          ans["why"][:88])
+    check("... and the acennog span WOULD have called that croes too",
+          c.skeleton("Geiriau yr", "acen") == c.skeleton("euog Iorwerth",
+                                                         "acen")
+          == ["g", "r"],
+          "refusing where the class cannot be determined is the fix; "
+          "defaulting to acennog is the defect")
 
 
 def test_check_cynghanedd_defaults_to_welsh():
@@ -454,6 +584,7 @@ if __name__ == "__main__":
                test_regulated_verse_rhymes,
                test_welsh_digraphs_are_single_consonants,
                test_welsh_cynghanedd,
+               test_welsh_accentuation_classes,
                test_welsh_proclitics_are_unstressed,
                test_check_cynghanedd_defaults_to_welsh,
                test_every_module_declares_itself,

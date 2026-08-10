@@ -389,10 +389,25 @@ def test_R2_historical_rhyme_accepts_a_dated_phonology():
     check("the verdict is stamped CONDITIONAL ON the reconstruction",
           "reconstruction" in v.conditional_on,
           "a dated phonology is a declared coordinate, not a measurement")
-    check("the GENERIC channel comparison gets the same pair WRONG",
-          generic_verdict("流", "樓", MC) is False,
+    # This pair is the standing demonstration of doctrine 36, and the producer
+    # moved under it. `rhyme_types.verdict` now ASKS a phonology that declares
+    # the relation and implements the predicate, so the default entry point
+    # gets 流/樓 right where it used to get it wrong. The defect has to stay
+    # REACHABLE or the doctrine becomes a sentence nobody can check -- the same
+    # argument that keeps `modal_exclusion=0` reachable in revise.py -- so the
+    # channel path is pinned explicitly at consult=False and the improvement is
+    # pinned beside it.
+    check("the GENERIC channel comparison still gets the same pair WRONG",
+          generic_verdict("流", "樓", MC, consult=False) is False,
           "raw 切韻 classes are finer than any poet worked to "
           "(doctrine 36); 流/樓 is the rhyme of 登鸛雀樓")
+    check("...but the DEFAULT path now consults the phonology and gets it right",
+          generic_verdict("流", "樓", MC) is True,
+          "the producer asks a phonology that declares the relation; R2's job "
+          "is narrower than it was, and this line records how much")
+    check("consulting does not manufacture a rhyme where there is none",
+          generic_verdict("東", "冬", MC) is False,
+          "東 and 冬鐘 are different 同用 groups under the same consultation")
     check("...so R2 asks the phonology in ITS OWN declared relation",
           "rhyme category" in v.reason, v.reason)
     check("a real non-rhyme still comes back False, not a refusal",

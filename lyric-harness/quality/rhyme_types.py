@@ -342,6 +342,19 @@ WORD_INITIAL = Anchor("word-initial", "rule-fixed", 1)
 FINAL_UNPROMINENT = Anchor("final-unprominent", "rule-fixed", "to-end")
 #: The penultimate stressed syllable -- apocopated rhyme.
 PENULTIMATE_PROMINENT = Anchor("penultimate-prominent", "rule-fixed", "to-end")
+
+#: THE THREE THAT DIFFER ONLY BY ANCHOR. Same span, same direction, same
+#: determinacy, same everything -- one syllable, located by three rules. The
+#: span is 1 here and not 'to-end' on purpose: with a to-end span the three
+#: would also differ in how much material they cover, and then "they differ
+#: only by anchor" would be untrue of the objects even while true of the
+#: prose. `apocopated` with a to-end span is in fact UNEMITTABLE -- the
+#: penultimate prominent syllable is by definition not the last one, so its
+#: to-end span is never one syllable. Registering it that way would have put
+#: an unreachable name in the registry, which is the defect being removed.
+PERFECT_ANCHOR = Anchor("last-prominent", "rule-fixed", 1)
+SYLLABIC_ANCHOR = Anchor("final-unprominent", "rule-fixed", 1)
+APOCOPATED_ANCHOR = Anchor("penultimate-prominent", "rule-fixed", 1)
 #: Sanskrit dvitiyakshara-prasa: the SECOND aksara of the pada, by the form.
 SECOND_AKSARA = Anchor("fixed-index", "rule-fixed", 1, index=1)
 #: Old Norse vidhrhending: the penultimate syllable of the LINE, by the metre.
@@ -373,9 +386,11 @@ WELSH_PENULT = Anchor("last-prominent", "rule-fixed", 1)
 PRESETS = {
     "english-end-rhyme": (LAST_PROMINENT, LAST_PROMINENT, ("nucleus", "coda")),
     "kalevala-alliteration": (WORD_INITIAL, WORD_INITIAL, ("onset",)),
-    "syllabic-rhyme": (FINAL_UNPROMINENT, FINAL_UNPROMINENT,
-                       ("nucleus", "coda")),
-    "apocopated-rhyme": (PENULTIMATE_PROMINENT, PENULTIMATE_PROMINENT,
+    # the anchor-contrast trio: identical but for the rule that finds the
+    # origin, which is the whole claim of axis 8 in three objects
+    "perfect-rhyme": (PERFECT_ANCHOR, PERFECT_ANCHOR, ("nucleus", "coda")),
+    "syllabic-rhyme": (SYLLABIC_ANCHOR, SYLLABIC_ANCHOR, ("nucleus", "coda")),
+    "apocopated-rhyme": (APOCOPATED_ANCHOR, APOCOPATED_ANCHOR,
                          ("nucleus", "coda")),
     "dvitiyakshara-prasa": (SECOND_AKSARA, SECOND_AKSARA, ("onset",)),
     "drottkvaett-hending": (PROMINENT_SEARCH, LINE_PENULT, ("coda",)),
@@ -809,14 +824,25 @@ name(RhymeType((ALLIT,), position="internal"),
 _ANCHORED_FREE = ("stress", "length", "boundary", "realisation")
 
 name(RhymeType((PERFECT,), position=UNLOCATED,
-               anchor_a=LAST_PROMINENT, anchor_b=LAST_PROMINENT),
+               anchor_a=PERFECT_ANCHOR, anchor_b=PERFECT_ANCHOR),
      "perfect rhyme (last stressed syllable)", free=_ANCHORED_FREE)
 name(RhymeType((PERFECT,), position=UNLOCATED,
-               anchor_a=FINAL_UNPROMINENT, anchor_b=FINAL_UNPROMINENT),
+               anchor_a=SYLLABIC_ANCHOR, anchor_b=SYLLABIC_ANCHOR),
      "syllabic rhyme (final unstressed syllable)", free=_ANCHORED_FREE)
 name(RhymeType((PERFECT,), position=UNLOCATED,
-               anchor_a=PENULTIMATE_PROMINENT, anchor_b=PENULTIMATE_PROMINENT),
+               anchor_a=APOCOPATED_ANCHOR, anchor_b=APOCOPATED_ANCHOR),
      "apocopated rhyme (penultimate stressed syllable)", free=_ANCHORED_FREE)
+# the same three at full identity of sound, which is what real pairs give
+# whenever the onsets agree too
+name(RhymeType((RICH,), identity="rich", position=UNLOCATED,
+               anchor_a=PERFECT_ANCHOR, anchor_b=PERFECT_ANCHOR),
+     "rime riche (last stressed syllable)", free=_ANCHORED_FREE)
+name(RhymeType((RICH,), identity="rich", position=UNLOCATED,
+               anchor_a=SYLLABIC_ANCHOR, anchor_b=SYLLABIC_ANCHOR),
+     "syllabic rime riche", free=_ANCHORED_FREE)
+name(RhymeType((RICH,), identity="rich", position=UNLOCATED,
+               anchor_a=APOCOPATED_ANCHOR, anchor_b=APOCOPATED_ANCHOR),
+     "apocopated rime riche", free=_ANCHORED_FREE)
 
 # head-anchored alliteration, which is what 'head' was standing in for
 name(RhymeType((ALLIT,), position=UNLOCATED,
@@ -960,6 +986,16 @@ def _read(text, phon):
 
     If any token is unreadable the WHOLE member is refused, for the same
     reason: a scansion with a hole in it has the wrong indices after the hole.
+
+    THIS MODULE DOES NOT TOKENISE. Members split on WHITESPACE and nothing
+    else, so `'jörð kann frelsa, fyrðum'` is refused on the comma and the
+    caller has to hand over `'jörð kann frelsa fyrðum'`. That is not laziness:
+    doctrine 65 measured four languages giving one apostrophe four different
+    treatments -- Finnish splits on it, Welsh joins, Old Norse fuses, Malay
+    reads it as a phoneme that enters the rime -- so a punctuation rule
+    written here would be wrong in at least three of them while looking
+    plausible in all four. Punctuation is the caller's declaration, and each
+    phonology already owns its own.
     """
     toks = str(text).split()
     if not toks:
@@ -982,6 +1018,40 @@ def _read(text, phon):
 
 def _prominence_present(sylls):
     return any(s.prominence is not None for s in sylls)
+
+
+def _implements(phon, meth):
+    """Does this phonology IMPLEMENT `meth`, or merely inherit the stub?
+
+    The interface's own `rhymes`/`alliterates` return None for everything, and
+    None from a stub is not the same object as None from `fas` refusing an
+    unwritten short vowel. The stub is identified by the base class that
+    declares `relation = 'none'` -- which is the interface saying, in its own
+    fields, that it has no relation. No import of the phonology package: this
+    module stays declaration-driven and duck-typed.
+    """
+    fn = getattr(type(phon), meth, None)
+    if fn is None:
+        return False
+    for base in type(phon).__mro__[1:]:
+        if getattr(base, meth, None) is fn \
+                and getattr(base, "relation", None) == "none":
+            return False
+    return getattr(phon, "relation", "none") not in ("none", "unset")
+
+
+def _ask(phon, meth, a, b):
+    """-> the phonology's own tri-state, or _NOT_ASKED if it raised.
+
+    A phonology that REFUSES by raising -- `san.stresses`, `som` on a stress
+    grid -- has not answered, and recording its exception as False would be
+    the defaulting error one level up.
+    """
+    try:
+        v = getattr(phon, meth)(a, b)
+    except Exception:
+        return _NOT_ASKED
+    return v if v in (True, False, None) else _NOT_ASKED
 
 
 def resolve_anchor(anchor, sylls, owner=None, frame=None, which="a"):
@@ -1255,7 +1325,7 @@ def _position(a, b, frame, spans):
 
 def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
                   realisation="phonetic", anchor_a=None, anchor_b=None,
-                  preset=None, frame=None, select=None):
+                  preset=None, frame=None, select=None, consult=True):
     """Two members and a phonology -> a RhymeType coordinate, or None.
 
     None means at least one member is outside the phonology's declared
@@ -1288,6 +1358,16 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
     The result carries `.searched` -- how many origins were tried on each side
     -- because taking the best of k is k hypotheses (doctrine 56) and a caller
     comparing a searched rate with an unsearched one needs the k to do it.
+
+    THE PHONOLOGY'S OWN RELATION WINS WHERE IT HAS ONE. `consult=True` (the
+    default) asks `phon.rhymes` / `phon.alliterates` whenever the phonology
+    declares a relation, implements the predicate, both members are one token,
+    and the caller declared no locator of their own. Channel equality is NOT
+    the relation everywhere: Middle Chinese 流 and 樓 differ in the nucleus
+    (尤 against 侯) and rhyme, because 平水韻 同用 merges the categories in a
+    TABLE that no channel comparison can rederive. `.route` says which answer
+    each predicate came from and `.disagreements` reports where the two routes
+    differ, unresolved -- that disagreement is how the case was found.
     """
     if preset is not None:
         if preset not in PRESETS:
@@ -1318,11 +1398,6 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
     if bad:
         raise ValueError(f"{bad} are not channels; declared channels are "
                          f"{list(CHANNELS)}")
-    if (anchor_a.determinacy == "searched"
-            or anchor_b.determinacy == "searched") and select == CHANNELS:
-        # not an error -- a search over all three channels is a legitimate
-        # declaration -- but it is a DECLARATION, and the result records it
-        pass
 
     if position is not None and frame is None:
         raise Unverifiable(
@@ -1364,34 +1439,43 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
     # scores perfectly. Measured: without this, the dróttkvætt preset returns
     # the viðrhending answering itself on every line.
     same_member = str(a).strip() == str(b).strip()
+    combos = [(ia, ib) for ia in cand_a for ib in cand_b]
+    self_pair = False
+    if same_member:
+        distinct = [(ia, ib) for ia, ib in combos if ia != ib]
+        # ...UNLESS distinctness leaves nothing. One member compared with
+        # itself at the SAME origin is a legitimate coordinate -- it is
+        # `identity='same_word'`, which is REPEAT, radif and the refrain, and
+        # doctrine 3 says that is a type and not an error. Deleting it to make
+        # room for the internal relation would be the doctrine-24 mistake:
+        # a rule that removes a category instead of naming one.
+        if distinct:
+            combos = distinct
+        else:
+            self_pair = True
 
     best, ties = None, 0
-    for ia in cand_a:
+    for ia, ib in combos:
         xa = _span_indices(len(sa), ia, anchor_a.span)
-        for ib in cand_b:
-            if same_member and ia == ib:
-                continue
-            xb = _span_indices(len(sb), ib, anchor_b.span)
-            m = min(len(xa), len(xb))
-            if m == 0:
-                continue
-            agr = tuple(
-                (_cmp(sa[i].onset, sb[j].onset),
-                 _cmp(sa[i].nucleus, sb[j].nucleus),
-                 _cmp(sa[i].coda, sb[j].coda))
-                for i, j in zip(xa[:m], xb[:m]))
-            sc = _score(agr, select)
-            if best is None or sc > best[0]:
-                best = (sc, agr, ia, ib, xa[:m], xb[:m])
-                ties = 1
-            elif sc == best[0]:
-                ties += 1
+        xb = _span_indices(len(sb), ib, anchor_b.span)
+        m = min(len(xa), len(xb))
+        if m == 0:
+            continue
+        agr = tuple(
+            (_cmp(sa[i].onset, sb[j].onset),
+             _cmp(sa[i].nucleus, sb[j].nucleus),
+             _cmp(sa[i].coda, sb[j].coda))
+            for i, j in zip(xa[:m], xb[:m]))
+        sc = _score(agr, select)
+        if best is None or sc > best[0]:
+            best = (sc, agr, ia, ib, xa[:m], xb[:m])
+            ties = 1
+        elif sc == best[0]:
+            ties += 1
     if best is None:
         raise Indeterminate(
-            "no origin pair yields a non-empty span at two distinct "
-            "positions; the anchors resolved and either their spans do not "
-            "overlap the members, or the only pairing this member allows is "
-            "one position against itself")
+            "no origin pair yields a non-empty span; the anchors resolved and "
+            "the spans they declare do not overlap the members")
     _sc, agr, ia, ib, xa, xb = best
 
     same_text = str(a).strip().lower() == str(b).strip().lower()
@@ -1447,8 +1531,25 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
     object.__setattr__(t, "searched", (len(cand_a), len(cand_b)))
     object.__setattr__(t, "select", select)
     object.__setattr__(t, "ties", ties)
+    object.__setattr__(t, "self_pair", self_pair)
     object.__setattr__(t, "member_text", (
         tuple(sa[i].text for i in xa), tuple(sb[j].text for j in xb)))
+
+    # ASK THE PHONOLOGY where it declares a relation of its own. Only when
+    # the caller has NOT declared a locator: `phon.rhymes()` answers about the
+    # word under that phonology's own anchor rule, so against a second-akṣara
+    # or a penultimate anchor it is answering a different question and its
+    # answer is not evidence about this one. `consult=False` turns it off and
+    # is reachable, so the channel-only path stays demonstrable.
+    one_token = len(str(a).split()) == 1 and len(str(b).split()) == 1
+    if consult and one_token:
+        if anchor_a == LAST_PROMINENT and anchor_b == LAST_PROMINENT \
+                and _implements(phon, "rhymes"):
+            object.__setattr__(t, "_declared_rhyme", _ask(phon, "rhymes", a, b))
+        if anchor_a == WORD_INITIAL and anchor_b == WORD_INITIAL \
+                and _implements(phon, "alliterates"):
+            object.__setattr__(t, "_declared_allit",
+                               _ask(phon, "alliterates", a, b))
     return t
 
 
@@ -1487,4 +1588,5 @@ __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
            "UNLOCATED", "LAST_PROMINENT", "WORD_INITIAL", "FINAL_UNPROMINENT",
            "PENULTIMATE_PROMINENT", "SECOND_AKSARA", "LINE_PENULT",
            "PROMINENT_ONSET_SEARCH", "PROMINENT_SEARCH", "WELSH_PENULT",
+           "PERFECT_ANCHOR", "SYLLABIC_ANCHOR", "APOCOPATED_ANCHOR",
            "FREE", "AXIS_INDEX"]

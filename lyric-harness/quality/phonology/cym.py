@@ -59,7 +59,22 @@ is the accented vowel, so the old rule was right there and only there.
 class of the consonantal cynghanedd; the tradition works three. It is REFUSED
 by default rather than given a span (`dyrchafedig="rising"` reaches the other
 reading), and the table above is why: at those placements the traws rate sits
-BELOW its own null under either reading.
+BELOW its own null under either reading. What its apparent croes lift was made
+of is visible in one line: `A'i gorn teg i | gern y twr` scores identically to
+the legal `A'i gorn teg | i gern y twr` because the proclitic `i` carries no
+consonant, so every real cytbwys acennog line with a consonant-free proclitic
+at the seam grew a duplicate placement one word over.
+
+WHAT IT COSTS, WHICH IS THE ONLY QUESTION (doctrine 61)
+`quality/cynghanedd_rate.py`, caesura='search', 200 within-line shuffles:
+
+                    observed         null max          gap
+    Alun          54.1% -> 57.1%   27.8% -> 21.8%   +26.3 -> +35.3
+    Twm o'r Nant  51.3% -> 46.2%   36.5% -> 26.9%   +14.7 -> +19.2
+
+The second row is the one to read: the class rule fires LESS often on Twm o'r
+Nant and is still the better rule, because the null falls further than the
+observation does. A rate is not evidence; the excess over a matched control is.
 
 DECLARED AMBIGUITIES, rather than resolved ones
 
@@ -467,7 +482,13 @@ class Welsh(Phonology):
     def cynghanedd_scan(self, line, caesura="search", dyrchafedig="refuse"):
         """Search every word boundary for a caesura that makes the line work.
 
-        -> {"type", "detail", "positions_tried", "caesura"}
+        -> {"type", "detail", "positions_tried", "caesura", "class"}
+
+        `class` is the ACCENTUATION CLASS of the placement it reported, and it
+        is None for sain, llusg and for no result -- the class is a property of
+        the two ends either side of a caesura, so a reading that does not put
+        one there does not have one. `dyrchafedig` is passed through to
+        `answer()`.
 
         `positions_tried` is the point of this method. Taking the best of k
         placements is k hypotheses, and doctrine 19 says an argmax over a swept
@@ -483,7 +504,7 @@ class Welsh(Phonology):
         n = len(words)
         if n < 2:
             return {"type": None, "detail": "fewer than two words",
-                    "positions_tried": 0, "caesura": None}
+                    "positions_tried": 0, "caesura": None, "class": None}
         two = [(i,) for i in range(1, n)]
         three = list(itertools.combinations(range(1, n), 2))
         tried = len(two) + len(three)
@@ -518,15 +539,16 @@ class Welsh(Phonology):
             if kind:
                 return {"type": "sain",
                         "detail": f"{why} (1 of {tried} placements)",
-                        "positions_tried": tried, "caesura": (i, j)}
+                        "positions_tried": tried, "caesura": (i, j),
+                        "class": None}
         ok, why = self.llusg(line)
         if ok:
             return {"type": "llusg", "detail": why,
-                    "positions_tried": tried, "caesura": None}
+                    "positions_tried": tried, "caesura": None, "class": None}
         return {"type": None,
                 "detail": f"no cynghanedd at any of {tried} caesura "
                           f"placements; llusg: {why}",
-                "positions_tried": tried, "caesura": None}
+                "positions_tried": tried, "caesura": None, "class": None}
 
     def _sain(self, parts):
         """Three parts: 1 rhymes 2, and 2 alliterates 3. -> (kind, why)."""
@@ -544,7 +566,7 @@ class Welsh(Phonology):
                             f"{parts[2].split()[-1]} on {b[0].onset[0]!r}")
         return None, f"sain needs rhyme AND alliteration; rhyme={rhyme} allit={allit}"
 
-    def cynghanedd(self, line, caesura="marked"):
+    def cynghanedd(self, line, caesura="marked", dyrchafedig="refuse"):
         """-> (type, detail) or (None, reason). Types: croes, traws, sain,
         llusg.
 
@@ -571,6 +593,10 @@ class Welsh(Phonology):
                     be corrected rather than absorbed. Never compare a searched
                     rate against an unsearched one.
 
+        `dyrchafedig` is the other declared coordinate and it is passed to
+        `answer()`: whether a line whose first end is unaccented and whose
+        second is accented is read as a consonantal cynghanedd at all.
+
         A PRINTED COMMA IS NOT A CAESURA. It used to be treated as one, which
         is worse than it sounds: a line with two commas was forced down the
         three-part `sain` path and could not be read as croes or traws at all,
@@ -583,7 +609,7 @@ class Welsh(Phonology):
                 f"caesura must be printed) and 'search' (try every boundary "
                 f"and report how many were tried).")
         if caesura == "search":
-            hit = self.cynghanedd_scan(line)
+            hit = self.cynghanedd_scan(line, dyrchafedig=dyrchafedig)
             return hit["type"], hit["detail"]
         parts = self._marked_parts(line)
         if parts is None:
@@ -604,20 +630,25 @@ class Welsh(Phonology):
                 return "llusg", why
             return None, (f"need 2 or 3 parts split on a caesura, got "
                           f"{len(parts)}; llusg: {why}")
-        sa, sb = self.skeleton(parts[0]), self.skeleton(parts[1])
+        ans = self.answer(parts[0], parts[1], dyrchafedig=dyrchafedig)
+        sa, sb = ans["first"], ans["second"]
         if sa is None or sb is None:
-            return None, "unreadable"
+            ok, why = self.llusg(line)
+            if ok:
+                return "llusg", why
+            return None, f"{ans['why']}; llusg: {why}"
         if not sa:
             return None, "no consonants before the caesura"
         if sa == sb:
-            return "croes", f"skeleton {sa} answered exactly"
+            return "croes", f"{ans['class']}: skeleton {sa} answered exactly"
         if len(sb) > len(sa) and sb[-len(sa):] == sa:
-            return "traws", (f"skeleton {sa} answered after unanswered bridge "
-                             f"{sb[:-len(sa)]}")
+            return "traws", (f"{ans['class']}: skeleton {sa} answered after "
+                             f"unanswered bridge {sb[:-len(sa)]}")
         ok, why = self.llusg(line)
         if ok:
             return "llusg", why
-        return None, f"{sa} not answered by {sb}; llusg: {why}"
+        return None, (f"{ans['class']}: {sa} not answered by {sb}; "
+                      f"llusg: {why}")
 
 
 register(Welsh())
