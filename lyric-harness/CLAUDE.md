@@ -59,9 +59,25 @@ cynghanedd [--lang=cym|eng] "line" | prasa K L... | demo
   violations (123/1064, up from 8.0% pre-band — the rise is the typed
   residue: love/prove and its class are CONSONANCE in the declared
   General American dialect, which is correct and now named). Whitman
-  20.0% chained at theta 0.82, down from 26.0%: the band tightened the
-  negative control, which is why it ships and the fitted matrix does
-  not. verse.txt DELETED 2026-08-10: it was an in-copyright rap
+  20.0% chained at theta 0.82, down from 26.0%.
+  **THAT DROP IS OVERTURNED AS EVIDENCE (quality/NULL_AUDIT.md, verified
+  independently).** Permute Whitman's LINES within the item -- every
+  line verbatim, every end word, same theta, same band, same
+  comparator, only the order destroyed -- and the null spans
+  6.7%-27.3%. Both recorded figures sit inside it: 26.0% gives
+  p=0.0547, 20.0% gives p=0.2090. The band lowers the observation 6.0
+  points and the null MEDIAN 2.7, so the separation moves only
+  +6.7 -> +3.3 pp from a baseline that never separated. A filter that
+  lowers chance and signal together has not tightened anything. So the
+  sentence that used to end this line -- "which is why it ships and the
+  fitted matrix does not" -- was never supported, and it is withdrawn.
+  THE BAND STILL SHIPS, on the argument in doctrine 3/24 that it
+  RELABELS rather than rejects, which is a claim about the taxonomy and
+  needs no negative control. What is gone is the empirical warrant.
+  The instrument is fine: the SAME statistic under the SAME null gives
+  sonnets 52.0% vs a null max of 34.2%, +17.9 pp with p at the floor.
+  It is the Whitman COMPARISON that was uninformative, not the harness.
+  verse.txt DELETED 2026-08-10: it was an in-copyright rap
   transcription that predated the provenance gate and was never
   declared in data/sources.tsv or run through it, yet the time layer's
   entire rap arm (n=1) rested on it. No rap corpus can EVER be admitted
@@ -84,10 +100,18 @@ cynghanedd [--lang=cym|eng] "line" | prasa K L... | demo
    free 0.15 stress gift became -0.0999 bits, and empty/empty coda went
    from 1.0 to -0.000. Held-out separation gains +0.003 (0.9177 vs
    0.9146) -- real in sign, inside anyone's noise -- and the Whitman
-   negative control still got worse (21.3% vs 18.0% at matched FPR).
+   negative control still got worse (21.3% vs 18.0% at matched FPR) --
+   BUT THAT HALF IS ALSO WITHDRAWN, for the same reason as the band's:
+   all four recorded Whitman figures (18.0, 20.0, 21.3, 26.0) fall
+   inside one line-permutation null spanning 6.7%-27.3%, so no ordering
+   among them is evidence of anything. See quality/NULL_AUDIT.md.
    NOT the default; Declaration.fitted stays False and a test enforces
-   it. (Both figures here are the CLEAN ones; the first run was fitted
-   on 9.2% corrupted end words.)
+   it -- now resting ONLY on the held-out gain of +0.003, which the
+   record already called "inside anyone's noise". That is a weaker case
+   than this file used to make, and it is the honest one: the fitted
+   matrix is not shipped because nothing shows it helps, not because
+   something shows it hurts. (Both figures here are the CLEAN ones; the
+   first run was fitted on 9.2% corrupted end words.)
    Remaining: sun/much needs a CONJUNCTIVE band rule, not a comparator
    -- its nucleus is identical, so it was never a floor case.
 3. **Time layer.** Placement half built, POWERED and null. The blocker
@@ -692,3 +716,37 @@ Doctrine additions, earned from the first run — do not drift from these either
    one, and "normalise to the standard" is a modelling choice, not hygiene.
    The cost is declared rather than hidden: `-ong` now writes both /oŋ/ and
    /uŋ/, so where that merger lands inside a rime `rhymes()` returns None.
+71. **A negative control that does not separate from its own null is not a
+   negative control.** The conjunctive band shipped because it dropped Whitman
+   from 26.0% to 20.0%. Permute Whitman's LINES within the item and the null
+   spans 6.7%-27.3%: BOTH figures are inside it (p=0.055 and p=0.209), and the
+   null MEDIAN falls 19.3 -> 16.7 when the band goes on, so the separation
+   moved +6.7 -> +3.3 pp from a baseline that never separated. A filter that
+   lowers chance and signal together has not tightened anything. The same
+   statistic under the same null separates the SONNETS by +17.9 pp with p at
+   the floor -- so the instrument was never the problem and the comparison was
+   the empty part. Before citing a control as evidence for a decision, check
+   that the control itself clears its null.
+72. **A calibration measured at n=6 is not a calibration.** The time layer's
+   false-event rate, "5.4% against a declared 5.0%", reproduces to the digit --
+   and it is six sonnets. Run the identical construction at n=20 and it is
+   9.6%, roughly twice alpha. The guarding test runs THREE sonnets and asserts
+   only `mean < 0.20`, a tolerance that cannot detect a 2x miss. An alpha claim
+   is a claim about a long-run rate; measure it at a length that could falsify
+   it, and set the test's tolerance from the claim rather than from the
+   observation.
+73. **A single CV seed is a coin flip reported as a verdict.** RESULTS_WITHIN_
+   ITEM P2 recorded "FAILED. 0.659 -> 0.604" off one hard-coded seed. Over 200
+   seeds the medians are 0.603 and 0.606 -- the sign of the difference flips.
+   The document's CONCLUSION survives and is strengthened (neither AUC beats
+   its own label-permutation null), but the scored verdict was an artifact of
+   the seed. Any number from a randomised split needs its own distribution.
+74. **Check that your H0 is uniform before quoting a p from it.** A pooled
+   Fisher p of 0.950 was read as 1-in-20. Under 200 H0 replicates at the real
+   item sizes the per-item p has median 0.559, not 0.500, and the share
+   reaching >=0.950 is 0.085 -- about 1-in-12. The cause is structural: rhymes
+   arrive in PAIRS inside a window while `analyse()` draws independent
+   positions, so observed events are more phase-spread than the null assumes.
+   The repo already contained the proof -- arm C2 is an empirical H0 arm and
+   returns Fisher p=1 -- and nobody had put the two next to each other. A
+   p-value inherits every assumption of the null that generated it.
