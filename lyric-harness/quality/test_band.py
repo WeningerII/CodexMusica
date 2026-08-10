@@ -87,9 +87,23 @@ def test_consonance_is_named_too():
 def test_real_rhymes_survive():
     print("\n4. the rule must not eat genuine rhyme")
     for a, b in [("night", "light"), ("fire", "desire"), ("hand", "land"),
-                 ("bad", "bat"), ("state", "gate")]:
+                 ("state", "gate")]:
         r, t = rel(a, b)
         check(f"{a}/{b} stays RHYME", r == "RHYME", f"{r} at {t:.3f}")
+    # `bad`/`bat` MOVED, and it is the honest cost of calibrating theta_coda
+    # 0.60 -> 0.80 rather than a regression to paper over. The two differ only
+    # in the VOICING of the final stop, so D~T agreement (0.667) now sits below
+    # the threshold and the pair types as ASSONANCE. Most ears would accept it
+    # as a slant rhyme, and that is exactly the 0.6pp of true-positive cost the
+    # held-out sweep priced against a 2.6x cut in false positives
+    # (quality/RESULTS_REDTEAM.md). Doctrine 24 applies and is why this is
+    # survivable: the rule RELABELS, so the pair is still in the taxonomy under
+    # a name that is arguably more accurate, rather than deleted.
+    r, t = rel("bad", "bat")
+    check("bad/bat is now ASSONANCE, not RHYME — the priced cost",
+          r == "ASSONANCE", f"{r} at {t:.3f}. Voicing-only coda contrast. If "
+          f"this must be RHYME again, that is a theta_coda decision with a "
+          f"measured false-positive price, not a bug fix.")
 
 
 def test_no_flattening():

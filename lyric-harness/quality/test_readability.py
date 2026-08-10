@@ -245,18 +245,25 @@ def test_nothing_was_lost_on_the_sonnets():
         mandated += r["pairs_mandated"]
         judged += r["pairs_judged"]
     check("mandated pairs still 1064", mandated == 1064, f"{mandated}")
-    check("violations + refusals == the recorded pre-fix 123",
-          viol + ref == 123,
+    # 123 = 73 + 50 held while theta_coda was 0.60. Calibrating it to 0.80
+    # (quality/redteam_band.py) moves the VIOLATION count to 81; the REFUSAL
+    # count is a property of CMUdict, not of the band, so it does not move.
+    # That invariance is the point of this check and is what it now pins.
+    check("violations + refusals == the recorded total",
+          viol + ref == 131,
           f"{viol} + {ref} -- nothing was invented and nothing vanished")
-    check("50 of the recorded 123 were REFUSALS, not rhyme failures",
-          ref == 50,
+    check("50 of them are REFUSALS, not rhyme failures, and that count is "
+          "independent of the band's thresholds", ref == 50,
           "40.7% of the sonnet battery's headline violation count was "
           "CMUdict failing to read Shakespeare, reported as Shakespeare "
           "failing to rhyme")
-    check("the violation count is 73", viol == 73)
+    # 73 -> 81 when theta_coda was calibrated 0.60 -> 0.80. The count that
+    # matters to THIS test is unchanged: 50 refusals stay out of the numerator.
+    check("the violation count is 81 (was 73 at theta_coda 0.60)", viol == 81,
+          f"{viol}: " + """ + repr(NOTE) + """)
     check("the judged denominator is 1014", judged == 1014,
-          f"{judged}: a violation RATE is 73/1014 = "
-          f"{73/1014:.1%}, not 123/1064 = 11.6%")
+          f"{judged}: a violation RATE is 81/1014 = "
+          f"{81/1014:.1%}, not 131/1064 = 12.3%")
 
 
 # ---------------------------------------------------------------------------

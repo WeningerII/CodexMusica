@@ -12,7 +12,7 @@ negative control tightens — which is what the fitted matrix could not do.**
 |---|---|
 | P1 — `sun`/`much` stops being admitted as rhyme | **CONFIRMED** — types as ASSONANCE |
 | P2 — no flattening | **CONFIRMED** — vocabulary 3 names → 5 |
-| P3 — the residue decomposes, violations rise | **CONFIRMED** — 3.5% → 7.2% (recorded here as 8.0% → 11.6%; see below) |
+| P3 — the residue decomposes, violations rise | **CONFIRMED** — 3.5% → 7.2%, and 8.0% once the coda threshold was calibrated (recorded here as 8.0% → 11.6%; see below) |
 | P4 — the negative control tightens | **CONFIRMED** — Whitman 26.0% → **20.0%** |
 | P5 — TRIPWIRE: open-syllable rhymes survive | **did not fire** |
 
@@ -84,6 +84,7 @@ numerators counted them too. Re-measured band-off and band-on over the identical
 |---|---:|---:|---:|---:|---:|
 | band off | 1064 | 50 | 1014 | 35 | **3.5%** |
 | band on | 1064 | 50 | 1014 | 73 | **7.2%** |
+| band on, theta_coda calibrated 0.60 -> 0.80 (2026-08-10) | 1064 | 50 | 1014 | 81 | **8.0%** |
 
 85 − 50 = 35 and 123 − 50 = 73, so **no count moved**: the 50 simply stopped
 being called violations. The rise of 38 pairs is the same 38. What changes is
@@ -135,11 +136,23 @@ comparison count. Post-hoc, and reported as post-hoc.
 - **`bad`/`bat` stays RHYME** at 0.895, because D and T agree above
   `theta_coda`. That is a slant rhyme and arguably correct, but it means the
   rule types by *graded* coda agreement, not identity, and where the line sits
-  is `theta_coda = 0.60` — a declared coordinate, and the one number here that
-  is not read off a distribution. The background coda distribution is atomic at
-  1.0 (8.6% of random pairs have two empty codas, and common final consonants
-  repeat), so a percentile could not discriminate and a judgement was required.
-  It is declared rather than hidden.
+  is `theta_coda`.
+  **THIS ENTRY SAID 0.60 WAS "the one number here that is not read off a
+  distribution", AND THAT WAS TRUE AND IS NO LONGER.** `quality/redteam_band.py`
+  read it off one. At 0.60 the band admitted **11.10% of random CMUdict word
+  pairs as RHYME** while failing only 7.2% of Shakespeare's mandated pairs — a
+  NEGATIVE separation, i.e. the harness was likelier to marry two random
+  dictionary words than to fail one of his. `independents`/`powersoft` passed,
+  because AH~AA scores 0.730 and NTS~FT scores exactly 0.600. Held out on an
+  untouched half of the sonnets and an untouched half of the random pairs,
+  **0.80** cuts the false-positive rate 11.93% → 4.67% for 0.6pp of
+  true-positive cost, and the separation goes −5.5pp → +2.4pp. Shipped, because
+  doctrine 5 requires a fit to beat the hand-set value HELD OUT and this one
+  does, in both halves, in the same direction. The old argument — that the coda
+  background is atomic at 1.0 so a percentile could not discriminate — was
+  about calibrating against the coda distribution alone; it never occurred to
+  anyone to calibrate the whole band against a random-pair false-positive rate,
+  which is doctrine 22 and was sitting there the whole time.
 - **Multi-syllable anchors** are compared syllable-by-syllable from the
   stressed one. Mosaic and broken rhyme reach across word boundaries in ways
   this alignment does not model.

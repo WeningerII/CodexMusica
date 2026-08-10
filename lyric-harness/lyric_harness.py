@@ -175,7 +175,20 @@ class Declaration:
     # consonance, oblique and slant rhyme from a harness built to represent
     # them, which would be a worse defect than the leak.
     conjunctive_band: bool = True
-    theta_coda: float = 0.60      # coda AGREEMENT, not coda evidence
+    # CALIBRATED 2026-08-10, was 0.60 and hand-set from the first commit.
+    # 0.60 was never a decision, it was a guess, and quality/redteam_band.py
+    # measured what it cost: on 3,000 random CMUdict word pairs the band
+    # admitted 11.10% as RHYME while rejecting only 7.2% of Shakespeare's
+    # mandated pairs -- so the harness was MORE likely to marry two random
+    # dictionary words than to fail one of his. `independents`/`powersoft`
+    # passed, because AH~AA scores 0.730 and NTS~FT scores exactly 0.600.
+    # Held out on an untouched half of the sonnets and an untouched half of the
+    # random pairs, 0.80 cuts the false-positive rate 11.93% -> 4.67% for 0.6pp
+    # of true-positive cost (6.4% -> 7.0% violations), and the separation goes
+    # from NEGATIVE (-5.5pp) to +2.4pp. Doctrine 5 says ship a fit only if it
+    # beats the hand-set value held out; this one does, in both halves, in the
+    # same direction. Doctrine 22: the number now carries a rate.
+    theta_coda: float = 0.80      # coda AGREEMENT, not coda evidence
     theta_nucleus: float = 0.60
     final_promotion: bool = True              # verse promotes unstressed finals:
                                               # argument/spent rhymes on -ment
@@ -593,15 +606,39 @@ def channel_agreement(anc_a, anc_b, decl):
 
     Conjunctive across syllables as well as channels: the weakest aligned
     syllable decides, so a strong first syllable cannot buy a weak second.
+
+    ALIGNED FLUSH RIGHT, and it was not until 2026-08-10.
+
+    The line below used to read `for i in range(n)` over `anc_a[i]`/`anc_b[i]`,
+    which aligns the two spans from the HEAD. Rhyme aligns from the TAIL. For
+    two anchors of EQUAL length the two are the same computation, which is why
+    every test in this repo passed for the life of the project and why the
+    sonnet oracle never moved: a test author reaching for an example reaches
+    for `nation`/`station`.
+
+    It differs the moment the spans have different syllable counts -- which is
+    the mosaic and multisyllabic reach, the thing `line_anchors` exists to
+    produce. Measured on the 152 sonnets: 67.8% of candidate anchor-span pairs
+    are unequal-length, and head vs tail alignment DISAGREE on 79.9% of those,
+    54.1% of all pairs. The case that exposed it: `get to go` against `ceipt`
+    compared `get`(EH,T) with `ceipt`(IY,T), found the T codas identical and
+    the front vowels close, and returned (True, True) -- so a 0.579 pair was
+    typed RHYME. Tail-aligned it is (False, False), nucleus similarity 0.245.
+
+    This is doctrine 83's defect in the SHIPPED comparator rather than in the
+    taxonomy: there, suffix alignment was the function instead of a parameter
+    of it; here, head alignment was the function and nobody had written a pair
+    whose lengths differ.
     """
     n = min(len(anc_a), len(anc_b))
     if not n:
         return False, False
-    nuc = min(vowel_sim(anc_a[i]["nucleus"], anc_b[i]["nucleus"])
+    ta, tb = anc_a[-n:], anc_b[-n:]
+    nuc = min(vowel_sim(ta[i]["nucleus"], tb[i]["nucleus"])
               for i in range(n))
     codas = []
     for i in range(n):
-        ca, cb = anc_a[i]["coda"], anc_b[i]["coda"]
+        ca, cb = ta[i]["coda"], tb[i]["coda"]
         codas.append(1.0 if (not ca and not cb) else cluster_sim(ca, cb))
     return nuc >= decl.theta_nucleus, min(codas) >= decl.theta_coda
 

@@ -1075,4 +1075,36 @@ Doctrine additions, earned from the first run — do not drift from these either
    Gītagovinda's 24 aṣṭapadī were recovered by ONE fixed unswept rule and came
    out at the canonical 24, and the looser variant of that rule (K=1) finds
    MORE and is worse — 2.38x lift against 2.87x (doctrine 61 again).
-
+94. **A positive-case suite cannot find a rule that is too GENEROUS.** Every
+   comparator test in this repo was someone writing `nation`/`station` and
+   checking that it passes — and a generous rule passes every positive case by
+   construction. Nobody had written `five`/`of` and looked at the answer. The
+   band's thresholds went eight months without a false-positive rate, and when
+   one was finally measured (`quality/redteam_band.py`, 3,000 random CMUdict
+   pairs against a strict-identity reference) it admitted **11.10% of random
+   word pairs as RHYME while failing 7.2% of Shakespeare's mandated pairs** —
+   a NEGATIVE separation. `independents`/`powersoft` passed because AH~AA
+   scores 0.730 and NTS~FT scores exactly 0.600. This repo had two adversaries
+   already, and neither attacked the CODE: the nulls attack our RESULTS, and
+   `revise.py` attacks the WRITING. Build the third. The reference line has to
+   need no judgement (here, strict identity of the tail-aligned nucleus and
+   coda) and must be declared as a REFERENCE and not as truth, because a band
+   tuned to agree with identity would delete slant rhyme, which is the point of
+   having a band. `theta_coda` 0.60 -> 0.80 is shipped on a HELD-OUT split
+   (doctrine 5): FPR 11.93% -> 4.67% for 0.6pp of true-positive cost, same
+   direction in both halves. `theta_nucleus` is NOT changed — tightening it is
+   a worse trade and `five`/`of` still passes at 0.603 against 0.600, which is
+   now visible instead of hidden. Price the cost out loud: `bad`/`bat` is no
+   longer RHYME, and it survives as ASSONANCE only because doctrine 24 makes
+   the rule relabel rather than reject.
+95. **The alignment defect was in the SHIPPED comparator, not only the
+   taxonomy, and equal-length examples hid it.** `channel_agreement` compared
+   `anc_a[i]` with `anc_b[i]` — flush LEFT — from the first commit, while rhyme
+   aligns flush RIGHT. On the 152 sonnets 67.8% of candidate anchor-span pairs
+   are unequal length and the two alignments disagree on **79.9%** of those.
+   The sonnet oracle never moved, because a mandated pair's best alignment is
+   already the equal-length one — so the corpus that was supposed to catch
+   everything was structurally incapable of catching this. Doctrine 83 found
+   the identical error in `rhyme_types.classify_pair` and nobody thought to
+   check whether the shipped comparator had it too. When a defect is found in
+   one layer, grep the others for the same shape before closing it.
