@@ -632,7 +632,10 @@ Doctrine additions, earned from the first run — do not drift from these either
    it from what the mark does in THAT language.
    **Four languages, four rules for ONE glyph, none portable:** Finnish SPLITS
    on the apostrophe (it blocks a vowel merger), Welsh JOINS on it (elision),
-   Old Norse EXPANDS it (`sá 's` is `sá es`), and Malay reads it as A PHONEME --
+   Old Norse FUSES it (`sá 's` is `sás`, ONE token -- this file said "expands
+   to two" for a day and the corpus overruled it: dróttkvætt lines are six
+   syllables, and fusion gives exactly six on 9 of 9 readable enclitic lines
+   while expansion gives seven every time), and Malay reads it as A PHONEME --
    word-final `'` is hamzah /ʔ/, a real coda that ENTERS THE RIME, so `pinta'`
    rhymes `minta'` and not `pintar`. In Malay it is even two marks wearing one
    glyph, split positionally: coda when final or after a vowel, apheresis when

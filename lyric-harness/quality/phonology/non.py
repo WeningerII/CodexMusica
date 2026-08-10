@@ -242,8 +242,43 @@ MERGED_READINGS = {"ö": ("ǫ", "ø"), "æ": ("æ", "œ")}
 _WORD_RE = re.compile("[^\\s,.;:!?()\\[\\]{}\u00ab\u00bb\"\u201c\u201d\u201e'\u2019\u00b7\u2014\u2013\u20260-9]+")
 
 
+#: The enclitic `es`, which this edition prints as `'s` -- `sá 's`, `þess's`,
+#: `allt's`. It FUSES to one token; it does not expand to two.
+#:
+#: That was settled by counting syllables, not by argument. Dróttkvætt lines
+#: are six syllables, and on the nine readable lines carrying the enclitic,
+#: fusion (`sá 's` -> `sás`) gives exactly SIX on 9 of 9, while expansion
+#: (`sá es`) gives SEVEN every single time. The kviðuháttr and runhent lines
+#: in the same files land on their own counts under fusion and one over under
+#: expansion. The edition corroborates it: it writes the solid form more often
+#: than the apostrophe form -- `sás` 12, `þanns` 8, `þats` 4, against 23
+#: apostrophe tokens in 1,228 lines -- so the apostrophe spelling is a
+#: typographic variant of a form this module already reads.
+#:
+#: TRIGGER ON THE SHAPE, NEVER ON THE MARK. In the PROSE of these same files
+#: the apostrophe is a quotation mark, 171 times (`'Þat`, `kost'`, `þá?'`).
+#: Only `<host>'s` fuses.
+_ENCLITIC_RE = re.compile(r"(\S+?)\s*['’’]s\b")
+
+
+def _fuse_enclitics(text):
+    """`sá 's` -> `sás`. S-AWARE: `þess's` -> `þess`, not `þesss`.
+
+    The s-awareness is not tidiness. `units('osss')` is ['o','s','s','s'] and
+    the hending-consonant rule caps the run at two, so a naive concatenation
+    happens to match `oss` -- by accident of the syllabifier, on a three-
+    consonant cluster that is not a possible Old Norse coda. The consonant
+    skeleton is the dependent variable here, so it may not be right by luck.
+    """
+    def one(m):
+        host = m.group(1)
+        return host if host.lower().endswith("s") else host + "s"
+    return _ENCLITIC_RE.sub(one, text)
+
+
 def _tokens(text):
-    return [w for w in _WORD_RE.findall(text) if w.strip("-")]
+    return [w for w in _WORD_RE.findall(_fuse_enclitics(text))
+            if w.strip("-")]
 
 
 def _norm(word):
@@ -669,11 +704,29 @@ class OldNorse(Phonology):
         Snorri's own category and it is also where this module is guessing,
         because it cannot see the compound that licenses it.
         """
+        return self.line_hending_scan(line, kind, ae_merged)[:2]
+
+    def line_hending_scan(self, line, kind, ae_merged=False):
+        """-> (verdict, detail, refusal) where refusal is None, 'unreadable'
+        or 'merged'.
+
+        THE TWO REFUSALS ARE DIFFERENT ANIMALS AND WERE THE SAME None.
+        'unreadable' says the text is outside the declared orthography and
+        someone should fix the text. 'merged' says the text is fine and the
+        EDITION destroyed the distinction, so no text will ever fix it. On the
+        sagadb corpus the mix is skothending 6 unreadable to 1 merged, and
+        aðalhending 4 to 14 -- so a single 2.4% "refusal rate" was three
+        quarters an apostrophe and reported as if it were a property of the
+        orthography. Doctrine 20: inconclusive-by-construction is not a null,
+        and two kinds of inconclusive are not each other.
+        """
         sc = self.scan(line)
         if sc is None:
-            return None, "not readable in the declared orthography"
+            return (None, "not readable in the declared orthography",
+                    "unreadable")
         if len(sc) < 2:
-            return False, f"{len(sc)} syllables: no penultimate to carry it"
+            return (False,
+                    f"{len(sc)} syllables: no penultimate to carry it", None)
         tgt = sc[-2]
         pools = (("oddhending", [x for x in sc[:-2]
                                  if x["syllable"].prominence == 1]),
@@ -690,7 +743,7 @@ class OldNorse(Phonology):
                                   f"{c['word']!r} answers viðrhending "
                                   f"{tgt['syllable'].text!r} in "
                                   f"{tgt['word']!r} on "
-                                  f"{''.join(tgt['rime'][1])!r}")
+                                  f"{''.join(tgt['rime'][1])!r}"), None
                 if v is None and unknown is None:
                     unknown = (label, c, tgt)
         if unknown is not None:
@@ -698,9 +751,9 @@ class OldNorse(Phonology):
             return None, (f"{label} {c['syllable'].text!r} would answer "
                           f"{tgt['syllable'].text!r}, but the vowel is merged "
                           f"in this orthography and the verdict would be "
-                          f"manufactured")
+                          f"manufactured"), "merged"
         return False, (f"nothing answers viðrhending {tgt['syllable'].text!r} "
-                       f"in {tgt['word']!r} ({len(sc)} syllables)")
+                       f"in {tgt['word']!r} ({len(sc)} syllables)"), None
 
     def couplet_alliteration(self, odd, even):
         """-> (n_studlar, stave, detail) or (None, None, reason).
@@ -754,6 +807,63 @@ class OldNorse(Phonology):
 
     # -- notation (doctrine 50) --------------------------------------------
 
+    #: Four function-word pairs that separate Old Norse from modernised
+    #: Icelandic. CALIBRATED ON A MATCHED PAIR -- the same saga in both
+    #: recensions, egils_saga.on.xml (70,906 tokens) against egils_saga.is.xml
+    #: (70,296) -- rather than asserted:
+    #:
+    #:            maðr/maður  konungr/konungur  ok/og    at/að   modern_share
+    #:   .on.xml    163 / 0       410 / 0      3329/0   2124/1      0.0002
+    #:   .is.xml      5 / 157       2 / 404      33/3264   60/2049   0.9833
+    #:
+    #: ~5000x separation. The old `-ur` heuristic separates by 15x AND flags
+    #: the Old Norse text, because Old Norse has its own legitimate `-ur`
+    #: (r-stem genitives, feminine plurals). It is kept only as a secondary
+    #: signal and suppressed entirely when the quartet says NOT modernised.
+    MODERNISATION_PAIRS = (("maðr", "maður"), ("konungr", "konungur"),
+                           ("ok", "og"), ("at", "að"))
+    #: Below this many observations the statistic is not calibrated. The
+    #: separation above rests on ~6,000; nobody has tested it on six.
+    MODERNISATION_MIN_N = 20
+
+    def _modernisation_report(self, ws):
+        """-> list of findings about modernised orthography.
+
+        Returns MIXED rather than a verdict in the middle band, because a
+        mixed text is typically modernised PROSE around archaised VERSE, and
+        that is information the caller needs rather than a call this function
+        is entitled to make (doctrine 20: inconclusive is not a null).
+        """
+        low = [_norm(w) for w in ws]
+        old = sum(low.count(o) for o, _m in self.MODERNISATION_PAIRS)
+        new = sum(low.count(m) for _o, m in self.MODERNISATION_PAIRS)
+        counts = ", ".join(f"{o}/{m} {low.count(o)}:{low.count(m)}"
+                           for o, m in self.MODERNISATION_PAIRS)
+        n = old + new
+        if n < self.MODERNISATION_MIN_N:
+            return [f"only {n} of the four function-word pairs present "
+                    f"({counts}): NOT ENOUGH EVIDENCE to say whether this is "
+                    f"modernised. The statistic was calibrated on ~6000 "
+                    f"observations and is not calibrated on {n}."]
+        share = new / n
+        ur = [w for w in ws if _norm(w).endswith("ur") and len(_norm(w)) > 3]
+        if share >= 0.50:
+            out = [f"MODERNISED ICELANDIC (modern share {share:.4f}; "
+                   f"{counts}). Epenthetic -ur adds a syllable (Lætr -> "
+                   f"Lætur), so a six-syllable dróttkvætt line becomes seven "
+                   f"and every hending POSITION is unrecoverable."]
+            if ur:
+                out.append(f"{len(ur)} words end in -ur, e.g. {ur[:5]}")
+            return out
+        if share <= 0.05:
+            # The -ur flag is SUPPRESSED here, not merely down-weighted: on a
+            # text this statistic calls Old Norse, every -ur it found was a
+            # legitimate r-stem genitive or feminine plural.
+            return [f"not modernised (modern share {share:.4f}; {counts})"]
+        return [f"MIXED, and no verdict is given (modern share {share:.4f}; "
+                f"{counts}). Usually modernised prose around archaised verse "
+                f"-- separate the layers before measuring either."]
+
     def notation_report(self, text):
         """-> list of declared suspicions about the orthography.
 
@@ -775,15 +885,15 @@ class OldNorse(Phonology):
                        "aðalhending returns None where identity rests on a "
                        "merged vowel")
         low = t.lower()
-        if "th" in low or "dh" in low:
-            out.append("'th'/'dh' present: probable þ/ð substitution, which "
-                       "this module cannot read as þ/ð and will not guess")
-        ur = [w for w in ws if _norm(w).endswith("ur") and len(_norm(w)) > 3]
-        if ur:
-            out.append(f"{len(ur)} words end in -ur, e.g. {ur[:5]}: probable "
-                       f"modernised Icelandic epenthesis (Lætr -> Lætur), "
-                       f"which adds a syllable to a six-syllable line and "
-                       f"makes hending positions unrecoverable")
+        # `th`/`dh` only when there is no þ and no ð AT ALL. Both hits on the
+        # sagadb text were compound seams -- `þróttharðr` is t+h, `Naddhristir`
+        # is d+h -- in a text that writes þ/ð 874 times. A substring test on a
+        # digraph that also arises across a morpheme boundary is not a tell.
+        if ("th" in low or "dh" in low) and "þ" not in low and "ð" not in low:
+            out.append("'th'/'dh' present and NO þ/ð anywhere: probable þ/ð "
+                       "substitution, which this module cannot read as þ/ð "
+                       "and will not guess")
+        out.extend(self._modernisation_report(ws))
         if len(ws) >= 8 and not any(any(c in LONG_VOWELS for c in _norm(w))
                                     for w in ws):
             out.append("no long vowel anywhere in >=8 words: probable "

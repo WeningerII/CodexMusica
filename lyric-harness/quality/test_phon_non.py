@@ -328,6 +328,39 @@ def test_the_merger_is_refused_not_resolved():
           N.adalhending("bæði", "grœði") is False)
 
 
+def test_vowel_initial_onsets_and_the_branch_that_never_fired():
+    print("\n9b. Old Norse — when BOTH onsets are empty, the vowel is the "
+          "initial letter")
+    # "upphafstafir greina orðin" was read as onset-TUPLE inequality, so two
+    # vowel-initial words both had onset () and compared equal. Twelve real
+    # sagadb lines came back False on a skothending because of it. Fixing it
+    # raised observed 51.54% -> 55.63% while the null max rose only 34.81% ->
+    # 37.20%, so the gap GREW +16.72 -> +18.43: it bought lift, not yield
+    # (doctrine 61). Aðalhending was bit-for-bit identical, as registered.
+    for a, b in (("Iðrask", "yðrum"), ("ár", "aura"), ("orms", "armi"),
+                 ("endr", "undir"), ("ungr", "Engla")):
+        check(f"{a}:{b} is a skothending, not an onset collision",
+              N.skothending(a, b, ae_merged=True) is True)
+    # THE FIXTURES BELOW EXIST BECAUSE THE CELL THAT MEASURED THE FIX FOUND
+    # THESE TWO ARMS FIRED ZERO TIMES ON THE CORPUS. All 13 pairs that reached
+    # the empty-onset branch had DIFFERENT vowels, so the other two outcomes
+    # rested on argument alone. Constructed, and labelled as constructed.
+    check("same vowel and no onset either: nothing distinguishes them",
+          N.adalhending("orma", "ormr", ae_merged=True) is False
+          and N.skothending("orma", "ormr", ae_merged=True) is False,
+          "an aðalhending needs the initial letters to DISTINGUISH the words, "
+          "and two vowel-initial words with the same vowel do not")
+    check("same MERGED grapheme and no onset: refuses, never decides",
+          N.adalhending("ölnar", "ölnum", ae_merged=True) is None
+          and N.skothending("ölnar", "ölnum", ae_merged=True) is None,
+          "ö : ö cannot say whether the vowels are the same OR different, so "
+          "neither predicate may answer")
+    check("but a merged grapheme against a disjoint one stays DEFINITE",
+          N.skothending("Öllungis", "illa", ae_merged=True) is True,
+          "ö reads {ǫ,ø} and i reads {i}; the sets are disjoint, so the "
+          "vowels differ whichever way the merger resolves — attested")
+
+
 def test_vowel_length_position():
     print("\n10. Old Norse — the vowel-length position, taken and declared")
     # Length is phonemic here, so a and á are two vowels, not one vowel twice.
@@ -392,11 +425,49 @@ def test_notation_report():
     r = N.notation_report(" ".join(HATTATAL_1))
     check("it names the ö merger on the real text",
           any("ö present" in x for x in r), str(r)[:90])
-    check("it flags modernised -ur epenthesis",
-          any("-ur" in x for x in N.notation_report("Lætur konungur sár")),
-          "Lætr -> Lætur adds a syllable to a six-syllable line (doctrine 50)")
-    check("it flags a th/dh substitution",
+    # The -ur heuristic was replaced by a four-pair function-word statistic
+    # calibrated on a MATCHED pair -- egils_saga.on.xml against the modernised
+    # egils_saga.is.xml, same saga, ~70k tokens each. It separates by ~5000x
+    # where -ur separated by 15x AND flagged the Old Norse text, because Old
+    # Norse has its own legitimate -ur (r-stem genitives, feminine plurals).
+    OLD = "ok at ok at maðr konungr ok at ok at konungr maðr ok at ok at " \
+          "ok at ok at maðr konungr ok at ok at konungr maðr ok at ok at"
+    NEW = OLD.replace("ok", "og").replace(" at", " að") \
+             .replace("maðr", "maður").replace("konungr", "konungur")
+    check("a modernised text is named, with the consequence",
+          any("MODERNISED" in x and "unrecoverable" in x
+              for x in N.notation_report(NEW + " Lætur")),
+          str(N.notation_report(NEW + " Lætur"))[:110])
+    check("an Old Norse text is not, AND the -ur flag is suppressed",
+          any("not modernised" in x for x in N.notation_report(OLD))
+          and not any("-ur" in x for x in N.notation_report(OLD)),
+          str(N.notation_report(OLD))[:110])
+    check("a MIXED text gets both counts and no verdict",
+          any("MIXED" in x and "no verdict" in x
+              for x in N.notation_report(OLD + " " + " ".join(
+                  NEW.split()[:12]))),
+          "modernised prose around archaised verse is the usual cause, and "
+          "that is information the caller needs, not a call to make here")
+    # The boundary is CLOSED at 0.50 toward MODERNISED, and a boundary nobody
+    # tests is a boundary nobody chose. An exact half-and-half text reads as
+    # modernised, which is the safe direction: it names a consequence.
+    check("the 0.50 boundary is closed toward MODERNISED and is tested",
+          any("MODERNISED" in x
+              for x in N.notation_report(OLD + " " + NEW)),
+          str(N.notation_report(OLD + " " + NEW))[:100])
+    # Doctrine 16/20: a statistic calibrated on ~6000 observations may not
+    # answer on 1. The old heuristic answered on any input at all.
+    check("too few function words REFUSES rather than deciding",
+          any("NOT ENOUGH EVIDENCE" in x
+              for x in N.notation_report("Lætur konungur sár")),
+          str(N.notation_report("Lætur konungur sár"))[:110])
+    check("th/dh fires only when there is NO þ/ð anywhere",
           any("th" in x for x in N.notation_report("thing ok dhat")))
+    check("and a compound seam in a þ/ð text does NOT fire it",
+          not any("substitution" in x
+                  for x in N.notation_report("þróttharðr Naddhristir ok þat")),
+          "þróttharðr is t+h and Naddhristir is d+h -- both were false "
+          "positives on a text that writes þ/ð 874 times")
     check("it flags accent-stripped text",
           any("accent-stripped" in x for x in
               N.notation_report("hann rekkir lid bannat ok sa er kann "
@@ -436,6 +507,7 @@ if __name__ == "__main__":
                test_demonstration_stanzas,
                test_couplet_alliteration_on_canon,
                test_the_merger_is_refused_not_resolved,
+               test_vowel_initial_onsets_and_the_branch_that_never_fired,
                test_vowel_length_position,
                test_prominence_is_stress_and_weight_is_not,
                test_enclisis_is_reported_not_smoothed,
