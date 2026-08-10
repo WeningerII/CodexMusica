@@ -486,4 +486,188 @@ rather than to write.
 
 ---
 
+## M. Instrument defects the non-English sourcing round found (2026-08-10)
+
+Four cells were sent to turn 297 staged lyricist names into text. Three have
+reported. Every one of them found a defect in the harness rather than only in
+the world, which is the point of pointing a module at a corpus (doctrine 37).
+
+### M-1 · `ltc.rhymes` uses the 詩 standard on 詞 and calls 45% of real ci rhymes failures `OPEN`
+**The single most actionable item in this section.** `quality/phonology/ltc.py`
+ships the 平水韻 grouping, which is the standard for 詩. Measured against the
+**欽定詞譜 of 1715** — 817 per-詞牌 files with a 韻/句/叶 marker at every line end,
+i.e. the tradition's own spec (doctrine 62) — on 1,518 ci that match a 格
+exactly across 119 詞牌: positions the spec marks 韻/叶 come back True **47.4%**
+of the time (14,302 T / 15,887 F / 724 refused), against 4.0% at positions it
+marks 句. The lift is real (+43.3 pp against 311-year-old ground truth) and the
+miss rate is intolerable — **a ci cell using `rhymes()` as shipped will report
+Li Qingzhao failing to rhyme.**
+Relaxing tone barely helps: `(group,tone)` 47.4% → `(group,平/仄/入)` 52.7% →
+`(group)` 54.1%, controls 4.0/5.0/6.4%. **Tabulating WHICH group pairs get False
+at mandated positions recovers the 詞林正韻 partition from practice alone** —
+the top 30 pairs carry 34% of 26,773 false verdicts and are 魚/虞, 支/微/齊,
+蕭/豪, 東/冬, 庚/青/蒸, 元/先/寒/刪, 眞/文, and 上/去 within one group.
+**Fix shape:** make the standard a declared coordinate,
+`standard='pingshui'|'cilin'`, exactly the move `check_cynghanedd` made for
+`language` (doctrine 45). Doctrine 36 was written about Qieyun → 平水韻 and it
+is true one rung further in.
+
+### M-2 · `data/qieyun_mc.tsv` is keyed on ONE orthographic norm `OPEN`
+**魂 — the character that NAMES the 魂 rhyme group — cannot be looked up**, while
+477 characters carry 魂 as their rhyme label. 窗 is absent; 窓/牕/窻 are present.
+Of the 24 commonest unreadable characters in a real ci corpus, **23 are
+recoverable by an 異體字 map to a variant already in the table**: 魂→䰟, 窗→窓,
+匆→悤, 裙→帬, 劍→劒, 峰→峯, 群→羣, 閑→閒, 腮→顋, 鞍→鞌, 粧→妝, 裊→褭, 瀟→潚,
+皓→晧, 胸→胷, 拆→坼, 儘→盡, 緲→渺, 敧→攲. The remaining five (怎 樣 褪 做 你)
+are Song–Yuan **vernacular** characters postdating the rime book, where refusal
+is CORRECT — and **nothing currently tells an ingestion defect from a correct
+refusal**, which is doctrine 79 in a second layer.
+**Related, same file:** 諄, 真, 殷, 桓, 戈 appear in `ltc._GROUPS` and never in
+the data file, which uses 眞/欣/寒/歌 — the grouping table was written against a
+different naming convention than the data. And the table holds 58 rhyme labels
+× 4 tones, the 廣韻 206 system by 韻系, not the 193 the docstring cites.
+**Measured cost of getting the script wrong:** a SIMPLIFIED corpus reads at
+70.95% against traditional's 99.03%, with **31.7% of line-final rhyme positions
+unreadable**, failing on the commonest words (风 3,687 tokens, 来 2,327, 时 1,987,
+楼 941). OpenCC is not the fix: 无, 云 and 丽 resolve because they were separate
+Middle Chinese words, so the corpus fails loudly on some merges and **silently
+returns a different word's rhyme** on the rest.
+
+### M-3 · `msa.py`'s apostrophe rule causes 82% of its own unreadability `OPEN`
+384 of 471 Malay token failures are the syncope split leaving a **vowelless
+fragment**: correct for `anak'nda` where both halves have a vowel, fatal for
+`s'ri` (29), `t'ada` (8), `b'ras` (4), `k'ladi`, `t'rap`, `g'lombang`, `k'ris`.
+**The module already accepts the identical process spelled without the
+apostrophe** — its own docstring lists `prang`=perang, `Brapa`=berapa,
+`'Plam`=Pelam as accepted. Same pepet syncope, two spellings, opposite verdicts.
+Doctrine 65's lesson turning up inside ONE language, between two spellings of
+one process.
+**Also:** doctrine 65 undercounts the Malay apostrophe's positions. There are
+FIVE, not four — the fifth is **after a hyphen** (`darah-'kau`, `hati-'ku`, 20
+occurrences). `msa.py` handles them correctly because `_split_word` splits the
+hyphen first; the defect is in the description, so an audit checking only the
+four named positions reports 20 unclassified marks in a module that gets them
+all right.
+
+### M-4 · The `&c.` refrain stub is not an English printing convention `OPEN`
+A-1 frames its 941 instances around English songsters. The same mechanism, doing
+the same job in the same position, appears in two more languages and the code
+that handles the English case knows neither:
+
+| language | stub | n | how it fails now |
+|---|---|---:|---|
+| English | `&c.` / `etc.` | 941 | handled by `is_chorus_stub` |
+| Finnish | `j. n. e.` (*ja niin edelleen*) | 13 | `j`,`n` unreadable = **100%** of that corpus's failures, and the `e` IS readable and joins the vowel-initial alliteration class as a spurious word |
+| Malay | `d. s. b.` (*dan sebagainya*) | ~100 | `b`(101), `d`(100), `s`(99) — **300 of 471 tokens**, the single largest source of Malay unreadability |
+
+Both new stubs are end-of-line, so the existing anchored regex extends directly.
+In the Kanteletar's cumulative chain-song every verse after the first is
+abbreviated this way — a refrain pointer doing exactly `&c.`'s job, in 1840
+Finnish. **Welsh makes it four:** Mynyddog uses `&c.` itself, 30 times, at the
+foot of a stanza.
+
+### M-5 · A printing can spell one sound two ways, and the modernisation check cannot see it `OPEN`
+Every recorded instance of the orthography rule (doctrine 50, CHANNELS.md rule
+4) is a MODERNISATION. The Kanteletar is not modernised at all and still carries
+a hazard: `w` and `v` are **allographs of one phoneme** and the printing MIXES
+them — `Väinämöisen` and `Wäinämöinen`, same name, same book. `fin.py` keys the
+alliteration class on the first onset character, so `Wiipurin`/`veti` reports no
+alliteration where the tradition hears one. Folding `w`→`v`: weak 81.84% →
+82.15% (+70 lines), strong 60.21% → 60.43% (+48). Small — **the shape matters
+more than the size.** A text using `w` throughout is self-consistent and costs
+nothing; it is the MIXING that costs. "Has this been modernised?" returns *no*
+and passes the file. The question that catches it is **"does this printing spell
+one sound two ways?"**
+
+### M-6 · `fin.py` implements alliteration and nothing else `OPEN`
+No `rhymes()`. Nine of the ten staged Finnish files are **rhymed strophic
+verse** whose actual constraint the module cannot check. F-1 lists `fin` as
+present; it is present *for the Kalevala metre only*, and the corpus that just
+landed is mostly not that.
+
+### M-7 · Doctrine 55's fix was right and its dash rule is over-general `OPEN`
+The comma was correctly demoted from caesura to punctuation. In the same change
+the **dash was promoted to gwant on the evidence of one edition**. Across five
+further Welsh files the dash is punctuation **72 times out of 72**, and in the
+1862 Pryse cywydd it comes in **matched pairs around an interjection** —
+`'Er pan rodded—trwydded trwch—'` — so the answering "half" is the contents of a
+bracket. The structural point is sharper than the count: **the gwant is an
+englyn feature and a cywydd has none**, so any `caesura='marked'` result on a
+cywydd file is reading the typesetter by construction. Distinguishing feature is
+position and pairing: gwant single and usually line-final, editorial dash medial
+and often paired.
+
+### M-8 · No metre index was found in any reachable Welsh edition `OPEN`
+Welsh hymnody is sung to named tunes with a declared metre (8.7.8.7 and so on),
+which is exactly the field the English corpus records for 331 songs and the
+rarest thing in it. **Not one reachable Welsh edition prints one.** The sourcing
+cell declined to infer it from syllable counts off a flattened-ASCII
+transcription, which is correct — that would invent the corpus's rarest field
+rather than source it — and it is the largest thing that round did not deliver.
+
+### M-9 · `CHANNELS.md` is written as a blocklist and the policy is an ALLOWLIST `OPEN`
+The gateway denies by default and the proxy enumerates its own denials:
+`curl -sS "$HTTPS_PROXY/__agentproxy/status"` → `recentRelayFailures[]`. 11
+further hosts probed, all denied, including **all four Project Gutenberg
+mirrors** — so GITenberg is not a convenient alternative to Gutenberg, it is the
+only route. Also: `huggingface.co` is 403 at CONNECT (MCP-only) and `hf_fs cat`
+refuses binaries, so `wikimedia/wikisource` config `20231201.cy` — Welsh
+Wikisource, 1.25 MB, one parquet file — is **named, located and unreadable**.
+Highest-value single Welsh target for whoever next has a parquet-capable channel.
+
+### M-10 · GITenberg enumeration misses about a third by any single method `OPEN`
+Repo-name WebFetch → 5 Welsh holdings; `filename:metadata.yaml "language: cy"`
+→ 5, missing three files that contain that exact string; `"Language: Welsh"` →
+a *different* 5, because one PG header wrongly says `Language: English`.
+**Union = 9.** Third confirmation that the filename suffix (`<id>.txt` /
+`-0.txt` / `-8.txt`) follows no rule.
+
+---
+
+## N. What the round CONFIRMED, which is rarer than what it broke
+
+### N-1 · The cynghanedd detector reads the FORM, not the author `CLOSED`
+**This is the control the project did not have.** `corpus/cym_alun_strict.txt`
+and the new `corpus/song/cym_song_alun.txt` are **the same book** — same poet,
+same 1909 Ab Owen volume, same transcriber, same flattened-ASCII orthography,
+same checker, same within-line-shuffle null, same seed. Excess over the null max:
+
+| | n | observed | null max | excess | p |
+|---|---:|---:|---:|---:|---:|
+| Alun, strict metre | 1558 | 54.1% | 27.8% | **+26.3** | — |
+| Llywelyn Goch cywydd, 1862 | 108 | 52.8% | 30.6% | **+22.2** | floor |
+| Twm o'r Nant cywydd | 156 | 51.3% | 36.5% | **+14.7** | — |
+| Twm o'r Nant *cerdd rydd* | 759 | 28.4% | 17.5% | **+10.8** | floor |
+| Welsh hwiangerddi | 1408 | 13.0% | 13.2% | −0.2 | 0.015 |
+| **Alun, his own hymns** | 216 | 9.7% | 11.1% | **−1.4** | **0.119** |
+| Mynyddog, song | 2758 | 8.2% | 8.6% | −0.4 | 0.069 |
+
+Author, edition, printer, century, orthography and transcriber all held
+constant; the effect goes to zero off the strict metre. Every previous Welsh
+number came from strict metre, so a high rate was compatible with the detector
+reading the *language's* redundancy (doctrine 64) or the Ab Owen printing house.
+It reads neither. The graded middle — 18th-century *cerdd rydd*, sung to named
+airs, at +10.8, about half — is where the tradition says it should be.
+**Doctrine 76 from the other side:** that doctrine says report SENSITIVITY
+beside a null; here SPECIFICITY was what needed showing.
+
+### N-2 · Doctrine 65 corroborated at scale, not merely defended `CLOSED`
+`cym` reads all five new Welsh files at **100.00%** — 0 unreadable tokens in
+29,571 — including 2,750 internal apostrophes (`a'i`, `sy'n`, `mae'r`) that the
+elision rule joins correctly and 94 internal hyphens. A split check for `l l`,
+`d d`, `l-l`, `c h`, `r h` finds every hit is a word boundary, never a broken
+digraph.
+
+### N-3 · Doctrine 58, third instance — the DELTA reproduced while the COUNT did not `OPEN`
+A fresh Malay implementation sharing no code gets **131/129** where
+`data/sources.tsv` records 82/80. 705 blocks and 5,555 lines reproduce exactly,
+and **the keep-minus-drop delta is 2 in both runs**, so doctrine 58's second
+instance — that the two separating quatrains are the only two ending in a Skeat
+editorial parenthesis — is CONFIRMED. Four further settings were swept and none
+lands on 82/80, which places the difference **upstream of the rhyme test**: a
+**function-word list nobody wrote down.** That is worse than an unrecorded
+threshold, because a threshold at least announces that it exists.
+
+---
+
 ## Add below this line
