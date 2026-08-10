@@ -1146,6 +1146,27 @@ def fold_apostrophes(text):
     return text
 
 
+#: English enclitics that a 19th-century compositor may set with a SPACE before
+#: the apostrophe: `There 's high and low`, `Wha 'll buy caller herrin'`.
+#: Rogers's 1855 Modern Scottish Minstrel does it 189 times in Nairne and 81 in
+#: Hogg, against THIRTEEN in all 17,555 lines of Burns -- same language, same
+#: register, opposite tokenisation, purely because of the edition.
+#:
+#: Splitting there inflates the word count by up to 25% on an affected line,
+#: which is the same defect class as fin.py counting a bare hyphen as a word.
+#: The set is CLOSED and each member must be the WHOLE token, so word-initial
+#: apheresis is untouched: Dorset's `'ithin`, `'twer`, `'oman` are single
+#: tokens and never match, and neither does Scots `a'` or `o'`.
+ENCLITICS = ("'s", "'ll", "'re", "'ve", "'d", "'m", "'t", "'n")
+_SPACED_ENCLITIC = re.compile(
+    r"(\w)\s+('(?:s|ll|re|ve|d|m|t|n))\b", re.I)
+
+
+def join_spaced_enclitics(text):
+    """`There 's` -> `There's`. Leaves apheresis and elision alone."""
+    return _SPACED_ENCLITIC.sub(r"\1\2", fold_apostrophes(text))
+
+
 #: A line that is not a line: `Oh, my poor Nelly Gray, &c.` is the printer's
 #: shorthand for "and the rest of the chorus", i.e. LINE IDENTITY BY
 #: REFERENCE. There are 941 of them in the song corpus. Its last token strips

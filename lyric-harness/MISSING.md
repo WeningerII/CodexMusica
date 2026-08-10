@@ -220,6 +220,26 @@ across four languages. This is four more inside ENGLISH ALONE, and the count
 is now high enough that per-language is too coarse — it has to be per-DIALECT,
 declared, like everything else in `quality/phonology/`.
 
+### F-5 · An EDITION can retokenise a language `OPEN`
+**Verified 2026-08-10.** Rogers's 1855 *Modern Scottish Minstrel* sets a SPACE
+before enclitics — `There 's high and low`, `Wha 'll buy caller herrin'` — 189
+times in Nairne and 81 in Hogg, against **13 in all 17,555 lines of Burns**.
+Same language, same register, opposite tokenisation, and the only cause is
+which compositor set the type. It inflates a line's word count by up to 25%,
+the same defect class as counting a bare hyphen as a word.
+`lyric_harness.join_spaced_enclitics()` re-attaches a CLOSED set, each of which
+must be the whole token, so Dorset apheresis (`'ithin`, `'twer`) and Scots
+elision (`a'`, `o'`) are untouched. **Still open:** nothing detects WHICH
+convention an edition uses, so a corpus mixing both is silently inconsistent.
+
+### F-6 · The best PD source can be the one that loses the metadata `OPEN`
+**Verified 2026-08-10.** Moore's *Irish Melodies* were written to named airs.
+Gutenberg's own Moore (PG 8187) carries all 124 lyrics and **drops every air**.
+`thabz/Kalliope` carries 122 of 124 as `<subtitle>Air - X</subtitle>`. The
+obvious source is the lossy one. But Kalliope is NOT uniform: its Scots Ramsay
+substitutes the Danish **æ ligature for Scots `ae`** (`sae` → `sæ`), so Ramsay
+is recorded CONTESTED and was not staged. Check per-file, never per-repository.
+
 ### F-4 · A transcription can invent a letter `OPEN`
 **Verified 2026-08-10, inside a single Gutenberg record.** Barnes exists as two
 files: `21785.txt` (ASCII) flattens the a-diaeresis to the two-letter sequence
