@@ -129,3 +129,33 @@ Doctrine additions, earned from the first run — do not drift from these either
    equalled its ceiling by construction. ~52 of 80 tests were identities. Build
    controls by shuffling within a cell, and never let a calibrator be something
    Zipf's law guarantees will fire.
+15. **Text length is a coordinate of the declaration, not a detail.** MATTR is
+   a moving average over a 50-token window and silently degrades to plain
+   type-token ratio below it, so the sonnet-calibrated floor applied to a
+   30-token chorus was comparing one statistic against another statistic's
+   percentile. Measured at both units the human 95th percentile for anaphora
+   is 0.286 on a sonnet and 0.500 on a quatrain — the sonnet cut flags any two
+   of four lines sharing an opening. On the sample lyric sheet the mismatch
+   produced 15 flags where the correct profile produces 4. Every threshold now
+   carries the length it was measured at, and text outside every profile gets
+   no length-sensitive finding at all.
+16. **An uncalibrated threshold does not fail safe, it fails loud — and it
+   fails toward whoever guessed.** All three hand-estimated floor thresholds
+   moved on contact with data, every one in the direction that had made the
+   gate agree with its author: mattr_min 0.80 -> 0.7557, predictable-pair
+   fraction 0.40 -> 0.8333, line-length CV 0.12 -> 0.0939. The guesses would
+   have flagged roughly half of Shakespeare for lexical monotony and 60% of
+   him for predictable rhyme.
+17. **A check may be kept after its premise is falsified, but never quoted as
+   if it were not.** UNIFORM_LINE_LENGTH was built expecting metronomic lines
+   to be a generated-text tell; measured, Shakespeare is MORE uniform than the
+   model (AUC 0.350). In a fixed form, uniformity is the form. It survives as
+   a calibrated "outside the human range" note that says so in every finding
+   it emits, and `report()` prints the failed expectations beside the working
+   ones on every run.
+18. **A licence granted by pattern must be earned by systematicity.** The
+   radif band was licensed by any shared trailing run, which made a plain
+   self-rhyme structurally invisible; then by a bare count of two, which read
+   two of thirty-one rap couplets ending in "it" as a refrain. A repetend now
+   needs both a count and a declared fraction of the item's pairs, and where
+   one pair gives no evidence either way the gate says so instead of deciding.
