@@ -48,7 +48,11 @@ CHOOSING THE RANDOMISATION -- this is the whole intellectual content
   for a line of m words drawn i.i.d. from the corpus's own initial-class
   distribution -- a null with no Monte Carlo error at all.
 
-Run: python3 quality/audit_kalevala_null.py PATH_TO_7000-8.txt [n_replicates]
+Run: python3 quality/audit_kalevala_null.py corpus/fin_kalevala.txt [n]
+     (or on the raw Gutenberg file, which this also accepts:
+      curl -sS -o kal7000.txt \
+        https://raw.githubusercontent.com/GITenberg/Kalevala_7000/master/7000-8.txt
+      -- 636,150 bytes, md5 87449afc4728aa740409c5c405e21a15, DECODE AS LATIN-1)
 """
 
 import os
@@ -70,10 +74,14 @@ FIRST_N = 4000          # the window data/sources.tsv actually measured
 def verse_lines(path):
     """The extraction data/sources.tsv describes: between the first verse line
     and the PG end marker, non-empty, headings dropped."""
-    d = open(path, encoding="latin-1").read()
-    i = d.index("Mieleni minun tekevi")
-    j = d.index("End of the Project Gutenberg")
-    body = d[i:j]
+    try:
+        d = open(path, encoding="utf-8").read()
+    except UnicodeDecodeError:
+        d = open(path, encoding="latin-1").read()
+    i = d.find("Mieleni minun tekevi")
+    j = d.find("End of the Project Gutenberg")
+    # An already-extracted corpus file has neither marker; take it whole.
+    body = d[i if i >= 0 else 0:j if j >= 0 else len(d)]
     out = []
     for ln in body.split("\n"):
         s = ln.strip()
