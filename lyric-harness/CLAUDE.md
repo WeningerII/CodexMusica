@@ -28,11 +28,33 @@ Codex Musica describes the recording, this disciplines the words.
    quality/time_layer.py, RESULTS_TIME.md, RESULTS_FWER.md. Placement of
    rhyme against a metric period, phase-invariant and self-normalizing,
    with family-wise error control across each position's ~15-comparison
-   family. Saturation 6-16%, false-event rate measured at 5.4% against a
-   declared 5.0%. Statistic VALIDATED against a planted signal (power
+   family. Saturation 6-16%. THE FALSE-EVENT RATE IS NOT CONTROLLED AT
+   ALPHA: "5.4% against a declared 5.0%" reproduces to the digit and is
+   an n=6 figure. Run the identical construction at n=20 and it is
+   9.6%, ~2x alpha (verified here; quality/NULL_AUDIT.md,
+   quality/audit_fwer_fpr.py). test_fwer.py guards it with THREE
+   sonnets asserting only `mean < 0.20`, which cannot detect a 2x miss.
+   Worse, the comparison nobody ran: real sonnets score 10.9% against
+   their own word-scramble at 9.6% (null max 11.0%, p=0.095) and their
+   own line-permutation at 10.8% (null max 12.6%, p=0.476) -- so the
+   event rate on real sonnets does not separate from text with the
+   structure removed. Either the detector is broken or these sonnets
+   carry no internal rhyme, and THIS EVENT SET CANNOT TELL THEM APART;
+   until it can, a null placement result here cannot distinguish "no
+   periodic organisation" from "nothing to organise". Statistic VALIDATED against a planted signal (power
    1.00 at ceiling, 0.05 at chance) -- but UNDERPOWERED at real item
    sizes: 8 events needs ~75% of rhymes on one phase to reach 0.80
-   power. Sonnet arm null with pooled power (Fisher p=0.950, k=23).
+   power. Sonnet arm null with pooled power (Fisher p=0.950, k=23) --
+   BUT THAT p IS NOT CALIBRATED (verified here). Under 200 H0
+   replicates at the real item sizes the per-item p has median 0.559,
+   not 0.500, and pooled Fisher reaches >=0.950 in 8.5% of H0 arms
+   rather than 5%. So 0.950 is ~1-in-12, not 1-in-20. The cause is
+   structural: rhymes arrive in PAIRS inside a window while analyse()
+   draws independent positions, so real events are more phase-spread
+   than the null assumes. This repo already contained the proof -- arm
+   C2 is an empirical H0 arm returning Fisher p=1 -- and nobody had put
+   the two side by side. The null CONCLUSION survives; the p attached
+   to it does not.
    Still no beat grid — there is no audio, so isochrony is an assumed
    coordinate, not a measurement, and "on the beat" is not a claim this
    project can make). 
@@ -750,3 +772,25 @@ Doctrine additions, earned from the first run — do not drift from these either
    The repo already contained the proof -- arm C2 is an empirical H0 arm and
    returns Fisher p=1 -- and nobody had put the two next to each other. A
    p-value inherits every assumption of the null that generated it.
+75. **A null that is correct for one predicate can MANUFACTURE a null for
+   another.** Shuffling words within a pāda is the right control for a
+   POSITIONAL onset anchor -- it destroys which akṣara lands second while
+   preserving every phoneme. Applied to END-RHYME it drags short words to the
+   pāda end (final-word length 4.52 -> 4.24 akṣaras, 1-2-akṣara finals
+   20.8% -> 27.9%), and short Sanskrit words are dominated by high-frequency
+   inflections that collide, so the null rate rises ABOVE the observation and
+   invents a null result. Same randomisation, same corpus, right for two
+   variants and wrong for a third. Choose the null per PREDICATE, never per
+   corpus, and check what it does to the material the predicate reads.
+76. **A null is only as good as the demonstration that the instrument could
+   have found something.** The Sanskrit prāsa null is believable because the
+   same design detects a signal planted in as few as 5% of half-verses, and
+   reads 6.16x lift on Jayadeva's attested end-rhyme while reading 1.68x on
+   Bhāravi's, where it is not attested. Without those arms, "6.995% against
+   6.2% chance" is indistinguishable from a broken detector. Contrast the time
+   layer's sonnet arm, where the event rate does NOT separate from scrambled
+   text: there the same shape of null means nothing, because "no periodic
+   organisation" and "nothing to organise" have not been told apart. Doctrine
+   31 said run the positive control; this says REPORT ITS SENSITIVITY next to
+   the null, because a null without a detection floor is an unfalsifiable
+   claim wearing a number.
