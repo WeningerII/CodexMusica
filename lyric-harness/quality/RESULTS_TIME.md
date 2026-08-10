@@ -12,6 +12,14 @@
 > why the amendment's window change from 32 to 16 did most of the work. The
 > null results below are unaffected; only the diagnosis of the first failure
 > changes.
+>
+> **The layer has since been corrected and re-run with power.** See
+> `RESULTS_FWER.md`: family-wise error control drops saturation from 90-93% to
+> 6-16% at the ORIGINAL registered parameters, with the false-event rate
+> measured at 5.4% against a declared 5.0%. H1's sonnet half holds null for a
+> third time and its rap half fails for a third time, now at p = 0.132 on a
+> properly powered instrument. The nulls below were uninterpretable; those are
+> not.
 
 Run against `TIME_PREREGISTRATION.md` as amended by
 `TIME_PREREGISTRATION_AMENDMENT.md`. Both were committed before the numbers
@@ -141,10 +149,11 @@ It does not establish that rap is unmetrical. Three limits, all structural:
 
 ## What would move this forward
 
-1. **Family-wise error control across the window.** This was written as "fit
-   the substitution matrix", and the matrix has since been fitted: it does not
-   help, and at matched FPR it saturates worse. The blocker is the number of
-   comparisons, not the quality of any one of them. See RESULTS_MATRIX.md.
+1. ~~**Family-wise error control across the window.**~~ **DONE** — see
+   `RESULTS_FWER.md`. Saturation 90-93% -> 6-16%, false-event rate calibrated
+   at alpha. The layer is measurable and still finds nothing, which is now a
+   result rather than an absence of one. The next step is a second rap corpus,
+   not a fourth instrument.
 2. **More rap, from more writers.** n=1 is not a corpus. This is the same
    lesson as doctrine 8, arriving in a new layer.
 3. **Audio, or a declared tempo.** Everything above is conditional on an

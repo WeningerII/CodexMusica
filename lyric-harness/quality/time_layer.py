@@ -84,6 +84,29 @@ class TimeDeclaration:
     #: p = 0.087 the first run produced. A near-saturated comparison does not
     #: return a weak result, it returns a meaningless one.
     max_saturation: float = 0.75
+    #: FAMILY-WISE ERROR CONTROL. "none" reproduces the pre-correction
+    #: behaviour and is kept only so the defect is reachable by a test.
+    #: "sidak" is primary: a position is compared against ~135 candidates and
+    #: declared an event if ANY hits, so the per-pair cut must be
+    #: 1-(1-alpha)^(1/m). "bonferroni" is alpha/m, valid without the
+    #: independence Sidak assumes and the comparisons overlap. "bh" controls
+    #: the expected PROPORTION of false events at q instead.
+    correction: str = "sidak"
+    alpha: float = 0.05
+    q: float = 0.10
+    #: draws for the within-item null. The p-value resolution is 1/(N+1), and
+    #: at m~135 the Sidak cut is ~3.8e-4, so the tail has to be resolved an
+    #: order of magnitude finer than that.
+    null_samples: int = 20000
+    #: If this share of RANDOM re-pairings already passes the band, the item's
+    #: own phonological inventory makes rhyme unsurprising and a within-item
+    #: null cannot discriminate. Real verse runs ~0.10; a constructed quatrain
+    #: whose whole inventory is one rhyme class (rattle/cattle/saddle/battle)
+    #: runs 0.43 and returns zero events. That is a TRUE statement about a
+    #: within-item null, not a fixable defect -- if 43% of random pairings in
+    #: your text rhyme, "this pair rhymes" carries almost no information
+    #: relative to that text. The layer says so instead of reporting 0%.
+    max_null_band_pass: float = 0.25
     n_perm: int = 2000
     seed: int = 20260810
     isochrony: str = ("ASSUMED, not measured. Grid positions are evenly "
@@ -138,22 +161,17 @@ def grid_index(stream, unit):
 # Events — which stream positions carry a rhyme relation
 # ---------------------------------------------------------------------------
 
-def rhyme_events(lex, stream, decl, tdecl, comparator=None):
-    """-> set of stream positions participating in an internal rhyme.
-
-    Anchors start on a stressed syllable and run 1..max_span syllables, which
-    is the harness's existing internal_matches shape; this walks the whole item
-    instead of one line, inside a declared window. A span may not rhyme with
-    itself, and two spans sharing a word are not a relation.
-    """
+def _candidate_pairs(stream, tdecl):
+    """Every (span_a, span_b) the layer would consider. Factored out so the
+    null is drawn from EXACTLY the population being scored -- the domain
+    mismatch that broke the matrix's line-final thresholds."""
     starts = [i for i, s in enumerate(stream) if s["stress"] in (1, 2)]
     spans = [(i, i + L) for i in starts
              for L in range(1, tdecl.max_span + 1) if i + L <= len(stream)]
     by_start = {}
     for a, b in spans:
         by_start.setdefault(a, []).append((a, b))
-
-    events = set()
+    out = []
     for a, b in spans:
         for c in starts:
             if c <= a or c - a > tdecl.window:
@@ -164,27 +182,204 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None):
                 if {x["widx"] for x in stream[a:b]} & \
                         {x["widx"] for x in stream[c2:d]}:
                     continue          # a word cannot rhyme with itself
-                if comparator is not None:
-                    # Fitted log-odds. The scale has a true zero, so theta
-                    # here is a calibrated false-positive rate rather than a
-                    # point on a [0,1] similarity.
-                    t, _ = comparator.score(stream[a:b], stream[c2:d])
-                    s = score(stream[a:b], stream[c2:d], decl,
-                              _words(stream, a, b), _words(stream, c2, d))
-                    hit = (t is not None and t >= tdecl.theta
-                           and s["relation"] in RHYME_RELATIONS)
-                else:
-                    s = score(stream[a:b], stream[c2:d], decl,
-                              _words(stream, a, b), _words(stream, c2, d))
-                    # The conjunctive band applies here too: an ASSONANCE edge
-                    # is a named relation but it is not a rhyme, and counting
-                    # it as a rhyme event is exactly what made this layer
-                    # saturate.
-                    hit = (s["total"] >= tdecl.theta
-                           and s["relation"] in RHYME_RELATIONS)
-                if hit:
-                    events.update(range(a, b))
-                    events.update(range(c2, d))
+                out.append(((a, b), (c2, d)))
+    return out
+
+
+def _raw_score(stream, sa, sb, decl, comparator):
+    """The scalar this layer thresholds, band-typed. None when the pair is not
+    a rhyme relation at all -- those can never be events, so they are not
+    candidates for a p-value either."""
+    a, b = sa
+    c, d = sb
+    s = score(stream[a:b], stream[c:d], decl,
+              _words(stream, a, b), _words(stream, c, d))
+    if s["relation"] not in RHYME_RELATIONS:
+        return None
+    if comparator is not None:
+        t, _ = comparator.score(stream[a:b], stream[c:d])
+        return t
+    return s["total"]
+
+
+def null_scores(stream, pairs, decl, tdecl, comparator=None):
+    """Empirical null: the same spans, RE-PAIRED at random.
+
+    The span multiset is preserved exactly -- same lengths, same phonology,
+    same vocabulary, same stress layout -- and only the pairing is destroyed.
+    That is the shuffle_twin construction from controls.py, and doctrine 14 is
+    why it is a shuffle rather than a substitution: a control defined in terms
+    of the quantity it controls is an identity, not a control.
+
+    The null is the ITEM'S OWN spans, so no external resource is consulted
+    (doctrine 13) and the null population matches the scored population.
+    """
+    if not pairs:
+        return [], 0
+    left = [p[0] for p in pairs]
+    right = [p[1] for p in pairs]
+    rng = random.Random(tdecl.seed ^ 0x5EED)
+    out, n_valid, tries = [], 0, 0
+    limit = tdecl.null_samples * 20
+    while n_valid < tdecl.null_samples and tries < limit:
+        tries += 1
+        sa = left[rng.randrange(len(left))]
+        sb = right[rng.randrange(len(right))]
+        if sa == sb or max(sa[0], sb[0]) < min(sa[1], sb[1]):
+            continue                      # not a valid pair at all: redraw
+        if {x["widx"] for x in stream[sa[0]:sa[1]]} & \
+                {x["widx"] for x in stream[sb[0]:sb[1]]}:
+            continue
+        n_valid += 1
+        v = _raw_score(stream, sa, sb, decl, comparator)
+        # A chance pair that fails the conjunctive band is not DROPPED -- it
+        # scores effectively minus infinity and belongs in the denominator.
+        # Dropping it conditions the null on "is already a rhyme relation",
+        # which is the defect that made the first corrected run return 0%
+        # saturation on every corpus: the null then consists only of pairs
+        # that already passed the band, and nothing real can beat it.
+        if v is not None:
+            out.append(v)
+    out.sort()
+    return out, n_valid
+
+
+def _pvalue(v, null_sorted, n_valid):
+    """Upper-tail empirical p over ALL valid chance draws.
+
+    The denominator is every valid chance pair, including those that failed
+    the band and never made it into `null_sorted`. Resolution is 1/(N+1); a
+    pair beyond every null draw is reported at the resolution limit, never as
+    zero.
+    """
+    if not n_valid:
+        return 1.0
+    if not null_sorted:
+        return 1.0 / (n_valid + 1)
+    lo, hi = 0, len(null_sorted)
+    while lo < hi:                        # first index with null >= v
+        mid = (lo + hi) // 2
+        if null_sorted[mid] < v:
+            lo = mid + 1
+        else:
+            hi = mid
+    ge = len(null_sorted) - lo
+    return (ge + 1) / (n_valid + 1)
+
+
+def _bh(pvals, q):
+    """Benjamini-Hochberg: -> the largest p that is a discovery, or None."""
+    if not pvals:
+        return None
+    ps = sorted(pvals)
+    n = len(ps)
+    cut = None
+    for i, p in enumerate(ps, 1):
+        if p <= i / n * q:
+            cut = p
+    return cut
+
+
+def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
+    """-> set of stream positions participating in an internal rhyme.
+
+    Anchors start on a stressed syllable and run 1..max_span syllables, inside
+    a declared window. A span may not rhyme with itself, and two spans sharing
+    a word are not a relation.
+
+    FAMILY-WISE ERROR CONTROL. Each position is compared against roughly 135
+    candidates and is declared an event if ANY of them hits, so a per-pair
+    threshold cannot control the per-position error: at a 2.4% per-pair
+    false-positive rate, `1 - 0.976^135` is 96%, which is the saturation this
+    layer measured for three instrument versions. `tdecl.correction` converts
+    the score to a p-value against a within-item null and then corrects across
+    each position's family.
+    """
+    pairs = _candidate_pairs(stream, tdecl)
+    if tdecl.correction == "none":
+        events = set()
+        for sa, sb in pairs:
+            v = _raw_score(stream, sa, sb, decl, comparator)
+            if v is not None and v >= tdecl.theta:
+                events.update(range(*sa))
+                events.update(range(*sb))
+        return events
+
+    null, n_valid = null_scores(stream, pairs, decl, tdecl, comparator)
+    band_pass = (len(null) / n_valid) if n_valid else 0.0
+    if band_pass > tdecl.max_null_band_pass:
+        if detail is not None:
+            detail.update(
+                n_candidate_pairs=len(pairs), n_null=len(null),
+                n_null_valid=n_valid, null_band_pass_rate=band_pass,
+                correction=tdecl.correction, alpha=tdecl.alpha,
+                refused=(
+                    f"{band_pass:.0%} of RANDOM re-pairings in this item "
+                    f"already pass the rhyme band, above the declared "
+                    f"{tdecl.max_null_band_pass:.0%}. The item's own inventory "
+                    f"makes rhyme unsurprising, so a within-item null cannot "
+                    f"discriminate and an empty event set here means 'cannot "
+                    f"tell', not 'no rhyme'. Real verse runs ~10%."))
+        return set()
+    scored = []
+    for sa, sb in pairs:
+        v = _raw_score(stream, sa, sb, decl, comparator)
+        if v is None:
+            continue
+        scored.append((sa, sb, _pvalue(v, null, n_valid)))
+
+    # each position's family: every candidate pair it takes part in
+    family = {}
+    for k, (sa, sb, _p) in enumerate(scored):
+        for pos in list(range(*sa)) + list(range(*sb)):
+            family.setdefault(pos, []).append(k)
+
+    events = set()
+    if tdecl.correction == "bh":
+        # RESOLUTION GUARD. BH's threshold for the top-ranked p-value is
+        # q/n, and n here is ~10^4 candidate pairs, so it needs a tail
+        # resolved to ~1e-5. The empirical null resolves to 1/(N+1) = 5e-5,
+        # which is coarser -- so whether anything is discovered depends on
+        # how many pairs happen to pile up on the resolution floor, not on
+        # the evidence. Measured: 63% saturation on one sonnet and 0% on the
+        # next three, from that alone. FWER needs no such resolution because
+        # its cut is alpha/m with m ~ 15, not q/n with n ~ 10^4.
+        floor_p = 1.0 / (n_valid + 1) if n_valid else 1.0
+        if scored and floor_p > tdecl.q / len(scored):
+            if detail is not None:
+                detail["bh_unresolvable"] = (
+                    f"BH needs a p-value resolution finer than "
+                    f"q/n = {tdecl.q / len(scored):.2e}; this null resolves "
+                    f"to {floor_p:.2e}. Raise null_samples to at least "
+                    f"{int(len(scored) / tdecl.q)} or use a FWER correction, "
+                    f"whose cut does not scale with the number of pairs.")
+            return set()
+        cut = _bh([p for _, _, p in scored], tdecl.q)
+        keep = {k for k, (_a, _b, p) in enumerate(scored)
+                if cut is not None and p <= cut}
+        for k in keep:
+            sa, sb, _p = scored[k]
+            events.update(range(*sa))
+            events.update(range(*sb))
+    else:
+        for pos, ks in family.items():
+            m = len(ks)
+            if tdecl.correction == "bonferroni":
+                cut = tdecl.alpha / m
+            else:                                  # sidak
+                cut = 1.0 - (1.0 - tdecl.alpha) ** (1.0 / m)
+            if any(scored[k][2] <= cut for k in ks):
+                events.add(pos)
+
+    if detail is not None:
+        detail.update(
+            n_candidate_pairs=len(pairs), n_scored=len(scored),
+            n_null=len(null), n_null_valid=n_valid,
+            null_band_pass_rate=(len(null) / n_valid) if n_valid else None,
+            p_resolution=1.0 / (n_valid + 1) if n_valid else None,
+            median_family_size=(sorted(len(v) for v in family.values())
+                                [len(family) // 2] if family else 0),
+            correction=tdecl.correction, alpha=tdecl.alpha)
     return events
 
 

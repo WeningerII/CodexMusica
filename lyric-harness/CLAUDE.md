@@ -24,9 +24,12 @@ Codex Musica describes the recording, this disciplines the words.
    rule that closed the leak by deleting assonance from the taxonomy
    would be a worse defect than the leak. See RESULTS_BAND.md.
 4. **Four layers.** Signal (phoneme channels: nucleus/coda/onset/stress,
-   scored separately). Time (BUILT, and it found nothing: quality/
-   time_layer.py, RESULTS_TIME.md. Placement of rhyme against a metric
-   period, phase-invariant and self-normalizing. No arm survives BH.
+   scored separately). Time (BUILT and POWERED, and it found nothing:
+   quality/time_layer.py, RESULTS_TIME.md, RESULTS_FWER.md. Placement of
+   rhyme against a metric period, phase-invariant and self-normalizing,
+   with family-wise error control across each position's ~15-comparison
+   family. Saturation 6-16%, false-event rate measured at 5.4% against a
+   declared 5.0%. No arm survives BH on either grid.
    Still no beat grid — there is no audio, so isochrony is an assumed
    coordinate, not a measurement, and "on the beat" is not a claim this
    project can make). 
@@ -78,12 +81,11 @@ prasa K L... | demo
    default; Declaration.fitted stays False and a test enforces it.
    Remaining: sun/much needs a CONJUNCTIVE band rule, not a comparator
    -- its nucleus is identical, so it was never a floor case.
-3. **Time layer.** Placement half built and null; the beat grid still
-   does not exist and cannot until audio or a declared tempo enters.
-   Its blocker is gap 2 below: the comparator's additive floor made
-   87-97% of stressed syllables count as rhyme events, so the first
-   registered run had no power. theta 0.90 works around it; a fitted
-   matrix would fix it.
+3. **Time layer.** Placement half built, POWERED and null. The blocker
+   was never the comparator: it was multiplicity, and family-wise error
+   control fixed it (RESULTS_FWER.md). The beat grid still does not
+   exist and cannot until audio or a declared tempo enters. Next is a
+   second rap corpus -- n=1 -- not a fourth instrument.
 4. **Cross-line internal walk.** internal_matches supports two lines;
    no verse-wide positional graph yet.
 5. **Assonance corpus.** Moncrieff Song of Roland (1919, PD) pending
@@ -252,3 +254,28 @@ Doctrine additions, earned from the first run — do not drift from these either
    not inheriting an old lesson. Found by reading which pairs had the LOWEST
    coda agreement and seeing `d/held` in the list, i.e. by looking at the tail
    of a distribution rather than its summary.
+27. **A null must not be conditioned on the filter it is calibrating.** The
+   first family-wise correction dropped chance pairs that failed the rhyme band
+   from its null, so the null consisted only of pairs that had already passed
+   the band and nothing real could beat it — 0% saturation on every corpus. A
+   chance draw that fails the filter scores minus infinity and belongs in the
+   DENOMINATOR, not in the bin. Count valid draws, not surviving ones.
+28. **Distinguish "none" from "cannot tell", mechanically.** A within-item null
+   cannot detect rhyme in an item whose own inventory is one rhyme class: 43%
+   of random re-pairings in rattle/cattle/saddle/battle already rhyme, against
+   ~10% for real verse, so nothing is surprising relative to that text. That is
+   true of the method, not fixable by tuning. The layer measures its own null
+   band-pass rate and refuses above 25% rather than reporting 0% events.
+29. **BH and FWER have different resolution requirements, and BH's is brutal.**
+   Benjamini-Hochberg's cut for the top-ranked p is q/n; at n ~ 10^4 candidate
+   pairs that needs a tail resolved to ~1e-5, and a 20000-draw null resolves to
+   5e-5. Whether anything is discovered then depends on how many p-values pile
+   up on the resolution floor — measured, 63% saturation on one sonnet and 0%
+   on the next three. FWER's cut is alpha/m with m ~ 15 and needs no such tail.
+   Check that a correction can resolve its own threshold before using it.
+30. **A powered null is a different claim from an unpowered one.** Every time-
+   layer null before the correction was uninterpretable: at 87-97% saturation,
+   "found nothing" and "could not have found anything" were the same output.
+   Do not report the first as if it were the second, and do not let a
+   correction that finally delivers power get filed as a refactor — it changes
+   what the negative result means.
