@@ -49,8 +49,8 @@ Codex Musica describes the recording, this disciplines the words.
 declaration | score A -- B | candidates W [n] | meter TEMPLATE L... |
 scheme LETTERS [--profile assonance|rawi] L... | song blueprint.json
 lyric.txt | chains FILE [theta] | graph FILE [theta] | internal "line" |
-density FILE | weight "line" | qafiya FILE|L... | cynghanedd "line" |
-prasa K L... | demo
+density FILE | weight "line" | qafiya FILE|L... |
+cynghanedd [--lang=cym|eng] "line" | prasa K L... | demo
 
 ## Test discipline
 - `python3 battery.py` — sonnet oracle (152 sonnets, ABABCDCDEFEFGG),
@@ -115,12 +115,15 @@ prasa K L... | demo
    Welsh: near-phonemic, and its EIGHT DIGRAPHS (ch dd ff ng ll ph rh
    th) are single consonants -- split them and every consonant
    skeleton in the language is wrong while still looking plausible.
-   cym implements croes/traws/sain on Welsh units. NOTE:
-   lyric_harness.check_cynghanedd has always built its skeleton with
-   word_syllable_map, i.e. CMUdict -- it checks the RULE SHAPE against
-   ENGLISH phonology and has never read a word of Welsh. The seven
-   recorded rule errors were found that way, which is real, but it is
-   not cynghanedd on Welsh.
+   cym implements croes/traws/sain/llusg on Welsh units, with a
+   PROCLITIC list (y, a, i, o, yn, ar, fy, ei ...) because penultimate
+   stress otherwise makes every monosyllable stressed and llusg then
+   "answers" on the definite article. FIXED: check_cynghanedd now takes
+   `language` and DEFAULTS TO WELSH; `--lang=eng` keeps the original
+   CMUdict path for English imitation (Hopkins wrote it) and labels
+   itself an imitation. Every result declares its phonology. It had
+   built its skeleton from CMUdict since the first commit, so the seven
+   recorded rule errors are findings about the RULES, never about Welsh.
    PHONOLOGY still blocked: Indic (prasa), Old Norse (hendings).
    TEXT blocked for Welsh: see SEARCH:welsh-cynghanedd-corpus in
    data/sources.tsv. The capability is built; the corpus is not
@@ -407,3 +410,17 @@ Doctrine additions, earned from the first run — do not drift from these either
    stress, an afternoon. What is actually blocked is the TEXT. Separate
    "hard to build" from "cannot obtain" in every gap entry, because the two
    have completely different remedies.
+45. **Give a form's checker the language of the form, and make the language a
+   coordinate.** check_cynghanedd now defaults to `cym` because cynghanedd is
+   Welsh; `--lang=eng` keeps the CMUdict path for English imitation and says
+   in its own output that it IS an imitation. Every result declares which
+   phonology produced it. A checker that silently picks a phonology is making
+   a claim it never states.
+46. **A function-word list is part of a phonology, not an optimisation.**
+   Welsh penultimate stress makes every monosyllable stressed, so without a
+   PROCLITIC list cynghanedd lusg "answers" the definite article `y`. The
+   English engine has always had WEAK_ALWAYS for the same reason. Any new
+   language needs its own before its prominence rule means anything -- and the
+   list changes what a skeleton IS: a half-line ending in a proclitic has its
+   last stress on an earlier word, which is an edge case that silently swept
+   the final coda into the skeleton until a test line hit it.

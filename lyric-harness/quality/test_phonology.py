@@ -219,8 +219,16 @@ def test_welsh_cynghanedd():
           str(c.skeleton("tan a thi")))
     t, d = c.cynghanedd("tan a thi, tywyn a thau")
     check("croes: the skeleton answered exactly", t == "croes", d)
-    t, d = c.cynghanedd("dwr dan, dwr dyn")
+    t, d = c.cynghanedd("dwr dyn, dwr dawn")
     check("croes on a second constructed line", t == "croes", d)
+    # `dan` is the PREPOSITION and therefore a proclitic, so a half-line
+    # ending in it has its last stress on the FIRST word. Keying the skeleton
+    # only on the last word ran past the end and swept in the final coda.
+    check("a half-line ending in a proclitic stops at the real last stress",
+          c.skeleton("dwr dan") == ["d"], str(c.skeleton("dwr dan")))
+    check("a digraph onset survives into the skeleton",
+          c.skeleton("llais llon")[:1] == ["ll"],
+          str(c.skeleton("llais llon")))
     t, d = c.cynghanedd("Calon lân, yn llawn daioni")
     check("a hymn line that is NOT strict metre is not croes", t is None, d)
     t, d = c.cynghanedd("mae hi, mae ho, mor hy")
@@ -232,6 +240,47 @@ def test_welsh_cynghanedd():
     # data/sources.tsv.
     check("constructed tests are labelled as testing the implementation",
           True, "canon requires a sourced corpus, which is blocked")
+
+
+def test_check_cynghanedd_defaults_to_welsh():
+    print("\n10d. the harness's own checker now reads Welsh")
+    import lyric_harness as lh
+    lex = lh.Lexicon()
+    decl = lh.Declaration()
+    res = lh.check_cynghanedd(lex, "tan a thi, tywyn a thau", decl)
+    check("it defaults to Welsh, because that is what cynghanedd is",
+          res["language"] == "cym", res["phonology"])
+    check("and finds croes on Welsh units",
+          [k for k, _w in res["found"]] == ["croes"], str(res["found"])[:80])
+    check("the th digraph survived into the skeleton",
+          "'th'" in str(res["found"]),
+          "an English reading would have split it into t + h")
+    eng = lh.check_cynghanedd(lex, "clear day, cold dew", decl,
+                              language="eng")
+    check("English is still reachable, but by name",
+          eng["language"] == "eng" and eng["found"])
+    check("and it labels itself an imitation",
+          "IMITATION" in eng["phonology"], eng["phonology"][:70])
+    try:
+        lh.check_cynghanedd(lex, "x, y", decl, language="fra")
+        check("an undeclared language raises", False, "it returned a result")
+    except ValueError as e:
+        check("an undeclared language raises rather than defaulting", True,
+              str(e)[:76])
+
+
+def test_welsh_proclitics_are_unstressed():
+    print("\n10e. Welsh — proclitics cannot answer a cynghanedd")
+    c = get("cym")
+    check("the article y is unstressed",
+          [x.prominence for x in c.syllabify("y")] == [0])
+    check("a monosyllabic content word is stressed",
+          [x.prominence for x in c.syllabify("dyn")] == [1])
+    # Without the proclitic list, penultimate stress makes EVERY monosyllable
+    # stressed, and llusg "finds" the final word's penult rhyming the article.
+    ok, why = c.llusg("y ddraig goch ddyry cychwyn")
+    check("llusg answers on a content word, not on the article",
+          ok and "'y'" not in why, why)
 
 
 def test_every_module_declares_itself():
@@ -284,6 +333,8 @@ if __name__ == "__main__":
                test_regulated_verse_rhymes,
                test_welsh_digraphs_are_single_consonants,
                test_welsh_cynghanedd,
+               test_welsh_proclitics_are_unstressed,
+               test_check_cynghanedd_defaults_to_welsh,
                test_every_module_declares_itself,
                test_no_module_consults_english):
         fn()

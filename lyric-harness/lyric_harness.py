@@ -1134,7 +1134,42 @@ def _final_bits(sylls):
     return fc, fv
 
 
-def check_cynghanedd(lex, text, decl):
+def check_cynghanedd(lex, text, decl, language="cym"):
+    """Cynghanedd, on the phonology of the language it belongs to.
+
+    THE DEFECT THIS FIXES. This function has existed since the first commit and
+    built its consonant skeleton with `word_syllable_map` -- CMUdict. Cynghanedd
+    is a WELSH form and its whole substance is the consonant skeleton, so
+    checking it on English phonemes meant the checker had never read a word of
+    Welsh. The seven rule errors this function found are real findings about the
+    RULES; they were never findings about Welsh, and nothing here said so.
+
+    Welsh has eight digraphs -- ch dd ff ng ll ph rh th -- that are SINGLE
+    consonants. An English reading splits `ll` into two /l/ and `dd` into two
+    /d/, which corrupts every skeleton in the language while still producing
+    plausible output. That is why this could not be approximated.
+
+    `language` is now a coordinate of the declaration rather than an assumption
+    (doctrine 1), and it DEFAULTS TO WELSH because that is what cynghanedd is.
+    `language="eng"` keeps the original path for English-language imitation --
+    Hopkins wrote it, and grading an English attempt at consonantal answering is
+    a real use -- but it is now something a caller asks for by name.
+
+    -> {"language", "phonology", "found": [(type, why)], "why_not": str}
+    """
+    if language == "cym":
+        from quality.phonology import get   # lazy: no base -> quality cycle
+        w = get("cym")
+        kind, detail = w.cynghanedd(text)
+        return {"language": "cym", "phonology": w.notation,
+                "found": [(kind, detail)] if kind else [],
+                "why_not": "" if kind else detail}
+    if language != "eng":
+        raise ValueError(
+            f"no cynghanedd phonology for {language!r}. Declared: 'cym' "
+            f"(Welsh, the language of the form) and 'eng' (English "
+            f"imitation). A language without a declared phonology is refused "
+            f"rather than scored with another language's rules.")
     found = []
     parts = [p.strip() for p in text.split(",") if p.strip()]
     if len(parts) == 2:
@@ -1195,7 +1230,10 @@ def check_cynghanedd(lex, text, decl):
                              f"penult of '{final_word}' rhymes "
                              f"'{sylls[i]['word']}' at {s['total']}"))
                         break
-    return found
+    return {"language": "eng",
+            "phonology": "CMUdict General American — ENGLISH IMITATION of a "
+                         "Welsh form, not cynghanedd on Welsh",
+            "found": found, "why_not": ""}
 
 
 RIDF_CLASS = {"AA": "alif", "UW": "waw", "OW": "waw",
@@ -1361,10 +1399,17 @@ def main():
         print(f"  overall density: {res['overall']}")
 
     elif cmd == "cynghanedd":
-        found = check_cynghanedd(lex, " ".join(args[1:]), decl)
-        if not found:
-            print("  no cynghanedd detected")
-        for kind, why in found:
+        rest = args[1:]
+        language = "cym"
+        if rest and rest[0].startswith("--lang="):
+            language = rest[0].split("=", 1)[1]
+            rest = rest[1:]
+        res = check_cynghanedd(lex, " ".join(rest), decl, language=language)
+        print(f"  phonology: {res['language']} — {res['phonology']}")
+        if not res["found"]:
+            print(f"  no cynghanedd detected"
+                  + (f": {res['why_not']}" if res["why_not"] else ""))
+        for kind, why in res["found"]:
             print(f"  {kind.upper()}: {why}")
 
     elif cmd == "qafiya":

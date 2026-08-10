@@ -52,6 +52,21 @@ DIGRAPHS = ("ngh", "mh", "nh", "ch", "dd", "ff", "ng", "ll", "ph", "rh", "th")
 VOWELS = set("aeiouwyâêîôûŵŷáéíóúàèìòùäëïöüAEIOUWYÂÊÎÔÛŴŶ")
 CONSONANTS = set("bcdfghjlmnprstvzBCDFGHJLMNPRSTVZ")
 #: Standard Welsh diphthongs. A vowel pair not on this list is a hiatus.
+#: PROCLITICS — unstressed monosyllabic function words. Welsh stress is
+#: penultimate, which makes every monosyllable stressed by the bare rule, and
+#: that is wrong for function words: the article `y`, the conjunction `a` and
+#: the prepositions carry no stress and cannot answer a cynghanedd. Without
+#: this, cynghanedd lusg "finds" the penult of the final word rhyming the
+#: article, which is spurious in the same way the English harness's
+#: WEAK_ALWAYS set exists to prevent. Personal pronouns are deliberately NOT
+#: here -- they can bear stress.
+PROCLITICS = {
+    "y", "yr", "r", "a", "ac", "na", "nac", "neu", "ond", "os", "pe",
+    "i", "o", "yn", "ar", "at", "am", "gan", "heb", "dan", "dros", "drwy",
+    "trwy", "wrth", "hyd", "er", "rhwng", "tan", "fy", "dy", "ei", "ein",
+    "eich", "eu", "w", "mi", "fe", "ni", "nid", "mai", "taw", "yn", "yr",
+}
+
 DIPHTHONGS = {
     "ae", "ai", "au", "aw", "ei", "eu", "ew", "ey", "iw", "oe", "oi",
     "ou", "ow", "uw", "wy", "yw", "yb", "aw",
@@ -96,6 +111,7 @@ class Welsh(Phonology):
     source = "rules only; no external resource, so nothing to licence"
 
     def syllabify(self, word):
+        w = word.strip("-'").lower()
         u = units(word)
         if not u:
             return []
@@ -145,8 +161,12 @@ class Welsh(Phonology):
             sylls[-1] = Syllable(s.text + "".join(tail), s.onset, s.nucleus,
                                  tuple(tail), s.prominence, s.moras)
         n = len(sylls)
+        proclitic = w in PROCLITICS
         for i, s in enumerate(sylls):
-            s.prominence = 1 if (i == n - 2 or n == 1) else 0
+            if proclitic:
+                s.prominence = 0
+            else:
+                s.prominence = 1 if (i == n - 2 or n == 1) else 0
         return sylls
 
     # -- cynghanedd -------------------------------------------------------
@@ -163,25 +183,70 @@ class Welsh(Phonology):
                  if w.strip("'-")]
         if not words:
             return None
+        # Stop at the onset of the LAST STRESSED SYLLABLE IN THE HALF-LINE,
+        # not merely in the last word. A half-line can end in a proclitic --
+        # `dwr dan`, where `dan` is the preposition -- and then the final word
+        # carries no stress at all; keying only on it ran past the end and
+        # swept the final coda into the skeleton, so an otherwise exact answer
+        # stopped matching.
+        stop = None
         for wi, w in enumerate(words):
-            s = self.syllabify(w)
-            if not s:
+            syls = self.syllabify(w)
+            if not syls:
                 return None
-            last = wi == len(words) - 1
-            for si, syl in enumerate(s):
+            for si, syl in enumerate(syls):
+                if syl.prominence == 1:
+                    stop = (wi, si)
+        for wi, w in enumerate(words):
+            for si, syl in enumerate(self.syllabify(w)):
                 out.extend(syl.onset)
-                if last and syl.prominence == 1:
-                    return out          # stop at the final stressed onset
+                if stop == (wi, si):
+                    return out
                 out.extend(syl.coda)
         return out
 
+    def llusg(self, line):
+        """Cynghanedd lusg: the final word is polysyllabic and stressed on its
+        penult, and that penult rhymes with a stressed syllable EARLIER in the
+        line.
+
+        It is the one traditional type built on vowel rhyme rather than on the
+        consonant skeleton, and it is internal by definition -- the answer is
+        inside the line, not at its end. Returns (True, detail) or
+        (False, reason).
+        """
+        words = [w for w in re.findall(r"[A-Za-zÂÊÎÔÛŴŶâêîôûŵŷ'\-]+", line)
+                 if w.strip("'-")]
+        if len(words) < 2:
+            return False, "need at least two words"
+        final = self.syllabify(words[-1])
+        if len(final) < 2:
+            return False, "the final word is a monosyllable, so it has no penult"
+        pen = final[-2]
+        if pen.prominence != 1:
+            return False, "the final word's penult is not the stressed syllable"
+        for w in words[:-1]:
+            for syl in self.syllabify(w):
+                if syl.prominence == 1 and syl.nucleus == pen.nucleus \
+                        and syl.coda == pen.coda:
+                    return True, (f"penult {pen.text!r} of {words[-1]!r} "
+                                  f"rhymes {syl.text!r} in {w!r}")
+        return False, f"nothing earlier rhymes the penult {pen.text!r}"
+
     def cynghanedd(self, line):
-        """-> (type, detail) or (None, reason). Types: croes, traws, sain.
+        """-> (type, detail) or (None, reason). Types: croes, traws, sain,
+        llusg.
 
         croes  every consonant of the first half answered, in order, in the
                second
         traws  the same, after an unanswered bridge at the start of the second
         sain   three parts: 1 rhymes with 2, and 2 alliterates with 3
+        llusg  the final word's stressed penult rhymes something earlier
+
+        NO GRADED VARIANT. The English path offers a "chime" reading -- a
+        graded consonant-skeleton similarity -- which needs a Welsh consonant
+        FEATURE table that does not exist. Rather than borrow the English one,
+        this returns exact types only. Unknown never produces a number.
         """
         parts = [p.strip() for p in re.split(r"[,/|]", line) if p.strip()]
         if len(parts) == 3:
@@ -198,7 +263,11 @@ class Welsh(Phonology):
             return None, (f"sain needs rhyme AND alliteration; "
                           f"rhyme={rhyme} allit={allit}")
         if len(parts) != 2:
-            return None, f"need 2 or 3 parts split on a caesura, got {len(parts)}"
+            ok, why = self.llusg(line)
+            if ok:
+                return "llusg", why
+            return None, (f"need 2 or 3 parts split on a caesura, got "
+                          f"{len(parts)}; llusg: {why}")
         sa, sb = self.skeleton(parts[0]), self.skeleton(parts[1])
         if sa is None or sb is None:
             return None, "unreadable"
@@ -209,7 +278,10 @@ class Welsh(Phonology):
         if len(sb) > len(sa) and sb[-len(sa):] == sa:
             return "traws", (f"skeleton {sa} answered after unanswered bridge "
                              f"{sb[:-len(sa)]}")
-        return None, f"{sa} not answered by {sb}"
+        ok, why = self.llusg(line)
+        if ok:
+            return "llusg", why
+        return None, f"{sa} not answered by {sb}; llusg: {why}"
 
 
 register(Welsh())
