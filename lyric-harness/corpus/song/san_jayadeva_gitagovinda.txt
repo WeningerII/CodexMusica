@@ -1,0 +1,1294 @@
+# author: Jayadeva (12th century; life given only as 'century' — the author row is bounded
+#         at the END of that window per doctrine 81)
+# source: OliverHellwig/sanskrit  dcs/data/conllu/files/Gītagovinda/  (12 chapter
+#         CoNLL-U files) — cloned 2026-08-10
+#         SPARSE-CHECKOUT IS LOAD-BEARING, not a convenience:
+#         git clone --filter=blob:none --no-checkout --depth 1 \
+#             https://github.com/OliverHellwig/sanskrit.git ohs
+#         cd ohs && git sparse-checkout set --cone dcs/data/conllu/files && git checkout
+#         The SIBLING tree corpus/GRETIL/ is CC BY-NC-SA and is NOT in this
+#         checkout; verified absent before extraction (doctrine 54).
+# licence: CC BY 4.0 on the DCS DIGITISATION LAYER, scoped by dcs/data/readme.md
+#          to `dcs/data` and its children — which is the path this file is cut
+#          from. Required attribution, reproduced verbatim:
+#          "Oliver Hellwig: Digital Corpus of Sanskrit (DCS). 2010-2021."
+#          SPDX: CC-BY-4.0. The WORK is Jayadeva, 12th century; two separable layers
+#          (doctrine 40), and the inner one is centuries out of any term.
+# edition: NOT NAMED. The DCS does not record which printed edition each text
+#          was digitised from, so the modern-edition layer is unattributed and
+#          admission rests on the express CC BY grant rather than on an
+#          evidenced pre-1931 edition. Recorded as the OPEN half of doctrine 80,
+#          not as a cleared gate.
+# orthography: IAST, Unicode NFC, lowercase, word-SEGMENTED (the DCS `# text =`
+#          FORM layer, partially de-sandhied). Retroflex/dental distinction
+#          INTACT (ṭ ḍ ṇ ṣ ṛ all present and contrastive). ANUSVĀRA: this
+#          text writes word-final nasal as `m`, not `ṃ` — 1078 word-final
+#          `m` against 3 `ṃ`. The DCS is NOT uniform across texts on this
+#          (Caurapañcāśikā, beside it in the same corpus, writes `ṃ`), so a
+#          rhyme key built on the final akṣara is NOT comparable across DCS
+#          texts without folding. Measured, not assumed.
+# structure: [VERSE n] a verse of the aṣṭapadī; [BURDEN] the dhruva refrain repeated
+#         VERBATIM; [BURDEN-TAIL] a dhruva whose final run is invariant and whose head
+#         varies (structurally a radif — `keśava dhṛta<X>rūpa | jaya jagadīśa hare`);
+#         [SLOKA] an interleaved narrative verse, kept because deleting it would change
+#         every spacing the refrain detector reads.
+# tune: *** THE RĀGA AND THE TĀLA ARE NOT IN THIS SOURCE. ***
+#         The Gītagovinda's manuscripts and printed editions head each aṣṭapadī with a
+#         rāga and a tāla (`gīyate ... mālavagauḍarāgeṇa rūpakatālena`). The DCS carries
+#         NONE of it: zero occurrences of any heading across all 12 chapter files.
+#         Every string in this file containing `rāga` or `tāla` is a LEXICAL word inside
+#         a verse — anurāga 'passion', parāga 'pollen', tālaphala 'palm fruit',
+#         pañcamarāga as a simile. Counted, not assumed. `[raga: NOT IN SOURCE]` on every
+#         title line says so rather than leaving the field silently absent.
+# structure-recovery: the aṣṭapadī boundaries and the dhruva are RECOVERED, not given.
+#         Rule, fixed and unswept: a refrain is a token suffix of 3 recurring
+#         >= 5 times at spacing <= 6 within one chapter. It returns
+#         24 songs — the canonical count of aṣṭapadīs — with 22 VERBATIM and 2 TAIL,
+#         and 192 refrain lines. The DCS's own `sent_counter` does NOT isolate the dhruva
+#         (inside aṣṭapadī 1 it is v5.2, v9.1, v12.1, v19.2 by turns), so detection is on
+#         LINES; a verse-keyed detector found 20 of 24 and reported ZERO for sarga 1.
+#--------------------------------------------------------------------------
+[SLOKA]
+meghaiḥ meduram ambaram vanabhuvaḥ śyāmāḥ tamāladrumaiḥ naktam bhīruḥ ayam tvam eva tat imam rādhe gṛham prāpaya
+[SLOKA]
+ittham nandanideśataḥ calitayoḥ pratyadhvakuñjadrumam rādhāmādhavayoḥ jayanti yamunākūle rahaḥkelayaḥ
+[SLOKA]
+vāgdevatācaritacitritacittasadmā padmāvatīcaraṇacāraṇacakravartī
+[SLOKA]
+śrīvāsudevaratikelikathāsametam etam karoti jayadevakaviḥ prabandham
+[SLOKA]
+vācaḥ pallavayati umāpatidharaḥ saṃdarbhaśuddhim girām jānīte jayadevaḥ eva śaraṇaḥ ślāghyaḥ durūhadrute
+[SLOKA]
+śṛṅgārottarasatprameyaracanaiḥ ācāryagovardhanaspardhī ko 'pi na viśrutaḥ śrutidharaḥ dhoyī kavikṣmāpatiḥ
+[SLOKA]
+yadi harismaraṇe sarasam manaḥ yadi vilāsakalāsu kutūhalam
+[SLOKA]
+madhurakomalakāntapadāvalīm śṛṇu tadā jayadevasarasvatīm
+--- TITLE: Aṣṭapadī 1 — GītGov, 1  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: jaya jagadīśa hare] [dhruva-type: TAIL] [dhruva-instances: 11]
+[VERSE 1]
+pralayapayodhijale dhṛtavān asi vedam vihitavahitracaritram akhedam
+[BURDEN-TAIL]
+keśava dhṛtamīnaśarīra jaya jagadīśa hare
+[VERSE 2]
+kṣitiḥ ativipulatare tava tiṣṭhati pṛṣṭhe dharaṇidharaṇakiṇacakragariṣṭhe
+[BURDEN-TAIL]
+keśava dhṛtakacchaparūpa jaya jagadīśa hare
+[VERSE 3]
+vasati daśanaśikhare dharaṇī tava lagnā śaśini kalaṅkakalā iva nimagnā
+[BURDEN-TAIL]
+keśava dhṛtaśūkararūpa jaya jagadīśa hare
+[VERSE 4]
+tava karakamalavare nakham adbhutaśṛṅgam dalitahiraṇyakaśiputanubhṛṅgam
+[BURDEN-TAIL]
+keśava dhṛtanaraharirūpa jaya jagadīśa hare
+[VERSE 5]
+chalayasi vikramaṇe balim adbhutavāmana padanakhanīrajanitajanapāvana
+[BURDEN-TAIL]
+keśava dhṛtavāmanarūpa jaya jagadīśa hare
+[VERSE 6]
+kṣatriyarudhiramaye jagat apagatapāpam snapayasi payasi śamitabhavatāpam
+[BURDEN-TAIL]
+keśava dhṛtabhṛgupatirūpa jaya jagadīśa hare
+[VERSE 7]
+vitarasi dikṣu raṇe dikpatikamanīyam daśamukhamaulibalim ramaṇīyam
+[BURDEN-TAIL]
+keśava dhṛtarāmaśarīra jaya jagadīśa hare
+[VERSE 8]
+vahasi vapuṣi viśade vasanam jaladābham halahatibhītimilitayamunābham
+[BURDEN-TAIL]
+keśava dhṛtahaladhararūpa jaya jagadīśa hare
+[VERSE 9]
+nindasi yajñavidheḥ ahaha śrutijātam sadayahṛdaya darśitapaśughātam
+[BURDEN-TAIL]
+keśava dhṛtabuddhaśarīra jaya jagadīśa hare
+[VERSE 10]
+mlecchanivahanidhane kalayasi karavālam dhūmaketum iva kim api karālam
+[BURDEN-TAIL]
+keśava dhṛtakalkiśarīra jaya jagadīśa hare
+[VERSE 11]
+śrījayadevakaveḥ idam uditam udāram śṛṇu sukhadam śubhadam bhavasāram
+[BURDEN-TAIL]
+keśava dhṛtadaśavidharūpa jaya jagadīśa hare
+[SLOKA]
+vedān uddharate jagat nivahate bhūgolam udbibhrate daityam dārayate balim chalayate kṣatrakṣayam kurvate
+[SLOKA]
+paulastyam jayate halam kalayate kāruṇyam ātanvate mlecchān mūrchayate daśākṛtikṛte kṛṣṇāya tubhyam namaḥ
+--- TITLE: Aṣṭapadī 2 — GītGov, 1  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: jaya jayadeva hare] [dhruva-type: TAIL] [dhruva-instances: 8]
+[VERSE 1]
+śritakamalākucamaṇḍala dhṛtakuṇḍala e
+[BURDEN-TAIL]
+kalitalalitavanamāla jaya jayadeva hare
+[VERSE 2]
+dinamaṇimaṇḍalamaṇḍana bhavakhaṇḍana e
+[BURDEN-TAIL]
+munijanamānasahaṃsa jaya jayadeva hare
+[VERSE 3]
+kāliyaviṣadharagañjana janarañjana e
+[BURDEN-TAIL]
+yadukulanalinadineśa jaya jayadeva hare
+[VERSE 4]
+madhumuranarakavināśana garuḍāsana e
+[BURDEN-TAIL]
+surakulakelinidāna jaya jayadeva hare
+[VERSE 5]
+amalakamaladalalocana bhavamocana e
+[BURDEN-TAIL]
+tribhuvanabhavananidhāna jaya jayadeva hare
+[VERSE 6]
+janakasutākṛtabhūṣaṇa jitadūṣaṇa e
+[BURDEN-TAIL]
+samaraśamitadaśakaṇṭha jaya jayadeva hare
+[VERSE 7]
+abhinavajaladharasundara dhṛtamandara e
+[BURDEN-TAIL]
+śrīmukhacandracakora jaya jayadeva hare
+[VERSE 8]
+śrījayadevakaveḥ idam kurute mudam e
+[BURDEN-TAIL]
+maṅgalam ujjvalagītam jaya jayadeva hare
+[SLOKA]
+padmāpayodharataṭīparirambhalagnakāśmīramudritam uraḥ madhusūdanasya
+[SLOKA]
+vyaktānurāgam iva khelatanaṅgakhedasvedāmbupūram anupūrayatu priyam vaḥ
+[SLOKA]
+vasante vāsantīkusumasukumāraiḥ avayavaiḥ bhramantīm kāntāre bahuvihitakṛṣṇānusaraṇām
+[SLOKA]
+amandam kandarpajvarajanitacintākulatayā valadbādhām rādhām sarasam idam ūce sahacarī
+--- TITLE: Aṣṭapadī 3 — GītGov, 1  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: viharati hariḥ iha sarasavasante nṛtyati yuvatijanena samam sakhi virahijanasya durante] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+lalitalavaṅgalatāpariśīlanakomalamalayasamīre madhukaranikarakarambitakokilakūjitakuñjakuṭīre
+[BURDEN]
+viharati hariḥ iha sarasavasante nṛtyati yuvatijanena samam sakhi virahijanasya durante
+[VERSE 2]
+unmadamadanamanorathapathikavadhūjanajanitavilāpe alikulasaṃkulakusumasamūhanirākulabakulakalāpe
+[BURDEN]
+viharati hariḥ iha sarasavasante nṛtyati yuvatijanena samam sakhi virahijanasya durante
+[VERSE 3]
+mṛgamadasaurabharabhasavaśaṃvadanavadalamālatamāle yuvajanahṛdayavidāraṇamanasijanakharucikiṃśukajāle
+[BURDEN]
+viharati hariḥ iha sarasavasante nṛtyati yuvatijanena samam sakhi virahijanasya durante
+[VERSE 4]
+madanamahīpatikanakadaṇḍarucikesarakusumavikāse militaśilīmukhapāṭalipaṭalakṛtasmaratūṇavilāse
+[BURDEN]
+viharati hariḥ iha sarasavasante nṛtyati yuvatijanena samam sakhi virahijanasya durante
+[VERSE 5]
+vigalitalajjitajagadavalokanataruṇakaruṇakṛtahāse virahinikṛntanakuntamukhākṛtiketakadanturitāśe
+[BURDEN]
+viharati hariḥ iha sarasavasante nṛtyati yuvatijanena samam sakhi virahijanasya durante
+[VERSE 6]
+mādhavikāparimalalalite navamālikajātisugandhau munimanasām api mohanakāriṇi taruṇakāraṇabandhau
+[BURDEN]
+viharati hariḥ iha sarasavasante nṛtyati yuvatijanena samam sakhi virahijanasya durante
+[VERSE 7]
+sphuradatimuktalatāparirambhaṇamukulitapulakitacūte vṛndāvanavipine parisaraparigatayamunājalapūte
+[BURDEN]
+viharati hariḥ iha sarasavasante nṛtyati yuvatijanena samam sakhi virahijanasya durante
+[VERSE 8]
+śrījayadevabhaṇitam idam udayati haricaraṇasmṛtisāram sarasavasantasamayavanavarṇanam anugatamadanavikāram
+[BURDEN]
+viharati hariḥ iha sarasavasante nṛtyati yuvatijanena samam sakhi virahijanasya durante
+[SLOKA]
+daravidalitamallīvallicañcatparāgaprakaṭitapaṭavāsaiḥ vāsayan kānanāni
+[SLOKA]
+iha hi dahati cetaḥ ketakīgandhabandhuḥ prasaratasamabāṇaprāṇavatgandhavāhaḥ
+[SLOKA]
+unmīlanmadhugandhalubdhamadhupavyādhūtacūtaṅkurakrīḍatkokilakākalīkalakalaiḥ udgīrṇakarṇajvarāḥ
+[SLOKA]
+nīyante pathikaiḥ katham katham api dhyānavadhānakṣaṇaprāptaprāṇasamāsamāgamarasollāsaiḥ amī vāsarāḥ
+[SLOKA]
+anekanārīparirambhasambhramasphuranmanohārivilāsalālasam
+[SLOKA]
+murārim ārāt upadarśayantī asau sakhī samakṣam punaḥ āha rādhikām
+--- TITLE: Aṣṭapadī 4 — GītGov, 1  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: hariḥ iha mugdhavadhūnikare vilāsini vilasati kelipare] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+candanacarcitanīlakalevarapītavasanavanamālī
+kelicalanmaṇikuṇḍalamaṇḍitagaṇḍayugasmitaśālī
+[BURDEN]
+hariḥ iha mugdhavadhūnikare vilāsini vilasati kelipare
+[VERSE 2]
+pīnapayodharabhāreṇa harim parirabhya sarāgam
+gopavadhūḥ anugāyati kācit udañcitapañcamarāgam
+[BURDEN]
+hariḥ iha mugdhavadhūnikare vilāsini vilasati kelipare
+[VERSE 3]
+kāpi vilāsavilolavilocanakhelanajanitamanojam
+dhyāyati mugdhavadhūḥ adhikam madhusūdanavadanasarojam
+[BURDEN]
+hariḥ iha mugdhavadhūnikare vilāsini vilasati kelipare
+[VERSE 4]
+kāpi kapolatale militā lapitum kimapi śrutimūle
+cāru cucumba nitambavatī dayitam pulakaiḥ anukūle
+[BURDEN]
+hariḥ iha mugdhavadhūnikare vilāsini vilasati kelipare
+[VERSE 5]
+kelikalākutukena ca kācit amum yamunājalakūle
+mañjulavañjulakuñjagatam vicakarṣa kareṇa dukūle
+[BURDEN]
+hariḥ iha mugdhavadhūnikare vilāsini vilasati kelipare
+[VERSE 6]
+karatalatālataralavalayāvalikalitakalasvanavaṃśe
+rāsarase sahanṛtyaparā hariṇā yuvatiḥ praśaśaṃse
+[BURDEN]
+hariḥ iha mugdhavadhūnikare vilāsini vilasati kelipare
+[VERSE 7]
+śliṣyati kāmapi cumbati kāmapi kāmapi ramayati rāmām
+paśyati sasmitacāruparām aparām anugacchati vāmām
+[BURDEN]
+hariḥ iha mugdhavadhūnikare vilāsini vilasati kelipare
+[VERSE 8]
+śrījayadevakaveḥ idam adbhutakeśavakelirahasyam
+vṛndāvanavipine lalitam vitanotu śubhāni yaśasyam
+[BURDEN]
+hariḥ iha mugdhavadhūnikare vilāsini vilasati kelipare
+[SLOKA]
+viśveṣām anurañjanena janayan ānandam indīvaraśreṇīśyāmalakomalaiḥ upanayan aṅgaiḥ anaṅgotsavam
+[SLOKA]
+svacchandam vrajasundarībhiḥ abhitaḥ pratiaṅgam āliṅgitaḥ śṛṅgāraḥ sakhi mūrtimān iva madhau mugdhaḥ hariḥ krīḍati
+[SLOKA]
+adya utsaṅgavasadbhujaṅgakavalakleśāt iva īśācalam prāleyaplavanecchayā anusarati śrīkhaṇḍaśailānilaḥ
+[SLOKA]
+kiṃca snigdharasālamaulimukulāni ālokya harṣodayāt unmīlanti kuhūḥ kuhūḥ iti kalottālāḥ pikānām giraḥ
+[SLOKA]
+viharati vane rādhā sādhāraṇapraṇaye harau vigalitanijotkarṣāt īrṣyāvaśena gatā anyataḥ
+[SLOKA]
+kvacit api latākuñje guñjanmadhuvratamaṇḍalī mukharaśikhare līnā dīnā api uvāca rahaḥ sakhīm
+--- TITLE: Aṣṭapadī 5 — GītGov, 2  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: rāse harim iha vihitavilāsam smarati manaḥ mama kṛtaparihāsam] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+saṃcaradadharasudhāmadhuradhvanimukharitamohanavaṃśam
+calitadṛgañcalacañcalamaulikapolavilolavataṃsam
+[BURDEN]
+rāse harim iha vihitavilāsam smarati manaḥ mama kṛtaparihāsam
+[VERSE 2]
+candrakacārumayūraśikhaṇḍakamaṇḍalavalayitakeśam
+pracurapurandaradhanuranurañjitameduramudirasuveśam
+[BURDEN]
+rāse harim iha vihitavilāsam smarati manaḥ mama kṛtaparihāsam
+[VERSE 3]
+gopakadambanitambavatīmukhacumbanalambhitalobham
+bandhujīvamadhurādharapallavam ullasitasmitaśobham
+[BURDEN]
+rāse harim iha vihitavilāsam smarati manaḥ mama kṛtaparihāsam
+[VERSE 4]
+vipulapulakabhujapallavavalayitaballavayuvatisahasram
+karacaraṇorasi maṇigaṇabhūṣaṇakiraṇavibhinnatamisram
+[BURDEN]
+rāse harim iha vihitavilāsam smarati manaḥ mama kṛtaparihāsam
+[VERSE 5]
+jaladapaṭalavaladinduvinindakacandanatilakalalāṭam
+pīnaghanastanamaṇḍalamardananirdayahṛdayakapāṭam
+[BURDEN]
+rāse harim iha vihitavilāsam smarati manaḥ mama kṛtaparihāsam
+[VERSE 6]
+maṇimayamakaramanoharakuṇḍalamaṇḍitagaṇḍam udāram
+pītavasanam anugatamunimanujasurāsuravaraparivāram
+[BURDEN]
+rāse harim iha vihitavilāsam smarati manaḥ mama kṛtaparihāsam
+[VERSE 7]
+viśadakadambatale militam kalikaluṣabhayaṃ śamayantam
+mām api kimapi taraṅgadanaṅgadṛśā manasā ramayantam
+[BURDEN]
+rāse harim iha vihitavilāsam smarati manaḥ mama kṛtaparihāsam
+[VERSE 8]
+śrījayadevabhaṇitam atisundaramohanamadhuripurūpam
+haricaraṇasmaraṇam prati saṃprati puṇyavatām anurūpam
+[BURDEN]
+rāse harim iha vihitavilāsam smarati manaḥ mama kṛtaparihāsam
+[SLOKA]
+gaṇayati guṇagrāmam bhāmam bhramāt api na īhate vahati ca parītoṣam doṣam vimuñcati dūrataḥ
+[SLOKA]
+yuvatiṣu valattṛṣṇe kṛṣṇe vihāriṇi mām vinā punaḥ api manaḥ vāmam kāmam karoti karomi kim
+--- TITLE: Aṣṭapadī 6 — GītGov, 2  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: sakhi he keśimathanam udāram ramaya mayā saha madanamanorathabhāvitayā savikāram] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+nibhṛtanikuñjagṛham gatayā niśi rahasi nilīya vasantam
+cakitavilokitasakaladiśā ratirabhasarasena hasantam
+[BURDEN]
+sakhi he keśimathanam udāram ramaya mayā saha madanamanorathabhāvitayā savikāram
+[VERSE 2]
+prathamasamāgamalajjitayā paṭucāṭuśataiḥ anukūlam
+mṛdumadhurasmitabhāṣitayā śithilīkṛtajaghanadukūlam
+[BURDEN]
+sakhi he keśimathanam udāram ramaya mayā saha madanamanorathabhāvitayā savikāram
+[VERSE 3]
+kisalayaśayananiveśitayā ciram urasi mama eva śayānam
+kṛtaparirambhaṇacumbanayā parirabhya kṛtādharapānam
+[BURDEN]
+sakhi he keśimathanam udāram ramaya mayā saha madanamanorathabhāvitayā savikāram
+[VERSE 4]
+alasanimīlitalocanayā pulakāvalilalitakapolam
+śramajalasakalakalevarayā varamadanamadāt atilolam
+[BURDEN]
+sakhi he keśimathanam udāram ramaya mayā saha madanamanorathabhāvitayā savikāram
+[VERSE 5]
+kokilakalaravakūjitayā jitamanasijatantravicāram
+ślathakusumākulakuntalayā nakhalikhitaghanastanabhāram
+[BURDEN]
+sakhi he keśimathanam udāram ramaya mayā saha madanamanorathabhāvitayā savikāram
+[VERSE 6]
+caraṇaraṇitamaṇinūpurayā paripūritasuratavitānam
+mukharaviśṛṅkhalamekhalayā sakacagrahacumbanadānam
+[BURDEN]
+sakhi he keśimathanam udāram ramaya mayā saha madanamanorathabhāvitayā savikāram
+[VERSE 7]
+ratisukhasamayarasālasayā daramukulitanayanasarojam
+niḥsahanipatitatanulatayā madhusūdanam uditamanojam
+[BURDEN]
+sakhi he keśimathanam udāram ramaya mayā saha madanamanorathabhāvitayā savikāram
+[VERSE 8]
+śrījayadevabhaṇitam idam atiśayamadhuripunidhuvanaśīlam
+sukham utkaṇṭhitagopavadhūkathitam vitanotu salīlam
+[BURDEN]
+sakhi he keśimathanam udāram ramaya mayā saha madanamanorathabhāvitayā savikāram
+[SLOKA]
+hastasrastavilāsavaṃśam anṛjubhrūvallimat ballavī vṛndotsāridṛgantavīkṣitam atisvedārdragaṇḍasthalam
+[SLOKA]
+mām udvīkṣya vilakṣitam smitasudhāmugdhānanam kānane govindam vrajasundarīgaṇavṛtam paśyāmi hṛṣyāmi ca
+[SLOKA]
+durālokastokastabakanavakāśokalatikāvikāsaḥ kāsāropavanapavano 'pi vyathayati
+[SLOKA]
+api bhrāmyadbhṛṅgīraṇitaramaṇīyā na mukulaprasūtiḥ cūtānām sakhi śikhariṇī iyam sukhayati
+[SLOKA]
+kaṃsāriḥ api saṃsāravāsanābandhaśṛṅkhalām
+[SLOKA]
+rādhām ādhāya hṛdaye tatyāja vrajasundarīḥ
+[SLOKA]
+itaḥ tataḥ tām anusṛtya rādhikām anaṅgabāṇavraṇakhinnamānasaḥ
+[SLOKA]
+kṛtānutāpaḥ sa kalindanandinītaṭāntakuñje viṣasāda mādhavaḥ
+--- TITLE: Aṣṭapadī 7 — GītGov, 3  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: harihari hatādaratayā gatā sā kupitā iva] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+mām iyam calitā vilokya vṛtam vadhūnicayena
+sāparādhatayā mām api na vāritātibhayena
+[BURDEN]
+harihari hatādaratayā gatā sā kupitā iva
+[VERSE 2]
+kim kariṣyati kim vadiṣyati sā ciram viraheṇa
+kim dhanena janena kim mama jīvitena gṛheṇa
+[BURDEN]
+harihari hatādaratayā gatā sā kupitā iva
+[VERSE 3]
+cintayāmi tadānanam kuṭilabhru kopabhareṇa
+śoṇapadmam iva upari bhramatā ākulam bhramareṇa
+[BURDEN]
+harihari hatādaratayā gatā sā kupitā iva
+[VERSE 4]
+tām aham hṛdi saṃgatām aniśam bhṛśam ramayāmi
+kim vane anusarāmi tām iha kim vṛthā vilapāmi
+[BURDEN]
+harihari hatādaratayā gatā sā kupitā iva
+[VERSE 5]
+tanvi khinnam asūyayā hṛdayam tava ākalayāmi
+tat na vedmi kutaḥ gatā asi na tena te anunayāmi
+[BURDEN]
+harihari hatādaratayā gatā sā kupitā iva
+[VERSE 6]
+dṛśyase purataḥ gatāgatam eva me vidadhāsi
+kim purā iva sasaṃbhramaṃ parirambhaṇam na dadāsi
+[BURDEN]
+harihari hatādaratayā gatā sā kupitā iva
+[VERSE 7]
+kṣamyatām aparam kadāpi tava īdṛśam na karomi
+dehi sundari darśanam mama manmathena dunomi
+[BURDEN]
+harihari hatādaratayā gatā sā kupitā iva
+[VERSE 8]
+varṇitam jayadevakena hareḥ idam pravaṇena
+[BURDEN]
+harihari hatādaratayā gatā sā kupitā iva
+[SLOKA]
+hṛdi bisalatāhāraḥ na ayam bhujaṅgamanāyakaḥ kuvalayadalaśreṇī kaṇṭhe na sā garaladyutiḥ
+[SLOKA]
+malayajarajaḥ na idam bhasma prihārahite mayi prahara na harabhrāntyā anaṅga krudhā kimu dhāvasi
+[SLOKA]
+pāṇau mā kuru cūtasāyakam amum mā cāpam āropaya krīḍānirjitaviśva mūrchitajanāghātena kim pauruṣam
+[SLOKA]
+tasyāḥ eva mṛgīdṛśaḥ manasijapreṅkhatkaṭākṣāśuga śreṇījarjaritam manāk api manaḥ na adya api saṃdhukṣate
+[SLOKA]
+bhrūcāpe nihitaḥ kaṭākṣaviśikhaḥ nirmātu marmavyathām śyāmātmā kuṭilaḥ karotu kabarībhāraḥ api mārodyamam
+[SLOKA]
+moham tāvat ayam ca tanvi tanutām bimbādharaḥ rāgavān sadvṛttastanamaṇḍalaḥ tava katham prāṇaiḥ mama krīḍati
+[SLOKA]
+tāni sparśasukhāni te ca taralāḥ snigdhāḥ dṛśoḥ vibhramāḥ tadvaktrāmbujasaurabham saḥ ca sudhāsyandī girām vakrimā
+[SLOKA]
+sā bimbādharamādhurī iti viṣayāsaṅge api cen mānasam tasyām lagnasamādhi hanta virahavyādhiḥ katham vardhate
+[SLOKA]
+bhrūpallavam dhanuḥ apāṅgataraṅgitāni bāṇāḥ guṇaḥ śravaṇapāliḥ iti smareṇa
+[SLOKA]
+tasyām anaṅgajayajaṅgamadevatāyām astrāṇi nirjitajaganti kim arpitāni
+[SLOKA]
+yamunātīravānīranikuñje mandamāsthitam
+[SLOKA]
+prāha premabharodbhrāntam mādhavam rādhikāsakhī
+--- TITLE: Aṣṭapadī 8 — GītGov, 4  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: sā virahe tava dīnā mādhava manasijaviśikhabhayāt iva bhāvanayā tvayi līnā] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+nindati candanam indukaraṇam anu vindati khedam adhīram
+vyālanilayamilanena garalam iva kalayati malayasamīram
+[BURDEN]
+sā virahe tava dīnā mādhava manasijaviśikhabhayāt iva bhāvanayā tvayi līnā
+[VERSE 2]
+aviralanipatitamadanaśarāt iva bhavadavanāya viśālam
+svahṛdayamarmaṇi varma karoti sajalanalinīdalajālam
+[BURDEN]
+sā virahe tava dīnā mādhava manasijaviśikhabhayāt iva bhāvanayā tvayi līnā
+[VERSE 3]
+kusumaviśikhaśaratalpam analpavilāsakalākamanīyam
+vratam iva tava parirambhasukhāya karoti kusumaśayanīyam
+[BURDEN]
+sā virahe tava dīnā mādhava manasijaviśikhabhayāt iva bhāvanayā tvayi līnā
+[VERSE 4]
+vahati ca galitavilocanajalabharam ānanakamalam udāram
+vidhum iva vikaṭavidhuntudadantadalanagalitāmṛtadhāram
+[BURDEN]
+sā virahe tava dīnā mādhava manasijaviśikhabhayāt iva bhāvanayā tvayi līnā
+[VERSE 5]
+vilikhati rahasi kuraṅgamadena bhavantam asamaśarabhūtam
+praṇamati makaram adhaḥ vinidhāya kare ca śaram navacūtam
+[BURDEN]
+sā virahe tava dīnā mādhava manasijaviśikhabhayāt iva bhāvanayā tvayi līnā
+[VERSE 6]
+pratipadam idam api nigadati mādhava tava caraṇe patitā aham
+tvayi vimukhe mayi sapadi sudhānidhiḥ api tanute tanudāham
+[BURDEN]
+sā virahe tava dīnā mādhava manasijaviśikhabhayāt iva bhāvanayā tvayi līnā
+[VERSE 7]
+dhyānalayena puraḥ parikalpya bhavantam atīva durāpam
+vilapati hasati viṣīdati roditi cañcati muñcati tāpam
+[BURDEN]
+sā virahe tava dīnā mādhava manasijaviśikhabhayāt iva bhāvanayā tvayi līnā
+[VERSE 8]
+śrījayadevabhaṇitam idam adhikam yadi manasā naṭanīyam
+harivirahākulaballavayuvatisakhīvacanam paṭhanīyam
+[BURDEN]
+sā virahe tava dīnā mādhava manasijaviśikhabhayāt iva bhāvanayā tvayi līnā
+[SLOKA]
+āvāsaḥ vipināyate priyasakhīmālā api jālāyate tāpaḥ api śvasitena dāvadahanajvālākalāpāyate
+[SLOKA]
+sā api tvadviraheṇa hanta hariṇīrūpāyate hā katham kandarpaḥ api yamāyate viracayan śārdūlavikrīḍitam
+--- TITLE: Aṣṭapadī 9 — GītGov, 4  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: rādhikā virahe tava keśava] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+stanavinihitam api hāram udāram
+sā manute kṛśatanuḥ atibhāram
+[BURDEN]
+rādhikā virahe tava keśava
+[VERSE 2]
+sarasamasṛṇam api malayajapaṅkam
+paśyati viṣam iva vapuṣi saśaṅkam
+[BURDEN]
+rādhikā virahe tava keśava
+[VERSE 3]
+śvasitapavanam anupamapariṇāham
+madanadahanam iva vahati sadāham
+[BURDEN]
+rādhikā virahe tava keśava
+[VERSE 4]
+diśi diśi kirati sajalakaṇajālam
+nayananalinam iva vigalitanālam
+[BURDEN]
+rādhikā virahe tava keśava
+[VERSE 5]
+nayanaviṣayam api kisalayatalpam
+kalayati vihitahutāśavikalpam
+[BURDEN]
+rādhikā virahe tava keśava
+[VERSE 6]
+tyajati na pāṇitalena kapolam
+bālaśaśinam iva sāyam alolam
+[BURDEN]
+rādhikā virahe tava keśava
+[VERSE 7]
+hariḥ iti hariḥ iti japati sakāmam
+virahavihitamaraṇā iva nikāmam
+[BURDEN]
+rādhikā virahe tava keśava
+[VERSE 8]
+śrījayadevabhaṇitam iti gītam
+sukhayatu keśavapadam upanītam
+[BURDEN]
+rādhikā virahe tava keśava
+[SLOKA]
+sā romāñcati sītkaroti vilapati utkampate tāmyati dhyāyati udbhramati pramīlati patati udyāti mūrchati api
+[SLOKA]
+etāvati atanujvare varatanuḥ jīvet na kim te rasāt svaḥvaidyapratima prasīdasi yadi tyaktaḥ anyathā na antakaḥ
+[SLOKA]
+smarāturām daivatavaidyahṛdya tvadaṅgasaṅgāmṛtamātrasādhyām
+[SLOKA]
+vimuktabādhām kuruṣe na rādhām upendra vajrāt api dāruṇaḥ asi
+[SLOKA]
+kandarpajvarasaṃjvarāturatanoḥ āścaryam asyāḥ ciram cetaḥ candanacandramaḥkamalinīcintāsu saṃtāmyati
+[SLOKA]
+kiṃtu klāntivaśena śītalatanum tvām ekam eva priyam dhyāyantī rahasi sthitā kathamapi kṣīṇā kṣaṇam prāṇiti
+[SLOKA]
+kṣaṇam api virahaḥ purā na sehe nayananimīlanakhinnayā yayā te
+[SLOKA]
+śvasiti katham asau rasālaśākhām ciraviraheṇa vilokya puṣpitāgrām
+[SLOKA]
+aham iha nivasāmi yāhi rādhām anunaya madvacanena ca ānayethāḥ
+[SLOKA]
+iti madhuripuṇā sakhī niyuktā svayam idam etya punaḥ jagāda rādhām
+--- TITLE: Aṣṭapadī 10 — GītGov, 5  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: tava virahe vanamālī sakhi sīdati] [dhruva-type: VERBATIM] [dhruva-instances: 5]
+[VERSE 1]
+vahati malayasamīre madanam upanidhāya
+sphuṭati kusumanikare virahihṛdayadalanāya
+[BURDEN]
+tava virahe vanamālī sakhi sīdati
+[VERSE 2]
+dahati śiśiramayūkhe maraṇam anukaroti
+patati madanaviśikhe vilapati vikalataraḥ ati
+[BURDEN]
+tava virahe vanamālī sakhi sīdati
+[VERSE 3]
+dhvanati madhupasamūhe śravaṇam apidadhāti
+manasi valitavirahe niśi niśi rujam upayāti
+[BURDEN]
+tava virahe vanamālī sakhi sīdati
+[VERSE 4]
+vasati vipinavitāne tyajati lalitadhāma
+luṭhati dharaṇiśayane bahu vilapati tava nāma
+[BURDEN]
+tava virahe vanamālī sakhi sīdati
+[VERSE 5]
+bhaṇati kavijayadeve virahivilasitena
+manasi rabhasavibhave hariḥ udayatu sukṛtena
+[BURDEN]
+tava virahe vanamālī sakhi sīdati
+[SLOKA]
+pūrvam yatra samam tvayā ratipateḥ āsāditāḥ siddhayaḥ tasmin eva nikuñjamanmathamahātīrthe punaḥ mādhavaḥ
+[SLOKA]
+dhyāyan tvām aniśam japan api tava eva ālāpamantrāvalīm bhūyaḥ tvatkucakumbhanirbharaparīrambhāmṛtam vāñchati
+--- TITLE: Aṣṭapadī 11 — GītGov, 5  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: dhīrasamīre yamunātīre vasati vane vanamālī] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+ratisukhasāre gatam abhisāre madanamanoharaveśam
+na kuru nitambini gamanavilambanam anusara tam hṛdayeśam
+[BURDEN]
+dhīrasamīre yamunātīre vasati vane vanamālī
+[VERSE 2]
+nāmasametam kṛtasaṅketam vādayate mṛduveṇum
+bahu manute nanu te tanusaṃgatapavanacalitam api reṇum
+[BURDEN]
+dhīrasamīre yamunātīre vasati vane vanamālī
+[VERSE 3]
+patati patatre vicalati patre śaṅkitabhavadupayānam
+racayati śayanam sacakitanayanam paśyati tava panthānam
+[BURDEN]
+dhīrasamīre yamunātīre vasati vane vanamālī
+[VERSE 4]
+mukharam adhīram tyaja mañjīram ripum iva kelisulolam
+cala sakhi kuñjam satimirapuñjam śīlaya nīlanicolam
+[BURDEN]
+dhīrasamīre yamunātīre vasati vane vanamālī
+[VERSE 5]
+urasi murāreḥ upahitahāre ghane iva taralabalāke
+taḍit iva pīte rativiparīte rājasi sukṛtavipāke
+[BURDEN]
+dhīrasamīre yamunātīre vasati vane vanamālī
+[VERSE 6]
+vigalitavasanam parihṛtarasanam ghaṭaya jaghanam apidhānam
+kisalayaśayane paṅkajanayane nidhim iva harṣanidānam
+[BURDEN]
+dhīrasamīre yamunātīre vasati vane vanamālī
+[VERSE 7]
+hariḥ abhimānī rajaniḥ idānīm iyam api yāti virāmam
+kuru mama vacanam satvararacanam pūraya madhuripukāmam
+[BURDEN]
+dhīrasamīre yamunātīre vasati vane vanamālī
+[VERSE 8]
+śrījayadeve kṛtahariseve bhaṇati paramaramaṇīyam
+pramuditahṛdayam harim atisadayam namata sukṛtakamanīyam
+[BURDEN]
+dhīrasamīre yamunātīre vasati vane vanamālī
+[SLOKA]
+vikirati muhuḥ śvāsān āśāḥ puraḥ muhuḥ īkṣate praviśati muhuḥ kuñjam guñjan muhuḥ bahu tāmyati
+[SLOKA]
+racayati muhuḥ śayyām paryākulam muhuḥ īkṣate madanakadanaklāntaḥ kānte priyaḥ tava vartate
+[SLOKA]
+tvadvāmyena samam samagram adhunā tigmāṃśuḥ astam gataḥ govindasya manorathena ca samam prāptam tamaḥ sāndratām
+[SLOKA]
+kokānām karuṇasvanena sadṛśī dīrghā madabhyarthanā tat mugdhe viphalam vilambanam asau ramyaḥ abhisārakṣaṇaḥ
+[SLOKA]
+āśleṣāt anu cumbanāt anu nakhollekhāt anu svāntaja prodbodhāt anu saṃbhramāt anu ratārambhāt anu prītayoḥ
+[SLOKA]
+anyārtham gatayoḥ bhramāt militayoḥ saṃbhāṣaṇaiḥ jānatoḥ dampatyoḥ iha kaḥ na kaḥ na tamasi vrīḍāvimiśraḥ rasaḥ
+[SLOKA]
+sabhayacakitam vinyasyantīm dṛśam timire pathi pratitaru muhuḥ sthitvā mandam padāni vitanvatīm
+[SLOKA]
+kathamapi rahaḥ prāptām aṅgaiḥ anaṅgataraṃgibhiḥ sumukhi subhagaḥ paśyan saḥ tvām upaitu kṛtārthatām
+[SLOKA]
+atha tām gantum aśaktām ciram anuraktām latāgṛhe dṛṣṭvā
+[SLOKA]
+taccaritam govinde manasijamande sakhī prāha
+--- TITLE: Aṣṭapadī 12 — GītGov, 6  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: nātha hare sīdati rādhā vāsagṛhe] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+paśyati diśi diśi rahasi bhavantam
+tadadharamadhuramadhūni pibantam
+[BURDEN]
+nātha hare sīdati rādhā vāsagṛhe
+[VERSE 2]
+tvadabhisaraṇarabhasena valantī
+patati padāni kiyanti calantī
+[BURDEN]
+nātha hare sīdati rādhā vāsagṛhe
+[VERSE 3]
+vihitaviśadabisakisalayavalayā
+jīvati param iha tava ratikalayā
+[BURDEN]
+nātha hare sīdati rādhā vāsagṛhe
+[VERSE 4]
+muhuḥ avalokitamaṇḍanalīlā
+madhuripuḥ aham iti bhāvanaśīlā
+[BURDEN]
+nātha hare sīdati rādhā vāsagṛhe
+[VERSE 5]
+tvaritam upaiti na katham abhisāram
+hariḥ iti vadati sakhīm anuvāram
+[BURDEN]
+nātha hare sīdati rādhā vāsagṛhe
+[VERSE 6]
+śliṣyati cumbati jaladharakalpam
+hariḥ upagataḥ iti timiram analpam
+[BURDEN]
+nātha hare sīdati rādhā vāsagṛhe
+[VERSE 7]
+bhavati vilambini vigalitalajjā
+vilapati roditi vāsakasajjā
+[BURDEN]
+nātha hare sīdati rādhā vāsagṛhe
+[VERSE 8]
+śrījayadevakaveḥ idam uditam
+rasikajanam tanutām atimuditam
+[BURDEN]
+nātha hare sīdati rādhā vāsagṛhe
+[SLOKA]
+vipulapulakapāliḥ sphītasītkāram antar janitajaḍimakākuvyākulam vyāharantī
+[SLOKA]
+tava kitava vidhāya amandakandarpacintām rasajaladhinimagnā dhyānalagnā mṛgākṣī
+[SLOKA]
+aṅgeṣu ābharaṇam karoti bahuśaḥ patre api saṃcāriṇi prāptam tvām pariśaṅkate vitanute śayyām ciram dhyāyati
+[SLOKA]
+iti ākalpavikalpatalparacanāsaṃkalpalīlāśatavyāsaktā api vinā tvayā varatanuḥ naiṣā niśām neṣyati
+[SLOKA]
+atra antare ca kulaṭākulavartmapātasaṃjātapātakaḥ iva sphuṭalāñchanaśrīḥ
+[SLOKA]
+vṛndāvanāntaram adīpayat aṃśujālair diksundarīvadanacandanabinduḥ induḥ
+[SLOKA]
+prasarati śaśadharabimbe vihitavilambe ca mādhave vidhurā
+[SLOKA]
+viracitavividhavilāpam sā paritāpam cakāra uccaiḥ
+--- TITLE: Aṣṭapadī 13 — GītGov, 7  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: yāmi he kam iha śaraṇam sakhījanavacanavañcitā] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+kathitasamaye api hariḥ ahaha na yayau vanam
+mama viphalam idam amalarūpam api yauvanam
+[BURDEN]
+yāmi he kam iha śaraṇam sakhījanavacanavañcitā
+[VERSE 2]
+yat anugamanāya niśi gahanam api śīlitam
+tena mama hṛdayam idam asamaśarakīlitam
+[BURDEN]
+yāmi he kam iha śaraṇam sakhījanavacanavañcitā
+[VERSE 3]
+mama maraṇam eva varam ativitathaketanā
+kim iha viṣahāmi virahānalam acetanā
+[BURDEN]
+yāmi he kam iha śaraṇam sakhījanavacanavañcitā
+[VERSE 4]
+mām ahaha vidhurayati madhuramadhuyāminī
+kāpi harim anubhavati kṛtasukṛtakāminī
+[BURDEN]
+yāmi he kam iha śaraṇam sakhījanavacanavañcitā
+[VERSE 5]
+ahaha kalayāmi valayādimaṇibhūṣaṇam
+harivirahadahanavahanena bahudūṣaṇam
+[BURDEN]
+yāmi he kam iha śaraṇam sakhījanavacanavañcitā
+[VERSE 6]
+kusumasukumāratanum atanuśaralīlayā
+srak api hṛdi hanti mām ativiṣamaśilayā
+[BURDEN]
+yāmi he kam iha śaraṇam sakhījanavacanavañcitā
+[VERSE 7]
+aham iha nivasāmi nagaṇitavanavetasā
+smarati madhusūdanaḥ mām api na cetasā
+[BURDEN]
+yāmi he kam iha śaraṇam sakhījanavacanavañcitā
+[VERSE 8]
+haricaraṇaśaraṇajayadevakavibhāratī
+vasatu hṛdi yuvatiḥ iva komalakalāvatī
+[BURDEN]
+yāmi he kam iha śaraṇam sakhījanavacanavañcitā
+[SLOKA]
+tat kim kāmapi kāminīm abhisṛtaḥ kim vā kalākelibhiḥ baddhaḥ bandhubhiḥ andhakāriṇi vanopānte kimu bhrāmyati
+[SLOKA]
+kāntaḥ klāntamanāḥ manāk api pathi prasthātum eva akṣamaḥ saṃketīkṛtamañjuvañjulalatākuñje api yat na āgataḥ
+[SLOKA]
+atha āgatām mādhavam antareṇa sakhīm iyam vīkṣya viṣādamūkām
+[SLOKA]
+viśaṅkamānā ramitam kayāpi janārdanam dṛṣṭavat etat āha
+--- TITLE: Aṣṭapadī 14 — GītGov, 7  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: kāpi madhuripuṇā vilasati yuvatiḥ adhikaguṇā] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+smarasamarocitaviracitaveśā
+galitakusumadaravilulitakeśā
+[BURDEN]
+kāpi madhuripuṇā vilasati yuvatiḥ adhikaguṇā
+[VERSE 2]
+hariparirambhaṇavalitavikārā
+kucakalaśopari taralitahārā
+[BURDEN]
+kāpi madhuripuṇā vilasati yuvatiḥ adhikaguṇā
+[VERSE 3]
+vicaladalakalalitānanacandrā
+tadadharapānarabhasakṛtatandrā
+[BURDEN]
+kāpi madhuripuṇā vilasati yuvatiḥ adhikaguṇā
+[VERSE 4]
+cañcalakuṇḍaladalitakapolā
+mukharitarasanajaghanagatilolā
+[BURDEN]
+kāpi madhuripuṇā vilasati yuvatiḥ adhikaguṇā
+[VERSE 5]
+dayitavilokitalajjitahasitā
+bahuvidhakūjitaratirasarasitā
+[BURDEN]
+kāpi madhuripuṇā vilasati yuvatiḥ adhikaguṇā
+[VERSE 6]
+vipulapulakapṛthuvepathubhaṅgā
+śvasitanimīlitavikasadanaṅgā
+[BURDEN]
+kāpi madhuripuṇā vilasati yuvatiḥ adhikaguṇā
+[VERSE 7]
+śramajalakaṇabharasubhagaśarīrā
+paripatitā urasi ratiraṇadhīrā
+[BURDEN]
+kāpi madhuripuṇā vilasati yuvatiḥ adhikaguṇā
+[VERSE 8]
+śrījayadevabhaṇitahariramitam
+kalikaluṣam janayatu pariśamitam
+[BURDEN]
+kāpi madhuripuṇā vilasati yuvatiḥ adhikaguṇā
+[SLOKA]
+virahapāṇḍumurārimukhāmbujadyutiḥ iyam tirayan api cetanām
+[SLOKA]
+vidhuḥ atīva tanoti manobhuvaḥ sahṛdaye hṛdaye madanavyathām
+--- TITLE: Aṣṭapadī 15 — GītGov, 7  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: ramate yamunāpulinavane vijayī murāriḥ adhunā] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+samuditamadane ramaṇīvadane cumbanavalitādhare
+mṛgamadatilakam likhati sapulakam mṛgam iva rajanīkare
+[BURDEN]
+ramate yamunāpulinavane vijayī murāriḥ adhunā
+[VERSE 2]
+ghanacayarucire racayati cikure taralitataruṇānane
+kurabakakusumam capalāsuṣamam ratipatimṛgakānane
+[BURDEN]
+ramate yamunāpulinavane vijayī murāriḥ adhunā
+[VERSE 3]
+ghaṭayati sughane kucayugagagane mṛgamadarucirūṣite
+maṇisaram amalam tārakapaṭalam nakhapadaśaśibhūṣite
+[BURDEN]
+ramate yamunāpulinavane vijayī murāriḥ adhunā
+[VERSE 4]
+jitabisaśakale mṛdubhujayugale karatalanalinīdale
+marakatavalayam madhukaranicayam vitarati himaśītale
+[BURDEN]
+ramate yamunāpulinavane vijayī murāriḥ adhunā
+[VERSE 5]
+ratigṛhajaghane vipulāpaghane manasijakanakāsane
+maṇimayarasanam toraṇahasanam vikirati kṛtavāsane
+[BURDEN]
+ramate yamunāpulinavane vijayī murāriḥ adhunā
+[VERSE 6]
+caraṇakisalaye kamalānilaye nakhamaṇigaṇapūjite
+bahirapavaraṇam yāvakabharaṇam janayati hṛdi yojite
+[BURDEN]
+ramate yamunāpulinavane vijayī murāriḥ adhunā
+[VERSE 7]
+ramayati sudṛśam kāmapi subhṛśam khalahaladharasodare
+kim aphalam avasam ciram iha virasam vada sakhi viṭapodare
+[BURDEN]
+ramate yamunāpulinavane vijayī murāriḥ adhunā
+[VERSE 8]
+iha rasabhaṇane kṛtahariguṇane madhuripupadasevake
+kaliyugacaritam na vasatu duritam kavinṛpajayadevake
+[BURDEN]
+ramate yamunāpulinavane vijayī murāriḥ adhunā
+[SLOKA]
+na āyātaḥ sakhi nirdayaḥ yadi śaṭhaḥ tvam dūti kim dūyase svacchandam bahuvallabhaḥ saḥ ramate kim tatra te dūṣaṇam
+[SLOKA]
+paśya adya priyasaṃgamāya dayitasya ākṛṣyamāṇam guṇair utkaṇṭhārtibharāt iva sphuṭat idam cetaḥ svayam yāsyāmi
+--- TITLE: Aṣṭapadī 16 — GītGov, 7  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: sakhi yā ramitā vanamālinā] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+anilataralakuvalayanayanena
+tapati na sā kisalayaśayanena
+[BURDEN]
+sakhi yā ramitā vanamālinā
+[VERSE 2]
+vikasitasarasijalalitamukhena
+sphuṭati na sā manasijaviśikhena
+[BURDEN]
+sakhi yā ramitā vanamālinā
+[VERSE 3]
+amṛtamadhuramṛdutaravacanena
+jvalati na sā malayajapavanena
+[BURDEN]
+sakhi yā ramitā vanamālinā
+[VERSE 4]
+sthalajalaruharucikaracaraṇena
+luṭhati na sā himakarakiraṇena
+[BURDEN]
+sakhi yā ramitā vanamālinā
+[VERSE 5]
+sajalajaladasamudayarucireṇa
+dalati na sā hṛdi ciraviraheṇa
+[BURDEN]
+sakhi yā ramitā vanamālinā
+[VERSE 6]
+kanakanikaṣaruciśucivasanena
+śvasiti na sā parijanahasanena
+[BURDEN]
+sakhi yā ramitā vanamālinā
+[VERSE 7]
+sakalabhuvanajanavarataruṇena
+vahati na sā rujam atikaruṇena
+[BURDEN]
+sakhi yā ramitā vanamālinā
+[VERSE 8]
+śrījayadevabhaṇitavacanena
+praviśatu hariḥ api hṛdayam anena
+[BURDEN]
+sakhi yā ramitā vanamālinā
+[SLOKA]
+manobhavānandana candanānila prasīda re dakṣiṇa muñca vāmatām
+[SLOKA]
+kṣaṇam jagatprāṇa vidhāya mādhavaṃ puraḥ mama prāṇaharaḥ bhaviṣyasi
+[SLOKA]
+ripuḥ iva sakhīsaṃvāsaḥ ayam śikhī iva himānilaḥ viṣam iva sudhāraśmiḥ yasmin dunoti manaḥgate
+[SLOKA]
+hṛdayam adaye tasmin evam punaḥ valate balāt kuvalayadṛśām vāmaḥ kāmaḥ nikāmaniraṅkuśaḥ
+[SLOKA]
+bādhām vidhehi malayānila pañcabāṇa prāṇān gṛhāṇa na gṛham punaḥ āśrayiṣye
+[SLOKA]
+kim te kṛtāntabhagini kṣamayā taraṅgaiḥ aṅgāni siñca mama śāmyatu dehadāhaḥ
+[SLOKA]
+atha kathamapi yāminīm vinīya smaraśarajarjaritā api sā prabhāte
+[SLOKA]
+anunayavacanam vadantam agre praṇatam api priyam āha sābhyasūyam
+--- TITLE: Aṣṭapadī 17 — GītGov, 8  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: harihari yāhi mādhava yāhi keśava mā vada kaitavavādam tām anusara sarasīruhalocana yā tava harati viṣādam] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+rajanijanitagurujāgararāgakaṣāyitam alasaniveśam
+vahati nayanam anurāgam iva sphuṭam uditarasābhiniveśam
+[BURDEN]
+harihari yāhi mādhava yāhi keśava mā vada kaitavavādam tām anusara sarasīruhalocana yā tava harati viṣādam
+[VERSE 2]
+kajjalamalinavilocanacumbanaviracitanīlimarūpam
+daśanavasanam aruṇam tava kṛṣṇa tanoti tanoḥ anurūpam
+[BURDEN]
+harihari yāhi mādhava yāhi keśava mā vada kaitavavādam tām anusara sarasīruhalocana yā tava harati viṣādam
+[VERSE 3]
+vapuḥ anuharati tava smarasaṅgarakharanakharakṣatarekham
+marakataśakalakalitakaladhautalipeḥ iva ratijayalekham
+[BURDEN]
+harihari yāhi mādhava yāhi keśava mā vada kaitavavādam tām anusara sarasīruhalocana yā tava harati viṣādam
+[VERSE 4]
+caraṇakamalagaladalaktakasiktam idam tava hṛdayam udāram
+darśayati iva bahiḥ madanadrumanavakisalayaparivāram
+[BURDEN]
+harihari yāhi mādhava yāhi keśava mā vada kaitavavādam tām anusara sarasīruhalocana yā tava harati viṣādam
+[VERSE 5]
+daśanapadam bhavadadharagatam mama janayati cetasi khedam
+kathayati katham adhunā api mayā saha tava vapuḥ etat abhedam
+[BURDEN]
+harihari yāhi mādhava yāhi keśava mā vada kaitavavādam tām anusara sarasīruhalocana yā tava harati viṣādam
+[VERSE 6]
+bahiḥ iva malinataram tava kṛṣṇa manaḥ api bhaviṣyati nūnam
+katham atha vañcayase janam anugatam asamaśarajvaradūnam
+[BURDEN]
+harihari yāhi mādhava yāhi keśava mā vada kaitavavādam tām anusara sarasīruhalocana yā tava harati viṣādam
+[VERSE 7]
+bhramati bhavān abalākavalāya vaneṣu kim atra vicitram
+prathayati pūtanikā eva vadhūvadhanirdayabālacaritram
+[BURDEN]
+harihari yāhi mādhava yāhi keśava mā vada kaitavavādam tām anusara sarasīruhalocana yā tava harati viṣādam
+[VERSE 8]
+śrījayadevabhaṇitarativañcitakhaṇḍitayuvativilāpam
+śṛṇuta sudhāmadhuram vibudhāḥ vibudhālayataḥ api durāpam
+[BURDEN]
+harihari yāhi mādhava yāhi keśava mā vada kaitavavādam tām anusara sarasīruhalocana yā tava harati viṣādam
+[SLOKA]
+tava idam paśyantyāḥ prasaradanurāgam bahiḥ iva priyāpādālaktachuritam aruṇachāyahṛdayam
+[SLOKA]
+mama adya prakhyātapraṇayabharabhaṅgena kitava tvadālokaḥ śokād api kim api lajjām janayati
+[SLOKA]
+tām atha manmathakhinnām ratirasabhinnām viṣādasampannām
+[SLOKA]
+anucintitaharicaritām kalahāntaritām uvāca sakhī
+--- TITLE: Aṣṭapadī 18 — GītGov, 9  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: mādhave mā kuru mānini mānam aye] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+hariḥ abhisarati vahati madhupavane
+kim aparam adhikasukham sakhi bhavane
+[BURDEN]
+mādhave mā kuru mānini mānam aye
+[VERSE 2]
+tālaphalāt api gurum atisarasam
+kim viphalīkuruṣe kucakalaśam
+[BURDEN]
+mādhave mā kuru mānini mānam aye
+[VERSE 3]
+kati na kathitam idam anupadam aciram
+mā parihara harim atiśayaruciram
+[BURDEN]
+mādhave mā kuru mānini mānam aye
+[VERSE 4]
+kim iti viṣīdasi rodiṣi vikalā
+vihasati yuvatisabhā tava sakalā
+[BURDEN]
+mādhave mā kuru mānini mānam aye
+[VERSE 5]
+sajalanalinīdalaśītalaśayane
+harim avalokaya saphalaya nayane
+[BURDEN]
+mādhave mā kuru mānini mānam aye
+[VERSE 6]
+janayasi manasi kim iti gurukhedam
+śṛṇu mama vacanam anīhitabhedam
+[BURDEN]
+mādhave mā kuru mānini mānam aye
+[VERSE 7]
+hariḥ upayātu vadatu bahumadhuram
+kim iti karoṣi hṛdayam atividhuram
+[BURDEN]
+mādhave mā kuru mānini mānam aye
+[VERSE 8]
+śrījayadevabhaṇitam atilalitam
+sukhayatu rasikajanam haricaritam
+[BURDEN]
+mādhave mā kuru mānini mānam aye
+[SLOKA]
+snigdhe yat paruṣā asi yat praṇamati stabdhā asi yat rāgiṇi dveṣasthā asi yat unmukhe vimukhatām yātā asi tasmin priye
+[SLOKA]
+yuktam tat viparītakāriṇi tava śrīkhaṇḍacarcā viṣam śītāṃśuḥ tapanaḥ himam hutavahaḥ krīḍāmudaḥ yātanāḥ
+[SLOKA]
+atra antare masṛṇaroṣavaśām asīmaniḥśvāsaniḥsahamukhīm sumukhīm upetya
+[SLOKA]
+savrīḍam īkṣitasakhīvadanām dinānte sānandagadgadapadam hariḥ iti uvāca
+--- TITLE: Aṣṭapadī 19 — GītGov, 10  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: priye cāruśīle muñca mayi mānam anidānam sapadi madanānalaḥ dahati mama mānasam dehi mukhakamalamadhupānam] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+vadasi yadi kiṃcit api dantarucikaumudī harati daratimiram atighoram
+sphuradadharasīdhave tava vadanacandramāḥ rocayatu locanacakoram
+[BURDEN]
+priye cāruśīle muñca mayi mānam anidānam sapadi madanānalaḥ dahati mama mānasam dehi mukhakamalamadhupānam
+[VERSE 2]
+satyam eva asi yadi sudati mayi kopinī dehi kharanakharaśaraghātam
+ghaṭaya bhujabandhanam janaya radakhaṇḍanam yena vā bhavati sukhajātam
+[BURDEN]
+priye cāruśīle muñca mayi mānam anidānam sapadi madanānalaḥ dahati mama mānasam dehi mukhakamalamadhupānam
+[VERSE 3]
+tvam asi mama bhūṣaṇam tvam asi mama jīvanam tvam asi mama bhavajaladhiratnam
+bhavatu bhavatī iha mayi satatam anurodhinī tatra mama hṛdayam atiyatnam
+[BURDEN]
+priye cāruśīle muñca mayi mānam anidānam sapadi madanānalaḥ dahati mama mānasam dehi mukhakamalamadhupānam
+[VERSE 4]
+nīlanalinābham api tanvi tava locanam dhārayati kokanadarūpam
+kusumaśarabāṇabhāvena yadi rañjayasi kṛṣṇam idam etat anurūpam
+[BURDEN]
+priye cāruśīle muñca mayi mānam anidānam sapadi madanānalaḥ dahati mama mānasam dehi mukhakamalamadhupānam
+[VERSE 5]
+sphuratu kucakumbhayoḥ upari maṇimañjarī rañjayatu tava hṛdayadeśam
+rasatu raśanā api tava ghanajaghanamaṇḍale ghoṣayatu manmathanideśam
+[BURDEN]
+priye cāruśīle muñca mayi mānam anidānam sapadi madanānalaḥ dahati mama mānasam dehi mukhakamalamadhupānam
+[VERSE 6]
+sthalakamalagañjanam mama hṛdayarañjanam janitaratiraṅgaparabhāgam
+bhaṇa masṛṇavāṇi karavāṇi padapaṅkajam sarasalasadalaktakarāgam
+[BURDEN]
+priye cāruśīle muñca mayi mānam anidānam sapadi madanānalaḥ dahati mama mānasam dehi mukhakamalamadhupānam
+[VERSE 7]
+smaragaralakhaṇḍanam mama śirasi maṇḍanam dehi padapallavam udāram
+jvalati mayi dāruṇaḥ madanakadanāruṇaḥ haratu tadupāhitavikāram
+[BURDEN]
+priye cāruśīle muñca mayi mānam anidānam sapadi madanānalaḥ dahati mama mānasam dehi mukhakamalamadhupānam
+[VERSE 8]
+iti caṭulacāṭupaṭucāru muravairiṇaḥ rādhikām adhi vacanajātam
+jayati padmāvatīramaṇajayadevakavibhāratībhaṇitam atiśātam
+[BURDEN]
+priye cāruśīle muñca mayi mānam anidānam sapadi madanānalaḥ dahati mama mānasam dehi mukhakamalamadhupānam
+[SLOKA]
+parihara kṛtātaṅke śaṅkām tvayā satatam ghanastanajaghanayā ākrānte svānte parānavakāśini
+[SLOKA]
+viśati vitanoḥ anyaḥ dhanyaḥ na kaḥ api mamāntaram stanabharaparīrambhārambhe vidhehi vidheyatām
+[SLOKA]
+mugdhe vidhehi mayi nirdayadantadaṃśadoḥvallibandhanibiḍastanapīḍanāni
+[SLOKA]
+caṇḍi tvam eva mudam añca na pañcabāṇacaṇḍālakāṇḍadalanāt asavaḥ prayāntu
+[SLOKA]
+vyathayati vṛthā maunam tanvi prapañcaya pañcamam taruṇi madhurālāpaiḥ tāpam vinodaya dṛṣṭibhiḥ
+[SLOKA]
+sumukhi vimukhībhāvam tāvat vimuñca na muñca mām svayam atiśayasnigdhaḥ mugdhe priyaḥ aham upasthitaḥ
+[SLOKA]
+bandhūkadyutibāndhavaḥ ayam adharaḥ snigdhaḥ madhūkachaviḥ gaṇḍaḥ caṇḍi cakāsti nīlanalinaśrīmocanam locanam
+[SLOKA]
+nāsā abhyeti tilaprasūnapadavīm kundābhadanti priye prāyaḥ tvanmukhasevayā vijayate viśvam saḥ puṣpāyudhaḥ
+[SLOKA]
+dṛśau tava madālase vadanam indusaṃdīpakam gatiḥ janamanoramā vidhutarambham ūrudvayam
+[SLOKA]
+ratiḥ tava kalāvatī ruciracitralekhe bhruvau aho vibudhayauvatam vahasi tanvi pṛthvīgatā
+[SLOKA]
+suciram anunayena prīṇayitvā mṛgākṣīm gatavati kṛtaveśe keśave kuñjaśayyām
+[SLOKA]
+racitarucirabhūṣām dṛṣṭimoṣe pradoṣe sphurati niravasādām kāpi rādhām jagāda
+--- TITLE: Aṣṭapadī 20 — GītGov, 11  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: mugdhe madhumathanam anugatam anusara rādhike] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+viracitacāṭuvacanaracanam caraṇe racitapraṇipātam
+saṃprati mañjulavañjulasīmani keliśayanam anuyātam
+[BURDEN]
+mugdhe madhumathanam anugatam anusara rādhike
+[VERSE 2]
+ghanajaghanastanabhārabhare daramantharacaraṇavihāram
+mukharitamaṇimañjīram upaihi vidhehi marālavikāram
+[BURDEN]
+mugdhe madhumathanam anugatam anusara rādhike
+[VERSE 3]
+śṛṇu ramaṇīyataram taruṇījanamohanamadhupavirāvam
+kusumaśarāsanaśāsanabandini pikanikare bhaja bhāvam
+[BURDEN]
+mugdhe madhumathanam anugatam anusara rādhike
+[VERSE 4]
+anilataralakisalayanikareṇa kareṇa latānikurambam
+preraṇam iva karabhoru karoti gatim pratimuñca vilambam
+[BURDEN]
+mugdhe madhumathanam anugatam anusara rādhike
+[VERSE 5]
+sphuritam anaṅgataraṅgavaśāt iva sūcitahariparirambham
+pṛccha manoharahāravimalajaladhāram amum kucakumbham
+[BURDEN]
+mugdhe madhumathanam anugatam anusara rādhike
+[VERSE 6]
+adhigatam akhilasakhībhiḥ idam tava vapuḥ api ratiraṇasajjam
+caṇḍi rasitaraśanāravaḍiṇḍimam abhisara sarasam alajjam
+[BURDEN]
+mugdhe madhumathanam anugatam anusara rādhike
+[VERSE 7]
+smaraśarasubhaganakhena kareṇa sakhīm avalambya salīlam
+cala valayakvaṇitaiḥ avabodhaya harim api nijagatiśīlam
+[BURDEN]
+mugdhe madhumathanam anugatam anusara rādhike
+[VERSE 8]
+śrījayadevabhaṇitam adharīkṛtahāram udāsitavāmam
+harivinihitamanasām adhitiṣṭhatu kaṇṭhataṭīm avirāmam
+[BURDEN]
+mugdhe madhumathanam anugatam anusara rādhike
+[SLOKA]
+sā mām drakṣyati vakṣyati smarakathām pratyaṅgam āliṅganaiḥ prītim yāsyati raṃsyate sakhi samāgatya iti cintākulaḥ
+[SLOKA]
+saḥ tvām paśyati vepate pulakayati ānandati svidyati pratyudgacchati mūrchati sthiratamaḥpuñje nikuñje priyaḥ
+[SLOKA]
+akṣṇoḥ nikṣipadañjanam śravaṇayoḥ tāpicchagucchāvalīm mūrdhni śyāmasarojadāma kucayoḥ kastūrikāpatrakam
+[SLOKA]
+dhūrtānām abhisārasatvarahṛdām viṣvaknikuñje sakhi dhvāntam nīlanicolacāru sudṛśām pratyaṅgam āliṅgati
+[SLOKA]
+kāśmīragauravapuṣām abhisārikāṇām ābaddharekham abhitaḥ rucimañjarībhiḥ
+[SLOKA]
+etat tamāladalanīlatamam tamisram tatpremahemanikaṣopalatām tanoti
+[SLOKA]
+hārāvalītaralakāñcidāmakeyūrakaṅkaṇamaṇidyutidīpitasya
+[SLOKA]
+dvāre nikuñjanilayasya harim nirīkṣya vrīḍāvatīm atha sakhī nijagāda rādhām
+--- TITLE: Aṣṭapadī 21 — GītGov, 11  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: praviśa rādhe mādhavasamīpam iha] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+mañjutarakuñjatalakelisadane
+vilasa ratirabhasahasitavadane
+[BURDEN]
+praviśa rādhe mādhavasamīpam iha
+[VERSE 2]
+navabhavadaśokadalaśayanasāre
+vilasa kucakalaśataralahāre
+[BURDEN]
+praviśa rādhe mādhavasamīpam iha
+[VERSE 3]
+kusumacayaracitaśucivāsagehe
+vilasa kusumasukumāradehe
+[BURDEN]
+praviśa rādhe mādhavasamīpam iha
+[VERSE 4]
+calamalayavanapavanasurabhiśīte
+vilasa rasavalitalalitagīte
+[BURDEN]
+praviśa rādhe mādhavasamīpam iha
+[VERSE 5]
+madhumuditamadhupakulakalitarāve
+vilasa madanarasasarasabhāve
+[BURDEN]
+praviśa rādhe mādhavasamīpam iha
+[VERSE 6]
+madhuratarapikanikaraninadamukhare
+vilasa daśanaruciruciraśikhare
+[BURDEN]
+praviśa rādhe mādhavasamīpam iha
+[VERSE 7]
+vitatabahuvallinavapallavaghane
+vilasa ciram alasapīnajaghane
+[BURDEN]
+praviśa rādhe mādhavasamīpam iha
+[VERSE 8]
+vihitapadmāvatīsukhasamāje
+kuru murāre maṅgalaśatāni bhaṇati jayadevakavirāje
+[BURDEN]
+praviśa rādhe mādhavasamīpam iha
+[SLOKA]
+tvām cittena ciram vahan ayam atiśrāntaḥ bhṛśam tāpitaḥ kandarpeṇa tu pātum icchati sudhāsaṃbādhabimbādharam
+[SLOKA]
+asya aṅgam tat alaṃkuru kṣaṇam iha bhrūkṣepalakṣmīlavakrīte dāse iva upasevitapadāmbhoje kutaḥ sambhramaḥ
+[SLOKA]
+sā sasādhvasasānandam govinde lolalocanā
+[SLOKA]
+siñjānamañjumañjīram praviveśa niveśanam
+--- TITLE: Aṣṭapadī 22 — GītGov, 11  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: harim ekarasam ciram abhilaṣitavilāsam sā dadarśa guruharṣavaśaṃvadavadanam anaṅganivāsam] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+rādhāvadanavilokanavikasitavividhavikāravibhaṅgam
+jalanidhim iva vidhumaṇḍaladarśanataralitatuṅgataraṅgam
+[BURDEN]
+harim ekarasam ciram abhilaṣitavilāsam sā dadarśa guruharṣavaśaṃvadavadanam anaṅganivāsam
+[VERSE 2]
+hāram amalataratāram urasi dadhatam parirabhya vidūram
+sphuṭataraphenakadambakarambitam iva yamunājalapūram
+[BURDEN]
+harim ekarasam ciram abhilaṣitavilāsam sā dadarśa guruharṣavaśaṃvadavadanam anaṅganivāsam
+[VERSE 3]
+śyāmalamṛdulakalevaramaṇḍalam adhigatagauradukūlam
+nīlanalinam iva pītaparāgapaṭalabharavalayitamūlam
+[BURDEN]
+harim ekarasam ciram abhilaṣitavilāsam sā dadarśa guruharṣavaśaṃvadavadanam anaṅganivāsam
+[VERSE 4]
+taraladṛgañcalacalanamanoharavadanajanitaratirāgam
+sphuṭakamalodarakhelitakhañjanayugam iva śaradi taḍāgam
+[BURDEN]
+harim ekarasam ciram abhilaṣitavilāsam sā dadarśa guruharṣavaśaṃvadavadanam anaṅganivāsam
+[VERSE 5]
+vadanakamalapariśīlanamilitamihirasamakuṇḍalaśobham
+smitarucirucirasamullasitādharapallavakṛtaratilobham
+[BURDEN]
+harim ekarasam ciram abhilaṣitavilāsam sā dadarśa guruharṣavaśaṃvadavadanam anaṅganivāsam
+[VERSE 6]
+śaśikiraṇachuritodarajaladharasundarasakusumakośam
+timiroditavidhumaṇḍalanirmalamalayajatilakaniveśam
+[BURDEN]
+harim ekarasam ciram abhilaṣitavilāsam sā dadarśa guruharṣavaśaṃvadavadanam anaṅganivāsam
+[VERSE 7]
+vipulapulakabharadanturitam ratikelikalābhiḥ adhīram
+maṇigaṇakiraṇasamūhasamujjvalabhūṣaṇasubhagaśarīram
+[BURDEN]
+harim ekarasam ciram abhilaṣitavilāsam sā dadarśa guruharṣavaśaṃvadavadanam anaṅganivāsam
+[VERSE 8]
+śrījayadevabhaṇitavibhavadviguṇīkṛtabhūṣaṇabhāram
+praṇamata hṛdi suciram vinidhāya harim sukṛtodayasāram
+[BURDEN]
+harim ekarasam ciram abhilaṣitavilāsam sā dadarśa guruharṣavaśaṃvadavadanam anaṅganivāsam
+[SLOKA]
+atikramya apāṅgam śravaṇapathaparyantagamanaprayāsena iva akṣṇoḥ taralataratāram patitayoḥ
+[SLOKA]
+idānīm rādhāyāḥ priyatamasamālokasamaye papāta svedāmbuprasara iva harṣāśrunikaraḥ
+[SLOKA]
+bhajantyāḥ talpāntam kṛtakapaṭakaṇḍūtipihitasmitam yāte gehāt bahiḥ avahitālīparijane
+[SLOKA]
+priyāsyam paśyantyāḥ smaraśarasamākūtasubhagam salajjā lajjā api vyagamat iva dūram mṛgadṛśaḥ
+[SLOKA]
+gatavati sakhīvṛnde amandatrapābharanirbharasmaraparavaśākūtasphītasmitasnapitādharām
+[SLOKA]
+sarasamanasam dṛṣṭvā rādhām muhuḥ navapallavaprasavaśayane nikṣiptākṣīm uvāca hariḥ priyām
+--- TITLE: Aṣṭapadī 23 — GītGov, 12  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: kṣaṇam adhunā nārāyaṇam anugatam anusara rādhike] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+kisalayaśayanatale kuru kāmini caraṇanalinaviniveśam
+tava padapallavavairiparābhavam idam anubhavatu suveśam
+[BURDEN]
+kṣaṇam adhunā nārāyaṇam anugatam anusara rādhike
+[VERSE 2]
+karakamalena karomi caraṇamaham āgamitā asi vidūram
+kṣaṇam upakuru śayanopari mām iva nūpuram anugataśūram
+[BURDEN]
+kṣaṇam adhunā nārāyaṇam anugatam anusara rādhike
+[VERSE 3]
+vadanasudhānidhigalitam amṛtamiva racaya vacanam anukūlam
+viraham iva apanayāmi payodhararodhakam urasi dukūlam
+[BURDEN]
+kṣaṇam adhunā nārāyaṇam anugatam anusara rādhike
+[VERSE 4]
+priyaparirambhaṇarabhasavalitam iva pulakitam atiduravāpam
+madurasi kucakalaśam viniveśaya śoṣaya manasijatāpam
+[BURDEN]
+kṣaṇam adhunā nārāyaṇam anugatam anusara rādhike
+[VERSE 5]
+adharasudhārasam upanaya bhāvini jīvaya mṛtam iva dāsam
+tvayi vinihitamanasam virahānaladagdhavapuṣam avilāsam
+[BURDEN]
+kṣaṇam adhunā nārāyaṇam anugatam anusara rādhike
+[VERSE 6]
+śaśimukhi mukharaya maṇiraśanāguṇam anuguṇakaṇṭhaninādam
+śrutiyugale pikarutavikale mama śamaya cirāt avasādam
+[BURDEN]
+kṣaṇam adhunā nārāyaṇam anugatam anusara rādhike
+[VERSE 7]
+mām ativiphalaruṣā vikalīkṛtam avalokitum adhunā idam
+mīlitalajjitam iva nayanam tava virama visṛja ratikhedam
+[BURDEN]
+kṣaṇam adhunā nārāyaṇam anugatam anusara rādhike
+[VERSE 8]
+śrījayadevabhaṇitam idam anupadanigaditamadhuripumodam
+janayatu rasikajaneṣu manoramaratisabhāvavinodam
+[BURDEN]
+kṣaṇam adhunā nārāyaṇam anugatam anusara rādhike
+[SLOKA]
+mārāṅke ratikelisaṃkularaṇārambhe tayā sāhasaprāyam kāntajayāya kiṃcit upari prārambhi yatsambhramāt
+[SLOKA]
+niṣpandā jaghanasthalī śithilā dorvalliḥ utkampitam vakṣaḥ mīlitam akṣi pauruṣarasaḥ strīṇām kutaḥ sidhyati
+[SLOKA]
+atha kāntam ratiklāntam api maṇḍanavāñchayā
+[SLOKA]
+nijagāda nirābādhā rādhā svādhīnabhartṛkā
+--- TITLE: Aṣṭapadī 24 — GītGov, 12  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [dhruva: nijagāda sā yadunandane krīḍati hṛdayānandane] [dhruva-type: VERBATIM] [dhruva-instances: 8]
+[VERSE 1]
+kuru yadunandana candanaśiśiratareṇa kareṇa payodhare
+mṛgamadapatrakam atra manobhavamaṅgalakalaśasahodare
+[BURDEN]
+nijagāda sā yadunandane krīḍati hṛdayānandane
+[VERSE 2]
+alikulagañjanam añjanakam ratināyakasāyakamocane
+tvadadharacumbanalambitakajjalam ujjvalaya priya locane
+[BURDEN]
+nijagāda sā yadunandane krīḍati hṛdayānandane
+[VERSE 3]
+nayanakuraṅgataraṅgavikāsanirāsakare śrutimaṇḍale
+manasijapāśavilāsadhare śubhaveśa niveśaya kuṇḍale
+[BURDEN]
+nijagāda sā yadunandane krīḍati hṛdayānandane
+[VERSE 4]
+bhramaracayam racayantam upari ruciram suciram mama saṃmukhe
+jitakamale vimale parikarmaya narmajanakam alakam mukhe
+[BURDEN]
+nijagāda sā yadunandane krīḍati hṛdayānandane
+[VERSE 5]
+mṛgamadarasavalitam lalitam kuru tilakam alikarajanīkare
+vihitakalaṅkakalam kamalānana viśramitaśramaśīkare
+[BURDEN]
+nijagāda sā yadunandane krīḍati hṛdayānandane
+[VERSE 6]
+mama rucire cikure kuru mānada mānasajadhvajacāmare
+ratigalite lalite kusumāni śikhaṇḍiśikhaṇḍakaḍāmare
+[BURDEN]
+nijagāda sā yadunandane krīḍati hṛdayānandane
+[VERSE 7]
+sarasaghane jaghane mama śambaradāraṇavāraṇakandare
+maṇiraśanāvasanābharaṇāni śubhāśaya vāsaya sundare
+[BURDEN]
+nijagāda sā yadunandane krīḍati hṛdayānandane
+[VERSE 8]
+śrījayadevavacasi rucire hṛdayam sadayam kuru maṇḍane
+haricaraṇasmaraṇāmṛtakṛtakalikaluṣabhavajvarakhaṇḍane
+[BURDEN]
+nijagāda sā yadunandane krīḍati hṛdayānandane
+[SLOKA]
+racaya kucayoḥ patram citram kuruṣva kapolayoḥ ghaṭaya jaghane kāñcīm añca srajā kavarībharam
+[SLOKA]
+kalaya valayaśreṇīm pāṇau pade kuru nūpurau iti nigaditaḥ prītaḥ pītāmbaraḥ api tathā akarot
+[SLOKA]
+yat gāndharvakalāsu kauśalam anudhyānam ca yat vaiṣṇavam yat śṛṅgāravivekatattvam api yat kāvyeṣu līlāyitam
+[SLOKA]
+tat sarvam jayadevapaṇḍitakaveḥ kṛṣṇaikatānātmanaḥ sānandāḥ pariśodhayantu sudhiyaḥ śrīgītagovindataḥ
+[SLOKA]
+śrībhojadevaprabhavasya rāmādevīsutaśrījayadevakasya
+[SLOKA]
+parāśarādipriyavargakaṇṭhe śrīgītagovindakavitvam astu
