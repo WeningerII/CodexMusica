@@ -137,6 +137,23 @@ check_song, infer_chains, rhyme_graph, internal, density, qafiya,
 cynghanedd, weight. Loop: spec -> draft -> check -> revise flagged
 lines only -> re-check. Model never self-certifies.
 
+**THE LOOP IS BUILT: quality/revise.py, tests in test_revise.py.**
+`Reviser.brief(lines, scheme)` returns line-scoped instructions;
+`Reviser.verify(before, after, scheme, targeted=...)` returns a verdict.
+It NEVER generates text — the model proposes, this grades. Four
+rejections are enforced and each is a silent failure mode:
+  - a revision that fixes the flagged line and breaks another
+  - a revision that takes the MODAL candidate (doctrine 9, below)
+  - a revision that touches lines nobody targeted
+  - a revision that restructures rather than revises
+Doctrine 9 is the load-bearing one and it is now mechanical: a flagged
+rhyme gets its candidate field with the MOST FREQUENT band-passing
+members marked FORBIDDEN, and verify() rejects a revision that lands on
+one. Passing the band by reaching for fire/desire is the slop direction,
+so a loop that recommended it would manufacture what the floor rejects.
+`modal_exclusion=0` disables the rule and is reachable so the defect is
+demonstrable; it is not the default.
+
 ## House rules
 Never abbreviate project names: Codex Musica, Pantheon Registry,
 Deus ex Homine, Chocolate Secrets. No artist/producer names as
@@ -424,3 +441,16 @@ Doctrine additions, earned from the first run — do not drift from these either
    list changes what a skeleton IS: a half-line ending in a proclitic has its
    last stress on an earlier word, which is an edge case that silently swept
    the final coda into the skeleton until a test line hit it.
+47. **A revision loop that only checks the line it was told to fix is a rubber
+   stamp.** The three ways a revision goes wrong are all silent: it fixes the
+   rhyme and breaks the scheme elsewhere, it fixes the rhyme by taking the most
+   predictable word in the field, or it quietly rewrites lines nobody asked
+   about. verify() diffs the whole finding set, enforces the modal exclusion,
+   and refuses changes outside the targeted lines. Accepting on "the flagged
+   finding is gone" would pass all three.
+48. **Doctrine 9 is only real once it is mechanical.** "Push away from the
+   optimum" sat in this file as a sentence for the whole project. It is now a
+   number -- modal_exclusion -- and an enforcement: the brief names the most
+   frequent band-passing candidates as FORBIDDEN and verify() rejects a
+   revision that takes one. A principle that lives only in prose gets followed
+   exactly as often as someone remembers it.
