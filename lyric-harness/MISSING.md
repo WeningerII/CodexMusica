@@ -615,6 +615,54 @@ refuses binaries, so `wikimedia/wikisource` config `20231201.cy` — Welsh
 Wikisource, 1.25 MB, one parquet file — is **named, located and unreadable**.
 Highest-value single Welsh target for whoever next has a parquet-capable channel.
 
+### M-11 · ZERO named airs across 8,009 non-English songs `OPEN`
+The field this whole round was chasing. The English corpus records a named air
+for 331 of 5,006 songs (6.6%); the 8,009 songs now staged in Persian, Sanskrit,
+Finnish, Malay and Welsh record **0**, and the 500 Chinese ci that DO carry a
+詞牌 for 100% of songs are the one admitted file (M-12). Per language: Welsh
+prints tunes but no metre index (M-8); the Gītagovinda's rāga and tāla headings
+exist and are refused on licence (M-12); the Persian EPUBs carry no per-poem
+musical metadata at all. This is F-6 restated with a number and it is the single
+largest structural gap left in the corpus.
+
+### M-12 · The admissible copy and the complete copy are DISJOINT `OPEN`
+Doctrine 92. Three instances in one round, and "find a better source" is the
+answer to none of them:
+- **Gītagovinda rāga/tāla** — present in GRETIL, verified by fetch (HTTP 200,
+  60,793 B, 25 `gīyate`, 5 `rāgeṇa`, 9 `tālena`), **CC BY-NC-SA**. Refused. The
+  DCS copy that IS admissible is the copy that dropped the headings.
+- **`Guy-Bilitski/rcc-data`** — Gītagovinda root plus commentary, **no licence
+  file at all**. Silence is not permission.
+- **The Chinese ci and yuefu** — 5,081 songs, express non-commercial. Refused;
+  see K-7 and doctrine 85.
+
+### M-13 · The Persian EDITION gate is OPEN on all 30 files `OPEN`
+Every Persian row says so. `ganjoor.net` and `api.ganjoor.net` are
+egress-blocked, and the per-book منبع note — which names the printed edition
+each text was keyed from — lives only there. So the author gate is clear on all
+30 and the edition gate is unanswered on all 30, which is doctrine 80 in its
+plainest form. Also open: `Erfi.epub` (ʿUrfī Shīrāzī, d.1591) is a **corrupt
+zip**; 15 on-list poets are in the EPUB set with **no ghazal section**
+(Firdawsī, Niẓāmī, Jāmī, Khayyām, Rūdakī, Nāṣir Khusraw, Bābā Ṭāhir, ʿUnṣurī,
+Manūchihrī, Farrukhī, Azraqī, Mahsatī, Gurgānī, Abū Saʿīd, Kisāʾī), and Bābā
+Ṭāhir's **do-baytī** (366 poems, a sung Luri form) is present, unstaged, and
+needs its own form declaration. Six further ghazal-bearing poets sit in the same
+EPUBs off the supplied list — Nizārī Quhistānī (d.1320, 1,408 ghazals), ʿAbd
+al-Qādir Gīlānī, Ibn Ḥusām Khūsfī, Mullā Hādī Sabzavārī, Riḍā al-Dīn Ārtīmānī,
+Sulṭān Bāhū — free breadth if the list extends.
+
+### M-14 · 2 Sanskrit authors is the DCS's ceiling for this property, not a shortfall `OPEN`
+Amaru, Bhartṛhari, Govardhana and every DCS stotra are reachable, CC BY 4.0 and
+out of term, and the refrain detector fires **zero** on them at every setting
+against 24 on Jayadeva in the same run — so they are NOT_FOUND *for this
+property*, with the floor printed beside the zero (doctrine 93). Extending
+Sanskrit needs either an NC decision on GRETIL or a source for the Vaiṣṇava
+stotra/pada literature — Vedānta Deśika, Bilvamaṅgala, the Gosvāmins,
+Śaṅkaradeva — **none of which is among the DCS's 270 texts**.
+**Orthographic caveat recorded with the text:** the Gītagovinda writes word-final
+`m` 1,078 times and `ṃ` 3 times; the Caurapañcāśikā does the opposite. A
+final-akṣara rhyme key is **not comparable across DCS texts without folding**.
+
 ### M-10 · GITenberg enumeration misses about a third by any single method `OPEN`
 Repo-name WebFetch → 5 Welsh holdings; `filename:metadata.yaml "language: cy"`
 → 5, missing three files that contain that exact string; `"Language: Welsh"` →
@@ -657,6 +705,49 @@ beside a null; here SPECIFICITY was what needed showing.
 elision rule joins correctly and 94 internal hyphens. A split check for `l l`,
 `d d`, `l-l`, `c h`, `r h` finds every hit is a word boundary, never a broken
 digraph.
+
+### N-4 · The Gītagovinda is here, and it overturns the number doctrine 76 rests on `CLOSED`
+24 aṣṭapadī recovered by ONE fixed unswept rule (a 3-token suffix recurring ≥5
+times at spacing ≤6 within a chapter) — the canonical count — with 192 dhruva
+refrain lines. 27.75% refrain lines against a line-permutation null **max
+9.68%**, a **+18.07 pp** gap, every replicate differing.
+**A verse-keyed detector got this wrong and the corpus said so:** the DCS's
+`sent_counter` does not isolate the dhruva — inside aṣṭapadī 1 it is `v5.2`,
+`v9.1`, `v12.1`, `v19.2` by turns — so a verse-keyed pass found 20 of 24 and
+reported **ZERO for sarga 1**, which carries four. Detection had to move to
+LINES.
+**Two refrain SHAPES, and the second is the finding.** `[BURDEN-TAIL]` is an
+invariant final run with a varying head — `keśava dhṛta<X>rūpa | jaya jagadīśa
+hare` — which is **structurally the Persian radif**, measured rather than
+asserted, in a language and century with no contact. New marker, declared in the
+file header.
+**And the calibration number was a mixture:** see CLAUDE.md doctrine 76 as
+amended. 98.17% inside the aṣṭapadī couplet, at or below chance everywhere else
+in the same text. `26.32%` is not Jayadeva's rhyme rate and must not be quoted
+as one.
+**Bilhaṇa is the opposite shape:** 47 of 100 lines open `adyāpi`, **all 47** the
+first line of their couplet — positional purity 100.0% against a null median of
+48.9%, p=0.0005 at 2000 replicates — while his END rhyme is 2.02% against a null
+median of 4.12%, p=0.945, below chance and correctly so. The two Sanskrit songs
+in this repo put their refrain at **opposite ends of the line**.
+
+### N-5 · Persian is no longer one poet, and the radif rate is authorial `CLOSED`
+Doctrine 8's Persian instance is closed. Pooled radif 71.3% of 7,949 judged at
+`min_fraction=0.60` (65.4% at 1.00, 35 refused — three counts, never two),
+against a cross-ghazal redeal null with median 0 and max 1 of 7,949. The rate
+spreads **2.5×** across 30 poets and is **not monotone in date**: Masʿūd Saʿd
+Salmān 36.4%, Qāʾānī 40.8%, Saʿdī 43.6%, Rūmī 47.4%, **Ḥāfiẓ 63.6%**, Khāqānī
+82.6%, Qudsī 89.4%, Vaḥshī 90.2%, Ṣāʾib 90.8%. Either tail alone would have
+given a confidently wrong narrow answer.
+**Doctrines 59/67 replicate 30 times out of 30, no exception:** on qāfiya-word
+pairs the real None rate runs 35.3–70.2% (median ≈57%) against a matched random
+control at 3.3–8.8%. Ḥāfiẓ specifically comes back at **60.2% None, 38.8% True**
+— reproducing the recorded figures to the decimal on a completely separate
+rendering of the text.
+**Where the over-cap authors were sampled matters and was handled:** a dīvān is
+ordered alphabetically by rhyme letter, so head-truncating Ṣāʾib at 400 would
+have produced a corpus of alif-rhymes. Every capped author is every ⌈n/400⌉-th
+in the edition's own numbering; Ḥāfiẓ is uncapped at 495 as the control.
 
 ### N-3 · Doctrine 58, third instance — the DELTA reproduced while the COUNT did not `OPEN`
 A fresh Malay implementation sharing no code gets **131/129** where

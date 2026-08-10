@@ -808,6 +808,27 @@ Doctrine additions, earned from the first run — do not drift from these either
    31 said run the positive control; this says REPORT ITS SENSITIVITY next to
    the null, because a null without a detection floor is an unfalsifiable
    claim wearing a number.
+   **AMENDED 2026-08-10 — the calibration SURVIVES and the number attached to
+   it was a mixture.** The Gītagovinda is now on disk with its song roles
+   marked, so the pooling can be undone. Stratified, adjacent-pair, depth 1:
+
+   | stratum | pairs | observed | null max | lift |
+   |---|---:|---:|---:|---:|
+   | all adjacent pairs (≈ the recorded arm) | 179/691 | 25.90% | 3.49% | 7.43x |
+   | **verse–verse INSIDE one aṣṭapadī** | **161/164** | **98.17%** | 4.88% | **20.12x** |
+   | pair touching a refrain | 14/384 | 3.65% | 3.92% | 0.93x |
+   | śloka–śloka | 4/119 | 3.36% | 5.88% | 0.57x |
+
+   Jayadeva's end-rhyme is not a 26% tendency. It is a **~98% RULE inside the
+   aṣṭapadī couplet and absent everywhere else in the same text**, at or below
+   chance on refrain-adjacent and śloka pairs. So the instrument is FAR more
+   sensitive than this item claimed, and the pooled figure was averaging a rule
+   with the material the form never constrained — doctrine 79 one layer up, a
+   denominator quietly including cases where there was no question. `26.32%`
+   must never again be quoted as "Jayadeva's rhyme rate". Also corrected: the
+   planted-signal floor is in INSTANCES, not percent — 0/20 at 3–4 instances,
+   16–17/20 at 5, 20/20 at 6+ — and a first framing as "% of lines planted"
+   hid that, because the threshold is a per-chapter count.
 77. **Parallel cells share a scratchpad, so working files must be namespaced.**
    The British sourcing cell lost ~30 fetches mid-run because a sibling
    overwrote its `fetch.sh` and clobbered `scratchpad/raw/`. Only the uniquely
@@ -986,4 +1007,63 @@ Doctrine additions, earned from the first run — do not drift from these either
    songs and that one of them is in the old metre, so the control is impure by
    its own editor's admission — and it was LEFT impure, because dropping that
    song would be tuning a control to the result it exists to test.
+90. **A null can be RIGHT and the statistic wrong, and only the pairing tells
+   you.** Bilhaṇa's Caurapañcāśikā opens 47 of 100 lines with `adyāpi`. Line
+   permutation is the correct randomisation for it. Paired with a DENSITY
+   statistic it gives 47.00% observed against a null MAX of 47.00%, lift 1.00,
+   p=1.000 — and below chance at K=2. Paired with a POSITION statistic — all 47
+   are the FIRST line of their couplet — it gives 100.0% purity against a null
+   median of 48.9%, p=0.0005 at 2000 replicates, every replicate differing.
+   Same text, same null, same corpus: one pairing says nothing is there and the
+   other says the effect is total. Doctrine 75 said choose the null per
+   PREDICATE; this says the null and the statistic are chosen together, and a
+   correct null hung on the wrong statistic manufactures a null result exactly
+   like a wrong null does. Third language, third mechanism, after Finnish
+   (doctrine 63) and Persian (doctrine 68). Note also what the same file says
+   about Bilhaṇa's END rhyme: 2.02% against a null median of 4.12%, p=0.945,
+   below chance — correct, because the form is unrhymed vasantatilaka and its
+   repeat is at the line HEAD. The two Sanskrit songs in this repo put their
+   refrain at opposite ends of the line, which is the argument for the anchor
+   axis (doctrine 83) arriving from the corpus rather than the taxonomy.
+91. **Doctrine 58 gains an axis: a count is a coordinate of the RENDERING, not
+   only of the threshold.** Two independent scrapes of the same Ḥāfiẓ text
+   align 495/495 by maṭlaʿ and are byte-identical on **only 81 of 495**. They
+   agree on 495/495 radif verdicts at `min_fraction=0.60` and differ on exactly
+   ONE at 1.00 — 297 against 298 — and the difference is ghazal
+   `از سر کوی تو هر کو به ملالت برود` line 6, where one reads `ببرد` and the
+   other `برود`. **A one-letter recensional variant**, not the joined-versus-
+   spaced orthography doctrine 65 named. Two things follow. The normaliser is
+   VINDICATED: it absorbs 414 ghazals of byte disagreement without moving a
+   verdict. And the unstated RECENSION is not a footnote — 297 is a coordinate
+   of a threshold AND of a manuscript tradition, and only one of those was ever
+   written down. Related, from the same run: a first Persian arm paired
+   LINE-FINAL tokens and got 33.2% None against the recorded 60.2%; rebuilt on
+   QĀFIYA words it reproduced to the decimal. The number had not moved — it was
+   a different statistic. Build the population the same way before calling a
+   comparison a comparison.
+92. **The admissible source and the complete source can be DISJOINT sets.**
+   Doctrine 44 separated "hard to build" from "cannot obtain". This is a third
+   category and the remedy is different again. The Gītagovinda's rāga and tāla
+   headings — the named-air field this whole round was chasing — are built,
+   digitised, GitHub-indexed and one `curl` away, verified present (25
+   `gīyate`, 5 `rāgeṇa`, 9 `tālena`, HTTP 200). They are CC BY-**NC**-SA, so
+   they are refused, and the copy that is admissible is the copy that dropped
+   them. Neither difficulty nor reachability is the blocker; the two properties
+   we need simply do not co-occur in any one file. A gap entry has to say which
+   of the three it is, because "find a better source" is the answer to only one.
+   Same round, second instance: `Guy-Bilitski/rcc-data` carries the root and
+   commentary with **no licence file at all**, and silence is not permission.
+93. **"Sung in performance" is a claim about practice; the TEXT has to carry a
+   mark of it.** Amaru, Bhartṛhari, Govardhana and every DCS stotra are
+   reachable, CC BY 4.0, and centuries out of term — and the refrain detector
+   fires ZERO on them at every setting, head and tail, against 24 on Jayadeva
+   in the same run with the same rule. So they are recorded NOT_FOUND *for this
+   property*, with the detector's floor printed beside the zero, rather than
+   staged because the tradition says they were sung. Doctrine 32 says a corpus
+   is defined by the property under test; this is the enforcement, and it is
+   what stops "song corpus" quietly becoming "verse corpus by authors who had
+   tunes". The same rule kept the count honest in the other direction: the
+   Gītagovinda's 24 aṣṭapadī were recovered by ONE fixed unswept rule and came
+   out at the canonical 24, and the looser variant of that rule (K=1) finds
+   MORE and is worse — 2.38x lift against 2.87x (doctrine 61 again).
 
