@@ -125,4 +125,4 @@ def declared():
     return sorted(_REGISTRY)
 
 
-from quality.phonology import cym, fas, fin, ltc, non, san, som  # noqa: E402,F401
+from quality.phonology import cym, fas, fin, ltc, msa, non, san, som  # noqa: E402,F401

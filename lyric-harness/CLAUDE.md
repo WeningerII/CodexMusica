@@ -549,6 +549,13 @@ Doctrine additions, earned from the first run — do not drift from these either
    measure it will think one of you is wrong. (And neither threshold dominates
    here: 0.60 wrongly admits ghazal 100, 1.00 truncates ghazal 422's radif from
    `amade i` to `i`. Both are reported for that reason.)
+   **Second instance, one round later, so this is a pattern and not an
+   anecdote:** `data/sources.tsv` recorded 82 ABAB pantun quatrains. A fresh
+   implementation confirmed 80 of 82 -- and the two that separate are the only
+   two whose end word is a Skeat EDITORIAL PARENTHESIS. The recorded 82 is
+   exactly `editorial_parentheses='keep'`; 80 is `drop`. Nobody had written
+   down that a bracket printed by a Victorian editor was being counted as the
+   poet's rhyme word. Both settings are reported and the default is `drop`.
 59. **Refusing on SCRIPT has a measurable cost, and it should be paid in the
    open.** `fas.rhymes` returns None on 60.2% of 20,388 real Hafez pairs,
    because unvocalised Perso-Arabic does not write short vowels -- that is the
@@ -623,6 +630,15 @@ Doctrine additions, earned from the first run — do not drift from these either
    out-of-inventory at some point, which returned [] and dropped the word from
    every class silently. Never port a punctuation rule between modules; derive
    it from what the mark does in THAT language.
+   **Four languages, four rules for ONE glyph, none portable:** Finnish SPLITS
+   on the apostrophe (it blocks a vowel merger), Welsh JOINS on it (elision),
+   Old Norse EXPANDS it (`sá 's` is `sá es`), and Malay reads it as A PHONEME --
+   word-final `'` is hamzah /ʔ/, a real coda that ENTERS THE RIME, so `pinta'`
+   rhymes `minta'` and not `pintar`. In Malay it is even two marks wearing one
+   glyph, split positionally: coda when final or after a vowel, apheresis when
+   word-initial (`'ku` < aku), a word break when medial after a consonant.
+   The hyphen forked the same way -- Welsh joins, Finnish and Malay treat it as
+   a seam that blocks resyllabification.
 66. **A tie broken by iterating a set is a result that does not reproduce.**
    `max(set(seen), key=seen.count)` picked a different alliterating sound under
    different PYTHONHASHSEED values. The COUNT was stable, so no rate this
@@ -658,3 +674,18 @@ Doctrine additions, earned from the first run — do not drift from these either
    within-item null contains what the item contains -- this is that, and the
    lesson is that "more conservative" is not a property you can reason your way
    to. Name what each null is a null ABOUT, then check it empirically.
+70. **Modernising an orthography can move it FURTHER from the sound the form
+   constrains.** The reflex is to normalise 1900 Straits Rumi to modern Ejaan
+   Rumi Baharu and work in the standard spelling. It is the wrong way round.
+   Malay /u/ and /i/ LOWER to [o] and [e] in a final closed syllable, so the
+   1900 spelling writes the SURFACE form (`burong`, `jatoh`, `adek`) and the
+   modern standard restored the UNDERLYING phoneme (`burung`, `jatuh`, `adik`).
+   Rhyme is a fact about surface sound, so the older spelling is the better
+   guide and modernising would have destroyed the constraint being measured.
+   The corpus confirms the orthography is internally consistent: word-final
+   `-ung` occurs 0 times and `-uk` 0 times, against 14 and 12 distinct `-ong`
+   and `-ok` types. Doctrine 50 said ask what the orthography does to the
+   constraint; this says the NEWER orthography is not automatically the safer
+   one, and "normalise to the standard" is a modelling choice, not hygiene.
+   The cost is declared rather than hidden: `-ong` now writes both /oŋ/ and
+   /uŋ/, so where that merger lands inside a rime `rhymes()` returns None.
