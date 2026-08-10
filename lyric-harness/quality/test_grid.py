@@ -80,12 +80,28 @@ def test_meter_is_arbitrary():
     print("\n2. nothing privileges 4/4")
     check("7/8 exists and is simple", str(Meter(7, 8)) == "7/8"
           and not Meter(7, 8).compound)
-    check("6/8 is compound and subdivides 3+3",
-          Meter(6, 8).compound and Meter(6, 8).pulse_groups == (3, 3))
-    check("12/8 subdivides into four groups of three",
-          Meter(12, 8).pulse_groups == (3, 3, 3, 3))
-    check("5/4 is simple and five-pulsed",
-          Meter(5, 4).pulse_groups == (1, 1, 1, 1, 1))
+    # THESE ASSERTIONS USED TO ENCODE THE DEFECT. pulse_groups ASSERTED
+    # (3,3,3) for 9/8 -- the European reading -- where Balkan daichovo is
+    # 2+2+2+3, and gave seven single pulses for 7/8, which is not a grouping.
+    # There are 2^(n-1) orderings of n pulses; it represented one by fiat.
+    check("an UNDECLARED grouping is refused, not guessed",
+          Meter(9, 8).pulse_groups is None and Meter(7, 8).pulse_groups is None,
+          "None means this cycle has not said which of its 256 or 64 "
+          "groupings it is")
+    check("a DECLARED grouping is returned exactly",
+          Meter(9, 8, groups=(2, 2, 2, 3)).pulse_groups == (2, 2, 2, 3)
+          and Meter(7, 8, groups=(3, 2, 2)).pulse_groups == (3, 2, 2),
+          "daichovo 9/8 and a 3+2+2 seven are now distinguishable from the "
+          "European readings AND from each other")
+    check("the convention still exists and is LABELLED a convention",
+          Meter(6, 8).conventional_grouping() == (3, 3)
+          and Meter(9, 8).conventional_grouping() == (3, 3, 3),
+          "available on request, never used as a default")
+    check("a cycle knows what it is distinguished FROM",
+          len(Meter(9, 8, groups=(2, 2, 2, 3)).variants()) == 255,
+          "2^(9-1) = 256 orderings of nine pulses, minus itself")
+    check("a declared grouping must exhaust the cycle",
+          _raises(lambda: Meter(7, 8, groups=(2, 2)).pulse_groups))
     s = real_song()
     check("meter resolves per BAR and can change mid-song",
           str(s.meter_at(18)) == "7/8" and str(s.meter_at(20)) == "4/4"

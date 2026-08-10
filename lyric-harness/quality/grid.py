@@ -52,6 +52,9 @@ class Meter:
     """A time signature. Arbitrary; nothing here privileges 4/4."""
     beats: int = 4
     unit: int = 4
+    #: The ordered composition of the pulses. Empty means UNDECLARED, and an
+    #: undeclared grouping is refused rather than guessed.
+    groups: tuple = ()
 
     def __str__(self):
         return f"{self.beats}/{self.unit}"
@@ -61,13 +64,35 @@ class Meter:
         return self.unit in (8, 16) and self.beats % 3 == 0 and self.beats > 3
 
     @property
+    def cycle(self):
+        """-> quality.meter.Cycle. The general object; this class is the
+        two-integer convenience over it."""
+        from quality.meter import Cycle
+        return Cycle(pulses=self.beats, unit=self.unit, groups=self.groups)
+
+    @property
     def pulse_groups(self):
-        """How the bar subdivides. 7/8 is 2+2+3 or 3+2+2 and which one it is
-        changes the whole feel, so it is not derivable and a caller who cares
-        must declare it."""
-        if self.compound:
-            return tuple([3] * (self.beats // 3))
-        return tuple([1] * self.beats)
+        """The DECLARED grouping, or None.
+
+        THIS USED TO ASSERT. It returned (3,3,3) for 9/8 -- the European
+        reading -- where Balkan daichovo is 2+2+2+3, and (1,1,1,1,1,1,1) for
+        7/8, which is not a grouping at all. There are 2^(n-1) orderings of n
+        pulses (64 at seven, 256 at nine) and it represented one by fiat.
+
+        None now means "this cycle has not said". `conventional_grouping` is
+        available separately and is labelled a convention.
+        """
+        return self.cycle.pulse_groups()
+
+    def conventional_grouping(self):
+        """A habit of common-practice European repertoire, labelled as one.
+        Wrong for aksak, for tala, and for anything polycentric."""
+        return self.cycle.conventional_grouping()
+
+    def variants(self):
+        """Every other grouping of this signature -- what it is distinguished
+        FROM."""
+        return self.cycle.variants()
 
 
 @dataclass

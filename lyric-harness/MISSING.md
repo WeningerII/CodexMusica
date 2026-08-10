@@ -95,23 +95,42 @@ placement, repetition and sequence, motif development.
 
 ## C. Rhythm and meter
 
-### C-1 · Additive/aksak meter is inexpressible `OPEN`
-**Now (verified):** `Meter.pulse_groups` returns `(1,1,1,1,1,1,1)` for 7/8 and
-eleven single pulses for 11/8. It only distinguishes simple from compound.
-**Missing:** the grouping itself. 7/8 as 2+2+3 and as 3+2+2 are different
-music. The docstring says the caller "must declare it" and **there is no field
-to declare it in**.
+### C-1 · Additive/aksak meter is inexpressible `CLOSED` 2026-08-10
+**Was:** `pulse_groups` did not merely omit the grouping — it ASSERTED one,
+returning `(3,3,3)` for 9/8 where Balkan daichovo is 2+2+2+3, and seven single
+pulses for 7/8.
+**Now:** `quality/meter.py`. A grouping is an ordered **composition** of the
+pulse count, of which there are **2^(n-1)** — 64 at seven pulses, 256 at nine.
+Undeclared returns **None**; `conventional_grouping()` exists separately and is
+labelled a convention. `variants()` reports the 255 meters a declared 9/8 is
+being distinguished from. `grid.Meter` delegates, so the assertion is gone
+there too.
 
-### C-2 · No cyclic-metre systems `OPEN`
-**Missing:** Carnatic tāla (35 tālas × 5 jātis = 175), Hindustani tāl, Turkish
-usul, Arabic īqā'āt, clave (son, rumba, bossa, 6/8), West African bell
-patterns. These are not time signatures; they are cycles with internal
-structure and named strokes.
+### C-2 · No cyclic-metre systems `PARTIAL` — the container exists, the
+catalogues do not `OPEN`
+**Now:** `Cycle` can hold every one of them — **typed groups** (a tāla's angas:
+laghu/drutam/anudrutam), **per-position labels** (an usul or īqāʿ is a LABELLED
+cycle, not a grouping: maqsūm is D T – T / – T D –, and identity matters, not
+just accent), **marked positions** (sam, khali), **nested periodicities with
+phase** (colotomic — the kempul sits offset between the kenongs), and
+`origin=None` for **polycentric** cycles with no privileged beat 1.
+**Missing, and it is DATA not structure:** the 35 tālas and their anga
+sequences, 100+ usuls, ~100 īqāʿāt, the gamelan forms (lancaran, ketawang,
+ladrang, gendhing), flamenco compases, West African timelines.
+`get_named()` raises and names the gap; `register_named()` REFUSES an entry
+without a `source`, because a catalogue written from memory is unsourced data
+in the evidence base.
 
-### C-3 · No metric complexity `OPEN`
-**Missing:** irrational meters (4/3, 5/6), mixed meter, polymeter, polyrhythm,
-metric modulation, hemiola, tuplets, swing/shuffle ratios, rubato and free
-time.
+### C-3 · No metric complexity `PARTIAL` — structure built 2026-08-10
+**Now:** bar duration is an exact `Fraction`, so **.125/1 through 64/32**,
+fractional numerators and non-power-of-two denominators (4/3, 5/6) are one
+object with no special cases; `irrational` is a declared property.
+`Polymeter` (independent barlines, composite period = lcm of Fractions —
+3/4 against 4/4 realigns at 3 whole-notes), `Polyrhythm` (n against m in ONE
+span, 3:2 resolving at 1/6), `MeterMap` (meter per BAR, not per section), and
+`Density` for irama, deliberately not a Cycle because the frame does not move.
+**Still missing:** metric modulation, hemiola, tuplets, swing ratio as a
+continuous value, rubato/senza misura, hypermeter, metric dissonance.
 
 ### C-4 · No groove or microtiming `OPEN`
 **Missing:** pushes, pulls, laid-back and ahead-of-beat placement, syncopation
@@ -273,9 +292,14 @@ It has no relationship to `quality/grid.py`.
 
 ## H. Semantics and craft
 
-### H-1 · Nothing measures meaning `OPEN`
-**Now (verified):** `concreteness.txt` is downloaded by `fetch_data.py` and
-used by no analysis.
+### H-1 · Nothing measures meaning on the WRITING path `OPEN`
+**CORRECTED 2026-08-10 — the original entry was WRONG.** `concreteness.txt` IS
+used: `quality/features.py` computes `concreteness_mean` and
+`concreteness_p90`, and `quality/discriminate.py` consumes them. The true and
+narrower claim: concreteness reaches the DISCRIMINATOR and never reaches the
+writing path. The slop floor's own checks are MATTR, function-word ratio,
+anaphora, line-length CV and predictable pairs — concreteness is not among
+them, and neither is anything else semantic.
 **Missing:** imagery and concreteness, specificity, metaphor and conceit,
 point of view, tense, narrative movement, the turn/volta/reveal, register and
 diction consistency, showing vs telling, cliché at the PHRASE level rather than
