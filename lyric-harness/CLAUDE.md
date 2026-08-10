@@ -470,3 +470,66 @@ Doctrine additions, earned from the first run — do not drift from these either
    cutoff. Three traditions, three different ways for a transcription to look
    fine and be unusable. Ask what the ORTHOGRAPHY does to the constraint before
    accepting any text.
+51. **Corroboration across repositories can be a single file.** A GitHub-wide
+   code search for the Hattatal text returned five hits in four repos, which
+   looked like independent survival. They were three copies of ONE file --
+   `cltk/non_texts` and `cltk/old_norse_texts_heimskringla` are byte-identical
+   (md5 c221b3761633838018e24ccf4e43e7fd), and the fourth is a fork. Four
+   sources, one edition, one editor's decisions, one rights status. Count
+   DISTINCT BYTES, not distinct URLs, before calling a text corroborated.
+   Doctrine 25 said agreement is not evidence; this is the corpus-level form of
+   the same error, and it is harder to see because the URLs really are different.
+52. **A perfect licence over a destroyed signal is still unusable, and the
+   destruction is channel-specific.** The 1848 Arnamagnaean Hattatal clears the
+   gate outright by publication year and by editor death. Its OCR contains ZERO
+   occurrences of any of `th dh ae o-ogonek o-slash oe` and the accented vowels
+   across 121 pages, and 3,474 Greek-block characters standing in their place:
+   `jorth kann frelsa, fyrthum` prints as `jbrss kann frelsa, syrbum`. The
+   corruption is CONSONANTAL -- which is precisely what a hending detector
+   reads. Text that "looks readable" can be intact in every channel except the
+   one under test. Check the specific channel, not the general legibility.
+53. **Admissibility is per-RELATION, not per-corpus.** Gudni Jonsson writes
+   `o-umlaut` for both etymological `o-ogonek` and `o-slash`, and `ae` for `oe`.
+   For skothending, a consonant relation, the merger is harmless and the text is
+   sound. For adalhending, which needs vowel AND consonant identity, the same
+   merger MANUFACTURES matches that no skald heard. One file, one orthography,
+   admissible for one predicate and biased toward the positive for the other.
+   The tri-state exists for exactly this: return None where the verdict depends
+   on a distinction the edition has already collapsed, rather than True.
+54. **A repo-root LICENSE is a claim about part of the repo.** `cltk/non_texts`
+   ships `LICENSE_PERSEUS.md` (CC-BY-SA-3.0) at root covering only the Perseus
+   fornaldarsogur, not the Snorra-Edda directory beside it; `sveinbjornt/
+   sagadb.org` is BSD for the CODE while a separate README sentence affirms the
+   TEXTS public domain; `OliverHellwig/sanskrit` is CC BY 4.0 except for the
+   `corpus/GRETIL/` sibling, which is non-commercial. Three repos, three
+   different scopes. Read what the licence says it covers, and record the path
+   it covers in the row -- a licence name without a scope is not evidence.
+55. **Punctuation is not metre.** `cynghanedd()` split the line on `[,/|]`, so
+   a printed COMMA was read as a caesura. The damage was not that it found the
+   caesura in the wrong place; it was that ordinary editorial punctuation
+   silently chose WHICH RULE each line was tested against -- a line with two
+   commas was forced down the three-part `sain` path and could not be read as
+   croes at all, and a line with none was refused outright. On a real corpus
+   that is 1,558 lines whose test was selected by a typesetter. Before treating
+   a mark as structure, ask whether it is evidence of the form or an artifact
+   of the edition. The caesura is now either PRINTED (`/`, `|`, or the gwant
+   `--`) or explicitly SEARCHED, and the caller has to say which.
+56. **A search over placements needs a null under the same search.** Trying
+   every word boundary for the caesura and keeping the best is k hypotheses per
+   line, and on this corpus k averages 10.6. Run that identical search over
+   lines whose words have been SHUFFLED WITHIN THE LINE -- same words, same
+   consonants, same length, arrangement destroyed -- and it still reports
+   cynghanedd on about a quarter of them. So a bare "26% of lines carry
+   cynghanedd", obtained by search, is quoting the null back at itself. The
+   real corpus scores 54.1% against that ~24% floor; the excess is the part
+   attributable to the poet, and it is the only part worth reporting. This is
+   the `infer_chains` comparator bug in a new place: whatever advantage the
+   hypothesis gets, the comparator gets too. `quality/cynghanedd_rate.py`.
+57. **An empirical p sitting at 1/(n+1) is reporting the resolution, not the
+   effect.** With 200 shuffles the smallest p obtainable is 0.005, so p=0.005
+   means "no shuffle reached the observed value" and NOTHING about how far
+   above it sat. Two results in the same run both printed p=0.005: one where
+   observed beat the null's maximum by 28 points, and one where it beat it by
+   0.6. Read the gap to the null's max, or raise n until p moves off the floor.
+   Doctrine 20 said inconclusive-by-construction is not a null; this is the
+   same error wearing a significant-looking number.

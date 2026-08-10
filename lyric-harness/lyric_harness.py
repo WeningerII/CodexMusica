@@ -1134,7 +1134,7 @@ def _final_bits(sylls):
     return fc, fv
 
 
-def check_cynghanedd(lex, text, decl, language="cym"):
+def check_cynghanedd(lex, text, decl, language="cym", caesura="marked"):
     """Cynghanedd, on the phonology of the language it belongs to.
 
     THE DEFECT THIS FIXES. This function has existed since the first commit and
@@ -1155,15 +1155,28 @@ def check_cynghanedd(lex, text, decl, language="cym"):
     Hopkins wrote it, and grading an English attempt at consonantal answering is
     a real use -- but it is now something a caller asks for by name.
 
-    -> {"language", "phonology", "found": [(type, why)], "why_not": str}
+    `caesura` is passed through to the Welsh path and is a declared coordinate:
+    "marked" refuses a line whose caesura is not printed, "search" tries every
+    word boundary and reports how many. A searched rate is not comparable with
+    an unsearched one, which is why the caller has to name which it wanted.
+
+    -> {"language", "phonology", "found": [(type, why)], "why_not": str,
+        "positions_tried": int}
     """
     if language == "cym":
         from quality.phonology import get   # lazy: no base -> quality cycle
         w = get("cym")
-        kind, detail = w.cynghanedd(text)
+        if caesura == "search":
+            hit = w.cynghanedd_scan(text)
+            kind, detail, tried = (hit["type"], hit["detail"],
+                                   hit["positions_tried"])
+        else:
+            kind, detail = w.cynghanedd(text, caesura=caesura)
+            tried = 1
         return {"language": "cym", "phonology": w.notation,
                 "found": [(kind, detail)] if kind else [],
-                "why_not": "" if kind else detail}
+                "why_not": "" if kind else detail,
+                "positions_tried": tried}
     if language != "eng":
         raise ValueError(
             f"no cynghanedd phonology for {language!r}. Declared: 'cym' "

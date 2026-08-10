@@ -17,6 +17,18 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from quality.phonology import Unsupported, declared, get  # noqa: E402
+from quality.phonology import cym  # noqa: E402
+
+
+def _raises(fn):
+    """-> True if fn() raises. Used where the contract is a REFUSAL: an
+    undeclared setting must stop, not fall back to whatever the author of the
+    default happened to prefer."""
+    try:
+        fn()
+    except Exception:
+        return True
+    return False
 
 FAILURES = []
 
@@ -217,10 +229,28 @@ def test_welsh_cynghanedd():
     check("the skeleton keeps th as one consonant",
           c.skeleton("tan a thi") == ["t", "n", "th"],
           str(c.skeleton("tan a thi")))
-    t, d = c.cynghanedd("tan a thi, tywyn a thau")
+    # The caesura is marked with `|`. It used to be marked with a comma, and
+    # these fixtures passed for a reason that turned out to be a defect: the
+    # checker split on `[,/|]`, so ordinary PUNCTUATION was being read as
+    # metrical structure. On a real corpus that decided which rule each line
+    # was tested against -- two commas forced a line down the three-part `sain`
+    # path, where it could not be read as croes at all. The rule under test
+    # here is unchanged; only the way the fixture states its caesura is.
+    t, d = c.cynghanedd("tan a thi | tywyn a thau")
     check("croes: the skeleton answered exactly", t == "croes", d)
-    t, d = c.cynghanedd("dwr dyn, dwr dawn")
+    t, d = c.cynghanedd("dwr dyn | dwr dawn")
     check("croes on a second constructed line", t == "croes", d)
+    t, d = c.cynghanedd("tan a thi, tywyn a thau")
+    check("a COMMA is not a caesura",
+          t is None and "no caesura is printed" in d,
+          "punctuation is not metre; the position of the caesura is either "
+          "printed or it is not in the text")
+    t, d = c.cynghanedd("tan a thi--tywyn a thau")
+    check("the gwant `--` IS a caesura, and so are the dashes it is set with",
+          t == "croes", d)
+    for dash in ("—", "–"):
+        t, _d = c.cynghanedd(f"tan a thi{dash}tywyn a thau")
+        check(f"the gwant set as {dash!r} reads the same", t == "croes")
     # `dan` is the PREPOSITION and therefore a proclitic, so a half-line
     # ending in it has its last stress on the FIRST word. Keying the skeleton
     # only on the last word ran past the end and swept in the final coda.
@@ -229,11 +259,45 @@ def test_welsh_cynghanedd():
     check("a digraph onset survives into the skeleton",
           c.skeleton("llais llon")[:1] == ["ll"],
           str(c.skeleton("llais llon")))
-    t, d = c.cynghanedd("Calon lân, yn llawn daioni")
-    check("a hymn line that is NOT strict metre is not croes", t is None, d)
-    t, d = c.cynghanedd("mae hi, mae ho, mor hy")
+    # Doctrine 41 in reverse: a NEGATIVE control can pass for the wrong reason
+    # too. With the comma no longer a caesura this line would be refused for
+    # having no caesura at all, which proves nothing about the rule -- so the
+    # caesura is supplied, and it must STILL not be croes.
+    t, d = c.cynghanedd("Calon lân | yn llawn daioni")
+    check("a hymn line that is NOT strict metre is not croes, WITH a caesura "
+          "supplied so the refusal is about the sound and not the punctuation",
+          t is None and "not answered by" in d, d)
+    hit = c.cynghanedd_scan("Calon lân yn llawn daioni")
+    check("and it is not croes at ANY caesura placement either",
+          hit["type"] != "croes",
+          f"{hit['positions_tried']} placements tried, best "
+          f"{hit['type']!r} -- a negative control has to survive the search, "
+          f"not just the one placement we happened to choose")
+    t, d = c.cynghanedd("mae hi | mae ho | mor hy")
     check("sain requires rhyme AND alliteration, not either",
           t is None and "needs rhyme AND alliteration" in d, d)
+    # Welsh elides constantly and the apostrophe is INSIDE the word. Before
+    # this, `units("a'i")` was None while `units("ai")` was ['a','i'], so one
+    # apostrophe made the whole line unreadable before any rule ran -- 31% of
+    # a real corpus. It is an elision mark and it JOINS, which is the opposite
+    # of the same glyph in fin.py, where it marks hiatus and splits.
+    for elided in ("a'i", "i'r", "sy'n", "mae'r", "o'r"):
+        check(f"the elision {elided!r} is readable",
+              cym.units(elided) is not None, str(cym.units(elided)))
+    check("a curly apostrophe reads identically to a straight one",
+          cym.units("mae’r") == cym.units("mae'r"), str(cym.units("mae’r")))
+    check("an internal hyphen joins rather than refusing",
+          cym.units("di-baid") == cym.units("dibaid"))
+    check("an acute-accented vowel does not fragment the token",
+          [w for w in cym.WORD_RE.findall("Calon lân") ] == ["Calon", "lân"],
+          "the old hand-written class omitted the accented vowels that "
+          "VOWELS already contained, so the word split in two")
+    # The searched rate and the marked rate are different experiments.
+    hit = c.cynghanedd_scan("tan a thi tywyn a thau")
+    check("a search reports how many placements it tried",
+          hit["positions_tried"] > 1, str(hit["positions_tried"]))
+    check("and an undeclared caesura mode raises rather than defaulting",
+          _raises(lambda: c.cynghanedd("tan a thi", caesura="best")))
     # These lines are CONSTRUCTED to satisfy the rule, so they test the
     # IMPLEMENTATION against the rule -- not the rule against canon. Canon
     # needs a sourced Welsh strict-metre text, which is blocked; see
@@ -247,7 +311,7 @@ def test_check_cynghanedd_defaults_to_welsh():
     import lyric_harness as lh
     lex = lh.Lexicon()
     decl = lh.Declaration()
-    res = lh.check_cynghanedd(lex, "tan a thi, tywyn a thau", decl)
+    res = lh.check_cynghanedd(lex, "tan a thi | tywyn a thau", decl)
     check("it defaults to Welsh, because that is what cynghanedd is",
           res["language"] == "cym", res["phonology"])
     check("and finds croes on Welsh units",

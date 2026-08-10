@@ -42,7 +42,9 @@ DECLARED AMBIGUITIES, rather than resolved ones
   vocalic in others; the vocalic reading is taken and flagged.
 """
 
+import itertools
 import re
+import unicodedata
 
 from quality.phonology import Phonology, Syllable, register
 
@@ -73,11 +75,57 @@ DIPHTHONGS = {
 }
 
 
+#: Letters that may occur inside a word, derived from the inventories above so
+#: the tokeniser cannot drift away from what `units` accepts. The earlier
+#: hand-written class omitted the acute-accented vowels that VOWELS contains,
+#: so an accented word tokenised as two fragments and silently changed its own
+#: skeleton. Deriving it removes the possibility.
+_LETTERS = "".join(sorted(VOWELS | CONSONANTS))
+WORD_RE = re.compile("[" + re.escape(_LETTERS) + "'’ʼ\\-]+")
+
+
+def normalise(text):
+    """Fold the typographic variants that are not phonological distinctions.
+
+    Doctrine 26 says normalise U+2019 anywhere a word is extracted, and it was
+    written after a curly apostrophe put the token `d` into an English rhyme
+    table 75 times. Welsh needs it more, not less: the language elides
+    constantly, so the apostrophe is INSIDE words rather than at their edges,
+    and one printing house's choice of glyph decides whether `mae'r` is one
+    token or two.
+
+    The dashes fold because the gwant -- the caesura of a cywydd line -- is
+    printed as `--`, an en dash or an em dash depending on the edition, and it
+    is the same mark in all three.
+    """
+    t = unicodedata.normalize("NFC", text)
+    for bad in "’‘ʼ`´":
+        t = t.replace(bad, "'")
+    for dash in ("—", "–", "‒"):
+        t = t.replace(dash, "--")
+    return t
+
+
 def units(word):
     """-> list of phoneme units, digraphs kept whole. None if out of
     inventory. This is the load-bearing function: get it wrong and every
-    consonant skeleton in the language is wrong."""
-    w = word.strip("-'").lower()
+    consonant skeleton in the language is wrong.
+
+    THE APOSTROPHE IS AN ELISION MARK AND IT JOINS. `a'i`, `i'r`, `sy'n`,
+    `mae'r` are each ONE syllable; the apostrophe records that two have become
+    one, which is the opposite of what the same glyph does in `fin.py`, where
+    it marks a hiatus and forces a syllable BREAK. Same character, opposite
+    rule, because they are different languages -- so it is removed here and
+    the letters either side read as contiguous. Before this, an internal
+    apostrophe fell through to the out-of-inventory return and took the whole
+    line with it: `units("a'i")` was None while `units("ai")` was ['a','i'],
+    and Welsh elides often enough that this alone made 31% of a real corpus
+    unreadable before any cynghanedd rule ran.
+
+    The internal hyphen goes the same way, for the same reason: `di-baid` is
+    one phonological word that happens to be printed with a joint.
+    """
+    w = normalise(word).replace("'", "").replace("-", "").lower()
     out, i = [], 0
     while i < len(w):
         hit = None
@@ -111,7 +159,7 @@ class Welsh(Phonology):
     source = "rules only; no external resource, so nothing to licence"
 
     def syllabify(self, word):
-        w = word.strip("-'").lower()
+        w = normalise(word).replace("'", "").replace("-", "").lower()
         u = units(word)
         if not u:
             return []
@@ -179,7 +227,7 @@ class Welsh(Phonology):
         is why the stressed syllable is where the skeleton stops.
         """
         out = []
-        words = [w for w in re.findall(r"[A-Za-zÂÊÎÔÛŴŶâêîôûŵŷ'\-]+", text)
+        words = [w for w in WORD_RE.findall(normalise(text))
                  if w.strip("'-")]
         if not words:
             return None
@@ -215,7 +263,7 @@ class Welsh(Phonology):
         inside the line, not at its end. Returns (True, detail) or
         (False, reason).
         """
-        words = [w for w in re.findall(r"[A-Za-zÂÊÎÔÛŴŶâêîôûŵŷ'\-]+", line)
+        words = [w for w in WORD_RE.findall(normalise(line))
                  if w.strip("'-")]
         if len(words) < 2:
             return False, "need at least two words"
@@ -233,7 +281,101 @@ class Welsh(Phonology):
                                   f"rhymes {syl.text!r} in {w!r}")
         return False, f"nothing earlier rhymes the penult {pen.text!r}"
 
-    def cynghanedd(self, line):
+    #: Marks an edition actually prints for the caesura. The gwant of a cywydd
+    #: line is set as `--`; `/` and `|` are the teaching and editorial marks.
+    #: A comma is NOT here, and see `cynghanedd` for why that mattered.
+    CAESURA_RE = re.compile(r"\s*(?:--+|/|\|)\s*")
+
+    def _marked_parts(self, line):
+        """Split on a PRINTED caesura. None when the line has none.
+
+        A fragment with no letters in it is not a part. `Bryd a chorff yn
+        ddiorffwys,--` used to split into a real half and a bare `--`, which
+        reached `skeleton()`, found no words, returned None, and reported the
+        whole line `unreadable` -- 14.6% of a real corpus lost to a trailing
+        dash.
+        """
+        raw = self.CAESURA_RE.split(normalise(line))
+        parts = [p.strip() for p in raw if WORD_RE.findall(p or "")]
+        return parts if len(parts) >= 2 else None
+
+    def cynghanedd_scan(self, line, caesura="search"):
+        """Search every word boundary for a caesura that makes the line work.
+
+        -> {"type", "detail", "positions_tried", "caesura"}
+
+        `positions_tried` is the point of this method. Taking the best of k
+        placements is k hypotheses, and doctrine 19 says an argmax over a swept
+        parameter is biased -- so the sweep reports its own width and the
+        caller corrects for it. `quality/time_layer.py` already holds the
+        Sidak/Bonferroni machinery this feeds.
+
+        The order below is deliberate: croes before traws before sain, strict
+        before loose, so a line is reported as the tightest type it satisfies
+        rather than the first one tried.
+        """
+        words = [w for w in WORD_RE.findall(normalise(line)) if w.strip("'-")]
+        n = len(words)
+        if n < 2:
+            return {"type": None, "detail": "fewer than two words",
+                    "positions_tried": 0, "caesura": None}
+        two = [(i,) for i in range(1, n)]
+        three = list(itertools.combinations(range(1, n), 2))
+        tried = len(two) + len(three)
+        best = None
+        for cut in two:
+            a = " ".join(words[:cut[0]])
+            b = " ".join(words[cut[0]:])
+            sa, sb = self.skeleton(a), self.skeleton(b)
+            if sa is None or sb is None or not sa:
+                continue
+            if sa == sb:
+                return {"type": "croes",
+                        "detail": f"skeleton {sa} answered exactly across "
+                                  f"{a!r} | {b!r} (1 of {tried} placements)",
+                        "positions_tried": tried, "caesura": cut}
+            if best is None and len(sb) > len(sa) and sb[-len(sa):] == sa:
+                best = {"type": "traws",
+                        "detail": f"skeleton {sa} answered after bridge "
+                                  f"{sb[:-len(sa)]} across {a!r} | {b!r} "
+                                  f"(1 of {tried} placements)",
+                        "positions_tried": tried, "caesura": cut}
+        if best:
+            return best
+        for i, j in three:
+            trio = (" ".join(words[:i]), " ".join(words[i:j]),
+                    " ".join(words[j:]))
+            kind, why = self._sain(trio)
+            if kind:
+                return {"type": "sain",
+                        "detail": f"{why} (1 of {tried} placements)",
+                        "positions_tried": tried, "caesura": (i, j)}
+        ok, why = self.llusg(line)
+        if ok:
+            return {"type": "llusg", "detail": why,
+                    "positions_tried": tried, "caesura": None}
+        return {"type": None,
+                "detail": f"no cynghanedd at any of {tried} caesura "
+                          f"placements; llusg: {why}",
+                "positions_tried": tried, "caesura": None}
+
+    def _sain(self, parts):
+        """Three parts: 1 rhymes 2, and 2 alliterates 3. -> (kind, why)."""
+        try:
+            a, b, c = (self.syllabify(p.split()[-1]) for p in parts)
+        except IndexError:
+            return None, "a part with no words"
+        if not a or not b or not c:
+            return None, "unreadable"
+        rhyme = a[-1].nucleus == b[-1].nucleus and a[-1].coda == b[-1].coda
+        allit = bool(b[0].onset) and b[0].onset == c[0].onset
+        if rhyme and allit:
+            return "sain", (f"{parts[0].split()[-1]} rhymes "
+                            f"{parts[1].split()[-1]}, then alliterates "
+                            f"{parts[2].split()[-1]} on {b[0].onset[0]!r}")
+        return None, f"sain needs rhyme AND alliteration; rhyme={rhyme} allit={allit}"
+
+    def cynghanedd(self, line, caesura="marked"):
         """-> (type, detail) or (None, reason). Types: croes, traws, sain,
         llusg.
 
@@ -247,21 +389,46 @@ class Welsh(Phonology):
         graded consonant-skeleton similarity -- which needs a Welsh consonant
         FEATURE table that does not exist. Rather than borrow the English one,
         this returns exact types only. Unknown never produces a number.
+
+        `caesura` is a declared coordinate, not a default nobody chose:
+
+          "marked"  the caesura must be PRINTED (`/`, `|`, or the gwant `--`).
+                    A line without one is refused, because its caesura is not
+                    in the text. This is the honest reading of an ordinary
+                    edition and it is the default.
+          "search"  try every word boundary and report the best. This is a
+                    SEARCH OVER k HYPOTHESES and it inflates: see
+                    `cynghanedd_scan`, which returns the k so the inflation can
+                    be corrected rather than absorbed. Never compare a searched
+                    rate against an unsearched one.
+
+        A PRINTED COMMA IS NOT A CAESURA. It used to be treated as one, which
+        is worse than it sounds: a line with two commas was forced down the
+        three-part `sain` path and could not be read as croes or traws at all,
+        so ordinary punctuation silently selected which rule a line was tested
+        against.
         """
-        parts = [p.strip() for p in re.split(r"[,/|]", line) if p.strip()]
+        if caesura not in ("marked", "search"):
+            raise ValueError(
+                f"caesura={caesura!r}; declared values are 'marked' (the "
+                f"caesura must be printed) and 'search' (try every boundary "
+                f"and report how many were tried).")
+        if caesura == "search":
+            hit = self.cynghanedd_scan(line)
+            return hit["type"], hit["detail"]
+        parts = self._marked_parts(line)
+        if parts is None:
+            ok, why = self.llusg(line)
+            if ok:
+                return "llusg", why
+            return None, ("no caesura is printed in this line, so its "
+                          "position is not in the text; pass caesura='search' "
+                          f"to try every boundary. llusg: {why}")
         if len(parts) == 3:
-            a, b, c = (self.syllabify(p.split()[-1]) for p in parts)
-            if not a or not b or not c:
-                return None, "unreadable"
-            rhyme = a[-1].nucleus == b[-1].nucleus and a[-1].coda == b[-1].coda
-            allit = bool(b[0].onset) and b[0].onset == c[0].onset
-            if rhyme and allit:
-                return "sain", (f"{parts[0].split()[-1]} rhymes "
-                                f"{parts[1].split()[-1]}, then alliterates "
-                                f"{parts[2].split()[-1]} on "
-                                f"{b[0].onset[0]!r}")
-            return None, (f"sain needs rhyme AND alliteration; "
-                          f"rhyme={rhyme} allit={allit}")
+            kind, why = self._sain(parts)
+            if kind:
+                return kind, why
+            return None, why
         if len(parts) != 2:
             ok, why = self.llusg(line)
             if ok:
