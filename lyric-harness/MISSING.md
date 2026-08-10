@@ -319,16 +319,41 @@ the words are being designed in separate universes.
 
 ## K. Corpora and evidence
 
-### K-1 · There is no SONG corpus `OPEN`
-**Now:** English evidence is Shakespeare's sonnets and Whitman. Neither is a
-song.
-**Missing:** the public-domain song corpus that exists and was never fetched —
-Child ballads, broadsides, spirituals, work songs, shanties, Burns. (Not Tin
-Pan Alley.)
+### K-1 · There is no SONG corpus `PARTIAL` — largely closed 2026-08-10
+**Was:** Shakespeare's sonnets and Whitman. Neither is a song.
+**Now:** `corpus/song/` — **143 authors, 5,006 songs, 154,346 sung lines**, with
+2,454 marked repeat blocks (1,603 BURDEN, 604 REFRAIN, 247 CHORUS) and 331
+songs carrying a named air. Six parallel cells; 142 of the 220 listed lyricists
+SOURCED, 70 NOT_FOUND with the exact queries recorded.
+**Still missing:** the Tin Pan Alley generation (Dresser, Cannon, Dacre, Lamb,
+Cole, Lawlor, Weatherly...) and the eight music-hall names — a
+**scanned-broadside problem, not a rights problem**. Every one is out of
+copyright and lives on archive.org / Wikisource / LoC / Levy / Bodleian, all
+egress-blocked. Also unmined and already on disk: ~250 further Scots
+songwriters in Rogers's *Modern Scottish Minstrel*, ~86 unclaimed
+refrain-bearing hymns in the Otterbein Hymnal, and all fourteen Gilbert &
+Sullivan libretti in GITenberg 808 with ~349 machine-separable number headings.
 
-### K-2 · English is single-author on BOTH sides `OPEN`
-**Now:** positive = Shakespeare alone; negative = Whitman alone. Two men, 250
-years apart, two genres.
+### K-1a · The printed record is BIASED AGAINST the chorus `OPEN`
+**Found 2026-08-10 and it is a property of the sources, not the extraction.**
+19th-century anthology editors set lyrics as continuous stanzas and drop the
+chorus; songsters and hymnals keep it. So refrain density in this corpus is a
+measure of EDITORIAL PRACTICE as much as of the songs — 686 burdens from one
+Elizabethan songbook anthology against 8 chorus blocks across 45 American
+anthology-sourced files. Any rate computed over the whole corpus without
+stratifying by source type will be reading the editor.
+**Corroborating notation finding:** `etc.` is used exactly as `&c.` is — a
+verbatim-repeat pointer (`CHORUS. Who's now the traitor? etc.`). Two cells
+found it independently in different centuries and countries.
+
+### K-2 · English is single-author on BOTH sides `PARTIAL`
+**Was:** positive = Shakespeare alone; negative = Whitman alone.
+**Now:** the positive side spans **143 authors across 16 traditions**, 1567 to
+1929. The NEGATIVE side is still Whitman alone, and K-3 shows it never
+separated — so the replacement remains the corpus's own shuffled self.
+**New sub-gap:** `corpus/whitman.txt` is itself structurally impoverished —
+"O Captain! My Captain!" carries the "Fallen cold and dead" burden closing
+every stanza and our file records no refrain marking at all.
 
 ### K-3 · The Whitman negative control does not separate `OPEN`
 **Now (verified):** all four recorded Whitman figures (18.0, 20.0, 21.3, 26.0%)
