@@ -172,11 +172,16 @@ class Reviser:
         """Which line does `ln` have to answer? The scheme knows; failing that,
         the finding's own locations do."""
         if scheme and len(scheme) == n_lines:
-            letter = scheme[ln - 1].upper()
-            mates = [i + 1 for i, c in enumerate(scheme)
-                     if c.upper() == letter and i + 1 != ln]
-            if mates:
-                return mates[0]
+            # Third site of the X-is-a-class defect. An unrhymed line has NO
+            # partner, and returning another free line as its partner made the
+            # brief instruct a writer to rhyme "does" with "heat".
+            from lyric_harness import scheme_class
+            letter = scheme_class(scheme[ln - 1])
+            if letter is not None:
+                mates = [i + 1 for i, c in enumerate(scheme)
+                         if scheme_class(c) == letter and i + 1 != ln]
+                if mates:
+                    return mates[0]
         others = [x for x in finding.locations if x != ln]
         return others[0] if others else None
 

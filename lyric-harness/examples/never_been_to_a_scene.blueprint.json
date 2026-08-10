@@ -1,0 +1,377 @@
+{
+ "sections": [
+  {
+   "name": "verse1",
+   "bars": 14,
+   "start_bar": 1,
+   "meter": {
+    "beats": 7,
+    "unit": 8,
+    "groups": [
+     3,
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "name": "pre",
+   "bars": 8,
+   "start_bar": 15,
+   "meter": {
+    "beats": 5,
+    "unit": 4,
+    "groups": [
+     3,
+     2
+    ]
+   }
+  },
+  {
+   "name": "chorus",
+   "bars": 16,
+   "start_bar": 23,
+   "meter": {
+    "beats": 4,
+    "unit": 4,
+    "groups": []
+   }
+  },
+  {
+   "name": "verse2",
+   "bars": 14,
+   "start_bar": 39,
+   "meter": {
+    "beats": 7,
+    "unit": 8,
+    "groups": [
+     3,
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "name": "bridge",
+   "bars": 8,
+   "start_bar": 53,
+   "meter": {
+    "beats": 6,
+    "unit": 8,
+    "groups": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "name": "chorus2",
+   "bars": 16,
+   "start_bar": 61,
+   "meter": {
+    "beats": 4,
+    "unit": 4,
+    "groups": []
+   }
+  },
+  {
+   "name": "outro",
+   "bars": 7,
+   "start_bar": 77,
+   "meter": {
+    "beats": 3,
+    "unit": 4,
+    "groups": []
+   }
+  }
+ ],
+ "lines": [
+  {
+   "text": "The scanner warms before the room does",
+   "bar": 1,
+   "beat": 1,
+   "duration": 7,
+   "section": "verse1"
+  },
+  {
+   "text": "The chair still holds the last one's heat",
+   "bar": 3,
+   "beat": 6.5,
+   "duration": 7,
+   "section": "verse1"
+  },
+  {
+   "text": "Nine miles of gravel on the whiteboard",
+   "bar": 5,
+   "beat": 1,
+   "duration": 7,
+   "section": "verse1"
+  },
+  {
+   "text": "Three of them are named for men",
+   "bar": 6,
+   "beat": 6.5,
+   "duration": 7,
+   "section": "verse1"
+  },
+  {
+   "text": "I know this county by its mailboxes",
+   "bar": 8,
+   "beat": 1,
+   "duration": 7,
+   "section": "verse1"
+  },
+  {
+   "text": "by which dogs are out, by which bridge floods",
+   "bar": 10,
+   "beat": 6.5,
+   "duration": 7,
+   "section": "verse1"
+  },
+  {
+   "text": "I have worked here nineteen winters",
+   "bar": 11,
+   "beat": 1,
+   "duration": 7,
+   "section": "verse1"
+  },
+  {
+   "text": "I have never once been to a scene",
+   "bar": 13,
+   "beat": 6.5,
+   "duration": 7,
+   "section": "verse1"
+  },
+  {
+   "text": "There's a half second after the tone",
+   "bar": 15,
+   "beat": 1,
+   "duration": 5,
+   "section": "pre"
+  },
+  {
+   "text": "where nobody has said anything yet",
+   "bar": 17,
+   "beat": 4.5,
+   "duration": 5,
+   "section": "pre"
+  },
+  {
+   "text": "and the whole thing could still be a wrong number",
+   "bar": 19,
+   "beat": 1,
+   "duration": 5,
+   "section": "pre"
+  },
+  {
+   "text": "a kid, a fax machine, a bad connect",
+   "bar": 21,
+   "beat": 4.5,
+   "duration": 5,
+   "section": "pre"
+  },
+  {
+   "text": "So say the road. Say it slow",
+   "bar": 23,
+   "beat": 1,
+   "duration": 4,
+   "section": "chorus"
+  },
+  {
+   "text": "I will find you on line five",
+   "bar": 25,
+   "beat": 3.5,
+   "duration": 4,
+   "section": "chorus"
+  },
+  {
+   "text": "I will put my voice inside your ear",
+   "bar": 27,
+   "beat": 1,
+   "duration": 4,
+   "section": "chorus"
+  },
+  {
+   "text": "and hold it there while you drive",
+   "bar": 29,
+   "beat": 3.5,
+   "duration": 4,
+   "section": "chorus"
+  },
+  {
+   "text": "I don't get to go",
+   "bar": 31,
+   "beat": 1,
+   "duration": 4,
+   "section": "chorus"
+  },
+  {
+   "text": "I don't get to see how it went",
+   "bar": 33,
+   "beat": 3.5,
+   "duration": 4,
+   "section": "chorus"
+  },
+  {
+   "text": "I hang up and I wipe the screen",
+   "bar": 35,
+   "beat": 1,
+   "duration": 4,
+   "section": "chorus"
+  },
+  {
+   "text": "and the console clears. Next one sent",
+   "bar": 37,
+   "beat": 3.5,
+   "duration": 4,
+   "section": "chorus"
+  },
+  {
+   "text": "Tonight it is County Road 6",
+   "bar": 39,
+   "beat": 1,
+   "duration": 7,
+   "section": "verse2"
+  },
+  {
+   "text": "the Vaughn place, past the second cattle guard",
+   "bar": 41,
+   "beat": 6.5,
+   "duration": 7,
+   "section": "verse2"
+  },
+  {
+   "text": "I have driven by that mailbox",
+   "bar": 43,
+   "beat": 1,
+   "duration": 7,
+   "section": "verse2"
+  },
+  {
+   "text": "maybe four thousand times",
+   "bar": 44,
+   "beat": 6.5,
+   "duration": 7,
+   "section": "verse2"
+  },
+  {
+   "text": "His wife is on the line and she is not crying",
+   "bar": 46,
+   "beat": 1,
+   "duration": 7,
+   "section": "verse2"
+  },
+  {
+   "text": "which is the part that nobody warns you of",
+   "bar": 48,
+   "beat": 6.5,
+   "duration": 7,
+   "section": "verse2"
+  },
+  {
+   "text": "how the calm ones are the worst ones",
+   "bar": 49,
+   "beat": 1,
+   "duration": 7,
+   "section": "verse2"
+  },
+  {
+   "text": "how they read the address like a receipt",
+   "bar": 51,
+   "beat": 6.5,
+   "duration": 7,
+   "section": "verse2"
+  },
+  {
+   "text": "Delacroix says you cannot carry them",
+   "bar": 53,
+   "beat": 1,
+   "duration": 6,
+   "section": "bridge"
+  },
+  {
+   "text": "Delacroix keeps a boat",
+   "bar": 55,
+   "beat": 5.5,
+   "duration": 6,
+   "section": "bridge"
+  },
+  {
+   "text": "Delacroix has never held a line",
+   "bar": 57,
+   "beat": 1,
+   "duration": 6,
+   "section": "bridge"
+  },
+  {
+   "text": "open for eleven minutes",
+   "bar": 59,
+   "beat": 5.5,
+   "duration": 6,
+   "section": "bridge"
+  },
+  {
+   "text": "So say the road. Say it slow",
+   "bar": 61,
+   "beat": 1,
+   "duration": 4,
+   "section": "chorus2"
+  },
+  {
+   "text": "I did find you on line five",
+   "bar": 63,
+   "beat": 3.5,
+   "duration": 4,
+   "section": "chorus2"
+  },
+  {
+   "text": "I did put my voice inside your ear",
+   "bar": 65,
+   "beat": 1,
+   "duration": 4,
+   "section": "chorus2"
+  },
+  {
+   "text": "and I held it there. You were alive",
+   "bar": 67,
+   "beat": 3.5,
+   "duration": 4,
+   "section": "chorus2"
+  },
+  {
+   "text": "I don't get to go",
+   "bar": 69,
+   "beat": 1,
+   "duration": 4,
+   "section": "chorus2"
+  },
+  {
+   "text": "I don't get to see how it went",
+   "bar": 71,
+   "beat": 3.5,
+   "duration": 4,
+   "section": "chorus2"
+  },
+  {
+   "text": "I hang up and I wipe the screen",
+   "bar": 73,
+   "beat": 1,
+   "duration": 4,
+   "section": "chorus2"
+  },
+  {
+   "text": "and the console clears. Nothing sent",
+   "bar": 75,
+   "beat": 3.5,
+   "duration": 4,
+   "section": "chorus2"
+  },
+  {
+   "text": "The pot is down to tar",
+   "bar": 77,
+   "beat": 1,
+   "duration": 3,
+   "section": "outro"
+  }
+ ]
+}

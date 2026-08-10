@@ -786,6 +786,28 @@ def check_meter(lex, lines, template=None):
 # Scheme check — the graph, diffed against the target letters
 # ---------------------------------------------------------------------------
 
+
+#: X / x / . mark an UNRHYMED SINGLETON, never a rhyme class. `quality/
+#: schemes.py` has always said so ("an unrhymed line is a singleton BLOCK, not
+#: a missing value"); the spine disagreed with it in THREE separate places --
+#: the mandate list, the violation loop, and `revise._partner` -- so declaring
+#: lines free mandated them all to rhyme with each other. One function now, so
+#: the three cannot drift apart again (the shape of cell 3's _CAP_OF_LEVEL fix).
+SCHEME_FREE = {"X", "."}
+
+
+def scheme_class(ch):
+    """-> the rhyme class of a scheme character, or None if it is free."""
+    c = (ch or "").upper()
+    return None if c in SCHEME_FREE else c
+
+
+def same_scheme_class(a, b):
+    """-> True only when both characters name the SAME, non-free class."""
+    ca, cb = scheme_class(a), scheme_class(b)
+    return ca is not None and ca == cb
+
+
 def check_scheme(lex, lines, scheme, decl, profile=None):
     """Diff the graph against the declared letters.
 
@@ -809,8 +831,24 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
     n = len(lines)
     matrix = [[None] * n for _ in range(n)]
     violations, collisions = [], []
+    # X / x / . are UNRHYMED SINGLETONS, never a rhyme class.
+    #
+    # This line used to read `scheme[i].upper() == scheme[j].upper()` with no
+    # exclusion, so two lines both marked X compared equal and became a
+    # MANDATED PAIR. Declaring 24 lines of a 41-line lyric free therefore
+    # mandated all 276 of their pairs to rhyme with each other, and the brief
+    # came back demanding that "does" rhyme with "heat".
+    #
+    # `quality/schemes.py` has always been right about this -- its `parse()`
+    # docstring says an unrhymed line is a singleton BLOCK, not a missing
+    # value, so ABXB and ABCB are the same partition. The spine disagreed with
+    # it, silently, and nothing caught the disagreement because no song had
+    # ever been run through both. Found 2026-08-10 by writing one.
+    #
+    # The sonnet oracle is unaffected: ABABCDCDEFEFGG contains no X, so the
+    # battery's 1064 mandated pairs and its 73/1014 are unchanged.
     mandated = [(i, j) for i in range(n) for j in range(i + 1, n)
-                if scheme[i].upper() == scheme[j].upper()]
+                if same_scheme_class(scheme[i], scheme[j])]
     refusals = refusals_for_pairs(records, mandated)
     refused = {r["lines"] for r in refusals}
     for i in range(n):
@@ -818,7 +856,7 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
             s = best_score(anchors[i], anchors[j], decl,
                            endwords[i], endwords[j], profile=profile)
             matrix[i][j] = s
-            same = scheme[i].upper() == scheme[j].upper()
+            same = same_scheme_class(scheme[i], scheme[j])
             if same:
                 if (i + 1, j + 1) in refused:
                     continue          # refused: recorded, never judged
