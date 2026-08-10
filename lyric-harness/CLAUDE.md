@@ -348,3 +348,21 @@ Doctrine additions, earned from the first run — do not drift from these either
    known to rhyme must rhyme. That check is what caught the Finnish hiatus
    apostrophe: `saa'ani` was unreadable, so a line that alliterates reported
    that it did not.
+38. **A writing system can postdate the provenance cutoff, and that is a
+   different trap from a modern edition.** quality/phonology/som.py reads the
+   1972 Somali Latin orthography -- which is exactly why the cell was cheap --
+   while the gate's cutoff is 1931. Any text old enough to clear provenance
+   predates the script by 41 years; any text the module can read was written
+   down in or after 1972. For an oral tradition that bind is unresolvable, and
+   it is not the familiar old-text/new-edition problem. Related gap:
+   provenance.py keys admission on the AUTHOR and models no edition or
+   transcription layer with its own date and rights. Harmless for most corpora,
+   load-bearing for oral ones.
+39. **Record a failed source search as a row, not as a memory.** The gabay
+   search is in data/sources.tsv with what was queried and what each channel
+   returned, so the next attempt starts from the evidence instead of repeating
+   it. A search that found nothing is a finding about the world.
+40. **A licence on a compilation is not a licence on its contents, and the two
+   layers separate cleanly.** chinese-poetry ships MIT; the Tang and Song verse
+   inside it is a millennium out of any term. Read the outer layer for the
+   collection and the inner layer for the work, and say which is which.

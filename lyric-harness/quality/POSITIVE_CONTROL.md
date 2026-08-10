@@ -157,6 +157,66 @@ editions and translations are not. `sources.tsv` already rejects the Sangam
 Tamil dataset for precisely this — ancient PD text bundled with a living
 translator's apparatus.
 
+## Part C — sourcing, attempted
+
+### gabay: NO ADMISSIBLE SOURCE, and the reason is structural
+
+Searched and recorded in `data/sources.tsv` so nobody repeats it. Hugging Face
+holds **30 Somali datasets and not one literary text** — all ASR/TTS audio,
+Alpaca instruction translations and MT sentence pairs. Wikisource and Gutenberg
+are both blocked (curl 000). GitHub search is scoped to this repository.
+
+The interesting part is not the failed search, it is the bind underneath it:
+
+> `som` reads the **1972** Latin orthography — that is precisely why the cell
+> was cheap. The provenance cutoff is **1931**. A text old enough to clear
+> provenance predates the script by 41 years and `som` cannot read it; a text
+> `som` can read was written down in or after 1972.
+
+Somali gabay was overwhelmingly **oral**. The compositions of Sayyid Maxamed
+Cabdulle Xasan (d. 1920) clear the gate's death-year route, but every
+1972-orthography transcription of them is a modern editorial act. This is not
+the familiar old-text/new-edition trap that `sources.tsv` already flags for
+Sangam Tamil — here **the writing system itself postdates the cutoff**.
+
+It also exposes a gap in the gate: `provenance.py` keys admission on the
+AUTHOR, and has no concept of an edition or transcription layer with its own
+date and its own rights. For most corpora that gap is harmless. For an oral
+tradition it is the whole question.
+
+### 律詩: SOURCED AND VALIDATED — this is the cell that runs
+
+`chinese-poetry/chinese-poetry`, already on disk from the earlier label work.
+MIT on the compilation; the verse is 8th–13th century and long out of any term.
+Two separable layers, and only the outer one is licensed.
+
+Validated against the form with `quality/phonology/ltc.py`. Filtering 全唐诗 to
+poems of eight uniform lines of five or seven characters:
+
+| | |
+|---|---|
+| poems checked | 253 |
+| rhyme agreement at mandated positions (lines 2,4,6,8) | **88.1%** |
+| character coverage by the rime table | **99.3%** |
+
+**The 11.9% residue is diagnostic, not noise, and it is not being tuned away.**
+Every recurring failure is a documented **通押** pair — adjacent rhymes Tang
+poets used together that the 13th-century 平水韻 standard later separated:
+
+```
+庚 / 青    停/生/傾/聲,  星/驚/縈/行
+支 / 微    幃/遲/滋/悲
+魚 / 虞    符/書/書/胡
+上 / 去    喜/翠/異/志   (same 支 group, different tones)
+```
+
+Plus fragments: one "failure" is titled 句, which means *fragment* and is not a
+complete poem. Loosening the grouping to absorb these would raise the number by
+fitting the reference table to the data, which is the same error as tuning a
+threshold to a result. 88.1% is a **measurement of how closely Tang practice
+matches the standard that codified it centuries later** — the exact analogue of
+the sonnet battery's 11.6% Early Modern residue, named rather than removed.
+
 ### Order of work
 
 1. **Part A is done** and it gates everything: the instrument is sound, and the
@@ -165,4 +225,8 @@ translator's apparatus.
    `fin`, `som`, `ltc`. Welsh, Indic and Old Norse remain blocked.
 3. **Pooling before more items.** Fisher across items is already implemented in
    this document's Part A analysis and recovers most of what n=1 threw away.
-4. Then the positive cells, in family order, each with its own provenance row.
+4. **律詩 first**, because it is the only cell currently sourced, phonology-clean
+   and provenance-clean at once — and pooling across thousands of poems is what
+   defeats the events-per-item constraint from Part A.
+5. Then the remaining positive cells, in family order, each with its own
+   provenance row. gabay is **blocked, not pending**: see Part C.
