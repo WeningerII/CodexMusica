@@ -231,8 +231,8 @@ REAL sonnets               65.6   7566.8 |    0.0572    0.0135   0.00253
 word scramble              66.0   7376.8 |    0.0601    0.0148   0.00290   1.15x
 cross-item redeal          66.5   7745.9 |    0.0599    0.0144   0.00239   0.94x
 -- DETECTION FLOOR; neither arm below is admissible as a null --
-mono-rime redeal           55.4   5251.7 |    0.4187    0.1452   0.02990  11.83x
-dispersed redeal           79.3  10323.6 |    0.0384    0.0079   0.00052   0.21x
+mono-rime redeal           55.0   5231.1 |    0.4060    0.1430   0.03040  12.03x
+dispersed redeal           79.5  10506.0 |    0.0386    0.0083   0.00059   0.23x
 ```
 
 `band_pass` and `r@theta` ARE the quantity `MISSING.md` L-2 names — the share
@@ -260,7 +260,7 @@ REDEAL SEED BAND — min_p over 8 redeal seeds
 
 Eight seeds, none of which reaches the observation. So the redeal does move
 the quantity, consistently and in the predicted direction, by **5.5%**.
-Against a detection floor spanning 58x that is *negligible*, not *zero* — a
+Against a detection floor spanning 51x that is *negligible*, not *zero* — a
 different verdict from the word scramble's near-identity, and the honest one.
 **A null can be REAL and USELESS**, and only the detection floor tells the two
 apart from a bare p.
@@ -271,14 +271,14 @@ Before reporting the above as a null, show the measurement CAN move. The two
 floor arms replace words from a pool chosen to collapse (mono) or to maximise
 (dispersed) rime-class entropy:
 
-* `min_p` spans **58x** between them, 0.00052 to 0.02990.
-* `band_pass` spans 11x, 0.0384 to 0.4187.
+* `min_p` spans **51x** between them, 0.00059 to 0.03040.
+* `band_pass` spans 11x, 0.0386 to 0.4060.
 * The layer's own fixtures agree: `fwer_family.REAL` (one planted rhyme)
   reads 0.0948 / 0.00495 and `fwer_family.SATURATED` (one rhyme class)
   0.2256 / 0.02855.
 
-The instrument reads this quantity with a dynamic range of fifty-eight. The
-two candidate nulls move it by a factor of 0.94 and 1.15. **"No movement" is a
+The instrument reads this quantity with a dynamic range of fifty-one. The two
+candidate nulls move it by a factor of 0.94 and 1.15. **"No movement" is a
 reading, not a shrug.**
 
 Neither floor arm is admissible as a control: both change the language's rime
@@ -357,12 +357,12 @@ scored      REAL sonnets          0/20      29.1%         20
 scored      word scramble         0/20      29.0%         20
 scored      cross-item redeal     0/20      31.8%         20
 scored      mono-rime redeal     20/20       0.0%          0   <- tripwire, correct
-scored      dispersed redeal      0/20      59.3%         20
+scored      dispersed redeal      0/20      59.4%         20
 candidate   REAL sonnets         18/20       0.0%          0
 candidate   word scramble        16/20       0.0%          0
 candidate   cross-item redeal    19/20       0.0%          0
 candidate   mono-rime redeal     20/20       0.0%          0   <- tripwire, correct
-candidate   dispersed redeal      3/20       0.6%          5   <- FIRES
+candidate   dispersed redeal      1/20       0.2%          1   <- FIRES
 ```
 
 At `family=candidate` — the honest family, per `BACKLOG.md` §4.1 — the layer
@@ -376,8 +376,10 @@ in this file.** `BACKLOG.md` §4.1 states the open item as *"at the honest
 family the layer cannot produce an event at all — at `null_samples=2000` the
 Šidák cut (2.5e-4) sits BELOW the p-value floor (5e-4)."* At the shipped
 `null_samples=20000` the floor is 5e-5, and the dispersed-redeal arm **does
-produce events at the candidate family**: 5 of 20 items fire, mean saturation
-0.6%, and only 3 of 20 are muted where real English mutes 18 of 20.
+produce events at the candidate family**: 1 of 20 items fires, and only 1 of
+20 is muted where real English mutes 18 of 20. One item is one item — this is
+an existence proof, not a rate — but "cannot produce an event at all" is a
+universal and one counter-example is what a universal takes.
 
 So the honest family is not incapable in principle. It is incapable on English
 text, and the binding quantity is the item's rime-class entropy — the same
@@ -446,6 +448,34 @@ Neither is doctrine 92's disjoint-sources case. Both are buildable.
 
 ---
 
+## 4a. A defect in THIS cell's own code, found by running it twice
+
+`rime_pool_redeal` built its candidate lists by iterating `set(words)`. Python
+randomises string hashing per interpreter, so the same seed printed
+`band_pass` **0.4187** on one run and **0.4099** on the next — doctrine 66,
+*"a tie broken by iterating a set is a result that does not reproduce"*, in the
+file written to demonstrate that nulls need checking. It was caught by running
+the arm a second time and reading the numbers, which is the only way it CAN be
+caught: inside one interpreter it reproduces perfectly.
+
+Fixed by sorting at the point of construction. Guarded by
+`quality/test_null_shapes.py`, which runs the constructors in two subprocesses
+under different `PYTHONHASHSEED` — the defect is invisible in-process, so the
+guard has to leave the process. Verified:
+
+```
+$ python3 quality/negative_control.py --spans > a
+$ python3 quality/negative_control.py --spans > b
+$ diff a b     # identical
+$ python3 quality/test_null_shapes.py
+  9 checks pass — the constructors reproduce and the floor moves
+```
+
+Every floor-arm figure in §3 is the post-fix one. The pre-fix figures
+(0.4187 / 0.02990, 58x) appeared in a draft of this document and are wrong at
+the third decimal; nothing that depends on them changes, because the argument
+is about a 51x range against a 1.15x move.
+
 ## 5. What did NOT move
 
 * `python3 battery.py` — `mandated 1064, judged 1014, refused 50`,
@@ -480,10 +510,18 @@ Neither is doctrine 92's disjoint-sources case. Both are buildable.
 ```
 python3 battery.py                                  # the invariant
 python3 quality/negative_control.py                 # English arm + P3 + P3-LEGACY
-python3 quality/negative_control.py --spans         # §4.2, the owed null
+python3 quality/negative_control.py --spans         # §3, the owed null
 python3 quality/negative_control.py --langs         # §4, doctrine 32
 python3 quality/audit_band_control.py 200           # §1.3
 python3 quality/fwer_family.py --arms               # the L-2 identity map
+python3 quality/test_null_shapes.py                 # §4a, the doctrine 66 guard
 ```
 Seed 20260811 throughout `negative_control.py`; replicate *r* is seeded
 `SEED + r` (doctrine 66).
+
+**Every figure above was measured at `2f2d26c` with `lyric_harness.py` dirty
+under a sibling cell**, and the load-bearing ones — the battery invariant, the
+17.3%, and the whole 2×2 — were re-run at the end of the cell and reproduce
+unchanged. That is worth writing down rather than assuming: §1 exists because
+nobody re-ran this control when the comparator moved, and a cell that measures
+against a moving tree without saying so is setting up the next §1.

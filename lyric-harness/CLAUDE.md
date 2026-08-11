@@ -294,14 +294,30 @@ descriptors in any generation-facing output — era+region+technique.
   50 of the 1064 mandated pairs are REFUSALS, end words absent from CMUdict,
   and charging them to the comparator is the triage rule two items below this
   one broken in the headline number (doctrine 79).
-  Whitman 20.0% chained at theta 0.82, down from 26.0%.
-  **That drop is overturned as evidence**: both figures sit inside one
-  line-permutation null spanning 6.7%–27.3% (doctrine 71,
-  `quality/NULL_AUDIT.md`). THE BAND STILL SHIPS, on the argument in doctrine
-  3/24 that it RELABELS rather than rejects, which is a claim about the
-  taxonomy and needs no negative control; what is gone is the empirical
-  warrant. The full record of both, and of why `verse.txt` was deleted, is
-  METHOD § The sonnet battery.
+  Whitman **17.3%** chained at theta 0.82 — MEASURED, and `battery.py` prints
+  it. The recorded 20.0% and 18.0% are the PRE-`b1d7f64` comparator's: they
+  reproduce exactly at head alignment with `theta_coda` 0.60 and in no other
+  cell of that 2x2, so three of the four Whitman figures in this repo's record
+  are a comparator that no longer ships. Doctrine 58, one axis further out —
+  **a rate is a coordinate of the COMPARATOR.** 26.0% band-OFF is
+  comparator-invariant and still reproduces, which is the check that it is the
+  same statistic.
+  **The band's empirical warrant stays withdrawn, and the REASON has changed.**
+  Under the shipped comparator the control DOES clear its own line-permutation
+  null — p 0.006 at n=2000 against the recorded 0.209, and the band's effect on
+  the separation FLIPS SIGN, +6.7 -> +9.3 pp where the record has +6.7 -> +3.3.
+  So doctrine 71's arithmetic no longer holds on this text. It is withdrawn on
+  a prior ground that needs no null at all: **half of Whitman's detected chain
+  links are REPEAT on an identical token** — `now` closes four consecutive
+  lines, which `battery.py` has printed under `false chains (should be near
+  zero)` since the first commit. A negative control is a text in which the
+  property is ABSENT, and this one carries it as epistrophe, in the one
+  relation doctrine 3 says cannot be read without a declared context.
+  `corpus/whitman.txt` was never eligible, at any rate, under any comparator.
+  THE BAND STILL SHIPS, on the doctrine 3/24 argument that it RELABELS rather
+  than rejects — a claim about the taxonomy, which needs no negative control.
+  `quality/RESULTS_NULL_SHAPES.md`, `quality/NULL_AUDIT.md` §1.1, and METHOD
+  § The sonnet battery for why `verse.txt` was deleted.
 - Triage every failure to a layer: ingestion / projection / anchor /
   comparator / band / structure / value. Fix only when a category
   accumulates. Every fixed case becomes a permanent regression.
@@ -364,10 +380,20 @@ rather than this paragraph — a roster copied into two files drifts in both.
    from 1.0 to -0.000. Held-out separation gains +0.003 (0.9177 vs
    0.9146) -- real in sign, inside anyone's noise -- and the Whitman
    negative control still got worse (21.3% vs 18.0% at matched FPR) --
-   BUT THAT HALF IS ALSO WITHDRAWN, for the same reason as the band's:
-   all four recorded Whitman figures (18.0, 20.0, 21.3, 26.0) fall
-   inside one line-permutation null spanning 6.7%-27.3%, so no ordering
-   among them is evidence of anything. See quality/NULL_AUDIT.md.
+   BUT THAT HALF IS ALSO WITHDRAWN, for the same reason as the band's --
+   AND THE REASON WAS RESTATED ON 2026-08-11, so do not quote the old
+   one. It used to read: all four recorded Whitman figures (18.0, 20.0,
+   21.3, 26.0) fall inside one line-permutation null spanning
+   6.7%-27.3%. That arithmetic no longer holds. 18.0 and 20.0 are the
+   pre-`b1d7f64` comparator's and read 16.0 and 17.3 today; 21.3 has
+   never been re-run under either, because it needs a fitted comparator
+   threaded through `infer_chains` and that is still unbuilt. The
+   withdrawal stands on the ground in quality/RESULTS_NULL_SHAPES.md §2
+   instead: `corpus/whitman.txt` carries the property under test as
+   epistrophe -- half its detected links are REPEAT on an identical
+   token -- so it was never an eligible negative control and no
+   ordering among figures measured on it means anything. See
+   quality/NULL_AUDIT.md.
    NOT the default; Declaration.fitted stays False and a test enforces
    it -- now resting ONLY on the held-out gain of +0.003, which the
    record already called "inside anyone's noise". That is a weaker case

@@ -202,6 +202,21 @@ looking right.
    the empty part. Before citing a control as evidence for a decision, check
    that the control itself clears its null.
 
+   **AMENDED 2026-08-11 — the instance expired and the doctrine got STRONGER
+   for it.** Every number in the paragraph above is the pre-`b1d7f64`
+   comparator's. Under the shipped one the same statistic reads 17.3%, the
+   null median HALVES to 8.0%, and the separation goes +6.7 -> **+9.3** pp
+   with p = 0.006 at n=2000 — the sign of the effect FLIPS. So a control can
+   fail its null in the other direction too, after an instrument change nobody
+   re-ran it against. The rule survives unchanged and gains a second clause:
+   **re-run the control when the COMPARATOR moves**, because a negative
+   control is a coordinate of the comparator exactly as a threshold is
+   (doctrine 58). And the deeper reason this control failed needs no null at
+   all: half its detected links are REPEAT on an identical token — `now`
+   closes four consecutive lines — so the property under test was PRESENT in
+   the text. **Check that the negative control LACKS the property before
+   checking that it clears its null.** `quality/RESULTS_NULL_SHAPES.md`.
+
 73. **A single CV seed is a coin flip reported as a verdict.** RESULTS_WITHIN_
    ITEM P2 recorded "FAILED. 0.659 -> 0.604" off one hard-coded seed. Over 200
    seeds the medians are 0.603 and 0.606 -- the sign of the difference flips.
