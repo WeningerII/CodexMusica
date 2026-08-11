@@ -122,15 +122,39 @@ class TimeDeclaration:
     #: at m~135 the Sidak cut is ~3.8e-4, so the tail has to be resolved an
     #: order of magnitude finer than that.
     null_samples: int = 20000
-    #: If this share of RANDOM re-pairings already passes the band, the item's
-    #: own phonological inventory makes rhyme unsurprising and a within-item
-    #: null cannot discriminate. Real verse runs ~0.10; a constructed quatrain
-    #: whose whole inventory is one rhyme class (rattle/cattle/saddle/battle)
-    #: runs 0.43 and returns zero events. That is a TRUE statement about a
-    #: within-item null, not a fixable defect -- if 43% of random pairings in
-    #: your text rhyme, "this pair rhymes" carries almost no information
-    #: relative to that text. The layer says so instead of reporting 0%.
-    max_null_band_pass: float = 0.25
+    #: DOCTRINE 28's TRIPWIRE. If this share of RANDOM re-pairings already
+    #: passes the band, the item's own phonological inventory makes rhyme
+    #: unsurprising and a within-item null cannot discriminate. A constructed
+    #: quatrain whose whole inventory is one rhyme class (rattle/cattle/saddle/
+    #: battle) returns zero events for that reason alone, which is a TRUE
+    #: statement about a within-item null and not a fixable defect. The layer
+    #: says so instead of reporting 0%.
+    #:
+    #: THE NUMBER IS A COORDINATE OF THE BAND (doctrine 58), and 0.25 was a
+    #: coordinate of a band that no longer exists. It was set against
+    #: "real verse runs ~0.10" and a degenerate item at 0.43 -- both measured
+    #: flush-LEFT at theta_coda 0.60. Under the shipped band (flush-right,
+    #: theta_coda 0.80) the SAME two measurements are 0.055 and 0.226, so 0.25
+    #: silently stopped firing and doctrine 28's tripwire was dead.
+    #:
+    #: RE-MEASURED 2026-08-11 on 30 Shakespeare sonnets, tail-aligned,
+    #: theta_coda=0.80, theta=0.80, window=32, null_samples=20000
+    #: (`python3 quality/fwer_family.py --calibrate`):
+    #:     band-pass  min 0.042  p50 0.055  p95 0.073  max 0.076
+    #: The rule, stated so the next band change is a re-run and not a guess:
+    #: **twice the measured maximum over real verse**, 2 x 0.076 = 0.152.
+    #: It is derived from the real-verse distribution ALONE -- the degenerate
+    #: fixture's 0.226 clearing it is a result of the calibration, not an input
+    #: to it, which is the difference between calibrating and tuning.
+    max_null_band_pass: float = 0.152
+    #: CALIBRATION PROVENANCE for the line above, so it is never again quoted
+    #: without its setting.
+    max_null_band_pass_basis: str = (
+        "2 x max over 30 Shakespeare sonnets = 2 x 0.076, measured 2026-08-11 "
+        "at alignment=tail, theta_coda=0.80, theta=0.80, window=32, "
+        "null_samples=20000. Re-run quality/fwer_family.py --calibrate after "
+        "ANY change to the band; the previous value 0.25 was the same "
+        "quantity measured at alignment=head, theta_coda=0.60.")
     n_perm: int = 2000
     seed: int = 20260810
     isochrony: str = ("ASSUMED, not measured. Grid positions are evenly "
@@ -326,6 +350,18 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
     layer measured for three instrument versions. `tdecl.correction` converts
     the score to a p-value against a within-item null and then corrects across
     each position's family.
+
+    TWO REFUSALS, and they are different questions:
+
+    1. `max_null_band_pass` -- doctrine 28's tripwire, asked BEFORE scoring:
+       does the item's own inventory make rhyme unsurprising?
+    2. `attainable` -- asked AFTER: could ANY pair in this item have cleared
+       the corrected cut? The best score an item contains is usually a perfect
+       rhyme, and its p-value is set by how many CHANCE re-pairings of the
+       item's own spans are also perfect. If that floor sits above the loosest
+       per-position cut in the item, an empty event set is arithmetic, not
+       evidence. Reporting it as "no rhyme events" would be doctrine 20's
+       error -- inconclusive by construction collapsed into null.
     """
     pairs = _candidate_pairs(stream, tdecl)
     if tdecl.correction == "none":
@@ -416,6 +452,19 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
             if any(pv.get(k, 1.0) <= cut for k in ks):
                 events.add(pos)
 
+    # ATTAINABILITY. An empty event set has two completely different causes and
+    # the layer has to say which. `min_p` is the smallest p-value ANY candidate
+    # pair in this item attains -- almost always a perfect rhyme's, and its
+    # floor is the number of CHANCE re-pairings of the item's own spans that are
+    # also perfect. `loosest_cut` is the most permissive per-position cut in the
+    # item, at its smallest family. If min_p is above that, no pair anywhere
+    # could have been declared, and 0 events is arithmetic rather than evidence.
+    min_p = min(pv.values()) if pv else 1.0
+    sizes = [len(v) for v in family.values()]
+    loosest = (tdecl.alpha / min(sizes) if tdecl.correction == "bonferroni"
+               else 1.0 - (1.0 - tdecl.alpha) ** (1.0 / min(sizes))) \
+        if sizes else 1.0
+    attainable = bool(pv) and min_p <= loosest
     if detail is not None:
         detail.update(
             n_candidate_pairs=len(pairs), n_scored=len(scored),
@@ -425,12 +474,27 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
             median_family_size=(sorted(len(v) for v in family.values())
                                 [len(family) // 2] if family else 0),
             family_population=tdecl.family,
-            correction=tdecl.correction, alpha=tdecl.alpha)
+            correction=tdecl.correction, alpha=tdecl.alpha,
+            min_attainable_p=min_p, loosest_cut=loosest,
+            attainable=attainable)
         if family:
             mm = sorted(len(v) for v in family.values())[len(family) // 2]
             detail["per_pair_cut"] = (
                 tdecl.alpha / mm if tdecl.correction == "bonferroni"
                 else 1.0 - (1.0 - tdecl.alpha) ** (1.0 / mm))
+    if not events and not attainable and tdecl.correction != "bh":
+        if detail is not None:
+            detail["cannot_tell"] = (
+                f"NO EVENT WAS ATTAINABLE. The best pair in this item reaches "
+                f"p = {min_p:.2e}; the loosest per-position cut is "
+                f"{loosest:.2e}, so no candidate could have been declared an "
+                f"event at alpha={tdecl.alpha} however perfect it was. The "
+                f"floor is the item's OWN null: {min_p * (n_valid + 1):.0f} of "
+                f"{n_valid} chance re-pairings of this item's spans score at "
+                f"or above its best real pair. An empty event set here means "
+                f"CANNOT TELL, not 'no rhyme' -- and the instrument, not the "
+                f"verse, is what needs fixing.")
+        return set()
     return events
 
 
@@ -507,8 +571,15 @@ def analyse(lex, lines, decl=None, tdecl=None, events=None,
         return True
 
     slots = [i for i in range(len(stream)) if eligible(i)]
+    # The event set's own refusals used to be DISCARDED here: `rhyme_events`
+    # was called without a detail dict, so an item refused for a degenerate
+    # inventory or an unattainable cut came back as an empty set and then hit
+    # the "too few events" branch below, which names the ITEM. Two different
+    # refusals were being reported as one, and the one that survived blamed the
+    # wrong layer (doctrine 20).
+    edetail = {}
     if events is None:
-        events = rhyme_events(lex, stream, decl, tdecl, comparator)
+        events = rhyme_events(lex, stream, decl, tdecl, comparator, edetail)
     ev = sorted(i for i in events if eligible(i))
 
     saturation = len(ev) / len(slots) if slots else 1.0
@@ -521,6 +592,13 @@ def analyse(lex, lines, decl=None, tdecl=None, events=None,
         "periods": list(tdecl.periods),
         "isochrony": tdecl.isochrony,
     }
+    if edetail:
+        result["event_detail"] = edetail
+    for key in ("refused", "cannot_tell", "bh_unresolvable"):
+        if edetail.get(key):
+            result.update(kl=None, period=None, p=None,
+                          refused=edetail[key], refused_by=f"rhyme_events:{key}")
+            return result
     if len(ev) < 4 or len(slots) < 8:
         result.update(kl=None, period=None, p=None,
                       refused="too few events or slots for a permutation test "
@@ -646,6 +724,11 @@ def report(res, label="", stream=sys.stdout):
     if res.get("degenerate"):
         print(f"  DEGENERATE       {res['degenerate']}", file=stream)
     if res.get("refused"):
+        # WHICH guard fired is part of the finding: "too few events" names the
+        # item, "cannot_tell" names the instrument, and reporting them as one
+        # string blames the wrong layer.
+        print(f"  REFUSED BY       {res.get('refused_by', 'analyse:n_events')}",
+              file=stream)
         print(f"  REFUSED          {res['refused']}", file=stream)
         return res
     if res.get("period") is not None:

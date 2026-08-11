@@ -189,7 +189,86 @@ class Declaration:
     # beats the hand-set value held out; this one does, in both halves, in the
     # same direction. Doctrine 22: the number now carries a rate.
     theta_coda: float = 0.80      # coda AGREEMENT, not coda evidence
+    # NOT CALIBRATED, and now DECLARED as uncalibrated rather than left
+    # unexamined (BACKLOG 1.3). `five`/`of` passes at nucleus similarity 0.603
+    # against this 0.600, which is a coin flip wearing a verdict; `bed`/`bead`
+    # "agree" at 0.758. The cut admits 40 of the 105 unordered non-identical
+    # CMU vowel pairs (38%) -- the whole space is enumerable, so what the
+    # number means is a list rather than an intuition, and
+    # `quality/test_nucleus.py` prints it.
+    #
+    # IT IS NOT RAISED, and the reason has changed from "a worse trade" to
+    # something sharper that the trade table could not see. theta_coda was
+    # priced against the sonnets' mandated pairs and that was sound: what
+    # 0.60 -> 0.80 cost there is S~Z x8 (`glass`/`was`, `muse`/`use`) and
+    # D~RD x2 -- the VOICING OF A FINAL OBSTRUENT, which English did not
+    # change between 1609 and General American. The NUCLEUS is the channel
+    # where four centuries of sound change live, and the same corpus prices it
+    # completely differently. Measured, tightening 0.60 -> 0.70 costs 31 of
+    # 1003 judged mandated pairs, and every one falls into one of three
+    # categories with NO remainder -- `quality/test_nucleus.py` asserts the
+    # absence of a fourth rather than trusting this list:
+    #   * 25 are a VOWEL DIFFERENCE in the declared dialect -- gone/alone
+    #     (AO~OW x10), tongue/song (AH~AO x7), have/grave (AE~EY x4),
+    #     blood/good (AH~UH x2). 24 are stressed against stressed; the odd one
+    #     is perpetual/thrall, an unstressed final promoted against a stressed
+    #     syllable, which belongs to `final_promotion` and not here. In the
+    #     DECLARED dialect these do not rhyme, which is the same sentence this
+    #     project already accepts for love/prove, and refusing them is correct.
+    #   * 6 are CMUdict spelling ONE reduced vowel two ways -- graces/faces,
+    #     antiquity/iniquity, committed/fitted; the sub-0.70 mismatch is AH0
+    #     against IH0 in every one, and it is doubly-UNSTRESSED in 6 of 6.
+    #     That is an INGESTION fact, not a rhyme fact (see nucleus_licence).
+    # Not one is a General American slant rhyme. So the sonnets cannot price
+    # this threshold in either direction: the "true positives" a tightening
+    # costs are dialect coverage and a dictionary artifact, and the 8.47% of
+    # mandated pairs the channel ALREADY refuses at 0.60 (approve/love,
+    # die/memory, give/live, are/care) are the same kind of object. A
+    # threshold cannot be calibrated on a corpus whose dialect differs from
+    # the declared one, on the channel the dialect difference lives in.
     theta_nucleus: float = 0.60
+    # --- THE SHAPE OF THE NUCLEUS QUESTION (doctrine 1, 84) -----------------
+    # A scalar cut on a graded similarity matrix is a SHAPE, and it was never
+    # declared as one -- it was the function. Measured before being kept:
+    # Spearman between `vowel_sim` and each non-identical vowel pair's LIFT
+    # (its rate in mandated sonnet rhyme positions over its rate in a random
+    # background) is +0.02 on a 3,000-pair background and -0.03 on a 6,000-pair
+    # one: |rho| < 0.05 and THE SIGN IS NOT STABLE, which is the finding rather
+    # than either number (doctrine 57 -- read what the statistic can resolve).
+    # The matrix's ordering carries essentially no information about which
+    # vowel pairs a form actually rhymes. The two extremes make it concrete:
+    # `IH~IY` scores 0.902 and is ADMITTED, appearing once in the mandated
+    # positions against 81 background occurrences (lift 0.24); `AY~IY` scores
+    # 0.342 and is REFUSED, appearing 10 times against 20 (lift 6.55).
+    #
+    #   "scalar"    min vowel_sim over the aligned syllables >= theta_nucleus.
+    #               SHIPPED, and shipped as the incumbent rather than as the
+    #               winner: no alternative beat it on a metric this corpus can
+    #               honestly supply (see theta_nucleus above).
+    #   "identity"  the nuclei must be the same phoneme. This is the redteam's
+    #               REFERENCE LINE promoted to a reachable shape. Held out it
+    #               is 0.20% FPR against the scalar's 3.50% -- and 19.5% of
+    #               mandated pairs against 9.4%, because it deletes every near
+    #               rhyme, which is exactly what doctrine 94 warns a band tuned
+    #               to agree with identity would do. Reachable so the claim is
+    #               checkable, NOT proposed.
+    #   "licensed"  identity plus `nucleus_licence`, the two-tier rule.
+    nucleus_agreement: str = "scalar"          # "scalar"|"identity"|"licensed"
+    # Unordered vowel pairs that AGREE without being identical, for the
+    # `licensed` shape. The default holds exactly one pair and it is not a
+    # judgement about English: CMUdict writes ONE reduced vowel two ways, and
+    # the dictionary says so itself -- of its 8,445 words with more than one
+    # listed pronunciation, 1,046 (12.4%) collapse to a single pronunciation
+    # the moment AH0 and IH0 are read as the same symbol. That is checkable
+    # against the dictionary with no poem involved.
+    nucleus_licence: tuple = (("AH", "IH"),)
+    # ...and the licence applies only where BOTH aligned syllables are
+    # unstressed, because that condition is what separates the ingestion fact
+    # from a claim about vowels. In mandated sonnet positions AH~IH is
+    # 100% doubly-unstressed (6 of 6); in a random background it is 72%
+    # (394 of 545). Set False to license the pair everywhere and watch the
+    # difference, which is the point of it being a coordinate.
+    nucleus_licence_unstressed_only: bool = True
     # --- WHICH END THE SCALAR ALIGNS FROM (doctrine 1, 84, 95) --------------
     # DECLARED 2026-08-11. It was not, and that is the whole point of this
     # coordinate existing: `channel_agreement` was fixed to align flush RIGHT
@@ -813,6 +892,47 @@ def admits(s, theta):
         s["relation"] in RHYME_RELATIONS
 
 
+def nucleus_agrees(ta, tb, decl):
+    """The nucleus channel's PREDICATE shapes: `identity` and `licensed`.
+
+    The scalar shape is not here — it is the `min(vowel_sim(...))` in
+    `channel_agreement`, unchanged and still the default. This function exists
+    because "a cut on a graded similarity matrix" is a SHAPE and it was never
+    declared as one; making the alternatives reachable is what keeps the
+    difference measurable (doctrine 84).
+
+    `licensed` is the two-tier rule: identity, plus `decl.nucleus_licence`.
+    The default licence is one pair, AH~IH, and it is an INGESTION fact rather
+    than a claim about vowels — CMUdict writes one reduced vowel two ways, and
+    1,046 of its 8,445 multi-pronunciation words collapse to a single
+    pronunciation once the two symbols are read as one. `graces`/`faces` and
+    `committed`/`fitted` are perfect rhymes whose only difference in CMUdict is
+    which of the two symbols it chose for the unstressed syllable, and charging
+    the comparator for that is the ingestion/comparator triage error (doctrine
+    79) one layer down. `nucleus_licence_unstressed_only` is what
+    keeps it an ingestion fact: in mandated sonnet positions AH~IH is 100%
+    doubly-unstressed, in a random background 72%.
+    """
+    if decl.nucleus_agreement not in ("scalar", "identity", "licensed"):
+        # An undeclared shape must be loud. Falling through to `identity` would
+        # be a coordinate quietly lying about its own range.
+        raise ValueError(
+            f"Declaration.nucleus_agreement must be 'scalar', 'identity' or "
+            f"'licensed', got {decl.nucleus_agreement!r}")
+    lic = {tuple(sorted(p)) for p in decl.nucleus_licence}
+    for x, y in zip(ta, tb):
+        if x["nucleus"] == y["nucleus"]:
+            continue
+        if decl.nucleus_agreement != "licensed":
+            return False
+        if tuple(sorted((x["nucleus"], y["nucleus"]))) not in lic:
+            return False
+        if decl.nucleus_licence_unstressed_only and not (
+                x["stress"] == 0 and y["stress"] == 0):
+            return False
+    return True
+
+
 def channel_agreement(anc_a, anc_b, decl):
     """Does each channel AGREE across the whole anchor? -> (nucleus, coda).
 
@@ -855,6 +975,14 @@ def channel_agreement(anc_a, anc_b, decl):
     ta, tb = anc_a[-n:], anc_b[-n:]
     nuc = min(vowel_sim(ta[i]["nucleus"], tb[i]["nucleus"])
               for i in range(n))
+    if decl.nucleus_agreement != "scalar":
+        # A non-scalar SHAPE answers this channel with a predicate instead of
+        # a magnitude, so its verdict is folded into the same `nuc` the return
+        # line reads and `theta_nucleus` still names the cut. Infinities rather
+        # than 1.0/0.0 so that no value of `theta_nucleus` can invert a shape's
+        # answer: one coordinate silently overriding another would be doctrine
+        # 1 broken inside the tuple.
+        nuc = float("inf") if nucleus_agrees(ta, tb, decl) else float("-inf")
     codas = []
     for i in range(n):
         ca, cb = ta[i]["coda"], tb[i]["coda"]
