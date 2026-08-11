@@ -424,33 +424,48 @@ on the `seen` key, not on the number. `BACKLOG.md` is not this cell's file;
 ## 9 · TEST AND BATTERY STATE
 
 ```
-python3 quality/test_revise.py       -> 5 FAILING, all of them the comparator's,
-                                        none of them this cell's (see below)
+python3 quality/test_revise.py       -> 94 PASS, 4 FAILING, all four the
+                                        comparator's and annotated as such
 python3 quality/test_floor.py        -> all slop-floor regressions pass  [exit 0]
 python3 quality/verify_doctrines.py  -> RESULT: PASS                     [exit 0]
 python3 battery.py                   -> mandated 1064, judged 1014, refused 50,
-                                        violations 82 (8.1%)   [exit 1, DRIFT]
+                                        violations 82 (8.1%)             [exit 0]
                                         Whitman 10.7% chained
 ```
 
-**The battery moved and this cell does not repin it.** Pinned 81, measured 82;
-Whitman 17.3% → 10.7%. The layer that moved is the **comparator** — the coda
-channel, `lyric_harness.py` at 15:36/15:41, another cell's change and another
-cell's repin to argue. This cell touched nothing the oracle reads.
+**The battery moved and this cell did not repin it. Cell BA did, with the
+argument.** It read 81 pinned / 82 measured and exited 1 mid-round; by the end
+`battery.EXPECTED` is 82 and it exits 0, repinned on the coda channel with the
+price stated. Whitman went 17.3% → 10.7% in the same move. This cell touched
+nothing the oracle reads.
 
-The five suite failures, each named with its cause:
+One consequence for this file: test 13 held a SECOND COPY of the oracle's pin
+as a literal `(1064, 1014, 50, 81)`, so it went red on a number it does not own
+and cannot argue. It now reads `battery.EXPECTED`. **That is a dedupe, not a
+repin** — doctrine 48's "a roster copied into two files drifts in both", and the
+claim test 13 exists to make (that `grade()` and `check_scheme` do not disagree)
+never depended on where the oracle sits. That check and the pair-for-pair
+violation-SET comparison across all 152 sonnets both pass.
+
+The four remaining failures, each named with its cause, each carrying `CAUSE`
+in its own printed detail so the red is self-explaining rather than a mystery
+for the next reader:
 
 | check | cause |
 |---|---|
-| the sonnet battery's own numbers are unmoved | comparator: 81 → 82 |
 | its maximal cliques OVERLAP | comparator: the `ear`~`will` edge is gone, so 6 cliques and no pivots |
 | the song's own clique cover has no letter scheme | same |
 | a derived cover IS independent once the band moves | same |
 | over the complete pool the pivot is satisfiable | comparator: `love`/`above`/`glove` no longer admit against `five` |
 
+They are LEFT RED deliberately. Each is a claim about the song that the
+comparator falsified today, and repinning them here would bury a real finding
+about the coda change under a green suite — the layer that moved is the
+comparator and the argument belongs to the cell that moved it.
+
 **Proof they are not this cell's, rather than an argument:** `git show
 HEAD:…/revise.py` was swapped in over this cell's version and the suite re-run.
-The same five failed, plus test 21 in its old form. Restored immediately;
+The same failures appeared, plus test 21 in its old form. Restored immediately;
 `revise.py` is this cell's file alone.
 
 `test_revise.py` gains 23 (the partition — absorbs-never-adds, exact partition,
