@@ -2029,9 +2029,25 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                          f"below theta_rhyme={decl.theta_rhyme}"))
             else:
                 if s["total"] >= 0.9:
+                    # RELATION IS CARRIED NOW (2026-08-11), not dropped. A
+                    # scalar-only cut here reported correctly-typed ASSONANCE
+                    # and CONSONANCE edges under the label "unintended
+                    # rhyme" -- a report-layer defect distinct from the
+                    # comparator (cell BA found it while investigating a
+                    # false claim in this repo's own commit history: what
+                    # looked like the coda channel admitting `will`/`gun` was
+                    # actually this loop printing an ASSONANCE edge under a
+                    # RHYME-shaped message). The caller filters on
+                    # `s["relation"]` now instead of assuming every member is
+                    # a rhyme; `quality/revise.py`'s collision partition
+                    # already did this independently and this brings the raw
+                    # `scheme`/`song` CLI print into agreement with it.
                     collisions.append(
-                        (i + 1, j + 1, s["total"],
-                         "unintended rhyme across scheme letters"))
+                        (i + 1, j + 1, s["total"], s["relation"],
+                         "unintended rhyme across scheme letters"
+                         if s["relation"] in ("RHYME", "RIME_RICHE")
+                         else f"unintended {s['relation']} across scheme "
+                              f"letters, NOT a rhyme"))
     # transitivity defect within letter groups: a~b, b~c, a!~c.
     # A triangle containing a refused edge is UNKNOWN, not defective: a missing
     # edge there is a missing measurement. Counting it would manufacture a
@@ -3475,7 +3491,8 @@ def main():
             print(f"  REFUSED   L{r['lines'][0]}-L{r['lines'][1]}: "
                   f"{r['reason']}")
         for c in res["collisions"]:
-            print(f"  COLLISION L{c[0]}-L{c[1]} score {c[2]}: {c[3]}")
+            print(f"  COLLISION L{c[0]}-L{c[1]} score {c[2]} "
+                  f"[{c[3]}]: {c[4]}")
         print(f"  mandated {res['pairs_mandated']}  judged "
               f"{res['pairs_judged']}  refused {res['pairs_refused']}"
               + ("   (a violation RATE divides by judged, not mandated)"

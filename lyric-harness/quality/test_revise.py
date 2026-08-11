@@ -66,21 +66,15 @@ from quality.revise import (COLLISION_FINDINGS, THETA_COLLISION,  # noqa: E402
 FAILURES = []
 R = Reviser()
 
-#: Appended to the detail of every check this round left RED ON PURPOSE.
-#:
-#: A red assertion with no cause beside it is the same defect as a count with
-#: no setting beside it (doctrine 58): the next reader cannot tell a broken
-#: loop from a moved comparator, and will either chase it or repin it, and
-#: both are wrong here.
-CAUSE = (
-    "2026-08-11 THE COMPARATOR MOVED UNDER THIS CHECK AND IT IS RED ON "
-    "PURPOSE. `Declaration.coda_agreement` replaced the `cluster_sim` cut "
-    "(lyric_harness.py, another cell), so `ear`~`will` and `wall`~`floor` "
-    "are ASSONANCE now and the song's graph lost the edges this claim "
-    "rested on. NOT REPINNED HERE: the layer that moved is the COMPARATOR "
-    "and the argument for a moved number belongs to the cell that moved it "
-    "(CLAUDE.md — a repin has to be argued). "
-    "quality/RESULTS_COLLISION_PARTITION.md §9 records what was measured.")
+#: `CAUSE` used to be appended to every check this file left RED ON PURPOSE
+#: after `Declaration.coda_agreement` moved the song's graph out from under
+#: it (2026-08-11). REMOVED 2026-08-11: every one of those checks is closed
+#: now -- three repointed to the real song's own CURRENT structure (tests 15
+#: and 19), one moved to a constructed fixture because its real witness was
+#: gone entirely (test 14, doctrine 94) -- so a "this is red on purpose"
+#: string with nothing red left to attach it to would itself become the
+#: stale claim doctrine 58 warns about. History: quality/RESULTS_CODA_SHAPE.md
+#: and quality/RESULTS_COLLISION_PARTITION.md §9.
 
 CLICHE = ["The candle burned and set the room on fire",
           "He said the word and then he turned to go",
@@ -385,13 +379,8 @@ def test_the_song_the_loop_could_not_grade():
     print("\n14. the song with no letter scheme — both paths")
     lines = song_lines()
     check("41 lines", len(lines) == 41, str(len(lines)))
-    g = rhyme_graph(R.lex, lines, R.decl)
-    check("its maximal cliques OVERLAP, so no letter scheme exists",
-          not g["letter_representable"],
-          f"{len(g['cliques'])} cliques, overlapping node(s) "
-          f"{sorted(v + 1 for v in g['overlapping_nodes'])}. " + CAUSE)
 
-    # -- the LETTER path, unchanged
+    # -- the LETTER path, unchanged: unaffected by the graph's overlap state
     cs = check_scheme(R.lex, lines, SONG_SCHEME, R.decl)
     check("the declared letter mandate still passes 8/8, 0 violations",
           (cs["pairs_mandated"], cs["pairs_judged"], cs["pairs_refused"],
@@ -411,24 +400,51 @@ def test_the_song_the_loop_could_not_grade():
           f"{len(rep['violations'])} violations, "
           f"{len(rep['collisions'])} collisions")
 
-    # -- the GRAPH's own structure, which nothing had ever graded
-    dm = R.mandate_from_graph(lines)
-    check("the song's own clique cover is a mandate with no letter scheme",
+    # -- the GRAPH's own structure, WAS the real song, NOT ANY MORE.
+    #
+    # REPOINTED 2026-08-11. This function's own name is "the song the loop
+    # could not grade" and that premise is now false: cell BA's
+    # coda-identity fix (RESULTS_CODA_SHAPE.md) makes THIS song's graph
+    # fully DISJOINT. `rhyme_graph(R.lex, lines, R.decl)` now reports
+    # `letter_representable=True`, 6 maximal cliques, ZERO overlapping
+    # nodes -- L27 ("ones") no longer clears theta=0.75 with either of its
+    # former clique partners at all, so it is not in the graph, not merely
+    # un-pivoted (see BACKLOG.md 1.4's own amendment). Real exemplars are
+    # preferred (house style), but the exemplar is gone, so the overlap half
+    # of this test moves to a constructed fixture (doctrine 94) that
+    # reproduces every property the real song used to supply: an
+    # overlapping graph, a non-letter-representable cover, and REPEAT edges
+    # a partition-style mandate would reject. The LETTER and PARTITION
+    # checks above stay on the real song -- they were never about overlap.
+    overlap_lines = [
+        "I saw a thousand tiny lights",
+        "I opened up the rusted gates",
+        "I missed it by a couple bits",
+        "I opened up the rusted gates",
+    ]
+    g = rhyme_graph(R.lex, overlap_lines, R.decl)
+    check("its maximal cliques OVERLAP, so no letter scheme exists "
+          "(constructed fixture)",
+          not g["letter_representable"],
+          f"{len(g['cliques'])} cliques, overlapping node(s) "
+          f"{sorted(v + 1 for v in g['overlapping_nodes'])}")
+    dm = R.mandate_from_graph(overlap_lines)
+    check("the fixture's own clique cover is a mandate with no letter "
+          "scheme",
           dm.to_letters() is None and len(dm.overlapping_lines()) >= 1,
-          f"{len(dm.groups)} groups, pivots {dm.overlapping_lines()}. "
-          + CAUSE)
+          f"{len(dm.groups)} groups, pivots {dm.overlapping_lines()}")
     check("and it declares itself NOT INDEPENDENT of the grader",
           not dm.independent(),
           "doctrine 14 — every clique band-passes by construction, so a "
           "clean rhyme result against it is an identity, not a verdict")
-    drep = R.grade(lines, dm)
+    drep = R.grade(overlap_lines, dm)
     check("grading it is not vacuous: the graph admits REPEAT edges that a "
           "mandate rejects",
           len(drep["violations"]) == len(drep["repeats"]) > 0,
           f"{len(drep['violations'])} violation(s), all REPEAT: "
           + ", ".join(f"L{v['lines'][0]}/L{v['lines'][1]} "
                       f"{v['endwords'][0]!r}" for v in drep["violations"][:4]))
-    ins = R.inspect(lines, dm)
+    ins = R.inspect(overlap_lines, dm)
     check("the brief carries the non-independence as a whole-draft finding",
           any(f.code == "MANDATE_NOT_INDEPENDENT" for f in ins["whole"]))
 
@@ -437,7 +453,14 @@ def test_a_derived_cover_is_independent_at_another_theta():
     print("\n15. doctrine 58 — a cover is a coordinate of the band that "
           "made it")
     lines = song_lines()
-    loose = Reviser(lex=R.lex, decl=Declaration(theta_coda=0.60),
+    # `coda_agreement="scalar"` declared EXPLICITLY, 2026-08-11: the default
+    # became `identity` (cell BA), which does not consult `theta_coda` at
+    # all, so `theta_coda=0.60` alone no longer builds a different graph from
+    # the shipped one -- both readings produced the literally identical 7
+    # groups, which silently defeated the whole point of this test (a cover
+    # that is supposed to be a coordinate of a band that no longer moves).
+    loose = Reviser(lex=R.lex,
+                    decl=Declaration(theta_coda=0.60, coda_agreement="scalar"),
                     floor=R.floor)
     loose._engine = R.engine
     old = loose.mandate_from_graph(lines, origin="cliques at theta_coda=0.60")
@@ -454,8 +477,13 @@ def test_a_derived_cover_is_independent_at_another_theta():
           f"{R.decl.theta_coda}")
     check("so a derived cover IS independent evidence once the band moves",
           len(old.groups) != len(R.mandate_from_graph(lines).groups),
-          "the clique count is a coordinate of theta_coda, not a property "
-          "of the song. " + CAUSE)
+          f"{len(old.groups)} groups (loose, scalar) vs "
+          f"{len(R.mandate_from_graph(lines).groups)} (shipped, identity) — "
+          f"the clique count is a coordinate of theta_coda UNDER THE SCALAR "
+          f"READING, not a property of the song. `coda_agreement=identity` "
+          f"(the shipped default since 2026-08-11) makes theta_coda inert, "
+          f"which is why `coda_agreement` has to be declared explicitly "
+          f"above for this comparison to mean anything.")
 
 
 def test_findings_are_not_printed_six_times():
@@ -551,7 +579,15 @@ def test_no_joint_candidate_was_a_coordinate_of_a_literal():
     from lyric_harness import admits, best_score
     lines = song_lines()
     m = R.mandate_from_graph(lines)
-    calls = ["does", "five", "drive", "of", "alive"]     # the L14/L34 pivot
+    # REPOINTED 2026-08-11 after cell BA's coda-identity fix changed which
+    # words band-pass: `does` was a FIFTH call word answering a cross-group
+    # PIVOT at L14 that no longer exists (the song's graph is fully disjoint
+    # now — see test 14's own note). L14's own group did not change, though
+    # — it is still lines (14,16,26,34,36), end words five/drive/of/alive —
+    # so the four words IT ACTUALLY MANDATES still reproduce the same shape
+    # this test exists to show, and remain a real exemplar rather than a
+    # constructed one.
+    calls = ["five", "drive", "of", "alive"]              # L14's own group
     old = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
                   rdecl=ReviseDeclaration(field_band="scalar",
                                           field_depth=200))
@@ -559,15 +595,14 @@ def test_no_joint_candidate_was_a_coordinate_of_a_literal():
     o_old, f_old = old.joint_field(calls)
     check("at the old undeclared depth the conjunction looked unsatisfiable",
           not o_old and not f_old,
-          "joint_field(['does','five','drive','of','alive']) was empty, and "
+          "joint_field(['five','drive','of','alive']) was empty, and "
           "the brief printed NO JOINT CANDIDATE -- 'the mandate, not the "
           "line, is what needs revising'")
     o_new, f_new = R.joint_field(calls)
     joint = sorted(set(o_new) | set(f_new))
     check("over the complete pool it is satisfiable, and by real words",
           len(joint) >= 6,
-          f"{len(joint)} words answer all five calls: {joint[:8]}. "
-          + CAUSE)
+          f"{len(joint)} words answer all four calls: {joint[:8]}")
     for w in joint:
         for c in calls:
             ax, wa = R._word_anchors(c)
@@ -745,8 +780,12 @@ def test_the_collision_set_is_partitioned_not_silenced():
 
     # (3) THE SET IS UNCHANGED. Typing a finding is not moving a threshold.
     cs = check_scheme(R.lex, lines, SONG_SCHEME, R.decl)
+    # `check_scheme`'s own tuple carries `relation` as a 5th element since
+    # 2026-08-11 (the report-layer fix cell BA's own patches file names),
+    # so unpacking as 4 raises ValueError now -- unpack 5 and ignore the two
+    # trailing fields, since this check is only about which PAIRS collide.
     check("and it is still exactly `check_scheme`'s set — no drift",
-          {(a, b) for a, b, _, _ in cs["collisions"]} == edges,
+          {(a, b) for a, b, _, _, _ in cs["collisions"]} == edges,
           f"{len(edges)} pairs, THETA_COLLISION={THETA_COLLISION} on both "
           f"sides. What changed is what each member is CALLED, and "
           f"`group_merge='off'` reproduces the old one-code rendering")

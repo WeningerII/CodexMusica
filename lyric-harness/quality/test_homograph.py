@@ -594,8 +594,14 @@ def test_the_oracle_did_not_move():
                   buf.getvalue())
     got = (int(m.group(1)), int(m.group(2)), int(m.group(3)),
            res["violations"]) if m else None
-    check("mandated 1064, judged 1014, refused 50, violations 81",
-          got == (1064, 1014, 50, 81),
+    # REPINNED 2026-08-11: reads battery.EXPECTED rather than a literal tuple
+    # (doctrine 48), after cell BA's coda-identity fix moved violations 81->82.
+    check(f"mandated {battery.EXPECTED['mandated']}, "
+          f"judged {battery.EXPECTED['judged']}, "
+          f"refused {battery.EXPECTED['refused']}, "
+          f"violations {battery.EXPECTED['violations']}",
+          got == (battery.EXPECTED["mandated"], battery.EXPECTED["judged"],
+                  battery.EXPECTED["refused"], battery.EXPECTED["violations"]),
           f"{got}. Doctrine 79: three counts, and the fourth is the one people "
           f"quote. Identical before and after the Syllable change, because "
           f"the shipped `eng` still declares one reading — this file's "

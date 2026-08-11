@@ -23,7 +23,22 @@ Measured, the reason is sharper and it is a finding about the METRIC rather
 than the threshold. `theta_coda` could be priced against Shakespeare because
 what 0.60 -> 0.80 cost there is S~Z x8 (`glass`/`was`, `muse`/`use`) and D~RD
 x2 — the voicing of a final obstruent, which English did not change between
-1609 and General American. The NUCLEUS is the channel four centuries of sound
+1609 and General American.
+
+AMENDED 2026-08-11: the D~RD contrast above is weaker than stated, and this
+file's CONCLUSION survives unchanged. Cell BA's own measurement
+(quality/RESULTS_CODA_SHAPE.md, and quality/redteam_band.py section 9) found
+D~RD is n=4 not n=2, and it is not obstruent voicing at all — it is an R
+present on one side and absent on the other (herd/beard, word/afford),
+nucleus differing 4 of 4. Counting the same shape (RT~T, RTH~TH, 0~R, DZ~RDZ,
+RTS~TS) the coda's mandated evidence is 17 RHOTIC observations against 9
+obstruent-voicing ones, so the coda is NOT free of the dialect problem the
+nucleus has -- half its own evidence is dialect too. The conclusion this file
+draws (the nucleus still cannot be priced on this corpus) does not depend on
+the coda being clean, only on the nucleus's OWN 28/6/1 partition below, which
+this amendment does not touch.
+
+The NUCLEUS is the channel four centuries of sound
 change live in. Of the 31 mandated pairs a 0.60 -> 0.70 tightening would newly
 refuse, the offending syllable pairs partition with NO remainder into:
 

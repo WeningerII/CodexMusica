@@ -130,6 +130,16 @@ def band_reference(anc_a, anc_b, decl, align="tail"):
     only so the non-vacuity check below can count how often it differs. Keeping
     the wrong reading reachable is doctrine 84's rule: a doctrine whose
     demonstration has been optimised away is a sentence nobody can check.
+
+    UPDATED 2026-08-11: `Declaration.coda_agreement` defaults to `"identity"`
+    as of cell BA's fix (RESULTS_CODA_SHAPE.md), so a twin that only ever
+    computes the SCALAR reading is no longer a twin of the shipped default —
+    it was comparing a live function against a frozen one and calling the
+    1,200-pair disagreement a defect. The identity branch below is written
+    independently (exact tuple comparison, per aligned syllable) rather than
+    by calling `coda_agrees`, for the same reason the scalar branch was
+    written out rather than imported: a twin built from the code under test
+    has nothing to disagree with.
     """
     n = min(len(anc_a), len(anc_b))
     if not n:
@@ -139,13 +149,23 @@ def band_reference(anc_a, anc_b, decl, align="tail"):
         tb = anc_b[len(anc_b) - n:]
     else:
         ta, tb = anc_a[0:n], anc_b[0:n]
-    nucs, cods = [], []
-    for i in range(n):
-        nucs.append(vowel_sim(ta[i]["nucleus"], tb[i]["nucleus"]))
-        ca, cb = ta[i]["coda"], tb[i]["coda"]
-        cods.append(1.0 if (not ca and not cb) else cluster_sim(ca, cb))
-    return (min(nucs) >= decl.theta_nucleus,
-            min(cods) >= decl.theta_coda)
+    nucs = [vowel_sim(ta[i]["nucleus"], tb[i]["nucleus"]) for i in range(n)]
+    nuc_ok = min(nucs) >= decl.theta_nucleus
+    if decl.coda_agreement == "scalar":
+        cods = []
+        for i in range(n):
+            ca, cb = ta[i]["coda"], tb[i]["coda"]
+            cods.append(1.0 if (not ca and not cb) else cluster_sim(ca, cb))
+        return nuc_ok, min(cods) >= decl.theta_coda
+    if decl.coda_agreement == "identity":
+        # Every aligned syllable's coda must be the EXACT same phone tuple.
+        # An absent coda is the empty tuple on both sides, which compares
+        # equal by the same `() == ()` doctrine 25 already relies on.
+        cod_ok = all(tuple(ta[i]["coda"]) == tuple(tb[i]["coda"])
+                     for i in range(n))
+        return nuc_ok, cod_ok
+    raise ValueError(f"band_reference has no independent statement for "
+                      f"coda_agreement={decl.coda_agreement!r}")
 
 
 def identity_label(a, b):
@@ -389,10 +409,18 @@ def test_declaration_defaults_are_pinned():
           "theta_coda", r not in ("RHYME", "RIME_RICHE"),
           f"{r} at {t:.3f}. NTS~FT scores exactly 0.600, so this pair passed "
           f"at theta_coda 0.60 and is the case that priced the change.")
+    # UPDATED 2026-08-11: `coda_agreement` defaults to `identity` (cell BA),
+    # which does not consult `theta_coda` at all -- it is an exact-tuple
+    # predicate, not a magnitude cut. Lowering theta_coda alone now changes
+    # NOTHING, which would make this check pass for the wrong reason (a
+    # threshold that cannot move the verdict is not "reachable"). Declaring
+    # `coda_agreement="scalar"` explicitly is what makes theta_coda the
+    # active coordinate again, and IS what the pre-2026-08-11 default was.
     r60, _ = rel("independents", "powersoft",
-                 decl=Declaration(theta_coda=0.60))
-    check("...and it IS admitted again at 0.60, so the coordinate is "
-          "reachable and the defect is demonstrable (doctrine 84)",
+                 decl=Declaration(theta_coda=0.60, coda_agreement="scalar"))
+    check("...and it IS admitted again at 0.60 under the scalar coordinate, "
+          "so the threshold is reachable and the defect is demonstrable "
+          "(doctrine 84)",
           r60 in ("RHYME", "RIME_RICHE"), f"at theta_coda 0.60 it is {r60}")
 
     # The semirhyme discount, stated as a difference rather than as a number

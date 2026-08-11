@@ -161,6 +161,20 @@ marked `source=derived` and NOT INDEPENDENT of the grader (doctrine 14).
 > the cover an approximate fixed point of the grader. Doctrine 91: the count is
 > a coordinate of the RENDERING. **Never quote a clique count for this song
 > without naming which of the two produced it.**
+>
+> **AMENDED 2026-08-11 — both counts moved, and it is the coda channel again.**
+> `Declaration.coda_agreement` defaulting to `identity` (cell BA,
+> `quality/RESULTS_CODA_SHAPE.md`) changed which pairs type as RHYME across
+> this whole file. Re-measured: `graph` at `theta=0.75` now reports **6
+> maximal cliques and ZERO overlapping nodes** — L27 (`ones`) no longer
+> clears threshold with either of its former clique partners at all, so it is
+> not in the graph, not merely un-pivoted. `mandate_from_graph`
+> (`promote=True`) gives **7 groups**, also fully disjoint. The song is
+> **letter-representable now**, which it was not at any point in this
+> passage's history. `quality/test_verbs.py`'s doctrine-2/pivot demonstration
+> lost its real witness and moved to a constructed fixture (doctrine 94) —
+> see that file's own note for the vowel-similarity chain that reproduces the
+> non-transitive shape without depending on this song's own text.
 
 ### 1.5 · Duplicate findings in the brief
 `SHARED_SUFFIX` printed six times identically for one line. Cosmetic, one line
@@ -546,8 +560,8 @@ never one (doctrine 79).
 | `corpus/song/eng_*` — K-1's own quantities | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/sources.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/lyricists.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
-| sonnet battery | 81/1014 = 8.0% violations (`mandated 1064, judged 1014, refused 50`) | `python3 battery.py` |
-| band FPR on random pairs | **3.60%** (144 of 4,000 at seed 20260810, the runner's own default n; 3.57% = 107 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
+| sonnet battery | 82/1014 = 8.1% violations (`mandated 1064, judged 1014, refused 50`) | `python3 battery.py` |
+| band FPR on random pairs | **2.10%** (84 of 4,000 at seed 20260810, the runner's own default n; 2.00% = 60 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
 | register-audit findings | **2** — D8 (M-4), D9 (M-4); both are the deliberate M-4 calibration pair | `python3 quality/audit_register.py` |
 | adversaries built, of 8 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it) | `read BACKLOG.md §0` |
 <!-- /COUNTERS -->

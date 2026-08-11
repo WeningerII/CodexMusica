@@ -128,6 +128,22 @@ a verdict and it is now visible rather than hidden.
 > where four centuries of sound change live, so on this channel the sonnet
 > violation rate prices the `dialect` coordinate, not the threshold.
 >
+> **AMENDED 2026-08-11 — this sentence is wrong in its larger half.** Cell BA
+> (`quality/RESULTS_CODA_SHAPE.md`) measured `D~RD` at **n=4, not n=2**, and
+> it is NOT obstruent voicing: it is an R present on one side and absent on
+> the other — `herd`/`beard`, `tir'd`/`expired`, `word`/`afford`,
+> `err'd`/`transferr'd` — nucleus differing 4 of 4. Counting the same shape
+> (`RT~T`, `RTH~TH`, `0~R`, `DZ~RDZ`, `RTS~TS`) the coda channel's mandated
+> evidence is **17 RHOTIC observations against 9 obstruent-voicing ones**, so
+> the claim that the coda escapes the dialect problem the nucleus has is
+> wrong in its larger half. `quality/redteam_band.py` section 9 carries the
+> corrected accounting and is the reference now; this paragraph is kept,
+> struck by cross-reference rather than by deletion, because the SHIP
+> decision it supported (`theta_coda` 0.60 -> 0.80) is unaffected — identity
+> beats scalar on both arms in both halves regardless of which observations
+> are rhotic versus obstruent (doctrine 17: a check may be kept after its
+> premise is falsified, but never quoted as if it were not).
+>
 > The scalar's SHAPE is uninformative too, measured rather than assumed:
 > Spearman between `vowel_sim` and each pair's lift in mandated positions is
 > +0.02 at n=3,000 and −0.03 at n=6,000, sign unstable. `IH~IY` scores 0.902 and

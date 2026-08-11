@@ -93,8 +93,9 @@ def _raises(fn):
 
 
 def test_battery_is_unmoved():
-    print("\n2. battery.py with the fallback off: 1064 / 1014 / 50 / 81")
     import battery
+    print(f"\n2. battery.py with the fallback off: 1064 / 1014 / 50 / "
+          f"{battery.EXPECTED['violations']}")
     sonnets = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
     total = viol = refused = 0
     for sn in sonnets:
@@ -105,7 +106,8 @@ def test_battery_is_unmoved():
     check("mandated 1064", total == 1064, str(total))
     check("refused 50", refused == 50, str(refused))
     check("judged 1014", total - refused == 1014, str(total - refused))
-    check("violations 81", viol == 81, str(viol))
+    check(f"violations {battery.EXPECTED['violations']}",
+          viol == battery.EXPECTED["violations"], str(viol))
 
 
 # ---------------------------------------------------------------------------
@@ -370,20 +372,31 @@ def test_real_population_against_shakespeares_own_form():
     newly = r0 - r1
     new_viol = [p for p in newly if p in v1]
     check("off reproduces the battery", (m0, j0, len(r0), len(v0))
-          == (1064, 1014, 50, 81), f"{(m0, j0, len(r0), len(v0))}")
+          == (1064, 1014, 50, 82), f"{(m0, j0, len(r0), len(v0))}")
     check("the derived layers turn 39 of the 50 refusals into judgements",
           len(newly) == 39, f"{len(newly)}; refused 50 -> {len(r1)}")
-    check("and 38 of those 39 RHYME, as the sonnet mandates",
-          len(new_viol) == 1,
+    # REPINNED 2026-08-11: 38/39 -> 37/39, one PAIR added, after cell BA's
+    # coda-identity fix. Sonnet 46 L9/L11, `impannelled`/`determined`, reads
+    # ...N AH0 L D / ...M AH0 N D under the "high" fallback -- codas L-D and
+    # N-D, an L-vs-N first consonant, cons_sim('L','N')=0.730. Under the old
+    # scalar coda this blurred through; under the shipped identity predicate
+    # it correctly does not agree, same class as the will/gun case cell BA
+    # found (RESULTS_CODA_SHAPE.md). Both new failures are the SAME residue:
+    # a real Elizabethan pairing that does not hold in the declared General
+    # American dialect, not a bad guess by the fallback.
+    check("and 37 of those 39 RHYME, as the sonnet mandates",
+          len(new_viol) == 2,
           f"{len(newly) - len(new_viol)}/{len(newly)} = "
           f"{1 - len(new_viol)/len(newly):.1%}. This is the only clean "
           f"accuracy number available on the real population: the form is "
           f"ground truth about the sound and no resource of ours supplied it "
-          f"(doctrine 37). The one that fails is "
-          f"{sorted(new_viol)}, recur'd/assur'd — both readings composed from "
-          f"the CMUdict headwords `recur` and `assure`, both correct General "
-          f"American, and the non-rhyme is the declared-dialect residue that "
-          f"love/prove already is, not a bad guess")
+          f"(doctrine 37). The two that fail are "
+          f"{sorted(new_viol)}: (45,9,11) recur'd/assur'd, both readings "
+          f"composed from the CMUdict headwords `recur` and `assure`; "
+          f"(46,9,11) impannelled/determined, an L-vs-N coda. Both are "
+          f"correct General American readings, and the non-rhyme in each "
+          f"case is the declared-dialect residue that love/prove already "
+          f"is, not a bad guess")
     check("no pair that was JUDGED before changed its verdict",
           v0 <= v1 and not (v0 - v1),
           "the fallback fires only on words the dictionary refused, so a "

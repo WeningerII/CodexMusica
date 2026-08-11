@@ -592,9 +592,13 @@ def battery():
 
     DERIVATION. `python3 battery.py` prints
     `mandated pairs 1064, judged 1014, refused 50` and
-    `violations 81 (8.0% of JUDGED pairs)`; this parses those two lines.
-    CLAUDE.md already says this number is MEASURED, not recalled, and names the
-    same command -- so the counter reads the same output a human would.
+    `violations N (N% of JUDGED pairs)`; this parses those two lines. N was 81
+    at scalar coda_agreement and is 82 as of cell BA's identity-coda fix
+    (2026-08-11) -- the illustration above is deliberately the LIVE value
+    rather than a frozen digit, so quoting a number here would itself be the
+    stale-pin defect this file exists to end. CLAUDE.md already says this
+    number is MEASURED, not recalled, and names the same command -- so the
+    counter reads the same output a human would.
 
     The three counts stay three counts (doctrine 79). 50 of the 1,064 mandated
     pairs are REFUSALS, end words absent from CMUdict, and dividing by the

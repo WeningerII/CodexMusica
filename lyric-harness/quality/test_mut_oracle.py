@@ -59,7 +59,11 @@ SONNETS = 152
 PAIRS_MANDATED = 1064          # 7 rhyme-mandated pairs x 152 sonnets
 PAIRS_REFUSED = 50             # end word absent from CMUdict: NOT judged
 PAIRS_JUDGED = 1014            # the only legitimate denominator
-VIOLATIONS = 81                # 8.0% of JUDGED; 73 at theta_coda 0.60
+# Reads battery.EXPECTED rather than a second literal (doctrine 48) -- this
+# file held its own copy once and went stale on it when cell BA's
+# coda-identity fix moved the oracle 81 -> 82. History: 73 at theta_coda 0.60,
+# 81 at scalar coda_agreement, 82 at the shipped identity predicate.
+VIOLATIONS = battery.EXPECTED["violations"]
 
 
 def check(name, cond, detail=""):
