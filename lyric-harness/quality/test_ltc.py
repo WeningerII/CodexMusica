@@ -627,6 +627,141 @@ def test_tone_class_refusal_now_propagates():
           "which reads every reading, under a declared fold")
 
 
+def test_the_denominator_was_narrower_than_the_script():
+    print("\n13. the coverage DENOMINATOR excluded Extension A, and the bias "
+          "ran both ways")
+    import quality.build_ci_corpus as bci
+    from quality.phonology import ltc as L
+
+    check("䰟 -- the variant 魂 maps TO, the graph doctrine 88 is named for -- "
+          "is Extension A, so it was outside the denominator of the rate that "
+          "doctrine quotes",
+          not ("一" <= "䰟" <= "鿿") and L.is_ideograph("䰟"),
+          f"U+{ord('䰟'):04X}, and the old filter was U+4E00..U+9FFF")
+
+    songs = load_songs()
+    hj = "".join("".join(s["chars"]) for s in songs)
+    on = MiddleChinese()
+    r = on.readability(hj)
+    narrow = sum(1 for c in hj if "一" <= c <= "鿿")
+    check("on 花間集 the widening ADDS characters and they all read, so the "
+          "old figure was UNDERSTATED",
+          r["total"] > narrow and r["unread"] == 0,
+          f"total {narrow} -> {r['total']} (+{r['total'] - narrow}), "
+          f"unread still {r['unread']}")
+
+    poems = bci.read_staged()
+    if not poems:
+        check("the staged 四庫 corpus is present", False)
+        return
+    w = bci.staged_readability(poems)
+    check("on the 四庫 ci corpus the widening adds characters that mostly do "
+          "NOT read, so the SAME fix moves that figure the other way -- a rate "
+          "polluted this way is not even conservative in a direction "
+          "(doctrine 79)",
+          w["total"] > w["narrow_total"]
+          and w["read"] + w["refused"] + w["unread"] == w["total"],
+          f"denominator {w['narrow_total']} -> {w['total']} "
+          f"(+{w['total'] - w['narrow_total']}); read {w['read']} "
+          f"({100.0 * w['read'] / w['total']:.2f}%), refused {w['refused']}, "
+          f"unread {w['unread']} -- three counts that partition it")
+    check("the positions that are NOT characters are counted rather than "
+          "dropped: a gaiji entity and a lacuna each occupy one position the "
+          "1715 詞譜 counts",
+          w["lacuna"] > 0 and w["entity"] > 0,
+          f"{w['entity']} &KRnnnn; entities, {w['lacuna']} □/○ lacunae, "
+          f"neither of them an ideograph and both of them a character "
+          f"position")
+
+
+def test_the_edition_is_a_coordinate_and_the_control_did_not_move():
+    print("\n14. EDITION is a coordinate, it is OFF by default, and its price "
+          "is measured against the matched control")
+    import quality.build_ci_corpus as bci
+
+    check("an undeclared edition raises rather than being guessed",
+          _raises(lambda: MiddleChinese(edition="ming")))
+    base, siku = MiddleChinese(standard="cilin"), MiddleChinese(
+        standard="cilin", edition="siku")
+    check("the default is unchanged, so no committed number moves",
+          base.declaration()["edition"] is None
+          and base.readings("黄") is None,
+          "every figure in data/sources.tsv row kanripo/KR4j was measured with "
+          "no edition orthography, and a default changed without a held-out "
+          "price is a silent re-scoring of the record")
+    check("under edition='siku' the 四庫 hand reads, and its 異體 target is "
+          "named rather than implied",
+          all(siku.readings(c) is not None for c in "黄别逺緑㸃")
+          and siku.variant_of("黄") == "黃",
+          "黄->黃 别->別 逺->遠 緑->綠 㸃->點; the general table files the first "
+          "three as 簡化 (a 1956 simplification) and 逺/緑 as 後起, and both "
+          "verdicts are about a character rather than a character in an "
+          "edition")
+    check("a graph the rime book genuinely postdates stays refused under "
+          "BOTH settings -- the map recovers an orthography, not a vocabulary",
+          base.readings("怎") is None and siku.readings("怎") is None,
+          "怎 is Song-Yuan vernacular; doctrine 88 says refusing it is CORRECT")
+
+    poems = bci.read_staged()
+    if not poems:
+        check("the staged 四庫 corpus is present", False)
+        return
+    a = bci.yun_rhyme_arms(poems, "cilin", None)
+    b = bci.yun_rhyme_arms(poems, "cilin", "siku")
+    check("the reconstruction from the staged files reproduces the COMMITTED "
+          "韻 and 句 arms exactly, before anything is changed",
+          (a["yun"]["mandated"], a["yun"]["judged"], a["yun"]["refused"],
+           a["yun"]["true"]) == (33321, 31162, 2159, 28330)
+          and (a["ju"]["mandated"], a["ju"]["judged"], a["ju"]["refused"],
+               a["ju"]["true"]) == (15061, 14062, 999, 1047),
+          f"韻 {a['yun']['rate']:.1f}%, 句 {a['ju']['rate']:.1f}%")
+    check("the edition map CUTS THE REFUSALS and does NOT lift the matched "
+          "control -- a map manufacturing agreement would lift both "
+          "(doctrine 41)",
+          b["yun"]["refused"] < a["yun"]["refused"] * 0.6
+          and abs(b["ju"]["rate"] - a["ju"]["rate"]) < 0.5
+          and abs(b["yun"]["rate"] - a["yun"]["rate"]) < 0.5,
+          f"韻 refused {a['yun']['refused']} -> {b['yun']['refused']} "
+          f"({100.0 * (1 - b['yun']['refused'] / a['yun']['refused']):.1f}% "
+          f"cut), 韻 rate {a['yun']['rate']:.1f}% -> {b['yun']['rate']:.1f}%, "
+          f"句 control {a['ju']['rate']:.1f}% -> {b['ju']['rate']:.1f}%, "
+          f"separation {a['yun']['rate'] - a['ju']['rate']:.1f} -> "
+          f"{b['yun']['rate'] - b['ju']['rate']:.1f} pp")
+
+
+def test_the_segmentation_is_re_derivable_offline():
+    print("\n15. the staged corpus's LINE BREAKS re-derive from the committed "
+          "1715 spec, with no clones and no network")
+    import quality.build_ci_corpus as bci
+    v = bci.verify_staged()
+    st, bad = v["stats"], v["defects"]
+    if not st["poems"]:
+        check("the staged 四庫 corpus is present", False)
+        return
+    check("every staged poem's 詞牌 resolves in a COMMITTED table",
+          st["unverifiable_no_such_tune"] == 0,
+          f"{st['poems']} poems, {st['checked']} checked. 436 were "
+          f"UNVERIFIABLE before data/qindingcipu_aliases.tsv existed: their "
+          f"--- GE: header named a tune only a `git clone` of KR4j0086 could "
+          f"resolve (doctrine 34, one level in)")
+    check("every printed line break equals the 格's own line-end vector, and "
+          "the 韻/句 marks and the --- RHYME / --- JU headers agree with it",
+          st["segmentation_confirmed"] == st["poems"] and not bad,
+          f"{st['segmentation_confirmed']} confirmed, "
+          f"{st['partition_confirmed']} with a unique 韻/句 partition, "
+          f"{st['partition_ambiguous']} declared ambiguous, "
+          f"{sum(len(x) for x in bad.values())} defects")
+    check("the census of positions that are NOT characters is reported rather "
+          "than dropped, and it names the poem that is half lacuna",
+          st["lacuna_tokens"] > 0 and st["entity_tokens"] > 0
+          and max(n for n, _t in v["lacuna"].values()) >= 26,
+          f"{st['entity_tokens']} &KRnnnn; in {len(v['entity'])} poems, "
+          f"{st['lacuna_tokens']} □/○ in {len(v['lacuna'])}; 雙雁兒 其2's "
+          f"entire second 片 is lacuna, and a lacuna run satisfies the "
+          f"character-count match VACUOUSLY -- which is the only evidence the "
+          f"segmentation is right, so it should have been refused")
+
+
 if __name__ == "__main__":
     for fn in (test_standard_is_a_declared_coordinate,
                test_doctrine_36_demonstration_stays_runnable,
@@ -639,7 +774,10 @@ if __name__ == "__main__":
                test_the_overlap_is_a_declared_coordinate,
                test_the_three_folds_disagree_on_a_real_polyphone,
                test_the_committed_ci_numbers_under_each_fold,
-               test_tone_class_refusal_now_propagates):
+               test_tone_class_refusal_now_propagates,
+               test_the_denominator_was_narrower_than_the_script,
+               test_the_edition_is_a_coordinate_and_the_control_did_not_move,
+               test_the_segmentation_is_re_derivable_offline):
         fn()
     print("=" * 62)
     if FAILURES:

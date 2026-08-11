@@ -1,0 +1,184 @@
+# THE 四庫 SCRIBAL FORMS, and the two witnesses that resolve them.
+#
+# WHY THIS FILE EXISTS. `data/qieyun_variants.tsv` classifies a refusal by a
+# `relation` column -- 異體 / 簡化 / 後起 / 混同 -- and the taxonomy is a
+# property of the CHARACTER. On a 1782 manuscript it is a property of the
+# character IN AN EDITION, and the difference is not academic: 黄 (1,205
+# tokens here) is filed 簡化, "a 1956 simplified form", and 逺 (946) and 緑
+# (862) are filed 後起, "no 廣韻 headword and no warranted 異體". They are the
+# ordinary 18th-century hand for 黃, 遠 and 綠. Refusing them is right for a
+# modern simplified corpus and wrong for this one, and 16,681 of the corpus's
+# 582,677 characters are unreadable with that taxonomy applied.
+#
+# So EDITION is a coordinate, exactly as `standard` and `overlap` already are
+# in quality/phonology/ltc.py, and this file is what `edition='siku'` reads.
+# It is NOT the default: every committed number was measured without it, and a
+# default changed without a held-out price is a silent re-scoring of the
+# record (doctrine 84's argument for keeping `consult=False` reachable).
+#
+# TWO WITNESSES, NEITHER OF THEM MEMORY, AND NEITHER SUFFICIENT ALONE.
+#
+#   unihan     unicode-org/unihan-database, Unicode License v3 -- an express
+#              redistribution grant, conditioned on the notice travelling with
+#              the data. kTraditionalVariant / kZVariant / kSemanticVariant /
+#              kSpecializedSemanticVariant. A source character with MORE THAN
+#              ONE reading target is REFUSED, never tie-broken (doctrine 66):
+#              that is the 发 -> 發 / 髮 trap, and it is the exact failure
+#              doctrine 88 records as "silently returns a different word's
+#              rhyme". Reaches 88 types / 3,810 tokens.
+#              ITS LIMIT IS STRUCTURAL: kTraditionalVariant is a field about
+#              the SIMPLIFIED character, so on a traditional manuscript it is
+#              answering a question nobody asked. It is silent on 逺, 緑, 㸃,
+#              鳯, 㑹 -- the five commonest 四庫 forms in this corpus.
+#
+#   alignment  the 1782 witness against itself. KR4j0086's 卷N目録 (the 四庫's
+#              own copy of the 詞譜) and hulbji/couyun's independent
+#              transcription of the SAME 1715 work, aligned by
+#              Needleman-Wunsch over the tune sequence: 638 names align
+#              character-for-character and the residual substitutions in the
+#              rest are what the two witnesses spell differently. The map is
+#              refused outright if it would merge two distinct spec names (0
+#              collisions). Reaches 28 types / 8,024 tokens.
+#
+# THEY CORROBORATE. Both speak on 8 types / 3,034 tokens and AGREE ON 8 OF 8,
+# zero disagreements -- two derivations with nothing in common, one a Unicode
+# variant database and one an alignment of two 詞譜 witnesses. Doctrine 87:
+# agreement was never the point, independence was, and here it is independent.
+# The union reaches 108 types / 8,800 tokens = 52.8% of the unreadable set.
+#
+# WHAT IS STILL REFUSED, and it is the larger half.
+#   * 8 types / 235 tokens where Unihan gives more than one reading target and
+#     the alignment is silent: 强 95, 叠 66, 戯 27, 厮 26, 﨑 10, 麄 7,
+#     塡 3, 㟢 1.
+#   * 441 types / 7,646 tokens neither witness reaches -- 䦨 462, 㡬 321,
+#     曽 279, 顔 243, 懐 241, 牎 230, 痩 215, 怎 207. A third witness (a 四庫
+#     orthography table, or the 廣韻 字頭 list read for its own variants) is
+#     what would move that, and it is not in this repository. So this file
+#     buys 52.8% of the refusal and the majority is still owed.
+#   * 怎 樣 褪 做 你 and their class stay refused under every setting: they are
+#     Song-Yuan vernacular graphs that postdate the rime book and refusing
+#     them is CORRECT (doctrine 88).
+#
+# ONE ROW OVERRIDES UNIHAN AND SAYS SO: 别 (1,037 tokens). Unihan refuses it,
+# giving 別 and 彆 -- but that is a SIMPLIFICATION merge, a fact about the 1956
+# reform, and this corpus predates it by 174 years. The 1782 witness prints
+# 别 where couyun prints 別 in the same tune name, which is direct evidence
+# about THIS edition. `witness` records that the row is alignment-only.
+#
+# COLUMNS
+#   char      the graph the 1782 manuscript prints
+#   target    the graph data/qieyun_mc.tsv can read
+#   witness   unihan | alignment | both
+#   fields    the Unihan field(s), where unihan is a witness
+#   tokens    occurrences in corpus/song/ltc_siku_kr4j*.txt
+#   refused   what ltc.refusal() says without this file -- kept so the
+#             falsified taxonomy stays visible rather than overwritten
+char	target	witness	fields	tokens	refused
+黄	黃	both	kTraditionalVariant	1205	簡化
+别	別	alignment	-	1037	簡化
+逺	遠	alignment	-	946	後起
+緑	綠	alignment	-	862	後起
+㸃	點	alignment	-	780	未載
+横	橫	both	kTraditionalVariant	571	簡化
+宫	宮	both	kTraditionalVariant	480	簡化
+鳯	鳳	alignment	-	302	後起
+遥	遙	both	kTraditionalVariant	285	簡化
+㑹	會	alignment	-	241	未載
+瑶	瑤	both	kTraditionalVariant	230	簡化
+静	靜	unihan	kTraditionalVariant	216	簡化
+巻	卷	alignment	-	168	後起
+歩	步	alignment	-	143	後起
+踈	疏	alignment	-	111	後起
+虚	虛	both	kTraditionalVariant	107	簡化
+朩	木	alignment	-	105	未載
+抛	拋	both	kTraditionalVariant	103	簡化
+筝	箏	unihan	kTraditionalVariant	72	簡化
+簌	雝	unihan	kSemanticVariant	64	後起
+逰	遊	alignment	-	62	後起
+䕶	護	alignment	-	60	未載
+埀	垂	alignment	-	55	後起
+内	內	both	kTraditionalVariant	53	簡化
+帯	帶	alignment	-	53	後起
+随	隨	unihan	kTraditionalVariant	46	簡化
+𦂳	緊	unihan	kSemanticVariant	31	未載
+湏	須	unihan	kSemanticVariant	29	後起
+㪚	散	alignment	-	24	未載
+揾	搵	unihan	kTraditionalVariant	21	簡化
+氲	氳	unihan	kTraditionalVariant	17	簡化
+姹	奼	unihan	kTraditionalVariant	14	簡化
+禄	祿	unihan	kTraditionalVariant	14	簡化
+綘	絳	alignment	-	14	後起
+唤	喚	unihan	kTraditionalVariant	12	簡化
+凛	凜	unihan	kTraditionalVariant	11	簡化
+莱	萊	unihan	kTraditionalVariant	11	簡化
+嬝	嫋	alignment	-	10	後起
+繋	系	alignment	-	10	後起
+蹰	躕	unihan	kTraditionalVariant	10	簡化
+弹	彈	unihan	kTraditionalVariant	9	簡化
+数	數	unihan	kTraditionalVariant	9	簡化
+稳	穩	unihan	kTraditionalVariant	9	簡化
+净	凈	unihan	kTraditionalVariant	8	簡化
+泞	濘	unihan	kTraditionalVariant	8	簡化
+渌	淥	unihan	kTraditionalVariant	7	簡化
+溆	漵	unihan	kTraditionalVariant	7	簡化
+隐	隱	unihan	kTraditionalVariant	7	簡化
+壮	壯	unihan	kTraditionalVariant	6	簡化
+悮	悞	unihan	kTraditionalVariant	6	簡化
+箧	篋	unihan	kTraditionalVariant	6	簡化
+装	裝	unihan	kTraditionalVariant	6	簡化
+剥	剝	unihan	kTraditionalVariant	5	簡化
+卭	卬	unihan	kSemanticVariant	5	後起
+参	參	unihan	kTraditionalVariant	5	簡化
+峥	崢	unihan	kTraditionalVariant	5	簡化
+徴	徵	alignment	-	5	後起
+换	換	unihan	kTraditionalVariant	5	簡化
+羙	美	unihan	kSemanticVariant	5	未載
+蝉	蟬	unihan	kTraditionalVariant	5	簡化
+啣	㘅	unihan	kSemanticVariant	4	後起
+堕	墮	unihan	kTraditionalVariant	4	簡化
+峡	峽	unihan	kTraditionalVariant	4	簡化
+彦	彥	unihan	kTraditionalVariant	4	簡化
+惨	慘	unihan	kTraditionalVariant	4	簡化
+烱	炯	unihan	kSemanticVariant	4	後起
+㕑	厨	unihan	kSemanticVariant	3	未載
+咱	喒	unihan	kSpecializedSemanticVariant	3	後起
+楼	樓	unihan	kTraditionalVariant	3	簡化
+螀	螿	unihan	kTraditionalVariant	3	簡化
+吕	呂	unihan	kTraditionalVariant	2	簡化
+呑	吞	unihan	kSemanticVariant	2	未載
+嘘	噓	unihan	kTraditionalVariant	2	簡化
+奥	奧	unihan	kTraditionalVariant	2	簡化
+妆	妝	unihan	kTraditionalVariant	2	簡化
+媪	媼	unihan	kTraditionalVariant	2	簡化
+拽	曳	unihan	kSpecializedSemanticVariant	2	後起
+柂	杝	unihan	kSemanticVariant	2	後起
+湿	濕	unihan	kTraditionalVariant	2	簡化
+滾	菌	unihan	kSpecializedSemanticVariant	2	後起
+玫	玟	unihan	kSemanticVariant	2	後起
+窑	窯	unihan	kTraditionalVariant	2	簡化
+茘	荔	alignment	-	2	後起
+亸	嚲	unihan	kTraditionalVariant	1	簡化
+儿	兒	unihan	kTraditionalVariant	1	簡化
+册	冊	unihan	kTraditionalVariant	1	簡化
+刋	刊	unihan	kSemanticVariant	1	後起
+夹	夾	unihan	kTraditionalVariant	1	簡化
+寝	寢	unihan	kTraditionalVariant	1	簡化
+屜	𡲕	unihan	kSemanticVariant	1	後起
+屡	屢	unihan	kTraditionalVariant	1	簡化
+币	幣	unihan	kTraditionalVariant	1	簡化
+录	錄	unihan	kTraditionalVariant	1	簡化
+惬	愜	unihan	kTraditionalVariant	1	簡化
+擞	擻	unihan	kTraditionalVariant	1	簡化
+椮	槮	unihan	kTraditionalVariant	1	簡化
+殻	殼	unihan	kSpecializedSemanticVariant	1	後起
+毵	毿	unihan	kTraditionalVariant	1	簡化
+爱	愛	unihan	kTraditionalVariant	1	簡化
+状	狀	unihan	kTraditionalVariant	1	簡化
+璢	琉	unihan	kSemanticVariant	1	後起
+矓	朧	unihan	kSpecializedSemanticVariant	1	後起
+禅	禪	unihan	kTraditionalVariant	1	簡化
+糁	糝	unihan	kTraditionalVariant	1	簡化
+緡	眠	unihan	kSpecializedSemanticVariant	1	後起
+舣	艤	unihan	kTraditionalVariant	1	簡化
+蒋	蔣	unihan	kTraditionalVariant	1	簡化
+蕰	薀	unihan	kTraditionalVariant	1	簡化

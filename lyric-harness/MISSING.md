@@ -1510,35 +1510,130 @@ a `__main__` and keep it as a comparison runner.
 > a second implementation. That is what a "keep it" decision has to look like to
 > be a decision rather than a default.
 
-### K-7 · The Chinese ci and yuefu are refused, and the unblock route is named `BLOCKED` 2026-08-11
-**This entry is written because two documents already cited `K-7` and no `K-7`
-existed.** `BACKLOG.md` §3.1 is headed "The clean Chinese route `K-7`" and M-12
-above says "see K-7 and doctrine 85"; both resolved to nothing until
-`python3 quality/verify_entries.py` (shape `STATUS_XREF`) asked whether every
-cited id has an entry. A citation into this register is a claim that the entry
-exists, and it is now checked.
+### K-7 · The Chinese ci and yuefu are refused, and the unblock route ~~is named~~ **WAS ALREADY BUILT** `PARTIAL` 2026-08-11
+**~~`BLOCKED` 2026-08-11~~ — struck, and the strike is the finding.** This entry
+was written at `ad7edca`, 05:19, and marked `BLOCKED`. The route it calls
+unbuilt had landed at `16cb073`, 02:14 — **three hours and five minutes
+earlier**, in the same round, on the same branch, with 66 corpus files, 70
+`data/sources.tsv` rows and a runner. The entry was written by a cell whose own
+instrument (`quality/verify_entries.py`, shape `STATUS_XREF`) had just found that
+two documents cited a `K-7` that did not exist; it created the entry the
+citations needed and asserted a STATUS from the citing documents rather than
+from the repository. `BACKLOG.md` §3.1 was written at `b5e73f7`, 00:04, and was
+merely stale; this entry was **written after the work it denies**.
 
-**The refusal.** 4,347 ci and 734 樂府 were located, extracted, validated at
-99.03% character coverage and measured against 311-year-old ground truth, then
-REFUSED: the digitiser's grant quoted inside the files is
-`資料自由使用，但不得為商業用途` — an express non-commercial restriction, which this
-repo had already treated as a rejection for `irfanzainudin/pantunis-data` and for
-CELT. Admitting Chinese on terms that refused Malay would make the gate a
-function of how much the corpus was wanted. Doctrine 85.
-The ci half fails twice over: its stated base is 唐圭璋's 《全宋詞》 (1940), and he
-died in 1990, so life+70 runs to 2060 — and his PUNCTUATION carries the signal
-(45.2% rhyme agreement at 。-ends against 2.7% at ，-ends and a 2.8% matched
-null), so the build would rest ON the in-copyright contribution rather than
-around it.
+That is adversary 8 failing in the one place it was pointed at. `ls
+corpus/song/ltc_siku_kr4j*.txt | wc -l` returned 66 at the moment the word
+`BLOCKED` was typed. A status is a claim about the repository and has to be
+derived from it — the same rule M-6 and M-11 are already here for.
 
-**What survives, and what unblocks the rest.** 花間集, 500 songs, is admitted:
-its own last line is 王鵬運's 1893 四印齋 colophon and its chain quotes no
-restriction (M-12). The unblock route carries **no living copyright anywhere**:
-`kanripo/KR4j` 白文 (文淵閣四庫全書, 1782) segmented by the 欽定詞譜 (1715). It needs
-a build; every piece is reachable. Doctrine 85's second clause — record the
-unblock route in the same breath as the refusal — is why this is `BLOCKED` and
-not `WITHDRAWN`.
-**Work item:** `BACKLOG.md` §3.1.
+**The refusal still stands and nothing below withdraws it.** 4,347 ci and 734
+樂府 were located, extracted, validated and measured, then REFUSED: the
+digitiser's grant quoted inside the files is `資料自由使用，但不得為商業用途` — an
+express non-commercial restriction, which this repo had already treated as a
+rejection for `irfanzainudin/pantunis-data` and for CELT (doctrine 85). The ci
+half fails twice over: its stated base is 唐圭璋's 《全宋詞》 (1940), he died in
+1990, so life+70 runs to 2060 — and his PUNCTUATION carries the signal (45.2%
+rhyme agreement at 。-ends against 2.7% at ，-ends on a 2.8% matched null).
+**The build does not re-acquire that dependency by any door:** the 1782 白文 has
+no punctuation at all, every line break in the staged files comes from the 1715
+詞譜 by exact character count, and nothing from 網路展書讀 was read, staged or
+used as a tie-break. The refused text was used for NOTHING — not as text, not
+as ground truth, not as a tie-break; the only ground truth in the build is the
+詞譜's own printed 例詞, which is the spec checking itself.
+
+**What is staged.** 10,029 ci across 687 詞牌 in 66 files
+`corpus/song/ltc_siku_kr4j*.txt`, from `kanripo/KR4j*` 白文, every juan
+declaring `#+PROPERTY: BASEEDITION WYG` = 文淵閣四庫全書, 1782, segmented by
+`data/qindingcipu_ge.tsv` (欽定詞譜, 1715, via `hulbji/couyun`, MIT). No living
+copyright anywhere in either chain. 2.3× the 4,347 that were refused.
+
+**VERIFIED 2026-08-11, offline and link by link, and the verification is a
+command.** `python3 quality/build_ci_corpus.py --verify-staged` re-derives every
+poem's segmentation from the committed spec with no clones and no network —
+character count, printed break vector, uniqueness of that vector once the 1782
+woodblock's own 片 has voted, and each header against its own punctuation. It
+reports **10,029 poems / 10,029 checked / 0 unverifiable / 10,029 segmentation
+confirmed / 0 defects**, with 5,573 韻/句 partitions unique and 4,456 declared
+ambiguous. `quality/ltc_overlap.py` already rebuilt the rhyme measurement from
+the `--- RHYME` headers — but it TRUSTS them, and they were the only record of
+where the spec put a line end.
+
+**Three things the verification found, and they are the entry's live half.**
+
+1. **The chain had a link that was not in the repository.** 479 poems (4.8%, 88
+   names) head a 詞牌 `data/qindingcipu_ge.tsv` cannot resolve — 醉落魄 for
+   一斛珠, 江神子 for 江城子 — because the link lived only in a `git clone` of
+   `kanripo/KR4j0086`. The first `--verify-staged` run reported **436
+   UNVERIFIABLE**. `data/qindingcipu_aliases.tsv` (324 links, both witnesses
+   named per row) closes it to **0**. Doctrine 34 one level in: a row whose
+   chain has a link outside the repo is a claim nobody here can check. The
+   segmentation was never in doubt — all 436 printed break vectors already
+   landed on a real 格 of exactly their character count, 436 of 436 — so this
+   was an *unverifiable* claim, not a wrong one, and the difference is worth
+   stating.
+
+2. **The coverage figure was measured on the wrong denominator, and the bias
+   runs both ways.** `ltc.readability` filtered `U+4E00..U+9FFF`, the BMP
+   Unified Repertoire alone, so 3,703 Extension A / Ext B+ / compatibility
+   ideographs fell into **no count at all** — not read, not refused, not
+   unread, not `total`. The row's `97.70% of 578,974` becomes **read 565,996 /
+   refused 13,040 / unread 3,641 over 582,677 = 97.14%**, so it was OVERSTATED
+   by 0.56 pp here — while on `corpus/song/ltc_huajianji.txt` the same widening
+   adds 58 characters that ALL read, so it was UNDERSTATED there. A rate
+   polluted this way is not even conservative in a predictable direction, which
+   is doctrine 79's second lesson in a second layer. **䰟 — the variant 魂 maps
+   TO, the character doctrine 88 is named for — is U+4C1F and was itself outside
+   the denominator of the rate that doctrine quotes.** Fixed in
+   `quality/phonology/ltc.py`. At the 韻 positions, where the signal is
+   (doctrine 67): **mandated 41,828 / read 40,472 (96.76%) / correctly refused
+   1,134 / ingestion residue 205 / no character at all 17.**
+
+3. **164 character positions in the corpus are not characters, and no file
+   header says so.** 132 `&KRnnnn;` Kanseki gaiji entities in 123 poems (12 at a
+   韻 position, 3 at a 句) — one graph with no Unicode code point, and eight
+   ASCII characters to any consumer that does not know — and 32 `□` lacunae in
+   6 poems, 5 at a 韻 position. **One poem is half lacuna**: 雙雁兒 其2 in
+   `ltc_siku_kr4j0032.txt` is 26 of 52, its entire second 片, with 4 of its 8
+   mandated 韻 positions on `□`. The character-count match is the ONLY evidence
+   the segmentation is right and a lacuna run satisfies it **vacuously**, so
+   that poem should have been refused and was not. `--verify-staged` prints the
+   census; the refusal criterion is not yet in the builder, and re-staging needs
+   the 66 clones.
+
+**Doctrine 88's cost is now measurable and half of it is paid.** 16,681 of the
+582,677 characters do not read, and `data/qieyun_variants.tsv` files the biggest
+of them under verdicts that are wrong FOR THIS EDITION: 黄 (1,205 tokens) as
+`簡化`, "a 1956 simplified form", in an 18th-century manuscript; 逺 (946) and 緑
+(862) as `後起`. An 異體字 verdict is a property of the character **in an
+edition**, and that table models only the character. So EDITION is now a
+coordinate — `MiddleChinese(edition='siku')`, **off by default**, reading the new
+`data/siku_orthography.tsv`. Two witnesses build it and neither is enough alone:
+Unihan's variant fields (88 types / 3,810 tokens, refusing every source with
+more than one reading target — the 发→發/髮 trap) and a Needleman-Wunsch
+alignment of the 1782 目録 against couyun's independent transcription of the same
+1715 work (28 types / 8,024 tokens, and the only witness that reaches 逺, 緑, 㸃,
+鳯, 㑹). **They overlap on 8 types and agree on 8 of 8.** Union 52.8% of the
+unreadable; **441 types / 7,646 tokens neither reaches, so the majority is still
+owed**.
+
+**THE PRICE, AND THE CONTROL MOVED THE RIGHT WAY.** `--verify-staged`, `cilin`:
+`edition=None` gives 韻 **90.9%** (28,330 / 31,162 judged / 2,159 refused)
+against the matched 句 control's 7.4% — reproducing the committed numbers
+exactly from the staged files. `edition='siku'` gives 韻 **90.8%** (29,284 /
+32,251 / **1,070 refused**, a 50.4% cut) and the 句 control stays at **7.4%**.
+Separation 83.5 → 83.4 pp. Recovering 1,089 refused rhyme pairs moved the result
+−0.1 pp and the control not at all; a map that was manufacturing agreement would
+have lifted both (doctrine 41).
+
+**What is left, in one place.** The lacuna refusal in the builder (needs a
+re-stage); a third orthography witness for the 441 unreached types; declaring
+`&KRnnnn;` and `□` in the staged file headers (needs a re-stage);
+`data/qieyun_variants.tsv`'s cause taxonomy, which is a sibling's file and whose
+verdicts are now contradicted per-row in `data/siku_orthography.tsv` rather than
+overwritten.
+**Work item:** `BACKLOG.md` §3.1 — its "needs a build" is stale by the same three
+hours.
 
 ### M-17 · `best_score` names a pair that did not produce the number `OPEN`
 **This entry is written because `BACKLOG.md` §1.2 cited `M-17, OPEN` and no
