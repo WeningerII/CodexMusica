@@ -42,7 +42,11 @@ marks 句. MISSING M-1 reports 47.4% on 1,518 later ci; that corpus was refused
 on an express non-commercial grant (doctrine 85) and the two numbers are NOT
 comparable -- different century of the form, different pair construction. What
 replicates is the direction, the control gap, and the 韻 pairs that fail.
-`quality/test_ltc.py` runs the whole measurement.
+`quality/test_ltc.py` runs the whole measurement. All four of those rates are
+`overlap='any'` rates -- see THE OVERLAP OVER READINGS below; under `'settled'`
+they read 67.6% and 91.2% against 0.4% and 0.6%, so the 詞-over-詩 gap WIDENS
+from 15.6 to 23.6 pp when the unsettled overlaps are refused rather than
+granted. The choice of standard is not an artefact of the fold.
 
 So `standard` is now a coordinate, exactly the move `check_cynghanedd` made
 for `language` (doctrine 45):
@@ -94,10 +98,12 @@ the table carry more than one reading and 825 of the 3,481 line-end characters
 of the 四庫 ci corpus do, so this is not an edge case.
 
 MEASURED, `quality/ltc_overlap.py`, 5,573 poems, `standard='cilin'`: of the
-28,330 TRUEs at the 33,321 positions the 1715 詞譜 mandates rhyme, **8,326
-(29.4%) rest on an overlap the readings do not settle** -- some reading pair
+28,330 TRUEs at the 33,321 positions the 1715 詞譜 mandates rhyme, **9,154
+(32.3%) rest on an overlap the readings do not settle** -- some reading pair
 agrees and some does not. No FALSE moves under any setting, because a verdict
-of False already means no reading pair agreed.
+of False already means no reading pair agreed. On the 花間集 it is 585 of
+1,723, and the separation from the 句 control is 90.6 pp under 'any' and 90.6
+pp under 'settled' -- unchanged to the tenth.
 
 So the fold is declared, exactly as `standard` is (doctrine 45), and an
 undeclared value raises:
@@ -116,8 +122,26 @@ undeclared value raises:
 WHAT THE SETTING DOES NOT CHANGE, and it is the point of doctrine 41: the three
 controls -- the 句 line ends the same spec mandates NOT to rhyme, adjacent line
 ends in no common rhyme group, and the cross-poem null -- go through the same
-function and move in the same direction. The 83-point separation is reported
-under each setting rather than under one.
+function and they do NOT shrink by the same fraction as the result. Going from
+'any' to 'settled' on the 四庫 ci corpus the mandated arm loses 4% of its rate
+and the three controls lose 35%, 67% and 40% of theirs. So the separation from
+the matched 句 control is 83.5 pp under 'any', 82.3 pp under 'settled' and
+56.8 pp under 'all', and the committed 90.9% is the 'any' rate rather than a
+number the fold was hiding. The 84-point separation SURVIVES; what needed
+correcting was the missing coordinate, not the figure.
+
+'all' AND 'settled' HAVE THE SAME NUMERATOR -- 19,176 韻 Trues either way --
+and differ only in whether the 9,154 undecidables sit in the denominator. So
+'all' is doctrine 79's error made deliberately and reachably: a REFUSAL in the
+numerator's complement, reading 61.5% where 'settled' reads 87.1%. It is kept
+because a doctrine whose demonstration has been optimised away is a sentence
+nobody can check (doctrine 84), and it is not the default for the same reason.
+
+THE PRICE, STATED. Under 'settled', 深/心 (杜甫 春望) and 光/霜 (李白 靜夜思)
+-- two of the three canonical Tang pins this module is tested on -- return
+None, because 深 and 光 are each 多音字 whose readings straddle the partition.
+流/樓 survives all three folds, so doctrine 36's own demonstration is not an
+artefact of the OR.
 
 THIRD SWALLOW, NAMED BUT NOT LOAD-BEARING. `rhyme_keys` DROPS a reading whose
 (韻, 聲) cell the standard has no entry for, so a two-reading character could

@@ -18,6 +18,14 @@ because it has no corpus and no spec:
      refusal rate that folds the two together is uninterpretable (doctrine 79,
      one layer down from the sonnet battery's).
 
+  3. How much of every one of those numbers rests on an OR over the readings of
+     a 多音字? `rhymes()` ended `bool(ka & kb)` and `ka` is the key set over ALL
+     readings, so a two-reading character rhymed with anything either reading
+     rhymed with and the answer never said which one had carried it. The fold
+     is now a declared coordinate -- `any` / `all` / `settled` -- and sections 9
+     to 13 price it against all three controls. `quality/ltc_overlap.py` carries
+     the 5,573-poem 四庫 measurement and is re-run from here.
+
 WHAT THIS FILE CANNOT MEASURE. MISSING M-1's figures come from 1,518 ci across
 119 詞牌; those 4,347 ci were refused on an express non-commercial grant
 (doctrine 85) and are not on disk. The 500 花間集 songs here are early 令詞 with
@@ -438,6 +446,187 @@ def test_the_partition_shows_through_practice():
           f"平水韻 calls False are True under 詞林正韻")
 
 
+def test_the_overlap_is_a_declared_coordinate():
+    print("\n9. The fold over a 多音字's readings is a DECLARED coordinate "
+          "(doctrine 45)")
+    d = MiddleChinese().declaration()
+    check("the declaration names the fold in force",
+          d.get("overlap") == "any"
+          and list(d.get("overlap_options")) == list(ltc.OVERLAPS),
+          f"overlap={d.get('overlap')!r}, options={d.get('overlap_options')}. "
+          f"'any' is the OR this module has always applied and every committed "
+          f"number rests on, so it stays the DEFAULT: changing it silently "
+          f"would re-score the record without pricing the change")
+    check("an undeclared fold is refused at construction",
+          _raises(lambda: MiddleChinese(overlap="or")))
+    check("and per call, the same way",
+          _raises(lambda: MiddleChinese().rhymes("流", "樓", overlap="union")))
+    check("the instance's fold is what a bare call uses",
+          MiddleChinese(overlap="all").rhymes("深", "心") is False
+          and MiddleChinese().rhymes("深", "心") is True,
+          "深 has a 平 and a 去 reading; 心 has only 平. The OR says they "
+          "rhyme, and it is right that they can -- it is silent that they "
+          "need not")
+
+
+def test_the_three_folds_disagree_on_a_real_polyphone():
+    print("\n10. any / all / settled on real characters, and the doctrine 79 "
+          "identity between the last two")
+    l = MiddleChinese()
+    c = MiddleChinese(standard="cilin")
+    check("流/樓 survives the STRICTEST fold, so doctrine 36's own "
+          "demonstration is not an artefact of the OR",
+          all(l.rhymes("流", "樓", overlap=o) is True for o in ltc.OVERLAPS),
+          "one reading each, one key each, and the keys are equal: nothing "
+          "here was ever being decided by an unstated choice of reading")
+    check("流/山 is False under every fold",
+          all(l.rhymes("流", "山", overlap=o) is False for o in ltc.OVERLAPS),
+          "a False already means NO reading pair agreed, so no fold can move "
+          "it -- which is why the folds move Trues only")
+    for a, b, why in (("深", "心", "杜甫 春望's own rhyme"),
+                      ("光", "霜", "李白 靜夜思's own rhyme")):
+        check(f"{a}/{b} — {why} — is True / False / None across the three",
+              (l.rhymes(a, b, overlap="any") is True
+               and l.rhymes(a, b, overlap="all") is False
+               and l.rhymes(a, b, overlap="settled") is None),
+              f"{a} {sorted(l.rhyme_keys(a))}, {b} {sorted(l.rhyme_keys(b))}. "
+              f"THE PRICE, stated: the strict folds refuse two of the three "
+              f"canonical Tang pins this file and test_phonology.py both "
+              f"carry. That is a cost of the coordinate, not an argument "
+              f"against it, and it is why 'any' remains the default")
+    check("湩/冬 shows the THIRD swallow: a reading the standard cannot place "
+          "is dropped by rhyme_keys, and 'settled' refuses to call the pair "
+          "settled anyway",
+          c.unresolved_readings("湩") == 1
+          and c.rhymes("湩", "冬", overlap="any") is False
+          and c.rhymes("湩", "冬", overlap="settled") is None,
+          "湩 has a 冬上 reading and 詞林正韻 has no clean vote for that cell, "
+          "so a one-key set looked certain. 2 characters in 19,499 under "
+          "'cilin' and 0 under 'pingshui'; it moves no number in the corpus "
+          "and is counted because a small swallowed refusal is still one")
+
+    _songs, hits = align()
+    a = tally(hits, c, "cilin")
+    for ov in ("all", "settled"):
+        c2 = MiddleChinese(standard="cilin", overlap=ov)
+        r = tally(hits, c2, "cilin")
+        print(f"          花間集 overlap={ov:<8} 韻 {fmt(r['韻'])}   "
+              f"句 {fmt(r['句'])}")
+        if ov == "all":
+            strict = r
+    settled = tally(hits, MiddleChinese(standard="cilin", overlap="settled"),
+                    "cilin")
+    check("'all' and 'settled' have the SAME numerator and differ ONLY in "
+          "whether the undecidables sit in the denominator — which is "
+          "doctrine 79 made into a coordinate",
+          strict["韻"]["T"] == settled["韻"]["T"]
+          and settled["韻"]["R"] > strict["韻"]["R"],
+          f"韻 True {strict['韻']['T']} under both; judged "
+          f"{strict['韻']['T'] + strict['韻']['F']} under 'all' vs "
+          f"{settled['韻']['T'] + settled['韻']['F']} under 'settled', so the "
+          f"rate reads {rate(strict['韻']):.1f}% vs {rate(settled['韻']):.1f}%. "
+          f"'all' puts a REFUSAL in the numerator's complement; it is kept "
+          f"reachable because a doctrine whose demonstration is optimised away "
+          f"is a sentence nobody can check (doctrine 84)")
+    check("on 花間集 the separation from the matched 句 control is UNCHANGED "
+          "by the settled fold",
+          abs((rate(settled["韻"]) - rate(settled["句"]))
+              - (rate(a["韻"]) - rate(a["句"]))) < 0.5,
+          f"any {rate(a['韻']) - rate(a['句']):.1f} pp -> settled "
+          f"{rate(settled['韻']) - rate(settled['句']):.1f} pp")
+
+
+def test_the_committed_ci_numbers_under_each_fold():
+    print("\n11. THE 四庫 MEASUREMENT: data/sources.tsv's four arms, re-run "
+          "under each fold")
+    import quality.ltc_overlap as ov
+    data = ov.collect()
+    check("the reconstruction from the COMMITTED corpus files reproduces "
+          "every number in data/sources.tsv row kanripo/KR4j exactly",
+          not ov.check_committed(data) and data["unique"] == 5573,
+          "reading the --- RHYME / --- JU / --- GE headers of "
+          "corpus/song/ltc_siku_*.txt rebuilds the same four arms "
+          "build_ci_corpus.py:measure() built from 66 git clones, so the "
+          "measurement is re-runnable without the network (doctrine 58)")
+
+    phon = MiddleChinese(standard="cilin")
+    rows = {o: {k: ov.arm(phon, data[k], "cilin", o)
+                for k, _l in ov.ARMS} for o in ltc.OVERLAPS}
+    for o in ltc.OVERLAPS:
+        r = rows[o]
+        print(f"          overlap={o:<8} "
+              + "  ".join(f"{k} {r[k]['rate']:.1f}%"
+                          f"({r[k]['true']}/{r[k]['judged']},"
+                          f"{r[k]['refused']}R)"
+                          for k, _l in ov.ARMS))
+    check("the committed 90.9% is the 'any' rate and nothing else moved it",
+          abs(rows["any"]["yun"]["rate"] - 90.9) < 0.05,
+          f"{rows['any']['yun']['rate']:.1f}% on "
+          f"{rows['any']['yun']['judged']} judged of "
+          f"{rows['any']['yun']['mandated']} mandated, "
+          f"{rows['any']['yun']['refused']} refused")
+    for o in ltc.OVERLAPS:
+        r = rows[o]
+        sep = r["yun"]["rate"] - r["ju"]["rate"]
+        check(f"under {o!r} the separation from the MATCHED 句 control "
+              f"survives", sep > 50.0,
+              f"韻 {r['yun']['rate']:.1f}% - 句 {r['ju']['rate']:.1f}% = "
+              f"{sep:.1f} pp; vs adj {r['yun']['rate'] - r['adj']['rate']:.1f} "
+              f"pp, vs cross-poem null "
+              f"{r['yun']['rate'] - r['null']['rate']:.1f} pp")
+    check("ALL THREE CONTROLS move in the same direction as the mandated arm "
+          "and further, in relative terms — the OR was buying the controls "
+          "more than it was buying the result (doctrine 41)",
+          all(rows["settled"][k]["rate"] < rows["any"][k]["rate"]
+              for k, _l in ov.ARMS)
+          and all((rows["any"][k]["rate"] - rows["settled"][k]["rate"])
+                  / rows["any"][k]["rate"]
+                  > (rows["any"]["yun"]["rate"]
+                     - rows["settled"]["yun"]["rate"])
+                  / rows["any"]["yun"]["rate"]
+                  for k in ("ju", "adj", "null")),
+          "; ".join(f"{k} -{100 * (rows['any'][k]['rate'] - rows['settled'][k]['rate']) / rows['any'][k]['rate']:.0f}%"
+                    for k, _l in ov.ARMS)
+          + ". A fold that had merely made the comparator stricter everywhere "
+            "would have shrunk them all by the same fraction")
+    t, u = ov.unsettled_trues(phon, data["yun"], "cilin")
+    check("and the headline the coordinate exists for", u > 0 and t > u,
+          f"{u} of {t} Trues at mandated positions ({100.0 * u / t:.1f}%) rest "
+          f"on an overlap the readings do not settle")
+
+
+def test_tone_class_refusal_now_propagates():
+    print("\n12. syllabify() no longer hands out a 平/仄 tone_class() refuses")
+    l = MiddleChinese()
+    amb = [c for c in "行重長過中華相間王供歐經"
+           if l.readings(c) is not None and l.tone_class(c) is None]
+    check("there are characters tone_class() refuses and syllabify() used to "
+          "answer for", len(amb) >= 8, f"{len(amb)}: {''.join(amb)}")
+    check("prominence is now exactly tone_class(), refusal included",
+          all(l.syllabify(c)[0].prominence is l.tone_class(c) for c in amb)
+          and all(l.syllabify(c)[0].prominence is None for c in amb),
+          "one method refused and the other answered; `Syllable` already "
+          "declares None on this channel to mean 'no binary prominence the "
+          "grid can use', so the refusal needed no new type")
+    check("a character whose readings AGREE keeps its confident value",
+          l.syllabify("流")[0].prominence == 1
+          and l.syllabify("目")[0].prominence == 0
+          and l.tone_class("好") == 0,
+          "流 is 平, 目 is 入 (therefore 仄), and 好 has two readings that "
+          "agree on the class -- a 多音字 is not automatically undecided FOR "
+          "THE PREDICATE")
+    check("an unreadable character is still a placeholder syllable, not an "
+          "exception", l.syllabify("🙂")[0].prominence is None
+          and l.readings("🙂") is None)
+    check("nucleus is STILL readings[0]'s 韻 and that residue is named, not "
+          "hidden", l.syllabify("行")[0].nucleus in
+          {r["rhyme"] for r in l.readings("行")},
+          "refusing the nucleus here would delete the channel path doctrine "
+          "84 requires to stay reachable (test_taxonomy.py's consult=False "
+          "arm reads it). The rhyme question is answered by rhyme_keys(), "
+          "which reads every reading, under a declared fold")
+
+
 if __name__ == "__main__":
     for fn in (test_standard_is_a_declared_coordinate,
                test_doctrine_36_demonstration_stays_runnable,
@@ -446,7 +635,11 @@ if __name__ == "__main__":
                test_readability_is_three_counts,
                test_the_tradition_test_ci_against_the_cipu,
                test_the_rejected_variant_is_measured_not_argued,
-               test_the_partition_shows_through_practice):
+               test_the_partition_shows_through_practice,
+               test_the_overlap_is_a_declared_coordinate,
+               test_the_three_folds_disagree_on_a_real_polyphone,
+               test_the_committed_ci_numbers_under_each_fold,
+               test_tone_class_refusal_now_propagates):
         fn()
     print("=" * 62)
     if FAILURES:
