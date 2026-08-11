@@ -47,6 +47,13 @@ passes the draft outright and then emits nothing but collisions
         set is 98-99% of the lexicon and doctrine 9's modal head over it is
         `you, i, the, to, a, 's`
 
+Test 25 is the METER half, added 2026-08-11: `quality/fit.py`'s syllable-
+fits-the-bar layer, folded into the SAME finding set as rhyme rather than
+grafted on as a second veto. It adds NO new rejection rule of its own — the
+existing "a revision may not trade one defect for another" diff (test 3)
+already catches a fix that breaks the meter, the moment a meter finding is a
+member of the same set that diff reads.
+
 Run: python3 quality/test_revise.py
 """
 
@@ -60,6 +67,7 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import (Declaration, NEAR_RELATIONS,  # noqa: E402
                            check_scheme, rhyme_graph)
+from quality import fit as FT  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
 from quality import schemes as SC  # noqa: E402
 from quality.revise import (COLLISION_FINDINGS, THETA_COLLISION,  # noqa: E402
@@ -88,6 +96,8 @@ CLICHE = ["The candle burned and set the room on fire",
 #: mandate its author declared is a letter string over the two choruses.
 SONG = os.path.join(HERE, "..", "examples", "never_been_to_a_scene.txt")
 SONG_SCHEME = "XXXXXXXXXXXXABCBADCDXXXXXXXXXXXXEFGFEHGHX"
+SONG_BLUEPRINT = os.path.join(HERE, "..", "examples",
+                              "never_been_to_a_scene.blueprint.json")
 
 
 def song_lines():
@@ -966,6 +976,82 @@ def test_the_modal_set_against_a_declared_reference():
           f"no value of theta_coda reaches it. Not this cell's file to fix")
 
 
+def test_meter_folds_into_the_same_finding_set():
+    print("\n25. the METER layer joins rhyme in ONE finding set, no new veto")
+    lines = song_lines()
+    m = R.mandate_from_graph(lines)
+
+    check("with no blueprint, nothing changes",
+          R.inspect(lines, m) == R.inspect(lines, m),
+          "meter is opt-in: omitting `blueprint=` leaves brief/inspect/"
+          "verify exactly as they were before this test existed")
+
+    found_no_sub = R.inspect(lines, m, blueprint=SONG_BLUEPRINT)
+    whole_codes = {w.code for w in found_no_sub["whole"]}
+    check("a blueprint with NO declared subdivision reports ONCE, not "
+          "per line",
+          {"NO_SUBDIVISION", "NO_SETTING"} <= whole_codes,
+          f"whole-draft codes: {sorted(whole_codes)}")
+    settings_notes = [w for w in found_no_sub["whole"]
+                      if w.code in ("NO_SUBDIVISION", "NO_SETTING")]
+    check("...covering all 41 lines each, exactly once",
+          all(len(w.locations) == 41 for w in settings_notes),
+          [(w.code, len(w.locations)) for w in settings_notes])
+
+    sub = FT.Subdivision(slots_per_pulse=2,
+                         source="test_revise.py test 25, a declared choice "
+                                "for this fixture only")
+    found = R.inspect(lines, m, blueprint=SONG_BLUEPRINT, subdivision=sub)
+    unsat = sorted(ln for ln, fs in found["per_line"].items()
+                   for f in fs if f.code == "SLOTS_EXCEEDED")
+    check("at this declared subdivision, the same 6 lines the `fit` CLI "
+          "verb reports as UNSATISFIABLE come back as hard FLAGS here",
+          unsat == [11, 15, 19, 35, 36, 39],
+          f"got {unsat} -- cross-checked against `python3 lyric_harness.py "
+          f"fit examples/never_been_to_a_scene.blueprint.json "
+          f"--subdivision 2`, which prints UNSAT 1+2+3=6 over pre/chorus/"
+          f"chorus2")
+    check("every SLOTS_EXCEEDED lands as severity=flag, never note",
+          all(f.severity == "flag" for ln, fs in found["per_line"].items()
+              for f in fs if f.code == "SLOTS_EXCEEDED"),
+          "fit.py's OWN satisfiable=False is what decides this -- this "
+          "module keeps no second opinion about which findings are hard")
+    check("the softer prominence findings land as notes, not flags",
+          all(f.severity == "note" for ln, fs in found["per_line"].items()
+              for f in fs if f.code in ("PROMINENCE_EXCEEDS_HEADS",
+                                        "PROMINENCE_CANNOT_ALIGN",
+                                        "HEADS_EXCEED_UNITS")),
+          "not mathematically impossible -- a style call the loop reports "
+          "and does not force")
+
+    # doctrine 47, arriving at meter with NO new code: fix line 1's SLOTS
+    # finding is absent before the edit (verified above it is not in
+    # `unsat`), so lengthen it past its bar's capacity while targeting a
+    # real flagged rhyme line, and the EXISTING net-negative diff must catch
+    # it -- this is the whole of what "wire meter into the loop" means.
+    after = list(lines)
+    after[0] = (lines[0] + " today and every single morning after that as "
+                "well, over and over again without end")
+    res = R.verify(lines, after, m, targeted={1}, blueprint=SONG_BLUEPRINT,
+                   subdivision=sub)
+    check("a revision that overflows a bar is REJECTED by the SAME rule "
+          "that rejects breaking a rhyme -- no meter-specific veto exists",
+          not res["accepted"]
+          and (1, "SLOTS_EXCEEDED") in res["new"],
+          res["reasons"][0][:160])
+
+    try:
+        R._meter_findings(lines[:-1], SONG_BLUEPRINT, sub)
+        ok = False
+    except ValueError:
+        ok = True
+    check("a blueprint/draft line-count mismatch REFUSES rather than "
+          "silently misaligning",
+          ok, "position-based correlation with no length check would "
+              "attribute every finding after the first difference to the "
+              "wrong line")
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -990,7 +1076,8 @@ if __name__ == "__main__":
                test_what_the_loop_can_say_on_the_declared_mandate,
                test_the_modal_set_against_a_declared_reference,
                test_the_collision_set_is_partitioned_not_silenced,
-               test_why_a_collision_earns_no_field):
+               test_why_a_collision_earns_no_field,
+               test_meter_folds_into_the_same_finding_set):
         fn()
     print("=" * 62)
     if FAILURES:

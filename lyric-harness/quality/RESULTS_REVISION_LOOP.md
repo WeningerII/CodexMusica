@@ -426,6 +426,25 @@ Two layers, two readings of one line, and only one of them says which it took.
   `SCHEME_COLLISION` earned a candidate field, five of the six unsatisfiable
   lines carry mandated end words and any replacement re-opens both the mandate
   and the slot count at once. Noted, not settled.
+
+  > **WIRED 2026-08-11.** `brief`/`inspect`/`verify` now take optional
+  > `blueprint=`/`subdivision=`/`assume=`, and when given, fold `fit.py`'s
+  > per-line findings into the SAME set this document's rhyme findings live
+  > in — `SLOTS_EXCEEDED` as a hard flag (mathematically impossible once
+  > `subdivision` is declared, matching `fit.py`'s own `satisfiable=False`),
+  > `PROMINENCE_EXCEEDS_HEADS` and its siblings as soft notes. It adds NO new
+  > rejection rule: the existing "fixes the flagged line and breaks another"
+  > diff already catches a revision that overflows a bar, the moment a meter
+  > finding is a member of the set that diff reads — demonstrated directly in
+  > `quality/test_revise.py` test 25 by lengthening L1 past its bar's
+  > capacity while targeting a real flagged rhyme, which is rejected with
+  > `(1, 'SLOTS_EXCEEDED')` in the new-finding list. `NO_SETTING` itself is
+  > UNCHANGED and remains true: no beat-grid or isochrony assumption is
+  > wired in by this, on purpose (doctrine 4 — there is no audio, so "lands
+  > on the beat" stays a claim this project does not make); what closed is
+  > narrower and load-bearing anyway — whether a line's syllables COULD fit
+  > its bars at all is now checked by the SAME loop that checks rhyme,
+  > instead of a separate command nobody was running automatically.
 - **`repeat_licence='refrain'`.** Reachable and it works: 7 violations become 7
   `REFRAIN_REPEAT` notes. The floor's own `REPEAT_IN_VERSE` keeps firing beside
   them, and that is correct rather than a contradiction — the loop's licence is

@@ -91,6 +91,7 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
                            Lexicon, admits, best_score, bron_kerbosch,
                            line_anchors, readability_records,
                            refusals_for_pairs)
+from quality import fit as FT  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
 from quality import schemes as SC  # noqa: E402
 from quality.floor import Finding, SlopFloor  # noqa: E402
@@ -663,6 +664,75 @@ class Reviser:
             return "REPEAT_ACROSS_GROUPS"
         return "NEAR_COLLISION"
 
+    # -- meter --------------------------------------------------------------
+
+    def _meter_findings(self, lines, blueprint, subdivision, assume=None):
+        """-> ({line_no: [Finding]}, [Finding]). The syllable-fits-the-bar
+        layer (`quality/fit.py`), folded into the SAME shape `inspect()`
+        already uses for rhyme, so `verify()`'s existing "did not break
+        something else" diff (doctrine 47) covers meter for free — this
+        method adds no new veto rule of its own.
+
+        `blueprint` is REQUIRED to opt in at all: with none, this method is
+        simply not called and the loop behaves exactly as it always has.
+        `subdivision` is a `quality.fit.Subdivision` — a real declared
+        choice, not a default — and it MAY be `None`: `fit.py` itself then
+        refuses the subdivision-dependent findings per line, and this method
+        folds that refusal into one whole-draft note rather than one per
+        line (the same move `COLLISION_CUT_IS_SCALAR_ONLY` makes for a fact
+        that is a property of the CUT, not of any one line).
+
+        SEVERITY IS NOT RE-DECIDED HERE. `FitFinding.satisfiable` already
+        distinguishes "the declaration cannot be met" from "a count worth
+        knowing" (fit.py's own doctrine 6 argument), so a finding is a hard
+        `flag` exactly when fit.py itself marked it unsatisfiable, and a soft
+        `note` otherwise. This method does not maintain a second opinion.
+
+        Correlates blueprint lines to `lines` BY POSITION, and REFUSES
+        (raises) on a length mismatch rather than silently misaligning — the
+        same shape `verify()` already enforces on `before`/`after`. The
+        blueprint's OWN stored text is NOT required to match: `Placement`
+        carries WHERE a line sits (bar, beat, duration, section), which does
+        not move when a revision changes the WORDS, so a revised draft is
+        graded against the same placements with its own current text —
+        exactly the object `verify()` needs to check `after` against.
+        """
+        secs, places = FT.from_blueprint(blueprint)
+        if len(places) != len(lines):
+            raise ValueError(
+                f"blueprint declares {len(places)} line(s), {len(lines)} "
+                f"were handed to the loop -- meter checking correlates by "
+                f"POSITION and a mismatched count would silently misalign "
+                f"every line after the first difference. They must be the "
+                f"same draft.")
+        per, refusals = {}, {}
+        for i, (p, text) in enumerate(zip(places, lines)):
+            ln = i + 1
+            lf = FT.fit_line(text, p, subdivision=subdivision, assume=assume,
+                             line_index=i)
+            for f in lf.findings:
+                ev = f.evidence
+                if f.conditional_on:
+                    ev += f" CONDITIONAL ON: {f.conditional_on}"
+                per.setdefault(ln, []).append(Finding(
+                    f.code, "flag" if not f.satisfiable else "note",
+                    f.message, ev, [ln]))
+            for r in lf.refusals:
+                refusals.setdefault(r.code, []).append((ln, r))
+        whole = []
+        for code, hits in refusals.items():
+            lns = [ln for ln, _ in hits]
+            _, sample = hits[0]
+            whole.append(Finding(
+                code, "note",
+                f"meter: {sample.question} — not answered on "
+                f"{len(hits)} of {len(lines)} line(s)",
+                f"{sample.missing}. {sample.detail} Said once, about the "
+                f"SETTING, not once per line it happens to fall on "
+                f"(the same move COLLISION_CUT_IS_SCALAR_ONLY makes).",
+                sorted(lns)))
+        return per, whole
+
     # -- inspection -------------------------------------------------------
 
     def _floor_for(self, m):
@@ -687,13 +757,24 @@ class Reviser:
         fl._pairs = lambda _lines, _s, _p=pairs: list(_p)
         return fl, "?" * m.n_lines
 
-    def inspect(self, lines, mandate=None, profile=None):
+    def inspect(self, lines, mandate=None, profile=None, blueprint=None,
+                subdivision=None, assume=None):
         """-> {line_no: [Finding]} plus a 'whole' key for item-level findings.
 
         Two sources, deliberately kept apart: the CORRECTNESS engine says
         whether a mandated rhyme holds, the SLOP FLOOR says whether the writing
         is outside the range human verse occupied. They fail for different
         reasons and a caller should see which is which.
+
+        A THIRD SOURCE, OPT-IN. `blueprint` (a `quality/fit.py` path or dict)
+        adds the syllable-fits-the-bar layer to the SAME finding set, which is
+        what lets `verify()`'s existing net-negative rule catch a revision
+        that fixes a rhyme and breaks the meter, without a new rule. Omit it
+        and nothing changes — meter is not checked unless asked for.
+        `subdivision` is a `quality.fit.Subdivision`, a real declared choice;
+        without one, `_meter_findings` still runs and reports (once, not per
+        line) that the subdivision-dependent findings were not answered,
+        rather than silently skipping the layer.
         """
         m = self.mandate(lines, mandate)
         per, whole = {}, []
@@ -879,6 +960,13 @@ class Reviser:
                 f"a song is a real sonic event and deleting it would be the "
                 f"worse defect. `lyric_harness.check_scheme` carries the same "
                 f"untyped message and is not this cell's file", []))
+        if blueprint is not None:
+            m_per, m_whole = self._meter_findings(lines, blueprint,
+                                                   subdivision, assume)
+            for ln, fs in m_per.items():
+                for f in fs:
+                    add(ln, f)
+            whole.extend(m_whole)
         return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
                 "merges": merges}
 
@@ -1065,12 +1153,20 @@ class Reviser:
         """
         return self.joint_field([call_word], exclude=exclude, profile=profile)
 
-    def brief(self, lines, mandate=None, profile=None):
+    def brief(self, lines, mandate=None, profile=None, blueprint=None,
+              subdivision=None, assume=None):
         """-> [Brief], one per line that needs work. Lines with no findings are
         absent, because the loop revises FLAGGED LINES ONLY.
 
         RAISES `NoMandate` when handed nothing to check against. It used to
         return `[]`, which a caller printed as "nothing flagged".
+
+        `blueprint`/`subdivision`/`assume` pass straight through to
+        `inspect()` — see there for what they add. A line whose only findings
+        are meter (no rhyme finding) is still briefed, with an empty
+        candidate field: `wants` below only checks `RHYME_FINDINGS`, and a
+        meter code is never in it, so a meter-only line is never handed a
+        list of rhyme words it has no use for.
 
         WHY A COLLISION EARNS NO FIELD — asked as an open question and
         answered by measurement rather than by taste.
@@ -1118,7 +1214,9 @@ class Reviser:
         the line back. On this repo's two songs that takes 38 undifferentiated
         "unintended rhyme" notes down to 3 that are about the writing.
         """
-        found = self.inspect(lines, mandate, profile=profile)
+        found = self.inspect(lines, mandate, profile=profile,
+                             blueprint=blueprint, subdivision=subdivision,
+                             assume=assume)
         m = found["mandate"]
         _, endwords, _, _ = self._matrix(lines, profile=profile)
         briefs = []
@@ -1164,7 +1262,7 @@ class Reviser:
     # -- verification -----------------------------------------------------
 
     def verify(self, before, after, mandate=None, targeted=None,
-               profile=None):
+               profile=None, blueprint=None, subdivision=None, assume=None):
         """Did the revision earn its acceptance? -> dict, never a score.
 
         `targeted` is the set of line numbers the caller claimed to revise.
@@ -1175,6 +1273,13 @@ class Reviser:
         RAISES `NoMandate` with no mandate. Accepting a revision on the
         strength of the slop floor alone, with no rhyme requirement declared,
         is the same vacuous pass `brief` used to print.
+
+        `blueprint`/`subdivision`/`assume` pass through to `inspect()` on
+        BOTH `before` and `after`, against the SAME placements (a line's bar
+        and beat do not move when its words do) — so a revision that fixes
+        the flagged rhyme and breaks the meter is caught by the diff below
+        exactly the way one that fixes the rhyme and breaks another rhyme
+        already is. No separate meter-specific rejection rule exists.
         """
         out = {"accepted": False, "reasons": []}
         m = self.mandate(before, mandate)
@@ -1194,8 +1299,12 @@ class Reviser:
                 return out
         b_before = {b.line_no: b for b in self.brief(before, m,
                                                     profile=profile)}
-        f_before = self.inspect(before, m, profile=profile)
-        f_after = self.inspect(after, m, profile=profile)
+        f_before = self.inspect(before, m, profile=profile,
+                                blueprint=blueprint, subdivision=subdivision,
+                                assume=assume)
+        f_after = self.inspect(after, m, profile=profile,
+                               blueprint=blueprint, subdivision=subdivision,
+                               assume=assume)
 
         def codes(f):
             """The finding set, keyed so a diff can tell two of a kind apart.
@@ -1264,9 +1373,14 @@ class Reviser:
 
     # -- reporting --------------------------------------------------------
 
-    def report(self, lines, mandate=None, stream=sys.stdout, profile=None):
-        briefs = self.brief(lines, mandate, profile=profile)
-        found = self.inspect(lines, mandate, profile=profile)
+    def report(self, lines, mandate=None, stream=sys.stdout, profile=None,
+               blueprint=None, subdivision=None, assume=None):
+        briefs = self.brief(lines, mandate, profile=profile,
+                            blueprint=blueprint, subdivision=subdivision,
+                            assume=assume)
+        found = self.inspect(lines, mandate, profile=profile,
+                             blueprint=blueprint, subdivision=subdivision,
+                             assume=assume)
         m, rep = found["mandate"], found["grade"]
         print("\n" + m.describe(), file=stream)
         print(f"  mandated {rep['pairs_mandated']}   "

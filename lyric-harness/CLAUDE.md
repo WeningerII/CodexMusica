@@ -44,6 +44,23 @@ so a loop that recommended it would manufacture what the floor rejects.
 `modal_exclusion=0` disables the rule and is reachable so the defect is
 demonstrable; it is not the default.
 
+**METER JOINED THE SAME LOOP 2026-08-11, and rides the FIRST rejection
+above rather than adding a fifth.** `brief`/`inspect`/`verify` all take
+optional `blueprint=`/`subdivision=`/`assume=`; when given, `quality/fit.py`'s
+per-line findings are folded into the SAME set rhyme findings already live
+in, so a revision that fixes a rhyme and overflows its bar is rejected by
+the existing "fixes the flagged line and breaks another" rule with no
+meter-specific veto written. `subdivision` is a `quality.fit.Subdivision` —
+a real declared choice, never a default — and it is call-site declared, the
+same way a mandate is: nothing in a blueprint file is read as a subdivision.
+Severity is not re-decided here either: a `SLOTS_EXCEEDED` finding (more
+syllables than slots — mathematically impossible once the setting is
+declared) is a hard flag because `fit.py`'s own `satisfiable=False` already
+says so; `PROMINENCE_EXCEEDS_HEADS` and friends stay soft notes, the same
+tier as an unintended rhyme collision, because they are a style call and not
+a contradiction. Omit `blueprint=` and nothing changes — meter is opt-in.
+`quality/test_revise.py` test 25.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner
