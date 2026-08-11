@@ -306,10 +306,20 @@ descriptors in any generation-facing output — era+region+technique.
   comparator / band / structure / value. Fix only when a category
   accumulates. Every fixed case becomes a permanent regression.
 - Real exemplars over constructed tests. Constructed tests encode the
-  author's assumptions; canon corrects the checker (7 rule errors
+  author's assumptions; canon corrects the checker (8 rule errors
   found this way: strict groes final-consonant rule, sain any-stressed
-  link, radif licensing, hyphen splitting x2, collision bar, mosaic
-  anchor reach, prefix phrase-final seam).
+  link, radif licensing, hyphen splitting **x3**, collision bar, mosaic
+  anchor reach, prefix phrase-final seam). The third hyphen error is the
+  expensive one and it is a different KIND from the first two: they produced
+  a refusal, this produces a WRONG ANSWER. In 179 English song line ends the
+  last piece of a hyphenated word is unread, so the anchor is built from an
+  earlier piece and the line is reported READABLE -- `hill-zide` scored on
+  `hill`. A further 149 are the report-layer half (`threshing-floor` reads
+  `floor`; the anchor is right and the record of what was read is not), and
+  `line_readability` misfiled the unread piece as INTERIOR unreadable in 328
+  of 328 cases. Both hyphenated pairs in the sonnet battery score 1.0
+  correctly, because their last piece reads -- so the oracle was structurally
+  incapable of finding this, which is why it took a corpus sweep.
 
 ## Quality layer (quality/)
 Separate from the correctness engine above and deliberately so: the harness
@@ -324,9 +334,25 @@ cite their earlier numbers. The floor knows two text lengths — a 4-line
 quatrain and a 14-line sonnet — and text outside both gets no length-sensitive
 finding at all (doctrine 15). Relations are keyed on eight axes, of which
 ANCHOR is declared per MEMBER rather than per pair (doctrine 83). And there are
-four adversaries: the nulls attack our RESULTS, `revise.py` attacks the
-WRITING, `redteam_band.py` attacks the CODE's generosity, `mutate.py` attacks
-the TESTS.
+**eight** adversaries, not the four this paragraph listed until 2026-08-11 —
+`BACKLOG.md` §0 holds the roster and its statuses, which is where they belong
+because they change:
+
+  1 our RESULTS   line-permutation nulls, matched redeals, shuffled controls
+  2 the WRITING   `quality/revise.py`
+  3 the CODE's generosity   `quality/redteam_band.py`, band only
+  4 the TESTS   `quality/mutate.py`
+  5 the CORPUS   `quality/audit_corpus.py`
+  6 the TAXONOMY   `quality/audit_register.py --provenance`
+  7 the REPORT   `quality/audit_spans.py` — do the number, the label and the
+    evidence agree? Its first run said no for 382 of 1014 judged sonnet pairs.
+  8 the RECORD   `quality/audit_register.py` — do the documents agree with each
+    other and with the code?
+
+Adversary 8 was not on the list when the list was written, and it is the one
+that found four false entries in a week: 1–7 all attack the WORK and nothing
+attacked the RECORD of it. That is the argument for reading `BACKLOG.md` §0
+rather than this paragraph — a roster copied into two files drifts in both.
 
 ## Known gaps, priority order
 1. **G2P for OOV.** CMUdict lacks hypotenuse, shiesty, coinages.
