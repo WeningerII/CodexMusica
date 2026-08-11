@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """ENTRY CLAIMS — the sentences in MISSING.md and BACKLOG.md, checked.
 
-    python3 quality/verify_entries.py             # check; non-zero if a claim is FALSE
-    python3 quality/verify_entries.py --refusals  # + every refused claim, by kind
-    python3 quality/verify_entries.py --shapes    # the declared shapes, and nothing else
-    python3 quality/verify_entries.py --entry M-6 # one entry, all its segments
+    python3 quality/verify_entries.py                 # check; non-zero on a FALSE claim
+    python3 quality/verify_entries.py --refusals      # + every refused claim, by kind
+    python3 quality/verify_entries.py --shapes        # the declared shapes, and nothing else
+    python3 quality/verify_entries.py --entry M-6     # one entry, every claim in it
+    python3 quality/verify_entries.py --slow          # + audit_register's corpus derivations
+    python3 quality/verify_entries.py --no-derivations  # skip the audit_register subprocess
 
 WHY THIS FILE EXISTS.
 
@@ -35,10 +37,13 @@ converts an unexamined sentence into a confirmed one. So this is a DECLARED,
 GROWING SET OF CLAIM SHAPES. A segment that no shape recognises is REFUSED and
 counted, never assumed true.
 
-THE THREE COUNTS (doctrine 79). ASKED is every segment of every entry --
-the whole population, not the convenient part of it. ANSWERED is the segments a
-declared shape could resolve against the repo. REFUSED is the rest, bucketed by
-kind. The refused count is LARGE and it is meant to be: it is the honest size
+THE THREE COUNTS (doctrine 79). ASKED is every CLAIM drawn from every segment
+of every entry -- the whole population, not the convenient part of it, and a
+segment no shape recognises still contributes one asked claim rather than
+vanishing from the denominator. A segment can carry more than one claim: §4.4
+states a repo path and a line count in one sentence, and every shape is asked
+about every segment for that reason. ANSWERED is the claims a declared shape
+resolved against the repo. REFUSED is the rest, bucketed by kind. The refused count is LARGE and it is meant to be: it is the honest size
 of the unchecked remainder, and shrinking it means declaring another shape, not
 loosening one. Doctrine 28: "none" and "cannot tell" are different values,
 mechanically, so a refusal is its own object here and never a verdict of TRUE.
@@ -85,6 +90,18 @@ markers under `corpus/song/` or `data/` is marked VOLATILE: it is measured at
 RUNTIME and its measurement is printed with the word MEASURED and the commit it
 was taken at. Where the register must pin such a number, it pins to a COMMIT
 and not to a date -- a commit re-derives forever, a date cannot be checked.
+
+THE POSITIVE CONTROL, AND WHY A CLEAN RUN NEEDS ONE. "0 false claims" is a null
+result. Doctrine 76: a null is only as good as the demonstration that the
+instrument could have found something; doctrine 31: run the positive control
+before believing the null. This cell struck M-6's two false sentences, and with
+them the only live instance of the `SYMBOL_ABSENT` shape -- so the shape that
+would have saved a cell now matches nothing and would rot in silence. Every
+shape therefore declares a probe it must call TRUE and a probe it must call
+FALSE, written against the real repository, and a misfiring probe FAILS the run
+exactly as a false entry does. Shapes that matched no live segment are printed
+as `[dead]` in the report, so the difference between "nothing is wrong" and
+"nothing was looked at" stays visible (doctrine 28).
 
 RELATION TO `quality/audit_register.py`. That instrument carries 26 HAND-WRITTEN
 derivations (D1-D26), one per known quantitative claim, each with bespoke code.
@@ -550,28 +567,64 @@ def shape_hasattr(seg):
 
 PATH_RE = re.compile(r"`([\w.-]+/[\w./-]+\.(?:py|md|tsv|txt|json))`")
 
+#: The ONLY phrases that flip this shape's polarity. Declared as a closed list,
+#: exactly like `HASATTR`'s stated `is True` / `is False`, because reading
+#: negation out of English in general is the guess this file will not make. A
+#: path followed by one of these within ABSENCE_WINDOW characters is being
+#: asserted ABSENT and is checked that way; anything else is a claim of
+#: presence. M-3 is the case that forced it: the entry now says, correctly,
+#: that `scratch/src_msa/extract_pantun.py` is not in the repository, and a
+#: presence-only rule called that true sentence FALSE.
+PATH_ABSENT_PHRASES = (
+    "is not in the repository", "are not in the repository",
+    "is not in this repository", "which is NOT in this repository",
+    "is not on disk", "does not exist", "was never in the repository",
+    "never was", "no longer exists", "has been deleted", "was deleted",
+)
+ABSENCE_WINDOW = 120
+
 
 def shape_repo_path(seg):
-    """A backticked repo PATH -- `quality/phonology/fin.py` -- must exist.
+    """A backticked repo PATH -- `quality/phonology/fin.py` -- must exist,
+    unless the sentence says in so many words that it does not.
 
     Only paths with a `/` in them. A bare `verse.txt` is a filename the register
     cites historically (it was deleted on purpose, doctrine 34) and demanding it
     exist would fail the entry that records its deletion; a stated repo path is
     a claim about the tree as it is now.
+
+    This is the shape that catches an entry citing its own authority into thin
+    air: M-3 named `scratch/src_msa/extract_pantun.py` as the implementation of
+    its selection rule, and scratch is namespaced per cell and never committed
+    (doctrine 77), so the rule's stated authority was unreachable by anyone.
     """
-    hits = PATH_RE.findall(seg.text)
+    hits = sorted(set(PATH_RE.findall(seg.text)))
     if not hits:
         return None
-    missing = [h for h in sorted(set(hits))
-               if not os.path.exists(os.path.join(ROOT, h))]
     if seg.historical:
-        return Verdict("REPO_PATH_EXISTS", REFUSED, ", ".join(sorted(set(hits))),
+        return Verdict("REPO_PATH_EXISTS", REFUSED, ", ".join(hits),
                        "a `**Was:**` clause", HISTORICAL)
-    if missing:
-        return Verdict("REPO_PATH_EXISTS", FALSE, ", ".join(missing),
-                       "not on disk at %s" % head_commit())
-    return Verdict("REPO_PATH_EXISTS", TRUE, ", ".join(sorted(set(hits))),
-                   "all %d present" % len(set(hits)))
+    low = seg.text.lower()
+    asserted_absent = set()
+    for m in PATH_RE.finditer(seg.text):
+        window = low[m.end():m.end() + ABSENCE_WINDOW]
+        if any(ph.lower() in window for ph in PATH_ABSENT_PHRASES):
+            asserted_absent.add(m.group(1))
+    present = [h for h in hits
+               if os.path.exists(os.path.join(ROOT, h))]
+    wrong = [h for h in hits
+             if (h in present) is (h in asserted_absent)]
+    if wrong:
+        return Verdict("REPO_PATH_EXISTS", FALSE, ", ".join(wrong),
+                       "; ".join("%s: on disk=%s, the entry asserts %s"
+                                 % (h, h in present,
+                                    "ABSENT" if h in asserted_absent
+                                    else "present")
+                                 for h in wrong)
+                       + " (at %s)" % head_commit())
+    return Verdict("REPO_PATH_EXISTS", TRUE, ", ".join(hits),
+                   "%d present, %d asserted absent and absent"
+                   % (len(present), len(asserted_absent)))
 
 
 # --- shape 4: STAGED_FILE_COUNT (VOLATILE) --------------------------------
@@ -831,6 +884,97 @@ _ALL_ENTRIES = []
 
 
 # ---------------------------------------------------------------------------
+# 3b. THE POSITIVE CONTROL
+#
+# Doctrine 76: a null is only as good as the demonstration that the instrument
+# COULD have found something. "0 false claims" is a null result, and after this
+# cell struck M-6's two false sentences the `SYMBOL_ABSENT` shape matched no
+# live segment at all -- so the shape that would have saved a cell now proves
+# nothing on a clean run and would rot silently. Doctrine 31: run the positive
+# control before believing any null.
+#
+# Every shape declares one segment it MUST call TRUE and one it MUST call
+# FALSE, written against the real repository, and the main run refuses to print
+# PASS if any of them misfires. A shape with no live instance in the register is
+# still demonstrably able to fire.
+# ---------------------------------------------------------------------------
+
+
+class _FakeEntry:
+    def __init__(self, ident, status, heading):
+        self.id, self.status, self.heading = ident, status, heading
+        self.source = "SELFTEST"
+
+
+def _probe(text, ident="X-0", status="OPEN", heading="### X-0 · probe `OPEN`",
+           kind="prose"):
+    return Segment(_FakeEntry(ident, status, heading), text, 0, kind=kind)
+
+
+#: (shape name, a segment it must call TRUE, a segment it must call FALSE).
+#: Both sides are required: a shape that never says FALSE cannot catch drift,
+#: and a shape that never says TRUE will condemn the whole register.
+POSITIVE_CONTROLS = [
+    ("SYMBOL_ABSENT",
+     _probe("No `no_such_relation_here()`.",
+            heading="### X-0 · `fin.py` probe `OPEN`"),
+     _probe("No `rhymes()`.", heading="### X-0 · `fin.py` probe `OPEN`")),
+    ("HASATTR",
+     _probe('(`hasattr(cym, "readability_census")` is False)'),
+     _probe('(`hasattr(fin, "readability_census")` is False)')),
+    ("REPO_PATH_EXISTS",
+     _probe("built by `quality/counters.py`"),
+     _probe("built by `quality/no_such_file_at_all.py`")),
+    ("STAGED_FILE_COUNT", None, _probe("the 10000 staged Finnish files")),
+    ("MODULE_LINE_COUNT", None,
+     _probe("`quality/counters.py` is 999999 lines")),
+    ("CORPUS_MARKER_ABSENT",
+     _probe("there is no `--- AIR:` marker anywhere"),
+     _probe("there is no `--- TITLE:` marker anywhere")),
+    ("CORPUS_TABLE_ROW", None, _probe("| `fin_` | Finnish | 999999 |",
+                                      kind="table")),
+    ("STATUS_XREF", None, None),      # needs the real entry list; see below
+]
+
+_BY_NAME = {name: fn for name, _v, fn in SHAPES}
+
+
+def self_test():
+    """-> [(shape, 'ok'|reason)]. Never touches MISSING.md or BACKLOG.md.
+
+    The two VOLATILE shapes and `MODULE_LINE_COUNT` carry only a FALSE probe:
+    their TRUE side is whatever the corpus currently holds, so a hard-coded
+    TRUE probe would be a frozen number in the checker -- the exact defect the
+    checker exists to remove, one layer down.
+
+    `STATUS_XREF` is exercised by the live sweep instead: it reads the entry
+    list, so a synthetic probe would have to fake the register to test the
+    thing that reads the register.
+    """
+    out = []
+    for name, t_seg, f_seg in POSITIVE_CONTROLS:
+        fn = _BY_NAME[name]
+        problems = []
+        for want, seg in ((TRUE, t_seg), (FALSE, f_seg)):
+            if seg is None:
+                continue
+            try:
+                v = fn(seg)
+            except Exception as exc:                            # noqa: BLE001
+                problems.append("%s probe raised %s: %s"
+                                % (want, type(exc).__name__, exc))
+                continue
+            if v is None:
+                problems.append("%s probe did not trigger the shape at all"
+                                % want)
+            elif v.status != want:
+                problems.append("%s probe returned %s (%s)"
+                                % (want, v.status, v.measured[:70]))
+        out.append((name, "ok" if not problems else "; ".join(problems)))
+    return out
+
+
+# ---------------------------------------------------------------------------
 # 4. The sweep
 # ---------------------------------------------------------------------------
 
@@ -950,7 +1094,10 @@ def main(argv=None):
     print()
     print("  asked %d, answered %d, refused %d"
           % (asked, len(answered), len(refused)))
-    print("      asked    = every segment of every entry, headings included")
+    print("      asked    = every claim drawn from every segment, headings "
+          "included;")
+    print("                 a segment no shape recognises still counts as one "
+          "asked claim")
     print("      answered = a declared shape resolved it against the repo")
     print("      refused  = no shape, or a shape with no coordinate to work "
           "from")
@@ -964,6 +1111,14 @@ def main(argv=None):
         t, f = per.get(name, [0, 0])
         print("    %-22s %3d true  %3d FALSE%s"
               % (name, t, f, "   [VOLATILE, measured at %s]" % commit if vol else ""))
+
+    print()
+    dead = [n for n, _v, _f in SHAPES if not per.get(n)]
+    if dead:
+        print("    [dead] %s matched no segment in this run — a shape with no "
+              "live instance\n           proves nothing about the register; "
+              "see the positive control below."
+              % ", ".join(dead))
 
     print()
     print("  REFUSED, by kind — the honest size of the unchecked remainder:")
@@ -1050,7 +1205,20 @@ def main(argv=None):
                 if v.measured:
                     print("        %s" % v.measured)
 
-    bad = len(false) + len(filled)
+    # Doctrine 76/31: a null needs the demonstration that the instrument could
+    # have found something, and it needs it BEFORE the null is believed.
+    probes = self_test()
+    broken = [(n, r) for n, r in probes if r != "ok"]
+    print()
+    print("POSITIVE CONTROL — can each shape still fire?")
+    print("-" * 78)
+    for n, r in probes:
+        print("  [%s] %s%s" % ("ok  " if r == "ok" else "FAIL", n,
+                               "" if r == "ok" else "   " + r))
+    print("  (STATUS_XREF is exercised by the sweep itself: %d live "
+          "cross-references resolved.)" % per.get("STATUS_XREF", [0, 0])[0])
+
+    bad = len(false) + len(filled) + len(broken)
     print()
     print("RESULT:", "PASS" if not bad else "FAIL (%d)" % bad)
     if bad:

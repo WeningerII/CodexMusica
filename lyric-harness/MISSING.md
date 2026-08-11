@@ -810,9 +810,14 @@ It billed **384 of 471** unreadable tokens to the apostrophe rule.
 (doctrine 58, and the population is a coordinate too — M-18).** Every figure in
 this entry is over **PG47873 (`47873-8.txt`, 1,422,204 B, 31,086 lines), which
 is NOT in this repository** — it is on this machine at
-`/workspace/mm47873/47873-8.txt`. The selection rule is the one
-`corpus/song/msa_skeat_pantun.txt`'s own `selection:` header declares and
-`scratch/src_msa/extract_pantun.py` implements: blocks are maximal runs of lines
+`/workspace/mm47873/47873-8.txt`. **The selection rule's one authority is the
+`selection:` header of `corpus/song/msa_skeat_pantun.txt` itself** (lines 54–66),
+which states it in full. This entry used to name `scratch/src_msa/extract_pantun.py`
+as the implementation beside it; that path is not in the repository and never
+was — scratch is namespaced per cell and uncommitted (doctrine 77) — so it could
+not be the authority for anything, and the same dangling reference is still in
+the corpus file's own header, which belongs to a corpus cell. The rule: blocks
+are maximal runs of lines
 indented ≥ 4 (**705 blocks, 5,555 lines**), and a block is Malay where its Malay
 function-word count strictly exceeds its English one (**330 blocks, 3,442
 lines**). Tokens are maximal runs of `[A-Za-z'`’-]` that contain at least one
@@ -958,8 +963,29 @@ entry were WRONG — corrected below rather than quietly restated.
 | language | stub | stub lines | unreadable tokens before → after |
 |---|---|---:|---|
 | English | `&c.` / `etc.` | 941 | handled by `is_chorus_stub` |
-| Finnish | `j. n. e.` (*ja niin edelleen*) | 8 | `fin_kanteletar` 14 → **0**; all ten `fin_*` 155 → 139 |
+| Finnish | `j. n. e.` (*ja niin edelleen*) | ~~8~~ **9 at `debf64e`** | `fin_kanteletar` 14 → **0**; ~~all ten `fin_*` 155 → 139~~ `UNVERIFIABLE`, see below |
 | Welsh | `&c.` | 30 (see note) | Mynyddog, foot of a stanza |
+
+**THE FINNISH ROW MOVED WITH THE CORPUS, NOT WITH THE REGISTER — and the
+distinction is the whole reason the verdict is `MOVED` and not `FALSE`.**
+`8 stub lines / 16 unreadable tokens` was CORRECT when it was written.
+`corpus/song/fin_wahanen_laulukirja.txt` landed at `debf64e` carrying one more
+`j. n. e.`, so `python3 quality/audit_register.py` derivation D7 now measures
+**9 occurrences** — `fin_kanteletar` 7, `fin_kanteletar_uudempia` 1,
+`fin_wahanen_laulukirja` 1 — and at 2 vowelless tokens each (`j` and `n`; the
+`e` is readable) that is **18 tokens**. Nothing here was ever wrong; the
+population under it changed, and the same commit broke `quality/test_msa_fin.py`'s
+nine-volume constants for the same reason. **Every count in this row is pinned
+to the commit it was taken at and re-derived by command** — `corpus/song/` is
+written by other cells while this file is being read.
+
+**The `155 → 139` half is now `UNVERIFIABLE`, and struck rather than replaced.**
+D24 re-runs it and reports 145,280 tokens with 718 unreadable over the same
+files — two orders off — because *this entry states no tokeniser and no
+reason-code filter*, so there is no rule to re-run and no way to tell a drift
+from a different question. Doctrine 58 with the RULE as the unwritten
+coordinate. **Owed: the tokeniser, beside the number.** It is not replaced with
+718, because 718 is the answer to a question this row did not ask.
 
 **The Welsh 30 is `UNVERIFIABLE` and no rule tried reproduces it.** A bare
 `&c\.` regex over the five `cym_song_*` files gives **41**, all of them in
@@ -1001,10 +1027,14 @@ correcting an error, and it took an adversary pointed at the register to find
 it. `lyric_harness.CHORUS_STUB_FORMS` shipped the `msa` row throughout and was
 right the whole time.
 
-**The Finnish row is right in kind and was wrong in both numbers.** 16
-unreadable tokens, not 13. "100% of that corpus's failures" holds for the two
-Kanteletar files only; across all ten `fin_*` files it is 16 of 155 (10.3%), and
-`fin_paavo_cajander.txt` alone carries 120 from a different cause.
+**The Finnish row is right in kind and was wrong in both numbers.** ~~16
+unreadable tokens, not 13~~ — **18 at `debf64e`**, and the correction that
+matters is the one above: it moved because the corpus did. "100% of that
+corpus's failures" holds for the two Kanteletar files only; ~~across all ten
+`fin_*` files it is 16 of 155 (10.3%), and `fin_paavo_cajander.txt` alone
+carries 120 from a different cause~~ — the whole-corpus share is `UNVERIFIABLE`
+for the reason given above, and the number of `fin_*` files is measured at run
+time by `python3 quality/verify_entries.py` rather than written down here.
 **The silent half is confirmed and is the part that mattered:** the `e` IS
 readable, so on `Härkä ei juo vettä j. n. e.` `fin.line_alliteration` returns
 (2 alliterating, 7 words) against (1, 4) for the real line — three phantom
@@ -1145,10 +1175,12 @@ refuses binaries, so `wikimedia/wikisource` config `20231201.cy` — Welsh
 Wikisource, 1.25 MB, one parquet file — is **named, located and unreadable**.
 Highest-value single Welsh target for whoever next has a parquet-capable channel.
 
-### M-11 · ZERO named airs across 8,009 non-English songs `OPEN`
-The field this whole round was chasing. The English corpus records a named air
-for 331 of 5,006 songs (6.6%); the 8,009 songs now staged in Persian, Sanskrit,
-Finnish, Malay and Welsh record **0**, and the 500 Chinese ci that DO carry a
+### M-11 · ZERO named airs across EVERY non-English song staged `OPEN`
+The field this whole round was chasing. ~~ZERO named airs across 8,009
+non-English songs~~ — **the heading carried a denominator that moves and a
+finding that does not**, so it no longer carries the denominator at all. The
+English corpus records a named air for 331 of 5,006 songs (6.6%); the songs
+staged in Persian, Sanskrit, Finnish, Malay and Welsh record **0**, and the 500 Chinese ci that DO carry a
 詞牌 for 100% of songs are the one admitted file (M-12). Per language: Welsh
 prints tunes but no metre index (M-8); the Gītagovinda's rāga and tāla headings
 exist and are refused on licence (M-12); the Persian EPUBs carry no per-poem
@@ -1215,7 +1247,12 @@ stotra/pada literature — Vedānta Deśika, Bilvamaṅgala, the Gosvāmins,
 `m` 1,078 times and `ṃ` 3 times; the Caurapañcāśikā does the opposite. A
 final-akṣara rhyme key is **not comparable across DCS texts without folding**.
 
-### M-15 · `RelationSchema.traditions` is declared on 77 schemas and populated on ZERO `OPEN`
+### M-15 · `RelationSchema.traditions` — ~~declared on 77 schemas and populated on ZERO~~ **75 of 77 populated, and the SOURCE is the gap** `PARTIAL`
+The ZERO was left standing as live heading text under a blockquote that already
+corrected it, which is how a superseded figure keeps being quoted: `BACKLOG.md`
+§2.5 copied it forward for a day. Struck now, and `python3
+quality/verify_entries.py` fails the run if the two files disagree about it
+again.
 **Found the moment the layer became reachable, which is the argument for
 wiring.** Run `relations` on four lines of English and "Middle Chinese end
 rhyme (同用 group)", "pantun ABAB" and "Scots vowel-length rhyme (Aitken's Law)"
@@ -1238,10 +1275,13 @@ its own output that the tradition did not match, the rule shape did.
 > commit message calls that "sourced". See the new **M-15a**: the gap this
 > entry named is filled and the fill has a gap of its own.
 
-### M-16 · One module is genuinely stranded, and it is the one already shelved `OPEN`
+### M-16 · ~~One module is genuinely stranded~~ — it is not, and the decision is taken `CLOSED` 2026-08-11
 `python3 lyric_harness.py wiring` now reports this mechanically instead of
-requiring an audit. After wiring: **`quality/rhyme_constraints.py`, 1,325
-lines** — a library with no caller and no `__main__`. Cell 3's triage already
+requiring an audit. ~~After wiring: **`quality/rhyme_constraints.py`, 1,325
+lines** — a library with no caller and no `__main__`.~~ The 1,325 stood as live
+text underneath a blockquote that already corrected it, which is how a
+superseded figure keeps getting quoted: it is struck now, and
+`python3 quality/verify_entries.py` fails on it if it comes back. Cell 3's triage already
 recommended shelving it (20 relation types against `relations.py`'s 77, three
 predicates against nine, no `SequenceEqual`/`SequenceSuffix`/`SubsequenceOf` so
 amphisbaenic, parechesis and the Norse cluster span are unreachable in it) while
@@ -1254,6 +1294,10 @@ a `__main__` and keep it as a comparison runner.
 > **1,566 lines** (not 1,325 — a line count is a coordinate of the counting
 > convention AND of the date), it now has an `if __name__ == "__main__"`, and it
 > has callers: `quality/relations.py` and `quality/test_relations.py`.
+> The 1,566 is `wc -l` and `str.splitlines()`, which agree; `audit_register.py`
+> D22 prints 1,567 because it computes `src.count("\n") + 1`, which invents a
+> final line whenever a file ends in a newline. The counting convention was
+> named as a coordinate here and then two instruments picked different ones.
 > **Both branches of the decision were taken, deliberately.** The knowledge sets
 > were mined into `relations.py` — `Syllable.onset/nucleus/coda/prominence/moras`
 > may each hold a scalar or a `Readings` frozenset, with the TYPE as the marker
@@ -1265,6 +1309,59 @@ a `__main__` and keep it as a comparison runner.
 > agree with `relations.py` would spend the only property that justifies keeping
 > a second implementation. That is what a "keep it" decision has to look like to
 > be a decision rather than a default.
+
+### K-7 · The Chinese ci and yuefu are refused, and the unblock route is named `BLOCKED` 2026-08-11
+**This entry is written because two documents already cited `K-7` and no `K-7`
+existed.** `BACKLOG.md` §3.1 is headed "The clean Chinese route `K-7`" and M-12
+above says "see K-7 and doctrine 85"; both resolved to nothing until
+`python3 quality/verify_entries.py` (shape `STATUS_XREF`) asked whether every
+cited id has an entry. A citation into this register is a claim that the entry
+exists, and it is now checked.
+
+**The refusal.** 4,347 ci and 734 樂府 were located, extracted, validated at
+99.03% character coverage and measured against 311-year-old ground truth, then
+REFUSED: the digitiser's grant quoted inside the files is
+`資料自由使用，但不得為商業用途` — an express non-commercial restriction, which this
+repo had already treated as a rejection for `irfanzainudin/pantunis-data` and for
+CELT. Admitting Chinese on terms that refused Malay would make the gate a
+function of how much the corpus was wanted. Doctrine 85.
+The ci half fails twice over: its stated base is 唐圭璋's 《全宋詞》 (1940), and he
+died in 1990, so life+70 runs to 2060 — and his PUNCTUATION carries the signal
+(45.2% rhyme agreement at 。-ends against 2.7% at ，-ends and a 2.8% matched
+null), so the build would rest ON the in-copyright contribution rather than
+around it.
+
+**What survives, and what unblocks the rest.** 花間集, 500 songs, is admitted:
+its own last line is 王鵬運's 1893 四印齋 colophon and its chain quotes no
+restriction (M-12). The unblock route carries **no living copyright anywhere**:
+`kanripo/KR4j` 白文 (文淵閣四庫全書, 1782) segmented by the 欽定詞譜 (1715). It needs
+a build; every piece is reachable. Doctrine 85's second clause — record the
+unblock route in the same breath as the refusal — is why this is `BLOCKED` and
+not `WITHDRAWN`.
+**Work item:** `BACKLOG.md` §3.1.
+
+### M-17 · `best_score` names a pair that did not produce the number `OPEN`
+**This entry is written because `BACKLOG.md` §1.2 cited `M-17, OPEN` and no
+`M-17` existed** — the same `STATUS_XREF` finding as K-7 above, and the reason a
+cross-reference into this file has to be a checked claim rather than a
+convention.
+
+`best_score` prints a score beside end words that did not produce it: the
+reported pair is the one a later stage selected, not the one the comparator
+maximised over, so the number, the label and the evidence in a single report
+line can disagree with each other and nothing notices.
+
+**MEASURED.** `quality/audit_spans.py` (adversary 7, landed `a914dc0`,
+`quality/RESULTS_SPANS.md`): of the **1,014 judged** sonnet pairs, **382 report
+lines name a pair that did not produce the number**. Of the 81 violations, 35 do
+and 46 do not. So the defect is not a rare edge — it is more than a third of
+every line the battery prints, and every hand-triaged violation drawn from those
+46 was triaged against the wrong pair.
+
+**What is owed:** `best_score` returns the winning span, and the report line
+prints the span it scored rather than the span something else chose. The
+adversary is built; the repair is not.
+**Work item:** `BACKLOG.md` §1.2.
 
 ### M-10 · GITenberg enumeration misses about a third by any single method `OPEN`
 Repo-name WebFetch → 5 Welsh holdings; `filename:metadata.yaml "language: cy"`

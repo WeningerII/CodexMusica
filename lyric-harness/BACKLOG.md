@@ -399,6 +399,40 @@ numbering so `doctrine 79` is still doctrine 79, checked by
 > counter can tell the lists apart, which is what `verify_doctrines.py` reads
 > and what `quality/counters.py` calls rather than re-parsing.
 
+### 4.6 · The ENTRY CLAIMS of this file and `MISSING.md` `BUILT 2026-08-11`, and mostly UNCHECKED
+`quality/counters.py` made the table at the foot of this file an OUTPUT. **The
+counters were fixed and the ENTRIES were not**, and the cost was measured: a
+cell was briefed off §2.7 / `MISSING.md` M-6 on 2026-08-11 and sent to build a
+relation that had shipped at `f94383c`.
+
+`python3 quality/verify_entries.py` is the fourth instance of this repo's one
+working move — `verify_doctrines.py`, the `wiring` verb, `counters.py`, this —
+and it is deliberately SMALL. It carries **eight declared claim SHAPES**
+(`SYMBOL_ABSENT`, `HASATTR`, `REPO_PATH_EXISTS`, `STAGED_FILE_COUNT`,
+`MODULE_LINE_COUNT`, `CORPUS_MARKER_ABSENT`, `CORPUS_TABLE_ROW`,
+`STATUS_XREF`), reads statuses by CALLING `counters.missing_entry_statuses()`
+rather than re-parsing them, and reports `audit_register.py`'s 26 derivations
+without re-deriving one of them.
+
+**What is still owed is the refused count, and it is the honest headline.** On
+the run that closed this section it asked 867 claims, answered 79 and refused
+788 — and 788 of the refusals are `NO_SHAPE`: no declared shape recognises the
+sentence. That number is not a defect to be optimised away. Some of that
+remainder is not mechanically checkable at all (doctrine 6's "the exchange rate
+between surprise and clarity is not derivable" has no instrument and never
+will), and the checker deliberately does NOT try to separate "unshaped because
+it is a judgement" from "unshaped because nobody wrote the shape yet", because
+that separation needs a reader. **The way to bring the number down is to declare
+another shape, never to loosen one.** Candidates the sweep already surfaced:
+a claim of the form "N of M rows in `data/*.tsv`", a table whose row count
+contradicts the sentence introducing it, and a `%` stated without its
+denominator.
+
+**Acceptance, met:** non-zero exit on a false claim; three counts, never a rate;
+every shape carries a TRUE probe and a FALSE probe so a clean run is a null with
+a positive control behind it (doctrines 31, 76); a shape matching no live
+segment is printed `[dead]` rather than passing quietly (doctrine 28).
+
 ---
 
 ## TIER 5 — whole absent layers (`MISSING` B, C, D, G, H)
@@ -494,7 +528,7 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 52 OPEN / 11 PARTIAL / 2 BLOCKED / 8 CLOSED = 73 entries | `python3 quality/counters.py` |
+| MISSING entries by status | REFUSED (cost) — the instrument did not answer: ValueError: could not read audit_register's entry count out of the runner's output; the line this counter parses has changed shape and the counter must be repaired, not guessed | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,566 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
 | mutations declared | **33 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
@@ -505,8 +539,8 @@ never one (doctrine 79).
 | `data/lyricists.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | sonnet battery | 81/1014 = 8.0% violations (`mandated 1064, judged 1014, refused 50`) | `python3 battery.py` |
 | band FPR on random pairs | **3.60%** (144 of 4,000 at seed 20260810, the runner's own default n; 3.57% = 107 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
-| register-audit findings | **2** — D8 (M-4), D9 (M-4); both are the deliberate M-4 calibration pair | `python3 quality/audit_register.py` |
-| adversaries built, of 7 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them | `read BACKLOG.md §0` |
+| register-audit findings | REFUSED (cost) — the instrument did not answer: ValueError: could not read the register-audit finding count out of the runner's output; the line this counter parses has changed shape and the counter must be repaired, not guessed | `python3 quality/audit_register.py` |
+| adversaries built, of 8 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it) | `read BACKLOG.md §0` |
 <!-- /COUNTERS -->
 
 > **The register-audit row was 9 findings on 2026-08-11** before seven were

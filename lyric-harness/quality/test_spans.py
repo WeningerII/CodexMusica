@@ -394,10 +394,13 @@ def test_a_hyphen_can_substitute_the_rhyme_word():
     check("`zide` is NOT filed as an INTERIOR unreadable — it is part of the "
           "END word, and the two mean opposite things downstream "
           "(doctrine 28; the misfiling was 328 of 328 cases)",
-          rec["interior_unreadable"] == []
-          and rec["final_unread_pieces"] == ["zide"],
+          "zide" not in rec["interior_unreadable"]
+          and rec["final_unread_pieces"] == ["zide"]
+          and rec["interior_unreadable"] == ["zunny"],
           f"interior {rec['interior_unreadable']}, "
-          f"final pieces {rec['final_unread_pieces']}")
+          f"final pieces {rec['final_unread_pieces']} — and `zunny` IS "
+          f"interior and stays there, which is the separation working "
+          f"rather than the category being emptied")
     #
     # AND THE `substituted` SPAN KIND IS STILL REACHABLE, which is the point
     # of checking it here: a doctrine whose demonstration has been optimised

@@ -969,9 +969,23 @@ class SpanRule:
     anchor: str = "word_start"
     direction: int = 1
     magnitude: object = "to_word_end"
-    terminator: str = "word_edge"
     cross_word: bool = False
     requires: tuple = ()
+    # `terminator` was HERE and was DELETED on 2026-08-11 (defect P2).  It was
+    # declared on all 154 member rules and read by none, and the deletion is
+    # the honest close rather than a wiring, because the field could not be
+    # given a semantics without inventing one: `_spans_at` receives `ids` --
+    # the unit list OF THE LOCUS -- so there is no frame-versus-locus edge left
+    # to choose between.  Whatever clipping a terminator would express has
+    # already happened by the time the rule runs.  MEASURED before removal
+    # (INERT[0] below records the command): 153 of 154 rules carried the
+    # default `word_edge` and one carried `frame_edge`; no magnitude in the
+    # registry mapped to two different terminators, so the field was a strict
+    # function of `magnitude` and carried exactly zero information.  The single
+    # non-default was `broken rhyme`, whose magnitude `to_frame_edge` already
+    # says it and whose branch reads `split_right` off the unit.
+    # NOT a precedent for rhyme_constraints.Span.terminator, which is a
+    # different class in a different module and IS read there (see INERT[1]).
 
     def caps(self):
         need = set(self.requires)
@@ -1746,6 +1760,8 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
              else list(enumerate_spans(schema.spans[1], stream)))
     except NoReferent as e:
         return Refusal(schema.name, "span", str(e))
+    a_keys = {s.idx for s in A}
+    b_keys = a_keys if B is A else {s.idx for s in B}
 
     idx = {}
     for s in B:
@@ -1775,8 +1791,8 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
         for b in cands:
             if a.idx == b.idx or (a.idx, b.idx) in seen:
                 continue
-            if a.head() > b.head():
-                continue                       # members are in TEXT ORDER
+            if a.head() > b.head() and mirrored(a, b, a_keys, b_keys):
+                continue         # the mirror carries it; see mirrored()
             seen.add((a.idx, b.idx))
             n += 1
             if n > max_pairs:
@@ -2392,8 +2408,8 @@ declare(RelationSchema(
 
 declare(RelationSchema(
     name="broken rhyme",
-    spans=(SpanRule("line_final_token", "word_start", 1, "to_frame_edge",
-                    terminator="frame_edge"), END_ANCHOR),
+    spans=(SpanRule("line_final_token", "word_start", 1, "to_frame_edge"),
+           END_ANCHOR),
     align="flush_right",
     channels=(ChannelRule("nucleus", AGREE, "last"),
               ChannelRule("coda", AGREE, "last")),

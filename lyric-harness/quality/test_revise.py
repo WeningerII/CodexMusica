@@ -15,6 +15,24 @@ projection that sometimes does not exist. The two that matter most there are
 13 (the group-scoped grader reproduces `check_scheme` pair for pair, so the
 generalisation did not quietly become a second comparator).
 
+Tests 18-22 are the FIELD half, added 2026-08-11 after the loop was finally
+run end to end on the song this repo wrote and the output was read rather
+than counted (`quality/RESULTS_REVISION_LOOP.md`). Tests 1-17 were all
+positive cases against a four-line fixture, and doctrine 94 says a
+positive-case suite cannot find a rule that is too generous:
+
+  - 18  the brief offered words `grade()` calls a non-rhyme, 17.3% of them,
+        because `_field` used the scalar and the grader uses `admits()`
+  - 19  `NO JOINT CANDIDATE -- the mandate, not the line, is what needs
+        revising` was TRUE and WRONG on three of the song's lines, and the
+        cause was a hard-coded `n=200`
+  - 20  the four rejections, run against 41 real lines instead of 4 fixture
+        ones, plus the accept that stops them being an always-reject
+  - 21  what the loop says on the mandate the song was actually WRITTEN to,
+        pinned because the answer is "nothing a writer could act on"
+  - 22  what the words doctrine 9 forbids actually are, against a declared
+        strict-identity reference
+
 Run: python3 quality/test_revise.py
 """
 
@@ -435,6 +453,243 @@ def test_x_is_not_a_rhyme_class_in_the_floor_either():
           "L5 is declared free; it answers nothing")
 
 
+def test_the_field_is_the_graders_own_field():
+    print("\n18. doctrine 94 — the brief and the verdict ask the same question")
+    from lyric_harness import admits, best_score
+    lines = song_lines()
+    m = R.mandate_from_graph(lines)
+    bad, tot = [], 0
+    for b in R.brief(lines, m):
+        calls = [w for _, _, cl in b.must_answer for _, w in cl]
+        calls = [c for c in dict.fromkeys(calls) if c]
+        for w in b.candidates:
+            tot += 1
+            for c in calls:
+                ax, wa = R._word_anchors(c)
+                ay, wb = R._word_anchors(w)
+                if not admits(best_score(ax, ay, R.decl, wa, wb),
+                              R.decl.theta_rhyme):
+                    bad.append((b.line_no, c, w))
+                    break
+    check("no offered candidate is one the grader would reject",
+          not bad,
+          f"{tot} words offered across the song's flagged lines, "
+          f"{len(bad)} that `grade()` calls a non-rhyme"
+          + (f" -- e.g. {bad[:4]}" if bad else ""))
+    # THE FAILING CASE, constructed. A positive-case suite cannot find a rule
+    # that is too generous, so the pre-fix predicate is run here on purpose.
+    scal = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
+                   rdecl=ReviseDeclaration(field_band="scalar",
+                                           field_depth=200))
+    scal._engine = R.engine
+    leak = 0
+    for b in scal.brief(lines, m):
+        calls = [w for _, _, cl in b.must_answer for _, w in cl]
+        calls = [c for c in dict.fromkeys(calls) if c]
+        for w in b.candidates:
+            for c in calls:
+                ax, wa = scal._word_anchors(c)
+                ay, wb = scal._word_anchors(w)
+                if not admits(best_score(ax, ay, scal.decl, wa, wb),
+                              scal.decl.theta_rhyme):
+                    leak += 1
+                    break
+    check("and the pre-fix predicate is reachable and still leaks",
+          leak > 0,
+          f"field_band='scalar', field_depth=200 offers {leak} words the "
+          f"grader rejects -- the shipped behaviour until 2026-08-11. Kept "
+          f"reachable so the defect is demonstrable rather than a sentence "
+          f"nobody can check (doctrine 84)")
+
+
+def test_no_joint_candidate_was_a_coordinate_of_a_literal():
+    print("\n19. doctrine 58 — 'the mandate needs revising' was a constant")
+    from lyric_harness import admits, best_score
+    lines = song_lines()
+    m = R.mandate_from_graph(lines)
+    calls = ["does", "five", "drive", "of", "alive"]     # the L14/L34 pivot
+    old = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
+                  rdecl=ReviseDeclaration(field_band="scalar",
+                                          field_depth=200))
+    old._engine = R.engine
+    o_old, f_old = old.joint_field(calls)
+    check("at the old undeclared depth the conjunction looked unsatisfiable",
+          not o_old and not f_old,
+          "joint_field(['does','five','drive','of','alive']) was empty, and "
+          "the brief printed NO JOINT CANDIDATE -- 'the mandate, not the "
+          "line, is what needs revising'")
+    o_new, f_new = R.joint_field(calls)
+    joint = sorted(set(o_new) | set(f_new))
+    check("over the complete pool it is satisfiable, and by real words",
+          len(joint) >= 6,
+          f"{len(joint)} words answer all five calls: {joint[:8]}")
+    for w in joint:
+        for c in calls:
+            ax, wa = R._word_anchors(c)
+            ay, wb = R._word_anchors(w)
+            if not admits(best_score(ax, ay, R.decl, wa, wb),
+                          R.decl.theta_rhyme):
+                FAILURES.append("joint field member fails the grader")
+                break
+    check("every one of them passes the grader against every call",
+          "joint field member fails the grader" not in FAILURES,
+          "so the emptiness was a property of `n=200`, not of the lexicon")
+    b = [x for x in R.brief(lines, m) if x.line_no == 14]
+    check("and the brief at L14 now names a field instead of blaming the "
+          "mandate",
+          b and not b[0].joint_conflict and (b[0].candidates
+                                             or b[0].forbidden_modal),
+          f"L14 offered {b[0].candidates}, forbidden "
+          f"{b[0].forbidden_modal}" if b else "L14 not flagged")
+    check("every brief prints the coordinates its counts are relative to",
+          all("field_depth=" in x.field_declaration
+              and "field_band=" in x.field_declaration
+              for x in R.brief(lines, m)),
+          R.field_declaration())
+
+
+def test_the_four_rejections_on_the_songs_own_shape():
+    print("\n20. doctrine 47/94 — the four rejections, on 41 real lines")
+    lines = song_lines()
+    m = R.mandate_from_graph(lines)
+    b33 = [x for x in R.brief(lines, m) if x.line_no == 33][0]
+
+    def sub(idx, text):
+        a = list(lines)
+        a[idx - 1] = text
+        return a
+
+    res = R.verify(lines, [l for i, l in enumerate(lines) if i != 40],
+                   m, targeted=[33])
+    check("RESTRUCTURE — 41 lines in, 40 out, rejected",
+          not res["accepted"] and "line count changed" in res["reasons"][0],
+          res["reasons"][0][:100])
+
+    stray = sub(33, "So say the road. Say it low")
+    stray[40] = "The pot is down to soot"
+    res = R.verify(lines, stray, m, targeted=[33])
+    check("STRAY — L41 rewritten while only L33 was targeted, rejected",
+          not res["accepted"] and "not targeted" in " ".join(res["reasons"]),
+          res["reasons"][0][:100])
+
+    modal = [w for w in b33.forbidden_modal
+             if w != R.floor.qf._endword(lines[32])]
+    check("L33 has a modal word to take", bool(modal),
+          str(b33.forbidden_modal))
+    res = R.verify(lines, sub(33, f"So say the road. Say it {modal[0]}"),
+                   m, targeted=[33])
+    check("MODAL — L33 takes the most frequent word in its field, rejected",
+          not res["accepted"] and res.get("modal_violations"),
+          res["reasons"][0][:120])
+
+    res = R.verify(lines, sub(33, "So say the road. Say it clear"),
+                   m, targeted=[33])
+    check("NET-NEGATIVE — L33 fixes its REPEAT and breaks group G, rejected",
+          not res["accepted"] and "new finding" in " ".join(res["reasons"]),
+          f"fixed {len(res.get('fixed', []))}, new {len(res.get('new', []))}: "
+          + res["reasons"][0][:110])
+
+    # and the ACCEPT, so none of the above is an always-reject
+    picked = None
+    for w in b33.candidates:
+        r2 = R.verify(lines, sub(33, f"So say the road. Say it {w}"),
+                      m, targeted=[33])
+        if r2["accepted"]:
+            picked = (w, r2)
+            break
+    check("ACCEPT — an offered candidate is accepted, so the loop is not "
+          "an always-reject",
+          picked is not None,
+          f"{picked[0]!r}: {picked[1]['reasons'][0]}" if picked
+          else f"none of {len(b33.candidates)} offered words was accepted")
+
+
+def test_what_the_loop_can_say_on_the_declared_mandate():
+    print("\n21. the mandate the song was WRITTEN to — what comes out")
+    import json
+    lines = song_lines()
+    rep = R.grade(lines, SONG_SCHEME)
+    check("the song passes its declared mandate outright",
+          rep["pairs_mandated"] == 8 and rep["pairs_judged"] == 8
+          and not rep["violations"],
+          f"mandated {rep['pairs_mandated']}, judged {rep['pairs_judged']}, "
+          f"refused {rep['pairs_refused']}, "
+          f"{len(rep['violations'])} violation(s)")
+    briefs = R.brief(lines, SONG_SCHEME)
+    codes = {f.code for b in briefs for f in b.findings}
+    check("so every finding it emits is a COLLISION, not a defect",
+          codes == {"SCHEME_COLLISION"},
+          f"{len(briefs)} line(s) flagged, codes {sorted(codes)}")
+    check("and NOT ONE of them earns a candidate field",
+          not any(b.candidates or b.forbidden_modal for b in briefs),
+          "SCHEME_COLLISION is not in RHYME_FINDINGS, so the brief on the "
+          "declared mandate contains zero words a writer could act on")
+    with open(os.path.join(HERE, "..", "examples",
+                           "never_been_to_a_scene.blueprint.json"),
+              encoding="utf-8") as fh:
+        sec = {i + 1: s["section"]
+               for i, s in enumerate(json.load(fh)["lines"])}
+    ret = [c for c in rep["collisions"]
+           if sec[c["lines"][0]].startswith("chorus")
+           and sec[c["lines"][1]].startswith("chorus")
+           and sec[c["lines"][0]] != sec[c["lines"][1]]]
+    check("16 of the 26 collisions are the CHORUS COMING BACK",
+          len(rep["collisions"]) == 26 and len(ret) == 16,
+          f"{len(ret)}/{len(rep['collisions'])} join chorus to chorus2. A "
+          f"letter scheme cannot say 'these two groups are the same words', "
+          f"so it gives them different letters -- and the collision detector "
+          f"then reports the identity the projection was forced to hide "
+          f"(doctrine 2)")
+    check("7 of those 16 are outright REPEAT, the refrain itself",
+          sum(1 for c in ret if c["relation"] == "REPEAT") == 7,
+          "slow/slow five/five ear/ear go/go went/went clear/clear "
+          "sent/sent -- 7 of the chorus's 8 end words come back verbatim "
+          "and the 8th moves drive -> alive. Doctrine 3 calls REPEAT the "
+          "REQUIREMENT across chorus instances, and `repeat_licence` "
+          "defaults to 'unlicensed', so the derived-cover run reports all "
+          "seven as SCHEME_VIOLATIONs -- see RESULTS_REVISION_LOOP.md §5")
+
+
+def test_the_modal_set_against_a_declared_reference():
+    print("\n22. doctrine 94 — what the FORBIDDEN words actually are")
+    from lyric_harness import line_anchors
+    lines = song_lines()
+    m = R.mandate_from_graph(lines)
+
+    def tail(w):
+        a, _, _ = line_anchors(R.lex, w, promote=R._promote())
+        return (a[0][-1]["nucleus"], tuple(a[0][-1]["coda"])) if a and a[0] \
+            else None
+
+    seen, tot, ident = set(), 0, 0
+    for b in R.brief(lines, m):
+        calls = tuple(dict.fromkeys(
+            w for _, _, cl in b.must_answer for _, w in cl if w))
+        if not calls or calls in seen:
+            continue
+        seen.add(calls)
+        cur = R.floor.qf._endword(b.text)
+        for w in b.forbidden_modal:
+            if w == cur:
+                continue
+            tot += 1
+            if all(tail(c) is not None and tail(c) == tail(w) for c in calls):
+                ident += 1
+    check("the modal set is real: it is the head of the grader's own field",
+          tot >= 40, f"{tot} forbidden words over {len(seen)} distinct fields")
+    check("and only a MINORITY of it is a strict-identity rhyme",
+          ident * 4 < tot,
+          f"{ident}/{tot} of the words doctrine 9 names as the slop "
+          f"direction agree with their call on the tail-aligned nucleus AND "
+          f"coda by strict identity. The reference is declared as a "
+          f"REFERENCE, not as truth (doctrine 94) -- the band exists to admit "
+          f"slant rhyme. What it prices is that on group H the six forbidden "
+          f"words are will/their/there/here/year/email against 'ear': "
+          f"cluster_sim(['R'],['L']) = 0.9875, so the conjunctive coda rule "
+          f"cannot separate a lateral coda from a rhotic one, and no value "
+          f"of theta_coda reaches it. Not this cell's file to fix")
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -452,7 +707,12 @@ if __name__ == "__main__":
                test_the_song_the_loop_could_not_grade,
                test_a_derived_cover_is_independent_at_another_theta,
                test_findings_are_not_printed_six_times,
-               test_x_is_not_a_rhyme_class_in_the_floor_either):
+               test_x_is_not_a_rhyme_class_in_the_floor_either,
+               test_the_field_is_the_graders_own_field,
+               test_no_joint_candidate_was_a_coordinate_of_a_literal,
+               test_the_four_rejections_on_the_songs_own_shape,
+               test_what_the_loop_can_say_on_the_declared_mandate,
+               test_the_modal_set_against_a_declared_reference):
         fn()
     print("=" * 62)
     if FAILURES:

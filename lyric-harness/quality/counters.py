@@ -677,7 +677,16 @@ def register_findings():
 
 
 def adversaries_built():
-    """How many of the seven adversaries are BUILT.
+    """How many of the EIGHT adversaries are BUILT.
+
+    The denominator was `7` in this row's key, in §0's prose ("adversaries 1-7
+    all attack the WORK") and nowhere else -- while §0's own table has carried
+    EIGHT rows since the eighth was added. One roster, two denominators, in one
+    file. Corrected 2026-08-11 by the entry-claims cell; `python3
+    quality/verify_entries.py` now checks the INSTRUMENT column of that table
+    (`quality/audit_corpus.py` and `quality/audit_spans.py` either exist or they
+    do not), which is the checkable half of a row whose STATUS column this
+    counter still refuses.
 
     DERIVATION: THERE IS NONE, and that is the finding. §0's table assigns each
     adversary one of `built` / `partial` / `ad hoc` / `missing`, and those are
@@ -695,7 +704,9 @@ def adversaries_built():
     """
     return Refused(JUDGEMENT,
                    "`built` / `partial` / `ad hoc` / `missing` in §0 are "
-                   "statuses a person sets; no measurement distinguishes them",
+                   "statuses a person sets; no measurement distinguishes them "
+                   "(the INSTRUMENT column is checkable and "
+                   "`quality/verify_entries.py` checks it)",
                    "read §0 and decide; do not let this file guess")
 
 
@@ -721,7 +732,7 @@ COUNTERS = [
             band_fpr),
     Counter("register-audit findings", "python3 quality/audit_register.py",
             register_findings),
-    Counter("adversaries built, of 7", "read BACKLOG.md §0", adversaries_built),
+    Counter("adversaries built, of 8", "read BACKLOG.md §0", adversaries_built),
 ]
 
 
