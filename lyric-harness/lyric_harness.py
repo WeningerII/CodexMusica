@@ -190,6 +190,46 @@ class Declaration:
     # same direction. Doctrine 22: the number now carries a rate.
     theta_coda: float = 0.80      # coda AGREEMENT, not coda evidence
     theta_nucleus: float = 0.60
+    # --- WHICH END THE SCALAR ALIGNS FROM (doctrine 1, 84, 95) --------------
+    # DECLARED 2026-08-11. It was not, and that is the whole point of this
+    # coordinate existing: `channel_agreement` was fixed to align flush RIGHT
+    # on 2026-08-11 (doctrine 95) and `score` fifty lines below it still read
+    # `anc_a[i]` against `anc_b[i]` -- flush LEFT. So the two halves of ONE
+    # comparison read the same two anchors differently: the band asks its
+    # question tail-aligned and the scalar computes head-aligned. Nothing in
+    # the repo said so, which means either reading could have arrived by
+    # accident and no test would have noticed.
+    #
+    # It is NOT a defect, and that is measured rather than assumed. Held out
+    # (quality/test_align.py, and the corpora it prints): on a random-pair FPR
+    # corpus and on the sonnets' mandated pairs, split in half,
+    #   * the sonnet oracle does not move at all -- 81/1014 either way, in both
+    #     halves, because a mandated pair's best alignment is already the
+    #     equal-length one (doctrine 95's own blind spot, from the other side);
+    #   * the RELATION never flips, because the relation is decided by
+    #     `channel_agreement`, which tail-aligns on its own regardless;
+    #   * the scalar `total` moves on ~61% of random pairs, i.e. on essentially
+    #     every unequal-length pair;
+    #   * the admitted-false-positive rate moves by <0.1pp and in the direction
+    #     that favours the SHIPPED head reading, which is inside anyone's noise.
+    # Doctrine 5 forbids shipping a change that does not beat the incumbent
+    # held out. This one does not beat it, so `head` STAYS -- and the
+    # difference stays reachable, because a doctrine whose demonstration has
+    # been optimised away is a sentence nobody can check (doctrine 84).
+    #
+    # The two readings are different QUESTIONS, not a right and a wrong answer:
+    #   head  the anchor is a span STARTING at the last stress, so syllable 0
+    #         is the stressed syllable on both sides and the comparison is
+    #         "how alike are these two feet, read forwards from the stress".
+    #         Trailing material the other side does not have is charged once,
+    #         through `trailing_syllable_penalty`, rather than twice.
+    #   tail  rhyme is a suffix relation, so the last syllables must face each
+    #         other. This is what the BAND asks, and the band is what decides
+    #         RHYME vs ASSONANCE vs CONSONANCE.
+    # The scalar is a magnitude and the band is a verdict; they are allowed to
+    # read the same anchors differently as long as which one does what is
+    # DECLARED. Before this field it was not.
+    scalar_alignment: str = "head"            # "head" | "tail"
     final_promotion: bool = True              # verse promotes unstressed finals:
                                               # argument/spent rhymes on -ment
     fitted: bool = False                      # weights hand-set, not corpus-fitted
@@ -829,9 +869,27 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
     if not anc_a or not anc_b:
         out["relation"] = "NO_ANCHOR"
         return out
-    # left-align at the stressed syllable; trailing extras penalized
+    # WHICH END THE COMPARISON ALIGNS FROM IS A DECLARED COORDINATE, and it is
+    # deliberately NOT the same as `channel_agreement`'s. See
+    # `Declaration.scalar_alignment` for the held-out measurement that left the
+    # default where it is, and `quality/test_align.py` for the pin. Trailing
+    # extras are penalized once, through `trailing_syllable_penalty`.
     n = min(len(anc_a), len(anc_b))
     extra = abs(len(anc_a) - len(anc_b))
+    if decl.scalar_alignment == "tail":
+        # Flush RIGHT, the band's reading: slice both spans to their last n
+        # syllables so the loop below compares last-against-last. Everything
+        # downstream is safe under this rebinding and it is worth saying why
+        # rather than leaving it to be rediscovered: `extra` is already taken
+        # from the ORIGINAL lengths; `anc_a[-1]` (the rawi check) is the same
+        # element either way; and `full_identity` is guarded by `extra == 0`,
+        # which is exactly the case where the slice is the identity map.
+        anc_a, anc_b = anc_a[-n:], anc_b[-n:]
+    elif decl.scalar_alignment != "head":
+        # An undeclared value must be loud, not silently one of the two.
+        raise ValueError(
+            f"Declaration.scalar_alignment must be 'head' or 'tail', "
+            f"got {decl.scalar_alignment!r}")
     prof = PROFILES.get(profile) if isinstance(profile, str) else profile
     if prof:
         w0 = prof["weights"]

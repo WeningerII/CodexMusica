@@ -92,6 +92,30 @@ class TimeDeclaration:
     #: independence Sidak assumes and the comparisons overlap. "bh" controls
     #: the expected PROPORTION of false events at q instead.
     correction: str = "sidak"
+    #: WHICH COMPARISONS COUNT AS THE FAMILY. This is the `m` in `alpha/m`, and
+    #: until 2026-08-11 it was MEASURED FROM THE WRONG POPULATION.
+    #:
+    #: "candidate" (primary, correct): every pair the position takes part in,
+    #: which is every comparison the layer actually makes there. A candidate
+    #: pair whose relation fails the conjunctive band scores effectively minus
+    #: infinity -- it is a test that was run and did not reject -- so it belongs
+    #: in m exactly as it belongs in the null's denominator.
+    #:
+    #: "scored" (the shipped defect, kept reachable so it stays demonstrable):
+    #: only the pairs that PASSED the band. That makes m a FUNCTION OF THE BAND,
+    #: and in the wrong direction: tightening `theta_coda` 0.60 -> 0.80 shrinks
+    #: each position's surviving family, which LOOSENS the Sidak cut
+    #: 1-(1-alpha)^(1/m), which RAISES the corrected false-event rate. Measured
+    #: on word-scrambled sonnets: 8.8% -> 25.5% flush-left, 6.8% -> 26.7%
+    #: flush-right, i.e. ~3x in BOTH alignments, so it is the band and not the
+    #: alignment. This is doctrine 27's error one layer up, in the same
+    #: function that fixed it: `_pvalue` already divides by every valid draw
+    #: rather than every SURVIVING draw, and then the correction counted only
+    #: the surviving comparisons. The p-value is unconditionally uniform over
+    #: CANDIDATES, so the family has to be counted over candidates too, or the
+    #: per-position error is alpha/band_pass_rate rather than alpha -- roughly
+    #: 10x at a 10% band-pass rate, and it gets worse as the band gets better.
+    family: str = "candidate"
     alpha: float = 0.05
     q: float = 0.10
     #: draws for the within-item null. The p-value resolution is 1/(N+1), and
@@ -267,12 +291,20 @@ def _pvalue(v, null_sorted, n_valid):
     return (ge + 1) / (n_valid + 1)
 
 
-def _bh(pvals, q):
-    """Benjamini-Hochberg: -> the largest p that is a discovery, or None."""
+def _bh(pvals, q, n=None):
+    """Benjamini-Hochberg: -> the largest p that is a discovery, or None.
+
+    `n` is the size of the FAMILY, which is not always `len(pvals)`. Pairs that
+    fail the conjunctive band are hypotheses with p = 1 by construction, so they
+    are the largest ranks and never qualify -- but they are still tests, and
+    dropping them from n is the same conditioning error the family-size
+    coordinate exists for. Passing n explicitly keeps them in the denominator
+    without materialising thousands of 1.0s.
+    """
     if not pvals:
         return None
     ps = sorted(pvals)
-    n = len(ps)
+    n = len(ps) if n is None else max(n, len(ps))
     cut = None
     for i, p in enumerate(ps, 1):
         if p <= i / n * q:
@@ -321,18 +353,30 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
                     f"discriminate and an empty event set here means 'cannot "
                     f"tell', not 'no rhyme'. Real verse runs ~10%."))
         return set()
+    # p-value per pair, indexed by its position in `pairs`. A pair whose
+    # relation fails the band gets NO p-value: it scores effectively minus
+    # infinity and can never reject. It is still a comparison that was made.
+    pv = {}
     scored = []
-    for sa, sb in pairs:
+    for k, (sa, sb) in enumerate(pairs):
         v = _raw_score(stream, sa, sb, decl, comparator)
         if v is None:
             continue
-        scored.append((sa, sb, _pvalue(v, null, n_valid)))
+        p = _pvalue(v, null, n_valid)
+        pv[k] = p
+        scored.append((sa, sb, p))
 
-    # each position's family: every candidate pair it takes part in
+    # EACH POSITION'S FAMILY -- the m in alpha/m, and it must be MEASURED from
+    # the comparisons actually made, not from the ones that survived the band.
+    # `family="scored"` reproduces the shipped defect (see TimeDeclaration).
     family = {}
-    for k, (sa, sb, _p) in enumerate(scored):
+    src = enumerate(pairs) if tdecl.family == "candidate" else \
+        ((k, (sa, sb)) for k, (sa, sb, _p) in enumerate(scored))
+    for k, (sa, sb) in src:
         for pos in list(range(*sa)) + list(range(*sb)):
             family.setdefault(pos, []).append(k)
+    if tdecl.family == "scored":
+        pv = {k: p for k, (_a, _b, p) in enumerate(scored)}
 
     events = set()
     if tdecl.correction == "bh":
@@ -345,16 +389,17 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
         # next three, from that alone. FWER needs no such resolution because
         # its cut is alpha/m with m ~ 15, not q/n with n ~ 10^4.
         floor_p = 1.0 / (n_valid + 1) if n_valid else 1.0
-        if scored and floor_p > tdecl.q / len(scored):
+        n_hyp = len(pairs) if tdecl.family == "candidate" else len(scored)
+        if scored and floor_p > tdecl.q / n_hyp:
             if detail is not None:
                 detail["bh_unresolvable"] = (
                     f"BH needs a p-value resolution finer than "
-                    f"q/n = {tdecl.q / len(scored):.2e}; this null resolves "
+                    f"q/n = {tdecl.q / n_hyp:.2e}; this null resolves "
                     f"to {floor_p:.2e}. Raise null_samples to at least "
-                    f"{int(len(scored) / tdecl.q)} or use a FWER correction, "
+                    f"{int(n_hyp / tdecl.q)} or use a FWER correction, "
                     f"whose cut does not scale with the number of pairs.")
             return set()
-        cut = _bh([p for _, _, p in scored], tdecl.q)
+        cut = _bh([p for _, _, p in scored], tdecl.q, n_hyp)
         keep = {k for k, (_a, _b, p) in enumerate(scored)
                 if cut is not None and p <= cut}
         for k in keep:
@@ -368,7 +413,7 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
                 cut = tdecl.alpha / m
             else:                                  # sidak
                 cut = 1.0 - (1.0 - tdecl.alpha) ** (1.0 / m)
-            if any(scored[k][2] <= cut for k in ks):
+            if any(pv.get(k, 1.0) <= cut for k in ks):
                 events.add(pos)
 
     if detail is not None:
@@ -379,7 +424,13 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
             p_resolution=1.0 / (n_valid + 1) if n_valid else None,
             median_family_size=(sorted(len(v) for v in family.values())
                                 [len(family) // 2] if family else 0),
+            family_population=tdecl.family,
             correction=tdecl.correction, alpha=tdecl.alpha)
+        if family:
+            mm = sorted(len(v) for v in family.values())[len(family) // 2]
+            detail["per_pair_cut"] = (
+                tdecl.alpha / mm if tdecl.correction == "bonferroni"
+                else 1.0 - (1.0 - tdecl.alpha) ** (1.0 / mm))
     return events
 
 
