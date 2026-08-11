@@ -111,9 +111,10 @@ FIVE COORDINATES, EVERY ONE DECLARED AND EVERY ONE MEASURED. See
    end of the word" -- reads a two-syllable span there and a one-syllable span
    on a monosyllable. The *cywydd deuair hirion* pairs exactly those two: one
    line of the couplet ends accented, the other unaccented. Measured on the
-   staged cywydd, 54 attested couplets: the shipped rule answers TRUE on 51 and
-   the English port on 2. It is not rejected, it is FALSIFIED, and
-   `rule="prominent"` keeps the falsification a function call (doctrine 84).
+   staged cywydd, which MANDATES 54 couplets: the shipped rule JUDGES 51 and
+   answers TRUE on **51 of 51**; the English port judges 52 and answers TRUE on
+   **2 of 52**. It is not rejected, it is FALSIFIED, and `rule="prominent"`
+   keeps the falsification a function call (doctrine 84).
 2. **The circumflex is FOLDED** (`diacritics="fold"`). It is a LENGTH mark, and
    the staged corpus writes the same language both ways: `cym_song_alun.txt`
    and `cym_song_mynyddog.txt` are ISO-646-US transcriptions with the
@@ -121,11 +122,12 @@ FIVE COORDINATES, EVERY ONE DECLARED AND EVERY ONE MEASURED. See
    `cym_song_hwiangerddi.txt`, `cym_song_twm_or_nant.txt` and the cywydd carry
    real ones. That is `fin.py`'s w/v case (MISSING M-5) in a second language --
    one distinction, two transcriptions, MIXED ACROSS the corpus -- and it is
-   settled by the tradition rather than by taste: unfolded, 12 of 78 couplets
-   of `corpus/cym_twm_or_nant_cywydd.txt` come back False on nothing but a
-   circumflex (`gân : ddatgan`, `sôn : gofion`, `uchel : chêl`). A form whose
-   end-rhyme is obligatory does not miss one couplet in six. `diacritics="keep"`
-   is reachable and it is what produces that 12.
+   settled by the tradition rather than by taste: unfolded, **8 of the 78
+   couplets** of `corpus/cym_twm_or_nant_cywydd.txt` come back False on nothing
+   but a circumflex -- `dygyfor : môr`, `wâg : rhedeg-wag`, `fôn : galon`,
+   `dôn : galon`, `gân : ddatgan`, `uchel : chêl`, `sôn : gofion`,
+   `amcan : gân` -- and folding recovers every one of the eight, 61 True
+   becoming 69. `diacritics="keep"` is reachable and it is what produces the 8.
 3. **A word-initial `w`/`i` glide is UNDECIDED, not decided** (`glide=
    "undecided"`). `wych` is `w`+`ych` or the diphthong `wy`+`ch` and no rule in
    this orthography tells them apart; the module's own docstring has flagged
@@ -134,7 +136,10 @@ FIVE COORDINATES, EVERY ONE DECLARED AND EVERY ONE MEASURED. See
    True where both agree, False where neither can and **None where they
    disagree** -- which is `relations.py`'s ternary and doctrine 53's rule, a
    verdict that depends on a distinction the orthography has collapsed is
-   refused rather than guessed. It fires on 32 of 5,246 staged line-ends.
+   refused rather than guessed. The word-level MARKER is on 34 of 5,246 staged
+   line-final tokens; the PAIR-level refusal fires on 3 of the cywydd's 54
+   mandated couplets and on 1 of 20,000 random line-final pairs, which is what
+   makes it AIMED rather than blunt in doctrine 67's sense.
    `glide="vocalic"` reproduces the pre-existing reading and `glide=
    "consonantal"` the other, so the choice is measurable and not settled by
    fiat.
@@ -222,7 +227,7 @@ RHYME_RULE = "depth"
 #:         the next.  Folding makes the corpus one corpus.  It is applied ONLY
 #:         in the rime path -- `syllabify`, `skeleton` and every cynghanedd
 #:         number are untouched, which is checked rather than trusted.
-#: "keep"  do not fold.  Reachable, and it is the reading that calls 12 of the
+#: "keep"  do not fold.  Reachable, and it is the reading that calls 8 of the
 #:         78 attested couplets of `corpus/cym_twm_or_nant_cywydd.txt` False.
 DIACRITICS = "fold"
 
@@ -882,8 +887,9 @@ class Welsh(Phonology):
                 f"transcription that flattened it with a UTF-8 one that kept "
                 f"it, so the distinction is present in one volume and absent "
                 f"in the next. diacritics='keep' is reachable and it is the "
-                f"reading under which one attested cywydd couplet in six "
-                f"fails on nothing but a circumflex."),
+                f"reading under which 8 of the 78 attested couplets of "
+                f"corpus/cym_twm_or_nant_cywydd.txt fail on nothing but a "
+                f"circumflex."),
             "glide": (
                 f"{GLIDE!r} -- a word-initial `w`/`i` before a vowel may be a "
                 f"consonant or the first element of a diphthong and the "
