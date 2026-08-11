@@ -514,6 +514,15 @@ def check_shipped(lo, hi, full, fprs, slopes):
         # same --seeds; the tolerance is for a shorter run
         cmp("held-out FPR %s (%%)" % k, p.held_out_fpr[k][0], fprs[f][0], 1.0)
     cmp("profile n_generated", float(p.n_generated), 0.0, 0)
+    # The period slope is quoted in the profile note AND inside the
+    # ANAPHORA_OVERLOAD finding, so it is a shipped constant like any other.
+    rho, pp = slopes["anaphora"]
+    cmp("anaphora period slope rho", 0.275, rho, 0.01)
+    cmp("anaphora period slope p_perm", 0.0042, pp, 0.004)
+    quoted = "+%.3f" % 0.275
+    if quoted not in p.note:
+        bad.append("the profile note no longer quotes rho %s" % quoted)
+        print("   profile note quotes rho             DRIFT")
     if p.measured_auc:
         bad.append("measured_auc is not empty on a profile with no negative "
                    "class")
