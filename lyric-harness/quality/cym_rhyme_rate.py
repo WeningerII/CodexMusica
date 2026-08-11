@@ -37,7 +37,6 @@ here.
 
 import os
 import random
-import re
 import sys
 from collections import Counter
 
@@ -434,7 +433,7 @@ def section4(n=N):
               % (label, n_rh, obs_prof[1], obs_prof[2], obs_prof[3],
                  obs, vals[-1], obs - vals[-1], p))
     print("\n  BELOW THE n=30 PAIR FLOOR IS NOT THE PROBLEM HERE, THE "
-          "MATERIAL IS: 18 blocks\n  from a corpus of 1,363 printed units. "
+          "MATERIAL IS: 18 blocks\n  from a corpus of 809 printed units. "
           "The four-line block is a TYPOGRAPHIC\n  selection rule and the "
           "Welsh song is not written in fours — 172 of the 305\n  hwiangerddi "
           "units are, 77 of 403 Mynyddog units are, and the cap of 8 per "

@@ -721,6 +721,252 @@ def test_welsh_proclitics_are_unstressed():
           ok and "'y'" not in why, why)
 
 
+# --------------------------------------------------------------------------
+# ATTESTED. Every pair below is a real line-end from a staged Welsh file, with
+# the line number it came from, so the tradition test is against the tradition
+# and not against the module's own rules (doctrine 37).
+#
+# `corpus/song/cym_cynghanedd_llywelyn_goch_cywydd.txt` is a complete cywydd:
+# 108 lines, 7-syllable RHYMED COUPLETS, which is the corpus header's own word
+# for the form. That makes it the POSITIVE arm for end-rhyme, and its own
+# straddling pairs -- line 2 with line 3, line 4 with line 5 -- the negative
+# one: same text, same words, same instrument, same line distance, and the form
+# mandates nothing there.
+# --------------------------------------------------------------------------
+
+CYM_CYWYDD = "cym_cynghanedd_llywelyn_goch_cywydd.txt"
+
+#: (line, line, first end word, second end word). Couplets of the staged
+#: cywydd, chosen to cover the four things the anchor has to get right.
+#: The tokens are the FILE's, not a tidied-up transcription of them: `hoew-fardd`
+#: carries the edition's hyphen and `trwch--` the em dash `normalise()` folds.
+#: This tuple had `hoewfardd` and `rodded` in it on its first run and the file
+#: overruled both, which is exactly what the assertion below it is for: the
+#: fixture is checked AGAINST the staged file before any verdict is asked of it,
+#: so a tidied-up transcription fails loudly instead of testing a word that is
+#: not in the corpus.
+CYM_COUPLETS = (
+    (1, 2, "hoew-fardd", "fardd"),     # diacen : acennog, the cywydd's rule
+    (3, 4, "heddiw", "lliw"),          # diphthong nucleus
+    (5, 6, "trwch--", "degwch"),       # a trailing em dash on the rhyme word
+    (9, 10, "wynedd", "bedd"),         # digraph coda `dd`, kept whole
+    (31, 32, "sidan", "lân"),          # circumflex against its plain vowel
+)
+
+
+def _cym_ends(name, marked=True):
+    """Line-end words of a staged Welsh file, in order. Same two rules as
+    `quality/cym_rhyme_rate.py` -- the unit is the corpus's own marker and the
+    end word is the last token `cym.WORD_RE` finds (doctrine 58)."""
+    root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+    path = os.path.join(root, "corpus", "song" if marked else "", name)
+    out = []
+    for raw in open(path, encoding="utf-8"):
+        t = raw.strip()
+        if not t or (marked and (t.startswith("#") or t.startswith("--- ")
+                                 or (t.startswith("[") and t.endswith("]")))):
+            continue
+        toks = [w for w in cym.WORD_RE.findall(cym.normalise(t))
+                if w.strip("'-")]
+        if toks:
+            out.append(toks[-1].lower())
+    return out
+
+
+def test_welsh_rhyme_anchor_is_counted_from_the_word_end():
+    print("\n10g. Welsh — the SECOND relation, and its anchor is not "
+          "English's")
+    c = get("cym")
+    d = c.rhyme_declaration()
+    check("the anchor is a DECLARED coordinate, not an implied one",
+          d["anchor_rule"] == "depth" and d["depth"] == 1
+          and "COUNTED FROM THE WORD END" in d["anchor"],
+          "doctrine 45's general form: a checker that silently picks a "
+          "coordinate is making a claim it never states")
+    check("and the declaration AGREES with the shipped constants",
+          d["depth"] == cym.RIME_DEPTH and d["anchor_rule"] == cym.RHYME_RULE
+          and f"RIME_DEPTH={cym.RIME_DEPTH}" in c.relation,
+          "built FROM the constants: fin.py's `relation` string named a depth "
+          "the module did not ship, for the whole life of that relation")
+    for coord in ("nucleus", "coda", "diacritics", "glide", "mutation",
+                  "shared_ending", "refusals"):
+        check(f"`{coord}` is stated either way, never left silent",
+              bool(d.get(coord)))
+    check("PENULTIMATE stress is WHY: the cywydd's own couplet rhymes",
+          c.rhymes("hoewfardd", "fardd") is True)
+    check("  and the ENGLISH PREDICATE PORTED calls it False, because the "
+          "anchor lands two syllables back on one side and one on the other",
+          c.rhymes("hoewfardd", "fardd", rule="prominent") is False,
+          "kept reachable so the falsification is a call and not a claim "
+          "(doctrine 84)")
+    check("  the port REFUSES outright on a proclitic line-end, which has no "
+          "prominent syllable at all (doctrine 46)",
+          c.rhymes("yn", "hyn", rule="prominent") is None
+          and c.refusal_reason("yn", rule="prominent")
+          == "no_prominent_syllable")
+    check("an undeclared setting RAISES rather than picking a default",
+          _raises(lambda: c.rhymes("bedd", "gwedd", rule="stress"))
+          and _raises(lambda: c.rhymes("bedd", "gwedd", diacritics="strip"))
+          and _raises(lambda: c.rhymes("bedd", "gwedd", glide="glide")))
+    check("the EIGHT DIGRAPHS stay whole inside the coda, which is the whole "
+          "reason this module exists",
+          c.rime("mynydd") == ("y", "dd") and c.rime("bardd") == ("a", "rdd"),
+          str((c.rime("mynydd"), c.rime("bardd"))))
+    check("identity is TYPED, never scored as a rhyme (doctrine 3)",
+          c.relation_type("bedd", "bedd") == "REPEAT"
+          and c.relation_type("wynedd", "bedd") == "RHYME")
+    check("`shared_tail` is a diagnostic and NOT a type — this module holds "
+          "no sourced Welsh ending list and refuses to invent one",
+          c.shared_tail("mynydd", "llonydd") == "nydd"
+          and "NOT TYPED" in d["shared_ending"])
+
+
+def test_welsh_mutation_does_not_reach_the_rime():
+    print("\n10h. Welsh — treiglad is outside the rime BY CONSTRUCTION")
+    c = get("cym")
+    # Every token here is in the staged corpus; the mutation grades of one
+    # word are attested side by side, so this is a corpus fact and not a
+    # remembered paradigm.
+    for grades in (("tân", "dân", "thân"), ("brân", "frân"),
+                   ("môr", "fôr"), ("cân", "gân", "chân")):
+        rimes = {c.rime(g) for g in grades}
+        check(f"{' / '.join(grades)} have ONE rime between them",
+              len(rimes) == 1, str(rimes))
+        for x in grades[1:]:
+            check(f"  ...so {grades[0]} : {x} is True",
+                  c.rhymes(grades[0], x) is True)
+    check("and the reason is structural, not a table: the rime starts at a "
+          "NUCLEUS and never reads its own first onset",
+          c.rime("gardd") == c.rime("ardd") == c.rime("hardd"),
+          "a change confined to the word-initial consonant run cannot enter "
+          "any rime this module builds, at any depth, under either anchor")
+    check("`mutation` says so in the declaration rather than nowhere",
+          "does not participate" in c.rhyme_declaration()["mutation"])
+
+
+def test_welsh_rhyme_against_the_tradition():
+    print("\n10i. Welsh — the TRADITION test: the cywydd is rhymed couplets, "
+          "and its straddling pairs are not")
+    c = get("cym")
+    ends = _cym_ends(CYM_CYWYDD)
+    check("the staged cywydd is 108 lines", len(ends) == 108, str(len(ends)))
+    for i, j, a, b in CYM_COUPLETS:
+        check(f"L{i}/L{j} of the staged file really are {a!r} / {b!r}",
+              ends[i - 1] == a and ends[j - 1] == b,
+              f"got {ends[i - 1]!r} / {ends[j - 1]!r}")
+    for i, j, a, b in CYM_COUPLETS:
+        check(f"L{i}/L{j}  {a} : {b}  rhymes", c.rhymes(a, b) is True,
+              str((c.rimes(a), c.rimes(b))))
+    check("  ...and the L5/L6 pair rhymes THROUGH the edition's em dash, "
+          "which normalise() folds to `--` and units() drops",
+          c.rime("trwch--") == c.rime("trwch") == ("w", "ch"))
+    check("  ...and L1/L2 rhymes THROUGH the edition's hyphen, which in "
+          "Welsh JOINS (doctrine 65)",
+          c.rime("hoew-fardd") == c.rime("hoewfardd") == ("a", "rdd"))
+    check("  ...and diacritics='keep' calls L31/L32 False, so the fold is a "
+          "measurable choice rather than a silent one",
+          c.rhymes("sidan", "lân", diacritics="keep") is False)
+    check("a STRADDLING pair at the same line distance does NOT rhyme: "
+          "L2/L3 fardd : heddiw",
+          ends[1] == "fardd" and ends[2] == "heddiw"
+          and c.rhymes(ends[1], ends[2]) is False)
+    check("L55/L56 fynych : wych is REFUSED, not guessed: `wych` is `w`+`ych` "
+          "or the diphthong `wy`+`ch` and the two readings disagree",
+          c.rhymes("fynych", "wych") is None
+          and c.rimes("wych") == (("wy", "ch"), ("y", "ch")),
+          str(c.rimes("wych")))
+    check("  ...and BOTH decided readings are reachable, so the refusal is "
+          "measured against them rather than asserted better (doctrine 84)",
+          c.rhymes("fynych", "wych", glide="vocalic") is False
+          and c.rhymes("fynych", "wych", glide="consonantal") is True)
+
+    coup = [(ends[i], ends[i + 1]) for i in range(0, len(ends) - 1, 2)]
+    strad = [(ends[i], ends[i + 1]) for i in range(1, len(ends) - 1, 2)]
+    pc = cym.pair_census(c, coup)
+    ps = cym.pair_census(c, strad)
+    print("          POSITIVE arm, the mandated couplets: mandated "
+          f"{pc['mandated']}, judged {pc['judged']}, refused {pc['refused']}"
+          f" -> {pc['true']} True")
+    print("          NEGATIVE arm, the straddling pairs:  mandated "
+          f"{ps['mandated']}, judged {ps['judged']}, refused {ps['refused']}"
+          f" -> {ps['true']} True")
+    check("a cywydd's mandated couplets DO rhyme — every judged one of them",
+          pc["true"] == pc["judged"] and pc["judged"] >= 50,
+          f"{pc['true']} of {pc['judged']}")
+    check("  and the three counts are separate: the refusals are the DESIGNED "
+          "glide refusal and are not charged to the comparator (doctrine 79)",
+          pc["refused"] == 3 and set(pc["by_code"]) == {"undecided_glide"},
+          str(pc["by_code"]))
+    check("the STRADDLING pairs do not — 0 of them, on the same text with the "
+          "same instrument at the same line distance",
+          ps["true"] == 0 and ps["judged"] == 53,
+          f"{ps['true']} of {ps['judged']}")
+    check("  the arms separate by 100 points, which is what makes the "
+          "positive one mean anything (doctrine 76)",
+          pc["true"] / pc["judged"] - ps["true"] / ps["judged"] > 0.99)
+    port = cym.pair_census(c, coup, rule="prominent")
+    print("          the ENGLISH PORT on the same couplets: mandated "
+          f"{port['mandated']}, judged {port['judged']}, refused "
+          f"{port['refused']} -> {port['true']} True")
+    check("THE ANCHOR IS THE COORDINATE THIS RELATION TURNS ON: the English "
+          "port answers True on 2 of 52 where the shipped rule answers 51 of "
+          "51", port["true"] == 2,
+          "Welsh stress is penultimate, so a cywydd couplet pairs an accented "
+          "end with an unaccented one and a prominence anchor reads a "
+          "different span on each side")
+
+    # THE TRAP THE FINNISH CELL FOUND, LOOKED FOR HERE. Adjacent Kalevala-metre
+    # lines agree above chance because parallelism repeats an inflectional
+    # ending, which is not rhyme. The Welsh form of it is the REFRAIN.
+    reps = 0
+    tot = 0
+    for name in sorted(os.listdir(os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), "..", "corpus",
+            "song"))):
+        if not name.startswith("cym_song_"):
+            continue
+        e = _cym_ends(name)
+        for i in range(len(e) - 1):
+            t = c.relation_type(e[i], e[i + 1])
+            if t == "REPEAT":
+                reps += 1
+            if t in ("REPEAT", "RIME_RICHE", "RHYME"):
+                tot += 1
+    print(f"          REPEAT share of TRUE adjacent verdicts in the four song "
+          f"books: {reps} of {tot}")
+    check("REPEAT is typed rather than scored as rhyme, and it is not zero — "
+          "a song corpus repeats its refrain (doctrine 3)",
+          reps > 0 and tot > reps,
+          "half of corpus/whitman.txt's detected links are REPEAT on an "
+          "identical token, which is why that file was never an eligible "
+          "negative control; a rhymes() that could not say REPEAT would walk "
+          "into the same wall here")
+
+
+def test_welsh_rhyme_leaves_cynghanedd_alone():
+    print("\n10j. Welsh — the rime path must not move a cynghanedd number")
+    c = get("cym")
+    check("the diacritic fold is NOT applied by syllabify",
+          [s.nucleus for s in c.syllabify("tân")] == ["â"]
+          and c.rime("tân") == ("a", "n"),
+          "folding globally would change a syllable COUNT — `â'u` is two "
+          "nuclei and folds to the listed diphthong `au`, which is one — so "
+          "it is confined to the rime path (doctrine 58)")
+    check("the glide alternative is NOT applied by syllabify either",
+          [s.nucleus for s in c.syllabify("wych")] == ["wy"]
+          and c.rimes("wych") == (("wy", "ch"), ("y", "ch")))
+    check("`skeleton` is unchanged on an attested line",
+          c.skeleton("Trwy Gwalia", "llafariad") == ["t", "r", "g", "l"],
+          str(c.skeleton("Trwy Gwalia", "llafariad")))
+    check("and the folding function refuses to rescue an out-of-inventory "
+          "letter: it drops a mark only over a VOWEL",
+          cym.fold_diacritics("mañana") == "mañana"
+          and cym.fold_diacritics("tân") == "tan"
+          and c.refusal_reason("mañana") == "out_of_inventory",
+          "a blanket strip would turn ñ into n and quietly admit a foreign "
+          "proper name that units() correctly refuses")
+
+
 def test_every_module_declares_itself():
     print("\n11. every phonology declares what it reads and what it is")
     # Not a fixed count. A hardcoded set fails the moment a language is added,
@@ -805,6 +1051,10 @@ if __name__ == "__main__":
                test_welsh_cynghanedd,
                test_welsh_accentuation_classes,
                test_welsh_proclitics_are_unstressed,
+               test_welsh_rhyme_anchor_is_counted_from_the_word_end,
+               test_welsh_mutation_does_not_reach_the_rime,
+               test_welsh_rhyme_against_the_tradition,
+               test_welsh_rhyme_leaves_cynghanedd_alone,
                test_check_cynghanedd_defaults_to_welsh,
                test_every_module_declares_itself,
                test_no_module_consults_english):
