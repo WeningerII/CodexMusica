@@ -583,11 +583,17 @@ def test_the_oracle_did_not_move():
     import battery
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
-        viol = battery.sonnet_battery()
+        res = battery.sonnet_battery()
+    # `sonnet_battery()` returns the four counts as a DICT since 9396946, when
+    # battery.py stopped printing-and-returning and started asserting. It used
+    # to return the violation LIST, so this read `len(viol)` -- which on the
+    # dict is the KEY count, 6. Both callers failed loudly rather than
+    # silently, because both assert against 81; that is the only reason this
+    # was a broken test and not a wrong number in the record.
     m = re.search(r"mandated pairs (\d+), judged (\d+), refused (\d+)",
                   buf.getvalue())
-    got = (int(m.group(1)), int(m.group(2)), int(m.group(3)), len(viol)) \
-        if m else None
+    got = (int(m.group(1)), int(m.group(2)), int(m.group(3)),
+           res["violations"]) if m else None
     check("mandated 1064, judged 1014, refused 50, violations 81",
           got == (1064, 1014, 50, 81),
           f"{got}. Doctrine 79: three counts, and the fourth is the one people "

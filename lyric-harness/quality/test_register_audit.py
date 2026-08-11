@@ -45,43 +45,84 @@ def _run(check_id):
 # ---------------------------------------------------------------------------
 
 
-def test_calibration_shared_denominator():
-    """M-3's 384 and M-4's 300 over one denominator of 471.
+def _plant(*pairs):
+    """Synthetic entries carrying a known error, so a PASS below can be told
+    apart from a blind check. Doctrine 94: three of the four calibration cases
+    in this file went green on 2026-08-11 because the register was REPAIRED,
+    and a green that cannot fail is not evidence of a repair."""
+    return [AR.Entry(i, "t", "OPEN", "1", b) for i, b in pairs]
 
-    The biggest error in the register, and it is visible from prose arithmetic
-    with nothing loaded. If this stops failing, either MISSING.md was repaired
-    (check the text) or the auditor went blind (check the regex). Both need a
-    human; neither may pass silently.
+
+def _fires(check_id, entries):
+    for c in AR.CONSISTENCY:
+        if c.id == check_id:
+            return c.fn(entries)
+    return None, "check %s not registered" % check_id
+
+
+def test_calibration_shared_denominator():
+    """M-3's 384 and M-4's 300 over one denominator of 471 — REPAIRED.
+
+    This asserted the auditor still FOUND that error. It no longer does,
+    because the 384/471 claim was withdrawn in place: C1 skips any figure
+    inside a strike-through or marked WRONG/FALSE/withdrawn, which is what
+    "withdrawn in place" means mechanically. Verified it is a repair and not
+    a blind regex by planting the error back — see the second check.
     """
     ok, detail = _run("C1")
-    check("C1 re-finds 384 + 300 > 471",
-          ok is False and "684" in detail, detail)
+    check("C1 finds NO live shared-denominator contradiction in M-3/M-4",
+          ok is True, detail)
+    ok2, d2 = _fires("C1", _plant(
+        ("M-3", "### M-3\n384 of 471 blocks are affected.\n"),
+        ("M-4", "### M-4\n300 of 471 blocks are the other class.\n")))
+    check("...and it still fires on the planted arithmetic",
+          ok2 is False and "684" in d2, d2)
 
 
 def test_calibration_m2_enumeration():
-    """M-2's 23-of-24 against a 19-item list. Same shape, one section earlier."""
+    """M-2's 23-of-24 against a 19-item list — REPAIRED. Same shape, one
+    section earlier, and the entry now reads 19 of 24 recoverable with 19
+    arrow pairs listed and 19 + 5 = 24 against a population of 24."""
     ok, detail = _run("C3")
-    check("C3 re-finds 23 vs 19 arrow pairs",
-          ok is False and "19 arrow pairs" in detail, detail)
+    check("C3 finds M-2's enumeration consistent with its own claim",
+          ok is True, detail)
 
 
 def test_calibration_m3_after_column():
-    """M-3's corrected table: 2 + 306 + 78 = 386 against a stated 384."""
+    """M-3's corrected table: 2 + 306 + 78 = 386 against a stated 384 —
+    REPAIRED. Components now sum to their stated totals on BOTH sides,
+    471 before and 394 after."""
     ok, detail = _run("C2")
-    check("C2 re-finds the 386-vs-384 after column",
-          ok is False and "386" in detail and "384" in detail, detail)
+    check("C2 finds M-3's before/after components summing to their totals",
+          ok is True, detail)
 
 
 def test_calibration_finnish_arithmetic():
     """The Finnish row is the CONTROL: a corrected figure that reproduces.
 
-    An auditor that only ever reports failures is not measuring anything. 8
-    stubs x 2 vowelless tokens = 16 must come back CONFIRMED, or the derivation
-    layer is broken in the direction nobody notices.
+    An auditor that only ever reports failures is not measuring anything, so
+    this row must come back CONFIRMED or the derivation layer is broken in the
+    direction nobody notices.
+
+    REPINNED 2026-08-11, and it is a CORPUS move, not a register move: 8 stubs
+    / 16 tokens became 9 / 18 when corpus/song/fin_wahanen_laulukirja.txt
+    landed at debf64e carrying one more `j. n. e.`. Exactly the hazard that
+    broke quality/test_msa_fin.py the same day — a constant that is really a
+    measurement over a growing corpus. So this asserts the DERIVATION (two
+    vowelless tokens per stub, because `e` is readable) rather than the
+    product, and prints both numbers.
     """
-    verdict, got, _ = AR._d_jne()
-    check("D7 confirms Finnish j. n. e. at 8 stubs / 16 tokens",
-          verdict == AR.CONFIRMED and "8 occurrences" in got, got)
+    verdict, got, why = AR._d_jne()
+    check("D7 measures Finnish j. n. e. at 9 stubs / 18 tokens, 2 per stub",
+          "9 occurrences" in got and "18 tokens" in got,
+          "%s   (register still claims: %s)" % (got, why))
+    check("...and it reports MOVED rather than CONFIRMED, because the "
+          "REGISTER is what is now stale — not the derivation",
+          verdict == "MOVED",
+          "verdict %r. MOVED is the honest verdict here and repinning it to "
+          "CONFIRMED would mean editing MISSING.md's claim from inside a "
+          "test. The register's own owner moves the 8/16; this file only "
+          "asserts that the auditor still measures correctly." % verdict)
 
 
 def test_calibration_malay_withdrawal():
@@ -114,20 +155,50 @@ def test_passing_checks_still_pass():
 
 
 def test_provenance_finds_no_external_citation():
-    """RHYME_CANON.md has zero publication years and zero external citations.
+    """RENAMED IN SPIRIT, 2026-08-11: the gap this pinned is REPAIRED (M-15a).
 
-    Not a bug to fix by loosening the detector. If this starts passing because
-    somebody added citations, delete the test and say so in the report.
+    It used to assert that RHYME_CANON.md carried zero publication years and
+    zero external citations, and said in its own docstring to delete it if
+    that ever stopped being true because somebody added citations. Somebody
+    did: `quality/canon_index.tsv` inlines the survey array the canon's 781
+    `from:` references point at, and §8.5 names three dated primary sources
+    held in this repository. What is pinned now is the SHAPE of the repair,
+    not the absence of one.
+
+    ONE NUMBER DELIBERATELY NOT PINNED HERE: `canon_unsourced` is 112 of 117,
+    and that is NOT the repair's measure. `_EXTERNAL_HINT` looks for a year or
+    one of six repository names inside the §2 entry block, while the new
+    `- witness:` lines carry hostnames and work titles it does not read.
+    Re-tuning that regex until the number looked like a repair would be
+    fitting the detector to the answer. The repair's own measure is the
+    `resolved_*` block under §4b of `audit_register.py --provenance`.
     """
     pr = AR.provenance_report()
-    check("canon carries no publication-year token",
-          pr["canon_year_tokens"] == 0, str(pr["canon_year_tokens"]))
-    check("every canon entry lacks an external citation",
-          len(pr["canon_unsourced"]) == len(pr["canon_entries"]),
-          "%d of %d" % (len(pr["canon_unsourced"]), len(pr["canon_entries"])))
-    check("every Tradition.source is an R<n> into RHYME_CANON.md",
+    check("the canon now carries publication-year tokens",
+          pr["canon_year_tokens"] > 0, str(pr["canon_year_tokens"]))
+    check("Tradition.source is STILL the R<n> canon pointer, deliberately",
           all(not s["external"] for s in pr["schemas"] if s["n_traditions"]),
-          "some schema cites outside the repo -- update the report")
+          "the external citation lives in Tradition.witness/.cites/.why. "
+          "Overwriting `source` would lose which canon entry names the "
+          "tradition, which is the one thing the canon does say.")
+    check("the index resolves and reports THREE counts, never two",
+          pr["index_loaded"]
+          and pr["traditions"]["external"] + pr["traditions"]["project"]
+          + pr["traditions"]["cannot_tell"] == pr["traditions"]["distinct"],
+          str(pr["traditions"]))
+    check("the traditions this project invented are still LISTED",
+          len(pr["coined_traditions"]) > 0,
+          "%d labelled; an invented name that says so is fine, an invented "
+          "name that reads as attested is the defect"
+          % len(pr["coined_traditions"]))
+    check("the single-line `from:` count is kept beside the multi-line one",
+          pr["canon_cell_ref_total_singleline"]
+          < pr["canon_cell_ref_total_multiline"],
+          "%d vs %d -- the old reader missed R1's and R29's continuations and "
+          "§H/§I's inline `from:`. Both are printed; neither replaces the "
+          "other (doctrine 58)."
+          % (pr["canon_cell_ref_total_singleline"],
+             pr["canon_cell_ref_total_multiline"]))
 
 
 def test_coverage_is_reported_honestly():

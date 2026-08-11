@@ -84,13 +84,16 @@ def test_sonnet_oracle_headline():
     print("\n1. the sonnet oracle reports three counts and they are pinned")
     buf = io.StringIO()
     with redirect_stdout(buf):
-        viol = battery.sonnet_battery()
+        res = battery.sonnet_battery()
     out = buf.getvalue()
 
+    # DICT, not the violation list, since 9396946 -- see the note in
+    # quality/test_homograph.py section 9. `len()` on it is the key count.
     check(f"{SONNETS} sonnets parse", f"{SONNETS} sonnets parsed" in out,
           out.splitlines()[0] if out else "no output")
-    check(f"violations == {VIOLATIONS}", len(viol) == VIOLATIONS,
-          f"got {len(viol)}. This is a coordinate of theta_coda: 73 at 0.60, "
+    check(f"violations == {VIOLATIONS}", res["violations"] == VIOLATIONS,
+          f"got {res['violations']}. This is a coordinate of theta_coda: "
+          f"73 at 0.60, "
           f"81 at the shipped 0.80 (RESULTS_REDTEAM.md predicted the move). "
           f"If it changes, say which coordinate moved and price it held out "
           f"(doctrine 5) -- do not retune this constant to match.")
