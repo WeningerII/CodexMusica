@@ -341,8 +341,19 @@ We found the property, quoted Skeat's own footnote describing it, extracted 82
 quatrains — and never measured the discontinuity, which is the interesting part.
 
 ### H-3 · No structural cliché beyond the grid `PARTIAL`
-**Now:** `stanza_lock()` names five grid clichés. That is the only structural
-cliché detector.
+**Now:** `stanza_lock()` names ~~five~~ **six** grid clichés. That is the only
+structural cliché detector.
+**Re-derived 2026-08-11 by walking the AST of `quality/grid.py`** rather than by
+reading the prose: `METER_LOCKED`, `SECTION_LENGTH_LOCKED`, `QUATRAIN_LOCK`,
+`DOWNBEAT_LOCKED`, `UNIFORM_ANACRUSIS`, `PHRASE_LENGTH_LOCKED`.
+`UNIFORM_ANACRUSIS` was added when clearing `DOWNBEAT_LOCKED` turned out to be
+achievable by giving every second line one constant pickup — doctrine 24, the
+rule RELABELS the second shape of the defect instead of widening the first.
+**And `five` was not simply stale: the two numbers count different things.**
+`DOWNBEAT_LOCKED` and `UNIFORM_ANACRUSIS` sit in one `if`/`elif`, so **six are
+NAMED and at most five can FIRE on any one song** — which is what
+`quality/test_grid.py` pins (`len(stanza_lock(cliche_song())) == 5`). Doctrine
+91: the count is a coordinate of the question. Say which one is being asked.
 **Missing:** clichéd section orders, clichéd hook placement, the exhausted
 verse-chorus-bridge sequence, clichéd rhyme-scheme choice itself.
 
@@ -375,13 +386,64 @@ the words are being designed in separate universes.
 
 ### K-1 · There is no SONG corpus `PARTIAL` — largely closed 2026-08-10
 **Was:** Shakespeare's sonnets and Whitman. Neither is a song.
-**Now:** `corpus/song/` — **143 authors, 5,006 songs, 154,346 sung lines**, with
-2,454 marked repeat blocks (1,603 BURDEN, 604 REFRAIN, 247 CHORUS) and ~~331
-songs carrying a named air~~ **318 songs carrying a named air** (see below).
-Six parallel cells. Of **220** rows, **8 carry a third status** — 4
-`COMPOSER_NOT_LYRICIST`, 3 `NOT_SOURCED`, 1 `CONTESTED` — and the other 212
-divide two ways: **142 of the 212 listed lyricists SOURCED, 70 NOT_FOUND** with
-the exact queries recorded. Five statuses, 220 rows, and every count stated.
+**Now:** `corpus/song/` at commit `06857f8` — **143 authors, ~~5,006~~ 4,993
+songs, ~~154,346~~ 153,534 sung lines**,
+with ~~2,454~~ 2,443 marked repeat blocks (1,592 BURDEN,
+604 REFRAIN, 247 CHORUS) and ~~331 songs carrying a named
+air~~ **318 songs carrying a named air** (see below).
+Six parallel cells. Of **220** rows, **9 carry a later status** — 4
+`COMPOSER_NOT_LYRICIST`, 3 `NOT_SOURCED`, 1 `CONTESTED`, 1
+`JOINT_ATTRIBUTION_ONLY` — and the other 211
+divide two ways: **141 of the 211 listed lyricists SOURCED, 70 NOT_FOUND** with
+the exact queries recorded. ~~Five~~ **Six** statuses, 220 rows, and every count
+stated.
+
+> **EVERY SONG/LINE/BLOCK FIGURE ABOVE IS PINNED TO COMMIT `06857f8`**, and it
+> has to be, because it moves under you: measured again twenty minutes later
+> against an uncommitted working tree the same rule gave 4,930 songs / 152,313
+> lines / 2,428 blocks, mid-edit by a live corpus cell. A commit-pinned number
+> cannot go stale — it is a claim about a fixed tree and re-derives forever. A
+> date-pinned one cannot even be checked. For the LIVE value run
+> `python3 quality/counters.py`; `BACKLOG.md`'s counters table deliberately
+> records no number for this row at all.
+>
+> **THE COUNTING RULE, WHICH IS THE PART THAT WAS MISSING.** `154,346` was
+> recorded with no rule beside it and **reproduced under nothing**: a sweep of
+> five plausible phrasings returned 154,351 / 154,339 / 154,191 / 154,179 /
+> 154,339 and not one of them was 154,346. Nobody could tell whether it had
+> drifted or had never been re-derivable — doctrine 58 at its purest, where the
+> unwritten coordinate is the RULE rather than a threshold.
+>
+> Every figure in the paragraph above is now produced by ONE instrument with a
+> stated rule, `quality/audit_register.py --slow` derivations D1/D2/D3, and is
+> re-derivable in one command:
+>
+> ```
+> python3 quality/counters.py     # row: corpus/song/eng_* — K-1's own quantities
+> ```
+>
+> **The rule.** A SONG is a `--- TITLE:` line. A SUNG LINE is a non-blank line
+> that does not begin `#`, `---` or `[`. A REPEAT BLOCK is a `[TAG` line with
+> any trailing index stripped. The population is `corpus/song/eng_*.txt`, 143
+> files. The counters row is VOLATILE by declaration — it carries no frozen
+> number in `BACKLOG.md`, only the command — because these move whenever a
+> corpus cell runs, which is exactly what happened below.
+>
+> **Why they moved, 2026-08-11 (commit `0e36b56`).** An attribution cell removed
+> **819 duplicated lines**: nine poems of the 1798 *Lyrical Ballads* were staged
+> under BOTH Coleridge and Wordsworth, split by a line-count cap standing in for
+> an author rule, and one hymn under a joint Tate–Brady attribution was claimed
+> solely by two files. `SOURCED` fell 142 → 141 and a sixth status,
+> `JOINT_ATTRIBUTION_ONLY`, was added.
+>
+> **THE DIRECTION IS THE FINDING.** The corpus LOST 819 lines and the unreadable
+> RATE went UP — 5.2677% → 5.2873% (`quality/test_readability.py`) — because only
+> 6 of the 819 had an unreadable end word. **Every rate ever measured over this
+> corpus was diluted by text that was in it twice.** A corpus that only grows is
+> an assumption, not a property: `quality/test_song_function.py`'s repeat-block
+> pins were written `>=` so a growing corpus could not break them, the corpus
+> shrank, and they broke in the direction they were not built for. A bound that
+> guards one direction is not a bound.
 
 > **THE THIRD STATUS WAS MISSING AND THE SENTENCE INVITED AN ADDITION THAT DOES
 > NOT CLOSE.** 142 + 70 = 212, not 220. Both figures are individually
@@ -607,15 +669,37 @@ gap. Its own docstring calls it unvalidated as a general slop detector.
 "4-line quatrain, 29–37 tokens" and "14-line sonnet". Anything else is an
 extrapolation and gets downgraded to a note. This is what shaped the demo song.
 
-### L-5 · Doctrine has drifted toward auditing `OPEN`
-~~`CLAUDE.md` carries 76 numbered items~~ **102 numbered items, measured
-2026-08-11** — and roughly the last 25 are about null hypotheses and
-calibration. A future session reading it will learn to audit rather than to
-write. **The stale number is this entry's own evidence, which makes the point
-twice:** the drift L-5 names has continued for 26 doctrines while the figure
-that measures it stood still. A split into a short WRITING doctrine and a long
-METHOD appendix is under way in `CLAUDE.md` / `quality/METHOD.md`; the numbering
-stays global so `doctrine 79` is still doctrine 79.
+### L-5 · Doctrine has drifted toward auditing `CLOSED` 2026-08-11
+~~`CLAUDE.md` carries 76 numbered items~~ ~~**102 numbered items, measured
+2026-08-11**~~ — **95 doctrines**, and roughly the last 25 are about null
+hypotheses and calibration. A future session reading it will learn to audit
+rather than to write. **The stale number is this entry's own evidence, which
+makes the point twice:** the drift L-5 names has continued while the figure that
+measures it stood still. A split into a short WRITING doctrine and a long METHOD
+appendix ~~is under way~~ **is DONE** in `CLAUDE.md` / `quality/METHOD.md`
+(commit `d11ca0a`); the numbering stays global so `doctrine 79` is still
+doctrine 79.
+
+**And the 102 makes the point a third time, which is why it is corrected here
+rather than quietly replaced.** `CLAUDE.md` carries TWO numbering systems that
+do not collide — the doctrine run, and a `Known gaps` list of **7** cited
+elsewhere as `known gap N`. Both are written `^\d+\. \*\*`, so a bare regex over
+the file returned **27** where the doctrine block holds **20**; 27 + 75 = 102.
+Two independent runs added together as if they were one. Measured
+2026-08-11 by `python3 quality/verify_doctrines.py`, which reads only between
+the `<!-- DOCTRINE-BLOCK -->` markers that exist for exactly this reason:
+
+| | doctrines | `known gap N` |
+|---|---:|---:|
+| `CLAUDE.md` | 20 | 7 |
+| `quality/METHOD.md` | 75 | 0 |
+| **total** | **95**, a contiguous run 1–95, nothing defined twice | **7**, a separate run 1–7 |
+
+**The counter is now the record.** `python3 quality/counters.py --check` FAILS
+if `BACKLOG.md`'s counters table disagrees with the measurement, so this figure
+cannot go stale again without a red test. That is the doctrine-48 move this
+entry was itself an instance of: L-5 recorded the drift of a number in prose,
+and the prose drifted.
 
 ---
 
@@ -1036,6 +1120,28 @@ prints tunes but no metre index (M-8); the Gītagovinda's rāga and tāla headin
 exist and are refused on licence (M-12); the Persian EPUBs carry no per-poem
 musical metadata at all. This is F-6 restated with a number and it is the single
 largest structural gap left in the corpus.
+
+> **THE DENOMINATOR HAS MOVED AND THE ZERO HAS NOT. Measured 2026-08-11**, same
+> rule as K-1 (a song is a `--- TITLE:` line), over `corpus/song/`:
+>
+> | prefix | language | songs |
+> |---|---|---:|
+> | `fas_` | Persian | 8,350 |
+> | `fin_` | Finnish | 962 |
+> | `cym_` | Welsh | 391 |
+> | `msa_` | Malay | 129 |
+> | `san_` | Sanskrit | 25 |
+> | | **the five M-11 names** | **9,857** |
+>
+> ~~8,009~~ **9,857**, and `ltc_` is a further 10,529 outside M-11's list. The
+> **0 is untouched** — it is the finding, and it does not depend on the
+> denominator. Recorded rather than silently swapped because the entry stated no
+> rule and no date, so nobody could tell a drift from a mis-transcription; this
+> is the same defect K-1's `154,346` had. Re-derive with
+> `python3 quality/counters.py` (the `corpus/song/eng_*` row states the rule) or
+> `python3 quality/audit_register.py --slow`. **Neither figure is re-derivable as
+> a NAMED-AIR rate until `--- AIR:` exists** (§3.2), which is the actual blocker
+> and is unchanged.
 
 ### M-12 · The admissible copy and the complete copy are DISJOINT `OPEN`
 Doctrine 92. Three instances in one round, and "find a better source" is the

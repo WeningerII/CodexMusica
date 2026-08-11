@@ -187,7 +187,14 @@ def _sh(args, timeout=900):
 
 
 def _grab(pattern, text, what):
-    m = re.search(pattern, text)
+    """Pull one figure out of a runner's printed output, or RAISE.
+
+    MULTILINE always: every pattern here anchors on a line of a multi-line
+    report. There is deliberately no fallback value -- a counter that cannot
+    read its instrument REFUSES (doctrine 28), because the alternative is
+    printing the last number somebody typed, which is the whole defect.
+    """
+    m = re.search(pattern, text, re.M)
     if not m:
         raise ValueError("could not read %s out of the runner's output; the "
                          "line this counter parses has changed shape and the "
@@ -197,6 +204,58 @@ def _grab(pattern, text, what):
 
 def _int(s):
     return int(s.replace(",", ""))
+
+
+_CACHE = {}
+
+
+def _once(key, args, timeout=900):
+    """Run a runner at most once per process and hand every caller its stdout.
+
+    Three counters below read the register audit. Running it three times would
+    be slow AND would let two counters disagree about a number produced by one
+    instrument, which is the defect this file exists to remove.
+    """
+    if key not in _CACHE:
+        _CACHE[key] = _sh(args, timeout=timeout)
+    return _CACHE[key]
+
+
+def _derivation(out, ident):
+    """-> the `measured:` text of one lettered derivation in an audit_register
+    run. The block shape is `  VERDICT  Dn  entry  what` then indented
+    `register:` / `measured:` / `reproduce:` lines."""
+    m = _grab(r"^ +\S+ +%s +\S.*?\n(?:.*\n)*?\s+measured:\s+(.+)$" % ident,
+              out, "derivation %s" % ident)
+    return m.group(1).strip()
+
+
+# WHY THESE ARE SUBPROCESSES AND NOT IMPORTS.
+#
+# The first version of this file did `from quality import audit_register` and
+# `from quality.mutate import MUTATIONS`, which is the obvious way to call an
+# instrument rather than duplicate it. Measured, it cost something real:
+# `lyric_harness.py wiring` reports "one-shot runners, standalone by design" by
+# listing the modules NOTHING imports, and importing those two made them stop
+# being orphans -- so the runner list fell from 29 to 28 and
+# `python3 quality/audit_register.py` and `python3 quality/mutate.py` stopped
+# being NAMED. Nothing broke: STRANDED stayed none and every test passed. What
+# was lost was discoverability, which is the exact thing CLAUDE.md says a count
+# of runners is not, and the exact way `audit_corpus.py`, `relations_null.py`
+# and `ltc_overlap.py` were unfindable for a week.
+#
+# `audit_register.py` already states the convention this violates -- "a file
+# does not become wired by being audited" -- and applies it to itself. `wiring`
+# does not yet apply it to the auditor's TARGETS, so an auditor that imports
+# what it audits silently deletes those modules from the map. That is a defect
+# in `wiring`, written up for its owner rather than worked around by hiding the
+# import from the AST walk; hiding an edge from an auditor would be worse than
+# the edge.
+#
+# Until then this file calls the two runners across a process boundary, which
+# creates no import edge and has the independent virtue of reading the same
+# output a human reads. Test files are exempt: `wiring` never treats a `test_*`
+# module as an orphan, so importing `test_mutation.ALLOWLIST` costs nothing.
 
 
 # ---------------------------------------------------------------------------
@@ -211,13 +270,25 @@ def missing_entries():
     """MISSING.md entries by status.
 
     DERIVATION. Every `^### ` line in MISSING.md is one entry -- that is the
-    file's own convention and `audit_register.read_entries` reads it the same
-    way. The STATUS is the first backticked all-caps word drawn from the five
+    file's own convention, and `audit_register.read_entries` reads it the same
+    way, so its printed entry total is used below as an independent check on
+    this one. The STATUS is the first backticked all-caps word drawn from the five
     MISSING.md declares in its own header, searched over the heading line AND
-    the lines that continue it, because two headings wrap onto a second line
-    (`C-2` and `L-3`) and a heading-line-only regex silently loses them. A
-    continuation stops at a blank line, a new `#` heading, or a `**` bold run,
-    which is where every entry's body starts.
+    the lines that continue it. A continuation stops at a blank line, a new `#`
+    heading, or a `**` bold run, which is where every entry's body starts.
+
+    THE RULE IS THE FIRST TOKEN OVER HEADING-PLUS-CONTINUATION, and both
+    neighbouring rules are wrong, in opposite directions -- which is the whole
+    reason to write it down:
+
+      heading line only  -> `L-3`'s heading wraps and its `PARTIAL` sits on the
+                            next line, so the entry falls out of every bucket.
+                            This is EXACTLY the committed row: it reproduces
+                            `53 / 10 / 2 / 7`, total 72, while a separate count
+                            of `^### ` correctly said 73. The parts and the
+                            total had been produced by two different rules.
+      last token         -> `C-2`'s continuation ends "catalogues do not
+                            `OPEN`", so C-2 flips PARTIAL -> OPEN.
 
     Two things are ASSERTED rather than reported, because both are errors the
     table can make with no outside help:
@@ -254,18 +325,13 @@ def missing_entries():
         raise ValueError("parts %d do not sum to the total %d"
                          % (sum(counts.values()), total))
 
-    cross = ""
-    try:
-        from quality import audit_register as AR
-        n = len(AR.read_entries())
-        cross = ("audit_register's independent parser agrees: %d entries" % n
-                 if n == total else
-                 "DISAGREEMENT: audit_register reads %d entries, this reads %d"
-                 % (n, total))
-        if n != total:
-            raise ValueError(cross)
-    except ImportError:                                          # noqa: PERF203
-        cross = "audit_register not importable; no cross-check"
+    out, _ = _once("register", ["quality/audit_register.py", "--slow"])
+    n = int(_grab(r"^  (\d+) entries, \d+ carry numbers", out,
+                  "audit_register's entry count").group(1))
+    cross = "audit_register's independent parser agrees: %d entries" % n
+    if n != total:
+        raise ValueError("DISAGREEMENT: audit_register reads %d entries, "
+                         "this reads %d" % (n, total))
 
     order = [s for s in MISSING_STATUSES if counts.get(s)]
     cell = "%s = %d entries" % (
@@ -371,21 +437,30 @@ def stranded():
 def mutations_declared():
     """How many mutations the adversary declares, and how many are excused.
 
-    DERIVATION. `len(quality.mutate.MUTATIONS)` and
-    `len(quality.test_mutation.ALLOWLIST)` -- read off the objects the suite
-    itself iterates, so a mutation added without a test entry moves this number
-    on the next run. CAUGHT is a separate counter below, because it is not free
-    and a number that costs money to check is exactly the number that gets
-    copied forward instead.
+    DERIVATION. `python3 quality/mutate.py --dry-run` applies every declared
+    mutation to a shadow tree and prints `N/M mutations apply cleanly`; M is the
+    declared count and it is checked, not assumed, because a mutation whose
+    anchor has drifted out of the source is declared and INERT. The allowlist
+    comes from `quality.test_mutation.ALLOWLIST`, imported directly -- `wiring`
+    never treats a `test_*` module as an orphan, so that import hides nothing.
+
+    CAUGHT is a separate counter below, because it is not free, and a number
+    that costs money to check is exactly the number that gets copied forward
+    instead of re-derived.
     """
-    from quality.mutate import MUTATIONS
     from quality.test_mutation import ALLOWLIST
-    n, a = len(MUTATIONS), len(ALLOWLIST)
+    out, _ = _sh(["quality/mutate.py", "--dry-run"])
+    m = _grab(r"(\d+)/(\d+) mutations apply cleanly", out,
+              "the declared mutation count")
+    applied, n = int(m.group(1)), int(m.group(2))
+    if applied != n:
+        raise ValueError("%d of %d mutations no longer apply; a mutation that "
+                         "does not apply is declared and inert" % (applied, n))
+    a = len(ALLOWLIST)
     cell = ("**%d declared, %d allowlisted equivalent** (%s — and the "
             "allowlist entry's PREMISE is itself under test)"
             % (n, a, ", ".join(sorted(ALLOWLIST))))
-    return Answered(cell, "%d mutation names: %s"
-                    % (n, ", ".join(m.name for m in MUTATIONS)))
+    return Answered(cell, "all %d apply cleanly to the current source" % n)
 
 
 def mutations_caught():
@@ -416,6 +491,49 @@ def corpus_song_files():
     d = os.path.join(ROOT, "corpus", "song")
     return Answered("%d files" % len(os.listdir(d)),
                     "counted in %s at run time" % d)
+
+
+def english_corpus():
+    """MISSING.md K-1's own quantities: English songs, sung lines, repeat blocks.
+
+    DERIVATION. `python3 quality/audit_register.py --slow` derivations D1, D2
+    and D3, which are the repo's existing instrument for these and STATE THEIR
+    RULE: a song is a `--- TITLE:` line; a SUNG LINE is a non-blank line that
+    does not begin `#`, `---` or `[`; a repeat block is a `[TAG` line with any
+    trailing index stripped. This reads that runner's output rather than
+    re-deriving, so K-1 and the register audit cannot disagree.
+
+    WHY THIS COUNTER EXISTS AT ALL. K-1 recorded `154,346 sung lines` and that
+    number reproduced under NO phrasing anybody tried -- five sweeps returned
+    154,351 / 154,339 / 154,191 / 154,179 / 154,339 and none of them was it.
+    The entry recorded a figure and not the RULE that produced it, which is
+    doctrine 58 in its purest form: nobody could tell whether it had drifted or
+    had never been re-derivable. VOLATILE, and for a reason the corpus proved
+    on 2026-08-11: an attribution cell removed 819 lines that were staged twice
+    (nine poems of the 1798 Lyrical Ballads under both Coleridge and Wordsworth,
+    plus one hymn), and the corpus SHRANK. Any bound written `>=` because a
+    corpus only grows is not a bound.
+    """
+    out, _ = _once("register", ["quality/audit_register.py", "--slow"])
+    songs = int(_derivation(out, "D1"))
+    lines = int(_derivation(out, "D2"))
+    rb = _grab(r"BURDEN (\d+) REFRAIN (\d+) CHORUS (\d+) \(sum (\d+)\)",
+               _derivation(out, "D3"), "the repeat-block breakdown")
+    b, r, c, tot = (int(rb.group(i)) for i in (1, 2, 3, 4))
+    if b + r + c != tot:
+        raise ValueError("repeat blocks %d + %d + %d != %d" % (b, r, c, tot))
+    nfiles = len(
+        [f for f in os.listdir(os.path.join(ROOT, "corpus", "song"))
+         if f.startswith("eng_") and f.endswith(".txt")])
+    cell = ("%d files, %s songs, %s sung lines; %s repeat blocks "
+            "(%s BURDEN / %s REFRAIN / %s CHORUS)"
+            % (nfiles, "{:,}".format(songs), "{:,}".format(lines),
+               "{:,}".format(tot), "{:,}".format(b),
+               "{:,}".format(r), "{:,}".format(c)))
+    return Answered(cell,
+                    "rule: a song is a `--- TITLE:` line; a sung line is "
+                    "non-blank and does not begin `#`, `---` or `[`; a repeat "
+                    "block is a `[TAG` line with its trailing index stripped")
 
 
 def _tsv_rows(rel):
@@ -513,13 +631,18 @@ def band_fpr():
 def register_findings():
     """What the record adversary still finds wrong with the record.
 
-    DERIVATION. `python3 quality/audit_register.py` prints
+    DERIVATION. `python3 quality/audit_register.py --slow` prints
     `consistency failures + FALSE derivations: N` as its last line and marks
     each derivation CONFIRMED / MOVED / FALSE / UNVERIFIABLE / SKIPPED. This
     parses that line and names which derivations carry the FALSE verdict, so
-    the number is never quotable without the two entries behind it.
+    the number is never quotable without the entries behind it.
+
+    `--slow` on purpose: without it D24 and D25 come back SKIPPED, and a
+    finding count taken over a run that declined to make two of its checks is
+    a different quantity from one taken over all of them. Same run, one
+    process, shared with the two counters above.
     """
-    out, rc = _sh(["quality/audit_register.py"])
+    out, rc = _once("register", ["quality/audit_register.py", "--slow"])
     m = _grab(r"consistency failures \+ FALSE derivations: (\d+)", out,
               "the register-audit finding count")
     n = int(m.group(1))
@@ -565,6 +688,8 @@ COUNTERS = [
             mutations_caught, slow=True),
     Counter("`corpus/song/` files", "python3 quality/counters.py",
             corpus_song_files, volatile=True),
+    Counter("`corpus/song/eng_*` — K-1's own quantities",
+            "python3 quality/counters.py", english_corpus, volatile=True),
     Counter("`data/sources.tsv` rows", "python3 quality/counters.py",
             sources_rows, volatile=True),
     Counter("`data/lyricists.tsv` rows", "python3 quality/counters.py",
@@ -587,12 +712,36 @@ def measure(slow=False):
     return [(c, c.measure(slow=slow)) for c in COUNTERS]
 
 
+def committed_cell(counter, result):
+    """-> what belongs in BACKLOG.md for this counter, which is NOT always the
+    measurement.
+
+    Three cases, and getting them wrong is how a check cries wolf:
+
+      volatile -> the runtime marker, never a number. There is nothing to go
+                  stale because nothing is recorded.
+      slow     -> ALWAYS the cheap-path refusal, even on a `--slow` run. If a
+                  `--slow` run wrote `32 of 33 caught` into the table, the next
+                  ordinary `--check` would call the table stale for saying
+                  exactly what it should say. The recorded table describes the
+                  DEFAULT path; `--slow` reports its extra measurement to
+                  stdout and does not touch the file.
+      otherwise-> the measurement.
+    """
+    if counter.volatile:
+        return RUNTIME_CELL
+    if counter.slow:
+        return Refused(COST, "not measured on the cheap path",
+                       "python3 quality/counters.py --slow").cell
+    return result.cell
+
+
 def render(results):
     """-> the markdown table, exactly as it belongs in BACKLOG.md."""
     rows = ["| counter | measured | measured by |", "|---|---|---|"]
     for c, r in results:
-        cell = RUNTIME_CELL if c.volatile else r.cell
-        rows.append("| %s | %s | `%s` |" % (c.key, cell, c.command))
+        rows.append("| %s | %s | `%s` |"
+                    % (c.key, committed_cell(c, r), c.command))
     return "\n".join(rows)
 
 
@@ -639,13 +788,16 @@ def check(results):
     committed = read_table()
     stale, unchecked = [], []
     for c, r in results:
-        want = RUNTIME_CELL if c.volatile else r.cell
+        want = committed_cell(c, r)
         got = committed.get(c.key)
         if got is None:
             stale.append((c.key, "(absent from the table)", want))
             continue
-        if r.refused and r.kind == COST:
-            unchecked.append(c.key)
+        if c.slow:
+            unchecked.append("%s%s" % (c.key, "" if r.refused
+                                       else " — measured %s, and the table "
+                                            "deliberately does not record it"
+                                            % r.cell))
         if got[0] != want:
             stale.append((c.key, got[0], want))
     for key in committed:

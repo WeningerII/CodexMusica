@@ -85,7 +85,9 @@ def sonnet_battery():
     print("  top OOV (projection-layer ingestion):")
     print("    " + ", ".join(f"{w}({n})" for w, n
                              in oov_all.most_common(10)))
-    return viol
+    return {"mandated": total_pairs, "judged": judged,
+            "refused": len(refused), "violations": len(viol),
+            "rate": rate, "viol": viol}
 
 
 # --------------------------------------------------------------- limericks
@@ -137,7 +139,48 @@ def whitman_battery():
                   f"coherence {c['mean_coherence']}")
 
 
+# --------------------------------------------------------------- the oracle
+# THE PINNED STATE. Doctrine 58: the setting is written next to the number.
+#
+# Measured against the shipped cmudict.dict, the declared General American
+# dialect, the conjunctive band with theta_coda calibrated to 0.80 on
+# 2026-08-11, and the 152-sonnet ABABCDCDEFEFGG oracle. Three counts, never
+# one (doctrine 79): 50 of the 1,064 mandated pairs are REFUSALS -- the end
+# word is absent from CMUdict -- and charging them to the comparator reported
+# Shakespeare as failing to rhyme viewest/renewest.
+EXPECTED = {"mandated": 1064, "judged": 1014, "refused": 50, "violations": 81}
+
+
+def assert_pinned(got, expected=EXPECTED):
+    """-> list of (key, expected, got) that disagree. THE POINT OF THIS
+    FUNCTION IS THAT IT MAKES THE PROCESS EXIT NON-ZERO.
+
+    Until 2026-08-11 this file printed its numbers and returned, so its exit
+    status was 0 whatever the sonnet oracle said. `quality/mutate.py` measured
+    the consequence: battery.py caught 0 of 33 mutations. Every figure quoted
+    in CLAUDE.md, METHOD.md and RESULTS_BAND.md is quoted against this oracle,
+    and the oracle had never been an assertion -- a reader could only tell it
+    still held by reading four numbers off the terminal by eye, which is not a
+    check, and a caller in a pipeline could not tell at all.
+    """
+    return [(k, expected[k], got[k]) for k in expected if got[k] != expected[k]]
+
+
 if __name__ == "__main__":
+    import sys
     v = sonnet_battery()
     limerick_battery()
     whitman_battery()
+    drift = assert_pinned(v)
+    if drift:
+        print("\nBATTERY DRIFT -- the sonnet oracle no longer reproduces:")
+        for k, want, got in drift:
+            print(f"  {k:<12} pinned {want:>6}   measured {got:>6}")
+        print("  A moved number here is not automatically a defect; it is a "
+              "REPIN that has to be argued. Say which layer moved -- "
+              "ingestion / projection / anchor / comparator / band / "
+              "structure / value -- and repin EXPECTED with the reason.")
+        sys.exit(1)
+    print(f"\nSONNET ORACLE PINNED: mandated {v['mandated']}, "
+          f"judged {v['judged']}, refused {v['refused']}, "
+          f"violations {v['violations']} ({v['rate']:.1%} of judged)")

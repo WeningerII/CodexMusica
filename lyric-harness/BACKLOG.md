@@ -106,14 +106,41 @@ channel, not the threshold.
 the declared dialect, which this repo does not have. Doctrine 44: "cannot
 obtain", not "hard to build".
 
-### 1.4 · The revision loop cannot grade a song with no letter scheme
+### 1.4 · The revision loop cannot grade a song with no letter scheme `CLOSED 2026-08-11`
 Doctrine 2 says the graph is the object and letter schemes are lossy
 projections that sometimes do not exist — and the song written this week HAS no
-letter scheme (21 maximal cliques, overlapping). `brief(lines, scheme=None)`
-then passes **vacuously**: nothing declared, nothing mandated, "nothing
-flagged". The loop only works on the structures the doctrine calls lossy.
+letter scheme. `brief(lines, scheme=None)` then passed **vacuously**: nothing
+declared, nothing mandated, "nothing flagged". The loop only worked on the
+structures the doctrine calls lossy.
 **Acceptance:** `brief` accepts a declared PARTITION or `schemes.Cover`, not
 only a letter string, and refuses loudly when given neither.
+
+**MET.** `python3 lyric_harness.py brief examples/never_been_to_a_scene.txt`
+with no mandate prints a REFUSAL and **exits 2**; `--cliques` and
+`--groups=1,3;2,4` both take. `Reviser.mandate_from_graph` returns a `Cover`
+marked `source=derived` and NOT INDEPENDENT of the grader (doctrine 14).
+
+> **~~21 maximal cliques, overlapping~~ — the figure was never a clique count,
+> and the correction has to say so or it is just a fresher wrong number.**
+> Re-derived 2026-08-11 by running the code of the commit that wrote this line
+> (`6c265ad`, `theta_coda=0.60`, before the head/tail alignment fix) against the
+> song file of that commit: **18 cliques and 21 OVERLAPPING NODES**. So `21` was
+> the PIVOT count — the lines belonging to more than one clique — carrying the
+> word "cliques". Two quantities from one call, and the wrong one was written
+> down. At the shipped `theta_coda=0.80`,
+> `python3 lyric_harness.py graph examples/never_been_to_a_scene.txt` reports
+> **8 maximal cliques and 1 overlapping node** (L27, `ones`, in cliques 3 and 7).
+> Calibrating `theta_coda` 0.60 → 0.80 on 2026-08-11 removed 20 of the 21 pivots.
+>
+> **AND THERE ARE TWO CLIQUE COUNTS ON THIS SONG, BOTH CORRECT.** `brief
+> --cliques` reports **12 groups and 5 pivots** on the same 41 lines, because
+> `Reviser.mandate_from_graph` builds its cover with `promote=True` and admits
+> REPEAT edges, while `rhyme_graph` reads anchors with `promote=False` and does
+> not — a divergence `revise.py` states in its own docstring and defends, since
+> deriving a cover under one setting and grading it under the other would make
+> the cover an approximate fixed point of the grader. Doctrine 91: the count is
+> a coordinate of the RENDERING. **Never quote a clique count for this song
+> without naming which of the two produced it.**
 
 ### 1.5 · Duplicate findings in the brief
 `SHARED_SUFFIX` printed six times identically for one line. Cosmetic, one line
@@ -284,38 +311,139 @@ whole-channel emptiness) is deliberately left unfixed, because patching it to
 agree would spend the only property that justifies keeping it. That is the shape
 a "keep it" decision has to have.
 
-### 4.5 · Doctrine has drifted to auditing `L-5` — SPLIT UNDER WAY
-**102 numbered doctrines**, and roughly half the recent ones are about null
+### 4.5 · Doctrine has drifted to auditing `L-5` — `DONE 2026-08-11`
+~~**102 numbered doctrines**~~, and roughly half the recent ones are about null
 hypotheses. A future session reading `CLAUDE.md` learns to audit rather than to
 write. Needs a split: a short WRITING doctrine and a long METHOD appendix.
-**In progress:** 27 items now live in `CLAUDE.md` and 75 in `quality/METHOD.md`,
-with global non-contiguous numbering so `doctrine 79` is still doctrine 79.
+
+**DONE**, in commit `d11ca0a` ("Split the doctrine file: 20 for writing, 75 for
+method, numbering intact"). ~~In progress~~ — **95** doctrines, **20** in
+`CLAUDE.md` and **75** in `quality/METHOD.md`, one global non-contiguous
+numbering so `doctrine 79` is still doctrine 79, checked by
+`python3 quality/verify_doctrines.py` across 2,090 citation sites.
+
+> **~~102 (27 + 75)~~ — where the 102 came from, because the arithmetic is the
+> lesson.** `CLAUDE.md` carries TWO numbering systems that do not collide: the
+> doctrine run, and a `Known gaps` list of 7 cited elsewhere as `known gap N`.
+> Both are written `^\d+\. \*\*`, so a bare regex over the file returned **27**
+> where the doctrine block holds **20**, and 27 + 75 = 102. Two runs added
+> together as if they were one. The fix is not a better regex — both files
+> delimit their run with `<!-- DOCTRINE-BLOCK -->` markers precisely so a
+> counter can tell the lists apart, which is what `verify_doctrines.py` reads
+> and what `quality/counters.py` calls rather than re-parsing.
 
 ---
 
 ## TIER 5 — whole absent layers (`MISSING` B, C, D, G, H)
 
 Not debt, not defects — **never built**. Listed so they are not mistaken for
-either. No pitch layer at all (B-1). 12-TET assumed by omission (B-2). No
-tempo (C-5). Sections have no FUNCTION (D-1). No syllable-to-beat mapping.
-No hook. The floor has two length profiles and both are stanzas (L-4).
+either.
+
+**STILL ABSENT, verified 2026-08-11.** No pitch layer at all (B-1) — `grid.py`,
+`meter.py` and `fit.py` between them expose no pitch, scale, mode or tuning
+object. 12-TET assumed by omission (B-2). No tempo (C-5), which `fit.py` states
+in its own refusal: *"a note DURATION is not [a coordinate], because there is no
+tempo"*. The floor has two length profiles and L-4 records what they are.
+
+**MOVED OUT ON 2026-08-11 — three absences that were FILLED and stayed on the
+list.** This section exists so absences "are not mistaken for" debt or defects.
+An absence that has been filled and is still listed inverts that: it makes the
+one section that is supposed to be trustworthy about what does not exist the
+section that is wrong about it. History kept, per `MISSING.md`'s own rule that a
+filled entry is marked, never deleted.
+
+| ~~absent~~ | what closed it | landed |
+|---|---|---|
+| ~~Sections have no FUNCTION (D-1)~~ | `Section.function`, a coordinate distinct from `Section.name`; the `function` verb REFUSES rather than reading `"chorus"` out of a name, and reports asked / answered / refused | `7e802d3` (field first at `d944ff7`) |
+| ~~No syllable-to-beat mapping~~ | `quality/fit.py` and the `fit` verb — syllables against the pulses of the bar they are declared in, with `--subdivision` a DECLARED coordinate that has no default | `90df738` |
+| ~~No hook~~ | `grid.Hook`, `hook_occurrences`, `hook_findings`, reached by the `function` verb; a hook is a FRAGMENT the writer names, and an undeclared one REFUSES | `7e802d3` |
+
+**Verify, do not take this table's word for it:**
+`python3 lyric_harness.py function examples/never_been_to_a_scene.blueprint.json`
+prints `asked 3  answered 0  refused 3` and three `REFUSED` lines — the
+capability is built and that blueprint declares none of it, which are different
+facts. `python3 lyric_harness.py fit examples/never_been_to_a_scene.blueprint.json
+--subdivision 2` prints the per-section slot table.
 
 ---
 
 ## Counters, so drift is visible
 
-| | 2026-08-11 |
-|---|---|
-| MISSING entries OPEN / PARTIAL / BLOCKED / CLOSED | 53 / 10 / 2 / 7 (73 entries) |
-| doctrines | 102 (27 in `CLAUDE.md`, 75 in `quality/METHOD.md`) |
-| stranded modules | **0** — `rhyme_constraints.py` is 1,566 lines and now has a `__main__` and two callers; the DECISION is still owed (M-16) |
-| mutations | **33 declared, 32 caught, 1 allowlisted equivalent (M4, with its premise tested)** |
-| `corpus/song/` files | 258 |
-| `data/sources.tsv` rows | 386 |
-| `data/lyricists.tsv` rows | 539 |
-| sonnet battery | 81/1014 = 8.0% (`mandated 1064, judged 1014, refused 50`) |
-| band FPR on random pairs | **3.57%** (107/3,000 at seed 20260810) |
-| register-audit findings | **2**, both of them the deliberate M-4 calibration pair — was 9 on 2026-08-11 |
+**This table is OUTPUT. Do not edit it by hand.**
+
+```
+python3 quality/counters.py            # measure and print
+python3 quality/counters.py --check    # FAILS if the table below is stale
+python3 quality/counters.py --write    # regenerate it
+```
+
+Every row is derived by measurement and `quality/counters.py` states the
+derivation beside each one. A row it cannot measure REFUSES and says which of
+the two reasons applies — JUDGEMENT (no measurement exists; somebody sets the
+status) or COST (a measurement exists and this run declined to pay for it) —
+rather than printing a number. Asked, answered and refused are three counts,
+never one (doctrine 79).
+
+> **Why it is output.** The hand-maintained version of this table had drifted in
+> four places at once, and re-typing the values would have been the same defect
+> with fresher numbers (doctrine 48). What each error was, and why:
+>
+> - `doctrines | 102 (27 in CLAUDE.md, 75 in quality/METHOD.md)` — **95 (20 + 75)**.
+>   `CLAUDE.md` carries two numbering systems written in the same markdown shape,
+>   the doctrine run and a 7-item `Known gaps` list cited as `known gap N`. A bare
+>   `^\d+\. \*\*` counted 20 + 7 = 27 and called them all doctrines. §4.5.
+> - `MISSING entries ... | 53 / 10 / 2 / 7 (73 entries)` — the row **contradicted
+>   itself in its own cell**: 53 + 10 + 2 + 7 = **72** against a stated total of
+>   73, and nobody had added it up. **The parts and the total came from two
+>   different rules**, which is why they could disagree and stay unnoticed.
+>   Reproduced exactly on 2026-08-11: a status regex run over the HEADING LINE
+>   ONLY returns `53 / 10 / 2 / 7`, total 72 — because `L-3`'s heading wraps and
+>   its `PARTIAL` sits on the next line, so the entry is dropped from every
+>   bucket while a separate `grep -c '^### '` correctly says 73.
+>   **Both obvious repairs are also wrong**, in opposite directions: reading the
+>   LAST status token over the wrapped block flips `C-2` from `PARTIAL` to `OPEN`,
+>   because `C-2`'s continuation line ends `catalogues do not \`OPEN\``. Only the
+>   FIRST token over heading-plus-continuation is right, and `counters.py` states
+>   that rule, RAISES if the parts do not reconcile with the total, and prints
+>   them AS a sum so the arithmetic is on the page. The live values are in the
+>   table and are deliberately not repeated here, because a number restated in
+>   prose beside its own counter is the next thing to drift.
+> - `band FPR ... | 3.57% (107/3,000 at seed 20260810)` — not wrong, and not
+>   reproducible from its own command: `redteam_band.py` defaults to n=4,000 and
+>   prints **3.60%**. The seed was written down and the POPULATION SIZE was not
+>   (doctrines 58 and 91). Both n are measured now, so neither can be quoted alone.
+> - `corpus/song/ files | 258`, `sources.tsv | 386`, `lyricists.tsv | 539` —
+>   transcriptions as-of-a-date of quantities that move whenever a corpus cell
+>   runs. All three were stale within the day. They carry **no number here at
+>   all** now, only the command; `--check` enforces the absence. A number you know
+>   is moving does not belong in a file that is read as a record.
+>
+> The two that were RIGHT and were checked anyway: the sonnet battery
+> (`81/1014`, `mandated 1064, judged 1014, refused 50`) and the mutation count
+> (**33 declared, 32 caught, 1 allowlisted**, confirmed by a full sweep on
+> 2026-08-11). Confirming a number costs the same as catching one, and a table
+> whose passing rows were never re-run is a table nobody has checked.
+
+<!-- COUNTERS -->
+| counter | measured | measured by |
+|---|---|---|
+| MISSING entries by status | 52 OPEN / 11 PARTIAL / 2 BLOCKED / 8 CLOSED = 73 entries | `python3 quality/counters.py` |
+| doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
+| stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,566 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
+| mutations declared | **33 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
+| mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
+| `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
+| `corpus/song/eng_*` — K-1's own quantities | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
+| `data/sources.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
+| `data/lyricists.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
+| sonnet battery | 81/1014 = 8.0% violations (`mandated 1064, judged 1014, refused 50`) | `python3 battery.py` |
+| band FPR on random pairs | **3.60%** (144 of 4,000 at seed 20260810, the runner's own default n; 3.57% = 107 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
+| register-audit findings | **2** — D8 (M-4), D9 (M-4); both are the deliberate M-4 calibration pair | `python3 quality/audit_register.py` |
+| adversaries built, of 7 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them | `read BACKLOG.md §0` |
+<!-- /COUNTERS -->
+
+> **The register-audit row was 9 findings on 2026-08-11** before seven were
+> closed; the two that remain are deliberate.
 
 > **"surviving mutations 1 of 3 tested" was the state of §1.1 before it was
 > done.** The harness now declares **33** mutations and catches 32 — M31/M32/M33
