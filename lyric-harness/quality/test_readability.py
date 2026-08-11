@@ -290,15 +290,23 @@ def test_corpus_song_rate_is_pinned():
     # definition in quality/readability.read_lines (stripped, non-empty, has a
     # Latin letter) counted over lines that yield at least one word token.
     # Doctrine 58: the setting is written next to the number.
-    check("countable lines 190804", r["lines_countable"] == 190804,
-          f"{r['lines_countable']}")
-    check("unreadable end word 10051", r["unreadable_final"] == 10051,
-          f"{r['unreadable_final']} ({r['rate']:.4%})")
-    check("rate is 5.27%", abs(r["rate"] - 0.052677) < 1e-5,
-          f"{r['rate']:.4%}")
-    check("9812 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 9812,
-          f"{r['substituted_end_word']}")
+    # REPINNED 2026-08-11 after the attribution cell removed 819 duplicated
+    # lines from the two Lyrical Ballads files and one hymn from the Tate
+    # file. The interesting part is the DIRECTION: the corpus lost lines and
+    # the unreadable RATE went UP, 5.2677% -> 5.2873%, because only 6 of the
+    # 819 lines that left had an unreadable end word. The duplicated material
+    # was the readable kind, so every rate measured over this corpus before
+    # 2026-08-11 was diluted by text that was in it twice.
+    check("countable lines 189985", r["lines_countable"] == 189985,
+          f"{r['lines_countable']}  (was 190804)")
+    check("unreadable end word 10045", r["unreadable_final"] == 10045,
+          f"{r['unreadable_final']} ({r['rate']:.4%})  (was 10051)")
+    check("rate is 5.29%", abs(r["rate"] - 0.052873) < 1e-5,
+          f"{r['rate']:.4%}  (was 5.2677% over a corpus with 819 duplicated "
+          f"lines in it)")
+    check("9806 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 9806,
+          f"{r['substituted_end_word']}  (was 9812)")
     check("the rate is not uniform across files — a subset rate is a "
           "different number",
           max(d["rate"] for d in r["per_file"]) > 0.20

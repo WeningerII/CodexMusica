@@ -1,0 +1,50 @@
+# Standard English poetic elisions — the `elision` layer of quality/g2p.py.
+#
+# WHY THIS FILE HOLDS NO PHONES
+#
+# Every row names a CMUdict HEADWORD and a DECLARED OPERATION on that
+# headword's pronunciation. Nothing here is a hand-written transcription, so
+# the layer stays inside the rule the phonology already lives by: a fallback
+# reading is admissible when every phone came out of a dictionary entry and the
+# rule supplied only the change. A row whose basis is missing from the shipped
+# cmudict.dict REFUSES rather than degrading (quality/test_g2p.py checks every
+# row applies).
+#
+# SCOPE, AND THE THING THIS FILE IS NOT
+#
+# The closed class of standard English poetic contractions: aphesis
+# ('gainst, 'neath, 'twixt, 'mongst), syncope (e'en, heav'n, pow'r, ev'ry) and
+# the o'er / e'er pair. It is NOT a dialect table. Barnes's Dorset (zide,
+# stwone, hwome) and Scots (awa, weel, e'e, o't) are refused by
+# quality/g2p.py on the argument in its docstring: initial fricative voicing
+# is a different phonology, not a different spelling, and reading it under a
+# General American declaration would move the declaration's dialect coordinate
+# without saying so (doctrine 1).
+#
+# COLUMNS
+#   form      the elided surface form, lowercase, apostrophes folded to U+0027
+#   full      the uncontracted form, for the reader
+#   basis     a CMUdict headword; its FIRST listed pronunciation is the input
+#   ops       comma-separated, applied left to right, indices into the basis
+#             pronunciation BEFORE any op is applied:
+#                =            identity (the basis is a homophone)
+#                del:N        delete the phone at index N
+#                sub:N=PHONE  replace the phone at index N
+#                pre:PHONE    prepend a phone
+#   note      why the basis is the basis
+#
+#form	full	basis	ops	note
+o'er	over	oar	=	homophone of oar/ore; o'er rhymes with more/shore, so the vowel is AO, not `over`'s OW
+e'er	ever	ere	=	homophone of ere/air
+e'en	even	even	del:1,del:2	syncope of even: the V and the unstressed vowel go
+ev'ry	every	every	del:2	syncope of every
+heav'n	heaven	heaven	del:3	syncope of heaven
+heav'nly	heavenly	heavenly	del:3	syncope of heavenly
+pow'r	power	power	sub:2=R	syncope of power; ER0 is a vowel+R and only the R survives
+'gainst	against	against	del:0	aphesis of against
+'neath	beneath	beneath	del:0,del:1	aphesis of beneath
+'twixt	betwixt	betwixt	del:0,del:1	aphesis of betwixt
+'mongst	amongst	amongst	del:0	aphesis of amongst
+'mong	among	among	del:0	aphesis of among
+'twere	it were	were	pre:T	the it-clitic before were
+'twould	it would	would	pre:T	the it-clitic before would

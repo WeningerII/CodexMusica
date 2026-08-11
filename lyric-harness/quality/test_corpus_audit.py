@@ -290,20 +290,44 @@ def test_channel_check_is_exercised_and_finds_no_zero():
 
 
 def test_distinct_bytes_finds_the_two_live_duplications():
-    """Doctrine 51, live. This corpus has TWO item-level duplications and the
-    auditor found both; if it stops finding them, either they were fixed
-    (check the corpus) or check E went blind (check the code)."""
+    """Doctrine 51, live. This corpus HAD two item-level duplications and the
+    auditor found both. Its own docstring said that when these stop firing,
+    either they were fixed (check the corpus) or check E went blind (check the
+    code). ANSWER, 2026-08-11: they were fixed.
+
+    Coleridge/Wordsworth — the 1798 Lyrical Ballads is anonymous in its own
+    bytes and was being split between the two files by a LINE-COUNT CAP
+    (max_lines 200 vs 140) standing in for an author rule, so nine poems were
+    staged twice. The 1800 second edition is signed `By W. WORDSWORTH.` and its
+    Preface names a closed list of five poems by "a Friend"; that split is the
+    source's own and it is what the corpus carries now.
+    Tate/Brady — PG 16455 signs the shared hymn `Tate-Brady.`, a JOINT
+    attribution, and the string "Brady" occurs nowhere else in the source. Both
+    files claimed it solely, in opposite directions. It is one joint file now.
+
+    THE ZEROS BELOW CANNOT DISTINGUISH A FIXED CORPUS FROM A BLIND CHECK, so
+    they are not the evidence that E works — `test_check_E_can_actually_fire`
+    is, and it plants a byte-identical pair and requires E to re-find it
+    (doctrine 94).
+
+    AND E IS STILL TOO COARSE, which the zeros must not be read as denying.
+    Its unit is BYTE identity, so it sees none of the 94 pairs at >=60% line
+    containment that a sweep over the 143 eng_* files finds — 93 distinct
+    items, 1,978 body lines counted twice, of which 3 are cross-file
+    attribution errors of exactly the kind this test exists for. That is
+    MISSING.md's open entry, not a defect in the numbers here."""
     files, src = corpus()
     fs = [f for f in AC.check_distinct(files, src) if f.severity == AC.FAIL]
-    names = " ".join(f.what for f in fs)
-    check("E finds Coleridge/Wordsworth sharing 9 item bodies",
-          "wordsworth" in names and any("9 item bodies" in f.what for f in fs),
-          names[:160])
-    check("E finds Tate/Brady sharing 1 item body",
-          "tate" in names and any("1 item bodies" in f.what for f in fs),
-          names[:160])
-    check("E finds no OTHER cross-file duplication",
-          len(fs) == 2, [f.path for f in fs])
+    check("E finds NO byte-identical item shared across two files",
+          len(fs) == 0, [(f.path, f.what[:80]) for f in fs])
+    ws = [f for f in fs if "wordsworth" in f.what or "coleridge" in f.what]
+    check("...and specifically not the Lyrical Ballads pair, which was 9 "
+          "item bodies staged under both authors",
+          not ws, [f.what[:160] for f in ws])
+    tb = [f for f in fs if "tate" in f.what or "brady" in f.what]
+    check("...nor the Tate/Brady hymn, which was 1 item body claimed solely "
+          "by each of two files",
+          not tb, [f.what[:160] for f in tb])
 
 
 def test_check_C_can_actually_fire():

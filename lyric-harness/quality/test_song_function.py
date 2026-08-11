@@ -444,23 +444,35 @@ def test_the_corpus_holds():
           f"{ {k: c['functions'][k] for k in ('burden', 'refrain', 'chorus')} }")
     print(f"     eng_* only   : {eng_total:,}  {dict(c['eng_repeat'])}")
     print(f"     blocks by language: {dict(c['blocks_by_language'])}")
+    # A LOWER bound was the wrong shape and 2026-08-11 proved it. These were
+    # written as `>=` so a growing corpus would not break them -- and then the
+    # corpus SHRANK, because the attribution cell found nine poems staged
+    # under two authors at once and eleven `[BURDEN]` marks left with them.
+    # `>=` cannot tell "the corpus grew" from "the corpus was deduplicated",
+    # and those want opposite responses: the first is fine, the second is a
+    # number that has been wrong in every rate quoted over this corpus. So
+    # these are equalities now, and moving one is meant to cost a reading.
     check("the repeat-block families are all expressible, none collapsed",
-          rep_total >= 2739 and c["functions"]["chorus"] >= 247
-          and c["functions"]["burden"] >= 1795
-          and c["functions"]["refrain"] >= 716,
+          rep_total == 2747 and c["functions"]["chorus"] == 247
+          and c["functions"]["burden"] == 1784
+          and c["functions"]["refrain"] == 716,
           f"{rep_total:,} repeat blocks held, and BURDEN is kept SEPARATE "
           f"from REFRAIN because the corpus marks them differently "
-          f"(doctrine 24). Bounds, not equalities: corpus/song gained two "
-          f"files while this cell was running.")
+          f"(doctrine 24). BURDEN was 1,795 until 2026-08-11; the 11 that "
+          f"went were marks inside the duplicated Lyrical Ballads poems, so "
+          f"they were being counted twice and no rate over them was right.")
     check("the register's `2,454 marked repeat blocks` reproduces, and the "
           "unwritten coordinate was LANGUAGE SCOPE",
-          eng_total >= 2454 and c["eng_repeat"]["chorus"] == 247,
+          eng_total == 2443 and c["eng_repeat"]["chorus"] == 247,
           f"eng_* only gives {eng_total:,} "
           f"({dict(c['eng_repeat'])}); the recorded 1,603/604/247 is the "
           f"state at commit ef0baa4 restricted to `eng_*`, and the whole "
           f"corpus now stands at {rep_total:,} across "
           f"{len(c['blocks_by_language'])} language prefixes. Doctrine 58 "
-          f"with SCOPE as the coordinate nobody wrote down.")
+          f"with SCOPE as the coordinate nobody wrote down -- and now with a "
+          f"SECOND one: the same scope over a deduplicated corpus gives "
+          f"1,592/604/247, so the register's figure needs both a scope and a "
+          f"corpus state to be re-derivable.")
 
     print(f"\n   RETURNS: {c['pairs']:,} return pairs over "
           f"{c['songs_with_returns']:,} songs")
