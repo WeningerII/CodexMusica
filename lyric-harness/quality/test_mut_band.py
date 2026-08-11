@@ -363,6 +363,21 @@ def test_declaration_defaults_are_pinned():
         ("fitted", False,
          "doctrine 5 / known gap 2: the fitted matrix is built and not "
          "shipped, on a held-out gain of +0.003"),
+        # Three coordinates shipped 2026-08-11. A default that nothing pins is
+        # a place for a drift with no test attached, which is what this whole
+        # section exists to stop.
+        ("scalar_alignment", "head",
+         "DECLARED 2026-08-11, not changed. Held out the tail reading moves "
+         "the scalar total on 59% of random pairs, the RELATION on 0, and the "
+         "sonnet oracle on nothing at all (81/1014 either way, in both "
+         "halves). quality/test_align.py; mutation M31."),
+        ("nucleus_agreement", "scalar",
+         "the SHAPE of the nucleus question, declared 2026-08-11. The "
+         "incumbent, not the winner: the sonnets cannot price this channel. "
+         "quality/test_nucleus.py; mutation M32."),
+        ("nucleus_licence_unstressed_only", True,
+         "what keeps the AH0~IH0 licence an INGESTION fact rather than a "
+         "claim about vowels. Mutation M33."),
     ]:
         got = getattr(d, field)
         check(f"Declaration.{field} == {want!r}", got == want,
@@ -463,8 +478,8 @@ def test_comparator_and_projection():
 # ---------------------------------------------------------------------------
 
 def test_scalar_and_band_alignments_currently_differ():
-    print("\n7. [OPEN, doctrine 95 unfinished] score() still aligns from the "
-          "HEAD while channel_agreement aligns from the TAIL")
+    print("\n7. [DECLARED 2026-08-11, deliberately NOT unified] score() aligns "
+          "from the HEAD while channel_agreement aligns from the TAIL")
     aa, _, _ = line_anchors(LEX, "get to go", promote=False)
     bb, _, _ = line_anchors(LEX, "receipt", promote=False)
     A = max(aa, key=len)
@@ -484,11 +499,13 @@ def test_scalar_and_band_alignments_currently_differ():
           f"`score` reads `anc_a[i]` against `anc_b[i]` — flush LEFT — 50 "
           f"lines below the function that was fixed to align flush RIGHT. "
           f"Doctrine 95 says to grep the other layers for the same shape "
-          f"before closing a defect; this is the shape, still open, and the "
-          f"docstring calls it deliberate ('left-align at the stressed "
-          f"syllable'). THIS CHECK ASSERTS THE PRESENT BEHAVIOUR so that "
-          f"changing it is a decision with a test attached, not a drift. If "
-          f"it is changed on purpose, this check is what must be rewritten.")
+          f"before closing a defect; this is the shape. "
+          f"THIS CHECK ASSERTS THE PRESENT BEHAVIOUR so that changing it is a "
+          f"decision with a test attached, not a drift. It is no longer the "
+          f"only thing asserting it: `Declaration.scalar_alignment` is the "
+          f"declared coordinate as of 2026-08-11, both readings are "
+          f"reachable, and `quality/test_align.py` carries the held-out price "
+          f"that left the default at `head`.")
 
 
 if __name__ == "__main__":

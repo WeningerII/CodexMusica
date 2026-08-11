@@ -89,12 +89,54 @@ Half the sonnets and half the random pairs, untouched:
 `theta_coda 0.80` is **SHIPPED**: false positives cut 2.6× for 0.6pp of
 true-positive cost, reproducing in both halves in the same direction. Battery
 moves 73/1014 (7.2%) → **81/1014 (8.0%)**, exactly as predicted. Red-team FPR
-falls 10.67% → **3.15%**.
+falls 10.67% → **3.57%** (107 of 3,000 at seed 20260810; 3.60% at n=4,000).
 
-`theta_nucleus` is **NOT** changed. Tightening it costs 2.7pp of true positives
-for 4.4pp of false — a worse trade — and `five`/`of` still passes at nucleus
-similarity 0.603 against a 0.600 threshold. That is a coin flip wearing a
-verdict and it is now visible rather than hidden.
+> **`3.15%` WAS WRONG AND IS CORRECTED IN PLACE, 2026-08-11.** Every other
+> number in this document reproduces exactly — including the pre-calibration
+> 10.67% (320 of 3,000) and its 13 / 26 / 60 / 234 breakdown — and **3.15%
+> reproduces at no setting.** Re-measured today at this document's own seed and
+> the shipped `theta_coda = 0.80`: 107/3,000 = **3.57%**, 144/4,000 = 3.60%,
+> 175/5,000 = 3.50%; at `theta_coda` 0.85 / 0.90 / 1.00 it is 3.23% / 2.50% /
+> 2.00% at n=3,000. Cell H established the cause and it is worse than drift:
+> **3.15% was 63/2,000 put beside a 320/3,000 baseline** — a before-and-after
+> quoted across two different sample sizes, in the document arguing that a
+> threshold is a rate and not a point. Verified as an error and not as drift by
+> re-running the original `redteam_band.py` against the `lyric_harness.py` of
+> its own commit (`b1d7f64`), which gives the same answer. The claim the
+> sentence makes — false positives cut ~3× — is unaffected.
+>
+> Confirmed here independently: `python3 quality/redteam_band.py 3000` prints
+> `ADMITTED AS RHYME WHERE IDENTITY SAYS OTHERWISE: 107 of 3,000 (3.57%)`.
+
+`theta_nucleus` is **NOT** changed. ~~Tightening it costs 2.7pp of true
+positives for 4.4pp of false — a worse trade~~ — and `five`/`of` still passes at
+nucleus similarity 0.603 against a 0.600 threshold. That is a coin flip wearing
+a verdict and it is now visible rather than hidden.
+
+> **"A WORSE TRADE" IS `WITHDRAWN` 2026-08-11 and replaced by something
+> stronger: the trade cannot be computed on this corpus at all.** The
+> right-hand column of a nucleus sweep is not a true-positive cost. Of the 31
+> mandated pairs a 0.60 → 0.70 tightening newly refuses, the offending syllable
+> pairs partition with **no remainder**: 28 are a stressed vowel difference
+> (gone/alone, tongue/song, have/grave, blood/good — correct refusals in the
+> declared General American dialect, the same sentence this repo already accepts
+> for love/prove), 6 are CMUdict writing one reduced vowel two ways
+> (graces/faces), 1 is a promoted unstressed final, and there is no fourth
+> category. **Not one is a General American slant rhyme.** `theta_coda`
+> survived the same test because what IT cost was S~Z and D~RD — the voicing of
+> a final obstruent, which English has not changed since 1609. The nucleus is
+> where four centuries of sound change live, so on this channel the sonnet
+> violation rate prices the `dialect` coordinate, not the threshold.
+>
+> The scalar's SHAPE is uninformative too, measured rather than assumed:
+> Spearman between `vowel_sim` and each pair's lift in mandated positions is
+> +0.02 at n=3,000 and −0.03 at n=6,000, sign unstable. `IH~IY` scores 0.902 and
+> is admitted at lift 0.24; `AY~IY` scores 0.342 and is refused at lift 6.55;
+> 17 of the admitted pairs occur LESS often in mandated positions than at
+> chance. So the threshold ships as the INCUMBENT and not as the winner, and
+> `Declaration.nucleus_agreement` now declares the shape with `identity` and
+> `licensed` reachable. **Owed, and it is a corpus and not a number: a
+> true-positive corpus in the declared dialect, which this repo does not have.**
 
 ## The priced cost, stated rather than buried
 

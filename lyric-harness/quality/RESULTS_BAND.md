@@ -131,6 +131,22 @@ still the multiple-comparisons problem quantified in `RESULTS_MATRIX.md` —
 rate saturates. The band removes assonance-only events; it does not remove the
 comparison count. Post-hoc, and reported as post-hoc.
 
+> **CHECKED AGAINST THE 2026-08-11 TIME-LAYER RETRACTION, and this paragraph
+> SURVIVES — the only figure in the project's time-layer chain that does.**
+> `RESULTS_FWER.md`'s headline is void because the family-wise correction
+> measured `m` over band survivors. Both numbers here are UNCORRECTED
+> saturation — positions where any candidate pair clears theta — which never
+> touches `m`, so neither moves. Re-measured today the uncorrected column is
+> unchanged; only the Šidák and Bonferroni columns of `RESULTS_FWER.md` are
+> void.
+>
+> **And the "~135 comparisons per stressed syllable" estimate is vindicated.**
+> `RESULTS_FWER.md` argued it down to "14–21" on the ground that the band's
+> filters remove most candidates before scoring — which read a filter's output
+> as a comparison count. Measured, the CANDIDATE family is **89 on a quatrain
+> and 176–265 on a sonnet**, straddling 135. The estimate this document
+> inherited was right; the document that corrected it was not.
+
 ## What this does not fix
 
 - **`bad`/`bat` stays RHYME** at 0.895, because D and T agree above

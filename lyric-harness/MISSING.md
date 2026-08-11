@@ -364,9 +364,48 @@ the words are being designed in separate universes.
 ### K-1 · There is no SONG corpus `PARTIAL` — largely closed 2026-08-10
 **Was:** Shakespeare's sonnets and Whitman. Neither is a song.
 **Now:** `corpus/song/` — **143 authors, 5,006 songs, 154,346 sung lines**, with
-2,454 marked repeat blocks (1,603 BURDEN, 604 REFRAIN, 247 CHORUS) and 331
-songs carrying a named air. Six parallel cells; 142 of the 220 listed lyricists
-SOURCED, 70 NOT_FOUND with the exact queries recorded.
+2,454 marked repeat blocks (1,603 BURDEN, 604 REFRAIN, 247 CHORUS) and ~~331
+songs carrying a named air~~ **318 songs carrying a named air** (see below).
+Six parallel cells. Of **220** rows, **8 carry a third status** — 4
+`COMPOSER_NOT_LYRICIST`, 3 `NOT_SOURCED`, 1 `CONTESTED` — and the other 212
+divide two ways: **142 of the 212 listed lyricists SOURCED, 70 NOT_FOUND** with
+the exact queries recorded. Five statuses, 220 rows, and every count stated.
+
+> **THE THIRD STATUS WAS MISSING AND THE SENTENCE INVITED AN ADDITION THAT DOES
+> NOT CLOSE.** 142 + 70 = 212, not 220. Both figures are individually
+> CONFIRMED against `data/lyricists.tsv` (220 `eng` rows: SOURCED 142,
+> NOT_FOUND 70, COMPOSER_NOT_LYRICIST 4, NOT_SOURCED 3, CONTESTED 1 — sums to
+> 220 exactly). Doctrine 79 at the sourcing layer: report three counts, never
+> two, and where there are five report five. Check C4.
+
+> **THE `331 NAMED AIRS` IS RE-DERIVED, AND THE RULE THAT PRODUCED IT IS THE
+> FINDING.** 2026-08-11.
+>
+> **There is no `--- AIR:` field.** The markers `corpus/song/` actually declares
+> are TITLE, SOURCE, AUTHOR, GE, RHYME, JU, SECTION, JUAN, RIME, SYLLABLES,
+> FROM and NOTE. The air lives inside free-text TITLE strings.
+>
+> **331 reproduces exactly, and it is a substring count.** Over the 143 English
+> files' 5,006 songs, the number of TITLE strings containing the word `air`
+> case-insensitively is **331** — the rule nobody wrote down. It counts *"The
+> Birds Of The Air"*, *"Thrice toss these oaken ashes in the air"*, *"The
+> Measureless Gulfs Of Air Are Full Of Thee"* and *"Divine providence in air,
+> earth, and sea"* as songs carrying a named air.
+>
+> **318 is the figure the corpus supports.** That is the `[air: NAME]`
+> convention — `HER HOME SHE IS LEAVING  [air: Mordelia]`,
+> `KITTY REID'S HOUSE  [air: Country Bumpkin]` — and it is stable under two
+> independent phrasings of the rule (`\[air:` and "air followed by a colon or
+> dash" both give 318). `[tune: …]` gives 0.
+>
+> **The 13-title residue is not clean either**, and saying so is the point: 9
+> are ordinary uses of the noun, and 4 name an air under a DIFFERENT convention
+> (`Air XXXI -- You'll think ere many Days ensue`, `Air XXXVI -- Cease your
+> Funning`, `GAELIC AIR`, `To The Air Of "Am Rhein, Am Rhein!"`). So there is no
+> single mechanical rule that is right, which is exactly what a declared field
+> would fix. **Until `--- AIR:` exists, neither this figure nor M-11's "ZERO
+> across 8,009 non-English songs" is re-derivable, and the rarest field in the
+> corpus is the one field the corpus does not declare.**
 **Still missing:** the Tin Pan Alley generation (Dresser, Cannon, Dacre, Lamb,
 Cole, Lawlor, Weatherly...) and the eight music-hall names — a
 **scanned-broadside problem, not a rights problem**. Every one is out of
@@ -422,12 +461,23 @@ poet died. Two gates, and the poets who pass the first are stopped by the second
 ### K-6 · Eight non-English phonologies, ZERO songs `OPEN`
 **Found 2026-08-10, while closing K-1.** K-1 built a song corpus and every one
 of its 143 files is English. The eight phonology cells (cym fin fas ltc msa non
-san som) between them hold **four** text files — `cym_alun_strict.txt`,
-`cym_twm_or_nant_cywydd.txt`, `fin_kalevala.txt`, `fas_hafez.json`,
-`san_dcs_verse.txt` — and not one of them is a song. `ltc`, `msa`, `non` and
-`som` have no text at all. So the corpus is saturated in one corner and starved
-everywhere else, which is doctrine 8 arriving through the back door: the only
-tradition we can measure a song against is the one tradition.
+san som) between them hold **five** text files, across three languages —
+`cym_alun_strict.txt`, `cym_twm_or_nant_cywydd.txt`, `fin_kalevala.txt`,
+`fas_hafez.json`, `san_dcs_verse.txt` — and not one of them is a song. `ltc`,
+`msa`, `non` and `som` have no text at all. So the corpus is saturated in one
+corner and starved everywhere else, which is doctrine 8 arriving through the
+back door: the only tradition we can measure a song against is the one
+tradition.
+
+> **`four` WAS WRONG AND THE ENUMERATION WAS RIGHT — check C7, and it is the
+> smallest instance of this file's commonest defect.** Re-derived from
+> `corpus/`: four of the five are `.txt` and one (`fas_hafez.json`) is JSON,
+> which is presumably what "four **text** files" meant — but the sentence then
+> names five, so the reader cannot tell whether the count or the list is the
+> claim. Counted as corpus files it is 5; counted as `.txt` it is 4 and
+> `fas_hafez.json` should not be in the list. `corpus/fas_hafez.LICENSE.txt` is
+> a licence, not a corpus, and is excluded from both readings. Say the number
+> the list supports.
 **Staged, not sourced:** 297 non-English lyricists now carry rows in
 `data/lyricists.tsv` with a `lang` column (added in the same commit; the 221
 pre-existing rows are backfilled `eng`, which is the gap stated as data).
@@ -505,8 +555,36 @@ Li Qingzhao failing to rhyme.**
 Relaxing tone barely helps: `(group,tone)` 47.4% → `(group,平/仄/入)` 52.7% →
 `(group)` 54.1%, controls 4.0/5.0/6.4%. **Tabulating WHICH group pairs get False
 at mandated positions recovers the 詞林正韻 partition from practice alone** —
-the top 30 pairs carry 34% of 26,773 false verdicts and are 魚/虞, 支/微/齊,
-蕭/豪, 東/冬, 庚/青/蒸, 元/先/寒/刪, 眞/文, and 上/去 within one group.
+the top 30 pairs are 魚/虞, 支/微/齊, 蕭/豪, 東/冬, 庚/青/蒸, 元/先/寒/刪, 眞/文,
+and 上/去 within one group, and they carry 34% of ~~26,773~~ **a false-verdict
+population this entry never named. `WITHDRAWN` 2026-08-11.**
+
+> **The recorded denominator cannot be what the sentence says it is.** The entry
+> says "False at **mandated positions**" and its own count of those is
+> **15,887 F**; 26,773 exceeds that by **10,886**. A percentage whose
+> denominator is larger than the population it claims to partition is the
+> `384 + 300 > 471` shape pointed at one entry instead of two. Check C8.
+>
+> **What is re-derivable, and what is not.** The rest of M-1's arithmetic is
+> sound and worth saying so: 14,302 / (14,302 + 15,887) = **47.37%**, and the
+> 724 refusals are correctly excluded from the denominator — doctrine 79
+> applied, in the entry that then broke it one sentence later. The only
+> decomposition consistent with the entry's own counts is
+> `15,887 mandated F + 10,886 control F = 26,773`, i.e. the mandated and 句
+> control positions POOLED, which at the stated 4.0% control True rate implies
+> ~11,340 control positions. **That is a reconstruction, not a measurement, and
+> it cannot be checked: the 817 per-詞牌 files and the 1,518 matched ci are not
+> on disk** (`data/qindingcipu_ge.tsv` holds 2,333 rows and nothing else of the
+> run survives). `UNVERIFIABLE`, and the missing thing is named. Either quote
+> the pooled population explicitly or quote 15,887 — the figure must not stand
+> attached to a sentence that says "mandated".
+>
+> **Note on the check itself, so nobody reads its output as a pass.** With the
+> claim withdrawn, `audit_register.py`'s C8 now reports `n/a` — *"M-1's verdict
+> counts not found in their current form"* — because there is no longer a live
+> "X% of N false verdicts" for it to test. That is an UNGUARDED entry, not a
+> satisfied one. Restoring the claim with its population named would put the
+> check back on it.
 **Fix shape:** make the standard a declared coordinate,
 `standard='pingshui'|'cilin'`, exactly the move `check_cynghanedd` made for
 `language` (doctrine 45). Doctrine 36 was written about Qieyun → 平水韻 and it
@@ -515,13 +593,31 @@ is true one rung further in.
 ### M-2 · `data/qieyun_mc.tsv` is keyed on ONE orthographic norm `OPEN`
 **魂 — the character that NAMES the 魂 rhyme group — cannot be looked up**, while
 477 characters carry 魂 as their rhyme label. 窗 is absent; 窓/牕/窻 are present.
-Of the 24 commonest unreadable characters in a real ci corpus, **23 are
+Of the 24 commonest unreadable characters in a real ci corpus, **19 are
 recoverable by an 異體字 map to a variant already in the table**: 魂→䰟, 窗→窓,
 匆→悤, 裙→帬, 劍→劒, 峰→峯, 群→羣, 閑→閒, 腮→顋, 鞍→鞌, 粧→妝, 裊→褭, 瀟→潚,
 皓→晧, 胸→胷, 拆→坼, 儘→盡, 緲→渺, 敧→攲. The remaining five (怎 樣 褪 做 你)
 are Song–Yuan **vernacular** characters postdating the rime book, where refusal
 is CORRECT — and **nothing currently tells an ingestion defect from a correct
 refusal**, which is doctrine 79 in a second layer.
+
+> **`23` WAS WRONG AND IS CORRECTED TO 19, 2026-08-11 — and the correction was
+> available from the prose alone.** 23 + 5 = 28 against a population of 24. The
+> enumeration above was right all along (19 arrows + the remaining five = 24)
+> and the summary integer in front of it was not; nobody added them up. This is
+> the M-3/M-4 shape — `384 + 300 > 471` — one section EARLIER in the same file.
+> `python3 quality/audit_register.py --consistency`, check C3. **It had
+> propagated into doctrine 88**, which restates this sentence; the patch for
+> that file is in `<scratch>/CLAUDE.patch.md`.
+>
+> **Re-derived rather than counted, because a count of arrows only checks the
+> arithmetic.** Every one of the 19 was checked against `data/qieyun_mc.tsv`
+> (19,499 characters): in **19 of 19** the source character is ABSENT from the
+> table and the arrow's target is PRESENT, so each arrow is a real recovery and
+> not a plausible-looking pair. All five of 怎 樣 褪 做 你 are absent, as the
+> "correct refusal" reading requires. The ARGUMENT is untouched — it is
+> strengthened, because it now rests on a checked map rather than on a listed
+> one.
 **Related, same file:** 諄, 真, 殷, 桓, 戈 appear in `ltc._GROUPS` and never in
 the data file, which uses 眞/欣/寒/歌 — the grouping table was written against a
 different naming convention than the data. And the table holds 58 rhyme labels
@@ -541,21 +637,77 @@ makes the two spellings of one pepet syncope agree — the module already accept
 `prang`, `Brapa`, `'Plam`.
 
 **THIS ENTRY'S HEADLINE WAS WRONG BY 5×, and the correction is the finding.**
-It billed **384 of 471** unreadable tokens to the apostrophe rule. Measured over
-PG47873's 330 Malay verse blocks (3,415 lines, 15,519 tokens):
+It billed **384 of 471** unreadable tokens to the apostrophe rule.
 
-| class | before | after | layer |
+**POPULATION AND TOKENISATION, stated once so neither is substituted again
+(doctrine 58, and the population is a coordinate too — M-18).** Every figure in
+this entry is over **PG47873 (`47873-8.txt`, 1,422,204 B, 31,086 lines), which
+is NOT in this repository** — it is on this machine at
+`/workspace/mm47873/47873-8.txt`. The selection rule is the one
+`corpus/song/msa_skeat_pantun.txt`'s own `selection:` header declares and
+`scratch/src_msa/extract_pantun.py` implements: blocks are maximal runs of lines
+indented ≥ 4 (**705 blocks, 5,555 lines**), and a block is Malay where its Malay
+function-word count strictly exceeds its English one (**330 blocks, 3,442
+lines**). Tokens are maximal runs of `[A-Za-z'`’-]` that contain at least one
+letter: **15,601**. `corpus/song/msa_skeat_pantun.txt` is a 129-block extract
+cut from this, 513 verse lines, 2,113 tokens, and **no figure in this entry is
+derivable from it.**
+
+**RE-DERIVED 2026-08-11 and the table below is the measured one.** The version
+this entry shipped is kept beneath it, because three of its numbers are exact
+and the two that are not are the finding:
+
+| class | before (`_merge_vowelless` off) | after (shipped `msa.py`) | layer |
 |---|---:|---:|---|
-| vowelless fragment FROM the apostrophe split | 76 | **2** | `msa.py` — the real defect |
-| vowelless whole token (`b` 101, `d` 100, `s` 99) | 305 | 306 | ingestion, elsewhere |
-| complex coda / complex medial | 77 | 78 | correct refusal |
-| **total** | 458 (2.95%) | 384 (2.47%) | |
+| vowelless fragment FROM the apostrophe split | 79 | **1** | `msa.py` — the real defect |
+| vowelless WHOLE token (`b` 101, `d` 100, `s` 99 — the `d. s. b.` stub, M-4) | 305 | 305 | ingestion, elsewhere |
+| complex coda / complex medial | 87 | 88 | correct refusal |
+| **total** | **471** (3.02%) | **394** (2.53%) | |
 
-**The apostrophe rule owned 16.6%, not 82%.** The earlier classifier keyed on
-*"this part has no vowel"* rather than *"an apostrophe split produced it"*, so
-it charged `msa.py` for 305 tokens it never touched. Three counts after: read
-15,135 / refused 78 / defective 306, and `unreadable_reason()` makes the split
-machine-readable so this cannot recur silently.
+Three counts, never two (doctrine 79). Before: read 15,130 / refused 87 /
+defective 384. After: read 15,207 / refused 88 / defective 306. Both sum to
+15,601 exactly.
+
+**AS SHIPPED, WITH THE VERDICT ON EACH CELL** (kept as a list rather than a
+table, so the arithmetic checker reads one table in this entry and not two):
+
+- ~~apostrophe fragment, before 76 / after 2~~ — measured **79 / 1**.
+- vowelless whole token, before **305** / after ~~306~~ — the **305 is CONFIRMED
+  exactly**; the 306 is the after-fix DEFECTIVE total written into a row that
+  names a subset of it, which is why the shipped `after` column summed to 386
+  against its own stated 384.
+- ~~complex coda / complex medial, before 77 / after 78~~ — measured **87 / 88**.
+- ~~total, before 458 / after 384~~ — the before total is **471, CONFIRMED
+  exactly**; 384 is not an after-total at all (see below).
+
+**WHAT `384` ACTUALLY IS, and this is the whole correction.** 384 is the
+**before-fix count of vowelless tokens** — `by_code {'vowelless_token': 384,
+'complex_medial': 55, 'complex_coda': 32}` — inside a before-fix unreadable
+total of exactly **471**. So *"384 of 471"* is arithmetically CORRECT and was
+never a false number; what was false is the ATTRIBUTION. Of those 384 vowelless
+tokens the apostrophe split produced **79**; the other **305** are whole tokens
+the rule never touched. The entry then carried 384 down into the `after` column,
+where it belongs to nothing: the after-total is 394.
+
+**The apostrophe rule owned 79 of 471 = 16.8%, not 82%**, and 16.6% was close
+for the wrong reason. The earlier classifier keyed on *"this part has no vowel"*
+rather than *"an apostrophe split produced it"*, so it charged `msa.py` for 305
+tokens it never touched. `unreadable_reason()` makes the split machine-readable
+so this cannot recur silently.
+
+**WHAT DOES NOT RE-DERIVE, marked rather than restated.** This entry's stated
+population is **3,415 lines / 15,519 tokens**; the corpus file's own header says
+3,442 lines for the same 330 blocks, and measurement gives 3,442 / 15,601. The
+gap is exactly **82 tokens, 10 of them refusals** — the entry's `read 15,135 /
+refused 78` against a measured `15,207 / 88`, and 72 + 10 = 82. So M-3's
+population is 82 tokens narrower than the rule the corpus file declares, under a
+selection nobody wrote down; the likeliest candidate is English translation
+lines dropped at the LINE level inside Malay-majority blocks (English words such
+as `Hearts`, `Diamonds`, `Clubs`, `search` do appear in the measured refusals).
+Seven line-level filters were swept and none lands on 3,415 or 15,519.
+**UNVERIFIABLE, and the missing thing is named: a line-level filter, not a
+threshold.** What survives untouched is `b` 101 / `d` 100 / `s` 99 — exact — and
+the 305, the 471 and the 384, all three exact.
 
 **TWO CELLS FOUND THE SAME ERROR FROM OPPOSITE SIDES, AND THE ARITHMETIC HAD
 SAID SO ALL ALONG.** M-3 billed 384 of 471 to the apostrophe and M-4 billed 300

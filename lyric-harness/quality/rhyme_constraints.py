@@ -1322,4 +1322,245 @@ __all__ = ["Site", "Frame", "Declaration", "Utterance", "build",
            "EXCLUDED", "CLASS_EQUAL", "DIRECTED_DIFFER", "PRESENT_ON",
            "Refusal", "Finding", "find", "scan", "domain", "read_channel",
            "agree", "differ", "and3", "or3", "kn", "kn_seq", "ABS", "ABSENT",
-           "REGISTRY", "register"]
+           "REGISTRY", "register", "CASES", "compare", "report"]
+
+
+# ---------------------------------------------------------------------------
+# THE COMPARISON RUNNER  —  BACKLOG 4.4 / MISSING M-16, DECIDED 2026-08-11
+#
+# This file was the repo's ONE stranded module: 1,325 lines, no caller, no
+# `__main__`, reported as such by `python3 lyric_harness.py wiring`. The
+# decision owed was to mine its knowledge sets into `relations.py` and delete
+# it, or to give it a `__main__` and keep it as a comparison runner. It is the
+# second, and the argument is below, with the measurement that made it.
+#
+# THE CASE FOR DELETION IS REAL AND IT IS ABOUT CAPABILITY.  Measured by the
+# table this runner prints:
+#
+#   * 20 named types against `relations.py`'s 77.
+#   * 18 of the 20 have a same-named schema over there; the other two are
+#     there under different names — `skothending` is `cluster consonance /
+#     skothending span` and `semirhyme (cluster span)` is `semirhyme` plus the
+#     span-unit axis. So the covered set is 20 of 20, and 59 names go the
+#     other way.
+#   * no `SequenceEqual` / `SequenceSuffix` / `SubsequenceOf`, so a sequence
+#     relation is expressible here only where a per-syllable channel happens
+#     to carry it.
+#   * on the canonical case table below, `relations.py` finds a STRICT
+#     SUPERSET: every case this module answers, that one answers, and not the
+#     reverse.
+#   * its one genuine advance — a `frozenset` per channel — is now in
+#     `relations.py` (the comparison half, 2026-08-11) and in
+#     `quality/phonology.Syllable` (the production half, the same day). The
+#     reason to mine it is spent.
+#
+# AND IT IS STILL KEPT, FOR THREE REASONS THAT ARE NOT SENTIMENT.
+#
+#   1. It is the only INDEPENDENT implementation of this taxonomy in the repo,
+#      and doctrine 87 is explicit that agreement was never the point,
+#      independence was. A second implementation that agrees tells you little;
+#      one that DISAGREES locates a defect. The first run of this runner does
+#      exactly that: `additive rhyme` and `subtractive rhyme` are found by
+#      `relations.py` on `year`/`feared` and refused here, because
+#      `apply_pred`'s `PRESENT_ON` still tests whole-channel EMPTINESS
+#      (`a == ABS`) — which is DEFECT P6, named and fixed over there and
+#      still live here. That is a finding this file produced about itself the
+#      moment it was made runnable, and a deleted file produces none.
+#      **P6 IS DELIBERATELY NOT FIXED HERE.** Patching this implementation to
+#      agree with `relations.py` would spend the only property that justifies
+#      keeping the file. Doctrine 87: agreement was never the point,
+#      independence was — and a second implementation edited until it agrees
+#      is one implementation with two copies (doctrine 51's error, at the
+#      level of code rather than of editions).
+#   2. Deleting it breaks two files, and neither belongs to whoever is
+#      deciding: `quality/test_relations.py` imports it for
+#      `test_rhyme_constraints_unreadable_nucleus`, which pins that an
+#      UNREADABLE nucleus is not an EMPTY one, and
+#      `quality/audit_register.py`'s claim D22 `open()`s this path directly
+#      and would raise.
+#   3. Doctrine 84's rule that a demonstration must stay reachable. The
+#      knowledge-set idea is easier to check against two implementations than
+#      against one, and `agree()` here and `Agree()` there can be run
+#      side by side in one command — which is what the runner does.
+#
+# WHAT THIS FILE IS NOT, AND THE DOCSTRING AT THE TOP MUST BE READ WITH THIS
+# NEXT TO IT: it is not a candidate architecture and it is not the shipping
+# producer. `relations.py` is. This is an ADVERSARY (doctrine 94's third one,
+# pointed at the code) and the numbers it prints are a diff, never a verdict.
+# Like `battery.py` it has no assert and exits 0 whatever the table says —
+# read its numbers, never its exit status.
+# ---------------------------------------------------------------------------
+
+#: The canonical cases, one per structural claim either module makes. Each is
+#: (label, lines, language, name). The name is the same in both registries
+#: except where noted in `_ALIAS`.
+CASES = (
+    ("head alliteration — kukka/kalevala, the case the OLD producer cannot "
+     "express at all", ["kukka kalevala"], "fin", "alliteration"),
+    ("Kalevala alliteration (strong)", ["Vaka vanha Väinämöinen"], "fin",
+     "Kalevala alliteration (strong)"),
+    ("perfect rhyme", ["the cat", "the hat"], "eng", "perfect rhyme"),
+    ("rime riche — sea/see", ["the sea", "i see"], "eng", "rime riche"),
+    ("repetition", ["the cat", "the cat"], "eng", "repetition"),
+    ("assonance — sun/much, doctrine 3's own case", ["the sun", "so much"],
+     "eng", "assonance"),
+    ("consonance", ["a bad man", "he is bed"], "eng", "consonance"),
+    ("pararhyme", ["it was bad", "it was bed"], "eng", "pararhyme"),
+    ("reverse rhyme — bat/back, a PREFIX of the rime", ["a bat", "the back"],
+     "eng", "reverse rhyme"),
+    ("semirhyme — bend/ending", ["a bend", "an ending"], "eng", "semirhyme"),
+    ("light rhyme", ["a bee", "the beauty"], "eng", "light rhyme"),
+    ("syllabic rhyme — cleaver/silver, the anchor rule SUSPENDED",
+     ["a cleaver", "the silver"], "eng", "syllabic rhyme"),
+    ("additive rhyme — year/feared (DEFECT P6 lives here)",
+     ["a year", "he feared"], "eng", "additive rhyme"),
+    ("subtractive rhyme — feared/year", ["he feared", "a year"], "eng",
+     "subtractive rhyme"),
+    ("amphisbaenic — the sole forcing case for per-member DIRECTION",
+     ["a stop", "the pots"], "eng", "amphisbaenic rhyme"),
+    ("mosaic rhyme — poet/know it", ["a poet", "you know it"], "eng",
+     "mosaic rhyme"),
+    ("epistrophe / radif", ["i love you my dear", "i miss you my dear",
+                            "i need you my dear"], "eng",
+     "epistrophe / radif"),
+    ("homoioteleuton — running/singing, the false-positive class",
+     ["he was running", "she was singing"], "eng", "homoioteleuton"),
+)
+
+#: Names this module spells differently from `relations.py`. Recorded rather
+#: than normalised away, because "20 types, 2 of them unique" is FALSE and the
+#: aliasing is the reason.
+_ALIAS = {
+    "skothending": "cluster consonance / skothending span",
+    "semirhyme (cluster span)": "semirhyme",
+}
+
+
+def _outcome_here(lines, phon, name):
+    if name not in REGISTRY:
+        return "NO TYPE", None
+    try:
+        got = find(build(lines, phon), REGISTRY[name])
+    except Exception as e:                                        # noqa: BLE001
+        return f"RAISED {type(e).__name__}", None
+    if isinstance(got, Refusal):
+        return "REFUSED", got.reason
+    return (f"{len(got)} found" if got else "0 found"), None
+
+
+def _outcome_there(lines, phon, name, R):
+    if name not in R.REGISTRY:
+        return "NO SCHEMA", None
+    try:
+        st = R.build_stream(lines, phon, declaration={"language": phon.language})
+        got = R.realise(R.REGISTRY[name], st)
+    except Exception as e:                                        # noqa: BLE001
+        return f"RAISED {type(e).__name__}", None
+    if isinstance(got, R.Refusal):
+        # `relations.Refusal` names the missing CAPABILITY, not a reason
+        # string, and its `__bool__` raises on purpose — so it is tested by
+        # isinstance and read by field, never by truthiness.
+        return "REFUSED", got.capability
+    return (f"{len(got)} found" if got else "0 found"), None
+
+
+def compare():
+    """-> (rows, coverage). Runs every case through BOTH modules.
+
+    Imported lazily so this file stays importable on its own, which is what
+    `test_relations.py` does with it.
+    """
+    import quality.relations as R
+    from quality.phonology import get as _get
+
+    rows = []
+    for label, lines, lang, name in CASES:
+        phon = _get(lang)
+        here, hnote = _outcome_here(lines, phon, name)
+        there, tnote = _outcome_there(lines, phon,
+                                      _ALIAS.get(name, name), R)
+        rows.append((label, name, there, here, tnote, hnote))
+    mine, theirs = set(REGISTRY), set(R.REGISTRY)
+    unmatched = {n for n in mine if _ALIAS.get(n, n) not in theirs}
+    coverage = {
+        "here": len(mine), "there": len(theirs),
+        "same_name": len(mine & theirs),
+        "aliased": len({n for n in mine if n not in theirs
+                        and _ALIAS.get(n, n) in theirs}),
+        "unmatched": sorted(unmatched),
+        "only_there": len(theirs - {_ALIAS.get(n, n) for n in mine}),
+    }
+    return rows, coverage
+
+
+def report(out=None):
+    """Print the diff. NO ASSERT and exit 0 regardless — read the table."""
+    import sys as _sys
+    out = out or _sys.stdout
+    rows, cov = compare()
+
+    def w(s=""):
+        out.write(s + "\n")
+
+    w("=" * 78)
+    w("rhyme_constraints.py — COMPARISON RUNNER against quality/relations.py")
+    w("BACKLOG 4.4 decided 2026-08-11: kept as an ADVERSARY, not as a")
+    w("candidate architecture. relations.py is the shipping producer.")
+    w("This runner has no assert and exits 0 whatever it prints.")
+    w("=" * 78)
+    w()
+    w("TYPE COVERAGE")
+    w(f"  named types here            {cov['here']:3d}")
+    w(f"  named schemas in relations  {cov['there']:3d}")
+    w(f"  same name in both           {cov['same_name']:3d}")
+    w(f"  covered under another name  {cov['aliased']:3d}  "
+      f"({', '.join(f'{k} -> {v}' for k, v in _ALIAS.items())})")
+    w(f"  here and NOWHERE there      {len(cov['unmatched']):3d}  "
+      f"{cov['unmatched'] or ''}")
+    w(f"  there and not here          {cov['only_there']:3d}")
+    w()
+    w("CANONICAL CASES  (relations.py | this module)")
+    w("-" * 78)
+    w("%-46s %-14s %-14s" % ("case", "relations", "here"))
+    w("-" * 78)
+    agree_n = dom = flip = 0
+    for label, name, there, here, tnote, hnote in rows:
+        w("%-46s %-14s %-14s" % (label[:46], there, here))
+        if there == here:
+            agree_n += 1
+        elif there.endswith("found") and there[0] != "0" and not (
+                here.endswith("found") and here[0] != "0"):
+            dom += 1
+        else:
+            flip += 1
+        for tag, note in (("relations", tnote), ("here", hnote)):
+            if note:
+                w(f"       {tag} refusal: {note}")
+    w("-" * 78)
+    w(f"identical on {agree_n} of {len(rows)}; relations answers and this "
+      f"module does not on {dom}; the other direction on {flip}")
+    w()
+    w("KNOWLEDGE SETS — the one advance, now present in three places")
+    import quality.relations as R
+    from quality.phonology import Syllable, Readings
+    w(f"  here      agree(kn('IH'), frozenset({{'IH','AY'}})) = "
+      f"{agree(kn('IH'), frozenset({'IH', 'AY'}))}")
+    w(f"  relations Agree()(frozenset({{'IH','AY'}}), 'IH')   = "
+      f"{R.Agree()(frozenset({'IH', 'AY'}), 'IH').value!r}")
+    s = Syllable("wind", ("W",), Readings({"IH", "AY"}), ("N", "D"), 1, 1)
+    w(f"  phonology Syllable can now PRODUCE one: certain={s.certain} "
+      f"uncertain_channels={s.uncertain_channels()}")
+    w()
+    w("DOCTRINE 25 TRIPWIRE — two ABSENT codas AGREE and carry no evidence")
+    w(f"  here      agree(ABS, ABS)   = {agree(ABS, ABS)}")
+    w(f"  relations Agree()((), ())   = "
+      f"{(R.Agree()((), ()).value, R.Agree()((), ()).informative)}")
+    return 0
+
+
+if __name__ == "__main__":
+    import os as _os
+    import sys as _s
+    _s.path.insert(0, _os.path.dirname(_os.path.dirname(
+        _os.path.abspath(__file__))))
+    _s.exit(report())

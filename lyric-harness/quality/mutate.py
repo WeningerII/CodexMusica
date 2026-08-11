@@ -296,6 +296,38 @@ MUTATIONS = [
             "band=False)` must stay reachable -- what must not change silently "
             "is the DEFAULT."),
     ),
+    # Three coordinates shipped on 2026-08-11, three new places for a silent
+    # drift. NONE of them is a hole -- each is caught today by exactly the file
+    # that declares it -- and that is the reason they are here rather than the
+    # reason they are not: doctrine 48 says a principle that lives only in
+    # prose gets followed exactly as often as somebody remembers it, and "the
+    # mutation list matches the code" is such a principle. A new default with
+    # no mutation is a coordinate whose test nobody is checking is still there.
+    Mutation(
+        name="M32", layer="band", file=LH,
+        old='    nucleus_agreement: str = "scalar"          # "scalar"|"identity"|"licensed"',
+        new='    nucleus_agreement: str = "identity"        # "scalar"|"identity"|"licensed"',
+        subset=_q("test_nucleus.py", "test_band.py", "test_mut_band.py"),
+        rationale=(
+            "The nucleus channel silently promoted to strict identity. It "
+            "LOOKS like a tightening and it deletes near rhyme, which is "
+            "doctrine 94's own warning about a band tuned to agree with the "
+            "reference line. Held-out FPR falls 3.67% -> 0.20% and mandated "
+            "refusals rise 9.44% -> 20.08%, so a run that read only the FPR "
+            "would file this as an improvement."),
+    ),
+    Mutation(
+        name="M33", layer="band", file=LH,
+        old="    nucleus_licence_unstressed_only: bool = True",
+        new="    nucleus_licence_unstressed_only: bool = False",
+        subset=_q("test_nucleus.py", "test_band.py"),
+        rationale=(
+            "The AH0~IH0 licence stops being conditioned on stress, which "
+            "turns an INGESTION fact about CMUdict into a claim about vowels. "
+            "In mandated positions the pair is doubly-unstressed 6 of 6; in a "
+            "random background 394 of 545. Doubles the licensed shape's "
+            "held-out FPR, 0.33% -> 0.67%."),
+    ),
     # ------------------------------------------------------------ comparator
     Mutation(
         name="M8", layer="comparator", file=LH,
@@ -514,15 +546,31 @@ MUTATIONS = [
             "whether anything in the suite depends on the answer. `score()` "
             "reads `anc_a[i]` against `anc_b[i]` — flush LEFT — fifty lines "
             "below `channel_agreement`, which was fixed on 2026-08-11 to read "
-            "flush RIGHT. So the scalar and the band currently align the same "
-            "two anchors differently, and on `remember`/`her` the scalar "
-            "compares EH with ER while the band compares ER with ER. The "
-            "docstring calls it deliberate ('left-align at the stressed "
-            "syllable') and that reading is defensible. What is not "
-            "defensible is that NOTHING SAID SO: doctrine 95 says to grep the "
-            "other layers for a defect's shape before closing it, and this is "
-            "the shape, one function away, unexamined. This mutation makes "
-            "the choice measurable."),
+            "flush RIGHT. So the scalar and the band align the same two "
+            "anchors differently, and on `remember`/`her` the scalar compares "
+            "EH with ER while the band compares ER with ER. THE CODE HALF of "
+            "the choice: this mutation moves the loop's indices, where M31 "
+            "moves the DECLARED DEFAULT that selects between them. When this "
+            "was written the only thing recording the choice was a comment "
+            "reading 'left-align at the stressed syllable', and doctrine 95's "
+            "complaint was that nothing else said so. Something does now — "
+            "`Declaration.scalar_alignment`, both readings reachable, priced "
+            "held-out in `quality/test_align.py` — and the comment is gone, "
+            "so this rationale no longer quotes it."),
+    ),
+    Mutation(
+        name="M31", layer="comparator", file=LH,
+        old='    scalar_alignment: str = "head"            # "head" | "tail"',
+        new='    scalar_alignment: str = "tail"            # "head" | "tail"',
+        subset=_q("test_align.py", "test_mut_band.py", "test_band.py"),
+        rationale=(
+            "The scalar's alignment flipped by its DEFAULT rather than by its "
+            "code — M30 is the code half of the same question. Held out this "
+            "changes no relation and no sonnet verdict (81/1014 either way, "
+            "in both halves) while moving the scalar total on 59% of random "
+            "pairs, which is exactly why it needs a mutation: the corpus that "
+            "catches everything else is structurally incapable of seeing it, "
+            "which is doctrine 95's own lesson about the sonnet oracle."),
     ),
     # ------------------------------------------------------------ projection
     Mutation(

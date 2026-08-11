@@ -8,6 +8,24 @@ rather than by a genre.
 
 Run: `python3 quality/positive_control.py`.
 
+> ## THIS FILE IS ON THE BOUNDARY OF THE 2026-08-11 RETRACTION, and the boundary
+> ## runs THROUGH it rather than around it.
+>
+> `RESULTS_FWER.md`'s headline is void: `rhyme_events` measured each position's
+> family over band SURVIVORS (median 6–13) rather than over the comparisons
+> made (89 on a quatrain, 176–265 on a sonnet), and at the honest family size
+> the event set is mute on every item in this repository. Three parts of this
+> document sit on three different sides of that line, and each is marked where
+> it stands:
+>
+> | part | status | why |
+> |---|---|---|
+> | **Part A, the power table** | **STANDS** | `positive_control.py` imports `phase_statistic` and NOTHING else from `time_layer`. It plants events directly into a synthetic slot stream. Verified by execution: with `rhyme_events` replaced by a function that raises, the whole of Part A runs and the call count is **0** |
+> | **Part A's framing — "the corrected sonnets carry 5–8 events … the top row"** | **`VOID`** | that event count is an input taken from the voided document. At the honest family size a real sonnet carries **0** events or refuses outright |
+> | **Part A's Fisher pooling — p = 0.950 (k=23) and p = 0.617 (k=26)** | **`VOID`** | the 23 and 26 per-item p-values being pooled came from `analyse()` → `rhyme_events`. There is nothing left to pool |
+> | **Part B, the replacement corpus spec** | **STANDS, and matters more** | it is a specification, not a measurement. Its ≥40-events-per-item constraint is now the binding one for a different reason than the one it was written for |
+> | the 律詩 arms in `run_positive_control.py` | **STAND** | verified by the same execution test: `analyse` is called once, always with an explicit `events=` set built from `ltc.rhymes`, so the `events is None` branch is never taken. Call count **0** across all four arms |
+
 ## Part A — the instrument works, and it is underpowered
 
 Every arm so far tested material where the right answer was unknown, so a null
@@ -42,10 +60,19 @@ Power at α=0.05, sweeping periods (2,3,4,6,8) exactly as the real layer does:
 | 40 | 240 | 0.24 | **0.94** | 1.00 | 1.00 | 1.00 |
 | 80 | 300 | **0.78** | 1.00 | 1.00 | 1.00 | 1.00 |
 
-The corrected sonnets carry **5–8 events over 60–75 slots** — the top row. At
-that size the layer needs **three quarters of an item's internal rhymes on a
+~~The corrected sonnets carry **5–8 events over 60–75 slots** — the top row.~~
+**`VOID` 2026-08-11: 5–8 events is the count at `m` = scored. At the candidate
+family a corrected sonnet carries ZERO events over 58–74 slots, and 18 of 20
+refuse before they get that far.** The table is unchanged and it is the row
+selection that has to move: the honest question is no longer "what power do we
+have at 8 events" but "what does it cost to make an event attainable at all",
+and the answer to that is `null_samples` and `window`, not concentration.
+
+At 8 events the layer needs **three quarters of an item's internal rhymes on a
 single metrical phase** before it can see anything. That is an enormous effect,
-far larger than any real form plausibly imposes.
+far larger than any real form plausibly imposes — and it was the OPTIMISTIC
+reading. The pessimistic one, which is now the true one, is that a real item
+produces no events for the statistic to be underpowered on.
 
 ### What this does to every null the layer has reported
 
@@ -55,9 +82,9 @@ concentration exceeded 0.75. Its p = 0.132 did not mean "no effect"; it meant
 was not refuted three times — it was **never once tested**, and reporting those
 as failed predictions overstated what the runs could deliver.
 
-**The sonnet arm is genuinely null, and now has pooled power.** Combining the
-per-item p-values with Fisher's method — legitimate here because each item's KL
-is phase-invariant, so the p-values are comparable even though the phases are
+~~**The sonnet arm is genuinely null, and now has pooled power.**~~ Combining
+the per-item p-values with Fisher's method — legitimate here because each item's
+KL is phase-invariant, so the p-values are comparable even though the phases are
 not:
 
 ```
@@ -65,9 +92,29 @@ stress    k=23 items, median p=0.701, X2=31.4 on 46 df  ->  p = 0.950
 syllable  k=26 items, median p=0.554, X2=48.4 on 52 df  ->  p = 0.617
 ```
 
-That is the predicted null holding under a test that pools 23–26 items instead
-of correcting across them. Benjamini-Hochberg controls false discovery; it
-never *combined* evidence, so the aggregate question had gone unasked.
+~~That is the predicted null holding under a test that pools 23–26 items instead
+of correcting across them.~~ Benjamini-Hochberg controls false discovery; it
+never *combined* evidence, so the aggregate question had gone unasked, and
+**that argument for pooling survives everything below.**
+
+> **`VOID` 2026-08-11, on two grounds, and the second erases the first.**
+>
+> 1. **The p is not calibrated** (doctrine 74). Under 200 H0 replicates at the
+>    real item sizes the per-item p has median 0.559, not 0.500, and pooled
+>    Fisher reaches ≥0.950 in 8.5% of H0 arms rather than 5% — so 0.950 was
+>    ~1-in-12. The cause is structural: rhymes arrive in PAIRS inside a window
+>    while `analyse()` draws independent positions.
+> 2. **There are no per-item p-values.** The `k=23` and `k=26` items were the
+>    ones that survived a correction whose family was measured over band
+>    survivors. At the candidate family, 18 of 20 real sonnets return
+>    `cannot tell` and the other 2 return zero events. `k` is 0.
+>
+> "The sonnet arm is genuinely null" is now **"the sonnet arm cannot tell"** —
+> doctrine 28's own distinction, applied to the arm that was citing it. What is
+> NOT touched: the Fisher machinery itself, the phase-invariance argument that
+> licenses it, and the observation that BH was answering a different question.
+> Those are why the pooling is still the right move once the layer produces
+> events again.
 
 ### The design constraint this imposes on any future corpus
 
@@ -75,6 +122,17 @@ never *combined* evidence, so the aggregate question had gone unasked.
 it.** Below that, corpus quality is irrelevant — the cell cannot answer the
 question no matter how well chosen. This, not genre and not language, is what
 should drive corpus selection from here.
+
+> **AMENDED 2026-08-11, and the amendment is the operative sentence.** The
+> constraint is unchanged and its binding end has moved. It was written as a
+> constraint on the CORPUS: pick items that carry enough events. At the honest
+> family size the English event set delivers **zero** events on a Shakespeare
+> sonnet, so no corpus satisfies it — the constraint now binds on the
+> INSTRUMENT first. `null_samples` and `window` decide whether an event is
+> attainable at all (at `null_samples=2000` the Šidák cut is 2.5e-4 and the
+> p-value floor is 5e-4; best attainable p / loosest cut is 1.7–1.8× on real
+> items). Choosing a corpus before fixing those two coordinates would be
+> choosing a corpus for an instrument that cannot fire on any of them.
 
 ## Part B — the replacement corpus, defined by property not genre
 
