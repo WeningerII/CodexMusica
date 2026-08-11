@@ -232,6 +232,77 @@ class Cycle:
             x += g
         return tuple(out)
 
+    # -- what the grouping says about a POSITION -----------------------------
+    #
+    # `group_starts` answers "where do the groups begin" for one cycle. A line
+    # sits in a SPAN, which may start mid-cycle and run over a barline, so the
+    # three below take absolute 0-based pulse positions and wrap. Every one of
+    # them returns None on an undeclared grouping, for the same reason
+    # `pulse_groups` does: seven pulses admit 64 orderings and this cycle has
+    # not said which. See quality/fit.py, which is the caller.
+
+    def is_head(self, pulse):
+        """Is this absolute 0-based pulse a GROUP HEAD? None if undeclared."""
+        starts = self.group_starts()
+        if starts is None:
+            return None
+        within = Fraction(pulse) % Fraction(self.pulses)
+        return within in {Fraction(s) for s in starts}
+
+    def group_at(self, pulse):
+        """-> (group index, offset into the group), or None if undeclared.
+
+        The offset matters as much as the index: pulse 4 of 7/8 as 3+2+2 is the
+        HEAD of group 1, and of 2+2+3 it is offset 0 of group 2 — same pulse,
+        different metric identity, which is the whole reason a grouping is
+        declared rather than sniffed.
+        """
+        starts = self.group_starts()
+        if starts is None:
+            return None
+        within = Fraction(pulse) % Fraction(self.pulses)
+        idx = 0
+        for i, s in enumerate(starts):
+            if Fraction(s) <= within:
+                idx = i
+        return idx, within - Fraction(starts[idx])
+
+    def heads_between(self, start, end):
+        """Absolute 0-based group-head positions in the half-open [start, end).
+
+        None if the grouping is undeclared. `()` is a real answer — a span that
+        genuinely covers no head — and is not the same as None.
+        """
+        starts = self.group_starts()
+        if starts is None:
+            return None
+        start, end = Fraction(start), Fraction(end)
+        if end <= start:
+            return ()
+        period = Fraction(self.pulses)
+        k = start // period          # Fraction floor division -> integer value
+        out = []
+        while k * period < end:
+            base = k * period
+            for s in starts:
+                p = base + Fraction(s)
+                if start <= p < end:
+                    out.append(p)
+            k += 1
+        return tuple(sorted(out))
+
+    # -- note VALUES, which are declared; note DURATIONS are not -------------
+
+    def note_value(self, pulses=1):
+        """The length of `pulses` pulses in WHOLE NOTES, exact.
+
+        This is available because `unit` is declared. What is NOT available is
+        the length in SECONDS: `Song` has no tempo and no tempo change
+        (MISSING.md C-5), so a note value is a ratio and never a duration.
+        Callers that need seconds must be refused, not approximated.
+        """
+        return Fraction(pulses, self.unit)
+
     def variants(self):
         """Every OTHER grouping of the same signature — the meters this one is
         being distinguished from. 2^(n-1) total."""

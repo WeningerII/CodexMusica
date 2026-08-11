@@ -422,8 +422,32 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
         # which is coarser -- so whether anything is discovered depends on
         # how many pairs happen to pile up on the resolution floor, not on
         # the evidence. Measured: 63% saturation on one sonnet and 0% on the
-        # next three, from that alone. FWER needs no such resolution because
-        # its cut is alpha/m with m ~ 15, not q/n with n ~ 10^4.
+        # next three, from that alone.
+        #
+        # AMENDED 2026-08-11 -- THE ORDERING SURVIVES, THE FREE PASS DOES NOT.
+        # This comment used to end "FWER needs no such resolution because its
+        # cut is alpha/m with m ~ 15, not q/n with n ~ 10^4". That `m ~ 15`
+        # was measured on the SCORED family -- the pairs that survived the
+        # band -- which is the very defect `family="candidate"` above exists
+        # to fix, so the sentence contradicted the field forty lines up. The
+        # family is the comparisons MADE: re-measured, the median CANDIDATE
+        # family is 156-282 across 24 sonnets (203 on sonnet 1), against a
+        # median scored family of 6-13 on the same items, so FWER's required
+        # resolution is ~13x finer than this file claimed -- alpha/203, not
+        # alpha/15. At `null_samples=2000` the Sidak cut on sonnet 1 is
+        # 2.53e-4 and the p-value floor is 5.00e-4: THE CUT SITS BELOW THE
+        # FLOOR and FWER cannot resolve its own threshold either.
+        #
+        # What stands is the ORDERING, which is all this branch needs: q/n on
+        # the same sonnet is 1.37e-5, so BH would want 73,030 draws where the
+        # default `null_samples=20000` already gives FWER about 5x of
+        # headroom. So the guard below is still BH's and not FWER's -- but
+        # `null_samples` is load-bearing for BOTH, exactly where this comment
+        # said it was not, and doctrine 29's closing rule ("check that a
+        # correction can resolve its own threshold before using it") applies
+        # to the `else:` branch as much as to this one. See doctrine 29's
+        # amendment, `quality/fwer_family.py` (which re-measures the family)
+        # and `quality/test_fwer.py` test 7.
         floor_p = 1.0 / (n_valid + 1) if n_valid else 1.0
         n_hyp = len(pairs) if tdecl.family == "candidate" else len(scored)
         if scored and floor_p > tdecl.q / n_hyp:

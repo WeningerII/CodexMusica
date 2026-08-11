@@ -877,10 +877,60 @@ def _d_rhyme_constraints():
 
 
 def _d_doctrine_count():
-    c = open(CLAUDE_MD, encoding="utf-8").read()
-    n = len(re.findall(r"^\d+\. \*\*", c, re.M))
-    return (CONFIRMED if n == 76 else MOVED), "%d numbered items" % n, \
-        "CLAUDE.md carries 76 numbered items"
+    """The doctrine run spans TWO files and is delimited, so count it that way.
+
+    This claim used to read `^\\d+\\. \\*\\*` out of CLAUDE.md alone and compare
+    against 76, and it was wrong twice over after the 2026-08-11 split. It
+    missed the 75 doctrines that moved to `quality/METHOD.md`, and the bare
+    regex over CLAUDE.md also swept in the SEVEN `Known gaps` items, which use
+    the same markdown shape, are cited as `known gap N`, and were never part of
+    the doctrine numbering. Both files delimit their run with
+    `<!-- DOCTRINE-BLOCK -->` markers precisely so a counter can tell the two
+    lists apart, and `quality/verify_doctrines.py` already reads them
+    correctly -- so this calls that rather than growing a second regex that can
+    drift from it. An auditor with its own private parser of the thing it
+    audits is the `gabay higaad` shape one layer down.
+
+    CLAUDE.md's own invariant is the standard: the union must be exactly 1-95
+    with no number defined in both files.
+    """
+    try:
+        from quality import verify_doctrines as VD
+        defs = VD.definitions()                  # {n: [file, ...]}, markers only
+    except Exception as e:                       # noqa: BLE001
+        return UNVERIFIABLE, \
+            "cannot read the doctrine runs: %s: %s" % (type(e).__name__, e), \
+            "95 doctrines across CLAUDE.md + quality/METHOD.md"
+    per_file = collections.Counter(h for hs in defs.values() for h in hs)
+    n = len(defs)
+    dup = sorted(k for k, hs in defs.items() if len(hs) > 1)
+    run = sorted(defs)
+    contiguous = run == list(range(1, n + 1))
+    gaps = [i for i in range(1, (max(run) if run else 0) + 1) if i not in defs]
+    # the seven items the old regex was silently counting
+    claude = open(CLAUDE_MD, encoding="utf-8").read()
+    bare = len(re.findall(r"^\d+\. \*\*", claude, re.M))
+    detail = ("%d doctrines between the <!-- DOCTRINE-BLOCK --> markers: "
+              "%s. Contiguous 1-%d: %s. Defined twice: %s. "
+              "CLAUDE.md's bare `^N. **` count is %d, i.e. %d doctrines plus "
+              "the %d `Known gaps` items, which are a SEPARATE numbering "
+              "(cited as `known gap N`) and are what the old CLAUDE.md-only "
+              "regex was counting into this figure."
+              % (n,
+                 ", ".join("%s %d" % (f, c) for f, c in sorted(per_file.items())),
+                 max(run) if run else 0,
+                 "yes" if contiguous else "NO, missing %s" % gaps,
+                 dup or "none",
+                 bare, per_file.get("CLAUDE.md", 0),
+                 bare - per_file.get("CLAUDE.md", 0)))
+    ok = (n == 95 and not dup and contiguous
+          and per_file.get("CLAUDE.md") == 20
+          and per_file.get("quality/METHOD.md") == 75)
+    return (CONFIRMED if ok else MOVED), detail, \
+        ("95 doctrines, one global numbering, 20 in CLAUDE.md and 75 in "
+         "quality/METHOD.md (MISSING.md L-5's `102 numbered items` is this 95 "
+         "plus CLAUDE.md's 7 `Known gaps` rows; the entry's struck-through 76 "
+         "predates the split)")
 
 
 def _d_fin_census():
@@ -996,7 +1046,8 @@ DERIVATIONS = [
     Claim("D20", "F-1", "phonology modules", 8, _d_phonologies, "quality/audit_register.py"),
     Claim("D21", "M-15", "traditions populated", 0, _d_traditions_populated, "quality/audit_register.py"),
     Claim("D22", "M-16", "rhyme_constraints", 1325, _d_rhyme_constraints, "quality/audit_register.py"),
-    Claim("D23", "L-5", "CLAUDE.md doctrines", 76, _d_doctrine_count, "quality/audit_register.py"),
+    Claim("D23", "L-5", "doctrines (CLAUDE.md + METHOD.md)", 95,
+          _d_doctrine_count, "python3 quality/verify_doctrines.py"),
     Claim("D24", "M-4", "Finnish unreadable census", 155, _d_fin_census,
           "quality/audit_register.py --slow", slow=True),
     Claim("D25", "N-2", "Welsh readability", 100.0, _d_cym_readability,

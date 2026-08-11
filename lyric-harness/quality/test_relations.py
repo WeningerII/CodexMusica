@@ -806,17 +806,27 @@ def test_known_open_defects():
           "the coordinate is INERT by default. A capability nobody declared "
           "must not change a single count.")
 
-    # P11 CLOSED 2026-08-11 ON THE HALF THIS MODULE OWNS, and the other half
-    # is named rather than quietly folded in. The old assertion pinned
-    # `isinstance(nucleus, str)`, which is still true and is now the statement
-    # of what REMAINS open, in a module relations.py does not own.
-    check("P11: `quality.phonology.Syllable.nucleus` is STILL a str, so no "
-          "shipped phonology can produce a two-reading syllable",
+    # P11 CLOSED 2026-08-11 ON BOTH HALVES AND ON THE SEAM BETWEEN THEM. The
+    # assertion below is unchanged and still passes; its TITLE was false from
+    # the moment `quality/phonology/__init__.py` landed, because
+    # `Syllable.nucleus` is annotated `object` there now and
+    # `Phonology.parses()` is the declared hook that produces a two-reading
+    # syllable. What the assertion actually pins is a different and still-live
+    # fact -- that the SHIPPED `eng`, and this file's fixture over it, declare
+    # ONE reading -- which is the pin that keeps every other count in this file
+    # honest. Retitled rather than deleted: a check whose title outruns its
+    # assertion is doctrine 17's error in miniature.
+    check("P11's production half is CLOSED, and the shipped `eng` still "
+          "declares ONE reading — which is what keeps this fixture honest",
           len(_lex().entries["wind"]) == 2
           and len(ENG.syllabify("wind")) == 1
           and isinstance(ENG.syllabify("wind")[0].nucleus, str),
-          "CMUdict holds both readings of `wind` and the fixture takes the "
-          "first. That is the PRODUCTION gap and it is not in this file.")
+          "`quality.phonology.Syllable` can hold a knowledge set as of "
+          "2026-08-11 and `Phonology.parses()` is the hook that produces one. "
+          "The DEFAULT is still the single reading, in eng and in this "
+          "fixture, so nothing here moves. See quality/test_homograph.py for "
+          "the same fixture wired the other way, where wind/find stops being "
+          "a perfect rhyme and becomes UNDECIDED.")
     A, D = R.Agree(), R.Differ()
     both = frozenset({"IH", "AY"})
     check("P11 closed (comparison half): a channel may hold a KNOWLEDGE SET "
