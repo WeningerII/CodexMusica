@@ -45,11 +45,12 @@ passes the draft outright and then emits nothing but collisions
   - 24  the DECISION that a collision earns no candidate field, measured
         rather than asserted: the constraint is negative, so its satisfying
         set is 98-99% of the lexicon and doctrine 9's modal head over it is
-        `the, of, and, to, a, in`
+        `you, i, the, to, a, 's`
 
 Run: python3 quality/test_revise.py
 """
 
+import collections
 import os
 import sys
 
@@ -59,6 +60,7 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import (Declaration, NEAR_RELATIONS,  # noqa: E402
                            check_scheme, rhyme_graph)
+from quality import frequency as FREQ  # noqa: E402
 from quality import schemes as SC  # noqa: E402
 from quality.revise import (COLLISION_FINDINGS, THETA_COLLISION,  # noqa: E402
                             Brief, NoMandate, ReviseDeclaration, Reviser)
@@ -120,11 +122,29 @@ def test_the_brief_excludes_the_modal_region():
     check("a rhyme finding earns a candidate field",
           bool(b.candidates) and bool(b.forbidden_modal),
           f"{len(b.candidates)} offered, {len(b.forbidden_modal)} forbidden")
-    check("the forbidden words are the FREQUENT ones",
-          all(R.lex.freq_rank.get(w, 10 ** 9)
-              < max(R.lex.freq_rank.get(c, 10 ** 9) for c in b.candidates)
-              for w in b.forbidden_modal if w in R.lex.freq_rank),
-          f"forbidden {b.forbidden_modal[:5]} are commoner than the offered")
+    # WIRED 2026-08-11: the ranking is no longer `lex.freq_rank` alone. It is
+    # the call-conditional table first (quality/frequency.py's `eng-song`
+    # cell, scoring=UNSEEN) and `lex.freq_rank` only as backoff for a
+    # candidate the conditional never observed for any of this line's calls
+    # -- see `Reviser.joint_field`. Reproducing that exact key here is the
+    # point: it is the contract, the same way the old test encoded the old
+    # one.
+    calls = tuple(dict.fromkeys(
+        w for _, _, cl in b.must_answer for _, w in cl if w))
+    cond = collections.Counter()
+    for call in calls:
+        cond.update(FREQ.LAYER.conditional("eng-song", call,
+                                            scoring=FREQ.UNSEEN))
+
+    def rank_key(w):
+        return (-cond.get(w, 0), R.lex.freq_rank.get(w, 10 ** 9))
+
+    check("the forbidden words are the MOST PREDICTABLE ones under that key",
+          all(rank_key(w) <= max((rank_key(c) for c in b.candidates),
+                                  default=(0, 0))
+              for w in b.forbidden_modal),
+          f"forbidden {b.forbidden_modal[:5]} rank ahead of offered "
+          f"{b.candidates[:5]} on (conditional count desc, freq_rank asc)")
     check("the current end word is itself forbidden",
           "fire" in b.forbidden_modal,
           "re-proposing what was flagged is not a revision")
@@ -863,13 +883,16 @@ def test_why_a_collision_earns_no_field():
     top = sorted(R.lex.freq_rank, key=lambda w: R.lex.freq_rank[w])[:6]
     check("and doctrine 9's mechanism on top of it forbids the six commonest "
           "words in English",
-          all(t in ("the", "of", "and", "to", "a", "in") for t in top),
-          f"the modal head of ~98% of the lexicon is {top}. The modal "
-          f"exclusion exists to push a writer off the predictable RHYME; "
-          f"over a negative constraint it has no rhyme class to be modal IN, "
-          f"at ANY frequency distribution -- so the verse-frequency work "
-          f"elsewhere does not change this. The defect is the POLARITY of "
-          f"the constraint, not the ranking over it")
+          all(t in ("you", "i", "the", "to", "a", "'s") for t in top),
+          f"the modal head of ~98% of the lexicon is {top} (WIRED "
+          f"2026-08-11: lex.freq_rank now reads data/opensubtitles_en_50k."
+          f"tsv, not the old web crawl). The modal exclusion exists to push "
+          f"a writer off the predictable RHYME; over a negative constraint "
+          f"it has no rhyme class to be modal IN, at ANY frequency "
+          f"distribution -- and a collision has no call word, so the "
+          f"call-conditional table `joint_field` now prefers has nothing to "
+          f"be consulted on either. The defect is the POLARITY of the "
+          f"constraint, not the ranking over it")
     lines = song_lines()
     briefs = R.brief(lines, SONG_SCHEME)
     only = [b for b in briefs
@@ -913,17 +936,34 @@ def test_the_modal_set_against_a_declared_reference():
                 ident += 1
     check("the modal set is real: it is the head of the grader's own field",
           tot >= 40, f"{tot} forbidden words over {len(seen)} distinct fields")
-    check("and only a MINORITY of it is a strict-identity rhyme",
-          ident * 4 < tot,
-          f"{ident}/{tot} of the words doctrine 9 names as the slop "
-          f"direction agree with their call on the tail-aligned nucleus AND "
-          f"coda by strict identity. The reference is declared as a "
-          f"REFERENCE, not as truth (doctrine 94) -- the band exists to admit "
-          f"slant rhyme. What it prices is that on group H the six forbidden "
-          f"words are will/their/there/here/year/email against 'ear': "
-          f"cluster_sim(['R'],['L']) = 0.9875, so the conjunctive coda rule "
-          f"cannot separate a lateral coda from a rhotic one, and no value "
-          f"of theta_coda reaches it. Not this cell's file to fix")
+    # WIRED 2026-08-11: the ranking is now primarily the call-conditional
+    # table, whose entries ARE realised rhyme pairs by construction (see
+    # quality/build_song_frequency.py's rime_key). So the forbidden set
+    # shifting from a MINORITY strict-identity share (under the old global
+    # word-count ranking) to a much larger one is the fix working as
+    # intended -- doctrine 9 wants the exclusion pointed at the rhyme a
+    # writer actually reaches for, not merely a common word. A residual
+    # share below 100% is still expected and correct (doctrine 94: the band
+    # exists to admit slant rhyme, and the conditional's own backoff to
+    # freq_rank for unobserved candidates keeps some non-identity words in
+    # the forbidden set), so the bar here is the OLD threshold's mirror
+    # image rather than a claim of near-total identity.
+    check("and now AT LEAST A QUARTER of it is a strict-identity rhyme, up "
+          "from the old mechanism's under-a-quarter",
+          ident * 4 >= tot,
+          f"{ident}/{tot} ({100.0 * ident / tot:.1f}%) of the words "
+          f"doctrine 9 names as the slop direction agree with their call on "
+          f"the tail-aligned nucleus AND coda by strict identity. The "
+          f"reference is declared as a REFERENCE, not as truth (doctrine "
+          f"94) -- the band exists to admit slant rhyme, and the fraction "
+          f"is not 100% because the conditional table is sparse and falls "
+          f"back to freq_rank for candidates it has no data on. What the "
+          f"residual non-identity share prices, unchanged from before: on "
+          f"group H six forbidden words include will/their/there/here/year/"
+          f"email against 'ear' when the conditional has no data for it, "
+          f"because cluster_sim(['R'],['L']) = 0.9875, so the conjunctive "
+          f"coda rule cannot separate a lateral coda from a rhotic one, and "
+          f"no value of theta_coda reaches it. Not this cell's file to fix")
 
 
 if __name__ == "__main__":

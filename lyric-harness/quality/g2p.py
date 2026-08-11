@@ -731,7 +731,8 @@ class Fallback:
         possible English word and nothing downstream would have said so.
         Stem-form order third (`dul` is absent, `dull` and `dule` are both
         present and `-ness` wants the doubled one). Frequency last, from the
-        lexicon's own `wordfreq20k` ranking, which is independent of the
+        lexicon's own `freq_rank` (a spoken-register list, currently
+        data/opensubtitles_en_50k.tsv), which is independent of the
         pronunciation being predicted (doctrine 13).
         """
         cands = []

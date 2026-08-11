@@ -76,6 +76,7 @@ groups must answer ALL k of them, and every finding says which group it is
 about.
 """
 
+import collections
 import copy
 import os
 import sys
@@ -90,6 +91,7 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
                            Lexicon, admits, best_score, bron_kerbosch,
                            line_anchors, readability_records,
                            refusals_for_pairs)
+from quality import frequency as FREQ  # noqa: E402
 from quality import schemes as SC  # noqa: E402
 from quality.floor import Finding, SlopFloor  # noqa: E402
 from quality.schemes import Mandate, NoMandate  # noqa: E402
@@ -964,7 +966,7 @@ class Reviser:
 
     def joint_field(self, calls, exclude=(), profile=None):
         """-> (offered, forbidden). The candidate field that answers EVERY
-        call word, with the most frequent members forbidden as modal.
+        call word, with the most PREDICTABLE members forbidden as modal.
 
         For a single call this is `modal_field` and behaves exactly as it did.
         For a PIVOT — a line in two groups — it is the intersection, and the
@@ -983,6 +985,22 @@ class Reviser:
         three of the five score-ordered pools. The claim was not wrong about
         the lexicon, it was a claim about a constant.
 
+        WHAT "PREDICTABLE" IS RANKED OVER, WIRED 2026-08-11. Primarily the
+        CONDITIONAL, P(partner | call) measured over corpus/song/
+        (`quality/frequency.py`'s `eng-song` cell, `scoring=UNSEEN` because a
+        freshly drafted line is in no corpus), summed over every call the
+        line must answer — the instrument doctrine 9 actually names, not a
+        global word count. Measured leave-one-author-out
+        (`quality/RESULTS_SONG_FREQUENCY.md`): the six words this ranks
+        highest cover 63.2% of what a held-out writer actually reached for,
+        against 16.9% for the web list this field used to rank on. The
+        conditional is SPARSE (76.1% of end-word types have fewer than 6
+        realised partners, `data/sources.tsv`'s row for
+        `song_rhymepair_en.tsv`), so a candidate with zero observed count for
+        every call falls back to `lex.freq_rank`, a global spoken-register
+        list — not a claim that it is unpredictable, only that this table has
+        no evidence either way.
+
         Ties are broken on (frequency rank, position in the first field) and
         never on set iteration order — doctrine 66, a tie broken by iterating
         a set is a result that does not reproduce.
@@ -994,8 +1012,13 @@ class Reviser:
         for f in fields[1:]:
             common &= set(f)
         order = {w: i for i, w in enumerate(fields[0])}
+        cond = collections.Counter()
+        for call in calls:
+            cond.update(FREQ.LAYER.conditional(
+                "eng-song", call.lower(), scoring=FREQ.UNSEEN))
         ranked = sorted(common,
-                        key=lambda w: (self.lex.freq_rank.get(w, 10 ** 9),
+                        key=lambda w: (-cond.get(w, 0),
+                                       self.lex.freq_rank.get(w, 10 ** 9),
                                        order.get(w, 10 ** 9), w))
         k = self.rdecl.modal_exclusion
         forbidden = ranked[:k]
@@ -1013,8 +1036,9 @@ class Reviser:
         return rest, forbidden
 
     def modal_field(self, call_word, exclude=(), profile=None):
-        """-> (offered, forbidden). The forbidden set is the MOST FREQUENT
-        band-passing candidates, which are the most predictable ones.
+        """-> (offered, forbidden). The forbidden set is the MOST PREDICTABLE
+        band-passing candidates — what a writer is most likely to reach for
+        GIVEN this call word, not merely the commonest words in English.
 
         The population it is the head of is `_field_one`'s — the words the
         GRADER would accept, over the COMPLETE pool. Both halves of that are
@@ -1023,15 +1047,21 @@ class Reviser:
         field, so the exclusion was spent on words nobody could take.
 
         WHAT THE RANKING IS OVER, said out loud because it decides which way
-        this pushes. `lex.freq_rank` is `wordfreq20k.txt`, a web-frequency
-        list: `software` is rank 151 and `email` 114, against `moon` 2800,
-        `rain` 2946, `grief` 10699 and `weep` absent entirely. So "modal"
-        here means modal ON THE WEB, not modal in song, and the exclusion
-        pushes away from an optimum that is only approximately the one
-        doctrine 9 names. That list has no row in `data/sources.tsv`
-        (doctrine 34) and no verse-frequency alternative exists in this repo
-        (doctrine 13: a resource used to score a cell has to be named).
-        `quality/RESULTS_REVISION_LOOP.md` §4 measures what it costs.
+        this pushes, and WIRED 2026-08-11 to answer doctrine 9 properly.
+        Primarily the CONDITIONAL, P(partner | call) measured over
+        corpus/song/ (`quality/frequency.py`'s `eng-song` cell): `night`'s
+        realised partners are `light`, `sight`, `right`, `bright` — not
+        `that`, `not`, `at`, `but`, which is where any global unigram rank
+        spends the head of a rhyme field, because the head of any unigram
+        list is function words. A call word the table has no data for falls
+        back to `lex.freq_rank`, now `data/opensubtitles_en_50k.tsv` — a
+        spoken-register global rank that replaced the 2006 web crawl this
+        used to read (`software` was rank 151, `weep` was absent entirely).
+        `quality/RESULTS_SONG_FREQUENCY.md` measures both steps: +4.5pp from
+        the register fix alone, and the conditional itself covers 63.2% of
+        what a held-out writer reached for against 16.9% for the old web
+        list. See `joint_field` for the exact ranking and the sparsity it
+        falls back on.
         """
         return self.joint_field([call_word], exclude=exclude, profile=profile)
 
@@ -1061,14 +1091,16 @@ class Reviser:
         so a "candidate field" for a collision is not a field, it is a copy of
         the dictionary with a rhyme class deleted. And doctrine 9's mechanism
         on top of it is worse than useless: the modal head of 98% of English
-        is `the, of, and, to, a, in` — the six commonest words in
-        `wordfreq20k.txt` — so the exclusion that exists to push a writer off
-        the predictable RHYME would be forbidding the six commonest words in
-        the language. The mechanism is aimed at a positive field; a negative
-        constraint has no modal head worth excluding, at any distribution.
-        (Which is also why the verse-frequency work happening elsewhere does
-        not change this: the defect is the polarity of the constraint, not the
-        ranking over it.)
+        is `you, i, the, to, a, 's` — the six commonest words in
+        `data/opensubtitles_en_50k.tsv`, `lex.freq_rank`'s source — so the
+        exclusion that exists to push a writer off the predictable RHYME
+        would be forbidding the six commonest words in the language. The
+        mechanism is aimed at a positive field; a negative constraint has no
+        modal head worth excluding, at any distribution. (Which is also why
+        wiring `joint_field` to the call-conditional table in `modal_field`
+        does not change this either: a collision has no call word to
+        condition on, so there is no conditional to consult. The defect is
+        the POLARITY of the constraint, not the ranking over it.)
 
         The second reason is doctrine 7, and it is the one that decides what
         the loop IS. The loop is a floor: rejection, not selection. A
@@ -1280,8 +1312,9 @@ class Reviser:
         print(f"  candidate field: {self.field_declaration()}; "
               f"modal_exclusion={self.rdecl.modal_exclusion}; "
               f"group_merge={self.rdecl.group_merge!r}; "
-              f"frequency source wordfreq20k.txt (web ranks — see "
-              f"`modal_field`)", file=stream)
+              f"frequency source eng-song conditional, falling back to "
+              f"data/opensubtitles_en_50k.tsv (see `modal_field`)",
+              file=stream)
         for f in found["whole"]:
             loc = (f" (lines {', '.join(map(str, f.locations))})"
                    if f.locations else "")

@@ -22,11 +22,13 @@ WHAT IS AND IS NOT INDEPENDENT HERE.
     purely to price what the wrong split would have bought.
   * Every rate off a randomised split is reported as a distribution over seeds,
     never as one draw (doctrine 73).
-  * Nothing here reads `wordfreq20k.txt` or the rhyme-candidate index. That is
-    deliberate: the frequency layer is being replaced, and a threshold measured
-    against a file that is about to change would be a coordinate of a file that
-    will not exist tomorrow. It is also why the song profile carries no
-    `predictable_pair_fraction_max`.
+  * Nothing here reads `wordfreq20k.txt`, its replacement
+    `data/opensubtitles_en_50k.tsv`, or the rhyme-candidate index. The
+    frequency layer WAS replaced 2026-08-11 (`lyric_harness.Lexicon.freq_rank`,
+    `quality/revise.py`'s modal exclusion); no threshold has been calibrated
+    against the new source since, so this file still has nothing independent
+    to measure a `predictable_pair_fraction_max` against, and the song
+    profile still carries none.
   * The two lyrics in `examples/` are not in `corpus/song/` -- checked by
     normalised line overlap, 0 of 27 and 0 of 37 -- so the profile scores them
     without having seen them. `quality/test_floor.py` test 17 pins that.

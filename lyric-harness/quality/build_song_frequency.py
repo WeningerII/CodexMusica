@@ -6,21 +6,30 @@
 
 WHY THIS EXISTS, AND WHAT IT IS NOT
 
-`wordfreq20k.txt` is the list `lyric_harness.Lexicon.freq_rank` reads, and it
-does two jobs that were never separated: it RANKS the band-passing candidates,
-which is how `quality/revise.py` picks the FORBIDDEN set that makes doctrine 9
+`wordfreq20k.txt` WAS the list `lyric_harness.Lexicon.freq_rank` read at the
+time this module was written (WIRED CLOSED 2026-08-11 -- see below), and it
+did two jobs that were never separated: it RANKED the band-passing candidates,
+which is how `quality/revise.py` picked the FORBIDDEN set that made doctrine 9
 mechanical (doctrine 48) -- and, because `CandidateEngine.__init__` skips any
-word with no rank, it is also the MEMBERSHIP of the entire candidate pool.
-Measured: 18,010 of 124,926 a-z CMUdict words survive it, so 106,916 words
-(85.6%) can never be offered to a writer or forbidden to one. `weep`, `wept`,
-`mourn`, `doth`, `ere` and `wilt` are in that 85.6%.
+word with no rank, it was also the MEMBERSHIP of the entire candidate pool.
+Measured at the time: 18,010 of 124,926 a-z CMUdict words survived it, so
+106,916 words (85.6%) could never be offered to a writer or forbidden to one.
+`weep`, `wept`, `mourn`, `doth`, `ere` and `wilt` were in that 85.6%.
 
-The list is `first20hours/google-10000-english/20k.txt`, byte-identical
+Re-measured against `data/opensubtitles_en_50k.tsv`, the list `freq_rank`
+reads now: all six of those words are ranked (weep 7804, wept 14742, mourn
+10136, doth 11269, ere 10534, wilt 13861), and MEMBERSHIP improved from
+85.6% excluded to 66.5% (78,075 of 117,493 a-z CMUdict words, re-measured
+2026-08-11) -- real, and still most of the dictionary, because 50,000 types
+is still a bounded list and the MEMBERSHIP problem is a property of ranking
+the candidate pool with any finite one, not specific to which.
+
+That list was `first20hours/google-10000-english/20k.txt`, byte-identical
 (md5 c0190594b2a3a30a89bd0367b0892e0e), derived from Peter Norvig's
 `count_1w.txt` over the Google Web Trillion Word Corpus -- "one trillion words
-from public Web pages". So the ranking that decides which rhyme is "the
-predictable one" is a 2006 web crawl, in which `email` is 115, `click` 94 and
-`yahoo` 499 against `moon` 2801 and `grief` 10700.
+from public Web pages". So the ranking that decided which rhyme was "the
+predictable one" was a 2006 web crawl, in which `email` was 115, `click` 94
+and `yahoo` 499 against `moon` 2801 and `grief` 10700.
 
 THIS FILE DOES NOT REPLACE IT WITH ANOTHER GLOBAL RANK. The measurement in
 `quality/RESULTS_SONG_FREQUENCY.md` is that a global unigram rank is the wrong
@@ -31,6 +40,14 @@ words no writer takes as a rhyme -- while `light`, `bright`, `sight` and
 `delight` stay OFFERED. What this file builds is the CONDITIONAL, P(partner |
 call word), measured at the line-final position, which is the quantity
 doctrine 9 is actually about.
+
+WIRED CLOSED 2026-08-11. `quality/revise.py`'s `Reviser.joint_field` now
+ranks primarily by this file's own conditional table (via
+`quality/frequency.py`'s `eng-song` cell, `scoring=UNSEEN`), and
+`lyric_harness.Lexicon.freq_rank` was separately moved off the 2006 web crawl
+onto `data/opensubtitles_en_50k.tsv` -- the two problems this module's
+docstring named (the wrong INSTRUMENT and the wrong POPULATION) are now fixed
+by two different, independent changes, not one.
 
 INDEPENDENCE (doctrine 13, and it is the reason for the `author` column)
 

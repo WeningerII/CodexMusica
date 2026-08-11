@@ -8,9 +8,19 @@ rime riche, shared suffix, semirhyme).
 Every operation runs against an explicit DECLARATION. No hidden defaults:
 the declaration prints with every report.
 
-Data files expected beside this script (auto-downloaded by fetch_data()):
-  cmudict.dict   - CMU Pronouncing Dictionary (General American citation forms)
-  wordfreq20k.txt - 20k common-word list, rank order (candidate filtering)
+Data files expected beside this script:
+  cmudict.dict - CMU Pronouncing Dictionary (General American citation
+                 forms), auto-downloaded by fetch_data().
+  data/opensubtitles_en_50k.tsv - 50k spoken-register word list, rank
+                 order (candidate filtering; membership of the whole
+                 candidate pool -- CandidateEngine skips any word with no
+                 rank). Repo-committed and provenance-gated (data/sources.tsv,
+                 doctrine 85), not fetched over the network. Doctrine 9's
+                 modal exclusion in quality/revise.py additionally reads the
+                 call-conditional table in data/song_*.tsv -- see
+                 quality/frequency.py for why the two are different
+                 instruments and quality/RESULTS_SONG_FREQUENCY.md for what
+                 each buys.
 """
 
 import json
@@ -24,17 +34,25 @@ _KNOWN_WORDS = set()   # populated by Lexicon; used by the suffix stem check
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CMUDICT_PATH = os.path.join(HERE, "cmudict.dict")
-FREQ_PATH = os.path.join(HERE, "wordfreq20k.txt")
+FREQ_PATH = os.path.join(HERE, "data", "opensubtitles_en_50k.tsv")
 
 CMUDICT_URL = "https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict"
-FREQ_URL = "https://raw.githubusercontent.com/first20hours/google-10000-english/master/20k.txt"
 
 
 def fetch_data():
-    for path, url in ((CMUDICT_PATH, CMUDICT_URL), (FREQ_PATH, FREQ_URL)):
-        if not os.path.exists(path):
-            print(f"downloading {os.path.basename(path)} ...", file=sys.stderr)
-            urllib.request.urlretrieve(url, path)
+    if not os.path.exists(CMUDICT_PATH):
+        print(f"downloading {os.path.basename(CMUDICT_PATH)} ...", file=sys.stderr)
+        urllib.request.urlretrieve(CMUDICT_URL, CMUDICT_PATH)
+    if not os.path.exists(FREQ_PATH):
+        # Repo-committed and provenance-gated (data/sources.tsv), not a raw
+        # upstream mirror -- the file adds a `#` header and a rank column
+        # this repo generated, so re-fetching hermitdave/FrequencyWords over
+        # the network would not reproduce it. Refuse loudly rather than
+        # silently substituting a different file (doctrine 34).
+        raise FileNotFoundError(
+            f"{FREQ_PATH} is missing. It ships with the repo; if it is "
+            f"absent, restore it from version control rather than "
+            f"re-fetching -- see its row in data/sources.tsv.")
 
 
 # ---------------------------------------------------------------------------
@@ -485,11 +503,18 @@ class Lexicon:
                 phones = parts[1:]
                 self.entries.setdefault(word, []).append(phones)
         _KNOWN_WORDS.update(self.entries.keys())
+        # data/opensubtitles_en_50k.tsv: `# ...` provenance comments, then a
+        # literal `word\tcount\trank` header, then data rows in descending-
+        # frequency order -- rank 0 is the first data row, not the header.
         self.freq_rank = {}
         if os.path.exists(FREQ_PATH):
             with open(FREQ_PATH, encoding="utf-8") as f:
-                for i, w in enumerate(f):
-                    self.freq_rank.setdefault(w.strip().lower(), i)
+                for line in f:
+                    if line.startswith("#") or line.startswith("word\t"):
+                        continue
+                    w = line.split("\t", 1)[0].strip().lower()
+                    if w:
+                        self.freq_rank.setdefault(w, len(self.freq_rank))
 
     def transcribe_word(self, word):
         """Return (phones, oov_flag). Naive fallback for out-of-vocabulary."""

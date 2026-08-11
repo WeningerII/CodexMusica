@@ -1,6 +1,17 @@
 # RESULTS — what "the most frequent band-passing candidate" should be counted over
 
-Cell BE, 2026-08-11. Nothing here is committed.
+Cell BE, 2026-08-11.
+
+> **WIRED CLOSED 2026-08-11**, later the same day. "Nothing here is
+> committed" no longer holds: `data/opensubtitles_en_50k.tsv`,
+> `data/song_endword_en.tsv` and `data/song_rhymepair_en.tsv` are committed
+> and declared (`data/sources.tsv`), `lyric_harness.Lexicon.freq_rank` reads
+> the first, and `quality/revise.py`'s `Reviser.joint_field` ranks primarily
+> by the third via `quality/frequency.py`'s `eng-song` conditional
+> (`scoring=UNSEEN`), falling back to `freq_rank` where the conditional has
+> no observed partner. Every number below is kept as measured, at the
+> population and instrument this document tested — it is the argument for
+> the wiring, not a description of it.
 
 **The claim.** Doctrine 9's mechanism is aimed by `wordfreq20k.txt`, and that
 file is a 2006 web crawl. Fixing the *population* is worth +4.5 percentage

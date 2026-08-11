@@ -320,12 +320,20 @@ for _cell, _lang, _n, _note in [
 # measurement is that they do not behave alike.
 #
 # THE CELL THAT HAD NO ROW. `eng` was absent from this registry AND from
-# NO_INDEPENDENT_SOURCE, while being the only cell whose frequency source is
+# NO_INDEPENDENT_SOURCE, while being the only cell whose frequency source was
 # actually WIRED INTO A SHIPPED DECISION: `lyric_harness.Lexicon.freq_rank`
-# reads `wordfreq20k.txt`, and `quality/revise.py` ranks the band-passing
-# candidates by it to mark the most frequent as FORBIDDEN. That is doctrine 48
-# -- doctrine 9 made mechanical -- resting on a list this module had never
-# seen. The seven declared cells here are all ones nothing scores.
+# read `wordfreq20k.txt`, and `quality/revise.py` ranked the band-passing
+# candidates by it to mark the most frequent as FORBIDDEN. That was doctrine
+# 48 -- doctrine 9 made mechanical -- resting on a list this module had never
+# seen. The seven declared cells here were all ones nothing scored.
+#
+# WIRED CLOSED 2026-08-11. `Lexicon.freq_rank` now reads `eng-spoken`
+# (data/opensubtitles_en_50k.tsv) instead, and `quality/revise.py`'s
+# `Reviser.joint_field` ranks primarily by THIS module's `eng-song`
+# conditional (`scoring=UNSEEN`), falling back to `freq_rank` only where the
+# conditional has no observed partner for a call word. `eng` now has a row
+# below like every other cell, and it is the one cell everything else in this
+# module was built to eventually reach.
 # ---------------------------------------------------------------------------
 
 #: What `lyric_harness.py` actually reads today, declared so it is visible
