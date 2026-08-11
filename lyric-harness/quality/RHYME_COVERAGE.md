@@ -2,7 +2,7 @@
 
 Produced by a 21-agent workflow, 3.8M tokens, 889 tool calls, 2026-08-10.
 
-    601 type entries inventoried across 6 traditions
+    601 type entries inventoried across 6 rhyme traditions
     106 distinct STRUCTURES after dedupe by shape (25 cross-tradition collisions)
       7 degrees of freedom derived from the list rather than assumed
     106 tested individually against the chosen design

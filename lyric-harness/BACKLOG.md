@@ -367,7 +367,7 @@ the runner rather than inside the canon.
 the repair is partial.
 
 ### 4.4 · ~~`rhyme_constraints.py` — 1,325 stranded lines~~ `DECIDED 2026-08-11`
-~~The only genuinely stranded module.~~ `quality/rhyme_constraints.py` is **1,566 lines**.
+~~The only genuinely stranded module.~~ `quality/rhyme_constraints.py` is **1,609 lines** (~~1,566~~ — the inert-coordinate cell added the `Span.unit` and `Span.terminator` docstrings, which is growth in the file's OWN account of why it is kept).
 It has an `if __name__ == "__main__"` and non-test callers.
 (The line count is now stated in a sentence naming exactly ONE module, because
 `python3 quality/verify_entries.py`'s `MODULE_LINE_COUNT` shape REFUSES a count
@@ -537,9 +537,9 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 50 OPEN / 12 PARTIAL / 3 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 50 OPEN / 13 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
-| stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,566 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
+| stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,609 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
 | mutations declared | **33 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

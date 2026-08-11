@@ -503,7 +503,7 @@ found it independently in different centuries and countries.
 
 ### K-2 · English is single-author on BOTH sides `PARTIAL`
 **Was:** positive = Shakespeare alone; negative = Whitman alone.
-**Now:** the positive side spans **143 authors across 16 traditions**, 1567 to
+**Now:** the positive side spans **143 authors across 16 rhyme traditions**, 1567 to
 1929. The NEGATIVE side is still Whitman alone, and K-3 shows it never
 separated — so the replacement remains the corpus's own shuffled self.
 **New sub-gap:** `corpus/whitman.txt` is itself structurally impoverished —
@@ -1742,9 +1742,16 @@ digraph. **The digraph corroboration stands; the 100.00% does not.**
 > **`100.00%` IS NOT CHECKABLE, AND THE MISSING PIECE IS ONE FUNCTION.**
 > `msa` and `fin` both expose `readability_census()` and return **read /
 > refused / defective as three separate counts**, so their claims can be
-> audited. **`cym` exposes no census** (`hasattr(cym, "readability_census")` is
-> `False`), so read and refused cannot be separated and a bare rate hides
-> exactly the distinction doctrine 79 exists to enforce.
+> audited. ~~**`cym` exposes no census** (`hasattr(cym, "readability_census")`
+> is `False`), so read and refused cannot be separated and a bare rate hides
+> exactly the distinction doctrine 79 exists to enforce.~~
+> **CLOSED 2026-08-11: `cym.readability_census()` exists** — added by the cell
+> that gave Welsh a `rhymes()` predicate, and `hasattr` now returns `True`.
+> The struck sentence is kept because `quality/verify_entries.py` found it
+> STILL ASSERTING `False` after the entry had been marked CLOSED, which is the
+> gap between a status and its content that the checker's `HASATTR` shape
+> exists to catch. Overwriting it would have hidden the only live instance of
+> that shape firing.
 >
 > Measured 2026-08-11 under the module's own `WORD_RE`, over verse lines only
 > (blank, `#`, `---` and `[` excluded): the five `cym_song_*` files give

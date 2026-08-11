@@ -919,9 +919,19 @@ POSITIVE_CONTROLS = [
      _probe("No `no_such_relation_here()`.",
             heading="### X-0 · `fin.py` probe `OPEN`"),
      _probe("No `rhymes()`.", heading="### X-0 · `fin.py` probe `OPEN`")),
+    # REPOINTED 2026-08-11, and the reason is the shape working on itself.
+    # The TRUE probe used to be `hasattr(cym, "readability_census") is False`,
+    # copied from the live N-2 instance -- and when the Welsh cell ADDED that
+    # census the probe started failing, because the gap it was pinned to had
+    # been closed. A positive control pinned to a real defect expires the
+    # moment someone fixes the defect, which is precisely when you least want
+    # your control to go dark. Both sides point at synthetic or structural
+    # targets now, the same idiom SYMBOL_ABSENT already uses with
+    # `no_such_relation_here()`: `no_such_census_ever` can never exist, and
+    # `Phonology` is the base class every phonology module re-exports.
     ("HASATTR",
-     _probe('(`hasattr(cym, "readability_census")` is False)'),
-     _probe('(`hasattr(fin, "readability_census")` is False)')),
+     _probe('(`hasattr(cym, "no_such_census_ever")` is False)'),
+     _probe('(`hasattr(fin, "Finnish")` is False)')),
     ("REPO_PATH_EXISTS",
      _probe("built by `quality/counters.py`"),
      _probe("built by `quality/no_such_file_at_all.py`")),
