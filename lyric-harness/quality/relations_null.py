@@ -32,25 +32,63 @@ WHAT THIS FILE ADDS, AND WHAT IT REFUSES TO ADD.
    same tokenise -> permute -> join -> build_stream pipeline the replicates
    use, so a difference between the two can never be the rendering.
 
-WHAT THE FIRST RUN FOUND, and it is the reason this file exists rather than a
-number for the file to print:
+THE RUN.  n=200, seed 20260811, Poe = the first 200 non-blank non-header lines
+of `corpus/song/eng_american_edgar_allan_poe.txt`, Kalevala = the first 400 of
+`corpus/fin_kalevala.txt` (doctrine 58: the slice is a coordinate of the
+number, so it is written next to it).  `differ` is the fraction of replicates
+that differ from the OBSERVATION at all (doctrine 68).
 
-  * `line_permutation` -- THE NULL THIS REPO USES EVERYWHERE ELSE (Whitman,
-    the Kalevala, Bilhaṇa, the sonnet arms) -- IS THE IDENTITY MAP for both
-    `internal rhyme` and `perfect rhyme` under the count statistic.  0 of 200
-    replicates differ from the observation by so much as one instance.  Neither
-    schema declares a BOUNDED line-distance placement, so permuting the lines
-    moves no unit's line-final status and no pair's eligibility.  Doctrine 63
-    caught this in Finnish and doctrine 68 in Persian; this is a third
-    mechanism, in this repo's own relations layer, and it would have produced a
-    clean p=1.000 for anyone who reached for the obvious null.
-  * The instance COUNT of a schema with no bounded line-distance placement is a
-    function of the song's TOKEN MULTISET and is very nearly invariant under
-    every honest null.  It cannot be rescued by running the same search over a
-    control, because the search is not what inflates it.  The statistic has to
-    change.  `local_fraction` is the one that moves.
+| schema · statistic | null | observed | null max | gap | lift | differ |
+|---|---|---:|---:|---:|---:|---:|
+| internal rhyme · count | line_permutation | 20472 | 20472 | **+0** | 1.000 | **0%** |
+| internal rhyme · count | within_line_shuffle | 20472 | 22984 | −2512 | 0.897 | 100% |
+| internal rhyme · count | global_redeal | 20472 | 22937 | −2465 | 0.897 | 100% |
+| internal rhyme · local_fraction@0 | line_permutation | .005959 | .005959 | **+0** | 1.000 | **0%** |
+| internal rhyme · local_fraction@0 | within_line_shuffle | .005959 | .005377 | +.000583 | 1.115 | 100% |
+| internal rhyme · local_fraction@0 | global_redeal | .005959 | .006434 | −.000475 | 1.109 | 100% |
+| perfect rhyme · count | line_permutation | 2431 | 2431 | **+0** | 1.000 | **0%** |
+| perfect rhyme · count | line_final_permutation | 2431 | 2588 | −157 | 0.997 | 89.5% |
+| perfect rhyme · local_fraction@2 | line_permutation | .035376 | .025915 | **+.009461** | 1.755 | 100% |
+| perfect rhyme · local_fraction@2 | line_final_permutation | .035376 | .025905 | **+.009472** | 1.772 | 100% |
+| Kalevala weak · line_fraction | within_line_shuffle | .845 | .845 | **+0** | 1.000 | **0%** |
+| Kalevala weak · line_fraction | line_permutation | .845 | .845 | **+0** | 1.000 | **0%** |
+| Kalevala weak · line_fraction | global_redeal | .845 | .340 | **+.505** | 3.018 | 100% |
 
-Run: python3 quality/relations_null.py            (the three reported arms)
+FOUR THINGS THAT TABLE SAYS, and they are the reason this file exists rather
+than a number for it to print:
+
+  1. `line_permutation` -- THE NULL THIS REPO USES EVERYWHERE ELSE (Whitman,
+     the Kalevala, Bilhaṇa, the sonnet arms) -- IS THE IDENTITY MAP for both
+     `internal rhyme` and `perfect rhyme` and for Kalevala alliteration.  0 of
+     200 replicates differ by so much as one instance.  None of the three
+     declares a BOUNDED line-distance placement, so permuting whole lines
+     moves no unit's line-final status, no pair's eligibility and no line's
+     word multiset.  Doctrine 63 caught this in Finnish and doctrine 68 in
+     Persian; this is a third mechanism, in this repo's own relations layer,
+     and it hands out a clean p=1.0000 to anyone who reaches for the obvious
+     null.
+  2. The instance COUNT of a schema with no bounded line-distance placement is
+     a function of the song's TOKEN MULTISET: the number of agreeing pairs in
+     a multiset does not depend on their order.  It cannot be rescued by
+     running the same search over a control, because the search is not what
+     inflates it.  The STATISTIC has to change (doctrine 90).
+  3. Read the direction, not just the size.  `internal rhyme` is 20,472
+     observed against a null MEDIAN near 22,820 -- BELOW chance, lift 0.897,
+     under both nulls that bite.  The mechanism is the schema's own
+     `both_line_final(polarity=False)`: Poe's 2,431 end-rhyme pairs are
+     EXCLUDED from internal rhyme, and a shuffle scatters those rhyme words
+     into line interiors where they start counting.  So the headline "18,290
+     instances of internal rhyme" was not merely uninformative; the number is
+     depressed by the poet's end rhyme, and it moves the wrong way.
+  4. What DOES survive a matched control is small and it is real.  Poe's
+     end-rhyme locality is +0.0095 over the null max at 1.76x, agreeing to
+     three digits under two independent nulls; Kalevala alliteration is +0.505
+     at 3.02x, which reproduces the recorded +50.8-point excess.  Both sit at
+     the p resolution floor of 1/(n+1)=0.005, so the GAP is the number to read
+     and the p is not (doctrine 57).
+
+Run: python3 quality/relations_null.py             (all three arms, ~25 min)
+     python3 quality/relations_null.py --arm=0 --null=global_redeal
 """
 import os
 import random
@@ -142,7 +180,11 @@ NULLS = {n.name: n for n in (
          reads=("line_distance", "stanza"),
          note="the null this repo uses for Whitman, the Kalevala and Bilhaṇa. "
               "MEASURED HERE TO BE THE IDENTITY MAP for any schema whose "
-              "placement carries no BOUNDED line-distance predicate."),
+              "placement carries no BOUNDED line-distance predicate: 0 of 200 "
+              "replicates differ on internal rhyme, perfect rhyme OR Kalevala "
+              "alliteration. It is the right null for a schema that reads "
+              "adjacency or a stanza frame, and no null at all for one that "
+              "does not."),
     Null("within_line_shuffle", _within_line_shuffle,
          preserves="each line's word multiset exactly; the song's token "
                    "multiset; line count; each line's token count; which "
