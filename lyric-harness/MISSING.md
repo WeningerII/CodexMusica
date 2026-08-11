@@ -588,19 +588,39 @@ entry were WRONG — corrected below rather than quietly restated.
 | English | `&c.` / `etc.` | 941 | handled by `is_chorus_stub` |
 | Finnish | `j. n. e.` (*ja niin edelleen*) | 8 | `fin_kanteletar` 14 → **0**; all ten `fin_*` 155 → 139 |
 | Welsh | `&c.` | 30 | Mynyddog, foot of a stanza |
-| ~~Malay~~ | ~~`d. s. b.`~~ | **0** | **the row was false — see below** |
+| Malay | `d. s. b.` / `d.s.b.` | **108 in the SOURCE** | see the reversal below |
 
-**THE MALAY ROW WAS FALSE AND THE ARITHMETIC SAID SO BEFORE ANYONE MEASURED.**
-`d. s. b.` occurs **zero times** in `corpus/song/msa_skeat_pantun.txt`, the only
-Malay file in the repo. The recorded `b`(101)/`d`(100)/`s`(99) = "300 of 471"
-reproduce exactly — as **tokenizer artifacts of the file's own annotation
-lines**: `--- RIME: A …/… | B …/…` occurs 129 times and `--- SOURCE: PG47873 …`
-129 times, and a naive tokenizer reads the metadata as verse. And the
-contradiction was visible on the page: M-3 claims 384 of 471 and M-4 claimed
-300 of 471, and **384 + 300 = 684 > 471**. Two entries in one section could not
-both be true and nobody added them up. Doctrine 79's lesson in a register
-nobody expected: reproducing a number checks the arithmetic of the computation,
-never the construction of the population.
+**THE MALAY ROW WAS WITHDRAWN ON 2026-08-11 AND THE WITHDRAWAL WAS ITSELF
+FALSE. Restored, with the correction that caused it recorded rather than
+erased.**
+
+The withdrawal said `d. s. b.` occurs zero times, having grepped
+`corpus/song/msa_skeat_pantun.txt` — the STAGED file, 129 blocks, 2,113 tokens.
+M-4 was never describing that file. M-3 names the population in its own text:
+**PG47873's 330 Malay verse blocks, 3,415 lines, 15,519 tokens** — the source
+text, seven times larger. In `47873-8.txt` the stub occurs **108 times**: 100 as
+`d.s.b.` unspaced and 8 as `d. s. b.` spaced. The withdrawing grep matched only
+the spaced form, in the smaller file, and read 8-in-the-source as
+0-in-the-corpus. A naive tokeniser turns the 100 unspaced stubs into single
+letters, which is the recorded `b`(101)/`d`(100)/`s`(99) exactly.
+
+The replacement mechanism the withdrawal proposed — that the 300 were tokeniser
+artifacts of the file's own `--- RIME:` and `--- SOURCE:` annotation lines — is
+also wrong: that mechanism yields b 130, **d 1, s 5**, not 101/100/99.
+
+**And the arithmetic never required a withdrawal at all.** M-3's CORRECTED
+figures are 76 apostrophe fragments + 300 stub tokens + 77 correct refusals =
+453, comfortably inside its own 458. The contradiction was created entirely by
+M-3's false 384, and M-3 corrects that itself. **384 was the only false number
+in the pair.**
+
+The lesson is the one this session learned twice and applied wrongly the second
+time: **checking a claim against a population the claim was not about is not a
+check.** The first instance was verifying `test_fwer` against a HEAD that
+already contained the change under test. This is the same error committed while
+correcting an error, and it took an adversary pointed at the register to find
+it. `lyric_harness.CHORUS_STUB_FORMS` shipped the `msa` row throughout and was
+right the whole time.
 
 **The Finnish row is right in kind and was wrong in both numbers.** 16
 unreadable tokens, not 13. "100% of that corpus's failures" holds for the two
