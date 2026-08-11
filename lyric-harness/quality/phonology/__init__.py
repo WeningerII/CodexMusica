@@ -31,6 +31,17 @@ THE COMMITMENTS, INHERITED FROM quality/ipa.py
    this gap, and the cost was not cosmetic: every module in `quality/` takes a
    `phon` argument, so with no `eng` the whole layer was unreachable from
    English and each test built its own CMUdict fixture instead.
+4. **A homograph is UNDECIDED, never resolved.** ADDED 2026-08-11, defect P11's
+   production half. A `Syllable` channel may hold a `Readings` — the set of
+   readings the declared surface permits — and a predicate then answers True
+   where they all agree, False where none can, and None where some do and some
+   do not. This is commitment 2 arriving from inside a word rather than from
+   outside the inventory: `wind` is /W IH1 N D/ and /W AY1 N D/, CMUdict lists
+   the verb first, and taking `prons[0]` reported `wind`/`find` as a PERFECT
+   RHYME while saying nothing about which reading it had read. The hook is
+   `Phonology.parses()`; nine of nine modules override nothing and are
+   byte-identical. See the KNOWLEDGE SETS section below and
+   `quality/test_homograph.py`.
 
 WHAT THE TIME LAYER NEEDS, AND WHY PROMINENCE IS NOT ALWAYS STRESS
 
