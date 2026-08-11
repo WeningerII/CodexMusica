@@ -552,14 +552,18 @@ def test_the_seam():
           "a bare frozenset would scramble under PYTHONHASHSEED and the "
           "wrongness would be invisible half the time. `Readings.__iter__` "
           "exists for this one reason.")
-    check("`_rd_phones` splices the set INTO the phone sequence, so a "
-          "sequence predicate reads False where it should read None",
-          read["phones"] == ("W", read["nucleus"], "N", "D")
-          and R.Agree()(read["phones"],
-                        ("F", "AY", "N", "D")).value is False,
-          f"{read['phones']!r}. A tuple containing a frozenset is ONE value to "
-          f"`_set_agree`, so it compares unequal and returns a definite "
-          f"False. Reported, not patched here.")
+    # AMENDED 2026-08-11: this asserted the DEFECT, and the defect is fixed
+    # (quality/relations.py, cell O). The reader returns the PRODUCT now, so
+    # uncertain(), _seq's guard and _bucket_key's guard can all see it.
+    check("`_rd_phones` no longer splices the set INTO the phone sequence",
+          R.is_uncertain(read["phones"])
+          if hasattr(R, "is_uncertain") else isinstance(read["phones"], frozenset),
+          f"{read['phones']!r} -- the product, not a tuple with a set inside. "
+          f"The wind/find comparison is still False and always was CORRECT, "
+          f"because `phones` carries the ONSET and W/F disagree under every "
+          f"reading; the patch note's own worked example was wrong about that "
+          f"and a fix aimed at making it None would over-refuse. The pair that "
+          f"actually moves is wind/wined -- see quality/test_readings_seam.py.")
 
 
 # ---------------------------------------------------------------------------

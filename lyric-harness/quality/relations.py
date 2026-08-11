@@ -437,8 +437,8 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
 # representation built to say "we cannot tell" was converted into a wrong
 # certainty by the layer that consumes it, and `_rd_nucleus` -- which returns
 # its channel raw and is the only reason the wind/find case worked at all --
-# was three lines away.  Measured before the fix (`quality/test_readings_seam.py`
-# §1): `Agree(phones(wind), phones(find)).value is False`.
+# was three lines away.  Measured before the fix, in
+# `quality/test_readings_seam.py` §3.
 #
 # TWO SHAPES, TWO FIXES.
 #
@@ -452,9 +452,15 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
 # sequences the readings permit -- which keeps the tri-state whole:
 # `phones(wind)` and `phones(sand)` are still a definite False (disjoint under
 # every reading) where a flat refusal would have thrown that decision away.
-# `_seq` still refuses the SEQUENCE-scoped case at line ~1341 for its own
-# stated reason, and it now actually fires, because `uncertain()` sees a
-# frozenset where it used to see a tuple.
+# `_seq` still refuses the SEQUENCE-scoped case for its own stated reason (see
+# its `if uncertain(v)` guard in section 8), and `_bucket_key` still treats an
+# uncertain read as a wildcard -- and BOTH guards now actually fire, because
+# `uncertain()` sees a frozenset where it used to see a tuple.  They were dead
+# code on these four channels for as long as the readers coerced, which is why
+# `_bucket_key` was silently DELETING every candidate pair for a homograph
+# span: it filed the span under a key built from all its readings at once, a
+# bucket nothing else can land in.  Measured, sonnets: 45,505 instances exist
+# only after the fix.
 #
 # `Alternatives` is `quality.phonology.Readings` on this side of the seam and
 # is duplicated rather than imported ON PURPOSE: this module transcribes
@@ -489,12 +495,30 @@ def _collapse(vals):
     return next(iter(s)) if len(s) == 1 else s
 
 
+def _cluster(v):
+    """A cluster channel (onset / coda) as it should leave a reader.
+
+    A knowledge set is passed THROUGH, exactly as `_rd_nucleus` passes the
+    nucleus through -- a `tuple()` here turns two readings of a cluster into
+    one cluster of two readings, and `_set_agree` then answers a confident
+    False about it.
+
+    A SINGLETON set is collapsed, because `|set| == 1` is certainty and
+    certainty is a scalar everywhere else in this module.  `merge_readings`
+    never emits one, but a hand-written `parses()` easily could, and the
+    difference is not cosmetic: `_seq` extends its output with
+    `v if isinstance(v, tuple) else [v]`, and one schema reads `onset` at
+    SEQUENCE scope, so a one-reading frozenset would enter a consonant
+    skeleton as a single element -- the same splice this fix exists to
+    remove, arriving through the door it left open.
+    """
+    if isinstance(v, frozenset):
+        return tuple(next(iter(v))) if len(v) == 1 else v
+    return tuple(v)
+
+
 def _rd_onset(u):
-    # A knowledge set is passed THROUGH, exactly as `_rd_nucleus` does.  A
-    # `tuple()` here would turn two readings of a cluster into one cluster of
-    # two readings and `_set_agree` would answer a confident False about it.
-    v = u.syl.onset
-    return v if isinstance(v, frozenset) else tuple(v)
+    return _cluster(u.syl.onset)
 
 
 def _rd_nucleus(u):
@@ -502,8 +526,7 @@ def _rd_nucleus(u):
 
 
 def _rd_coda(u):
-    v = u.syl.coda
-    return v if isinstance(v, frozenset) else tuple(v)
+    return _cluster(u.syl.coda)
 
 
 def _rd_prominence(u):
@@ -526,7 +549,8 @@ def _rd_consonants(u):
     o, c = u.syl.onset, u.syl.coda
     if not (isinstance(o, frozenset) or isinstance(c, frozenset)):
         return tuple(o) + tuple(c)
-    return _collapse(tuple(oo) + tuple(cc) for oo in _alts(o) for cc in _alts(c))
+    return _collapse(tuple(oo) + tuple(cc)
+                     for oo in _alts(o) for cc in _alts(c))
 
 
 def _rd_phones(u):
@@ -536,9 +560,17 @@ def _rd_phones(u):
 
     Uncertain on any of the three channels -> the set of phone sequences the
     readings permit.  `phones(wind)` is
-    `Alternatives({('W','AY','N','D'), ('W','IH','N','D')})`, so wind/find is
-    None and wind/sand is still False; before the fix the frozenset was
-    spliced in as a single element and BOTH were a confident False."""
+    `Alternatives({('W','AY','N','D'), ('W','IH','N','D')})`, so wind/wined
+    is None -- the sequences overlap and do not settle -- and wind/sand is
+    still a definite False, because no reading of either agrees.  Before the
+    fix the frozenset was spliced in as a single element and BOTH were a
+    confident False.
+
+    NOT wind/FIND, which is the example the patch note for this fix used:
+    this channel carries the ONSET, W and F disagree under every reading, and
+    False is correct there before and after.  Recorded because a fix aimed at
+    turning that pair into None is a fix that over-refuses, which is exactly
+    what `return None` on any uncertain channel would have done."""
     o, n, c = u.syl.onset, u.syl.nucleus, u.syl.coda
     if not (isinstance(o, frozenset) or isinstance(n, frozenset)
             or isinstance(c, frozenset)):

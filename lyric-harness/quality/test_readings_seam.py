@@ -29,8 +29,21 @@ cannot tell" was converted into a wrong certainty by its own consumer, three
 lines below `_rd_nucleus`, which returns its channel raw and is the only
 reason the `wind`/`find` case worked at all.
 
-    BEFORE   Agree(phones('wind'), phones('find')).value  ->  False
-    AFTER    Agree(phones('wind'), phones('find')).value  ->  None
+    BEFORE   Agree(coda('close'), coda('rose')).value  ->  False
+    AFTER    Agree(coda('close'), coda('rose')).value  ->  None
+
+A NOTE ON THE EXAMPLE, because the patch note that sent this cell got it
+wrong and the error is instructive. That note gives
+
+    phones(wind) = ('W', Readings({'AY','IH'}), 'N', 'D')
+    Agree(that, ('F','AY','N','D')).value  ->  False        # should be None
+
+and the comment is mistaken: `phones` carries the ONSET, W and F disagree
+under every reading of `wind`, and False is the correct answer both before
+and after. The defect is real and section 3 pins it on `wind`/`wined`, where
+the sequences genuinely overlap without settling. A fix aimed at making the
+`find` case None would have been a fix that OVER-refuses, and it is exactly
+the fix a flat `return None` on any uncertain channel produces.
 
 TWO SHAPES OF FIX, AND THE SECOND IS NOT THE OBVIOUS ONE
 
@@ -266,6 +279,68 @@ def test_the_four_readers():
               R.uncertain(now) and not R.uncertain(old) if chan != "nucleus"
               else (R.uncertain(now) and R.uncertain(old)),
               f"before {old!r}\n          after  {now!r}")
+
+    one = Syllable("sit", Readings({("S",)}), "IH", Readings({("T",)}))
+    check("a SINGLETON set is certainty and comes back as a scalar cluster, "
+          "not as a set",
+          _read(one, "onset") == ("S",) and _read(one, "coda") == ("T",)
+          and _read(one, "phones") == ("S", "IH", "T"),
+          f"onset {_read(one, 'onset')!r}, coda {_read(one, 'coda')!r}, "
+          f"phones {_read(one, 'phones')!r}. `merge_readings` never emits a "
+          f"one-member set, but a hand-written `parses()` can, and `_seq` "
+          f"extends with `v if isinstance(v, tuple) else [v]` — so a "
+          f"singleton frozenset would enter a consonant skeleton as ONE "
+          f"element. That is the same splice this fix removes, arriving "
+          f"through the door the fix would otherwise have left open. One "
+          f"schema reads `onset` at sequence scope, so the path is live.")
+
+    # ALL NINE READERS, not the four that were reported. `_rd_moras` and
+    # `_rd_prominence` pass a set through, `_rd_grapheme` reads `text` which
+    # `quality/phonology.CHANNELS` deliberately excludes from merging, and
+    # `_rd_token` reads the printed token — so five were already sound. This
+    # is the audit rather than the assertion: nothing may come back with a
+    # frozenset HIDDEN inside a value that looks certain.
+    every = Syllable("x", Readings({("P",), ("B",)}), Readings({"AA", "AE"}),
+                     Readings({("T",), ("D",)}), Readings({0, 1}),
+                     Readings({1, 2}))
+
+    def _hides_a_set(v):
+        return isinstance(v, tuple) and any(isinstance(e, frozenset)
+                                            for e in v)
+
+    phonemic = [c for c in R.PHONEMIC if c not in ("grapheme", "token")]
+    now = {c: _read(every, c) for c in R.PHONEMIC}
+    was = {c: _read(every, c, "old") for c in R.PHONEMIC}
+    lost = sorted(c for c in R.PHONEMIC
+                  if R.uncertain(now[c]) and not R.uncertain(was[c]))
+    check(f"all {len(phonemic)} phonemic readers now report the syllable as "
+          f"uncertain; `grapheme` and `token` correctly do not",
+          all(R.uncertain(now[c]) for c in phonemic)
+          and not R.uncertain(now["grapheme"])
+          and not R.uncertain(now["token"]),
+          f"{ {c: type(v).__name__ for c, v in now.items()} }. `text` is "
+          f"excluded from `quality.phonology.CHANNELS` on purpose — a set of "
+          f"SPELLINGS is not a sound — and `token` is the printed token.")
+    check("...and exactly FOUR readers used to LOSE the uncertainty: "
+          "onset, coda, consonants, phones",
+          lost == ["coda", "consonants", "onset", "phones"],
+          f"{lost}. The brief for this fix named three; `_rd_consonants` has "
+          f"the same shape as `_rd_phones`, feeds the five cynghanedd "
+          f"schemas at SEQUENCE scope, and fixing three of four would have "
+          f"left the Welsh consonant skeleton answering a confident False "
+          f"about a homograph. `moras` and `prominence` passed their set "
+          f"through and needed nothing.")
+    check("...and the loss took TWO forms, which is why one predicate cannot "
+          "detect it: three readers FLATTENED the set into a cluster, "
+          "`phones` HID it inside one",
+          not _hides_a_set(was["coda"]) and _hides_a_set(was["phones"])
+          and not any(_hides_a_set(v) for v in now.values()),
+          f"before: coda {was['coda']!r} — the readings became the members of "
+          f"a cluster and no frozenset survives, so nothing downstream could "
+          f"even notice. phones {was['phones']!r} — a frozenset survives but "
+          f"inside a tuple, where `uncertain()` cannot see it and "
+          f"`_set_agree` compares it unequal to everything. Both answer a "
+          f"confident False; only the second leaves a trace.")
 
     for syl, chan in ((close, "consonants"), (close, "phones"),
                       (wind, "phones")):
@@ -540,34 +615,51 @@ def test_end_to_end():
 #     coda            3843          36          874     188504
 #     consonants      7340          56           91     189267
 #     phones         26404         290          140     188984
-#     nucleus        21248           0            0     189414   (already right)
-#     prominence     19808           0            0     189414   (already right)
+#     nucleus        21248           0            0     189414  (was right)
+#     prominence     19808           0            0     189414  (was right)
 #
 #   corpus/song/ltc_huajianji.txt  花間集, 3,732 adjacent line-final pairs
 #     onset            517           1           14       3717
 #     coda               0           0            0       3732   (ltc has none)
 #     consonants       517           1           14       3717
 #     phones           622           1            6       3725
-#     nucleus          432           0            0       3732   (already right)
-#     prominence       838           0            0       3732   (already right)
+#     nucleus          432           0            0       3732  (was right)
+#     prominence       838           0            0       3732  (was right)
 #
 # AND THE SAME THING AT THE INSTANCE LEVEL, through realise(), over the 63 of
-# 77 schemas whose channel map touches onset/coda/consonants/phones:
+# 77 schemas whose channel map touches onset/coda/consonants/phones. Keyed on
+# (schema, a.idx, b.idx) per ITEM — a sonnet, a 花間集 song — so the columns
+# are per-instance and not per-corpus:
 #
-#   152 sonnets, 63 schemas          True->None  False->None  untouched   added
-#                                          2145         3557   14401861    5610
-#   500 花間集 songs, 63 schemas                6         1792     942720    1680
+#                              shared  True->None  False->None  untouched
+#   152 sonnets              6,884,113        246         6,715  6,877,152
+#   500 花間集 songs            944,518          6         1,792    942,720
+#
+#                                        added   removed   other moves
+#   152 sonnets                         45,505         0             0
+#   500 花間集 songs                      1,680         0             0
 #
 # `added` is instances that exist only under the NEW readers, and it is not
-# noise: `_bucket_key` used to prune a homograph onto ONE of its readings, so
-# the fix RECOVERS candidate pairs it then refuses on. Removed: 0 in both.
+# noise: `_bucket_key` used to file a homograph under a bucket key built from
+# ALL its readings at once — a bucket nothing else can ever land in — so every
+# candidate pair for that span was deleted before a predicate ran. The fix
+# RECOVERS those pairs and then refuses on them, which is the honest order.
+# `removed` is 0 in both corpora and `other moves` is 0 in both: the fix
+# withdraws verdicts and recovers pairs, and does neither of the two things
+# that would make it a rewrite rather than a refusal.
+#
+# THE SCHEMAS THAT MOVE MOST, on the sonnets: amphisbaenic rhyme (1428),
+# parechesis / general consonance (1322), internal rhyme (1078), cluster
+# consonance / skothending span (701), multisyllabic rhyme (569). Four of the
+# five are CONSONANCE relations reading `coda` or `consonants`, which is where
+# English homography actually lives once the nucleus channel is already right.
 # ---------------------------------------------------------------------------
 
 CHANNELS = ("onset", "coda", "consonants", "phones", "nucleus", "prominence")
 
 
 def _corpus_moves(paths, phon):
-    """-> {channel: Counter[(old_verdict, new_verdict)]}, and the pair count."""
+    """-> {channel: Counter[(old, new)]}, exposure, and the pair count."""
     tally = {c: Counter() for c in CHANNELS}
     exposed = Counter()
     pairs = 0
@@ -647,8 +739,8 @@ def test_corpus_counts():
 
 def test_eng_song_corpus():
     print("\n8b. the 143-file eng_* song corpus, re-derived")
-    t, e, n = _corpus_moves(glob.glob(os.path.join(CORPUS, "song", "eng_*.txt")),
-                            E_UNC)
+    t, e, n = _corpus_moves(
+        glob.glob(os.path.join(CORPUS, "song", "eng_*.txt")), E_UNC)
     _report("ENGLISH corpus/song/eng_*", t, e, n,
             {"onset": (49, 198), "coda": (36, 874), "consonants": (56, 91),
              "phones": (290, 140), "nucleus": (0, 0), "prominence": (0, 0)})
