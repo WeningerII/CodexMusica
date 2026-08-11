@@ -34,7 +34,14 @@ villanelle entry and did not act on it.
 **A third form nobody anticipated, found in the corpus 2026-08-10: LINE
 IDENTITY BY REFERENCE.** Printed songsters abbreviate a chorus return as
 `Oh, my poor Nelly Gray, &c.` — a stub that POINTS at the chorus instead of
-reproducing it. There are **941** in the staged corpus. Its last token strips
+reproducing it. There are ~~**941**~~ **777 in the 143 English files and 818
+across all languages** in the staged corpus (`lyric_harness.is_chorus_stub` over
+verse lines only — blank, `#`, `---` and `[` excluded — measured 2026-08-11).
+**The 941 does not reproduce and no rule tried lands on it:** three plausible
+readings give 776 / 777 / 918. Either `is_chorus_stub` tightened after the count
+was taken or "the staged corpus" meant a different set, and the entry states
+neither, which is doctrine 58 with the RULE as the unwritten coordinate rather
+than a threshold. **Name the rule beside the number.** Its last token strips
 to `&c`, which is not a word and entered the rhyme data as one until
 `lyric_harness.is_chorus_stub()` was added. A stub must be excluded from rhyme
 extraction AND resolved against its target; only the exclusion is built.
@@ -219,9 +226,14 @@ matrix takes this to −0.000 and is not shipped.
 
 ## F. Language coverage
 
-### F-1 · Eight phonologies, and English is not one `PARTIAL`
-**Now:** `cym fas fin ltc msa non san som`. English runs on the old CMUdict
-path and is not a declared module.
+### F-1 · ~~Eight~~ NINE phonologies, and English IS one now `PARTIAL`
+~~**Now:** `cym fas fin ltc msa non san som`. English runs on the old CMUdict
+path and is not a declared module.~~
+**The English half is CLOSED, 2026-08-11.** `quality/phonology/` holds **nine**
+modules — `cym eng fas fin ltc msa non san som` — and `eng.py` was added in
+commit `c74fb48`, *"declare English as the ninth phonology"*. The title of this
+entry was false for as long as it took nobody to re-read it. The rest of the
+entry stands: the gap is the other thirty-odd languages below.
 **Missing (non-exhaustive):** Spanish, Portuguese, French, Italian, German,
 Dutch, Russian, Polish, Czech, Serbo-Croatian, Greek, Romanian, Hungarian,
 Turkish, Arabic, Hebrew, Yiddish, Hindi/Urdu, Punjabi, Bengali, Tamil, Telugu,
@@ -508,18 +520,84 @@ century is bounded at the END of that window, not its middle, and `pd_route`
 carries `d (century only; upper bound assumed)` rather than pretending to a
 verified year. 18 rows across cym/som/san are on that footing.
 
+> **RE-DERIVED 2026-08-11 from `data/lyricists.tsv`. The table above is dated
+> and stays dated; this is what it says today.**
+>
+> - **The staged population is 319, not 297.** Two languages moved: `ltc`
+>   59 → **76** (17 of them `FOUND_NOT_ON_LIST`, the 10th-century Later Shu
+>   court poets) and `cym` 35 → **40**. `fas` 76, `san` 62, `non` 25, `fin` 14,
+>   `msa` 8 and Somali's 0 staged / 13 refused / 5 blocked are unchanged and
+>   CONFIRMED exactly.
+> - **"Every row is `PENDING_TEXT`, never `SOURCED`" NO LONGER HOLDS.** Of the
+>   319 non-English rows, **33 are PENDING_TEXT and 47 are SOURCED**; the rest
+>   are 174 NOT_FOUND, 29 REFUSED_EDITION, 17 FOUND_NOT_ON_LIST, 13
+>   REFUSED_DATE, 5 BLOCKED_ORTHOGRAPHY, 1 COMPOSER_NOT_LYRICIST. The sourcing
+>   round this entry was written to describe succeeded and the entry did not
+>   follow. The non-English files now in `corpus/song/` are the same fact from
+>   the other side, which also retires "`ltc`, `msa`, `non` and `som` have no
+>   text at all" for `ltc`.
+> - **The century-only bound has grown 3.8×:** 18 rows across cym/som/san →
+>   **68 rows across six languages** (san 36, som 15, non 13, cym 2, fas 1,
+>   msa 1). Doctrine 81's cost is that much larger than this entry records, and
+>   it is still the correct direction for a ledger that is evidence rather than
+>   an estimate.
+
 ---
 
 ## L. Known instrument defects
 
-### L-1 · The false-event rate is not controlled at α `OPEN`
-"5.4% against 5.0%" is n=6; at n=20 the same construction gives 9.6%. The
-guarding test runs three sonnets and asserts only `mean < 0.20`.
+### L-1 · The false-event rate is not controlled at α `OPEN` — and it was never a rate
+~~"5.4% against 5.0%" is n=6; at n=20 the same construction gives 9.6%. The
+guarding test runs three sonnets and asserts only `mean < 0.20`.~~
 
-### L-2 · Real sonnets do not separate from scrambled text on event rate `OPEN`
-10.9% observed vs 9.6% word-scramble (p=0.095). Either the detector is broken
-or these sonnets carry no internal rhyme, and this event set cannot tell them
-apart — so any null placement result on it is uninterpretable.
+**RESTATED 2026-08-11, one layer deeper. Both figures were computed at the
+wrong family size, so neither 5.4% nor 9.6% is a false-EVENT rate at the
+declared α.** `time_layer.rhyme_events` built each position's Šidák family from
+the pairs that PASSED the rhyme band — median **6–13** — when the family of
+comparisons actually MADE is **89 on a quatrain and 176–265 on a sonnet**
+(`python3 quality/fwer_family.py`). `_pvalue` already divided by `n_valid`,
+every valid chance draw including band failures, so the correction paired an
+unconditional p with a conditional family and delivered a per-position error of
+about `α / band_pass`. Rebuilt at the candidate family, the H0 rate over 20
+word-scrambled sonnets is **0.0% with 16 of 20 items MUTE**, and a 0.0% that
+comes from refusal is not an α — it is "nothing could have fired".
+
+**The guarding test is fixed and the fix is worth recording as a method.** All
+four `test_fwer.py` assertions pass again and not one by retuning a threshold to
+a downstream result: each constant was replaced by the quantity it was standing
+in for. Saturation by `1 − (1−r)^m` from the measured per-pair FPR; the α
+tolerance by `α + 2 s.e.` pooled over 1,321 slot decisions (n=20, 6.2%, which
+CAN detect the 2× miss doctrine 72 named); the 0.25 band-pass guard by 2× the
+measured maximum over 30 real sonnets (0.042–0.076), so a fixture that clears it
+is a result and not an input. **The cell explicitly declined to pick an `m`
+between 6 and 89 that lands the scramble rate on 5%** — an α recovered by
+choosing a family size is a threshold tuned to its own result.
+
+**Still OPEN, and the open part has moved.** The layer cannot control α at the
+honest family because it cannot produce an event at all: at
+`null_samples = 2000` the Šidák cut on sonnet 1 is **2.53e-4** and the p-value
+floor is **5.00e-4**, so the cut sits BELOW the floor. What is owed is
+`null_samples` and `window`, measured against the candidate family. See
+`quality/RESULTS_FWER.md`.
+
+### L-2 · Real sonnets do not separate from scrambled text on event rate `OPEN` — EXPLAINED
+~~10.9% observed vs 9.6% word-scramble (p=0.095).~~ Either the detector is
+broken or these sonnets carry no internal rhyme, and this event set cannot tell
+them apart — so any null placement result on it is uninterpretable.
+
+**AND THE MECHANISM IS NOW KNOWN, 2026-08-11, which turns this from a symptom
+into a design error.** At 20 items per arm the two score **identically**: 29.1%
+real against 29.0% scramble at `m` = scored, and 0.0% against 0.0% at `m` =
+candidate (`python3 quality/fwer_family.py --arms`). They are identical because
+**an item's smallest attainable p is set by how many chance re-pairings of ITS
+OWN spans are perfect rhymes, and a word scramble preserves the span multiset
+exactly** — so the scramble preserves the very quantity the statistic is a
+function of. This is doctrine 63/68's identity-map trap in a fourth place: a
+randomisation that can be run, look rigorous, and test nothing. The word
+scramble was never a null for this statistic, and the 0.095 was reporting that
+rather than reporting Shakespeare.
+**Owed:** a null that destroys the span multiset — across items rather than
+within one.
 
 ### L-3 · The slop floor is calibrated on one form, one language, one generator
 `PARTIAL` — 152 Shakespeare sonnets vs 40 model sonnets, a 400-year register
@@ -530,9 +608,14 @@ gap. Its own docstring calls it unvalidated as a general slop detector.
 extrapolation and gets downgraded to a note. This is what shaped the demo song.
 
 ### L-5 · Doctrine has drifted toward auditing `OPEN`
-`CLAUDE.md` carries 76 numbered items and roughly the last 25 are about null
-hypotheses and calibration. A future session reading it will learn to audit
-rather than to write.
+~~`CLAUDE.md` carries 76 numbered items~~ **102 numbered items, measured
+2026-08-11** — and roughly the last 25 are about null hypotheses and
+calibration. A future session reading it will learn to audit rather than to
+write. **The stale number is this entry's own evidence, which makes the point
+twice:** the drift L-5 names has continued for 26 doctrines while the figure
+that measures it stood still. A split into a short WRITING doctrine and a long
+METHOD appendix is under way in `CLAUDE.md` / `quality/METHOD.md`; the numbering
+stays global so `doctrine 79` is still doctrine 79.
 
 ---
 
@@ -724,9 +807,49 @@ after_consonant 14, after_vowel 11, **0 unclassified** (143 after_hyphen in the
 full population). Handled correctly since day one, because `_split_word` cuts
 the hyphen first — the defect was only ever in the description.
 
-**Known answers unmoved:** ABAB 80/82 `drop`, 82/82 `keep`; `-ung` 0 and `-uk` 0
-against `-ong` 28 types and `-ok` 14/15 (the count is a coordinate of the
-tokenisation — doctrine 58).
+**Known answers unmoved:** ABAB 80/82 `drop`, 82/82 `keep`; ~~`-ung` 0 and
+`-uk` 0 against `-ong` 28 types and `-ok` 14/15~~ — see below.
+
+**DOCTRINE 70's EVIDENTIARY FIGURE, RE-DERIVED WITH ITS RULE AND ITS POPULATION
+STATED, 2026-08-11.** The figure had a different value in every place it
+appeared — `CLAUDE.md` 14 and 12 "distinct types", this entry 28 types and
+14/15, the corpus file's own header 25 and 24 "tokens" — and none of the three
+was what you get by counting. Two of the three are now **recovered exactly**,
+and the recovery is that each was a correctly-measured quantity wearing the
+wrong label:
+
+- **Rule, stated (doctrine 58).** A word ends in `-ong`/`-ok`/`-ung`/`-uk` when
+  its final syllable's nucleus is `o`/`u` and its coda is `ng`/`k`, the vowel
+  NOT preceded by another vowel. The vowel restriction is load-bearing:
+  `gaung`, `pelaung`, `baung`, `bernaung`, `lauk` all end in the bare letter
+  string and have the diphthong /au/ as their nucleus, which is a different
+  vowel and not what doctrine 70 is about. Tokens are maximal runs of
+  `[A-Za-z'`’-]`, lowercased, over verse lines only.
+- **Over the staged file** (`corpus/song/msa_skeat_pantun.txt`, 513 verse lines,
+  2,111 tokens): `-ong` **38 tokens / 26 types**, `-ok` **28 / 15**, `-ung`
+  **0**, `-uk` **0**.
+- **`CLAUDE.md`'s "14 and 12" RECOVERED.** Restrict to LINE-FINAL words — the
+  rhyme position — and `-ong` gives **14 tokens / 12 types**. So 14 and 12 were
+  never `-ong` and `-ok`; they were the token and type counts of `-ong` alone,
+  at line-final position, relabelled as a pair of suffixes.
+- **This entry's "28 … 14/15" RECOVERED.** They are the `-ok` figures: 28
+  tokens, 15 types over all tokens, 14 types when the hyphen tail is taken as
+  the word (`sa-dudok` → `dudok`). Both were `-ok` and one was labelled `-ong`.
+- **The corpus header's "25 and 24 tokens" is `UNVERIFIABLE`.** Five
+  tokenisations were swept — all tokens, no-hyphen tokens, hyphen tail, hyphen
+  head, unique-per-line — giving 38/28, 35/26, 38/28, 38/28 and 37/28. None
+  lands on 25/24.
+
+**AND THE ZEROS ARE A COORDINATE OF THE POPULATION, WHICH NOBODY CHECKED.** The
+argument survives and the flat "zero" does not. Over PG47873's 330 Malay blocks
+that the extract was cut from — this entry's own population — `-ung` is still
+**0** but `-uk` is **2**: `teluk` and `bertepuk`, and the same file writes
+`telok` elsewhere. Over all 705 verse blocks it is `-ung` 5 and `-uk` 4. So the
+orthography is **near-**consistent rather than perfectly consistent, at 0 and 2
+against 257 `-ong` and 151 `-ok` in the same population — a ratio of about
+130:1, which is what doctrine 70 needs and more than it can claim. **Say the
+population next to the zero, or the next reader inherits a "0" that is true of a
+one-seventh extract.**
 
 ### M-4 · The `&c.` refrain stub is not an English printing convention `PARTIAL`
 A-1 frames its 941 instances around English songsters. The same mechanism does
@@ -810,7 +933,30 @@ distinguishes "none" from "cannot tell."
 **And the audit of it was wrong too.** These failures were reported twice as
 "pre-existing, confirmed at clean HEAD" — a verification run against a HEAD that
 already contained the change. Checking a baseline that includes what you are
-testing is not a check.
+testing is not a check. **The commit pair is now on the record so nobody has to
+find it again:** `b1d7f64` changes `theta_coda` 0.60 → 0.80 and does not touch
+`test_fwer.py` (`git diff --stat 6c265ad b1d7f64 -- quality/test_fwer.py` is
+empty), so any baseline at `b1d7f64` or later contains the change and the clean
+baseline is its parent **`6c265ad`**.
+
+**FIXED 2026-08-11, and fixing it voided a recorded headline.** The diagnosis in
+this entry was right and incomplete: `theta_coda` did not merely interact with
+the correction, it exposed that **`m` was measured from the wrong population**.
+`rhyme_events` built `family` over `scored` — band-PASSING pairs, median 6–13 —
+when the candidate family is 89 on a quatrain and 176–265 on a sonnet. That is
+doctrine 27's error one layer up, inside the function that fixed it. The four
+assertions pass again with every constant replaced by the quantity it stood in
+for (see L-1), and **`quality/RESULTS_FWER.md`'s headline is void**: at the
+honest family size 18 of 20 real sonnets and 16 of 20 scrambles return
+`cannot tell` and the rest return 0 events. Every arm whose events come from
+`rhyme_events` — including the sonnet arm behind Fisher p = 0.950, k = 23 — now
+reads "cannot tell" rather than "null". `positive_control.py` and
+`run_positive_control.py` are OUTSIDE the retraction, verified by execution
+rather than by reading: with `rhyme_events` replaced by a raiser, both run to
+completion with a call count of **0**.
+**This entry stays OPEN** because the two remaining causes are unfixed: the
+degenerate-item guard's dependence on the alignment, and the fact that the layer
+now has no attainable event on any item in the repository.
 
 ### M-5 · A printing can spell one sound two ways, and the modernisation check cannot see it `OPEN`
 Every recorded instance of the orthography rule (doctrine 50, CHANNELS.md rule
@@ -923,6 +1069,15 @@ file, after `Span.unit` and `SpanRule.terminator`.
 NAMES would be guessing, so the `relations` verb prints the row and states in
 its own output that the tradition did not match, the rule shape did.
 
+> **POPULATED 2026-08-11 (commit `e4cc054`) — and this entry does NOT close.**
+> 75 of 77 schemas now carry traditions: **298 distinct `Tradition` rows, 319
+> attachments**, and only `blues AAB stanza` and `refrain by reference` carry
+> none. The scoping was not invented from schema names — it was taken from
+> `quality/RHYME_CANON.md`, which is better — but **every single
+> `Tradition.source` is an `R<n>` pointer back into that document**, and the
+> commit message calls that "sourced". See the new **M-15a**: the gap this
+> entry named is filled and the fill has a gap of its own.
+
 ### M-16 · One module is genuinely stranded, and it is the one already shelved `OPEN`
 `python3 lyric_harness.py wiring` now reports this mechanically instead of
 requiring an audit. After wiring: **`quality/rhyme_constraints.py`, 1,325
@@ -934,6 +1089,16 @@ mining its one genuine advance, **knowledge sets** — a `frozenset` per channel
 which is the right shape for the P11 homograph gap and for partial nuclei.
 Decision owed: mine the idea into `relations.py` and delete the file, or give it
 a `__main__` and keep it as a comparison runner.
+
+> **"GENUINELY STRANDED" NO LONGER HOLDS, measured 2026-08-11.** The file is
+> **1,566 lines** (not 1,325 — a line count is a coordinate of the counting
+> convention AND of the date), it **has an `if __name__ == "__main__"`** as of
+> commit `ade8546`, and it has callers: `quality/relations.py` and
+> `quality/test_relations.py`. So the second branch of the decision has been
+> taken in the code without being taken in the register. **The decision this
+> entry asks for is still owed** — the knowledge-set idea was mined into
+> `relations.py` as proposed, and nothing has said whether the 1,566 lines now
+> stay as a comparison runner deliberately or by default.
 
 ### M-10 · GITenberg enumeration misses about a third by any single method `OPEN`
 Repo-name WebFetch → 5 Welsh holdings; `filename:metadata.yaml "language: cy"`
@@ -950,33 +1115,93 @@ a *different* 5, because one PG header wrongly says `Language: English`.
 **This is the control the project did not have.** `corpus/cym_alun_strict.txt`
 and the new `corpus/song/cym_song_alun.txt` are **the same book** — same poet,
 same 1909 Ab Owen volume, same transcriber, same flattened-ASCII orthography,
-same checker, same within-line-shuffle null, same seed. Excess over the null max:
+same checker, same within-line-shuffle null, same seed.
 
-| | n | observed | null max | excess | p |
+**RE-MEASURED 2026-08-11 AND THE WHOLE TABLE MOVED.** The figures this entry
+shipped were taken before doctrine 82 — before `skeleton()`'s terminus became a
+property of the DIWEDDEB and `extent` lost its default. Every row below is
+re-run at `caesura='search'`, 200 within-line shuffles, seed 20260810:
+
+| | n judged | observed | null max | excess | p |
 |---|---:|---:|---:|---:|---:|
-| Alun, strict metre | 1558 | 54.1% | 27.8% | **+26.3** | — |
-| Llywelyn Goch cywydd, 1862 | 108 | 52.8% | 30.6% | **+22.2** | floor |
-| Twm o'r Nant cywydd | 156 | 51.3% | 36.5% | **+14.7** | — |
-| Twm o'r Nant *cerdd rydd* | 759 | 28.4% | 17.5% | **+10.8** | floor |
-| Welsh hwiangerddi | 1408 | 13.0% | 13.2% | −0.2 | 0.015 |
-| **Alun, his own hymns** | 216 | 9.7% | 11.1% | **−1.4** | **0.119** |
-| Mynyddog, song | 2758 | 8.2% | 8.6% | −0.4 | 0.069 |
+| Alun, strict metre | 1558 | 57.1% | 21.8% | **+35.3** | floor |
+| Twm o'r Nant cywydd | 156 | 46.2% | 26.9% | **+19.3** | floor |
+| Llywelyn Goch cywydd, 1862 | 145 | 44.1% | 28.3% | **+15.8** | floor |
+| Twm o'r Nant *cerdd rydd* | 804 | 28.4% | 17.0% | **+11.4** | floor |
+| Welsh hwiangerddi | 1712 | 12.9% | 12.3% | +0.6 | floor |
+| **Alun, his own hymns** | 262 | 14.5% | 14.5% | **+0.0** | **0.015** |
+| Mynyddog, song | 2893 | 8.2% | 8.9% | −0.7 | 0.104 |
+
+`for f in corpus/cym_*.txt corpus/song/cym_song_*.txt corpus/song/cym_cyng*.txt;
+do python3 quality/cynghanedd_rate.py "$f" 200; done`
+
+**The excess column is the difference of the two columns beside it, computed on
+the values AS PRINTED.** `cynghanedd_rate.py` computes the same quantity at full
+precision and rounds last, so it reports +15.9 where 44.1 − 28.3 = 15.8. That
+0.1 is the whole of check C9's original finding, and the repair is to state the
+rounding rule rather than to pick a number — doctrine 58 at its smallest scale.
 
 Author, edition, printer, century, orthography and transcriber all held
-constant; the effect goes to zero off the strict metre. Every previous Welsh
+constant; **the effect goes to zero off the strict metre, and the re-measured
+table says so more cleanly than the shipped one did.** Every previous Welsh
 number came from strict metre, so a high rate was compatible with the detector
 reading the *language's* redundancy (doctrine 64) or the Ab Owen printing house.
 It reads neither. The graded middle — 18th-century *cerdd rydd*, sung to named
-airs, at +10.8, about half — is where the tradition says it should be.
+airs, at **+11.4, about a third of the strict-metre excess** — is where the
+tradition says it should be.
 **Doctrine 76 from the other side:** that doctrine says report SENSITIVITY
 beside a null; here SPECIFICITY was what needed showing.
 
-### N-2 · Doctrine 65 corroborated at scale, not merely defended `CLOSED`
-`cym` reads all five new Welsh files at **100.00%** — 0 unreadable tokens in
-29,571 — including 2,750 internal apostrophes (`a'i`, `sy'n`, `mae'r`) that the
+> **THE ROW THAT DISAGREED WITH THE CONCLUSION, AND WHY IT NO LONGER DOES.**
+> As shipped, Welsh hwiangerddi read excess **−0.2** with **p = 0.015**: a
+> negative excess over the null MAX beside a p that rejects at any conventional
+> alpha. Check C10 found it, correctly, and called them two different questions.
+> **They are not two questions — at n = 200 they are two readings of the same
+> tail**, and that is the re-derivation. The empirical p is
+> `(#shuffles ≥ observed + 1) / 201`, so p at the floor (0.005) means *no*
+> shuffle reached the observation, which is exactly "the excess over the null
+> max is positive"; p = 0.015 means *two* did, which is exactly "the null max
+> reaches or exceeds the observation". The two columns cannot point opposite
+> ways once you know that — what they can do is round to figures that LOOK like
+> they do, which is what happened.
+>
+> Re-measured, hwiangerddi is **+0.6 with p at the floor** and the apparent
+> contradiction is gone. The row that now carries p < 0.05 with no positive
+> excess is **Alun's own hymns: +0.0, p = 0.015 — two of 200 shuffles reached
+> 14.5%.** That is the honest shape of "at chance", and it is reported here
+> rather than smoothed, because a p of 0.015 sitting on a zero excess is
+> precisely the pair a reader would otherwise quote selectively (doctrine 57).
+> The conclusion rests on the excess column, all seven rows of it, and the
+> gradient +35.3 → +19.3 → +15.8 → +11.4 → +0.6 → +0.0 → −0.7 is the finding.
+
+### N-2 · Doctrine 65 corroborated at scale, not merely defended `CLOSED` — with the headline `UNVERIFIABLE`
+~~`cym` reads all five new Welsh files at **100.00%** — 0 unreadable tokens in
+29,571~~ — including 2,750 internal apostrophes (`a'i`, `sy'n`, `mae'r`) that the
 elision rule joins correctly and 94 internal hyphens. A split check for `l l`,
 `d d`, `l-l`, `c h`, `r h` finds every hit is a word boundary, never a broken
-digraph.
+digraph. **The digraph corroboration stands; the 100.00% does not.**
+
+> **`100.00%` IS NOT CHECKABLE, AND THE MISSING PIECE IS ONE FUNCTION.**
+> `msa` and `fin` both expose `readability_census()` and return **read /
+> refused / defective as three separate counts**, so their claims can be
+> audited. **`cym` exposes no census** (`hasattr(cym, "readability_census")` is
+> `False`), so read and refused cannot be separated and a bare rate hides
+> exactly the distinction doctrine 79 exists to enforce.
+>
+> Measured 2026-08-11 under the module's own `WORD_RE`, over verse lines only
+> (blank, `#`, `---` and `[` excluded): the five `cym_song_*` files give
+> **29,669 tokens, of which 219 are declined by `syllabify()`** — 83 bare `--`
+> runs (the gwant), and the rest proclitic and elision fragments (`'`, `'n`,
+> `'r`, `’r`, `f’`), plus a handful of ingestion leakage (`jpg`, `Mr`, single
+> capitals). The two non-song Welsh files give 8,719 tokens and 144 declined,
+> 124 of them `--`.
+>
+> **Every one of those is plausibly a CORRECT REFUSAL rather than a defect — and
+> nothing in the module can say which**, which is the entire point. 0 defective
+> out of 29,669 would be a strong corroboration of doctrine 65; 219 undifferen-
+> tiated declines is not the same claim, and "100.00%" is neither. **Owed: a
+> `readability_census()` on `cym`**, at which point this entry's headline
+> becomes a measurement instead of an assertion.
 
 ### N-4 · The Gītagovinda is here, and it overturns the number doctrine 76 rests on `CLOSED`
 24 aṣṭapadī recovered by ONE fixed unswept rule (a 3-token suffix recurring ≥5
@@ -1032,5 +1257,112 @@ lands on 82/80, which places the difference **upstream of the rhyme test**: a
 threshold, because a threshold at least announces that it exists.
 
 ---
+
+### M-15a · `Tradition.source` is a pointer into a document that cites nothing `OPEN`
+**Found 2026-08-11 by `python3 quality/audit_register.py --provenance`, auditing
+the FIX to M-15 rather than the gap.** 75 of 77 schemas now carry traditions —
+298 distinct `Tradition` rows, 319 attachments — and **every single
+`Tradition.source` is an `R<n>` pointer into `quality/RHYME_CANON.md`.** Not one
+cites anything outside this project.
+
+`RHYME_CANON.md` in turn holds **117 named structures, 611 `from:` references,
+and ZERO publication-year tokens in 94 KB.** Every reference is a cell index
+(`✓E1`, `C22`, `X110`) into a six-agent survey array that **is not in this
+repository**. From inside a clone the citation graph is closed: 117 of 117 canon
+entries and 298 of 298 Tradition rows resolve to nothing.
+
+**One hop out it is better than that, and the hop is the problem.** The survey
+does survive, in the inventory agents' session transcripts — 578 named entries
+recoverable, most carrying a real source: 詞林正韻 via ctext.org,
+`cls.lib.ntu.edu.tw 唐詩入門`, Snorri's own Háttatal prose, Turco's list. So the
+canon is one hop from evidence and the hop lands in a store that no clone, no
+checkout and no `git log` will ever contain.
+
+**19 named structures have no witness but this project** — every recorded source
+is a `quality/phonology/*` module, a `CLAUDE.md` doctrine, or the author's
+memory. Two say so outright: `chan (ฉันท์) quantitative template` is sourced
+*"Thai chan from memory"*, and `hā-yi ghayr-i malfūẓ as rawī` is *"MY
+characterisation"*. `C-2` already declares the rule — `register_named()` REFUSES
+an entry without a source, *because a catalogue written from memory is unsourced
+data in the evidence base* — and `RHYME_CANON.md` has no such gate. The full
+list is in `quality/RESULTS_REGISTER_AUDIT.md` §5 and is deliberately NOT filled
+in, because a plausible fill is the `gabay higaad` error repeated.
+
+**This is not an argument for unpopulating the field.** The rule shapes are
+right and M-15 was a real gap. It is an argument that "sourced" was the wrong
+word for a pointer into a document whose own §0 records that its Norse, Persian,
+Sanskrit, Tamil, Chinese and Malay entries were *"reconstructed from the
+repository's own `quality/phonology/*` modules and CLAUDE.md doctrine …
+therefore not independent of the code they were meant to critique."*
+**Owed:** inline the survey's `source` strings into `RHYME_CANON.md` and put the
+real citation in `Tradition.source`, before the transcripts are collected and
+the provenance of 117 named structures is gone for good.
+
+### M-18 · A number's POPULATION is a coordinate, and doctrine 58 names only the threshold `OPEN`
+**Found 2026-08-11 by `quality/audit_register.py`, and it is the generalisation
+of four separate errors in this file.** Doctrine 58 says a bare n-of-N is a
+coordinate of a setting nobody wrote down. Section M shows the setting is not
+the only unwritten coordinate. Three entries quote **three incompatible sizes
+for one corpus**, none of them saying which object they mean:
+
+| | blocks | verse lines | tokens |
+|---|---:|---:|---:|
+| `corpus/song/msa_skeat_pantun.txt` (in the repo) | 129 | 513 | 2,113 |
+| M-3's stated population | 330 | 3,415 | 15,519 |
+| the same 330 blocks under the corpus file's own declared rule | 330 | **3,442** | **15,601** |
+| N-3 / `data/sources.tsv`, all indented blocks | 705 | 5,555 | — |
+
+A factor of seven between the first two, **and the first was used to refute a
+measurement taken on the second** (M-4). Reproducing a number checks the
+arithmetic of a computation; **substituting a population is not a refutation.**
+Four instances in one week, three of them found the same day:
+
+1. M-4's Malay row, withdrawn on a grep of the 129-block extract when the claim
+   was about the 705-block source.
+2. M-4a's `test_fwer` baseline, "confirmed at clean HEAD" against a HEAD that
+   contained the change under test.
+3. `rhyme_events`, which measured its comparison family over band SURVIVORS
+   rather than over the comparisons made (L-1) — the same error with a
+   population that is a set of comparisons rather than a set of texts.
+4. Doctrine 70's zeros, true of the 513-line extract and **not** of the 330
+   Malay blocks it was cut from (`-uk` 2, not 0). See M-3.
+
+**Mechanised, so it does not have to be found again.**
+`quality/audit_register.py --consistency` runs the arithmetic pass in under a
+second with no corpus and no imports — component rows that do not sum to their
+own total, two figures sharing a denominator that exceeds it, an enumeration
+whose length contradicts its summary — and it re-finds `384 + 300 > 471` from
+the prose alone. **Run it before committing a change to this file.**
+
+**Coverage is the honest part of this entry:** 70 entries, all 70 carry numbers,
+**681 numbers in total**, and 51 entries still have no check at all. This round
+touched roughly a quarter of the register's entries.
+
+### M-19 · The nucleus threshold cannot be priced on the only corpus we have `OPEN`
+**Found 2026-08-11 while closing `BACKLOG.md` §1.3, and it replaces a weaker
+claim with a stronger one.** The record said tightening `theta_nucleus`
+0.60 → 0.70 was "a worse trade" than the coda fix. That is `WITHDRAWN`: **the
+trade cannot be computed on this corpus at all.** Of the 31 mandated sonnet
+pairs the tightening newly refuses, the offending syllable pairs partition with
+NO REMAINDER — **28** a stressed vowel difference (gone/alone, tongue/song,
+have/grave, blood/good: correct refusals in the declared General American
+dialect, the same sentence this repo already accepts for love/prove), **6**
+CMUdict writing one reduced vowel two ways, **1** a promoted unstressed final.
+**Not one is a General American slant rhyme.** `theta_coda` survived the same
+test because what IT cost was S~Z and D~RD — final-obstruent voicing, which
+English has not changed since 1609. The nucleus is where four centuries of sound
+change live, so the sonnet violation rate prices the **`dialect` coordinate**
+there, not the threshold.
+The scalar's SHAPE is uninformative too: Spearman between `vowel_sim` and each
+pair's lift in mandated positions is +0.02 at n=3,000 and −0.03 at n=6,000, sign
+unstable; `IH~IY` scores 0.902 and is admitted at lift 0.24 while `AY~IY` scores
+0.342 and is refused at lift 6.55; 17 of 38 admitted pairs occur LESS often in
+mandated positions than at chance.
+**What is owed is a CORPUS, not a number: true-positive rhyme data in the
+declared dialect, which this repository does not have.** Until it exists,
+`theta_nucleus = 0.600` ships as the incumbent rather than the winner and
+`Declaration.nucleus_agreement` declares the shape with `identity` and
+`licensed` reachable. Doctrine 44's distinction applies — this is "cannot
+obtain", not "hard to build".
 
 ## Add below this line

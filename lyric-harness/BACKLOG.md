@@ -63,15 +63,33 @@ This is the original bad report line and it is still there. Doctrine 45.
 **Acceptance:** every score carries the two spans that produced it, and
 `check_scheme`/`brief` print them. Adversary 7's first instrument.
 
-### 1.3 · `theta_nucleus` is a coin flip `OPEN`
+### 1.3 · `theta_nucleus` is a coin flip `CLOSED 2026-08-11`
 `five`/`of` passes at nucleus similarity **0.603** against a threshold of
-**0.600**. The held-out sweep says tightening it is a worse trade than the coda
-fix was (2.7pp of true positives for 4.4pp of false), so it was left alone —
-but "left alone" is not a decision. Options: a per-vowel-pair rule instead of a
+**0.600**. ~~The held-out sweep says tightening it is a worse trade than the
+coda fix was (2.7pp of true positives for 4.4pp of false), so it was left alone~~
+— but "left alone" is not a decision. Options: a per-vowel-pair rule instead of a
 scalar threshold, or accept and DECLARE that the nucleus channel is the loose
 one.
 **Acceptance:** either a change with a held-out price, or a written declaration
 that 0.600 is chosen and what it costs.
+
+**CLOSED by declaration, and the REASON changed.** Shipped: the second option,
+made mechanical. `theta_nucleus` is unchanged at 0.600;
+`Declaration.nucleus_agreement` declares the SHAPE with `identity` and
+`licensed` reachable and an undeclared value raising; `quality/test_nucleus.py`
+prints the enumerated 40-of-105 cut and pins `five`/`of` at 0.603 and
+`bed`/`bead` at 0.758 as the declared cost.
+
+**Not "a worse trade" — the trade cannot be computed on this corpus.** Of the 31
+mandated pairs a 0.60 → 0.70 tightening newly refuses, the syllable pairs
+partition with no remainder: 28 a stressed vowel difference (gone/alone,
+tongue/song, have/grave, blood/good — correct refusals in the declared dialect),
+6 CMUdict writing one reduced vowel two ways, 1 a promotion, and no fourth
+category. The sonnet violation rate prices the **`dialect`** coordinate on this
+channel, not the threshold.
+**NEW ENTRY OWED AND WRITTEN: `MISSING.md` M-19** — a true-positive corpus in
+the declared dialect, which this repo does not have. Doctrine 44: "cannot
+obtain", not "hard to build".
 
 ### 1.4 · The revision loop cannot grade a song with no letter scheme
 Doctrine 2 says the graph is the object and letter schemes are lossy
@@ -99,8 +117,12 @@ recovers the 詞林正韻 partition from practice alone. **Fix shape is known:**
 
 ### 2.2 · `qieyun_mc.tsv` is keyed on one orthographic norm `M-2`
 The character that NAMES the 魂 rhyme group cannot be looked up, while 477
-characters carry 魂 as their label. **23 of the 24 commonest unreadable
-characters are recoverable by an 異體字 map** to a variant already in the table;
+characters carry 魂 as their label. ~~**23**~~ **19 of the 24 commonest
+unreadable characters are recoverable by an 異體字 map** to a variant already in
+the table — re-derived character by character against `data/qieyun_mc.tsv`:
+19 of 19 have the source absent and the variant present, and all five of the
+remainder are absent as the "correct refusal" reading requires. 23 + 5 = 28 > 24
+and nobody had added it up (M-2, check C3);
 the other five are vernacular characters postdating the rime book, where
 refusal is correct — and nothing currently tells an ingestion defect from a
 correct refusal.
@@ -173,14 +195,36 @@ orthography check that caught the Háttatal OCR.
 
 ## TIER 4 — instrument honesty
 
-### 4.1 · The time layer's α is not controlled `L-1`
-"5.4% against 5.0%" is n=6; at n=20 it is 9.6%. The guarding test runs three
+### 4.1 · The time layer's α is not controlled `L-1` — CAUSE FOUND, STILL OPEN
+~~"5.4% against 5.0%" is n=6; at n=20 it is 9.6%.~~ The guarding test runs three
 sonnets and asserts only `mean < 0.20`, which cannot detect a 2× miss.
 
-### 4.2 · Real sonnets do not separate from scrambled text on event rate `L-2`
-10.9% observed vs 9.6% word-scramble, p=0.095. Until that separates, a null
+**The n=6 was the smaller of two defects.** `rhyme_events` measured each
+position's Šidák family over the pairs that PASSED the band (median 6–13), not
+over the comparisons made (89 on a quatrain, 176–265 on a sonnet), so neither
+5.4% nor 9.6% was a false-event rate at the declared α. **`RESULTS_FWER.md`'s
+headline is void.** All four `test_fwer.py` assertions pass again with every
+constant replaced by the quantity it stood in for — saturation by `1−(1−r)^m`
+from the measured per-pair FPR, the α tolerance by `α + 2 s.e.` over 1,321 slot
+decisions (n=20, 6.2%, which CAN detect the 2× miss), the band-pass guard by 2×
+the measured max over 30 real sonnets.
+**Still open, and the open part moved:** at the honest family the layer cannot
+produce an event at all — at `null_samples=2000` the Šidák cut (2.5e-4) sits
+BELOW the p-value floor (5e-4). **Owed: `null_samples` and `window`, measured
+against the candidate family.** Not a corpus, and not a fourth instrument.
+
+### 4.2 · Real sonnets do not separate from scrambled text on event rate `L-2` — MECHANISM FOUND
+~~10.9% observed vs 9.6% word-scramble, p=0.095.~~ Until that separates, a null
 placement result cannot distinguish "no periodic organisation" from "nothing to
 organise."
+
+**And it can never separate, because the word scramble is an identity map for
+this statistic.** At 20 items per arm the two score identically — 29.1% vs 29.0%
+at `m` = scored, 0.0% vs 0.0% at `m` = candidate — because an item's smallest
+attainable p is set by how many chance re-pairings of ITS OWN spans are perfect
+rhymes, and a word scramble preserves the span multiset exactly. Doctrine 63/68
+in a fourth place. **Owed: a null that destroys the span multiset — across items
+rather than within one.**
 
 ### 4.3 · Taxonomy adversary (adversary 6)
 Every named entry in `RHYME_CANON.md` and `relations.py` must cite a source
@@ -214,12 +258,27 @@ No hook. The floor has two length profiles and both are stanzas (L-4).
 
 | | 2026-08-11 |
 |---|---|
-| MISSING entries OPEN / PARTIAL / BLOCKED | 53 / 11 / 3 |
-| doctrines | 102 |
-| stranded modules | 1 (1,325 lines) |
-| surviving mutations | **1 of 3 tested** |
-| `corpus/song/` files | 192 |
-| `data/sources.tsv` rows | 311 |
+| MISSING entries OPEN / PARTIAL / BLOCKED / CLOSED | 53 / 10 / 2 / 7 (73 entries) |
+| doctrines | 102 (27 in `CLAUDE.md`, 75 in `quality/METHOD.md`) |
+| stranded modules | **0** — `rhyme_constraints.py` is 1,566 lines and now has a `__main__` and two callers; the DECISION is still owed (M-16) |
+| mutations | **30 declared, 29 caught, 1 allowlisted equivalent (M4, with its premise tested)** |
+| `corpus/song/` files | 258 |
+| `data/sources.tsv` rows | 386 |
 | `data/lyricists.tsv` rows | 539 |
-| sonnet battery | 81/1014 = 8.0% |
-| band FPR on random pairs | 3.15% |
+| sonnet battery | 81/1014 = 8.0% (`mandated 1064, judged 1014, refused 50`) |
+| band FPR on random pairs | **3.57%** (107/3,000 at seed 20260810) |
+| register-audit findings | **2**, both of them the deliberate M-4 calibration pair — was 9 on 2026-08-11 |
+
+> **"surviving mutations 1 of 3 tested" was the state of §1.1 before it was
+> done.** The harness now declares **30** mutations and catches 29. The one
+> survivor is **M4, proved EQUIVALENT rather than missed**: dropping
+> `channel_agreement`'s `not ca and not cb` clause ought to delete every
+> open-syllable rhyme in English and deletes nothing, because `cluster_sim`
+> opens with its own `if not a and not b: return 1.0`. It is allowlisted in
+> `test_mutation.py` with the proof, and the allowlist entry's PREMISE is itself
+> tested — M11 mutates the `cluster_sim` line and is caught, so M4 stops being
+> equivalent the moment that line moves. An allowlist that outlives its reason
+> is a licence nobody re-read.
+>
+> **Do not run `for f in quality/test_*.py`.** `test_mutation.py` matches and
+> forks a 30-mutation sweep.
